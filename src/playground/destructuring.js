@@ -1,7 +1,7 @@
 //
 // Object destructuring
 //
-
+/////
 // const person = {
 //   name: 'Andrew',
 //   age: 27,

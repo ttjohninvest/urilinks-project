@@ -20,8 +20,8 @@
 // }
 
 // const book = {
-//   title: 'Holy Bible',
-//   author: 'Holy Father God/Jesus Christ/Many Helpers',
+//   title: 'Ego is the Enemy',
+//   author: 'Ryan Holiday',
 //   publisher: {
 //     // name: 'Penguin'
 //   }
@@ -39,7 +39,7 @@
 // const [, city, state = 'New York'] = address;
 // console.log(`You are in ${city} ${state}.`);
 
-const item = ['Lemon Aid (iced)', '$3.00', '$3.50', '$3.75'];
+const item = ['Coffee (iced)', '$3.00', '$3.50', '$3.75'];
 const [itemName, , mediumPrice] = item;
 
 console.log(`A medium ${itemName} costs ${mediumPrice}`);

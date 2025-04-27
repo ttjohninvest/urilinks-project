@@ -48,7 +48,7 @@ module.exports = (env) => {
     plugins: [
       CSSExtract,
       new webpack.DefinePlugin({
-        'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
+        'process.env.FIREBASE_API_KEY': JSON.stringify("AIzaSyAM5_io-_B23CRkm4mIbmw_XMKkrFxdFEo"),
         'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
         'process.env.FIREBASE_DATABASE_URL': JSON.stringify("https://see-my-index-project-3-99bf1-rtdb.firebaseio.com"),
         'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),

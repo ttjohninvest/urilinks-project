@@ -11,7 +11,7 @@ import * as firebase from 'firebase';
 // };
 
 const config = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: "AIzaSyAM5_io-_B23CRkm4mIbmw_XMKkrFxdFEo",
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
   databaseURL: "https://see-my-index-project-3-99bf1-rtdb.firebaseio.com",
   projectId: process.env.FIREBASE_PROJECT_ID,

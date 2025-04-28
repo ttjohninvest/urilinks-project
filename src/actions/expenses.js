@@ -67,8 +67,11 @@ export const setExpenses = (expenses) => ({
 export const startSetExpenses = () => {
   console.log("startSetExpenses")
   return (dispatch, getState) => {
+    console.log("startSetExpenses")
     const uid = getState().auth.uid;
+    console.log("startSetExpenses, uid="+uid)
     return database.ref(`users/${uid}/expenses`).once('value').then((snapshot) => {
+      console.log("startSetExpenses, about to call forEach")
       const expenses = [];
 
       snapshot.forEach((childSnapshot) => {
@@ -77,8 +80,9 @@ export const startSetExpenses = () => {
           ...childSnapshot.val()
         });
       });
-
+      console.log("startSetExpenses, about to call dispatch(setExpenses(expenses));")
       dispatch(setExpenses(expenses));
     });
   };
+  console.log("startSetExpenses, about to return from the function")
 };

@@ -69,3 +69,13 @@ bundle.js:39 startSetExpenses, about to call forEach
 bundle.js:39 startSetExpenses, about to call dispatch(setExpenses(expenses));
 bundle.js:46 4, calling renderApp
 bundle.js:46 8
+
+used:
+firebase.google.com
+ realtime database
+  described the database
+ authentication
+
+ console.cloud.google.com
+  
+  set the domain that I can use

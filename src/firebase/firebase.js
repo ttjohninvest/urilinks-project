@@ -1,16 +1,6 @@
 import * as firebase from 'firebase';
 //https://see-my-index-project-3-99bf1-default-rtdb.firebaseio.com
-//https://see-my-index-project-3-99bf1-default-rtdb.firebaseio.com
 
-
-const config = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  databaseURL: "https://see-my-index-project-3-99bf1-default-rtdb.firebaseio.com",
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
-};
 
 // const config = {
 //   apiKey: process.env.FIREBASE_API_KEY,
@@ -21,14 +11,14 @@ const config = {
 //   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
 // };
 
-// const config = {
-//   apiKey: "AIzaSyAM5_io-_B23CRkm4mIbmw_XMKkrFxdFEo",
-//   authDomain: "see-my-index-project-3-99bf1.firebaseapp.com",
-//   databaseURL: "https://see-my-index-project-3-99bf1-rtdb.firebaseio.com",
-//   projectId: process.env.FIREBASE_PROJECT_ID,
-//   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-//   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
-// };
+const config = {
+  apiKey: "AIzaSyAM5_io-_B23CRkm4mIbmw_XMKkrFxdFEo",
+  authDomain: "see-my-index-project-3-99bf1.firebaseapp.com",
+  databaseURL: "https://see-my-index-project-3-99bf1-rtdb.firebaseio.com",
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
+};
 
 firebase.initializeApp(config);
 

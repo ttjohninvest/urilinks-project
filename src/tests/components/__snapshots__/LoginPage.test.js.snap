@@ -10,7 +10,7 @@ exports[`should correctly render LoginPage 1`] = `
     <h1
       className="box-layout__title"
     >
-      My Internet Links Index
+      Your Links
     </h1>
     <p>
       It's time to get your links under control.

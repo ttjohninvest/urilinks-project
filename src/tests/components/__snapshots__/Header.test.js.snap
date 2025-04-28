@@ -16,7 +16,7 @@ exports[`should render Header correctly 1`] = `
         to="/dashboard"
       >
         <h1>
-          My Internet Links Index
+          Your Links
         </h1>
       </Link>
       <button

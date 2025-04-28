@@ -14,7 +14,7 @@ import * as firebase from 'firebase';
 const config = {
   apiKey: "AIzaSyDV2yr2TVpIIMgcwLonAIdPgc3epMipvxs",
   authDomain: "see-my-index-project-4.firebaseapp.com",
-  databaseURL: "https://see-my-index-project-4-rtdb.firebaseio.com",
+  databaseURL: "https://see-my-index-project-4-default-rtdb.firebaseio.com",
   projectId: "see-my-index-project-4",
   storageBucket: "see-my-index-project-4.firebasestorage.app",
   messagingSenderId: "754943560663"

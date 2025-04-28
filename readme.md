@@ -6,8 +6,8 @@ git add - Add files to staging area
 git commit - Creates a new commit with files from staging area
 git log - View recent commits
 
-yourlinks.com
-idxscope.com
+urilinks.com
+
 https://www.youtube.com/watch?v=GuHN_ZqHExs a google authentication without firebase tutorial
 https://www.youtube.com/watch?v=5IZdrh1kHHw a google authentication with firebase tutorial
 https://www.youtube.com/watch?v=cZAnibwI9u8 a google authentication with firebase tutorial
@@ -78,5 +78,24 @@ described the database
 authentication
 
 console.cloud.google.com
+set the domain name
 
 set the domain that I can use
+urilinks.com
+
+heroku.com
+ https://see-my-index-2-0e62622b9713.herokuapp.com
+ set the custom domain name to urilinks.com, did
+
+100webspace.com
+ hosts the domain name
+ i added a CNAME record with heroku dns target called thawing-quail-m3horbg44ct9knee8wbpiw1g.herokudns.com
+  i removed the CNAME record because I added the CNAME record in heroku
+
+cloudflare.com
+ I am on the free tier
+ has my credit card information
+ I added two CNAME records urilinks.com thawing-quail-m3horbg44ct9knee8wbpiw1g.herokudns.com
+ and www.urilinks.com thawing-quail-m3horbg44ct9knee8wbpiw1g.herokudns.com
+
+

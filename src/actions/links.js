@@ -10,8 +10,8 @@ export const addLink = (link) => ({
 export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    const { description = "", note = "", amount = 0, createdAt = 0 } = linkData;
-    const link = { description, note, amount, createdAt };
+    const { description = "", Url = "", note = "", amount = 0, createdAt = 0 } = linkData;
+    const link = { description, Url, note, amount, createdAt };
     ////
     return database
       .ref(`users/${uid}/links`)

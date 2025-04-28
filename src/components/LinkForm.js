@@ -8,6 +8,7 @@ export default class LinkForm extends React.Component {
 
     this.state = {
       description: props.link ? props.link.description : "",
+      Url:props.link ? props.link.Url : "",
       note: props.link ? props.link.note : "",
       amount: props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link ? moment(props.link.createdAt) : moment(),
@@ -18,6 +19,10 @@ export default class LinkForm extends React.Component {
   onDescriptionChange = (e) => {
     const description = e.target.value;
     this.setState(() => ({ description }));
+  };
+  onUrlChange = (e) => {
+    const Url = e.target.value;
+    this.setState(() => ({ Url }));
   };
   onNoteChange = (e) => {
     const note = e.target.value;
@@ -41,7 +46,7 @@ export default class LinkForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    if (!this.state.description || !this.state.amount) {
+    if (!this.state.description || this.state.Url || !this.state.amount) {
       this.setState(() => ({
         error: "Please provide description and amount.",
       }));
@@ -49,6 +54,7 @@ export default class LinkForm extends React.Component {
       this.setState(() => ({ error: "" }));
       this.props.onSubmit({
         description: this.state.description,
+        Url:this.state.Url,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,
@@ -66,6 +72,13 @@ export default class LinkForm extends React.Component {
           className="text-input"
           value={this.state.description}
           onChange={this.onDescriptionChange}
+        />
+         <input
+          type="text"
+          placeholder="Url"
+          className="text-input"
+          value={this.state.url}
+          onChange={this.onUrlChange}
         />
         <input
           type="text"

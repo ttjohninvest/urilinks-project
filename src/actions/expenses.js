@@ -70,7 +70,7 @@ export const startSetExpenses = () => {
     console.log("startSetExpenses")
     const uid = getState().auth.uid;
     console.log("startSetExpenses, uid="+uid)
-    return database.ref(`users/${uid}/expenses`).once('value').then((snapshot) => {
+    return database.ref(`${uid}/expenses`).once('value').then((snapshot) => {
       console.log("startSetExpenses, about to call forEach")
       const expenses = [];
 

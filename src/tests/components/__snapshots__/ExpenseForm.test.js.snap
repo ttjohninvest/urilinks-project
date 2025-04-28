@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseForm correctly 1`] = `
+exports[`should render LinkForm correctly 1`] = `
 <form
   className="form"
   onSubmit={[Function]}
@@ -95,20 +95,20 @@ exports[`should render ExpenseForm correctly 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a note for your link (optional)"
     value=""
   />
   <div>
     <button
       className="button"
     >
-      Save Expense
+      Save Link
     </button>
   </div>
 </form>
 `;
 
-exports[`should render ExpenseForm correctly with expense data 1`] = `
+exports[`should render LinkForm correctly with link data 1`] = `
 <form
   className="form"
   onSubmit={[Function]}
@@ -203,14 +203,14 @@ exports[`should render ExpenseForm correctly with expense data 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a note for your link (optional)"
     value=""
   />
   <div>
     <button
       className="button"
     >
-      Save Expense
+      Save Link
     </button>
   </div>
 </form>
@@ -311,14 +311,14 @@ exports[`should render error for invalid form submission 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a note for your link (optional)"
     value=""
   />
   <div>
     <button
       className="button"
     >
-      Save Expense
+      Save Link
     </button>
   </div>
 </form>
@@ -424,14 +424,14 @@ exports[`should render error for invalid form submission 2`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your expense (optional)"
+    placeholder="Add a note for your link (optional)"
     value=""
   />
   <div>
     <button
       className="button"
     >
-      Save Expense
+      Save Link
     </button>
   </div>
 </form>

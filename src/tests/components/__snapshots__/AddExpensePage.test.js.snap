@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render AddExpensePage correctly 1`] = `
+exports[`should render AddLinkPage correctly 1`] = `
 <div>
   <div
     className="page-header"
@@ -11,14 +11,14 @@ exports[`should render AddExpensePage correctly 1`] = `
       <h1
         className="page-header__title"
       >
-        Add Expense
+        Add Link
       </h1>
     </div>
   </div>
   <div
     className="content-container"
   >
-    <ExpenseForm
+    <LinkForm
       onSubmit={[Function]}
     />
   </div>

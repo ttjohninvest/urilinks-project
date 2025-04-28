@@ -62,20 +62,20 @@ ue @ bundle.js:46
 q @ bundle.js:46Understand this error
 bundle.js:46 3, user.uid=XatpTuoIklS4LoAozs0ob35P9l62
 bundle.js:46 4, user.uid=XatpTuoIklS4LoAozs0ob35P9l62
-bundle.js:39 startSetExpenses
-bundle.js:39 startSetExpenses
-bundle.js:39 startSetExpenses, uid=XatpTuoIklS4LoAozs0ob35P9l62
-bundle.js:39 startSetExpenses, about to call forEach
-bundle.js:39 startSetExpenses, about to call dispatch(setExpenses(expenses));
+bundle.js:39 startSetLinks
+bundle.js:39 startSetLinks
+bundle.js:39 startSetLinks, uid=XatpTuoIklS4LoAozs0ob35P9l62
+bundle.js:39 startSetLinks, about to call forEach
+bundle.js:39 startSetLinks, about to call dispatch(setLinks(links));
 bundle.js:46 4, calling renderApp
 bundle.js:46 8
 
 used:
 firebase.google.com
- realtime database
-  described the database
- authentication
+realtime database
+described the database
+authentication
 
- console.cloud.google.com
-  
-  set the domain that I can use
+console.cloud.google.com
+
+set the domain that I can use

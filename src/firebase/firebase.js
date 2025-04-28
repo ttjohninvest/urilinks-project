@@ -1,8 +1,4 @@
-import * as firebase from 'firebase';
-
-
-
-
+import * as firebase from "firebase";
 
 const config = {
   apiKey: "AIzaSyDV2yr2TVpIIMgcwLonAIdPgc3epMipvxs",
@@ -10,10 +6,8 @@ const config = {
   databaseURL: "https://see-my-index-project-4-default-rtdb.firebaseio.com",
   projectId: "see-my-index-project-4",
   storageBucket: "see-my-index-project-4.firebasestorage.app",
-  messagingSenderId: "754943560663"
+  messagingSenderId: "754943560663",
 };
-
-
 
 firebase.initializeApp(config);
 
@@ -23,59 +17,54 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 export { firebase, googleAuthProvider, database as default };
 
 // // child_removed
-// database.ref('expenses').on('child_removed', (snapshot) => {
+// database.ref('links').on('child_removed', (snapshot) => {
 //   console.log(snapshot.key, snapshot.val());
 // });
 
 // // child_changed
-// database.ref('expenses').on('child_changed', (snapshot) => {
+// database.ref('links').on('child_changed', (snapshot) => {
 //   console.log(snapshot.key, snapshot.val());
 // });
 
 // // child_added
-// database.ref('expenses').on('child_added', (snapshot) => {
+// database.ref('links').on('child_added', (snapshot) => {
 //   console.log(snapshot.key, snapshot.val());
 // });
 
-// // database.ref('expenses')
+// // database.ref('links')
 // //   .once('value')
 // //   .then((snapshot) => {
-// //     const expenses = [];
+// //     const links = [];
 
 // //     snapshot.forEach((childSnapshot) => {
-// //       expenses.push({
+// //       links.push({
 // //         id: childSnapshot.key,
 // //         ...childSnapshot.val()
 // //       });
 // //     });
 
-// //     console.log(expenses);
+// //     console.log(links);
 // //   });
 
-// // database.ref('expenses').on('value', (snapshot) => {
-// //   const expenses = [];
+// // database.ref('links').on('value', (snapshot) => {
+// //   const links = [];
 
 // //   snapshot.forEach((childSnapshot) => {
-// //     expenses.push({
+// //     links.push({
 // //       id: childSnapshot.key,
 // //       ...childSnapshot.val()
 // //     });
 // //   });
 
-// //   console.log(expenses);
+// //   console.log(links);
 // // });
 
-// database.ref('expenses').push({
+// database.ref('links').push({
 //   description: 'Rent',
 //   note: '',
 //   amount: 109500,
 //   createdAt: 976123498763
 // });
-
-
-
-
-
 
 // // database.ref('notes/-Krll52aVDQ3X6dOtmS7').remove();
 

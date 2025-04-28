@@ -16,7 +16,7 @@ exports[`should render Header correctly 1`] = `
         to="/dashboard"
       >
         <h1>
-          Budget App App
+          My Internet Links Index
         </h1>
       </Link>
       <button

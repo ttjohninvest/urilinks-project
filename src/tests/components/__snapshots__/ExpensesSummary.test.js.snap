@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should correctly render ExpensesSummary with 1 expense 1`] = `
+exports[`should correctly render LinksSummary with 1 link 1`] = `
 <div
   className="page-header"
 >
@@ -15,7 +15,7 @@ exports[`should correctly render ExpensesSummary with 1 expense 1`] = `
         1
       </span>
        
-      expense
+      link
        totalling 
       <span>
         $2.35
@@ -29,14 +29,14 @@ exports[`should correctly render ExpensesSummary with 1 expense 1`] = `
         replace={false}
         to="/create"
       >
-        Add Expense
+        Add Link
       </Link>
     </div>
   </div>
 </div>
 `;
 
-exports[`should correctly render ExpensesSummary with multiple expenses 1`] = `
+exports[`should correctly render LinksSummary with multiple links 1`] = `
 <div
   className="page-header"
 >
@@ -51,7 +51,7 @@ exports[`should correctly render ExpensesSummary with multiple expenses 1`] = `
         23
       </span>
        
-      expenses
+      links
        totalling 
       <span>
         $235,123,409.87
@@ -65,7 +65,7 @@ exports[`should correctly render ExpensesSummary with multiple expenses 1`] = `
         replace={false}
         to="/create"
       >
-        Add Expense
+        Add Link
       </Link>
     </div>
   </div>

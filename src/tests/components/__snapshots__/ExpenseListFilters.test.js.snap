@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseListFilters correctly 1`] = `
+exports[`should render LinkListFilters correctly 1`] = `
 <div
   className="content-container"
 >
@@ -13,7 +13,7 @@ exports[`should render ExpenseListFilters correctly 1`] = `
       <input
         className="text-input"
         onChange={[Function]}
-        placeholder="Search expenses"
+        placeholder="Search links"
         type="text"
         value=""
       />
@@ -125,7 +125,7 @@ exports[`should render ExpenseListFilters correctly 1`] = `
 </div>
 `;
 
-exports[`should render ExpenseListFilters with alt data correctly 1`] = `
+exports[`should render LinkListFilters with alt data correctly 1`] = `
 <div
   className="content-container"
 >
@@ -138,7 +138,7 @@ exports[`should render ExpenseListFilters with alt data correctly 1`] = `
       <input
         className="text-input"
         onChange={[Function]}
-        placeholder="Search expenses"
+        placeholder="Search links"
         type="text"
         value="bills"
       />

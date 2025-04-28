@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render ExpenseList with empty message 1`] = `
+exports[`should render LinkList with empty message 1`] = `
 <div
   className="content-container"
 >
@@ -10,12 +10,12 @@ exports[`should render ExpenseList with empty message 1`] = `
     <div
       className="show-for-mobile"
     >
-      Expenses
+      Links
     </div>
     <div
       className="show-for-desktop"
     >
-      Expense
+      Link
     </div>
     <div
       className="show-for-desktop"
@@ -30,14 +30,14 @@ exports[`should render ExpenseList with empty message 1`] = `
       className="list-item list-item--message"
     >
       <span>
-        No expenses
+        No links
       </span>
     </div>
   </div>
 </div>
 `;
 
-exports[`should render ExpenseList with expenses 1`] = `
+exports[`should render LinkList with links 1`] = `
 <div
   className="content-container"
 >
@@ -47,12 +47,12 @@ exports[`should render ExpenseList with expenses 1`] = `
     <div
       className="show-for-mobile"
     >
-      Expenses
+      Links
     </div>
     <div
       className="show-for-desktop"
     >
-      Expense
+      Link
     </div>
     <div
       className="show-for-desktop"
@@ -63,21 +63,21 @@ exports[`should render ExpenseList with expenses 1`] = `
   <div
     className="list-body"
   >
-    <ExpenseListItem
+    <LinkListItem
       amount={195}
       createdAt={0}
       description="Gum"
       id="1"
       note=""
     />
-    <ExpenseListItem
+    <LinkListItem
       amount={109500}
       createdAt={-345600000}
       description="Rent"
       id="2"
       note=""
     />
-    <ExpenseListItem
+    <LinkListItem
       amount={4500}
       createdAt={345600000}
       description="Credit Card"

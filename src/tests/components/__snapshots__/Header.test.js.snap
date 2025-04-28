@@ -16,7 +16,7 @@ exports[`should render Header correctly 1`] = `
         to="/dashboard"
       >
         <h1>
-          Your Links
+          Your Uri Links
         </h1>
       </Link>
       <button

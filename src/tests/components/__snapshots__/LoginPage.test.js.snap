@@ -10,10 +10,10 @@ exports[`should correctly render LoginPage 1`] = `
     <h1
       className="box-layout__title"
     >
-      Your Links
+      Your Uri Links
     </h1>
     <p>
-      It's time to get your links under control.
+      It's time to get your Uri links under control.
     </p>
     <button
       className="button"

@@ -95,7 +95,7 @@ exports[`should render LinkForm correctly 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your link (optional)"
+    placeholder="Add a note for your uri link (optional)"
     value=""
   />
   <div>
@@ -203,7 +203,7 @@ exports[`should render LinkForm correctly with link data 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your link (optional)"
+    placeholder="Add a note for your uri link (optional)"
     value=""
   />
   <div>
@@ -311,7 +311,7 @@ exports[`should render error for invalid form submission 1`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your link (optional)"
+    placeholder="Add a note for your uri link (optional)"
     value=""
   />
   <div>
@@ -424,7 +424,7 @@ exports[`should render error for invalid form submission 2`] = `
   <textarea
     className="textarea"
     onChange={[Function]}
-    placeholder="Add a note for your link (optional)"
+    placeholder="Add a note for your uri link (optional)"
     value=""
   />
   <div>

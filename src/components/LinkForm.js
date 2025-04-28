@@ -83,7 +83,7 @@ export default class LinkForm extends React.Component {
           isOutsideRange={() => false}
         />
         <textarea
-          placeholder="Add a note for your link (optional)"
+          placeholder="Add a note for your uri link (optional)"
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}

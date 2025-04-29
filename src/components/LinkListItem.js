@@ -7,7 +7,7 @@ import numeral from "numeral";
 const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
   <div>
     <div>
-      <h3 className="list-item__title"><a href={Url} target="_blank" title="Link Text">{description}</a></h3>
+      <h3 className="list-item__title"><a href={Url} target="_blank" title="Uri Link Text">{description}</a></h3>
       <span className="list-item__sub-title">
         Entered: {moment(createdAt).format("MMMM Do, YYYY")}
       </span>

@@ -21,7 +21,7 @@ export class LinkListFilters extends React.Component {
     this.setState(() => ({ calendarFocused }));
   };
   onTextChange = (e) => {
-    console.log("e.target.value="+e.target.value)
+    console.log("e.target.value=" + e.target.value);
     this.props.setTextFilter(e.target.value);
   };
   onSortChange = (e) => {
@@ -38,7 +38,7 @@ export class LinkListFilters extends React.Component {
           <div className="input-group__item">
             <input
               type="text"
-              className="text-input"
+              className="text-input text-input-filters"
               placeholder="Search links"
               value={this.props.filters.text}
               onChange={this.onTextChange}
@@ -53,7 +53,6 @@ export class LinkListFilters extends React.Component {
             >
               <option value="date">Date</option>
               <option value="description">Uri Link Text</option>
-              
             </select>
           </div>
           <div className="input-group__item">

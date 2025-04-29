@@ -6,6 +6,11 @@
   padding: $s-size;
 }
 
+.text-input-filters {
+  
+  padding-top: 4px;
+}
+
 .select {
   @extend .text-input;
 }

@@ -1,8 +1,11 @@
 // SET_TEXT_FILTER
-export const setTextFilter = (text = '') => ({
-  type: 'SET_TEXT_FILTER',
+export const setTextFilter = (text = '') => {
+  console.log("text="+text)
+  return {
+    type: 'SET_TEXT_FILTER',
   text
-});
+  }
+};
 
 // SORT_BY_DATE
 export const sortByDate = () => ({

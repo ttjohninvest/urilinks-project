@@ -87,7 +87,7 @@ test("should edit link from firebase", (done) => {
     });
 });
 
-test("should setup add link action object with provided values", () => {
+test("should setup add url link action object with provided values", () => {
   const action = addLink(links[2]);
   expect(action).toEqual({
     type: "ADD_LINK",
@@ -95,7 +95,7 @@ test("should setup add link action object with provided values", () => {
   });
 });
 
-test("should add link to database and store", (done) => {
+test("should add url link to database and store", (done) => {
   const store = createMockStore(defaultAuthState);
   const linkData = {
     description: "Mouse",
@@ -126,7 +126,7 @@ test("should add link to database and store", (done) => {
     });
 });
 
-test("should add link with defaults to database and store", (done) => {
+test("should add url link with defaults to database and store", (done) => {
   const store = createMockStore(defaultAuthState);
   const linkDefaults = {
     description: "",

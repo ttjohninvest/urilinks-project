@@ -8,7 +8,7 @@ export default class LinkForm extends React.Component {
 
     this.state = {
       description: props.link ? props.link.description : "",
-      Url:props.link ? props.link.Url : "",
+      Url: props.link ? props.link.Url : "",
       note: props.link ? props.link.note : "",
       amount: props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link ? moment(props.link.createdAt) : moment(),
@@ -54,7 +54,7 @@ export default class LinkForm extends React.Component {
       this.setState(() => ({ error: "" }));
       this.props.onSubmit({
         description: this.state.description,
-        Url:this.state.Url,
+        Url: this.state.Url,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,
@@ -73,7 +73,7 @@ export default class LinkForm extends React.Component {
           value={this.state.description}
           onChange={this.onDescriptionChange}
         />
-         <input
+        <input
           type="text"
           placeholder="Url"
           className="text-input"
@@ -102,7 +102,7 @@ export default class LinkForm extends React.Component {
           onChange={this.onNoteChange}
         ></textarea>
         <div>
-          <button className="button">Save Link</button>
+          <button className="button">Save Url Link</button>
         </div>
       </form>
     );

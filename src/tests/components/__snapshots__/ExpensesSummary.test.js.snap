@@ -29,7 +29,7 @@ exports[`should correctly render LinksSummary with 1 link 1`] = `
         replace={false}
         to="/create"
       >
-        Add Link
+        Add Url Link
       </Link>
     </div>
   </div>
@@ -65,7 +65,7 @@ exports[`should correctly render LinksSummary with multiple links 1`] = `
         replace={false}
         to="/create"
       >
-        Add Link
+        Add Url Link
       </Link>
     </div>
   </div>

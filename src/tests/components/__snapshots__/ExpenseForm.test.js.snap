@@ -102,7 +102,7 @@ exports[`should render LinkForm correctly 1`] = `
     <button
       className="button"
     >
-      Save Link
+      Save Url Link
     </button>
   </div>
 </form>
@@ -210,7 +210,7 @@ exports[`should render LinkForm correctly with link data 1`] = `
     <button
       className="button"
     >
-      Save Link
+      Save Url Link
     </button>
   </div>
 </form>
@@ -318,7 +318,7 @@ exports[`should render error for invalid form submission 1`] = `
     <button
       className="button"
     >
-      Save Link
+      Save Url Link
     </button>
   </div>
 </form>
@@ -431,7 +431,7 @@ exports[`should render error for invalid form submission 2`] = `
     <button
       className="button"
     >
-      Save Link
+      Save Url Link
     </button>
   </div>
 </form>

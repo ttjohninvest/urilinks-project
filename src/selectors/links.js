@@ -2,7 +2,8 @@
 
 // Get visible links
 
-export default getLinksArray=(links, { text, sortBy, startDate, endDate }) => {
+//links is an incomming array that was filled from the database
+export default (links, { text, sortBy, startDate, endDate }) => {
   return links.filter((link) => {
       const createdAtMoment = moment(link.createdAt);
       const startDateMatch = startDate

@@ -21,6 +21,7 @@ export class LinkListFilters extends React.Component {
     this.setState(() => ({ calendarFocused }));
   };
   onTextChange = (e) => {
+    console.log("e.target.value="+e.target.value)
     this.props.setTextFilter(e.target.value);
   };
   onSortChange = (e) => {

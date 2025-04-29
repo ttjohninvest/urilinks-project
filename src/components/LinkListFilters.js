@@ -50,7 +50,7 @@ export class LinkListFilters extends React.Component {
               onChange={this.onSortChange}
             >
               <option value="date">Date</option>
-              <option value="amount">Amount</option>
+              <option value="description">Link Text</option>
             </select>
           </div>
           <div className="input-group__item">

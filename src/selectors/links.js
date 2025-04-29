@@ -21,8 +21,8 @@ export default (links, { text, sortBy, startDate, endDate }) => {
     .sort((a, b) => {
       if (sortBy === "date") {
         return a.createdAt < b.createdAt ? 1 : -1;
-      } else if (sortBy === "amount") {
-        return a.amount < b.amount ? 1 : -1;
+      } else if (sortBy === "description") {
+        return a.description.toLowerCase() < b.description.toLowerCase() ? 1 : -1;
       }
     });
 };

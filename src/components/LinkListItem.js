@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
 
-const LinkListItem = ({ id, description, Url, note amount, createdAt }) => (
+const LinkListItem = ({ id, description, Url, amount, createdAt }) => (
   <div>
     <div>
       <h3 className="list-item__title"><a href={Url} target="_blank">{description}</a></h3>
@@ -12,11 +12,8 @@ const LinkListItem = ({ id, description, Url, note amount, createdAt }) => (
       </span>
     </div>
     <h3 className="list-item__data">
-      {note}
-    </h3>
-    {/* <h3 className="list-item__data">
       {numeral(amount / 100).format("$0,0.00")}
-    </h3> */}
+    </h3>
   </div>
 );
 

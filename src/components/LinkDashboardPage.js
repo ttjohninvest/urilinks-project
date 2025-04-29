@@ -5,8 +5,10 @@ import LinksSummary from "./LinksSummary";
 
 const LinkDashboardPage = () => (
   <div>
-    <LinksSummary />
     <LinkListFilters />
+    
+    <LinksSummary />
+    
     <LinkList />
   </div>
 );

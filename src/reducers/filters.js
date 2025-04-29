@@ -16,6 +16,11 @@ export default (state = filtersReducerDefaultState, action) => {
         ...state,
         text: action.text
       };
+      case 'SORT_BY_DESCRIPTION':
+      return {
+        ...state,
+        sortBy: 'description'
+      };
     case 'SORT_BY_AMOUNT':
       return {
         ...state,

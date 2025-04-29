@@ -46,7 +46,7 @@ export class LinkListFilters extends React.Component {
           </div>
           <div className="input-group__item">
             <select
-              className="select"
+              className="select select-filters"
               value={this.props.filters.sortBy}
               onChange={this.onSortChange}
               title="Sort By"
@@ -55,7 +55,7 @@ export class LinkListFilters extends React.Component {
               <option value="description">Uri Link Text</option>
             </select>
           </div>
-          <div className="input-group__item">
+          <div className="input-group__item select-filters">
             <DateRangePicker
               startDate={this.props.filters.startDate}
               endDate={this.props.filters.endDate}

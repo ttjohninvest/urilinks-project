@@ -22,7 +22,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
       if (sortBy === "date") {
         return a.createdAt < b.createdAt ? 1 : -1;
       } else if (sortBy === "description") {
-        return a.description.toLowerCase() < b.description.toLowerCase()
+        return a.description.toLowerCase() > b.description.toLowerCase()
           ? 1
           : -1;
       }

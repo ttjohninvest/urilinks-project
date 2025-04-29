@@ -4,7 +4,7 @@ import { DateRangePicker } from "react-dates";
 import {
   setTextFilter,
   sortByDate,
-  sortByAmount,
+  sortByDescription,
   setStartDate,
   setEndDate,
 } from "../actions/filters";
@@ -26,8 +26,8 @@ export class LinkListFilters extends React.Component {
   onSortChange = (e) => {
     if (e.target.value === "date") {
       this.props.sortByDate();
-    } else if (e.target.value === "amount") {
-      this.props.sortByAmount();
+    } else if (e.target.value === "description") {
+      this.props.sortByDescription();
     }
   };
   render() {
@@ -78,7 +78,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
   sortByDate: () => dispatch(sortByDate()),
-  sortByAmount: () => dispatch(sortByAmount()),
+  sortByDescription: () => dispatch(sortByDescription()),
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
 });

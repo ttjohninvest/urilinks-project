@@ -5,7 +5,7 @@ import numeral from "numeral";
 
 
 const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
-  <Link className="list-item" to={`/edit/${id}`}>
+  <div>
     <div>
       <h3 className="list-item__title"><a href={Url} target="_blank">{description}</a></h3>
       <span className="list-item__sub-title">
@@ -18,7 +18,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
     <h3 className="list-item__data">
       delete
     </h3>
-  </Link>
+  </div>
 );
 
 // const LinkListItem = ({ id, description, amount, createdAt }) => (

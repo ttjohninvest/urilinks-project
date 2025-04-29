@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
 
-const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
+const LinkListItem = ({ id, description, Url, note amount, createdAt }) => (
   <div>
     <div>
       <h3 className="list-item__title"><a href={Url} target="_blank">{description}</a></h3>

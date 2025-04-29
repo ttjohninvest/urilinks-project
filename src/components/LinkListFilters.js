@@ -49,9 +49,11 @@ export class LinkListFilters extends React.Component {
               className="select"
               value={this.props.filters.sortBy}
               onChange={this.onSortChange}
+              title="Sort By"
             >
               <option value="date">Date</option>
               <option value="description">Uri Link Text</option>
+              
             </select>
           </div>
           <div className="input-group__item">

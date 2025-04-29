@@ -6,7 +6,7 @@ import LinksSummary from "./LinksSummary";
 const LinkDashboardPage = () => (
   <div>
     <LinksSummary />
-    <LinkListFilters />
+    {/* <LinkListFilters /> */}
     <LinkList />
   </div>
 );

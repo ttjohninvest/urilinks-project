@@ -22,7 +22,6 @@ let hasRendered = false;
 const renderApp = () => {
 console.log(8)
   if (!hasRendered) {
-    console.log("calling ReactDOM in the RenderApp function")
     ReactDOM.render(jsx, document.getElementById('app'));
     hasRendered = true;
   }
@@ -33,19 +32,18 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
   
   if (user) {
-    console.log("3, user.uid="+user.uid)
+console.log("user="+!user)    
     store.dispatch(login(user.uid));
-    console.log("4, user.uid="+user.uid)
+    
     store.dispatch(startSetLinks()).then(() => {
-      console.log("4, calling renderApp")
+      
       renderApp();
       if (history.location.pathname === '/') {
-        console.log("9, calling the push('/dashboard') function after the call to renderApp function")
         history.push('/dashboard');
       }
     });
   } else {
-    console.log(6)
+    
     store.dispatch(logout());
     renderApp();
     history.push('/');

@@ -7,8 +7,8 @@ export const login = (uid) => ({
 
 export const startLogin = () => {
   console.log("startLogin")
-  return async () => {
-    return await firebase.auth().signInWithPopup(googleAuthProvider);
+  return () => {
+    return firebase.auth().signInWithPopup(googleAuthProvider);
   };
 };
 

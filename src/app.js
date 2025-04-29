@@ -5,7 +5,7 @@ import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetLinks } from './actions/links';
 import { login, logout } from './actions/auth';
-import getVisibleLinks from './selectors/links';
+//import getVisibleLinks from './selectors/links';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
@@ -35,9 +35,9 @@ firebase.auth().onAuthStateChanged((user) => {
 console.log("user="+!user)    
     store.dispatch(login(user.uid));
     
-    store.dispatch(startSetLinks()).then(() => {
+    store.dispatch(startSetLinks()).then(() => { //startSetLinks reads the links from the db and stores them in redux
       
-      renderApp();
+      renderApp(); //displays the array links stored in redux
       if (history.location.pathname === '/') {
         history.push('/dashboard');
       }

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import LinkListItem from "./LinkListItem";
 import selectLinks from "../selectors/links";
-////
+
 export const LinkList = (props) => (
   <div className="content-container">
     <div className="list-header">

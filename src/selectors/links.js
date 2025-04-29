@@ -1,28 +1,30 @@
-import moment from "moment";
+//import moment from "moment";
 
 // Get visible links
 
 export default (links, { text, sortBy, startDate, endDate }) => {
   return links
     .filter((link) => {
-      const createdAtMoment = moment(link.createdAt);
-      const startDateMatch = startDate
-        ? startDate.isSameOrBefore(createdAtMoment, "day")
-        : true;
-      const endDateMatch = endDate
-        ? endDate.isSameOrAfter(createdAtMoment, "day")
-        : true;
-      const textMatch = link.description
+      //const createdAtMoment = moment(link.createdAt);
+      // const startDateMatch = startDate
+      //   ? startDate.isSameOrBefore(createdAtMoment, "day")
+      //   : true;
+      // const endDateMatch = endDate
+      //   ? endDate.isSameOrAfter(createdAtMoment, "day")
+      //   : true;
+      const isTextIn = link.description
         .toLowerCase()
         .includes(text.toLowerCase());
 
-      return startDateMatch && endDateMatch && textMatch;
-    })
-    .sort((a, b) => {
+      //return startDateMatch && endDateMatch && isTextIn;
+      return isTextIn;
+    }).sort((a, b) => {
       if (sortBy === "date") {
         return a.createdAt < b.createdAt ? 1 : -1;
       } else if (sortBy === "description") {
-        return a.description.toLowerCase() < b.description.toLowerCase() ? 1 : -1;
+        return a.description.toLowerCase() < b.description.toLowerCase()
+          ? 1
+          : -1;
       }
     });
 };

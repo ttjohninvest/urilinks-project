@@ -70,17 +70,18 @@ export const setLinks = (links) => ({
   links,
 });
 
+//this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = () => {
-  console.log("startSetLinks");
+  
   return (dispatch, getState) => {
-    console.log("startSetLinks");
+    
     const uid = getState().auth.uid;
-    console.log("startSetLinks, uid=" + uid);
+    
     return database
       .ref(`users/${uid}/links`)
       .once("value")
       .then((snapshot) => {
-        console.log("startSetLinks, about to call forEach");
+        
         const links = [];
 
         snapshot.forEach((childSnapshot) => {
@@ -93,5 +94,5 @@ export const startSetLinks = () => {
         dispatch(setLinks(links));
       });
   };
-  console.log("startSetLinks, about to return from the function");
+  
 };

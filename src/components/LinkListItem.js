@@ -9,7 +9,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
     <div>
       <h3 className="list-item__title"><a href={Url} target="_blank" title="Link Text">{description}</a></h3>
       <span className="list-item__sub-title">
-        {moment(createdAt).format("MMMM Do, YYYY")}
+        Entered: {moment(createdAt).format("MMMM Do, YYYY")}
       </span>
     </div>
     <h3 className="list-item__data">

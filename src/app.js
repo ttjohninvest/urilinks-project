@@ -32,7 +32,7 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
   
   if (user) {
-console.log("user="+!user)    
+    console.log("logged in user="+JSON.stringify(user))    
     store.dispatch(login(user.uid));
     
     store.dispatch(startSetLinks()).then(() => { //startSetLinks reads the links from the db and stores them in redux

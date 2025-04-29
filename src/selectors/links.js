@@ -3,7 +3,7 @@ import moment from "moment";
 // Get visible links
 
 //links is an incomming array that was filled from the database
-export default getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
+const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   return links.filter((link) => {
       const createdAtMoment = moment(link.createdAt);
       const startDateMatch = startDate
@@ -28,3 +28,5 @@ export default getFilteredLinksArray = (links, { text, sortBy, startDate, endDat
       }
     });
 };
+
+export default getFilteredLinksArray;

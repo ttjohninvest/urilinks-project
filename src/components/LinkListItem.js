@@ -4,7 +4,7 @@ import moment from "moment";
 import numeral from "numeral";
 
 const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
-  <div>
+  <div className="border-bottom-1">
     <div className="bg-blue-">
       <div className="list-item__flex bg-green-">
         <div className="bg-orange-">
@@ -29,7 +29,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
         Entered: {moment(createdAt).format("MMMM Do, YYYY")}
       </div>
     </div>
-    <h3 className="list-item__data  text-size-1">{note}</h3>
+    <h3 className="list-item__data  text-size-1 font-weight-1">{note}</h3>
   </div>
 );
 

@@ -5,7 +5,7 @@ import numeral from "numeral";
 
 const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
   <div>
-    <div className="bg-blue">
+    <div className="bg-blue-">
       <div className="list-item__flex bg-green-">
         <div className="bg-orange-">
           <h3 className="">
@@ -25,7 +25,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
         </div>
       </div>
 
-      <div className="list-item__sub-title- text-size-1">
+      <div className="list-item__sub-title- padding-left-1 text-size-1">
         Entered: {moment(createdAt).format("MMMM Do, YYYY")}
       </div>
     </div>

@@ -25,9 +25,9 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
         </div>
       </div>
 
-      <span className="list-item__sub-title">
+      <div className="list-item__sub-title-">
         Entered: {moment(createdAt).format("MMMM Do, YYYY")}
-      </span>
+      </div>
     </div>
     <h3 className="list-item__data">{note}</h3>
   </div>

@@ -8,11 +8,11 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
     <div className="bg-blue">
       <div className="list-item__flex bg-green">
         <div className="bg-orange">
-          {/* <h3 className="">
+          <h3 className="">
             <a href={Url} target="_blank" title="Uri Link Text">
               {description}
             </a>
-          </h3> */}
+          </h3>
         </div>
         <div>
           <h3 className="">

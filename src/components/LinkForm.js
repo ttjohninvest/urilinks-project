@@ -73,7 +73,7 @@ export default class LinkForm extends React.Component {
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="Uri, Uniform Resource Identifier"
-          maxlength="128"
+          maxlength="950"
         />
         <input
           type="text"
@@ -102,7 +102,7 @@ export default class LinkForm extends React.Component {
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}
-          maxlength="128"
+          maxlength="255"
         ></textarea>
         <div>
           <button className="button">Save Url Link</button>

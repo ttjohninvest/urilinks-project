@@ -6,22 +6,22 @@ import numeral from "numeral";
 const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
   <div>
     <div className="bg-blue">
-      <div className="list-item__flex bg-green">
-        <div className="bg-orange">
-          <div className="">
+      <div className="list-item__flex bg-green-">
+        <div className="bg-orange-">
+          <h3 className="">
             <a href={Url} target="_blank" title="Uri Link Text">
               {description}
             </a>
-          </div>
+          </h3>
         </div>
-        <div className="bg-orange">
-          <div className="">
+        <div className="bg-orange-">
+          <h3 className="">
             <Link className="" to={`/edit/${id}`}>
               <div>
                 <h3 className="">edit or remove</h3>
               </div>
             </Link>
-          </div>
+          </h3>
         </div>
       </div>
 

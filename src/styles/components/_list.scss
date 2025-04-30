@@ -61,3 +61,10 @@
     padding-left: $s-size;
   }
 }
+
+.list-item__flex {
+  
+  display: flex;
+  justify-content: space-between;
+  padding: $s-size $m-size;
+}

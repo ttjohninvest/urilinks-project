@@ -3,30 +3,31 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
 
-
 const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
   <div>
     <div>
-      <h3 className="list-item__title"><a href={Url} target="_blank" title="Uri Link Text">{description}</a></h3>
+      <div className="list-item__flex">
+        <h3 className="list-item__title">
+          <a href={Url} target="_blank" title="Uri Link Text">
+            {description}
+          </a>
+        </h3>
+        <h3 className="list-item__data">
+          <Link className="list-item-" to={`/edit/${id}`}>
+            <div>
+              <h3 className="list-item__title-">edit</h3>
+            </div>
+          </Link>
+        </h3>
+      </div>
+
       <span className="list-item__sub-title">
         Entered: {moment(createdAt).format("MMMM Do, YYYY")}
       </span>
     </div>
-    <h3 className="list-item__data">
-      {note}
-    </h3>
-    <h3 className="list-item__data">
-    <Link className="list-item-" to={`/edit/${id}`}>
-    <div>
-      <h3 className="list-item__title-">edit</h3>
-    </div>
-  </Link>
-    </h3>
-  
+    <h3 className="list-item__data">{note}</h3>
   </div>
 );
-
-
 
 // const LinkListItem = ({ id, description, amount, createdAt }) => (
 //   <Link className="list-item" to={`/edit/${id}`}>

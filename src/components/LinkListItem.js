@@ -16,15 +16,13 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
       {note}
     </h3>
     <h3 className="list-item__data">
-    <Link className="list-item" to={`/edit/${id}`}>
+    <Link className="list-item-" to={`/edit/${id}`}>
     <div>
-      <h3 className="list-item__title">edit</h3>
+      <h3 className="list-item__title-">edit</h3>
     </div>
   </Link>
     </h3>
-    <h3 className="list-item__data">
-      delete
-    </h3>
+  
   </div>
 );
 

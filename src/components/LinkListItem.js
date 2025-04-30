@@ -25,11 +25,11 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
         </div>
       </div>
 
-      <div className="list-item__sub-title-">
+      <div className="list-item__sub-title- text-size-1">
         Entered: {moment(createdAt).format("MMMM Do, YYYY")}
       </div>
     </div>
-    <h3 className="list-item__data">{note}</h3>
+    <h3 className="list-item__data  text-size-1">{note}</h3>
   </div>
 );
 

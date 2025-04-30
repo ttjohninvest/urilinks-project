@@ -9,14 +9,14 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
       <div className="list-item__flex bg-green-">
         <div className="bg-orange-">
           <h3 className="">
-            <a className="nounderline" href={Url} target="_blank" title="Uri Link Text">
+            <a className="nounderline text-size-1" href={Url} target="_blank" title="Uri Link Text">
               {description}
             </a>
           </h3>
         </div>
         <div className="bg-orange-">
           <h3 className="">
-            <Link className="nounderline" to={`/edit/${id}`}>
+            <Link className="nounderline text-size-1" to={`/edit/${id}`}>
               <div>
                 <h3 className="">edit or remove</h3>
               </div>

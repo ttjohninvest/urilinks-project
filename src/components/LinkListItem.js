@@ -12,10 +12,10 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
             {description}
           </a>
         </h3>
-        <h3 className="list-item__data">
+        <h3 className="list-item__data-">
           <Link className="list-item-" to={`/edit/${id}`}>
             <div>
-              <h3 className="list-item__title-">edit</h3>
+              <h3 className="list-item__title-">edit or remove</h3>
             </div>
           </Link>
         </h3>

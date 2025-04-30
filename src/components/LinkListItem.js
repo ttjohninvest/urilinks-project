@@ -7,11 +7,14 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
   <div>
     <div>
       <div className="list-item__flex">
-        <h3 className="list-item__title">
+      <div>
+        <h3 className="list-item__title-">
           <a href={Url} target="_blank" title="Uri Link Text">
             {description}
           </a>
         </h3>
+        </div>
+        <div>
         <h3 className="list-item__data-">
           <Link className="list-item-" to={`/edit/${id}`}>
             <div>
@@ -19,6 +22,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
             </div>
           </Link>
         </h3>
+        </div>
       </div>
 
       <span className="list-item__sub-title">

@@ -8,7 +8,7 @@ export const LinkList = (props) => (
     <div className="list-header">
       <div className="show-for-mobile">Links</div>
       <div className="show-for-desktop">Link</div>
-      <div className="show-for-desktop">Amount</div>
+      <div className="show-for-desktop"></div>
     </div>
     <div className="list-body">
       {props.links.length === 0 ? (

@@ -9,17 +9,50 @@ class LinkList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayFormat: 1
+      displayFormat: 1,
+      selectedValue: 'option1'
     };
 
     //this.handleClick = this.handleClick.bind(this);
   }
 
+  handleRadioChange = (event) => {
+    this.setState(()=>
+      {
+        selectedValue: event.target.value;
+      }
+    )
+  };
+
   render() {
     return (
       <div className="content-container">
     <div className="list-header">
-      <div className="show-for-desktop">Link(s)</div>
+      <div className="show-for-desktop">Link(s)
+
+      <div>
+      <label>
+        <input
+          type="radio"
+          value="option1"
+          checked={selectedValue === "option1"}
+          onChange={this.handleRadioChange}
+        />
+        Option 1
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="option2"
+          checked={selectedValue === "option2"}
+          onChange={this.handleRadioChange}
+        />
+        Option 2
+      </label>
+      <p>Selected value: {selectedValue}</p>
+    </div>
+
+      </div>
     </div>
     {this.state.displayFormat===1?<div className="list-body">
       {this.props.links.length === 0 ? (

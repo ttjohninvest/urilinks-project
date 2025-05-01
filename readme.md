@@ -6,6 +6,9 @@ git add - Add files to staging area
 git commit - Creates a new commit with files from staging area
 git log - View recent commits
 
+firebase.google.com rules setting tutorial
+https://www.youtube.com/watch?v=qLrDWBKTUZo
+
 urilinks.com
 
 https://www.youtube.com/watch?v=GuHN_ZqHExs a google authentication without firebase tutorial

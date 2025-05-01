@@ -13,22 +13,22 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
       const endDateMatch = endDate
         ? endDate.isSameOrAfter(createdAtMoment, "day")
         : true;
-      const isTextIn = link.description
+      const isTextIn = link && text && link.description
         .toLowerCase()
         .includes(text.toLowerCase());
 //console.log(startDateMatch,",",endDateMatch,",",isTextIn)
       return startDateMatch && endDateMatch && isTextIn;
       
     })
-    // .sort((a, b) => {
-    //   if (sortBy === "date") {
-    //     return a.createdAt < b.createdAt ? 1 : -1;
-    //   } else if (sortBy === "description") {
-    //     return a.description.toLowerCase() > b.description.toLowerCase()
-    //       ? 1
-    //       : -1;
-    //   }
-    //});
+    .sort((a, b) => {
+      if (sortBy === "date") {
+        return a.createdAt < b.createdAt ? 1 : -1;
+      } else if (sortBy === "description") {
+        return a.description.toLowerCase() > b.description.toLowerCase()
+          ? 1
+          : -1;
+      }
+    });
 };
 
 export default getFilteredLinksArray;

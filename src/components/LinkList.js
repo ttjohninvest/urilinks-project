@@ -35,7 +35,7 @@ class LinkList extends React.Component {
                       checked={this.state.selectedOption === "option1"}
                       onChange={this.handleOptionChange}
                     />
-                    links list with details
+                    <div className="margin-left-1">links list with details</div>
                   </label>
                 </div>
                 <div className="margin-left-1">
@@ -46,10 +46,10 @@ class LinkList extends React.Component {
                       checked={this.state.selectedOption === "option2"}
                       onChange={this.handleOptionChange}
                     />
-                    links list with out details
+                    <div className="margin-left-1">links list with out details</div>
                   </label>
                 </div>
-                <div className="margin-left-1">
+                {/* <div className="margin-left-1">
                   <label>
                     <input
                       type="radio"
@@ -59,7 +59,7 @@ class LinkList extends React.Component {
                     />
                     Option 3
                   </label>
-                </div>
+                </div> */}
                 
               </div>
         </div>

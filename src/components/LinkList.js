@@ -5,7 +5,7 @@ import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
 import selectLinks from "../selectors/links";
 
-class LinkList extends Component {
+class LinkList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -18,7 +18,7 @@ class LinkList extends React.Component {
   }
 
   
-  handleRadioChange = (event) => {
+  handleOptionChange = (event) => {
     this.setState({
       selectedOption: event.target.value
     });

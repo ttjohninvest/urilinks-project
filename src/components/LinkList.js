@@ -5,7 +5,7 @@ import selectLinks from "../selectors/links";
 
 export const LinkList = (props) => (
   <div className="content-container">
-    <div className="list-header">
+    <div className="list-header-">
       {/* <div className="show-for-mobile">Links</div>
       <div className="show-for-desktop">Link</div>
       <div className="show-for-desktop">Amount</div> */}

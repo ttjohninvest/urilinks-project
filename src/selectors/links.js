@@ -16,16 +16,17 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         .toLowerCase()
         .includes(text.toLowerCase());
 console.log(startDateMatch,",",endDateMatch,",",isTextIn)
-      return true && endDateMatch && isTextIn;
+      return true// && endDateMatch && isTextIn;
       //return isTextIn;
-    }).sort((a, b) => {
-      if (sortBy === "date") {
-        return a.createdAt < b.createdAt ? 1 : -1;
-      } else if (sortBy === "description") {
-        return a.description.toLowerCase() > b.description.toLowerCase()
-          ? 1
-          : -1;
-      }
+    })
+    // .sort((a, b) => {
+    //   if (sortBy === "date") {
+    //     return a.createdAt < b.createdAt ? 1 : -1;
+    //   } else if (sortBy === "description") {
+    //     return a.description.toLowerCase() > b.description.toLowerCase()
+    //       ? 1
+    //       : -1;
+    //   }
     });
 };
 

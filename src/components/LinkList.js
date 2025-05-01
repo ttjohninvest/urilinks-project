@@ -33,7 +33,7 @@ class LinkList extends React.Component {
         <input
           type="radio"
           value="option1"
-          checked={selectedValue === "option1"}
+          checked={this.state.selectedValue === "option1"}
           onChange={this.handleRadioChange}
         />
         Option 1
@@ -42,7 +42,7 @@ class LinkList extends React.Component {
         <input
           type="radio"
           value="option2"
-          checked={selectedValue === "option2"}
+          checked={this.state.selectedValue === "option2"}
           onChange={this.handleRadioChange}
         />
         Option 2

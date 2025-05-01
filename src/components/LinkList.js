@@ -30,7 +30,8 @@ class LinkList extends React.Component {
       <div className="content-container">
     <div className="list-header list-header__flex">
       <div className="show-for-desktop">Link(s)<div>
-        <div>
+        <div className="list-header list-header__flex">
+          <div>
       <label>
           <input
             type="radio"
@@ -40,6 +41,8 @@ class LinkList extends React.Component {
           />
           details list
         </label>
+        </div>
+        <div>
         <label>
           <input
             type="radio"
@@ -49,6 +52,8 @@ class LinkList extends React.Component {
           />
           list
         </label>
+        </div>
+        <div>
         <label>
           <input
             type="radio"
@@ -58,6 +63,7 @@ class LinkList extends React.Component {
           />
           Option 3
         </label>
+        </div>
       {/* <p>Selected Option: {this.state.selectedOption}</p> */}
       </div>
  </div>

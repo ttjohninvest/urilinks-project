@@ -28,10 +28,9 @@ class LinkList extends React.Component {
   render() {
     return (
       <div className="content-container">
-    <div className="list-header">
-      <div className="show-for-desktop">Link(s)
-
-      <div>
+    <div className="list-header list-header__flex">
+      <div className="show-for-desktop">Link(s)<div>
+        <div>
       <label>
           <input
             type="radio"
@@ -39,7 +38,7 @@ class LinkList extends React.Component {
             checked={this.state.selectedOption === 'option1'}
             onChange={this.handleOptionChange}
           />
-          Option 1
+          details list
         </label>
         <label>
           <input
@@ -48,7 +47,7 @@ class LinkList extends React.Component {
             checked={this.state.selectedOption === 'option2'}
             onChange={this.handleOptionChange}
           />
-          Option 2
+          list
         </label>
         <label>
           <input
@@ -59,7 +58,8 @@ class LinkList extends React.Component {
           />
           Option 3
         </label>
-      <p>Selected Option: {this.state.selectedOption}</p>
+      {/* <p>Selected Option: {this.state.selectedOption}</p> */}
+      </div>
  </div>
 
       </div>

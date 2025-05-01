@@ -7,6 +7,14 @@
   padding: $s-size $m-size;
 }
 
+.list-header__flex {
+  
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+
 .list-body {
   margin-bottom: $m-size;
   @media (min-width: $desktop-breakpoint) {

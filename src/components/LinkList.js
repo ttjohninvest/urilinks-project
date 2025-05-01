@@ -5,6 +5,7 @@ import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
 import selectLinks from "../selectors/links";
 
+
 class LinkList extends React.Component {
   constructor(props) {
     super(props);
@@ -51,7 +52,7 @@ class LinkList extends React.Component {
         Option 2
       </label>
       <p>Selected value: {this.state.selectedValue}</p>
-    </div>
+ </div>
 
       </div>
     </div>

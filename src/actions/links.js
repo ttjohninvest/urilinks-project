@@ -83,7 +83,7 @@ export const startSetLinks = () => {
       .then((snapshot) => {
         
         const links = [];
-
+console.log("snapshot")
         snapshot.forEach((childSnapshot) => {
           links.push({
             id: childSnapshot.key,

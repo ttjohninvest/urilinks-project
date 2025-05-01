@@ -1,11 +1,9 @@
 import React from "react";
 
 const LinkListItem2 = ({ id, description, Url, note, amount, createdAt }) => (
-  <div className="border-bottom-1-">
-    <div className="border-blue-">
-      <div className="list-item__flex border-green-">
-        <div className="border-orange-">
-          <h3 className="">
+  
+      <div className="list-item__flex border-green">
+          <div className="">
             <a
               className="nounderline text-size-1"
               href={Url}
@@ -14,11 +12,9 @@ const LinkListItem2 = ({ id, description, Url, note, amount, createdAt }) => (
             >
               {description}
             </a>
-          </h3>
-        </div>
+          </div>
       </div>
-    </div>
-  </div>
+  
 );
 
 export default LinkListItem2;

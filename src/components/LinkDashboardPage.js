@@ -9,7 +9,7 @@ const LinkDashboardPage = () => (
     
     <LinksSummary />
     
-    <LinkList displayFormat={1}/>
+    <LinkList />
   </div>
 );
 

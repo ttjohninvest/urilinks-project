@@ -8,12 +8,9 @@
 }
 
 .list-header__flex {
-  
   display: flex;
   justify-content: space-between;
-  
 }
-
 
 .list-body {
   margin-bottom: $m-size;
@@ -23,7 +20,6 @@
 }
 
 .list-body-2 {
-  margin-bottom:3rem;
   margin-bottom: $m-size;
   @media (min-width: $desktop-breakpoint) {
     margin-bottom: $l-size;
@@ -126,5 +122,5 @@
 }
 
 .margin-left-1 {
-  margin-left:1rem;
+  margin-left: 1rem;
 }

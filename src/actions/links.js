@@ -83,7 +83,7 @@ export const startSetLinks = () => {
       .then((snapshot) => {
         
         const links = [];
-console.log("snapshot")
+
         snapshot.forEach((childSnapshot) => {
           links.push({
             id: childSnapshot.key,
@@ -92,7 +92,7 @@ console.log("snapshot")
         });
         console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links));
-      });
+      }).catch(error=>console.log("error="+error));
   };
-  
+
 };

@@ -22,23 +22,23 @@ class LinkList extends React.Component {
       <div className="show-for-desktop">Link(s)</div>
     </div>
     {this.state.displayFormat===1?<div className="list-body">
-      {props.links.length === 0 ? (
+      {this.props.links.length === 0 ? (
         <div className="list-item list-item--message">
           <span>No links</span>
         </div>
       ) : (
-        props.links.map((link) => {
+        this.props.links.map((link) => {
           return <LinkListItem key={link.id} {...link} />;
         })
       )}
     </div>
     :<div className="list-body-2">
-      {props.links.length === 0 ? (
+      {this.props.links.length === 0 ? (
         <div className="list-item list-item--message">
           <span>No links</span>
         </div>
       ) : (
-        props.links.map((link) => {
+        this.props.links.map((link) => {
           return <LinkListItem2 key={link.id} {...link} />;
         })
       )}

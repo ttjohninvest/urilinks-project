@@ -12,7 +12,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
             <a
               className="nounderline text-size-1"
               href={Url}
-              target="_blank"
+              target="_self"
               title={Url}
             >
               {description}

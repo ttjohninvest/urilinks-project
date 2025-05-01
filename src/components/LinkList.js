@@ -5,8 +5,9 @@ import LinkListItem2 from "./LinkListItem2";
 import selectLinks from "../selectors/links";
 
 export const LinkList = (props) => {
+
   const [displayFormat, setDisplayFormat] = useState(1);
-  
+  setDisplayFormat(1)
   
   return (<div className="content-container">
     <div className="list-header">

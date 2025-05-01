@@ -64,7 +64,7 @@ class LinkList extends React.Component {
 
       </div>
     </div>
-    {this.state.displayFormat===1?<div className="list-body">
+    {this.state.selectedOption==='option1'?<div className="list-body">
       {this.props.links.length === 0 ? (
         <div className="list-item list-item--message">
           <span>No links</span>

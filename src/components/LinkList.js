@@ -10,7 +10,7 @@ export const LinkList = (props) => (
       <div className="show-for-desktop">Link(s)</div>
       {/* <div className="show-for-desktop">Amount</div> */}
     </div>
-    <div className="list-body">
+    {false?<div className="list-body">
       {props.links.length === 0 ? (
         <div className="list-item list-item--message">
           <span>No links</span>
@@ -21,6 +21,17 @@ export const LinkList = (props) => (
         })
       )}
     </div>
+    :<div className="list-body-2">
+      {props.links.length === 0 ? (
+        <div className="list-item list-item--message">
+          <span>No links</span>
+        </div>
+      ) : (
+        props.links.map((link) => {
+          return <LinkListItem2 key={link.id} {...link} />;
+        })
+      )}
+    </div>}
   </div>
 );
 

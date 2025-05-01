@@ -11,7 +11,7 @@ export const LinkList = (props) => (
       <div className="show-for-desktop">Link(s)</div>
       {/* <div className="show-for-desktop">Amount</div> */}
     </div>
-    {false?<div className="list-body">
+    {props.displayFormat===1?<div className="list-body">
       {props.links.length === 0 ? (
         <div className="list-item list-item--message">
           <span>No links</span>

@@ -16,7 +16,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         .toLowerCase()
         .includes(text.toLowerCase());
 console.log(startDateMatch,",",endDateMatch,",",isTextIn)
-      return true// && endDateMatch && isTextIn;
+      return true; // && endDateMatch && isTextIn;
       //return isTextIn;
     })
     // .sort((a, b) => {
@@ -27,7 +27,7 @@ console.log(startDateMatch,",",endDateMatch,",",isTextIn)
     //       ? 1
     //       : -1;
     //   }
-    });
+    //});
 };
 
 export default getFilteredLinksArray;

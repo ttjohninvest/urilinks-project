@@ -52,7 +52,7 @@ export class LinkListFilters extends React.Component {
               title="Sort By"
             >
               <option value="date">Date</option>
-              <option value="description">Uri Link Text</option>
+              <option value="description">Uri/Url Link Text</option>
             </select>
           </div>
           <div className="input-group__item select-filters">

@@ -77,7 +77,7 @@ export default class LinkForm extends React.Component {
         />
         <input
           type="text"
-          placeholder="Uri Link, example: https://gmail.com"
+          placeholder="Uri/Url Link, example: https://gmail.com"
           className="text-input"
           value={this.state.Url}
           onChange={this.onUrlChange}

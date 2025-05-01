@@ -6,7 +6,7 @@ import selectLinks from "../selectors/links";
 import selectLinksTotal from "../selectors/links-total";
 
 export const LinksSummary = ({ linkCount, linksTotal }) => {
-  const linkWord = linkCount === 1 ? "Uri Link" : "Uri Links";
+  const linkWord = linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(linksTotal / 100).format("$0,0.00");
 
   return (

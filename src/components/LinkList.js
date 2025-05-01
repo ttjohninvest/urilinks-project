@@ -59,7 +59,7 @@ class LinkList extends React.Component {
           />
           Option 3
         </label>
-      <p>Selected value: {this.state.selectedValue}</p>
+      <p>Selected Option: {this.state.selectedOption}</p>
  </div>
 
       </div>

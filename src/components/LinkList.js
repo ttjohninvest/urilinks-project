@@ -17,13 +17,11 @@ class LinkList extends React.Component {
   }
 
   handleRadioChange = (event) => {
-    this.setState(()=>
-      {
-        selectedValue: event.target.value;
-      }
-    )
-  };
-
+  this.setState(prevState => ({
+    selectedValue: event.target.value
+  }));
+  }
+  
   render() {
     return (
       <div className="content-container">
@@ -49,7 +47,7 @@ class LinkList extends React.Component {
         />
         Option 2
       </label>
-      <p>Selected value: {selectedValue}</p>
+      <p>Selected value: {this.state.selectedValue}</p>
     </div>
 
       </div>

@@ -16,7 +16,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
       const isTextIn = link && link.description && text && link.description
         .toLowerCase()
         .includes(text.toLowerCase());
-//console.log(startDateMatch,",",endDateMatch,",",isTextIn)
+console.log(startDateMatch,",",endDateMatch,",",isTextIn)
       return startDateMatch && endDateMatch && isTextIn;
       
     })

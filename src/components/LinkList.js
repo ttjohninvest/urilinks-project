@@ -14,7 +14,7 @@ class LinkList extends React.Component {
       selectedOption: 'option1'
     };
 
-    this.handleRadioChange = this.handleRadioChange.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this);
   }
 
   

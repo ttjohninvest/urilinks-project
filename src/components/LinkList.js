@@ -11,20 +11,19 @@ class LinkList extends React.Component {
     super(props);
     this.state = {
       displayFormat: 1,
-      selectedValue: 'option1'
+      selectedOption: 'option1'
     };
 
     this.handleRadioChange = this.handleRadioChange.bind(this);
   }
 
   
-
   handleRadioChange = (event) => {
-    console.log(event.target)
-  this.setState(prevState => ({
-    selectedValue: event.target.value
-  }));
-  }
+    this.setState({
+      selectedOption: event.target.value
+    });
+    }
+ 
   
   render() {
     return (
@@ -34,23 +33,32 @@ class LinkList extends React.Component {
 
       <div>
       <label>
-        <input
-          type="radio"
-          value="option1"
-          checked={this.state.selectedValue === "option1"}
-          onChange={this.handleRadioChange}
-        />
-        Option 1
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="option2"
-          checked={this.state.selectedValue === "option2"}
-          onChange={this.handleRadioChange}
-        />
-        Option 2
-      </label>
+          <input
+            type="radio"
+            value="option1"
+            checked={this.state.selectedOption === 'option1'}
+            onChange={this.handleOptionChange}
+          />
+          Option 1
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="option2"
+            checked={this.state.selectedOption === 'option2'}
+            onChange={this.handleOptionChange}
+          />
+          Option 2
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="option3"
+            checked={this.state.selectedOption === 'option3'}
+            onChange={this.handleOptionChange}
+          />
+          Option 3
+        </label>
       <p>Selected value: {this.state.selectedValue}</p>
  </div>
 

@@ -4,21 +4,21 @@ import moment from "moment";
 
 //links is an incomming array that was filled from the database
 const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
-  console.log("links="+JSON.stringify(links))
+  //console.log("links="+JSON.stringify(links))
   return links.filter((link) => {
-//       const createdAtMoment = moment(link.createdAt);
-//       const startDateMatch = startDate
-//         ? startDate.isSameOrBefore(createdAtMoment, "day")
-//         : true;
-//       const endDateMatch = endDate
-//         ? endDate.isSameOrAfter(createdAtMoment, "day")
-//         : true;
-//       const isTextIn = link.description
-//         .toLowerCase()
-//         .includes(text.toLowerCase());
-// console.log(startDateMatch,",",endDateMatch,",",isTextIn)
-      return true; // && endDateMatch && isTextIn;
-      //return isTextIn;
+      const createdAtMoment = moment(link.createdAt);
+      const startDateMatch = startDate
+        ? startDate.isSameOrBefore(createdAtMoment, "day")
+        : true;
+      const endDateMatch = endDate
+        ? endDate.isSameOrAfter(createdAtMoment, "day")
+        : true;
+      const isTextIn = link.description
+        .toLowerCase()
+        .includes(text.toLowerCase());
+//console.log(startDateMatch,",",endDateMatch,",",isTextIn)
+      return startDateMatch && endDateMatch && isTextIn;
+      
     })
     // .sort((a, b) => {
     //   if (sortBy === "date") {

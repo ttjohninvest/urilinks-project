@@ -67,7 +67,7 @@ export default class LinkForm extends React.Component {
         {this.state.error && <p className="form__error">{this.state.error}</p>}
         <input
           type="text"
-          placeholder="Uri Link Text, example: gmail"
+          placeholder="Uri/Url Link Text, example: gmail"
           autoFocus
           className="text-input"
           value={this.state.description}
@@ -98,7 +98,7 @@ export default class LinkForm extends React.Component {
           isOutsideRange={() => false}
         />
         <textarea
-          placeholder="Add a note for your uri link (optional)"
+          placeholder="Add a note for your uri/url link (optional)"
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}

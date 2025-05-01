@@ -21,7 +21,7 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
         </h1> */}
         <div className="page-header__actions">
           <Link className="button" to="/create">
-            Add Url Link
+            Add Uri/Url Link
           </Link>
         </div>
       </div>

@@ -105,7 +105,7 @@ export default class LinkForm extends React.Component {
           maxlength="255"
         ></textarea>
         <div>
-          <button className="button">Save Url Link</button>
+          <button className="button">Save Uri/Url Link</button>
         </div>
       </form>
     );

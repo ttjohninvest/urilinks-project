@@ -13,11 +13,13 @@ class LinkList extends React.Component {
       selectedValue: 'option1'
     };
 
-    //this.handleClick = this.handleClick.bind(this);
+    this.handleRadioChange = this.handleRadioChange.bind(this);
   }
 
+  
+
   handleRadioChange = (event) => {
-    console.log(event.target.value)
+    console.log(event.target)
   this.setState(prevState => ({
     selectedValue: event.target.value
   }));

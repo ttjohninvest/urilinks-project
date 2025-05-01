@@ -5,16 +5,21 @@ import numeral from "numeral";
 
 const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
   <div className="border-bottom-1">
-    <div className="bg-blue-">
-      <div className="list-item__flex bg-green-">
-        <div className="bg-orange-">
+    <div className="border-blue-">
+      <div className="list-item__flex border-green-">
+        <div className="border-orange-">
           <h3 className="">
-            <a className="nounderline text-size-1" href={Url} target="_blank" title={Url}>
+            <a
+              className="nounderline text-size-1"
+              href={Url}
+              target="_blank"
+              title={Url}
+            >
               {description}
             </a>
           </h3>
         </div>
-        <div className="bg-orange-">
+        <div className="border-orange-">
           <h3 className="">
             <Link className="nounderline text-size-2" to={`/edit/${id}`}>
               <div>
@@ -35,8 +40,8 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
 
 // const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
 //   <div>
-//     <div className="list-item__flex__column bg-blue">
-//       <div className="list-item__flex bg-green">
+//     <div className="list-item__flex__column border-blue">
+//       <div className="list-item__flex border-green">
 //         <div className="bg-corange">
 //           <h3 className="list-item__title-">
 //             <a href={Url} target="_blank" title="Uri Link Text">

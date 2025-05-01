@@ -29,7 +29,7 @@
   flex-direction: column;
   padding: $s-size;
   text-decoration: none;
-  transition: background .3s ease;
+  transition: background 0.3s ease;
   &:hover {
     background: $off-white;
   }
@@ -74,27 +74,25 @@
 }
 
 .list-item__flex {
-  
   display: flex;
   justify-content: space-between;
   /*padding: $s-size $m-size;*/
 }
 
 .list-item__flex__column {
-  
   display: flex;
   flex-direction: column;
 }
 
-.bg-orange {
+.border-orange {
   border: 2px solid orange;
-  }
+}
 
-.bg-green {
+.border-green {
   border: 2px solid green;
 }
 
-.bg-blue {
+.border-blue {
   border: 2px solid blue;
 }
 

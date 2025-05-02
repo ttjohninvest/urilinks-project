@@ -36,7 +36,7 @@ export const LinkList = (props) => {
   return (
       <div className="content-container">
         <div className="list-header list-header__flex- border-green-">
-          <div className="show-for-desktop">Uri/Url Link(s)</div>
+          <div className="show-for-desktop">Uri/Url Link(s){selectedOption}</div>
           <div className="list-header__flex">
                 <div>
                   <label className="inline-block__flex">

@@ -9,7 +9,7 @@ const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1")
 
   const handleOptionChange = (event) => {
-    
+    console.log("handleOptionChange")
       setSelectedOption(event.target.value)
     
   };

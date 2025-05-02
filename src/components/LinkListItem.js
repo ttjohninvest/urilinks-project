@@ -7,6 +7,7 @@ import numeral from "numeral";
   class LinkListItem extends React.Component {
     
     constructor(props) {
+        const myRef = useRef(null);
       super(props);
       // this.state = {
       //   displayFormat: 1,
@@ -14,7 +15,29 @@ import numeral from "numeral";
       // };
   
       //this.handleOptionChange = this.handleOptionChange.bind(this);
+
+      
+
+      useEffect(() => {
+        const handleClick = (event) => {
+          console.log('Clicked!');
+        };
+    
+        const element = myRef.current;
+    
+        if (element) {
+          element.addEventListener('click', handleClick);
+    
+          // Cleanup function to remove the event listener
+          return () => {
+            element.removeEventListener('click', handleClick);
+          };
+        }
+      }, []); // Empty dependency array ensures this runs only on mount and unmount
+
     }
+
+    
 
     
 
@@ -31,7 +54,7 @@ import numeral from "numeral";
           <div className="border-orange-">
             <h3 className="">
               <a
-                //ref={myRef}
+                ref={myRef}
                 className="nounderline text-size-1"
                 href={this.props.Url}
                 target="_self"

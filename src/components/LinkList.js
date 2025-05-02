@@ -31,8 +31,11 @@ export const LinkList = (props) => {
   },[])
 
 
- 
+ return(<div>{selectedOption}</div>)
 
+  
+};
+{/*
   return (
       <div className="content-container">
         <div className="list-header list-header__flex- border-green-">
@@ -97,8 +100,7 @@ export const LinkList = (props) => {
         )}
       </div>
     );
-};
-
+  */}
 const mapStateToProps = (state) => {
   return {
     links: selectLinks(state.links, state.filters),

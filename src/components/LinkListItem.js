@@ -21,7 +21,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => (
         </div>
         <div className="border-orange-">
           <h3 className="">
-            <Link className="nounderline text-size-2" to={`/edit/${id}`}>
+            <Link className="nounderline text-size-2-" to={`/edit/${id}`}>
               <div>
                 <h3 className="">edit or remove</h3>
               </div>

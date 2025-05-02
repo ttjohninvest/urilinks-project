@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
 import LinksSummary from "./LinksSummary";
 
-const LinkDashboardPage = () => (
-  <div>
-    <LinksSummary />
-    <LinkListFilters />
-    <LinkList />
-  </div>
-);
+const LinkDashboardPage = () => {
+  useEffect(() => {
+    const handlePopstate = (event) => {
+      console.log("popstate")
+      let scrollPosition = window.localStorage.getItem("scrollPosition");
+      if (scrollPosition !== null) {
+        window.scrollTo(0, parseInt(scrollPosition));
+      }
+    };
+
+    window.addEventListener("popstate", handlePopstate);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopstate);
+    };
+  }, []);
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+  return (
+    <div>
+      <LinksSummary />
+      <LinkListFilters />
+      <LinkList />
+    </div>
+  );
+};
 
 export default LinkDashboardPage;

@@ -8,26 +8,7 @@ import selectLinks from "../selectors/links";
 const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1")
 
-  useEffect(() => {
-    const handlePopstate = (event) => {
-      let scrollPosition = window.localStorage.getItem("scrollPosition");
-      if (scrollPosition !== null) {
-        window.scrollTo(0, parseInt(scrollPosition));
-      }
-    };
-
-    window.addEventListener("popstate", handlePopstate);
-
-    return () => {
-      window.removeEventListener("popstate", handlePopstate);
-    };
-  }, []);
-
-  const handleOptionChange = (event) => {
-    
-      setSelectedOption(event.target.value)
  
-  };
 
   
     return (

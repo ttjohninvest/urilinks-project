@@ -40,7 +40,7 @@ export const LinkList = (props) => {
                       className="the-inline-block"
                       type="radio"
                       value="option1"
-                      checked={props.selectedOption === "option1"}
+                      checked={selectedOption === "option1"}
                       onChange={handleOptionChange}
                     />
                     <span className="the-inline-block label-text label-text-right">links list with details</span>
@@ -53,7 +53,7 @@ export const LinkList = (props) => {
                       className="the-inline-block"
                       type="radio"
                       value="option2"
-                      checked={props.selectedOption === "option2"}
+                      checked={selectedOption === "option2"}
                       onChange={handleOptionChange}
                     />
                     <span className="the-inline-block label-text">links list with out details</span>

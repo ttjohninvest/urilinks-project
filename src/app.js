@@ -20,21 +20,7 @@ const jsx = (
 );
 let hasRendered = false;
 const renderApp = () => {
-   useEffect(() => {
-      const handlePopstate = (event) => {
-        console.log("popstate")
-        let scrollPosition = window.localStorage.getItem("scrollPosition");
-        if (scrollPosition !== null) {
-          window.scrollTo(0, parseInt(scrollPosition));
-        }
-      };
   
-      window.addEventListener("popstate", handlePopstate);
-  
-      return () => {
-        window.removeEventListener("popstate", handlePopstate);
-      };
-    }, []);
 console.log("about to render the app")
   if (!hasRendered) {
     ReactDOM.render(jsx, document.getElementById('app'));

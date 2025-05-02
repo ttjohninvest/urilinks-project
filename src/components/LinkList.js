@@ -24,7 +24,7 @@ class LinkList extends React.Component {
   render() {
     return (
       <div className="content-container">
-        <div className="list-header list-header__flex- border-green">
+        <div className="list-header list-header__flex- border-green-">
           <div className="show-for-desktop">Uri/Url Link(s)</div>
           <div className="list-header__flex">
                 <div>
@@ -58,7 +58,7 @@ class LinkList extends React.Component {
         
         
         {this.state.selectedOption === "option1" ? (
-          <div className="list-body border-green">
+          <div className="list-body border-green-">
             {this.props.links.length === 0 ? (
               <div className="list-item list-item--message">
                 <span>No links</span>

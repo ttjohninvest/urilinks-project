@@ -87,7 +87,8 @@ export const LinkList = (props) => {
                 return <LinkListItem2 key={link.id} {...link} />;
               })
             )}
-
+            </div>)}
+              
 
 
 

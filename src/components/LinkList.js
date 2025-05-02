@@ -92,6 +92,7 @@
 import React,{useState} from "react";
 import { connect } from "react-redux";
 import LinkListItem from "./LinkListItem";
+import LinkListItem2 from "./LinkListItem2";
 import selectLinks from "../selectors/links";
 ////
 export const LinkList = (props) => {

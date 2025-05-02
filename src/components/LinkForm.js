@@ -44,6 +44,7 @@ export default class LinkForm extends React.Component {
     this.setState(() => ({ calendarFocused: focused }));
   };
   onSubmit = (e) => {
+    console.log("onSubmit")
     e.preventDefault();
 
     if (!this.state.description || !this.state.Url || !this.state.amount) {

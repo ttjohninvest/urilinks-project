@@ -63,7 +63,7 @@ export const LinkList = (props) => {
                 
               </div>
 
-
+{/* 
               {selectedOption === "option1" ? (
           <div className="list-body border-green-">
             {props.links.length === 0 ? (
@@ -88,7 +88,7 @@ export const LinkList = (props) => {
               })
             )}
             </div>)}
-              
+               */}
 
 
 

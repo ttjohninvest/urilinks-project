@@ -26,7 +26,7 @@ class LinkList extends React.Component {
       <div className="content-container">
         <div className="list-header list-header__flex-">
           <div className="show-for-desktop">Uri/Url Link(s)</div>
-          {/* <div className="list-header__flex">
+          <div className="list-header__flex">
                 <div>
                   <label>
                     <input
@@ -51,7 +51,7 @@ class LinkList extends React.Component {
                 </div>
               
                 
-              </div> */}
+              </div>
         </div>
         
         

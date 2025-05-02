@@ -36,7 +36,7 @@ class LinkList extends React.Component {
                       checked={this.state.selectedOption === "option1"}
                       onChange={this.handleOptionChange}
                     />
-                    <span className="the-inline-block">links list with details</span>
+                    <span className="the-inline-block label-text">links list with details</span>
                   </label>
                 </div>
                 <div className="margin-left-1">
@@ -48,7 +48,7 @@ class LinkList extends React.Component {
                       checked={this.state.selectedOption === "option2"}
                       onChange={this.handleOptionChange}
                     />
-                    <span className="the-inline-block">links list with out details</span>
+                    <span className="the-inline-block label-text">links list with out details</span>
                   </label>
                 </div>
               

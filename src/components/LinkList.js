@@ -8,10 +8,13 @@ import selectLinks from "../selectors/links";
 const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1")
 
- 
+  const handleOptionChange = (event) => {
+    
+      setSelectedOption(event.target.value)
+    
+  };
 
-  
-    return (
+  return (
       <div className="content-container">
         <div className="list-header list-header__flex- border-green-">
           <div className="show-for-desktop">Uri/Url Link(s)</div>

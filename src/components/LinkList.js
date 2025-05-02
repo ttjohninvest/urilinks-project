@@ -26,7 +26,7 @@ class LinkList extends React.Component {
       <div className="content-container">
         <div className="list-header list-header__flex-">
           <div className="show-for-desktop">Uri/Url Link(s)</div>
-          <div className="list-header__flex-">
+          <div className="list-header__flex">
                 <div>
                   <label>
                     <input
@@ -35,7 +35,7 @@ class LinkList extends React.Component {
                       checked={this.state.selectedOption === "option1"}
                       onChange={this.handleOptionChange}
                     />
-                    <div className="margin-left-1- text-size-3">links list with details</div>
+                    <span className="margin-left-1- text-size-3">links list with details</span>
                   </label>
                 </div>
                 <div className="margin-left-1">

@@ -11,7 +11,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
       console.log("Clicked!");
       //if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
         window.localStorage.setItem('scrollPosition', window.scrollY);
-    //};
+    };
 
     const element = myRef.current;
 

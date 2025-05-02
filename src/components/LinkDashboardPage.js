@@ -20,10 +20,7 @@ const LinkDashboardPage = () => {
     };
   }, []);
 
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
+ 
   return (
     <div>
       <LinksSummary />

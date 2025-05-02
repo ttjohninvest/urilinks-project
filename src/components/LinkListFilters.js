@@ -33,7 +33,7 @@ export class LinkListFilters extends React.Component {
   };
   render() {
     return (
-      <div className="content-container- border-green">
+      <div className="content-container border-green">
         <div className="input-group">
           <div className="input-group__item">
             <input

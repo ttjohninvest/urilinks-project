@@ -64,7 +64,7 @@ export const LinkList = (props) => {
               </div>
 
 
-              {props.selectedOption === "option1" ? (
+              {selectedOption === "option1" ? (
           <div className="list-body border-green-">
             {props.links.length === 0 ? (
               <div className="list-item list-item--message">

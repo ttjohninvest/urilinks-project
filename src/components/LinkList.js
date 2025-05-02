@@ -70,7 +70,7 @@ class LinkList extends React.Component {
             )}
           </div>
         ) : (
-          <div className="list-body-2">
+          <div className="list-body-2 margin-top-1">
             {this.props.links.length === 0 ? (
               <div className="list-item list-item--message">
                 <span>No links</span>

@@ -24,7 +24,7 @@ class LinkList extends React.Component {
   render() {
     return (
       <div className="content-container">
-        <div className="list-header list-header__flex-">
+        <div className="list-header list-header__flex- border-green">
           <div className="show-for-desktop">Uri/Url Link(s)</div>
           <div className="list-header__flex">
                 <div>

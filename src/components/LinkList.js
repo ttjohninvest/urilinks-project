@@ -31,139 +31,74 @@ export const LinkList = (props) => {
   },[])
 
 
- return(<div>
-   <div className="list-header__flex">
-                <div>
-                  <label className="inline-block__flex">
-                    <input
-                      ref={myRef}
-                      className="the-inline-block"
-                      type="radio"
-                      value="option1"
-                      checked={selectedOption === "option1"}
-                      onChange={handleOptionChange}
-                    />
-                    <span className="the-inline-block label-text label-text-right">links list with details</span>
-                  </label>
-                </div>
-                <div className="margin-left-1">
-                  <label className="inline-block__flex">
-                    <input
-                      ref={myRef}
-                      className="the-inline-block"
-                      type="radio"
-                      value="option2"
-                      checked={selectedOption === "option2"}
-                      onChange={handleOptionChange}
-                    />
-                    <span className="the-inline-block label-text">links list with out details</span>
-                  </label>
-                </div>
+  return (
+    <div className="content-container">
+      <div className="list-header list-header__flex- border-green-">
+        <div className="show-for-desktop">Uri/Url Link(s)</div>
+        <div className="list-header__flex">
+              <div>
+                <label className="inline-block__flex">
+                  <input
+                    ref={myRef}
+                    className="the-inline-block"
+                    type="radio"
+                    value="option1"
+                    checked={selectedOption === "option1"}
+                    onChange={handleOptionChange}
+                  />
+                  <span className="the-inline-block label-text label-text-right">links list with details</span>
+                </label>
+              </div>
+              <div className="margin-left-1">
+                <label className="inline-block__flex">
+                  <input
+                    ref={myRef}
+                    className="the-inline-block"
+                    type="radio"
+                    value="option2"
+                    checked={selectedOption === "option2"}
+                    onChange={handleOptionChange}
+                  />
+                  <span className="the-inline-block label-text">links list with out details</span>
+                </label>
+              </div>
+            
               
-                
-              </div>
-
-{/* 
-              {selectedOption === "option1" ? (
-          <div className="list-body border-green-">
-            {props.links.length === 0 ? (
-              <div className="list-item list-item--message">
-                <span>No links</span>
-              </div>
-            ) : (
-              props.links.map((link) => {
-                return <LinkListItem key={link.id} {...link} />;
-              })
-            )}
-          </div>
-        ) : (
-          <div className="list-body-2 margin-top-1">
-            {props.links.length === 0 ? (
-              <div className="list-item list-item--message">
-                <span>No links</span>
-              </div>
-            ) : (
-              props.links.map((link) => {
-                return <LinkListItem2 key={link.id} {...link} />;
-              })
-            )}
-            </div>)}
-               */}
-
-
-
-
-
- </div>)
+            </div>
+      </div>
+      
+      
+      {selectedOption === "option1" ? (
+        <div className="list-body border-green-">
+          {props.links.length === 0 ? (
+            <div className="list-item list-item--message">
+              <span>No links</span>
+            </div>
+          ) : (
+            props.links.map((link) => {
+              return <LinkListItem key={link.id} {...link} />;
+            })
+          )}
+        </div>
+      ) : (
+        <div className="list-body-2 margin-top-1">
+          {props.links.length === 0 ? (
+            <div className="list-item list-item--message">
+              <span>No links</span>
+            </div>
+          ) : (
+            props.links.map((link) => {
+              return <LinkListItem2 key={link.id} {...link} />;
+            })
+          )}
+        </div>
+      )}
+    </div>
+  );
 
   
 };
-{/*
-  return (
-      <div className="content-container">
-        <div className="list-header list-header__flex- border-green-">
-          <div className="show-for-desktop">Uri/Url Link(s){selectedOption}</div>
-          <div className="list-header__flex">
-                <div>
-                  <label className="inline-block__flex">
-                    <input
-                      ref={myRef}
-                      className="the-inline-block"
-                      type="radio"
-                      value="option1"
-                      checked={props.selectedOption === "option1"}
-                      onChange={handleOptionChange}
-                    />
-                    <span className="the-inline-block label-text label-text-right">links list with details</span>
-                  </label>
-                </div>
-                <div className="margin-left-1">
-                  <label className="inline-block__flex">
-                    <input
-                      ref={myRef}
-                      className="the-inline-block"
-                      type="radio"
-                      value="option2"
-                      checked={props.selectedOption === "option2"}
-                      onChange={handleOptionChange}
-                    />
-                    <span className="the-inline-block label-text">links list with out details</span>
-                  </label>
-                </div>
-              
-                
-              </div>
-        </div>
-        
-        
-        {props.selectedOption === "option1" ? (
-          <div className="list-body border-green-">
-            {props.links.length === 0 ? (
-              <div className="list-item list-item--message">
-                <span>No links</span>
-              </div>
-            ) : (
-              props.links.map((link) => {
-                return <LinkListItem key={link.id} {...link} />;
-              })
-            )}
-          </div>
-        ) : (
-          <div className="list-body-2 margin-top-1">
-            {props.links.length === 0 ? (
-              <div className="list-item list-item--message">
-                <span>No links</span>
-              </div>
-            ) : (
-              props.links.map((link) => {
-                return <LinkListItem2 key={link.id} {...link} />;
-              })
-            )}
-          </div>
-        )}
-      </div>
-    );
-  */}
+
 const mapStateToProps = (state) => {
   return {
     links: selectLinks(state.links, state.filters),

@@ -11,7 +11,7 @@ export const LinkList = (props) => {
   const myRef = useRef()
 
   const handleOptionChange = (event) => {
-    console.log("handleOptionChange")
+    console.log("handleOptionChange, event.target.value="+event.target.value)
       setSelectedOption(event.target.value)
     
   };

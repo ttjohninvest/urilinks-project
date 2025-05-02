@@ -167,6 +167,13 @@ export const LinkList = (props) => {
     );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    links: selectLinks(state.links, state.filters),
+  };
+};
+
+
 export default connect(mapStateToProps)(LinkList);
 
 

@@ -10,13 +10,14 @@ export const LinkList = (props) => {
   
   const myRef = useRef()
 
-  useEffect(()=>{
-    const handleOptionChange = (event) => {
-      console.log("handleOptionChange")
-        setSelectedOption(event.target.value)
-      
-    };
+  const handleOptionChange = (event) => {
+    console.log("handleOptionChange")
+      setSelectedOption(event.target.value)
+    
+  };
 
+  useEffect(()=>{
+  
     const element = myRef.current;
 
     if (element) {

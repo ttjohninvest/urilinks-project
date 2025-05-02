@@ -55,7 +55,7 @@ export class LinkListFilters extends React.Component {
               <option value="description">Uri/Url Link Text</option>
             </select>
           </div>
-          <div className="input-group__item select-filters-">
+          <div className="input-group__item- select-filters">
             <DateRangePicker
               startDate={this.props.filters.startDate}
               endDate={this.props.filters.endDate}

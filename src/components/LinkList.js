@@ -28,25 +28,27 @@ class LinkList extends React.Component {
           <div className="show-for-desktop">Uri/Url Link(s)</div>
           <div className="list-header__flex">
                 <div>
-                  <label>
+                  <label className="inline-block__flex">
                     <input
+                      className="the-inline-block"
                       type="radio"
                       value="option1"
                       checked={this.state.selectedOption === "option1"}
                       onChange={this.handleOptionChange}
                     />
-                    <span className="margin-left-1- text-size-3">links list with details</span>
+                    <span className="the-inline-block">links list with details</span>
                   </label>
                 </div>
                 <div className="margin-left-1">
-                  <label>
+                  <label className="inline-block__flex">
                     <input
+                      className="the-inline-block"
                       type="radio"
                       value="option2"
                       checked={this.state.selectedOption === "option2"}
                       onChange={this.handleOptionChange}
                     />
-                    <div className="margin-left-1- text-size-3">links list with out details</div>
+                    <span className="the-inline-block">links list with out details</span>
                   </label>
                 </div>
               

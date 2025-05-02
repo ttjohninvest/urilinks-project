@@ -31,7 +31,38 @@ export const LinkList = (props) => {
   },[])
 
 
- return(<div>{selectedOption}</div>)
+ return(<div>{selectedOption}
+   <div className="list-header__flex">
+                <div>
+                  <label className="inline-block__flex">
+                    <input
+                      ref={myRef}
+                      className="the-inline-block"
+                      type="radio"
+                      value="option1"
+                      checked={props.selectedOption === "option1"}
+                      onChange={handleOptionChange}
+                    />
+                    <span className="the-inline-block label-text label-text-right">links list with details</span>
+                  </label>
+                </div>
+                <div className="margin-left-1">
+                  <label className="inline-block__flex">
+                    <input
+                      ref={myRef}
+                      className="the-inline-block"
+                      type="radio"
+                      value="option2"
+                      checked={props.selectedOption === "option2"}
+                      onChange={handleOptionChange}
+                    />
+                    <span className="the-inline-block label-text">links list with out details</span>
+                  </label>
+                </div>
+              
+                
+              </div>
+ </div>)
 
   
 };

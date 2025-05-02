@@ -26,6 +26,9 @@
   }
 }
 
+.list-body-3 {
+}
+
 .list-item {
   border: 1px solid darken($off-white, 7%);
   border-top: none;
@@ -124,3 +127,19 @@
 .margin-left-1 {
   margin-left: 1rem;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+

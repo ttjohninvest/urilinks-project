@@ -24,9 +24,9 @@ class LinkList extends React.Component {
   render() {
     return (
       <div className="content-container">
-        <div className="list-header list-header__flex">
+        <div className="list-header list-header__flex-">
           <div className="show-for-desktop">Uri/Url Link(s)</div>
-          <div className="list-header__flex">
+          {/* <div className="list-header__flex">
                 <div>
                   <label>
                     <input
@@ -49,19 +49,9 @@ class LinkList extends React.Component {
                     <div className="margin-left-1-">links list with out details</div>
                   </label>
                 </div>
-                {/* <div className="margin-left-1">
-                  <label>
-                    <input
-                      type="radio"
-                      value="option3"
-                      checked={this.state.selectedOption === "option3"}
-                      onChange={this.handleOptionChange}
-                    />
-                    Option 3
-                  </label>
-                </div> */}
+              
                 
-              </div>
+              </div> */}
         </div>
         
         

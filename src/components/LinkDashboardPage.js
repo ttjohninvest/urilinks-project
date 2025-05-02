@@ -7,7 +7,6 @@ const LinkDashboardPage = () => (
   <div>
     <LinksSummary />
     <LinkListFilters />
-
     <LinkList />
   </div>
 );

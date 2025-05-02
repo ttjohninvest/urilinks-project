@@ -53,7 +53,7 @@ import numeral from "numeral";
         </div>
   
         <div className="list-item__sub-title- padding-left-1 text-size-1">
-          Entered: {moment(createdAt).format("MMMM Do, YYYY")}
+          Entered: {moment(this.props.createdAt).format("MMMM Do, YYYY")}
         </div>
       </div>
       <h3 className="list-item__data  text-size-1 font-weight-1">{this.props.note}</h3>

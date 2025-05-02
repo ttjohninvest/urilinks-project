@@ -25,20 +25,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
     }
   }, []); // Empty dependency array ensures this runs only on mount and unmount
 
-  useEffect(() => {
-    const handlePopstate = (event) => {
-      let scrollPosition = window.localStorage.getItem("scrollPosition");
-      if (scrollPosition !== null) {
-        window.scrollTo(0, parseInt(scrollPosition));
-      }
-    };
-
-    window.addEventListener("popstate", handlePopstate);
-
-    return () => {
-      window.removeEventListener("popstate", handlePopstate);
-    };
-  }, []);
+ 
 
   return (
     <div className="border-bottom-1">

@@ -31,7 +31,7 @@ export const LinkList = (props) => {
   },[])
 
 
- return(<div>{selectedOption}
+ return(<div>
    <div className="list-header__flex">
                 <div>
                   <label className="inline-block__flex">
@@ -62,6 +62,37 @@ export const LinkList = (props) => {
               
                 
               </div>
+
+
+              {props.selectedOption === "option1" ? (
+          <div className="list-body border-green-">
+            {props.links.length === 0 ? (
+              <div className="list-item list-item--message">
+                <span>No links</span>
+              </div>
+            ) : (
+              props.links.map((link) => {
+                return <LinkListItem key={link.id} {...link} />;
+              })
+            )}
+          </div>
+        ) : (
+          <div className="list-body-2 margin-top-1">
+            {props.links.length === 0 ? (
+              <div className="list-item list-item--message">
+                <span>No links</span>
+              </div>
+            ) : (
+              props.links.map((link) => {
+                return <LinkListItem2 key={link.id} {...link} />;
+              })
+            )}
+
+
+
+
+
+
  </div>)
 
   

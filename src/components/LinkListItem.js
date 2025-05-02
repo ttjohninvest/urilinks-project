@@ -9,9 +9,9 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
   useEffect(() => {
     const handleClick = (event) => {
       console.log("Clicked!");
-      if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
+      //if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
         window.localStorage.setItem('scrollPosition', window.scrollY);
-    };
+    //};
 
     const element = myRef.current;
 

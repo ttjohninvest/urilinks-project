@@ -10,7 +10,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
     const handleClick = (event) => {
       console.log("Clicked!");
       //if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
-        window.localStorage.setItem('scrollPosition', window.scrollY);
+      window.localStorage.setItem("scrollPosition", window.scrollY);
     };
 
     const element = myRef.current;
@@ -27,16 +27,16 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
 
   useEffect(() => {
     const handlePopstate = (event) => {
-        let scrollPosition = window.localStorage.getItem('scrollPosition');
-        if (scrollPosition !== null) {
-            window.scrollTo(0, parseInt(scrollPosition));
-        }
+      let scrollPosition = window.localStorage.getItem("scrollPosition");
+      if (scrollPosition !== null) {
+        window.scrollTo(0, parseInt(scrollPosition));
+      }
     };
 
-    window.addEventListener('popstate', handlePopstate);
+    window.addEventListener("popstate", handlePopstate);
 
     return () => {
-      window.removeEventListener('popstate', handlePopstate);
+      window.removeEventListener("popstate", handlePopstate);
     };
   }, []);
 
@@ -50,7 +50,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
                 ref={myRef}
                 className="nounderline text-size-1"
                 href={Url}
-                target="_blank"
+                target="_self"
                 title={Url}
               >
                 {description}
@@ -131,7 +131,7 @@ export default LinkListItem;
 //                 ref={myRef}
 //                 className="nounderline text-size-1"
 //                 href={this.props.Url}
-//                 target="_blank"
+//                 target="_self"
 //                 title={this.props.Url}
 //               >
 //                 {this.props.description}

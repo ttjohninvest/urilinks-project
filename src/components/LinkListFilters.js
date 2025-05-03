@@ -5,6 +5,7 @@ import {
   setTextFilter,
   sortByDate,
   sortByDescription,
+  sortByHashTag,
   setStartDate,
   setEndDate,
 } from "../actions/filters";
@@ -29,6 +30,8 @@ export class LinkListFilters extends React.Component {
       this.props.sortByDate();
     } else if (e.target.value === "description") {
       this.props.sortByDescription();
+    } else if (e.target.value === "hashtag") {
+      this.props.sortByHashTag();
     }
   };
   render() {
@@ -53,6 +56,7 @@ export class LinkListFilters extends React.Component {
             >
               <option value="date">Date</option>
               <option value="description">Uri/Url Link Text</option>
+              <option value="hashtag">Hash Tag</option>
             </select>
           </div>
           <div className="input-group__item- select-filters border-green-">

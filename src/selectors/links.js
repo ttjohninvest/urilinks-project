@@ -19,18 +19,33 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         ? endDate.isSameOrAfter(createdAtMoment, "day")
         : true;
       //const isTextIn = link && link.description && text && link.description
-      const isTextIn = link.description
-        .toLowerCase()
-        .includes(text.toLowerCase());
+     
+       let isTextIn, isTextInNote;
+       
+       if(sortBy==='description') {
+          isTextInDescription = link.description
+          .toLowerCase()
+          .includes(text.toLowerCase());
+          return startDateMatch && endDateMatch && isTextInDescription;
+        } else if(sortBy==='hashtag') { //the user entered a hash tag, for example #project1
+          isTextInNote = link.note
+          .toLowerCase()
+          .includes(text.toLowerCase());
+          return startDateMatch && endDateMatch && isTextInNote;
+        }
 //console.log(startDateMatch,",",endDateMatch,",",isTextIn)
-      return startDateMatch && endDateMatch && isTextIn;
+      
       
     })
     .sort((a, b) => {
       if (sortBy === "date") {
         return a.createdAt < b.createdAt ? 1 : -1;
       } else if (sortBy === "description") {
-        return removeHashTags(a.description.toLowerCase()) > removeHashTags(b.description.toLowerCase())
+        return a.description.toLowerCase() > b.description.toLowerCase()
+          ? 1
+          : -1;
+      } else if (sortBy === "hashtag") {
+        return removeHashTags(a.note.toLowerCase()) > removeHashTags(b.note.toLowerCase())
           ? 1
           : -1;
       }

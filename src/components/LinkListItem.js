@@ -28,7 +28,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
  
 
   return (
-    <div className="margin-bottom-1 rounded-tl-lg-1 rounded-tr-lg-1">
+    <div className="margin-bottom-1 rounded-tl-lg-1- rounded-tr-lg-1- padding-bottom-2">
       <div className="border-blue- card-background-color">
         <div className="list-item__flex border-green-">
           <div className="border-orange-">

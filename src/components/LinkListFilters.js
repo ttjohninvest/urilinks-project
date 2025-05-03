@@ -42,7 +42,7 @@ export class LinkListFilters extends React.Component {
             <input
               type="text"
               className="text-input text-input-filters"
-              placeholder={this.props.filters.sortBy==='date' || this.props.filters.sortBy==='description'?"Search Links":"Search Links"} //"Search links"
+              placeholder={this.props.filters.sortBy==='date'?"":"Search Links"} //"Search links"
               value={this.props.filters.text}
               onChange={this.onTextChange}
               title={this.props.filters.sortBy==='date'?"":this.props.filters.sortBy==='description'?"Search Links (Please enter link description to find)":"Search Links (Please enter Hash Tag to find)"}

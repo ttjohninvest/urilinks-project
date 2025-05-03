@@ -2,7 +2,7 @@ import React from "react";
 
 const LinkListItem2 = ({ id, description, Url, note, amount, createdAt }) => (
   <div className="list-item__flex">
-    <div className="">
+    <div className="card-background-color">
       <a
         className="nounderline text-size-1"
         href={Url}

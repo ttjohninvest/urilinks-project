@@ -29,7 +29,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
 
   return (
     <div className="border-bottom-1">
-      <div className="border-blue- card-background-color">
+      <div className="border-blue- card-background-color rounded-lg-1">
         <div className="list-item__flex border-green-">
           <div className="border-orange-">
             <h3 className="">
@@ -59,7 +59,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
           Entered: {moment(createdAt).format("MMMM Do, YYYY")}
         </div>
       </div>
-      <h3 className="list-item__data  text-size-1 font-weight-1">{note}</h3>
+      <h3 className="list-item__data  text-size-1 font-weight-1 card-background-color rounded-lg-1">{note}</h3>
     </div>
   );
 };

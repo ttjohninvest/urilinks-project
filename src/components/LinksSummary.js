@@ -15,10 +15,7 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
         <h1 className="page-header__title">
           Viewing <span>{linkCount}</span> {linkWord}
         </h1>
-        {/* <h1 className="page-header__title">
-          Viewing <span>{linkCount}</span> {linkWord} totalling{" "}
-          <span>{formattedLinksTotal}</span>
-        </h1> */}
+        
         <div className="page-header__actions">
           <Link className="button" to="/create">
             Add Uri/Url Link

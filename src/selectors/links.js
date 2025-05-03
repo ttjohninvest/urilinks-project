@@ -33,6 +33,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           .includes(text.toLowerCase());
           return startDateMatch && endDateMatch && isTextInNote;
         }
+        else return startDateMatch && endDateMatch;
 //console.log(startDateMatch,",",endDateMatch,",",isTextIn)
       
       

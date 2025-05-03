@@ -32,7 +32,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
       <div className="border-blue- card-background-color rounded-lg-1">
         <div className="list-item__flex border-green-">
           <div className="border-orange-">
-            <h3 className="">
+            <h3 className="padding-left-11">
               <a
                 ref={myRef}
                 className="nounderline text-size-1"
@@ -48,7 +48,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${id}`}>
                 <div>
-                  <h3 className="">edit or remove</h3>
+                  <h3  className="padding-right-11">edit or remove</h3>
                 </div>
               </Link>
             </h3>

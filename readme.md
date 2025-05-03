@@ -20,6 +20,8 @@ https://www.google.com/search?q=patreon+competitors&oq=patreon+compet&gs_lcrp=Eg
 gofundme competitors
 https://www.google.com/search?q=gofundme+competitors&oq=gofundme+competitors&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIICAEQABgWGB4yDQgCEAAYhgMYgAQYigUyDQgDEAAYhgMYgAQYigUyDQgEEAAYhgMYgAQYigUyBwgFEAAY7wUyCggGEAAYogQYiQUyCggHEAAYgAQYogTSAQg3Nzc4ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8
 
+princeton review
+
 https://www.youtube.com/watch?v=GuHN_ZqHExs a google authentication without firebase tutorial
 https://www.youtube.com/watch?v=5IZdrh1kHHw a google authentication with firebase tutorial
 https://www.youtube.com/watch?v=cZAnibwI9u8 a google authentication with firebase tutorial
@@ -109,3 +111,8 @@ I am on the free tier
 has my credit card information
 I added two CNAME records urilinks.com thawing-quail-m3horbg44ct9knee8wbpiw1g.herokudns.com
 and www.urilinks.com thawing-quail-m3horbg44ct9knee8wbpiw1g.herokudns.com
+
+keep a list of personal hashtag to group stuff together, example: project1, it is just missing the hash symbol
+limit the number of links per person to 1000
+use analytics when setting up firebase
+it will log in 100 users maximum by default

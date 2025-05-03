@@ -20,7 +20,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         : true;
       //const isTextIn = link && link.description && text && link.description
      
-       let isTextIn, isTextInNote;
+       let isTextInDescription, isTextInNote;
        
        if(sortBy==='description') {
           isTextInDescription = link.description

@@ -42,7 +42,7 @@ export class LinkListFilters extends React.Component {
             <input
               type="text"
               className="text-input text-input-filters"
-              placeholder="Search links"
+              placeholder={this.props.filters.text} //"Search links"
               value={this.props.filters.text}
               onChange={this.onTextChange}
             />

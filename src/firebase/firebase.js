@@ -1,4 +1,5 @@
 import * as firebase from "firebase";
+import { getAnalytics } from "firebase/analytics";
 /*
 'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
         'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
@@ -25,7 +26,8 @@ const config = {
 //   messagingSenderId: "754943560663",
 // };
 
-firebase.initializeApp(config);
+const app = firebase.initializeApp(config);
+const analytics = getAnalytics(app);
 
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();

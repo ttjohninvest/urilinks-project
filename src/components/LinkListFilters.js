@@ -45,7 +45,7 @@ export class LinkListFilters extends React.Component {
               placeholder={this.props.filters.sortBy==='date' || this.props.filters.sortBy==='description'?"Search Links":"Search Links"} //"Search links"
               value={this.props.filters.text}
               onChange={this.onTextChange}
-              title={this.props.filters.sortBy==='date' || this.props.filters.sortBy==='description'?"Search Links (Please enter link description to find)":"Search Links (Please enter Hash Tag to find)"}
+              title={this.props.filters.sortBy==='date'?"":this.props.filters.sortBy==='description'?"Search Links (Please enter link description to find)":"Search Links (Please enter Hash Tag to find)"}
             />
           </div>
           <div className="input-group__item">
@@ -53,7 +53,7 @@ export class LinkListFilters extends React.Component {
               className="select select-filters"
               value={this.props.filters.sortBy}
               onChange={this.onSortChange}
-              title="Date: Search By Date Range, Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
+              title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
             >
               <option value="date">Date</option>
               <option value="description">Link Text</option>

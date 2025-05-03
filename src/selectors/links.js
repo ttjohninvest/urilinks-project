@@ -6,7 +6,9 @@ import moment from "moment";
 const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   //console.log("links="+JSON.stringify(links))
   const removeHashTags=(text) => {
-    return text.replace(/#\S+/g, '').trim();
+    let str = text.replace(/#\S+/g, '').trim();
+    console.log("str="+str)
+    return str
   }
   return links.filter((link) => {
       const createdAtMoment = moment(link.createdAt);

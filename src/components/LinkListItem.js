@@ -28,8 +28,8 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
  
 
   return (
-    <div className="border-bottom-1- margin-bottom-1- margin-bottom-1">
-      <div className="border-blue- card-background-color rounded-tl-lg-1- rounded-tr-lg-1-">
+    <div className="border-bottom-1- margin-bottom-1- margin-bottom-1  rounded-tl-lg-1">
+      <div className="border-blue- card-background-color rounded-tr-lg-1-">
         <div className="list-item__flex border-green-">
           <div className="border-orange-">
             <h3 className="padding-left-11">

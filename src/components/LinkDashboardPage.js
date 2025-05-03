@@ -22,7 +22,7 @@ const LinkDashboardPage = () => {
   }, []);
  
   return (
-    <div>
+    <div className="website-background-color">
       <LinksSummary />
       <LinkListFilters />
       <LinkList />

@@ -55,9 +55,9 @@ export class LinkListFilters extends React.Component {
               onChange={this.onSortChange}
               title="Sort By"
             >
-              <option value="date">Date</option>
-              <option value="description">Uri/Url Link Text</option>
-              <option value="hashtag">Hash Tag</option>
+              <option value="date">Search By Date Range</option>
+              <option value="description">Search By Uri/Url Link Text</option>
+              <option value="hashtag">Search By Hash Tag</option>
             </select>
           </div>
           <div className="input-group__item- select-filters border-green-">

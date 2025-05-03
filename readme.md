@@ -116,3 +116,11 @@ keep a list of personal hashtag to group stuff together, example: project1, it i
 limit the number of links per person to 1000
 use analytics when setting up firebase
 it will log in 100 users maximum by default
+
+google analytics added to the website, check after 2:00 pm on May 5th for user data
+ google analytics for urilinks.com can only be accessed with johmcg64@gmail.com
+ firebase.google.com with johmcg64@gmail.com
+  this firebase account, see-my-index-project-7, is linked with my google analytics
+  the google analytics account for see-my-index-project-7 is called a property
+
+

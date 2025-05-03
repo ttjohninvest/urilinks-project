@@ -5,6 +5,9 @@ import moment from "moment";
 //links is an incomming array that was filled from the database
 const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   //console.log("links="+JSON.stringify(links))
+  const removeHashTags=(text) => {
+    return text.replace(/#\S+/g, '').trim();
+  }
   return links.filter((link) => {
       const createdAtMoment = moment(link.createdAt);
       const startDateMatch = startDate
@@ -25,7 +28,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
       if (sortBy === "date") {
         return a.createdAt < b.createdAt ? 1 : -1;
       } else if (sortBy === "description") {
-        return a.description.toLowerCase() > b.description.toLowerCase()
+        return removeHashTags(a.description.toLowerCase()) > removeHashTags(b.description.toLowerCase())
           ? 1
           : -1;
       }

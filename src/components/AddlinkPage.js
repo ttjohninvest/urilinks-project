@@ -20,7 +20,7 @@ export const AddLinkPage = (props) => {
                console.log("No user is currently logged in.");
             }
             const db = firebase.database();
-            const snapshot = await db.ref(`/${userId}/links`).once('value');
+            const snapshot = await db.ref(`/${user.uid}/links`).once('value');
             if (snapshot.exists()) {
               const data = snapshot.val();
               const count = Object.keys(data).length;

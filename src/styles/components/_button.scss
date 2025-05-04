@@ -33,3 +33,10 @@ a {
   display: inline-block;
   font-size: 1rem;
 }
+
+input[type="radio"]::before {
+  /* ...existing styles */
+
+  /* Windows High Contrast Mode */
+  background-color: $dark-blue;
+}

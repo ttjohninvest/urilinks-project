@@ -1,6 +1,5 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
-import { getAuth } from "firebase/auth";
 import firebase from 'firebase'
 
 // ADD_LINK

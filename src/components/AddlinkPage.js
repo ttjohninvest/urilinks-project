@@ -9,7 +9,7 @@ export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
   const [userId, setUserId] = useState('');
   const [maximumPage, setMaximumPage] = useState(false);
-  
+
   useEffect(() => {
 
        const fetchData = async () => {
@@ -54,19 +54,37 @@ const  onSubmit = (link) => {
 
      props.history.push("/");
   };
- 
-    return (
+
+  return (
+    <div>
+      {!maximumPage?
       <div>
-        {!maximumPage?<div className="page-header">
-          <div className="content-container">
-            <h1 className="page-header__title">Add Uri/Url Link</h1>
-          </div>
+      <div className="page-header">
+      <div className="content-container">
+          <h1 className="page-header__title">Add Uri/Url Link</h1>
         </div>
-        <div className="content-container">
-          <LinkForm onSubmit={onSubmit} />
-        </div>:<div>maximum</div>}
       </div>
-    );
+      <div className="content-container">
+        <LinkForm onSubmit={onSubmit} />
+      </div></div>:
+      
+      <div>maximum</div>}
+
+    </div>
+  );
+ 
+    // return (
+    //   <div>
+    //     {!maximumPage?<div className="page-header">
+    //     <div className="content-container">
+    //         <h1 className="page-header__title">Add Uri/Url Link</h1>
+    //       </div>
+    //     </div>
+    //     <div className="content-container">
+    //       <LinkForm onSubmit={onSubmit} />
+    //     </div>:<div>maximum</div>}
+    //   </div>
+    // );
   }
 
 

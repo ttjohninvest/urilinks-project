@@ -1,7 +1,6 @@
 import React,{ useEffect, useState } from "react";
 import * as firebase from "firebase";
 
-import { get } from "firebase/database";
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink, documentCountMaximum } from "../actions/links";
@@ -12,19 +11,33 @@ export const AddLinkPage = ({uid}) => {
   useEffect(() => {
     //const db = firebase.database();
    
-    const dataRef = firebase.database().ref(`users/${uid}/links`);
-    get(dataRef)
-        .then((snapshot) => {
-            if (snapshot.exists()) {
-                setCount(snapshot.size);
-            } else {
-                setCount(0);
-            }
-        })
-        .catch((error) => {
-            console.error("Error fetching data:", error);
-            setCount(0);
+   
+    // get(dataRef)
+    //     .then((snapshot) => {
+    //         if (snapshot.exists()) {
+    //             setCount(snapshot.size);
+    //         } else {
+    //             setCount(0);
+    //         }
+    //     })
+    //     .catch((error) => {
+    //         console.error("Error fetching data:", error);
+    //         setCount(0);
+    //     });
+
+        const dataRef = firebase.database().ref(`users/${uid}/links`);
+
+        const unsubscribe = onValue(dataRef, (snapshot) => {
+          
+          const newData = snapshot.val();
+          //setData(newData);
+          console.log("newData")
+
         });
+    
+        return () => {
+          unsubscribe(); // Clean up the listener when the component unmounts
+        };
 }, []);
 
 const  onSubmit = (link) => {

@@ -7,6 +7,14 @@ export const addLink = (link) => ({
   link,
 });
 
+export const documentCountMaximum = () => {
+  //iuid
+  // const coll = collection(db, "cities");
+  // const q = query(coll, where("state", "==", "CA"));
+  // const snapshot = await getCountFromServer(q);
+  return 36
+}
+
 export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;

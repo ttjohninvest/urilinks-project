@@ -1,12 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
-import { startAddLink } from "../actions/links";
+import { startAddLink, documentCountMaximum } from "../actions/links";
 
 export class AddLinkPage extends React.Component {
   onSubmit = (link) => {
-    this.props.startAddLink(link);
-    this.props.history.push("/");
+    if(documentCountMaximum() < 35) {
+     this.props.startAddLink(link);
+     this.props.history.push("/");
+    }
+    else {
+      console.log("maximum")
+    }
   };
   render() {
     return (

@@ -41,6 +41,12 @@ input[type="radio"]::before {
   background-color: $dark-blue;
 }
 
+input[type="radio"] {
+  accent-color: $dark-blue; /* Replace with your desired color */
+}
+
+
+
 input[type="radio"]::after {
   /* ...existing styles */
 

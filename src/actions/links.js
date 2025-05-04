@@ -32,9 +32,9 @@ export const documentCountMaximum = () => {
     console.log("uid="+uid) 
     
     ////
-    return database
-      .ref(`users/${uid}/links`)
-      .count()
+    // return database
+    //   .ref(`users/${uid}/links`)
+    //   .count()
   };
 
 

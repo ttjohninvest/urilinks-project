@@ -25,7 +25,7 @@ export const AddLinkPage = ({uid}) => {
         });
 }, []);
 
-  onSubmit = (link) => {
+const  onSubmit = (link) => {
      this.props.startAddLink(link);
      this.props.history.push("/");
   };

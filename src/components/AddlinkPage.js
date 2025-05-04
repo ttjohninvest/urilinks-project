@@ -10,9 +10,9 @@ import { startAddLink, documentCountMaximum } from "../actions/links";
 export const AddLinkPage = ({uid}) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    const db = firebase.database();
-    const dataRef = ref(db, `users/${uid}/links`); // Replace 'your-data-path'
-
+    //const db = firebase.database();
+   
+    const dataRef = firebase.database().ref(`users/${uid}/links`);
     get(dataRef)
         .then((snapshot) => {
             if (snapshot.exists()) {

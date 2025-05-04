@@ -47,12 +47,13 @@ const  onSubmit = (link) => {
      console.log("in onSubmit")
      if(count < 34) {
      props.startAddLink(link);
+     props.history.push("/");
      } else {
       console.log("maximum links reached")
       setMaximumPage(true)
      }
 
-     props.history.push("/");
+     
   };
 
   return (

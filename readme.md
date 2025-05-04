@@ -99,6 +99,7 @@ set the domain that I can use
 "can do" sourcelinks.com
 
 urilinks.com
+wallurls.com
 personalurls.com
 privateurls.com
 myprivatelinks.com

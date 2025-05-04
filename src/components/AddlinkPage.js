@@ -3,7 +3,7 @@ import * as firebase from "firebase";
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
-import { useHistory } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 export const AddLinkPage = (props) => {
@@ -11,10 +11,10 @@ export const AddLinkPage = (props) => {
   const [userId, setUserId] = useState('');
   const [maximumPage, setMaximumPage] = useState(false);
 
-  const history = useHistory();
+  //const history = useHistory();
 
   const goBack = () => {
-    history.goBack(); // Navigates back one step in the history
+    props.history.goBack(); // Navigates back one step in the history
   };
 
   useEffect(() => {
@@ -101,7 +101,7 @@ const mapDispatchToProps = (dispatch) => ({
   startAddLink: (link) => dispatch(startAddLink(link)),
 });
 
-export default connect(undefined, mapDispatchToProps)(AddLinkPage);
+export default withRouter(connect(undefined, mapDispatchToProps)(AddLinkPage));
 
 
 // export class AddLinkPage extends React.Component {

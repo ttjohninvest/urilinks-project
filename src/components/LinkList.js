@@ -32,7 +32,7 @@ export const LinkList = (props) => {
   // }, false);
 
     return () => {
-      element.removeEventListener('scroll', handleScroll);
+      element.removeEventListener('DOMContentLoaded', handleScroll);
     };
   }, [scrollPosition]);
 

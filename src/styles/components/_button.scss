@@ -40,3 +40,10 @@ input[type="radio"]::before {
   /* Windows High Contrast Mode */
   background-color: $dark-blue;
 }
+
+input[type="radio"]::after {
+  /* ...existing styles */
+
+  /* Windows High Contrast Mode */
+  background-color: $dark-blue;
+}

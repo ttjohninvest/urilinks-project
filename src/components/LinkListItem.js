@@ -35,12 +35,12 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
             <h3 className="padding-left-11">
               <a
                 ref={myRef}
-                className="nounderline text-size-1 text-color"
+                className="nounderline text-size-1"
                 href={Url}
                 target="_self"
                 title={Url}
               >
-                {description}
+                <span className="text-color">{description}</span>
               </a>
             </h3>
           </div>
@@ -48,7 +48,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${id}`}>
                 <div>
-                  <h3  className="padding-right-11">edit or remove</h3>
+                  <h3  className="padding-right-11 text-color">edit or remove</h3>
                 </div>
               </Link>
             </h3>

@@ -6,7 +6,7 @@ import LinkForm from "./LinkForm";
 import { startAddLink, documentCountMaximum } from "../actions/links";
 
 
-export const AddLinkPage = ({uid}) => {
+export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
     //const db = firebase.database();
@@ -42,7 +42,7 @@ export const AddLinkPage = ({uid}) => {
         const fetchData = async () => {
           try {
             const db = firebase.database();
-            const snapshot = await db.ref(`/users/${uid}/links`).once('value');
+            const snapshot = await db.ref(`/users/${props.uid}/links`).once('value');
             if (snapshot.exists()) {
               const data = snapshot.val();
               const count = Object.keys(data).length;
@@ -62,9 +62,9 @@ export const AddLinkPage = ({uid}) => {
 }, []);
 
 const  onSubmit = (link) => {
-  console.log("in onSubmit")
-     this.props.startAddLink(link);
-     this.props.history.push("/");
+     console.log("in onSubmit")
+     props.startAddLink(link);
+     props.history.push("/");
   };
  
     return (

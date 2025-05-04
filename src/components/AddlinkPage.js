@@ -1,23 +1,35 @@
-import React from "react";
+import React,{ useEffect, useState } from "react";
+import { getDatabase, ref, get } from "firebase/database";
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink, documentCountMaximum } from "../actions/links";
 
-export class AddLinkPage extends React.Component {
+
+export const AddLinkPage = ({uid}) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const db = getDatabase();
+    const dataRef = ref(db, `users/${uid}/links`); // Replace 'your-data-path'
+
+    get(dataRef)
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                setCount(snapshot.size);
+            } else {
+                setCount(0);
+            }
+        })
+        .catch((error) => {
+            console.error("Error fetching data:", error);
+            setCount(0);
+        });
+}, []);
+
   onSubmit = (link) => {
-    // const count = documentCountMaximum()
-    // console.log("count="+count())
-    // if(count() < 35) {
-    //  this.props.startAddLink(link);
-    //  this.props.history.push("/");
-    // }
-    // else {
-    //   console.log("maximum")
-    // }
      this.props.startAddLink(link);
-    this.props.history.push("/");
+     this.props.history.push("/");
   };
-  render() {
+ 
     return (
       <div>
         <div className="page-header">
@@ -26,15 +38,43 @@ export class AddLinkPage extends React.Component {
           </div>
         </div>
         <div className="content-container">
-          <LinkForm onSubmit={this.onSubmit} />
+          <LinkForm onSubmit={onSubmit} />
         </div>
       </div>
     );
   }
-}
+
 
 const mapDispatchToProps = (dispatch) => ({
   startAddLink: (link) => dispatch(startAddLink(link)),
 });
 
 export default connect(undefined, mapDispatchToProps)(AddLinkPage);
+
+
+// export class AddLinkPage extends React.Component {
+//   onSubmit = (link) => {
+//      this.props.startAddLink(link);
+//      this.props.history.push("/");
+//   };
+//   render() {
+//     return (
+//       <div>
+//         <div className="page-header">
+//           <div className="content-container">
+//             <h1 className="page-header__title">Add Uri/Url Link</h1>
+//           </div>
+//         </div>
+//         <div className="content-container">
+//           <LinkForm onSubmit={this.onSubmit} />
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch) => ({
+//   startAddLink: (link) => dispatch(startAddLink(link)),
+// });
+
+// export default connect(undefined, mapDispatchToProps)(AddLinkPage);

@@ -9,37 +9,7 @@ export const addLink = (link) => ({
 });
 
 export const documentCountMaximum = () => {
-  //uid
-  // const coll = collection(db, "users");
-  // const q = query(coll, where("state", "==", "CA"));
-  // const snapshot = await getCountFromServer(q);
-  //getAuth().currentUser.uid
  
-
-
-  //const uid = useSelector((state) => state.auth.uid);
-  //const uid = useSelector((state) => state.currentUser);
-
-
-  //console.log("uid="+uid)
-  // const count =  database
-  //     .ref(`users/${uid}/links`).count
-  //     console.log("count="+count)  
-  // return count
-
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    return uid
-    //console.log("uid="+uid) 
-    
-    ////
-    // return database
-    //   .ref(`users/${uid}/links`)
-    //   .count()
-  };
-
-
-
 }
 
 export const startAddLink = (linkData = {}) => {

@@ -25,19 +25,40 @@ export const AddLinkPage = ({uid}) => {
     //         setCount(0);
     //     });
 
-        const dataRef = firebase.database().ref(`users/${uid}/links`);
+        // const dataRef = firebase.database().ref(`users/${uid}/links`);
 
-        const unsubscribe = onValue(dataRef, (snapshot) => {
+        // const unsubscribe = onValue(dataRef, (snapshot) => {
           
-          const newData = snapshot.val();
-          //setData(newData);
-          console.log("newData")
+        //   const newData = snapshot.val();
+        //   //setData(newData);
+        //   console.log("newData")
 
-        });
+        // });
     
-        return () => {
-          unsubscribe(); // Clean up the listener when the component unmounts
+        // return () => {
+        //   unsubscribe(); // Clean up the listener when the component unmounts
+        // };
+
+        const fetchData = async () => {
+          try {
+            const db = firebase.database();
+            const snapshot = await db.ref('/users').once('value');
+            if (snapshot.exists()) {
+              const data = snapshot.val();
+              const count = Object.keys(data).length;
+              console.log(count)
+              //setDocumentCount(count);
+            } else {
+              console.log(0)
+              //setDocumentCount(0); // Collection is empty
+            }
+          } catch (error) {
+            console.error("Error fetching data:", error);
+            setDocumentCount(-1); // Indicate an error
+          }
         };
+    
+        fetchData();
 }, []);
 
 const  onSubmit = (link) => {

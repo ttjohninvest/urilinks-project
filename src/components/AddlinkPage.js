@@ -52,7 +52,6 @@ const  onSubmit = (link) => {
       console.log("maximum links reached")
       setMaximumPage(true)
      }
-
      
   };
 
@@ -69,7 +68,7 @@ const  onSubmit = (link) => {
         <LinkForm onSubmit={onSubmit} />
       </div></div>:
       
-      <div>maximum</div>}
+      <div className="content-container centerit">maximum</div>}
 
     </div>
   );

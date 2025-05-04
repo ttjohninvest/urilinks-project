@@ -13,7 +13,8 @@ export const documentCountMaximum = () => {
   // const coll = collection(db, "users");
   // const q = query(coll, where("state", "==", "CA"));
   // const snapshot = await getCountFromServer(q);
-  const uid = getAuth().uid //getState().auth.uid;
+  //getAuth().currentUser.uid
+  const uid = getAuth.currentUser.uid //getState().auth.uid;
   const count =  database
       .ref(`users/${uid}/links`)
       .count()

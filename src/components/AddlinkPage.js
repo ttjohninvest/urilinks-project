@@ -3,12 +3,19 @@ import * as firebase from "firebase";
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
+import { useNavigate } from 'react-router-dom';
 
 
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
   const [userId, setUserId] = useState('');
   const [maximumPage, setMaximumPage] = useState(false);
+
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1); // Navigates back one step in the history
+  };
 
   useEffect(() => {
 
@@ -68,7 +75,9 @@ const  onSubmit = (link) => {
         <LinkForm onSubmit={onSubmit} />
       </div></div>:
       
-      <div className="content-container- centerit">maximum</div>}
+      <div className="content-container- centerit">The maximum number of links that can be added is 34 <button onClick={goBack}>
+      Go Back
+    </button></div>}
 
     </div>
   );

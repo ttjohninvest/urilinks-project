@@ -5,8 +5,8 @@ import { startAddLink, documentCountMaximum } from "../actions/links";
 
 export class AddLinkPage extends React.Component {
   onSubmit = (link) => {
-    const count = documentCountMaximum()
-    console.log("count="+count())
+    // const count = documentCountMaximum()
+    // console.log("count="+count())
     // if(count() < 35) {
     //  this.props.startAddLink(link);
     //  this.props.history.push("/");
@@ -14,6 +14,8 @@ export class AddLinkPage extends React.Component {
     // else {
     //   console.log("maximum")
     // }
+     this.props.startAddLink(link);
+    this.props.history.push("/");
   };
   render() {
     return (

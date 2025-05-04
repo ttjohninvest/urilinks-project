@@ -10,32 +10,6 @@ export const LinkList = (props) => {
   
   const myRef = useRef()
 
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const scrollableRef = useRef(null);
-
-  useEffect(() => {
-    const element = scrollableRef.current;
-    if (!element) return;
-
-    element.scrollTop = scrollPosition;
-
-    const handleScroll = () => {
-      
-      scrollTop(element.scrollTop)
-      setScrollPosition(element.scrollTop);
-    };
-
-    element.addEventListener('DOMContentLoaded', handleScroll);
-
-  //   window.addEventListener("DOMContentLoaded", function() {
-  //     // do stuff
-  // }, false);
-
-    return () => {
-      element.removeEventListener('DOMContentLoaded', handleScroll);
-    };
-  }, [scrollPosition]);
-
   const handleOptionChange = (event) => {
     console.log("handleOptionChange, event.target.value="+event.target.value)
       setSelectedOption(event.target.value)

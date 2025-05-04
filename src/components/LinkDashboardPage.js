@@ -5,21 +5,25 @@ import LinksSummary from "./LinksSummary";
 
 const LinkDashboardPage = () => {
 
+
+
   useEffect(() => {
-    const handlePopstate = (event) => {
-      console.log("popstate")
-      let scrollPosition = window.localStorage.getItem("scrollPosition");
-      if (scrollPosition !== null) {
-        window.scrollTo(0, parseInt(scrollPosition));
-      }
+  
+    const handleScroll = () => {
+      const pos=parseInt(localStorage.getItem("scrollPosition"))
+      console.log("pos="+pos)
+      scrollTop(0, pos)
+      
     };
 
-    window.addEventListener("popstate", handlePopstate);
+    element.addEventListener('DOMContentLoaded', handleScroll);
 
+ 
     return () => {
-      window.removeEventListener("popstate", handlePopstate);
+      element.removeEventListener('DOMContentLoaded', handleScroll);
     };
   }, []);
+
  
   return (
     <div className="website-background-color">

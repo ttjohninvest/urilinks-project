@@ -13,7 +13,7 @@ export const AddLinkPage = ({uid}) => {
     //const db = firebase.database();
    
     const dataRef = firebase.database().ref(`users/${uid}/links`);
-    get(dataRef)
+    firebase.database().get(dataRef)
         .then((snapshot) => {
             if (snapshot.exists()) {
                 setCount(snapshot.size);

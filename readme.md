@@ -94,8 +94,18 @@ authentication
 console.cloud.google.com
 set the domain name
 
+
 set the domain that I can use
 urilinks.com
+personalurls.com
+privateurls.com
+myprivatelinks.com
+seeurls.com
+onlineurls.com
+showurls.com
+ownurls.com
+makeurls.com
+
 
 heroku.com
 https://see-my-index-2-0e62622b9713.herokuapp.com
@@ -118,17 +128,13 @@ use analytics when setting up firebase
 it will log in 100 users maximum by default
 
 google analytics added to the website, check after 2:00 pm on May 5th for user data
- google analytics for urilinks.com can only be accessed with johmcg64@gmail.com
- firebase.google.com with johmcg64@gmail.com
-  this firebase account, see-my-index-project-7, is linked with my google analytics
-  the google analytics account for see-my-index-project-7 is called a property
-
-
-
+google analytics for urilinks.com can only be accessed with johmcg64@gmail.com
+firebase.google.com with johmcg64@gmail.com
+this firebase account, see-my-index-project-7, is linked with my google analytics
+the google analytics account for see-my-index-project-7 is called a property
 
 this is were i got the code to get the links count
 https://www.google.com/search?q=how+do+i+count+the+number+of+documents+in+a+version+5.0.4+firebase+realtime+database+using+react&sca_esv=1dda3acef72a6239&ei=SHsXaI_vOdvP0PEPyPSrkQU&ved=0ahUKEwiPs7fnhIqNAxXbJzQIHUj6KlIQ4dUDCBA&uact=5&oq=how+do+i+count+the+number+of+documents+in+a+version+5.0.4+firebase+realtime+database+using+react&gs_lp=Egxnd3Mtd2l6LXNlcnAiYGhvdyBkbyBpIGNvdW50IHRoZSBudW1iZXIgb2YgZG9jdW1lbnRzIGluIGEgdmVyc2lvbiA1LjAuNCBmaXJlYmFzZSByZWFsdGltZSBkYXRhYmFzZSB1c2luZyByZWFjdEiVNlCPB1jRLnABeAGQAQCYAYkBoAH9BKoBAzAuNbgBA8gBAPgBAZgCAaACDcICChAAGLADGNYEGEeYAwCIBgGQBgiSBwExoAfyDrIHALgHAA&sclient=gws-wiz-serp
-
 
 firebase pricing: https://firebase.google.com/pricing
 heroku pricing: https://devcenter.heroku.com/articles/usage-and-billing

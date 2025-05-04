@@ -24,7 +24,7 @@ export const documentCountMaximum = () => {
   //console.log("uid="+uid)
   const count =  database
       .ref(`users/${"D9LSg6elood8Yc5gd5oDMp3JNAQ2"}/links`).count
-      
+      console.log("count="+count)  
   return count
 }
 

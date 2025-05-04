@@ -40,7 +40,7 @@
 .list-body {
   margin-bottom: $m-size;
   @media (min-width: $desktop-breakpoint) {
-    margin-bottom: $l-size;
+    /* margin-bottom: $l-size;*/
   }
 }
 

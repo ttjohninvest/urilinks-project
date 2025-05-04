@@ -1,7 +1,7 @@
 import React,{ useEffect, useState } from "react";
 import * as firebase from "firebase";
 
-import { ref, get } from "firebase/database";
+import { get } from "firebase/database";
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink, documentCountMaximum } from "../actions/links";
@@ -13,7 +13,7 @@ export const AddLinkPage = ({uid}) => {
     //const db = firebase.database();
    
     const dataRef = firebase.database().ref(`users/${uid}/links`);
-    firebase.database().get(dataRef)
+    get(dataRef)
         .then((snapshot) => {
             if (snapshot.exists()) {
                 setCount(snapshot.size);

@@ -10,6 +10,26 @@ export const LinkList = (props) => {
   
   const myRef = useRef()
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const scrollableRef = useRef(null);
+
+  useEffect(() => {
+    const element = scrollableRef.current;
+    if (!element) return;
+
+    element.scrollTop = scrollPosition;
+
+    const handleScroll = () => {
+      setScrollPosition(element.scrollTop);
+    };
+
+    element.addEventListener('scroll', handleScroll);
+
+    return () => {
+      element.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollPosition]);
+
   const handleOptionChange = (event) => {
     console.log("handleOptionChange, event.target.value="+event.target.value)
       setSelectedOption(event.target.value)
@@ -32,7 +52,9 @@ export const LinkList = (props) => {
 
 
   return (
-    <div className="content-container website-background-color">
+    <div className="content-container website-background-color"
+    ref={scrollableRef}
+    >
       <div className="list-header list-header__flex- border-green- margin-bottom-1">
         <div className="show-for-desktop">Uri/Url Link(s)</div>
         <div className="list-header__flex">

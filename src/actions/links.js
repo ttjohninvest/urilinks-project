@@ -22,10 +22,23 @@ export const documentCountMaximum = () => {
 
 
   //console.log("uid="+uid)
-  const count =  database
-      .ref(`users/${"D9LSg6elood8Yc5gd5oDMp3JNAQ2"}/links`).count
-      console.log("count="+count)  
-  return count
+  // const count =  database
+  //     .ref(`users/${uid}/links`).count
+  //     console.log("count="+count)  
+  // return count
+
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    
+    
+    ////
+    return database
+      .ref(`users/${uid}/links`)
+      .count
+  };
+
+
+
 }
 
 export const startAddLink = (linkData = {}) => {

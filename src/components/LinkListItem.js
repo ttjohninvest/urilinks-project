@@ -35,7 +35,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
             <h3 className="padding-left-11">
               <a
                 ref={myRef}
-                className="nounderline text-size-1"
+                className="nounderline text-size-1 text-color"
                 href={Url}
                 target="_self"
                 title={Url}

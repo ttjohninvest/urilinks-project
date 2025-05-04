@@ -42,7 +42,7 @@ export const AddLinkPage = ({uid}) => {
         const fetchData = async () => {
           try {
             const db = firebase.database();
-            const snapshot = await db.ref('/users').once('value');
+            const snapshot = await db.ref(`/users/${uid}/links`).once('value');
             if (snapshot.exists()) {
               const data = snapshot.val();
               const count = Object.keys(data).length;

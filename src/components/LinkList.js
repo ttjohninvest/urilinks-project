@@ -33,7 +33,7 @@ export const LinkList = (props) => {
 
   return (
     <div className="content-container website-background-color"
-    ref={scrollableRef}
+    //ref={scrollableRef}
     >
       <div className="list-header list-header__flex- border-green- margin-bottom-1">
         <div className="show-for-desktop">Uri/Url Link(s)</div>

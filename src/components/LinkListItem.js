@@ -48,7 +48,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${id}`}>
                 <div>
-                  <span  className="padding-right-11" style={{color:orange}}>edit or remove</span>
+                  <span  className="padding-right-11" style={{color:grey}}>edit or remove</span>
                 </div>
               </Link>
             </h3>

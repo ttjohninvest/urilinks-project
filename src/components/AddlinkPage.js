@@ -42,7 +42,7 @@ export const AddLinkPage = (props) => {
 
 const  onSubmit = (link) => {
      console.log("in onSubmit")
-     if(count < 10) {
+     if(count < 34) {
      props.startAddLink(link);
      } else {
       console.log("maximum links reached")

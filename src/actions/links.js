@@ -8,11 +8,16 @@ export const addLink = (link) => ({
 });
 
 export const documentCountMaximum = () => {
-  //iuid
-  // const coll = collection(db, "cities");
+  //uid
+  // const coll = collection(db, "users");
   // const q = query(coll, where("state", "==", "CA"));
   // const snapshot = await getCountFromServer(q);
-  return 36
+  const uid = getState().auth.uid;
+  const count =  database
+      .ref(`users/${uid}/links`)
+      .count()
+      
+  return count
 }
 
 export const startAddLink = (linkData = {}) => {

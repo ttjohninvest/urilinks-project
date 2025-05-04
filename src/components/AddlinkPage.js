@@ -68,7 +68,7 @@ const  onSubmit = (link) => {
         <LinkForm onSubmit={onSubmit} />
       </div></div>:
       
-      <div className="content-container centerit">maximum</div>}
+      <div className="content-container- centerit">maximum</div>}
 
     </div>
   );

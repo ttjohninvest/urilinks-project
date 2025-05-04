@@ -4,7 +4,7 @@
   max-width: 84rem;
 }
 
-.centerit {
+/*.centerit {
   left: 0;
   line-height: 200px;
   margin-top: -100px;
@@ -12,4 +12,10 @@
   text-align: center;
   top: 50%;
   width: 100%;
+}*/
+
+.centerit {
+ display:flex;
+ justify-content:center;
+ 
 }

@@ -1,6 +1,7 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
 import { getAuth } from "firebase/auth";
+import firebase from 'firebase'
 
 // ADD_LINK
 export const addLink = (link) => ({
@@ -14,7 +15,7 @@ export const documentCountMaximum = () => {
   // const q = query(coll, where("state", "==", "CA"));
   // const snapshot = await getCountFromServer(q);
   //getAuth().currentUser.uid
-  const uid = getAuth().currentUser.uid //getState().auth.uid;
+  const uid = firebase.auth.uid
   const count =  database
       .ref(`users/${uid}/links`)
       .count()

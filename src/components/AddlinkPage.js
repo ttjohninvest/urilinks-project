@@ -46,7 +46,7 @@ export const AddLinkPage = ({uid}) => {
             if (snapshot.exists()) {
               const data = snapshot.val();
               const count = Object.keys(data).length;
-              console.log(count)
+              console.log("count="+count)
               //setDocumentCount(count);
             } else {
               console.log(0)

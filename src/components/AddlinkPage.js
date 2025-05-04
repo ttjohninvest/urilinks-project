@@ -3,7 +3,7 @@ import * as firebase from "firebase";
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 export const AddLinkPage = (props) => {
@@ -11,10 +11,10 @@ export const AddLinkPage = (props) => {
   const [userId, setUserId] = useState('');
   const [maximumPage, setMaximumPage] = useState(false);
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const goBack = () => {
-    navigate(-1); // Navigates back one step in the history
+    history.goBack(); // Navigates back one step in the history
   };
 
   useEffect(() => {

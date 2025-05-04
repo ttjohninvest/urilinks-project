@@ -15,9 +15,9 @@ export const documentCountMaximum = () => {
   // const snapshot = await getCountFromServer(q);
   //getAuth().currentUser.uid
   const uid = firebase.auth.uid
+  console.log("uid="+uid)
   const count =  database
-      .ref(`users/${uid}/links`)
-      .count()
+      .ref(`users/${uid}/links`).count
       
   return count
 }

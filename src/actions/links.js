@@ -1,6 +1,6 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
-import firebase from 'firebase'
+import { useSelector } from 'react-redux';
 
 // ADD_LINK
 export const addLink = (link) => ({
@@ -14,7 +14,12 @@ export const documentCountMaximum = () => {
   // const q = query(coll, where("state", "==", "CA"));
   // const snapshot = await getCountFromServer(q);
   //getAuth().currentUser.uid
-  const uid = firebase.auth.uid
+ 
+
+
+  const uid = useSelector((state) => state.auth.uid);
+
+
   console.log("uid="+uid)
   const count =  database
       .ref(`users/${uid}/links`).count

@@ -96,6 +96,8 @@ set the domain name
 
 
 set the domain that I can use
+"can do" sourcelinks.com
+
 urilinks.com
 personalurls.com
 privateurls.com

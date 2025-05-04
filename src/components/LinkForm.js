@@ -103,7 +103,7 @@ export default class LinkForm extends React.Component {
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}
-          maxlength="255"
+          maxlength="1024"
         ></textarea>
         <div>
           <button className="button">Save Uri/Url Link</button>

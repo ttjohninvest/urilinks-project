@@ -52,7 +52,7 @@ export const AddLinkPage = (props) => {
 
 const  onSubmit = (link) => {
      console.log("in onSubmit")
-     if(count < 34) {
+     if(count < 50) {
      props.startAddLink(link);
      props.history.push("/");
      } else {
@@ -75,7 +75,7 @@ const  onSubmit = (link) => {
         <LinkForm onSubmit={onSubmit} />
       </div></div>:
       <div className="content-container- centerit">
-      <div>The maximum number of links that can be added is 34</div> 
+      <div>The maximum number of links that can be added is 50</div> 
       <div><button className="button-style-1- button" onClick={goBack}>Go Back</button></div>
     </div>
     }

@@ -20,12 +20,16 @@ export const LinkList = (props) => {
     element.scrollTop = scrollPosition;
 
     const handleScroll = () => {
-      console.log("scroll")
-      window.localStorage.setItem("handleScroll","yes")
+      
+      scrollTop(element.scrollTop)
       setScrollPosition(element.scrollTop);
     };
 
-    element.addEventListener('scroll', handleScroll);
+    element.addEventListener('DOMContentLoaded', handleScroll);
+
+  //   window.addEventListener("DOMContentLoaded", function() {
+  //     // do stuff
+  // }, false);
 
     return () => {
       element.removeEventListener('scroll', handleScroll);

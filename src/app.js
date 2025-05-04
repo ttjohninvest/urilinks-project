@@ -20,6 +20,26 @@ const jsx = (
 );
 let hasRendered = false;
 const renderApp = () => {
+
+   useEffect(() => {
+      const handleDOMContentLoaded = () => {
+        // Your code to run after DOMContentLoaded
+        console.log('DOM fully loaded and parsed');
+        // Example: Accessing an element
+        const pos = parseInt(window.localStorage.getItem('scrollPosition'))
+        console.log('DOM fully loaded and parsed,pos',pos);
+        scrollTop(0,pos)
+       
+      };
+  
+      document.addEventListener('DOMContentLoaded', handleDOMContentLoaded);
+  
+      // Clean up the event listener when the component unmounts
+      return () => {
+        document.removeEventListener('DOMContentLoaded', handleDOMContentLoaded);
+      };
+    }, []); // Empty dependency array ensures this runs only once after the initial render
+   
   
 console.log("about to render the app")
   if (!hasRendered) {

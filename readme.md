@@ -124,3 +124,9 @@ google analytics added to the website, check after 2:00 pm on May 5th for user d
   the google analytics account for see-my-index-project-7 is called a property
 
 
+
+
+this is were i got the code to get the links count
+https://www.google.com/search?q=how+do+i+count+the+number+of+documents+in+a+version+5.0.4+firebase+realtime+database+using+react&sca_esv=1dda3acef72a6239&ei=SHsXaI_vOdvP0PEPyPSrkQU&ved=0ahUKEwiPs7fnhIqNAxXbJzQIHUj6KlIQ4dUDCBA&uact=5&oq=how+do+i+count+the+number+of+documents+in+a+version+5.0.4+firebase+realtime+database+using+react&gs_lp=Egxnd3Mtd2l6LXNlcnAiYGhvdyBkbyBpIGNvdW50IHRoZSBudW1iZXIgb2YgZG9jdW1lbnRzIGluIGEgdmVyc2lvbiA1LjAuNCBmaXJlYmFzZSByZWFsdGltZSBkYXRhYmFzZSB1c2luZyByZWFjdEiVNlCPB1jRLnABeAGQAQCYAYkBoAH9BKoBAzAuNbgBA8gBAPgBAZgCAaACDcICChAAGLADGNYEGEeYAwCIBgGQBgiSBwExoAfyDrIHALgHAA&sclient=gws-wiz-serp
+
+

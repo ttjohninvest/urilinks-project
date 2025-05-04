@@ -7,11 +7,20 @@ import { startAddLink } from "../actions/links";
 
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
+  const [userId, setUserId] = useState('');
   useEffect(() => {
         const fetchData = async () => {
           try {
+            const user = firebase.auth().currentUser;
+            if (user) {
+              const uid = user.uid;
+              setUserId(uid)
+              console.log("User ID:", uid);
+            } else {
+               console.log("No user is currently logged in.");
+            }
             const db = firebase.database();
-            const snapshot = await db.ref(`/users/D9LSg6elood8Yc5gd5oDMp3JNAQ2/links`).once('value');
+            const snapshot = await db.ref(`/${userId}/links`).once('value');
             if (snapshot.exists()) {
               const data = snapshot.val();
               const count = Object.keys(data).length;

@@ -29,7 +29,8 @@ export const documentCountMaximum = () => {
 
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    console.log("uid="+uid) 
+    return uid
+    //console.log("uid="+uid) 
     
     ////
     // return database

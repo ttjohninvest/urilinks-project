@@ -8,6 +8,8 @@ import { startAddLink } from "../actions/links";
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
   const [userId, setUserId] = useState('');
+  const [maximumPage, setMaximumPage] = useState(false);
+  
   useEffect(() => {
 
        const fetchData = async () => {
@@ -47,6 +49,7 @@ const  onSubmit = (link) => {
      props.startAddLink(link);
      } else {
       console.log("maximum links reached")
+      setMaximumPage(true)
      }
 
      props.history.push("/");
@@ -54,14 +57,14 @@ const  onSubmit = (link) => {
  
     return (
       <div>
-        <div className="page-header">
+        {!maximumPage?<div className="page-header">
           <div className="content-container">
             <h1 className="page-header__title">Add Uri/Url Link</h1>
           </div>
         </div>
         <div className="content-container">
           <LinkForm onSubmit={onSubmit} />
-        </div>
+        </div>:<div>maximum</div>}
       </div>
     );
   }

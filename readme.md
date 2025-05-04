@@ -130,3 +130,7 @@ this is were i got the code to get the links count
 https://www.google.com/search?q=how+do+i+count+the+number+of+documents+in+a+version+5.0.4+firebase+realtime+database+using+react&sca_esv=1dda3acef72a6239&ei=SHsXaI_vOdvP0PEPyPSrkQU&ved=0ahUKEwiPs7fnhIqNAxXbJzQIHUj6KlIQ4dUDCBA&uact=5&oq=how+do+i+count+the+number+of+documents+in+a+version+5.0.4+firebase+realtime+database+using+react&gs_lp=Egxnd3Mtd2l6LXNlcnAiYGhvdyBkbyBpIGNvdW50IHRoZSBudW1iZXIgb2YgZG9jdW1lbnRzIGluIGEgdmVyc2lvbiA1LjAuNCBmaXJlYmFzZSByZWFsdGltZSBkYXRhYmFzZSB1c2luZyByZWFjdEiVNlCPB1jRLnABeAGQAQCYAYkBoAH9BKoBAzAuNbgBA8gBAPgBAZgCAaACDcICChAAGLADGNYEGEeYAwCIBgGQBgiSBwExoAfyDrIHALgHAA&sclient=gws-wiz-serp
 
 
+firebase pricing: https://firebase.google.com/pricing
+heroku pricing: https://devcenter.heroku.com/articles/usage-and-billing
+cloudflare pricing:
+100webspace.com pricing: 16.00/year for the domain name

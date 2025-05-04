@@ -1,5 +1,7 @@
 import React,{ useEffect, useState } from "react";
-import { getDatabase, ref, get } from "firebase/database";
+import * as firebase from "firebase";
+
+import { ref, get } from "firebase/database";
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink, documentCountMaximum } from "../actions/links";
@@ -8,7 +10,7 @@ import { startAddLink, documentCountMaximum } from "../actions/links";
 export const AddLinkPage = ({uid}) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    const db = getDatabase();
+    const db = firebase.database();
     const dataRef = ref(db, `users/${uid}/links`); // Replace 'your-data-path'
 
     get(dataRef)

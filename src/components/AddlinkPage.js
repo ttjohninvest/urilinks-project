@@ -76,7 +76,7 @@ const  onSubmit = (link) => {
       </div></div>:
       <div className="content-container- centerit">
       <div>The maximum number of links that can be added is 34</div> 
-      <div><button className="button-style-1" onClick={goBack}>Go Back</button></div>
+      <div><button className="button-style-1- button" onClick={goBack}>Go Back</button></div>
     </div>
     }
 

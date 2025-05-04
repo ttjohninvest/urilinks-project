@@ -9,7 +9,8 @@ export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
   const [userId, setUserId] = useState('');
   useEffect(() => {
-        const fetchData = async () => {
+
+       const fetchData = async () => {
           try {
             const user = firebase.auth().currentUser;
             if (user) {

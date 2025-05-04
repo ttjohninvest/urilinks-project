@@ -44,7 +44,7 @@ export default class LinkForm extends React.Component {
     this.setState(() => ({ calendarFocused: focused }));
   };
   onSubmit = (e) => {
-    console.log("onSubmit")
+    console.log("onSubmit");
     e.preventDefault();
 
     if (!this.state.description || !this.state.Url || !this.state.amount) {
@@ -74,7 +74,7 @@ export default class LinkForm extends React.Component {
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="Uri, Uniform Resource Identifier"
-          maxlength="950"
+          maxlength="2048"
         />
         <input
           type="text"

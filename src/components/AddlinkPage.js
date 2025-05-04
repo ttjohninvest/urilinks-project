@@ -1,44 +1,13 @@
 import React,{ useEffect, useState } from "react";
 import * as firebase from "firebase";
-import { onValue } from 'firebase/database';
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
-import { startAddLink, documentCountMaximum } from "../actions/links";
+import { startAddLink } from "../actions/links";
 
 
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    //const db = firebase.database();
-   
-   
-    // get(dataRef)
-    //     .then((snapshot) => {
-    //         if (snapshot.exists()) {
-    //             setCount(snapshot.size);
-    //         } else {
-    //             setCount(0);
-    //         }
-    //     })
-    //     .catch((error) => {
-    //         console.error("Error fetching data:", error);
-    //         setCount(0);
-    //     });
-
-        // const dataRef = firebase.database().ref(`users/${uid}/links`);
-
-        // const unsubscribe = onValue(dataRef, (snapshot) => {
-          
-        //   const newData = snapshot.val();
-        //   //setData(newData);
-        //   console.log("newData")
-
-        // });
-    
-        // return () => {
-        //   unsubscribe(); // Clean up the listener when the component unmounts
-        // };
-
         const fetchData = async () => {
           try {
             const db = firebase.database();
@@ -47,14 +16,15 @@ export const AddLinkPage = (props) => {
               const data = snapshot.val();
               const count = Object.keys(data).length;
               console.log("count="+count)
-              //setDocumentCount(count);
+              setCount(count);
             } else {
               console.log(0)
-              //setDocumentCount(0); // Collection is empty
+              setCount(0)
+              
             }
           } catch (error) {
             console.error("Error fetching data:", error);
-            setDocumentCount(-1); // Indicate an error
+            setCount(-1); // Indicate an error
           }
         };
     
@@ -63,7 +33,12 @@ export const AddLinkPage = (props) => {
 
 const  onSubmit = (link) => {
      console.log("in onSubmit")
+     if(count < 10) {
      props.startAddLink(link);
+     } else {
+      console.log("maximum links reached")
+     }
+
      props.history.push("/");
   };
  

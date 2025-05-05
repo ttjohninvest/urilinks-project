@@ -73,10 +73,16 @@ export class LinkListFilters extends React.Component {
               onChange={this.onSortChange}
               title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
             > 
-              <option value="date" selected={window.localStorage.getItem("sort")==="date"}>Date</option>
-              <option value="description" selected={window.localStorage.getItem("sort")==="description"}>Link Text</option>
-              <option value="hashtag" selected={window.localStorage.getItem("sort")==="hashtag"}>Hash Tag</option>
+
+<option value="date" >Date</option>
+              <option value="description">Link Text</option>
+              <option value="hashtag" selected={`true`}>Hash Tag</option>
           
+              {/* <option value="date" selected={`${window.localStorage.getItem("sort")==="date"}`}>Date</option>
+              <option value="description" selected={`${window.localStorage.getItem("sort")==="description"}`}>Link Text</option>
+              <option value="hashtag" selected={`${window.localStorage.getItem("sort")==="hashtag"}`}>Hash Tag</option>
+           */}
+
            </select>
           </div>
           <div className="input-group__item- select-filters border-green-">

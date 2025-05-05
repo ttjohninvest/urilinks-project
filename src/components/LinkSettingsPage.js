@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import selectLinks from "../selectors/links";
 ////
 export const LinkSettingsPage = (props) => {
-  const [selectedOption1, setSelectedOption1] = useState("option1")
-  const [selectedOption2, setSelectedOption2] = useState("option2")
+  const [selectedOption1, setSelectedOption1] = useState("")
+  const [selectedOption2, setSelectedOption2] = useState("")
   
   const myRef1 = useRef()
   const myRef2 = useRef()
@@ -96,7 +96,7 @@ export const LinkSettingsPage = (props) => {
                   <span className="the-inline-block label-text">checked means do not see public links</span>
                 </label>
               </div>
-            Settings
+           
               
             </div>
       </div>

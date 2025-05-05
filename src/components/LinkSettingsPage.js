@@ -1,7 +1,7 @@
 
 import React,{useState,useEffect,useRef} from "react";
 import { connect } from "react-redux";
-
+import selectLinks from "../selectors/links";
 ////
 export const LinkSettingsPage = (props) => {
   const [selectedOption1, setSelectedOption1] = useState("option1")
@@ -111,7 +111,7 @@ export const LinkSettingsPage = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-      
+        links: selectLinks(state.links, state.filters),
     };
   };
 

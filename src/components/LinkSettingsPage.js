@@ -97,7 +97,7 @@ export const LinkSettingsPage = (props) => {
                 onChange={handleOptionChange2}
               />
               <span className="the-inline-block label-text">
-                checked means do not see public links
+                checked means to see public links
               </span>
             </label>
           </div>

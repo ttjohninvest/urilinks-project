@@ -80,7 +80,7 @@ export const LinkSettingsPage = (props) => {
                     checked={selectedOption1 === "option1"}
                     onChange={handleOptionChange1}
                   />
-                  <span className="the-inline-block label-text label-text-right">links list with details</span>
+                  <span className="the-inline-block label-text label-text-right">checked means to let the public see your links</span>
                 </label>
               </div>
               <div className="margin-left-1">
@@ -93,7 +93,7 @@ export const LinkSettingsPage = (props) => {
                     checked={selectedOption2 === "option2"}
                     onChange={handleOptionChange2}
                   />
-                  <span className="the-inline-block label-text">links list with out details</span>
+                  <span className="the-inline-block label-text">checked means do not see public links</span>
                 </label>
               </div>
             Settings

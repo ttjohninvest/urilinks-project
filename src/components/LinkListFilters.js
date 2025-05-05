@@ -23,38 +23,36 @@ export class LinkListFilters extends React.Component {
   };
   onTextChange = (e) => {
     console.log("e.target.value=" + e.target.value);
-    window.localStorage.setItem("searchLinks",e.target.value)
+    window.localStorage.setItem("searchLinks", e.target.value);
     this.props.setTextFilter(e.target.value);
   };
   onSortChange = (e) => {
-    console.log('sort, e.target.value='+e.target.value)
+    console.log("sort, e.target.value=" + e.target.value);
     if (e.target.value === "date") {
-      window.localStorage.setItem("sort","date")
+      window.localStorage.setItem("sort", "date");
       this.props.sortByDate();
     } else if (e.target.value === "description") {
-      window.localStorage.setItem("sort","description")
+      window.localStorage.setItem("sort", "description");
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
-      window.localStorage.setItem("sort","hashtag")
+      window.localStorage.setItem("sort", "hashtag");
       this.props.sortByHashTag();
     }
   };
 
- 
-
   componentDidMount() {
-    const searchLinks = window.localStorage.getItem("searchLinks")
-    const sort = window.localStorage.getItem("sort")
-    console.log("componentDidMount, searchLinks="+searchLinks)
-    console.log("componentDidMount, sort="+sort)
-    if(sort==="date") {
+    const searchLinks = window.localStorage.getItem("searchLinks");
+    const sort = window.localStorage.getItem("sort");
+    console.log("componentDidMount, searchLinks=" + searchLinks);
+    console.log("componentDidMount, sort=" + sort);
+    if (sort === "date") {
       this.props.sortByDate();
-    } else if(sort==="description"){
+    } else if (sort === "description") {
       this.props.sortByDescription();
     } else {
       this.props.sortByHashTag();
     }
-    if(searchLinks) {
+    if (searchLinks) {
       this.props.setTextFilter(searchLinks);
     }
   }
@@ -67,10 +65,18 @@ export class LinkListFilters extends React.Component {
             <input
               type="text"
               className="text-input text-input-filters"
-              placeholder={this.props.filters.sortBy==='date'?"":"Search Links"}
+              placeholder={
+                this.props.filters.sortBy === "date" ? "" : "Search Links"
+              }
               value={this.props.filters.text}
               onChange={this.onTextChange}
-              title={this.props.filters.sortBy==='date'?"":this.props.filters.sortBy==='description'?"Search Links (Please enter link description to find)":"Search Links (Please enter Hash Tag to find)"}
+              title={
+                this.props.filters.sortBy === "date"
+                  ? ""
+                  : this.props.filters.sortBy === "description"
+                  ? "Search Links (Please enter link description to find)"
+                  : "Search Links (Please enter Hash Tag to find)"
+              }
             />
           </div>
           <div className="input-group__item">
@@ -79,18 +85,11 @@ export class LinkListFilters extends React.Component {
               value={this.props.filters.sortBy}
               onChange={this.onSortChange}
               title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
-            > 
-
-<option value="date" >Date</option>
+            >
+              <option value="date">Date</option>
               <option value="description">Link Text</option>
               <option value="hashtag">Hash Tag</option>
-          
-              {/* <option value="date" selected={`${window.localStorage.getItem("sort")==="date"}`}>Date</option>
-              <option value="description" selected={`${window.localStorage.getItem("sort")==="description"}`}>Link Text</option>
-              <option value="hashtag" selected={`${window.localStorage.getItem("sort")==="hashtag"}`}>Hash Tag</option>
-           */}
-
-           </select>
+            </select>
           </div>
           <div className="input-group__item- select-filters border-green-">
             <DateRangePicker

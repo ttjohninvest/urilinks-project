@@ -9,4 +9,4 @@ const LinkSettingsPage = () => {
   );
 };
 
-export default LinkDashboardPage;
+export default LinkSettingsPage;

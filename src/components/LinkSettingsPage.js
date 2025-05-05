@@ -11,20 +11,37 @@ export const LinkSettingsPage = (props) => {
   const myRef2 = useRef()
 
   const handleOptionChange1 = (event) => {
-    console.log("handleOptionChange, event.target.value="+event.target.value)
-      setSelectedOption1(event.target.value)
+    console.log("handleOptionChange1, event.target.value="+event.target.value)
+    if(selectedOption1==="option1"){
+        window.localStorage.setItem("whichOptionS1","")
+        setSelectedOption1("")
+    }
 
-      
-       window.localStorage.setItem("whichOptionS1","option1")
+       
+  else{
+    window.localStorage.setItem("whichOptionS1","option1")
+    setSelectedOption2(event.target.value)
+  }
       
     
   };
 
   const handleOptionChange2 = (event) => {
-    console.log("handleOptionChange, event.target.value="+event.target.value)
-      setSelectedOption2(event.target.value)
+    console.log("handleOptionChange2, event.target.value="+event.target.value)
+    if(selectedOption2==="option2"){
+        window.localStorage.setItem("whichOptionS2","")
+        setSelectedOption2("")
+    }
+
+       
+  else{
+    window.localStorage.setItem("whichOptionS2","option2")
+    setSelectedOption2(event.target.value)
+  }
+
+  
       
-      window.localStorage.setItem("whichOptionS2","option2")
+      
     
     
   };

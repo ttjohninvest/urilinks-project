@@ -109,10 +109,14 @@ export const LinkSettingsPage = (props) => {
   
 };
 
+const mapStateToProps = (state) => {
+    return {
+      
+    };
+  };
 
 
-
-export default connect(LinkSettingsPage);
+export default connect(mapStateToProps)(LinkSettingsPage);
 
 
 

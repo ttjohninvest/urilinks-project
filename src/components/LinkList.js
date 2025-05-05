@@ -13,8 +13,18 @@ export const LinkList = (props) => {
   const handleOptionChange = (event) => {
     console.log("handleOptionChange, event.target.value="+event.target.value)
       setSelectedOption(event.target.value)
+
+      if(event.target.value==="option1")
+       window.localStorage.setItem("whichOption","option1")
+      else if(event.target.value==="option2")
+       window.localStorage.setItem("whichOption","option2")
     
   };
+
+  useEffect(()=>{
+    const option = window.localStorage.getItem("whichOption")
+    if(option) setSelectedOption(option)
+  },[])
 
   useEffect(()=>{
   

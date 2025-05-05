@@ -5,7 +5,11 @@ import LinksSummary from "./LinksSummary";
 
 const LinkDashboardPage = () => {
   useEffect(()=>{
-    window.scrollTo(0,800)
+
+    const sp = parseInt(window.localStorage("scrollPosition"))
+    console.log("sp="+sp)
+    window.scrollTo(0,sp)
+
   },[])
  return (
     <div className="website-background-color">

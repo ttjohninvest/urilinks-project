@@ -44,7 +44,9 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
     const searchLinks = window.localStorage.getItem("searchLinks")
+    const sort = window.localStorage.getItem("sort")
     console.log("componentDidMount, searchLinks="+searchLinks)
+    console.log("componentDidMount, sort="+sort)
     if(searchLinks) {
       this.props.setTextFilter(searchLinks);
     }

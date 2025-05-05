@@ -6,6 +6,10 @@ import numeral from "numeral";
 const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
   const myRef = useRef(null);
 
+  const storeScrollPosition = () => {
+    window.localStorage.setItem("scrollY",window.scrollY)
+  }
+
   useEffect(() => {
     const handleClick = (event) => {
       console.log("Clicked!");
@@ -39,6 +43,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
                 href={Url}
                 target="_self"
                 title={Url}
+                onClick={storeScrollPosition}
               >
                 {description}
               </a>

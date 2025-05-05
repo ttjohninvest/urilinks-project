@@ -47,6 +47,13 @@ export class LinkListFilters extends React.Component {
     const sort = window.localStorage.getItem("sort")
     console.log("componentDidMount, searchLinks="+searchLinks)
     console.log("componentDidMount, sort="+sort)
+    if(sort==="date") {
+      this.props.sortByDate();
+    } else if(sort==="description"){
+      this.props.sortByDescription();
+    } else {
+      this.props.sortByHashTag();
+    }
     if(searchLinks) {
       this.props.setTextFilter(searchLinks);
     }
@@ -76,7 +83,7 @@ export class LinkListFilters extends React.Component {
 
 <option value="date" >Date</option>
               <option value="description">Link Text</option>
-              <option value="hashtag" selected>Hash Tag</option>
+              <option value="hashtag">Hash Tag</option>
           
               {/* <option value="date" selected={`${window.localStorage.getItem("sort")==="date"}`}>Date</option>
               <option value="description" selected={`${window.localStorage.getItem("sort")==="description"}`}>Link Text</option>

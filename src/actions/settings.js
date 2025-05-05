@@ -83,17 +83,8 @@ export const startSetSettings = () => {
       .ref(`users/${uid}/settings`)
       .once("value")
       .then((snapshot) => {
-        
-        const settings = [];
-
-        snapshot.forEach((childSnapshot) => {
-          settings.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val(),
-          });
-        });
         console.log("startSetSettings, about to call dispatch(setSettings(settings));");
-        dispatch(setSettings(links));
+        dispatch(setSettings(snapshot));
       }).catch(error=>console.log("error="+error));
   };
 

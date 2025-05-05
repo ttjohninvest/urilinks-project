@@ -8,10 +8,6 @@ export const addLink = (link) => ({
   link,
 });
 
-export const documentCountMaximum = () => {
- 
-}
-
 export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;

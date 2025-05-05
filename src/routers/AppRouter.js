@@ -6,7 +6,6 @@ import LinkDashboardPage from "../components/LinkDashboardPage";
 import AddLinkPage from "../components/AddlinkPage";
 import EditLinkPage from "../components/EditLinkPage";
 import LinkSettingsPage from "../components/LinkSettingsPage";
-
 import NotFoundPage from "../components/NotFoundPage";
 import LoginPage from "../components/LoginPage";
 import PrivateRoute from "./PrivateRoute";

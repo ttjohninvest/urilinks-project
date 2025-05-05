@@ -76,7 +76,7 @@ export class LinkListFilters extends React.Component {
 
 <option value="date" >Date</option>
               <option value="description">Link Text</option>
-              <option value="hashtag" selected={`true`}>Hash Tag</option>
+              <option value="hashtag" selected>Hash Tag</option>
           
               {/* <option value="date" selected={`${window.localStorage.getItem("sort")==="date"}`}>Date</option>
               <option value="description" selected={`${window.localStorage.getItem("sort")==="description"}`}>Link Text</option>

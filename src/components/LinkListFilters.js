@@ -28,10 +28,13 @@ export class LinkListFilters extends React.Component {
   };
   onSortChange = (e) => {
     if (e.target.value === "date") {
+      window.localStorage.setItem("sort","date")
       this.props.sortByDate();
     } else if (e.target.value === "description") {
+      window.localStorage.setItem("sort","description")
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
+      window.localStorage.setItem("sort","hashtag")
       this.props.sortByHashTag();
     }
   };
@@ -40,6 +43,7 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
     const searchLinks = window.localStorage.setItem("searchLinks")
+    console.log("componentDidMount, searchLinks="+searchLinks)
     if(searchLinks) {
       this.props.setTextFilter(searchLinks);
     }
@@ -66,9 +70,9 @@ export class LinkListFilters extends React.Component {
               onChange={this.onSortChange}
               title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
             >
-              <option value="date">Date</option>
-              <option value="description">Link Text</option>
-              <option value="hashtag">Hash Tag</option>
+              <option value="date" selected={window.localStorage.getItem("sort")==="date"?"selected":""}>Date</option>
+              <option value="description" selected={window.localStorage.getItem("sort")==="description"?"selected":""}>Link Text</option>
+              <option value="hashtag" selected={window.localStorage.getItem("sort")==="hashtag"?"selected":""}>Hash Tag</option>
             </select>
           </div>
           <div className="input-group__item- select-filters border-green-">

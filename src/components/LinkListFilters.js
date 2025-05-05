@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 import {
@@ -36,12 +36,14 @@ export class LinkListFilters extends React.Component {
     }
   };
 
-  useEffect(()=>{
+ 
+
+  componentDidMount() {
     const searchLinks = window.localStorage.setItem("searchLinks")
     if(searchLinks) {
       this.props.setTextFilter(searchLinks);
     }
-  },[])
+  }
 
   render() {
     return (

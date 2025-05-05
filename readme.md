@@ -99,6 +99,23 @@ set the domain that I can use
 "can do" sourcelinks.com
 
 urilinks.com
+linksplease.com
+plurallink.com available
+plurallinks.com
+stackedlinks.com
+linkdoors.com
+goldapples.com
+applesofgold.com
+youlink.com expires 2026-05-03T02:18:42Z
+ulink.com expires 2027-09-15T03:59:59Z
+walllink.com expires 2025-12-29T20:12:32Z
+toilink.com
+yoolink.com
+linkthrough.com
+kniluoy.com reads right to left
+youhyperlink.com
+youcolink
+olink.com
 wallurls.com
 personalurls.com
 privateurls.com

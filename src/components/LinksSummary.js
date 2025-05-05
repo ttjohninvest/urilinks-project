@@ -13,7 +13,7 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
     <div className="page-header">
       <div className="content-container">
         <h1 className="page-header__title">
-          Viewing <span>{linkCount}</span> {linkWord}
+          Viewing <span>{linkCount}</span> {linkWord} of 50
         </h1>
         
         <div className="page-header__actions">

@@ -1,58 +1,46 @@
-
-import React,{useState,useEffect,useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import selectLinks from "../selectors/links";
 ////
 export const LinkSettingsPage = (props) => {
-  const [selectedOption1, setSelectedOption1] = useState("")
-  const [selectedOption2, setSelectedOption2] = useState("")
-  
-  const myRef1 = useRef()
-  const myRef2 = useRef()
+  const [selectedOption1, setSelectedOption1] = useState("");
+  const [selectedOption2, setSelectedOption2] = useState("");
+
+  const myRef1 = useRef();
+  const myRef2 = useRef();
 
   const handleOptionChange1 = (event) => {
-    console.log("handleOptionChange1, event.target.value="+event.target.value)
-    if(selectedOption1==="option1"){
-        window.localStorage.setItem("whichOptionS1","")
-        setSelectedOption1("")
+    console.log(
+      "handleOptionChange1, event.target.value=" + event.target.value
+    );
+    if (selectedOption1 === "option1") {
+      window.localStorage.setItem("whichOptionS1", "");
+      setSelectedOption1("");
+    } else {
+      window.localStorage.setItem("whichOptionS1", "option1");
+      setSelectedOption1(event.target.value);
     }
-
-       
-  else{
-    window.localStorage.setItem("whichOptionS1","option1")
-    setSelectedOption2(event.target.value)
-  }
-      
-    
   };
 
   const handleOptionChange2 = (event) => {
-    console.log("handleOptionChange2, event.target.value="+event.target.value)
-    if(selectedOption2==="option2"){
-        window.localStorage.setItem("whichOptionS2","")
-        setSelectedOption2("")
+    console.log(
+      "handleOptionChange2, event.target.value=" + event.target.value
+    );
+    if (selectedOption2 === "option2") {
+      window.localStorage.setItem("whichOptionS2", "");
+      setSelectedOption2("");
+    } else {
+      window.localStorage.setItem("whichOptionS2", "option2");
+      setSelectedOption2(event.target.value);
     }
-
-       
-  else{
-    window.localStorage.setItem("whichOptionS2","option2")
-    setSelectedOption2(event.target.value)
-  }
-
-  
-      
-      
-    
-    
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     // const option = window.localStorage.getItem("whichOptionS1")
     // if(option) setSelectedOption(option)
-  },[])
+  }, []);
 
-  useEffect(()=>{
-  
+  useEffect(() => {
     const element = myRef1.current;
 
     if (element) {
@@ -63,10 +51,9 @@ export const LinkSettingsPage = (props) => {
         element.removeEventListener("click", handleOptionChange1);
       };
     }
-  },[])
+  }, []);
 
-  useEffect(()=>{
-  
+  useEffect(() => {
     const element = myRef2.current;
 
     if (element) {
@@ -77,63 +64,53 @@ export const LinkSettingsPage = (props) => {
         element.removeEventListener("click", handleOptionChange2);
       };
     }
-  },[])
-
+  }, []);
 
   return (
-    <div className="content-container website-background-color"
-    
-    >
+    <div className="content-container website-background-color">
       <div className="list-header list-header__flex- border-green- margin-bottom-1">
         <div className="show-for-desktop">Settings Page</div>
         <div className="list-header__flex">
-              <div>
-                <label className="inline-block__flex">
-                  <input
-                    ref={myRef1}
-                    className="the-inline-block"
-                    type="checkbox"
-                    value="option1"
-                    checked={selectedOption1 === "option1"}
-                    onChange={handleOptionChange1}
-                  />
-                  <span className="the-inline-block label-text label-text-right">checked means to let the public see your links</span>
-                </label>
-              </div>
-              <div className="margin-left-1">
-                <label className="inline-block__flex">
-                  <input
-                    ref={myRef2}
-                    className="the-inline-block"
-                    type="checkbox"
-                    value="option2"
-                    checked={selectedOption2 === "option2"}
-                    onChange={handleOptionChange2}
-                  />
-                  <span className="the-inline-block label-text">checked means do not see public links</span>
-                </label>
-              </div>
-           
-              
-            </div>
+          <div>
+            <label className="inline-block__flex">
+              <input
+                ref={myRef1}
+                className="the-inline-block"
+                type="checkbox"
+                value="option1"
+                checked={selectedOption1 === "option1"}
+                onChange={handleOptionChange1}
+              />
+              <span className="the-inline-block label-text label-text-right">
+                checked means to let the public see your links
+              </span>
+            </label>
+          </div>
+          <div className="margin-left-1">
+            <label className="inline-block__flex">
+              <input
+                ref={myRef2}
+                className="the-inline-block"
+                type="checkbox"
+                value="option2"
+                checked={selectedOption2 === "option2"}
+                onChange={handleOptionChange2}
+              />
+              <span className="the-inline-block label-text">
+                checked means do not see public links
+              </span>
+            </label>
+          </div>
+        </div>
       </div>
-      
-      
-      
     </div>
   );
-
-  
 };
 
 const mapStateToProps = (state) => {
-    return {
-        // links: selectLinks(state.links, state.filters),
-    };
+  return {
+    // links: selectLinks(state.links, state.filters),
   };
-
+};
 
 export default connect(mapStateToProps)(LinkSettingsPage);
-
-
-

@@ -18,6 +18,7 @@ export const LinkList = (props) => {
        window.localStorage.setItem("whichOption","option1")
       else if(event.target.value==="option2")
        window.localStorage.setItem("whichOption","option2")
+      else window.localStorage.setItem("whichOption","option1")
     
   };
 

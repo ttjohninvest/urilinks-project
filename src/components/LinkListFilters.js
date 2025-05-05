@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 import {
@@ -23,6 +23,7 @@ export class LinkListFilters extends React.Component {
   };
   onTextChange = (e) => {
     console.log("e.target.value=" + e.target.value);
+    window.localStorage.setItem("searchLinks",e.target.value)
     this.props.setTextFilter(e.target.value);
   };
   onSortChange = (e) => {
@@ -34,6 +35,14 @@ export class LinkListFilters extends React.Component {
       this.props.sortByHashTag();
     }
   };
+
+  useEffect(()=>{
+    const searchLinks = window.localStorage.setItem("searchLinks")
+    if(searchLinks) {
+      this.props.setTextFilter(searchLinks);
+    }
+  },[])
+
   render() {
     return (
       <div className="content-container border-green-">

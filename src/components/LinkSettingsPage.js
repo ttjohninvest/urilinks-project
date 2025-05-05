@@ -68,7 +68,7 @@ export const LinkSettingsPage = (props) => {
     
     >
       <div className="list-header list-header__flex- border-green- margin-bottom-1">
-        <div className="show-for-desktop">Uri/Url Link(s)</div>
+        <div className="show-for-desktop">Settings Page</div>
         <div className="list-header__flex">
               <div>
                 <label className="inline-block__flex">
@@ -111,7 +111,7 @@ export const LinkSettingsPage = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        links: selectLinks(state.links, state.filters),
+        // links: selectLinks(state.links, state.filters),
     };
   };
 

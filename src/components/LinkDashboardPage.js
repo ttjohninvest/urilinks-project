@@ -6,7 +6,7 @@ import LinksSummary from "./LinksSummary";
 const LinkDashboardPage = () => {
   useEffect(()=>{
 
-    const sp = parseInt(window.localStorage("scrollPosition"))
+    const sp = parseInt(window.localStorage.getItem("scrollPosition"))
     console.log("sp="+sp)
     window.scrollTo(0,sp)
 

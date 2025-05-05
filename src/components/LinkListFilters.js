@@ -27,6 +27,7 @@ export class LinkListFilters extends React.Component {
     this.props.setTextFilter(e.target.value);
   };
   onSortChange = (e) => {
+    console.log('sort, e.target.value='+e.target.value)
     if (e.target.value === "date") {
       window.localStorage.setItem("sort","date")
       this.props.sortByDate();

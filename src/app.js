@@ -1,16 +1,17 @@
-import React,{useEffect} from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import AppRouter, { history } from './routers/AppRouter';
-import configureStore from './store/configureStore';
-import { startSetLinks } from './actions/links';
-import { login, logout } from './actions/auth';
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import AppRouter, { history } from "./routers/AppRouter";
+import configureStore from "./store/configureStore";
+import { startSetLinks } from "./actions/links";
+import { startSetSettings } from "./actions/settings";
+import { login, logout } from "./actions/auth";
 //import getVisibleLinks from './selectors/links';
-import 'normalize.css/normalize.css';
-import './styles/styles.scss';
-import 'react-dates/lib/css/_datepicker.css';
-import { firebase } from './firebase/firebase';
-import LoadingPage from './components/LoadingPage';
+import "normalize.css/normalize.css";
+import "./styles/styles.scss";
+import "react-dates/lib/css/_datepicker.css";
+import { firebase } from "./firebase/firebase";
+import LoadingPage from "./components/LoadingPage";
 //
 const store = configureStore();
 const jsx = (
@@ -20,34 +21,60 @@ const jsx = (
 );
 let hasRendered = false;
 const renderApp = () => {
-
-  
-console.log("about to render the app")
+  console.log("about to render the app");
   if (!hasRendered) {
-    ReactDOM.render(jsx, document.getElementById('app'));
+    ReactDOM.render(jsx, document.getElementById("app"));
     hasRendered = true;
   }
 };
 
-ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
 firebase.auth().onAuthStateChanged((user) => {
-  
+  // if (user) {
+  //   console.log("logged in user="+JSON.stringify(user))
+  //   store.dispatch(login(user.uid));
+
+  //   store.dispatch(startSetLinks()).then(() => { //startSetLinks reads the links from the db and stores them in redux
+
+  //     renderApp(); //displays the array links stored in redux
+  //     if (history.location.pathname === '/') {
+  //       history.push('/dashboard');
+  //     }
+  //   });
+  // } else {
+
+  //   store.dispatch(logout());
+  //   renderApp();
+  //   history.push('/');
+  // }
+
   if (user) {
-    console.log("logged in user="+JSON.stringify(user))    
+    console.log("logged in user=" + JSON.stringify(user));
     store.dispatch(login(user.uid));
-    
-    store.dispatch(startSetLinks()).then(() => { //startSetLinks reads the links from the db and stores them in redux
-      
-      renderApp(); //displays the array links stored in redux
-      if (history.location.pathname === '/') {
-        history.push('/dashboard');
-      }
-    });
+
+    store
+      .dispatch(startSetLinks())
+      .then(() => {
+        //startSetLinks reads the links from the db and stores them in redux
+
+        return store.dispatch(startSetSettings()).then(() => {
+          //startSetSettings reads the links from the db and stores them in redux
+
+          renderApp(); //displays the array links stored in redux
+          if (history.location.pathname === "/") {
+            history.push("/dashboard");
+          }
+        }).catch((error) => {
+          console.log("error", error);
+        });;
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
   } else {
-    
     store.dispatch(logout());
     renderApp();
-    history.push('/');
+    history.push("/");
   }
 });

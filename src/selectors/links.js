@@ -10,6 +10,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
     console.log("str="+str)
     return str
   }
+
   return links.filter((link) => {
       const createdAtMoment = moment(link.createdAt);
       const startDateMatch = startDate

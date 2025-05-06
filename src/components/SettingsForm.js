@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
-import { useSelector } from 'react-redux'
+
 
 ////
 export const SettingsForm = (props) => {
@@ -9,8 +9,6 @@ export const SettingsForm = (props) => {
 
   const myRef1 = useRef();
   const myRef2 = useRef();
-
-  const settings = useSelector((state) => state.settings);
   
   const handleOptionChange1 = (event) => {
     console.log(

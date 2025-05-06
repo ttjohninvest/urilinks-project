@@ -19,7 +19,8 @@ export const startAddSettings = (settingsData = {}) => {
     ////
     return database
       .ref(`users/${uid}/settings`)
-      .push(settingsData)
+      //.push(settingsData)
+      .update(settingsData)
       .then((ref) => {
         dispatch(
           addSettings({
@@ -31,39 +32,37 @@ export const startAddSettings = (settingsData = {}) => {
   };
 };
 
-// REMOVE_LINK
-export const removeSettings = ({ id } = {}) => ({
+// REMOVE_SETTINGS
+export const removeSettings = () => ({
   type: "REMOVE_SETTINGS",
-  id,
 });
 
-export const startRemoveSettings = ({ id } = {}) => {
+export const startRemoveSettings = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     return database
-      .ref(`users/${uid}/settings/${id}`)
+      .ref(`users/${uid}/settings`)
       .remove()
       .then(() => {
-        dispatch(removeSettings({ id }));
+        dispatch(removeSettings());
       });
   };
 };
 
 // EDIT_LINK
-export const editSettings = (id, updates) => ({
+export const editSettings = (updates) => ({
   type: "EDIT_SETTINGS",
-  id,
   updates,
 });
 
-export const startEditSettings = (id, updates) => {
+export const startEditSettings = (updates) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     return database
-      .ref(`users/${uid}/settings/${id}`)
+      .ref(`users/${uid}/settings`)
       .update(updates)
       .then(() => {
-        dispatch(editSettings(id, updates));
+        dispatch(editSettings(updates));
       });
   };
 };

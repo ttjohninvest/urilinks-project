@@ -1,6 +1,6 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
-//import { useSelector } from 'react-redux';
+
 
 // ADD_LINK
 export const addLink = (link) => ({

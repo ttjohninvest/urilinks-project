@@ -1,6 +1,6 @@
 
 import database from "../firebase/firebase";
-//import { useSelector } from 'react-redux';
+
 
 // ADD_LINK
 export const addSettings = (settings) => ({

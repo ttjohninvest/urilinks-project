@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import SettingsForm from "./SettingsForm";
 import { withRouter } from 'react-router-dom';
 import { startAddSettings } from "../actions/settings";
-import selectSettings from "../selectors/settings"
+
 
 
 export const AddSettingsPage = (props) => {
@@ -48,7 +48,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => {
   return {
-    settings: selectSettings((state)=>state.settings),
+    settings: state.settings,
   };
 };
 

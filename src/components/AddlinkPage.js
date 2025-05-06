@@ -83,18 +83,7 @@ const  onSubmit = (link) => {
     </div>
   );
  
-    // return (
-    //   <div>
-    //     {!maximumPage?<div className="page-header">
-    //     <div className="content-container">
-    //         <h1 className="page-header__title">Add Uri/Url Link</h1>
-    //       </div>
-    //     </div>
-    //     <div className="content-container">
-    //       <LinkForm onSubmit={onSubmit} />
-    //     </div>:<div>maximum</div>}
-    //   </div>
-    // );
+    
   }
 
 
@@ -105,29 +94,3 @@ const mapDispatchToProps = (dispatch) => ({
 export default withRouter(connect(undefined, mapDispatchToProps)(AddLinkPage));
 
 
-// export class AddLinkPage extends React.Component {
-//   onSubmit = (link) => {
-//      this.props.startAddLink(link);
-//      this.props.history.push("/");
-//   };
-//   render() {
-//     return (
-//       <div>
-//         <div className="page-header">
-//           <div className="content-container">
-//             <h1 className="page-header__title">Add Uri/Url Link</h1>
-//           </div>
-//         </div>
-//         <div className="content-container">
-//           <LinkForm onSubmit={this.onSubmit} />
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// const mapDispatchToProps = (dispatch) => ({
-//   startAddLink: (link) => dispatch(startAddLink(link)),
-// });
-
-// export default connect(undefined, mapDispatchToProps)(AddLinkPage);

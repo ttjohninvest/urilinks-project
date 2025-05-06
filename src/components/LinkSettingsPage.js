@@ -109,7 +109,7 @@ export const LinkSettingsPage = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    // links: selectLinks(state.links, state.filters),
+     settings: selectSettings(state.settings),
   };
 };
 

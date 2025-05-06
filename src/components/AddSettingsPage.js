@@ -32,9 +32,10 @@ export const AddSettingsPage = (props) => {
       </div>
       <div className="content-container">
         <SettingsForm onSubmit={onSubmit} />
+        <div><button className="button-style-1- button" onClick={goBack}>Go Back</button></div>
       </div>
      
-      <div className="content-container"><button className="button-style-1- button" onClick={goBack}>Go Back</button></div>
+      
     </div>
   );
  

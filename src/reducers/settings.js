@@ -5,7 +5,10 @@ const settingsReducerDefaultState = {};
 export default (state = settingsReducerDefaultState, action) => {
   switch (action.type) {
     case "ADD_SETTINGS":
-      return action.settings
+      return {
+        ...state,
+        ...action.settings
+      }
     case "REMOVE_SETTINGS":
       return state.settings
     case "EDIT_SETTINGS":

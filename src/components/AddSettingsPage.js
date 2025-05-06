@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import SettingsForm from "./SettingsForm";
 import { withRouter } from 'react-router-dom';
+import { startAddSettings } from "../actions/settings";
 
 
 export const AddSettingsPage = (props) => {

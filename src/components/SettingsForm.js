@@ -37,10 +37,23 @@ export const SettingsForm = (props) => {
   };
 
   useEffect(()=>{
-    console.log("props.settings.selectedOption1",props.settings.selectedOption1)
+    //console.log("props.settings.selectedOption1",props.settings.selectedOption1)
         
-        setSelectedOption1(props.settings.selectedOption1)
-        setSelectedOption2(props.settings.selectedOption2)
+        //setSelectedOption1(props.settings.selectedOption1)
+        //setSelectedOption2(props.settings.selectedOption2)
+
+        (dispatch, getState) => {
+    
+          const uid = getState().auth.uid;
+          
+          return database
+            .ref(`users/${uid}/settings`)
+            .once("value")
+            .then((snapshot) => {
+              console.log("startSetSettings, about to call dispatch(setSettings(settings));, settings="+JSON.stringify(snapshot));
+              dispatch(setSettings(snapshot));
+            }).catch(error=>console.log("error="+error));
+        };
        
   },[])
 

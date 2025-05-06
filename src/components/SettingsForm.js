@@ -65,7 +65,7 @@ export const SettingsForm = (props) => {
   const onSubmit = (e) => {
     console.log("onSubmit")
     // console.log("onSubmit");
-    // e.preventDefault();
+     e.preventDefault();
 
     // if (!this.state.description || !this.state.Url || !this.state.amount) {
     //   this.setState(() => ({

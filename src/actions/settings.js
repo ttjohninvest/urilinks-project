@@ -68,10 +68,10 @@ export const startEditSettings = (id, updates) => {
   };
 };
 
-// SET_LINKS
+// SET_SETTINGS
 export const setSettings = (settings) => ({
   type: "SET_SETTINGS",
-  links,
+  settings,
 });
 
 //this puts the links array in the global redux store to be used to list the output

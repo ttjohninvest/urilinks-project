@@ -1,4 +1,4 @@
-import uuid from "uuid";
+
 import database from "../firebase/firebase";
 //import { useSelector } from 'react-redux';
 
@@ -12,17 +12,19 @@ export const addSettings = (settings) => ({
 export const startAddSettings = (settingsData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    const { setting1 = "", setting2 = "", createdAt = 0 } = settingsData;
-    const settings = { setting1, setting2, createdAt };
+    //const { setting1 = "", setting2 = "", createdAt = 0} = settingsData;
+    const { setting1 = "", setting2 = "" } = settingsData;
+    //const settings = { setting1, setting2, createdAt };
+    const settings = { setting1, setting2 };
     ////
     return database
       .ref(`users/${uid}/settings`)
-      .push(settings)
+      .push(settingsData)
       .then((ref) => {
         dispatch(
           addSettings({
             id: ref.key,
-            ...settings,
+            ...settingsData,
           })
         );
       });

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import SettingsForm from "./SettingsForm";
 import { withRouter } from 'react-router-dom';
 
+
 export const AddSettingsPage = (props) => {
 
   const goBack = () => {

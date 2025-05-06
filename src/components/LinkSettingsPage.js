@@ -35,10 +35,6 @@ export const LinkSettingsPage = (props) => {
     }
   };
 
-  useEffect(() => {
-    // const option = window.localStorage.getItem("whichOptionS1")
-    // if(option) setSelectedOption(option)
-  }, []);
 
   useEffect(() => {
     const element = myRef1.current;

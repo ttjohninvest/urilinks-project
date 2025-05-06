@@ -10,6 +10,7 @@ export const addSettings = (settings) => ({
 
 
 export const startAddSettings = (settingsData = {}) => {
+  console.log("startAddSettings, settingsData="+JSON.stringify(settingsData))
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
   

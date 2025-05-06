@@ -13,7 +13,7 @@ export const AddSettingsPage = (props) => {
   };
 
   const  onSubmit = (settings) => {
-     console.log("in onSubmit")
+     console.log("in onSubmit, settings="+JSON.stringify())
     
      props.startAddSettings(settings);
      props.history.push("/");

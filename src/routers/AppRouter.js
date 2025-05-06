@@ -3,6 +3,7 @@ import { Router, Route, Switch, Link, NavLink } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 import LinkDashboardPage from "../components/LinkDashboardPage";
 import LinkSettingsPage from "../components/LinkSettingsPage";
+import AddSettingsPage from "../components/AddSettingsPage";
 //import AddLinkPage from "../components/AddLinkPage";
 import AddLinkPage from "../components/AddlinkPage";
 import EditLinkPage from "../components/EditLinkPage";

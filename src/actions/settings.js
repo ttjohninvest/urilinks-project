@@ -18,11 +18,11 @@ export const startAddSettings = (settingsData = {}) => {
       //.push(settingsData)
       .update(settingsData)
       .then(() => {
-        dispatch(
-          addSettings({
-            ...settingsData,
-          })
-        );
+        // dispatch(
+        //   addSettings({
+        //     ...settingsData,
+        //   })
+        // );
       });
   };
 };

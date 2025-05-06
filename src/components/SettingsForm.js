@@ -38,23 +38,12 @@ export const SettingsForm = (props) => {
   };
 
   useEffect(()=>{
-    //console.log("props.settings.selectedOption1",props.settings.selectedOption1)
+    console.log("props.settings.selectedOption1",props.settings.selectedOption1)
         
-        //setSelectedOption1(props.settings.selectedOption1)
-        //setSelectedOption2(props.settings.selectedOption2)
+        setSelectedOption1(props.settings.selectedOption1)
+        setSelectedOption2(props.settings.selectedOption2)
 
-        return (dispatch, getState) => {
-    
-          const uid = getState().auth.uid;
-          
-          return database
-            .ref(`users/${uid}/settings`)
-            .once("value")
-            .then((snapshot) => {
-              console.log("startSetSettings, about to call dispatch(setSettings(settings));, settings="+JSON.stringify(snapshot));
-              dispatch(setSettings(snapshot));
-            }).catch(error=>console.log("error="+error));
-        };
+      
        
   },[])
 
@@ -108,7 +97,7 @@ export const SettingsForm = (props) => {
                   className="the-inline-block"
                   type="checkbox"
                   value="option1"
-                  checked={selectedOption1 === "option1"}
+                  checked={props.settings.selectedOption1 === "option1"}
                   onChange={handleOptionChange1}
                 />
                 <span className="the-inline-block label-text label-text-right">
@@ -123,7 +112,7 @@ export const SettingsForm = (props) => {
                   className="the-inline-block"
                   type="checkbox"
                   value="option2"
-                  checked={selectedOption2 === "option2"}
+                  checked={props.settings.selectedOption2 === "option2"}
                   onChange={handleOptionChange2}
                 />
                 <span className="the-inline-block label-text">
@@ -144,7 +133,7 @@ export const SettingsForm = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    //settings: selectSettings(state.settings),
+    settings: state.settings,
   };
 };
 

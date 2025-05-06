@@ -31,7 +31,7 @@ export const AddSettingsPage = (props) => {
         </div>
       </div>
       <div className="content-container">
-        <SettingsForm settings={props.settings} onSubmit={onSubmit} />
+        <SettingsForm onSubmit={onSubmit} />
       </div>
      
       <div><button className="button-style-1- button" onClick={goBack}>Go Back</button></div>
@@ -46,12 +46,12 @@ const mapDispatchToProps = (dispatch) => ({
   startAddSettings: (settings) => dispatch(startAddSettings(settings)),
 });
 
-const mapStateToProps = (state) => {
-  return {
-    settings: state.settings,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     //settings: state.settings,
+//   };
+// };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddSettingsPage));
+export default withRouter(connect(undefined, mapDispatchToProps)(AddSettingsPage));
 
 

@@ -10,6 +10,8 @@ export const SettingsForm = (props) => {
   const myRef1 = useRef();
   const myRef2 = useRef();
 
+  const settings = useSelector((state) => state.settings);
+  
   const handleOptionChange1 = (event) => {
     console.log(
       "handleOptionChange1, event.target.value=" + event.target.value
@@ -38,7 +40,7 @@ export const SettingsForm = (props) => {
 
   useEffect(()=>{
     
-        const settings = useSelector((state) => state.settings);
+        
         console.log("SettingsForm, settings="+JSON.stringify(settings))
         setSelectedOption1(settings.selectedOption1)
         setSelectedOption2(settings.selectedOption2)

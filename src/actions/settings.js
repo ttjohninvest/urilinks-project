@@ -12,22 +12,17 @@ export const addSettings = (settings) => ({
 export const startAddSettings = (settingsData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    //const { setting1 = "", setting2 = "", createdAt = 0} = settingsData;
-    const { setting1 = "", setting2 = "" } = settingsData;
-    //const settings = { setting1, setting2, createdAt };
-    const settings = { setting1, setting2 };
-    ////
+  
     return database
       .ref(`users/${uid}/settings`)
       //.push(settingsData)
       .update(settingsData)
-      .then((ref) => {
-        // dispatch(
-        //   addSettings({
-        //     id: ref.key,
-        //     ...settingsData,
-        //   })
-        // );
+      .then(() => {
+        dispatch(
+          addSettings({
+            ...settingsData,
+          })
+        );
       });
   };
 };

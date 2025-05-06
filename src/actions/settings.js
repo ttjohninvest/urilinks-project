@@ -84,7 +84,7 @@ export const startSetSettings = () => {
         console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, settings="+JSON.stringify(snapshot));
         console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, snapshot.selectionOption1="+snapshot.selectedOption1);
         console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, snapshot.selectionOption2="+snapshot.selectedOption2);
-        const xy1 = JSON.parse(snapshot)
+        const xy1 = JSON.parse(JSON.stringify(snapshot))
         console.log(xy1.selectedOption1)
         console.log(xy1.selectedOption2)
         const xy={

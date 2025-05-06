@@ -113,7 +113,7 @@ export const SettingsForm = (props) => {
                   onChange={handleOptionChange1}
                 />
                 <span className="the-inline-block label-text label-text-right">
-                  {"props.settings.selectedOption1="+props.settings.selectedOption1}checked means to let the public see your links
+                  checked means to let the public see your links
                 </span>
               </label>
             </div>
@@ -128,7 +128,7 @@ export const SettingsForm = (props) => {
                   onChange={handleOptionChange2}
                 />
                 <span className="the-inline-block label-text">
-                {"props.settings.selectedOption2="+props.settings.selectedOption2}checked means to see public links
+                checked means to see public links
                 </span>
               </label>
             </div>

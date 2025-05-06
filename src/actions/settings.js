@@ -82,11 +82,12 @@ export const startSetSettings = () => {
       .once("value")
       .then((snapshot) => {
         console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, settings="+JSON.stringify(snapshot));
-        console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, settings="+snapshot);
+        console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, settings.selectionOption1="+snapshot.selectionOption1);
+        console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, settings.selectionOption2="+snapshot.selectionOption2);
         //dispatch(setSettings(snapshot));
         const xy={
-          selectedOption1:snapshot.selectedOption1,
-          selectedOption2:snapshot.selectedOption2
+          selectedOption1:"option1",
+          selectedOption2:"option2"
         }
         dispatch(setSettings(xy))
       //  dispatch(

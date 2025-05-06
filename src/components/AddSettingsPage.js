@@ -46,11 +46,6 @@ const mapDispatchToProps = (dispatch) => ({
   startAddSettings: (settings) => dispatch(startAddSettings(settings)),
 });
 
-// const mapStateToProps = (state) => {
-//   return {
-//     //settings: state.settings,
-//   };
-// };
 
 export default withRouter(connect(undefined, mapDispatchToProps)(AddSettingsPage));
 

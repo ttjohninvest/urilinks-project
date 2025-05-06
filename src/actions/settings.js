@@ -19,6 +19,7 @@ export const startAddSettings = (settingsData = {}) => {
       //.push(settingsData)
       .update(settingsData)
       .then(() => {
+        console.log("in startAddSettings, just before the call to dispatch to add settingsData to redux")
         dispatch(
           addSettings({
             ...settingsData,

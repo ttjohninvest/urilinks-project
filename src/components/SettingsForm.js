@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 export const SettingsForm = (props) => {
   const [selectedOption1, setSelectedOption1] = useState("");
   const [selectedOption2, setSelectedOption2] = useState("");
-  const [createdAt, setCreatedAt] = useState(0);
 
   const myRef1 = useRef();
   const myRef2 = useRef();
@@ -86,7 +85,7 @@ export const SettingsForm = (props) => {
                   className="the-inline-block"
                   type="checkbox"
                   value="option1"
-                  checked={selectedOption1 === "option1"}
+                  checked={props.settings.selectedOption1 === "option1"}
                   onChange={handleOptionChange1}
                 />
                 <span className="the-inline-block label-text label-text-right">
@@ -101,7 +100,7 @@ export const SettingsForm = (props) => {
                   className="the-inline-block"
                   type="checkbox"
                   value="option2"
-                  checked={selectedOption2 === "option2"}
+                  checked={props.settings.selectedOption2 === "option2"}
                   onChange={handleOptionChange2}
                 />
                 <span className="the-inline-block label-text">
@@ -122,7 +121,7 @@ export const SettingsForm = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    //settings: selectSettings(state.settings),
+    settings: selectSettings(state.settings),
   };
 };
 

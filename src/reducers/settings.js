@@ -1,6 +1,9 @@
 // Settings Reducer
 
-const settingsReducerDefaultState = {};
+const settingsReducerDefaultState = {
+  settingsOption1:"",
+  settingsOption2:""
+};
 
 export default (state = settingsReducerDefaultState, action) => {
   switch (action.type) {

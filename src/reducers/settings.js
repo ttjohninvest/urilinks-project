@@ -18,7 +18,9 @@ export default (state = settingsReducerDefaultState, action) => {
     case "EDIT_SETTINGS":
       return state.setting
     case "SET_SETTINGS":
-      return action.settings;
+      return {
+        ...action.settings
+      }
     default:
       return state;
   }

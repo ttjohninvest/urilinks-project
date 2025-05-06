@@ -84,9 +84,9 @@ export const startSetSettings = () => {
         console.log("startSetSettings, about to call dispatch(setSettings(settings));, settings="+JSON.stringify(snapshot));
         //dispatch(setSettings(snapshot));
         dispatch(
-          addSettings({
-            ...snapshot,
-          })
+          setSettings(
+            snapshot
+          )
         );
         console.log("after call to dispatch(setSettings(snapshot))")
       }).catch(error=>console.log("error="+error));

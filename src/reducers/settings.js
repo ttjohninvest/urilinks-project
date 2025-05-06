@@ -6,6 +6,8 @@ const settingsReducerDefaultState = {
 };
 
 export default (state = settingsReducerDefaultState, action) => {
+  console.log("in settings reducer, action.type="+action.type))
+  console.log("in settings reducer, action.settings="+JSON.stringify(action.settings))
   switch (action.type) {
     case "ADD_SETTINGS":
       return {

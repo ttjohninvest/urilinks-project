@@ -88,8 +88,7 @@ export const startSetSettings = () => {
           selectedOption1:snapshot.selectedOption1,
           selectedOption2:snapshot.selectedOption2
         }
-        dispatch(
-              setSettings(xy)
+        dispatch(setSettings(xy))
       //  dispatch(
       //     setSettings({
       //       selectedOption1:"option1",

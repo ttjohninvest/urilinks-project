@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 
 ////
 export const SettingsForm = (props) => {
-  const [selectedOption1, setSelectedOption1] = useState("");
-  const [selectedOption2, setSelectedOption2] = useState("");
+  const [selectedOption1, setSelectedOption1] = useState(props.settings.selectedOption1);
+  const [selectedOption2, setSelectedOption2] = useState(props.settings.selectedOption2);
 
   const myRef1 = useRef();
   const myRef2 = useRef();

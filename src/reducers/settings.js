@@ -11,7 +11,6 @@ export default (state = settingsReducerDefaultState, action) => {
   switch (action.type) {
     case "ADD_SETTINGS":
       return {
-        ...state,
         ...action.settings
       }
     case "REMOVE_SETTINGS":

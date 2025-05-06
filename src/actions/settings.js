@@ -22,12 +22,12 @@ export const startAddSettings = (settingsData = {}) => {
       //.push(settingsData)
       .update(settingsData)
       .then((ref) => {
-        dispatch(
-          addSettings({
-            id: ref.key,
-            ...settingsData,
-          })
-        );
+        // dispatch(
+        //   addSettings({
+        //     id: ref.key,
+        //     ...settingsData,
+        //   })
+        // );
       });
   };
 };

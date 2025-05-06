@@ -17,9 +17,15 @@ export const SettingsForm = (props) => {
     );
     if (selectedOption1 === "option1") {
       window.localStorage.setItem("whichOptionS1", "");
+      console.log(
+        "handleOptionChange1, whichOptionS1=" + window.localStorage.getItem("whichOptionS1")
+      );
       setSelectedOption1("");
     } else {
       window.localStorage.setItem("whichOptionS1", "option1");
+      console.log(
+        "handleOptionChange1, whichOptionS1=" + window.localStorage.getItem("whichOptionS1")
+      );
       setSelectedOption1(event.target.value);
     }
   };
@@ -30,9 +36,15 @@ export const SettingsForm = (props) => {
     );
     if (selectedOption2 === "option2") {
       window.localStorage.setItem("whichOptionS2", "");
+      console.log(
+        "handleOptionChange1, whichOptionS2=" + window.localStorage.getItem("whichOptionS2")
+      );
       setSelectedOption2("");
     } else {
       window.localStorage.setItem("whichOptionS2", "option2");
+      console.log(
+        "handleOptionChange1, whichOptionS2=" + window.localStorage.getItem("whichOptionS2")
+      );
       setSelectedOption2(event.target.value);
     }
   };
@@ -40,8 +52,8 @@ export const SettingsForm = (props) => {
   useEffect(()=>{
     console.log("props.settings.selectedOption1",props.settings.selectedOption1)
         
-        setSelectedOption1(props.settings.selectedOption1)
-        setSelectedOption2(props.settings.selectedOption2)
+        setSelectedOption1(selectedOption1)
+        setSelectedOption2(selectedOption2)
 
       
        

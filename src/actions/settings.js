@@ -85,7 +85,7 @@ export const startSetSettings = () => {
       .ref(`users/${uid}/settings`)
       .once("value")
       .then((snapshot) => {
-        console.log("startSetSettings, about to call dispatch(setSettings(settings));");
+        console.log("startSetSettings, about to call dispatch(setSettings(settings));, settings="+JSON.stringify(snapshot));
         dispatch(setSettings(snapshot));
       }).catch(error=>console.log("error="+error));
   };

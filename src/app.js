@@ -31,23 +31,7 @@ const renderApp = () => {
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
 firebase.auth().onAuthStateChanged((user) => {
-  // if (user) {
-  //   console.log("logged in user="+JSON.stringify(user))
-  //   store.dispatch(login(user.uid));
-
-  //   store.dispatch(startSetLinks()).then(() => { //startSetLinks reads the links from the db and stores them in redux
-
-  //     renderApp(); //displays the array links stored in redux
-  //     if (history.location.pathname === '/') {
-  //       history.push('/dashboard');
-  //     }
-  //   });
-  // } else {
-
-  //   store.dispatch(logout());
-  //   renderApp();
-  //   history.push('/');
-  // }
+ 
 
   if (user) {
     console.log("logged in user=" + JSON.stringify(user));

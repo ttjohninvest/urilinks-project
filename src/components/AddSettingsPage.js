@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import SettingsForm from "./SettingsForm";
 import { withRouter } from 'react-router-dom';
 import { startAddSettings } from "../actions/settings";
+import selectSettings from "../selectors/settings"
 
 
 export const AddSettingsPage = (props) => {
@@ -30,7 +31,7 @@ export const AddSettingsPage = (props) => {
         </div>
       </div>
       <div className="content-container">
-        <SettingsForm onSubmit={onSubmit} />
+        <SettingsForm settings={props.settings} onSubmit={onSubmit} />
       </div>
      
       <div><button className="button-style-1- button" onClick={goBack}>Go Back</button></div>
@@ -45,6 +46,12 @@ const mapDispatchToProps = (dispatch) => ({
   startAddSettings: (settings) => dispatch(startAddSettings(settings)),
 });
 
-export default withRouter(connect(undefined, mapDispatchToProps)(AddSettingsPage));
+const mapStateToProps = (state) => {
+  return {
+    settings: selectSettings((state)=>state.settings),
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddSettingsPage));
 
 

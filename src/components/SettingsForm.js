@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { useSelector } from 'react-redux'
-//import selectLinks from "../selectors/selectSettings";
+
 ////
 export const SettingsForm = (props) => {
   const [selectedOption1, setSelectedOption1] = useState("");
@@ -41,9 +41,8 @@ export const SettingsForm = (props) => {
   useEffect(()=>{
     
         
-        console.log("SettingsForm, settings="+JSON.stringify(settings))
-        setSelectedOption1(settings.selectedOption1)
-        setSelectedOption2(settings.selectedOption2)
+        setSelectedOption1(props.settings.selectedOption1)
+        setSelectedOption2(props.settings.selectedOption2)
        
   },[])
 

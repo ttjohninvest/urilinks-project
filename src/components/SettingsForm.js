@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
+import { useSelector } from 'react-redux'
 //import selectLinks from "../selectors/selectSettings";
 ////
 export const SettingsForm = (props) => {
@@ -34,6 +35,13 @@ export const SettingsForm = (props) => {
       setSelectedOption2(event.target.value);
     }
   };
+
+  useEffect(()=>{
+    
+        const settings = useSelector((state) => state.settings);
+        console.log("SettingsForm, settings="+JSON.stringify(settings))
+       
+  },[])
 
   useEffect(() => {
     const element = myRef1.current;
@@ -121,7 +129,7 @@ export const SettingsForm = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    settings: selectSettings(state.settings),
+    //settings: selectSettings(state.settings),
   };
 };
 

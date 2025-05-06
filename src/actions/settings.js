@@ -88,8 +88,8 @@ export const startSetSettings = () => {
         console.log(xy1.selectedOption1)
         console.log(xy1.selectedOption2)
         const xy={
-          selectedOption1:"option1",
-          selectedOption2:"option2"
+          selectedOption1:xy1.selectedOption1,
+          selectedOption2:xy1.selectedOption2
         }
         dispatch(setSettings(xy))
       //  dispatch(

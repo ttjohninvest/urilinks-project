@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import database from "../firebase/firebase";
 import { connect } from "react-redux";
 
 
@@ -42,7 +43,7 @@ export const SettingsForm = (props) => {
         //setSelectedOption1(props.settings.selectedOption1)
         //setSelectedOption2(props.settings.selectedOption2)
 
-        (dispatch, getState) => {
+        return (dispatch, getState) => {
     
           const uid = getState().auth.uid;
           

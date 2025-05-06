@@ -40,6 +40,8 @@ export const SettingsForm = (props) => {
     
         const settings = useSelector((state) => state.settings);
         console.log("SettingsForm, settings="+JSON.stringify(settings))
+        setSelectedOption1(settings.selectedOption1)
+        setSelectedOption2(settings.selectedOption2)
        
   },[])
 
@@ -93,7 +95,7 @@ export const SettingsForm = (props) => {
                   className="the-inline-block"
                   type="checkbox"
                   value="option1"
-                  checked={props.settings.selectedOption1 === "option1"}
+                  checked={selectedOption1 === "option1"}
                   onChange={handleOptionChange1}
                 />
                 <span className="the-inline-block label-text label-text-right">
@@ -108,7 +110,7 @@ export const SettingsForm = (props) => {
                   className="the-inline-block"
                   type="checkbox"
                   value="option2"
-                  checked={props.settings.selectedOption2 === "option2"}
+                  checked={selectedOption2 === "option2"}
                   onChange={handleOptionChange2}
                 />
                 <span className="the-inline-block label-text">

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 export const SettingsForm = (props) => {
   const [selectedOption1, setSelectedOption1] = useState("");
   const [selectedOption2, setSelectedOption2] = useState("");
+  const [createdAt, setCreatedAt] = useState(0);
 
   const myRef1 = useRef();
   const myRef2 = useRef();
@@ -35,7 +36,6 @@ export const SettingsForm = (props) => {
     }
   };
 
-
   useEffect(() => {
     const element = myRef1.current;
 
@@ -63,24 +63,14 @@ export const SettingsForm = (props) => {
   }, []);
 
   const onSubmit = (e) => {
-    console.log("onSubmit")
+    console.log("onSubmit");
     // console.log("onSubmit");
-     e.preventDefault();
-
-    // if (!this.state.description || !this.state.Url || !this.state.amount) {
-    //   this.setState(() => ({
-    //     error: "Please provide description and amount.",
-    //   }));
-    // } else {
-    //   this.setState(() => ({ error: "" }));
-    //   this.props.onSubmit({
-    //     description: this.state.description,
-    //     Url: this.state.Url,
-    //     amount: parseFloat(this.state.amount, 10) * 100,
-    //     createdAt: this.state.createdAt.valueOf(),
-    //     note: this.state.note,
-    //   });
-    // }
+    e.preventDefault();
+    //createAt
+    props.onSubmit({
+      selectedOption1,
+      selectedOption2  
+    });
   };
 
   return (
@@ -88,44 +78,43 @@ export const SettingsForm = (props) => {
       <div className="list-header list-header__flex- border-green- margin-bottom-1">
         <div className="show-for-desktop">Settings Page</div>
         <form className="form" onSubmit={onSubmit}>
-        <div className="list-header__flex">
+          <div className="list-header__flex">
+            <div>
+              <label className="inline-block__flex">
+                <input
+                  ref={myRef1}
+                  className="the-inline-block"
+                  type="checkbox"
+                  value="option1"
+                  checked={selectedOption1 === "option1"}
+                  onChange={handleOptionChange1}
+                />
+                <span className="the-inline-block label-text label-text-right">
+                  checked means to let the public see your links
+                </span>
+              </label>
+            </div>
+            <div className="margin-left-1">
+              <label className="inline-block__flex">
+                <input
+                  ref={myRef2}
+                  className="the-inline-block"
+                  type="checkbox"
+                  value="option2"
+                  checked={selectedOption2 === "option2"}
+                  onChange={handleOptionChange2}
+                />
+                <span className="the-inline-block label-text">
+                  checked means to see public links
+                </span>
+              </label>
+            </div>
+          </div>
+
           <div>
-            <label className="inline-block__flex">
-              <input
-                ref={myRef1}
-                className="the-inline-block"
-                type="checkbox"
-                value="option1"
-                checked={selectedOption1 === "option1"}
-                onChange={handleOptionChange1}
-              />
-              <span className="the-inline-block label-text label-text-right">
-                checked means to let the public see your links
-              </span>
-            </label>
+            <button className="button">Save Settings</button>
           </div>
-          <div className="margin-left-1">
-            <label className="inline-block__flex">
-              <input
-                ref={myRef2}
-                className="the-inline-block"
-                type="checkbox"
-                value="option2"
-                checked={selectedOption2 === "option2"}
-                onChange={handleOptionChange2}
-              />
-              <span className="the-inline-block label-text">
-                checked means to see public links
-              </span>
-            </label>
-          </div>
-        </div>
-       
-        
-        <div>
-          <button className="button">Save Settings</button>
-        </div>
-      </form>
+        </form>
       </div>
     </div>
   );
@@ -133,7 +122,7 @@ export const SettingsForm = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-     //settings: selectSettings(state.settings),
+    //settings: selectSettings(state.settings),
   };
 };
 

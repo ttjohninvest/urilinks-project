@@ -14,21 +14,38 @@ import LinksSummary from "./LinksSummary";
 
 const LinkDashboardPage = () => {
 
-  const [scrollPos, setScrollPos] = useState(0);
+  // const [scrollPos, setScrollPos] = useState(0);
 
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     window.localStorage.setItem("scrollY",window.scrollY)
+  //     setScrollPos(window.scrollY);
+
+  //   }
+
+  //   // Adding scroll event listener
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   // Cleanup function to remove the event listener
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      window.localStorage.setItem("scrollY",window.scrollY)
-      setScrollPos(window.scrollY);
-
-    }
-
-    // Adding scroll event listener
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup function to remove the event listener
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleBeforeUnload = (event) => {
+      window.localStorage.setItem("scrollY",0)
+      // Your function to run before the tab is closed
+      console.log('Tab is closing...');
+      // Optional: Display a confirmation dialog
+      event.preventDefault();
+      event.returnValue = ''; // Required for Chrome
+    };
+  
+    window.addEventListener('beforeunload', handleBeforeUnload);
+  
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
   }, []);
 
   useEffect(()=>{

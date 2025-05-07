@@ -84,8 +84,8 @@ export const setLinksAll = (links) => ({
 //this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = () => {
   console.log("startSetLinks")
-  // return (dispatch, getState) => {
-  //   const uid = getState().auth.uid;
+   return (dispatch, getState) => {
+     const uid = getState().auth.uid;
 
     return database
       .ref(`users/${uid}/links`)

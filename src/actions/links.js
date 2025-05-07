@@ -84,26 +84,26 @@ export const setLinksAll = (links) => ({
 //this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = () => {
   console.log("startSetLinks")
-  // return (dispatch, getState) => {
-  //   const uid = getState().auth.uid;
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
 
-  //   return database
-  //     .ref(`users/${uid}/links`)
-  //     .once("value")
-  //     .then((snapshot) => {
-  //       const links = [];
+    return database
+      .ref(`users/${uid}/links`)
+      .once("value")
+      .then((snapshot) => {
+        const links = [];
 
-  //       snapshot.forEach((childSnapshot) => {
-  //         links.push({
-  //           id: childSnapshot.key,
-  //           ...childSnapshot.val(),
-  //         });
-  //       });
-  //       console.log("startSetLinks, about to call dispatch(setLinks(links));");
-  //       dispatch(setLinks(links));
-  //     })
-  //     .catch((error) => console.log("error=" + error));
-  // };
+        snapshot.forEach((childSnapshot) => {
+          links.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val(),
+          });
+        });
+        console.log("startSetLinks, about to call dispatch(setLinks(links));");
+        dispatch(setLinks(links));
+      })
+      .catch((error) => console.log("error=" + error));
+  };
 
   // return (dispatch, getState) => {
   //   return database

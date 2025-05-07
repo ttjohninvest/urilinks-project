@@ -83,23 +83,52 @@ export const setLinksAll = (links) => ({
 
 //this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = () => {
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+  // return (dispatch, getState) => {
+  //   const uid = getState().auth.uid;
 
+  //   return database
+  //     .ref(`users/${uid}/links`)
+  //     .once("value")
+  //     .then((snapshot) => {
+  //       const links = [];
+
+  //       snapshot.forEach((childSnapshot) => {
+  //         links.push({
+  //           id: childSnapshot.key,
+  //           ...childSnapshot.val(),
+  //         });
+  //       });
+  //       console.log("startSetLinks, about to call dispatch(setLinks(links));");
+  //       dispatch(setLinks(links));
+  //     })
+  //     .catch((error) => console.log("error=" + error));
+  // };
+
+  return (dispatch, getState) => {
     return database
-      .ref(`users/${uid}/links`)
+      .ref(`users`)
       .once("value")
       .then((snapshot) => {
         const links = [];
 
         snapshot.forEach((childSnapshot) => {
-          links.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val(),
-          });
+          return database
+            .ref(`users/${childSnapshot.key}/links`)
+            .once("value")
+            .then((snapshot2) => {
+              snapshot2.forEach((childSnapshot2) => {
+                links.push({
+                  id: childSnapshot2.key,
+                  ...childSnapshot2.val(),
+                });
+              });
+              console.log(
+                "startSetLinksAll, about to call dispatch(setLinksAll(links));"
+              );
+              dispatch(setLinks(links));
+            })
+            .catch((error) => console.log("error=" + error));
         });
-        console.log("startSetLinks, about to call dispatch(setLinks(links));");
-        dispatch(setLinks(links));
       })
       .catch((error) => console.log("error=" + error));
   };

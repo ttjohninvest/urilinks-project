@@ -103,37 +103,6 @@ export const startSetLinks = () => {
         dispatch(setLinks(links));
       })
       .catch((error) => console.log("error=" + error));
-  
-
-  // return (dispatch, getState) => {
-  //   return database
-  //     .ref(`users`)
-  //     .once("value")
-  //     .then((snapshot) => {
-  //       const links = [];
-  //       console.log("snapshot="+JSON.stringify(snapshot))
-  //       snapshot.forEach((childSnapshot) => {
-  //         return database
-  //           .ref(`users/${childSnapshot.key}/links`)
-  //           .once("value")
-  //           .then((snapshot2) => {
-  //             console.log("snapshot2="+JSON.stringify(snapshot2))
-  //             snapshot2.forEach((childSnapshot2) => {
-  //               links.push({
-  //                 id: childSnapshot2.key,
-  //                 ...childSnapshot2.val(),
-  //               });
-  //             });
-  //             console.log(
-  //               "startSetLinksAll, about to call dispatch(setLinksAll(links));"
-  //             );
-  //             dispatch(setLinks(links));
-  //           })
-  //           .catch((error) => console.log("error=" + error));
-  //       });
-  //     })
-  //     .catch((error) => console.log("error=" + error));
-  // };
 };
 }
 

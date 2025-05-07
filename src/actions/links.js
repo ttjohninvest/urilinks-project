@@ -115,7 +115,7 @@ export const startSetLinks = () => {
         snapshot.forEach((childSnapshot) => {
           return database
             //.ref(`users/${childSnapshot.key}/links`)
-            .ref(`links`)
+            .ref(`users/${childSnapshot.key}`)
             .once("value")
             .then((snapshot2) => {
               snapshot2.forEach((childSnapshot2) => {

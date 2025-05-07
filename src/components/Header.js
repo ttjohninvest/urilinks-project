@@ -9,7 +9,7 @@ export const Header = ({ startLogout }) => (
     <div className="content-container">
       <div className="header__content">
         <Link className="header__title" to="/dashboard">
-          <h1><img src={logo} width="35" height="35" alt="Logo" /> Your Uri/Url Links</h1>
+        <div className="header-flex-row"><div><img src={logo} width="35" height="35" alt="Logo" /></div><h1> Your Uri/Url Links</h1></div>
         </Link>
         <Link className="header__title" to="/settings">
           {/* <span>Settings</span> */}

@@ -160,3 +160,7 @@ firebase pricing: https://firebase.google.com/pricing
 heroku pricing: https://devcenter.heroku.com/articles/usage-and-billing
 cloudflare pricing:
 100webspace.com pricing: 16.00/year for the domain name
+
+tutorial utilities
+how to include an image with webpack https://www.youtube.com/watch?v=91TsjW9BaC4
+

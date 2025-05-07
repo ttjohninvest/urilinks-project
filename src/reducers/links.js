@@ -21,6 +21,7 @@ export default (state = linksReducerDefaultState, action) => {
       });
     case "SET_LINKS":
       return action.links;
+    
     default:
       return state;
   }

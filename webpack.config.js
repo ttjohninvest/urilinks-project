@@ -45,17 +45,10 @@ module.exports = (env) => {
         })
       },
       {
-        test: /\.(png|jpe?g|gif|svg|ico)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              limit: 81920, // Convert images < 8kb to base64 strings
-              name: '[name].[hash].[ext]', // Output path and filename
-              outputPath:'assets/images/'
-            }
-          }
-        ]
+        test: /\.(png|jpg)$/,
+        exclude: /node_modules/,
+        loader: "url-loader"
+       
       }
     ]
     },

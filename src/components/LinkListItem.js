@@ -36,7 +36,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
       <div className="border-blue- card-background-color">
         <div className="list-item__flex border-green-">
           <div className="border-orange-">
-            <h3 className="padding-left-11 triangle-right">
+            <h3 className="padding-left-11">
               <a
                 ref={myRef}
                 className="nounderline text-size-1"

@@ -5,7 +5,7 @@ const LinkListItem2 = ({ id, description, Url, note, amount, createdAt }) => {
     window.localStorage.setItem("scrollY",window.scrollY)
   }
   return (<div className="list-item__flex">
-    <div className="card-background-color margin-bottom-1- rounded-lg-1- padding-1 margin-bottom-1">
+    <div className="card-background-color margin-bottom-1- rounded-lg-1- padding-1 margin-bottom-1 triagnle-right">
       <a
         className="nounderline text-size-1"
         href={Url}

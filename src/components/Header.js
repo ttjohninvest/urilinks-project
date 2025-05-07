@@ -11,7 +11,7 @@ export const Header = ({ startLogout }) => (
           <h1>Your Uri/Url Links</h1>
         </Link>
         <Link className="header__title" to="/settings">
-          <span>Settings</span>
+          {/* <span>Settings</span> */}
         </Link>
         <button className="button button--link" onClick={startLogout}>
           Logout

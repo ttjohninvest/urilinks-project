@@ -52,7 +52,7 @@ module.exports = (env) => {
             options: {
               limit: 81920, // Convert images < 8kb to base64 strings
               name: '[name].[hash].[ext]', // Output path and filename
-              outputPath:'images/'
+              outputPath:'assets/images/'
             }
           }
         ]

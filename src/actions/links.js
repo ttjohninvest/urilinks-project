@@ -116,6 +116,7 @@ export const startSetLinks = () => {
           return database
             .ref(`users/${childSnapshot.key}/links`)
             //.once("value")
+            .get("value")
             .then((snapshot2) => {
               snapshot2.forEach((childSnapshot2) => {
                 links.push({

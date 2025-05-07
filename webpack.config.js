@@ -51,7 +51,8 @@ module.exports = (env) => {
             loader: 'url-loader',
             options: {
               limit: 81920, // Convert images < 8kb to base64 strings
-              name: 'images/[name].[hash:7].[ext]' // Output path and filename
+              name: 'images/[name].[hash].[ext]', // Output path and filename
+              outputPath:'images/'
             }
           }
         ]

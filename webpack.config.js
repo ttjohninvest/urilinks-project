@@ -43,7 +43,20 @@ module.exports = (env) => {
             }
           ]
         })
-      }]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192, // Convert images < 8kb to base64 strings
+              name: 'images/[name].[hash:7].[ext]' // Output path and filename
+            }
+          }
+        ]
+      }
+    ]
     },
     plugins: [
       CSSExtract,

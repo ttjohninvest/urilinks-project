@@ -135,6 +135,7 @@ export const startSetLinks = () => {
   //     .catch((error) => console.log("error=" + error));
   // };
 };
+}
 
 export const startSetLinksAll = () => {
   return (dispatch, getState) => {

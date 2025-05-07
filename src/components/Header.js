@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
+import logo from "./logo9.png"
 
 export const Header = ({ startLogout }) => (
   <header className="header">
     <div className="content-container">
       <div className="header__content">
         <Link className="header__title" to="/dashboard">
-          <h1>Your Uri/Url Links</h1>
+          <h1><img src={logo} alt="Logo" /> Your Uri/Url Links</h1>
         </Link>
         <Link className="header__title" to="/settings">
           {/* <span>Settings</span> */}

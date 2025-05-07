@@ -36,6 +36,7 @@ const LinkDashboardPage = () => {
     const sp = parseInt(window.localStorage.getItem("scrollY")) //parseInt(window.localStorage.getItem("scrollPosition"))
     console.log("sp="+sp)
     window.scrollTo(0,sp)
+    //
 
   },[])
  return (

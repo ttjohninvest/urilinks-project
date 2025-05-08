@@ -10,7 +10,7 @@ export default class LinkForm extends React.Component {
       description: props.link ? props.link.description : "",
       Url: props.link ? props.link.Url : "",
       note: props.link ? props.link.note : "",
-      amount: props.link ? (props.link.amount / 100).toString() : "",
+      amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link ? moment(props.link.createdAt) : moment(),
       calendarFocused: false,
       error: "",

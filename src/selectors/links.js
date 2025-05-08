@@ -25,7 +25,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
      
        let isTextInDescription, isTextInNote;
 
-       if(sortBy==='hashtag') {
+       if(sortBy==='date') {
         isTextInDescription = link.description
         .toLowerCase()
         .includes(text.toLowerCase());

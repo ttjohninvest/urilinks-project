@@ -31,7 +31,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         } else if(sortBy==='hashtag') { //the user entered a hash tag, for example #project1
           isTextInNote = link.note
           .toLowerCase()
-          .includes(text.toLowerCase());
+          .includes(text.toLowerCase()) && text;
           return startDateMatch && endDateMatch && isTextInNote;
         }
         else return startDateMatch && endDateMatch;

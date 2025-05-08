@@ -25,15 +25,17 @@ export class LinkListFilters extends React.Component {
     console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, e.target.value="+e.target.value)
     console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, this.props.filters.sortBy="+this.props.filters.sortBy)
     console.log("e.target.value=" + e.target.value);
-    if(e.target.value.trim().length===1 && e.target.value.trim().match(/^[ -~]$/) && e.target.value.trim()==='#' )
-      {
-        window.localStorage.setItem("searchLinks", e.target.value);
-        this.props.setTextFilter(e.target.value);
-      }
-    else if(e.target.value.trim().length>1) {
-        window.localStorage.setItem("searchLinks", e.target.value);
-        this.props.setTextFilter(e.target.value);
-    }
+    // if(e.target.value.trim().length===1 && e.target.value.trim().match(/^[ -~]$/) && e.target.value.trim()==='#' )
+    //   {
+    //     window.localStorage.setItem("searchLinks", e.target.value);
+    //     this.props.setTextFilter(e.target.value);
+    //   }
+    // else if(e.target.value.trim().length>1) {
+    //     window.localStorage.setItem("searchLinks", e.target.value);
+    //     this.props.setTextFilter(e.target.value);
+    // }
+    window.localStorage.setItem("searchLinks", e.target.value);
+    this.props.setTextFilter(e.target.value);
   };
 
   onSortChange = (e) => {

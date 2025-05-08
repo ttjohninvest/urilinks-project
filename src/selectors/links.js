@@ -6,7 +6,7 @@ import moment from "moment";
 const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   //console.log("links="+JSON.stringify(links))
   console.log("getFilteredLinksArray, text="+text)
-
+  console.log("getFilteredLinksArray, TTTTTTTTTTTTTTTTTTTTTTTTTTTTTt, sortBy="+sortBy)
   const removeHashTags=(text) => {
     let str = text.replace(/#\S+/g, '').trim();
     console.log("str="+str)
@@ -26,10 +26,10 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
        let isTextInDescription, isTextInNote;
 
        if(sortBy==='hashtag') {
-        // isTextInDescription = link.description
-        // .toLowerCase()
-        // .includes(text.toLowerCase());
-        return true //startDateMatch && endDateMatch && isTextInDescription;
+        isTextInDescription = link.description
+        .toLowerCase()
+        .includes(text.toLowerCase());
+        return startDateMatch && endDateMatch && isTextInDescription;
        }
        else if(sortBy==='description') {
           isTextInDescription = link.description

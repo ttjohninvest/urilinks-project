@@ -22,6 +22,13 @@ export class LinkListFilters extends React.Component {
     this.setState(() => ({ calendarFocused }));
   };
   onTextChange = (e) => {
+    if(this.props.filters.sortBy === "hastag") {
+      if(e.target.value !== "#")
+      { 
+        console.log("# needs to be the first character")
+        return
+      }
+    }
     console.log("e.target.value=" + e.target.value);
     window.localStorage.setItem("searchLinks", e.target.value);
     this.props.setTextFilter(e.target.value);

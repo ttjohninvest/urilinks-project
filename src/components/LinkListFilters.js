@@ -28,12 +28,15 @@ export class LinkListFilters extends React.Component {
       if(e.target.value !== "#")
       { 
         console.log("# needs to be the first character")
-        return
+        //return
+      }
+      else {
+        console.log("e.target.value=" + e.target.value);
+        window.localStorage.setItem("searchLinks", e.target.value);
+        this.props.setTextFilter(e.target.value);
       }
     }
-    console.log("e.target.value=" + e.target.value);
-    window.localStorage.setItem("searchLinks", e.target.value);
-    this.props.setTextFilter(e.target.value);
+   
   };
   onSortChange = (e) => {
     console.log("sort, e.target.value=" + e.target.value);

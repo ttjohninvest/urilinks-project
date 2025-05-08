@@ -68,7 +68,7 @@ export default class LinkForm extends React.Component {
         {this.state.error && <p className="form__error">{this.state.error}</p>}
         <input
           type="text"
-          placeholder="Uri/Url Link Text, example: gmail"
+          placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
           autoFocus
           className="text-input"
           value={this.state.description}

@@ -47,7 +47,7 @@ export default class LinkForm extends React.Component {
     console.log("onSubmit");
     e.preventDefault();
 
-    if (!this.state.description || !this.state.Url || !this.state.amount) {
+    if (!this.state.description || !this.state.Url) { // || !this.state.amount) {
       this.setState(() => ({
         error: "Please provide description and amount.",
       }));

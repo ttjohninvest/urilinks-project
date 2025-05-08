@@ -164,3 +164,4 @@ cloudflare pricing:
 tutorial utilities
 how to include an image with webpack https://www.youtube.com/watch?v=91TsjW9BaC4
 how to keep track of the scroll position https://rehanpinjari.medium.com/how-to-handle-scroll-position-like-a-pro-in-react-efa86dfc68a9
+privacy and terms and conditions https://www.lawdepot.com/contracts/website-privacy-policy/?loc=US&pid=msnppc-1229254240402308-76828549446828_sl-msnkey_privacy%20policy%20url%20generator&utm_source=bing&utm_medium=cpc&MSCLKID=ccad8ec915fb11c242c6e6d51581b48d&s=QSwebsiteDetails&g=QGwebsiteType&webuser_data_id=199573413

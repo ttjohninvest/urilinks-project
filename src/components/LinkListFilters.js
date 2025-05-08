@@ -24,19 +24,9 @@ export class LinkListFilters extends React.Component {
   onTextChange = (e) => {
     console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, e.target.value="+e.target.value)
     console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, this.props.filters.sortBy="+this.props.filters.sortBy)
-    if(this.props.filters.sortBy === "hashtag") {
-      if(e.target.value !== "#")
-      { 
-        console.log("# needs to be the first character")
-        return true
-      }
-      else {
-        console.log("e.target.value=" + e.target.value);
-        window.localStorage.setItem("searchLinks", e.target.value);
-        this.props.setTextFilter(e.target.value);
-      }
-    }
-   
+    console.log("e.target.value=" + e.target.value);
+    window.localStorage.setItem("searchLinks", e.target.value);
+    this.props.setTextFilter(e.target.value);
   };
   onSortChange = (e) => {
     console.log("sort, e.target.value=" + e.target.value);

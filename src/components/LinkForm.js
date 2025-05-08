@@ -83,13 +83,13 @@ export default class LinkForm extends React.Component {
           value={this.state.Url}
           onChange={this.onUrlChange}
         />
-        <input
+        {/* <input
           type="text"
           placeholder="Amount"
           className="text-input"
           value={this.state.amount}
           onChange={this.onAmountChange}
-        />
+        /> */}
         <SingleDatePicker
           date={this.state.createdAt}
           onDateChange={this.onDateChange}

@@ -25,7 +25,7 @@ export class LinkListFilters extends React.Component {
     console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, e.target.value="+e.target.value)
     console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, this.props.filters.sortBy="+this.props.filters.sortBy)
     if(this.props.filters.sortBy === "hashtag") {
-      if(e.target.value !== "#")
+      if(e.target.value !== "#" || true)
       { 
         console.log("# needs to be the first character")
         //return

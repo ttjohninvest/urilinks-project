@@ -36,6 +36,7 @@ const renderApp = () => {
 
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
+//the call back function runs on login and logout
 firebase.auth().onAuthStateChanged((user) => {
  
 
@@ -70,6 +71,7 @@ firebase.auth().onAuthStateChanged((user) => {
       //})
       });
   } else {
+    console.log("logout happened")
     store.dispatch(logout());
     renderApp();
     history.push("/");

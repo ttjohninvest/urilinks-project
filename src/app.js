@@ -46,6 +46,12 @@ firebase.auth().onAuthStateChanged((user) => {
     store
       .dispatch(startSetLinks())
       .then(() => {
+
+        renderApp(); //displays the array links stored in redux
+             if (history.location.pathname === "/") {
+               history.push("/dashboard");
+            }
+
         //startSetLinks reads the links from the db and stores them in redux
 
       //   return store.dispatch(startSetSettings()).then(() => {

@@ -1,4 +1,7 @@
 export default (state = {}, action) => {
+  console.log("in auth reducer, action.type="+action.type)
+  console.log("in auth reducer, action.settings="+JSON.stringify(action.settings))
+ 
   switch (action.type) {
     case 'LOGIN':
       return {

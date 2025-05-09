@@ -168,3 +168,6 @@ privacy and terms and conditions https://www.lawdepot.com/contracts/website-priv
 
 free terms: https://www.accepted.com/terms-use/
 free privacy: https://www.accepted.com/privacy
+
+firebase version I changed 5.0.4 to 7.1.0 I am getting an automatic login using opera and explorer browser when it 
+should give me an email selection list to choose from which it skips.

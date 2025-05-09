@@ -23,7 +23,7 @@ export const Header = ({ startLogout }) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-  startLogout: () => dispatch(startLogout()),
+  startLogout: () => {dispatch(startLogout()).then(()=>console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSdispatch then")).catch((error)=>console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error"+error))},
 });
 
 export default connect(undefined, mapDispatchToProps)(Header);

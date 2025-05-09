@@ -66,7 +66,8 @@ firebase.auth().onAuthStateChanged((user) => {
       //   });
       // })
       //.catch((error) => {
-        console.log("error", error);
+        //console.log("error", error);
+      //})
       });
   } else {
     store.dispatch(logout());

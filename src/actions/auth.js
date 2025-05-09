@@ -15,7 +15,8 @@ export const startLogin = () => {
 export const logout = () => {
   console.log("SSSSSSSSSSSSSSSSSSSSSS, in actions/auth.js/logout function")
   return {
-    type: 'LOGOUT'
+    type: 'LOGOUT',
+    uid:''
   }
 };
 

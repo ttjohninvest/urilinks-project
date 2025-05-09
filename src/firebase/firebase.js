@@ -30,7 +30,7 @@ const app = firebase.initializeApp(config);
 
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-googleAuthProvider.setCustomParameters({
+googleAuthProvider.setCustomParameters({ //this fixed the google email selection dialog from not coming up
   prompt: "select_account"
 });
 export { firebase, googleAuthProvider, database as default };

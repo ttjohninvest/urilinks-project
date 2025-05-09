@@ -111,7 +111,7 @@ export const startSetSettings = () => {
       //       ...snapshot
       // })
         //);
-        console.log("after call to dispatch(setSettings(snapshot)), spapshot="+JSON.stringify(snapshot))
+        //console.log("after call to dispatch(setSettings(snapshot)), spapshot="+JSON.stringify(snapshot))
       }).catch(error=>console.log("error="+error));
   };
 

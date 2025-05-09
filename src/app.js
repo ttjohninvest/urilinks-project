@@ -48,18 +48,18 @@ firebase.auth().onAuthStateChanged((user) => {
       .then(() => {
         //startSetLinks reads the links from the db and stores them in redux
 
-        return store.dispatch(startSetSettings()).then(() => {
-          //startSetSettings reads the links from the db and stores them in redux
+      //   return store.dispatch(startSetSettings()).then(() => {
+      //     //startSetSettings reads the links from the db and stores them in redux
 
-          renderApp(); //displays the array links stored in redux
-          if (history.location.pathname === "/") {
-            history.push("/dashboard");
-          }
-        }).catch((error) => {
-          console.log("error", error);
-        });;
-      })
-      .catch((error) => {
+      //     renderApp(); //displays the array links stored in redux
+      //     if (history.location.pathname === "/") {
+      //       history.push("/dashboard");
+      //     }
+      //   }).catch((error) => {
+      //     console.log("error", error);
+      //   });
+      // })
+      //.catch((error) => {
         console.log("error", error);
       });
   } else {

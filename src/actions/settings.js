@@ -81,26 +81,26 @@ export const startSetSettings = () => {
       .ref(`users/${uid}/settings`)
       .once("value")
       .then((snapshot) => {
-        // console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, settings="+JSON.stringify(snapshot));
-        // console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, snapshot.selectionOption1="+snapshot.selectedOption1);
-        // console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, snapshot.selectionOption2="+snapshot.selectedOption2);
-        // const xy1 = JSON.parse(JSON.stringify(snapshot))
-        // let xy
-        // if(xy1) {
-        //   console.log(xy1.selectedOption1)
-        //   console.log(xy1.selectedOption2)
-        //   xy={
-        //     selectedOption1:xy1.selectedOption1,
-        //     selectedOption2:xy1.selectedOption2
-        //   }
-        // } else {
-        //   xy={
-        //     selectedOption1:"",
-        //     selectedOption2:""
-        //   }
-        // }
+        console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, settings="+JSON.stringify(snapshot));
+        console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, snapshot.selectionOption1="+snapshot.selectedOption1);
+        console.log("on startup, startSetSettings, about to call dispatch(setSettings(settings));, snapshot.selectionOption2="+snapshot.selectedOption2);
+        const xy1 = JSON.parse(JSON.stringify(snapshot))
+        let xy
+        if(xy1) {
+          console.log(xy1.selectedOption1)
+          console.log(xy1.selectedOption2)
+          xy={
+            selectedOption1:xy1.selectedOption1,
+            selectedOption2:xy1.selectedOption2
+          }
+        } else {
+          xy={
+            selectedOption1:"",
+            selectedOption2:""
+          }
+        }
        
-        // dispatch(setSettings(xy))
+        dispatch(setSettings(xy))
       
       }).catch(error=>console.log("error="+error));
   };

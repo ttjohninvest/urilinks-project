@@ -2,9 +2,9 @@ import React from "react";
 
 const Features = () => (
   <div className="list-header__flex__center">
-    urilinks.com Features: <br />
-    <br />
     <ul>
+    <li>urilinks.com Features:</li>
+    
     <li>Using the website is free. </li>
     <li>Everyone gets their own personal account.</li>
     
@@ -46,11 +46,11 @@ const Features = () => (
     press a search button.</li>
   
     
+    
+    <li>Definitions:</li>
+    
+    <li>links are uri/url links. uri, uniform resource identifier is a more general term for url, uniform resource locator.</li>
     </ul>
-    Definitions:
-    <br />
-    links are uri/url links. uri, uniform resource identifier is a more general
-    term for url, uniform resource locator.
     <br />
     <br />
   </div>

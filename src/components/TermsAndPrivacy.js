@@ -53,7 +53,7 @@ const TermsAndPrivacy = () => (
     review our Disclaimer, which also governs the Website and informs users of
     various limitations regarding the information provided on the Website. Your
     agreement to the Disclaimer is hereby incorporated into these Terms of Use.
-    <br />
+    <br /> <br />
     Accessing The Website And Account Security
     <br />
     <br />
@@ -442,7 +442,6 @@ const TermsAndPrivacy = () => (
     This data privacy policy will help you understand how urilinks.com uses and
     protects the data you provide to us when you visit and use urilinks.com
     ("service").
-    <br />
     We reserve the right to change this policy at any given time, of which you
     will be promptly updated. If you want to make sure that you are up to date
     with the latest changes, we advise you to frequently visit this page.

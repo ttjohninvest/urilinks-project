@@ -2,7 +2,7 @@ import React from "react";
 
 const TermsAndPrivacy = () => (
   <div className="list-header__flex__center">
-    urilinks.com Terms of Use 
+    urilinks.com Terms of Use <br /><br />
     The following Terms of Use are entered into by and between You and Get
     urilinks.com ("service").
     <br />

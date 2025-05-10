@@ -1,4 +1,6 @@
 
+import React from "react";
+
 const Features = () => (
   <div className="list-header__flex__center">
     urilinks.com Features: <br /><br />

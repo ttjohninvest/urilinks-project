@@ -1,10 +1,12 @@
 
 const Features = () => (
   <div className="list-header__flex__center">
-    urilinks.com Features <br /><br />
+    urilinks.com Features: <br /><br />
     Using the website is free.<br />
     Everyone gets their own personal account.<br />
     Your account is secret from other accounts.<br />
+    All of your entertainment, business or educational links are in one place with one click link activation.<br />
+    The links will activate in place but if you want the link to open in a new browser tab, right click on the link and select open in new tab.<br />
     Save uri/url links to websites that you want to return to. It is similar to a rolodex for phone numbers.<br />
     For each website uri/url link that you save, you have the option of entering a note.<br />
     To enter a uri/url link, press Add Uri/Url Link button, enter the link text, copy and paste in the link uri/url from the browser to the uri/url text field in the website, enter an optional note.><br />

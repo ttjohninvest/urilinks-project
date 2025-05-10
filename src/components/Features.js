@@ -15,14 +15,14 @@ const Features = () => (
     The links will activate in place but if you want the link to open in a new
     browser tab, right click on the link and select open in new tab.
     <br />
-    Save uri/url links to websites that you want to return to. It is similar to
+    You save links to websites that you want to return to. It is similar to
     a rolodex for phone numbers.
     <br />
     For each website link that you save, you have the option of entering a note.
     <br />
-    To enter a link to save, press Add Uri/Url Link button, copy and paste in the link text or type it in,
+    To enter a link to save, press "Add Uri/Url Link" button, copy and paste in the link text or type it in,
     copy and paste in the link uri/url from the browser or type it inside the uri/url text
-    field in the website, type in or copy and paste in an optional note.
+    field in the website, type in or copy and paste in an optional note, then click "Save Uri/Url Link".
     <br />
     Their are three options to get results: "Date", "Link Text" and "Hast Tag".
     <br />

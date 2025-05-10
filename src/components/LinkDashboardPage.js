@@ -31,23 +31,23 @@ const LinkDashboardPage = () => {
   //   return () => window.removeEventListener('scroll', handleScroll);
   // }, []);
 
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-       event.stopImmediatePropagation();  
-      window.localStorage.setItem("scrollY",0)
-      // Your function to run before the tab is closed
-      console.log('Tab is closing...');
-      // Optional: Display a confirmation dialog
-      event.preventDefault();
-      event.returnValue = ''; // Required for Chrome
-    };
+  // useEffect(() => {
+  //   const handleBeforeUnload = (event) => {
+       
+  //     window.localStorage.setItem("scrollY",0)
+  //     // Your function to run before the tab is closed
+  //     console.log('Tab is closing...');
+  //     // Optional: Display a confirmation dialog
+  //     event.preventDefault();
+  //     event.returnValue = ''; // Required for Chrome
+  //   };
   
-    window.addEventListener('beforeunload', handleBeforeUnload);
+  //   window.addEventListener('beforeunload', handleBeforeUnload);
   
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleBeforeUnload);
+  //   };
+  // }, []);
 
   useEffect(()=>{
 

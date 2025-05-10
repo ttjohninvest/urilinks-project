@@ -1,7 +1,5 @@
-import React from "react";
-import NotFoundPage from './NotFoundPage';
 
-const TermsAndPrivacy = () => (
+const Features = () => (
   <div className="list-header__flex__center">
     urilinks.com Features <br /><br />
     Using the website is free.<br />
@@ -21,4 +19,4 @@ const TermsAndPrivacy = () => (
   </div>
 );
 
-export default TermsAndPrivacy;
+export default Features;

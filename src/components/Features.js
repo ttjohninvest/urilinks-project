@@ -18,9 +18,6 @@ const TermsAndPrivacy = () => (
 
     For each of the three types of searches, you may enter a date range to narrow the search.<br />
     As you enter the Search Link text, the results will display, no need to press a search button.<br />
-        
-     }
-    
   </div>
 );
 

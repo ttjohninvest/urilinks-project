@@ -1,8 +1,9 @@
 import React from "react";
 
 const TermsAndPrivacy = () => (
-  <div>
+  <div className="list-header__flex__center">
    Sample Website Privacy Policy
+   
 This privacy policy ("policy") will help you understand how urilinks.com ("us", "we",
 "our") uses and protects the data you provide to us when you visit and use urilinks.com
 ("blog", "service").

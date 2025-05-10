@@ -5,7 +5,7 @@ const TermsAndPrivacy = () => (
     urilinks.com Terms of Use <br /><br />
     The following Terms of Use are entered into by and between You and Get
     urilinks.com ("service").
-    <br />
+    <br /><br />
     The following terms and conditions, together with any documents they
     expressly incorporate by reference (collectively, these “Terms of Use”),
     govern your access to and use of urilinks.com, including any content,

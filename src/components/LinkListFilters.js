@@ -50,6 +50,7 @@ export class LinkListFilters extends React.Component {
       window.localStorage.setItem("sort", "date");
       this.props.sortByDate();
     } else if (e.target.value === "description") {
+      window.document.getElementById("desc").innerText=""
       window.localStorage.setItem("sort", "description");
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
@@ -81,6 +82,7 @@ export class LinkListFilters extends React.Component {
         <div className="input-group">
           <div className="input-group__item">
             <input
+              id="#desc"
               type="text"
               className="text-input text-input-filters"
               placeholder={

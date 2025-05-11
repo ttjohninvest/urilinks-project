@@ -47,7 +47,7 @@ const Features = () => (
         Select what kind of search you want from the drop down list:
         "Date","Link Text" or "Hash Tag" from the drop down menu.
       </li>
-      <li>
+      
         <ul>
           <li>
             "Date" selected: The results will be in descending order, most
@@ -63,7 +63,7 @@ const Features = () => (
             hash tag in the note.
           </li>
         </ul>
-      </li>
+      
 
       <li>
         For each of the three types of searches, you may enter a date range to

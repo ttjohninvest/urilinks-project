@@ -13,16 +13,16 @@ const LoginPage=({startLogin}) => {
 
        const fetchData = async () => {
           try {
-            const user = firebase.auth().currentUser;
-            if (user) {
-              const uid = user.uid;
-              setUserId(uid)
-              console.log("User ID:", uid);
-            } else {
-               console.log("No user is currently logged in.");
-            }
+            // const user = firebase.auth().currentUser;
+            // if (user) {
+            //   const uid = user.uid;
+            //   setUserId(uid)
+            //   console.log("User ID:", uid);
+            // } else {
+            //    console.log("No user is currently logged in.");
+            // }
             const db = firebase.database();
-            const snapshot = await db.ref(`/users/${user.uid}/links`).once('value');
+            const snapshot = await db.ref(`/users`).once('value');
             if (snapshot.exists()) {
               const data = snapshot.val();
               const count = Object.keys(data).length;

@@ -50,6 +50,7 @@ export class LinkListFilters extends React.Component {
       window.localStorage.setItem("sort", "date");
       this.props.sortByDate();
     } else if (e.target.value === "description") {
+      console.log("setting the innerText")
       window.document.getElementById("desc").innerText=""
       window.localStorage.setItem("sort", "description");
       this.props.sortByDescription();

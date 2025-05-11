@@ -10,7 +10,7 @@ const Features = () => (
 
       <li>Your account is secret from other accounts.</li>
       <li>
-        links are uri/url links. uri, uniform resource identifier is a more
+        links are uri/url links. uri, uniform resource identifier, is a more
         general term for url, uniform resource locator.
       </li>
       <li>

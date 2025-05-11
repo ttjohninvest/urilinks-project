@@ -39,7 +39,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
             <h3 className="padding-left-11">
               <a
                 ref={myRef}
-                className="nounderline text-size-1"
+                className="nounderline text-size-1 text-color-db"
                 href={Url}
                 target="_self"
                 title={Url}
@@ -64,7 +64,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
           Entered: {moment(createdAt).format("MMMM Do, YYYY")}
         </div>
       </div>
-      <div className="list-item__data-  text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2">{note}</div>
+      <div className="list-item__data-  text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db">{note}</div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const LinkListItem2 = ({ id, description, Url, note, amount, createdAt }) => {
   return (<div className="list-item__flex">
     <div className="card-background-color margin-bottom-1- rounded-lg-1- padding-1 margin-bottom-1">
       <a
-        className="nounderline text-size-1"
+        className="nounderline text-size-1 text-color-db"
         href={Url}
         target="_self"
         title={Url}

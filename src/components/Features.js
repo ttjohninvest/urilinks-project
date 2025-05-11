@@ -47,7 +47,7 @@ const Features = () => (
       </li>
 
       <li>
-        Select what kind of search you want from the drop down list:
+        Select what kind of search you want from the <span className="highlight1">drop down list</span>:
         "Date","Link Text" or "Hash Tag" from the drop down menu.
       </li>
       
@@ -69,12 +69,12 @@ const Features = () => (
       
 
       <li>
-        For each of the three types of searches, you may enter a date range to
+        For each of the three types of searches, you may enter a <span className="highlight1">date range</span> to
         narrow the search.
       </li>
 
       <li>
-        As you enter the Search Link text, the results will display, no need to
+        As you enter the <span className="highlight1">Search Link text</span>, the results will display, no need to
         press a search button.
       </li>
 

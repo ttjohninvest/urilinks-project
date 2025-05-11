@@ -22,24 +22,32 @@ export class LinkListFilters extends React.Component {
     this.setState(() => ({ calendarFocused }));
   };
   onTextChange = (e) => {
-    console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, e.target.value="+e.target.value)
-    console.log("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, this.props.filters.sortBy="+this.props.filters.sortBy)
+    console.log(
+      "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, e.target.value=" +
+        e.target.value
+    );
+    console.log(
+      "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, this.props.filters.sortBy=" +
+        this.props.filters.sortBy
+    );
     console.log("e.target.value=" + e.target.value);
-    if(this.props.filters.sortBy==="hashtag"){
-      if(e.target.value.trim().length===1 && e.target.value.trim().match(/^[ -~]$/) && e.target.value.trim()==='#' )
-        {
-          window.localStorage.setItem("searchLinks", e.target.value);
-          this.props.setTextFilter(e.target.value);
-        }
-      else if(e.target.value.trim().length>1) {
-          window.localStorage.setItem("searchLinks", e.target.value);
-          this.props.setTextFilter(e.target.value);
+    if (this.props.filters.sortBy === "hashtag") {
+      if (
+        e.target.value.trim().length === 1 &&
+        e.target.value.trim().match(/^[ -~]$/) &&
+        e.target.value.trim() === "#"
+      ) {
+        window.localStorage.setItem("searchLinks", e.target.value);
+        this.props.setTextFilter(e.target.value);
+      } else if (e.target.value.trim().length > 1) {
+        window.localStorage.setItem("searchLinks", e.target.value);
+        this.props.setTextFilter(e.target.value);
       }
     } else {
       window.localStorage.setItem("searchLinks", e.target.value);
       this.props.setTextFilter(e.target.value);
     }
-   
+
     // window.localStorage.setItem("searchLinks", e.target.value);
     // this.props.setTextFilter(e.target.value);
   };
@@ -50,10 +58,11 @@ export class LinkListFilters extends React.Component {
       window.localStorage.setItem("sort", "date");
       this.props.sortByDate();
     } else if (e.target.value === "description") {
-      this.props.setTextFilter("")
+      this.props.setTextFilter("");
       window.localStorage.setItem("sort", "description");
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
+      this.props.setTextFilter("#");
       window.localStorage.setItem("sort", "hashtag");
       this.props.sortByHashTag();
     }
@@ -82,11 +91,12 @@ export class LinkListFilters extends React.Component {
         <div className="input-group">
           <div className="input-group__item">
             <input
-              
               type="text"
               className="text-input text-input-filters"
               placeholder={
-                this.props.filters.sortBy === "date" ? "Search Links" : "Search Links"
+                this.props.filters.sortBy === "date"
+                  ? "Search Links"
+                  : "Search Links"
               }
               value={this.props.filters.text}
               onChange={this.onTextChange}

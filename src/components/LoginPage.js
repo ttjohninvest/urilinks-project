@@ -22,16 +22,16 @@ const LoginPage=({startLogin}) => {
             //    console.log("No user is currently logged in.");
             // }
             const db = firebase.database();
-            const snapshot = await db.ref(`/users`).once('value');
+            const snapshot = await db.ref(`/users/D9LSg6elood8Yc5gd5oDMp3JNAQ2/usercount`).once('value');
             if (snapshot.exists()) {
               const data = snapshot.val();
-              const count = Object.keys(data).length;
-              console.log("registered user count="+count)
-              setCount(count);
+              console.log("registered user data="+data)
+              // const count = data.length
+              // console.log("registered user count="+count)
+              // setCount(count);
             } else {
               console.log("else part, count="+0)
               setCount(0)
-              
             }
           } catch (error) {
             console.error("Error fetching data:", error);

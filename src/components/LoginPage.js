@@ -5,44 +5,44 @@ import { startLogin } from "../actions/auth";
 
 const LoginPage=({startLogin}) => {
 
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
   // const [userId, setUserId] = useState('');
   // const [maximumPage, setMaximumPage] = useState(false);
 
-    useEffect(() => {
+//     useEffect(() => {
 
-       const fetchData = async () => {
-          try {
-            // const user = firebase.auth().currentUser;
-            // if (user) {
-            //   const uid = user.uid;
-            //   setUserId(uid)
-            //   console.log("User ID:", uid);
-            // } else {
-            //    console.log("No user is currently logged in.");
-            // }
-            const db = firebase.database();
-            const snapshot = await db.ref(`/users/D9LSg6elood8Yc5gd5oDMp3JNAQ2/usercount`).once('value');
-            if (snapshot.exists()) {
-              const data = snapshot.val();
-              console.log("registered user data="+data)
-              // const count = data.length
-              // console.log("registered user count="+count)
-              // setCount(count);
-            } else {
-              console.log("else part, count="+0)
-              setCount(0)
-            }
-          } catch (error) {
-            console.error("Error fetching data:", error);
-            setCount(-1); // Indicate an error
-          }
-        };
+//        const fetchData = async () => {
+//           try {
+//             const user = firebase.auth().currentUser;
+//             if (user) {
+//               const uid = user.uid;
+//               setUserId(uid)
+//               console.log("User ID:", uid);
+//             } else {
+//                console.log("No user is currently logged in.");
+//             }
+//             const db = firebase.database();
+//             const snapshot = await db.ref(`/users`).once('value');
+//             if (snapshot.exists()) {
+//               const data = snapshot.val();
+//               console.log("registered user data="+data)
+//               const count = data.length
+//               console.log("registered user count="+count)
+//               setCount(count);
+//             } else {
+//               console.log("else part, count="+0)
+//               setCount(0)
+//             }
+//           } catch (error) {
+//             console.error("Error fetching data:", error);
+//             setCount(-1); // Indicate an error
+//           }
+//         };
     
-        fetchData();
-}, []);
+//         fetchData();
+// }, []);
 
-  if(count < 20 )
+  if(true) //count < 20 )
   return (
       <div className="box-layout">
     <div className="box-layout__box">

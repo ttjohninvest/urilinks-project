@@ -9,7 +9,10 @@ const Features = () => (
       <li>Everyone gets their own personal account.</li>
 
       <li>Your account is secret from other accounts.</li>
-
+      <li>
+        links are uri/url links. uri, uniform resource identifier is a more
+        general term for url, uniform resource locator.
+      </li>
       <li>
         All of your entertainment, business or educational links are in one
         place with one click link activation.
@@ -75,12 +78,7 @@ const Features = () => (
         press a search button.
       </li>
 
-      <li>Definitions:</li>
-
-      <li>
-        links are uri/url links. uri, uniform resource identifier is a more
-        general term for url, uniform resource locator.
-      </li>
+    
     </ul>
     <br />
     <br />

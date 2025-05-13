@@ -75,7 +75,7 @@ const  onSubmit = (link) => {
         <LinkForm onSubmit={onSubmit} />
       </div></div>:
       <div className="content-container- centerit">
-      <div>The maximum number of links that can be added is 50</div> 
+      <div>The maximum number of links that can be added is 100</div> 
       <div><button className="button-style-1- button" onClick={goBack}>Go Back</button></div>
     </div>
     }

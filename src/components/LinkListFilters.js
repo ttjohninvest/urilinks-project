@@ -70,6 +70,7 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
+    this.props.setTextFilter("")
     const searchLinks = window.localStorage.getItem("searchLinks");
     const sort = window.localStorage.getItem("sort");
     console.log("componentDidMount, searchLinks=" + searchLinks);
@@ -96,8 +97,8 @@ export class LinkListFilters extends React.Component {
               className="text-input text-input-filters"
               placeholder={
                 this.props.filters.sortBy === "date"
-                  ? "Search Links"
-                  : "Search Links"
+                  ? "Search for Link(s)"
+                  : "Search for Link(s)"
               }
               value={this.props.filters.text}
               onChange={this.onTextChange}
@@ -105,8 +106,8 @@ export class LinkListFilters extends React.Component {
                 this.props.filters.sortBy === "date"
                   ? ""
                   : this.props.filters.sortBy === "description"
-                  ? "Search Links (Please enter link description to find)"
-                  : "Search Links (Please enter Hash Tag to find)"
+                  ? "Search for Link(s) (Please enter link description to find)"
+                  : "Search for Link(s) (Please enter Hash Tag to find)"
               }
             />
           </div>

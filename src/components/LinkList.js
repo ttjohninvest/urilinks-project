@@ -22,6 +22,8 @@ export const LinkList = (props) => {
     
   };
 
+  
+
   useEffect(()=>{
     const option = window.localStorage.getItem("whichOption")
     if(option) setSelectedOption(option)

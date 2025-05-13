@@ -88,8 +88,8 @@ export class LinkListFilters extends React.Component {
 
   render() {
     return (
-      <div className="content-container border-green-">
-        <div className="input-group some-component">
+      <div className="content-container border-green- some-component">
+        <div className="input-group">
           <div className="input-group__item">
             <input
               type="text"

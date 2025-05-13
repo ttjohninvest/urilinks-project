@@ -70,7 +70,7 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
-    this.props.setTextFilter("")
+    
     const searchLinks = window.localStorage.getItem("searchLinks");
     const sort = window.localStorage.getItem("sort");
     console.log("componentDidMount, searchLinks=" + searchLinks);
@@ -82,9 +82,9 @@ export class LinkListFilters extends React.Component {
     } else {
       this.props.sortByHashTag();
     }
-    if (searchLinks) {
-      this.props.setTextFilter(searchLinks);
-    }
+    // if (searchLinks) {
+    //   this.props.setTextFilter(searchLinks);
+    // }
   }
 
   render() {

@@ -52,7 +52,7 @@ export const AddLinkPage = (props) => {
 
 const  onSubmit = (link) => {
      console.log("in onSubmit")
-     if(count < 50) {
+     if(count < 100) {
      props.startAddLink(link);
      props.history.push("/");
      } else {

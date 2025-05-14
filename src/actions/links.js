@@ -81,11 +81,25 @@ export const setLinksAll = (links) => ({
   links,
 });
 
+const extractHashtags=(text)=>{
+    console.log("extractHashTags, text="+text)
+  const regex = /#([a-zA-Z0-9_]+)/g;
+  const hashtags = [];
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    hashtags.push(match[0]);
+  }
+  console.log("hashtags="+JSON.stringify(hashtags))
+  return hashtags;
+}
+
 //this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = () => {
   console.log("startSetLinks")
    return (dispatch, getState) => {
      const uid = getState().auth.uid;
+     const hashtags = []
 
     return database
       .ref(`users/${uid}/links`)
@@ -95,7 +109,8 @@ export const startSetLinks = () => {
         console.log("snapshot="+JSON.stringify(snapshot))
         snapshot.forEach((childSnapshot) => {
           let x = JSON.stringify(childSnapshot.val().note)
-          console.log("startSetLinks, 2note="+x)
+          let x1 = extractHashtags(x)
+          console.log("startSetLinks, 2note="+JSON.stringify(x1))
           links.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),

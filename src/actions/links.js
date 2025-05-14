@@ -130,6 +130,7 @@ export const startSetLinks = () => {
         hashtags2.sort((a, b) => {
           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
         });
+        console.log("links.js, typeof hashtags2.isArray()="+hashtags2.isArray())
         console.log("startSetLinks, hashtags2=" + JSON.stringify(hashtags2));
         //dispatch(setHashTags(JSON.stringify(hashtags2)))
       })

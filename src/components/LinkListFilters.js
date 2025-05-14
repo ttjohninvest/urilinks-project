@@ -98,8 +98,10 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
 
-    console.log("LinkListFilters, this.props.links="+JSON.stringify(this.props.links))
-   
+    console.log("LinkListFilters, this.props.links.no="+JSON.stringify(this.props.links.note))
+    this.props.links.forEach((link)=>{
+      console.log("BBBBBBBBBBBBB, link.note="+link.note)
+    })
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");

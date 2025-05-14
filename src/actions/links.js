@@ -129,7 +129,8 @@ export const startSetLinks = () => {
         });
         console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links));
-        //let hashtags2 = removeDuplicates(hashtags)
+        let hashtags2 = removeDuplicates(hashtags)
+        console.log("startSetLinks, hashtags2="+JSON.stringify(hashtags2))
         //dispatch(setHashTags(hashtags))
       })
       .catch((error) => console.log("error=" + error));

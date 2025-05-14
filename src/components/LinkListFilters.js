@@ -38,6 +38,23 @@ export class LinkListFilters extends React.Component {
         this.props.filters.sortBy
     );
     console.log("e.target.value=" + e.target.value);
+
+    if(this.props.filters.sortBy==="date"){
+window.localStorage.setItem("searchLinks1", e.target.value);
+window.localStorage.setItem("searchLinks2", "");
+window.localStorage.setItem("searchLinks3", "");
+    }else if(this.props.filters.sortBy==="description"){
+      window.localStorage.setItem("searchLinks1", "");
+window.localStorage.setItem("searchLinks2", e.target.value);
+window.localStorage.setItem("searchLinks1", "");
+    } else if(this.props.filters.sortBy==="hashtag") {
+      window.localStorage.setItem("searchLinks1", "");
+      window.localStorage.setItem("searchLinks2", "");
+window.localStorage.setItem("searchLinks3", e.target.value);
+    } else {
+
+    }
+
     if (this.props.filters.sortBy === "hashtag") {
       if (
         e.target.value.trim().length === 1 &&
@@ -66,6 +83,7 @@ export class LinkListFilters extends React.Component {
       this.props.setTextFilter("");
       if(this.myRef.current)this.myRef.current.focus()
       window.localStorage.setItem("sort", "date");
+    
       this.props.sortByDate();
     } else if (e.target.value === "description") {
       this.props.setTextFilter("");
@@ -82,7 +100,10 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
     
-    const searchLinks = window.localStorage.getItem("searchLinks");
+    const searchLinks1 = window.localStorage.getItem("searchLinks1");
+    const searchLinks2 = window.localStorage.getItem("searchLinks2");
+    const searchLinks3 = window.localStorage.getItem("searchLinks3");
+
     const sort = window.localStorage.getItem("sort");
     console.log("componentDidMount, searchLinks=" + searchLinks);
     console.log("componentDidMount, sort=" + sort);
@@ -96,6 +117,13 @@ export class LinkListFilters extends React.Component {
     // if (searchLinks) {
     //   this.props.setTextFilter(searchLinks);
     // }
+    if (sort==="date") {
+       this.props.setTextFilter(searchLinks1);
+     } else if(sort==="description") {
+       this.props.setTextFilter(searchLinks2);
+     } else if(sort==="hashtag") {
+       this.props.setTextFilter(searchLinks3);
+     }
     if(this.myRef.current)this.myRef.current.focus()
   }
 

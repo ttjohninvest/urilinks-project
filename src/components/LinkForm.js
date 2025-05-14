@@ -75,19 +75,20 @@ export default class LinkForm extends React.Component {
           this.setState(()=>{
            hashTags:this.extractHashtags(this.state.note)
           })
+          console.log("hastTags="+JSON.stringify(this.state.hashTags))
       } else {
           console.log("extractHashTag, note=empty string")
       }
       
       
-      // this.setState(() => ({ error: "" }));
-      // this.props.onSubmit({
-      //   description: this.state.description,
-      //   Url: this.state.Url,
-      //   amount: parseFloat(this.state.amount, 10) * 100,
-      //   createdAt: this.state.createdAt.valueOf(),
-      //   note: this.state.note,
-      // });
+      this.setState(() => ({ error: "" }));
+      this.props.onSubmit({
+        description: this.state.description,
+        Url: this.state.Url,
+        amount: parseFloat(this.state.amount, 10) * 100,
+        createdAt: this.state.createdAt.valueOf(),
+        note: this.state.note,
+      });
     }
   };
   render() {

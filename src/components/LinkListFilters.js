@@ -1,4 +1,4 @@
-import React from "react";
+import React,{createRef} from "react";
 import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 import {
@@ -11,6 +11,7 @@ import {
 } from "../actions/filters";
 
 export class LinkListFilters extends React.Component {
+  inputref = createRef()
   state = {
     calendarFocused: null,
   };
@@ -55,14 +56,18 @@ export class LinkListFilters extends React.Component {
   onSortChange = (e) => {
     console.log("sort, e.target.value=" + e.target.value);
     if (e.target.value === "date") {
+      
       this.props.setTextFilter("");
+      this.inputref?.current.focus()
       window.localStorage.setItem("sort", "date");
       this.props.sortByDate();
     } else if (e.target.value === "description") {
       this.props.setTextFilter("");
+      this.inputref?.current.focus()
       window.localStorage.setItem("sort", "description");
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
+      this.inputref?.current.focus()
       this.props.setTextFilter("#");
       window.localStorage.setItem("sort", "hashtag");
       this.props.sortByHashTag();
@@ -93,6 +98,7 @@ export class LinkListFilters extends React.Component {
         <div className="input-group some-component">
           <div className="input-group__item">
             <input
+              ref={inputref}
               type="text"
               className="text-input text-input-filters"
               placeholder={

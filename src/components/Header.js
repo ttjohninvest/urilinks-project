@@ -15,12 +15,12 @@ export const Header = ({ startLogout }) => (
           <span className="margin-right-1-ib">Features</span>
         </Link>
         <Link className="header__title" to="/termsandprivacy">
-          <span>User Info</span>
+          <span className="ib">User Info</span>
         </Link>
         <Link className="header__title" to="/settings">
           {/* <span>Settings</span> */}
         </Link>
-        <button className="button button--link" onClick={startLogout}>
+        <button className="button button--link ib" onClick={startLogout}>
           Logout
         </button>
       </div>

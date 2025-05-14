@@ -47,6 +47,9 @@ export const LinkList = (props) => {
 
   return (
     <div className="content-container website-background-color">
+       <ul>
+      {hashtags2.forEach((hashtag)=>(<li>{hashtag}</li>))}
+      </ul>
       <div className="list-header list-header__flex- border-green- margin-bottom-1">
         <div className="show-for-desktop">Uri/Url Link(s)</div>
         <div className="list-header__flex">
@@ -81,9 +84,7 @@ export const LinkList = (props) => {
             </div>
       </div>
       <div>{hashtags2.length}</div>
-      <ul>
-      {hashtags2.forEach((hashtag)=>(<li>{hashtag}</li>))}
-      </ul>
+     
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
           {props.links.length === 0 ? (

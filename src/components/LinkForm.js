@@ -61,6 +61,8 @@ export default class LinkForm extends React.Component {
   onSubmit = (e) => {
     console.log("onSubmit");
     console.log("extractHashTags, text="+text)
+    const hts = extractHashtags(this.state.note)
+    console.log("onSubmit, extractHashTags, hashTags="+JSON.stringify(hts))
     e.preventDefault();
 
     if (!this.state.description || !this.state.Url) { // || !this.state.amount) {
@@ -68,14 +70,14 @@ export default class LinkForm extends React.Component {
         error: "Please provide description and amount.",
       }));
     } else {
-      if(this.state.note) {
-        console.log("2 extractHashTags, this.state.note="+this.state.note)
-          this.setState(()=>{
-           hashTags:extractHashtags(this.state.note)
-          })
-      } else {
-          console.log("extractHashTag, note=empty string")
-      }
+      // if(this.state.note) {
+      //   console.log("2 extractHashTags, this.state.note="+this.state.note)
+      //     this.setState(()=>{
+      //      hashTags:extractHashtags(this.state.note)
+      //     })
+      // } else {
+      //     console.log("extractHashTag, note=empty string")
+      // }
       }
       
       this.setState(() => ({ error: "" }));

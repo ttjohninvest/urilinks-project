@@ -96,6 +96,7 @@ export class LinkListFilters extends React.Component {
     // if (searchLinks) {
     //   this.props.setTextFilter(searchLinks);
     // }
+    if(this.myRef.current)this.myRef.current.focus()
   }
 
   render() {

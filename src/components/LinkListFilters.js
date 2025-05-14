@@ -96,6 +96,9 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
     this.setState({hashtags2:hashtags2})
+     {this.state.hashtags2.forEach((x) => {
+           console.log(x);
+          })}
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");

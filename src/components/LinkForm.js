@@ -52,7 +52,7 @@ export default class LinkForm extends React.Component {
   let match;
 
   while ((match = regex.exec(text)) !== null) {
-    hashtags.push("#"+match[1]);
+    hashtags.push(match[0]);
   }
   console.log("hashtags="+JSON.stringify(hashtags))
   return hashtags;

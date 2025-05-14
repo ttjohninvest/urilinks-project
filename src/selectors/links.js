@@ -25,14 +25,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
      
        let isTextInDescription, isTextInNote;
 
-       if(sortBy==='date') {
-        isTextInDescription = link.description
-        .toLowerCase()
-        .includes(text.toLowerCase());
-        console.log("VVVVVVVVVVVVVVVVVVVVvvvvvv, isTextInDescription="+isTextInDescription)
-        return startDateMatch && endDateMatch && isTextInDescription;
-       }
-       else if(sortBy==='description') {
+      
+       if(sortBy==='description'||sortBy==='date') {
           isTextInDescription = link.description
           .toLowerCase()
           .includes(text.toLowerCase());

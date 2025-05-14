@@ -124,6 +124,9 @@ window.localStorage.setItem("searchLinks3", e.target.value);
      } else if(sort==="description") {
        this.props.setTextFilter(searchLinks2);
      } else if(sort==="hashtag") {
+      if(searchLinks3==="")
+        this.props.setTextFilter("#");
+      else
        this.props.setTextFilter(searchLinks3);
      }
     if(this.myRef.current)this.myRef.current.focus()

@@ -17,6 +17,8 @@ export class LinkListFilters extends React.Component {
     this.myRef = React.createRef();
   }
 
+  
+
   state = {
     hashtags2:[],
     calendarFocused: null,
@@ -95,6 +97,8 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
+
+    console.log("LinkListFilters, this.props.links="+JSON.stringify(this.props.links))
    
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
@@ -195,6 +199,7 @@ export class LinkListFilters extends React.Component {
 
 const mapStateToProps = (state) => ({
   filters: state.filters,
+  links:state.links
 });
 
 const mapDispatchToProps = (dispatch) => ({

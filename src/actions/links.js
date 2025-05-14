@@ -7,12 +7,6 @@ export const addLink = (link) => ({
   link,
 });
 
-export const setHashTags = (hashtags) => ({
-  type: "SET_HASHTAGS",
-  hashtags,
-});
-
-
 export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -87,7 +81,7 @@ export const setLinksAll = (links) => ({
   links,
 });
 
-export let hashtags2 = [];
+
 
 const extractHashtags = (text) => {
   console.log("extractHashTags, text=" + text);
@@ -132,13 +126,13 @@ export const startSetLinks = () => {
         });
         console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links));
-        hashtags2 = removeDuplicates(hashtags);
-        hashtags2.sort((a, b) => {
-          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-        });
-        console.log("links.js, Array.isArray(hashtags2)="+Array.isArray(hashtags2))
-        console.log("startSetLinks, hashtags2=" + JSON.stringify(hashtags2));
-        dispatch(setHashTags([]))
+        // hashtags2 = removeDuplicates(hashtags);
+        // hashtags2.sort((a, b) => {
+        //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+        // });
+        // console.log("links.js, Array.isArray(hashtags2)="+Array.isArray(hashtags2))
+        // console.log("startSetLinks, hashtags2=" + JSON.stringify(hashtags2));
+        //dispatch(setHashTags([]))
       })
       .catch((error) => console.log("error=" + error));
   };

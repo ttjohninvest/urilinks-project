@@ -1,11 +1,11 @@
 // Links Reducer
 
-const hashtagsReducerDefaultState = "";
+const hashtagsReducerDefaultState = [];
 
 export default (state = hashtagsReducerDefaultState, action) => {
   switch (action.type) {
     case "SET_HASHTAGS":
-      return action.hashtags;
+      return [...state, ...action.hashtags];
     default:
       return state;
   }

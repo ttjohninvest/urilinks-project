@@ -18,6 +18,7 @@ export class LinkListFilters extends React.Component {
   }
 
   state = {
+    hashtags2:[],
     calendarFocused: null,
   };
 
@@ -94,6 +95,7 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
+    this.setState({hashtags2:hashtags2})
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");
@@ -136,7 +138,7 @@ export class LinkListFilters extends React.Component {
              <li>hashtags</li>
               <li>hashtags</li>
                <li>hashtags</li>
-          {hashtags2.forEach((x,i) => {
+          {this.state.hashtags2.forEach((x) => {
             return <li>{i}</li>;
           })}
         </ul>

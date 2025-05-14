@@ -61,14 +61,14 @@ window.localStorage.setItem("searchLinks3", e.target.value);
         e.target.value.trim().match(/^[ -~]$/) &&
         e.target.value.trim() === "#"
       ) {
-        window.localStorage.setItem("searchLinks", e.target.value);
+        
         this.props.setTextFilter(e.target.value);
       } else if (e.target.value.trim().length > 1) {
-        window.localStorage.setItem("searchLinks", e.target.value);
+        
         this.props.setTextFilter(e.target.value);
       }
     } else {
-      window.localStorage.setItem("searchLinks", e.target.value);
+      
       this.props.setTextFilter(e.target.value);
     }
 

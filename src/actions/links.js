@@ -1,6 +1,6 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
-
+import {setHashTags} from "./hashtags"
 // ADD_LINK
 export const addLink = (link) => ({
   type: "ADD_LINK",
@@ -128,7 +128,7 @@ export const startSetLinks = () => {
         dispatch(setLinks(links));
         let hashtags2 = removeDuplicates(hashtags)
         console.log("startSetLinks, hashtags2="+JSON.stringify(hashtags2))
-        //dispatch(setHashTags(hashtags2))
+        dispatch(setHashTags(hashtags2))
       })
       .catch((error) => console.log("error=" + error));
 };

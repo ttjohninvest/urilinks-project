@@ -83,6 +83,8 @@ export const setLinksAll = (links) => ({
   links,
 });
 
+export let hashtags2=[];
+
 const extractHashtags=(text)=>{
     console.log("extractHashTags, text="+text)
   const regex = /#([a-zA-Z0-9_]+)/g;
@@ -126,7 +128,7 @@ export const startSetLinks = () => {
         });
         console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links));
-        let hashtags2 = removeDuplicates(hashtags)
+        hashtags2 = removeDuplicates(hashtags)
         console.log("startSetLinks, hashtags2="+JSON.stringify(hashtags2))
         //dispatch(setHashTags(JSON.stringify(hashtags2)))
       })

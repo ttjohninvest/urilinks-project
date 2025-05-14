@@ -17,10 +17,8 @@ export class LinkListFilters extends React.Component {
     this.myRef = React.createRef();
   }
 
-  
-
   state = {
-    hashtags2:[],
+    hashtags2: [],
     calendarFocused: null,
   };
 
@@ -97,7 +95,6 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
-
     //console.log("LinkListFilters, this.props.links="+JSON.stringify(this.props.links))
     // this.props.links.forEach((link)=>{
     //   console.log("BBBBBBBBBBBBB, link.note="+link.note)
@@ -118,7 +115,7 @@ export class LinkListFilters extends React.Component {
     } else {
       this.props.sortByHashTag();
     }
-   
+
     if (sort === "date") {
       this.props.setTextFilter(searchLinks1);
     } else if (sort === "description") {
@@ -134,20 +131,14 @@ export class LinkListFilters extends React.Component {
     return (
       <div className="content-container border-green-">
         <ul>
- {this.props.links.forEach((link)=>{
-      return <li>{link.note}</li>
-    })}
-        </ul>
-       
-        <ul>
           <li>hashtags</li>
-           <li>hashtags</li>
-            <li>hashtags</li>
-             <li>hashtags</li>
-              <li>hashtags</li>
-               <li>hashtags</li>
-          {this.state.hashtags2.forEach((x) => {
-            return <li>{x}</li>;
+          <li>hashtags</li>
+          <li>hashtags</li>
+          <li>hashtags</li>
+          <li>hashtags</li>
+          <li>hashtags</li>
+          {this.props.links.forEach((link) => {
+            return <li>{link.note}</li>;
           })}
         </ul>
 
@@ -205,7 +196,7 @@ export class LinkListFilters extends React.Component {
 
 const mapStateToProps = (state) => ({
   filters: state.filters,
-  links:state.links
+  links: state.links,
 });
 
 const mapDispatchToProps = (dispatch) => ({

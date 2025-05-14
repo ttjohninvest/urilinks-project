@@ -14,6 +14,7 @@ export default class LinkForm extends React.Component {
       createdAt: props.link ? moment(props.link.createdAt) : moment(),
       calendarFocused: false,
       error: "",
+      hashTags: [],
     };
   }
   onDescriptionChange = (e) => {
@@ -43,6 +44,18 @@ export default class LinkForm extends React.Component {
   onFocusChange = ({ focused }) => {
     this.setState(() => ({ calendarFocused: focused }));
   };
+
+  extractHashtags=(text)=>{
+  const regex = /#([a-zA-Z0-9_]+)/g;
+  const hashtags = [];
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    hashtags.push(match[1]);
+  }
+  return hashtags;
+}
+
   onSubmit = (e) => {
     console.log("onSubmit");
     e.preventDefault();
@@ -52,6 +65,10 @@ export default class LinkForm extends React.Component {
         error: "Please provide description and amount.",
       }));
     } else {
+      if(this.state.note)
+        this.setState(()=>{
+           hashTags:extractHashtags(this.state.note)
+      })
       this.setState(() => ({ error: "" }));
       this.props.onSubmit({
         description: this.state.description,

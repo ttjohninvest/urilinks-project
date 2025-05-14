@@ -59,12 +59,12 @@ export default class LinkForm extends React.Component {
 }
 
   onSubmit = (e) => {
-    console.log("onSubmit");
-    console.log("onSubmit, text="+text)
+    
     // const hts = extractHashtags(this.state.note)
     // console.log("onSubmit, extractHashTags, hashTags="+JSON.stringify(hts))
     e.preventDefault();
-
+    console.log("onSubmit");
+    console.log("onSubmit, this.state.note="+this.state.note)
     if (!this.state.description || !this.state.Url) { // || !this.state.amount) {
       this.setState(() => ({
         error: "Please provide description and amount.",

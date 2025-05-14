@@ -76,6 +76,11 @@ export const setLinks = (links) => ({
   links,
 });
 
+export const setHashTags = (hashtags) => ({
+  type: "SET_HASHTAGS",
+  hashtags,
+});
+
 export const setLinksAll = (links) => ({
   type: "SET_LINKS_ALL",
   links,
@@ -92,6 +97,10 @@ const extractHashtags=(text)=>{
   }
   console.log("hashtags="+JSON.stringify(hashtags))
   return hashtags;
+}
+
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
 }
 
 //this puts the links array in the global redux store to be used to list the output
@@ -112,7 +121,7 @@ export const startSetLinks = () => {
           let x = JSON.stringify(childSnapshot.val().note)
           let x1 = extractHashtags(x)
           hashtags.push(...x1)
-          console.log("startSetLinks, 2note="+JSON.stringify(hashtags))
+          console.log("startSetLinks, hashtags="+JSON.stringify(hashtags))
           links.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),
@@ -120,6 +129,8 @@ export const startSetLinks = () => {
         });
         console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links));
+        let hashtags2 = removeDuplicates(hashtags)
+        dispatch(setHashTags(hashtags2))
       })
       .catch((error) => console.log("error=" + error));
 };

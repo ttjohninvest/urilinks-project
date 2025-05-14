@@ -1,10 +1,12 @@
 
 
 //SET_HASHTAGS
-export const setHashTags = (hashtags) => ({
+const setHashTags = (hashtags) => ({
   type: "SET_HASHTAGS",
   hashtags,
 });
+
+export default setHashTags;
 
 
 

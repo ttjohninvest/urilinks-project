@@ -73,7 +73,7 @@ export default class LinkForm extends React.Component {
       if(this.state.note.trim()) {
         console.log("2 extractHashTags, this.state.note="+this.state.note)
           this.setState(()=>{
-           hashTags:extractHashtags(this.state.note)
+           hashTags:this.extractHashtags(this.state.note)
           })
       } else {
           console.log("extractHashTag, note=empty string")

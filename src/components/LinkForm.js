@@ -78,7 +78,7 @@ export default class LinkForm extends React.Component {
       // } else {
       //     console.log("extractHashTag, note=empty string")
       // }
-      }
+      
       
       this.setState(() => ({ error: "" }));
       this.props.onSubmit({

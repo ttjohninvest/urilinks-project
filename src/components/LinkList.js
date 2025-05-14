@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
 import selectLinks from "../selectors/links";
+import { hashtags2 } from "../actions/links";
 ////
 export const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1")
@@ -80,7 +81,7 @@ export const LinkList = (props) => {
             </div>
       </div>
       
-      
+      <div>{hashtags2}</div>
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
           {props.links.length === 0 ? (

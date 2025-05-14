@@ -98,10 +98,10 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
 
-    console.log("LinkListFilters, this.props.links.no="+JSON.stringify(this.props.links.note))
-    this.props.links.forEach((link)=>{
-      console.log("BBBBBBBBBBBBB, link.note="+link.note)
-    })
+    //console.log("LinkListFilters, this.props.links="+JSON.stringify(this.props.links))
+    // this.props.links.forEach((link)=>{
+    //   console.log("BBBBBBBBBBBBB, link.note="+link.note)
+    // })
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");
@@ -133,8 +133,12 @@ export class LinkListFilters extends React.Component {
   render() {
     return (
       <div className="content-container border-green-">
-        {/* <div>{Array.isArray(hashtags2)}</div> */}
-        {/* <div>{JSON.stringify(hashtags2)}</div> */}
+        <ul>
+ {this.props.links.forEach((link)=>{
+      return <li>{link.note}</li>
+    })}
+        </ul>
+       
         <ul>
           <li>hashtags</li>
            <li>hashtags</li>

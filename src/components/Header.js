@@ -15,7 +15,7 @@ export const Header = ({ startLogout }) => (
           <span>Features</span>
         </Link>
         <Link className="header__title" to="/termsandprivacy">
-          <span>User Information</span>
+          <span>User Info</span>
         </Link>
         <Link className="header__title" to="/settings">
           {/* <span>Settings</span> */}

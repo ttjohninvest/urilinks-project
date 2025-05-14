@@ -81,7 +81,7 @@ export const LinkList = (props) => {
               
             </div>
       </div>
-      <div>{typeof hashtags2}</div>
+      <div>{JSON.stringify(hashtags2)}</div>
      
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">

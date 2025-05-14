@@ -33,7 +33,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         return startDateMatch && endDateMatch && isTextInDescription;
        }
        else if(sortBy==='description') {
-          isTextInDescription = text && link.description
+          isTextInDescription = link.description
           .toLowerCase()
           .includes(text.toLowerCase());
           return startDateMatch && endDateMatch && isTextInDescription;

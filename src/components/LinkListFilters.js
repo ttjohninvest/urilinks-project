@@ -1,4 +1,4 @@
-import React,{createRef} from "react";
+import React, { createRef } from "react";
 import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 import { hashtags2 } from "../actions/links";
@@ -15,13 +15,12 @@ export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
-    
   }
 
-   state = {
+  state = {
     calendarFocused: null,
-     }
- 
+  };
+
   onDatesChange = ({ startDate, endDate }) => {
     this.props.setStartDate(startDate);
     this.props.setEndDate(endDate);
@@ -40,20 +39,19 @@ export class LinkListFilters extends React.Component {
     );
     console.log("e.target.value=" + e.target.value);
 
-    if(this.props.filters.sortBy==="date"){
-window.localStorage.setItem("searchLinks1", e.target.value);
-window.localStorage.setItem("searchLinks2", "");
-window.localStorage.setItem("searchLinks3", "");
-    }else if(this.props.filters.sortBy==="description"){
+    if (this.props.filters.sortBy === "date") {
+      window.localStorage.setItem("searchLinks1", e.target.value);
+      window.localStorage.setItem("searchLinks2", "");
+      window.localStorage.setItem("searchLinks3", "");
+    } else if (this.props.filters.sortBy === "description") {
       window.localStorage.setItem("searchLinks1", "");
-window.localStorage.setItem("searchLinks2", e.target.value);
-window.localStorage.setItem("searchLinks3", "");
-    } else if(this.props.filters.sortBy==="hashtag") {
+      window.localStorage.setItem("searchLinks2", e.target.value);
+      window.localStorage.setItem("searchLinks3", "");
+    } else if (this.props.filters.sortBy === "hashtag") {
       window.localStorage.setItem("searchLinks1", "");
       window.localStorage.setItem("searchLinks2", "");
-window.localStorage.setItem("searchLinks3", e.target.value);
+      window.localStorage.setItem("searchLinks3", e.target.value);
     } else {
-
     }
 
     if (this.props.filters.sortBy === "hashtag") {
@@ -62,14 +60,11 @@ window.localStorage.setItem("searchLinks3", e.target.value);
         e.target.value.trim().match(/^[ -~]$/) &&
         e.target.value.trim() === "#"
       ) {
-        
         this.props.setTextFilter(e.target.value);
       } else if (e.target.value.trim().length > 1) {
-        
         this.props.setTextFilter(e.target.value);
       }
     } else {
-      
       this.props.setTextFilter(e.target.value);
     }
 
@@ -80,19 +75,18 @@ window.localStorage.setItem("searchLinks3", e.target.value);
   onSortChange = (e) => {
     console.log("sort, e.target.value=" + e.target.value);
     if (e.target.value === "date") {
-      
       this.props.setTextFilter("");
-      if(this.myRef.current)this.myRef.current.focus()
+      if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sort", "date");
-    
+
       this.props.sortByDate();
     } else if (e.target.value === "description") {
       this.props.setTextFilter("");
-      if(this.myRef.current)this.myRef.current.focus()
+      if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sort", "description");
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
-      if(this.myRef.current)this.myRef.current.focus()
+      if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("#");
       window.localStorage.setItem("sort", "hashtag");
       this.props.sortByHashTag();
@@ -100,7 +94,6 @@ window.localStorage.setItem("searchLinks3", e.target.value);
   };
 
   componentDidMount() {
-    
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");
@@ -120,26 +113,34 @@ window.localStorage.setItem("searchLinks3", e.target.value);
     // if (searchLinks) {
     //   this.props.setTextFilter(searchLinks);
     // }
-    if (sort==="date") {
-       this.props.setTextFilter(searchLinks1);
-     } else if(sort==="description") {
-       this.props.setTextFilter(searchLinks2);
-     } else if(sort==="hashtag") {
-      if(searchLinks3==="")
-        this.props.setTextFilter("#");
-      else
-       this.props.setTextFilter(searchLinks3);
-     }
-    if(this.myRef.current)this.myRef.current.focus()
+    if (sort === "date") {
+      this.props.setTextFilter(searchLinks1);
+    } else if (sort === "description") {
+      this.props.setTextFilter(searchLinks2);
+    } else if (sort === "hashtag") {
+      if (searchLinks3 === "") this.props.setTextFilter("#");
+      else this.props.setTextFilter(searchLinks3);
+    }
+    if (this.myRef.current) this.myRef.current.focus();
   }
 
   render() {
     return (
       <div className="content-container border-green-">
-        
-         {/* <div>{Array.isArray(hashtags2)}</div> */}
-              {/* <div>{JSON.stringify(hashtags2)}</div> */}
-              {hashtags2.forEach((x)=>(<li>{x}</li>))}
+        {/* <div>{Array.isArray(hashtags2)}</div> */}
+        {/* <div>{JSON.stringify(hashtags2)}</div> */}
+        <ul>
+          <li>hashtags</li>
+           <li>hashtags</li>
+            <li>hashtags</li>
+             <li>hashtags</li>
+              <li>hashtags</li>
+               <li>hashtags</li>
+          {hashtags2.forEach((x) => {
+            return <li>{x}</li>;
+          })}
+        </ul>
+
         <div className="input-group some-component">
           <div className="input-group__item">
             <input

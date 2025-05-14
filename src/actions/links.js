@@ -1,12 +1,17 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
-import setHashTags from "./hashtags/setHashTags";
 
 // ADD_LINK
 export const addLink = (link) => ({
   type: "ADD_LINK",
   link,
 });
+
+export const setHashTags = (hashtags) => ({
+  type: "SET_HASHTAGS",
+  hashtags,
+});
+
 
 export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {

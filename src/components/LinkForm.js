@@ -76,8 +76,20 @@ export default class LinkForm extends React.Component {
           //  hashTags:this.extractHashtags(this.state.note)
           // })
           console.log("hashTags="+JSON.stringify(this.extractHashtags(this.state.note)))
+          const extractHashtags = this.extractHashtags(this.state.note)
           //I need to write the hashtags to the database here for the logged in user
           console.log("I need to write the hashtags to the database here for the logged in user")
+           return (dispatch, getState) => {
+              const uid = getState().auth.uid;
+            
+              return database
+                .ref(`users/${uid}/hashtags`)
+                //.push(settingsData)
+                .update(hashTags)
+                .then(() => {
+                 
+                });
+            };
       } else {
           console.log("extractHashTag, note=empty string")
       }

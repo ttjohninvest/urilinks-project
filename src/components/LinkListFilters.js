@@ -46,7 +46,7 @@ window.localStorage.setItem("searchLinks3", "");
     }else if(this.props.filters.sortBy==="description"){
       window.localStorage.setItem("searchLinks1", "");
 window.localStorage.setItem("searchLinks2", e.target.value);
-window.localStorage.setItem("searchLinks1", "");
+window.localStorage.setItem("searchLinks3", "");
     } else if(this.props.filters.sortBy==="hashtag") {
       window.localStorage.setItem("searchLinks1", "");
       window.localStorage.setItem("searchLinks2", "");
@@ -105,7 +105,9 @@ window.localStorage.setItem("searchLinks3", e.target.value);
     const searchLinks3 = window.localStorage.getItem("searchLinks3");
 
     const sort = window.localStorage.getItem("sort");
-    console.log("componentDidMount, searchLinks=" + searchLinks);
+    console.log("componentDidMount, searchLinks1=" + searchLinks1);
+    console.log("componentDidMount, searchLinks2=" + searchLinks2);
+    console.log("componentDidMount, searchLinks3=" + searchLinks3);
     console.log("componentDidMount, sort=" + sort);
     if (sort === "date") {
       this.props.sortByDate();

@@ -132,7 +132,7 @@ export const startSetLinks = () => {
         });
         console.log("links.js, Array.isArray(hashtags2)="+Array.isArray(hashtags2))
         console.log("startSetLinks, hashtags2=" + JSON.stringify(hashtags2));
-        //dispatch(setHashTags(JSON.stringify(hashtags2)))
+        dispatch(setHashTags([]))
       })
       .catch((error) => console.log("error=" + error));
   };

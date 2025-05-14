@@ -1,7 +1,7 @@
 import React, { createRef } from "react";
 import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
-import { hashtags2 } from "../actions/links";
+
 import {
   setTextFilter,
   sortByDate,
@@ -95,10 +95,7 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({hashtags2:hashtags2})
-     {this.state.hashtags2.forEach((x1) => {
-           console.log("x1="+x1);
-          })}
+   
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");
@@ -115,9 +112,7 @@ export class LinkListFilters extends React.Component {
     } else {
       this.props.sortByHashTag();
     }
-    // if (searchLinks) {
-    //   this.props.setTextFilter(searchLinks);
-    // }
+   
     if (sort === "date") {
       this.props.setTextFilter(searchLinks1);
     } else if (sort === "description") {

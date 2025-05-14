@@ -1,6 +1,7 @@
 import React,{createRef} from "react";
 import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
+import { hashtags2 } from "../actions/links";
 import {
   setTextFilter,
   sortByDate,
@@ -135,6 +136,9 @@ window.localStorage.setItem("searchLinks3", e.target.value);
   render() {
     return (
       <div className="content-container border-green-">
+        
+         {/* <div>{Array.isArray(hashtags2)}</div> */}
+              <div>{JSON.stringify(hashtags2)}</div>
         <div className="input-group some-component">
           <div className="input-group__item">
             <input

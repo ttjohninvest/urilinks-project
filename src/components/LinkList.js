@@ -81,7 +81,9 @@ export const LinkList = (props) => {
             </div>
       </div>
       
-      <div>{hashtags2}</div>
+      <div>{hashtags2.forEach((hashtag)=>{
+        return <div>{hashtag}</div>
+      })}</div>
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
           {props.links.length === 0 ? (

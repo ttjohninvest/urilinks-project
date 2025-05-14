@@ -64,16 +64,16 @@ export class LinkListFilters extends React.Component {
     if (e.target.value === "date") {
       
       this.props.setTextFilter("");
-      this.myRef.current.focus()
+      this.myRef.current?.focus()
       window.localStorage.setItem("sort", "date");
       this.props.sortByDate();
     } else if (e.target.value === "description") {
       this.props.setTextFilter("");
-      this.myRef.current.focus()
+      this.myRef.current?.focus()
       window.localStorage.setItem("sort", "description");
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
-      this.myRef.current.focus()
+      this.myRef.current?.focus()
       this.props.setTextFilter("#");
       window.localStorage.setItem("sort", "hashtag");
       this.props.sortByHashTag();

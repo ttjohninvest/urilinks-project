@@ -138,7 +138,8 @@ window.localStorage.setItem("searchLinks3", e.target.value);
       <div className="content-container border-green-">
         
          {/* <div>{Array.isArray(hashtags2)}</div> */}
-              <div>{JSON.stringify(hashtags2)}</div>
+              {/* <div>{JSON.stringify(hashtags2)}</div> */}
+              {hashtags2.forEach((x)=>(<li>{x}</li>))}
         <div className="input-group some-component">
           <div className="input-group__item">
             <input

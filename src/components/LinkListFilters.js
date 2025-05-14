@@ -11,7 +11,10 @@ import {
 } from "../actions/filters";
 
 export class LinkListFilters extends React.Component {
-  inputref = createRef()
+  constructor(props) {
+    super(props);
+    this.inputref = React.createRef();
+  }
   state = {
     calendarFocused: null,
   };

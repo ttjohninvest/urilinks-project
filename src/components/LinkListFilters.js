@@ -101,7 +101,7 @@ export class LinkListFilters extends React.Component {
         <div className="input-group some-component">
           <div className="input-group__item">
             <input
-              ref={inputref}
+              ref={this.inputref}
               type="text"
               className="text-input text-input-filters"
               placeholder={

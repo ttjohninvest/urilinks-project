@@ -13,11 +13,12 @@ import {
 export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
-    this.inputref = React.createRef();
-  }
-  state = {
+    this.myRef = React.createRef();
+     state = {
     calendarFocused: null,
-  };
+     }
+  }
+ 
   onDatesChange = ({ startDate, endDate }) => {
     this.props.setStartDate(startDate);
     this.props.setEndDate(endDate);
@@ -61,16 +62,16 @@ export class LinkListFilters extends React.Component {
     if (e.target.value === "date") {
       
       this.props.setTextFilter("");
-      this.inputref.current?.focus()
+      this.myRef.current.focus()
       window.localStorage.setItem("sort", "date");
       this.props.sortByDate();
     } else if (e.target.value === "description") {
       this.props.setTextFilter("");
-      this.inputref.current?.focus()
+      this.myRef.current.focus()
       window.localStorage.setItem("sort", "description");
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
-      this.inputref.current?.focus()
+      this.myRef.current.focus()
       this.props.setTextFilter("#");
       window.localStorage.setItem("sort", "hashtag");
       this.props.sortByHashTag();
@@ -101,7 +102,7 @@ export class LinkListFilters extends React.Component {
         <div className="input-group some-component">
           <div className="input-group__item">
             <input
-              ref={this.inputref}
+              ref={this.myRef}
               type="text"
               className="text-input text-input-filters"
               placeholder={

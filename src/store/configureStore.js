@@ -5,7 +5,7 @@ import linksReducerAll from '../reducers/linksall';
 import filtersReducer from '../reducers/filters';
 import authReducer from '../reducers/auth';
 import settingsReducer from '../reducers/settings';
-
+import hashtagsReducer from '../reducers/hashtags';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -16,7 +16,8 @@ export default () => {
       linksall: linksReducerAll,
       filters: filtersReducer,
       auth: authReducer,
-      settings: settingsReducer
+      settings: settingsReducer,
+      hashtags: hashtagsReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

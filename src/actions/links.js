@@ -76,10 +76,7 @@ export const setLinks = (links) => ({
   links,
 });
 
-export const setHashTags = (hashtags) => ({
-  type: "SET_HASHTAGS",
-  hashtags,
-});
+
 
 export const setLinksAll = (links) => ({
   type: "SET_LINKS_ALL",
@@ -131,7 +128,7 @@ export const startSetLinks = () => {
         dispatch(setLinks(links));
         let hashtags2 = removeDuplicates(hashtags)
         console.log("startSetLinks, hashtags2="+JSON.stringify(hashtags2))
-        dispatch(setHashTags(hashtags2))
+        //dispatch(setHashTags(hashtags2))
       })
       .catch((error) => console.log("error=" + error));
 };

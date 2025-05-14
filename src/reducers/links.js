@@ -22,7 +22,7 @@ export default (state = linksReducerDefaultState, action) => {
     case "SET_LINKS":
       return action.links;
     case "SET_HASHTAGS":
-      return action.hashtags;
+      return [...state, action.hashtags];
     default:
       return state;
   }

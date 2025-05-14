@@ -95,7 +95,7 @@ export const startSetLinks = () => {
         console.log("snapshot="+JSON.stringify(snapshot))
         snapshot.forEach((childSnapshot) => {
           let x = JSON.stringify(childSnapshot.val().note)
-          console.log("startSetLinks, note="+x)
+          console.log("startSetLinks, 2note="+x)
           links.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),

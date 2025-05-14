@@ -1,6 +1,6 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
-import {setHashTags} from "./hashtags"
+import { setHashTags } from "./hashtags";
 // ADD_LINK
 export const addLink = (link) => ({
   type: "ADD_LINK",
@@ -76,17 +76,15 @@ export const setLinks = (links) => ({
   links,
 });
 
-
-
 export const setLinksAll = (links) => ({
   type: "SET_LINKS_ALL",
   links,
 });
 
-export let hashtags2=[];
+export let hashtags2 = [];
 
-const extractHashtags=(text)=>{
-    console.log("extractHashTags, text="+text)
+const extractHashtags = (text) => {
+  console.log("extractHashTags, text=" + text);
   const regex = /#([a-zA-Z0-9_]+)/g;
   const hashtags = [];
   let match;
@@ -94,9 +92,9 @@ const extractHashtags=(text)=>{
   while ((match = regex.exec(text)) !== null) {
     hashtags.push(match[0]);
   }
-  console.log("hashtags="+JSON.stringify(hashtags))
+  console.log("hashtags=" + JSON.stringify(hashtags));
   return hashtags;
-}
+};
 
 function removeDuplicates(arr) {
   return [...new Set(arr)];
@@ -104,23 +102,23 @@ function removeDuplicates(arr) {
 
 //this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = () => {
-  console.log("startSetLinks")
-   return (dispatch, getState) => {
-     const uid = getState().auth.uid;
-     const hashtags = []
+  console.log("startSetLinks");
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    const hashtags = [];
 
     return database
       .ref(`users/${uid}/links`)
       .once("value")
       .then((snapshot) => {
         const links = [];
-        
-        console.log("snapshot="+JSON.stringify(snapshot))
+
+        console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          let x = JSON.stringify(childSnapshot.val().note)
-          let x1 = extractHashtags(x)
-          hashtags.push(...x1)
-          console.log("startSetLinks, hashtags="+JSON.stringify(hashtags))
+          let x = JSON.stringify(childSnapshot.val().note);
+          let x1 = extractHashtags(x);
+          hashtags.push(...x1);
+          console.log("startSetLinks, hashtags=" + JSON.stringify(hashtags));
           links.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),
@@ -128,13 +126,16 @@ export const startSetLinks = () => {
         });
         console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links));
-        hashtags2 = removeDuplicates(hashtags)
-        console.log("startSetLinks, hashtags2="+JSON.stringify(hashtags2))
+        hashtags2 = removeDuplicates(hashtags);
+        hashtags2.sort((a, b) => {
+          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+        });
+        console.log("startSetLinks, hashtags2=" + JSON.stringify(hashtags2));
         //dispatch(setHashTags(JSON.stringify(hashtags2)))
       })
       .catch((error) => console.log("error=" + error));
+  };
 };
-}
 
 export const startSetLinksAll = () => {
   return (dispatch, getState) => {

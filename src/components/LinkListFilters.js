@@ -136,8 +136,8 @@ export class LinkListFilters extends React.Component {
              <li>hashtags</li>
               <li>hashtags</li>
                <li>hashtags</li>
-          {hashtags2.forEach((x) => {
-            return <li>{x}</li>;
+          {hashtags2.forEach((x,i) => {
+            return <li>{i}</li>;
           })}
         </ul>
 

@@ -72,10 +72,10 @@ export default class LinkForm extends React.Component {
     } else {
       if(this.state.note.trim()) {
         console.log("2 extractHashTags, this.state.note="+this.state.note)
-          this.setState(()=>{
+          this.setState({
            hashTags:this.extractHashtags(this.state.note)
           })
-          console.log("hastTags="+JSON.stringify(this.state.hashTags))
+          console.log("hashTags="+JSON.stringify(this.state.hashTags))
           //I need to write the hashtags to the database here for the logged in user
           console.log("I need to write the hashtags to the database here for the logged in user")
       } else {

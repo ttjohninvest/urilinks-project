@@ -18,7 +18,7 @@ export class LinkListFilters extends React.Component {
   }
 
   state = {
-    sort:"",
+    sort:"hashtag",
     items: [],
     calendarFocused: null,
   };

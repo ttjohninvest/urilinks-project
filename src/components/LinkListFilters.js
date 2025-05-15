@@ -163,7 +163,7 @@ removeDuplicates=(arr)=>{
         <ul>
           <li>hashtags</li>
           
-          {this.state.items.forEach((hashtag) => {
+          {JSON.parse(this.state.items).forEach((hashtag) => {
             return <li>hashtag</li>;
           })}
         </ul>

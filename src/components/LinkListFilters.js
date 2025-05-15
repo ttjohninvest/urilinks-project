@@ -168,7 +168,7 @@ removeDuplicates=(arr)=>{
   render() {
     return (
       <div className="content-container border-green-">
-        {this.state.hashtags2.length}
+        {Array.isArray(this.state.hashtags2)}
         <ul>
           <li>hashtags</li>
           

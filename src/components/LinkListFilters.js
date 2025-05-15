@@ -125,7 +125,7 @@ removeDuplicates=(arr)=>{
       //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
       hashtags.push(...link.note)
     })
-    let hashtags2=removeDuplicates(hashtags);
+    let hashtags2=this.removeDuplicates(hashtags);
     hashtags2.sort((a, b) => {
            return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
          });

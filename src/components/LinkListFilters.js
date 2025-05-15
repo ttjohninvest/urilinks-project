@@ -163,7 +163,7 @@ export class LinkListFilters extends React.Component {
       <div className="content-container border-green-">
         <div className="flexandwrap">
           {this.state.items.map((hashtag) => {
-            return <div>{hashtag}</div>;
+            return <div className="padding-all">{hashtag}</div>;
           })}
         </div>
         <div className="input-group some-component">

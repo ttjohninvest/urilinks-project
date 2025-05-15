@@ -160,14 +160,14 @@ removeDuplicates=(arr)=>{
     return (
       <div className="content-container border-green-">
         {Array.isArray(this.state.items)?"true":"false"}
-        {/* <ul>
+        <ul>
           <li>hashtags</li>
           
           {this.state.items.forEach((hashtag) => {
-            return <li>{hashtag}</li>;
+            return <li>hashtag</li>;
           })}
-        </ul> */}
-        <div>{this.state.items}</div>
+        </ul>
+        {/* <div>{this.state.items}</div> */}
 
         <div className="input-group some-component">
           <div className="input-group__item">

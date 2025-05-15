@@ -111,8 +111,14 @@ export class LinkListFilters extends React.Component {
     return hashtags;
   };
 
+  convertHashtagsToLowerCase=(text)=>{
+  return text.replace(/#\w+/g, function(match) {
+    return match.toLowerCase();
+  });
+}
+
   removeDuplicates = (arr) => {
-    return [...new Set(arr)];
+    return [...new Set(convertHashtagsToLowerCase(arr))];
   };
 
   componentDidMount() {

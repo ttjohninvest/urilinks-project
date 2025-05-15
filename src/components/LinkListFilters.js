@@ -18,6 +18,7 @@ export class LinkListFilters extends React.Component {
   }
 
   state = {
+    sort:"",
     items: [],
     calendarFocused: null,
   };
@@ -79,17 +80,19 @@ export class LinkListFilters extends React.Component {
       this.props.setTextFilter("");
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sort", "date");
-
+      this.setState({sort:"date"})
       this.props.sortByDate();
     } else if (e.target.value === "description") {
       this.props.setTextFilter("");
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sort", "description");
+      this.setState({sort:"description"})
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
       if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("#");
       window.localStorage.setItem("sort", "hashtag");
+      this.setState({sort:"hashtag"})
       this.props.sortByHashTag();
     }
   };
@@ -122,9 +125,7 @@ export class LinkListFilters extends React.Component {
     hashtags2.sort((a, b) => {
       return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
     });
-    console.log(
-      "YYYYYYYYYYYYYYYYYYYYY, hashtags2=" + JSON.stringify(hashtags2)
-    );
+    
 
     this.setState((prevState) => ({
       items: [...prevState.items, ...hashtags2],
@@ -162,7 +163,7 @@ export class LinkListFilters extends React.Component {
     return (
       <div className="content-container border-green-">
         <div className="flexandwrap">
-          {this.state.items.map((hashtag) => {
+          {this.state.sort==="hashtag" && this.state.items.map((hashtag) => {
             return <div className="padding-all">{hashtag}</div>;
           })}
         </div>

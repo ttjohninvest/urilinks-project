@@ -141,10 +141,13 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks3=" + searchLinks3);
     console.log("componentDidMount, sort=" + sort);
     if (sort === "date") {
+      this.setState({sort:"date"})
       this.props.sortByDate();
     } else if (sort === "description") {
+      this.setState({sort:"description"})
       this.props.sortByDescription();
     } else {
+      this.setState({sort:"hashtag"})
       this.props.sortByHashTag();
     }
 
@@ -164,7 +167,7 @@ export class LinkListFilters extends React.Component {
       <div className="content-container border-green-">
         <div className="flexandwrap">
           {this.state.sort==="hashtag" && this.state.items.map((hashtag,index) => {
-            if(parseInt(index)<10)
+            if(index<100)
                return <div className="padding-all">{hashtag}</div>;
             
           })}

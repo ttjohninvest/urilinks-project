@@ -117,7 +117,7 @@ export class LinkListFilters extends React.Component {
     const stringifiedArray = stringArray.toString();
     const lcstring = stringifiedArray.toLowerCase()
     const lcStringArray = lcstring.split(" ")
-    return [...new Set(this.convertHashtagsToLowerCase(lcStringArray))];
+    return [...new Set(lcStringArray)];
   };
 
   componentDidMount() {

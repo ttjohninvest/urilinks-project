@@ -19,7 +19,7 @@ export const startAddLink = (linkData = {}) => {
     } = linkData;
     const link = { description, Url, note, amount, createdAt };
     ////
-    try {
+    
     return database
       .ref(`users/${uid}/links`)
       .push(link)

@@ -53,8 +53,9 @@ export const AddLinkPage = (props) => {
 const  onSubmit = (link) => {
      console.log("in onSubmit")
      if(count < 100) {
-     props.startAddLink(link);
-     props.history.push("/");
+     const r = props.startAddLink(link);
+     if(r===false) console.log("VVVVVVVVVVVVV returned false")
+     else props.history.push("/");
      } else {
       console.log("maximum links reached")
       setMaximumPage(true)

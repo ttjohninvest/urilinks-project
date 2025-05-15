@@ -94,11 +94,43 @@ export class LinkListFilters extends React.Component {
     }
   };
 
+extractHashtags = (text) => {
+  console.log("extractHashTags, text=" + text);
+  const regex = /#([a-zA-Z0-9_]+)/g;
+  const hashtags = [];
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    hashtags.push(match[0]);
+  }
+  console.log("hashtags=" + JSON.stringify(hashtags));
+  return hashtags;
+};
+
+removeDuplicates=(arr)=>{
+  return [...new Set(arr)];
+}
+
+// hashtags2 = removeDuplicates(hashtags);
+        // hashtags2.sort((a, b) => {
+        //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+        // });
+        // console.log("links.js, Array.isArray(hashtags2)="+Array.isArray(hashtags2))
+        // console.log("startSetLinks, hashtags2=" + JSON.stringify(hashtags2));
+
+
   componentDidMount() {
-    
+    let hashtags =  []
     this.props.links.forEach((link)=>{
-      console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
+      //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
+      hashtags.push(...link.note)
     })
+    let hashtags2=removeDuplicates(hashtags);
+    hashtags2.sort((a, b) => {
+           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+         });
+    console.log("YYYYYYYYYYYYYYYYYYYYY, hashtags2="+JSON.stringify(hashtags2))
+
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");

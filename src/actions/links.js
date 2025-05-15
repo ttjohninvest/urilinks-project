@@ -81,25 +81,6 @@ export const setLinksAll = (links) => ({
   links,
 });
 
-
-
-const extractHashtags = (text) => {
-  console.log("extractHashTags, text=" + text);
-  const regex = /#([a-zA-Z0-9_]+)/g;
-  const hashtags = [];
-  let match;
-
-  while ((match = regex.exec(text)) !== null) {
-    hashtags.push(match[0]);
-  }
-  console.log("hashtags=" + JSON.stringify(hashtags));
-  return hashtags;
-};
-
-function removeDuplicates(arr) {
-  return [...new Set(arr)];
-}
-
 //this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = () => {
   console.log("startSetLinks");
@@ -126,13 +107,7 @@ export const startSetLinks = () => {
         });
         console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links));
-        // hashtags2 = removeDuplicates(hashtags);
-        // hashtags2.sort((a, b) => {
-        //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-        // });
-        // console.log("links.js, Array.isArray(hashtags2)="+Array.isArray(hashtags2))
-        // console.log("startSetLinks, hashtags2=" + JSON.stringify(hashtags2));
-        //dispatch(setHashTags([]))
+        
       })
       .catch((error) => console.log("error=" + error));
   };

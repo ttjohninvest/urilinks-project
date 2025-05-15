@@ -101,7 +101,7 @@ extractHashtags = (text) => {
   let match;
 
   while ((match = regex.exec(text)) !== null) {
-    hashtags.push(match[0]);
+    hashtags.push(match[1]);
   }
   console.log("hashtags=" + JSON.stringify(hashtags));
   return hashtags;
@@ -135,6 +135,7 @@ removeDuplicates=(arr)=>{
            return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
          });
     console.log("YYYYYYYYYYYYYYYYYYYYY, hashtags2="+JSON.stringify(hashtags2))
+    this.setState({hashtags2:hashtags2})
 
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
@@ -167,15 +168,12 @@ removeDuplicates=(arr)=>{
   render() {
     return (
       <div className="content-container border-green-">
+        {this.state.hashtags2.length}
         <ul>
           <li>hashtags</li>
-          <li>hashtags</li>
-          <li>hashtags</li>
-          <li>hashtags</li>
-          <li>hashtags</li>
-          <li>hashtags</li>
-          {this.props.links.forEach((link) => {
-            return <li>{link.note}</li>;
+          
+          {this.state.hashtags2.forEach((hashtag) => {
+            return <li>{hashtag}</li>;
           })}
         </ul>
 

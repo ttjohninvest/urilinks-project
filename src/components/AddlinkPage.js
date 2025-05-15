@@ -10,7 +10,7 @@ export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
   const [userId, setUserId] = useState('');
   const [maximumPage, setMaximumPage] = useState(false);
-
+  const [errorDialog, setErrorDialog] = useState(false)
   //const history = useHistory();
 
   const goBack = () => {
@@ -54,7 +54,10 @@ const  onSubmit = (link) => {
      console.log("in onSubmit")
      if(count < 100) {
      const r = props.startAddLink(link);
-     if(r===false) console.log("VVVVVVVVVVVVV returned false")
+     if(r===false) {
+      setErrorDialog(true)
+      console.log("VVVVVVVVVVVVV returned false")
+     }
      else props.history.push("/");
      } else {
       console.log("maximum links reached")
@@ -65,7 +68,7 @@ const  onSubmit = (link) => {
 
   return (
     <div>
-      {!maximumPage?
+      {errorDialog?<div>firebase realtime database has thrown an exception (memmory exceeded)</div>:!maximumPage?
       <div>
       <div className="page-header">
       <div className="content-container">

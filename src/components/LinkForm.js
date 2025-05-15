@@ -107,7 +107,7 @@ export default class LinkForm extends React.Component {
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="Uri, Uniform Resource Identifier"
-          maxlength="2048"
+          maxlength="1024"
         />
         <input
           type="text"

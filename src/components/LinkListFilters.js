@@ -161,11 +161,11 @@ export class LinkListFilters extends React.Component {
   render() {
     return (
       <div className="content-container border-green-">
-        <ul>
+        <div className="flexandwrap">
           {this.state.items.map((hashtag) => {
-            return <li>{hashtag}</li>;
+            return <div>{hashtag}</div>;
           })}
-        </ul>
+        </div>
         <div className="input-group some-component">
           <div className="input-group__item">
             <input

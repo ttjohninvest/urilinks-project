@@ -167,9 +167,9 @@ removeDuplicates=(arr)=>{
             return <li>hashtag</li>;
           })}
         </ul>
-        {/* <div>{this.state.items}</div> */}
+        <div>{this.state.items}</div>
 
-        <div className="input-group some-component">
+        {/* <div className="input-group some-component">
           <div className="input-group__item">
             <input
               ref={this.myRef}
@@ -215,7 +215,7 @@ removeDuplicates=(arr)=>{
               isOutsideRange={() => false}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

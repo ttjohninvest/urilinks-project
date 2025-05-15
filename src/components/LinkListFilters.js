@@ -94,39 +94,41 @@ export class LinkListFilters extends React.Component {
     }
   };
 
-extractHashtags = (text) => {
-  console.log("extractHashTags, text=" + text);
-  const regex = /#([a-zA-Z0-9_]+)/g;
-  const hashtags = [];
-  let match;
+  extractHashtags = (text) => {
+    console.log("extractHashTags, text=" + text);
+    const regex = /#([a-zA-Z0-9_]+)/g;
+    const hashtags = [];
+    let match;
 
-  while ((match = regex.exec(text)) !== null) {
-    hashtags.push(match[0]);
-  }
-  console.log("hashtags=" + JSON.stringify(hashtags));
-  return hashtags;
-};
+    while ((match = regex.exec(text)) !== null) {
+      hashtags.push(match[0]);
+    }
+    console.log("hashtags=" + JSON.stringify(hashtags));
+    return hashtags;
+  };
 
-removeDuplicates=(arr)=>{
-  return [...new Set(arr)];
-}
+  removeDuplicates = (arr) => {
+    return [...new Set(arr)];
+  };
 
   componentDidMount() {
-    let hashtags =  []
-    this.props.links.forEach((link)=>{
+    let hashtags = [];
+    this.props.links.forEach((link) => {
       //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
       let x1 = this.extractHashtags(link.note);
-      hashtags.push(...x1)
-    })
-    let hashtags2=this.removeDuplicates(hashtags);
+      hashtags.push(...x1);
+    });
+    let hashtags2 = this.removeDuplicates(hashtags);
     hashtags2.sort((a, b) => {
-           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-         });
-    console.log("YYYYYYYYYYYYYYYYYYYYY, hashtags2="+JSON.stringify(hashtags2))
-   
-     this.setState(prevState => ({
-        items: [...prevState.items, ...hashtags2]
-      }));
+      return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+    });
+    console.log(
+      "YYYYYYYYYYYYYYYYYYYYY, hashtags2=" + JSON.stringify(hashtags2)
+    );
+
+    this.setState((prevState) => ({
+      items: [...prevState.items, ...hashtags2],
+    }));
 
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
@@ -159,17 +161,12 @@ removeDuplicates=(arr)=>{
   render() {
     return (
       <div className="content-container border-green-">
-        {Array.isArray(this.state.items)?"true":"false"}
         <ul>
-          <li>hashtags</li>
-          
           {this.state.items.map((hashtag) => {
-            return <li>hashtag</li>;
+            return <li>{hashtag}</li>;
           })}
         </ul>
-        <div>{this.state.items}</div>
-
-        {/* <div className="input-group some-component">
+        <div className="input-group some-component">
           <div className="input-group__item">
             <input
               ref={this.myRef}
@@ -215,7 +212,7 @@ removeDuplicates=(arr)=>{
               isOutsideRange={() => false}
             />
           </div>
-        </div> */}
+        </div>
       </div>
     );
   }

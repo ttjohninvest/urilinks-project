@@ -19,6 +19,7 @@ export const startAddLink = (linkData = {}) => {
     } = linkData;
     const link = { description, Url, note, amount, createdAt };
     ////
+    try {
     return database
       .ref(`users/${uid}/links`)
       .push(link)
@@ -29,7 +30,9 @@ export const startAddLink = (linkData = {}) => {
             ...link,
           })
         );
-      });
+      }).catch((error)=>{
+        console.log("error adding link data in firebase, error="+error)
+      })
   };
 };
 
@@ -42,12 +45,15 @@ export const removeLink = ({ id } = {}) => ({
 export const startRemoveLink = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
+    
     return database
       .ref(`users/${uid}/links/${id}`)
       .remove()
       .then(() => {
         dispatch(removeLink({ id }));
-      });
+      }).catch((error)=>{
+        console.log("error removing link data in firebase, error="+error)
+      })
   };
 };
 
@@ -61,12 +67,15 @@ export const editLink = (id, updates) => ({
 export const startEditLink = (id, updates) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
+    
     return database
       .ref(`users/${uid}/links/${id}`)
       .update(updates)
       .then(() => {
         dispatch(editLink(id, updates));
-      });
+      }).catch((error)=>{
+        console.log("error editing link data in firebase, error="+error)
+      })
   };
 };
 

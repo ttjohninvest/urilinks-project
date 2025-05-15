@@ -18,7 +18,7 @@ export class LinkListFilters extends React.Component {
   }
 
   state = {
-    hashtags2: [],
+    items: [],
     calendarFocused: null,
   };
 
@@ -101,7 +101,7 @@ extractHashtags = (text) => {
   let match;
 
   while ((match = regex.exec(text)) !== null) {
-    hashtags.push(match[1]);
+    hashtags.push(match[0]);
   }
   console.log("hashtags=" + JSON.stringify(hashtags));
   return hashtags;
@@ -110,18 +110,6 @@ extractHashtags = (text) => {
 removeDuplicates=(arr)=>{
   return [...new Set(arr)];
 }
-
-// hashtags2 = removeDuplicates(hashtags);
-        // hashtags2.sort((a, b) => {
-        //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-        // });
-        // console.log("links.js, Array.isArray(hashtags2)="+Array.isArray(hashtags2))
-        // console.log("startSetLinks, hashtags2=" + JSON.stringify(hashtags2));
-
-        //let x = JSON.stringify(childSnapshot.val().note);
-          // let x1 = extractHashtags(x);
-          // hashtags.push(...x1);
-          // console.log("startSetLinks, hashtags=" + JSON.stringify(hashtags));
 
   componentDidMount() {
     let hashtags =  []
@@ -135,7 +123,10 @@ removeDuplicates=(arr)=>{
            return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
          });
     console.log("YYYYYYYYYYYYYYYYYYYYY, hashtags2="+JSON.stringify(hashtags2))
-    this.setState({hashtags2:hashtags2})
+   
+     this.setState(prevState => ({
+        items: [...prevState.items, ...hashtags2]
+      }));
 
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
@@ -168,11 +159,11 @@ removeDuplicates=(arr)=>{
   render() {
     return (
       <div className="content-container border-green-">
-        {Array.isArray(this.state.hashtags2)}
+        {Array.isArray(this.state.items)}
         <ul>
           <li>hashtags</li>
           
-          {this.state.hashtags2.forEach((hashtag) => {
+          {this.state.items.forEach((hashtag) => {
             return <li>{hashtag}</li>;
           })}
         </ul>

@@ -19,20 +19,21 @@ export const startAddLink = (linkData = {}) => {
     } = linkData;
     const link = { description, Url, note, amount, createdAt };
     ////
-    return false;
-    // return database
-    //   .ref(`users/${uid}/links`)
-    //   .push(link)
-    //   .then((ref) => {
-    //     dispatch(
-    //       addLink({
-    //         id: ref.key,
-    //         ...link,
-    //       })
-    //     );
-    //   }).catch((error)=>{
-    //     console.log("error adding link data in firebase, error="+error)
-    //   })
+    
+    return database
+      .ref(`users/${uid}/links`)
+      .push(link)
+      .then((ref) => {
+        dispatch(
+          addLink({
+            id: ref.key,
+            ...link,
+          })
+        );
+      }).catch((error)=>{
+        console.log("error adding link data in firebase, error="+error)
+        return false;
+      })
   };
 };
 

@@ -163,8 +163,10 @@ export class LinkListFilters extends React.Component {
     return (
       <div className="content-container border-green-">
         <div className="flexandwrap">
-          {this.state.sort==="hashtag" && this.state.items.map((hashtag) => {
-            return <div className="padding-all">{hashtag}</div>;
+          {this.state.sort==="hashtag" && this.state.items.map((hashtag,i) => {
+            if(i<10)
+               return <div className="padding-all">{hashtag}</div>;
+            else return <div></div>
           })}
         </div>
         <div className="input-group some-component">

@@ -15,13 +15,14 @@ export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
-  }
-
-  state = {
+     this.state = {
     sort:"hashtag",
     items: [],
     calendarFocused: null,
   };
+  }
+
+ 
 
   onDatesChange = ({ startDate, endDate }) => {
     this.props.setStartDate(startDate);

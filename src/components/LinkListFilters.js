@@ -141,24 +141,29 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks3=" + searchLinks3);
     console.log("componentDidMount, sort=" + sort);
     if (sort === "date") {
-      this.setState({sort:"date"})
+      
       this.props.sortByDate();
     } else if (sort === "description") {
-      this.setState({sort:"description"})
+      
       this.props.sortByDescription();
     } else {
-      this.setState({sort:"hashtag"})
+     
       this.props.sortByHashTag();
     }
 
     if (sort === "date") {
       this.props.setTextFilter(searchLinks1);
+      this.setState({sort:"date"})
     } else if (sort === "description") {
       this.props.setTextFilter(searchLinks2);
+       this.setState({sort:"description"})
     } else if (sort === "hashtag") {
+      this.setState({sort:"hashtag"})
       if (searchLinks3 === "") this.props.setTextFilter("#");
       else this.props.setTextFilter(searchLinks3);
     }
+
+    
     if (this.myRef.current) this.myRef.current.focus();
   }
 

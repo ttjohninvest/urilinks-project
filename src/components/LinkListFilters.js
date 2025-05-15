@@ -118,12 +118,17 @@ removeDuplicates=(arr)=>{
         // console.log("links.js, Array.isArray(hashtags2)="+Array.isArray(hashtags2))
         // console.log("startSetLinks, hashtags2=" + JSON.stringify(hashtags2));
 
+        //let x = JSON.stringify(childSnapshot.val().note);
+          // let x1 = extractHashtags(x);
+          // hashtags.push(...x1);
+          // console.log("startSetLinks, hashtags=" + JSON.stringify(hashtags));
 
   componentDidMount() {
     let hashtags =  []
     this.props.links.forEach((link)=>{
       //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
-      hashtags.push(...link.note)
+      let x1 = this.extractHashtags(link.note);
+      hashtags.push(...x1)
     })
     let hashtags2=this.removeDuplicates(hashtags);
     hashtags2.sort((a, b) => {

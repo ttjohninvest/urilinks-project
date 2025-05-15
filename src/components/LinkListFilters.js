@@ -118,7 +118,7 @@ export class LinkListFilters extends React.Component {
 }
 
   removeDuplicates = (arr) => {
-    return [...new Set(convertHashtagsToLowerCase(arr))];
+    return [...new Set(this.convertHashtagsToLowerCase(arr))];
   };
 
   componentDidMount() {

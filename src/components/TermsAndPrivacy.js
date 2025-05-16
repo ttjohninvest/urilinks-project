@@ -518,6 +518,9 @@ const TermsAndPrivacy = () => (
     Your use of the website, urilinks.com, constitutes your agreement with this data privacy policy.
     <br />
     <br />
+    Effective as of May 10th, 2025
+    <br />
+    <br />
     --urilinks.com
   </div>
 );

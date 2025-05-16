@@ -42,14 +42,14 @@ const TermsAndPrivacy = () => (
     Data Privacy Policy
     <br />
     <br />
-    Your use of the Website is also subject to the Company’s Data Privacy
+    Your use of the Website is also subject to the urilinks.com’s Data Privacy
     Policy. Please review our Data Privacy Policy, which also governs the
     Website and informs users of our data collection practices. Your agreement
     to the Privacy Policy is hereby incorporated into these Terms of Use.
     Disclaimer
     <br />
     <br />
-    Your use of the Website is also subject to the Company’s Disclaimer. Please
+    Your use of the Website is also subject to urilinks.com’s Disclaimer. Please
     review our Disclaimer, which also governs the Website and informs users of
     various limitations regarding the information provided on the Website. Your
     agreement to the Disclaimer is hereby incorporated into these Terms of Use.
@@ -103,7 +103,7 @@ const TermsAndPrivacy = () => (
     access and use the Website in accordance with the terms of Use.
     <br />
     <br />
-    As a condition of your use of the Website, you warrant to the Company that
+    As a condition of your use of the Website, you warrant to urilinks.com that
     you will not use the Website or any of the resources available for download
     from the Website for any purpose that is unlawful or prohibited by these
     Terms. You may not use the Website or any of the resources available for
@@ -135,7 +135,7 @@ const TermsAndPrivacy = () => (
     particular you will not delete or alter any proprietary rights or
     attribution notices in any content. You will use protected content solely
     for your individual use, and will make no other use of the content without
-    the express written permission of the Company and the copyright owner. You
+    the express written permission of urilinks.com and the copyright owner. You
     agree that you do not acquire any ownership rights in any protected content.
     We do not grant you any licenses, express or implied, to the intellectual
     property of urilinks.com or our licensors except as expressly authorized by
@@ -181,7 +181,7 @@ const TermsAndPrivacy = () => (
     Email And Other Electronic Communications
     <br />
     <br />
-    Visiting the Website or sending emails to the Company constitutes electronic
+    Visiting the Website or sending emails to urilinks.com constitutes electronic
     communications. You consent to receive electronic communications and you
     agree that all agreements, notices, disclosures, and other communications
     that we provide to you electronically, via email and on the Website, satisfy
@@ -208,7 +208,7 @@ const TermsAndPrivacy = () => (
     <br />
     <br />
     No compensation will be paid with respect to the use of your Submission, as
-    provided herein. The Company is under no obligation to post or use any
+    provided herein. urilinks.com is under no obligation to post or use any
     Submission you may provide and may remove any Submission at any time in the
     Company’s sole discretion.
     <br />
@@ -239,7 +239,7 @@ const TermsAndPrivacy = () => (
     Guests
     <br />
     <br />
-    The Company may, from time to time, provide information from a third party
+    urilinks.com may, from time to time, provide information from a third party
     in the form of a podcast guest interview, interview on other platform, guest
     blog post, or other medium. The urilinks.com does not control the
     information provided by such third-party guests, is not responsible for
@@ -256,11 +256,11 @@ const TermsAndPrivacy = () => (
     No Warranties
     <br />
     <br />
-    THE COMPANY MAKES NO WARRANTIES REGARDING THE PERFORMANCE OR OPERATION OF
-    THIS WEBSITE. THE COMPANY FURTHER MAKES NO REPRESENTATIONS OR WARRANTIES OF
+    urilinks.com MAKES NO WARRANTIES REGARDING THE PERFORMANCE OR OPERATION OF
+    THIS WEBSITE. urilinks.com FURTHER MAKES NO REPRESENTATIONS OR WARRANTIES OF
     ANY KIND, EXPRESS OR IMPLIED, AS TO THE INFORMATION, CONTENTS, MATERIALS,
     DOCUMENTS, PROGRAMS, PRODUCTS, BOOKS, OR SERVICES INCLUDED ON OR THROUGH
-    THIS WEBSITE. TO THE FULLEST EXTENT PERMISSIBLE UNDER THE LAW, THE COMPANY
+    THIS WEBSITE. TO THE FULLEST EXTENT PERMISSIBLE UNDER THE LAW, urilinks.com
     DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING IMPLIED WARRANTIES
     OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. Limitation of
     Liability YOU AGREE TO ABSOLVE urilinks.com OF ANY AND ALL LIABILITY OR LOSS
@@ -301,7 +301,7 @@ const TermsAndPrivacy = () => (
     INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS OBTAINED
     THROUGH THE WEBSITE, OR OTHERWISE ARISING OUT OF THE USE OF THE WEBSITE,
     WHETHER BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY OR OTHERWISE,
-    EVEN IF THE COMPANY OR ANY OF ITS SUPPLIERS HAS BEEN ADVISED OF THE
+    EVEN IF urilinks.com OR ANY OF ITS SUPPLIERS HAS BEEN ADVISED OF THE
     POSSIBILITY OF DAMAGES. BECAUSE SOME STATES/JURISDICTIONS DO NOT ALLOW THE
     EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL
     DAMAGES, THE ABOVE LIMITATION MAY NOT APPLY TO YOU. IF YOU ARE DISSATISFIED
@@ -425,7 +425,7 @@ const TermsAndPrivacy = () => (
     Contact Us
     <br />
     <br />
-    The Company welcomes your questions or comments regarding the Terms:
+    urilinks.com welcomes your questions or comments regarding the Terms:
     <br />
     <br />
     Email Address: ttjohninvest@gmail.com

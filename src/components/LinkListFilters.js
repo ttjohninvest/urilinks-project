@@ -174,10 +174,10 @@ export class LinkListFilters extends React.Component {
     if (this.myRef.current) this.myRef.current.focus();
   }
 
-  setit=()=>{
+  setit=(value)=>{
     //e.preventDefault()
     //this.props.setTextFilter(e.target.value);
-    console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP")
+    console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP, value="+value)
     // console.log("hashtag="+hashtag)
     // console.log("hashtag="+e.target.value)
     // this.props.setTextFilter(hashtag);
@@ -191,7 +191,7 @@ export class LinkListFilters extends React.Component {
         <div className="flexandwrap" title="your hash tags">
            { this.state.items.map((hashtag,index) => {
             if(index < 100)
-               return <div className="padding-all text-size-5"><a href="#" onClick={this.setit}>{hashtag}</a></div>;
+               return <div className="padding-all text-size-5"><a href="#" onClick={()=>this.setit(hashtag)}>{hashtag}</a></div>;
             else return false
             
           })}

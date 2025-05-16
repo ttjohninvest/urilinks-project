@@ -173,13 +173,17 @@ export class LinkListFilters extends React.Component {
     if (this.myRef.current) this.myRef.current.focus();
   }
 
+  setit=()=>{
+    this.myRef.current.value="a"
+  }
+
   render() {
     return (
       <div className="content-container border-green-">
         <div className="flexandwrap" title="your hash tags">
            { this.state.items.map((hashtag,index) => {
             if(index < 100)
-               return <div className="padding-all text-size-5">{hashtag}</div>;
+               return <div className="padding-all text-size-5"><a href="#" onClick={this.setit}>{hashtag}</a></div>;
             else return false
             
           })}

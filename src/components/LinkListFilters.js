@@ -180,7 +180,7 @@ export class LinkListFilters extends React.Component {
     console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP, value="+value)
     // console.log("hashtag="+hashtag)
     // console.log("hashtag="+e.target.value)
-    // this.props.setTextFilter(hashtag);
+    this.props.setTextFilter(value);
   
     //this.myRef.current.value="a"
   }

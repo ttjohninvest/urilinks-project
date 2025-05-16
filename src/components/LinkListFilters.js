@@ -175,7 +175,11 @@ export class LinkListFilters extends React.Component {
 
   setit=(e,hashtag)=>{
     e.preventDefault()
-    alert(hashtag)
+    //this.props.setTextFilter(e.target.value);
+    console.log("hashtag="+hashtag)
+    console.log("hashtag="+e.target.value)
+    this.props.setTextFilter(hashtag);
+  
     //this.myRef.current.value="a"
   }
 

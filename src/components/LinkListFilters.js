@@ -179,7 +179,7 @@ export class LinkListFilters extends React.Component {
         <div className="flexandwrap" title="hash tags">
            { this.state.items.map((hashtag,index) => {
             if(index<100)
-               return <div className="padding-all">{hashtag}</div>;
+               return <div className="padding-all text-size-5">{hashtag}</div>;
             
           })}
           {/* {this.state.sort==="hashtag" && this.state.items.map((hashtag,index) => {

@@ -20,6 +20,7 @@ export class LinkListFilters extends React.Component {
     items: [],
     calendarFocused: null,
   };
+  this.setit = this.setit.bind(this);
   }
 
  
@@ -176,9 +177,10 @@ export class LinkListFilters extends React.Component {
   setit=(e,hashtag)=>{
     e.preventDefault()
     //this.props.setTextFilter(e.target.value);
-    console.log("hashtag="+hashtag)
-    console.log("hashtag="+e.target.value)
-    this.props.setTextFilter(hashtag);
+    console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP")
+    // console.log("hashtag="+hashtag)
+    // console.log("hashtag="+e.target.value)
+    // this.props.setTextFilter(hashtag);
   
     //this.myRef.current.value="a"
   }

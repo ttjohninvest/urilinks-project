@@ -1,0 +1,18 @@
+
+
+
+
+
+
+           <div className="relative mx-auto bg-cover bg-center rounded-xl shadow-xl h-56 w-80">   
+             <div className="rounded-sm w-36 aspect-square absolute -top-2 -right-2 overflow-hidden">
+               <div className="absolute h-2 w-2 top-0 left-0 bg-amber-500"></div>
+               <div className="absolute h-2 w-2 bottom-0 right-0 bg-amber-500"></div>
+               <a
+                 href={h12}
+                 className="hover:bg-yellow-300 bg-amber-300 block w-[141.42%]- w-square-diagonal absolute bottom-0 right-0 rotate-45 origin-bottom-right text-amber-800 font-semibold UPPERCASE text-xs text-center tracking-wider py-1.5 shadow-sm"
+               >
+                 bowling alley
+               </a>
+             </div>
+           </div>

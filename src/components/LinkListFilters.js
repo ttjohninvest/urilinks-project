@@ -174,6 +174,7 @@ export class LinkListFilters extends React.Component {
   }
 
   setit=(e,hashtag)=>{
+    e.preventDefault()
     alert(hashtag)
     //this.myRef.current.value="a"
   }

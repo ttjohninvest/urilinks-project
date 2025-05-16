@@ -431,6 +431,9 @@ const TermsAndPrivacy = () => (
     Email Address: ttjohninvest@gmail.com
     <br />
     <br />
+    Your use of the website, urilinks.com, constitutes your agreement with these terms.
+    <br />
+    <br />
     Effective as of May 10th, 2025
     <br />
     <br />
@@ -495,12 +498,12 @@ const TermsAndPrivacy = () => (
     Our Cookie Policy
     <br />
     <br />
-    urilinks.com does not use coookies
+    urilinks.com does not use cookies
     <br />
     <br />
     urilinks.com will contain your links that lead to other websites. If you
     click on these links, urilinks.com is not held responsible for your data and
-    privacy protection. Visiting those websites is not governed by this privacy
+    privacy protection. Visiting those websites is not governed by this data privacy
     policy agreement. You may read the privacy policy documentation of the
     website you go to from urilinks.
     <br />
@@ -510,6 +513,10 @@ const TermsAndPrivacy = () => (
     <br />
     urilinks.com will not lease, sell or distribute your personal information to
     any third party.
+    <br />
+    <br />
+    Your use of the website, urilinks.com, constitutes your agreement with this data privacy policy.
+    <br />
     <br />
     --urilinks.com
   </div>

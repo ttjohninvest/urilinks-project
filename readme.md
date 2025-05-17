@@ -10,7 +10,7 @@ firebase.google.com rules setting tutorial
 https://www.youtube.com/watch?v=qLrDWBKTUZo
 
 urilinks.com
-
+////
 kickstarter launch tutorial
 https://www.youtube.com/watch?v=LDFVyl_prZ0
 

@@ -190,7 +190,7 @@ export class LinkListFilters extends React.Component {
       <div className="content-container border-green-">
         <div className="flexandwrap" title="your hash tags">
            { this.state.items.map((hashtag,index) => {
-            if(index < 100)
+            if(index < 200)
                return <div className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
             else return false
             

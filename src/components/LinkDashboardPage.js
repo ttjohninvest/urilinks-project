@@ -92,12 +92,12 @@ class LinkDashboardPage extends React.Component {
   }
 
   handleScroll(event) {
-    window.localStorage.setItem("scrollY",window.scrollY)
+    //window.localStorage.setItem("scrollY",window.scrollY)
     console.log(window.scrollY)
-    this.setState({
-      scrollTop: event.target.scrollTop,
-      scrollPos:window.scrollY
-    });
+    // this.setState({
+    //   scrollTop: event.target.scrollTop,
+    //   scrollPos:window.scrollY
+    // });
   }
 
   render() {

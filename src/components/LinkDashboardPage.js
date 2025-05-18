@@ -81,6 +81,9 @@ class LinkDashboardPage extends React.Component {
 
   componentDidMount() {
     this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
+    const sp = parseInt(window.localStorage.getItem("scrollY")) //parseInt(window.localStorage.getItem("scrollPosition"))
+    console.log("sp="+sp)
+    window.scrollTo(0,sp)
   }
 
   componentWillUnmount() {
@@ -88,8 +91,11 @@ class LinkDashboardPage extends React.Component {
   }
 
   handleScroll(event) {
+    window.localStorage.setItem("scrollY",window.scrollY)
+    
     this.setState({
       scrollTop: event.target.scrollTop,
+      scrollPos:window.scrollY
     });
   }
 

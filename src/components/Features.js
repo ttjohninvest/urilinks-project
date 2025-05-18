@@ -65,7 +65,8 @@ const Features = () => (
             "Hash Tag" selected: the results will give links that contain the
             hash tag in the note. You may organize any group of links this way.
             For example, if you have 5 url links that are your favorites, put The
-            hash tag #favorite in the note section of the form.
+            hash tag #favorite in the note section for each of the 5 in the 
+            add uri/url form.
           </li>
         </ul>
       

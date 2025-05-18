@@ -73,6 +73,7 @@ class LinkDashboardPage extends React.Component {
     super(props)
     this.state = {
       scrollTop: 0,
+      scrollPos: 0
     }
     this.scrollableDiv = React.createRef()
     this.handleScroll = this.handleScroll.bind(this);
@@ -92,7 +93,7 @@ class LinkDashboardPage extends React.Component {
 
   handleScroll(event) {
     window.localStorage.setItem("scrollY",window.scrollY)
-    
+    console.log(window.scrollY)
     this.setState({
       scrollTop: event.target.scrollTop,
       scrollPos:window.scrollY

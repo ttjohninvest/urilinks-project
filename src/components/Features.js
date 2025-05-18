@@ -68,6 +68,7 @@ const Features = () => (
             hash tag #favorite in the note section for each of the 5 in the 
             add uri/url form.
           </li>
+         
         </ul>
       
 

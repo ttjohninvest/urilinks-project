@@ -5,7 +5,7 @@ const Features = () => (
     <ul>
       <li>urilinks.com Features:</li>
 
-      <li>Using the website is free and user friendly. </li>
+      <li>Using the website is free. </li>
       <li>Everyone gets their own personal account.</li>
 
       <li>Your account is secret from other accounts.</li>
@@ -63,7 +63,9 @@ const Features = () => (
 
           <li>
             "Hash Tag" selected: the results will give links that contain the
-            hash tag in the note.
+            hash tag in the note. You may organize any group of links this way.
+            For example, if you have 5 url links that are your favorites, put The
+            hash tag #favorite in the note section of the form.
           </li>
         </ul>
       

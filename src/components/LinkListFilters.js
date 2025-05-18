@@ -185,8 +185,8 @@ export class LinkListFilters extends React.Component {
     //this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
 
     console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.offsetWidth)
-    console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.offsetHeight)
-    this.props.setTheHashTagDivHeight(this.elementRef.current.offsetHeight)
+    console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
+    this.props.setTheHashTagDivHeight(this.elementRef.current.clientHeight)
   }
 
   //   componentWillUnmount() {

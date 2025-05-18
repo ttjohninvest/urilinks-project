@@ -14,7 +14,7 @@ import {
 export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
-    //this.scrollableDiv = React.createRef();
+    this.elementRef = React.createRef();
     this.myRef = React.createRef();
      this.state = {
     sort:"hashtag",
@@ -196,7 +196,7 @@ export class LinkListFilters extends React.Component {
     // console.log("hashtag="+hashtag)
     // console.log("hashtag="+e.target.value)
     this.props.setTextFilter(value);
-  
+    this.props.setHeightOfDiv(this.elementRef.current.offsetHeight)
     //this.myRef.current.value="a"
   }
 
@@ -205,7 +205,9 @@ export class LinkListFilters extends React.Component {
       <div className="content-container border-green-"
       //ref={this.scrollableDiv}
       >
-        <div className="flexandwrap" title="your hash tags">
+        <div 
+        ref={this.elementRef}
+        className="flexandwrap" title="your hash tags">
            { this.state.items.map((hashtag,index) => {
             if(index < 200)
                return <div className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;

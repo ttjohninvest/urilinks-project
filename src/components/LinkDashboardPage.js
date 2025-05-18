@@ -7,6 +7,7 @@ const LinkDashboardPage = () => {
   //const elementRef = useRef()
   const scrollableDiv = React.useRef();
   const [scrollPos, setScrollPos] = useState(0);
+  const [heightofdiv, setHeightOfDiv] = useState(0)
   //const [scrollTop, setScrollTop] = useState(0)
 
   useEffect(() => {
@@ -46,7 +47,8 @@ const LinkDashboardPage = () => {
     //elementRef.current.offsetHeight
     const sp = parseInt(window.localStorage.getItem("scrollY")) //parseInt(window.localStorage.getItem("scrollPosition"))
     console.log("sp="+sp)
-    window.scrollTo(0,sp)
+    //I have to subtract off the height of the div with the hashtags for it to be right
+    window.scrollTo(0,sp-heightofdiv)
   },[])
 
  return (
@@ -54,7 +56,7 @@ const LinkDashboardPage = () => {
     //ref={elementRef}
     >
       <LinksSummary />
-      <LinkListFilters />
+      <LinkListFilters setHeightOfDiv={setHeightOfDiv} />
       <LinkList />
     </div>
   );

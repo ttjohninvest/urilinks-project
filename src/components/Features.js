@@ -5,7 +5,7 @@ const Features = () => (
     <ul>
       <li>urilinks.com Features:</li>
 
-      <li>Using the website is free. </li>
+      <li>Using the website is free and user friendly. </li>
       <li>Everyone gets their own personal account.</li>
 
       <li>Your account is secret from other accounts.</li>

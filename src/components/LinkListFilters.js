@@ -12,18 +12,9 @@ import {
   setEndDate,
 } from "../actions/filters";
 
-import useMeasure from 'react-use-measure';
 
-const withMeasurement = (WrappedComponent) => {
-  return (props) => {
-    const [ref, bounds] = useMeasure();
-    return (
-      <div ref={ref}>
-        <WrappedComponent {...props} bounds={bounds} />
-      </div>
-    );
-  };
-};
+
+
 
 
 export class LinkListFilters extends React.Component {
@@ -200,16 +191,14 @@ export class LinkListFilters extends React.Component {
     //this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
 
     // console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.offsetWidth)
-    // console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
+    console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
     // this.props.setTheHashTagDivHeight(this.elementRef.current.clientHeight)
     // console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.clientWidth)
     // console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
     // this.props.setTheHashTagDivHeight(this.height)
 
-    let {bounds} = this.props
-    console.log("bounds.width="+bounds.width)
-    console.log("bounds.height="+bounds.height)
-    this.props.setTheHashTagDivHeight(bounds.height)
+    
+    this.props.setTheHashTagDivHeight(this.elementRef.current.clientHeight)
   }
 
   //   componentWillUnmount() {

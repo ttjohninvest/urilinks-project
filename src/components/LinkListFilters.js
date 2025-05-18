@@ -1,4 +1,5 @@
 import React, { createRef } from "react";
+import useMeasure from "react-use-measure";
 import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 
@@ -10,6 +11,20 @@ import {
   setStartDate,
   setEndDate,
 } from "../actions/filters";
+
+import useMeasure from 'react-use-measure';
+
+const withMeasurement = (WrappedComponent) => {
+  return (props) => {
+    const [ref, bounds] = useMeasure();
+    return (
+      <div ref={ref}>
+        <WrappedComponent {...props} bounds={bounds} />
+      </div>
+    );
+  };
+};
+
 
 export class LinkListFilters extends React.Component {
   constructor(props) {
@@ -184,9 +199,17 @@ export class LinkListFilters extends React.Component {
 
     //this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
 
-    console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.offsetWidth)
-    console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
-    this.props.setTheHashTagDivHeight(this.elementRef.current.clientHeight)
+    // console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.offsetWidth)
+    // console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
+    // this.props.setTheHashTagDivHeight(this.elementRef.current.clientHeight)
+    // console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.clientWidth)
+    // console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
+    // this.props.setTheHashTagDivHeight(this.height)
+
+    let {bounds} = this.props
+    console.log("bounds.width="+bounds.width)
+    console.log("bounds.height="+bounds.height)
+    this.props.setTheHashTagDivHeight(bounds.height)
   }
 
   //   componentWillUnmount() {
@@ -211,7 +234,8 @@ export class LinkListFilters extends React.Component {
       <div className="content-container border-green-"
       //ref={this.scrollableDiv}
       >
-        <div 
+        
+       <div 
         ref={this.elementRef}
         className="flexandwrap" title="your hash tags">
            { this.state.items.map((hashtag,index) => {
@@ -220,12 +244,9 @@ export class LinkListFilters extends React.Component {
             else return false
             
           })}
-          {/* {this.state.sort==="hashtag" && this.state.items.map((hashtag,index) => {
-            if(index<100)
-               return <div className="padding-all">{hashtag}</div>;
-            
-          })} */}
         </div>
+        
+        
         <div className="input-group some-component">
           <div className="input-group__item">
             <input
@@ -292,4 +313,4 @@ const mapDispatchToProps = (dispatch) => ({
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);
+export default connect(mapStateToProps, mapDispatchToProps)(withMeasurement(LinkListFilters));

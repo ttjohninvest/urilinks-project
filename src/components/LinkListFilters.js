@@ -1,5 +1,5 @@
 import React, { createRef } from "react";
-import useMeasure from "react-use-measure";
+
 import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 

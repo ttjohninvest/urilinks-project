@@ -5,7 +5,7 @@ import LinksSummary from "./LinksSummary";
 
 const LinkDashboardPage = () => {
   //const elementRef = useRef()
-  this.scrollableDiv = React.useRef();
+  const scrollableDiv = React.useRef();
   const [scrollPos, setScrollPos] = useState(0);
   //const [scrollTop, setScrollTop] = useState(0)
 

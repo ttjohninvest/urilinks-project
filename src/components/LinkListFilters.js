@@ -14,16 +14,16 @@ import {
 export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
-    this.scrollableDiv = React.createRef();
+    //this.scrollableDiv = React.createRef();
     this.myRef = React.createRef();
      this.state = {
     sort:"hashtag",
     items: [],
     calendarFocused: null,
-    scrollTop: 0,
+    //scrollTop: 0,
   };
   this.setit = this.setit.bind(this);
-   this.handleScroll = this.handleScroll.bind(this);
+   //this.handleScroll = this.handleScroll.bind(this);
   }
 
  
@@ -124,11 +124,11 @@ export class LinkListFilters extends React.Component {
     return [...new Set(lcStringArray)];
   };
 
-  handleScroll(event) {
-    this.setState({
-      scrollTop: event.target.scrollTop,
-    });
-  }
+  // handleScroll(event) {
+  //   this.setState({
+  //     scrollTop: event.target.scrollTop,
+  //   });
+  // }
 
   componentDidMount() {
     let hashtags = [];
@@ -182,12 +182,12 @@ export class LinkListFilters extends React.Component {
     
     if (this.myRef.current) this.myRef.current.focus();
 
-    this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
+    //this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
   }
 
-    componentWillUnmount() {
-    this.scrollableDiv.current.removeEventListener('scroll', this.handleScroll);
-  }
+  //   componentWillUnmount() {
+  //   this.scrollableDiv.current.removeEventListener('scroll', this.handleScroll);
+  // }
 
   setit=(value,event)=>{
     event.preventDefault()
@@ -203,7 +203,7 @@ export class LinkListFilters extends React.Component {
   render() {
     return (
       <div className="content-container border-green-"
-      ref={this.scrollableDiv}
+      //ref={this.scrollableDiv}
       >
         <div className="flexandwrap" title="your hash tags">
            { this.state.items.map((hashtag,index) => {

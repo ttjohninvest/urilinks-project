@@ -62,18 +62,19 @@
 
 // export default LinkDashboardPage;
 
-import React, {createRef} from "react";
+import React from "react";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
 import LinksSummary from "./LinksSummary";
 
 class LinkDashboardPage extends React.Component {
-  //const elementRef = useRef()
+ 
   constructor(props) {
     super(props)
     this.state = {
       scrollTop: 0,
     }
+    this.scrollableDiv = React.createRef()
     this.handleScroll = this.handleScroll.bind(this);
   }
 

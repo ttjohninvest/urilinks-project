@@ -9,7 +9,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   console.log("getFilteredLinksArray, TTTTTTTTTTTTTTTTTTTTTTTTTTTTTt, sortBy="+sortBy)
   const removeHashTags=(text) => {
     let str = text.replace(/#\S+/g, '').trim();
-    console.log("str="+str)
+    //console.log("str="+str)
     return str
   }
 

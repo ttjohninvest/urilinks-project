@@ -42,9 +42,13 @@ const LinkDashboardPage = () => {
   //     window.removeEventListener('beforeunload', handleBeforeUnload);
   //   };
   // }, []);
-
+  const setTheHashTagDivHeight=(h) => 
+  {
+    setHeightOfDiv(h)
+  }
   useEffect(()=>{
     //elementRef.current.offsetHeight
+    console.log("heightofdiv="+heightofdiv)
     const sp = parseInt(window.localStorage.getItem("scrollY")) //parseInt(window.localStorage.getItem("scrollPosition"))
     console.log("sp="+sp)
     //I have to subtract off the height of the div with the hashtags for it to be right
@@ -56,7 +60,7 @@ const LinkDashboardPage = () => {
     //ref={elementRef}
     >
       <LinksSummary />
-      <LinkListFilters setHeightOfDiv={setHeightOfDiv} />
+      <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
       <LinkList />
     </div>
   );

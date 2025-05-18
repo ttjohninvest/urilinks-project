@@ -196,7 +196,7 @@ export class LinkListFilters extends React.Component {
     // console.log("hashtag="+hashtag)
     // console.log("hashtag="+e.target.value)
     this.props.setTextFilter(value);
-    this.props.setHeightOfDiv(this.elementRef.current.offsetHeight)
+    this.props.setTheHashTagDivHeight(this.elementRef.current.offsetHeight)
     //this.myRef.current.value="a"
   }
 

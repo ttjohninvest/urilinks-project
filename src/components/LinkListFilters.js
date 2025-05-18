@@ -19,8 +19,10 @@ export class LinkListFilters extends React.Component {
     sort:"hashtag",
     items: [],
     calendarFocused: null,
+    scrollTop: 0,
   };
   this.setit = this.setit.bind(this);
+   this.handleScroll = this.handleScroll.bind(this);
   }
 
  
@@ -121,6 +123,12 @@ export class LinkListFilters extends React.Component {
     return [...new Set(lcStringArray)];
   };
 
+  handleScroll(event) {
+    this.setState({
+      scrollTop: event.target.scrollTop,
+    });
+  }
+
   componentDidMount() {
     let hashtags = [];
     this.props.links.forEach((link) => {
@@ -172,6 +180,12 @@ export class LinkListFilters extends React.Component {
 
     
     if (this.myRef.current) this.myRef.current.focus();
+
+    this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
+  }
+
+    componentWillUnmount() {
+    this.scrollableDiv.current.removeEventListener('scroll', this.handleScroll);
   }
 
   setit=(value,event)=>{

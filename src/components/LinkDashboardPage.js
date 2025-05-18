@@ -1,4 +1,7 @@
-import React, {useEffect,useState,useRef} from "react";
+import React, {useEffect,
+  useState,
+  //useRef
+} from "react";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
 import LinksSummary from "./LinksSummary";
@@ -17,19 +20,19 @@ const LinkDashboardPage = () => {
   const [scrollPos, setScrollPos] = useState(0);
 
 
-  useEffect(() => {
-    const handleScroll = () => {
-      window.localStorage.setItem("scrollY",window.scrollY)
-      setScrollPos(window.scrollY);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     window.localStorage.setItem("scrollY",window.scrollY)
+  //     setScrollPos(window.scrollY);
 
-    }
+  //   }
 
-    // Adding scroll event listener
-    window.addEventListener('scroll', handleScroll);
+  //   // Adding scroll event listener
+  //   window.addEventListener('scroll', handleScroll);
 
-    // Cleanup function to remove the event listener
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   // Cleanup function to remove the event listener
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   // useEffect(() => {
   //   const handleBeforeUnload = (event) => {
@@ -49,17 +52,17 @@ const LinkDashboardPage = () => {
   //   };
   // }, []);
 
-  useEffect(()=>{
-    elementRef.current.offsetHeight
-    const sp = parseInt(window.localStorage.getItem("scrollY")) //parseInt(window.localStorage.getItem("scrollPosition"))
-    console.log("sp="+sp)
-    window.scrollTo(0,sp-elementRef.current.offsetHeight)
-    //
+  // useEffect(()=>{
+  //   //elementRef.current.offsetHeight
+  //   const sp = parseInt(window.localStorage.getItem("scrollY")) //parseInt(window.localStorage.getItem("scrollPosition"))
+  //   console.log("sp="+sp)
+  //   window.scrollTo(0,sp)
+  //   //
 
-  },[])
+  // },[])
  return (
     <div className="website-background-color"
-    ref={elementRef}
+    //ref={elementRef}
     >
       <LinksSummary />
       <LinkListFilters />

@@ -183,6 +183,10 @@ export class LinkListFilters extends React.Component {
     if (this.myRef.current) this.myRef.current.focus();
 
     //this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
+
+    console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.offsetWidth)
+    console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.offsetHeight)
+    this.props.setTheHashTagDivHeight(this.elementRef.current.offsetHeight)
   }
 
   //   componentWillUnmount() {
@@ -196,10 +200,8 @@ export class LinkListFilters extends React.Component {
     // console.log("hashtag="+hashtag)
     // console.log("hashtag="+e.target.value)
 
-    console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.offsetWidth)
-    console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.offsetHeight)
-    //this.props.setTheHashTagDivHeight(this.elementRef.current.offsetHeight)
-    //this.props.setTextFilter(value);
+    
+    this.props.setTextFilter(value);
     
    
   }

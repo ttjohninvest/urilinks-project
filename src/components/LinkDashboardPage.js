@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from "react";
+import React, {useEffect,useState,useRef} from "react";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
 import LinksSummary from "./LinksSummary";
@@ -13,7 +13,7 @@ import LinksSummary from "./LinksSummary";
 
 
 const LinkDashboardPage = () => {
-
+  const elementRef = useRef()
   const [scrollPos, setScrollPos] = useState(0);
 
 
@@ -50,15 +50,17 @@ const LinkDashboardPage = () => {
   // }, []);
 
   useEffect(()=>{
-
+    elementRef.current.offsetHeight
     const sp = parseInt(window.localStorage.getItem("scrollY")) //parseInt(window.localStorage.getItem("scrollPosition"))
     console.log("sp="+sp)
-    window.scrollTo(0,sp-200)
+    window.scrollTo(0,sp-elementRef.current.offsetHeight)
     //
 
   },[])
  return (
-    <div className="website-background-color">
+    <div className="website-background-color"
+    ref={elementRef}
+    >
       <LinksSummary />
       <LinkListFilters />
       <LinkList />

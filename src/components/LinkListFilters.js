@@ -14,6 +14,7 @@ import {
 export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
+    this.scrollableDiv = React.createRef();
     this.myRef = React.createRef();
      this.state = {
     sort:"hashtag",
@@ -201,7 +202,9 @@ export class LinkListFilters extends React.Component {
 
   render() {
     return (
-      <div className="content-container border-green-">
+      <div className="content-container border-green-"
+      ref={this.scrollableDiv}
+      >
         <div className="flexandwrap" title="your hash tags">
            { this.state.items.map((hashtag,index) => {
             if(index < 200)

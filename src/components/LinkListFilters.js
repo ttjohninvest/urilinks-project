@@ -321,7 +321,7 @@ let hashtags = [];
         ref={this.elementRef}
         className="flexandwrap" title="your hash tags">
          
-          <ExpandableArray mappedDataShort={mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={10} />
+          <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={10} />
           {/* {this.state.mappedData} */}
         </div>
        

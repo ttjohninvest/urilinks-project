@@ -12,7 +12,7 @@ import {
   setEndDate,
 } from "../actions/filters";
 
-function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength }) {
+function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength, ref }) {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => {
@@ -27,7 +27,7 @@ function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength }) {
 
   return (
     <div>
-      <div ref={this.elementRef}
+      <div ref={ref}
         className="flexandwrap" title="your hash tags">
         {displayedArray}
         {!expanded && '... '}
@@ -317,12 +317,19 @@ let hashtags = [];
              
     return (
       <div className="content-container border-green-">
-        
-       <div>
+         <div>
          
-          <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={10} />
-          {/* {this.state.mappedData} */}
+          <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={10} ref={elementRef} />
+          
         </div>
+
+       {/* <div ref={this.elementRef}
+        className="flexandwrap" title="your hash tags">
+         
+             {this.state.mappedData} 
+        </div> */}
+
+        
        
         
         

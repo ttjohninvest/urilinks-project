@@ -200,7 +200,7 @@ export class LinkListFilters extends React.Component {
      console.log("1 OOOOOOOOOOOOOOOOOOOOO height="+this.state.height)
     this.props.setTheHashTagDivHeight(this.state.height)
 
-    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA, this.props.a="+this.props.theValue)
+    
     
   }
 
@@ -262,7 +262,7 @@ export class LinkListFilters extends React.Component {
                   : "Search for Link(s)"
               }
               //value={this.props.filters.text}
-              value={!this.props.theValue?this.props.filters.text:this.props.theValue}
+              value={this.props.filters.text}
               onChange={this.onTextChange}
               title={
                 this.props.filters.sortBy === "date"

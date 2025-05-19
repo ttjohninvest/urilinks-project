@@ -9,7 +9,7 @@ const LinkDashboardPage = (props) => {
   const [scrollPos, setScrollPos] = useState(0);
   const [heightofdiv, setHeightOfDiv] = useState(0)
   //const [scrollTop, setScrollTop] = useState(0)
-  const [b, setA] = useState("")
+ 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,20 +56,16 @@ const LinkDashboardPage = (props) => {
     window.scrollTo(0,sp-heightofdiv)
   },[])
 
-  const x1=(b)=>{
-    console.log("x1, value="+b)
-    setA(b)
-  }
+ 
 
  return (
-  <div className="flexrow1">
+  
     <div className="website-background-color">
       <LinksSummary />
-      <LinkListFilters theValue={b} setTheHashTagDivHeight={setTheHashTagDivHeight} />
+      <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
       <LinkList />
     </div>
-    <div><a href="#" onClick={()=>x1("#catholic")}>#catholic</a></div>
-    </div>
+   
   );
 };
 

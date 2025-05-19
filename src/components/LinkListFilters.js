@@ -40,7 +40,7 @@ function ExpandableArray({ mappedDataShort, mappedDataLong, maxLength, ref, more
 export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
-    this.SHORT_HASHTAG_LENGTH = 100;
+    this.SHORT_HASHTAG_LENGTH = 30;
     this.elementRef = React.createRef();
     this.myRef = React.createRef();
     

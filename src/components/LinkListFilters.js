@@ -38,9 +38,10 @@ function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength, ref }) {
 }
 
 export class LinkListFilters extends React.Component {
-  SHORT_HASHTAG_LENGTH=30
+  
   constructor(props) {
     super(props);
+    this.SHORT_HASHTAG_LENGTH=30
     this.elementRef = React.createRef();
     this.myRef = React.createRef();
 
@@ -57,7 +58,7 @@ let hashtags = [];
     });
 
     const mappedDataShort = hashtags2.map((hashtag,index) => {
-              if(index < SHORT_HASHTAG_LENGTH)
+              if(index < this.SHORT_HASHTAG_LENGTH)
                  return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
               else return false
             })
@@ -303,7 +304,7 @@ let hashtags = [];
       <div className="content-container border-green-">
          <div>
          
-          <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={SHORT_HASHTAG_LENGTH} ref={this.elementRef} />
+          <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={this.SHORT_HASHTAG_LENGTH} ref={this.elementRef} />
           
          </div>
 

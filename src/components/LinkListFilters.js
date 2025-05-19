@@ -28,7 +28,7 @@ function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength }) {
   return (
     <div>
       <div ref={this.elementRef}
-        className="flexandwrap-" title="your hash tags">
+        className="flexandwrap" title="your hash tags">
         {displayedArray}
         {!expanded && '... '}
       </div>

@@ -56,10 +56,9 @@ const LinkDashboardPage = (props) => {
     window.scrollTo(0,sp-heightofdiv)
   },[])
 
-  const x1=(value,event)=>{
-    event.preventDefault()
-    console.log("x, value="+value)
-    setA(value)
+  const x1=(a)=>{
+    console.log("x1, value="+a)
+    setA(a)
   }
 
  return (

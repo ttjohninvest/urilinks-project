@@ -12,13 +12,14 @@ import {
   setEndDate,
 } from "../actions/filters";
 
-function ExpandableArray({ mappedDataShort, mappedDataLong, maxLength, ref }) {
-  const [expanded, setExpanded] = useState(false);
+function ExpandableArray({ mappedDataShort, mappedDataLong, maxLength, ref, morehashtags }) {
+  const [expanded, setExpanded] = useState(morehashtags);
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
     console.log("morehashtags")
     window.localStorage.setItem("morehashtags", !expanded);
+    
   };
 
   const displayedArray = expanded ? mappedDataLong : mappedDataShort;
@@ -42,7 +43,7 @@ export class LinkListFilters extends React.Component {
     this.SHORT_HASHTAG_LENGTH = 30;
     this.elementRef = React.createRef();
     this.myRef = React.createRef();
-
+    
     let hashtags = [];
     this.props.links.forEach((link) => {
       //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
@@ -97,6 +98,7 @@ export class LinkListFilters extends React.Component {
       loading: true,
       //scrollTop: 0,
       height: 0,
+      morehashtags:false,
     };
 
     this.setit = this.setit.bind(this);
@@ -272,6 +274,8 @@ export class LinkListFilters extends React.Component {
     //this.updateHeight();
     console.log("1 OOOOOOOOOOOOOOOOOOOOO height=" + this.state.height);
     this.props.setTheHashTagDivHeight(this.state.height);
+    const morehashtags = window.localStorage.getItem("morehashtags");
+    this.setState({morehashtags:morehashtags})
   }
 
   componentDidUpdate(prevProps) {
@@ -305,6 +309,7 @@ export class LinkListFilters extends React.Component {
             mappedDataLong={this.state.mappedDataLong}
             maxLength={this.SHORT_HASHTAG_LENGTH}
             ref={this.elementRef}
+            morehashtags={this.state.morehashtags}
           />
         </div>
 

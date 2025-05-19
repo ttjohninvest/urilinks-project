@@ -135,8 +135,8 @@ export class LinkListFilters extends React.Component {
   //   });
   // }
 
-  componentDidMount() {
-    let hashtags = [];
+  shouldComponentUpdate() {
+     let hashtags = [];
     this.props.links.forEach((link) => {
       //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
       let x1 = this.extractHashtags(link.note);
@@ -161,6 +161,34 @@ export class LinkListFilters extends React.Component {
     this.setState({
       mappedData: mappedData
     });
+  }
+
+  componentDidMount() {
+    // let hashtags = [];
+    // this.props.links.forEach((link) => {
+    //   //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
+    //   let x1 = this.extractHashtags(link.note);
+    //   hashtags.push(...x1);
+    // });
+    // let hashtags2 = this.removeDuplicates(hashtags);
+    // hashtags2.sort((a, b) => {
+    //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+    // });
+    
+
+    // this.setState((prevState) => ({
+    //   items: [...prevState.items, ...hashtags2],
+    // }));
+
+    //  const mappedData = this.state.items.map((hashtag,index) => {
+    //           if(index < 200)
+    //              return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
+    //           else return false
+    //         })
+
+    // this.setState({
+    //   mappedData: mappedData
+    // });
 
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");

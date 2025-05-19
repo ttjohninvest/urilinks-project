@@ -19,10 +19,6 @@ function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength, ref }) {
     setExpanded(!expanded);
   };
 
-  // if (text.length <= maxLength) {
-  //   return <p>{text}</p>;
-  // }
-
   const displayedArray = expanded ? mappedDataLong : mappedDataShort;
 
   return (
@@ -295,49 +291,21 @@ let hashtags = [];
     //this.props.setTextFilter(e.target.value);
     console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP, value="+value)
     // console.log("hashtag="+hashtag)
-    // console.log("hashtag="+e.target.value)
-
-    
+    // console.log("hashtag="+e.target.value) 
     this.props.setTextFilter(value);
-    
-   
   }
-
-  toggleExpanded = () => {
-    //setExpanded(!expanded);
-    this.setState({expanded:!this.state.expanded})
-  };
-
   
 
   render() {
-      // const mappedData = this.state.items.map((hashtag,index) => {
-      //         if(index < 200)
-      //            return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
-      //         else return false
-      //       })
              
     return (
       <div className="content-container border-green-">
-         <div 
-        //  ref={this.elementRef}
-        //  className="flexandwrap" 
-         >
+         <div>
          
-          <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={10} ref={this.elementRef} />
+          <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={30} ref={this.elementRef} />
           
-        </div>
+         </div>
 
-       {/* <div ref={this.elementRef}
-        className="flexandwrap" title="your hash tags">
-         
-             {this.state.mappedData} 
-        </div> */}
-
-        
-       
-        
-        
         <div className="input-group some-component">
           <div className="input-group__item">
             <input

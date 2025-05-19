@@ -30,23 +30,35 @@ let hashtags = [];
     hashtags2.sort((a, b) => {
       return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
     });
-
+let expanded=true
  const mappedData = hashtags2.map((hashtag,index) => {
               if(index < 200)
                  return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
               else return false
             })
 
+            const mappedData2=[]
+            if (mappedData.length <= 10) {
+    mappedData2=mappedData
+  } else {
+    
+  }
+
+  //mappedData2 = text.substring(0, maxLength) + '...';
+  mappedData2 = ['a','b','c'];
+
 
      this.state = {
     sort:"hashtag",
     items: [],
     calendarFocused: null,
-    mappedData: mappedData,
+    mappedData: mappedData2,
     loading: true,
     //scrollTop: 0,
-    height:0
+    height:0,
+    expanded:false
   };
+
   this.setit = this.setit.bind(this);
    //this.handleScroll = this.handleScroll.bind(this);
   }
@@ -265,6 +277,11 @@ let hashtags = [];
    
   }
 
+  toggleExpanded = () => {
+    //setExpanded(!expanded);
+    this.setState({expanded:!this.state.expanded})
+  };
+
   render() {
       // const mappedData = this.state.items.map((hashtag,index) => {
       //         if(index < 200)
@@ -280,6 +297,9 @@ let hashtags = [];
         className="flexandwrap" title="your hash tags">
          {this.state.mappedData}
         </div>
+        <button onClick={this.toggleExpanded}>
+        {this.state.expanded ? 'Less' : 'More'}
+      </button>
         
         
         <div className="input-group some-component">

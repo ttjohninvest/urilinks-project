@@ -90,7 +90,7 @@ export class LinkListFilters extends React.Component {
     });
 //
     let morehashtags = window.localStorage.getItem("morehashtags");
-
+    console.log("constructor, LinkListFilter, morehashtags="+morehashtags)
     this.state = {
       sort: "hashtag",
       items: [],

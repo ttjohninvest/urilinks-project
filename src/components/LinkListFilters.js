@@ -202,11 +202,11 @@ export class LinkListFilters extends React.Component {
     
   }
 
-  componentDidUpdate(prevProps) {
-    //if (prevProps.content !== this.props.content) {
-      this.updateHeight();
-    //}
-  }
+  // componentDidUpdate(prevProps) {
+  //   //if (prevProps.content !== this.props.content) {
+  //     this.updateHeight();
+  //   //}
+  // }
 
    updateHeight = () => {
     const height = this.elementRef.current.offsetHeight;

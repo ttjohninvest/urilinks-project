@@ -56,8 +56,9 @@ const LinkDashboardPage = (props) => {
     window.scrollTo(0,sp-heightofdiv)
   },[])
 
-  const x=(a)=>{
-    setA(a)
+  const x=(value,event)=>{
+    event.preventDefault()
+    setA(value)
   }
 
  return (

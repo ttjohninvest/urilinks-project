@@ -17,7 +17,8 @@ function ExpandableArray({ mappedDataShort, mappedDataLong, maxLength, ref }) {
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
-    window.localStorage.setItem("open", !expanded);
+    console.log("morehashtags")
+    window.localStorage.setItem("morehashtags", !expanded);
   };
 
   const displayedArray = expanded ? mappedDataLong : mappedDataShort;

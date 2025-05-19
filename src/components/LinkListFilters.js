@@ -1,4 +1,4 @@
-import React, { createRef } from "react";
+import React, { useState, createRef } from "react";
 
 import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
@@ -12,6 +12,31 @@ import {
   setEndDate,
 } from "../actions/filters";
 
+function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength }) {
+  const [expanded, setExpanded] = useState(false);
+
+  const toggleExpanded = () => {
+    setExpanded(!expanded);
+  };
+
+  // if (text.length <= maxLength) {
+  //   return <p>{text}</p>;
+  // }
+
+  const displayedArray = expanded ? mappedDataLong : mappedDataShort;
+
+  return (
+    <div>
+      <p>
+        {displayedArray}
+        {!expanded && '... '}
+      </p>
+      <button onClick={toggleExpanded}>
+        {expanded ? 'Show Less' : 'Show More'}
+      </button>
+    </div>
+  );
+}
 
 export class LinkListFilters extends React.Component {
   constructor(props) {
@@ -31,7 +56,13 @@ let hashtags = [];
       return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
     });
 
- const mappedData = hashtags2.map((hashtag,index) => {
+    const mappedDataShort = hashtags2.map((hashtag,index) => {
+              if(index < 10)
+                 return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
+              else return false
+            })
+
+ const mappedDataLong = hashtags2.map((hashtag,index) => {
               if(index < 200)
                  return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
               else return false
@@ -44,7 +75,8 @@ let hashtags = [];
     sort:"hashtag",
     items: [],
     calendarFocused: null,
-    mappedData: mappedData,
+    mappedDataShort:mappedDataShort,
+    mappedDataLong: mappedDataLong,
     loading: true,
     //scrollTop: 0,
     height:0
@@ -273,6 +305,8 @@ let hashtags = [];
     this.setState({expanded:!this.state.expanded})
   };
 
+  
+
   render() {
       // const mappedData = this.state.items.map((hashtag,index) => {
       //         if(index < 200)
@@ -286,7 +320,9 @@ let hashtags = [];
        <div 
         ref={this.elementRef}
         className="flexandwrap" title="your hash tags">
-         {this.state.mappedData}
+         
+          <ExpandableArray mappedDataShort={mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={10} />
+          {/* {this.state.mappedData} */}
         </div>
        
         

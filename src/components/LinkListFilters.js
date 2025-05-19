@@ -30,7 +30,7 @@ function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength, ref }) {
       <div ref={ref}
         className="flexandwrap" title="your hash tags">
         {displayedArray}
-        {!expanded && '... '}
+        {!expanded && <span className="text-size-5">...</span>}
       </div>
       <button onClick={toggleExpanded}>
         {expanded ? 'Show Less' : 'Show More'}

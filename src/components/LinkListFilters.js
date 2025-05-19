@@ -191,7 +191,7 @@ export class LinkListFilters extends React.Component {
     //this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
 
     // console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.offsetWidth)
-    console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
+    console.log("this.elementRef.current.clientHeight="+this.elementRef.current.clientHeight)
     // this.props.setTheHashTagDivHeight(this.elementRef.current.clientHeight)
     // console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.clientWidth)
     // console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
@@ -226,13 +226,18 @@ export class LinkListFilters extends React.Component {
         
        <div 
         ref={this.elementRef}
-        className="flexandwrap" title="your hash tags">
-           { this.state.items.map((hashtag,index) => {
+        className="flexcolandwrap" title="your hash tags">
+          <div>a</div>
+<div>b</div>
+<div>c</div>
+<div>d</div>
+<div>e</div>
+           {/* { this.state.items.map((hashtag,index) => {
             if(index < 200)
                return <div className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
             else return false
             
-          })}
+          })} */}
         </div>
         
         

@@ -311,7 +311,7 @@ export class LinkListFilters extends React.Component {
             mappedDataLong={this.state.mappedDataLong}
             maxLength={this.SHORT_HASHTAG_LENGTH}
             ref={this.elementRef}
-            morehashtags={this.state.morehashtags==="true"?true:false}
+            morehashtags={this.state.morehashtags}
           />
         </div>
 

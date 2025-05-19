@@ -47,6 +47,7 @@ const LinkDashboardPage = (props) => {
   {
     setHeightOfDiv(h)
   }
+
   useEffect(()=>{
     //elementRef.current.offsetHeight
     console.log("heightofdiv="+heightofdiv)
@@ -54,8 +55,8 @@ const LinkDashboardPage = (props) => {
     console.log("sp="+sp)
     //I have to subtract off the height of the div with the hashtags for it to be right
     //window.scrollTo(0,sp-heightofdiv)
-    if(sp>200)
-    window.scrollTo(0,200)
+    //if(sp>200)
+    window.scrollTo(0,0)
   
   },[])
 

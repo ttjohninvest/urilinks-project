@@ -32,7 +32,7 @@ function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength, ref }) {
         {displayedArray}
         {!expanded && <span className="text-size-5">...</span>}
       </div>
-      <button className="button" onClick={toggleExpanded}>
+      <button className="button--link" onClick={toggleExpanded}>
         {expanded ? 'Show Less' : 'Show More'}
       </button>
     </div>

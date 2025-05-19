@@ -89,6 +89,8 @@ export class LinkListFilters extends React.Component {
       else return false;
     });
 
+    let morehashtags = window.localStorage.getItem("morehashtags");
+
     this.state = {
       sort: "hashtag",
       items: [],
@@ -98,7 +100,7 @@ export class LinkListFilters extends React.Component {
       loading: true,
       //scrollTop: 0,
       height: 0,
-      morehashtags:false,
+      morehashtags:morehashtags==='true'?true:false,
     };
 
     this.setit = this.setit.bind(this);
@@ -275,7 +277,7 @@ export class LinkListFilters extends React.Component {
     console.log("1 OOOOOOOOOOOOOOOOOOOOO height=" + this.state.height);
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
-    this.setState({morehashtags:morehashtags})
+    this.setState({morehashtags:morehashtags==='true'?true:false})
   }
 
   componentDidUpdate(prevProps) {

@@ -56,7 +56,7 @@ const LinkDashboardPage = (props) => {
     window.scrollTo(0,sp-heightofdiv)
   },[])
 
-  const x=(value,event)=>{
+  const x1=(value,event)=>{
     event.preventDefault()
     console.log("x, value="+value)
     setA(value)
@@ -69,7 +69,7 @@ const LinkDashboardPage = (props) => {
       <LinkListFilters a={a} setTheHashTagDivHeight={setTheHashTagDivHeight} />
       <LinkList />
     </div>
-    <div><a href="#" onClick={()=>x("#catholic")}>#catholic</a></div>
+    <div><a href="#" onClick={()=>x1("#catholic")}>#catholic</a></div>
     </div>
   );
 };

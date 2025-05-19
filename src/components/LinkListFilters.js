@@ -262,7 +262,7 @@ export class LinkListFilters extends React.Component {
                   : "Search for Link(s)"
               }
               //value={this.props.filters.text}
-              value={!this.props.a?this.props.filters.text:this.props.a}
+              value={!this.props.theValue?this.props.filters.text:this.props.theValue}
               onChange={this.onTextChange}
               title={
                 this.props.filters.sortBy === "date"

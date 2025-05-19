@@ -199,6 +199,8 @@ export class LinkListFilters extends React.Component {
      //this.updateHeight();
      console.log("1 OOOOOOOOOOOOOOOOOOOOO height="+this.state.height)
     this.props.setTheHashTagDivHeight(this.state.height)
+
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA, this.props.a="+this.props.a)
     
   }
 

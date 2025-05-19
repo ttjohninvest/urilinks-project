@@ -58,6 +58,7 @@ const LinkDashboardPage = (props) => {
 
   const x=(value,event)=>{
     event.preventDefault()
+    console.log("x, value="+value)
     setA(value)
   }
 

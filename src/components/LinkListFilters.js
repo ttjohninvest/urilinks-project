@@ -13,10 +13,6 @@ import {
 } from "../actions/filters";
 
 
-
-
-
-
 export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
@@ -26,7 +22,7 @@ export class LinkListFilters extends React.Component {
     sort:"hashtag",
     items: [],
     calendarFocused: null,
-     mappedData: [],
+    mappedData: [],
     loading: true,
     //scrollTop: 0,
   };
@@ -227,29 +223,14 @@ export class LinkListFilters extends React.Component {
                  return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
               else return false
             })
+             this.setState({ mappedData: x, loading: false }); 
     return (
-      <div className="content-container border-green-"
-      //ref={this.scrollableDiv}
-      >
+      <div className="content-container border-green-">
         
        <div 
         ref={this.elementRef}
-        className="flexcolandwrap" title="your hash tags">
-          
-           {/* { 
-           
-            this.state.items.map((hashtag,index) => {
-              if(index < 200)
-                 return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
-              else return false
-            })
-
-
-// Render the list in JSX
-
-          
-          } */}
-       {x}
+        className="flexandwrap" title="your hash tags">
+         {loading===false && mappedData}
         </div>
         
         

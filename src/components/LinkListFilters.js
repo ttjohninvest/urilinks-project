@@ -25,6 +25,7 @@ export class LinkListFilters extends React.Component {
     mappedData: [],
     loading: true,
     //scrollTop: 0,
+    height:0
   };
   this.setit = this.setit.bind(this);
    //this.handleScroll = this.handleScroll.bind(this);
@@ -195,10 +196,23 @@ export class LinkListFilters extends React.Component {
     // console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
     // this.props.setTheHashTagDivHeight(this.height)
 
-    
-    this.props.setTheHashTagDivHeight(this.elementRef.current.clientHeight)
+     this.updateHeight();
+     console.log("1 OOOOOOOOOOOOOOOOOOOOO height="+this.state.height)
+    this.props.setTheHashTagDivHeight(this.state.height)
     
   }
+
+  componentDidUpdate(prevProps) {
+    //if (prevProps.content !== this.props.content) {
+      this.updateHeight();
+    //}
+  }
+
+   updateHeight = () => {
+    const height = this.elementRef.current.offsetHeight;
+    console.log("2 OOOOOOOOOOOOOOOOOOOOO height="+height)
+    this.setState({ height });
+  };
 
   //   componentWillUnmount() {
   //   this.scrollableDiv.current.removeEventListener('scroll', this.handleScroll);
@@ -218,19 +232,19 @@ export class LinkListFilters extends React.Component {
   }
 
   render() {
-      const x = this.state.items.map((hashtag,index) => {
+      const mappedData = this.state.items.map((hashtag,index) => {
               if(index < 200)
                  return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
               else return false
             })
-             this.setState({ mappedData: x, loading: false }); 
+             
     return (
       <div className="content-container border-green-">
         
        <div 
         ref={this.elementRef}
         className="flexandwrap" title="your hash tags">
-         {this.state.loading===false ? this.state.mappedData:''}
+         {mappedData}
         </div>
         
         

@@ -61,7 +61,7 @@ const LinkDashboardPage = (props) => {
   }
 
  return (
-  <div>
+  <div className="flexandwrap">
     <div className="website-background-color">
       <LinksSummary />
       <LinkListFilters a={a} setTheHashTagDivHeight={setTheHashTagDivHeight} />

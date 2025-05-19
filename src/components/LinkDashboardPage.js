@@ -56,16 +56,16 @@ const LinkDashboardPage = (props) => {
     window.scrollTo(0,sp-heightofdiv)
   },[])
 
-  const x1=(a)=>{
-    console.log("x1, value="+a)
-    setA(a)
+  const x1=(b)=>{
+    console.log("x1, value="+b)
+    setA(b)
   }
 
  return (
   <div className="flexrow1">
     <div className="website-background-color">
       <LinksSummary />
-      <LinkListFilters a={a} setTheHashTagDivHeight={setTheHashTagDivHeight} />
+      <LinkListFilters theValue={b} setTheHashTagDivHeight={setTheHashTagDivHeight} />
       <LinkList />
     </div>
     <div><a href="#" onClick={()=>x1("#catholic")}>#catholic</a></div>

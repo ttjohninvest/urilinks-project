@@ -293,18 +293,18 @@ export class LinkListFilters extends React.Component {
   render() {
     return (
       <div className="content-container border-green-">
-        <div className="flexandwrap" ref={this.elementRef}>
+        {/* <div className="flexandwrap" ref={this.elementRef}>
           {this.state.mappedDataLong}
-        </div>
+        </div> */}
 
-        {/*<div>
+        <div>
           <ExpandableArray
             mappedDataShort={this.state.mappedDataShort}
             mappedDataLong={this.state.mappedDataLong}
             maxLength={this.SHORT_HASHTAG_LENGTH}
             ref={this.elementRef}
           />
-        </div>*/}
+        </div>
 
         <div className="input-group some-component">
           <div className="input-group__item">

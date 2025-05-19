@@ -9,7 +9,7 @@ const LinkDashboardPage = (props) => {
   const [scrollPos, setScrollPos] = useState(0);
   const [heightofdiv, setHeightOfDiv] = useState(0)
   //const [scrollTop, setScrollTop] = useState(0)
-  const [a, setA] = useState("")
+  const [b, setA] = useState("")
 
   useEffect(() => {
     const handleScroll = () => {

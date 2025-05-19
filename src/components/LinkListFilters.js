@@ -12,7 +12,7 @@ import {
   setEndDate,
 } from "../actions/filters";
 
-function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength, ref }) {
+function ExpandableArray({ mappedDataShort, mappedDataLong, maxLength, ref }) {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => {
@@ -23,30 +23,25 @@ function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength, ref }) {
 
   return (
     <div>
-      <div 
-        ref={ref}
-        className="flexandwrap" title="your hash tags"
-      >
+      <div ref={ref} className="flexandwrap" title="your hash tags">
         {displayedArray}
         {!expanded && <span className="text-size-5">...</span>}
       </div>
       <button className="button-m button--link" onClick={toggleExpanded}>
-        {expanded ? 'Show Less Hashtags' : 'Show More Hashtags'}
+        {expanded ? "Show Less Hashtags" : "Show More Hashtags"}
       </button>
     </div>
   );
 }
 
 export class LinkListFilters extends React.Component {
-  
   constructor(props) {
     super(props);
-    this.SHORT_HASHTAG_LENGTH=30
+    this.SHORT_HASHTAG_LENGTH = 30;
     this.elementRef = React.createRef();
     this.myRef = React.createRef();
 
-
-let hashtags = [];
+    let hashtags = [];
     this.props.links.forEach((link) => {
       //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
       let x1 = this.extractHashtags(link.note);
@@ -57,37 +52,54 @@ let hashtags = [];
       return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
     });
 
-    const mappedDataShort = hashtags2.map((hashtag,index) => {
-              if(index < this.SHORT_HASHTAG_LENGTH)
-                 return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
-              else return false
-            })
+    const mappedDataShort = hashtags2.map((hashtag, index) => {
+      if (index < this.SHORT_HASHTAG_LENGTH)
+        return (
+          <div key={index} className="padding-all text-size-5">
+            <a
+              className="nounderline text-color-black"
+              href="#"
+              onClick={() => this.setit(hashtag, event)}
+              title="click to activate the search with this hashtag."
+            >
+              {hashtag}
+            </a>
+          </div>
+        );
+      else return false;
+    });
 
- const mappedDataLong = hashtags2.map((hashtag,index) => {
-              if(index < 200)
-                 return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
-              else return false
-            })
+    const mappedDataLong = hashtags2.map((hashtag, index) => {
+      if (index < 200)
+        return (
+          <div key={index} className="padding-all text-size-5">
+            <a
+              className="nounderline text-color-black"
+              href="#"
+              onClick={() => this.setit(hashtag, event)}
+              title="click to activate the search with this hashtag."
+            >
+              {hashtag}
+            </a>
+          </div>
+        );
+      else return false;
+    });
 
+    this.state = {
+      sort: "hashtag",
+      items: [],
+      calendarFocused: null,
+      mappedDataShort: mappedDataShort,
+      mappedDataLong: mappedDataLong,
+      loading: true,
+      //scrollTop: 0,
+      height: 0,
+    };
 
-
-
-     this.state = {
-    sort:"hashtag",
-    items: [],
-    calendarFocused: null,
-    mappedDataShort:mappedDataShort,
-    mappedDataLong: mappedDataLong,
-    loading: true,
-    //scrollTop: 0,
-    height:0
-  };
-
-  this.setit = this.setit.bind(this);
-   //this.handleScroll = this.handleScroll.bind(this);
+    this.setit = this.setit.bind(this);
+    //this.handleScroll = this.handleScroll.bind(this);
   }
-
- 
 
   onDatesChange = ({ startDate, endDate }) => {
     this.props.setStartDate(startDate);
@@ -146,19 +158,19 @@ let hashtags = [];
       this.props.setTextFilter("");
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sort", "date");
-      this.setState({sort:"date"})
+      this.setState({ sort: "date" });
       this.props.sortByDate();
     } else if (e.target.value === "description") {
       this.props.setTextFilter("");
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sort", "description");
-      this.setState({sort:"description"})
+      this.setState({ sort: "description" });
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
       if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("#");
       window.localStorage.setItem("sort", "hashtag");
-      this.setState({sort:"hashtag"})
+      this.setState({ sort: "hashtag" });
       this.props.sortByHashTag();
     }
   };
@@ -176,12 +188,10 @@ let hashtags = [];
     return hashtags;
   };
 
- 
-
   removeDuplicates = (stringArray) => {
     const stringifiedArray = stringArray.join(" ");
-    const lcstring = stringifiedArray.toLowerCase()
-    const lcStringArray = lcstring.split(" ")
+    const lcstring = stringifiedArray.toLowerCase();
+    const lcStringArray = lcstring.split(" ");
     return [...new Set(lcStringArray)];
   };
 
@@ -190,8 +200,6 @@ let hashtags = [];
   //     scrollTop: event.target.scrollTop,
   //   });
   // }
-
- 
 
   componentDidMount() {
     // let hashtags = [];
@@ -204,7 +212,6 @@ let hashtags = [];
     // hashtags2.sort((a, b) => {
     //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
     // });
-    
 
     // this.setState((prevState) => ({
     //   items: [...prevState.items, ...hashtags2],
@@ -230,29 +237,25 @@ let hashtags = [];
     console.log("componentDidMount, searchLinks3=" + searchLinks3);
     console.log("componentDidMount, sort=" + sort);
     if (sort === "date") {
-      
       this.props.sortByDate();
     } else if (sort === "description") {
-      
       this.props.sortByDescription();
     } else {
-     
       this.props.sortByHashTag();
     }
 
     if (sort === "date") {
       this.props.setTextFilter(searchLinks1);
-      this.setState({sort:"date"})
+      this.setState({ sort: "date" });
     } else if (sort === "description") {
       this.props.setTextFilter(searchLinks2);
-       this.setState({sort:"description"})
+      this.setState({ sort: "description" });
     } else if (sort === "hashtag") {
-      this.setState({sort:"hashtag"})
+      this.setState({ sort: "hashtag" });
       if (searchLinks3 === "") this.props.setTextFilter("#");
       else this.props.setTextFilter(searchLinks3);
     }
 
-    
     if (this.myRef.current) this.myRef.current.focus();
 
     //this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
@@ -264,12 +267,9 @@ let hashtags = [];
     // console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
     // this.props.setTheHashTagDivHeight(this.height)
 
-     //this.updateHeight();
-     console.log("1 OOOOOOOOOOOOOOOOOOOOO height="+this.state.height)
-    this.props.setTheHashTagDivHeight(this.state.height)
-
-    
-    
+    //this.updateHeight();
+    console.log("1 OOOOOOOOOOOOOOOOOOOOO height=" + this.state.height);
+    this.props.setTheHashTagDivHeight(this.state.height);
   }
 
   componentDidUpdate(prevProps) {
@@ -278,35 +278,33 @@ let hashtags = [];
     }
   }
 
-   updateHeight = () => {
+  updateHeight = () => {
     const height = this.elementRef.current.offsetHeight;
-    console.log("2 OOOOOOOOOOOOOOOOOOOOO height="+height)
+    console.log("2 OOOOOOOOOOOOOOOOOOOOO height=" + height);
     this.setState({ height });
   };
 
-  //   componentWillUnmount() {
-  //   this.scrollableDiv.current.removeEventListener('scroll', this.handleScroll);
-  // }
-
-  setit=(value,event)=>{
-    event.preventDefault()
-    //this.props.setTextFilter(e.target.value);
-    console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP, value="+value)
-    // console.log("hashtag="+hashtag)
-    // console.log("hashtag="+e.target.value) 
+  setit = (value, event) => {
+    event.preventDefault();
+    //value is the user selected hashtag
     this.props.setTextFilter(value);
-  }
-  
+  };
 
   render() {
-             
     return (
       <div className="content-container border-green-">
-         <div>
-         
-          <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={this.SHORT_HASHTAG_LENGTH} ref={this.elementRef} />
-          
-         </div>
+        <div className="flexandwrap" ref={this.elementRef}>
+          {this.state.mappedDataLong}
+        </div>
+
+        {/*<div>
+          <ExpandableArray
+            mappedDataShort={this.state.mappedDataShort}
+            mappedDataLong={this.state.mappedDataLong}
+            maxLength={this.SHORT_HASHTAG_LENGTH}
+            ref={this.elementRef}
+          />
+        </div>*/}
 
         <div className="input-group some-component">
           <div className="input-group__item">

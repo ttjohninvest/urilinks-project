@@ -364,6 +364,7 @@ const mapDispatchToProps = (dispatch) => ({
   sortByHashTag: () => dispatch(sortByHashTag()),
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
+  sortByNoteText: () => dispatch(sortByNoteText()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

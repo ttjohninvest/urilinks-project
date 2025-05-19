@@ -319,7 +319,7 @@ let hashtags = [];
       <div className="content-container border-green-">
          <div>
          
-          <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={10} ref={elementRef} />
+          <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={10} ref={this.elementRef} />
           
         </div>
 

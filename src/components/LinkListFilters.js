@@ -27,10 +27,10 @@ function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength }) {
 
   return (
     <div>
-      <p>
+      <div className="flexandwrap">
         {displayedArray}
         {!expanded && '... '}
-      </p>
+      </div>
       <button onClick={toggleExpanded}>
         {expanded ? 'Show Less' : 'Show More'}
       </button>

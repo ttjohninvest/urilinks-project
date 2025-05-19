@@ -16,6 +16,10 @@ export const sortByDescription = () => ({
   type: 'SORT_BY_DESCRIPTION'
 });
 
+export const sortByNoteText = () => ({
+  type: 'SORT_BY_NOTETEXT'
+});
+
 export const sortByHashTag = () => ({
   type: 'SORT_BY_HASHTAG'
 });

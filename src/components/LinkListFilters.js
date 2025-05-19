@@ -10,6 +10,7 @@ import {
   sortByHashTag,
   setStartDate,
   setEndDate,
+  sortByNoteText
 } from "../actions/filters";
 
 function ExpandableArray({ mappedDataShort, mappedDataLong, maxLength, ref, morehashtags }) {
@@ -129,15 +130,25 @@ export class LinkListFilters extends React.Component {
       window.localStorage.setItem("searchLinks1", e.target.value);
       window.localStorage.setItem("searchLinks2", "");
       window.localStorage.setItem("searchLinks3", "");
+      window.localStorage.setItem("searchLinks4", "");
     } else if (this.props.filters.sortBy === "description") {
       window.localStorage.setItem("searchLinks1", "");
       window.localStorage.setItem("searchLinks2", e.target.value);
       window.localStorage.setItem("searchLinks3", "");
+      window.localStorage.setItem("searchLinks4", "");
     } else if (this.props.filters.sortBy === "hashtag") {
       window.localStorage.setItem("searchLinks1", "");
       window.localStorage.setItem("searchLinks2", "");
       window.localStorage.setItem("searchLinks3", e.target.value);
+      window.localStorage.setItem("searchLinks4", "");
+    } else if (this.props.filters.sortBy === "notetext") {
+      window.localStorage.setItem("searchLinks1", "");
+      window.localStorage.setItem("searchLinks2", "");
+      window.localStorage.setItem("searchLinks3", "");
+      window.localStorage.setItem("searchLinks4", e.target.value);
+
     } else {
+
     }
 
     if (this.props.filters.sortBy === "hashtag") {
@@ -178,6 +189,12 @@ export class LinkListFilters extends React.Component {
       window.localStorage.setItem("sort", "hashtag");
       this.setState({ sort: "hashtag" });
       this.props.sortByHashTag();
+    } else if (e.target.value === "notetext") {
+      if (this.myRef.current) this.myRef.current.focus();
+      this.props.setTextFilter("");
+      window.localStorage.setItem("sort", "notetext");
+      this.setState({ sort: "notetext" });
+      this.props.sortByNoteText();
     }
   };
 
@@ -201,53 +218,25 @@ export class LinkListFilters extends React.Component {
     return [...new Set(lcStringArray)];
   };
 
-  // handleScroll(event) {
-  //   this.setState({
-  //     scrollTop: event.target.scrollTop,
-  //   });
-  // }
-
   componentDidMount() {
-    // let hashtags = [];
-    // this.props.links.forEach((link) => {
-    //   //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
-    //   let x1 = this.extractHashtags(link.note);
-    //   hashtags.push(...x1);
-    // });
-    // let hashtags2 = this.removeDuplicates(hashtags);
-    // hashtags2.sort((a, b) => {
-    //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-    // });
-
-    // this.setState((prevState) => ({
-    //   items: [...prevState.items, ...hashtags2],
-    // }));
-
-    //  const mappedData = this.state.items.map((hashtag,index) => {
-    //           if(index < 200)
-    //              return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
-    //           else return false
-    //         })
-
-    // this.setState({
-    //   mappedData: mappedData
-    // });
-
+    
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");
+    const searchLinks4 = window.localStorage.getItem("searchLinks4");
 
     const sort = window.localStorage.getItem("sort");
     console.log("componentDidMount, searchLinks1=" + searchLinks1);
     console.log("componentDidMount, searchLinks2=" + searchLinks2);
     console.log("componentDidMount, searchLinks3=" + searchLinks3);
+    console.log("componentDidMount, searchLinks4=" + searchLinks4);
     console.log("componentDidMount, sort=" + sort);
     if (sort === "date") {
       this.props.sortByDate();
     } else if (sort === "description") {
       this.props.sortByDescription();
-    } else {
-      this.props.sortByHashTag();
+    } else if (sort === "notetext") {
+      this.props.sortByNoteText();
     }
 
     if (sort === "date") {
@@ -256,6 +245,9 @@ export class LinkListFilters extends React.Component {
     } else if (sort === "description") {
       this.props.setTextFilter(searchLinks2);
       this.setState({ sort: "description" });
+    } else if (sort === "notetext") {
+      this.props.setTextFilter(searchLinks4);
+      this.setState({ sort: "notetext" });
     } else if (sort === "hashtag") {
       this.setState({ sort: "hashtag" });
       if (searchLinks3 === "") this.props.setTextFilter("#");
@@ -264,16 +256,7 @@ export class LinkListFilters extends React.Component {
 
     if (this.myRef.current) this.myRef.current.focus();
 
-    //this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
-
-    // console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.offsetWidth)
-    //console.log("this.elementRef.current.clientHeight="+this.elementRef.current.clientHeight)
-    // this.props.setTheHashTagDivHeight(this.elementRef.current.clientHeight)
-    // console.log("this.elementRef.current.offsetWidth="+this.elementRef.current.clientWidth)
-    // console.log("this.elementRef.current.offsetHeight="+this.elementRef.current.clientHeight)
-    // this.props.setTheHashTagDivHeight(this.height)
-
-    //this.updateHeight();
+  
     console.log("1 OOOOOOOOOOOOOOOOOOOOO height=" + this.state.height);
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
@@ -345,9 +328,10 @@ export class LinkListFilters extends React.Component {
               onChange={this.onSortChange}
               title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
             >
-              <option value="date">Date</option>
-              <option value="description">Link Text</option>
               <option value="hashtag">Hash Tag</option>
+              <option value="description">Link Text</option>
+              <option value="notetext">Note Text</option>
+              <option value="date">Date</option>
             </select>
           </div>
           <div className="input-group__item- select-filters border-green-">

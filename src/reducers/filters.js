@@ -21,6 +21,11 @@ export default (state = filtersReducerDefaultState, action) => {
         ...state,
         sortBy: 'description'
       };
+      case 'SORT_BY_NOTETEXT':
+      return {
+        ...state,
+        sortBy: 'notetext'
+      };
       case 'SORT_BY_HASHTAG':
         return {
           ...state,

@@ -88,7 +88,7 @@ export class LinkListFilters extends React.Component {
         );
       else return false;
     });
-
+//
     let morehashtags = window.localStorage.getItem("morehashtags");
 
     this.state = {

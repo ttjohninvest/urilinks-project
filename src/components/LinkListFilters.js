@@ -26,6 +26,8 @@ export class LinkListFilters extends React.Component {
     sort:"hashtag",
     items: [],
     calendarFocused: null,
+     mappedData: [],
+    loading: true,
     //scrollTop: 0,
   };
   this.setit = this.setit.bind(this);
@@ -199,6 +201,7 @@ export class LinkListFilters extends React.Component {
 
     
     this.props.setTheHashTagDivHeight(this.elementRef.current.clientHeight)
+    
   }
 
   //   componentWillUnmount() {
@@ -219,6 +222,11 @@ export class LinkListFilters extends React.Component {
   }
 
   render() {
+      const x = this.state.items.map((hashtag,index) => {
+              if(index < 200)
+                 return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
+              else return false
+            })
     return (
       <div className="content-container border-green-"
       //ref={this.scrollableDiv}
@@ -227,17 +235,21 @@ export class LinkListFilters extends React.Component {
        <div 
         ref={this.elementRef}
         className="flexcolandwrap" title="your hash tags">
-          <div>a</div>
-<div>b</div>
-<div>c</div>
-<div>d</div>
-<div>e</div>
-           {/* { this.state.items.map((hashtag,index) => {
-            if(index < 200)
-               return <div className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
-            else return false
-            
-          })} */}
+          
+           {/* { 
+           
+            this.state.items.map((hashtag,index) => {
+              if(index < 200)
+                 return <div key={index} className="padding-all text-size-5"><a className="nounderline text-color-black" href="#" onClick={()=>this.setit(hashtag,event)} title="click to activate the search with this hashtag.">{hashtag}</a></div>;
+              else return false
+            })
+
+
+// Render the list in JSX
+
+          
+          } */}
+       {x}
         </div>
         
         

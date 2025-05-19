@@ -27,7 +27,8 @@ function ExpandableArray({ mappedDataShort,mappedDataLong, maxLength }) {
 
   return (
     <div>
-      <div className="flexandwrap">
+      <div ref={this.elementRef}
+        className="flexandwrap-" title="your hash tags">
         {displayedArray}
         {!expanded && '... '}
       </div>
@@ -317,9 +318,7 @@ let hashtags = [];
     return (
       <div className="content-container border-green-">
         
-       <div 
-        ref={this.elementRef}
-        className="flexandwrap" title="your hash tags">
+       <div>
          
           <ExpandableArray mappedDataShort={this.state.mappedDataShort} mappedDataLong={this.state.mappedDataLong} maxLength={10} />
           {/* {this.state.mappedData} */}

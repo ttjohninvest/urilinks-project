@@ -3,12 +3,13 @@ import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
 import LinksSummary from "./LinksSummary";
 
-const LinkDashboardPage = () => {
+const LinkDashboardPage = (props) => {
   //const elementRef = useRef()
   const scrollableDiv = React.useRef();
   const [scrollPos, setScrollPos] = useState(0);
   const [heightofdiv, setHeightOfDiv] = useState(0)
   //const [scrollTop, setScrollTop] = useState(0)
+  const [a, setA] = useState("")
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,14 +56,18 @@ const LinkDashboardPage = () => {
     window.scrollTo(0,sp-heightofdiv)
   },[])
 
+  const x=(a)=>{
+    setA(a)
+  }
+
  return (
   <div>
     <div className="website-background-color">
       <LinksSummary />
-      <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
+      <LinkListFilters a={a} setTheHashTagDivHeight={setTheHashTagDivHeight} />
       <LinkList />
     </div>
-    <div>#catholic</div>
+    <div><a href="#" onClick={()=>x("#catholic")}>#catholic</a></div>
     </div>
   );
 };

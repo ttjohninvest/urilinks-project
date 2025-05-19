@@ -56,12 +56,13 @@ const LinkDashboardPage = () => {
   },[])
 
  return (
-    <div className="website-background-color"
-    //ref={elementRef}
-    >
+  <div>
+    <div className="website-background-color">
       <LinksSummary />
       <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
       <LinkList />
+    </div>
+    <div>#catholic</div>
     </div>
   );
 };

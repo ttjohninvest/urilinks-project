@@ -256,7 +256,7 @@ export class LinkListFilters extends React.Component {
        <div 
         ref={this.elementRef}
         className="flexandwrap" title="your hash tags">
-         {mappedData}
+         {this.state.mappedData}
         </div>
         
         

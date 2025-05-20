@@ -74,7 +74,7 @@ export default class LinkForm extends React.Component {
 getFavicon(websiteURL) {
   const url = new URL(websiteURL);
   const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
-
+console.log("faviconURL="+faviconURL)
   const img = new Image();
   img.src = faviconURL;
   img.onload = () => {

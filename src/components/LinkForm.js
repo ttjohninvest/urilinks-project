@@ -58,12 +58,25 @@ export default class LinkForm extends React.Component {
   return hashtags;
 }
 
+getFaviconUrl(url) {
+  const linkElements = document.getElementsByTagName('link');
+  for (let i = 0; i < linkElements.length; i++) {
+    const rel = linkElements[i].getAttribute('rel');
+    if (rel && (rel.includes('icon') || rel.includes('shortcut icon'))) {
+      return linkElements[i].getAttribute('href');
+    }
+  }
+
+  // If no link tag is found, return the default favicon URL
+  return new URL('/favicon.ico', url).href;
+}
   onSubmit = (e) => {
     
     // const hts = extractHashtags(this.state.note)
     // console.log("onSubmit, extractHashTags, hashTags="+JSON.stringify(hts))
     e.preventDefault();
     console.log("onSubmit");
+    console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT favicon.ico = "+this.getFaviconUrl(this.state.Url))
     console.log("onSubmit, this.state.note="+this.state.note)
     if (!this.state.description || !this.state.Url) { // || !this.state.amount) {
       this.setState(() => ({

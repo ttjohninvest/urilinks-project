@@ -87,11 +87,11 @@ export default class LinkForm extends React.Component {
 //   };
 // }
 
-getFavicon(websiteURL) {
-  const url = new URL(websiteURL);
-  const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
-  return faviconURL;
-}
+// getFavicon(websiteURL) {
+//   const url = new URL(websiteURL);
+//   const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
+//   return faviconURL;
+// }
 
 // Example usage:
 //getFavicon('https://www.example.com');
@@ -102,7 +102,9 @@ getFavicon(websiteURL) {
     // console.log("onSubmit, extractHashTags, hashTags="+JSON.stringify(hts))
     e.preventDefault();
     console.log("onSubmit");
-    const faviconURL = this.getFavicon(this.state.Url)
+    const url = new URL(this.state.Url);
+    const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
+    //const faviconURL = this.getFavicon(this.state.Url)
     console.log("1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = "+faviconURL)
     console.log("onSubmit, this.state.note="+this.state.note)
     if (!this.state.description || !this.state.Url) { // || !this.state.amount) {

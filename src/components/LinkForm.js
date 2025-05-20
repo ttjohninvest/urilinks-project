@@ -71,21 +71,21 @@ export default class LinkForm extends React.Component {
 //   return new URL('/favicon.ico', url).href;
 // }
 
-getFavicon(websiteURL) {
-  const url = new URL(websiteURL);
-  const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
-console.log("faviconURL="+faviconURL)
-  const img = new Image();
-  img.src = faviconURL;
-  img.onload = () => {
-    // Favicon loaded successfully, do something with the image
-    document.body.appendChild(img); // Example: append to body
-  };
-  img.onerror = () => {
-    // Favicon failed to load (e.g., doesn't exist), handle the error
-    console.error(`Failed to load favicon from ${faviconURL}`);
-  };
-}
+// getFavicon(websiteURL) {
+//   const url = new URL(websiteURL);
+//   const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
+// console.log("faviconURL="+faviconURL)
+//   const img = new Image();
+//   img.src = faviconURL;
+//   img.onload = () => {
+//     // Favicon loaded successfully, do something with the image
+//     document.body.appendChild(img); // Example: append to body
+//   };
+//   img.onerror = () => {
+//     // Favicon failed to load (e.g., doesn't exist), handle the error
+//     console.error(`Failed to load favicon from ${faviconURL}`);
+//   };
+// }
 
 // Example usage:
 //getFavicon('https://www.example.com');
@@ -96,7 +96,7 @@ console.log("faviconURL="+faviconURL)
     // console.log("onSubmit, extractHashTags, hashTags="+JSON.stringify(hts))
     e.preventDefault();
     console.log("onSubmit");
-    console.log("NNNNNNNNNNNNNNNNNNNNNNNNNNNNN favicon.ico = "+this.getFavicon(this.state.Url))
+    //console.log("NNNNNNNNNNNNNNNNNNNNNNNNNNNNN favicon.ico = "+this.getFavicon(this.state.Url))
     console.log("onSubmit, this.state.note="+this.state.note)
     if (!this.state.description || !this.state.Url) { // || !this.state.amount) {
       this.setState(() => ({

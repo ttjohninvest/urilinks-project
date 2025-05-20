@@ -4,6 +4,7 @@ import moment from "moment";
 import numeral from "numeral";
 
 const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconURL }) => {
+  console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL="+faviconURL)
   const myRef = useRef(null);
 
   const storeScrollPosition = () => {

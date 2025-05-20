@@ -37,7 +37,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
       <div className="border-blue- card-background-color">
         <div className="list-item__flex border-green-">
           <div className="border-orange-">
-          <div className="flexrow2 margin-5"><div><img src={faviconURL} /></div>
+          <div className="flexrow2 margin-5"><div><img className="borderradius50" src={faviconURL} /></div>
             <div className="padding-left-11">
               <a
                 ref={myRef}

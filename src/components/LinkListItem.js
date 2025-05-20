@@ -38,7 +38,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
         <div className="list-item__flex border-green-">
           <div className="border-orange-">
           <div className="flexrow2 margin-5"><div><img className="borderradius50 margin-top-1111" width="16" height="16" src={faviconURL} /></div>
-            <div className="padding-left-11">
+            <div className="padding-left-11 padding-bottom-11">
               <a
                 ref={myRef}
                 className="nounderline text-size-5 text-color-db"
@@ -56,7 +56,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${id}`}>
                 <div>
-                  <span  className="padding-right-11 inline-block-margin-left-1" >edit or remove</span>
+                  <span  className="padding-right-11 inline-block-margin-left-1 padding-bottom-11" >edit or remove</span>
                 </div>
               </Link>
             </h3>

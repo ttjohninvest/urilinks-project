@@ -328,10 +328,11 @@ export class LinkListFilters extends React.Component {
               onChange={this.onSortChange}
               title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
             >
-              <option value="hashtag" title="search by hash tag">Hash Tag</option>
-              <option value="description" title="search through the uri/url link texts">Link Text</option>
-              <option value="notetext" title="search through the notes">Note Text</option>
-              <option value="date" title="search through the uri/url link texts with a date range">Date</option>
+               <option value="date" title="search through the uri/url link texts with a date range">Date</option>
+               <option value="description" title="search through the uri/url link texts">Link Text</option>
+               <option value="hashtag" title="search by hash tag">Hash Tag</option>
+               <option value="notetext" title="search through the notes">Note Text</option>
+             
             </select>
           </div>
           <div className="input-group__item- select-filters border-green-">

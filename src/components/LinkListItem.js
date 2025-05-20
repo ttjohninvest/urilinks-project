@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
 
-const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
+const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconURL }) => {
   const myRef = useRef(null);
 
   const storeScrollPosition = () => {
@@ -36,6 +36,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt }) => {
       <div className="border-blue- card-background-color">
         <div className="list-item__flex border-green-">
           <div className="border-orange-">
+          <div><img src={faviconURL} /></div>
             <h3 className="padding-left-11">
               <a
                 ref={myRef}

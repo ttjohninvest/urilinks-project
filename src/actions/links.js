@@ -16,8 +16,9 @@ export const startAddLink = (linkData = {}) => {
       note = "",
       amount = 0,
       createdAt = 0,
+      faviconURL = "",
     } = linkData;
-    const link = { description, Url, note, amount, createdAt };
+    const link = { description, Url, note, amount, createdAt, faviconURL };
     ////
     //return false;
     return database

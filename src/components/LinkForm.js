@@ -102,7 +102,8 @@ getFavicon(websiteURL) {
     // console.log("onSubmit, extractHashTags, hashTags="+JSON.stringify(hts))
     e.preventDefault();
     console.log("onSubmit");
-    //console.log("NNNNNNNNNNNNNNNNNNNNNNNNNNNNN favicon.ico = "+this.getFavicon(this.state.Url))
+    const faviconURL = this.getFavicon(this.state.Url)
+    console.log("1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = "+faviconURL)
     console.log("onSubmit, this.state.note="+this.state.note)
     if (!this.state.description || !this.state.Url) { // || !this.state.amount) {
       this.setState(() => ({
@@ -131,7 +132,7 @@ getFavicon(websiteURL) {
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,
-        faviconURL:this.getFavicon(this.state.Url),
+        faviconURL:faviconURL,
       });
     }
   };

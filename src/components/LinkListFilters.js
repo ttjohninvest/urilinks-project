@@ -237,6 +237,8 @@ export class LinkListFilters extends React.Component {
       this.props.sortByDate();
     } else if (sort === "description") {
       this.props.sortByDescription();
+    } else if (sort === "hashtag") {
+      this.props.sortByHashTag();
     } else if (sort === "notetext") {
       this.props.sortByNoteText();
     }

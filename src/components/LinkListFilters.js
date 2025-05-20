@@ -225,11 +225,13 @@ export class LinkListFilters extends React.Component {
     const searchLinks3 = window.localStorage.getItem("searchLinks3");
     const searchLinks4 = window.localStorage.getItem("searchLinks4");
 
-    const sort = window.localStorage.getItem("sort");
+  
     console.log("componentDidMount, searchLinks1=" + searchLinks1);
     console.log("componentDidMount, searchLinks2=" + searchLinks2);
     console.log("componentDidMount, searchLinks3=" + searchLinks3);
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
+    
+    const sort = window.localStorage.getItem("sort");
     console.log("componentDidMount, sort=" + sort);
     if (sort === "date") {
       this.props.sortByDate();
@@ -310,7 +312,7 @@ export class LinkListFilters extends React.Component {
                   : "Search for Link(s)"
               }
               //value={this.props.filters.text}
-              value={this.props.filters.text}
+              value={this.state.sort}
               onChange={this.onTextChange}
               title={
                 this.props.filters.sortBy === "date"

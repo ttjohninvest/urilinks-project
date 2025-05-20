@@ -58,6 +58,16 @@ export default class LinkForm extends React.Component {
   return hashtags;
 }
 
+extractDomain(url) {
+  try {
+    const urlObject = new URL(url);
+    return "https://"+urlObject.hostname;
+  } catch (error) {
+      // Handles cases where the URL is invalid
+    return null;
+  }
+}
+
 getFaviconUrl(url) {
   const linkElements = document.getElementsByTagName('link');
   for (let i = 0; i < linkElements.length; i++) {
@@ -102,8 +112,9 @@ getFaviconUrl(url) {
     // console.log("onSubmit, extractHashTags, hashTags="+JSON.stringify(hts))
     e.preventDefault();
     console.log("onSubmit");
-    const url = new URL(this.state.Url);
-    const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
+    const faviconURL = this.extractDomain(this.state.Url)+"/favicon.ico"
+    //const url = new URL(this.state.Url);
+    //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
     console.log("1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = "+faviconURL)
     console.log("1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.Url) = "+this.getFaviconUrl(this.state.Url))

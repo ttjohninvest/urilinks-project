@@ -37,7 +37,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
       <div className="border-blue- card-background-color">
         <div className="list-item__flex border-green-">
           <div className="border-orange-">
-          <div><img src={faviconURL} /></div>
+          <div className="flexrow2"><div><img src={faviconURL} /></div>
             <h3 className="padding-left-11">
               <a
                 ref={myRef}
@@ -50,6 +50,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
                 {description}
               </a>
             </h3>
+            </div>
           </div>
           <div className="border-orange-">
             <h3 className="">

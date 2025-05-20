@@ -58,25 +58,45 @@ export default class LinkForm extends React.Component {
   return hashtags;
 }
 
-getFaviconUrl(url) {
-  const linkElements = document.getElementsByTagName('link');
-  for (let i = 0; i < linkElements.length; i++) {
-    const rel = linkElements[i].getAttribute('rel');
-    if (rel && (rel.includes('icon') || rel.includes('shortcut icon'))) {
-      return linkElements[i].getAttribute('href');
-    }
-  }
+// getFaviconUrl(url) {
+//   const linkElements = document.getElementsByTagName('link');
+//   for (let i = 0; i < linkElements.length; i++) {
+//     const rel = linkElements[i].getAttribute('rel');
+//     if (rel && (rel.includes('icon') || rel.includes('shortcut icon'))) {
+//       return linkElements[i].getAttribute('href');
+//     }
+//   }
 
-  // If no link tag is found, return the default favicon URL
-  return new URL('/favicon.ico', url).href;
+//   // If no link tag is found, return the default favicon URL
+//   return new URL('/favicon.ico', url).href;
+// }
+
+getFavicon(websiteURL) {
+  const url = new URL(websiteURL);
+  const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
+
+  const img = new Image();
+  img.src = faviconURL;
+  img.onload = () => {
+    // Favicon loaded successfully, do something with the image
+    document.body.appendChild(img); // Example: append to body
+  };
+  img.onerror = () => {
+    // Favicon failed to load (e.g., doesn't exist), handle the error
+    console.error(`Failed to load favicon from ${faviconURL}`);
+  };
 }
+
+// Example usage:
+//getFavicon('https://www.example.com');
+
   onSubmit = (e) => {
     
     // const hts = extractHashtags(this.state.note)
     // console.log("onSubmit, extractHashTags, hashTags="+JSON.stringify(hts))
     e.preventDefault();
     console.log("onSubmit");
-    console.log("NNNNNNNNNNNNNNNNNNNNNNNNNNNNN favicon.ico = "+this.getFaviconUrl(this.state.Url))
+    console.log("NNNNNNNNNNNNNNNNNNNNNNNNNNNNN favicon.ico = "+this.getFavicon(this.state.Url))
     console.log("onSubmit, this.state.note="+this.state.note)
     if (!this.state.description || !this.state.Url) { // || !this.state.amount) {
       this.setState(() => ({

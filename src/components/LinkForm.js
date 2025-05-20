@@ -67,9 +67,9 @@ getFaviconUrl(url) {
     }
   }
 
-//   // If no link tag is found, return the default favicon URL
-//   return new URL('/favicon.ico', url).href;
-// }
+  // If no link tag is found, return the default favicon URL
+  return new URL('/favicon.ico', url).href;
+}
 
 // getFavicon(websiteURL) {
 //   const url = new URL(websiteURL);

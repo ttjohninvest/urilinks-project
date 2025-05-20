@@ -58,14 +58,14 @@ export default class LinkForm extends React.Component {
   return hashtags;
 }
 
-// getFaviconUrl(url) {
-//   const linkElements = document.getElementsByTagName('link');
-//   for (let i = 0; i < linkElements.length; i++) {
-//     const rel = linkElements[i].getAttribute('rel');
-//     if (rel && (rel.includes('icon') || rel.includes('shortcut icon'))) {
-//       return linkElements[i].getAttribute('href');
-//     }
-//   }
+getFaviconUrl(url) {
+  const linkElements = document.getElementsByTagName('link');
+  for (let i = 0; i < linkElements.length; i++) {
+    const rel = linkElements[i].getAttribute('rel');
+    if (rel && (rel.includes('icon') || rel.includes('shortcut icon'))) {
+      return linkElements[i].getAttribute('href');
+    }
+  }
 
 //   // If no link tag is found, return the default favicon URL
 //   return new URL('/favicon.ico', url).href;
@@ -106,6 +106,7 @@ export default class LinkForm extends React.Component {
     const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
     console.log("1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = "+faviconURL)
+    console.log("1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.Url) = "+this.getFaviconUrl(this.state.Url))
     console.log("onSubmit, this.state.note="+this.state.note)
     if (!this.state.description || !this.state.Url) { // || !this.state.amount) {
       this.setState(() => ({

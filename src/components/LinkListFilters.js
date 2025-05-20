@@ -311,8 +311,8 @@ export class LinkListFilters extends React.Component {
                   ? "Search for Link(s)"
                   : "Search for Link(s)"
               }
-              //value={this.props.filters.text}
-              value={this.state.sort}
+              value={this.props.filters.text}
+              //value={this.state.sort}
               onChange={this.onTextChange}
               title={
                 this.props.filters.sortBy === "date"
@@ -326,7 +326,8 @@ export class LinkListFilters extends React.Component {
           <div className="input-group__item">
             <select
               className="select select-filters"
-              value={this.props.filters.sortBy}
+              //value={this.props.filters.sortBy}
+              value={this.state.sort}
               onChange={this.onSortChange}
               title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
             >

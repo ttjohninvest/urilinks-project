@@ -13,6 +13,9 @@ const Features = () => (
         links are uri/url links. uri, uniform resource identifier, is a more
         general term for url, uniform resource locator.
       </li>
+       <li>
+        A better way to do bookmarks and have your own webpage with your own links on it.
+      </li>
       <li>
         All of your entertainment, business or educational links are in one
         place with one click link activation.

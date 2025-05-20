@@ -76,7 +76,7 @@ getFaviconUrl(url) {
     // console.log("onSubmit, extractHashTags, hashTags="+JSON.stringify(hts))
     e.preventDefault();
     console.log("onSubmit");
-    console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT favicon.ico = "+this.getFaviconUrl(this.state.Url))
+    console.log("NNNNNNNNNNNNNNNNNNNNNNNNNNNNN favicon.ico = "+this.getFaviconUrl(this.state.Url))
     console.log("onSubmit, this.state.note="+this.state.note)
     if (!this.state.description || !this.state.Url) { // || !this.state.amount) {
       this.setState(() => ({

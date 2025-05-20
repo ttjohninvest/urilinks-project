@@ -10,17 +10,22 @@ import {
   sortByHashTag,
   setStartDate,
   setEndDate,
-  sortByNoteText
+  sortByNoteText,
 } from "../actions/filters";
 
-function ExpandableArray({ mappedDataShort, mappedDataLong, maxLength, ref, morehashtags }) {
+function ExpandableArray({
+  mappedDataShort,
+  mappedDataLong,
+  maxLength,
+  ref,
+  morehashtags,
+}) {
   const [expanded, setExpanded] = useState(morehashtags);
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
-    console.log("morehashtags")
+    console.log("morehashtags");
     window.localStorage.setItem("morehashtags", !expanded);
-    
   };
 
   const displayedArray = expanded ? mappedDataLong : mappedDataShort;
@@ -44,7 +49,7 @@ export class LinkListFilters extends React.Component {
     this.SHORT_HASHTAG_LENGTH = 30;
     this.elementRef = React.createRef();
     this.myRef = React.createRef();
-    
+
     let hashtags = [];
     this.props.links.forEach((link) => {
       //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
@@ -89,9 +94,9 @@ export class LinkListFilters extends React.Component {
         );
       else return false;
     });
-//
+    //
     let morehashtags = window.localStorage.getItem("morehashtags");
-    console.log("constructor, LinkListFilter, morehashtags="+morehashtags)
+    console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
       sort: "hashtag",
       items: [],
@@ -101,7 +106,7 @@ export class LinkListFilters extends React.Component {
       loading: true,
       //scrollTop: 0,
       height: 0,
-      morehashtags:morehashtags==='true'?true:false,
+      morehashtags: morehashtags === "true" ? true : false,
     };
 
     this.setit = this.setit.bind(this);
@@ -146,9 +151,7 @@ export class LinkListFilters extends React.Component {
       window.localStorage.setItem("searchLinks2", "");
       window.localStorage.setItem("searchLinks3", "");
       window.localStorage.setItem("searchLinks4", e.target.value);
-
     } else {
-
     }
 
     if (this.props.filters.sortBy === "hashtag") {
@@ -219,18 +222,16 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
-    
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");
     const searchLinks4 = window.localStorage.getItem("searchLinks4");
 
-  
     console.log("componentDidMount, searchLinks1=" + searchLinks1);
     console.log("componentDidMount, searchLinks2=" + searchLinks2);
     console.log("componentDidMount, searchLinks3=" + searchLinks3);
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
-    
+
     const sort = window.localStorage.getItem("sort");
     console.log("componentDidMount, sort=" + sort);
     if (sort === "date") {
@@ -260,11 +261,10 @@ export class LinkListFilters extends React.Component {
 
     if (this.myRef.current) this.myRef.current.focus();
 
-  
     console.log("1 OOOOOOOOOOOOOOOOOOOOO height=" + this.state.height);
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
-    this.setState({morehashtags:morehashtags==='true'?true:false})
+    this.setState({ morehashtags: morehashtags === "true" ? true : false });
   }
 
   componentDidUpdate(prevProps) {
@@ -333,11 +333,26 @@ export class LinkListFilters extends React.Component {
               onChange={this.onSortChange}
               title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
             >
-               <option value="date" title="search through the uri/url link texts with a date range">Date</option>
-               <option value="description" title="search through the uri/url link texts">Link Text</option>
-               <option value="hashtag" title="search by hash tag">Hash Tag</option>
-               <option value="notetext" title="search through the notes">Note Text</option>
-             
+              <option value="hashtag" title="search by hash tag">
+                Hash Tag
+              </option>
+
+              <option
+                value="description"
+                title="search through the uri/url link texts"
+              >
+                Link Text
+              </option>
+
+              <option value="notetext" title="search through the notes">
+                Note Text
+              </option>
+              <option
+                value="date"
+                title="search through the uri/url link texts with a date range"
+              >
+                Date
+              </option>
             </select>
           </div>
           <div className="input-group__item- select-filters border-green-">

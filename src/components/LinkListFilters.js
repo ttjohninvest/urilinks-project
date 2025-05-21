@@ -31,7 +31,7 @@ function ExpandableArray({
   console.log("ExpandableArray, expanded="+expanded)
   console.log("ExpandableArray, mappedDataLong.length="+mappedDataLong.length)
   console.log("ExpandableArray, mappedDataShort.length="+mappedDataShort.length)
-  
+  let displayedArray
   if(expanded===true)
     displayedArray = mappedDataLong
   else displayedArray = mappedDataShort

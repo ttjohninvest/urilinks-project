@@ -3,7 +3,7 @@ import React from "react";
 const Features = () => (
   <div className="list-header__flex__center">
     <ul>
-      <li>urilinks.com Features:</li>
+      <li>urilinks.com Benefits:</li>
 
       <li>Using the website is free. </li>
       <li>Everyone gets their own personal account.</li>

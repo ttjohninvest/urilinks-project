@@ -8,7 +8,7 @@ import AddSettingsPage from "../components/AddSettingsPage";
 import AddLinkPage from "../components/AddlinkPage";
 import EditLinkPage from "../components/EditLinkPage";
 import TermsAndPrivacy from "../components/TermsAndPrivacy";
-import Features from "../components/Features";
+import Benefits from "../components/Benefits";
 //import LinkSettingsPage from "../components/LinkSettingsPage";
 import NotFoundPage from "../components/NotFoundPage";
 import LoginPage from "../components/LoginPage";
@@ -25,7 +25,7 @@ const AppRouter = () => (
         <PrivateRoute path="/dashboard" component={LinkDashboardPage} />
         <PrivateRoute path="/settings" component={AddSettingsPage} />
         <PrivateRoute path="/termsandprivacy" component={TermsAndPrivacy} />
-        <PrivateRoute path="/benefits" component={Features} />
+        <PrivateRoute path="/benefits" component={Benefits} />
         {/* <PrivateRoute path="/settings" component={LinkSettingsPage} /> */}
         <PrivateRoute path="/create" component={AddLinkPage} />
         <PrivateRoute path="/edit/:id" component={EditLinkPage} />

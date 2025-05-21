@@ -71,7 +71,7 @@ const TermsAndPrivacy = () => (
     Website that all the information you provide on the Website is correct,
     current, and complete. You agree that all information you provide to
     register with this Website or otherwise, including but not limited to
-    through the use of any interactive features on the Website, is governed by
+    through the use of any interactive benefits on the Website, is governed by
     our Privacy Policy, and you consent to all actions we take with respect to
     your information consistent with our Privacy Policy.
     <br />

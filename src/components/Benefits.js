@@ -1,6 +1,6 @@
 import React from "react";
 
-const Features = () => (
+const Benefits = () => (
   <div className="list-header__flex__center">
     <ul>
       <li>urilinks.com Benefits:</li>
@@ -96,4 +96,4 @@ const Features = () => (
   </div>
 );
 
-export default Features;
+export default Benefits;

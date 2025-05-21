@@ -300,7 +300,7 @@ export class LinkListFilters extends React.Component {
   // }, []);
 
   refreshIt=()=>{
-
+    window.location.reload();
   }
 
   render() {
@@ -319,7 +319,7 @@ export class LinkListFilters extends React.Component {
             maxLength={this.SHORT_HASHTAG_LENGTH}
             ref={this.elementRef}
             morehashtags={this.state.morehashtags}
-          />:refreshIt()}
+          />:this.refreshIt()}
         </div>
 
         <div className="input-group some-component">

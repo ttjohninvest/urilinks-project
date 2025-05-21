@@ -61,7 +61,7 @@ const Features = () => (
           </li>
 
           <li>
-            "Link Text" selected: the results will appear in alphabetical order.
+            "Link Text" selected: the results will display results that have the search term in the link's link text in alphabetical order.
           </li>
 
           <li>
@@ -73,7 +73,7 @@ const Features = () => (
           </li>
 
           <li>
-            "Note Text" selected: the results will display results that have the search term in it.
+            "Note Text" selected: the results will display results that have the search term in the link's note section.
           </li>
          
         </ul>

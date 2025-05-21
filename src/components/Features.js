@@ -14,7 +14,7 @@ const Features = () => (
         general term for url, uniform resource locator.
       </li>
        <li>
-        A better way to do bookmarks and have your own webpage with your own links on it.
+        A better way to do bookmarks and have your own webpage with your own hashtag organizable links on it.
       </li>
       <li>
         All of your holy church, entertainment, business or educational links are in one
@@ -45,13 +45,13 @@ const Features = () => (
       </li>
 
       <li>
-        Their are three options to get results: "Date", "Link Text" and "Hast
-        Tag".
+        Their are three options to get results: "Date", "Link Text", "Hast
+        Tag and Note Text".
       </li>
 
       <li>
         Select what kind of search you want from the <span className="highlight1">drop down list</span>:
-        "Date","Link Text" or "Hash Tag" from the drop down menu.
+        "Date","Link Text", "Hash Tag" or "Note Text" from the drop down menu.
       </li>
       
         <ul>
@@ -67,9 +67,13 @@ const Features = () => (
           <li>
             "Hash Tag" selected: the results will give links that contain the
             hash tag in the note. You may organize any group of links this way.
-            For example, if you have 5 url links that are your favorites, put The
+            For example, if you have 5 uri/url links that are your favorites, put The
             hash tag #favorite in the note section for each of the 5 in the 
             add uri/url form.
+          </li>
+
+          <li>
+            "Note Text" selected: the results will display results that have the search term in it.
           </li>
          
         </ul>

@@ -28,7 +28,13 @@ function ExpandableArray({
     window.localStorage.setItem("morehashtags", !expanded);
   };
 
-  const displayedArray = expanded ? mappedDataLong : mappedDataShort;
+  console.log("ExpandableArray, expanded="+expanded)
+  console.log("ExpandableArray, mappedDataLong.length="+mappedDataLong.length)
+  console.log("ExpandableArray, mappedDataShort.length="+mappedDataShort.length)
+  
+  if(expanded===true)
+    displayedArray = mappedDataLong
+  else displayedArray = mappedDataShort
 
   return (
     <div>
@@ -293,7 +299,9 @@ export class LinkListFilters extends React.Component {
         </div> */}
 
         <div>
-          {((this.state.mappedDataShort && this.state.mappedDataShort.length > 0) || (this.state.mappedDataLong && this.state.mappedDataLong.length > 0)) && <ExpandableArray
+          {((this.state.mappedDataShort && this.state.mappedDataShort.length > 0) 
+          || (this.state.mappedDataLong && this.state.mappedDataLong.length > 0)) 
+          && <ExpandableArray
             mappedDataShort={this.state.mappedDataShort}
             mappedDataLong={this.state.mappedDataLong}
             maxLength={this.SHORT_HASHTAG_LENGTH}

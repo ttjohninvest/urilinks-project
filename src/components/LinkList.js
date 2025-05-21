@@ -48,7 +48,7 @@ export const LinkList = (props) => {
   return (
     <div className="content-container website-background-color">
       
-      <div className="list-header list-header__flex- border-green- margin-bottom-1">
+      <div className="list-header padding-left-11111 margin-bottom-1">
         <div className="show-for-desktop margin-left-11111">Uri/Url Link(s)</div>
         <div className="list-header__flex">
               <div>

@@ -293,7 +293,7 @@ export class LinkListFilters extends React.Component {
         </div> */}
 
         <div>
-          {this.state.mappedDataShort.length > 0 || this.state.mappedDataLong.length > 0 && <ExpandableArray
+          {((this.state.mappedDataShort && this.state.mappedDataShort.length > 0) || (this.state.mappedDataLong && this.state.mappedDataLong.length > 0)) && <ExpandableArray
             mappedDataShort={this.state.mappedDataShort}
             mappedDataLong={this.state.mappedDataLong}
             maxLength={this.SHORT_HASHTAG_LENGTH}

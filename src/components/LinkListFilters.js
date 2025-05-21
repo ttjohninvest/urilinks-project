@@ -291,6 +291,18 @@ export class LinkListFilters extends React.Component {
     this.props.setTextFilter(value);
   };
 
+  // useEffect(() => {
+  //   const hasRefreshed = sessionStorage.getItem('hasRefreshed');
+  //   if (!hasRefreshed) {
+  //     sessionStorage.setItem('hasRefreshed', 'true');
+  //     window.location.reload();
+  //   }
+  // }, []);
+
+  refreshIt=()=>{
+
+  }
+
   render() {
     return (
       <div className="content-container border-green-">
@@ -301,13 +313,13 @@ export class LinkListFilters extends React.Component {
         <div>
           {((this.state.mappedDataShort && this.state.mappedDataShort.length > 1) 
           || (this.state.mappedDataLong && this.state.mappedDataLong.length > 1)) 
-          && <ExpandableArray
+          ? <ExpandableArray
             mappedDataShort={this.state.mappedDataShort}
             mappedDataLong={this.state.mappedDataLong}
             maxLength={this.SHORT_HASHTAG_LENGTH}
             ref={this.elementRef}
             morehashtags={this.state.morehashtags}
-          />}
+          />:refreshIt()}
         </div>
 
         <div className="input-group some-component">

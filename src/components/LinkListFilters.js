@@ -293,13 +293,13 @@ export class LinkListFilters extends React.Component {
         </div> */}
 
         <div>
-          <ExpandableArray
+          {this.state.mappedDataShort.length > 0 || this.state.mappedDataLong.length > 0 && <ExpandableArray
             mappedDataShort={this.state.mappedDataShort}
             mappedDataLong={this.state.mappedDataLong}
             maxLength={this.SHORT_HASHTAG_LENGTH}
             ref={this.elementRef}
             morehashtags={this.state.morehashtags}
-          />
+          />}
         </div>
 
         <div className="input-group some-component">

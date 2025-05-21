@@ -25,7 +25,7 @@ const AppRouter = () => (
         <PrivateRoute path="/dashboard" component={LinkDashboardPage} />
         <PrivateRoute path="/settings" component={AddSettingsPage} />
         <PrivateRoute path="/termsandprivacy" component={TermsAndPrivacy} />
-        <PrivateRoute path="/features" component={Features} />
+        <PrivateRoute path="/benefits" component={Features} />
         {/* <PrivateRoute path="/settings" component={LinkSettingsPage} /> */}
         <PrivateRoute path="/create" component={AddLinkPage} />
         <PrivateRoute path="/edit/:id" component={EditLinkPage} />

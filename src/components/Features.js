@@ -17,7 +17,7 @@ const Features = () => (
         A better way to do bookmarks and have your own webpage with your own links on it.
       </li>
       <li>
-        All of your entertainment, business or educational links are in one
+        All of your holy church, entertainment, business or educational links are in one
         place with one click link activation.
       </li>
 

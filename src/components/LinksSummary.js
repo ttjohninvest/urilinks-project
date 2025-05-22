@@ -12,10 +12,8 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
   return (
     <div className="">
       <div className="flexrow2">
-       <div>Uri/Url Link(s)</div>
-        <div className="text-size-6">
-          {linkCount} link(s)
-        </div>
+       <h3>{linkCount} Uri/Url Link(s)</h3>
+        
         
        
           <Link className="button ib" to="/create">

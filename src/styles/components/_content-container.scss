@@ -60,6 +60,7 @@
   display: flex;
   justify-content: space-between;
   padding: $s-size $m-size;
+  flex-wrap:wrap;
 }
 
 .borderradius50 {

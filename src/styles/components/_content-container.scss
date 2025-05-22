@@ -49,6 +49,14 @@
   align-items:center;
 }
 
+.flexrow2c {
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+}
+
+
 .flexrow2b {
   flex-direction:row;
   justify-content:space-between;

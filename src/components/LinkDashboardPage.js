@@ -26,6 +26,10 @@ const LinkDashboardPage = (props) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(()=>{
+    window.onbeforeunload = null;
+  },[])
+
   // useEffect(() => {
   //   const handleBeforeUnload = (event) => {
        

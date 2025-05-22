@@ -11,20 +11,20 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
 
   return (
     <div className="page-header">
-      <div className="content-container">
+      <div className="content-container flexrow2">
         {/* <h1 className="page-header__title">
           Viewing <span>{linkCount}</span> {linkWord}
         </h1> */}
 
-        <span className="page-header__title text-size-6">
+        <div className="page-header__title text-size-6">
           {linkCount}
-        </span>
+        </div>
         
-        <div className="page-header__actions">
-          <Link className="button" to="/create">
+       
+          <Link className="button ib" to="/create">
             Add Uri/Url Link 
           </Link>
-        </div>
+        
       </div>
     </div>
   );

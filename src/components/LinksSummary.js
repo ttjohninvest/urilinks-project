@@ -10,7 +10,7 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
   const formattedLinksTotal = numeral(linksTotal / 100).format("$0,0.00");
 
   return (
-    <div className="">
+    
       <div className="flexrow2-">
        <h3>{linkCount} Uri/Url Link's Found</h3>
         
@@ -19,7 +19,7 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
           </Link>
         
       </div>
-    </div>
+    
   );
 };
 

@@ -49,9 +49,9 @@ export const LinkList = (props) => {
   return (
     <div className="content-container website-background-color">
       
-      <div className="list-header padding-left-11111 margin-bottom-1">
-        <div className="show-for-desktop margin-left-11111"></div>
-        <div className="list-header__flex">
+      <div className="flexrow2">
+        {/* <div className="show-for-desktop margin-left-11111"></div> */}
+        {/* <div className="list-header__flex"> */}
           <LinksSummary />
               <div>
                 <label className="inline-block__flex">
@@ -81,7 +81,7 @@ export const LinkList = (props) => {
               </div>
             
               
-            </div>
+            {/* </div> */}
       </div>
      
      

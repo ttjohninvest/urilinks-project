@@ -50,7 +50,6 @@
 }
 
 .flexrow2b {
-  
   flex-direction:row;
   justify-content:space-between;
   align-items:center;
@@ -59,7 +58,7 @@
   color: $grey;
   display: flex;
   justify-content: space-between;
-  padding: $s-size $m-size;
+  padding: 1rem 1rem;
   flex-wrap:wrap;
 }
 

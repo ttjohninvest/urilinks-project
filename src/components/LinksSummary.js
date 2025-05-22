@@ -12,7 +12,7 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
   return (
     <div className="">
       <div className="flexrow2">
-       
+       <div>Uri/Url Link(s)</div>
         <div className="text-size-6">
           {linkCount} link(s)
         </div>

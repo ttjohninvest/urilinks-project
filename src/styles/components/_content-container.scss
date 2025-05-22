@@ -49,6 +49,19 @@
   align-items:center;
 }
 
+.flexrow2b {
+  
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+  background: $off-white;
+  border: 1px solid darken($off-white, 7%);
+  color: $grey;
+  display: flex;
+  justify-content: space-between;
+  padding: $s-size $m-size;
+}
+
 .borderradius50 {
   border-radius:50%;
 }

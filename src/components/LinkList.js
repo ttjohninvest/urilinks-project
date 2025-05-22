@@ -49,7 +49,7 @@ export const LinkList = (props) => {
   return (
     <div className="content-container website-background-color">
       
-      <div className="flexrow2">
+      <div className="flexrow2b">
         {/* <div className="show-for-desktop margin-left-11111"></div> */}
         {/* <div className="list-header__flex"> */}
           <LinksSummary />

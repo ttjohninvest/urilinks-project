@@ -52,7 +52,7 @@ export const LinkList = (props) => {
       <div className="list-header padding-left-11111 margin-bottom-1">
         <div className="show-for-desktop margin-left-11111">Uri/Url Link(s)</div>
         <div className="list-header__flex">
-          <LinkSummary />
+          <LinksSummary />
               <div>
                 <label className="inline-block__flex">
                   <input

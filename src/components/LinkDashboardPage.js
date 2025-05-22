@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from "react";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
-import LinksSummary from "./LinksSummary";
+//import LinksSummary from "./LinksSummary";
 
 const LinkDashboardPage = (props) => {
   //const elementRef = useRef()
@@ -73,7 +73,7 @@ const LinkDashboardPage = (props) => {
  return (
   
     <div className="website-background-color">
-      <LinksSummary />
+      {/* <LinksSummary /> */}
       <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
       <LinkList />
     </div>

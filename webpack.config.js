@@ -45,7 +45,7 @@ module.exports = (env) => {
         })
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|ico)$/,
         exclude: /node_modules/,
         loader: "url-loader"
        

@@ -38,8 +38,8 @@ function ExpandableArray({
 
   return (
     <div>
-      <div className="flexrow2c padding-around">You may click on any of these hash tags to find your links</div>
-      <div ref={ref} className="flexandwrap margin-top-1" title="your hash tags">
+      <div className="flexrow2c padding-around" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.">hash tags</div>
+      <div ref={ref} className="flexandwrap margin-top-1" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.">
         {displayedArray}
         {!expanded && <span className="text-size-5">...</span>}
       </div>

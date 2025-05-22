@@ -38,7 +38,7 @@ function ExpandableArray({
 
   return (
     <div>
-      <div className="flexrow2c padding-around">Hash Tags</div>
+      <div className="flexrow2c padding-around">You may click on any of these hash tags to find your links</div>
       <div ref={ref} className="flexandwrap margin-top-1" title="your hash tags">
         {displayedArray}
         {!expanded && <span className="text-size-5">...</span>}

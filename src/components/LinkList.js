@@ -24,6 +24,15 @@ export const LinkList = (props) => {
     
   };
 
+//   window.addEventListener("beforeunload",(event)=>{
+//     return null;
+// })
+// and
+
+ 
+ useEffect(()=>{
+    window.onbeforeunload=null;
+  },[])
   
 
   useEffect(()=>{

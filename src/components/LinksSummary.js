@@ -10,13 +10,13 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
   const formattedLinksTotal = numeral(linksTotal / 100).format("$0,0.00");
 
   return (
-    <div className="page-header">
-      <div className="content-container flexrow2">
+    <div className="page-header-">
+      <div className="flexrow2">
         {/* <h1 className="page-header__title">
           Viewing <span>{linkCount}</span> {linkWord}
         </h1> */}
 
-        <div className="page-header__title text-size-6">
+        <div className="text-size-6">
           {linkCount}
         </div>
         

@@ -272,6 +272,8 @@ export class LinkListFilters extends React.Component {
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
     this.setState({ morehashtags: morehashtags === "true" ? true : false });
+    const thePos = parseInt(window.localStorage.getItem("scrollY"))
+    window.scrollTo(0,thePos)
   }
 
   componentDidUpdate(prevProps) {
@@ -290,6 +292,7 @@ export class LinkListFilters extends React.Component {
     event.preventDefault();
     //value is the user selected hashtag
     this.props.setTextFilter(value);
+    window.localStorage.setItem("scrollY",window.scrollY)
 
     document.querySelector('#link-summary-id').scrollIntoView({
     behavior: 'smooth',

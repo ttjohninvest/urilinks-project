@@ -15,7 +15,7 @@ import LoadingPage from "./components/LoadingPage";
 //
 
 
-
+console.log=()=>{}
 const store = configureStore();
 store.subscribe(() => {
   console.log('Store state:', store.getState());

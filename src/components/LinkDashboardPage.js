@@ -53,7 +53,7 @@ const LinkDashboardPage = (props) => {
   }
 
   useEffect(()=>{
-    console.log=()=>{}
+    
     //elementRef.current.offsetHeight
     console.log("heightofdiv="+heightofdiv)
     const sp = parseInt(window.localStorage.getItem("scrollY")) //parseInt(window.localStorage.getItem("scrollPosition"))

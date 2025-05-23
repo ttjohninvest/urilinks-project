@@ -173,4 +173,4 @@ should give me an email selection list to choose from which it skips.
 1 gb cost for 1gb of data from google: $5.00.
 
 I asked my precious Jesus Christ to give me wisdom about denomination and non denominational churchs.
-Answer: "7th Heaven"
+Answer: "7th Heaven", "all of it"

@@ -1,5 +1,5 @@
 import React from "react";
-import { addSettings } from './../actions/settings';
+import { addSettings } from "./../actions/settings";
 
 const Benefits = () => (
   <div className="list-header__flex__center">
@@ -11,15 +11,20 @@ const Benefits = () => (
 
       <li>Your account is secret from other accounts.</li>
       <li>
+        AI cannot replace the way you want to organize your internet bookmarks
+        with hash tags.
+      </li>
+      <li>
         links are uri/url links. uri, uniform resource identifier, is a more
         general term for url, uniform resource locator.
       </li>
-       <li>
-        A better way to do bookmarks and have your own webpage with your own hashtag organizable links on it.
+      <li>
+        A better way to do bookmarks and have your own webpage with your own
+        hashtag organizable links on it.
       </li>
       <li>
-        All of your holy church, entertainment, business or educational links are in one
-        place with one click link activation.
+        All of your holy church, entertainment, business or educational links
+        are in one place with one click link activation.
       </li>
 
       <li>
@@ -46,52 +51,51 @@ const Benefits = () => (
       </li>
 
       <li>
-        Their are three options to get results: "Date", "Link Text", "Hast
-        Tag and Note Text".
+        Their are three options to get results: "Date", "Link Text", "Hast Tag
+        and Note Text".
       </li>
 
       <li>
-        Select what kind of search you want from the <span className="highlight1">drop down list</span>:
-        "Date","Link Text", "Hash Tag" or "Note Text" from the drop down menu.
+        Select what kind of search you want from the{" "}
+        <span className="highlight1">drop down list</span>: "Date","Link Text",
+        "Hash Tag" or "Note Text" from the drop down menu.
       </li>
-      
-        <ul>
-          <li>
-            "Date" selected: The results will be in descending order, most
-            recent added link will be listed first.
-          </li>
 
-          <li>
-            "Link Text" selected: the results will display results that have the search term in the link's link text in alphabetical order.
-          </li>
+      <ul>
+        <li>
+          "Date" selected: The results will be in descending order, most recent
+          added link will be listed first.
+        </li>
 
-          <li>
-            "Hash Tag" selected: the results will give links that contain the
-            hash tag in the note. You may organize any group of links this way.
-            For example, if you have 5 uri/url links that are your favorites, put The
-            hash tag #favorite in the note section for each of the 5 in the 
-            add uri/url form. For the clickable hash tag list to show up, you will need at 
-            least 2 or more different hash tags.
-          </li>
+        <li>
+          "Link Text" selected: the results will display results that have the
+          search term in the link's link text in alphabetical order.
+        </li>
 
-          <li>
-            "Note Text" selected: the results will display results that have the search term in the link's note section.
-          </li>
-         
-        </ul>
-      
+        <li>
+          "Hash Tag" selected: the results will give links that contain the hash
+          tag in the note. You may organize any group of links this way. For
+          example, if you have 5 uri/url links that are your favorites, put The
+          hash tag #favorite in the note section for each of the 5 in the add
+          uri/url form. For the clickable hash tag list to show up, you will
+          need at least 2 or more different hash tags.
+        </li>
+
+        <li>
+          "Note Text" selected: the results will display results that have the
+          search term in the link's note section.
+        </li>
+      </ul>
 
       <li>
-        For each of the three types of searches, you may enter a <span className="highlight1">date range</span> to
-        narrow the search.
+        For each of the three types of searches, you may enter a{" "}
+        <span className="highlight1">date range</span> to narrow the search.
       </li>
 
       <li>
-        As you enter the <span className="highlight1">Search Link text</span>, the results will display, no need to
-        press a search button.
+        As you enter the <span className="highlight1">Search Link text</span>,
+        the results will display, no need to press a search button.
       </li>
-
-    
     </ul>
     <br />
     <br />

@@ -1,4 +1,5 @@
 import React from "react";
+import { addSettings } from './../actions/settings';
 
 const Benefits = () => (
   <div className="list-header__flex__center">
@@ -69,7 +70,8 @@ const Benefits = () => (
             hash tag in the note. You may organize any group of links this way.
             For example, if you have 5 uri/url links that are your favorites, put The
             hash tag #favorite in the note section for each of the 5 in the 
-            add uri/url form.
+            add uri/url form. For the clickable hash tag list to show up, you will need at 
+            least 2 or more different hash tags.
           </li>
 
           <li>

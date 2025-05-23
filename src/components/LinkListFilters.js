@@ -290,6 +290,10 @@ export class LinkListFilters extends React.Component {
     event.preventDefault();
     //value is the user selected hashtag
     this.props.setTextFilter(value);
+
+    document.querySelector('#link-summary-id').scrollIntoView({
+    behavior: 'smooth',
+})
   };
 
   // useEffect(() => {

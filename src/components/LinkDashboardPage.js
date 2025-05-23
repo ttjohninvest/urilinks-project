@@ -60,7 +60,7 @@ const LinkDashboardPage = (props) => {
     //I have to subtract off the height of the div with the hashtags for it to be right
     //window.scrollTo(0,sp-heightofdiv)
     //if(sp>200)
-    window.scrollTo(0,0)
+    //window.scrollTo(0,0)
   
   },[])
 

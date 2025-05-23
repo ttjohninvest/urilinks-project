@@ -174,3 +174,9 @@ should give me an email selection list to choose from which it skips.
 
 I asked my precious Jesus Christ to give me wisdom about denomination and non denominational churchs.
 Answer: "7th Heaven", "all of it"
+
+marketing
+on 5/23/25, I made a reno.craigslist post with the title: "tool to organize url links by hash tag on your own secure web page"
+in community/news
+reno.craigslist.org/vnn/d/reno-secure-tool-to-organize-url-links/7852457919.html
+I need to add an image

@@ -46,10 +46,10 @@ const LoginPage=({startLogin}) => {
   return (
       <div className="box-layout">
     <div className="box-layout__box">
-      <h1 className="box-layout__title">Your Uri/Url Links</h1>
-      <p>It's time to get your internet index under control.</p>
+      <h1 className="box-layout__title">urilinks.com</h1>
+      <p>An easier way to do internet bookmarks</p>
       <button className="button" onClick={startLogin}>
-        Login with Google
+        Please login with google
       </button>
     </div>
   </div>)

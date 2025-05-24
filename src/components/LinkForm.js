@@ -115,6 +115,12 @@ getFaviconUrl(url) {
           console.log("extractHashTag, note=empty string")
       }
 
+      if(this.state.Url.length > 50) {
+
+      } else {
+        
+      }
+
       fetch('https://ulvis.net/api/v1/shorten', {
   method: 'POST',
   headers: {

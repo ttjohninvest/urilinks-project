@@ -61,5 +61,5 @@
     "react-test-renderer": "15.6.1",
     "webpack-dev-server": "2.5.1"
   },
-  "proxy": "http://urilinks.com"
+  "proxy": "https://urilinks.com"
 }

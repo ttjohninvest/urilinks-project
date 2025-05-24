@@ -81,30 +81,7 @@ getFaviconUrl(url) {
   return new URL('/favicon.ico', url).href;
 }
 
-// getFavicon(websiteURL) {
-//   const url = new URL(websiteURL);
-//   const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
-// console.log("faviconURL="+faviconURL)
-//   const img = new Image();
-//   img.src = faviconURL;
-//   img.onload = () => {
-//     // Favicon loaded successfully, do something with the image
-//     document.body.appendChild(img); // Example: append to body
-//   };
-//   img.onerror = () => {
-//     // Favicon failed to load (e.g., doesn't exist), handle the error
-//     console.error(`Failed to load favicon from ${faviconURL}`);
-//   };
-// }
 
-// getFavicon(websiteURL) {
-//   const url = new URL(websiteURL);
-//   const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
-//   return faviconURL;
-// }
-
-// Example usage:
-//getFavicon('https://www.example.com');
 
   onSubmit = (e) => {
     
@@ -137,17 +114,47 @@ getFaviconUrl(url) {
       } else {
           console.log("extractHashTag, note=empty string")
       }
-      
-      
+
+      fetch('https://ulvis.net/api/v1/shorten', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    url: this.state.Url,
+  }),
+})
+  .then(response => response.json())
+  .then(data => 
+    {
+      console.log(data)
       this.setState(() => ({ error: "" }));
+
       this.props.onSubmit({
         description: this.state.description,
-        Url: this.state.Url,
+        Url: data.shortUrl,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,
         faviconURL:faviconURL,
       });
+    }).catch(()=>{
+    console.log("Error: the link was not shortened")
+  })
+
+  //  this.setState(() => ({ error: "" }));
+
+  //     this.props.onSubmit({
+  //       description: this.state.description,
+  //       Url: this.state.Url,
+  //       amount: parseFloat(this.state.amount, 10) * 100,
+  //       createdAt: this.state.createdAt.valueOf(),
+  //       note: this.state.note,
+  //       faviconURL:faviconURL,
+  //     });
+      
+      
+     
     }
   };
   render() {

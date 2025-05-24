@@ -180,69 +180,78 @@ on 5/23/25, I made a reno.craigslist post with the title: "tool to organize url 
 in community/news
 flagged and removed: reno.craigslist.org/vnn/d/reno-secure-tool-to-organize-url-links/7852457919.html
 flagged and removed: reno.craigslist.org/vnn/d/reno-free-bookmark-url-organizer-by/7852570032.html
-reno.craigslist.org/vnn/d/reno-secure-friendly-new-internet/7852653759.html
+flagged and removed: reno.craigslist.org/vnn/d/reno-secure-friendly-new-internet/7852653759.html
+title: secure friendly new bookmark site with hashtags
+expires in 44 days from 5/23/2015
 I need to add an image
 
-urilinks[dot]com Benefits:
+ad that I put on craigslist,
+expired
+urilinks Benefits:
 
-      Please replace [dot] with . to find the website
       Using the website is free.
+
+      It is a dot com website.
+
       Everyone gets their own personal account.
 
       Your account is secret from other accounts.
-      
+
         AI cannot replace the way you want to organize your internet bookmarks
         with hash tags.
-    
+
         links are uri/url links. uri, uniform resource identifier, is a more
         general term for url, uniform resource locator.
-     
+
         A better way to do bookmarks and have your own webpage with your own
         hashtag organizable links on it.
-   
+
         All of your holy church, entertainment, business or educational links
         are in one place with one click link activation.
-    
+
         The links will activate in place but if you want the link to open in a
         new browser tab, right click on the link and select open in new tab.
-    
+
         You save links to websites that you want to return to. It is similar to
         a rolodex for phone numbers.
-   
+
         For each website link that you save, you have the option of entering a
         note.
-  
+
         To enter a link to save, press "Add Uri/Url Link" button, copy and paste
         in the link text or type it in, copy and paste in the link uri/url from
         the browser or type it inside the uri/url text field in the website,
         type in or copy and paste in an optional note, then click "Save Uri/Url
         Link".
-   
+
         Their are three options to get results: "Date", "Link Text", "Hast Tag
         and Note Text".
-    
+
         Select what kind of search you want from the{" "}
         drop down list: "Date","Link Text",
         "Hash Tag" or "Note Text" from the drop down menu.
-   
+
           "Date" selected: The results will be in descending order, most recent
           added link will be listed first.
-     
+
           "Link Text" selected: the results will display results that have the
           search term in the link's link text in alphabetical order.
-     
+
           "Hash Tag" selected: the results will give links that contain the hash
           tag in the note. You may organize any group of links this way. For
           example, if you have 5 uri/url links that are your favorites, put The
           hash tag #favorite in the note section for each of the 5 in the add
           uri/url form. For the clickable hash tag list to show up, you will
           need at least 2 or more different hash tags.
-        
+
           "Note Text" selected: the results will display results that have the
           search term in the link's note section.
-      
+
         For each of the three types of searches, you may enter a
         date range to narrow the search.
-      
+
         As you enter the Search Link text,
         the results will display, no need to press a search button.
+
+Share it with a librarian
+domain name nothnagle.com

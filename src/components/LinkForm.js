@@ -118,46 +118,46 @@ getFaviconUrl(url) {
       if(this.state.Url.length > 50) {
 
       } else {
-        
+
       }
 
-      fetch('https://ulvis.net/api/v1/shorten', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    url: this.state.Url,
-  }),
-})
-  .then(response => response.json())
-  .then(data => 
-    {
-      console.log(data)
-      this.setState(() => ({ error: "" }));
+//       fetch('https://ulvis.net/api/v1/shorten', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     url: this.state.Url,
+//   }),
+// })
+//   .then(response => response.json())
+//   .then(data => 
+//     {
+//       console.log(data)
+//       this.setState(() => ({ error: "" }));
+
+//       this.props.onSubmit({
+//         description: this.state.description,
+//         Url: data.shortUrl,
+//         amount: parseFloat(this.state.amount, 10) * 100,
+//         createdAt: this.state.createdAt.valueOf(),
+//         note: this.state.note,
+//         faviconURL:faviconURL,
+//       });
+//     }).catch(()=>{
+//     console.log("Error: the link was not shortened")
+//   })
+
+   this.setState(() => ({ error: "" }));
 
       this.props.onSubmit({
         description: this.state.description,
-        Url: data.shortUrl,
+        Url: this.state.Url,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,
         faviconURL:faviconURL,
       });
-    }).catch(()=>{
-    console.log("Error: the link was not shortened")
-  })
-
-  //  this.setState(() => ({ error: "" }));
-
-  //     this.props.onSubmit({
-  //       description: this.state.description,
-  //       Url: this.state.Url,
-  //       amount: parseFloat(this.state.amount, 10) * 100,
-  //       createdAt: this.state.createdAt.valueOf(),
-  //       note: this.state.note,
-  //       faviconURL:faviconURL,
-  //     });
       
       
      

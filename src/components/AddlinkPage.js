@@ -49,7 +49,7 @@ export const AddLinkPage = (props) => {
 
   const onSubmit = (link) => {
     console.log("in onSubmit");
-    if (count < 200) {
+    if (count < 500) {
       const r = props.startAddLink(link);
       if (r === false) {
         setErrorDialog(true);

@@ -124,8 +124,7 @@ getFaviconUrl(url) {
       fetch('https://ulvis.net/api/v1/shorten', {
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin':'*'
+    'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     url: this.state.Url,

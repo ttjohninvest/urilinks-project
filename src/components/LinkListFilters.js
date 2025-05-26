@@ -255,7 +255,7 @@ export class LinkListFilters extends React.Component {
 
     if (this.myRef.current) this.myRef.current.focus();
 
-   
+   console.log("VVVVVVVVVVVVVVVVVVVV, this.props.hashtags="+this.props.hashtags)
 
     // let hashtags=[]
 
@@ -386,10 +386,10 @@ export class LinkListFilters extends React.Component {
         
 
         <div>
-          {(((this.state.mappedDataShort && this.state.mappedDataShort.length > 1) 
+          {(((this.props.hashtags && this.props.hashtags.length > 1) 
           || (this.state.mappedDataLong && this.state.mappedDataLong.length > 1)))
           && <ExpandableArray
-            mappedDataShort={this.state.mappedDataShort}
+            mappedDataShort={this.props.hashtags}
             mappedDataLong={this.state.mappedDataLong}
             maxLength={this.SHORT_HASHTAG_LENGTH}
             ref={this.elementRef}

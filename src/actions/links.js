@@ -91,10 +91,7 @@ export const setLinks = (links) => ({
   links,
 });
 
-export const setHashTags = (hashtags) => ({
-  type: "SET_HASHTAGS",
-  hashtags,
-});
+
 
 export const setLinksAll = (links) => ({
   type: "SET_LINKS_ALL",

@@ -1,6 +1,6 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
-import {setHashTags} from "./hashtags"
+import setHashTags from "./hashtags"
 // ADD_LINK
 export const addLink = (link) => ({
   type: "ADD_LINK",

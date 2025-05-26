@@ -10,7 +10,7 @@ export class EditLinkPage extends React.Component {
   };
   onRemove = (value,event) => {
     //remove the links hash tags from the array of hashtags only if each hash tag is only used once
-
+    event.preventDefault()
     //this.props.hashtags
     console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, value="+value)
     this.props.startRemoveLink({ id: this.props.link.id });

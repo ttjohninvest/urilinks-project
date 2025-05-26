@@ -327,11 +327,9 @@ export class LinkListFilters extends React.Component {
   render() {
     return (
       <div className="content-container border-green-">
-        {/* <div className="flexandwrap" ref={this.elementRef}>
-          {this.state.mappedDataLong}
-        </div> */}
+        
 
-        {/* <div>
+        <div>
           {(((this.state.mappedDataShort && this.state.mappedDataShort.length > 1) 
           || (this.state.mappedDataLong && this.state.mappedDataLong.length > 1)))// !! this.state.newAccount)
           ? <ExpandableArray
@@ -341,7 +339,7 @@ export class LinkListFilters extends React.Component {
             ref={this.elementRef}
             morehashtags={this.state.morehashtags}
           />:this.refreshIt()}
-        </div> */}
+        </div>
 
         <div className="input-group some-component">
           <div className="input-group__item">

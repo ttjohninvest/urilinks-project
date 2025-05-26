@@ -135,6 +135,15 @@ export const setLinksAll = (links) => ({
      return newArray
   }
 
+  const seen=(hashtag,theSeenArray) =>{
+    theSeenArray.forEach((h1)=>{
+      if(hashtag===h1) {
+        return true
+      }
+    })
+    return false
+  }
+
 //this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = () => {
   console.log("startSetLinks");
@@ -176,13 +185,29 @@ export const startSetLinks = () => {
           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
         });
         console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
-        let hashtags2rd = removeDuplicates(hashTags2WithCount);
-        console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashtags2rd="+hashtags2rd)
+        
 
         let hashtags2 = removeDuplicates(hashtags);
         hashtags2.sort((a, b) => {
           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
         });
+        
+        let hashtags3withcount=[]
+        let seenArray=[]
+
+        hashtags2.forEach((ht1)=>{
+          hashTags2WithCount.forEach((ht2)=>{
+                 if(!seen(ht1,seenArray) && ht1===ht2.hashtag) {
+                  seenArray.push(ht1)
+                  hashtags3withcount.push(ht2)
+                 }
+          })
+        })
+
+        console.log("ZZZZZZZZZZZZZZZZZZZZZZZ, hashtags3withcount="+JSON.stringify(hashtags3withcount))
+
+
+
         //console.log("actions/links.js, ZZZZZZZZZZZZZZZZZ, hashtags2="+JSON.stringify(hashtags2))
         dispatch(setHashTags(hashtags2));
         dispatch(setHashTags2WithCount(hashTags2WithCount));

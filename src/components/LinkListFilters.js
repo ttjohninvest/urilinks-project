@@ -13,15 +13,15 @@ import {
   sortByNoteText,
 } from "../actions/filters";
 
-function ExpandableArray({
-  mappedDataShort,
-  mappedDataLong,
-  maxLength,
-  ref,
-  morehashtags,
-  setit,
-}) {
-  const [expanded, setExpanded] = useState(morehashtags);
+//  mappedDataShort,
+//   mappedDataLong,
+//   maxLength,
+//   ref,
+//   morehashtags,
+//   setit,
+
+function ExpandableArray(props) {
+  const [expanded, setExpanded] = useState(props.morehashtags);
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
@@ -30,29 +30,29 @@ function ExpandableArray({
   };
 
   console.log("ExpandableArray, expanded="+expanded)
-  console.log("ExpandableArray, mappedDataLong.length="+mappedDataLong.length)
-  console.log("ExpandableArray, mappedDataShort.length="+mappedDataShort.length)
+  console.log("ExpandableArray, mappedDataLong.length="+props.mappedDataLong.length)
+  console.log("ExpandableArray, mappedDataShort.length="+props.mappedDataShort.length)
   let displayedArray
   if(expanded===true)
-    displayedArray = mappedDataLong
-  else displayedArray = mappedDataShort
+    displayedArray = props.mappedDataLong
+  else displayedArray = props.mappedDataShort
 
   return (
     <div>
       <div className="flexrow2c padding-around" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."><span className="is-active ib right-margin-1 margin-right-1">{displayedArray.length}</span>hash tags in alphabetical order where each one is clickable</div>
-      <div ref={ref} className="flexandwrap margin-top-1" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.">
+      <div ref={props.ref} className="flexandwrap margin-top-1" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.">
         
       
        
 {
-   mappedDataShort.map((hashtag, index) => {
+   props.mappedDataShort.map((hashtag, index) => {
         if (index < 50)
           return (
             <div key={index} className="padding-all text-size-5">
               <a
                 className="nounderline text-color-black"
                 href="#"
-                onClick={() => setit(hashtag, event)}
+                onClick={() => props.setit(hashtag, event)}
                 title="click to activate the search with this hashtag."
               >
                 {hashtag}
@@ -99,7 +99,7 @@ export class LinkListFilters extends React.Component {
       hashtags2:[],
       morehashtags: morehashtags === "true" ? true : false,
     };
-
+//this.handleClick = this.handleClick.bind(this);
     this.setit = this.setit.bind(this);
     //this.handleScroll = this.handleScroll.bind(this);
   }

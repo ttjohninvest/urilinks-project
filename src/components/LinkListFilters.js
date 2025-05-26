@@ -1,6 +1,7 @@
 import React, { useState, createRef } from "react";
 
 import { connect } from "react-redux";
+
 import { DateRangePicker } from "react-dates";
 
 import {
@@ -494,6 +495,8 @@ const mapStateToProps = (state) => ({
   //newAccount: state.newAccount,
 });
 
+
+
 const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
   sortByDate: () => dispatch(sortByDate()),
@@ -503,5 +506,6 @@ const mapDispatchToProps = (dispatch) => ({
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

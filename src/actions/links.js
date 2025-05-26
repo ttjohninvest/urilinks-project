@@ -32,10 +32,11 @@ export const startAddLink = (linkData = {}) => {
           })
         );
         return true;
-      }).catch((error)=>{
-        console.log("error adding link data in firebase, error="+error)
-        return false;
       })
+      .catch((error) => {
+        console.log("error adding link data in firebase, error=" + error);
+        return false;
+      });
   };
 };
 
@@ -48,15 +49,16 @@ export const removeLink = ({ id } = {}) => ({
 export const startRemoveLink = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    
+
     return database
       .ref(`users/${uid}/links/${id}`)
       .remove()
       .then(() => {
         dispatch(removeLink({ id }));
-      }).catch((error)=>{
-        console.log("error removing link data in firebase, error="+error)
       })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
   };
 };
 
@@ -70,15 +72,16 @@ export const editLink = (id, updates) => ({
 export const startEditLink = (id, updates) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    
+
     return database
       .ref(`users/${uid}/links/${id}`)
       .update(updates)
       .then(() => {
         dispatch(editLink(id, updates));
-      }).catch((error)=>{
-        console.log("error editing link data in firebase, error="+error)
       })
+      .catch((error) => {
+        console.log("error editing link data in firebase, error=" + error);
+      });
   };
 };
 
@@ -86,6 +89,11 @@ export const startEditLink = (id, updates) => {
 export const setLinks = (links) => ({
   type: "SET_LINKS",
   links,
+});
+
+export const setHashTags = (hashtags) => ({
+  type: "SET_HASHTAGS",
+  hashtags,
 });
 
 export const setLinksAll = (links) => ({
@@ -119,7 +127,21 @@ export const startSetLinks = () => {
         });
         console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links));
-        
+
+        let hashtags = [];
+
+        //if(this.props.links.length>0) {
+        links.forEach((link) => {
+          //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
+          let x1 = this.extractHashtags(link.note);
+          hashtags.push(...x1);
+        });
+
+        // let hashtags2 = this.removeDuplicates(hashtags);
+        // hashtags2.sort((a, b) => {
+        //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+        // });
+        dispatch(setHashTags(hashtags));
       })
       .catch((error) => console.log("error=" + error));
   };

@@ -42,9 +42,9 @@ function ExpandableArray({
       <div ref={ref} className="flexandwrap margin-top-1" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.">
         
       
-       {
        
-       mappedDataShort.map((hashtag, index) => {
+{
+   this.props.hashtags.map((hashtag, index) => {
         if (index < 50)
           return (
             <div key={index} className="padding-all text-size-5">
@@ -59,7 +59,9 @@ function ExpandableArray({
             </div>
           );
         else return false;
-      })}
+      })
+}       
+   
     
         
         
@@ -214,9 +216,6 @@ export class LinkListFilters extends React.Component {
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
-    
-
-
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");
@@ -258,20 +257,20 @@ export class LinkListFilters extends React.Component {
 
    
 
-    let hashtags=[]
+    // let hashtags=[]
 
-    //if(this.props.links.length>0) {
-    this.props.links.forEach((link) => {
-      //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
-      let x1 = this.extractHashtags(link.note);
-      hashtags.push(...x1);
-    });
+    // //if(this.props.links.length>0) {
+    // this.props.links.forEach((link) => {
+    //   //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
+    //   let x1 = this.extractHashtags(link.note);
+    //   hashtags.push(...x1);
+    // });
     
   
-    // let hashtags2 = this.removeDuplicates(hashtags);
-    // hashtags2.sort((a, b) => {
-    //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-    // });
+    // // let hashtags2 = this.removeDuplicates(hashtags);
+    // // hashtags2.sort((a, b) => {
+    // //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+    // // });
    
     // let htshort=[]
     //   htshort = hashtags.map((hashtag, index) => {
@@ -315,7 +314,7 @@ export class LinkListFilters extends React.Component {
     // })
 
      this.setState({
-      mappedDataShort:hashtags,
+      //mappedDataShort:hashtags,
       // mappedDataLong,
       morehashtags: morehashtags === "true" ? true : false,
     });
@@ -472,6 +471,7 @@ export class LinkListFilters extends React.Component {
 const mapStateToProps = (state) => ({
   filters: state.filters,
   links: state.links,
+  hashtags:state.hashtags,
   //newAccount: state.newAccount,
 });
 

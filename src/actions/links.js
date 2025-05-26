@@ -148,6 +148,7 @@ export const startSetLinks = () => {
         // hashtags2.sort((a, b) => {
         //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
         // });
+        console.log("actions/links.js, ZZZZZZZZZZZZZZZZZ, hashtags="+JSON.stringify(hashtags))
         dispatch(setHashTags(hashtags));
       })
       .catch((error) => console.log("error=" + error));

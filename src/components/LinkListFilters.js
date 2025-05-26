@@ -325,6 +325,7 @@ export class LinkListFilters extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.content !== this.props.content) {
       this.updateHeight();
+      this.refreshIt()
     }
   }
 

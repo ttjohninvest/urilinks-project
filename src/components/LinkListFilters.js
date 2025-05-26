@@ -57,59 +57,15 @@ export class LinkListFilters extends React.Component {
     this.elementRef = React.createRef();
     this.myRef = React.createRef();
 
-    let hashtags = [];
-    this.props.links.forEach((link) => {
-      //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
-      let x1 = this.extractHashtags(link.note);
-      hashtags.push(...x1);
-    });
-    let hashtags2 = this.removeDuplicates(hashtags);
-    hashtags2.sort((a, b) => {
-      return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-    });
-
-    const mappedDataShort = hashtags2.map((hashtag, index) => {
-      if (index < this.SHORT_HASHTAG_LENGTH)
-        return (
-          <div key={index} className="padding-all text-size-5">
-            <a
-              className="nounderline text-color-black"
-              href="#"
-              onClick={() => this.setit(hashtag, event)}
-              title="click to activate the search with this hashtag."
-            >
-              {hashtag}
-            </a>
-          </div>
-        );
-      else return false;
-    });
-
-    const mappedDataLong = hashtags2.map((hashtag, index) => {
-      if (index < 200)
-        return (
-          <div key={index} className="padding-all text-size-5">
-            <a
-              className="nounderline text-color-black"
-              href="#"
-              onClick={() => this.setit(hashtag, event)}
-              title="click to activate the search with this hashtag."
-            >
-              {hashtag}
-            </a>
-          </div>
-        );
-      else return false;
-    });
-    //
+    
     let morehashtags = window.localStorage.getItem("morehashtags");
     console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
       sort: "hashtag",
       items: [],
       calendarFocused: null,
-      mappedDataShort: mappedDataShort,
-      mappedDataLong: mappedDataLong,
+      mappedDataShort: [],
+      mappedDataLong: [],
       loading: true,
       //scrollTop: 0,
       height: 0,
@@ -271,10 +227,67 @@ export class LinkListFilters extends React.Component {
     console.log("1 OOOOOOOOOOOOOOOOOOOOO height=" + this.state.height);
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
-    this.setState({ morehashtags: morehashtags === "true" ? true : false });
-    const thePos = parseInt(window.localStorage.getItem("scrollY"))
-    window.scrollTo(0,thePos)
+
+    let hashtags=[]
+
+    //if(this.props.links.length>0) {
+    this.props.links.forEach((link) => {
+      //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
+      let x1 = this.extractHashtags(link.note);
+      hashtags.push(...x1);
+    });
+
+    let hashtags2 = this.removeDuplicates(hashtags);
+    hashtags2.sort((a, b) => {
+      return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+    });
+    let hashtags3=hashtags2
+
+      const mappedDataShort = hashtags2.map((hashtag, index) => {
+        if (index < this.SHORT_HASHTAG_LENGTH)
+          return (
+            <div key={index} className="padding-all text-size-5">
+              <a
+                className="nounderline text-color-black"
+                href="#"
+                onClick={() => this.setit(hashtag, event)}
+                title="click to activate the search with this hashtag."
+              >
+                {hashtag}
+              </a>
+            </div>
+          );
+        else return false;
+      });
+    
+    
+      const mappedDataLong = hashtags3.map((hashtag, index) => {
+        if (index < 200)
+          return (
+            <div key={index} className="padding-all text-size-5">
+              <a
+                className="nounderline text-color-black"
+                href="#"
+                onClick={() => this.setit(hashtag, event)}
+                title="click to activate the search with this hashtag."
+              >
+                {hashtag}
+              </a>
+            </div>
+          );
+        else return false;
+      });
+    
+
+    this.setState(()=>{return{
+      mappedDataShort,
+      mappedDataLong,
+      morehashtags: morehashtags === "true" ? true : false,
+    }});
+    const thePos = parseInt(window.localStorage.getItem("scrollY"));
+    window.scrollTo(0, thePos);
   }
+
 
   componentDidUpdate(prevProps) {
     if (prevProps.content !== this.props.content) {
@@ -319,7 +332,7 @@ export class LinkListFilters extends React.Component {
         </div> */}
 
         <div>
-          {(((this.state.mappedDataShort && this.state.mappedDataShort.length > 1) 
+          {/* {(((this.state.mappedDataShort && this.state.mappedDataShort.length > 1) 
           || (this.state.mappedDataLong && this.state.mappedDataLong.length > 1)))// !! this.state.newAccount)
           ? <ExpandableArray
             mappedDataShort={this.state.mappedDataShort}
@@ -328,7 +341,7 @@ export class LinkListFilters extends React.Component {
             ref={this.elementRef}
             morehashtags={this.state.morehashtags}
           />:this.refreshIt()}
-        </div>
+        </div> */}
 
         <div className="input-group some-component">
           <div className="input-group__item">

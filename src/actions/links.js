@@ -153,7 +153,7 @@ export const startSetLinks = () => {
           console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
 
-        let hashtags2 = this.removeDuplicates(hashtags);
+        let hashtags2 = removeDuplicates(hashtags);
         hashtags2.sort((a, b) => {
           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
         });

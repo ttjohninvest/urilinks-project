@@ -191,6 +191,50 @@ export class LinkListFilters extends React.Component {
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
+    
+
+
+    const searchLinks1 = window.localStorage.getItem("searchLinks1");
+    const searchLinks2 = window.localStorage.getItem("searchLinks2");
+    const searchLinks3 = window.localStorage.getItem("searchLinks3");
+    const searchLinks4 = window.localStorage.getItem("searchLinks4");
+
+    console.log("componentDidMount, searchLinks1=" + searchLinks1);
+    console.log("componentDidMount, searchLinks2=" + searchLinks2);
+    console.log("componentDidMount, searchLinks3=" + searchLinks3);
+    console.log("componentDidMount, searchLinks4=" + searchLinks4);
+
+    const sort = window.localStorage.getItem("sort");
+    console.log("componentDidMount, sort=" + sort);
+    if (sort === "date") {
+      this.props.sortByDate();
+    } else if (sort === "description") {
+      this.props.sortByDescription();
+    } else if (sort === "hashtag") {
+      this.props.sortByHashTag();
+    } else if (sort === "notetext") {
+      this.props.sortByNoteText();
+    }
+
+    if (sort === "date") {
+      this.props.setTextFilter(searchLinks1);
+      this.setState({ sort: "date" });
+    } else if (sort === "description") {
+      this.props.setTextFilter(searchLinks2);
+      this.setState({ sort: "description" });
+    } else if (sort === "notetext") {
+      this.props.setTextFilter(searchLinks4);
+      this.setState({ sort: "notetext" });
+    } else if (sort === "hashtag") {
+      this.setState({ sort: "hashtag" });
+      if (searchLinks3 === "") this.props.setTextFilter("#");
+      else this.props.setTextFilter(searchLinks3);
+    }
+
+    if (this.myRef.current) this.myRef.current.focus();
+
+   
+
     let hashtags=[]
 
     //if(this.props.links.length>0) {
@@ -252,50 +296,6 @@ export class LinkListFilters extends React.Component {
       // mappedDataLong,
       morehashtags: morehashtags === "true" ? true : false,
     });
-
-
-    const searchLinks1 = window.localStorage.getItem("searchLinks1");
-    const searchLinks2 = window.localStorage.getItem("searchLinks2");
-    const searchLinks3 = window.localStorage.getItem("searchLinks3");
-    const searchLinks4 = window.localStorage.getItem("searchLinks4");
-
-    console.log("componentDidMount, searchLinks1=" + searchLinks1);
-    console.log("componentDidMount, searchLinks2=" + searchLinks2);
-    console.log("componentDidMount, searchLinks3=" + searchLinks3);
-    console.log("componentDidMount, searchLinks4=" + searchLinks4);
-
-    const sort = window.localStorage.getItem("sort");
-    console.log("componentDidMount, sort=" + sort);
-    if (sort === "date") {
-      this.props.sortByDate();
-    } else if (sort === "description") {
-      this.props.sortByDescription();
-    } else if (sort === "hashtag") {
-      this.props.sortByHashTag();
-    } else if (sort === "notetext") {
-      this.props.sortByNoteText();
-    }
-
-    if (sort === "date") {
-      this.props.setTextFilter(searchLinks1);
-      this.setState({ sort: "date" });
-    } else if (sort === "description") {
-      this.props.setTextFilter(searchLinks2);
-      this.setState({ sort: "description" });
-    } else if (sort === "notetext") {
-      this.props.setTextFilter(searchLinks4);
-      this.setState({ sort: "notetext" });
-    } else if (sort === "hashtag") {
-      this.setState({ sort: "hashtag" });
-      if (searchLinks3 === "") this.props.setTextFilter("#");
-      else this.props.setTextFilter(searchLinks3);
-    }
-
-    if (this.myRef.current) this.myRef.current.focus();
-
-   
-
-    
     
 
     // this.setState(()=>{return{

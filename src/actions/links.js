@@ -131,7 +131,7 @@ export const startSetLinks = () => {
       .then((snapshot) => {
         const links = [];
 
-        console.log("snapshot=" + JSON.stringify(snapshot));
+        //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
          
           links.push({
@@ -139,7 +139,7 @@ export const startSetLinks = () => {
             ...childSnapshot.val(),
           });
         });
-        console.log("startSetLinks, about to call dispatch(setLinks(links));");
+        //console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links));
 
         let hashtags = [];
@@ -148,16 +148,16 @@ export const startSetLinks = () => {
         links.forEach((link) => {
           //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
           let x1 = extractHashtags(link.note);
-          console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, x1="+JSON.stringify(x1))
+          //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, x1="+JSON.stringify(x1))
           hashtags.push(...x1);
-          console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
+          //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
 
         let hashtags2 = removeDuplicates(hashtags);
         hashtags2.sort((a, b) => {
           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
         });
-        console.log("actions/links.js, ZZZZZZZZZZZZZZZZZ, hashtags2="+JSON.stringify(hashtags2))
+        //console.log("actions/links.js, ZZZZZZZZZZZZZZZZZ, hashtags2="+JSON.stringify(hashtags2))
         dispatch(setHashTags(hashtags2));
       })
       .catch((error) => console.log("error=" + error));

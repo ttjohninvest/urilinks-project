@@ -279,11 +279,17 @@ export class LinkListFilters extends React.Component {
       });
     
 
-    this.setState(()=>{return{
+    // this.setState(()=>{return{
+    //   mappedDataShort,
+    //   mappedDataLong,
+    //   morehashtags: morehashtags === "true" ? true : false,
+    // }});
+
+     this.setState({
       mappedDataShort,
       mappedDataLong,
       morehashtags: morehashtags === "true" ? true : false,
-    }});
+    });
     const thePos = parseInt(window.localStorage.getItem("scrollY"));
     window.scrollTo(0, thePos);
   }

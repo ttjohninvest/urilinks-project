@@ -143,6 +143,7 @@ export const startSetLinks = () => {
           let x1 = extractHashtags(link.note);
           console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, x1="+JSON.stringify(x1))
           hashtags.push(...x1);
+          console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
 
         // let hashtags2 = this.removeDuplicates(hashtags);

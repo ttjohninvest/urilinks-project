@@ -5,7 +5,8 @@ const hashtagsReducerDefaultState = [];
 export default (state = hashtagsReducerDefaultState, action) => {
   switch (action.type) {
     case "SET_HASHTAGS":
-      return [...state, ...action.hashtags];
+      //return [...state, ...action.hashtags];
+      return action.hashtags;
     default:
       return state;
   }

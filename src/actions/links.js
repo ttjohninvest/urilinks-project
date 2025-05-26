@@ -197,7 +197,7 @@ export const startSetLinks = () => {
 
         hashtags2.forEach((ht1)=>{
           hashTags2WithCount.forEach((ht2)=>{
-                 if(!seen(ht1,seenArray) && ht1===ht2.hashtag) {
+                 if(!seen(ht1,seenArray) && (ht1===ht2.hashtag)) {
                   seenArray.push(ht1)
                   hashtags3withcount.push(ht2)
                  }

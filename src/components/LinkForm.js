@@ -128,9 +128,10 @@ export default class LinkForm extends React.Component {
       if (this.state.Url.trim().substring(0, 7) !== 'http://')
         str = 'http://' + this.state.Url.trim();
 
-      if (this.state.Url.trim().substring(0, 8) !== 'https://')
+      else if (this.state.Url.trim().substring(0, 8) !== 'https://')
         str = 'https://' + this.state.Url.trim();
-
+      else str = 'https://' + this.state.Url.trim();
+      
       this.setState(() => ({ error: "" }));
 
       this.props.onSubmit({

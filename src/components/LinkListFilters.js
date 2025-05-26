@@ -294,7 +294,7 @@ export class LinkListFilters extends React.Component {
     window.scrollTo(0, thePos);
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     this.setState({
       mappedDataShort:[],
       mappedDataLong:[],

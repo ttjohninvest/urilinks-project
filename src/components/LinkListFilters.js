@@ -19,6 +19,7 @@ function ExpandableArray({
   maxLength,
   ref,
   morehashtags,
+  setit,
 }) {
   const [expanded, setExpanded] = useState(morehashtags);
 
@@ -51,7 +52,7 @@ function ExpandableArray({
               <a
                 className="nounderline text-color-black"
                 href="#"
-                onClick={() => this.setit(hashtag, event)}
+                onClick={() => setit(hashtag, event)}
                 title="click to activate the search with this hashtag."
               >
                 {hashtag}
@@ -395,6 +396,7 @@ export class LinkListFilters extends React.Component {
             maxLength={this.SHORT_HASHTAG_LENGTH}
             ref={this.elementRef}
             morehashtags={this.state.morehashtags}
+            setit={this.setit}
           />} {/*:this.refreshIt()}*/}
         </div>
 

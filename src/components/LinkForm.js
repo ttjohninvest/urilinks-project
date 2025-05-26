@@ -82,8 +82,7 @@ export default class LinkForm extends React.Component {
   }
 
   onSubmit = (e) => {
-    // const hts = extractHashtags(this.state.note)
-    // console.log("onSubmit, extractHashTags, hashTags="+JSON.stringify(hts))
+   
     e.preventDefault();
     console.log("onSubmit");
     const faviconURL = this.extractDomain(this.state.Url) + "/favicon.ico";
@@ -125,38 +124,18 @@ export default class LinkForm extends React.Component {
       } else {
       }
 
-      //       fetch('https://ulvis.net/api/v1/shorten', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify({
-      //     url: this.state.Url,
-      //   }),
-      // })
-      //   .then(response => response.json())
-      //   .then(data =>
-      //     {
-      //       console.log(data)
-      //       this.setState(() => ({ error: "" }));
+      let str=''
+      if (this.state.Url.trim().substring(0, 7) !== 'http://')
+        str = 'http://' + this.state.Url.trim();
 
-      //       this.props.onSubmit({
-      //         description: this.state.description,
-      //         Url: data.shortUrl,
-      //         amount: parseFloat(this.state.amount, 10) * 100,
-      //         createdAt: this.state.createdAt.valueOf(),
-      //         note: this.state.note,
-      //         faviconURL:faviconURL,
-      //       });
-      //     }).catch(()=>{
-      //     console.log("Error: the link was not shortened")
-      //   })
+      if (this.state.Url.trim().substring(0, 8) !== 'https://')
+        str = 'https://' + this.state.Url.trim();
 
       this.setState(() => ({ error: "" }));
 
       this.props.onSubmit({
         description: this.state.description,
-        Url: this.state.Url,
+        Url: str,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,

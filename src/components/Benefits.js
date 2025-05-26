@@ -77,8 +77,7 @@ const Benefits = () => (
           tag in the note. You may organize any group of links this way. For
           example, if you have 5 uri/url links that are your favorites, put The
           hash tag #favorite in the note section for each of the 5 in the add
-          uri/url form. For the clickable hash tag list to show up, you will
-          need at least 2 or more different hash tags.
+          uri/url form.
         </li>
 
         <li>

@@ -294,6 +294,14 @@ export class LinkListFilters extends React.Component {
     window.scrollTo(0, thePos);
   }
 
+  componentDidUnmount() {
+    this.setState({
+      mappedDataShort:[],
+      mappedDataLong:[],
+      morehashtags: false,
+    });
+  }
+
 
   componentDidUpdate(prevProps) {
     if (prevProps.content !== this.props.content) {

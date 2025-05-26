@@ -69,6 +69,8 @@ export class LinkListFilters extends React.Component {
       loading: true,
       //scrollTop: 0,
       height: 0,
+      hashtags:[],
+      hashtags2:[],
       morehashtags: morehashtags === "true" ? true : false,
     };
 
@@ -186,6 +188,10 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
 
+     console.log("1 OOOOOOOOOOOOOOOOOOOOO height=" + this.state.height);
+    this.props.setTheHashTagDivHeight(this.state.height);
+    const morehashtags = window.localStorage.getItem("morehashtags");
+
 let hashtags=[]
 
     //if(this.props.links.length>0) {
@@ -194,14 +200,17 @@ let hashtags=[]
       let x1 = this.extractHashtags(link.note);
       hashtags.push(...x1);
     });
-
+    
+    this.setState({
+      hashtags
+    })
     // let hashtags2 = this.removeDuplicates(hashtags);
     // hashtags2.sort((a, b) => {
     //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
     // });
    
-
-      const mappedDataShort = hashtags.map((hashtag, index) => {
+let htshort=[]
+      htshort = this.state.hashtags.map((hashtag, index) => {
         if (index < this.SHORT_HASHTAG_LENGTH)
           return (
             <div key={index} className="padding-all text-size-5">
@@ -217,10 +226,14 @@ let hashtags=[]
           );
         else return false;
       });
+
+       this.setState({
+      mappedDataShort:htshort
+    })
     
-      const mappedDataLong = []
+      //let htlong = []
       
-      // const mappedDataLong = hashtags2.map((hashtag, index) => {
+      // htlong = hashtags2.map((hashtag, index) => {
       //   if (index < 200)
       //     return (
       //       <div key={index} className="padding-all text-size-5">
@@ -236,6 +249,16 @@ let hashtags=[]
       //     );
       //   else return false;
       // });
+
+    //   this.setState({
+    //   mappedDataLong:htlong
+    // })
+
+     this.setState({
+      // mappedDataShort,
+      // mappedDataLong,
+      morehashtags: morehashtags === "true" ? true : false,
+    });
 
 
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
@@ -277,9 +300,7 @@ let hashtags=[]
 
     if (this.myRef.current) this.myRef.current.focus();
 
-    console.log("1 OOOOOOOOOOOOOOOOOOOOO height=" + this.state.height);
-    this.props.setTheHashTagDivHeight(this.state.height);
-    const morehashtags = window.localStorage.getItem("morehashtags");
+   
 
     
     
@@ -290,11 +311,11 @@ let hashtags=[]
     //   morehashtags: morehashtags === "true" ? true : false,
     // }});
 
-     this.setState({
-      mappedDataShort,
-      mappedDataLong,
-      morehashtags: morehashtags === "true" ? true : false,
-    });
+    //  this.setState({
+    //   // mappedDataShort,
+    //   // mappedDataLong,
+    //   morehashtags: morehashtags === "true" ? true : false,
+    // });
     const thePos = parseInt(window.localStorage.getItem("scrollY"));
     window.scrollTo(0, thePos);
   }

@@ -44,7 +44,7 @@ function ExpandableArray({
       
        
 {
-   this.props.hashtags.map((hashtag, index) => {
+   mappedDataShort.map((hashtag, index) => {
         if (index < 50)
           return (
             <div key={index} className="padding-all text-size-5">

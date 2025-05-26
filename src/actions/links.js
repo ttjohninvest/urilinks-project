@@ -211,7 +211,8 @@ export const startSetLinks = () => {
 
 
         //console.log("actions/links.js, ZZZZZZZZZZZZZZZZZ, hashtags2="+JSON.stringify(hashtags2))
-        dispatch(setHashTags(hashtags2));
+        //dispatch(setHashTags(hashtags2));
+        dispatch(setHashTags(hashtags3withcount));
         dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));

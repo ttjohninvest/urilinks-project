@@ -5,10 +5,10 @@ import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
 import logo from "../assets/images/logo9.png"
 
-const preStartLogout=()=>{
-  setLinks([])
-  startLogout()
-}
+// const preStartLogout=()=>{
+//   setLinks([])
+//   startLogout()
+// }
 
 export const Header = ({ startLogout }) => (
   <header className="header">
@@ -28,7 +28,7 @@ export const Header = ({ startLogout }) => (
         <Link className="header__title" to="/settings">
           {/* <span>Settings</span> */}
         </Link>
-        <button className="button button--link ib" onClick={preStartLogout}>
+        <button className="button button--link ib" onClick={startLogout}>
           Logout
         </button>
       </div>

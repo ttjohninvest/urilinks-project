@@ -337,14 +337,14 @@ export class LinkListFilters extends React.Component {
 
         <div>
           {(((this.state.mappedDataShort && this.state.mappedDataShort.length > 1) 
-          || (this.state.mappedDataLong && this.state.mappedDataLong.length > 1)))// !! this.state.newAccount)
-          ? <ExpandableArray
+          || (this.state.mappedDataLong && this.state.mappedDataLong.length > 1)))
+          && <ExpandableArray
             mappedDataShort={this.state.mappedDataShort}
             mappedDataLong={this.state.mappedDataLong}
             maxLength={this.SHORT_HASHTAG_LENGTH}
             ref={this.elementRef}
             morehashtags={this.state.morehashtags}
-          />:this.refreshIt()}
+          />} {/*:this.refreshIt()}*/}
         </div>
 
         <div className="input-group some-component">

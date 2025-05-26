@@ -210,7 +210,7 @@ let hashtags=[]
     // });
    
 let htshort=[]
-      htshort = this.state.hashtags.map((hashtag, index) => {
+      htshort = hashtags.map((hashtag, index) => {
         if (index < this.SHORT_HASHTAG_LENGTH)
           return (
             <div key={index} className="padding-all text-size-5">

@@ -8,11 +8,12 @@ export class EditLinkPage extends React.Component {
     this.props.startEditLink(this.props.link.id, link);
     this.props.history.push("/");
   };
-  onRemove = (value,event) => {
+  //onRemove = (value,event) => {
+    onRemove = () => {
     //remove the links hash tags from the array of hashtags only if each hash tag is only used once
-    event.preventDefault()
+    //event.preventDefault()
     //this.props.hashtags
-    console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, value="+value)
+    //console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, value="+value)
     this.props.startRemoveLink({ id: this.props.link.id });
     this.props.history.push("/");
     window.location.reload()
@@ -27,10 +28,12 @@ export class EditLinkPage extends React.Component {
         </div>
         <div className="content-container">
           <LinkForm link={this.props.link} onSubmit={this.onSubmit} />
-          
-          <button className="button button--secondary" onClick={()=>this.onRemove(this.props.filters.text, event)}>
+           <button className="button button--secondary" onClick={this.onRemove}>
             Remove Link
           </button>
+          {/* <button className="button button--secondary" onClick={()=>this.onRemove(this.props.filters.text, event)}>
+            Remove Link
+          </button> */}
         </div>
       </div>
     );

@@ -40,7 +40,30 @@ function ExpandableArray({
     <div>
       <div className="flexrow2c padding-around" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."><span className="is-active ib right-margin-1 margin-right-1">{displayedArray.length}</span>hash tags in alphabetical order where each one is clickable</div>
       <div ref={ref} className="flexandwrap margin-top-1" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.">
-        {displayedArray}
+        
+      
+       {
+       
+       mappedDataShort.map((hashtag, index) => {
+        if (index < this.SHORT_HASHTAG_LENGTH)
+          return (
+            <div key={index} className="padding-all text-size-5">
+              {/* <a
+                className="nounderline text-color-black"
+                href="#"
+                onClick={() => this.setit(hashtag, event)}
+                title="click to activate the search with this hashtag."
+              > */}
+                {hashtag}
+              {/* </a> */}
+            </div>
+          );
+        else return false;
+      })}
+    
+        
+        
+        {/* {displayedArray} */}
         {!expanded && <span className="text-size-5">...</span>}
       </div>
       <button className="button-m button--link" onClick={toggleExpanded}>
@@ -250,23 +273,23 @@ export class LinkListFilters extends React.Component {
     //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
     // });
    
-    let htshort=[]
-      htshort = hashtags.map((hashtag, index) => {
-        if (index < this.SHORT_HASHTAG_LENGTH)
-          return (
-            <div key={index} className="padding-all text-size-5">
-              {/* <a
-                className="nounderline text-color-black"
-                href="#"
-                onClick={() => this.setit(hashtag, event)}
-                title="click to activate the search with this hashtag."
-              > */}
-                {hashtag}
-              {/* </a> */}
-            </div>
-          );
-        else return false;
-      });
+    // let htshort=[]
+    //   htshort = hashtags.map((hashtag, index) => {
+    //     if (index < this.SHORT_HASHTAG_LENGTH)
+    //       return (
+    //         <div key={index} className="padding-all text-size-5">
+    //           {/* <a
+    //             className="nounderline text-color-black"
+    //             href="#"
+    //             onClick={() => this.setit(hashtag, event)}
+    //             title="click to activate the search with this hashtag."
+    //           > */}
+    //             {hashtag}
+    //           {/* </a> */}
+    //         </div>
+    //       );
+    //     else return false;
+    //   });
     
       //let htlong = []
       

@@ -176,7 +176,9 @@ export const startSetLinks = () => {
           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
         });
         console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
-        
+        let hashtags2rd = removeDuplicates(hashTags2WithCount);
+        console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashtags2rd="+JSON.stringify(hashtags2rd))
+
         let hashtags2 = removeDuplicates(hashtags);
         hashtags2.sort((a, b) => {
           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;

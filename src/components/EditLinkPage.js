@@ -9,6 +9,9 @@ export class EditLinkPage extends React.Component {
     this.props.history.push("/");
   };
   onRemove = () => {
+    //remove the links hash tags from the array of hashtags only if each hash tag is only used once
+
+    //this.props.hashtags
     this.props.startRemoveLink({ id: this.props.link.id });
     this.props.history.push("/");
     window.location.reload()
@@ -34,6 +37,7 @@ export class EditLinkPage extends React.Component {
 
 const mapStateToProps = (state, props) => ({
   link: state.links.find((link) => link.id === props.match.params.id),
+  hashtags:state.hashtags,
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

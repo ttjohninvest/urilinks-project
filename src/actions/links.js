@@ -118,6 +118,22 @@ export const setLinksAll = (links) => ({
     return [...new Set(lcStringArray)];
   };
 
+  const countTimesEachHashTagIsUsed = (hashtags) => {
+     const length = hashtags.length
+     let newArray = []
+
+     hashtags.forEach((hashtag)=>{
+      let count=0
+       hashtags.forEach((hashtag2)=>{
+         if(hashtag===hashtag2) {
+          count = count + 1
+         }
+       })
+       newArray.push({hashtag:hashtag,count:count})
+     })
+     return newArray
+  }
+
 //this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = () => {
   console.log("startSetLinks");
@@ -153,6 +169,9 @@ export const startSetLinks = () => {
           //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
 
+        //at this point hashtags contains the number of times each hashtag is being used
+        let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
+        console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         let hashtags2 = removeDuplicates(hashtags);
         hashtags2.sort((a, b) => {
           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;

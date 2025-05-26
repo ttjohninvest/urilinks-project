@@ -295,11 +295,11 @@ export class LinkListFilters extends React.Component {
   }
 
   componentWillUnmount() {
-    this.setState({
-      mappedDataShort:[],
-      mappedDataLong:[],
-      morehashtags: false,
-    });
+    // this.setState({
+    //   mappedDataShort:[],
+    //   mappedDataLong:[],
+    //   morehashtags: false,
+    // });
   }
 
 

@@ -31,7 +31,7 @@ function ExpandableArray(props) {
 
   console.log("ExpandableArray, expanded="+expanded)
   //console.log("ExpandableArray, mappedDataLong.length="+props.mappedDataLong.length)
-  console.log("props.mappedDataShort="+JSON.stringify(props.mappedDataShort))
+  console.log("props.mappedDataShort="+props.mappedDataShort)
   console.log("EEEEEEEEEEEEEEEEEEEE, ExpandableArray, mappedDataShort.length="+props.mappedDataShort.length)
   let displayedArray
   if(expanded===true)

@@ -1,6 +1,7 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags"
+import setHashTags2WithCount from "./hashtags2withcount"
 // ADD_LINK
 export const addLink = (link) => ({
   type: "ADD_LINK",
@@ -168,16 +169,21 @@ export const startSetLinks = () => {
           hashtags.push(...x1);
           //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
-
+       
         //at this point hashtags contains the number of times each hashtag is being used
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
-        console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+         hashTags2WithCount.sort((a, b) => {
+          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+        });
+        console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        
         let hashtags2 = removeDuplicates(hashtags);
         hashtags2.sort((a, b) => {
           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
         });
         //console.log("actions/links.js, ZZZZZZZZZZZZZZZZZ, hashtags2="+JSON.stringify(hashtags2))
         dispatch(setHashTags(hashtags2));
+        dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));
   };

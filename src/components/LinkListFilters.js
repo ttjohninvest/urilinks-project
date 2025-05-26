@@ -191,7 +191,7 @@ export class LinkListFilters extends React.Component {
       this.props.sortByNoteText();
     }
   };
-
+//
   extractHashtags = (text) => {
     console.log("extractHashTags, text=" + text);
     const regex = /#([a-zA-Z0-9_]+)/g;

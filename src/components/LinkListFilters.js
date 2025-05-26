@@ -45,7 +45,7 @@ function ExpandableArray(props) {
       
        
 {
-   props.mappedDataShort.map((hashtag, index) => {
+   !expanded?props.mappedDataShort.map((hashtag, index) => {
         if (index < 50)
           return (
             <div key={index} className="padding-all text-size-5">
@@ -60,7 +60,22 @@ function ExpandableArray(props) {
             </div>
           );
         else return false;
-      })
+      }):props.mappedDataShort.map((hashtag, index) => {
+        
+          return (
+            <div key={index} className="padding-all text-size-5">
+              <a
+                className="nounderline text-color-black"
+                href="#"
+                onClick={() => props.setit(hashtag, event)}
+                title="click to activate the search with this hashtag."
+              >
+                {hashtag}
+              </a>
+            </div>
+          );
+        
+})
 }       
    
     

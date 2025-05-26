@@ -11,6 +11,7 @@ export class EditLinkPage extends React.Component {
   onRemove = () => {
     this.props.startRemoveLink({ id: this.props.link.id });
     this.props.history.push("/");
+    window.location.reload()
   };
   render() {
     return (

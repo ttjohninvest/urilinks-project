@@ -247,36 +247,37 @@ export class LinkListFilters extends React.Component {
         if (index < this.SHORT_HASHTAG_LENGTH)
           return (
             <div key={index} className="padding-all text-size-5">
-              <a
+              {/* <a
                 className="nounderline text-color-black"
                 href="#"
                 onClick={() => this.setit(hashtag, event)}
                 title="click to activate the search with this hashtag."
-              >
+              > */}
                 {hashtag}
-              </a>
+              {/* </a> */}
             </div>
           );
         else return false;
       });
     
-    
-      const mappedDataLong = hashtags3.map((hashtag, index) => {
-        if (index < 200)
-          return (
-            <div key={index} className="padding-all text-size-5">
-              <a
-                className="nounderline text-color-black"
-                href="#"
-                onClick={() => this.setit(hashtag, event)}
-                title="click to activate the search with this hashtag."
-              >
-                {hashtag}
-              </a>
-            </div>
-          );
-        else return false;
-      });
+      const mappedDataLong = []
+      
+      // const mappedDataLong = hashtags3.map((hashtag, index) => {
+      //   if (index < 200)
+      //     return (
+      //       <div key={index} className="padding-all text-size-5">
+      //         <a
+      //           className="nounderline text-color-black"
+      //           href="#"
+      //           onClick={() => this.setit(hashtag, event)}
+      //           title="click to activate the search with this hashtag."
+      //         >
+      //           {hashtag}
+      //         </a>
+      //       </div>
+      //     );
+      //   else return false;
+      // });
     
 
     // this.setState(()=>{return{
@@ -295,11 +296,11 @@ export class LinkListFilters extends React.Component {
   }
 
   componentWillUnmount() {
-    this.setState({
-      mappedDataShort:[],
-      mappedDataLong:[],
-      morehashtags: false,
-    });
+    // this.setState({
+    //   mappedDataShort:[],
+    //   mappedDataLong:[],
+    //   morehashtags: false,
+    // });
   }
 
 

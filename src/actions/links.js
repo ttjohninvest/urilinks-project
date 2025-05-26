@@ -136,12 +136,13 @@ export const setLinksAll = (links) => ({
   }
 
   const seen=(hashtag,theSeenArray) =>{
+    let boolvalue=false
     theSeenArray.forEach((h1)=>{
       if(hashtag===h1) {
-        return true
+        boolvalue=true
       }
     })
-    return false
+    return boolvalue
   }
 
 //this puts the links array in the global redux store to be used to list the output

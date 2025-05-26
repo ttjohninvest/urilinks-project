@@ -177,7 +177,7 @@ export const startSetLinks = () => {
         });
         console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         let hashtags2rd = removeDuplicates(hashTags2WithCount);
-        console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashtags2rd="+JSON.stringify(hashtags2rd))
+        console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashtags2rd="+hashtags2rd)
 
         let hashtags2 = removeDuplicates(hashtags);
         hashtags2.sort((a, b) => {

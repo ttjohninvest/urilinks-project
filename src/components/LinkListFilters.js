@@ -45,7 +45,7 @@ function ExpandableArray({
        {
        
        mappedDataShort.map((hashtag, index) => {
-        if (index < this.SHORT_HASHTAG_LENGTH)
+        if (index < 50)
           return (
             <div key={index} className="padding-all text-size-5">
               {/* <a

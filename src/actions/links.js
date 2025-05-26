@@ -141,6 +141,7 @@ export const startSetLinks = () => {
         links.forEach((link) => {
           //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
           let x1 = extractHashtags(link.note);
+          console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, x1="+JSON.stringify(x1))
           hashtags.push(...x1);
         });
 

@@ -20,7 +20,7 @@ const Benefits = () => (
       </li>
       <li>
         A better way to do bookmarks and have your own webpage with your own
-        hashtag organizable links on it.
+        hash tag organizable links on it.
       </li>
       <li>
         All of your holy church, entertainment, business or educational links
@@ -77,7 +77,7 @@ const Benefits = () => (
           tag in the note. You may organize any group of links this way. For
           example, if you have 5 uri/url links that are your favorites, put The
           hash tag #favorite in the note section for each of the 5 in the add
-          uri/url form.
+          uri/url form. You will need two or more hash tags for the hash tags window to appear.
         </li>
 
         <li>

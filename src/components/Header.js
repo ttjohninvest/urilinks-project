@@ -2,7 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
+import { setLinks } from "../actions/links";
 import logo from "../assets/images/logo9.png"
+
+const preStartLogout=()=>{
+  setLinks([])
+  startLogout()
+}
 
 export const Header = ({ startLogout }) => (
   <header className="header">
@@ -22,7 +28,7 @@ export const Header = ({ startLogout }) => (
         <Link className="header__title" to="/settings">
           {/* <span>Settings</span> */}
         </Link>
-        <button className="button button--link ib" onClick={startLogout}>
+        <button className="button button--link ib" onClick={preStartLogout}>
           Logout
         </button>
       </div>
@@ -32,6 +38,7 @@ export const Header = ({ startLogout }) => (
 
 const mapDispatchToProps = (dispatch) => ({
   startLogout: () => {dispatch(startLogout()).then(()=>console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSdispatch then")).catch((error)=>console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error"+error))},
+  setLinks: (links)=>dispatch(setLinks(links))
 });
 
 export default connect(undefined, mapDispatchToProps)(Header);

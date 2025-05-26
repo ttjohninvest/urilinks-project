@@ -188,11 +188,10 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
 
-     console.log("1 OOOOOOOOOOOOOOOOOOOOO height=" + this.state.height);
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
-let hashtags=[]
+    let hashtags=[]
 
     //if(this.props.links.length>0) {
     this.props.links.forEach((link) => {
@@ -201,15 +200,13 @@ let hashtags=[]
       hashtags.push(...x1);
     });
     
-    this.setState({
-      hashtags
-    })
+  
     // let hashtags2 = this.removeDuplicates(hashtags);
     // hashtags2.sort((a, b) => {
     //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
     // });
    
-let htshort=[]
+    let htshort=[]
       htshort = hashtags.map((hashtag, index) => {
         if (index < this.SHORT_HASHTAG_LENGTH)
           return (
@@ -226,10 +223,6 @@ let htshort=[]
           );
         else return false;
       });
-
-       this.setState({
-      mappedDataShort:htshort
-    })
     
       //let htlong = []
       
@@ -255,7 +248,7 @@ let htshort=[]
     // })
 
      this.setState({
-      // mappedDataShort,
+      mappedDataShort:htshort,
       // mappedDataLong,
       morehashtags: morehashtags === "true" ? true : false,
     });

@@ -48,14 +48,14 @@ function ExpandableArray({
         if (index < 50)
           return (
             <div key={index} className="padding-all text-size-5">
-              {/* <a
+              <a
                 className="nounderline text-color-black"
                 href="#"
                 onClick={() => this.setit(hashtag, event)}
                 title="click to activate the search with this hashtag."
-              > */}
+              >
                 {hashtag}
-              {/* </a> */}
+              </a>
             </div>
           );
         else return false;

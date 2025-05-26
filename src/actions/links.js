@@ -111,6 +111,13 @@ export const setLinksAll = (links) => ({
     return hashtags;
   };
 
+  const removeDuplicates = (stringArray) => {
+    const stringifiedArray = stringArray.join(" ");
+    const lcstring = stringifiedArray.toLowerCase();
+    const lcStringArray = lcstring.split(" ");
+    return [...new Set(lcStringArray)];
+  };
+
 //this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = () => {
   console.log("startSetLinks");
@@ -146,12 +153,12 @@ export const startSetLinks = () => {
           console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
 
-        // let hashtags2 = this.removeDuplicates(hashtags);
-        // hashtags2.sort((a, b) => {
-        //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-        // });
-        console.log("actions/links.js, ZZZZZZZZZZZZZZZZZ, hashtags="+JSON.stringify(hashtags))
-        dispatch(setHashTags(hashtags));
+        let hashtags2 = this.removeDuplicates(hashtags);
+        hashtags2.sort((a, b) => {
+          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+        });
+        console.log("actions/links.js, ZZZZZZZZZZZZZZZZZ, hashtags2="+JSON.stringify(hashtags2))
+        dispatch(setHashTags(hashtags2));
       })
       .catch((error) => console.log("error=" + error));
   };

@@ -54,7 +54,11 @@ export const AddLinkPage = (props) => {
       if (r === false) {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
-      } else props.history.push("/");
+      } else {
+        
+        props.history.push("/");
+        window.location.reload()
+      }
     } else {
       console.log("maximum links reached");
       setMaximumPage(true);

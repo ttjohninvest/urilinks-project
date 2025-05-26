@@ -403,7 +403,7 @@ export class LinkListFilters extends React.Component {
         
 
         <div>
-          {(((this.props.hashtags && this.props.hashtags.length > 1) 
+          {(((this.props.hashtags && this.props.hashtags.length > 0) 
           || (this.state.mappedDataLong && this.state.mappedDataLong.length > 1)))
           && <ExpandableArray
             mappedDataShort={this.props.hashtags}
@@ -412,7 +412,7 @@ export class LinkListFilters extends React.Component {
             ref={this.elementRef}
             morehashtags={this.state.morehashtags}
             setit={this.setit}
-          />} {/*:this.refreshIt()}*/}
+          />} 
         </div>
 
         <div className="input-group some-component">

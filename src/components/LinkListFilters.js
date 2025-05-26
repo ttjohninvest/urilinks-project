@@ -331,8 +331,8 @@ export class LinkListFilters extends React.Component {
           {this.state.mappedDataLong}
         </div> */}
 
-        <div>
-          {/* {(((this.state.mappedDataShort && this.state.mappedDataShort.length > 1) 
+        {/* <div>
+          {(((this.state.mappedDataShort && this.state.mappedDataShort.length > 1) 
           || (this.state.mappedDataLong && this.state.mappedDataLong.length > 1)))// !! this.state.newAccount)
           ? <ExpandableArray
             mappedDataShort={this.state.mappedDataShort}

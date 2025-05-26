@@ -185,6 +185,59 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
+
+let hashtags=[]
+
+    //if(this.props.links.length>0) {
+    this.props.links.forEach((link) => {
+      //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
+      let x1 = this.extractHashtags(link.note);
+      hashtags.push(...x1);
+    });
+
+    // let hashtags2 = this.removeDuplicates(hashtags);
+    // hashtags2.sort((a, b) => {
+    //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+    // });
+   
+
+      const mappedDataShort = hashtags.map((hashtag, index) => {
+        if (index < this.SHORT_HASHTAG_LENGTH)
+          return (
+            <div key={index} className="padding-all text-size-5">
+              {/* <a
+                className="nounderline text-color-black"
+                href="#"
+                onClick={() => this.setit(hashtag, event)}
+                title="click to activate the search with this hashtag."
+              > */}
+                {hashtag}
+              {/* </a> */}
+            </div>
+          );
+        else return false;
+      });
+    
+      const mappedDataLong = []
+      
+      // const mappedDataLong = hashtags2.map((hashtag, index) => {
+      //   if (index < 200)
+      //     return (
+      //       <div key={index} className="padding-all text-size-5">
+      //         <a
+      //           className="nounderline text-color-black"
+      //           href="#"
+      //           onClick={() => this.setit(hashtag, event)}
+      //           title="click to activate the search with this hashtag."
+      //         >
+      //           {hashtag}
+      //         </a>
+      //       </div>
+      //     );
+      //   else return false;
+      // });
+
+
     const searchLinks1 = window.localStorage.getItem("searchLinks1");
     const searchLinks2 = window.localStorage.getItem("searchLinks2");
     const searchLinks3 = window.localStorage.getItem("searchLinks3");
@@ -228,56 +281,7 @@ export class LinkListFilters extends React.Component {
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
-    let hashtags=[]
-
-    //if(this.props.links.length>0) {
-    this.props.links.forEach((link) => {
-      //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
-      let x1 = this.extractHashtags(link.note);
-      hashtags.push(...x1);
-    });
-
-    let hashtags2 = this.removeDuplicates(hashtags);
-    hashtags2.sort((a, b) => {
-      return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-    });
-    let hashtags3=hashtags2
-
-      const mappedDataShort = hashtags2.map((hashtag, index) => {
-        if (index < this.SHORT_HASHTAG_LENGTH)
-          return (
-            <div key={index} className="padding-all text-size-5">
-              {/* <a
-                className="nounderline text-color-black"
-                href="#"
-                onClick={() => this.setit(hashtag, event)}
-                title="click to activate the search with this hashtag."
-              > */}
-                {hashtag}
-              {/* </a> */}
-            </div>
-          );
-        else return false;
-      });
     
-      const mappedDataLong = []
-      
-      // const mappedDataLong = hashtags3.map((hashtag, index) => {
-      //   if (index < 200)
-      //     return (
-      //       <div key={index} className="padding-all text-size-5">
-      //         <a
-      //           className="nounderline text-color-black"
-      //           href="#"
-      //           onClick={() => this.setit(hashtag, event)}
-      //           title="click to activate the search with this hashtag."
-      //         >
-      //           {hashtag}
-      //         </a>
-      //       </div>
-      //     );
-      //   else return false;
-      // });
     
 
     // this.setState(()=>{return{

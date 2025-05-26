@@ -44,7 +44,7 @@ function ExpandableArray(props) {
 
       {(props.mappedDataShort.length>0)?<div>
       <div className="flexrow2c padding-around" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."><span className="is-active ib right-margin-1 margin-right-1">{}</span>hash tags in alphabetical order where each one is clickable</div>
-      <div ref={props.ref} className="flexandwrap margin-top-1" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.">
+      <div ref={props.ref} className="flexandwrap margin-top-1 background-white-1" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.">
         
       
        

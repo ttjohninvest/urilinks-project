@@ -292,7 +292,7 @@ export class LinkListFilters extends React.Component {
     // })
 
      this.setState({
-      mappedDataShort:htshort,
+      mappedDataShort:hashtags,
       // mappedDataLong,
       morehashtags: morehashtags === "true" ? true : false,
     });

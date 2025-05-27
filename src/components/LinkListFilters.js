@@ -390,7 +390,7 @@ export class LinkListFilters extends React.Component {
     //value is the user selected hashtag
     this.props.setTextFilter(value);
     window.localStorage.setItem("scrollY",window.scrollY)
-    window.localStorage.setItem("searchLinks3", this.props.filters.text);
+    window.localStorage.setItem("searchLinks3", value);
 
     document.querySelector('#link-summary-id').scrollIntoView({
     behavior: 'smooth',

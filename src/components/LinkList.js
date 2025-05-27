@@ -98,7 +98,7 @@ export const LinkList = (props) => {
         <div className="list-body border-green-">
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
-              <span>0 links (You may add Uri/Url Link(s))</span>
+              <span>0 links found for this search</span>
             </div>
           ) : (
             props.links.map((link) => {
@@ -110,7 +110,7 @@ export const LinkList = (props) => {
         <div className="list-body margin-top-11-">
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
-              <span>0 links (You may add Uri/Url Link(s)</span>
+              <span>0 links found for this search</span>
             </div>
           ) : (
             props.links.map((link) => {

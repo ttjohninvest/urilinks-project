@@ -168,12 +168,21 @@ export class LinkListFilters extends React.Component {
         e.target.value.trim().match(/^[ -~]$/) &&
         e.target.value.trim() === "#"
       ) {
-        this.props.setTextFilter(e.target.value);
+        let v=''
+        if(!!e.target.value===false) v=''
+        else v=e.target.value.trim()
+        this.props.setTextFilter(v);
       } else if (e.target.value.trim().length > 1) {
-        this.props.setTextFilter(e.target.value);
+        let v=''
+        if(!!e.target.value===false) v=''
+        else v=e.target.value.trim()
+        this.props.setTextFilter(v);
       }
     } else {
-      this.props.setTextFilter(e.target.value);
+      let v=''
+        if(!!e.target.value===false) v=''
+        else v=e.target.value.trim()
+      this.props.setTextFilter(v);
     }
 
     // window.localStorage.setItem("searchLinks", e.target.value);

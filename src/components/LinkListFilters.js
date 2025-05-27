@@ -388,6 +388,7 @@ export class LinkListFilters extends React.Component {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
     //value is the user selected hashtag
+    this.props.sortByHashTag();
     this.props.setTextFilter(value);
     window.localStorage.setItem("scrollY",window.scrollY)
     window.localStorage.setItem("searchLinks3", value);

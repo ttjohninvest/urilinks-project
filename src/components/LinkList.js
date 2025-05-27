@@ -107,7 +107,7 @@ export const LinkList = (props) => {
           )}
         </div>
       ) : (
-        <div className="list-body-2 margin-top-11-">
+        <div className="list-body margin-top-11-">
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
               <span>0 links (You may add Uri/Url Link(s)</span>

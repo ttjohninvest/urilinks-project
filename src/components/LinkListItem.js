@@ -8,28 +8,9 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
   const myRef = useRef(null);
 
   const storeScrollPosition = () => {
-    window.localStorage.setItem("scrollY",window.scrollY)
+    // window.localStorage.setItem("scrollPosition",window.scrollY)
+    // window.localStorage.setItem("scrollY",window.scrollY)
   }
-
-  useEffect(() => {
-    const handleClick = (event) => {
-      console.log("Clicked!");
-      //if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
-      window.localStorage.setItem("scrollPosition", window.scrollY);
-    };
-
-    const element = myRef.current;
-
-    if (element) {
-      element.addEventListener("click", handleClick);
-
-      // Cleanup function to remove the event listener
-      return () => {
-        element.removeEventListener("click", handleClick);
-      };
-    }
-  }, []); // Empty dependency array ensures this runs only on mount and unmount
-
  
 
   return (

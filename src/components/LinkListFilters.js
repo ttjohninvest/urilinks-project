@@ -293,8 +293,8 @@ export class LinkListFilters extends React.Component {
     });
     
 
-    const thePos = parseInt(window.localStorage.getItem("scrollPosition"));
-    window.scrollTo(0, thePos);
+    // const thePos = parseInt(window.localStorage.getItem("scrollPosition"));
+    // window.scrollTo(0, thePos);
   }
 
   componentWillUnmount() {
@@ -327,7 +327,8 @@ export class LinkListFilters extends React.Component {
     document.querySelector('#before-before-link-summary-id').scrollIntoView({
     behavior: 'instant',
 })
-window.localStorage.setItem("scrollY",window.scrollY)
+// window.localStorage.setItem("scrollPosition",window.scrollY)
+// window.localStorage.setItem("scrollY",window.scrollY)
   };
 
   // useEffect(() => {

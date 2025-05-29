@@ -13,8 +13,8 @@ const LinkDashboardPage = (props) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      window.localStorage.setItem("scrollPosition",window.scrollY)
-      window.localStorage.setItem("scrollY",window.scrollY)
+      //window.localStorage.setItem("scrollPosition",window.scrollY)
+      //window.localStorage.setItem("scrollY",window.scrollY)
       console.log(window.scrollY)
       //setScrollPos(window.scrollY);
 
@@ -39,14 +39,11 @@ const LinkDashboardPage = (props) => {
 
   useEffect(()=>{
     
-    //elementRef.current.offsetHeight
-    console.log("heightofdiv="+heightofdiv)
-    //const sp = parseInt(window.localStorage.getItem("scrollY")) 
-    const sp = parseInt(window.localStorage.getItem("scrollPosition"))
-    console.log("LinkDashboardPage.js, sp="+sp)
-    //I have to subtract off the height of the div with the hashtags for it to be right
-    window.scrollTo(0,sp-heightofdiv)
-    //if(sp>200)
+    
+    // const sp = parseInt(window.localStorage.getItem("scrollPosition"))
+    // console.log("LinkDashboardPage.js, sp="+sp)
+    // window.scrollTo(0,sp-heightofdiv)
+    
     //window.scrollTo(0,0)
 //    document.querySelector('#very-top-id').scrollIntoView({
 //     behavior: 'smooth',

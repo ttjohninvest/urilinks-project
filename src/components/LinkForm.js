@@ -65,8 +65,9 @@ export default class LinkForm extends React.Component {
     let s1
     const d1=d.split(".")
     const dotsCount = d.split(".").length - 1
+    console.log("d1="+JSON.stringify(d1))
     console.log("dotsCount="+dotsCount)
-    console.log("d1[1].d2[2]="+d1[1]+"."+d2[2])
+    //console.log("d1[1].d2[2]="+d1[1]+"."+d2[2])
     // if (str.substring(0, 4) === 'www') {
     //      return d
     // } else if(dotsCount===1) {

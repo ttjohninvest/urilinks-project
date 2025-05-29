@@ -393,7 +393,7 @@ export class LinkListFilters extends React.Component {
     
     window.localStorage.setItem("searchLinks3", value);
 
-    document.querySelector('#link-summary-id').scrollIntoView({
+    document.querySelector('#before-before-link-summary-id').scrollIntoView({
     behavior: 'smooth',
 })
 window.localStorage.setItem("scrollY",window.scrollY)
@@ -429,7 +429,7 @@ window.localStorage.setItem("scrollY",window.scrollY)
           />} 
         </div>
 
-        <div className="input-group some-component">
+        <div id="before-before-link-summary-id" className="input-group some-component">
           <div className="input-group__item">
             <input
               ref={this.myRef}

@@ -61,6 +61,7 @@ export default class LinkForm extends React.Component {
   extractDomain(url) {
     try {
       const urlObject = new URL(url);
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>, urlObject.hostname="+urlObject.hostname)
       return "https://" + urlObject.hostname;
     } catch (error) {
       // Handles cases where the URL is invalid
@@ -86,13 +87,7 @@ export default class LinkForm extends React.Component {
     e.preventDefault();
     console.log("onSubmit");
     let faviconURL 
-    // faviconURL=this.state.Url+"/favicon.ico"
-    //   if (this.state.Url.substring(0, 7) !== 'http://')
-    //    {}
-
-    //   else if (this.state.Url.substring(0, 8) !== 'https://')
-    //   {}
-    //   else faviconURL = 'https://' + faviconURL;
+    
     let str=this.state.Url.trim()
       if (str.substring(0, 7) === 'http://')
        {}

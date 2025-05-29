@@ -42,7 +42,7 @@ const LinkDashboardPage = (props) => {
     console.log("heightofdiv="+heightofdiv)
     //const sp = parseInt(window.localStorage.getItem("scrollY")) 
     const sp = parseInt(window.localStorage.getItem("scrollPosition"))
-    //console.log("sp="+sp)
+    console.log("LinkDashboardPage.js, sp="+sp)
     //I have to subtract off the height of the div with the hashtags for it to be right
     window.scrollTo(0,sp-heightofdiv)
     //if(sp>200)

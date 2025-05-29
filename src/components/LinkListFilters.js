@@ -362,7 +362,8 @@ export class LinkListFilters extends React.Component {
     //   // mappedDataLong,
     //   morehashtags: morehashtags === "true" ? true : false,
     // });
-    const thePos = parseInt(window.localStorage.getItem("scrollY"));
+    //const thePos = parseInt(window.localStorage.getItem("scrollY"));
+    const thePos = parseInt(window.localStorage.getItem("scrollPosition"));
     window.scrollTo(0, thePos);
   }
 

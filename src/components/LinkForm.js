@@ -70,6 +70,8 @@ export default class LinkForm extends React.Component {
     console.log(d1[0]);
     console.log(d1[1]);
     console.log(d1[2]);
+    console.log(d1[1]+d1[2])
+    console.log(d1[1]+"."+d1[2])
     ////
     //s1=d1[1]+"."+d2[2]
     //console.log("d1[1].d2[2]="+s1)

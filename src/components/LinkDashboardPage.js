@@ -6,9 +6,7 @@ import LinkListFilters from "./LinkListFilters";
 const LinkDashboardPage = (props) => {
   //const elementRef = useRef()
   const scrollableDiv = React.useRef();
-  const [scrollPos, setScrollPos] = useState(0);
   const [heightofdiv, setHeightOfDiv] = useState(0)
-  //const [scrollTop, setScrollTop] = useState(0)
  
 
   useEffect(() => {
@@ -16,7 +14,7 @@ const LinkDashboardPage = (props) => {
       //window.localStorage.setItem("scrollPosition",window.scrollY)
       //window.localStorage.setItem("scrollY",window.scrollY)
       console.log(window.scrollY)
-      //setScrollPos(window.scrollY);
+     
 
     }
 
@@ -45,9 +43,9 @@ const LinkDashboardPage = (props) => {
     // window.scrollTo(0,sp-heightofdiv)
     
     //window.scrollTo(0,0)
-//    document.querySelector('#very-top-id').scrollIntoView({
-//     behavior: 'smooth',
-// })
+   document.querySelector('#very-top-id').scrollIntoView({
+    behavior: 'instant',
+})
   },[])
 
   // useEffect(() => {

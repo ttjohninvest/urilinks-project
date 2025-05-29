@@ -14,13 +14,6 @@ import {
   sortByNoteText,
 } from "../actions/filters";
 
-//  mappedDataShort,
-//   mappedDataLong,
-//   maxLength,
-//   ref,
-//   morehashtags,
-//   setit,
-
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
 
@@ -110,15 +103,14 @@ export class LinkListFilters extends React.Component {
       mappedDataShort: [],
       mappedDataLong: [],
       loading: true,
-      //scrollTop: 0,
       height: 0,
       hashtags:[],
       hashtags2:[],
       morehashtags: morehashtags === "true" ? true : false,
     };
-//this.handleClick = this.handleClick.bind(this);
+
     this.setit = this.setit.bind(this);
-    //this.handleScroll = this.handleScroll.bind(this);
+
   }
 
   onDatesChange = ({ startDate, endDate }) => {
@@ -129,14 +121,7 @@ export class LinkListFilters extends React.Component {
     this.setState(() => ({ calendarFocused }));
   };
   onTextChange = (e) => {
-    console.log(
-      "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, e.target.value=" +
-        e.target.value
-    );
-    console.log(
-      "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu, this.props.filters.sortBy=" +
-        this.props.filters.sortBy
-    );
+  
     console.log("e.target.value=" + e.target.value);
 
     if (this.props.filters.sortBy === "date") {
@@ -181,7 +166,7 @@ export class LinkListFilters extends React.Component {
     } else {
       let v=''
         if(!!e.target.value===false) v=''
-        else v=e.target.value.trim()
+        else v=e.target.value
       this.props.setTextFilter(v);
     }
 

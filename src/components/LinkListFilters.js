@@ -23,65 +23,76 @@ function ExpandableArray(props) {
     window.localStorage.setItem("morehashtags", !expanded);
   };
 
-  console.log("ExpandableArray, expanded="+expanded)
+  console.log("ExpandableArray, expanded=" + expanded);
   //console.log("ExpandableArray, mappedDataLong.length="+props.mappedDataLong.length)
-  console.log("props.mappedDataShort="+props.mappedDataShort)
-  console.log("EEEEEEEEEEEEEEEEEEEE, ExpandableArray, mappedDataShort.length="+props.mappedDataShort.length)
-  let displayedArray
-  if(expanded===true)
-    displayedArray = props.mappedDataLong
-  else displayedArray = props.mappedDataShort
+  console.log("props.mappedDataShort=" + props.mappedDataShort);
+  console.log(
+    "EEEEEEEEEEEEEEEEEEEE, ExpandableArray, mappedDataShort.length=" +
+      props.mappedDataShort.length
+  );
+  let displayedArray;
+  if (expanded === true) displayedArray = props.mappedDataLong;
+  else displayedArray = props.mappedDataShort;
 
   return (
     <div>
+      {props.mappedDataShort.length > 0 ? (
+        <div>
+          <div
+            className="flexrow2c padding-around"
+            title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
+          >
+            <span className="is-active ib right-margin-1 margin-right-1">
+              {}
+            </span>
+            clickable hash tags in alphabetical order
+          </div>
+          <div
+            ref={props.ref}
+            className="flexandwrap margin-top-1 background-white-1"
+            title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
+          >
+            {!expanded
+              ? props.mappedDataShort.map((s, index) => {
+                  if (index < 50)
+                    return (
+                      <div key={index} className="padding-all text-size-5">
+                        <a
+                          className="nounderline text-color-black"
+                          href="#"
+                          onClick={() => props.setit(s.hashtag, event)}
+                          title="click to activate the search with this hashtag."
+                        >
+                          {s.hashtag}
+                        </a>
+                      </div>
+                    );
+                  else return false;
+                })
+              : props.mappedDataShort.map((s, index) => {
+                  return (
+                    <div key={index} className="padding-all text-size-5">
+                      <a
+                        className="nounderline text-color-black"
+                        href="#"
+                        onClick={() => props.setit(s.hashtag, event)}
+                        title="click to activate the search with this hashtag."
+                      >
+                        {s.hashtag}
+                      </a>
+                    </div>
+                  );
+                })}
 
-      {(props.mappedDataShort.length>0)?<div>
-      <div className="flexrow2c padding-around" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."><span className="is-active ib right-margin-1 margin-right-1">{}</span>clickable hash tags in alphabetical order</div>
-      <div ref={props.ref} className="flexandwrap margin-top-1 background-white-1" title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.">
-        
-      
-       
-{
-   !expanded?props.mappedDataShort.map((s, index) => {
-        if (index < 50)
-          return (
-            <div key={index} className="padding-all text-size-5">
-              <a
-                className="nounderline text-color-black"
-                href="#"
-                onClick={() => props.setit(s.hashtag, event)}
-                title="click to activate the search with this hashtag."
-              >
-                {s.hashtag}
-              </a>
-            </div>
-          );
-        else return false;
-      }):props.mappedDataShort.map((s, index) => {
-        
-          return (
-            <div key={index} className="padding-all text-size-5">
-              <a
-                className="nounderline text-color-black"
-                href="#"
-                onClick={() => props.setit(s.hashtag, event)}
-                title="click to activate the search with this hashtag."
-              >
-                {s.hashtag}
-              </a>
-            </div>
-          );
-        
-})
-}       
-   
-
-        {!expanded && <span className="text-size-5">...</span>}
-      </div>
-      <button className="button-m button--link" onClick={toggleExpanded}>
-        {expanded ? "Show Less Hashtags" : "Show More Hashtags"}
-      </button>
-      </div>:<div></div>}
+            {!expanded && <span className="text-size-5">...</span>}
+          </div>
+          <button className="button-m button--link" onClick={toggleExpanded}>
+            {expanded ? "Show Less Hashtags" : "Show More Hashtags"}
+          </button>
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
@@ -93,7 +104,6 @@ export class LinkListFilters extends React.Component {
     this.elementRef = React.createRef();
     this.myRef = React.createRef();
 
-    
     let morehashtags = window.localStorage.getItem("morehashtags");
     console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
@@ -104,13 +114,12 @@ export class LinkListFilters extends React.Component {
       mappedDataLong: [],
       loading: true,
       height: 0,
-      hashtags:[],
-      hashtags2:[],
+      hashtags: [],
+      hashtags2: [],
       morehashtags: morehashtags === "true" ? true : false,
     };
 
     this.setit = this.setit.bind(this);
-
   }
 
   onDatesChange = ({ startDate, endDate }) => {
@@ -121,7 +130,6 @@ export class LinkListFilters extends React.Component {
     this.setState(() => ({ calendarFocused }));
   };
   onTextChange = (e) => {
-  
     console.log("e.target.value=" + e.target.value);
 
     if (this.props.filters.sortBy === "date") {
@@ -153,20 +161,20 @@ export class LinkListFilters extends React.Component {
         e.target.value.trim().match(/^[ -~]$/) &&
         e.target.value.trim() === "#"
       ) {
-        let v=''
-        if(!!e.target.value===false) v=''
-        else v=e.target.value.trim()
+        let v = "";
+        if (!!e.target.value === false) v = "";
+        else v = e.target.value.trim();
         this.props.setTextFilter(v);
       } else if (e.target.value.trim().length > 1) {
-        let v=''
-        if(!!e.target.value===false) v=''
-        else v=e.target.value.trim()
+        let v = "";
+        if (!!e.target.value === false) v = "";
+        else v = e.target.value.trim();
         this.props.setTextFilter(v);
       }
     } else {
-      let v=''
-        if(!!e.target.value===false) v=''
-        else v=e.target.value
+      let v = "";
+      if (!!e.target.value === false) v = "";
+      else v = e.target.value;
       this.props.setTextFilter(v);
     }
 
@@ -179,30 +187,30 @@ export class LinkListFilters extends React.Component {
     if (e.target.value === "date") {
       this.props.setTextFilter("");
       if (this.myRef.current) this.myRef.current.focus();
-      window.localStorage.setItem("sort", "date");
+      window.localStorage.setItem("sortBy", "date");
       this.setState({ sort: "date" });
       this.props.sortByDate();
     } else if (e.target.value === "description") {
       this.props.setTextFilter("");
       if (this.myRef.current) this.myRef.current.focus();
-      window.localStorage.setItem("sort", "description");
+      window.localStorage.setItem("sortBy", "description");
       this.setState({ sort: "description" });
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
       if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("#");
-      window.localStorage.setItem("sort", "hashtag");
+      window.localStorage.setItem("sortBy", "hashtag");
       this.setState({ sort: "hashtag" });
       this.props.sortByHashTag();
     } else if (e.target.value === "notetext") {
       if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("");
-      window.localStorage.setItem("sort", "notetext");
+      window.localStorage.setItem("sortBy", "notetext");
       this.setState({ sort: "notetext" });
       this.props.sortByNoteText();
     }
   };
-//
+  //
   extractHashtags = (text) => {
     console.log("extractHashTags, text=" + text);
     const regex = /#([a-zA-Z0-9_]+)/g;
@@ -224,7 +232,6 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
-
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
@@ -238,7 +245,7 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks3=" + searchLinks3);
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
 
-    const sort = window.localStorage.getItem("sort");
+    const sort = window.localStorage.getItem("sortBy");
     console.log("componentDidMount, sort=" + sort);
     if (sort === "date") {
       this.props.sortByDate();
@@ -271,26 +278,24 @@ export class LinkListFilters extends React.Component {
 
     if (this.myRef.current) this.myRef.current.focus();
 
-   console.log("VVVVVVVVVVVVVVVVVVVV, this.props.hashtags="+this.props.hashtags)
+    console.log(
+      "VVVVVVVVVVVVVVVVVVVV, this.props.hashtags=" + this.props.hashtags
+    );
 
-     this.setState({
+    this.setState({
       morehashtags: morehashtags === "true" ? true : false,
     });
-    
 
     // const thePos = parseInt(window.localStorage.getItem("scrollPosition"));
     // window.scrollTo(0, thePos);
   }
 
-  componentWillUnmount() {
-    
-  }
-
+  componentWillUnmount() {}
 
   componentDidUpdate(prevProps) {
     if (prevProps.content !== this.props.content) {
       this.updateHeight();
-      this.refreshIt()
+      this.refreshIt();
     }
   }
 
@@ -304,17 +309,17 @@ export class LinkListFilters extends React.Component {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
     //value is the user selected hashtag
+   
+    window.localStorage.setItem("sortBy", "hashtag");
+    window.localStorage.setItem("searchLinks3", value);
     this.props.sortByHashTag();
     this.props.setTextFilter(value);
-    window.localStorage.setItem("sort", "hashtag");
-    
-    window.localStorage.setItem("searchLinks3", value);
 
-    document.querySelector('#before-before-link-summary-id').scrollIntoView({
-      behavior: 'instant',
-    })
-// window.localStorage.setItem("scrollPosition",window.scrollY)
-// window.localStorage.setItem("scrollY",window.scrollY)
+    document.querySelector("#before-before-link-summary-id").scrollIntoView({
+      behavior: "instant",
+    });
+    // window.localStorage.setItem("scrollPosition",window.scrollY)
+    // window.localStorage.setItem("scrollY",window.scrollY)
   };
 
   // useEffect(() => {
@@ -325,29 +330,32 @@ export class LinkListFilters extends React.Component {
   //   }
   // }, []);
 
-  refreshIt=()=>{
+  refreshIt = () => {
     window.location.reload();
-  }
+  };
 
   render() {
     return (
       <div className="content-container border-green-">
-        
-
         <div>
-          {(((this.props.hashtags && this.props.hashtags.length > 0) 
-          || (this.state.mappedDataLong && this.state.mappedDataLong.length > 1)))
-          && <ExpandableArray
-            mappedDataShort={this.props.hashtags}
-            mappedDataLong={this.state.mappedDataLong}
-            maxLength={this.SHORT_HASHTAG_LENGTH}
-            ref={this.elementRef}
-            morehashtags={this.state.morehashtags}
-            setit={this.setit}
-          />} 
+          {((this.props.hashtags && this.props.hashtags.length > 0) ||
+            (this.state.mappedDataLong &&
+              this.state.mappedDataLong.length > 1)) && (
+            <ExpandableArray
+              mappedDataShort={this.props.hashtags}
+              mappedDataLong={this.state.mappedDataLong}
+              maxLength={this.SHORT_HASHTAG_LENGTH}
+              ref={this.elementRef}
+              morehashtags={this.state.morehashtags}
+              setit={this.setit}
+            />
+          )}
         </div>
 
-        <div id="before-before-link-summary-id" className="input-group some-component">
+        <div
+          id="before-before-link-summary-id"
+          className="input-group some-component"
+        >
           <div className="input-group__item">
             <input
               ref={this.myRef}
@@ -422,11 +430,9 @@ export class LinkListFilters extends React.Component {
 const mapStateToProps = (state) => ({
   filters: state.filters,
   links: state.links,
-  hashtags:state.hashtags,
+  hashtags: state.hashtags,
   //newAccount: state.newAccount,
 });
-
-
 
 const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
@@ -437,6 +443,5 @@ const mapDispatchToProps = (dispatch) => ({
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

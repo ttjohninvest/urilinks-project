@@ -268,14 +268,18 @@ export class LinkListFilters extends React.Component {
     if (sort === "date") {
       this.props.setTextFilter(searchLinks1);
       this.setState({ sort: "date" });
+      this.props.sortByDate();
     } else if (sort === "description") {
       this.props.setTextFilter(searchLinks2);
       this.setState({ sort: "description" });
+      this.props.sortByDescription();
     } else if (sort === "notetext") {
       this.props.setTextFilter(searchLinks4);
       this.setState({ sort: "notetext" });
+      this.props.sortByNoteText();
     } else if (sort === "hashtag") {
       this.setState({ sort: "hashtag" });
+      this.props.sortByHashTag();
       if (searchLinks3 === "") this.props.setTextFilter("#");
       else this.props.setTextFilter(searchLinks3);
     }

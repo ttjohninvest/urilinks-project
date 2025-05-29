@@ -17,8 +17,9 @@ export const Header = ({ startLogout }) => (
         <Link className="header__title" to="/dashboard">
         <div className="header-flex-row"><div className="margin-top-111 margin-right-111">
           <img className="rounded-full-1" src={logo} width="35" height="35" alt="Logo" />
-          </div><h1> Your Uri/Url Links (fixing a bug, please try later)</h1></div>
+          </div><h1> Your Uri/Url Links </h1></div>
         </Link>
+        <div>I fixed the bug. Please remove and redo any broken links.</div>
         <Link className="header__title" to="/benefits">
           <span className="margin-right-1-ib">Benefits</span>
         </Link>

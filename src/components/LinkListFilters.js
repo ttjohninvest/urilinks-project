@@ -394,7 +394,7 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("searchLinks3", value);
 
     document.querySelector('#before-before-link-summary-id').scrollIntoView({
-    behavior: 'smooth',
+    behavior: 'instant',
 })
 window.localStorage.setItem("scrollY",window.scrollY)
   };

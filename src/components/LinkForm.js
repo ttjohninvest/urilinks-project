@@ -100,6 +100,7 @@ export default class LinkForm extends React.Component {
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>, urlObject.hostname="+urlObject.hostname)
       const usableDomain = this.getUsableDomain(urlObject.hostname)
       console.log("usableDomain="+usableDomain)
+      return
       return "https://" + usableDomain
       //return "https://" + urlObject.hostname;
     } catch (error) {

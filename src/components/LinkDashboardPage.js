@@ -60,10 +60,12 @@ const LinkDashboardPage = (props) => {
     //parseInt(window.localStorage.getItem("scrollPosition"))
     console.log("sp="+sp)
     //I have to subtract off the height of the div with the hashtags for it to be right
-    window.scrollTo(0,sp-heightofdiv)
+    //window.scrollTo(0,sp-heightofdiv)
     //if(sp>200)
     //window.scrollTo(0,0)
-   
+   document.querySelector('#very-top-id').scrollIntoView({
+    behavior: 'smooth',
+})
   },[])
 
   // useEffect(() => {
@@ -78,7 +80,7 @@ const LinkDashboardPage = (props) => {
 
  return (
   
-    <div className="website-background-color">
+    <div id="very-top-id" className="website-background-color">
       {/* <LinksSummary /> */}
       <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
       <LinkList />

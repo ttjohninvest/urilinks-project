@@ -83,6 +83,9 @@ export default class LinkForm extends React.Component {
   }
 
   getUsableDomain=(d)=>{
+    //www and three dots
+    //not www and three dots
+
     return d
   }
 
@@ -99,7 +102,7 @@ export default class LinkForm extends React.Component {
       else if (str.substring(0, 8) === 'https://')
       {}
       else str = 'https://' + str;
-      const newDomain = getUsableDomain(this.extractDomain(str))
+      const newDomain = this.getUsableDomain(this.extractDomain(str))
       console.log("newDomain="+newDomain)
       return
     faviconURL = this.extractDomain(str) + "/favicon.ico";

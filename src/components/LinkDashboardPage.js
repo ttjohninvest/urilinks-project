@@ -56,10 +56,11 @@ const LinkDashboardPage = (props) => {
     
     //elementRef.current.offsetHeight
     console.log("heightofdiv="+heightofdiv)
-    const sp = parseInt(window.localStorage.getItem("scrollY")) //parseInt(window.localStorage.getItem("scrollPosition"))
+    const sp = parseInt(window.localStorage.getItem("scrollY")) 
+    //parseInt(window.localStorage.getItem("scrollPosition"))
     console.log("sp="+sp)
     //I have to subtract off the height of the div with the hashtags for it to be right
-    //window.scrollTo(0,sp-heightofdiv)
+    window.scrollTo(0,sp-heightofdiv)
     //if(sp>200)
     //window.scrollTo(0,0)
    

@@ -93,11 +93,11 @@ export default class LinkForm extends React.Component {
     //   else if (this.state.Url.substring(0, 8) !== 'https://')
     //   {}
     //   else faviconURL = 'https://' + faviconURL;
-    let str=this.state.Url
-      if (this.state.Url.substring(0, 7) === 'http://')
+    let str=this.state.Url.trim()
+      if (str.substring(0, 7) === 'http://')
        {}
 
-      else if (this.state.Url.substring(0, 8) === 'https://')
+      else if (str.substring(0, 8) === 'https://')
       {}
       else str = 'https://' + str;
     faviconURL = this.extractDomain(str) + "/favicon.ico";
@@ -139,13 +139,13 @@ export default class LinkForm extends React.Component {
       } else {
       }
 
-      str=this.state.Url
-      if (this.state.Url.substring(0, 7) === 'http://')
-       {}
+      // str=this.state.Url
+      // if (this.state.Url.substring(0, 7) === 'http://')
+      //  {}
 
-      else if (this.state.Url.substring(0, 8) === 'https://')
-      {}
-      else str = 'https://' + str;
+      // else if (this.state.Url.substring(0, 8) === 'https://')
+      // {}
+      // else str = 'https://' + str;
 
 console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
 

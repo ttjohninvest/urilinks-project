@@ -259,7 +259,7 @@ export class LinkListFilters extends React.Component {
     //   this.props.sortByNoteText();
     // }
 
-    if(this.props.setit===false) {
+    //if(this.props.setit===false) {
   if (sortBy === "date") {
       this.props.setTextFilter(searchLinks1);
       this.setState({ sortBy: "date" });
@@ -289,7 +289,7 @@ export class LinkListFilters extends React.Component {
       morehashtags: morehashtags === "true" ? true : false,
     });
 
-    }
+    //}
   
 
    
@@ -327,9 +327,9 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("searchLinks3", value);
 
     //this scrolls the results into view, the first and subsequent result is shown
-    document.querySelector("#before-before-link-summary-id").scrollIntoView({
-      behavior: "instant",
-    });
+    // document.querySelector("#before-before-link-summary-id").scrollIntoView({
+    //   behavior: "instant",
+    // });
     // window.localStorage.setItem("scrollPosition",window.scrollY)
     // window.localStorage.setItem("scrollY",window.scrollY)
   };

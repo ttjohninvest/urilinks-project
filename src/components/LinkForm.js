@@ -82,6 +82,10 @@ export default class LinkForm extends React.Component {
     return new URL("/favicon.ico", url).href;
   }
 
+  getUsableDomain=(d)=>{
+    return d
+  }
+
   onSubmit = (e) => {
    
     e.preventDefault();
@@ -95,8 +99,11 @@ export default class LinkForm extends React.Component {
       else if (str.substring(0, 8) === 'https://')
       {}
       else str = 'https://' + str;
+      const newDomain = getUsableDomain(this.extractDomain(str))
+      console.log("newDomain="+newDomain)
+      return
     faviconURL = this.extractDomain(str) + "/favicon.ico";
-    return
+    //return
     //const url = new URL(this.state.Url);
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)

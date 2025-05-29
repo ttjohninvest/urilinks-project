@@ -246,7 +246,7 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
 
     const sortBy = window.localStorage.getItem("sortBy");
-    console.log("componentDidMount, sort=" + sort);
+    console.log("componentDidMount, sortBy=" + sortBy);
     if (sortBy === "date") {
       this.props.sortByDate();
     } else if (sortBy === "description") {
@@ -369,7 +369,7 @@ export class LinkListFilters extends React.Component {
                   : "Search for Link(s)"
               }
               value={this.props.filters.text}
-              //value={this.state.sort}
+              
               onChange={this.onTextChange}
               title={
                 this.props.filters.sortBy === "date"
@@ -385,7 +385,7 @@ export class LinkListFilters extends React.Component {
               className="select select-filters"
               value={this.state.sortBy}
               //value={this.props.filters.sortBy}
-              //value={this.state.sort}
+              
               onChange={this.onSortChange}
               title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
             >

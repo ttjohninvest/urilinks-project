@@ -73,24 +73,24 @@ export default class LinkForm extends React.Component {
     console.log(d1[1]+d1[2])
     console.log(d1[1]+"."+d1[2])
     ////
-    //s1=d1[1]+"."+d2[2]
-    //console.log("d1[1].d2[2]="+s1)
-    // if (str.substring(0, 4) === 'www') {
-    //      return d
-    // } else if(dotsCount===1) {
-    //      return d
-    // } else if(dotsCount===2) {
-    //   s1=d1[1]+"."+d2[2]
-    //   console.log("d1[1].d2[2]="+s1)
-    //       return s1
-    // } else if(dotsCount===3) {
-    //       return d1[2]+"."+d1[3]
-    // } else if(dotsCount===4) {
-    //       return d1[3]+"."+d1[4]
-    // }
-    // else if(dotsCount===4) {
-    //       return d1[4]+"."+d1[5]
-    // }
+    s1=d1[1]+"."+d1[2]
+    console.log("d1[1].d1[2]="+s1)
+    if (str.substring(0, 4) === 'www') {
+         return d
+    } else if(dotsCount===1) {
+         return d
+    } else if(dotsCount===2) {
+      s1=d1[1]+"."+d1[2]
+      console.log("d1[1].d1[2]="+s1)
+          return s1
+    } else if(dotsCount===3) {
+          return d1[2]+"."+d1[3]
+    } else if(dotsCount===4) {
+          return d1[3]+"."+d1[4]
+    }
+    else if(dotsCount===4) {
+          return d1[4]+"."+d1[5]
+    }
     return d
   }
 

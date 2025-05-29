@@ -107,7 +107,7 @@ export class LinkListFilters extends React.Component {
     let morehashtags = window.localStorage.getItem("morehashtags");
     console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
-      sort: "hashtag",
+      sortBy: "hashtag",
       items: [],
       calendarFocused: null,
       mappedDataShort: [],
@@ -183,30 +183,30 @@ export class LinkListFilters extends React.Component {
   };
 
   onSortChange = (e) => {
-    console.log("sort, e.target.value=" + e.target.value);
+    console.log("onSortChange=(), e.target.value=" + e.target.value);
     if (e.target.value === "date") {
       this.props.setTextFilter("");
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sortBy", "date");
-      this.setState({ sort: "date" });
+      this.setState({ sortBy: "date" });
       this.props.sortByDate();
     } else if (e.target.value === "description") {
       this.props.setTextFilter("");
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sortBy", "description");
-      this.setState({ sort: "description" });
+      this.setState({ sortBy: "description" });
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
       if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("#");
       window.localStorage.setItem("sortBy", "hashtag");
-      this.setState({ sort: "hashtag" });
+      this.setState({ sortBy: "hashtag" });
       this.props.sortByHashTag();
     } else if (e.target.value === "notetext") {
       if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("");
       window.localStorage.setItem("sortBy", "notetext");
-      this.setState({ sort: "notetext" });
+      this.setState({ sortBy: "notetext" });
       this.props.sortByNoteText();
     }
   };
@@ -245,32 +245,32 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks3=" + searchLinks3);
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
 
-    const sort = window.localStorage.getItem("sortBy");
+    const sortBy = window.localStorage.getItem("sortBy");
     console.log("componentDidMount, sort=" + sort);
-    if (sort === "date") {
+    if (sortBy === "date") {
       this.props.sortByDate();
-    } else if (sort === "description") {
+    } else if (sortBy === "description") {
       this.props.sortByDescription();
-    } else if (sort === "hashtag") {
+    } else if (sortBy === "hashtag") {
       this.props.sortByHashTag();
-    } else if (sort === "notetext") {
+    } else if (sortBy === "notetext") {
       this.props.sortByNoteText();
     }
 
-    if (sort === "date") {
+    if (sortBy === "date") {
       this.props.setTextFilter(searchLinks1);
-      this.setState({ sort: "date" });
+      this.setState({ sortBy: "date" });
       this.props.sortByDate();
-    } else if (sort === "description") {
+    } else if (sortBy === "description") {
       this.props.setTextFilter(searchLinks2);
-      this.setState({ sort: "description" });
+      this.setState({ sortBy: "description" });
       this.props.sortByDescription();
-    } else if (sort === "notetext") {
+    } else if (sortBy === "notetext") {
       this.props.setTextFilter(searchLinks4);
-      this.setState({ sort: "notetext" });
+      this.setState({ sortBy: "notetext" });
       this.props.sortByNoteText();
-    } else if (sort === "hashtag") {
-      this.setState({ sort: "hashtag" });
+    } else if (sortBy === "hashtag") {
+      this.setState({ sortBy: "hashtag" });
       this.props.sortByHashTag();
       if (searchLinks3 === "") this.props.setTextFilter("#");
       else this.props.setTextFilter(searchLinks3);
@@ -309,11 +309,13 @@ export class LinkListFilters extends React.Component {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
     //value is the user selected hashtag
-   
-    window.localStorage.setItem("sortBy", "hashtag");
-    window.localStorage.setItem("searchLinks3", value);
+
+    
     this.props.sortByHashTag();
     this.props.setTextFilter(value);
+
+    window.localStorage.setItem("sortBy", "hashtag");
+    window.localStorage.setItem("searchLinks3", value);
 
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "instant",
@@ -381,7 +383,7 @@ export class LinkListFilters extends React.Component {
           <div className="input-group__item">
             <select
               className="select select-filters"
-              value={this.state.sort}
+              value={this.state.sortBy}
               //value={this.props.filters.sortBy}
               //value={this.state.sort}
               onChange={this.onSortChange}

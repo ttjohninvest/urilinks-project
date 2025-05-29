@@ -104,7 +104,6 @@ export default class LinkForm extends React.Component {
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>, urlObject.hostname="+urlObject.hostname)
       const usableDomain = this.getUsableDomain(urlObject.hostname)
       console.log("usableDomain="+usableDomain)
-      return
       return "https://" + usableDomain
       //return "https://" + urlObject.hostname;
     } catch (error) {
@@ -143,8 +142,9 @@ export default class LinkForm extends React.Component {
       else str = 'https://' + str;
       const newDomain = this.extractDomain(str)
       console.log("newDomain="+newDomain)
-      return
-    faviconURL = this.extractDomain(str) + "/favicon.ico";
+      //return
+    //faviconURL = this.extractDomain(str) + "/favicon.ico";
+    faviconURL = newDomain + "/favicon.ico";
     //return
     //const url = new URL(this.state.Url);
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;

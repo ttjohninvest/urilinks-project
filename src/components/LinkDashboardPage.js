@@ -40,12 +40,13 @@ const LinkDashboardPage = (props) => {
     
     const sp = parseInt(window.localStorage.getItem("scrollPosition"))
     console.log("LinkDashboardPage.js, sp="+sp)
+    window.scrollTo(0,sp)
     // window.scrollTo(0,sp-heightofdiv)
     
     //window.scrollTo(0,0)
-   document.querySelector('#very-top-id').scrollIntoView({
-    behavior: 'instant',
-})
+//    document.querySelector('#very-top-id').scrollIntoView({
+//     behavior: 'instant',
+// })
   },[])
 
   // useEffect(() => {

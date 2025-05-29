@@ -115,7 +115,7 @@ export default class LinkForm extends React.Component {
     if (!this.state.description || !this.state.Url) {
       // || !this.state.amount) {
       this.setState(() => ({
-        error: "Please provide link text and uri/url link. The note with hash tags (#church, #mountains) is optional.",
+        error: "Please provide link text and uri/url link. The note with hash tags (i.e. #church, #mountains) is optional.",
       }));
     } else {
       if (this.state.note.trim()) {

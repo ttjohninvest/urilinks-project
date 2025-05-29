@@ -13,6 +13,7 @@ const LinkDashboardPage = (props) => {
 
   useEffect(() => {
     const handleScroll = () => {
+      window.localStorage.setItem("scrollPosition",window.scrollY)
       window.localStorage.setItem("scrollY",window.scrollY)
       console.log(window.scrollY)
       //setScrollPos(window.scrollY);
@@ -75,56 +76,3 @@ const LinkDashboardPage = (props) => {
 
 export default LinkDashboardPage;
 
-// import React from "react";
-// import LinkList from "./LinkList";
-// import LinkListFilters from "./LinkListFilters";
-// import LinksSummary from "./LinksSummary";
-
-// class LinkDashboardPage extends React.Component {
- 
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-//       scrollTop: 0,
-//       scrollPos: 0
-//     }
-//     this.scrollableDiv = React.createRef()
-//     this.handleScroll = this.handleScroll.bind(this);
-//   }
-
-
-//   componentDidMount() {
-//     this.scrollableDiv.current.addEventListener('scroll', this.handleScroll);
-//     const sp = parseInt(window.localStorage.getItem("scrollY")) //parseInt(window.localStorage.getItem("scrollPosition"))
-//     console.log("sp="+sp)
-//     window.scrollTo(0,sp)
-//   }
-
-//   componentWillUnmount() {
-//     this.scrollableDiv.current.removeEventListener('scroll', this.handleScroll);
-//   }
-
-//   handleScroll(event) {
-//     window.localStorage.setItem("scrollY",event.target.scrollTop)
-//     //console.log(event.target.scrollTop)
-//     // this.setState({
-//     //   scrollTop: event.target.scrollTop,
-//     //   scrollPos:window.scrollY
-//     // });
-//   }
-
-//   render() {
-//     return (
- 
-//     <div className="website-background-color"
-//     ref={this.scrollableDiv}
-//     >
-//       <LinksSummary />
-//       <LinkListFilters />
-//       <LinkList />
-//     </div>
-//   );
-// };
-// }
-
-// export default LinkDashboardPage;

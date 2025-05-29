@@ -288,91 +288,17 @@ export class LinkListFilters extends React.Component {
 
    console.log("VVVVVVVVVVVVVVVVVVVV, this.props.hashtags="+this.props.hashtags)
 
-    // let hashtags=[]
-
-    // //if(this.props.links.length>0) {
-    // this.props.links.forEach((link) => {
-    //   //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
-    //   let x1 = this.extractHashtags(link.note);
-    //   hashtags.push(...x1);
-    // });
-    
-  
-    // // let hashtags2 = this.removeDuplicates(hashtags);
-    // // hashtags2.sort((a, b) => {
-    // //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-    // // });
-   
-    // let htshort=[]
-    //   htshort = hashtags.map((hashtag, index) => {
-    //     if (index < this.SHORT_HASHTAG_LENGTH)
-    //       return (
-    //         <div key={index} className="padding-all text-size-5">
-    //           {/* <a
-    //             className="nounderline text-color-black"
-    //             href="#"
-    //             onClick={() => this.setit(hashtag, event)}
-    //             title="click to activate the search with this hashtag."
-    //           > */}
-    //             {hashtag}
-    //           {/* </a> */}
-    //         </div>
-    //       );
-    //     else return false;
-    //   });
-    
-      //let htlong = []
-      
-      // htlong = hashtags2.map((hashtag, index) => {
-      //   if (index < 200)
-      //     return (
-      //       <div key={index} className="padding-all text-size-5">
-      //         <a
-      //           className="nounderline text-color-black"
-      //           href="#"
-      //           onClick={() => this.setit(hashtag, event)}
-      //           title="click to activate the search with this hashtag."
-      //         >
-      //           {hashtag}
-      //         </a>
-      //       </div>
-      //     );
-      //   else return false;
-      // });
-
-    //   this.setState({
-    //   mappedDataLong:htlong
-    // })
-
      this.setState({
-      //mappedDataShort:hashtags,
-      // mappedDataLong,
       morehashtags: morehashtags === "true" ? true : false,
     });
     
 
-    // this.setState(()=>{return{
-    //   mappedDataShort,
-    //   mappedDataLong,
-    //   morehashtags: morehashtags === "true" ? true : false,
-    // }});
-
-    //  this.setState({
-    //   // mappedDataShort,
-    //   // mappedDataLong,
-    //   morehashtags: morehashtags === "true" ? true : false,
-    // });
-    //const thePos = parseInt(window.localStorage.getItem("scrollY"));
     const thePos = parseInt(window.localStorage.getItem("scrollPosition"));
     window.scrollTo(0, thePos);
   }
 
   componentWillUnmount() {
-    // this.setState({
-    //   mappedDataShort:[],
-    //   mappedDataLong:[],
-    //   morehashtags: false,
-    // });
+    
   }
 
 

@@ -328,7 +328,7 @@ export class LinkListFilters extends React.Component {
 
     //this scrolls the results into view, the first and subsequent result is shown
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
-      behavior: "instant",
+      behavior: "smooth",
     });
     
   };

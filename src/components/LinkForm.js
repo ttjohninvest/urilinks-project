@@ -93,7 +93,23 @@ export default class LinkForm extends React.Component {
       console.log(6)
           s1=d1[4]+"."+d1[5]
     }
-    console.log(7)
+    else if(dotsCount===5) {
+      console.log(7)
+          s1=d1[5]+"."+d1[6]
+    }
+    else if(dotsCount===6) {
+      console.log(8)
+          s1=d1[6]+"."+d1[7]
+    }
+    else if(dotsCount===7) {
+      console.log(9)
+          s1=d1[7]+"."+d1[8]
+    }
+    else if(dotsCount===8) {
+      console.log(10)
+          s1=d1[8]+"."+d1[9]
+    }
+    console.log(11)
     console.log("s1="+s1)
     return s1
   }

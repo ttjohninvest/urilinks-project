@@ -58,6 +58,26 @@ export default class LinkForm extends React.Component {
     return hashtags;
   };
 
+    getUsableDomain=(d)=>{
+    //www and three dots
+    //not www and three dots
+    console.log("d="+d)
+    const dotsCount = d.split(".").length - 1
+    console.log("dotsCount="+dotsCount)
+    if (str.substring(0, 4) === 'www') {
+         return d
+    } else if(dotsCount===1) {
+         return d
+    } else if(dotsCount===2) {
+          return d[1]+"."+d[2]
+    } else if(dotsCount===3) {
+          return d[2]+"."+d[3]
+    } else if(dotsCount===4) {
+          return d[3]+"."+d[4]
+    }
+    return d
+  }
+
   extractDomain(url) {
     try {
       const urlObject = new URL(url);
@@ -85,24 +105,7 @@ export default class LinkForm extends React.Component {
     return new URL("/favicon.ico", url).href;
   }
 
-  getUsableDomain=(d)=>{
-    //www and three dots
-    //not www and three dots
-    const dotsCount = d.split(".").length - 1
-    if (str.substring(0, 4) === 'www')
-       {
-         return d
-       } else if(dotsCount===1) {
-         return d
-       } else if(dotsCount===2) {
-          return d[1]+"."+d[2]
-       } else if(dotsCount===3) {
-          return d[2]+"."+d[3]
-       } else if(dotsCount===4) {
-          return d[3]+"."+d[4]
-       }
-    return d
-  }
+
 
   onSubmit = (e) => {
    

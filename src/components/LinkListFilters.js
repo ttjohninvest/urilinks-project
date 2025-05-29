@@ -459,7 +459,8 @@ window.localStorage.setItem("scrollY",window.scrollY)
           <div className="input-group__item">
             <select
               className="select select-filters"
-              value={this.props.filters.sortBy}
+              value={sort}
+              //value={this.props.filters.sortBy}
               //value={this.state.sort}
               onChange={this.onSortChange}
               title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"

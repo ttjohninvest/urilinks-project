@@ -306,12 +306,13 @@ export class LinkListFilters extends React.Component {
     //value is the user selected hashtag
     this.props.sortByHashTag();
     this.props.setTextFilter(value);
+    window.localStorage.setItem("sort", "hashtag");
     
     window.localStorage.setItem("searchLinks3", value);
 
     document.querySelector('#before-before-link-summary-id').scrollIntoView({
-    behavior: 'instant',
-})
+      behavior: 'instant',
+    })
 // window.localStorage.setItem("scrollPosition",window.scrollY)
 // window.localStorage.setItem("scrollY",window.scrollY)
   };

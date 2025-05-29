@@ -75,7 +75,7 @@ export default class LinkForm extends React.Component {
     ////
     //s1=d1[1]+"."+d1[2]
     //console.log("d1[1].d1[2]="+s1)
-    if (str.substring(0, 4) === 'www') {
+    if (d1.substring(0, 4) === 'www') {
        console.log(1)
     } else if(dotsCount===1) {
       console.log(2)

@@ -115,7 +115,7 @@ export default class LinkForm extends React.Component {
     if (!this.state.description || !this.state.Url) {
       // || !this.state.amount) {
       this.setState(() => ({
-        error: "Please provide description and amount.",
+        error: "Please provide link text and uri/url link. The note with hash tags (#church, #mountains) is optional.",
       }));
     } else {
       if (this.state.note.trim()) {
@@ -165,7 +165,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
   render() {
     return (
       <form className="form" onSubmit={this.onSubmit}>
-        {this.state.error && <p className="form__error">{this.state.error}</p>}
+        {this.state.error && <p className="form__error flexrow2w">{this.state.error}</p>}
         <input
           type="text"
           placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"

@@ -459,7 +459,7 @@ window.localStorage.setItem("scrollY",window.scrollY)
           <div className="input-group__item">
             <select
               className="select select-filters"
-              value={sort}
+              value={this.state.sort}
               //value={this.props.filters.sortBy}
               //value={this.state.sort}
               onChange={this.onSortChange}

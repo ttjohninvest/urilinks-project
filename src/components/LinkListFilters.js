@@ -45,7 +45,7 @@ function ExpandableArray(props) {
             <span className="is-active ib right-margin-1 margin-right-1">
               {}
             </span>
-            clickable hash tags in alphabetical order
+            (welcome) clickable hash tags in alphabetical order
           </div>
           <div
             ref={props.ref}

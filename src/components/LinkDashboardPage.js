@@ -15,7 +15,7 @@ const LinkDashboardPage = (props) => {
     const handleScroll = () => {
       window.localStorage.setItem("scrollY",window.scrollY)
       console.log(window.scrollY)
-      setScrollPos(window.scrollY);
+      //setScrollPos(window.scrollY);
 
     }
 
@@ -30,23 +30,7 @@ const LinkDashboardPage = (props) => {
     window.onbeforeunload = null;
   },[])
 
-  // useEffect(() => {
-  //   const handleBeforeUnload = (event) => {
-       
-  //     window.localStorage.setItem("scrollY",0)
-  //     // Your function to run before the tab is closed
-  //     console.log('Tab is closing...');
-  //     // Optional: Display a confirmation dialog
-  //     event.preventDefault();
-  //     event.returnValue = ''; // Required for Chrome
-  //   };
-  
-  //   window.addEventListener('beforeunload', handleBeforeUnload);
-  
-  //   return () => {
-  //     window.removeEventListener('beforeunload', handleBeforeUnload);
-  //   };
-  // }, []);
+ 
   const setTheHashTagDivHeight=(h) => 
   {
     setHeightOfDiv(h)

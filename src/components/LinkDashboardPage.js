@@ -11,7 +11,7 @@ const LinkDashboardPage = (props) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      //window.localStorage.setItem("scrollPosition",window.scrollY)
+      window.localStorage.setItem("scrollPosition",window.scrollY)
       //window.localStorage.setItem("scrollY",window.scrollY)
       console.log(window.scrollY)
      

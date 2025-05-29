@@ -64,7 +64,8 @@ export default class LinkForm extends React.Component {
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>, urlObject.hostname="+urlObject.hostname)
       const usableDomain = this.getUsableDomain(urlObject.hostname)
       console.log("usableDomain="+usableDomain)
-      return "https://" + urlObject.hostname;
+      return "https://" + usableDomain
+      //return "https://" + urlObject.hostname;
     } catch (error) {
       // Handles cases where the URL is invalid
       return null;
@@ -87,7 +88,19 @@ export default class LinkForm extends React.Component {
   getUsableDomain=(d)=>{
     //www and three dots
     //not www and three dots
-
+    const dotsCount = d.split(".").length - 1
+    if (str.substring(0, 4) === 'www')
+       {
+         return d
+       } else if(dotsCount===1) {
+         return d
+       } else if(dotsCount===2) {
+          return d[1]+"."+d[2]
+       } else if(dotsCount===3) {
+          return d[2]+"."+d[3]
+       } else if(dotsCount===4) {
+          return d[3]+"."+d[4]
+       }
     return d
   }
 

@@ -38,8 +38,8 @@ const LinkDashboardPage = (props) => {
   useEffect(()=>{
     
     
-    // const sp = parseInt(window.localStorage.getItem("scrollPosition"))
-    // console.log("LinkDashboardPage.js, sp="+sp)
+    const sp = parseInt(window.localStorage.getItem("scrollPosition"))
+    console.log("LinkDashboardPage.js, sp="+sp)
     // window.scrollTo(0,sp-heightofdiv)
     
     //window.scrollTo(0,0)
@@ -61,7 +61,7 @@ const LinkDashboardPage = (props) => {
  return (
   
     <div id="very-top-id" className="website-background-color">
-      {/* <LinksSummary /> */}
+      
       <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
       <LinkList />
     </div>

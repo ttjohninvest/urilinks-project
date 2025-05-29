@@ -8,6 +8,7 @@ import settingsReducer from '../reducers/settings';
 import hashtagsReducer from '../reducers/hashtags';
 import hashtags2withcountReducer from '../reducers/hashtags2withcount';
 import notetextReducer from '../reducers/notetext';
+import setitReducer from '../reducers/setit';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -21,7 +22,8 @@ export default () => {
       settings: settingsReducer,
       hashtags: hashtagsReducer,
       hashtags2withcount: hashtags2withcountReducer,
-      notetext: notetextReducer
+      notetext: notetextReducer,
+      setit: setitReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

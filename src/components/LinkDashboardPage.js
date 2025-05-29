@@ -37,7 +37,6 @@ const LinkDashboardPage = (props) => {
 
   useEffect(()=>{
     
-    
     const sp = parseInt(window.localStorage.getItem("scrollPosition"))
     console.log("LinkDashboardPage.js, sp="+sp)
     window.scrollTo(0,sp)

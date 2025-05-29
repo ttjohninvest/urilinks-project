@@ -96,7 +96,9 @@ function ExpandableArray(props) {
     </div>
   );
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
@@ -247,17 +249,18 @@ export class LinkListFilters extends React.Component {
 
     const sortBy = window.localStorage.getItem("sortBy");
     console.log("componentDidMount, sortBy=" + sortBy);
-    if (sortBy === "date") {
-      this.props.sortByDate();
-    } else if (sortBy === "description") {
-      this.props.sortByDescription();
-    } else if (sortBy === "hashtag") {
-      this.props.sortByHashTag();
-    } else if (sortBy === "notetext") {
-      this.props.sortByNoteText();
-    }
+    // if (sortBy === "date") {
+    //   this.props.sortByDate();
+    // } else if (sortBy === "description") {
+    //   this.props.sortByDescription();
+    // } else if (sortBy === "hashtag") {
+    //   this.props.sortByHashTag();
+    // } else if (sortBy === "notetext") {
+    //   this.props.sortByNoteText();
+    // }
 
-    if (sortBy === "date") {
+    if(this.props.setit===false) {
+  if (sortBy === "date") {
       this.props.setTextFilter(searchLinks1);
       this.setState({ sortBy: "date" });
       this.props.sortByDate();
@@ -276,7 +279,7 @@ export class LinkListFilters extends React.Component {
       else this.props.setTextFilter(searchLinks3);
     }
 
-    if (this.myRef.current) this.myRef.current.focus();
+     if (this.myRef.current) this.myRef.current.focus();
 
     console.log(
       "VVVVVVVVVVVVVVVVVVVV, this.props.hashtags=" + this.props.hashtags
@@ -286,6 +289,11 @@ export class LinkListFilters extends React.Component {
       morehashtags: morehashtags === "true" ? true : false,
     });
 
+    }
+  
+
+   
+
     // const thePos = parseInt(window.localStorage.getItem("scrollPosition"));
     // window.scrollTo(0, thePos);
   }
@@ -293,10 +301,10 @@ export class LinkListFilters extends React.Component {
   componentWillUnmount() {}
 
   componentDidUpdate(prevProps) {
-    if (prevProps.content !== this.props.content) {
-      this.updateHeight();
-      this.refreshIt();
-    }
+    // if (prevProps.content !== this.props.content) {
+    //   this.updateHeight();
+    //   this.refreshIt();
+    // }
   }
 
   updateHeight = () => {
@@ -309,7 +317,8 @@ export class LinkListFilters extends React.Component {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
     //value is the user selected hashtag
-
+   
+    //you need to call dispatch(setSetit(true)) here
     
     this.props.sortByHashTag();
     this.props.setTextFilter(value);
@@ -317,6 +326,7 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("sortBy", "hashtag");
     window.localStorage.setItem("searchLinks3", value);
 
+    //this scrolls the results into view, the first and subsequent result is shown
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "instant",
     });
@@ -433,6 +443,7 @@ const mapStateToProps = (state) => ({
   filters: state.filters,
   links: state.links,
   hashtags: state.hashtags,
+  setit: state.setit,
   //newAccount: state.newAccount,
 });
 

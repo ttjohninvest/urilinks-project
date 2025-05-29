@@ -62,9 +62,9 @@ export default class LinkForm extends React.Component {
     //www and three dots
     //not www and three dots
     console.log("d="+d)
-    let s1
+    let s1=d
     const d1=d.split(".")
-    const dotsCount = d.split(".").length - 1
+    const dotsCount = s1.split(".").length - 1
     console.log("d1="+JSON.stringify(d1))
     console.log("dotsCount="+dotsCount)
     console.log(d1[0]);
@@ -73,25 +73,23 @@ export default class LinkForm extends React.Component {
     console.log(d1[1]+d1[2])
     console.log(d1[1]+"."+d1[2])
     ////
-    s1=d1[1]+"."+d1[2]
-    console.log("d1[1].d1[2]="+s1)
+    //s1=d1[1]+"."+d1[2]
+    //console.log("d1[1].d1[2]="+s1)
     if (str.substring(0, 4) === 'www') {
-         return d
+       
     } else if(dotsCount===1) {
-         return d
+      
     } else if(dotsCount===2) {
-      s1=d1[1]+"."+d1[2]
-      console.log("d1[1].d1[2]="+s1)
-          return s1
+      
     } else if(dotsCount===3) {
-          return d1[2]+"."+d1[3]
+      s1=d1[2]+"."+d1[3]
     } else if(dotsCount===4) {
-          return d1[3]+"."+d1[4]
+          s1=d1[3]+"."+d1[4]
     }
     else if(dotsCount===4) {
-          return d1[4]+"."+d1[5]
+          s1=d1[4]+"."+d1[5]
     }
-    return d
+    return s1
   }
 
   extractDomain(url) {

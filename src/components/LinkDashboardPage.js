@@ -62,14 +62,14 @@ const LinkDashboardPage = (props) => {
        console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT savedScrollPosition="+savedScrollPosition)
        if (savedScrollPosition) {
          window.scrollTo(0, parseInt(savedScrollPosition));
-         //sessionStorage.removeItem('scrollPosition');
+         sessionStorage.removeItem('scrollPosition');
        }
 
-      //  return () => {
-      //    window.removeEventListener('beforeunload', () => {
-      //      sessionStorage.setItem('scrollPosition', window.scrollY);
-      //    });
-      //  };
+       return () => {
+         window.removeEventListener('beforeunload', () => {
+           sessionStorage.setItem('scrollPosition', window.scrollY);
+         });
+       };
      }, [scrollPos]);
 
   // useEffect(() => {

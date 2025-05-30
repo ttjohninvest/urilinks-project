@@ -7,6 +7,7 @@ const LinkDashboardPage = (props) => {
   //const elementRef = useRef()
   const scrollableDiv = React.useRef();
   const [heightofdiv, setHeightOfDiv] = useState(0)
+  const [scrollPos, setScrollPos] =useState(0)
  
 
   useEffect(() => {
@@ -50,10 +51,12 @@ const LinkDashboardPage = (props) => {
           console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
        console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
        console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT window.scrollY="+window.scrollY)
+       
        });
 
        // Restore scroll position on page load
        const savedScrollPosition = parseInt(sessionStorage.getItem('scrollPosition'));
+       setScrollPos(savedScrollPosition)
        console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
        console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
        console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT savedScrollPosition="+savedScrollPosition)
@@ -67,7 +70,7 @@ const LinkDashboardPage = (props) => {
       //      sessionStorage.setItem('scrollPosition', window.scrollY);
       //    });
       //  };
-     }, []);
+     }, [scrollPos]);
 
   // useEffect(() => {
   //   const hasRefreshed = sessionStorage.getItem('hasRefreshed');

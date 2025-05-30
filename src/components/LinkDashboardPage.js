@@ -47,13 +47,19 @@ const LinkDashboardPage = (props) => {
        // Save scroll position before leaving
        window.addEventListener('beforeunload', () => {
          sessionStorage.setItem('scrollPosition', window.scrollY);
+          console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
+       console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
+       console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT window.scrollY="+window.scrollY)
        });
 
        // Restore scroll position on page load
        const savedScrollPosition = parseInt(sessionStorage.getItem('scrollPosition'));
+       console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
+       console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
+       console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT savedScrollPosition="+savedScrollPosition)
        if (savedScrollPosition) {
          window.scrollTo(0, parseInt(savedScrollPosition));
-         sessionStorage.removeItem('scrollPosition');
+         //sessionStorage.removeItem('scrollPosition');
        }
 
       //  return () => {

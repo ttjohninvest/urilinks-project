@@ -41,32 +41,27 @@ const LinkDashboardPage = (props) => {
     console.log("LinkDashboardPage.js, sp="+sp)
     window.scrollTo(0,sp)
     // window.scrollTo(0,sp-heightofdiv)
-    
-    //window.scrollTo(0,0)
-//    document.querySelector('#very-top-id').scrollIntoView({
-//     behavior: 'instant',
-// })
   },[])
 
-//  useEffect(() => {
-//        // Save scroll position before leaving
-//        window.addEventListener('beforeunload', () => {
-//          sessionStorage.setItem('scrollPosition', window.scrollY);
-//        });
+ useEffect(() => {
+       // Save scroll position before leaving
+       window.addEventListener('beforeunload', () => {
+         sessionStorage.setItem('scrollPosition', window.scrollY);
+       });
 
-//        // Restore scroll position on page load
-//        const savedScrollPosition = sessionStorage.getItem('scrollPosition');
-//        if (savedScrollPosition) {
-//          window.scrollTo(0, parseInt(savedScrollPosition));
-//          sessionStorage.removeItem('scrollPosition');
-//        }
+       // Restore scroll position on page load
+       const savedScrollPosition = parseInt(sessionStorage.getItem('scrollPosition'));
+       if (savedScrollPosition) {
+         window.scrollTo(0, parseInt(savedScrollPosition));
+         sessionStorage.removeItem('scrollPosition');
+       }
 
-//        return () => {
-//          window.removeEventListener('beforeunload', () => {
-//            sessionStorage.setItem('scrollPosition', window.scrollY);
-//          });
-//        };
-//      }, []);
+      //  return () => {
+      //    window.removeEventListener('beforeunload', () => {
+      //      sessionStorage.setItem('scrollPosition', window.scrollY);
+      //    });
+      //  };
+     }, []);
 
   // useEffect(() => {
   //   const hasRefreshed = sessionStorage.getItem('hasRefreshed');

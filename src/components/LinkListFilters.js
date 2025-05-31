@@ -269,13 +269,22 @@ export class LinkListFilters extends React.Component {
       this.props.sortByHashTag();
       if (this.props.filters.text==='' || searchLinks3 === "")
       {
-          if(searchLinks3==='')
-            this.props.setTextFilter("#");
-          else this.props.setTextFilter(searchLinks3);
+          if(searchLinks3==='') {
+this.props.setTextFilter("#");
+
+          }
+            
+          else {
+            this.props.setTextFilter(searchLinks3);
+           
+          }
           this.setState({ sortBy: "hashtag" });
       }
         
-      else this.props.setTextFilter(searchLinks3);
+      else {
+        this.props.setTextFilter(searchLinks3);
+this.setState({ sortBy: "hashtag" });
+      }
     }
 
      if (this.myRef.current) this.myRef.current.focus();

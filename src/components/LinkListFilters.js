@@ -252,20 +252,22 @@ export class LinkListFilters extends React.Component {
     
 
   
-  if (sortBy === "date") {
+  if (this.props.filters.sortBy==='date'|| sortBy === "date") {
       this.props.setTextFilter(searchLinks1);
-      this.setState({ sortBy: "date" });
+      
       this.props.sortByDate();
-    } else if (sortBy === "description") {
+      this.setState({ sortBy: "date" });
+    } else if (this.props.filters.sortBy==='description'|| sortBy === "description") {
       this.props.setTextFilter(searchLinks2);
-      this.setState({ sortBy: "description" });
+      
       this.props.sortByDescription();
-    } else if (sortBy === "notetext") {
+      this.setState({ sortBy: "description" });
+    } else if (this.props.filters.sortBy==='notetext' || sortBy === "notetext") {
       this.props.setTextFilter(searchLinks4);
-      this.setState({ sortBy: "notetext" });
       this.props.sortByNoteText();
+      this.setState({ sortBy: "notetext" });
     } else if (this.props.filters.sortBy==='hashtag' || sortBy === "hashtag") {
-      this.setState({ sortBy: "hashtag" });
+      //this.setState({ sortBy: "hashtag" });
       this.props.sortByHashTag();
       if (this.props.filters.text==='' || searchLinks3 === "" || searchLinks3 === undefined || searchLinks3 === null)
       {
@@ -274,16 +276,15 @@ export class LinkListFilters extends React.Component {
           }
             
           else {
-            this.props.setTextFilter(searchLinks3);
-           
-          }
-          this.setState({ sortBy: "hashtag" });
+            this.props.setTextFilter(searchLinks3);  
+          } 
       }
         
       else {
         this.props.setTextFilter(searchLinks3);
-this.setState({ sortBy: "hashtag" });
+
       }
+      this.setState({ sortBy: "hashtag" });
     }
 
      if (this.myRef.current) this.myRef.current.focus();

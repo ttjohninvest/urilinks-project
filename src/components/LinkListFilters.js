@@ -272,8 +272,10 @@ export class LinkListFilters extends React.Component {
       this.props.setTextFilter(searchLinks4);
       this.setState({ sortBy: "notetext" });
       this.props.sortByNoteText();
-    } else if (sortBy === "hashtag") {
+    } else if (this.props.filters.sortBy==='hashtag' || sortBy === "hashtag") {
       this.setState({ sortBy: "hashtag" });
+      if(this.props.filters.text==='')
+        this.props.setTextFilter("#");
       this.props.sortByHashTag();
       if (searchLinks3 === "") this.props.setTextFilter("#");
       else this.props.setTextFilter(searchLinks3);
@@ -443,7 +445,6 @@ const mapStateToProps = (state) => ({
   links: state.links,
   hashtags: state.hashtags,
   setit: state.setit,
-  //newAccount: state.newAccount,
 });
 
 const mapDispatchToProps = (dispatch) => ({

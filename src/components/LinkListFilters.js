@@ -249,17 +249,9 @@ export class LinkListFilters extends React.Component {
 
     const sortBy = window.localStorage.getItem("sortBy");
     console.log("componentDidMount, sortBy=" + sortBy);
-    // if (sortBy === "date") {
-    //   this.props.sortByDate();
-    // } else if (sortBy === "description") {
-    //   this.props.sortByDescription();
-    // } else if (sortBy === "hashtag") {
-    //   this.props.sortByHashTag();
-    // } else if (sortBy === "notetext") {
-    //   this.props.sortByNoteText();
-    // }
+    
 
-    //if(this.props.setit===false) {
+  
   if (sortBy === "date") {
       this.props.setTextFilter(searchLinks1);
       this.setState({ sortBy: "date" });
@@ -274,10 +266,8 @@ export class LinkListFilters extends React.Component {
       this.props.sortByNoteText();
     } else if (this.props.filters.sortBy==='hashtag' || sortBy === "hashtag") {
       this.setState({ sortBy: "hashtag" });
-      if(this.props.filters.text==='')
-        this.props.setTextFilter("#");
       this.props.sortByHashTag();
-      if (searchLinks3 === "") this.props.setTextFilter("#");
+      if (this.props.filters.text==='' || searchLinks3 === "") this.props.setTextFilter("#");
       else this.props.setTextFilter(searchLinks3);
     }
 
@@ -291,22 +281,12 @@ export class LinkListFilters extends React.Component {
       morehashtags: morehashtags === "true" ? true : false,
     });
 
-    //}
-  
-
-   
-
-    // const thePos = parseInt(window.localStorage.getItem("scrollPosition"));
-    // window.scrollTo(0, thePos);
   }
 
   componentWillUnmount() {}
 
   componentDidUpdate(prevProps) {
-    // if (prevProps.content !== this.props.content) {
-    //   this.updateHeight();
-    //   this.refreshIt();
-    // }
+   
   }
 
   updateHeight = () => {
@@ -318,9 +298,6 @@ export class LinkListFilters extends React.Component {
   setit = (value, event) => {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
-    //value is the user selected hashtag
-   
-    //you need to call dispatch(setSetit(true)) here
     
     this.props.sortByHashTag();
     this.props.setTextFilter(value);
@@ -334,14 +311,6 @@ export class LinkListFilters extends React.Component {
     });
     
   };
-
-  // useEffect(() => {
-  //   const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-  //   if (!hasRefreshed) {
-  //     sessionStorage.setItem('hasRefreshed', 'true');
-  //     window.location.reload();
-  //   }
-  // }, []);
 
   refreshIt = () => {
     window.location.reload();

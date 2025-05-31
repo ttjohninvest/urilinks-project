@@ -269,7 +269,7 @@ export class LinkListFilters extends React.Component {
       this.props.sortByHashTag();
       if (this.props.filters.text==='' || searchLinks3 === "")
       {
-          this.props.setTextFilter("#");
+          //this.props.setTextFilter("#");
           this.setState({ sortBy: "hashtag" });
       }
         

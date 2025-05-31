@@ -62,7 +62,7 @@ export const LinkList = (props) => {
         {/* <div className="show-for-desktop margin-left-11111"></div> */}
         {/* <div className="list-header__flex"> */}
           <LinksSummary />
-              <div>
+              <div className="margin-top5">
                 <label className="inline-block__flex">
                   <input
                     ref={myRef}
@@ -75,7 +75,7 @@ export const LinkList = (props) => {
                   <span className="the-inline-block label-text label-text-right">links list with details</span>
                 </label>
               </div>
-              <div className="margin-left-1">
+              <div className="margin-left-1 margin-top5">
                 <label className="inline-block__flex">
                   <input
                     ref={myRef}

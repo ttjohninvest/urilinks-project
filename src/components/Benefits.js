@@ -8,8 +8,8 @@ const Benefits = () => (
 
       <li>Using the website is free. </li>
       <li>Everyone gets their own personal account.</li>
-
       <li>Your account is secret from other accounts.</li>
+      <li>It functions like a rolodex.</li>
       <li>
         AI cannot replace the way you want to organize your internet bookmarks
         with hash tags.

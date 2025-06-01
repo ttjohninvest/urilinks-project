@@ -352,14 +352,14 @@ export class LinkListFilters extends React.Component {
 
         <div
           id="before-before-link-summary-id"
-          className="input-group some-component"
+          className="input-group some-component margin-bottom-1"
         >
           <div className="input-group__item">
             <input
               ref={this.myRef}
               type="text"
               className="text-input text-input-filters"
-              placeholder={
+              placeholder={ 
                 this.props.filters.sortBy === "date"
                   ? "Search for Link(s)"
                   : "Search for Link(s)"

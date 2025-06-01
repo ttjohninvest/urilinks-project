@@ -62,7 +62,7 @@ export const LinkList = (props) => {
         {/* <div className="show-for-desktop margin-left-11111"></div> */}
         {/* <div className="list-header__flex"> */}
           <LinksSummary />
-              <div className="margin-bottom5">
+              <div className="margin-bottom5-">
                 <label className="inline-block__flex">
                   <input
                     ref={myRef}
@@ -72,7 +72,7 @@ export const LinkList = (props) => {
                     checked={selectedOption === "option1"}
                     onChange={handleOptionChange}
                   />
-                  <div className="the-inline-block- label-text label-text-right">links list with details</div>
+                  <div className="the-inline-block- label-text label-text-right margin-bottom5">links list with details</div>
                 </label>
               </div>
               <div className="margin-left-1 margin-bottom5">
@@ -85,7 +85,7 @@ export const LinkList = (props) => {
                     checked={selectedOption === "option2"}
                     onChange={handleOptionChange}
                   />
-                  <span className="the-inline-block label-text">links list with out details</span>
+                  <div className="the-inline-block- label-text margin-bottom5">links list with out details</div>
                 </label>
               </div>
             

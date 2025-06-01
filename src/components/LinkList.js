@@ -72,10 +72,10 @@ export const LinkList = (props) => {
                     checked={selectedOption === "option1"}
                     onChange={handleOptionChange}
                   />
-                  <div className="the-inline-block- label-text label-text-right margin-bottom5">links list with details</div>
+                  <div className="the-inline-block- label-text label-text-right">links list with details</div>
                 </label>
               </div>
-              <div className="margin-left-1 margin-bottom5">
+              <div className="margin-left-1">
                 <label className="inline-block__flex">
                   <input
                     ref={myRef}

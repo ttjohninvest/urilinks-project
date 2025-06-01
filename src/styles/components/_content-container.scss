@@ -70,15 +70,14 @@
 
 
 .flexrow2b {
+  display: flex;
   flex-direction:row;
   justify-content:space-between;
   align-items:center;
   background: $off-white;
   border: 1px solid darken($off-white, 7%);
   color: $grey;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   flex-wrap:wrap;
 }
 

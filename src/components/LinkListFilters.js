@@ -352,7 +352,7 @@ export class LinkListFilters extends React.Component {
 
         <div
           id="before-before-link-summary-id"
-          className="input-group some-component margin-bottom-1"
+          className="input-group some-component"
         >
           <div className="input-group__item">
             <input

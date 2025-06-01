@@ -56,7 +56,7 @@ export const LinkList = (props) => {
 
 
   return (
-    <div className="content-container website-background-color">
+    <div className="content-container website-background-color margin-bottom-1">
       
       <div id="before-link-summary-id" className="flexrow2b">
         {/* <div className="show-for-desktop margin-left-11111"></div> */}
@@ -85,7 +85,7 @@ export const LinkList = (props) => {
                     checked={selectedOption === "option2"}
                     onChange={handleOptionChange}
                   />
-                  <div className="the-inline-block- label-text margin-bottom5">links list with out details</div>
+                  <div className="the-inline-block- label-text margin-bottom5-">links list with out details</div>
                 </label>
               </div>
             

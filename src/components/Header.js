@@ -18,7 +18,7 @@ export const Header = ({ startLogout }) => (
         <div className="header-flex-row"><div className="margin-top-111 margin-right-111">
           <img className="rounded-full-1" src={logo} width="35" height="35" alt="Logo" />
           {/* </div><h1> Your Uri/Url Links </h1></div> */}
-          </div><h1 title="Please use it for good. Bookmarks for internet pages, urls/links">urilinks</h1></div>
+          </div><h1 title="Please use it for good. Bookmarks for internet pages, urls/links">urilinks (bookmarking)</h1></div>
         </Link>
         
         <Link className="header__title" to="/benefits">

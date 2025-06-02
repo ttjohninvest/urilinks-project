@@ -5,7 +5,7 @@ const Benefits = () => (
   <div className="list-header__flex__center">
     <ul>
       <li>urilinks.com Benefits:</li>
-
+      <li>Please use it for good.</li>
       <li>Using the website is free. </li>
       <li>Everyone gets their own personal account.</li>
       <li>Your account is secret from other accounts.</li>
@@ -76,7 +76,8 @@ const Benefits = () => (
           tag in the note. You may organize any group of links this way. For
           example, if you have 5 uri/url links that are your favorites, put The
           hash tag #favorite in the note section for each of the 5 in the add
-          uri/url form. You will need two or more hash tags for the hash tags window to appear.
+          uri/url form. You will need two or more hash tags for the hash tags
+          window to appear.
         </li>
 
         <li>

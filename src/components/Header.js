@@ -69,9 +69,9 @@ if (confirm("Please press a button.") == true) {
           <Link className="header__title" to="/settings">
             {/* <span>Settings</span> */}
           </Link>
-          <div className="color-white-1" onClick={deleteAccount}>
+          {/* <div className="color-white-1" onClick={deleteAccount}>
             delete account
-          </div>
+          </div> */}
           <button className="button button--link ib" onClick={startLogout}>
             Logout
           </button>

@@ -14,7 +14,9 @@ import * as firebase from "firebase";
 
 export const Header = ({ startLogout }) => {
   const deleteAccount = () => {
-    console.log("Delete Account");
+    let text;
+if (confirm("Please press a button.") == true) {
+ console.log("Delete Account");
    
     const user = firebase.auth().currentUser;
             if (user) {
@@ -27,6 +29,10 @@ export const Header = ({ startLogout }) => {
         console.log("delete account error, An error occurred, error"+error)
       });
     }
+} else {
+  console.log("Canceled the Deletion of the Account");
+}
+    
   };
 
   return (

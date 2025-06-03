@@ -1,4 +1,12 @@
+
+
 # Git Commands
+
+
+todo to do
+put the function in to delete the data from firebase if the user deletes gmail email from google
+
+
 
 git init - Create a new git repo
 git status - View the changes to your project code

@@ -10,8 +10,13 @@ import logo from "../assets/images/logo9.png"
 //   startLogout()
 // }
 
-export const Header = ({ startLogout }) => (
-  <header className="header">
+export const Header = ({ startLogout }) => {
+
+  const deleteAccount = () => {
+    console.log("Delete Account")
+  }
+  
+  return (<header className="header">
     <div className="content-container">
       <div className="header__content">
         <Link className="header__title" to="/dashboard">
@@ -30,6 +35,7 @@ export const Header = ({ startLogout }) => (
         <Link className="header__title" to="/settings">
           {/* <span>Settings</span> */}
         </Link>
+        <div onClick={deleteAccount}>delete account</div>
         <button className="button button--link ib" onClick={startLogout}>
           Logout
         </button>
@@ -37,6 +43,7 @@ export const Header = ({ startLogout }) => (
     </div>
   </header>
 );
+}
 
 const mapDispatchToProps = (dispatch) => ({
   startLogout: () => {dispatch(startLogout()).then(()=>console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSdispatch then")).catch((error)=>console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error"+error))},

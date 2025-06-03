@@ -5,6 +5,7 @@ import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
 import logo from "../assets/images/logo9.png";
 //import { getAuth } from "firebase";
+import * as firebase from "firebase";
 
 // const preStartLogout=()=>{
 //   setLinks([])
@@ -14,15 +15,18 @@ import logo from "../assets/images/logo9.png";
 export const Header = ({ startLogout }) => {
   const deleteAccount = () => {
     console.log("Delete Account");
-    // const auth = getAuth();
-    // const user = auth.currentUser;
-
-    // user.delete().then(() => {
-    //     console.log("User account deleted")
-    //   })
-    //   .catch((error) => {
-    //     console.log("delete account error, An error occurred, error"+error)
-    //   });
+   
+    const user = firebase.auth().currentUser;
+            if (user) {
+              //const uid = user.uid;
+          
+    user.delete().then(() => {
+        console.log("User account deleted")
+      })
+      .catch((error) => {
+        console.log("delete account error, An error occurred, error"+error)
+      });
+    }
   };
 
   return (
@@ -56,9 +60,9 @@ export const Header = ({ startLogout }) => {
           <Link className="header__title" to="/settings">
             {/* <span>Settings</span> */}
           </Link>
-          {/* <div className="color-white-1" onClick={deleteAccount}>
+          <div className="color-white-1" onClick={deleteAccount}>
             delete account
-          </div> */}
+          </div>
           <button className="button button--link ib" onClick={startLogout}>
             Logout
           </button>

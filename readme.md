@@ -167,6 +167,10 @@ heroku pricing: https://devcenter.heroku.com/articles/usage-and-billing
 cloudflare pricing:
 100webspace.com pricing: 16.00/year for the domain name
 
+cloud function to do the delete
+firebase-functions-project-1 was made by the firebase cli
+now I am going to try to deploy the cloud function in functions/index.js
+
 tutorial utilities
 how to include an image with webpack https://www.youtube.com/watch?v=91TsjW9BaC4
 how to keep track of the scroll position https://rehanpinjari.medium.com/how-to-handle-scroll-position-like-a-pro-in-react-efa86dfc68a9

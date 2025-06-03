@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
 import logo from "../assets/images/logo9.png";
-import { getAuth } from "firebase";
+//import { getAuth } from "firebase";
 
 // const preStartLogout=()=>{
 //   setLinks([])
@@ -14,15 +14,15 @@ import { getAuth } from "firebase";
 export const Header = ({ startLogout }) => {
   const deleteAccount = () => {
     console.log("Delete Account");
-    const auth = getAuth();
-    const user = auth.currentUser;
+    // const auth = getAuth();
+    // const user = auth.currentUser;
 
-    user.delete().then(() => {
-        console.log("User account deleted")
-      })
-      .catch((error) => {
-        console.log("delete account error, An error occurred, error"+error)
-      });
+    // user.delete().then(() => {
+    //     console.log("User account deleted")
+    //   })
+    //   .catch((error) => {
+    //     console.log("delete account error, An error occurred, error"+error)
+    //   });
   };
 
   return (

@@ -7,6 +7,7 @@ export class EditLinkPage extends React.Component {
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
     this.props.history.push("/");
+    window.location.reload()
   };
   //onRemove = (value,event) => {
     onRemove = () => {

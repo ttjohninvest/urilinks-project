@@ -30,6 +30,7 @@
     "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "^6.2.0",
     "firebase": "^7.1.0",
+    "filebase-functions":"^6.3.2",
     "history": "4.7.2",
     "url-loader": "^4.1.1",
     "moment": "^2.22.2",

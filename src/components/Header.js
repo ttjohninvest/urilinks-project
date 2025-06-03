@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
@@ -13,6 +13,7 @@ import * as firebase from "firebase";
 // }
 
 export const Header = ({ startLogout }) => {
+  const [deleteAccountError, setDeleteAccountError] = useState(false)
   const deleteAccount = () => {
     let text;
 if (confirm("Please press a button.") == true) {
@@ -26,7 +27,8 @@ if (confirm("Please press a button.") == true) {
         console.log("User account deleted")
       })
       .catch((error) => {
-        console.log("delete account error, An error occurred, error"+error)
+        setDeleteAccountError(true)
+        console.log("Timeout error: To delete your accout, you will need to logout, relogin and then immediately delete the account, error="+error)
       });
     }
 } else {
@@ -36,7 +38,8 @@ if (confirm("Please press a button.") == true) {
   };
 
   return (
-    <header className="header">
+    <div>
+    {!deleteAccountError ?<header className="header">
       <div className="content-container">
         <div className="header__content">
           <Link className="header__title" to="/dashboard">
@@ -74,7 +77,8 @@ if (confirm("Please press a button.") == true) {
           </button>
         </div>
       </div>
-    </header>
+    </header>:"Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."}
+    </div>
   );
 };
 

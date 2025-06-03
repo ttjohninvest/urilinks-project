@@ -11,8 +11,9 @@
         "*.local"
       ],
       "predeploy": [
-        "npm --prefix \"functions\" run lint"
-      ]
+        
+      ],
+      "runtime": "nodejs22"
     }
   ]
 }

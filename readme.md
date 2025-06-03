@@ -168,7 +168,9 @@ cloudflare pricing:
 100webspace.com pricing: 16.00/year for the domain name
 
 cloud function to do the delete
-firebase-functions-project-1 was made by the firebase cli
+firebase-functions-project-1 was made by the firebase
+ ttjohninvest@gmail.com is the email for the billing account for firebase-functions-project-1 to pay for the delete account cloud function
+ billing budget set at $10.00 for the blaze plan, no charge through tt if it gets to this much I will get an email, it won't go over
 now I am going to try to deploy the cloud function in functions/index.js
 
 tutorial utilities
@@ -274,4 +276,5 @@ Share it with a librarian
 internetmarks.com bought on 5/25/25 at about 10:42am
  it takes 72 hours for full dns propagation, so 5/28/25 it should be done
  putting the blog with this domain it is at internetmarks0.blogspot.com, which is blogger.google.com
+
 

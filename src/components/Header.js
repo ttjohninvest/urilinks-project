@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
 import logo from "../assets/images/logo9.png";
-import { getAuth } from "firebase/auth";
+// import { getAuth } from "firebase/auth";
 import * as getAuth from "firebase/auth";
 
 // const preStartLogout=()=>{

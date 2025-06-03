@@ -42,7 +42,7 @@ const LinkDashboardPage = (props) => {
     console.log("LinkDashboardPage.js, sp="+sp)
     window.scrollTo(0,sp)
     // window.scrollTo(0,sp-heightofdiv)
-    window.location.reload()
+    
   },[])
 
  useEffect(() => {

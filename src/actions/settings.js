@@ -1,6 +1,6 @@
 
 import database from "../firebase/firebase";
-import database from "../firebase/firebase/auth"
+
 
 // ADD_LINK
 export const addSettings = (settings) => ({

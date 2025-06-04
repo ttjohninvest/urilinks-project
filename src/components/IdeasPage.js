@@ -27,12 +27,12 @@ const IdeasPage = () => {
         "cats ",
         "pets"
     ]
-     
-     return(<ul className="color-white-1">
-      {ideasArray.sort().map((item, index) => (
-        <li key={index}>{item}</li>
-      ))}
-    </ul>)   
+     return (<div>Hello</div>)
+    //  return(<ul className="color-white-1">
+    //   {ideasArray.sort().map((item, index) => (
+    //     <li key={index}>{item}</li>
+    //   ))}
+    // </ul>)   
 };
 
 export default IdeasPage;

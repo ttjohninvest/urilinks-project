@@ -102,6 +102,7 @@ const IdeasPage = () => {
         "writing, word processing",
         "thinking",
         "thinking, philosophy",
+        "thinking, imagination (good accurate use of)",
         "thinking, imagination",
         "thinking, words",
         "thinking, study",

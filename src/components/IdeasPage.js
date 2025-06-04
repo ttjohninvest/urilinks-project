@@ -56,6 +56,7 @@ const IdeasPage = () => {
         "thinking, psychology",
         "thinking, sociology",
         "thinking, well",
+        "thinking, christianity",
         "dictionary",
         "dinosaurs",
         "church",

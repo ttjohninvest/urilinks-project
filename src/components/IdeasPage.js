@@ -49,6 +49,8 @@ const IdeasPage = () => {
         "cats",
         "cats, food",
         "pets",
+        "ethics",
+        "morals",
         "pets, food",
         "airports",
         "airports, car rental", 

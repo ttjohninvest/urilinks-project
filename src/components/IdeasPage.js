@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { createStore } from 'redux';
 
 const IdeasPage = () => {
     
@@ -27,12 +25,12 @@ const IdeasPage = () => {
         "cats ",
         "pets"
     ]
-     return (<div>Hello</div>)
-    //  return(<ul className="color-white-1">
-    //   {ideasArray.sort().map((item, index) => (
-    //     <li key={index}>{item}</li>
-    //   ))}
-    // </ul>)   
+    
+     return(<ul className="color-white-1">
+      {ideasArray.sort().map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>)   
 };
 
 export default IdeasPage;

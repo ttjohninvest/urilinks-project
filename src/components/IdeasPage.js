@@ -23,11 +23,26 @@ const IdeasPage = () => {
         "christian",
         "walking",
         "dogs",
-        "cats ",
+        "dogs, food",
+        "cats",
+        "cats, food",
         "pets",
+        "pets, food",
         "airports",
+        "airports, car, rental", 
+        "car, rental", 
         "hotels",
-        "motels"
+        "motels",
+        "laundry",
+        "grocery",
+        "sports",
+        "sports, running",
+        "sports, baseball",
+        "sports, soccer",
+        "sports, football",
+        "sports, swimming",
+        "sports, ice skating",
+        "sports, race walking"
     ]
     
      return(<ul className="">

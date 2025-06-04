@@ -123,6 +123,7 @@ const IdeasPage = () => {
         "holy bible, KJV",
         "holy bible, study",
         "housing",
+        "schools, colleges",
         "fishing, ministry",
         "fishing, stream",
         "fishing, lake",

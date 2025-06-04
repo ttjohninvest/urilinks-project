@@ -120,6 +120,8 @@ const IdeasPage = () => {
         "church, catholic",
         "church, denominational",
         "church, non denominational",
+        "church, Gospel of Grace",
+        "church, Gospel of the Kingdom",
         "holy bible, KJV",
         "holy bible, study",
         "housing",

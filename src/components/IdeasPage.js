@@ -176,7 +176,7 @@ const IdeasPage = () => {
      return(
      
      <div>
-      <div className="margin-bottom-5a">Subect Ideas which can be used as hash tags, for example Chariity, Giving, #charitygiving</div>
+      <div className="flexrow2w margin-top-111 margin-bottom-3a margin-left-11 text-size-7">Subect Ideas which can be used as hash tags, for example Chariity, Giving, #charitygiving</div>
 <ul className="">
       {ideasArray.sort().map((item, index) => (
         <li key={index}>{item}</li>

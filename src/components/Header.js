@@ -14,6 +14,10 @@ import * as firebase from "firebase";
 
 export const Header = ({ startLogout }) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false)
+  const ideas = () => {
+
+  }
+
   const deleteAccount = () => {
     let text;
 if (confirm("Please press a button.") == true) {
@@ -72,6 +76,9 @@ if (confirm("Please press a button.") == true) {
           {/* <div className="color-white-1" onClick={deleteAccount}>
             delete account
           </div> */}
+         <Link className="header__title" to="/ideas">
+            <span className="ib">Ideas</span>
+          </Link>
           <button className="button button--link ib" onClick={startLogout}>
             Logout
           </button>

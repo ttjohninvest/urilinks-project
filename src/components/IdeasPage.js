@@ -26,7 +26,7 @@ const IdeasPage = () => {
         "pets"
     ]
     
-     return(<ul className="color-white-1">
+     return(<ul className="">
       {ideasArray.map((item, index) => (
         <li key={index}>{item}</li>
       ))}

@@ -23,11 +23,14 @@ const IdeasPage = () => {
         "walking",
         "dogs",
         "cats ",
-        "pets"
+        "pets",
+        "airports",
+        "hotels",
+        "motels"
     ]
     
      return(<ul className="">
-      {ideasArray.map((item, index) => (
+      {ideasArray.sort().map((item, index) => (
         <li key={index}>{item}</li>
       ))}
     </ul>)   

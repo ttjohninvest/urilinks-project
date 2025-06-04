@@ -41,6 +41,8 @@ const IdeasPage = () => {
         "church, Jesus Christ",
         "church, Holy Father God",
         "church, Kingdom of God",
+        "church, Jesus Christ said his Kingdom is not of this world",
+        "church, ministry",
         "church, love",
         "church, prayer",
         "mountains",

@@ -42,7 +42,12 @@ const IdeasPage = () => {
         "sports, football",
         "sports, swimming",
         "sports, ice skating",
-        "sports, race walking"
+        "sports, race walking",
+        "sports, elite",
+        "sports, recreational",
+        "sports, hiking",
+        "sports, rugby",
+        "sports, cricket"
     ]
     
      return(<ul className="">

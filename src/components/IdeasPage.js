@@ -74,6 +74,8 @@ const IdeasPage = () => {
         "maps, directions",
         "maps, local",
         "church, Saints",
+        "church, Repent",
+        "church, Repentance",
         "movies, actresses",
         "movies, actors",
         "movies, titles",

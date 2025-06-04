@@ -100,6 +100,9 @@ const IdeasPage = () => {
         "writing, novel",
         "writing, paper",
         "writing, word processing",
+        "information Informatics",
+        "hospitals",
+        "charity, giving",
         "thinking",
         "thinking, philosophy",
         "thinking, imagination (good accurate use of)",
@@ -170,11 +173,19 @@ const IdeasPage = () => {
         "ai, natural language"
     ]
     
-     return(<ul className="">
+     return(
+     
+     <div>
+      <div className="margin-bottom-5a">Subect Ideas which can be used as hash tags, for example Chariity, Giving, #charitygiving</div>
+<ul className="">
       {ideasArray.sort().map((item, index) => (
         <li key={index}>{item}</li>
       ))}
-    </ul>)   
+    </ul>
+     </div>
+     
+    
+  )   
 };
 
 export default IdeasPage;

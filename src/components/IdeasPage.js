@@ -60,6 +60,7 @@ const IdeasPage = () => {
         "thinking, patience",
         "feeling, patience",
         "feeling, emotions",
+        "thinking, grammar",
         "dictionary",
         "dinosaurs",
         "church",

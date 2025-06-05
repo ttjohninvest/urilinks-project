@@ -4,6 +4,7 @@ todo to do
 put the function in to delete the data from firebase if the user deletes gmail email from google
 waiting for email response from Merriam Webster regard commercial use of the dictionary.
  I sent the message by their website form on June 5th 2025, Todd Slade's birthday. My precious friend.
+put a message in to contact johmcg64@gmail.com if one of the memory maximum cases occurrs.
 
 git init - Create a new git repo
 git status - View the changes to your project code

@@ -5,6 +5,7 @@ const Benefits = () => (
   <div className="list-header__flex__center">
     <ul>
       <li>urilinks.com Benefits:</li>
+      <li>Add Uri/Url Link button on the home page is used to add a url link to your private account.</li>
       <li>Please use it for good.</li>
       <li>Using the website is free. </li>
       <li>Everyone gets their own personal account.</li>

@@ -1,12 +1,9 @@
-
-
 # Git Commands
-
 
 todo to do
 put the function in to delete the data from firebase if the user deletes gmail email from google
-
-
+waiting for email response from Merriam Webster regard commercial use of the dictionary.
+ I sent the message by their website form on June 5th 2025, Todd Slade's birthday. My precious friend.
 
 git init - Create a new git repo
 git status - View the changes to your project code
@@ -169,8 +166,8 @@ cloudflare pricing:
 
 cloud function to do the delete
 firebase-functions-project-1 was made by the firebase
- ttjohninvest@gmail.com is the email for the billing account for firebase-functions-project-1 to pay for the delete account cloud function
- billing budget set at $10.00 for the blaze plan, no charge through tt if it gets to this much I will get an email, it won't go over
+ttjohninvest@gmail.com is the email for the billing account for firebase-functions-project-1 to pay for the delete account cloud function
+billing budget set at $10.00 for the blaze plan, no charge through tt if it gets to this much I will get an email, it won't go over
 now I am going to try to deploy the cloud function in functions/index.js
 
 tutorial utilities
@@ -274,7 +271,5 @@ it will help you money love health and happiness
 
 Share it with a librarian
 internetmarks.com bought on 5/25/25 at about 10:42am
- it takes 72 hours for full dns propagation, so 5/28/25 it should be done
- putting the blog with this domain it is at internetmarks0.blogspot.com, which is blogger.google.com
-
-
+it takes 72 hours for full dns propagation, so 5/28/25 it should be done
+putting the blog with this domain it is at internetmarks0.blogspot.com, which is blogger.google.com

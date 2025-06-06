@@ -164,6 +164,7 @@ firebase pricing: https://firebase.google.com/pricing
 heroku pricing: https://devcenter.heroku.com/articles/usage-and-billing
 cloudflare pricing:
 100webspace.com pricing: 16.00/year for the domain name
+github.com, ttjohninvest@gmail.com, were code is
 
 cloud function to do the delete
 firebase-functions-project-1 was made by the firebase

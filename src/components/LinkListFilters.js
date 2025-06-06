@@ -49,7 +49,7 @@ function ExpandableArray(props) {
           </div>
           <div
             ref={props.ref}
-            className="flexandwrap margin-top-1 background-white-1"
+            className="flexandwrap margin-top-1 background-white-1 borderradius5"
             title="You may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             {!expanded

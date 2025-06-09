@@ -28,22 +28,22 @@ const FetchBookmarks = (props) => {
 
         //write to firebase the following links
         let r=false
-        //for (let i = 0; i < links.length; i++) {
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < links.length; i++) {
+        //for (let i = 0; i < 1; i++) {
           console.log("links[" + i + "].innerText=" + links[i].innerText);
           console.log("links[" + i + "].href" + links[i].href);
           console.log("calling startAddLink");
 
 
-        //   r = props.startAddLink({
-        //     description: links[i].innerText,
-        //     Url: links[i].href,
-        //     note: "#loving",
-        //     amount: 0,
-        //     createdAt: now.getTime(),
-        //     faviconURL: "https://youtube.com/favicon.ico"
-        //   });
-r=false
+          r = props.startAddLink({
+            description: links[i].innerText,
+            Url: links[i].href,
+            note: "#loving",
+            amount: 0,
+            createdAt: now.getTime(),
+            faviconURL: "https://youtube.com/favicon.ico"
+          });
+          
           if(r===false) {
             setImportingError(true)
              break

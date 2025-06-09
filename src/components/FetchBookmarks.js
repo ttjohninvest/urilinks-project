@@ -26,10 +26,14 @@ let links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of 
 for (let i = 0; i < links.length; i++) {
     console.log("links["+i+"].innerText="+links[i].innerText)
     console.log("links["+i+"].href"+links[i].href)
-
+    console.log("calling startAddLinkn")
     startAddLink({
         description: links[i].innerText,
-        Url: links[i].href
+        Url: links[i].href,
+        note:"",
+        amount:0,
+        createdAt:0,
+        faviconURL:""
 })
 
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {startAddLink} from '../actions/links'
 
 const FetchBookmarks = () => {
-    //const [data, setData] = useState(null);
+    const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ const FetchBookmarks = () => {
             .then(data => {
                 
                 //console.log("data="+data)
-                //setData(data)
+                setData(data)
 
 //const text = `<p>Some text</p><br /><a href="https://daily-dev-tips.com/">My website</a><hr /><a href="https://google.com">Another link</a>`;
 

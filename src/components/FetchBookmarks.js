@@ -42,16 +42,6 @@ const FetchBookmarks = (props) => {
             faviconURL: "https://youtube.com/favicon.ico"
           });
 
-      if (r === false) {
-        // setErrorDialog(true);
-        console.log("ERROR, VVVVVVVVVVVVV returned false");
-      } else {
-        console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-        props.history.push("/");
-        window.location.reload()
-      }
-
-
         }
 
       }).catch((error) => setError(error));

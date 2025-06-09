@@ -9,7 +9,21 @@ const FetchBookmarks = () => {
         fetch('./bookmarks_6_9_25.html')
             //.then(response => response.json())
             .then(response => response.text())
-            .then(data => setData(data))
+            .then(data => {
+                
+                
+                setData(data)
+
+//const text = `<p>Some text</p><br /><a href="https://daily-dev-tips.com/">My website</a><hr /><a href="https://google.com">Another link</a>`;
+let text = data
+let parser = new DOMParser();
+const doc = parser.parseFromString(text, 'text/html');
+links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of all <a> tags
+console.log(links);
+
+
+
+    })
             .catch(error => setError(error));
     }, []);
 

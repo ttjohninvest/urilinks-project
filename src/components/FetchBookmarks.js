@@ -12,12 +12,12 @@ const FetchBookmarks = () => {
             .then(data => {
                 
                 
-                setData(data)
+                //setData(data)
 
 //const text = `<p>Some text</p><br /><a href="https://daily-dev-tips.com/">My website</a><hr /><a href="https://google.com">Another link</a>`;
-let text = data
+
 let parser = new DOMParser();
-const doc = parser.parseFromString(text, 'text/html');
+const doc = parser.parseFromString(data, 'text/html');
 let links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of all <a> tags
 console.log(links);
 

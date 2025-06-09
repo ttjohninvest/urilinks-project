@@ -6,7 +6,7 @@ const FetchBookmarks = () => {
 
     useEffect(() => {
         //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
-        fetch('./bookmarks_6_9_25.html')
+        fetch('https://urilinks.com/bookmarks_6_9_25.html')
             //.then(response => response.json())
             .then(response => response.text())
             .then(data => {

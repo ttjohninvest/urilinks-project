@@ -1,10 +1,44 @@
 # Git Commands
 
 todo to do
+I sent 4 ads to 4 different affiliate marketer groups on fb, waiting for response from group admins, 6/8/2025
 put the function in to delete the data from firebase if the user deletes gmail email from google
 waiting for email response from Merriam Webster regard commercial use of the dictionary.
  I sent the message by their website form on June 5th 2025, Todd Slade's birthday. My precious friend.
 put a message in to contact johmcg64@gmail.com if one of the memory maximum cases occurrs.
+
+===
+https://search.brave.com/search?q=how+do+i+read+all+of+the+users+data+from+firebase+realtime+database&summary=1&conversation=9776a7e8a0c23acdbc1eae
+the node users can now be read
+{
+  "rules": {
+    "users": {
+      ".read": true,
+      "$uid": {
+        ".write": "$uid === auth.uid"
+      }
+    }
+  }
+}
+
+const dbRef = firebase.database().ref('users');
+dbRef.on('value', (snapshot) => {
+  const data = snapshot.val();
+  // Process the data here
+});
+If you need the data only once, you can use get() to retrieve a snapshot of the data from the database:
+
+const dbRef = firebase.database().ref('users');
+dbRef.get().then((snapshot) => {
+  if (snapshot.exists()) {
+    console.log(snapshot.val());
+  } else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.error(error);
+});
+===
 
 git init - Create a new git repo
 git status - View the changes to your project code

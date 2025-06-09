@@ -32,9 +32,9 @@ let links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of 
 //         Url: links[i].href
 // })
 
-startAddLinkSet(links)
 
-}
+//}
+startAddLinkSet(links)
 
 //startAddLink
 /*

@@ -41,6 +41,31 @@ export const startAddLink = (linkData = {}) => {
   };
 };
 
+export const startAddLinkSet = (links) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+   
+    ////
+    //return false;
+    return database
+      .ref(`users/${uid}/links`)
+      .set(links)
+      .then((ref) => {
+        // dispatch(
+        //   addLink({
+        //     id: ref.key,
+        //     ...link,
+        //   })
+        // );
+        return true;
+      })
+      .catch((error) => {
+        console.log("error adding link data in firebase, error=" + error);
+        return false;
+      });
+  };
+};
+
 // REMOVE_LINK
 export const removeLink = ({ id } = {}) => ({
   type: "REMOVE_LINK",

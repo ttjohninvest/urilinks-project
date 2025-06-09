@@ -30,7 +30,7 @@ for (let i = 0; i < links.length; i++) {
     startAddLink({
         description: links[i].innerText,
         Url: links[i].href,
-        note:"",
+        note:"#imported",
         amount:0,
         createdAt:0,
         faviconURL:""

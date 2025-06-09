@@ -23,11 +23,12 @@ let links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of 
 // setData(links)
 
 //write to firebase the following links
-for (let i = 0; i < links.length; i++) {
+//for (let i = 0; i < links.length; i++) {
+for (let i = 0; i < 1; i++) {
     console.log("links["+i+"].innerText="+links[i].innerText)
     console.log("links["+i+"].href"+links[i].href)
     console.log("calling startAddLinkn")
-    let myTimeout = setTimeout(()=>{
+    //let myTimeout = setTimeout(()=>{
  startAddLink({
         description: links[i].innerText,
         Url: links[i].href,
@@ -36,7 +37,7 @@ for (let i = 0; i < links.length; i++) {
         createdAt:0,
         faviconURL:""
 })
-    }, 3000);
+    //}, 3000);
    
 
 

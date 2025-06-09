@@ -19,12 +19,12 @@ const FetchBookmarks = () => {
 let parser = new DOMParser();
 const doc = parser.parseFromString(data, 'text/html');
 let links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of all <a> tags
-console.log("links="+links.HTMLCollection)
 
-// for (let i = 0; i < links.length; i++) {
-//     console.log("links["+i+"].innerText="+links[i].innerText)
-//     console.log("links["+i+"].href"+links[i].href)
-// }
+
+for (let i = 0; i < links.length; i++) {
+    console.log("links["+i+"].innerText="+links[i].innerText)
+    console.log("links["+i+"].href"+links[i].href)
+}
 
 
 

@@ -26,6 +26,7 @@ const FetchBookmarks = (props) => {
         // setData(links)
 
         //write to firebase the following links
+        let r=false
         for (let i = 0; i < links.length; i++) {
         //for (let i = 0; i < 1; i++) {
           console.log("links[" + i + "].innerText=" + links[i].innerText);
@@ -33,7 +34,7 @@ const FetchBookmarks = (props) => {
           console.log("calling startAddLink");
 
 
-          const r = props.startAddLink({
+          r = props.startAddLink({
             description: links[i].innerText,
             Url: links[i].href,
             note: "#loving",
@@ -43,6 +44,14 @@ const FetchBookmarks = (props) => {
           });
 
         }
+       if (r === false) {
+        // setErrorDialog(true);
+        console.log("ERROR, VVVVVVVVVVVVV returned false");
+      } else {
+        console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+        props.history.push("/");
+        window.location.reload()
+      }
 
       }).catch((error) => setError(error));
   }, []);

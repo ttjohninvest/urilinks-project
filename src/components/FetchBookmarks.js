@@ -8,7 +8,7 @@ const FetchBookmarks = () => {
         //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
         fetch('./bookmarks_6_9_25.html')
             //.then(response => response.json())
-            .then(response => response)
+            .then(response => response.text())
             .then(data => setData(data))
             .catch(error => setError(error));
     }, []);

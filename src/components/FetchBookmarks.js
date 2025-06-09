@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {startAddLinkSet} from '../actions/links'
+import {startAddLink} from '../actions/links'
 
 const FetchBookmarks = () => {
     const [data, setData] = useState(null);
@@ -23,18 +23,18 @@ let links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of 
 // setData(links)
 
 //write to firebase the following links
-// for (let i = 0; i < links.length; i++) {
-//     console.log("links["+i+"].innerText="+links[i].innerText)
-//     console.log("links["+i+"].href"+links[i].href)
+for (let i = 0; i < links.length; i++) {
+    console.log("links["+i+"].innerText="+links[i].innerText)
+    console.log("links["+i+"].href"+links[i].href)
 
-//     startAddLink({
-//         description: links[i].innerText,
-//         Url: links[i].href
-// })
+    startAddLink({
+        description: links[i].innerText,
+        Url: links[i].href
+})
 
 
-//}
-startAddLinkSet(links)
+}
+
 
 //startAddLink
 /*

@@ -7,6 +7,7 @@ import moment from "moment";
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [importingError, setImportingError] = useState(false);
 
   useEffect(() => {
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
@@ -43,7 +44,12 @@ const FetchBookmarks = (props) => {
         //     faviconURL: "https://youtube.com/favicon.ico"
         //   });
 r=false
-          if(r===false) break
+          if(r===false) {
+            setImportingError(true)
+             break
+          } 
+            
+           
         }
        if (r === false) {
         // setErrorDialog(true);
@@ -62,7 +68,7 @@ r=false
 
   return (
     <div>
-      Bookmarks have been imported
+      {importingError===true?"Error importing bookmarks":"Bookmarks have been imported"}
       {/* {JSON.stringify(data)} */}
     </div>
   );

@@ -12,19 +12,19 @@ const FetchBookmarks = () => {
             .then(data => {
                 
                 //console.log("data="+data)
-                setData(data)
+                //setData(data)
 
 //const text = `<p>Some text</p><br /><a href="https://daily-dev-tips.com/">My website</a><hr /><a href="https://google.com">Another link</a>`;
 
 let parser = new DOMParser();
 const doc = parser.parseFromString(data, 'text/html');
 let links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of all <a> tags
+setData(links)
 
-
-for (let i = 0; i < links.length; i++) {
-    console.log("links["+i+"].innerText="+links[i].innerText)
-    console.log("links["+i+"].href"+links[i].href)
-}
+// for (let i = 0; i < links.length; i++) {
+//     console.log("links["+i+"].innerText="+links[i].innerText)
+//     console.log("links["+i+"].href"+links[i].href)
+// }
 
 
 
@@ -39,7 +39,10 @@ for (let i = 0; i < links.length; i++) {
     return (
         <div>
             {/* Render your data here */}
-            {JSON.stringify(data)}
+            {/* {JSON.stringify(data)} */}
+            {links.map((link)=>{
+                return <div><a href={link.href}>{link.innerText}</a></div>
+            })}
         </div>
     );
 };

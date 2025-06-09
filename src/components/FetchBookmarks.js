@@ -40,7 +40,7 @@ setData(links)
         <div>
             {/* Render your data here */}
             {/* {JSON.stringify(data)} */}
-            {links.map((link)=>{
+            {data.map((link)=>{
                 return <div><a href={link.href}>{link.innerText}</a></div>
             })}
         </div>

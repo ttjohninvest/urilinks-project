@@ -5,8 +5,10 @@ const FetchBookmarks = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
-            .then(response => response.json())
+        //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
+        fetch('./bookmarks_6_9_25.html')
+            //.then(response => response.json())
+            .then(response => response)
             .then(data => setData(data))
             .catch(error => setError(error));
     }, []);

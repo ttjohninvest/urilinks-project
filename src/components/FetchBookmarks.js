@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import {startAddLink} from '../actions/links'
 
 const FetchBookmarks = () => {
-    const [data, setData] = useState(null);
+    //const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -19,12 +20,34 @@ const FetchBookmarks = () => {
 let parser = new DOMParser();
 const doc = parser.parseFromString(data, 'text/html');
 let links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of all <a> tags
-setData(links)
+// setData(links)
 
-// for (let i = 0; i < links.length; i++) {
-//     console.log("links["+i+"].innerText="+links[i].innerText)
-//     console.log("links["+i+"].href"+links[i].href)
-// }
+//write to firebase the following links
+for (let i = 0; i < links.length; i++) {
+    console.log("links["+i+"].innerText="+links[i].innerText)
+    console.log("links["+i+"].href"+links[i].href)
+
+    startAddLink({
+        description: links[i].innerText,
+        Url: links[i].href
+})
+
+}
+
+//startAddLink
+/*
+{
+        description: links[i].innerText,
+        Url: links[i].href,
+        amount: 0,
+        createdAt: 0,
+        note: this.state.note,
+        faviconURL: faviconURL,
+}
+
+
+
+*/
 
 
 
@@ -38,11 +61,9 @@ setData(links)
 
     return (
         <div>
-            {/* Render your data here */}
+            Bookmarks have been imported
             {/* {JSON.stringify(data)} */}
-            {data.map((link)=>{
-                return <div><a href={link.href}>{link.innerText}</a></div>
-            })}
+           
         </div>
     );
 };

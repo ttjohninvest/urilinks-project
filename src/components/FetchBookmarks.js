@@ -39,15 +39,13 @@ const FetchBookmarks = (props) => {
             faviconURL: ""
           });
 
-
-
       if (r === false) {
         // setErrorDialog(true);
         console.log("ERROR, VVVVVVVVVVVVV returned false");
       } else {
-        
-        props.history.push("/");
-        window.location.reload()
+        console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+        //props.history.push("/");
+        //window.location.reload()
       }
 
 

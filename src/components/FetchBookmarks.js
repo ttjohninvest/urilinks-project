@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import {startAddLink} from '../actions/links'
+import { connect } from "react-redux";
+import { startAddLink } from "../actions/links";
+import { withRouter } from "react-router-dom";
 
-const FetchBookmarks = () => {
+const FetchBookmarks = (props) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
@@ -27,9 +29,9 @@ let links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of 
 for (let i = 0; i < 1; i++) {
     console.log("links["+i+"].innerText="+links[i].innerText)
     console.log("links["+i+"].href"+links[i].href)
-    console.log("calling startAddLinkn")
+    console.log("calling startAddLink")
     //let myTimeout = setTimeout(()=>{
- startAddLink({
+ props.startAddLink({
         description: links[i].innerText,
         Url: links[i].href,
         note:"#imported",
@@ -78,4 +80,9 @@ for (let i = 0; i < 1; i++) {
     );
 };
 
-export default FetchBookmarks;
+const mapDispatchToProps = (dispatch) => ({
+  startAddLink: (link) => dispatch(startAddLink(link)),
+});
+
+export default withRouter(connect(undefined, mapDispatchToProps)(FetchBookmarks));
+

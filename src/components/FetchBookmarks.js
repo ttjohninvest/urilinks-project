@@ -27,7 +27,8 @@ for (let i = 0; i < links.length; i++) {
     console.log("links["+i+"].innerText="+links[i].innerText)
     console.log("links["+i+"].href"+links[i].href)
     console.log("calling startAddLinkn")
-    startAddLink({
+    let myTimeout = setTimeout(()=>{
+ startAddLink({
         description: links[i].innerText,
         Url: links[i].href,
         note:"#imported",
@@ -35,6 +36,8 @@ for (let i = 0; i < links.length; i++) {
         createdAt:0,
         faviconURL:""
 })
+    }, 3000);
+   
 
 
 }

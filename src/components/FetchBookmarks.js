@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
+import moment from "moment";
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
@@ -13,6 +14,7 @@ const FetchBookmarks = (props) => {
       //.then(response => response.json())
       .then((response) => response.text())
       .then((data) => {
+        const now = new Date();
         //console.log("data="+data)
         setData(data);
 
@@ -30,13 +32,14 @@ const FetchBookmarks = (props) => {
           console.log("links[" + i + "].href" + links[i].href);
           console.log("calling startAddLink");
 
+
           const r = props.startAddLink({
             description: links[i].innerText,
             Url: links[i].href,
-            note: "#imported",
+            note: "#loving",
             amount: 0,
-            createdAt: 0,
-            faviconURL: ""
+            createdAt: now.getTime(),
+            faviconURL: "https://youtube.com/favicon.ico"
           });
 
       if (r === false) {
@@ -44,8 +47,8 @@ const FetchBookmarks = (props) => {
         console.log("ERROR, VVVVVVVVVVVVV returned false");
       } else {
         console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-        //props.history.push("/");
-        //window.location.reload()
+        props.history.push("/");
+        window.location.reload()
       }
 
 

@@ -11,7 +11,7 @@ const FetchBookmarks = () => {
             .then(response => response.text())
             .then(data => {
                 
-                console.log("data="+data)
+                //console.log("data="+data)
                 setData(data)
 
 //const text = `<p>Some text</p><br /><a href="https://daily-dev-tips.com/">My website</a><hr /><a href="https://google.com">Another link</a>`;

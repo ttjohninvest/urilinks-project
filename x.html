@@ -1,0 +1,23 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+//const text = `<p>Some text</p><br /><a href="https://daily-dev-tips.com/">My website</a><hr /><a href="https://google.com">Another link</a>`;
+let arr = readFileToArray('example.txt');
+console.log(arr);
+let parser = new DOMParser();
+const doc = parser.parseFromString(arr, 'text/html');
+links = doc.getElementsByTagName('a'); // This returns an HTMLCollection of all <a> tags
+    console.log(links[0].href)
+    console.log(links[0].innerText)
+    console.log(links[1].href)
+    console.log(links[1].innerText)
+//console.log(links);
+        </script>
+    </body>
+</html>
+
+
+

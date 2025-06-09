@@ -79,6 +79,9 @@ if (confirm("Please press a button.") == true) {
          <Link className="header__title" to="/ideas">
             <span className="ib">Ideas</span>
           </Link>
+          <Link className="header__title" to="/fetchbookmarks">
+            <span className="ib">Bookmarks</span>
+          </Link>
           <button className="button button--link ib" onClick={startLogout}>
             Logout
           </button>

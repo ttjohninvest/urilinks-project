@@ -26,8 +26,8 @@ const FetchBookmarks = (props) => {
         // setData(links)
 
         //write to firebase the following links
-        //for (let i = 0; i < links.length; i++) {
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < links.length; i++) {
+        //for (let i = 0; i < 1; i++) {
           console.log("links[" + i + "].innerText=" + links[i].innerText);
           console.log("links[" + i + "].href" + links[i].href);
           console.log("calling startAddLink");

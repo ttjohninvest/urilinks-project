@@ -11,6 +11,7 @@ import * as firebase from "firebase";
 //   setLinks([])
 //   startLogout()
 // }
+//////////
 
 export const Header = ({ startLogout }) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);

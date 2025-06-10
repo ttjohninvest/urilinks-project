@@ -16,6 +16,7 @@ import IdeasPage from "../components/IdeasPage";
 import BookmarksManager from "../components/BookmarksManager";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
+import FetchBookmarks from "../components/FetchBookmarks";
 
 export const history = createHistory();
 
@@ -32,6 +33,7 @@ const AppRouter = () => (
         <PrivateRoute path="/create" component={AddLinkPage} />
         <PrivateRoute path="/edit/:id" component={EditLinkPage} />
         <PrivateRoute path="/ideas" component={IdeasPage} />
+        <PrivateRoute path="/fetchbookmarks" component={FetchBookmarks} />
         <PrivateRoute path="/bookmarksmanager" component={BookmarksManager} />
         <Route component={NotFoundPage} />
       </Switch>

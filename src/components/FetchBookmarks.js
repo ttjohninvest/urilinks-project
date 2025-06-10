@@ -11,7 +11,9 @@ const FetchBookmarks = (props) => {
 
   useEffect(() => {
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
-    fetch("https://urilinks.com/bookmarks_6_9_25.html")
+    
+     if (confirm(text) == true) {
+     fetch("https://urilinks.com/bookmarks_6_9_25.html")
       //.then(response => response.json())
       .then((response) => response.text())
       .then((data) => {
@@ -61,6 +63,10 @@ const FetchBookmarks = (props) => {
       }
 
       }).catch((error) => setError(error));
+  } else {
+    window.location.reload()
+  }
+   
   }, []);
 
   if (error) return <div>Error: {error.message}</div>;

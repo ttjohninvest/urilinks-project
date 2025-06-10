@@ -8,11 +8,13 @@ const BookmarksManager = () => {
   return (
     <div>
       <ol>
-        <li>export bookmarks</li>
-        <li>upload bookmarks</li>
-        <li><Link className="header__title" to="/fetchbookmarks">
-            <span className="ib">import bookmarks</span>
-          </Link></li>
+        <li>export bookmarks from the bowser</li>
+        <li>upload bookmarks from this site</li>
+        <li>
+          <Link className="header__title" to="/fetchbookmarks">
+            <span className="ib text-color-black">import bookmarks</span>
+          </Link>
+        </li>
       </ol>
     </div>
   );

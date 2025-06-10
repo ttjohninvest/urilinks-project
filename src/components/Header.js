@@ -86,6 +86,9 @@ export const Header = ({ startLogout }) => {
               {/*<Link className="header__title" to="/fetchbookmarks">
             <span className="ib">Bookmarks</span>
           </Link>*/}
+          {/*<Link className="header__title" to="/fetchbookmarks">
+            <span className="ib">Bookmarks</span>
+          </Link>*/}
               <button className="button button--link ib" onClick={startLogout}>
                 Logout
               </button>

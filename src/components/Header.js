@@ -11,7 +11,6 @@ import * as firebase from "firebase";
 //   setLinks([])
 //   startLogout()
 // }
-//////////
 
 export const Header = ({ startLogout }) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
@@ -83,12 +82,9 @@ export const Header = ({ startLogout }) => {
               <Link className="header__title" to="/ideas">
                 <span className="ib">Ideas</span>
               </Link>
-              {/*<Link className="header__title" to="/fetchbookmarks">
-            <span className="ib">Bookmarks</span>
-          </Link>*/}
-          {/*<Link className="header__title" to="/fetchbookmarks">
-            <span className="ib">Bookmarks</span>
-          </Link>*/}
+              <Link className="header__title" to="/bookmarksmanager">
+            <span className="ib">Bookmarks Manager</span>
+          </Link>
               <button className="button button--link ib" onClick={startLogout}>
                 Logout
               </button>

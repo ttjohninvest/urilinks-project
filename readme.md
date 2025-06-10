@@ -1,6 +1,10 @@
 # Git Commands
 
 todo to do
+count of bookmarks to import needs to be known
+Is the total number of current bookmarks+the bookmark import count <= 500, ok to import them
+see if their is a way to prevent importing the bookmarks again
+
 bookmarks have to be exported and then stored into the codes public folder with the correct data appended
 to bookmarks like todays would be bookmarks_6_9_25. The code extracts the link text and the url but it is not
 adding them to the database but it does not show any errors in the console.

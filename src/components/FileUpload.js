@@ -29,7 +29,7 @@ function FileUpload() {
 const formData = new FormData();
 formData.append('file', file);
 
-fetch('https://urilinks.com/public', {
+fetch('https://urilinks.com', {
   method: 'POST',
   body: formData
 })

@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import moment from "moment";
+import { history } from "./routers/AppRouter";
+
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
@@ -64,7 +66,7 @@ const FetchBookmarks = (props) => {
 
       }).catch((error) => setError(error));
   } else {
-    window.location.reload()
+    history.push("/");
   }
    
   }, []);

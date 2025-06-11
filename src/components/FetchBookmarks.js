@@ -66,6 +66,7 @@ const FetchBookmarks = (props) => {
 
       }).catch((error) => setError(error));
   } else {
+    alert("You Canceled importing Bookmarks.")
     history.push("/");
   }
    

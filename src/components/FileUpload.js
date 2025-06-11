@@ -5,8 +5,8 @@ function FileUpload() {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
-    console.log("event.target.files="+event.target.files)
-    setFile(event.target.files);
+    console.log("event.target.files[0]="+event.target.files[0])
+    setFile(event.target.files[0]);
   };
 
   const handleUpload = () => {

@@ -11,7 +11,7 @@ const FetchBookmarks = (props) => {
 
   useEffect(() => {
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
-    
+     const text="Is it ok to upload the bookmarks?"
      if (confirm(text) == true) {
      fetch("https://urilinks.com/bookmarks_6_9_25.html")
       //.then(response => response.json())

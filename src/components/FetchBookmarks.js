@@ -78,7 +78,7 @@ const FetchBookmarks = (props) => {
       }).catch((error) => setError(error));
   } else {
     handleNavigation()
-    history.push("/");
+    //history.push("/");
   }
    
   }, []);

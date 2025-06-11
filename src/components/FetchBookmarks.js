@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import moment from "moment";
-import { history } from "./routers/AppRouter";
+import { history } from "../routers/AppRouter";
 
 
 const FetchBookmarks = (props) => {

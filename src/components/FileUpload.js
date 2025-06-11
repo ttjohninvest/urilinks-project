@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+
 
 function FileUpload() {
   const [file, setFile] = useState(null);
@@ -9,20 +9,33 @@ function FileUpload() {
   };
 
   const handleUpload = () => {
-    const formData = new FormData();
-    formData.append('file', file);
+    //const formData = new FormData();
+    //formData.append('file', file);
 
-    axios.post('http://urilinks.com/public', formData, {
-      headers: {
-        'content-type': 'multipart/form-data',
-      },
-    })
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    // axios.post('http://urilinks.com/public', formData, {
+    //   headers: {
+    //     'content-type': 'multipart/form-data',
+    //   },
+    // })
+    // .then((response) => {
+    //   console.log(response.data);
+    // })
+    // .catch((error) => {
+    //   console.error(error);
+    // });
+
+//    const input = document.getElementById('fileinput');
+//const file = input.files;
+const formData = new FormData();
+formData.append('file', file);
+
+fetch('https://urilinks.com/public', {
+  method: 'POST',
+  body: formData
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error(error));
   };
 
   return (

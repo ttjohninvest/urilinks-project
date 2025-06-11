@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { startAddLink } from "../actions/links";
-import { withRouter,useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import moment from "moment";
-//import { history } from "../routers/AppRouter";
+import { history } from "../routers/AppRouter";
 
 
 const FetchBookmarks = (props) => {
@@ -11,8 +11,6 @@ const FetchBookmarks = (props) => {
   const [error, setError] = useState(null);
   const [importingError, setImportingError] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
-
-    const history = useHistory();
 
     const handleNavigation = () => {
         setShowDialog(true);

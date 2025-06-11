@@ -77,8 +77,8 @@ const FetchBookmarks = (props) => {
 
       }).catch((error) => setError(error));
   } else {
-    handleNavigation()
-    //history.push("/");
+    //handleNavigation()
+    history.push("/");
   }
    
   }, []);
@@ -88,13 +88,14 @@ const FetchBookmarks = (props) => {
 //importingError===true?"Error importing bookmarks":
   return (
     <div>
-      {showDialog && (
+      {importingError===true?"Error importing bookmarks":"imported bookmarks"}
+      {/* {showDialog && (
                 <div className="dialog">
                    <p>Canceled</p>
                    <button onClick={handleConfirmNavigation}>Yes</button>
                    <button onClick={() => setShowDialog(false)}>No</button>
                 </div>
-            )}
+            )} */}
     </div>
   );
 };

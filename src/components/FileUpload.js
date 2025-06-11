@@ -35,7 +35,7 @@ formData.append('file', file);
 //   formData.append(`file-${i}`, files[i]);
 // }
 
-fetch('/public', {
+fetch('/', {
   method: 'POST',
   body: formData
 })

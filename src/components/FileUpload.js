@@ -5,8 +5,8 @@ function FileUpload() {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
-    console.log("event.target.files[0]="+event.target.files[0])
-    setFile(event.target.files[0]);
+    console.log("event.target.files="+event.target.files)
+    setFile(event.target.files);
   };
 
   const handleUpload = () => {
@@ -28,7 +28,12 @@ function FileUpload() {
 //    const input = document.getElementById('fileinput');
 //const file = input.files;
 const formData = new FormData();
-formData.append('file', file);
+//formData.append('file', file);
+
+const files = file;
+for (let i = 0; i < files.length; i++) {
+  formData.append(`file-${i}`, files[i]);
+}
 
 fetch('https://urilinks.com', {
   method: 'POST',

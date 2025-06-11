@@ -28,14 +28,14 @@ function FileUpload() {
 //    const input = document.getElementById('fileinput');
 //const file = input.files;
 const formData = new FormData();
-//formData.append('file', file);
+formData.append('file', file);
 
-const files = file;
-for (let i = 0; i < files.length; i++) {
-  formData.append(`file-${i}`, files[i]);
-}
+// const files = file;
+// for (let i = 0; i < files.length; i++) {
+//   formData.append(`file-${i}`, files[i]);
+// }
 
-fetch('https://urilinks.com', {
+fetch('/public', {
   method: 'POST',
   body: formData
 })

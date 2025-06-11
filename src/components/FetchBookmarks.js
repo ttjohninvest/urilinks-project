@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { startAddLink } from "../actions/links";
-import { withRouter } from "react-router-dom";
+import { withRouter,useHistory } from "react-router-dom";
 import moment from "moment";
-import { history } from "../routers/AppRouter";
+//import { history } from "../routers/AppRouter";
 
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [importingError, setImportingError] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
+
+    const history = useHistory();
+
+    const handleNavigation = () => {
+        setShowDialog(true);
+    };
+
+    const handleConfirmNavigation = () => {
+        history.push('/');
+        setShowDialog(false);
+    }
+
 
   useEffect(() => {
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
@@ -66,7 +79,7 @@ const FetchBookmarks = (props) => {
 
       }).catch((error) => setError(error));
   } else {
-    alert("You Canceled importing Bookmarks.")
+    handleNavigation()
     history.push("/");
   }
    
@@ -74,11 +87,16 @@ const FetchBookmarks = (props) => {
 
   if (error) return <div>Error: {error.message}</div>;
   if (!data) return <div>Loading...</div>;
-
+//importingError===true?"Error importing bookmarks":
   return (
     <div>
-      {importingError===true?"Error importing bookmarks":"Bookmarks have been imported"}
-      {/* {JSON.stringify(data)} */}
+      {showDialog && (
+                <div className="dialog">
+                   <p>Canceled</p>
+                   <button onClick={handleConfirmNavigation}>Yes</button>
+                   <button onClick={() => setShowDialog(false)}>No</button>
+                </div>
+            )}
     </div>
   );
 };

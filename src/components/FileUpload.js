@@ -27,7 +27,7 @@ class FileUpload extends React.Component {
 
   uploadFiles = (file) => {
     //
-
+const storage = getStorage();
     const uploadTask = storage.ref(`files/${file.name}`).put(file);
     uploadTask.on(
       "state_changed",
@@ -43,7 +43,7 @@ class FileUpload extends React.Component {
       () => {
 
         // Create a root reference
-const storage = getStorage();
+//const storage = getStorage();
 
 // Create a reference to 'mountains.jpg'
 const mountainsRef = ref(storage, 'images/'+file.name);

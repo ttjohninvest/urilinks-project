@@ -104,7 +104,7 @@ class FileUpload extends React.Component {
             //use this url in FetchBookmarks.js
             console.log("url=" + url);
             //this url needs to be put in redux
-            this.props.setStorageUrl(url);
+            this.setStorageUrl(url);
             //dispatch({type:"SET_STORAGEURL", url:url})
           });
       }

@@ -7,6 +7,7 @@ export default (state = hashtagsReducerDefaultState, action) => {
     case "SET_HASHTAGS":
       //return [...state, ...action.hashtags];
       return action.hashtags;
+    
     default:
       return state;
   }

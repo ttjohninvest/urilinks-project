@@ -33,7 +33,7 @@ function FileUpload({ setStorageUrl }) {
             //use this url in FetchBookmarks.js
             console.log("url=" + url);
             //this url needs to be put in redux
-            setStorageUrl(url);
+            //setStorageUrl(url);
           });
       }
     );

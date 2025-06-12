@@ -1,0 +1,7 @@
+[
+  {
+    "origin": ["https://urilinks.com"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]

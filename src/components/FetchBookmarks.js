@@ -26,8 +26,10 @@ const FetchBookmarks = (props) => {
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
      const text="Is it ok to upload the bookmarks?"
      if (confirm(text) == true) {
-     fetch("https://urilinks.com/bookmarks_6_9_25.html") //use the url from FileUpload.js
+      //gs://see-my-index-project-7.firebasestorage.app/files/bookmarks_6_9_25.html
+     //fetch("https://urilinks.com/bookmarks_6_9_25.html") //use the url from FileUpload.js
       //.then(response => response.json())
+      fetch("gs://see-my-index-project-7.firebasestorage.app/files/bookmarks_6_9_25.html")
       .then((response) => response.text())
       .then((data) => {
         const now = new Date();
@@ -43,8 +45,8 @@ const FetchBookmarks = (props) => {
 
         //write to firebase the following links
         let r=false
-        for (let i = 0; i < links.length; i++) {
-        //for (let i = 0; i < 1; i++) {
+        //for (let i = 0; i < links.length; i++) {
+        for (let i = 0; i < 1; i++) {
           console.log("links[" + i + "].innerText=" + links[i].innerText);
           console.log("links[" + i + "].href" + links[i].href);
           console.log("calling startAddLink");

@@ -1,5 +1,6 @@
 import * as firebase from "firebase";
 
+import "firebase/storage"
 /*
 'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
         'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
@@ -27,6 +28,7 @@ const config = {
 // };
 
 const app = firebase.initializeApp(config);
+const storage = firebase.storage()
 
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();

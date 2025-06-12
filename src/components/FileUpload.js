@@ -91,7 +91,8 @@ class FileUpload extends React.Component {
         const prog = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-        setProgress(prog);
+        //setProgress(prog);
+        this.setState({progress:prog})
       },
       (error) => console.log(error),
       () => {

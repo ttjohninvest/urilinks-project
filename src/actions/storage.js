@@ -1,7 +1,7 @@
 //SET_STORAGEURL
-const setStorageUrl = (url) => ({
+const setUrl = (url) => ({
   type: "SET_STORAGEURL",
   url,
 });
 
-export default setStorageUrl;
+export default setUrl;

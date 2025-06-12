@@ -77,7 +77,12 @@ const FetchBookmarks = (props) => {
         window.location.reload()
       }
 
-      }).catch((error) => setError(error));
+      }).catch((error) => 
+        
+        {
+          console.log("about to call setError because it was unable to read from the bucket")
+          setError(error)
+     });
   } else {
     //handleNavigation()
     history.push("/");

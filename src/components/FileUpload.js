@@ -64,7 +64,7 @@ function FileUpload() {
           .getDownloadURL()
           .then((url) => {
             //use this url in FetchBookmarks.js
-            console.log(url);
+            console.log("url="+url);
           });
       }
     );

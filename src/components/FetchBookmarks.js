@@ -29,7 +29,7 @@ const FetchBookmarks = (props) => {
       //gs://see-my-index-project-7.firebasestorage.app/files/bookmarks_6_9_25.html
      //fetch("https://urilinks.com/bookmarks_6_9_25.html") //use the url from FileUpload.js
       //.then(response => response.json())
-      fetch("gs://see-my-index-project-7.firebasestorage.app/files/bookmarks_6_9_25.html")
+      fetch("https://firebasestorage.googleapis.com/v0/b/see-my-index-project-7.firebasestorage.app/o/files%2Fbookmarks_6_9_25.html?alt=media&token=6fc9650d-d319-43ab-b2ed-529b3bfcec8b")
       .then((response) => response.text())
       .then((data) => {
         const now = new Date();

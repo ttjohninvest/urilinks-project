@@ -1,6 +1,6 @@
 // Firebase Storage Url Reducer
 
-const storageReducerDefaultState = [];
+const storageReducerDefaultState = "";
 
 export default (state = storageReducerDefaultState, action) => {
   switch (action.type) {

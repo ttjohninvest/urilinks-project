@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { storage } from "../firebase/firebase";
 import { setStorageUrl } from "../actions/storage";
 
-function FileUpload(props) {
+const FileUpload=(props)=>{
   const [progress, setProgress] = useState(0);
   const dispatch = useDispatch()
   const formHandler = (e) => {

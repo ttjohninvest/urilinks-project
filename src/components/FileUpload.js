@@ -44,23 +44,25 @@ class FileUpload extends React.Component {
 //const storageRef = firebase.storage().ref();
 //const fileRef = storageRef.child(`${user.uid}/${file.name}`);
 //fileRef.put(file);
-const storageRef = firebase.storage().ref();
+// const storageRef = firebase.storage().ref();
 
-storageRef.child(user.uid).put(file.name)
+// storageRef.child(user.uid).put(file.name)
+const spaceRef = storage.ref('images/'+file.name);
+
 
         // storage
         //   .ref("files/"+user.uid)
         //   .child(file.name)
-        // spaceRef
-        // fileRef
-        //   .getDownloadURL()
-        //   .then((url) => {
-        //     //use this url in FetchBookmarks.js
-        //     console.log("url=" + url);
-        //     //this url needs to be put in redux
-        //     this.props.setUrl(url);
-        //     //dispatch({type:"SET_STORAGEURL", url:url})
-        //   });
+        spaceRef
+        //fileRef
+          .getDownloadURL()
+          .then((url) => {
+            //use this url in FetchBookmarks.js
+            console.log("url=" + url);
+            //this url needs to be put in redux
+            this.props.setUrl(url);
+            //dispatch({type:"SET_STORAGEURL", url:url})
+          });
       }
     );
   };

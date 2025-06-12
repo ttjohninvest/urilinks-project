@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { storage } from "../firebase/firebase";
 import { setStorageUrl } from "../actions/storage";
 
-function FileUpload({ setStorageUrl }) {
+function FileUpload(props) {
   const [progress, setProgress] = useState(0);
   const formHandler = (e) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ function FileUpload({ setStorageUrl }) {
             //use this url in FetchBookmarks.js
             console.log("url=" + url);
             //this url needs to be put in redux
-            //setStorageUrl(url);
+            props.setStorageUrl(url);
           });
       }
     );

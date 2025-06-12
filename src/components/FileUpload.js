@@ -2,8 +2,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
-import { storage } from "../firebase/firebase";
+//import { storage } from "../firebase/firebase";
 import setUrl  from "../actions/storage";
+import { getStorage, ref } from "firebase/storage";
+
+
+
 
 class FileUpload extends React.Component {
   constructor(props) {
@@ -23,6 +27,7 @@ class FileUpload extends React.Component {
 
   uploadFiles = (file) => {
     //
+
     const uploadTask = storage.ref(`files/${file.name}`).put(file);
     uploadTask.on(
       "state_changed",
@@ -36,9 +41,15 @@ class FileUpload extends React.Component {
       },
       (error) => console.log(error),
       () => {
+
+        // Create a root reference
+const storage = getStorage();
+
+// Create a reference to 'mountains.jpg'
+const mountainsRef = ref(storage, 'images/'+file.);
         
-  const user = firebase.auth().currentUser;
-  console.log("FileUpload, user.uid="+user.uid)
+  //const user = firebase.auth().currentUser;
+  //console.log("FileUpload, user.uid="+user.uid)
 //  const imagesRef = storage.ref(user.uid);
 // const spaceRef = imagesRef.child(file.name)
 
@@ -48,13 +59,13 @@ class FileUpload extends React.Component {
 // const storageRef = firebase.storage().ref();
 
 // storageRef.child(user.uid).put(file.name)
-const spaceRef = storage.ref('images/'+file.name);
+const spaceRef = storage.ref(user.uid+'/'+file.name);
 
 
         // storage
         //   .ref("files/"+user.uid)
         //   .child(file.name)
-        spaceRef
+        mountainsRef
         //fileRef
           .getDownloadURL()
           .then((url) => {

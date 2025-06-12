@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
+import { storage } from "../firebase/firebase";
 import setUrl  from "../actions/storage";
 
 
@@ -27,7 +28,7 @@ class FileUpload extends React.Component {
   uploadFiles = (file) => {
     //
 
-    const uploadTask = firebase.storage.ref(`files/${file.name}`).put(file);
+    const uploadTask = storage.ref(`files/${file.name}`).put(file);
     uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -57,7 +58,7 @@ class FileUpload extends React.Component {
 
 
 
-        firebase.storage
+        storage
           .ref("files")
           .child(user.uid).put(file.name)
           .getDownloadURL()

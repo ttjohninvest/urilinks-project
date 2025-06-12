@@ -1,9 +1,9 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { storage } from "../firebase/firebase";
-import {setStorageUrl} from "../actions/storage";
+import { setStorageUrl } from "../actions/storage";
 
-function FileUpload({setStorageUrl}) {
+function FileUpload({ setStorageUrl }) {
   const [progress, setProgress] = useState(0);
   const formHandler = (e) => {
     e.preventDefault();
@@ -31,9 +31,9 @@ function FileUpload({setStorageUrl}) {
           .getDownloadURL()
           .then((url) => {
             //use this url in FetchBookmarks.js
-            console.log("url="+url);
+            console.log("url=" + url);
             //this url needs to be put in redux
-            //setStorageUrl(url)
+            setStorageUrl(url);
           });
       }
     );
@@ -54,7 +54,7 @@ function FileUpload({setStorageUrl}) {
 //export default FileUpload;
 
 const mapDispatchToProps = (dispatch) => ({
-  setStorageUrl: (url) => dispatch(setStorageUrl(url))
+  setStorageUrl: (url) => dispatch(setStorageUrl(url)),
 });
 
 export default connect(undefined, mapDispatchToProps)(FileUpload);

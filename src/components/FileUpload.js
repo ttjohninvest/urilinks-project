@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import * as firebase from "firebase";
 import { storage } from "../firebase/firebase";
 import setUrl  from "../actions/storage";
 
@@ -35,8 +36,11 @@ class FileUpload extends React.Component {
       },
       (error) => console.log(error),
       () => {
+        
+ const user = firebase.auth().currentUser;
         storage
-          .ref("files")
+        .ref(user.uid)
+          //.ref("files")
           .child(file.name)
           .getDownloadURL()
           .then((url) => {

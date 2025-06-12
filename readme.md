@@ -1,6 +1,8 @@
 # Git Commands
 
 todo to do
+I am not able to access see-my-index-project-7 though firebase.google.com console I sent a report to them on 6/12/2025, 11:37pm, 2-3 day response, see johmcg64@gmail.com, also I am unable to login in to urilinks.com google login in giving me an error, both things happened at the same time and it was right after I added the storage project for see-my-index-project-7 which is the urilinks.com project
+
 count of bookmarks to import needs to be known
 Is the total number of current bookmarks+the bookmark import count <= 500, ok to import them
 see if their is a way to prevent importing the bookmarks again
@@ -310,6 +312,10 @@ urilinks Benefits:
         the results will display, no need to press a search button.
 
 ---
+
+see-my-index-project-4 is a billing account in google cloud 
+  and it is linked to firebase database for urilinks.com
+firebase project is see-my-index-project-7 and the firebase storage project is linked to this one.
 
 marketing
 it will help you money love health and happiness

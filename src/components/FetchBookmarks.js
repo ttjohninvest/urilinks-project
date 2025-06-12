@@ -6,6 +6,7 @@ import moment from "moment";
 import { history } from "../routers/AppRouter";
 
 
+
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -29,7 +30,10 @@ const FetchBookmarks = (props) => {
       //gs://see-my-index-project-7.firebasestorage.app/files/bookmarks_6_9_25.html
      //fetch("https://urilinks.com/bookmarks_6_9_25.html") //use the url from FileUpload.js
       //.then(response => response.json())
-      fetch("https://firebasestorage.googleapis.com/v0/b/see-my-index-project-7.firebasestorage.app/o/files%2Fbookmarks_6_9_25.html?alt=media&token=6fc9650d-d319-43ab-b2ed-529b3bfcec8b")
+      //
+      //fetch("https://firebasestorage.googleapis.com/v0/b/see-my-index-project-7.firebasestorage.app/o/files%2Fbookmarks_6_9_25.html?alt=media&token=6fc9650d-d319-43ab-b2ed-529b3bfcec8b")
+      console.log("props.url="+props.url)
+      fetch(props.url)
       .then((response) => response.text())
       .then((data) => {
         const now = new Date();
@@ -77,11 +81,9 @@ const FetchBookmarks = (props) => {
         window.location.reload()
       }
 
-      }).catch((error) => 
-        
-        {
+      }).catch((error) => {
           console.log("about to call setError because it was unable to read from the bucket")
-          setError(error)
+          setError(error+"google probably needs to be paid for 5gb more storage")
      });
   } else {
     //handleNavigation()
@@ -101,62 +103,14 @@ const FetchBookmarks = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  url: state.url,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   startAddLink: (link) => dispatch(startAddLink(link)),
 });
 
 export default withRouter(
-  connect(undefined, mapDispatchToProps)(FetchBookmarks)
+  connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks)
 );
-
-/*
-import { useState } from "react";
-import { storage } from "./firebase";
-
-function App() {
-  const [progress, setProgress] = useState(0);
-  const formHandler = (e) => {
-    e.preventDefault();
-    const file = e.target[0].files[0];
-    uploadFiles(file);
-  };
-
-  const uploadFiles = (file) => {
-    //
-    const uploadTask = storage.ref(`files/${file.name}`).put(file);
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        //
-        const prog = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setProgress(prog);
-      },
-      (error) => console.log(error),
-      () => {
-        storage
-          .ref("files")
-          .child(file.name)
-          .getDownloadURL()
-          .then((url) => {
-            console.log(url);
-          });
-      }
-    );
-  };
-
-  return (
-    <div className="App">
-      <form onSubmit={formHandler}>
-        <input type="file" className="input" />
-        <button type="submit">Upload</button>
-      </form>
-      <hr />
-      <h2>Uploading done {progress}%</h2>
-    </div>
-  );
-}
-
-export default App;
-*/

@@ -57,7 +57,7 @@ class FileUpload extends React.Component {
 
 
 
-        storage
+        firebase.storage
           .ref("files")
           .child(user.uid).put(file.name)
           .getDownloadURL()

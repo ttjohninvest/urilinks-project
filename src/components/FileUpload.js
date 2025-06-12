@@ -34,7 +34,7 @@
 // export default FileUpload;
 
 import React,{ useState } from "react";
-import { storage } from "./firebase";
+import { storage } from "../firebase";
 
 function FileUpload() {
   const [progress, setProgress] = useState(0);

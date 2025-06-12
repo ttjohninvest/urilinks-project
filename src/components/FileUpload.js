@@ -69,7 +69,7 @@ class FileUpload extends React.Component {
   constructor(props) {
   super(props)
 
-  state = {
+  this.state = {
     progress:0
   }
 

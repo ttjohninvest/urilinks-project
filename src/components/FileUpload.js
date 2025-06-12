@@ -27,7 +27,7 @@ class FileUpload extends React.Component {
   uploadFiles = (file) => {
     //
 
-    const uploadTask = storage.ref(`files/${file.name}`).put(file);
+    const uploadTask = firebase.storage.ref(`files/${file.name}`).put(file);
     uploadTask.on(
       "state_changed",
       (snapshot) => {

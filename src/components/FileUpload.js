@@ -46,7 +46,7 @@ class FileUpload extends React.Component {
 const storage = getStorage();
 
 // Create a reference to 'mountains.jpg'
-const mountainsRef = ref(storage, 'images/'+file.);
+const mountainsRef = ref(storage, 'images/'+file.name);
         
   //const user = firebase.auth().currentUser;
   //console.log("FileUpload, user.uid="+user.uid)

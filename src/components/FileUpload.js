@@ -38,7 +38,7 @@ class FileUpload extends React.Component {
       () => {
         
  const user = firebase.auth().currentUser;
- const imagesRef = ref(storage, user.uid);
+ const imagesRef = storage.ref(storage, user.uid);
 const spaceRef = imagesRef.child(file.name)
         // storage
         //   .ref("files/"+user.uid)

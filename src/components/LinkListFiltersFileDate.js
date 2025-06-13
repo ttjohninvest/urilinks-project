@@ -5,14 +5,14 @@ import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 
 import {
-  setTextFilter,
-  sortByDate,
-  sortByDescription,
-  sortByHashTag,
-  setStartDate,
-  setEndDate,
-  sortByNoteText,
-} from "../actions/filters";
+  setTextFilterFileDate,
+  sortByDateFileDate,
+  sortByDescriptionFileDate,
+  sortByHashTagFileDate,
+  setStartDateFileDate,
+  setEndDateFileDate,
+  sortByNoteTextFileDate,
+} from "../actions/filtersfiledate";
 
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);

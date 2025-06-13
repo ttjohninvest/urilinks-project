@@ -18,7 +18,7 @@ import BookmarksManager from "../components/BookmarksManager";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import FetchBookmarks from "../components/FetchBookmarks";
-import AddLinkPageFileDate from "../components/AddlinkPageFileDate";
+import AddLinkPageFileDate from "../components/AddLinkPageFileDate";
 
 export const history = createHistory();
 

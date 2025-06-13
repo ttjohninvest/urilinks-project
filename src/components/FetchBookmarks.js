@@ -55,7 +55,7 @@ const FetchBookmarks = (props) => {
         console.log("about to go through the for look to see the contents of the link structure:");
         for (let i = 0; i < 1; i++) {
           let element = links.item(i);
-          let add_date = parseInt(element.getAttribute("ADD_DATE"));
+          let add_date = parseInt(element.getAttribute("ADD_DATE").trim());
           console.log("typeof add_date="+typeof add_date)
           console.log("add_date="+add_date)
           //let icon = element.getAttribute("ICON");

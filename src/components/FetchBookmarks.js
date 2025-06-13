@@ -58,8 +58,8 @@ const FetchBookmarks = (props) => {
           let add_date = element.getAttribute("ADD_DATE");
           let icon = element.getAttribute("ICON");
           let href = element.getAttribute("HREF");
-          let innerText = element.getAttribute("innerText");
-          console.log("links[" + i + "].innerText=" + innerText);
+          
+          console.log("links[" + i + "].innerText=" +links[i].innerText);
           console.log("links[" + i + "].href=" + href);
           console.log("links[" + i + "].add_date=" + add_date);
           console.log("links[" + i + "].icon=" + icon);
@@ -67,7 +67,7 @@ const FetchBookmarks = (props) => {
 
 
           r = props.startAddLink({
-            description: innerText,//links[i].innerText,
+            description: links[i].innerText,
             Url: href, //links[i].href,
             note: "#chromebookmarks",
             amount: 0,

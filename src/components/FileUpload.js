@@ -42,26 +42,40 @@ class FileUpload extends React.Component {
       (error) => console.log(error),
       () => {
 
-        // Create a root reference
-        
-  const user = firebase.auth().currentUser;
-  //console.log("FileUpload, user.uid="+user.uid)
-//  const imagesRef = storage.ref(user.uid);
-// const spaceRef = imagesRef.child(file.name)
-
-//const storageRef = firebase.storage().ref();
-//const fileRef = storageRef.child(`${user.uid}/${file.name}`);
-//fileRef.put(file);
-// const storageRef = firebase.storage().ref();
-
-// storageRef.child(user.uid).put(file.name)
+        const user = firebase.auth().currentUser;
 
 
 
-        storage
-          .ref("files/1")
-          //.child(user.uid+"//"+file.name)
-          .child(file.name)
+// Points to the root reference
+var storageRef = firebase.storage().ref();
+
+// Points to 'images'
+var imagesRef = storageRef.child('images');
+
+// Points to 'images/space.jpg'
+// Note that you can use variables to create child values
+var fileName = file.name;
+var spaceRef = imagesRef.child(fileName);
+
+// File path is 'images/space.jpg'
+var path = spaceRef.fullPath;
+
+// File name is 'space.jpg'
+var name = spaceRef.name;
+
+// Points to 'images'
+var imagesRef = spaceRef.parent;
+
+
+
+
+
+
+        // storage
+        //   .ref("files")
+        //   //.child(user.uid+"//"+file.name)
+        //   .child(file.name)
+        spaceRef
           .getDownloadURL()
           .then((url) => {
             //use this url in FetchBookmarks.js

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
 import { storage } from "../firebase/firebase";
-import setUrl  from "../actions/storage";
+import setStorageUrl  from "../actions/storage";
 //import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 
@@ -42,7 +42,7 @@ class FileUpload extends React.Component {
       },
       (error) => console.log(error),
       () => {
-          //   
+            
           storage
           .ref("files")
           .child(user.uid+"/"+file.name)
@@ -51,7 +51,7 @@ class FileUpload extends React.Component {
             //use this url in FetchBookmarks.js
             console.log("url=" + url);
             //this url needs to be put in redux
-            this.props.setUrl(url);
+            this.props.setStorageUrl(url);
           });
       }
     );
@@ -72,7 +72,7 @@ class FileUpload extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setUrl: (url) => dispatch(setUrl(url)),
+  setStorageUrl: (url) => dispatch(setStorageUrl(url)),
 });
 
 export default connect(undefined, mapDispatchToProps)(FileUpload);

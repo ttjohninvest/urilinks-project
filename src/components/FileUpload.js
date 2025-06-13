@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
-import { storage } from "../firebase/firebase";
+import { storage, getStorage, ref } from "../firebase/firebase";
 import setUrl  from "../actions/storage";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
+//import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 
 
@@ -45,8 +45,8 @@ class FileUpload extends React.Component {
 
         const user = firebase.auth().currentUser;
 
-        const storage = getStorage();
-const starsRef = ref(storage, user.uid+'/'+file.name);
+        const storage2 = getStorage();
+const starsRef = ref(storage2, user.uid+'/'+file.name);
 
 
 

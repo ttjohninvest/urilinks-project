@@ -45,7 +45,7 @@ const FetchBookmarks = (props) => {
         let parser = new DOMParser();
         const doc = parser.parseFromString(data, "text/html");
         let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
-        console.log("links="+links)       
+            
         // setData(links)
 
         //write to firebase the following links
@@ -54,10 +54,13 @@ const FetchBookmarks = (props) => {
         
         console.log("about to go through the for look to see the contents of the link structure:");
         for (let i = 0; i < 1; i++) {
+          let element = links.item(i);
+          let add_date = element.getAttribute("ADD_DATE");
+          let icon = element.getAttribute("ICON");
           console.log("links[" + i + "].innerText=" + links[i].innerText);
           console.log("links[" + i + "].href=" + links[i].href);
-          console.log("links[" + i + "].add_date=" + links[i].ADD_DATE);
-          console.log("links[" + i + "].icon=" + links[i].ICON);
+          console.log("links[" + i + "].add_date=" + add_date);
+          console.log("links[" + i + "].icon=" + icon);
           console.log("calling startAddLink");
 
 
@@ -66,8 +69,8 @@ const FetchBookmarks = (props) => {
             Url: links[i].href,
             note: "#chromebookmarks",
             amount: 0,
-            createdAt: parseInt(links[i].ADD_DATE), //now.getTime(),
-            faviconURL: links[i].ICON //"https://youtube.com/favicon.ico"
+            createdAt: parseInt(add_date), //now.getTime(),
+            faviconURL: icon //"https://youtube.com/favicon.ico"
           });
           
           if(r===false) {

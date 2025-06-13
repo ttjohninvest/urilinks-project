@@ -54,29 +54,17 @@ const FetchBookmarks = (props) => {
         
         console.log("about to go through the for look to see the contents of the link structure:");
         for (let i = 0; i < 1; i++) {
-          let element = links.item(i);
-          let add_date = parseInt(element.getAttribute("ADD_DATE"));
-          let date = new Date(add_date);
-          let timestamp = date.getTime();
-          //console.log("typeof add_date="+typeof add_date)
-          //console.log("add_date="+add_date)
-          let icon = element.getAttribute("ICON");
-          //let href = element.getAttribute("HREF");
-          
-          console.log("links[" + i + "].innerText=" +links[i].innerText);
-          console.log("links[" + i + "].href=" + links[i].href);
-          //console.log("links[" + i + "].add_date=" + add_date);
-          //console.log("links[" + i + "].icon=" + icon);
-          console.log("calling startAddLink");
-
-
+          //let element = links.item(i);
+          //let add_date = parseInt(links.item(i).getAttribute("ADD_DATE"));
+          //let icon = links.item(i).getAttribute("ICON");
+        
           r = props.startAddLink({
-            description: links[i].innerText,
-            Url: links[i].href, //href,
+            description: links.item(i).innerText,
+            Url: links.item(i).getAttribute('href'), //, //href,
             note: "#chromebookmarks",
             amount: 0,
-            createdAt:  timestamp, //now.getTime(), //add_date.getTime(), //add_date won't work
-            faviconURL: icon, //"https://google.com/favicon.ico" //icon
+            createdAt: parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+            faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
           });
           
           if(r===false) {

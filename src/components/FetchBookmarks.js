@@ -45,6 +45,7 @@ const FetchBookmarks = (props) => {
         let parser = new DOMParser();
         const doc = parser.parseFromString(data, "text/html");
         let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
+        console.log("links="+JSON.stringify(links))       
         // setData(links)
 
         //write to firebase the following links
@@ -79,8 +80,8 @@ const FetchBookmarks = (props) => {
         console.log("ERROR, VVVVVVVVVVVVV returned false");
       } else {
         console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-        props.history.push("/");
-        window.location.reload()
+//        props.history.push("/");
+  //      window.location.reload()
       }
 
       }).catch((error) => {

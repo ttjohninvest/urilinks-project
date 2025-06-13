@@ -20,7 +20,7 @@ function ExpandableArray(props) {
   const toggleExpanded = () => {
     setExpanded(!expanded);
     console.log("morehashtags");
-    window.localStorage.setItem("morehashtags", !expanded);
+    window.localStorage.setItem("morehashtagsfiledate", !expanded);
   };
 
   console.log("ExpandableArray, expanded=" + expanded);
@@ -106,7 +106,7 @@ export class LinkListFiltersFileDate extends React.Component {
     this.elementRef = React.createRef();
     this.myRef = React.createRef();
 
-    let morehashtags = window.localStorage.getItem("morehashtags");
+    let morehashtags = window.localStorage.getItem("morehashtagsfiledate");
     console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
       sortBy: "hashtag",
@@ -125,8 +125,8 @@ export class LinkListFiltersFileDate extends React.Component {
   }
 
   onDatesChange = ({ startDate, endDate }) => {
-    this.props.setStartDate(startDate);
-    this.props.setEndDate(endDate);
+    this.props.setStartDateFileDate(startDate);
+    this.props.setEndDateFileDate(endDate);
   };
   onFocusChange = (calendarFocused) => {
     this.setState(() => ({ calendarFocused }));
@@ -134,30 +134,30 @@ export class LinkListFiltersFileDate extends React.Component {
   onTextChange = (e) => {
     console.log("e.target.value=" + e.target.value);
 
-    if (this.props.filters.sortBy === "date") {
-      window.localStorage.setItem("searchLinks1", e.target.value);
-      window.localStorage.setItem("searchLinks2", "");
-      window.localStorage.setItem("searchLinks3", "");
-      window.localStorage.setItem("searchLinks4", "");
-    } else if (this.props.filters.sortBy === "description") {
-      window.localStorage.setItem("searchLinks1", "");
-      window.localStorage.setItem("searchLinks2", e.target.value);
-      window.localStorage.setItem("searchLinks3", "");
-      window.localStorage.setItem("searchLinks4", "");
-    } else if (this.props.filters.sortBy === "hashtag") {
-      window.localStorage.setItem("searchLinks1", "");
-      window.localStorage.setItem("searchLinks2", "");
-      window.localStorage.setItem("searchLinks3", e.target.value);
-      window.localStorage.setItem("searchLinks4", "");
-    } else if (this.props.filters.sortBy === "notetext") {
-      window.localStorage.setItem("searchLinks1", "");
-      window.localStorage.setItem("searchLinks2", "");
-      window.localStorage.setItem("searchLinks3", "");
-      window.localStorage.setItem("searchLinks4", e.target.value);
+    if (this.props.filtersfiledate.sortBy === "date") {
+      window.localStorage.setItem("searchLinks1FileDate", e.target.value);
+      window.localStorage.setItem("searchLinks2FileDate", "");
+      window.localStorage.setItem("searchLinks3FileDate", "");
+      window.localStorage.setItem("searchLinks4FileDate", "");
+    } else if (this.props.filtersfiledate.sortBy === "description") {
+      window.localStorage.setItem("searchLinks1FileDate", "");
+      window.localStorage.setItem("searchLinks2FileDate", e.target.value);
+      window.localStorage.setItem("searchLinks3FileDate", "");
+      window.localStorage.setItem("searchLinks4FileDate", "");
+    } else if (this.props.filtersfiledate.sortBy === "hashtag") {
+      window.localStorage.setItem("searchLinks1FileDate", "");
+      window.localStorage.setItem("searchLinks2FileDate", "");
+      window.localStorage.setItem("searchLinks3FileDate", e.target.value);
+      window.localStorage.setItem("searchLinks4FileDate", "");
+    } else if (this.props.filtersfiledate.sortBy === "notetext") {
+      window.localStorage.setItem("searchLinks1FileDate", "");
+      window.localStorage.setItem("searchLinks2FileDate", "");
+      window.localStorage.setItem("searchLinks3FileDate", "");
+      window.localStorage.setItem("searchLinks4FileDate", e.target.value);
     } else {
     }
 
-    if (this.props.filters.sortBy === "hashtag") {
+    if (this.props.filtersfiledate.sortBy === "hashtag") {
       if (
         e.target.value.trim().length === 1 &&
         e.target.value.trim().match(/^[ -~]$/) &&
@@ -166,18 +166,18 @@ export class LinkListFiltersFileDate extends React.Component {
         let v = "";
         if (!!e.target.value === false) v = "";
         else v = e.target.value.trim();
-        this.props.setTextFilter(v);
+        this.props.setTextFilterFileDate(v);
       } else if (e.target.value.trim().length > 1) {
         let v = "";
         if (!!e.target.value === false) v = "";
         else v = e.target.value.trim();
-        this.props.setTextFilter(v);
+        this.props.setTextFilterFileDate(v);
       }
     } else {
       let v = "";
       if (!!e.target.value === false) v = "";
       else v = e.target.value;
-      this.props.setTextFilter(v);
+      this.props.setTextFilterFileDate(v);
     }
 
     // window.localStorage.setItem("searchLinks", e.target.value);
@@ -187,29 +187,29 @@ export class LinkListFiltersFileDate extends React.Component {
   onSortChange = (e) => {
     console.log("onSortChange=(), e.target.value=" + e.target.value);
     if (e.target.value === "date") {
-      this.props.setTextFilter("");
+      this.props.setTextFilterFileDate("");
       if (this.myRef.current) this.myRef.current.focus();
-      window.localStorage.setItem("sortBy", "date");
+      window.localStorage.setItem("sortByFileDate", "date");
       this.setState({ sortBy: "date" });
-      this.props.sortByDate();
+      this.props.sortByDateFileDate();
     } else if (e.target.value === "description") {
-      this.props.setTextFilter("");
+      this.props.setTextFilterFileDate("");
       if (this.myRef.current) this.myRef.current.focus();
-      window.localStorage.setItem("sortBy", "description");
+      window.localStorage.setItem("sortByFileDate", "description");
       this.setState({ sortBy: "description" });
-      this.props.sortByDescription();
+      this.props.sortByDescriptionFileDate();
     } else if (e.target.value === "hashtag") {
       if (this.myRef.current) this.myRef.current.focus();
-      this.props.setTextFilter("#");
-      window.localStorage.setItem("sortBy", "hashtag");
+      this.props.setTextFilterFileDate("#");
+      window.localStorage.setItem("sortByFileDate", "hashtag");
       this.setState({ sortBy: "hashtag" });
-      this.props.sortByHashTag();
+      this.props.sortByHashTagFileDate();
     } else if (e.target.value === "notetext") {
       if (this.myRef.current) this.myRef.current.focus();
-      this.props.setTextFilter("");
-      window.localStorage.setItem("sortBy", "notetext");
+      this.props.setTextFilterFileDate("");
+      window.localStorage.setItem("sortByFileDate", "notetext");
       this.setState({ sortBy: "notetext" });
-      this.props.sortByNoteText();
+      this.props.sortByNoteTextFileDate();
     }
   };
   //
@@ -237,51 +237,51 @@ export class LinkListFiltersFileDate extends React.Component {
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
-    const searchLinks1 = window.localStorage.getItem("searchLinks1");
-    const searchLinks2 = window.localStorage.getItem("searchLinks2");
-    const searchLinks3 = window.localStorage.getItem("searchLinks3");
-    const searchLinks4 = window.localStorage.getItem("searchLinks4");
+    const searchLinks1FileDate = window.localStorage.getItem("searchLinks1FileDate");
+    const searchLinks2FileDate = window.localStorage.getItem("searchLinks2FileDate");
+    const searchLinks3FileDate = window.localStorage.getItem("searchLinks3FileDate");
+    const searchLinks4FileDate = window.localStorage.getItem("searchLinks4FileDate");
 
-    console.log("componentDidMount, searchLinks1=" + searchLinks1);
-    console.log("componentDidMount, searchLinks2=" + searchLinks2);
-    console.log("componentDidMount, searchLinks3=" + searchLinks3);
-    console.log("componentDidMount, searchLinks4=" + searchLinks4);
+    console.log("componentDidMount, searchLinks1FileDate=" + searchLinks1FileDate);
+    console.log("componentDidMount, searchLinks2FileDate=" + searchLinks2FileDate);
+    console.log("componentDidMount, searchLinks3FileDate=" + searchLinks3FileDate);
+    console.log("componentDidMount, searchLinks4FileDate=" + searchLinks4FileDate);
 
-    const sortBy = window.localStorage.getItem("sortBy");
+    const sortBy = window.localStorage.getItem("sortByFileDate");
     console.log("componentDidMount, sortBy=" + sortBy);
     
 
   
-  if (this.props.filters.sortBy==='date'|| sortBy === "date") {
-      this.props.setTextFilter(searchLinks1);
+  if (this.props.filtersfiledate.sortBy==='date'|| sortBy === "date") {
+      this.props.setTextFilterFileDate(searchLinks1FileDate);
       
-      this.props.sortByDate();
+      this.props.sortByDateFileDate();
       this.setState({ sortBy: "date" });
-    } else if (this.props.filters.sortBy==='description'|| sortBy === "description") {
-      this.props.setTextFilter(searchLinks2);
+    } else if (this.props.filtersfiledate.sortBy==='description'|| sortBy === "description") {
+      this.props.setTextFilterFileDate(searchLinks2FileDate);
       
-      this.props.sortByDescription();
+      this.props.sortByDescriptionFileDate();
       this.setState({ sortBy: "description" });
-    } else if (this.props.filters.sortBy==='notetext' || sortBy === "notetext") {
-      this.props.setTextFilter(searchLinks4);
-      this.props.sortByNoteText();
+    } else if (this.props.filtersfiledate.sortBy==='notetext' || sortBy === "notetext") {
+      this.props.setTextFilterFileDate(searchLinks4);
+      this.props.sortByNoteTextFileDate();
       this.setState({ sortBy: "notetext" });
-    } else if (this.props.filters.sortBy==='hashtag' || sortBy === "hashtag") {
+    } else if (this.props.filtersfiledate.sortBy==='hashtag' || sortBy === "hashtag") {
       //this.setState({ sortBy: "hashtag" });
-      this.props.sortByHashTag();
-      if (this.props.filters.text==='' || searchLinks3 === "" || searchLinks3 === undefined || searchLinks3 === null)
+      this.props.sortByHashTagFileDate();
+      if (this.props.filtersfiledate.text==='' || searchLinks3FileDate === "" || searchLinks3FileDate === undefined || searchLinks3FileDate === null)
       {
-          if(searchLinks3==='' || searchLinks3 === undefined || searchLinks3 === null) {
-             this.props.setTextFilter("#");
+          if(searchLinks3FileDate==='' || searchLinks3FileDate === undefined || searchLinks3FileDate === null) {
+             this.props.setTextFilterFileDate("#");
           }
             
           else {
-            this.props.setTextFilter(searchLinks3);  
+            this.props.setTextFilterFileDate(searchLinks3FileDate);  
           } 
       }
         
       else {
-        this.props.setTextFilter(searchLinks3);
+        this.props.setTextFilterFileDate(searchLinks3FileDate);
 
       }
       this.setState({ sortBy: "hashtag" });
@@ -290,7 +290,7 @@ export class LinkListFiltersFileDate extends React.Component {
      if (this.myRef.current) this.myRef.current.focus();
 
     console.log(
-      "VVVVVVVVVVVVVVVVVVVV, this.props.hashtags=" + this.props.hashtags
+      "VVVVVVVVVVVVVVVVVVVV, this.props.hashtagsfiledate=" + this.props.hashtagsfiledate
     );
 
     this.setState({
@@ -315,11 +315,11 @@ export class LinkListFiltersFileDate extends React.Component {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
     
-    this.props.sortByHashTag();
-    this.props.setTextFilter(value);
+    this.props.sortByHashTagFileDate();
+    this.props.setTextFilterFileDate(value);
 
-    window.localStorage.setItem("sortBy", "hashtag");
-    window.localStorage.setItem("searchLinks3", value);
+    window.localStorage.setItem("sortByFileDate", "hashtag");
+    window.localStorage.setItem("searchLinks3FileDate", value);
 
     //this scrolls the results into view, the first and subsequent result is shown
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
@@ -336,11 +336,11 @@ export class LinkListFiltersFileDate extends React.Component {
     return (
       <div className="content-container border-green-">
         <div>
-          {((this.props.hashtags && this.props.hashtags.length > 0) ||
+          {((this.props.hashtagsfiledate && this.props.hashtagsfiledate.length > 0) ||
             (this.state.mappedDataLong &&
               this.state.mappedDataLong.length > 1)) && (
             <ExpandableArray
-              mappedDataShort={this.props.hashtags}
+              mappedDataShort={this.props.hashtagsfiledate}
               mappedDataLong={this.state.mappedDataLong}
               maxLength={this.SHORT_HASHTAG_LENGTH}
               ref={this.elementRef}
@@ -360,17 +360,17 @@ export class LinkListFiltersFileDate extends React.Component {
               type="text"
               className="text-input text-input-filters"
               placeholder={ 
-                this.props.filters.sortBy === "date"
+                this.props.filtersfiledate.sortBy === "date"
                   ? "Search for Link(s)"
                   : "Search for Link(s)"
               }
-              value={this.props.filters.text}
+              value={this.props.filtersfiledate.text}
               
               onChange={this.onTextChange}
               title={
-                this.props.filters.sortBy === "date"
+                this.props.filtersfiledate.sortBy === "date"
                   ? ""
-                  : this.props.filters.sortBy === "description"
+                  : this.props.filtersfiledate.sortBy === "description"
                   ? "Search for Link(s) (Please enter link description to find)"
                   : "Search for Link(s) (Please enter Hash Tag to find)"
               }
@@ -409,8 +409,8 @@ export class LinkListFiltersFileDate extends React.Component {
           </div>
           <div className="input-group__item- select-filters border-green-">
             <DateRangePicker
-              startDate={this.props.filters.startDate}
-              endDate={this.props.filters.endDate}
+              startDate={this.props.filtersfiledate.startDate}
+              endDate={this.props.filtersfiledate.endDate}
               onDatesChange={this.onDatesChange}
               focusedInput={this.state.calendarFocused}
               onFocusChange={this.onFocusChange}
@@ -426,20 +426,20 @@ export class LinkListFiltersFileDate extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  filters: state.filters,
-  links: state.links,
-  hashtags: state.hashtags,
-  setit: state.setit,
+  filtersfiledate: state.filtersfiledate,
+  linksfiledate: state.linksfiledate,
+  hashtagsfiledate: state.hashtagsfiledate,
+  setitfiledate: state.setitfiledate,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setTextFilter: (text) => dispatch(setTextFilter(text)),
-  sortByDate: () => dispatch(sortByDate()),
-  sortByDescription: () => dispatch(sortByDescription()),
-  sortByHashTag: () => dispatch(sortByHashTag()),
-  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
-  setEndDate: (endDate) => dispatch(setEndDate(endDate)),
-  sortByNoteText: () => dispatch(sortByNoteText()),
+  setTextFilterFileDate: (text) => dispatch(setTextFilterFileDate(text)),
+  sortByDateFileDate: () => dispatch(sortByDateFileDate()),
+  sortByDescriptionFileDate: () => dispatch(sortByDescriptionFileDate()),
+  sortByHashTagFileDate: () => dispatch(sortByHashTagFileDate()),
+  setStartDateFileDate: (startDate) => dispatch(setStartDateFileDate(startDate)),
+  setEndDateFileDate: (endDate) => dispatch(setEndDateFileDate(endDate)),
+  sortByNoteTextFileDate: () => dispatch(sortByNoteTextFileDate()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFiltersFileDate);

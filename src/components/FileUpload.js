@@ -42,18 +42,10 @@ class FileUpload extends React.Component {
       },
       (error) => console.log(error),
       () => {
-
-        //const user = firebase.auth().currentUser;
-
-//const spaceRef = storage.ref(user.uid+'/'+file.name);
-
-        storage
+          //   
+          storage
           .ref("files")
-          //.ref("files/"+user.uid+'/'+file.name)
-          //.child(user.uid+"//"+file.name)
-          //.child(user.uid)
-          //.child(file.name)
-          //.put()
+          .child(file.name)
           .getDownloadURL()
           .then((url) => {
             //use this url in FetchBookmarks.js

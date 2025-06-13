@@ -49,7 +49,7 @@ class FileUpload extends React.Component {
 
         storage
           //.ref("files")
-          .ref("files/"+user.uid+'/'+file.name)
+          .ref(user.uid+'/'+file.name)
           //.child(user.uid+"//"+file.name)
           .child(user.uid)
           .child(file.name)

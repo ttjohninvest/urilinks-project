@@ -87,8 +87,8 @@ const FetchBookmarks = (props) => {
         console.log("ERROR, VVVVVVVVVVVVV returned false");
       } else {
         console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-//        props.history.push("/");
-  //      window.location.reload()
+        props.history.push("/");
+        window.location.reload()
       }
 
       }).catch((error) => {

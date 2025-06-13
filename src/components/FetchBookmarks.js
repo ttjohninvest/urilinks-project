@@ -56,6 +56,8 @@ const FetchBookmarks = (props) => {
         for (let i = 0; i < 1; i++) {
           let element = links.item(i);
           let add_date = parseInt(element.getAttribute("ADD_DATE"));
+          console.log("typeof add_date="+typeof add_date)
+          console.log("add_date="+add_date)
           //let icon = element.getAttribute("ICON");
           //let href = element.getAttribute("HREF");
           
@@ -87,8 +89,8 @@ const FetchBookmarks = (props) => {
         console.log("ERROR, VVVVVVVVVVVVV returned false");
       } else {
         console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-        props.history.push("/");
-        window.location.reload()
+        //props.history.push("/");
+        //window.location.reload()
       }
 
       }).catch((error) => {

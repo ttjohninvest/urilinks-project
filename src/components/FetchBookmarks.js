@@ -71,7 +71,7 @@ const FetchBookmarks = (props) => {
           r = props.startAddLink({
             description: links[i].innerText,
             Url: links[i].href, //href,
-            note: "#loving", //#chromebookmarks
+            note: "#chromebookmarks",
             amount: 0,
             createdAt:  now.getTime(), //add_date.getTime(), //
             faviconURL: icon, //"https://google.com/favicon.ico" //icon

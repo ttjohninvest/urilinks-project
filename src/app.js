@@ -6,7 +6,7 @@ import AppRouter, { history } from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import { startSetLinks } from "./actions/links";
 import { startSetLinksFileDate } from "./actions/linksfiledate";
-import { startSetSettings } from "./actions/settings";
+//import { startSetSettings } from "./actions/settings";
 import { login, logout } from "./actions/auth";
 //import getVisibleLinks from './selectors/links';
 import "normalize.css/normalize.css";
@@ -61,7 +61,8 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
 
-        return store.dispatch(startSetSettings()).then(() => {
+        //return store.dispatch(startSetSettings()).then(() => {
+          return store.dispatch(startSetLinksFileDate()).then(() => {
           //startSetSettings reads the links from the db and stores them in redux
 
           renderApp(); //displays the array links stored in redux

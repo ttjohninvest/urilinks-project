@@ -63,7 +63,7 @@ const FetchBookmarks = (props) => {
             Url: links[i].href,
             note: "#chromebookmarks",
             amount: 0,
-            createdAt: links[i].add_date, //now.getTime(),
+            createdAt: parseInt(links[i].add_date), //now.getTime(),
             faviconURL: links[i].icon //"https://youtube.com/favicon.ico"
           });
           

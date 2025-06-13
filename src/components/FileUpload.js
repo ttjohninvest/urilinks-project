@@ -28,8 +28,8 @@ class FileUpload extends React.Component {
 
   uploadFiles = (file) => {
     //
-
-    const uploadTask = storage.ref(`files/${file.name}`).put(file);
+    const user = firebase.auth().currentUser;
+    const uploadTask = storage.ref(`files/${user.uid}/${file.name}`).put(file);
     uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -43,7 +43,7 @@ class FileUpload extends React.Component {
       (error) => console.log(error),
       () => {
 
-        const user = firebase.auth().currentUser;
+        //const user = firebase.auth().currentUser;
 
 //const spaceRef = storage.ref(user.uid+'/'+file.name);
 
@@ -52,7 +52,7 @@ class FileUpload extends React.Component {
           //.ref("files/"+user.uid+'/'+file.name)
           //.child(user.uid+"//"+file.name)
           //.child(user.uid)
-          .child(file.name)
+          //.child(file.name)
           //.put()
           .getDownloadURL()
           .then((url) => {

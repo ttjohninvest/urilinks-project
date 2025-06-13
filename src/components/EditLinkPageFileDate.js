@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import LinkForm from "./LinkForm";
-import { startEditLink, startRemoveLink } from "../actions/links";
+import LinkFormFileDate from "./LinkFormFileDate";
+import { startEditLinkFileDate, startRemoveLinkFileDate } from "../actions/linksfiledate";
 
 export class EditLinkPageFileDate extends React.Component {
-  onSubmit = (link) => {
-    this.props.startEditLink(this.props.link.id, link);
+  onSubmit = (linkfiledate) => {
+    this.props.startEditLinkFileDate(this.props.linkfiledate.id, linkfiledate);
     
     this.props.history.push("/");
     window.location.reload()
@@ -16,7 +16,7 @@ export class EditLinkPageFileDate extends React.Component {
     //event.preventDefault()
     //this.props.hashtags
     //console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, value="+value)
-    this.props.startRemoveLink({ id: this.props.link.id });
+    this.props.startRemoveLinkFileDate({ id: this.props.linkfiledate.id });
     this.props.history.push("/");
     window.location.reload()
   };
@@ -25,11 +25,11 @@ export class EditLinkPageFileDate extends React.Component {
       <div>
         <div className="page-header">
           <div className="content-container">
-            <h1 className="page-header__title">Edit Link</h1>
+            <h1 className="page-header__title">Edit Link FileDate</h1>
           </div>
         </div>
         <div className="content-container">
-          <LinkForm link={this.props.link} onSubmit={this.onSubmit} />
+          <LinkFormFileDate link={this.props.linkfiledate} onSubmit={this.onSubmit} />
            <button className="button button--secondary" onClick={this.onRemove}>
             Remove Link
           </button>
@@ -43,14 +43,14 @@ export class EditLinkPageFileDate extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  filters: state.filters,
-  link: state.links.find((link) => link.id === props.match.params.id),
-  hashtags:state.hashtags,
+  filtersfiledate: state.filtersfiledate,
+  linkfiledate: state.linksfiledate.find((linkfiledate) => linkfiledate.id === props.match.params.id),
+  hashtagsfiledate:state.hashtagsfiledate,
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  startEditLink: (id, link) => dispatch(startEditLink(id, link)),
-  startRemoveLink: (data) => dispatch(startRemoveLink(data)),
+  startEditLinkFileDate: (id, linkfiledate) => dispatch(startEditLinkFileDate(id, linkfiledate)),
+  startRemoveLinkFileDate: (data) => dispatch(startRemoveLinkFileDate(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditLinkPageFileDate);

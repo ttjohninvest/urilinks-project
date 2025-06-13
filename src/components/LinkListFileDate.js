@@ -1,10 +1,10 @@
 
 import React,{useState,useEffect,useRef} from "react";
 import { connect } from "react-redux";
-import LinkListItem from "./LinkListItem";
-import LinkListItem2 from "./LinkListItem2";
-import selectLinks from "../selectors/links";
-import LinksSummary from "./LinksSummary";
+import LinkListItemFileDate from "./LinkListItemFileDate";
+import LinkListItem2FileDate from "./LinkListItem2FileDate";
+import selectLinksFileDate from "../selectors/linksfiledate";
+import LinksSummaryFileDate from "./LinksSummaryFileDate";
 
 ////
 export const LinkListFileDate = (props) => {
@@ -17,10 +17,10 @@ export const LinkListFileDate = (props) => {
       setSelectedOption(event.target.value)
 
       if(event.target.value==="option1")
-       window.localStorage.setItem("whichOption","option1")
+       window.localStorage.setItem("whichOptionFileDate","option1")
       else if(event.target.value==="option2")
-       window.localStorage.setItem("whichOption","option2")
-      else window.localStorage.setItem("whichOption","option1")
+       window.localStorage.setItem("whichOptionFileDate","option2")
+      else window.localStorage.setItem("whichOptionFileDate","option1")
     
   };
 
@@ -36,7 +36,7 @@ export const LinkListFileDate = (props) => {
   
 
   useEffect(()=>{
-    const option = window.localStorage.getItem("whichOption")
+    const option = window.localStorage.getItem("whichOptionFileDate")
     if(option) setSelectedOption(option)
   },[])
 
@@ -72,7 +72,7 @@ export const LinkListFileDate = (props) => {
                     checked={selectedOption === "option1"}
                     onChange={handleOptionChange}
                   />
-                  <div className="the-inline-block- label-text label-text-right">links list with details</div>
+                  <div className="the-inline-block- label-text label-text-right">links list with details filedate</div>
                 </label>
               </div>
               <div className="margin-left-1">
@@ -85,7 +85,7 @@ export const LinkListFileDate = (props) => {
                     checked={selectedOption === "option2"}
                     onChange={handleOptionChange}
                   />
-                  <div className="the-inline-block- label-text margin-bottom5-">links list with out details</div>
+                  <div className="the-inline-block- label-text margin-bottom5-">links list with out details filedate</div>
                 </label>
               </div>
             
@@ -96,25 +96,25 @@ export const LinkListFileDate = (props) => {
      
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
-          {props.links.length === 0 ? (
+          {props.linksfiledate.length === 0 ? (
             <div className="list-item list-item--message">
               <span>0 links found</span>
             </div>
           ) : (
-            props.links.map((link) => {
-              return <LinkListItem key={link.id} {...link} />;
+            props.linksfiledate.map((linkfiledate) => {
+              return <LinkListItemFileDate key={linkfiledate.id} {...linkfiledate} />;
             })
           )}
         </div>
       ) : (
         <div className="list-body margin-top-11-">
-          {props.links.length === 0 ? (
+          {props.linksfiledate.length === 0 ? (
             <div className="list-item list-item--message">
-              <span>0 links found</span>
+              <span>0 links found filedate</span>
             </div>
           ) : (
-            props.links.map((link) => {
-              return <LinkListItem2 key={link.id} {...link} />;
+            props.linksfiledate.map((linkfiledate) => {
+              return <LinkListItem2FileDate key={linkfiledate.id} {...linkfiledate} />;
             })
           )}
         </div>
@@ -127,7 +127,7 @@ export const LinkListFileDate = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    links: selectLinks(state.links, state.filters),
+    linksfiledate: selectLinks(state.linksfiledate, state.filtersfiledate),
   };
 };
 

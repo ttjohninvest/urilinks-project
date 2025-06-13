@@ -11,42 +11,42 @@ const filtersReducerDefaultState = {
 
 export default (state = filtersReducerDefaultState, action) => {
   switch (action.type) {
-    case 'SET_TEXT_FILTER':
+    case 'SET_TEXT_FILTER_FILEDATE':
       return {
         ...state,
         text: action.text
       };
-      case 'SORT_BY_DESCRIPTION':
+      case 'SORT_BY_DESCRIPTION_FILEDATE':
       return {
         ...state,
         sortBy: 'description'
       };
-      case 'SORT_BY_NOTETEXT':
+      case 'SORT_BY_NOTETEXT_FILEDATE':
       return {
         ...state,
         sortBy: 'notetext'
       };
-      case 'SORT_BY_HASHTAG':
+      case 'SORT_BY_HASHTAG_FILEDATE':
         return {
           ...state,
           sortBy: 'hashtag'
         };
-    case 'SORT_BY_AMOUNT':
+    case 'SORT_BY_AMOUNT_FILEDATE':
       return {
         ...state,
         sortBy: 'amount'
       };
-    case 'SORT_BY_DATE':
+    case 'SORT_BY_DATE_FILEDATE':
       return {
         ...state,
         sortBy: 'date'
       };
-    case 'SET_START_DATE':
+    case 'SET_START_DATE_FILEDATE':
       return {
         ...state,
         startDate: action.startDate
       };
-    case 'SET_END_DATE':
+    case 'SET_END_DATE_FILEDATE':
       return {
         ...state,
         endDate: action.endDate

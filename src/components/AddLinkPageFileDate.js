@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import * as firebase from "firebase";
 import { connect } from "react-redux";
-import LinkForm from "./LinkForm";
-import { startAddLink } from "../actions/links";
+import LinkFormFileDate from "./LinkFormFileDate";
+import { startAddLinkFileDate } from "../actions/linksfiledate";
 import { withRouter } from "react-router-dom";
 
 export const AddLinkPageFileDate = (props) => {
@@ -28,7 +28,7 @@ export const AddLinkPageFileDate = (props) => {
           console.log("No user is currently logged in.");
         }
         const db = firebase.database();
-        const snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
+        const snapshot = await db.ref(`/users/${user.uid}/linksfiledate`).once("value");
         if (snapshot.exists()) {
           const data = snapshot.val();
           const count = Object.keys(data).length;
@@ -50,7 +50,7 @@ export const AddLinkPageFileDate = (props) => {
   const onSubmit = (link) => {
     console.log("in onSubmit");
     if (count < 500) {
-      const r = props.startAddLink(link);
+      const r = props.startAddLinkFileDate(link);
       if (r === false) {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
@@ -76,11 +76,11 @@ export const AddLinkPageFileDate = (props) => {
         <div>
           <div className="page-header">
             <div className="content-container">
-              <h1 className="page-header__title">Add Uri/Url Link</h1>
+              <h1 className="page-header__title">Add Uri/Url Link FileDate</h1>
             </div>
           </div>
           <div className="content-container">
-            <LinkForm onSubmit={onSubmit} />
+            <LinkFormFileDate onSubmit={onSubmit} />
           </div>
         </div>
       ) : (
@@ -98,7 +98,7 @@ export const AddLinkPageFileDate = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  startAddLink: (link) => dispatch(startAddLink(link)),
+  startAddLinkFileDate: (link) => dispatch(startAddLinkFileDate(link)),
 });
 
 export default withRouter(connect(undefined, mapDispatchToProps)(AddLinkPageFileDate));

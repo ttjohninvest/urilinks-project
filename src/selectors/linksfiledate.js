@@ -50,19 +50,19 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         else return startDateMatch && endDateMatch;      
       
     })
-    // .sort((a, b) => {
-    //   if (sortBy === "date") {
-    //     return a.createdAt < b.createdAt ? 1 : -1;
-    //   } else if (sortBy === "description") {
-    //     return a.description.toLowerCase() > b.description.toLowerCase()
-    //       ? 1
-    //       : -1;
-    //   } else if (sortBy === "hashtag") {
-    //     return removeHashTags(a.note.toLowerCase()) > removeHashTags(b.note.toLowerCase())
-    //       ? 1
-    //       : -1;
-    //   }
-    // });
+    .sort((a, b) => {
+      if (sortBy === "date") {
+        return a.createdAt < b.createdAt ? 1 : -1;
+      } else if (sortBy === "description") {
+        return a.description.toLowerCase() > b.description.toLowerCase()
+          ? 1
+          : -1;
+      } else if (sortBy === "hashtag") {
+        return removeHashTags(a.note.toLowerCase()) > removeHashTags(b.note.toLowerCase())
+          ? 1
+          : -1;
+      }
+    });
 };
 
 export default getFilteredLinksArray;

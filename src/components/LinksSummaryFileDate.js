@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import numeral from "numeral";
-import selectLinks from "../selectors/links";
-import selectLinksTotal from "../selectors/links-total";
+import selectLinksFileDate from "../selectors/linksfiledate";
+import selectLinksTotalFileDate from "../selectors/links-totalfiledate";
 
 export const LinksSummaryFileDate = ({ linkCount, linksTotal }) => {
   const linkWord = linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
@@ -15,7 +15,7 @@ export const LinksSummaryFileDate = ({ linkCount, linksTotal }) => {
        <div id="link-summary-id" className="text-size-5 margin-right-1"><span className="is-active">{linkCount}</span> Uri/Url Link's Found</div>
         
           <Link className="button-2 ib text-size-5" to="/create">
-            Add Uri/Url Link 
+            Add Uri/Url Link FileDate 
           </Link>
         
       </div>
@@ -24,11 +24,11 @@ export const LinksSummaryFileDate = ({ linkCount, linksTotal }) => {
 };
 
 const mapStateToProps = (state) => {
-  const visibleLinks = selectLinks(state.links, state.filters);
+  const visibleLinks = selectLinksFileDate(state.linksfiledate, state.filtersfiledate);
 
   return {
     linkCount: visibleLinks.length,
-    linksTotal: selectLinksTotal(visibleLinks),
+    linksTotal: selectLinksTotalFileDate(visibleLinks),
   };
 };
 

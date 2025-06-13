@@ -7,11 +7,11 @@ export default class LinkFormFileDate extends React.Component {
     super(props);
 
     this.state = {
-      description: props.link ? props.link.description : "",
-      Url: props.link ? props.link.Url : "",
-      note: props.link ? props.link.note : "",
+      description: props.linkfiledate ? props.linkfiledate.description : "",
+      Url: props.linkfiledate ? props.linkfiledate.Url : "",
+      note: props.linkfiledate ? props.linkfiledate.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
-      createdAt: props.link ? moment(props.link.createdAt) : moment(),
+      createdAt: props.linkfiledate ? moment(props.linkfiledate.createdAt) : moment(),
       calendarFocused: false,
       error: "",
       hashTags: [],

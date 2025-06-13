@@ -4,7 +4,7 @@ const hashtags2withcountReducerDefaultState = [];
 
 export default (state = hashtags2withcountReducerDefaultState, action) => {
   switch (action.type) {
-    case "SET_HASHTAGS2WITHCOUNT":
+    case "SET_HASHTAGS2WITHCOUNT_FILEDATE":
       //return [...state, ...action.hashtags];
       return action.hashtags;
     default:

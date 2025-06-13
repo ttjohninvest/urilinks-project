@@ -46,7 +46,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
         </div>
 
         <div className="list-item__sub-title- padding-left-1 text-size-2">
-          Entered: {moment(createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
+          {/* Entered: {moment(createdAt).format("MMMM Do, YYYY, h:mm:ss a")} */}
         </div>
       </div>
       <div className="list-item__data-  text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2">{note}</div>

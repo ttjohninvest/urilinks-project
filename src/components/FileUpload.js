@@ -48,8 +48,8 @@ class FileUpload extends React.Component {
 //const spaceRef = storage.ref(user.uid+'/'+file.name);
 
         storage
-          .ref("files")
-          .ref(user.uid+'/'+file.name)
+          //.ref("files")
+          .ref("files/"+user.uid+'/'+file.name).file()
           //.child(user.uid+"//"+file.name)
           .child(user.uid)
           .child(file.name)

@@ -57,16 +57,18 @@ const FetchBookmarks = (props) => {
           let element = links.item(i);
           let add_date = element.getAttribute("ADD_DATE");
           let icon = element.getAttribute("ICON");
-          console.log("links[" + i + "].innerText=" + links[i].innerText);
-          console.log("links[" + i + "].href=" + links[i].href);
+          let href = element.getAttribute("HREF");
+          let innerText = element.getAttribute("innerText");
+          console.log("links[" + i + "].innerText=" + innerText);
+          console.log("links[" + i + "].href=" + href);
           console.log("links[" + i + "].add_date=" + add_date);
           console.log("links[" + i + "].icon=" + icon);
           console.log("calling startAddLink");
 
 
           r = props.startAddLink({
-            description: links[i].innerText,
-            Url: links[i].href,
+            description: innerText,//links[i].innerText,
+            Url: href, //links[i].href,
             note: "#chromebookmarks",
             amount: 0,
             createdAt: parseInt(add_date), //now.getTime(),

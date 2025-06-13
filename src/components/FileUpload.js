@@ -59,9 +59,9 @@ class FileUpload extends React.Component {
 
 
         storage
-          .ref("files")
-          .child(user.uid+"//"+file.name)
-          //.child(file.name)
+          .ref("files/1")
+          //.child(user.uid+"//"+file.name)
+          .child(file.name)
           .getDownloadURL()
           .then((url) => {
             //use this url in FetchBookmarks.js

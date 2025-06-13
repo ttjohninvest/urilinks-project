@@ -73,7 +73,7 @@ const FetchBookmarks = (props) => {
             Url: links[i].href, //href,
             note: "#loving", //#chromebookmarks
             amount: 0,
-            createdAt:  now.getTime(), //add_date,
+            createdAt: add_date, // now.getTime(), //
             faviconURL: "https://google.com/favicon.ico" //icon
           });
           
@@ -89,8 +89,8 @@ const FetchBookmarks = (props) => {
         console.log("ERROR, VVVVVVVVVVVVV returned false");
       } else {
         console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-        //props.history.push("/");
-        //window.location.reload()
+        props.history.push("/");
+        window.location.reload()
       }
 
       }).catch((error) => {

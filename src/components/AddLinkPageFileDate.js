@@ -28,7 +28,9 @@ export const AddLinkPageFileDate = (props) => {
           console.log("No user is currently logged in.");
         }
         const db = firebase.database();
-        const snapshot = await db.ref(`/users/${user.uid}/linksfiledate`).once("value");
+        const snapshot = await db
+          .ref(`/users/${user.uid}/linksfiledate`)
+          .once("value");
         if (snapshot.exists()) {
           const data = snapshot.val();
           const count = Object.keys(data).length;
@@ -55,9 +57,8 @@ export const AddLinkPageFileDate = (props) => {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
       } else {
-        
         props.history.push("/");
-        window.location.reload()
+        window.location.reload();
       }
     } else {
       console.log("maximum links reached");
@@ -85,7 +86,7 @@ export const AddLinkPageFileDate = (props) => {
         </div>
       ) : (
         <div className="content-container- centerit">
-          <div>The maximum number of links that can be added is 100</div>
+          <div>The maximum number of links that can be added is 500</div>
           <div>
             <button className="button-style-1- button" onClick={goBack}>
               Go Back
@@ -101,4 +102,6 @@ const mapDispatchToProps = (dispatch) => ({
   startAddLinkFileDate: (link) => dispatch(startAddLinkFileDate(link)),
 });
 
-export default withRouter(connect(undefined, mapDispatchToProps)(AddLinkPageFileDate));
+export default withRouter(
+  connect(undefined, mapDispatchToProps)(AddLinkPageFileDate)
+);

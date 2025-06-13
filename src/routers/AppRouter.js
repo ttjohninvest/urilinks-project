@@ -6,6 +6,7 @@ import LinkSettingsPage from "../components/LinkSettingsPage";
 import AddSettingsPage from "../components/AddSettingsPage";
 //import AddLinkPage from "../components/AddLinkPage";
 import AddLinkPage from "../components/AddlinkPage";
+
 import EditLinkPage from "../components/EditLinkPage";
 import TermsAndPrivacy from "../components/TermsAndPrivacy";
 import Benefits from "../components/Benefits";
@@ -17,6 +18,7 @@ import BookmarksManager from "../components/BookmarksManager";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import FetchBookmarks from "../components/FetchBookmarks";
+import AddLinkPageFileDate from "../components/AddlinkPageFileDate";
 
 export const history = createHistory();
 
@@ -31,6 +33,7 @@ const AppRouter = () => (
         <PrivateRoute path="/benefits" component={Benefits} />
         {/* <PrivateRoute path="/settings" component={LinkSettingsPage} /> */}
         <PrivateRoute path="/create" component={AddLinkPage} />
+        <PrivateRoute path="/createfiledate" component={AddLinkPageFileDate} />
         <PrivateRoute path="/edit/:id" component={EditLinkPage} />
         <PrivateRoute path="/ideas" component={IdeasPage} />
         <PrivateRoute path="/fetchbookmarks" component={FetchBookmarks} />

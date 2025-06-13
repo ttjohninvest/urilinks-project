@@ -45,24 +45,24 @@ class FileUpload extends React.Component {
 
         const user = firebase.auth().currentUser;
 
-        const storage2 = getStorage();
-const starsRef = ref(storage2, user.uid+'/'+file.name);
+        //const storage2 = getStorage();
+const spaceRef = ref(storage, user.uid+'/'+file.name);
 
 
 
 // Points to the root reference
-var storageRef = firebase.storage().ref();
+// var storageRef = firebase.storage().ref();
 
-// Points to 'images'
-var imagesRef = storageRef.child(user.uid);
+// // Points to 'images'
+// var imagesRef = storageRef.child(user.uid);
 
-// Points to 'images/space.jpg'
-// Note that you can use variables to create child values
+// // Points to 'images/space.jpg'
+// // Note that you can use variables to create child values
 
-var spaceRef = imagesRef.child(file.name);
-console.log(spaceRef.fullPath)
-console.log(spaceRef.name)
-console.log(spaceRef.parent)
+// var spaceRef = imagesRef.child(file.name);
+// console.log(spaceRef.fullPath)
+// console.log(spaceRef.name)
+// console.log(spaceRef.parent)
 
         // storage
         //   .ref("files")

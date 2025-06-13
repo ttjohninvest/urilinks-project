@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
-import { storage, getStorage, ref } from "../firebase/firebase";
+import { storage,ref } from "../firebase/firebase";
 import setUrl  from "../actions/storage";
 //import { getStorage, ref, getDownloadURL } from "firebase/storage";
 

@@ -1,8 +1,8 @@
 
 //SET_HASHTAGS
-const setHashTags2WithCountFileDate = (hashtags) => ({
+const setHashTags2WithCountFileDate = (hashtagsfiledate) => ({
   type: "SET_HASHTAGS2WITHCOUNT_FILEDATE",
-  hashtags,
+  hashtagsfiledate,
 });
 
 export default setHashTags2WithCountFileDate;

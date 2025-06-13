@@ -1,9 +1,9 @@
 
 
 //SET_HASHTAGS
-const setHashTagsFileDate = (hashtags) => ({
+const setHashTagsFileDate = (hashtagsfiledate) => ({
   type: "SET_HASHTAGS_FILEDATE",
-  hashtags,
+  hashtagsfiledate,
 });
 
 export default setHashTagsFileDate;

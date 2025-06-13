@@ -1,7 +1,7 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
-import setHashTagsFileDate from "./hashtags"
-import setHashTags2WithCountFileDate from "./hashtags2withcount"
+import setHashTagsFileDate from "./hashtagsfiledate"
+import setHashTags2WithCountFileDate from "./hashtags2withcountfiledate"
 // ADD_LINK
 export const addLinkFileDate = (link) => ({
   type: "ADD_LINK_FILEDATE",
@@ -105,14 +105,14 @@ export const setLinksAllFileDate = (links) => ({
  const extractHashtags = (text) => {
     console.log("extractHashTags, text=" + text);
     const regex = /#([a-zA-Z0-9_]+)/g;
-    const hashtags = [];
+    const hashtagsfiledate = [];
     let match;
 
     while ((match = regex.exec(text)) !== null) {
-      hashtags.push(match[0]);
+      hashtagsfiledate.push(match[0]);
     }
-    console.log("hashtags=" + JSON.stringify(hashtags));
-    return hashtags;
+    console.log("hashtagsfiledate=" + JSON.stringify(hashtagsfiledate));
+    return hashtagsfiledate;
   };
 
   const removeDuplicates = (stringArray) => {
@@ -159,64 +159,64 @@ export const startSetLinksFileDate = () => {
       .ref(`users/${uid}/linksfiledate`)
       .once("value")
       .then((snapshot) => {
-        const links = [];
+        const linksfiledate = [];
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
          
-          links.push({
+          linksfiledate.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),
           });
         });
         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
-        dispatch(setLinksFileDate(links));
+        dispatch(setLinksFileDate(linksfiledate));
 
-        let hashtags = [];
+        let hashtagsfiledate = [];
 
         //if(this.props.links.length>0) {
-        links.forEach((link) => {
+        linksfiledate.forEach((linkfiledate) => {
           //console.log("YYYYYYYYYYYYYYYYYYYYY, link.note="+link.note)
-          let x1 = extractHashtags(link.note);
+          let x1 = extractHashtags(linkfiledate.note);
           //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, x1="+JSON.stringify(x1))
-          hashtags.push(...x1);
+          hashtagsfiledate.push(...x1);
           //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
        
         //at this point hashtags contains the number of times each hashtag is being used
-        let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
-         hashTags2WithCount.sort((a, b) => {
+        let hashTags2WithCountFileDate = countTimesEachHashTagIsUsed(hashtagsfiledate)
+         hashTags2WithCountFileDate.sort((a, b) => {
           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
         });
-        console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCountFileDate))
         
 
-        let hashtags2 = removeDuplicates(hashtags);
-        hashtags2.sort((a, b) => {
+        let hashtags2filedate = removeDuplicates(hashtagsfiledate);
+        hashtags2filedate.sort((a, b) => {
           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
         });
         
-        let hashtags3withcount=[]
+        let hashtags3withcountFileDate=[]
         let seenArray=[]
 
-        hashtags2.forEach((ht1)=>{
-          hashTags2WithCount.forEach((ht2)=>{
+        hashtags2filedate.forEach((ht1)=>{
+          hashTags2WithCountFileDate.forEach((ht2)=>{
                  if(!seen(ht1,seenArray) && (ht1===ht2.hashtag)) {
                   seenArray.push(ht1)
                   console.log("ZZZZZZZZZZZZZZZZ, seenArray="+JSON.stringify(seenArray))
-                  hashtags3withcount.push(ht2)
+                  hashtags3withcountFileDate.push(ht2)
                  }
           })
         })
 
-        console.log("ZZZZZZZZZZZZZZZZZZZZZZZ, hashtags3withcount="+JSON.stringify(hashtags3withcount))
+        console.log("ZZZZZZZZZZZZZZZZZZZZZZZ, hashtags3withcountFileDate="+JSON.stringify(hashtags3withcountFileDate))
 
 
 
         //console.log("actions/links.js, ZZZZZZZZZZZZZZZZZ, hashtags2="+JSON.stringify(hashtags2))
         //dispatch(setHashTags(hashtags2));
-        dispatch(setHashTagsFileDate(hashtags3withcount));
-        dispatch(setHashTags2WithCountFileDate(hashTags2WithCount));
+        dispatch(setHashTagsFileDate(hashtags3withcountFileDate));
+        dispatch(setHashTags2WithCountFileDate(hashTags2WithCountFileDate));
       })
       .catch((error) => console.log("error=" + error));
   };
@@ -228,7 +228,7 @@ export const startSetLinksAllFileDate = () => {
       .ref(`users`)
       .once("value")
       .then((snapshot) => {
-        const linksAll = [];
+        const linksAllfiledate = [];
 
         snapshot.forEach((childSnapshot) => {
           return database
@@ -236,7 +236,7 @@ export const startSetLinksAllFileDate = () => {
             .once("value")
             .then((snapshot2) => {
               snapshot2.forEach((childSnapshot2) => {
-                linksAll.push({
+                linksAllfiledate.push({
                   id: childSnapshot2.key,
                   ...childSnapshot2.val(),
                 });
@@ -244,7 +244,7 @@ export const startSetLinksAllFileDate = () => {
               console.log(
                 "startSetLinksAll, about to call dispatch(setLinksAll(links));"
               );
-              dispatch(setLinksAllFileDate(linksAll));
+              dispatch(setLinksAllFileDate(linksAllfiledate));
             })
             .catch((error) => console.log("error=" + error));
         });

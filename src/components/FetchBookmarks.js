@@ -44,6 +44,7 @@ const FetchBookmarks = (props) => {
 
         let parser = new DOMParser();
         const doc = parser.parseFromString(data, "text/html");
+        console.log("doc="+JSON.stringify(doc))
         let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
         // setData(links)
 
@@ -59,7 +60,7 @@ const FetchBookmarks = (props) => {
           r = props.startAddLink({
             description: links[i].innerText,
             Url: links[i].href,
-            note: "#loving",
+            note: "#chromebookmarks",
             amount: 0,
             createdAt: now.getTime(),
             faviconURL: "https://youtube.com/favicon.ico"

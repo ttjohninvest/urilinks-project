@@ -45,12 +45,14 @@ const FetchBookmarks = (props) => {
         let parser = new DOMParser();
         const doc = parser.parseFromString(data, "text/html");
         let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
-        console.log("links="+JSON.stringify(links))       
+        //console.log("links="+JSON.stringify(links))       
         // setData(links)
 
         //write to firebase the following links
         let r=false
         //for (let i = 0; i < links.length; i++) {
+        
+        console.log("about to go through the for look to see the contents of the link structure:");
         for (let i = 0; i < 1; i++) {
           console.log("links[" + i + "].innerText=" + links[i].innerText);
           console.log("links[" + i + "].href=" + links[i].href);

@@ -55,7 +55,7 @@ const FetchBookmarks = (props) => {
         console.log("about to go through the for look to see the contents of the link structure:");
         for (let i = 0; i < 1; i++) {
           let element = links.item(i);
-          let add_date = element.getAttribute("ADD_DATE")+"n";
+          let add_date = parseInt(element.getAttribute("ADD_DATE"));
           //let icon = element.getAttribute("ICON");
           //let href = element.getAttribute("HREF");
           
@@ -71,8 +71,8 @@ const FetchBookmarks = (props) => {
             Url: links[i].href, //href,
             note: "#loving", //#chromebookmarks
             amount: 0,
-            createdAt:  add_date, //now.getTime(), 
-            faviconURL: "https://youtube.com/favicon.ico" //icon
+            createdAt:  now.getTime(), //add_date,
+            faviconURL: "https://google.com/favicon.ico" //icon
           });
           
           if(r===false) {

@@ -56,8 +56,8 @@ const FetchBookmarks = (props) => {
         for (let i = 0; i < 1; i++) {
           console.log("links[" + i + "].innerText=" + links[i].innerText);
           console.log("links[" + i + "].href=" + links[i].href);
-          console.log("links[" + i + "].add_date=" + links[i].add_date);
-          console.log("links[" + i + "].icon=" + links[i].icon);
+          console.log("links[" + i + "].add_date=" + links[i].ADD_DATE);
+          console.log("links[" + i + "].icon=" + links[i].ICON);
           console.log("calling startAddLink");
 
 
@@ -66,8 +66,8 @@ const FetchBookmarks = (props) => {
             Url: links[i].href,
             note: "#chromebookmarks",
             amount: 0,
-            createdAt: parseInt(links[i].add_date), //now.getTime(),
-            faviconURL: links[i].icon //"https://youtube.com/favicon.ico"
+            createdAt: parseInt(links[i].ADD_DATE), //now.getTime(),
+            faviconURL: links[i].ICON //"https://youtube.com/favicon.ico"
           });
           
           if(r===false) {

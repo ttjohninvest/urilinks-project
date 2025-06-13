@@ -14,7 +14,7 @@ import Benefits from "../components/Benefits";
 import NotFoundPage from "../components/NotFoundPage";
 import LoginPage from "../components/LoginPage";
 import IdeasPage from "../components/IdeasPage";
-//import BookmarksManager from "../components/BookmarksManager";
+import BookmarksManager from "../components/BookmarksManager";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import FetchBookmarks from "../components/FetchBookmarks";
@@ -37,7 +37,7 @@ const AppRouter = () => (
         <PrivateRoute path="/edit/:id" component={EditLinkPage} />
         <PrivateRoute path="/ideas" component={IdeasPage} />
         <PrivateRoute path="/fetchbookmarks" component={FetchBookmarks} />
-        {/* <PrivateRoute path="/bookmarksmanager" component={BookmarksManager} /> */}
+        <PrivateRoute path="/bookmarksmanager" component={BookmarksManager} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

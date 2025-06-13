@@ -82,9 +82,9 @@ export const Header = ({ startLogout }) => {
               <Link className="header__title" to="/ideas">
                 <span className="ib">Ideas</span>
               </Link>
-              {/* <Link className="header__title" to="/bookmarksmanager">
+              <Link className="header__title" to="/bookmarksmanager">
                 <span className="ib">Bookmarks Manager</span>
-              </Link> */}
+              </Link>
               <button className="button button--link ib" onClick={startLogout}>
                 Logout
               </button>

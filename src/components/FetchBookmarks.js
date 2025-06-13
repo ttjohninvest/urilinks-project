@@ -44,7 +44,6 @@ const FetchBookmarks = (props) => {
 
         let parser = new DOMParser();
         const doc = parser.parseFromString(data, "text/html");
-        console.log("doc="+JSON.stringify(doc))
         let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
         // setData(links)
 
@@ -53,7 +52,9 @@ const FetchBookmarks = (props) => {
         //for (let i = 0; i < links.length; i++) {
         for (let i = 0; i < 1; i++) {
           console.log("links[" + i + "].innerText=" + links[i].innerText);
-          console.log("links[" + i + "].href" + links[i].href);
+          console.log("links[" + i + "].href=" + links[i].href);
+          console.log("links[" + i + "].add_date=" + links[i].add_date);
+          console.log("links[" + i + "].icon=" + links[i].icon);
           console.log("calling startAddLink");
 
 
@@ -62,8 +63,8 @@ const FetchBookmarks = (props) => {
             Url: links[i].href,
             note: "#chromebookmarks",
             amount: 0,
-            createdAt: now.getTime(),
-            faviconURL: "https://youtube.com/favicon.ico"
+            createdAt: links[i].add_date, //now.getTime(),
+            faviconURL: links[i].icon //"https://youtube.com/favicon.ico"
           });
           
           if(r===false) {
@@ -78,8 +79,8 @@ const FetchBookmarks = (props) => {
         console.log("ERROR, VVVVVVVVVVVVV returned false");
       } else {
         console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-        //props.history.push("/");
-        //window.location.reload()
+        props.history.push("/");
+        window.location.reload()
       }
 
       }).catch((error) => {

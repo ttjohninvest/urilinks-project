@@ -54,24 +54,24 @@ const FetchBookmarks = (props) => {
         
         console.log("about to go through the for look to see the contents of the link structure:");
         for (let i = 0; i < 1; i++) {
-          let element = links.item(i);
-          let add_date = element.getAttribute("ADD_DATE");
-          let icon = element.getAttribute("ICON");
-          let href = element.getAttribute("HREF");
+          //let element = links.item(i);
+          //let add_date = parseInt(element.getAttribute("ADD_DATE"));
+          //let icon = element.getAttribute("ICON");
+          //let href = element.getAttribute("HREF");
           
           console.log("links[" + i + "].innerText=" +links[i].innerText);
-          console.log("links[" + i + "].href=" + href);
-          console.log("links[" + i + "].add_date=" + add_date);
-          console.log("links[" + i + "].icon=" + icon);
+          console.log("links[" + i + "].href=" + links[i].href);
+          //console.log("links[" + i + "].add_date=" + add_date);
+          //console.log("links[" + i + "].icon=" + icon);
           console.log("calling startAddLink");
 
 
           r = props.startAddLink({
             description: links[i].innerText,
-            Url: href, //links[i].href,
-            note: "#chromebookmarks",
+            Url: links[i].href, //href,
+            note: "#loving", //#chromebookmarks
             amount: 0,
-            createdAt: parseInt(add_date), //now.getTime(),
+            createdAt:  now.getTime(), //add_date,
             faviconURL: "https://youtube.com/favicon.ico" //icon
           });
           

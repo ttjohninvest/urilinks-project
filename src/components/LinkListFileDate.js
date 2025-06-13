@@ -127,7 +127,7 @@ export const LinkListFileDate = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    linksfiledate: selectLinks(state.linksfiledate, state.filtersfiledate),
+    linksfiledate: selectLinksFileDate(state.linksfiledate, state.filtersfiledate),
   };
 };
 

@@ -48,12 +48,12 @@ class FileUpload extends React.Component {
 //const spaceRef = storage.ref(user.uid+'/'+file.name);
 
         storage
-          //.ref("files")
+          .ref("files")
           .ref(user.uid+'/'+file.name)
           //.child(user.uid+"//"+file.name)
           .child(user.uid)
-          //.child(file.name)
-          .put(file.name)
+          .child(file.name)
+          .put()
           .getDownloadURL()
           .then((url) => {
             //use this url in FetchBookmarks.js

@@ -72,7 +72,7 @@ const FetchBookmarks = (props) => {
             note: "#chromebookmarks",
             amount: 0,
             createdAt: parseInt(add_date), //now.getTime(),
-            faviconURL: icon //"https://youtube.com/favicon.ico"
+            faviconURL: "https://youtube.com/favicon.ico" //icon
           });
           
           if(r===false) {

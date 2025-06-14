@@ -68,10 +68,10 @@ export const Header = ({ startLogout }) => {
               </Link>
 
               <Link className="header__title" to="/benefits">
-                <span className="margin-right-1-ib">(Benefits)</span>
+                <span className="margin-right-1-ib"  title="How to use this website">(Benefits)</span>
               </Link>
               <Link className="header__title" to="/termsandprivacy">
-                <span className="ib">(User Info)</span>
+                <span className="ib"  title="terms, conditions and privacy policy">(User Info)</span>
               </Link>
               <Link className="header__title" to="/settings">
                 {/* <span>Settings</span> */}
@@ -80,10 +80,10 @@ export const Header = ({ startLogout }) => {
             delete account
           </div> */}
               <Link className="header__title" to="/ideas">
-                <span className="ib">(Ideas)</span>
+                <span className="ib" title="some ideas for hash tags">(Ideas)</span>
               </Link>
               <Link className="header__title" to="/bookmarksmanager">
-                <span className="ib">(Bookmarks Uploader)</span>
+                <span className="ib"  title="tool to upload bookmarks from chrome, opera, firefox, or brave browser">(Bookmarks Uploader)</span>
               </Link>
               <button className="button button--link ib text-size-3" onClick={startLogout}>
                 (Logout)

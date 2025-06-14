@@ -28,41 +28,62 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
        let isTextInDescription, isTextInNote;
 
       
+      //  if(sortBy==='description' || sortBy==='date') {
+      //   if(!!text===false) text=''
+      //     isTextInDescription = link.description?link.description
+      //     .toLowerCase()
+      //     .includes(text.toLowerCase()):'';
+      //     return startDateMatch && endDateMatch && isTextInDescription;
+      //   } else if(sortBy==='hashtag') { //the user entered a hash tag, for example #project1
+      //     if(!!text===false) text=''
+      //     isTextInNote = link.note?link.note
+      //     .toLowerCase()
+      //     .includes(text.toLowerCase()):'' && text;
+      //     return startDateMatch && endDateMatch && isTextInNote;
+      //   } else if(sortBy==="notetext") {
+      //     if(!!text===false) text=''
+      //      isTextInNote = link.note?link.note
+      //     .toLowerCase()
+      //     .includes(text.toLowerCase()):'';
+      //     return startDateMatch && endDateMatch && isTextInNote;
+      //   }
+      //   else return startDateMatch && endDateMatch; 
+      
        if(sortBy==='description' || sortBy==='date') {
         if(!!text===false) text=''
           isTextInDescription = link.description?link.description
           .toLowerCase()
           .includes(text.toLowerCase()):'';
-          return startDateMatch && endDateMatch && isTextInDescription;
+          return isTextInDescription;
         } else if(sortBy==='hashtag') { //the user entered a hash tag, for example #project1
           if(!!text===false) text=''
           isTextInNote = link.note?link.note
           .toLowerCase()
           .includes(text.toLowerCase()):'' && text;
-          return startDateMatch && endDateMatch && isTextInNote;
+          return isTextInNote;
         } else if(sortBy==="notetext") {
           if(!!text===false) text=''
            isTextInNote = link.note?link.note
           .toLowerCase()
           .includes(text.toLowerCase()):'';
-          return startDateMatch && endDateMatch && isTextInNote;
+          return isTextInNote;
         }
-        else return startDateMatch && endDateMatch;      
+        else return true
       
     })
-    // .sort((a, b) => {
-    //   if (sortBy === "date") {
-    //     return a.createdAt < b.createdAt ? 1 : -1;
-    //   } else if (sortBy === "description") {
-    //     return a.description.toLowerCase() > b.description.toLowerCase()
-    //       ? 1
-    //       : -1;
-    //   } else if (sortBy === "hashtag") {
-    //     return removeHashTags(a.note.toLowerCase()) > removeHashTags(b.note.toLowerCase())
-    //       ? 1
-    //       : -1;
-    //   }
-    // });
+    .sort((a, b) => {
+      if (sortBy === "date") {
+        return a.createdAt < b.createdAt ? 1 : -1;
+      } else if (sortBy === "description") {
+        return a.description.toLowerCase() > b.description.toLowerCase()
+          ? 1
+          : -1;
+      } else if (sortBy === "hashtag") {
+        return removeHashTags(a.note.toLowerCase()) > removeHashTags(b.note.toLowerCase())
+          ? 1
+          : -1;
+      }
+    });
 };
 
 export default getFilteredLinksArray;

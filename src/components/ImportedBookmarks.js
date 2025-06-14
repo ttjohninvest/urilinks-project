@@ -14,7 +14,7 @@ const ImportedBookmarks = (props) => {
   };
 
   return (
-    <div className="flexrow2 margin-top-10">
+    <div className="container2">
       <div>Successfully imported the bookmarks.</div>
 
       <div className="margin5">

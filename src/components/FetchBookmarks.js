@@ -60,6 +60,10 @@ const FetchBookmarks = (props) => {
           })
           
         } 
+
+        for(let i = 0; i < htmllinksarray.length;i++) {
+          console.log("htmllinksarray["+i+"].description="+htmllinksarray[i].description)
+        }
        
 
 let A = props.links
@@ -117,8 +121,8 @@ console.log("result.length="+result.length)
         console.log("ERROR, VVVVVVVVVVVVV returned false");
       } else {
         console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-        props.history.push("/");
-        window.location.reload()
+        //props.history.push("/");
+        //window.location.reload()
       }
 
       }).catch((error) => {

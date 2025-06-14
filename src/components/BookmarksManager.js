@@ -19,7 +19,7 @@ const BookmarksManager = () => {
   return (
     <div>
       <ol>
-        <li>export bookmarks from the bowser</li>
+        <li>From the browser, export (download) your bookmarks file and then upload your bookmarks file in step 2.</li>
         <li><FileUpload setCheckDidUpload={setCheckDidUpload}/></li>
        
           <Link className="header__title" to="/fetchbookmarks">

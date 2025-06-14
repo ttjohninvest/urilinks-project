@@ -18,15 +18,18 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   return links.filter((link) => {
 const now = new Date();
 let createdAtMoment
-      let startDateMatch
-      let endDateMatch
-// if(!!link.createdAt === false)
-// {
-// createdAtMoment =  moment(now.getTime());
-// }
-// else {
- createdAtMoment =  moment(link.createdAt);
-//}
+let startDateMatch
+let endDateMatch
+
+
+const inputDate = link.createdAt;
+const dateObject = new Date(inputDate);
+
+if (dateObject.toString() !== 'Invalid Date') {
+    console.log('valid date string');
+  
+    createdAtMoment =  moment(link.createdAt);
+
      startDateMatch = startDate
         ? startDate.isSameOrBefore(createdAtMoment, "day")
         : true;
@@ -34,7 +37,7 @@ let createdAtMoment
         ? endDate.isSameOrAfter(createdAtMoment, "day")
         : true;
 
-      if(sortBy==="date" && !!text===false) return false
+      if(sortBy!=="date" && !!text===false) return false
 
        let isTextInDescription, isTextInNote;
 
@@ -58,6 +61,40 @@ let createdAtMoment
           return isTextInNote && startDateMatch && endDateMatch
         }
         else return startDateMatch && endDateMatch; 
+} else {
+    console.log('Invalid date string');
+  
+      if(!!text===false) return false
+
+       let isTextInDescription, isTextInNote;
+
+       if(sortBy==='description') { // || sortBy==='date') {
+          if(!!link.description===false) return false
+          isTextInDescription = link.description?link.description
+          .toLowerCase()
+          .includes(text.toLowerCase()):false;
+          return isTextInDescription
+        } else if(sortBy==='hashtag') { //the user entered a hash tag, for example #project1
+          if(!!link.note===false) return false
+          isTextInNote = link.note?link.note
+          .toLowerCase()
+          .includes(text.toLowerCase()):false
+          return isTextInNote
+        } else if(sortBy==="notetext") {
+           if(!!link.note===false) return false
+           isTextInNote = link.note?link.note
+          .toLowerCase()
+          .includes(text.toLowerCase()):false;
+          return isTextInNote
+        }
+        else return true; 
+}
+
+
+
+
+
+
 
 //         export default (expenses, { text, sortBy, startDate, endDate }) => {
 //   return expenses.filter((expense) => {

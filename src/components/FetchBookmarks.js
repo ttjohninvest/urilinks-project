@@ -214,7 +214,7 @@ const FetchBookmarks = (props) => {
 //htmllinksarray
 let A = props.links
 let B = htmllinksarray
-let result = B.filter(b => !A.some(a => a.description.trim() === b.description.trim()));
+let result = B.filter(b => !A.some(a => a.description.trim().toLowerCase() === b.description.trim().toLowerCase()));
 
 
         //for (let i = 0; i < links.length; i++) {

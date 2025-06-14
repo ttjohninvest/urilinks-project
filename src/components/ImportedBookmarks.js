@@ -18,7 +18,7 @@ const ImportedBookmarks = (props) => {
       <div className="flexcol">
         <div>Successfully imported the bookmarks.</div>
 
-        <div className="margin5">
+        <div className="margin-top-2">
           <button className="button-style-1- button" onClick={returnAndRefresh}>
             Return and Refresh
           </button>

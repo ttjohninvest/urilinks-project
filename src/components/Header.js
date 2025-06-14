@@ -83,7 +83,7 @@ export const Header = ({ startLogout }) => {
                 <span className="ib">(Ideas)</span>
               </Link>
               <Link className="header__title" to="/bookmarksmanager">
-                <span className="ib">(Bookmarks Manager)</span>
+                <span className="ib">(Bookmarks Uploader)</span>
               </Link>
               <button className="button button--link ib text-size-3" onClick={startLogout}>
                 (Logout)

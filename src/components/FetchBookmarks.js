@@ -152,31 +152,23 @@ const FetchBookmarks = (props) => {
       //.then(response => response.json())
       //
       console.log("FetchBookmarks, props.url="+props.url)
-      //fetch("https://firebasestorage.googleapis.com/v0/b/see-my-index-project-7.firebasestorage.app/o/files%2Fbookmarks_6_9_25.html?alt=media&token=6fc9650d-d319-43ab-b2ed-529b3bfcec8b")
-      fetch(props.url)
+      fetch("https://firebasestorage.googleapis.com/v0/b/see-my-index-project-7.firebasestorage.app/o/files%2Fbookmarks_6_9_25.html?alt=media&token=6fc9650d-d319-43ab-b2ed-529b3bfcec8b")
+      //fetch(props.url)
       .then((response) => response.text())
       .then((data) => {
         const now = new Date();
-        //console.log("data="+data)
+        
         setData(data);
-
-        //const text = `<p>Some text</p><br /><a href="https://daily-dev-tips.com/">My website</a><hr /><a href="https://google.com">Another link</a>`;
 
         let parser = new DOMParser();
         const doc = parser.parseFromString(data, "text/html");
         let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
             
-        // setData(links)
-
-        //write to firebase the following links
+       
         let r=false
         let htmllinksarray=[]
 
         for (let i = 0; i < links.length; i++) {
-          //for (let i = 0; i < 1; i++) {
-          //let element = links.item(i);
-          //let add_date = parseInt(links.item(i).getAttribute("ADD_DATE"));
-          //let icon = links.item(i).getAttribute("ICON");
         
          htmllinksarray.push({
             description: links.item(i).innerText,
@@ -187,10 +179,6 @@ const FetchBookmarks = (props) => {
             faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
           })
           
-          // if(r===false) {
-          //   setImportingError(true)
-          //    break
-          // }  
         }
 
 //          const A = [

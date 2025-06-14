@@ -214,25 +214,13 @@ const FetchBookmarks = (props) => {
 //htmllinksarray
 let A = props.links
 let B = htmllinksarray
-let result = B.filter(b => !A.some(a => a.description.trim().toLowerCase() === b.description.trim().toLowerCase()));
+let result = B.filter(b => !A.some(a => a.name.trim().toLowerCase() === b.name.trim().toLowerCase()));
 
 
         //for (let i = 0; i < links.length; i++) {
         for (let i = 0; i < result.length; i++) {
           //for (let i = 0; i < 1; i++) {
-          //let element = links.item(i);
-          //let add_date = parseInt(links.item(i).getAttribute("ADD_DATE"));
-          //let icon = links.item(i).getAttribute("ICON");
         
-          // r = props.startAddLink({
-          //   description: links.item(i).innerText,
-          //   Url: links.item(i).getAttribute('href'), //, //href,
-          //   note: "#chromebookmarks",
-          //   amount: 0,
-          //   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-          //   faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
-          // });
-
            r = props.startAddLink({
             description: result[i].description,
             Url: result[i].Url, //, //href,

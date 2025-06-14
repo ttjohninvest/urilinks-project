@@ -32,11 +32,15 @@
 
 
 const A = [
+    { id: 8, name: 'Eve4' },
   { id: 10, name: 'Mike' },
   { id: 1, name: 'Alice' },
   { id: 2, name: 'Bob' },
   { id: 3, name: 'Charlie' },
-  { id: 4, name: 'David' }
+  { id: 4, name: 'David' },
+  { id: 5, name: 'Eve1' },
+  { id: 6, name: 'Eve2' },
+  { id: 7, name: 'Eve3' }
 ];
 
 const B = [
@@ -44,8 +48,10 @@ const B = [
   { id: 4, name: 'David' },
   { id: 5, name: 'Eve1' },
   { id: 6, name: 'Eve2' },
-  { id: 7, name: 'Eve3' }
+  { id: 7, name: 'Eve3' },
+  { id: 8, name: 'Eve4' },
+  { id: 9, name: 'Eve5' },
 ];
 
-let result = B.filter(b => !A.some(a => a.name === b.name));
+let result = B.filter(b => !A.some(a => a.name.trim().toLowerCase() === b.name.trim().toLowerCase()));
 console.log(result)

@@ -16,15 +16,23 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   if(!!links===false) return []
   else
   return links.filter((link) => {
-      const createdAtMoment = moment(link.createdAt);
-      const startDateMatch = startDate
+const now = new Date();
+let createdAtMoment
+      let startDateMatch
+      let endDateMatch
+if(!!link.createdAt === false)
+{
+createdAtMoment =  moment(now.getTime());
+}
+else {
+ createdAtMoment =  moment(link.createdAt);
+}
+     startDateMatch = startDate
         ? startDate.isSameOrBefore(createdAtMoment, "day")
         : true;
-      const endDateMatch = endDate
+      endDateMatch = endDate
         ? endDate.isSameOrAfter(createdAtMoment, "day")
         : true;
-      //const isTextIn = link && link.description && text && link.description
-      let isTextIn=false
 
       if(sortBy==="date" && !!text===false) return false
 
@@ -35,19 +43,19 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           isTextInDescription = link.description?link.description
           .toLowerCase()
           .includes(text.toLowerCase()):false;
-          return isTextInDescription //&& startDateMatch && endDateMatch;
+          return isTextInDescription && startDateMatch && endDateMatch;
         } else if(sortBy==='hashtag') { //the user entered a hash tag, for example #project1
           if(!!link.note===false) return false
           isTextInNote = link.note?link.note
           .toLowerCase()
           .includes(text.toLowerCase()):false
-          return isTextInNote //&& startDateMatch && endDateMatch
+          return isTextInNote && startDateMatch && endDateMatch
         } else if(sortBy==="notetext") {
            if(!!link.note===false) return false
            isTextInNote = link.note?link.note
           .toLowerCase()
           .includes(text.toLowerCase()):false;
-          return isTextInNote //&& startDateMatch && endDateMatch
+          return isTextInNote && startDateMatch && endDateMatch
         }
         else return startDateMatch && endDateMatch; 
 

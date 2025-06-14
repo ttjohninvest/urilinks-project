@@ -22,8 +22,9 @@ const BookmarksManager = () => {
         <li>export bookmarks from the bowser</li>
         <li><FileUpload setCheckDidUpload={setCheckDidUpload}/></li>
         <li>
-          <Link className="header__title" onClick={checkDidUpload} to="/fetchbookmarks">
-            <span className="ib text-color-black">import bookmarks</span>
+          <Link className="header__title" to="/fetchbookmarks">
+          {didUpload?<span className="ib text-color-black">import bookmarks</span>:''}
+            
           </Link>
         </li>
       </ol>

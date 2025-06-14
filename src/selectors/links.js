@@ -28,47 +28,47 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
        let isTextInDescription, isTextInNote;
 
       
-      //  if(sortBy==='description' || sortBy==='date') {
-      //   if(!!text===false) text=''
-      //     isTextInDescription = link.description?link.description
-      //     .toLowerCase()
-      //     .includes(text.toLowerCase()):'';
-      //     return startDateMatch && endDateMatch && isTextInDescription;
-      //   } else if(sortBy==='hashtag') { //the user entered a hash tag, for example #project1
-      //     if(!!text===false) text=''
-      //     isTextInNote = link.note?link.note
-      //     .toLowerCase()
-      //     .includes(text.toLowerCase()):'' && text;
-      //     return startDateMatch && endDateMatch && isTextInNote;
-      //   } else if(sortBy==="notetext") {
-      //     if(!!text===false) text=''
-      //      isTextInNote = link.note?link.note
-      //     .toLowerCase()
-      //     .includes(text.toLowerCase()):'';
-      //     return startDateMatch && endDateMatch && isTextInNote;
-      //   }
-      //   else return startDateMatch && endDateMatch; 
-      
        if(sortBy==='description' || sortBy==='date') {
         if(!!text===false) text=''
           isTextInDescription = link.description?link.description
           .toLowerCase()
           .includes(text.toLowerCase()):'';
-          return isTextInDescription;
+          return startDateMatch && endDateMatch && isTextInDescription;
         } else if(sortBy==='hashtag') { //the user entered a hash tag, for example #project1
           if(!!text===false) text=''
           isTextInNote = link.note?link.note
           .toLowerCase()
           .includes(text.toLowerCase()):'' && text;
-          return isTextInNote;
+          return startDateMatch && endDateMatch && isTextInNote;
         } else if(sortBy==="notetext") {
           if(!!text===false) text=''
            isTextInNote = link.note?link.note
           .toLowerCase()
           .includes(text.toLowerCase()):'';
-          return isTextInNote;
+          return startDateMatch && endDateMatch && isTextInNote;
         }
-        else return true
+        else return startDateMatch && endDateMatch; 
+      
+      //  if(sortBy==='description' || sortBy==='date') {
+      //   if(!!text===false) text=''
+      //     isTextInDescription = link.description?link.description
+      //     .toLowerCase()
+      //     .includes(text.toLowerCase()):'';
+      //     return isTextInDescription;
+      //   } else if(sortBy==='hashtag') { //the user entered a hash tag, for example #project1
+      //     if(!!text===false) text=''
+      //     isTextInNote = link.note?link.note
+      //     .toLowerCase()
+      //     .includes(text.toLowerCase()):'' && text;
+      //     return isTextInNote;
+      //   } else if(sortBy==="notetext") {
+      //     if(!!text===false) text=''
+      //      isTextInNote = link.note?link.note
+      //     .toLowerCase()
+      //     .includes(text.toLowerCase()):'';
+      //     return isTextInNote;
+      //   }
+      //   else return true
       
     })
     .sort((a, b) => {

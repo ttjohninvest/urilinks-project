@@ -51,7 +51,7 @@ const FetchBookmarks = (props) => {
         let htmllinksarray=[]
 
         for (let i = 0; i < links.length; i++) {
-        
+        console.log("links.item(i).innerText="+links.item(i).innerText)
          htmllinksarray.push({
             description: links.item(i).innerText,
             Url: links.item(i).getAttribute('href'), //, //href,

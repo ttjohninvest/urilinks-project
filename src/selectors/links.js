@@ -20,13 +20,13 @@ const now = new Date();
 let createdAtMoment
       let startDateMatch
       let endDateMatch
-if(!!link.createdAt === false)
-{
-createdAtMoment =  moment(now.getTime());
-}
-else {
+// if(!!link.createdAt === false)
+// {
+// createdAtMoment =  moment(now.getTime());
+// }
+// else {
  createdAtMoment =  moment(link.createdAt);
-}
+//}
      startDateMatch = startDate
         ? startDate.isSameOrBefore(createdAtMoment, "day")
         : true;

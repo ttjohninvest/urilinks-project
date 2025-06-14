@@ -24,30 +24,49 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         ? endDate.isSameOrAfter(createdAtMoment, "day")
         : true;
       //const isTextIn = link && link.description && text && link.description
-     
+      let isTextIn=false
+      if(!!link===true && !!text===true)
+      isTextIn = link.description.toLowerCase().includes(text.toLowerCase());
+      else if(!!text===false) text=''
+
        let isTextInDescription, isTextInNote;
 
-      
        if(sortBy==='description' || sortBy==='date') {
-        if(!!text===false) text=''
           isTextInDescription = link.description?link.description
           .toLowerCase()
-          .includes(text.toLowerCase()):'';
+          .includes(text.toLowerCase()):false;
           return startDateMatch && endDateMatch && isTextInDescription;
         } else if(sortBy==='hashtag') { //the user entered a hash tag, for example #project1
-          if(!!text===false) text=''
+         
           isTextInNote = link.note?link.note
           .toLowerCase()
-          .includes(text.toLowerCase()):'' && text;
+          .includes(text.toLowerCase()):false
           return startDateMatch && endDateMatch && isTextInNote;
         } else if(sortBy==="notetext") {
-          if(!!text===false) text=''
+         
            isTextInNote = link.note?link.note
           .toLowerCase()
-          .includes(text.toLowerCase()):'';
+          .includes(text.toLowerCase()):false;
           return startDateMatch && endDateMatch && isTextInNote;
         }
         else return startDateMatch && endDateMatch; 
+
+//         export default (expenses, { text, sortBy, startDate, endDate }) => {
+//   return expenses.filter((expense) => {
+//     const createdAtMoment = moment(expense.createdAt);
+//     const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true;
+//     const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true;
+//     const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
+
+//     return startDateMatch && endDateMatch && textMatch;
+//   }).sort((a, b) => {
+//     if (sortBy === 'date') {
+//       return a.createdAt < b.createdAt ? 1 : -1;
+//     } else if (sortBy === 'amount') {
+//       return a.amount < b.amount ? 1 : -1;
+//     }
+//   });
+// };
       
       //  if(sortBy==='description' || sortBy==='date') {
       //   if(!!text===false) text=''

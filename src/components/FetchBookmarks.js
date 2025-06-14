@@ -235,7 +235,7 @@ let result = B.filter(b => !A.some(a => a.name.trim().toLowerCase() === b.name.t
       }
 
       }).catch((error) => {
-          console.log("about to call setError because it was unable to read from the bucket")
+          console.log("About to call setError because it was unable to read from the firebase storage bucket")
           setError(error+"google probably needs to be paid for 5gb more storage")
      });
   } else {
@@ -245,9 +245,9 @@ let result = B.filter(b => !A.some(a => a.name.trim().toLowerCase() === b.name.t
    
   }, []);
 
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return <div>Error: unable to read from the firebase storage bucket</div>;
   if (!data) return <div>Loading...</div>;
-//importingError===true?"Error importing bookmarks":
+
   return (
     <div>
       {importingError===true?"Error importing bookmarks":"imported bookmarks"}

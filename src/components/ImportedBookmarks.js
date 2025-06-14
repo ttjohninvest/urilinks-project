@@ -1,5 +1,7 @@
 import React from 'react'
 //import { history } from "../routers/AppRouter";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 const ImportedBookmarks = (props) => {
 
@@ -26,4 +28,13 @@ const ImportedBookmarks = (props) => {
     )
 }
 
-export default ImportedBookmarks;
+//export default ImportedBookmarks;
+
+// const mapStateToProps = (state) => ({
+//   url: state.url,
+//   links:state.links
+// });
+
+export default withRouter(
+  connect(undefined, undefined)(ImportedBookmarks)
+);

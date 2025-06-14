@@ -91,7 +91,7 @@ let linksArray = props.links
 
         }
 
-let A = props.links
+let A = linksArray
 let B = htmllinksarray
 let result = B.filter(b => !A.some(a => a.description === b.description));
 

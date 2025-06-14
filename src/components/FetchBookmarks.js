@@ -218,8 +218,8 @@ let result = B.filter(b => !A.some(a => a.description.trim() === b.description.t
 
 
         //for (let i = 0; i < links.length; i++) {
-        //for (let i = 0; i < result.length; i++) {
-          for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < result.length; i++) {
+          //for (let i = 0; i < 1; i++) {
           //let element = links.item(i);
           //let add_date = parseInt(links.item(i).getAttribute("ADD_DATE"));
           //let icon = links.item(i).getAttribute("ICON");

@@ -62,7 +62,9 @@ const FetchBookmarks = (props) => {
           })
           
         } 
-        
+         htmllinksarray.sort((a, b) => {
+          return a.description > b.description ? 1 : -1;
+        });
         console.log("//////////////////////////////////////////////////////////////////////////////////")
           console.log("//////////////////////////////////////////////////////////////////////////////////")
           console.log("//////////////////////////////////////////////////////////////////////////////////")
@@ -71,6 +73,10 @@ const FetchBookmarks = (props) => {
         console.log("props.links[i].description="+props.links[i].description)
 
         }
+//let linksArray = props.links
+         props.links.sort((a, b) => {
+          return a.description > b.description ? 1 : -1;
+        });
 
 let A = props.links
 let B = htmllinksarray

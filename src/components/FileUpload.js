@@ -52,7 +52,7 @@ class FileUpload extends React.Component {
             console.log("url=" + url);
             //this url needs to be put in redux
             this.props.setStorageUrl(url);
-            this.props.checkDidUpload(true)
+            this.props.checkCheckDidUpload()
           });
       }
     );

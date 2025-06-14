@@ -6,8 +6,10 @@ const BookmarksManager = () => {
 
   const [didUpload, setDidUpload] = useState(false)
  
-  const checkDidUpload = () => {
-     if(didUpload===false) {
+
+  const setCheckDidUpload = () => {
+   setDidUpload(true)
+   if(didUpload===false) {
       console.log("upload did not happen")
      } else {
       console.log("upload did happen")
@@ -18,7 +20,7 @@ const BookmarksManager = () => {
     <div>
       <ol>
         <li>export bookmarks from the bowser</li>
-        <li><FileUpload setDidUpload={setDidUpload}/></li>
+        <li><FileUpload setCheckDidUpload={setCheckDidUpload}/></li>
         <li>
           <Link className="header__title" onClick={checkDidUpload} to="/fetchbookmarks">
             <span className="ib text-color-black">import bookmarks</span>

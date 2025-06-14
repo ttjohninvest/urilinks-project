@@ -10,7 +10,7 @@ const FetchBookmarks = (props) => {
   const [error, setError] = useState(null);
   const [importingError, setImportingError] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
-  const [linksArray, setLinksArray] = useState([]);
+  const [myArray, setMyArray] = useState([]);
 
     const handleNavigation = () => {
         setShowDialog(true);
@@ -73,6 +73,7 @@ console.log("///////////////////////////////////////////////////////////")
 console.log("///////////////////////////////////////////////////////////")
 console.log("///////////////////////////////////////////////////////////")
         let myArray = props.link
+        setMyArray(myArray)
         myArray.sort((a, b) => {
           return a.description > b.description ? 1 : -1;
         });

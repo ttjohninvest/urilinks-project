@@ -49,7 +49,8 @@ export const AddLinkPage = (props) => {
 
   const onSubmit = (link) => {
     console.log("in onSubmit");
-    if (count < 500) {
+    const user = firebase.auth().currentUser;
+    if (count < 500 || user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2") {
       const r = props.startAddLink(link);
       if (r === false) {
         setErrorDialog(true);
@@ -85,7 +86,7 @@ export const AddLinkPage = (props) => {
         </div>
       ) : (
         <div className="content-container- centerit">
-          <div>The maximum number of links that can be added is 100</div>
+          <div>The maximum number of links that can be added is 500</div>
           <div>
             <button className="button-style-1- button" onClick={goBack}>
               Go Back

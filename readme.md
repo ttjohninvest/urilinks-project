@@ -1,6 +1,10 @@
 # Git Commands
 
 todo to do
+Cloud firebase error: unable to read from cloud storage
+status: I sent cloud support an other problem report through their form
+waiting for reply to johmcg64@gmail.com
+
 the add_date timestamp from the bookmarks html file is failing, I have to use the current timestamp
 I am not able to access see-my-index-project-7 though firebase.google.com console I sent a report to them on 6/12/2025, 11:37pm, 2-3 day response, see johmcg64@gmail.com, also I am unable to login in to urilinks.com google login in giving me an error, both things happened at the same time and it was right after I added the storage project for see-my-index-project-7 which is the urilinks.com project
 

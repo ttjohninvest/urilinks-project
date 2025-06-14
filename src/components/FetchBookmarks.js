@@ -68,6 +68,19 @@ const FetchBookmarks = (props) => {
         for(let i = 0; i < htmllinksarray.length;i++) {
           console.log("htmllinksarray["+i+"].description="+htmllinksarray[i].description)
         }
+console.log("///////////////////////////////////////////////////////////")
+console.log("///////////////////////////////////////////////////////////")
+console.log("///////////////////////////////////////////////////////////")
+console.log("///////////////////////////////////////////////////////////")
+        let myArray = props.link
+        myArray.sort((a, b) => {
+          return a.description > b.description ? 1 : -1;
+        });
+
+         for(let i = 0; i < myArray.length;i++) {
+          console.log("myArray["+i+"].description="+myArray[i].description)
+        }
+
        
 
 let A = props.links

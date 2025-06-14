@@ -114,12 +114,12 @@ let result = B.filter(b => !A.some(a => a.description.trim() === b.description.t
           // });
 
            r = props.startAddLink({
-            description: result.item(i).innerText,
-            Url: result.item(i).getAttribute('href'), //, //href,
+            description: result[i].description,
+            Url: result[i].Url, //, //href,
             note: "#chromebookmarks",
             amount: 0,
             createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-            faviconURL: result.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
+            faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
           });
           
           if(r===false) {

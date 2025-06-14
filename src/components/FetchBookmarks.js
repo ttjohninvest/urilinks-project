@@ -47,8 +47,51 @@ const FetchBookmarks = (props) => {
         // setData(links)
 
         //write to firebase the following links
-        let r=false
-       
+        let r=true
+        let htmllinksarray=[]
+
+        for (let i = 0; i < links.length; i++) {
+        
+         htmllinksarray.push({
+            description: links.item(i).innerText,
+            Url: links.item(i).getAttribute('href'), //, //href,
+            note: "#chromebookmarks",
+            amount: 0,
+            createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+            faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
+          })
+          
+        }
+
+let A = props.links
+let B = htmllinksarray
+let result = B.filter(b => !A.some(a => a.description === b.description));
+
+console.log("result.length="+result.length)
+
+//         //for (let i = 0; i < links.length; i++) {
+        for (let i = 0; i < result.length; i++) {
+          //for (let i = 0; i < 1; i++) {
+        
+           r = props.startAddLink({
+            description: result[i].description,
+            Url: result[i].Url, //, //href,
+            note: "#chromebookmarks",
+            amount: 0,
+            createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+            faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+          });
+          
+          if(r===false) {
+            setImportingError(true)
+             break
+          } 
+            
+           
+        }
+
+
+
 
         //for (let i = 0; i < links.length; i++) {
           for (let i = 0; i < 1; i++) {
@@ -103,7 +146,7 @@ const FetchBookmarks = (props) => {
 
 const mapStateToProps = (state) => ({
   url: state.url,
-
+  links:state.links
 });
 
 const mapDispatchToProps = (dispatch) => ({

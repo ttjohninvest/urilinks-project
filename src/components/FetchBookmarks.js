@@ -10,6 +10,7 @@ const FetchBookmarks = (props) => {
   const [error, setError] = useState(null);
   const [importingError, setImportingError] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
+  const [linksArray, setLinksArray] = useState([]);
 
     const handleNavigation = () => {
         setShowDialog(true);
@@ -69,14 +70,22 @@ const FetchBookmarks = (props) => {
           console.log("//////////////////////////////////////////////////////////////////////////////////")
           console.log("//////////////////////////////////////////////////////////////////////////////////")
           console.log("//////////////////////////////////////////////////////////////////////////////////")
-        for (let i = 0; i < props.links.length; i++) {
-        console.log("props.links[i].description="+props.links[i].description)
+        // for (let i = 0; i < props.links.length; i++) {
+        // console.log("props.links[i].description="+props.links[i].description)
 
-        }
-//let linksArray = props.links
-         props.links.sort((a, b) => {
+        // }
+let linksArray = props.links
+//setLinksArray()
+         linksArray.sort((a, b) => {
           return a.description > b.description ? 1 : -1;
         });
+
+        setLinksArray(linksArray)
+
+         for (let i = 0; i < linksArray.length; i++) {
+        console.log("linksArray["+i+"].description="+linksArray[i].description)
+
+        }
 
 let A = props.links
 let B = htmllinksarray

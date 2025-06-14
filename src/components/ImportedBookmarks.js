@@ -24,7 +24,7 @@ const ImportedBookmarks = (props) => {
           </button>
         </div>
 
-        <div className="margin5">
+        <div className="margin-top-2">
           <button className="button-style-1- button" onClick={goToHomePage}>
             Return
           </button>

@@ -25,7 +25,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         : true;
       //const isTextIn = link && link.description && text && link.description
       let isTextIn=false
-      if(!!link===true && !!text===true)
+      if(!!link===true && !!text===true && !!link.description===true)
       isTextIn = link.description.toLowerCase().includes(text.toLowerCase());
       else if(!!text===false) text=''
 

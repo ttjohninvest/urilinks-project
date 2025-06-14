@@ -14,16 +14,16 @@ const ImportedBookmarks = (props) => {
   };
 
   return (
-    <div>
+    <div className="flexrow2 margin-top-10">
       <div>Successfully imported the bookmarks.</div>
 
-      <div>
+      <div className="margin5">
         <button className="button-style-1- button" onClick={returnAndRefresh}>
           Return and Refresh
         </button>
       </div>
 
-      <div>
+      <div className="margin5">
         <button className="button-style-1- button" onClick={goToHomePage}>
           Return
         </button>

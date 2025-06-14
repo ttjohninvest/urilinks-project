@@ -4,6 +4,7 @@ import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import moment from "moment";
 import { history } from "../routers/AppRouter";
+import ImportedBookmarks from './ImportedBookmarks'
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
@@ -136,7 +137,7 @@ console.log("result.length="+result.length)
 //importingError===true?"Error importing bookmarks":
   return (
     <div>
-      {importingError===true?"Error importing bookmarks":"imported bookmarks"}
+      {importingError===true?"Error importing bookmarks":<ImportedBookmarks />}
      
     </div>
   );

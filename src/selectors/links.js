@@ -37,7 +37,7 @@ if (dateObject.toString() !== 'Invalid Date') {
         ? endDate.isSameOrAfter(createdAtMoment, "day")
         : true;
 
-      if(sortBy!=="date" && !!text===false) return false
+      if(sortBy!=="date" && !!text===false) text=''
 
        let isTextInDescription, isTextInNote;
 

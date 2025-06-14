@@ -84,7 +84,7 @@ let linksArray = props.links
           return a.description > b.description ? 1 : -1;
         });
 
-        //setLinksArray(linksArray)
+        setLinksArray(linksArray)
 
          for (let i = 0; i < linksArray.length; i++) {
         console.log("linksArray["+i+"].description="+linksArray[i].description)

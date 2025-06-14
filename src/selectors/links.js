@@ -38,7 +38,7 @@ else {
 
        let isTextInDescription, isTextInNote;
 
-       if(sortBy==='description' || sortBy==='date') {
+       if(sortBy==='description') { // || sortBy==='date') {
           if(!!link.description===false) return false
           isTextInDescription = link.description?link.description
           .toLowerCase()

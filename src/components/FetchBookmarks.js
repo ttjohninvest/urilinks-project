@@ -45,9 +45,6 @@ const FetchBookmarks = (props) => {
         const doc = parser.parseFromString(data, "text/html");
         let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
             
-        // setData(links)
-
-        //write to firebase the following links
         let r=true
         let htmllinksarray=[]
 
@@ -63,37 +60,11 @@ const FetchBookmarks = (props) => {
           })
           
         } 
-         htmllinksarray.sort((a, b) => {
-          return a.description > b.description ? 1 : -1;
-        });
-        for (let i = 0; i < htmllinksarray.length; i++) {
-        console.log("htmllinksarray["+i+"].description="+htmllinksarray[i].description)
+       
 
-        }
-        console.log("//////////////////////////////////////////////////////////////////////////////////")
-          console.log("//////////////////////////////////////////////////////////////////////////////////")
-          console.log("//////////////////////////////////////////////////////////////////////////////////")
-          console.log("//////////////////////////////////////////////////////////////////////////////////")
-        // for (let i = 0; i < props.links.length; i++) {
-        // console.log("props.links[i].description="+props.links[i].description)
-
-        // }
-let linksArray = props.links
-
-         linksArray.sort((a, b) => {
-          return a.description > b.description ? 1 : -1;
-        });
-
-        setLinksArray(linksArray)
-
-         for (let i = 0; i < linksArray.length; i++) {
-        console.log("linksArray["+i+"].description="+linksArray[i].description)
-
-        }
-
-let A = linksArray
+let A = props.links
 let B = htmllinksarray
-let result = B.filter(b => !A.some(a => a.description.trim().toLowerCase() === b.description.trim().toLowerCase()));
+let result = B.filter(b => !A.some(a => a.description === b.description));
 
 console.log("result.length="+result.length)
 
@@ -121,8 +92,8 @@ console.log("result.length="+result.length)
 
 
 
-        //for (let i = 0; i < links.length; i++) {
-          for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < result.length; i++) {
+          //for (let i = 0; i < 1; i++) {
           //let element = links.item(i);
           //let add_date = parseInt(links.item(i).getAttribute("ADD_DATE"));
           //let icon = links.item(i).getAttribute("ICON");

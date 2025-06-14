@@ -23,7 +23,7 @@ const BookmarksManager = () => {
         <li><FileUpload setCheckDidUpload={setCheckDidUpload}/></li>
        
           <Link className="header__title" to="/fetchbookmarks">
-          {didUpload?<li><span className="ib text-color-black">import bookmarks</span></li>:''}
+          {didUpload?<li><span className="ib text-color-black text-size-8">import bookmarks</span></li>:''}
             
           </Link>
       

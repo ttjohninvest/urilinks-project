@@ -15,18 +15,20 @@ const ImportedBookmarks = (props) => {
 
   return (
     <div className="container2">
-      <div>Successfully imported the bookmarks.</div>
+      <div className="flexcol">
+        <div>Successfully imported the bookmarks.</div>
 
-      <div className="margin5">
-        <button className="button-style-1- button" onClick={returnAndRefresh}>
-          Return and Refresh
-        </button>
-      </div>
+        <div className="margin5">
+          <button className="button-style-1- button" onClick={returnAndRefresh}>
+            Return and Refresh
+          </button>
+        </div>
 
-      <div className="margin5">
-        <button className="button-style-1- button" onClick={goToHomePage}>
-          Return
-        </button>
+        <div className="margin5">
+          <button className="button-style-1- button" onClick={goToHomePage}>
+            Return
+          </button>
+        </div>
       </div>
     </div>
   );

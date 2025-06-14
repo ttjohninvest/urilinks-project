@@ -93,7 +93,7 @@ let linksArray = props.links
 
 let A = linksArray
 let B = htmllinksarray
-let result = B.filter(b => !A.some((a => a.description.trim().toLowerCase() === b.description.trim().toLowerCase())&&(a.description.trim().toLowerCase() !=="" && b.description.trim().toLowerCase()!=="")));
+let result = B.filter(b => !A.some(a => a.description.trim().toLowerCase() === b.description.trim().toLowerCase()));
 
 console.log("result.length="+result.length)
 

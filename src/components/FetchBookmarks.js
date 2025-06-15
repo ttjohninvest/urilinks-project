@@ -58,7 +58,7 @@ const FetchBookmarks = (props) => {
             htmllinksarray.push({
               description: links.item(i).innerText,
               Url: links.item(i).getAttribute("href"), //, //href,
-              note: "#firefoxbookmarks",
+              note: "#bravebookmarks",
               amount: 0,
               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
               faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
@@ -109,7 +109,7 @@ const FetchBookmarks = (props) => {
             r = props.startAddLink({
               description: result[i].description,
               Url: result[i].Url, //, //href,
-              note: "#firefoxbookmarks",
+              note: "#bravebookmarks",
               amount: 0,
               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
               faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon

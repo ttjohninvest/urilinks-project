@@ -86,7 +86,7 @@ export const Header = ({ startLogout }) => {
                     className="ib"
                     title="terms, conditions and privacy policy"
                   >
-                    (User Info)
+                    (legal)
                   </span>
                 </Link>
               </div>

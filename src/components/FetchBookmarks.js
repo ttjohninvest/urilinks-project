@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import * as firebase from "firebase";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import moment from "moment";
@@ -73,22 +74,32 @@ console.log("result.length="+result.length)
 let ok = false
 //500
 let ll = props.links.length
-let hl = htmllinksarray.length
+let rl = result.length
 
-let max = 500 - ll
+let max = 500 - rl + ll
+if(max > rl ) {
+  rl = max
+} //otherwise rl is equal to the full length, result.length
+
 const user = firebase.auth().currentUser;
     if (user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" || user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473"
       || user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" || user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2")
 ok=true
 
-if(ok===true)
-  max = hl
+if(ok===true) {
+  max = 10000 - rl + ll
+  if(max > rl ) {
+    rl = max
+}
+
+}
+
 
 
 
 //         //for (let i = 0; i < links.length; i++) {
         //for (let i = 0; i < result.length; i++) {
-        for (let i = 0; i < max; i++) {
+        for (let i = 0; i < rl; i++) {
           //for (let i = 0; i < 1; i++) {
         
            r = props.startAddLink({

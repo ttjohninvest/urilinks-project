@@ -16,6 +16,7 @@ const FetchBookmarks = (props) => {
   const [max, setMax] = useState(0);
   const [rl, setRl] = useState(0);
   const [howmany, setHowMany] = useState(0);
+  const [loopmax, setLoopmax] = useState(0);
 
   const handleNavigation = () => {
     setShowDialog(true);
@@ -79,6 +80,7 @@ const FetchBookmarks = (props) => {
 
           let max=0;
           let howmany2=0;
+          let loopmax2=rl;
 
           const user = firebase.auth().currentUser;
           if (
@@ -92,18 +94,18 @@ const FetchBookmarks = (props) => {
               console.log("in if, rl="+rl)
               console.log("in if, max="+max)
               if (rl > max) {
-                rl = max;
+                loopmax2 = max;
             }
             } else {
               max = 500 - (rl + ll);
               if (rl > max) {
-                rl = max;
+                loopmax2 = max;
               } //otherwise rl is equal to the full length, result.length
             
             }
           
           //for (let i = 0; i < result.length; i++) {
-          for (let i = 0; i < rl; i++) {
+          for (let i = 0; i < loopmax2; i++) {
             //for (let i = 0; i < 1; i++) {
 
             r = props.startAddLink({
@@ -119,7 +121,7 @@ const FetchBookmarks = (props) => {
               setImportingError(true);
               break;
             }
-            howmany2 = howmany2 + 1
+            //howmany2 = howmany2 + 1
           }
 
           if (r === false) {
@@ -133,7 +135,8 @@ const FetchBookmarks = (props) => {
             //how many new links were added, because of the maximum of 500 I had to add this
             setMax(max);
             setRl(rl);
-            setHowMany(howmany2)
+            //setHowMany(howmany2)
+            setLoopmax(loopmax2)
           }
         })
         .catch((error) => {
@@ -158,7 +161,7 @@ const FetchBookmarks = (props) => {
       {importingError === true ? (
         "Error importing bookmarks"
       ) : (
-        <ImportedBookmarks rl={rl} max={howmany} />
+        <ImportedBookmarks rl={loopmax} max={rl} />
       )}
     </div>
   );

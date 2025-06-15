@@ -49,45 +49,84 @@ export const Header = ({ startLogout }) => {
         <header className="header">
           <div className="content-container">
             <div className="header__content flexrow2w">
-              <Link className="header__title" to="/dashboard">
-                <div className="header-flex-row">
-                  <div className="margin-top-111 margin-right-111">
-                    <img
-                      className="rounded-full-1"
-                      src={logo}
-                      width="35"
-                      height="35"
-                      alt="Logo"
-                    />
-                    {/* </div><h1> Your Uri/Url Links </h1></div> */}
+              <div>
+                <Link className="header__title" to="/dashboard">
+                  <div className="header-flex-row">
+                    <div className="margin-top-111 margin-right-111">
+                      <img
+                        className="rounded-full-1"
+                        src={logo}
+                        width="35"
+                        height="35"
+                        alt="Logo"
+                      />
+                      {/* </div><h1> Your Uri/Url Links </h1></div> */}
+                    </div>
+                    <h1 title="Please use it for good. Bookmarks for internet pages, urls/links">
+                      urilinks (bookmarking)
+                    </h1>
                   </div>
-                  <h1 title="Please use it for good. Bookmarks for internet pages, urls/links">
-                    urilinks (bookmarking)
-                  </h1>
-                </div>
-              </Link>
+                </Link>
+              </div>
 
-              <Link className="header__title" to="/benefits">
-                <span className="margin-right-1-ib"  title="How to use this website">(Benefits)</span>
-              </Link>
-              <Link className="header__title" to="/termsandprivacy">
-                <span className="ib"  title="terms, conditions and privacy policy">(User Info)</span>
-              </Link>
-              <Link className="header__title" to="/settings">
-                {/* <span>Settings</span> */}
-              </Link>
+              <div>
+                <Link className="header__title" to="/benefits">
+                  <span
+                    className="margin-right-1-ib"
+                    title="How to use this website"
+                  >
+                    (Benefits)
+                  </span>
+                </Link>
+              </div>
+
+              <div>
+                <Link className="header__title" to="/termsandprivacy">
+                  <span
+                    className="ib"
+                    title="terms, conditions and privacy policy"
+                  >
+                    (User Info)
+                  </span>
+                </Link>
+              </div>
+
+              <div>
+                <Link className="header__title" to="/settings">
+                  {/* <span>Settings</span> */}
+                </Link>
+              </div>
+
               {/* <div className="color-white-1" onClick={deleteAccount}>
             delete account
           </div> */}
-              <Link className="header__title" to="/ideas">
-                <span className="ib" title="some ideas for hash tags">(Ideas)</span>
-              </Link>
-              <Link className="header__title" to="/bookmarksmanager">
-                <span className="ib"  title="tool to upload bookmarks from chrome, opera, firefox, or brave browser">(Bookmarks Uploader)</span>
-              </Link>
-              <button className="button button--link ib text-size-3" onClick={startLogout}>
-                (Logout)
-              </button>
+              <div>
+                <Link className="header__title" to="/ideas">
+                  <span className="ib" title="some ideas for hash tags">
+                    (Ideas)
+                  </span>
+                </Link>
+              </div>
+
+              <div>
+                <Link className="header__title" to="/bookmarksmanager">
+                  <span
+                    className="ib"
+                    title="tool to upload bookmarks from chrome, opera, firefox, or brave browser"
+                  >
+                    (Bookmarks Uploader)
+                  </span>
+                </Link>
+              </div>
+
+              <div>
+                <button
+                  className="button button--link ib text-size-3"
+                  onClick={startLogout}
+                >
+                  (Logout)
+                </button>
+              </div>
             </div>
           </div>
         </header>

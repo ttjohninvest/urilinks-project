@@ -5,7 +5,7 @@ import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
 import selectLinks from "../selectors/links";
 import LinksSummary from "./LinksSummary";
-import FBShareButton from "./FBShareButton"
+
 
 ////
 export const LinkList = (props) => {
@@ -103,7 +103,7 @@ export const LinkList = (props) => {
             </div>
           ) : (
             props.links.map((link) => {
-              return <div><LinkListItem key={link.id} {...link} /><FBShareButton {...link}/></div>;
+              return <div><LinkListItem key={link.id} {...link} /></div>;
             })
           )}
         </div>

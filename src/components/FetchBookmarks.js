@@ -14,7 +14,7 @@ const FetchBookmarks = (props) => {
   const [showDialog, setShowDialog] = useState(false);
   const [myArray, setMyArray] = useState([]);
   const [max, setMax] = useState(0);
-  const [hl, setHl] = useState(0);
+  const [rl, setRl] = useState(0);
 
   const handleNavigation = () => {
     setShowDialog(true);
@@ -124,9 +124,9 @@ const FetchBookmarks = (props) => {
             //props.history.push("/");
             //window.location.reload()
 
-            //props.howManyofMany(max,hl)
+            //how many new links were added, because of the maximum of 500 I had to add this
             setMax(max);
-            setHl(hl);
+            setRl(rl);
           }
         })
         .catch((error) => {
@@ -151,7 +151,7 @@ const FetchBookmarks = (props) => {
       {importingError === true ? (
         "Error importing bookmarks"
       ) : (
-        <ImportedBookmarks max={max} hl={hl} />
+        <ImportedBookmarks max={max} rl={rl} />
       )}
     </div>
   );

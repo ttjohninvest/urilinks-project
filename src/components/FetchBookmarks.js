@@ -77,7 +77,7 @@ let ll = props.links.length
 let rl = result.length
 
 let max = 500 - rl + ll
-if(max > rl ) {
+if( rl > max) {
   rl = max
 } //otherwise rl is equal to the full length, result.length
 
@@ -88,7 +88,7 @@ ok=true
 
 if(ok===true) {
   max = 10000 - rl + ll
-  if(max > rl ) {
+  if( rl > max ) {
     rl = max
 }
 

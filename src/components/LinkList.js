@@ -103,7 +103,7 @@ export const LinkList = (props) => {
             </div>
           ) : (
             props.links.map((link) => {
-              return <div><LinkListItem key={link.id} {...link} /><FBShareButton url={link.Url}/></div>;
+              return <div><LinkListItem key={link.id} {...link} /><FBShareButton {...link}/></div>;
             })
           )}
         </div>

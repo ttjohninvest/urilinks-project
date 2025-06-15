@@ -18,7 +18,7 @@ const ImportedBookmarks = (props) => {
       <div className="flexcol">
 
         
-{props.max===props.hl?<div>Successfully imported all of the bookmarks. {`${props.max} of ${props.rl}`}</div>
+{props.max===props.rl?<div>Successfully imported all of the bookmarks. {`${props.max} of ${props.rl}`}</div>
 : <div>Imported {`${props.max} of ${props.rl}`} bookmarks. The limit is 500 bookmarks</div>
 }
         <div className="margin-top-2">

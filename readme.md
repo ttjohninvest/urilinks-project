@@ -1,6 +1,10 @@
 # Git Commands
 
 todo to do
+search for #firefox bookmarks and programmaticall depending on the browser the user is using
+ for chrome it should be hardcoded to #chromebookmarks, for firefox it should be #firefoxbookmarks
+ for opera it should be #operabookmarks, for brave, it should be #bravebookmarks so they can be found
+ with a hastag search
 Cloud firebase error: unable to read from cloud storage
 status: I sent cloud support an other problem report through their form
 waiting for reply to johmcg64@gmail.com

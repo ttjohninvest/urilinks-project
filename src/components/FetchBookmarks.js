@@ -71,12 +71,12 @@ const FetchBookmarks = (props) => {
           );
 
           console.log("result.length=" + result.length);
-          let ok = false;
+          //let ok = false;
           //500
           let ll = props.links.length;
           let rl = result.length;
 
-          let max;
+          let max=0;
 
           const user = firebase.auth().currentUser;
           if (
@@ -85,7 +85,10 @@ const FetchBookmarks = (props) => {
             user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
             user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
           ) {
-              max = 10000 - rl + ll;
+              max = 10000 - (rl + ll);
+              console.log("in if, ll="+ll)
+              console.log("in if, rl="+rl)
+              console.log("in if, max="+max)
               if (rl > max) {
                 rl = max;
             }
@@ -151,7 +154,7 @@ const FetchBookmarks = (props) => {
       {importingError === true ? (
         "Error importing bookmarks"
       ) : (
-        <ImportedBookmarks max={max} rl={rl} />
+        <ImportedBookmarks rl={rl} max={max} />
       )}
     </div>
   );

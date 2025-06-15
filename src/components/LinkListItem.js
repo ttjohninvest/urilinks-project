@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
 import FBShareButton from "./FBShareButton"
+import LinkedInShareButton from "./LinkedInShareButton"
 
 const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconURL }) => {
   console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL="+faviconURL)
@@ -51,7 +52,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
         </div>
       </div>
       <div className="list-item__data-  text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2">{note}</div>
-     <FBShareButton url={Url} />
+     <FBShareButton url={Url} /><LinkedInShareButton url={Url} />
     </div>
   );
 };

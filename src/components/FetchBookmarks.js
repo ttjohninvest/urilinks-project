@@ -30,10 +30,13 @@ const FetchBookmarks = (props) => {
   return filename.split('.').pop();
 }
 
-  if(getFileNameExtension(props.url) !== "html")
-    setError(true)
+  
   
   useEffect(() => {
+    if(getFileNameExtension(props.url) !== "html") {
+    setError(true)
+    return
+  }
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
     if (props.url === "") setImportingError(true);
     const text = "Is it ok to upload the bookmarks?";

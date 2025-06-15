@@ -26,6 +26,13 @@ const FetchBookmarks = (props) => {
     setShowDialog(false);
   };
 
+  const getFileExtension=(filename)=>{
+  return filename.split('.').pop();
+}
+
+  if(getFileNameExtension.toLowerCase() !== "html")
+    setError(true)
+  
   useEffect(() => {
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
     if (props.url === "") setImportingError(true);

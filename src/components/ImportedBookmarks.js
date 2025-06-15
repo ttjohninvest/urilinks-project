@@ -16,8 +16,11 @@ const ImportedBookmarks = (props) => {
   return (
     <div className="container2">
       <div className="flexcol">
-        <div>Successfully imported the bookmarks.</div>
 
+        
+{props.max===props.hl?<div>Successfully imported all of the bookmarks. {`${props.max} of ${props.hl}`}</div>
+: <div>Imported {`${props.max} of ${props.hl}`} bookmarks. The limit is 500 bookmarks</div>
+}
         <div className="margin-top-2">
           <button className="button-style-1- button" onClick={returnAndRefresh}>
             Return and Refresh

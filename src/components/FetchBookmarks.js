@@ -12,6 +12,8 @@ const FetchBookmarks = (props) => {
   const [importingError, setImportingError] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [myArray, setMyArray] = useState([]);
+  const [max, setMax] = useState(0);
+  const [hl, setHl] = useState(0);
 
     const handleNavigation = () => {
         setShowDialog(true);
@@ -71,22 +73,22 @@ console.log("result.length="+result.length)
 let ok = false
 //500
 let ll = props.links.length
-//let hl = htmllinksarray.length
+let hl = htmllinksarray.length
 
-let limit = 500 - ll
+let max = 500 - ll
 const user = firebase.auth().currentUser;
     if (user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" || user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473"
       || user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" || user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2")
 ok=true
 
 if(ok===true)
-  limit = 10000
+  max = hl
 
 
 
 //         //for (let i = 0; i < links.length; i++) {
         //for (let i = 0; i < result.length; i++) {
-        for (let i = 0; i < limit; i++) {
+        for (let i = 0; i < max; i++) {
           //for (let i = 0; i < 1; i++) {
         
            r = props.startAddLink({
@@ -102,31 +104,9 @@ if(ok===true)
             setImportingError(true)
              break
           } 
-            
+          
+         
            
-        }
-
-
-
-
-        for (let i = 0; i < result.length; i++) {
-          //for (let i = 0; i < 1; i++) {
-          //let element = links.item(i);
-          //let add_date = parseInt(links.item(i).getAttribute("ADD_DATE"));
-          //let icon = links.item(i).getAttribute("ICON");
-         r = props.startAddLink({
-            description: links.item(i).innerText,
-            Url: links.item(i).getAttribute('href'), //, //href,
-            note: "#chromebookmarks",
-            amount: 0,
-            createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-            faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
-          });
-        
-          if(r===false) {
-            setImportingError(true)
-             break
-          }  
         }
 
        if (r === false) {
@@ -136,6 +116,12 @@ if(ok===true)
         console.log("NO ERROR, VVVVVVVVVVVVV returned true");
         //props.history.push("/");
         //window.location.reload()
+
+        //props.howManyofMany(max,hl)
+        setMax(max)
+        setHl(hl)
+  
+
       }
 
       }).catch((error) => {
@@ -154,7 +140,7 @@ if(ok===true)
 //importingError===true?"Error importing bookmarks":
   return (
     <div>
-      {importingError===true?"Error importing bookmarks":<ImportedBookmarks />}
+      {importingError===true?"Error importing bookmarks":<ImportedBookmarks max={max} hl={hl} />}
      
     </div>
   );

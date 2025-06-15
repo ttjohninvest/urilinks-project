@@ -30,7 +30,7 @@ const FetchBookmarks = (props) => {
   return filename.split('.').pop();
 }
 
-  if(getFileNameExtension.toLowerCase() !== "html")
+  if(getFileNameExtension(props.url) !== "html")
     setError(true)
   
   useEffect(() => {

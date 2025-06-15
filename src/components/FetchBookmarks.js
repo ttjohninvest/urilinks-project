@@ -26,13 +26,14 @@ const FetchBookmarks = (props) => {
     setShowDialog(false);
   };
 
-  const getFileExtension=(filename)=>{
-  return filename.split('.').pop();
-}
+  
 
   
   
   useEffect(() => {
+    const getFileExtension=(filename)=>{
+  return filename.split('.').pop();
+}
     if(getFileNameExtension(props.url) !== "html") {
     setError(true)
     return

@@ -34,15 +34,6 @@ const BookmarksManager = () => {
 
 };
 
-//  <div>
-//         <div>export bookmarks from the bowser</div>
-//         <div><FileUpload setCheckDidUpload={setCheckDidUpload}/></div>
-//         <div>
-//           <Link className="header__title" to="/fetchbookmarks">
-//           {didUpload?<span className="ib text-color-black">import bookmarks</span>:''}
-            
-//           </Link>
-//         </div>
-//       </div>
+
 
 export default BookmarksManager;

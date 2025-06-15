@@ -68,9 +68,25 @@ let B = htmllinksarray
 let result = B.filter(b => !A.some(a => a.description === b.description));
 
 console.log("result.length="+result.length)
+let ok = false
+//500
+let ll = props.links.length
+//let hl = htmllinksarray.length
+
+let limit = 500 - ll
+const user = firebase.auth().currentUser;
+    if (user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" || user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473"
+      || user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" || user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2")
+ok=true
+
+if(ok===true)
+  limit = 10000
+
+
 
 //         //for (let i = 0; i < links.length; i++) {
-        for (let i = 0; i < result.length; i++) {
+        //for (let i = 0; i < result.length; i++) {
+        for (let i = 0; i < limit; i++) {
           //for (let i = 0; i < 1; i++) {
         
            r = props.startAddLink({

@@ -48,7 +48,7 @@ export const Header = ({ startLogout }) => {
       {!deleteAccountError ? (
         <header className="header">
           <div className="content-container">
-            <div className="header__content">
+            <div className="header__content flexrow2w">
               <Link className="header__title" to="/dashboard">
                 <div className="header-flex-row">
                   <div className="margin-top-111 margin-right-111">

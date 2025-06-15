@@ -15,7 +15,6 @@ const FetchBookmarks = (props) => {
   const [myArray, setMyArray] = useState([]);
   const [max, setMax] = useState(0);
   const [rl, setRl] = useState(0);
-  const [howmany, setHowMany] = useState(0);
   const [loopmax, setLoopmax] = useState(0);
 
   const handleNavigation = () => {
@@ -79,7 +78,6 @@ const FetchBookmarks = (props) => {
           let rl = result.length;
 
           let max=0;
-          let howmany2=0;
           let loopmax2=rl;
 
           const user = firebase.auth().currentUser;
@@ -121,7 +119,7 @@ const FetchBookmarks = (props) => {
               setImportingError(true);
               break;
             }
-            //howmany2 = howmany2 + 1
+            
           }
 
           if (r === false) {
@@ -134,9 +132,8 @@ const FetchBookmarks = (props) => {
 
             //how many new links were added, because of the maximum of 500 I had to add this
             setMax(max);
-            setRl(rl);
-            //setHowMany(howmany2)
-            setLoopmax(loopmax2)
+            setRl(rl); //rl is the length of the full amount to upload
+            setLoopmax(loopmax2) //loopmax2 is the modified length if rl would overflow 500
           }
         })
         .catch((error) => {

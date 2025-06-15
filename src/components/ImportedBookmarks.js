@@ -17,9 +17,13 @@ const ImportedBookmarks = (props) => {
     <div className="container2">
       <div className="flexcol">
 
-        
-{props.max===props.rl?<div>Successfully imported all of the bookmarks. {`${props.rl} of ${props.max}`}</div>
-: <div>Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is 500 bookmarks</div>}
+  {props.rl===0?<div>Bookmarks were not uploaded because they were already uploaded,the bookmarks file was empty or the bookmarks file being uploaded overflowed the maximum number of 500 bookmarks.</div>
+: props.max===props.rl?<div>Successfully imported all of the bookmarks. {`${props.rl} of ${props.max}`}</div>
+: <div>Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is 500 bookmarks</div> 
+}
+
+{/* {props.max===props.rl?<div>Successfully imported all of the bookmarks. {`${props.rl} of ${props.max}`}</div>
+: <div>Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is 500 bookmarks</div>} */}
         <div className="margin-top-2">
           <button className="button-style-1- button" onClick={returnAndRefresh}>
             Return and Refresh

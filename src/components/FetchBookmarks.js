@@ -78,7 +78,7 @@ const FetchBookmarks = (props) => {
           let rl = result.length;
 
           let max=0;
-          let howmany=0;
+          let howmany2=0;
 
           const user = firebase.auth().currentUser;
           if (
@@ -119,7 +119,7 @@ const FetchBookmarks = (props) => {
               setImportingError(true);
               break;
             }
-            howmany = howmany + 1
+            howmany2 = howmany2 + 1
           }
 
           if (r === false) {
@@ -133,7 +133,7 @@ const FetchBookmarks = (props) => {
             //how many new links were added, because of the maximum of 500 I had to add this
             setMax(max);
             setRl(rl);
-            setHowMany(howmany)
+            setHowMany(howmany2)
           }
         })
         .catch((error) => {

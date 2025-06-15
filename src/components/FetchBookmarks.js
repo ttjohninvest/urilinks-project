@@ -15,6 +15,7 @@ const FetchBookmarks = (props) => {
   const [myArray, setMyArray] = useState([]);
   const [max, setMax] = useState(0);
   const [rl, setRl] = useState(0);
+  const [howmany, setHowMany] = useState(0);
 
   const handleNavigation = () => {
     setShowDialog(true);
@@ -77,6 +78,7 @@ const FetchBookmarks = (props) => {
           let rl = result.length;
 
           let max=0;
+          let howmany=0;
 
           const user = firebase.auth().currentUser;
           if (
@@ -112,11 +114,12 @@ const FetchBookmarks = (props) => {
               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
               faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
             });
-
+           
             if (r === false) {
               setImportingError(true);
               break;
             }
+            howmany = howmany + 1
           }
 
           if (r === false) {
@@ -130,6 +133,7 @@ const FetchBookmarks = (props) => {
             //how many new links were added, because of the maximum of 500 I had to add this
             setMax(max);
             setRl(rl);
+            setHowMany(howmany)
           }
         })
         .catch((error) => {
@@ -154,7 +158,7 @@ const FetchBookmarks = (props) => {
       {importingError === true ? (
         "Error importing bookmarks"
       ) : (
-        <ImportedBookmarks rl={rl} max={max} />
+        <ImportedBookmarks rl={rl} max={howmany} />
       )}
     </div>
   );

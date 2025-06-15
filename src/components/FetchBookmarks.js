@@ -95,7 +95,7 @@ const FetchBookmarks = (props) => {
                 rl = max;
             }
             } else {
-              max = 500 - rl + ll;
+              max = 500 - (rl + ll);
               if (rl > max) {
                 rl = max;
               } //otherwise rl is equal to the full length, result.length

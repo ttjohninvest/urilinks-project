@@ -34,7 +34,7 @@ const FetchBookmarks = (props) => {
   const deleteFile = async (fileUrl) => {
     try {
       //const fileRef = ref(storage, fileUrl);
-      const fileRef = storage.ref(fileUrl)
+      const fileRef = storage.refFromURL(fileUrl)
   
       await deleteObject(fileRef);
       console.log("File deleted successfully");

@@ -36,7 +36,7 @@ const FetchBookmarks = (props) => {
       //const fileRef = ref(storage, fileUrl);
       const fileRef = storage.refFromURL(fileUrl)
   
-      await firebase.delete(fileRef);
+      await firebase.deleteObject(fileRef);
       console.log("File deleted successfully");
     } catch (error) {
       console.error("Error deleting file:", error);

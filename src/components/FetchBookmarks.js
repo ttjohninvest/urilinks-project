@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import moment from "moment";
 import { history } from "../routers/AppRouter";
 import ImportedBookmarks from "./ImportedBookmarks";
-import { storage, deleteObject } from "../firebase/firebase";
+import { storage } from "../firebase/firebase";
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
@@ -36,7 +36,7 @@ const FetchBookmarks = (props) => {
       //const fileRef = ref(storage, fileUrl);
       const fileRef = storage.refFromURL(fileUrl)
   
-      await deleteObject(fileRef);
+      await firebase.delete(fileRef);
       console.log("File deleted successfully");
     } catch (error) {
       console.error("Error deleting file:", error);

@@ -74,7 +74,7 @@ const FetchBookmarks = (props) => {
 
           for (let i = 0; i < links.length; i++) {
           
-            if(!hasControlCharacters(links.item(i).innerText)) {
+            if(!hasControlCharacters(links.item(i).innerText) && links.item(i).innerText.trim().length > 0) {
               htmllinksarray.push({
               description: links.item(i).innerText,
               Url: links.item(i).getAttribute("href"), //, //href,

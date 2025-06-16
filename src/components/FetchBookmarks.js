@@ -51,8 +51,12 @@ const FetchBookmarks = (props) => {
           let parser = new DOMParser();
           const doc = parser.parseFromString(data, "text/html");
           let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
-
-           let title = doc.getElementsByTagName("title")
+let doctype = doc.getElementsByTagName("doctype");
+           const doesit = doctype.item(0).getAttribute("NETSCAPE-Bookmark-file-1")
+          
+          console.log("NETSCAPE-Bookmark-file-1, doesit="+doesit)
+          
+          let title = doc.getElementsByTagName("title")
           if(title.item(0).innerText==="Bookmarks") {
             console.log("the title contains Bookmarks")
           } else {

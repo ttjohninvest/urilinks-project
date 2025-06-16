@@ -1,9 +1,7 @@
 # Git Commands
 
 todo to do
-delete the file from firebase storage in FetchBookmarks.js because it has to be uploaded first
-before I can check the title tag to see if it is a bookmarks file and if it is not it needs to be deleted
-because it was uploaded and it does not need to be there. not html files never get uploaded.
+
 search for #firefox bookmarks and programmaticall depending on the browser the user is using
 for chrome it should be hardcoded to #chromebookmarks, for firefox it should be #firefoxbookmarks
 for opera it should be #operabookmarks, for brave, it should be #bravebookmarks so they can be found

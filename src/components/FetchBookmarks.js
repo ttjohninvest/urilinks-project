@@ -8,6 +8,16 @@ import { history } from "../routers/AppRouter";
 import ImportedBookmarks from "./ImportedBookmarks";
 import { storage } from "../firebase/firebase";
 
+import {
+  isChrome,
+  isFirefox,
+  isSafari,
+  isEdge,
+  isOpera,
+  isBrave
+} from 'react-device-detect';
+
+
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -89,13 +99,37 @@ const FetchBookmarks = (props) => {
             return result
           }
 
+        let hashtagv
+  if(isChrome) {
+hashtagv="#chromebookmarks"
+  }
+  else if(isFirefox) {
+hashtagv="#firefoxbookmarks"
+  }
+  else if(isSafari){
+hashtagv="#safaribookmarks"
+  }
+  else if(isEdge){
+hashtagv="#edgebookmarks"
+  }
+  else if(isOpera){
+hashtagv="#operabookmarks"
+  }
+  else if(isBrave){
+hashtagv="#bravebookmarks"
+  } else {
+    throw new Error("THE BROWSER IS NOT SUPPORTED");
+  }
+
+
+
           for (let i = 0; i < links.length; i++) {
           
             if(!hasControlCharacters(links.item(i).innerText) && links.item(i).innerText.trim().length > 0) {
               htmllinksarray.push({
               description: links.item(i).innerText,
               Url: links.item(i).getAttribute("href"), //, //href,
-              note: "#bravebookmarks",
+              note: hashtagv,
               amount: 0,
               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
               faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon

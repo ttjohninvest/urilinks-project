@@ -168,7 +168,9 @@ const FetchBookmarks = (props) => {
             console.log("NO ERROR, VVVVVVVVVVVVV returned true");
             //props.history.push("/");
             //window.location.reload()
-
+             const fileRef = storage.refFromURL(props.url)
+  
+            fileRef.delete();
             //how many new links were added, because of the maximum of 500 I had to add this
             setMax(max);
             setRl(rl); //rl is the length of the full amount to upload

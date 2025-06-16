@@ -29,7 +29,6 @@ const FetchBookmarks = (props) => {
   
   useEffect(() => {
     
-  
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
     if (props.url === "") setImportingError(true);
     const text = "Is it ok to upload the bookmarks?";
@@ -56,8 +55,14 @@ const FetchBookmarks = (props) => {
           let r = true;
           let htmllinksarray = [];
 
+          const hasControlCharacters=(str)=>{
+            return /\p{C}/u.test(str);
+          }
+
           for (let i = 0; i < links.length; i++) {
-            console.log("links.item(i).innerText=" + links.item(i).innerText);
+          
+            if(!hasControlCharacters(links.item(i).innerText)) {
+             console.log("links.item(i).innerText=" + links.item(i).innerText);
             htmllinksarray.push({
               description: links.item(i).innerText,
               Url: links.item(i).getAttribute("href"), //, //href,
@@ -66,6 +71,10 @@ const FetchBookmarks = (props) => {
               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
               faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
             });
+            } else {
+
+            }
+           
           }
 
           let A = props.links;

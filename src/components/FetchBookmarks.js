@@ -158,16 +158,13 @@ const FetchBookmarks = (props) => {
           }
         } else {
           console.log("NOT A BOOKMARKS FILE")
-            setError2(true)
+            //setError2(true)
+            throw new Error("NOT A BOOKMARKS FILE");
         }
         })
         .catch((error) => {
-          console.log(
-            "about to call setError because it was unable to read from the bucket"
-          );
-          setError(
-            error + "google probably needs to be paid for 5gb more storage"
-          );
+          console.log(error);
+          setError2(true);
         });
     } else {
       //handleNavigation()
@@ -175,12 +172,12 @@ const FetchBookmarks = (props) => {
     }
   }, []);
 
-  if (error) return <div>Error: Unable to read from firebase storage</div>;
-  if (error2) return <div>Error: The file needs to be a bookmarks file with an html extension</div>;
   if (!data) return <div>Loading...</div>;
   //importingError===true?"Error importing bookmarks":
   return (
     <div>
+      {error?<div>Error: Unable to read from firebase storage</div>:''}
+      {error2?<div>Error: The file needs to be a bookmarks file with an html extension</div>:''}
       {importingError === true ? (
         "Error importing bookmarks"
       ) : (

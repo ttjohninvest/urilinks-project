@@ -2,25 +2,8 @@
 
 todo to do
 
-search for #firefox bookmarks and programmaticall depending on the browser the user is using
-for chrome it should be hardcoded to #chromebookmarks, for firefox it should be #firefoxbookmarks
-for opera it should be #operabookmarks, for brave, it should be #bravebookmarks so they can be found
-with a hastag search
-Cloud firebase error: unable to read from cloud storage
-status: I sent cloud support an other problem report through their form
-waiting for reply to johmcg64@gmail.com
-
 the add_date timestamp from the bookmarks html file is failing, I have to use the current timestamp
-I am not able to access see-my-index-project-7 though firebase.google.com console I sent a report to them on 6/12/2025, 11:37pm, 2-3 day response, see johmcg64@gmail.com, also I am unable to login in to urilinks.com google login in giving me an error, both things happened at the same time and it was right after I added the storage project for see-my-index-project-7 which is the urilinks.com project
 
-count of bookmarks to import needs to be known
-Is the total number of current bookmarks+the bookmark import count <= 500, ok to import them
-see if their is a way to prevent importing the bookmarks again
-
-bookmarks have to be exported and then stored into the codes public folder with the correct data appended
-to bookmarks like todays would be bookmarks_6_9_25. The code extracts the link text and the url but it is not
-adding them to the database but it does not show any errors in the console.
-right now the user can add all the old bookmarks in by hand
 
 I sent 4 ads to 4 different affiliate marketer groups on fb, waiting for response from group admins, 6/8/2025
 put the function in to delete the data from firebase if the user deletes gmail email from google

@@ -96,6 +96,8 @@ const Benefits = () => (
         As you enter the <span className="highlight1">Search Link text</span>,
         the results will display, no need to press a search button.
       </li>
+      <li>These are the supported browsers:  chrome, firefox, edge, opera, brave</li>
+      <li>To find your newly uploaded bookmarks, for the chrome browser enter #chromebookmarks, for the firefox browser enter #firefox, for the edge browser enter #edgebookmarks, for the opera browser enter #operabookmarks, for for the brave browser enter #bravebookmarks</li>
     </ul>
     <br />
     <br />

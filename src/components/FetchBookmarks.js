@@ -10,6 +10,7 @@ import ImportedBookmarks from "./ImportedBookmarks";
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [error2, setError2] = useState(null);
   const [importingError, setImportingError] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [myArray, setMyArray] = useState([]);
@@ -157,7 +158,7 @@ const FetchBookmarks = (props) => {
           }
         } else {
           console.log("NOT A BOOKMARKS FILE")
-            setError(true)
+            setError2(true)
         }
         })
         .catch((error) => {
@@ -175,6 +176,7 @@ const FetchBookmarks = (props) => {
   }, []);
 
   if (error) return <div>Error: Unable to read from firebase storage</div>;
+  if (error2) return <div>Error: The file needs to be a bookmarks file with an html extension</div>;
   if (!data) return <div>Loading...</div>;
   //importingError===true?"Error importing bookmarks":
   return (

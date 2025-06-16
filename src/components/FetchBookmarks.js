@@ -58,7 +58,8 @@ const FetchBookmarks = (props) => {
           // console.log("NETSCAPE-Bookmark-file-1, doesit="+doesit)
          
           let title = doc.getElementsByTagName("title")
-          if(title.item(0).innerText==="Bookmarks") {
+         
+          if(title && title.item(0) && title.item(0).innerText==="Bookmarks") {
             
            
 

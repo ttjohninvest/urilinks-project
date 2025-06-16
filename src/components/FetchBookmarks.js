@@ -52,6 +52,13 @@ const FetchBookmarks = (props) => {
           const doc = parser.parseFromString(data, "text/html");
           let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
 
+           let title = doc.getElementsByTagName("title")
+          if(title.item(0).innerText==="Bookmarks") {
+            console.log("the title contains Bookmarks")
+          } else {
+            console.log("the title does not contains Bookmarks")
+          }
+
           let r = true;
           let htmllinksarray = [];
 
@@ -64,8 +71,7 @@ const FetchBookmarks = (props) => {
           for (let i = 0; i < links.length; i++) {
           
             if(!hasControlCharacters(links.item(i).innerText)) {
-             console.log("links.item(i).innerText=" + links.item(i).innerText);
-            htmllinksarray.push({
+              htmllinksarray.push({
               description: links.item(i).innerText,
               Url: links.item(i).getAttribute("href"), //, //href,
               note: "#bravebookmarks",
@@ -73,9 +79,7 @@ const FetchBookmarks = (props) => {
               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
               faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
             });
-            } else {
-
-            }
+            } 
            
           }
 

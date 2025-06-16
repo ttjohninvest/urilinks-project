@@ -55,13 +55,12 @@ const FetchBookmarks = (props) => {
           // let doctype = doc.getElementsByTagName("doctype");
           // const doesit = doctype.item(0).getAttribute("NETSCAPE-Bookmark-file-1")
           // console.log("NETSCAPE-Bookmark-file-1, doesit="+doesit)
-          
+         
           let title = doc.getElementsByTagName("title")
-          if(title.item(0).innerText==="Bookmarks") {
-            console.log("the title contains Bookmarks")
-          } else {
-            console.log("the title does not contains Bookmarks")
-          }
+          if(title.item(0).innerText!=="Bookmarks") {
+            setError(true)
+            return
+          } 
 
           let r = true;
           let htmllinksarray = [];

@@ -57,10 +57,9 @@ const FetchBookmarks = (props) => {
           // console.log("NETSCAPE-Bookmark-file-1, doesit="+doesit)
          
           let title = doc.getElementsByTagName("title")
-          if(title.item(0).innerText!=="Bookmarks") {
-            setError(true)
-            return
-          } 
+          if(title.item(0).innerText==="Bookmarks") {
+            
+           
 
           let r = true;
           let htmllinksarray = [];
@@ -156,6 +155,10 @@ const FetchBookmarks = (props) => {
             setRl(rl); //rl is the length of the full amount to upload
             setLoopmax(loopmax2) //loopmax2 is the modified length if rl would overflow 500
           }
+        } else {
+          console.log("NOT A BOOKMARKS FILE")
+            setError(true)
+        }
         })
         .catch((error) => {
           console.log(

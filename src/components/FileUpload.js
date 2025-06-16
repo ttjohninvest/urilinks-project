@@ -54,7 +54,8 @@ class FileUpload extends React.Component {
             console.log("url=" + url);
             //this url needs to be put in redux
             this.props.setStorageUrl(url);
-            this.props.setCheckDidUpload()
+            console.log("html is file successfully uploaded")
+            //this.props.setCheckDidUpload()
           });
       }
     );

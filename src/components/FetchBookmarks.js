@@ -56,7 +56,7 @@ const FetchBookmarks = (props) => {
           let htmllinksarray = [];
 
           const hasControlCharacters=(str)=>{
-            const regex = /\\p{Cc}/u;
+            const regex = /\\c[ABCDEFGHIKLNOPQRSUVWXYZ]/;
             const result = regex.test(str);
             return result
           }

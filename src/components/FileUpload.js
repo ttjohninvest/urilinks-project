@@ -23,6 +23,7 @@ class FileUpload extends React.Component {
   formHandler = (e) => {
     e.preventDefault();
     const file = e.target[0].files[0];
+    if(file.type !== "application/html") return
     this.uploadFiles(file);
   };
 
@@ -62,7 +63,7 @@ class FileUpload extends React.Component {
      return (
     <div className="App">
       <form onSubmit={this.formHandler}>
-        <input type="file" className="input" />
+        <input type="file" className="input" accept=".html" />
         <button type="submit">Upload</button>
       </form>
       <hr />

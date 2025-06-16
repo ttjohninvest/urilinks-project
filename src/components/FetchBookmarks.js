@@ -22,6 +22,7 @@ const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [error2, setError2] = useState(null);
+  const [error3, setError3] = useState(null);
   const [importingError, setImportingError] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [myArray, setMyArray] = useState([]);
@@ -221,7 +222,9 @@ hashtagv="#bravebookmarks"
         })
         .catch((error) => {
           console.log(error);
-          setError2(true);
+          if(error === "THE BROWSER IS NOT SUPPORTED")
+            setError3(true)
+          else setError2(true);
         });
     } else {
       //handleNavigation()
@@ -234,7 +237,8 @@ hashtagv="#bravebookmarks"
   return (
     <div>
       {error?<div>Error: Unable to read from firebase storage</div>:''}
-      {error2?<div>Error: The file needs to be a bookmarks file with an html extension</div>:''}
+      {error2?<div>Error: The file needs to be a bookmarks file with an html extension.</div>:''}
+      {error3?<div>Error: The browser is not supported.</div>:''}
       {importingError === true ? (
         "Error importing bookmarks"
       ) : (

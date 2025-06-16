@@ -10,9 +10,9 @@ const BookmarksManager = () => {
   const setCheckDidUpload = () => {
    setDidUpload(true)
    if(didUpload===false) {
-      console.log("upload did not happen")
+      //console.log("upload did not happen")
      } else {
-      console.log("upload did happen")
+      //console.log("upload did happen")
      }
   }
 

@@ -160,6 +160,7 @@ const FetchBookmarks = (props) => {
         } else {
           console.log("NOT A BOOKMARKS FILE")
             //setError2(true)
+            //delete the file from firebase storage
             throw new Error("NOT A BOOKMARKS FILE");
         }
         })

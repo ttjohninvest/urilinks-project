@@ -6,10 +6,6 @@ import { storage } from "../firebase/firebase";
 import setStorageUrl  from "../actions/storage";
 //import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
-
-
-
-
 class FileUpload extends React.Component {
   constructor(props) {
   super(props)

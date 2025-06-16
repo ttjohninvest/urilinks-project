@@ -6,6 +6,7 @@ import { withRouter } from "react-router-dom";
 import moment from "moment";
 import { history } from "../routers/AppRouter";
 import ImportedBookmarks from "./ImportedBookmarks";
+import { storage, deleteObject } from "../firebase/firebase";
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
@@ -25,6 +26,22 @@ const FetchBookmarks = (props) => {
   const handleConfirmNavigation = () => {
     history.push("/");
     setShowDialog(false);
+  };
+
+  
+  
+  
+  const deleteFile = async (fileUrl) => {
+    try {
+      //const fileRef = ref(storage, fileUrl);
+      const fileRef = storage.ref(fileUrl)
+  
+      await deleteObject(fileRef);
+      console.log("File deleted successfully");
+    } catch (error) {
+      console.error("Error deleting file:", error);
+      throw error;
+    }
   };
 
   
@@ -161,6 +178,7 @@ const FetchBookmarks = (props) => {
           console.log("NOT A BOOKMARKS FILE")
             //setError2(true)
             //delete the file from firebase storage
+            deleteFile(props.url)
             throw new Error("NOT A BOOKMARKS FILE");
         }
         })

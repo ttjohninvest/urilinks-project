@@ -224,7 +224,7 @@ const FetchBookmarks = (props) => {
     }
   }, []);
 
-  if (!data) return <div>Loading...</div>;
+  //if (!data) return <div>Loading...</div>;
   //importingError===true?"Error importing bookmarks":
   return (
     <div>

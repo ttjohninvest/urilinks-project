@@ -5,6 +5,12 @@ import FileUpload from './FileUpload'
 const BookmarksManager = () => {
 
   const [didUpload, setDidUpload] = useState(false)
+  const [hashtag, setHashtag] = useState("")
+
+  onHashtagChange = (e) => {
+    const hashtag = e.target.value;
+setHashtag(hashtag)
+  };
  
 
   const setCheckDidUpload = () => {
@@ -21,9 +27,18 @@ const BookmarksManager = () => {
       <ol>
         <li>From the browser, export (download) your bookmarks file and then choose and upload your bookmarks file in step 2.</li>
         <li><FileUpload setCheckDidUpload={setCheckDidUpload}/></li>
-       
+        <li><input
+          type="text"
+          placeholder="hashtag to group these bookmarks under"
+          autoFocus
+          className="text-input"
+          value={hashtag}
+          onChange={onHashtagChange}
+          title="Please enter the hashtag to group these bookmarks under."
+          maxlength="2048"
+        /></li>
           <Link className="header__title" to="/fetchbookmarks">
-          {didUpload?<li><span className="ib text-color-black text-size-8">import bookmarks</span></li>:''}
+          {didUpload?<li> <span className="ib text-color-black text-size-8">import bookmarks</span></li>:''}
             
           </Link>
       

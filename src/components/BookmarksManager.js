@@ -102,7 +102,7 @@ class BookmarksManager extends React.Component{
 
    setCheckDidUpload = () => {
   
-   this.setState({didupload:true})
+   this.setState({didUpload:true})
    if(this.state.didUpload===false) {
       //console.log("upload did not happen")
      } else {

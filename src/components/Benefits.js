@@ -97,7 +97,7 @@ const Benefits = () => (
         the results will display, no need to press a search button.
       </li>
       <li>These are the supported browsers:  chrome, firefox, edge, opera, brave</li>
-      <li>To find your newly uploaded bookmarks, select hashtag from the dropdown menu and then in the field to the left enter, for the chrome browser enter #chromebookmarks, for the firefox browser enter #firefox, for the edge browser enter #edgebookmarks, for the opera browser enter #operabookmarks, for for the brave browser enter #bravebookmarks</li>
+      <li>To find your newly uploaded bookmarks, select hashtag from the dropdown menu and then in the field to the left enter the hash tag that you entered or one of the defaluts, for the chrome browser enter #chromebookmarks, for the firefox browser enter #firefox, for the edge browser enter #edgebookmarks, for the opera browser enter #operabookmarks, for for the brave browser enter #bravebookmarks</li>
     </ul>
     <br />
     <br />

@@ -79,7 +79,7 @@ import { Link } from "react-router-dom";
 import FileUpload from './FileUpload'
 //import setHashTag from "../actions/hashtag";
 //import setGroup from "../actions/group";
-import setSettings from "../actions/settings";
+import {setSettings} from "../actions/settings";
 
 
 class BookmarksManager extends React.Component{

@@ -78,7 +78,8 @@ import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import FileUpload from './FileUpload'
 //import setHashTag from "../actions/hashtag";
-import setGroup from "../actions/group";
+//import setGroup from "../actions/group";
+import setSettings from "../actions/settings";
 
 
 class BookmarksManager extends React.Component{
@@ -93,10 +94,12 @@ class BookmarksManager extends React.Component{
   onHashtagChange = (e) => {
     const hashtag = e.target.value;
     
-    
+   
     this.setState({hashtag})
-    this.props.setGroup(hashtag)
-    console.log("this.props.group="+this.props.group)
+    this.props.setSettings({ settingsOption1:"",
+  settingsOption2:"",
+  group:hashtag})
+    //console.log("this.props.settings.group="+this.props.settings.group)
     //
   };
 
@@ -139,11 +142,11 @@ render() {
 
 //export default BookmarksManager;
 const mapStateToProps = (state) => ({
-  group:state.group
+  settings:state.settings
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setGroup: (group) => dispatch(setGroup(group)),
+  setGroup: (settings) => dispatch(setSettings(settings)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookmarksManager);

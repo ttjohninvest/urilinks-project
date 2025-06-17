@@ -2,7 +2,8 @@
 
 const settingsReducerDefaultState = {
   settingsOption1:"",
-  settingsOption2:""
+  settingsOption2:"",
+  group:""
 };
 
 export default (state = settingsReducerDefaultState, action) => {

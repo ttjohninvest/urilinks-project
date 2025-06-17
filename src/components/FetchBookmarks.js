@@ -208,7 +208,7 @@ const FetchBookmarks = (props) => {
           }
         })
         .catch((error) => {
-          console.log(error);
+          console.log("caught error = "+error);
           if (error === "THE BROWSER IS NOT SUPPORTED") setError3(true);
           else setError2(true);
         });

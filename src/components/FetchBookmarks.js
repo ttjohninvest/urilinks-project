@@ -105,8 +105,9 @@ const FetchBookmarks = (props) => {
 
             //check props.hashtag to make sure it has the hash 
             console.log("FetchBookmarks, props.settings.group="+props.settings.group)
-
+  console.log("FetchBookmarks, props.settings.group.trim().length="+props.settings.group.trim().length)
             if(props.settings.group.trim().length === 1 || props.settings.group.trim().length === 0) {
+                console.log("FetchBookmarks, in if, props.settings.group="+props.settings.group)
              if (isChrome) {
               hashtagv = "#chromebookmarks";
             } else if (isFirefox) {

@@ -19,9 +19,9 @@ import {
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [error2, setError2] = useState(null);
-  const [error3, setError3] = useState(null);
+  const [error, setError] = useState(false);
+  const [error2, setError2] = useState(false);
+  const [error3, setError3] = useState(false);
   const [importingError, setImportingError] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [myArray, setMyArray] = useState([]);
@@ -95,22 +95,22 @@ const FetchBookmarks = (props) => {
               return result;
             };
 
-            let hashtagv;
-            if (isChrome) {
-              hashtagv = "#chromebookmarks";
-            } else if (isFirefox) {
-              hashtagv = "#firefoxbookmarks";
-            } else if (isSafari) {
-              hashtagv = "#safaribookmarks";
-            } else if (isEdge) {
-              hashtagv = "#edgebookmarks";
-            } else if (isOpera) {
-              hashtagv = "#operabookmarks";
-            } else if (isBrave) {
-              hashtagv = "#bravebookmarks";
-            } else {
-              throw new Error("THE BROWSER IS NOT SUPPORTED");
-            }
+            let hashtagv="#bravebookmarks";
+            // if (isChrome) {
+            //   hashtagv = "#chromebookmarks";
+            // } else if (isFirefox) {
+            //   hashtagv = "#firefoxbookmarks";
+            // } else if (isSafari) {
+            //   hashtagv = "#safaribookmarks";
+            // } else if (isEdge) {
+            //   hashtagv = "#edgebookmarks";
+            // } else if (isOpera) {
+            //   hashtagv = "#operabookmarks";
+            // } else if (isBrave) {
+            //   hashtagv = "#bravebookmarks";
+            // } else {
+            //   throw new Error("THE BROWSER IS NOT SUPPORTED");
+            // }
 
             for (let i = 0; i < links.length; i++) {
               if (
@@ -201,8 +201,6 @@ const FetchBookmarks = (props) => {
             }
           } else {
             console.log("NOT A BOOKMARKS FILE");
-            //setError2(true)
-            //delete the file from firebase storage
             deleteFile(props.url);
             throw new Error("NOT A BOOKMARKS FILE");
           }

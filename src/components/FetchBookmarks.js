@@ -132,6 +132,7 @@ const FetchBookmarks = (props) => {
                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                   faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
                 });
+                
               }
             }
 

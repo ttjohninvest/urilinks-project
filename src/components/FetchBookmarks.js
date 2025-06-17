@@ -96,6 +96,12 @@ const FetchBookmarks = (props) => {
             };
 
             let hashtagv="#bravebookmarks";
+            console.log("isChrome="+isChrome)
+            console.log("isFirefox="+isFirefox)
+            console.log("isSafari="+isSafari)
+            console.log("isEdge="+isEdge)
+            console.log("isOpera="+isOpera)
+            console.log("isBrave="+isBrave)
             // if (isChrome) {
             //   hashtagv = "#chromebookmarks";
             // } else if (isFirefox) {

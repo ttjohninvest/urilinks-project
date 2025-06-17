@@ -15,7 +15,7 @@ const BookmarksManager = (props) => {
     
     setHashtag(hashtag)
     setHashTag(hashtag)
-    console.log("hashtag="+hashtag)
+    console.log("props.hashtag="+props.hashtag)
   };
  
 

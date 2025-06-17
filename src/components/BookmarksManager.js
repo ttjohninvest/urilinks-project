@@ -1,84 +1,12 @@
 import React, {useState} from "react";
-// import { connect } from "react-redux";
-// import { withRouter } from "react-router-dom";
-// import { Link } from "react-router-dom";
-// import FileUpload from './FileUpload'
-// //import setHashTag from "../actions/hashtag";
-// import setGroup from "../actions/group";
 
-// const BookmarksManager = (props) => {
-
-//   const [didUpload, setDidUpload] = useState(false)
-//   const [hashtag, setHashtag] = useState("")
-
-//   const onHashtagChange = (e) => {
-//     const hashtag = e.target.value;
-    
-//     setHashtag(hashtag)
-//     setGroup(hashtag)
-//     console.log("props.group="+props.group)
-//     //
-//   };
- 
-
-//   const setCheckDidUpload = () => {
-//    setDidUpload(true)
-//    if(didUpload===false) {
-//       //console.log("upload did not happen")
-//      } else {
-//       //console.log("upload did happen")
-//      }
-//   }
-
-//   return (
-//     <div>
-//       <ol>
-//         <li>From the browser, export (download) your bookmarks file and then choose and upload your bookmarks file in step 2.</li>
-//         <li><FileUpload setCheckDidUpload={setCheckDidUpload}/></li>
-//         {didUpload?<li><input
-//           type="text"
-//           placeholder="hashtag to group these bookmarks under"
-//           autoFocus
-//           className="text-input"
-//           value={hashtag}
-//           onChange={onHashtagChange}
-//           title="Please enter the hashtag to group these bookmarks under."
-//           maxlength="2048"
-//         /></li>:''}
-//           <Link className="header__title" to="/fetchbookmarks">
-//           {didUpload?<li> <span className="ib text-color-black text-size-8">import bookmarks</span></li>:''}
-            
-//           </Link>
-      
-//       </ol>
-//     </div>
-//   );
-
-
-// };
-
-
-
-// //export default BookmarksManager;
-// const mapStateToProps = (state) => ({
-//   group:state.group
-// });
-
-// const mapDispatchToProps = (dispatch) => ({
-//   setGroup: (group) => dispatch(setGroup(group)),
-// });
-
-// export default withRouter(
-//   connect(mapStateToProps, mapDispatchToProps)(BookmarksManager)
-// );
 
 
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import FileUpload from './FileUpload'
-//import setHashTag from "../actions/hashtag";
-//import setGroup from "../actions/group";
+
 import {setSettings} from "../actions/settings";
 
 
@@ -87,18 +15,46 @@ class BookmarksManager extends React.Component{
     super(props);
     this.state = {
      didUpload:false,
-     hashtag:""
+     hashtag:"#"
     }
   }
 
   onHashtagChange = (e) => {
     const hashtag = e.target.value;
+
+
+
+if (
+        e.target.value.trim().length === 1 &&
+        e.target.value.trim().match(/^[ -~]$/) &&
+        e.target.value.trim() === "#"
+      ) {
+        let v = "";
+        if (!!e.target.value === false) v = "";
+        else v = e.target.value.trim();
+        //this.props.setTextFilter(v);
+        this.setState({hashtag:v}) 
+         this.props.setSettings({ settingsOption1:"",
+  settingsOption2:"",
+  group:v})       
+      } else if (e.target.value.trim().length > 1) {
+        let v = "";
+        if (!!e.target.value === false) v = "";
+        else v = e.target.value.trim();
+        //this.props.setTextFilter(v);
+        this.setState({hashtag:v}) 
+         this.props.setSettings({ settingsOption1:"",
+  settingsOption2:"",
+  group:v})
+      }
+
+
     
    
-    this.setState({hashtag})
-    this.props.setSettings({ settingsOption1:"",
-  settingsOption2:"",
-  group:hashtag})
+    //this.setState({hashtag})
+  //   this.props.setSettings({ settingsOption1:"",
+  // settingsOption2:"",
+  // group:hashtag})
     //console.log("this.props.settings.group="+this.props.settings.group)
     //
   };
@@ -152,68 +108,3 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(BookmarksManager);
 
 
-// const BookmarksManager = (props) => {
-
-//   const [didUpload, setDidUpload] = useState(false)
-//   const [hashtag, setHashtag] = useState("")
-
-//   const onHashtagChange = (e) => {
-//     const hashtag = e.target.value;
-    
-//     setHashtag(hashtag)
-//     setGroup(hashtag)
-//     console.log("props.group="+props.group)
-//     //
-//   };
- 
-
-//   const setCheckDidUpload = () => {
-//    setDidUpload(true)
-//    if(didUpload===false) {
-//       //console.log("upload did not happen")
-//      } else {
-//       //console.log("upload did happen")
-//      }
-//   }
-
-//   return (
-//     <div>
-//       <ol>
-//         <li>From the browser, export (download) your bookmarks file and then choose and upload your bookmarks file in step 2.</li>
-//         <li><FileUpload setCheckDidUpload={setCheckDidUpload}/></li>
-//         {didUpload?<li><input
-//           type="text"
-//           placeholder="hashtag to group these bookmarks under"
-//           autoFocus
-//           className="text-input"
-//           value={hashtag}
-//           onChange={onHashtagChange}
-//           title="Please enter the hashtag to group these bookmarks under."
-//           maxlength="2048"
-//         /></li>:''}
-//           <Link className="header__title" to="/fetchbookmarks">
-//           {didUpload?<li> <span className="ib text-color-black text-size-8">import bookmarks</span></li>:''}
-            
-//           </Link>
-      
-//       </ol>
-//     </div>
-//   );
-
-
-// };
-
-
-
-// //export default BookmarksManager;
-// const mapStateToProps = (state) => ({
-//   group:state.group
-// });
-
-// const mapDispatchToProps = (dispatch) => ({
-//   setGroup: (group) => dispatch(setGroup(group)),
-// });
-
-// export default withRouter(
-//   connect(mapStateToProps, mapDispatchToProps)(BookmarksManager)
-// );

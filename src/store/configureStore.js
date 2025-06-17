@@ -9,7 +9,7 @@ import filtersfiledateReducer from '../reducers/filtersfiledate';
 import authReducer from '../reducers/auth';
 import settingsReducer from '../reducers/settings';
 import hashtagsReducer from '../reducers/hashtags';
-import hashtagReducer from '../reducers/hashtag';
+
 import hashtags2withcountReducer from '../reducers/hashtags2withcount';
 import hashtagsfiledateReducer from '../reducers/hashtagsfiledate';
 import hashtags2withcountfiledateReducer from '../reducers/hashtags2withcountfiledate';
@@ -17,7 +17,7 @@ import notetextReducer from '../reducers/notetext';
 import setitReducer from '../reducers/setit';
 import setitfiledateReducer from '../reducers/setitfiledate';
 import storageReducer from '../reducers/storage';
-import groupReducer from '../reducers/group';
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -33,7 +33,7 @@ export default () => {
       auth: authReducer,
       settings: settingsReducer,
       hashtags: hashtagsReducer,
-      hashtag: hashtagReducer,
+      
       hashtags2withcount: hashtags2withcountReducer,
       hashtagsfiledate: hashtagsfiledateReducer,
       hashtags2withcountfiledate: hashtags2withcountfiledateReducer,
@@ -41,7 +41,7 @@ export default () => {
       setit: setitReducer,
       setitfiledate: setitfiledateReducer,
       url: storageReducer,
-      group: groupReducer,
+      
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

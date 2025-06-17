@@ -7,7 +7,7 @@ const BookmarksManager = () => {
   const [didUpload, setDidUpload] = useState(false)
   const [hashtag, setHashtag] = useState("")
 
-  onHashtagChange = (e) => {
+  const onHashtagChange = (e) => {
     const hashtag = e.target.value;
 setHashtag(hashtag)
   };

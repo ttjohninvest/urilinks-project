@@ -146,7 +146,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setGroup: (settings) => dispatch(setSettings(settings)),
+  setSettings: (settings) => dispatch(setSettings(settings)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookmarksManager);

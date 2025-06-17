@@ -263,6 +263,4 @@ const mapDispatchToProps = (dispatch) => ({
   startAddLink: (link) => dispatch(startAddLink(link)),
 });
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks));

@@ -146,9 +146,7 @@ const mapDispatchToProps = (dispatch) => ({
   setGroup: (group) => dispatch(setGroup(group)),
 });
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(BookmarksManager)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(BookmarksManager);
 
 
 // const BookmarksManager = (props) => {

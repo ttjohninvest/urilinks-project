@@ -48,15 +48,6 @@ if (
   group:v})
       }
 
-
-    
-   
-    //this.setState({hashtag})
-  //   this.props.setSettings({ settingsOption1:"",
-  // settingsOption2:"",
-  // group:hashtag})
-    //console.log("this.props.settings.group="+this.props.settings.group)
-    //
   };
 
    setCheckDidUpload = () => {
@@ -76,15 +67,15 @@ render() {
         <li>From the browser, export (download) your bookmarks file and then choose and upload your bookmarks file in step 2.</li>
         <li><FileUpload setCheckDidUpload={this.setCheckDidUpload}/></li>
         {this.state.didUpload?<li><input
+          title=" The defaults hash tags are #chromebookmarks, #firefoxbookmarks,#safaribookmarks,#edgebookmarks,#operabookmarks, #bravebookmarks depending on the browser that you are using"
           type="text"
           placeholder="hashtag to group these bookmarks under"
           autoFocus
           className="text-input"
           value={this.state.hashtag}
           onChange={this.onHashtagChange}
-          title="Please enter the hashtag to group these bookmarks under."
           maxlength="2048"
-        /></li>:''}
+          /></li>:''}
           <Link className="header__title" to="/fetchbookmarks">
           {this.state.didUpload?<li> <span className="ib text-color-black text-size-8">import bookmarks</span></li>:''}
             

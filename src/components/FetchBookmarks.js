@@ -104,7 +104,7 @@ const FetchBookmarks = (props) => {
             // console.log("isBrave="+isBrave)
 
             //check props.hashtag to make sure it has the hash 
-            console.log("FetchBookmarks, props.settings.group="+props.settins.group)
+            console.log("FetchBookmarks, props.settings.group="+props.settings.group)
 
             if(props.settings.group.trim() === 1 || props.settings.group.trim() === 0) {
              if (isChrome) {

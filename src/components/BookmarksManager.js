@@ -12,9 +12,10 @@ const BookmarksManager = (props) => {
 
   const onHashtagChange = (e) => {
     const hashtag = e.target.value;
-//setHashTag(hashtag)
-setHashtag(hashtag)
-console.log("hashtag="+hashtag)
+    
+    setHashtag(hashtag)
+    setHashTag(hashtag)
+    console.log("hashtag="+hashtag)
   };
  
 

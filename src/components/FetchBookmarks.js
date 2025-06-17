@@ -191,7 +191,7 @@ const FetchBookmarks = (props) => {
               r = props.startAddLink({
                 description: result[i].description,
                 Url: result[i].Url, //, //href,
-                note: "#bravebookmarks",
+                note: hashtagv,
                 amount: 0,
                 createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                 faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon

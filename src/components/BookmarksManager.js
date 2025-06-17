@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import FileUpload from './FileUpload'
-import setHashTag from "../actions/hashtag";
+//import setHashTag from "../actions/hashtag";
+import setGroup from "../actions/group";
 
 const BookmarksManager = (props) => {
 
@@ -14,8 +15,8 @@ const BookmarksManager = (props) => {
     const hashtag = e.target.value;
     
     setHashtag(hashtag)
-    setHashTag(hashtag)
-    console.log("props.hashtag="+props.hashtag)
+    setGroup(hashtag)
+    console.log("props.group="+props.group)
     //
   };
  
@@ -60,11 +61,11 @@ const BookmarksManager = (props) => {
 
 //export default BookmarksManager;
 const mapStateToProps = (state) => ({
-  hashtag:state.hashtag
+  group:state.group
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setHashTag: (hashtag) => dispatch(setHashTag(hashtag)),
+  setGroup: (group) => dispatch(setGroup(group)),
 });
 
 export default withRouter(

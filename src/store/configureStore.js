@@ -17,6 +17,7 @@ import notetextReducer from '../reducers/notetext';
 import setitReducer from '../reducers/setit';
 import setitfiledateReducer from '../reducers/setitfiledate';
 import storageReducer from '../reducers/storage';
+import groupReducer from '../reducers/group';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -39,7 +40,8 @@ export default () => {
       notetext: notetextReducer,
       setit: setitReducer,
       setitfiledate: setitfiledateReducer,
-      url: storageReducer
+      url: storageReducer,
+      group: groupReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

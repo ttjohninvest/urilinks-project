@@ -75,9 +75,45 @@ const FetchBookmarks = (props) => {
           const doc = parser.parseFromString(data, "text/html");
           let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
 
-          // let doctype = doc.getElementsByTagName("doctype");
-          // const doesit = doctype.item(0).getAttribute("NETSCAPE-Bookmark-file-1")
-          // console.log("NETSCAPE-Bookmark-file-1, doesit="+doesit)
+          //           async function postData(url, data) {
+//   try {
+//     const response = await fetch(url, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'text/html',
+//       },
+//       body: data,
+//     });
+
+//     if (response.ok) {
+//       const result = await response.json();
+//       console.log('Success:', result);
+//     } else {
+//       console.error('Error:', response.status, response.statusText);
+//     }
+//   } catch (error) {
+//     console.error('Error:', error.message);
+//   }
+// }
+
+// postData("https://enchanting-pasca-d60239.netlify.app",data)
+ 
+        //   const fetchData = async () => {
+        //    try {
+        //      const response = await fetch('https://enchanting-pasca-d60239.netlify.app');
+        //      if (!response.ok) {
+        //        throw new Error(`HTTP error! status: ${response.status}`);
+        //      }
+        //      const data = await response.json();
+        //      console.log("data="+JSON.stringify(data))
+        //      //setApiData(data);
+        //    } catch (error) {
+        //      console.error('Failed to fetch data:', error);
+        //    }
+        //  };
+
+        //  fetchData();
+
 
           let title = doc.getElementsByTagName("title");
 

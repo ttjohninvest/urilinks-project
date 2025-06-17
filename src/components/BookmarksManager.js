@@ -62,6 +62,10 @@ const mapStateToProps = (state) => ({
   hashtag:state.hashtag
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  setHashTag: (hashtag) => dispatch(setHashTag(hashtag)),
+});
+
 export default withRouter(
-  connect(mapStateToProps, undefined)(BookmarksManager)
+  connect(mapStateToProps, mapDispatchToProps)(BookmarksManager)
 );

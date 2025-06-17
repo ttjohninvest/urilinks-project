@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header'
 
 const IdeasPage = () => {
     
@@ -181,6 +182,7 @@ const IdeasPage = () => {
      return(
      
      <div>
+      <Header />
       <div className="flexrow2w margin-top-111 margin-bottom-3a margin-left-11 text-size-8">Subect Ideas which can be used as hash tags, for example Charity, Giving, #charitygiving, for grouping url websites together</div>
 <ul className="">
       {ideasArray.sort().map((item, index) => (

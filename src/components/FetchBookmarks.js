@@ -75,28 +75,28 @@ const FetchBookmarks = (props) => {
           const doc = parser.parseFromString(data, "text/html");
           let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
 
-          //           async function postData(url, data) {
-//   try {
-//     const response = await fetch(url, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'text/html',
-//       },
-//       body: data,
-//     });
+                    async function postData(url, data) {
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/html',
+      },
+      body: data,
+    });
 
-//     if (response.ok) {
-//       const result = await response.json();
-//       console.log('Success:', result);
-//     } else {
-//       console.error('Error:', response.status, response.statusText);
-//     }
-//   } catch (error) {
-//     console.error('Error:', error.message);
-//   }
-// }
+    if (response.ok) {
+      const result = await response.json();
+      console.log('Success:', result);
+    } else {
+      console.error('Error:', response.status, response.statusText);
+    }
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+}
 
-// postData("https://enchanting-pasca-d60239.netlify.app",data)
+postData("https://enchanting-pasca-d60239.netlify.app",data)
  
         //   const fetchData = async () => {
         //    try {

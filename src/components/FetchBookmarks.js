@@ -65,6 +65,8 @@ const FetchBookmarks = (props) => {
       fetch(props.url)
         .then((response) => response.text())
         .then((data) => {
+          console.log("data=")
+          console.log("data="+data)
           const now = new Date();
           //console.log("data="+data)
           setData(data);
@@ -104,7 +106,7 @@ const FetchBookmarks = (props) => {
           //   }
           // }
 
-          console.log("data="+data)
+          
           throw new Error("not really an error")
           //postData("https://6851fb03d875b622d5e4b61e--enchanting-pasca-d60239.netlify.app", data);
 

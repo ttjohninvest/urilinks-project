@@ -8,12 +8,13 @@ import setHashTag from "../actions/hashtag";
 const BookmarksManager = (props) => {
 
   const [didUpload, setDidUpload] = useState(false)
-  //const [hashtag, setHashtag] = useState("")
+  const [hashtag, setHashtag] = useState("")
 
   const onHashtagChange = (e) => {
     const hashtag = e.target.value;
-setHashTag(hashtag)
-//setHashtag(hashtag)
+//setHashTag(hashtag)
+setHashtag(hashtag)
+console.log("hashtag="+hashtag)
   };
  
 
@@ -36,7 +37,7 @@ setHashTag(hashtag)
           placeholder="hashtag to group these bookmarks under"
           autoFocus
           className="text-input"
-          value={props.hashtag}
+          value={hashtag}
           onChange={onHashtagChange}
           title="Please enter the hashtag to group these bookmarks under."
           maxlength="2048"

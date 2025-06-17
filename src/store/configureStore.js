@@ -9,6 +9,7 @@ import filtersfiledateReducer from '../reducers/filtersfiledate';
 import authReducer from '../reducers/auth';
 import settingsReducer from '../reducers/settings';
 import hashtagsReducer from '../reducers/hashtags';
+import hashtagReducer from '../reducers/hashtag';
 import hashtags2withcountReducer from '../reducers/hashtags2withcount';
 import hashtagsfiledateReducer from '../reducers/hashtagsfiledate';
 import hashtags2withcountfiledateReducer from '../reducers/hashtags2withcountfiledate';
@@ -31,6 +32,7 @@ export default () => {
       auth: authReducer,
       settings: settingsReducer,
       hashtags: hashtagsReducer,
+      hashtag: hashtagReducer,
       hashtags2withcount: hashtags2withcountReducer,
       hashtagsfiledate: hashtagsfiledateReducer,
       hashtags2withcountfiledate: hashtags2withcountfiledateReducer,

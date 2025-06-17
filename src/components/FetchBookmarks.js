@@ -96,13 +96,14 @@ const FetchBookmarks = (props) => {
             };
 
             let hashtagv //="#bravebookmarks";
-            console.log("isChrome="+isChrome)
-            console.log("isFirefox="+isFirefox)
-            console.log("isSafari="+isSafari)
-            console.log("isEdge="+isEdge)
-            console.log("isOpera="+isOpera)
-            console.log("isBrave="+isBrave)
-            if (isChrome) {
+            // console.log("isChrome="+isChrome)
+            // console.log("isFirefox="+isFirefox)
+            // console.log("isSafari="+isSafari)
+            // console.log("isEdge="+isEdge)
+            // console.log("isOpera="+isOpera)
+            // console.log("isBrave="+isBrave)
+            if(props.hashtag.trim() === 1 || props.hashtag.trim() === 0) {
+             if (isChrome) {
               hashtagv = "#chromebookmarks";
             } else if (isFirefox) {
               hashtagv = "#firefoxbookmarks";
@@ -117,6 +118,10 @@ const FetchBookmarks = (props) => {
             } else {
               throw new Error("THE BROWSER IS NOT SUPPORTED");
             }
+            } else {
+              hashtagv = props.hashtag
+            }
+           
 
             for (let i = 0; i < links.length; i++) {
               if (
@@ -247,6 +252,7 @@ const FetchBookmarks = (props) => {
 const mapStateToProps = (state) => ({
   url: state.url,
   links: state.links,
+  hashtag: state.hashtag,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -75,45 +75,53 @@ const FetchBookmarks = (props) => {
           const doc = parser.parseFromString(data, "text/html");
           let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
 
-                    async function postData(url, data) {
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'text/html',
-      },
-      body: data,
-    });
+          //Build logs:         https://app.netlify.com/projects/enchanting-pasca-d60239/deploys/6851edeab10df11191b54983
+          //Function logs:      https://app.netlify.com/projects/enchanting-pasca-d60239/logs/functions
+          //Edge function Logs: https://app.netlify.com/projects/enchanting-pasca-d60239/logs/edge-functions
 
-    if (response.ok) {
-      const result = await response.json();
-      console.log('Success:', result);
-    } else {
-      console.error('Error:', response.status, response.statusText);
-    }
-  } catch (error) {
-    console.error('Error:', error.message);
-  }
-}
+          //https://enchanting-pasca-d60239.netlify.app
+          //https://6851edeab10df11191b54983--enchanting-pasca-d60239.netlify.app
+          //https://6851fb03d875b622d5e4b61e--enchanting-pasca-d60239.netlify.app
 
-postData("https://enchanting-pasca-d60239.netlify.app",data)
- 
-        //   const fetchData = async () => {
-        //    try {
-        //      const response = await fetch('https://enchanting-pasca-d60239.netlify.app');
-        //      if (!response.ok) {
-        //        throw new Error(`HTTP error! status: ${response.status}`);
-        //      }
-        //      const data = await response.json();
-        //      console.log("data="+JSON.stringify(data))
-        //      //setApiData(data);
-        //    } catch (error) {
-        //      console.error('Failed to fetch data:', error);
-        //    }
-        //  };
+          async function postData(url, data) {
+            try {
+              const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "text/html",
+                },
+                body: data,
+              });
 
-        //  fetchData();
+              if (response.ok) {
+                const result = await response.json();
+                console.log("Success:", result);
+              } else {
+                console.error("Error:", response.status, response.statusText);
+              }
+            } catch (error) {
+              console.error("Error:", error.message);
+            }
+          }
 
+          console.log("data="+data)
+          postData("https://6851fb03d875b622d5e4b61e--enchanting-pasca-d60239.netlify.app", data);
+
+          //   const fetchData = async () => {
+          //    try {
+          //      const response = await fetch('https://enchanting-pasca-d60239.netlify.app');
+          //      if (!response.ok) {
+          //        throw new Error(`HTTP error! status: ${response.status}`);
+          //      }
+          //      const data = await response.json();
+          //      console.log("data="+JSON.stringify(data))
+          //      //setApiData(data);
+          //    } catch (error) {
+          //      console.error('Failed to fetch data:', error);
+          //    }
+          //  };
+
+          //  fetchData();
 
           let title = doc.getElementsByTagName("title");
 
@@ -131,7 +139,7 @@ postData("https://enchanting-pasca-d60239.netlify.app",data)
               return result;
             };
 
-            let hashtagv //="#bravebookmarks";
+            let hashtagv; //="#bravebookmarks";
             // console.log("isChrome="+isChrome)
             // console.log("isFirefox="+isFirefox)
             // console.log("isSafari="+isSafari)
@@ -139,32 +147,42 @@ postData("https://enchanting-pasca-d60239.netlify.app",data)
             // console.log("isOpera="+isOpera)
             // console.log("isBrave="+isBrave)
 
-            //check props.hashtag to make sure it has the hash 
-            console.log("FetchBookmarks, props.settings.group="+props.settings.group)
-  console.log("FetchBookmarks, props.settings.group.trim().length="+props.settings.group.trim().length)
-            if(props.settings.group.trim().length === 1 || props.settings.group.trim().length === 0) {
-                console.log("FetchBookmarks, in if, props.settings.group="+props.settings.group)
-             if (isChrome) {
-              hashtagv = "#chromebookmarks";
-            } else if (isFirefox) {
-              hashtagv = "#firefoxbookmarks";
-            } else if (isSafari) {
-              hashtagv = "#safaribookmarks";
-            } else if (isEdge) {
-              hashtagv = "#edgebookmarks";
-            } else if (isOpera) {
-              hashtagv = "#operabookmarks";
-            } else if (isBrave===undefined) {
-              hashtagv = "#bravebookmarks";
+            //check props.hashtag to make sure it has the hash
+            console.log(
+              "FetchBookmarks, props.settings.group=" + props.settings.group
+            );
+            console.log(
+              "FetchBookmarks, props.settings.group.trim().length=" +
+                props.settings.group.trim().length
+            );
+            if (
+              props.settings.group.trim().length === 1 ||
+              props.settings.group.trim().length === 0
+            ) {
+              console.log(
+                "FetchBookmarks, in if, props.settings.group=" +
+                  props.settings.group
+              );
+              if (isChrome) {
+                hashtagv = "#chromebookmarks";
+              } else if (isFirefox) {
+                hashtagv = "#firefoxbookmarks";
+              } else if (isSafari) {
+                hashtagv = "#safaribookmarks";
+              } else if (isEdge) {
+                hashtagv = "#edgebookmarks";
+              } else if (isOpera) {
+                hashtagv = "#operabookmarks";
+              } else if (isBrave === undefined) {
+                hashtagv = "#bravebookmarks";
+              } else {
+                throw new Error("THE BROWSER IS NOT SUPPORTED");
+              }
             } else {
-              throw new Error("THE BROWSER IS NOT SUPPORTED");
+              console.log("props.settings.group=" + props.settings.group);
+              hashtagv = props.settings.group;
+              console.log("hashtagv=" + hashtagv);
             }
-            } else {
-              console.log("props.settings.group="+props.settings.group)
-              hashtagv = props.settings.group
-              console.log("hashtagv="+hashtagv)
-            }
-           
 
             for (let i = 0; i < links.length; i++) {
               if (
@@ -180,7 +198,6 @@ postData("https://enchanting-pasca-d60239.netlify.app",data)
                   createdAt: now.getTime(), //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                   faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
                 });
-
               }
             }
 
@@ -262,7 +279,7 @@ postData("https://enchanting-pasca-d60239.netlify.app",data)
           }
         })
         .catch((error) => {
-          console.log("caught error = "+error);
+          console.log("caught error = " + error);
           if (error === "THE BROWSER IS NOT SUPPORTED") setError3(true);
           else setError2(true);
         });
@@ -302,4 +319,6 @@ const mapDispatchToProps = (dispatch) => ({
   startAddLink: (link) => dispatch(startAddLink(link)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks)
+);

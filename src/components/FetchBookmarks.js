@@ -123,16 +123,16 @@ const FetchBookmarks = (props) => {
                 !hasControlCharacters(links.item(i).innerText) &&
                 links.item(i).innerText.trim().length > 0
               ) {
-                
+                let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))
                 htmllinksarray.push({
                   description: links.item(i).innerText,
                   Url: links.item(i).getAttribute("href"), //, //href,
                   note: hashtagv,
                   amount: 0,
-                  createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                  createdAt: ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                   faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
                 });
-                
+
               }
             }
 
@@ -181,7 +181,7 @@ const FetchBookmarks = (props) => {
                 Url: result[i].Url, //, //href,
                 note: "#bravebookmarks",
                 amount: 0,
-                createdAt: now.getTime(),//result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                createdAt: result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                 faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
               });
 

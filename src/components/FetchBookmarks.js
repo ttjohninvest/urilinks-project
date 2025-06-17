@@ -95,40 +95,43 @@ const FetchBookmarks = (props) => {
               return result;
             };
 
-            let hashtagv="#bravebookmarks";
+            let hashtagv //="#bravebookmarks";
             console.log("isChrome="+isChrome)
             console.log("isFirefox="+isFirefox)
             console.log("isSafari="+isSafari)
             console.log("isEdge="+isEdge)
             console.log("isOpera="+isOpera)
             console.log("isBrave="+isBrave)
-            // if (isChrome) {
-            //   hashtagv = "#chromebookmarks";
-            // } else if (isFirefox) {
-            //   hashtagv = "#firefoxbookmarks";
-            // } else if (isSafari) {
-            //   hashtagv = "#safaribookmarks";
-            // } else if (isEdge) {
-            //   hashtagv = "#edgebookmarks";
-            // } else if (isOpera) {
-            //   hashtagv = "#operabookmarks";
-            // } else if (isBrave) {
-            //   hashtagv = "#bravebookmarks";
-            // } else {
-            //   throw new Error("THE BROWSER IS NOT SUPPORTED");
-            // }
+            if (isChrome) {
+              hashtagv = "#chromebookmarks";
+            } else if (isFirefox) {
+              hashtagv = "#firefoxbookmarks";
+            } else if (isSafari) {
+              hashtagv = "#safaribookmarks";
+            } else if (isEdge) {
+              hashtagv = "#edgebookmarks";
+            } else if (isOpera) {
+              hashtagv = "#operabookmarks";
+            } else if (isBrave===undefined) {
+              hashtagv = "#bravebookmarks";
+            } else {
+              throw new Error("THE BROWSER IS NOT SUPPORTED");
+            }
 
             for (let i = 0; i < links.length; i++) {
               if (
                 !hasControlCharacters(links.item(i).innerText) &&
                 links.item(i).innerText.trim().length > 0
               ) {
+                let t = parseInt(links.item(i).getAttribute("ADD_DATE"))
+                let t2 = new Date(t)
+                let t3 = t2.getTime()
                 htmllinksarray.push({
                   description: links.item(i).innerText,
                   Url: links.item(i).getAttribute("href"), //, //href,
                   note: hashtagv,
                   amount: 0,
-                  createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                  createdAt: t3, //now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                   faviconURL: links.item(i).getAttribute("ICON"), //"https://google.com/favicon.ico" //icon
                 });
               }
@@ -179,7 +182,7 @@ const FetchBookmarks = (props) => {
                 Url: result[i].Url, //, //href,
                 note: "#bravebookmarks",
                 amount: 0,
-                createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                createdAt: result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                 faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
               });
 

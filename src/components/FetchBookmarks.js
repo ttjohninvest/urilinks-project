@@ -106,7 +106,7 @@ const FetchBookmarks = (props) => {
             //check props.hashtag to make sure it has the hash 
             console.log("FetchBookmarks, props.settings.group="+props.settings.group)
 
-            if(props.settings.group.trim() === 1 || props.settings.group.trim() === 0) {
+            if(props.settings.group.trim().length === 1 || props.settings.group.trim().length === 0) {
              if (isChrome) {
               hashtagv = "#chromebookmarks";
             } else if (isFirefox) {
@@ -123,7 +123,9 @@ const FetchBookmarks = (props) => {
               throw new Error("THE BROWSER IS NOT SUPPORTED");
             }
             } else {
+              console.log("props.settings.group="+props.settings.group)
               hashtagv = props.settings.group
+              console.log("hashtagv="+hashtagv)
             }
            
 

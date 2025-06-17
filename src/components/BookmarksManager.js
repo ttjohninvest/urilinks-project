@@ -36,7 +36,7 @@ setHashTag(hashtag)
           placeholder="hashtag to group these bookmarks under"
           autoFocus
           className="text-input"
-          value={hashtag}
+          value={props.hashtag}
           onChange={onHashtagChange}
           title="Please enter the hashtag to group these bookmarks under."
           maxlength="2048"

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import FileUpload from './FileUpload'
 import setHashTag from "../actions/hashtag";
 
-const BookmarksManager = () => {
+const BookmarksManager = (props) => {
 
   const [didUpload, setDidUpload] = useState(false)
   //const [hashtag, setHashtag] = useState("")

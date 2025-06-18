@@ -124,7 +124,7 @@ const FetchBookmarks = (props) => {
   .catch(error => {
     console.error('Error:', error);
   });
-});
+
           
 
           let title = doc.getElementsByTagName("title");

@@ -107,7 +107,7 @@ const FetchBookmarks = (props) => {
           }
 
           
-          postData("https://6851fb03d875b622d5e4b61e--enchanting-pasca-d60239.netlify.app", data);
+          postData("https://enchanting-pasca-d60239.netlify.app", data);
           throw new Error("not really an error")
           
 

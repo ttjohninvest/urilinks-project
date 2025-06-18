@@ -112,14 +112,14 @@ const FetchBookmarks = (props) => {
 
   //         const formData = new FormData();
   // formData.append('file', data); // Append the file to the FormData object//
-
+  let htmlContent = data
   //fetch('https://fantastic-tapioca-374e79.netlify.app/.netlify/functions/api', {
   fetch('https://urilinks-project-vercel-api-3.vercel.app', {
     method: 'POST',
-    body: JSON.stringify(data), //formData,
-    header:{
+    headers:{
       'Content-Type':'text/html'
-    }
+    },
+    body: htmlContent 
   })
   .then(response => response.json())
   .then(data => {

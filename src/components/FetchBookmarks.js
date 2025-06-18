@@ -113,7 +113,8 @@ const FetchBookmarks = (props) => {
   //         const formData = new FormData();
   // formData.append('file', data); // Append the file to the FormData object//
 
-  fetch('https://fantastic-tapioca-374e79.netlify.app/.netlify/functions/api', {
+  //fetch('https://fantastic-tapioca-374e79.netlify.app/.netlify/functions/api', {
+  fetch('https://fantastic-tapioca-374e79.netlify.app', {
     method: 'POST',
     body: JSON.stringify(data), //formData,
     header:{

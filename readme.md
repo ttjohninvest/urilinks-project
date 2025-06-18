@@ -321,3 +321,6 @@ putting the blog with this domain it is at internetmarks0.blogspot.com, which is
 still having problem with ADD_DATE,
 it is being put into props.links, but it is not displaying because
 because the way I convert the timestamp is wrong
+
+the api to process the bookmarks is on netlify, johmcg64@gmail.com
+

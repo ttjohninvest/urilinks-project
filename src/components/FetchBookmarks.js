@@ -85,30 +85,30 @@ const FetchBookmarks = (props) => {
           //https://6851edeab10df11191b54983--enchanting-pasca-d60239.netlify.app
           //https://6851fb03d875b622d5e4b61e--enchanting-pasca-d60239.netlify.app
 
-          async function postData(url, data) {
-            try {
-              const response = await fetch(url, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "text/html",
-                },
-                body: data,
-              });
+          // async function postData(url, data) {
+          //   try {
+          //     const response = await fetch(url, {
+          //       method: "POST",
+          //       headers: {
+          //         "Content-Type": "text/html",
+          //       },
+          //       body: data,
+          //     });
 
-              if (response.ok) {
-                const result = await response.json();
-                console.log("Success:", result);
-              } else {
-                console.error("Error:", response.status, response.statusText);
-              }
-            } catch (error) {
-              console.error("Error:", error.message);
-            }
-          }
+          //     if (response.ok) {
+          //       const result = await response.json();
+          //       console.log("Success:", result);
+          //     } else {
+          //       console.error("Error:", response.status, response.statusText);
+          //     }
+          //   } catch (error) {
+          //     console.error("Error:", error.message);
+          //   }
+          // }
 
           
-          postData("https://enchanting-pasca-d60239.netlify.app", data);
-          throw new Error("not really an error")
+          // postData("https://enchanting-pasca-d60239.netlify.app", data);
+          // throw new Error("not really an error")
           
 
           let title = doc.getElementsByTagName("title");

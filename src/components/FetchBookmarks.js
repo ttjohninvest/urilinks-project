@@ -109,6 +109,22 @@ const FetchBookmarks = (props) => {
           
           // postData("https://enchanting-pasca-d60239.netlify.app", data);
           // throw new Error("not really an error")
+
+          const formData = new FormData();
+  formData.append('file', data); // Append the file to the FormData object
+
+  fetch('https://fantastic-tapioca-374e79.netlify.app/.netlify/functions/api', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+});
           
 
           let title = doc.getElementsByTagName("title");

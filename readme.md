@@ -324,3 +324,13 @@ because the way I convert the timestamp is wrong
 
 the api to process the bookmarks is on netlify, johmcg64@gmail.com
 
+vercel.com log, ttjohninvest@gmail.com
+on chrome select github.com, github.com account is ttjohninvest@gmail.com
+project:
+urilinks-project-vercel-app
+
+github.com, ttjohninvest@gmail.com
+chrome will log in automatically
+urilinks-project-vercel-app
+
+

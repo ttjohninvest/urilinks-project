@@ -1,6 +1,7 @@
 # Git Commands
 
 todo to do
+their is no limit on the number of hashtags, I need to set a limit
 
 the add_date timestamp from the bookmarks html file is failing, I have to use the current timestamp
 
@@ -326,11 +327,15 @@ the api to process the bookmarks is on netlify, johmcg64@gmail.com
 
 vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com
-project:
-urilinks-project-vercel-app
+project: urilinks-project-vercel-app
 
 github.com, ttjohninvest@gmail.com
 chrome will log in automatically
 urilinks-project-vercel-app
 
+github.com ttjohninvest4@gmail.com, vercel-project-urilinks-api
+vercel sign in with github using ttjohninvest4@gmail.com
+
+command to login into github from the command line
+gh auth login
 

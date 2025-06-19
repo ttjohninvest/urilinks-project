@@ -33,7 +33,6 @@ export default () => {
       auth: authReducer,
       settings: settingsReducer,
       hashtags: hashtagsReducer,
-      
       hashtags2withcount: hashtags2withcountReducer,
       hashtagsfiledate: hashtagsfiledateReducer,
       hashtags2withcountfiledate: hashtags2withcountfiledateReducer,

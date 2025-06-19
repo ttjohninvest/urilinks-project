@@ -22,6 +22,7 @@ export const startAddLink = (linkData = {}) => {
     const link = { description, Url, note, amount, createdAt, faviconURL };
     ////
     //return false;
+    
     console.log("startAddLink, link="+JSON.stringify(link))
     return database
       .ref(`users/${uid}/links`)

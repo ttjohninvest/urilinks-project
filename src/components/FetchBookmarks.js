@@ -119,7 +119,7 @@ const FetchBookmarks = (props) => {
     headers:{
       'Content-Type':'text/html'
     },
-    body: htmlContent 
+    body: JSON.stringify(htmlContent)
   })
   .then(response => response.json())
   .then(data => {

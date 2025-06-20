@@ -24,7 +24,7 @@ class FileUpload extends React.Component {
     const uploadField = document.getElementById("file");
     //uploadField.onchange = function() {
       if(file.size > 102090) { //about 100kb
-        alert("File is too big!");
+        alert("The bookmarks file,"+file.name+", is too big. It needs to be under 100kb");
         //this.value = "";
         return
       };

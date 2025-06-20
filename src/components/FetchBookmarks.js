@@ -70,6 +70,8 @@ const FetchBookmarks = (props) => {
           const now = new Date();
           //console.log("data="+data)
           setData(data);
+          console.log("data.length="+data.length)
+          console.log("data.length/1024="+data.length/1024)
 
           //const text = `<p>Some text</p><br /><a href="https://daily-dev-tips.com/">My website</a><hr /><a href="https://google.com">Another link</a>`;
 
@@ -77,41 +79,7 @@ const FetchBookmarks = (props) => {
           const doc = parser.parseFromString(data, "text/html");
           let links = doc.getElementsByTagName("a"); // This returns an HTMLCollection of all <a> tags
 
-          //Build logs:         https://app.netlify.com/projects/enchanting-pasca-d60239/deploys/6851edeab10df11191b54983
-          //Function logs:      https://app.netlify.com/projects/enchanting-pasca-d60239/logs/functions
-          //Edge function Logs: https://app.netlify.com/projects/enchanting-pasca-d60239/logs/edge-functions
-
-          //https://enchanting-pasca-d60239.netlify.app
-          //https://6851edeab10df11191b54983--enchanting-pasca-d60239.netlify.app
-          //https://6851fb03d875b622d5e4b61e--enchanting-pasca-d60239.netlify.app
-
-          // async function postData(url, data) {
-          //   try {
-          //     const response = await fetch(url, {
-          //       method: "POST",
-          //       headers: {
-          //         "Content-Type": "text/html",
-          //       },
-          //       body: data,
-          //     });
-
-          //     if (response.ok) {
-          //       const result = await response.json();
-          //       console.log("Success:", result);
-          //     } else {
-          //       console.error("Error:", response.status, response.statusText);
-          //     }
-          //   } catch (error) {
-          //     console.error("Error:", error.message);
-          //   }
-          // }
-
-          
-          // postData("https://enchanting-pasca-d60239.netlify.app", data);
-          // throw new Error("not really an error")
-
-  //         const formData = new FormData();
-  // formData.append('file', data); // Append the file to the FormData object//
+//max size of bookmarks file that can be passed is 100kb         
   console.log("data="+data)
   console.log("typeof data="+typeof data)
   let htmlContent = data

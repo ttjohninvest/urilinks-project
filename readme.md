@@ -1,6 +1,23 @@
 # Git Commands
 
 todo to do
+bookmark file size that is under 100kb will work, about 125 bookmarks
+-----------------------------------------------------------------------------------------
+express server api to convert the bookmarks.html file into json so that I can process it
+in FetchBookmarks.js and convert all of the folder names into hashtags
+
+vercel.com log, ttjohninvest@gmail.com
+on chrome select github.com, github.com account is ttjohninvest@gmail.com
+project: urilinks-project-vercel-app
+
+github.com, ttjohninvest@gmail.com
+chrome will log in automatically
+urilinks-project-vercel-app
+
+command to login into github from the command line
+gh auth login
+--------------------------------------------------------------------------------------------
+i may need a tool to split up the bookmarks file for the user and press it in a loop in the code
 their is no limit on the number of hashtags, I need to set a limit
 
 the add_date timestamp from the bookmarks html file is failing, I have to use the current timestamp
@@ -323,19 +340,4 @@ still having problem with ADD_DATE,
 it is being put into props.links, but it is not displaying because
 because the way I convert the timestamp is wrong
 
-the api to process the bookmarks is on netlify, johmcg64@gmail.com
-
-vercel.com log, ttjohninvest@gmail.com
-on chrome select github.com, github.com account is ttjohninvest@gmail.com
-project: urilinks-project-vercel-app
-
-github.com, ttjohninvest@gmail.com
-chrome will log in automatically
-urilinks-project-vercel-app
-
-github.com ttjohninvest4@gmail.com, vercel-project-urilinks-api
-vercel sign in with github using ttjohninvest4@gmail.com
-
-command to login into github from the command line
-gh auth login
 

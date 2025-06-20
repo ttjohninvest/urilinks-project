@@ -115,21 +115,21 @@ const FetchBookmarks = (props) => {
   console.log("data="+data)
   console.log("typeof data="+typeof data)
   let htmlContent = data
-  //fetch('https://fantastic-tapioca-374e79.netlify.app/.netlify/functions/api', {
-  // fetch('https://urilinks-project-vercel-api-5.vercel.app', {
-  //   method: 'POST',
-  //   headers:{
-  //     'Content-Type':'text/html'
-  //   },
-  //   body: JSON.stringify(htmlContent)
-  // })
-  // .then(response => response.json())
-  // .then(data => {
-  //   console.log('Success:', data);
-  // })
-  // .catch(error => {
-  //   console.error('Error:', error);
-  // });
+  
+  fetch('https://urilinks-project-vercel-api-5.vercel.app', {
+    method: 'POST',
+    headers:{
+      'Content-Type':'text/html'
+    },
+    body: htmlContent
+  })
+  .then(response => response.text())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
 
           
 //

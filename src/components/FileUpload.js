@@ -21,6 +21,13 @@ class FileUpload extends React.Component {
     const file = e.target[0].files[0];
     console.log("file.type="+file.type)
     if(file.type !== "text/html") return false
+    const uploadField = document.getElementById("file");
+    //uploadField.onchange = function() {
+      if(file.size > 102090) { //about 100kb
+        alert("File is too big!");
+        //this.value = "";
+        return
+      };
     this.uploadFiles(file);
   };
 

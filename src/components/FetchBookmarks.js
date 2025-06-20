@@ -115,7 +115,7 @@ const FetchBookmarks = (props) => {
   console.log("data="+data)
   console.log("typeof data="+typeof data)
   let htmlContent = data
-  htmlContent = "abc"
+  //htmlContent = "abc"
   fetch('https://urilinks-project-vercel-api-5.vercel.app', {
     method: 'POST',
     headers:{

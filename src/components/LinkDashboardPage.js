@@ -89,7 +89,7 @@ const LinkDashboardPage = (props) => {
 
  return (
   <div className="ws-bg">
- <div id="very-top-id" className="website-background-color">
+ <div id="very-top-id" className="website-background-color-">
      {first?<div>
  <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
       <LinkList />

@@ -212,12 +212,7 @@ hashtagv="#menu"
                    //
                     //l = l + 1;
                     
-                      for (
-                        let j = 0;
-                        data.message[i].children &&
-                        j < data.message[i].children[j].length;
-                        j++
-                      ) {
+                     
                         console.log("inside most loop");
                         //let type=data.message[i].children[j].children[n].type //Bookmark
                         let url = data.message[i].children[j].url; //the url of the page
@@ -239,7 +234,7 @@ hashtagv="#menu"
                             faviconURL: icon, //"https://google.com/favicon.ico" //icon
                           });
                         }
-                      }
+                      
                     
                   }
 

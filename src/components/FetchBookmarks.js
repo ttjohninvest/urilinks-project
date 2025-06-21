@@ -164,7 +164,7 @@ const FetchBookmarks = (props) => {
                       j < data.message[i].children.length;
                       j++
                     ) {
-                      if (data.message[i].children.type === undefined) {
+                      if (data.message[i].children.type === undefined || data.message[i].children.type === "bookmark") {
                         let url = data.message[i].children[j].url; //the url of the page
                         let title = data.message[i].children[j].title; //the link text for the page
                         let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"

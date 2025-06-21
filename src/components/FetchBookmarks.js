@@ -148,44 +148,44 @@ fetch('https://urilinks-project-vercel-api-5.vercel.app', {
    
      
 
-//               console.log("outside of all the loops")
-//     for(let i = 0; i<data.message.length;i++) {
-//         console.log("outside loop")
-//       for(let j = 0; j<data.message[i].children.length; j++) {
-//         console.log("inside loop")
-//         hashtagsArray[l]=getHashtag(data.message[i].children[j].title) //#bookmarks-a
-//         l = l + 1
-//         for(let n = 0; n<data.message[i].children[j].children.length; n++) {
-//             console.log("inside most loop")
-//           let type=data.message[i].children[j].children[n].type //Bookmark
-//           let url=data.message[i].children[j].children[n].url //the url of the page
-//           let title=data.message[i].children[j].children[n].title //the link text for the page
-//           let add_date=now.getTime() //data.message[0].children[0].children[0].add_date="9787657654"
-//           let icon=data.message[i].children[j].children[n].icon //the little icon of the page
+              console.log("outside of all the loops")
+    for(let i = 0; i<data.message.length;i++) {
+        console.log("outside loop")
+      for(let j = 0; j<data.message[i].children.length; j++) {
+        console.log("inside loop")
+        hashtagsArray[l]=getHashtag(data.message[i].children[j].title) //#bookmarks-a
+        l = l + 1
+        for(let n = 0; n<data.message[i].children[j].children.length; n++) {
+            console.log("inside most loop")
+          let type=data.message[i].children[j].children[n].type //Bookmark
+          let url=data.message[i].children[j].children[n].url //the url of the page
+          let title=data.message[i].children[j].children[n].title //the link text for the page
+          let add_date=now.getTime() //data.message[0].children[0].children[0].add_date="9787657654"
+          let icon=data.message[i].children[j].children[n].icon //the little icon of the page
 
-//           console.log("title="+title)
-//               if (
-//                 !hasControlCharacters(title) && title.length > 0
-//               ) {
-//                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))
-//                 console.log("pushing unto htmllinksarray")
-//                 htmllinksarray.push({
-//                   description: title,
-//                   Url: url, //, //href,
-//                   note: hashtagsArray[l],
-//                   amount: 0,
-//                   createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-//                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
-//                 });
-//               }
-//       }
-//     }
-//      console.log("hashtagsArray="+JSON.stringify(hashtagsArray))
-//      console.log("before the end of the outer loop")
-//   }
-//
+          console.log("title="+title)
+              if (
+                !hasControlCharacters(title) && title.length > 0
+              ) {
+                //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))
+                console.log("pushing unto htmllinksarray")
+                htmllinksarray.push({
+                  description: title,
+                  Url: url, //, //href,
+                  note: hashtagsArray[l],
+                  amount: 0,
+                  createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                  faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                });
+              }
+      }
+    }
+     console.log("hashtagsArray="+JSON.stringify(hashtagsArray))
+     console.log("before the end of the outer loop")
+  }
+
 console.log("loop ended")
-//console.log("htmllinksarray="+JSON.stringify(htmllinksarray))
+console.log("htmllinksarray="+JSON.stringify(htmllinksarray))
 
             // let A = props.links;
             // let B = htmllinksarray;

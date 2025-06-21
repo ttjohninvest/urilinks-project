@@ -187,7 +187,7 @@ const FetchBookmarks = (props) => {
                         //   j < data.message[i].children.length;
                         //   j++
                         // ) {
-                        console.log("data.message[i].children[j].children[k].length="+data.message[i].children[j].children[0].length)
+                        console.log("data.message[i].children[j].children="+data.message[i].children[j].children)
                         
                           hashtagv = getHashtag(
                             data.message[i].children[j].title

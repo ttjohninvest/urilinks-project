@@ -149,7 +149,7 @@ fetch('https://urilinks-project-vercel-api-5.vercel.app', {
      
 
               console.log("outside of all the loops")
-    for(let i = 0; i<data.message.length;i++) {
+    for(let i = 0; data.message && i<data.message.length;i++) {
         console.log("outside loop")
       for(let j = 0; data.message[i].children && j<data.message[i].children.length; j++) {
         console.log("inside loop")
@@ -187,77 +187,77 @@ fetch('https://urilinks-project-vercel-api-5.vercel.app', {
 console.log("loop ended")
 console.log("htmllinksarray="+JSON.stringify(htmllinksarray))
 
-            // let A = props.links;
-            // let B = htmllinksarray;
-            // let result = B.filter(
-            //   (b) => !A.some((a) => a.description === b.description)
-            // );
+            let A = props.links;
+            let B = htmllinksarray;
+            let result = B.filter(
+              (b) => !A.some((a) => a.description === b.description)
+            );
 
-            // console.log("result.length=" + result.length);
-            // //let ok = false;
-            // //500
-            // let ll = props.links.length;
-            // let rl = result.length;
+            console.log("result.length=" + result.length);
+            //let ok = false;
+            //500
+            let ll = props.links.length;
+            let rl = result.length;
 
-            // let max = 0;
-            // let loopmax2 = rl;
+            let max = 0;
+            let loopmax2 = rl;
 
-            // const user = firebase.auth().currentUser;
-            // if (
-            //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
-            //   user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
-            //   user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
-            //   user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
-            // ) {
-            //   max = 10000 - (rl + ll);
-            //   console.log("in if, ll=" + ll);
-            //   console.log("in if, rl=" + rl);
-            //   console.log("in if, max=" + max);
-            //   if (rl > max) {
-            //     loopmax2 = max;
-            //   }
-            // } else {
-            //   max = 500 - (rl + ll);
-            //   if (rl > max) {
-            //     loopmax2 = max;
-            //   } //otherwise rl is equal to the full length, result.length
-            // }
+            const user = firebase.auth().currentUser;
+            if (
+              user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
+              user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
+              user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
+              user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
+            ) {
+              max = 10000 - (rl + ll);
+              console.log("in if, ll=" + ll);
+              console.log("in if, rl=" + rl);
+              console.log("in if, max=" + max);
+              if (rl > max) {
+                loopmax2 = max;
+              }
+            } else {
+              max = 500 - (rl + ll);
+              if (rl > max) {
+                loopmax2 = max;
+              } //otherwise rl is equal to the full length, result.length
+            }
 
-            // //for (let i = 0; i < result.length; i++) {
-            // for (let i = 0; i < loopmax2; i++) {
-            //   //for (let i = 0; i < 1; i++) {
+            //for (let i = 0; i < result.length; i++) {
+            for (let i = 0; i < loopmax2; i++) {
+              //for (let i = 0; i < 1; i++) {
 
-            //   r = props.startAddLink({
-            //     description: result[i].description,
-            //     Url: result[i].Url, //, //href,
-            //     note: hashtagv,
-            //     amount: 0,
-            //     createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-            //     faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
-            //   });
+              r = props.startAddLink({
+                description: result[i].description,
+                Url: result[i].Url, //, //href,
+                note: hashtagv,
+                amount: 0,
+                createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+              });
 
-            //   if (r === false) {
-            //     setImportingError(true);
-            //     break;
-            //   }
-            // }
+              if (r === false) {
+                setImportingError(true);
+                break;
+              }
+            }
 
-            // if (r === false) {
-            //   // setErrorDialog(true);
-            //   console.log("ERROR, VVVVVVVVVVVVV returned false");
-            // } else {
-            //   console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-            //   //props.history.push("/");
-            //   //window.location.reload()
+            if (r === false) {
+              // setErrorDialog(true);
+              console.log("ERROR, VVVVVVVVVVVVV returned false");
+            } else {
+              console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+              //props.history.push("/");
+              //window.location.reload()
 
-            //   //how many new links were added, because of the maximum of 500 I had to add this
-            //   setMax(max);
-            //   setRl(rl); //rl is the length of the full amount to upload
-            //   setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
-            //   const fileRef = storage.refFromURL(props.url);
+              //how many new links were added, because of the maximum of 500 I had to add this
+              setMax(max);
+              setRl(rl); //rl is the length of the full amount to upload
+              setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+              const fileRef = storage.refFromURL(props.url);
 
-            //   fileRef.delete();
-            // }
+              fileRef.delete();
+            }
           
         })
         .catch((error) => {

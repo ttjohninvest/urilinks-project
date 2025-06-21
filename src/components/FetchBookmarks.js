@@ -124,6 +124,7 @@ const FetchBookmarks = (props) => {
 
             let r = true;
             let htmllinksarray = [];
+            
 
             fetch("https://urilinks-project-vercel-api-5.vercel.app", {
               method: "POST",
@@ -147,14 +148,20 @@ const FetchBookmarks = (props) => {
                 //hashtagsArray[3]=getHashtag(data.message[1].children[1].title="Bookmarks-D") //#bookmarks-d
                 //message.type="folder" process message.children[i] too
                 // console.log("outside of all the loops");
+                let hashtagv
                 for (let i = 0; data.message && i < data.message.length; i++) {
                   console.log("outside loop");
                   if(data.message[i].type!=="folder") {
 
                   } else { //data.message[i].type is equal to folder
-                    let hashtagv = getHashtag(
+                    if(i===0) {
+                      hashtagv = getHashtag(
                       data.message[i].title
                     );
+                    } else {
+                      hashtagv="#menu"
+                    }
+                    
                   for (
                     let j = 0;
                     data.message[i].children &&

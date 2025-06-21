@@ -208,7 +208,7 @@ hashtagv="#menu"
                     console.log("inside loop");
                     
                     
-                   
+                   //
                     //l = l + 1;
                     
                       for (

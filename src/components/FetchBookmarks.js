@@ -153,11 +153,8 @@ const FetchBookmarks = (props) => {
                   if(i===0) {
                        hashtagv = getHashtag(data.message[i].title)
                     
-                    
-                   
-
-                    
-                  for (
+                  if(1) {
+                    for (
                     let j = 0;
                     data.message[i].children &&
                     j < data.message[i].children.length;
@@ -186,6 +183,13 @@ const FetchBookmarks = (props) => {
                         }
                        
                   }
+                    } else {
+
+                    }
+                   
+
+                    
+                  
                   
                 
                 

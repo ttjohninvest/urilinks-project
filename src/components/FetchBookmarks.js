@@ -135,12 +135,16 @@ const FetchBookmarks = (props) => {
               .then((response) => response.json())
               .then((data) => { //json
                 console.log("Success:", data);
+                if(data.error) {
+                  console.log(data.error)
+                  return
+                }
                 //////
                 //hashtagsArray[0]=getHashtag(data.message[0].children[0].title="Bookmarks-A") //#bookmarks-a
                 //hashtagsArray[1]=getHashtag(data.message[0].children[1].title="Bookmarks-B") //#bookmarks-b
                 //hashtagsArray[2]=getHashtag(data.message[1].children[0].title="Bookmarks-C") //#bookmarks-c
                 //hashtagsArray[3]=getHashtag(data.message[1].children[1].title="Bookmarks-D") //#bookmarks-d
-
+                //message.type="folder" process message.children[i] too
                 // console.log("outside of all the loops");
                 // for (let i = 0; data.message && i < data.message.length; i++) {
                 //   console.log("outside loop");

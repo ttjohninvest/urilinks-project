@@ -198,6 +198,7 @@ const FetchBookmarks = (props) => {
                           ) {
                             let url =
                               data.message[i].children[j].children[k].url; //the url of the page
+                              console.log("url="+url)
                             let title =
                               data.message[i].children[j].children[k].title; //the link text for the page
                             let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"

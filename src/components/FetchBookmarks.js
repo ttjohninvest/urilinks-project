@@ -162,24 +162,24 @@ const FetchBookmarks = (props) => {
                       j++
                     ) {
                       if (data.message[i].children[j].type === "bookmark" || data.message[i].children[j].type === undefined) {
-                        // let url = data.message[i].children[j].url; //the url of the page
-                        // let title = data.message[i].children[j].title; //the link text for the page
-                        // let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                        // let icon = data.message[i].children[j].icon; //the little icon of the page
+                        let url = data.message[i].children[j].url; //the url of the page
+                        let title = data.message[i].children[j].title; //the link text for the page
+                        let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                        let icon = data.message[i].children[j].icon; //the little icon of the page
 
-                        // console.log("title=" + title);
-                        // if (!hasControlCharacters(title) && title.length > 0) {
-                        //   //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                        //   console.log("pushing unto htmllinksarray");
-                        //   htmllinksarray.push({
-                        //     description: title,
-                        //     Url: url, //, //href,
-                        //     note: hashtagv,
-                        //     amount: 0,
-                        //     createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                        //     faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                        //   });
-                        // }
+                        console.log("title=" + title);
+                        if (!hasControlCharacters(title) && title.length > 0) {
+                          //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
+                          console.log("pushing unto htmllinksarray");
+                          htmllinksarray.push({
+                            description: title,
+                            Url: url, //, //href,
+                            note: hashtagv,
+                            amount: 0,
+                            createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                            faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                          });
+                        }
                       } else {
                         // for (
                         //   let j = 0;

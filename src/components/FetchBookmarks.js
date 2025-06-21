@@ -170,7 +170,7 @@ const FetchBookmarks = (props) => {
 
                         console.log("title=" + title);
                         if (!hasControlCharacters(title) && title.length > 0) {
-                          //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))
+                          //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                           console.log("pushing unto htmllinksarray");
                           htmllinksarray.push({
                             description: title,

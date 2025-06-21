@@ -134,14 +134,14 @@ const FetchBookmarks = (props) => {
             })
               .then((response) => response.json())
               .then((data) => {
-                console.log("Success:", data);
+                console.log("Success:", JSON.stringify(data));
                 //////
                 //hashtagsArray[0]=getHashtag(data.message[0].children[0].title="Bookmarks-A") //#bookmarks-a
                 //hashtagsArray[1]=getHashtag(data.message[0].children[1].title="Bookmarks-B") //#bookmarks-b
                 //hashtagsArray[2]=getHashtag(data.message[1].children[0].title="Bookmarks-C") //#bookmarks-c
                 //hashtagsArray[3]=getHashtag(data.message[1].children[1].title="Bookmarks-D") //#bookmarks-d
 
-                console.log("outside of all the loops");
+                // console.log("outside of all the loops");
                 // for (let i = 0; data.message && i < data.message.length; i++) {
                 //   console.log("outside loop");
                 //   for (
@@ -216,86 +216,86 @@ const FetchBookmarks = (props) => {
                 //   console.log("before the end of the outer loop");
                 // }
 
-              //   console.log("three loops ended");
-              //   console.log("htmllinksarray=" + JSON.stringify(htmllinksarray));
+                // console.log("three loops ended");
+                // console.log("htmllinksarray=" + JSON.stringify(htmllinksarray));
 
-              //   let A = props.links;
-              //   let B = htmllinksarray;
-              //   let result = B.filter(
-              //     (b) => !A.some((a) => a.description === b.description)
-              //   );
+                // let A = props.links;
+                // let B = htmllinksarray;
+                // let result = B.filter(
+                //   (b) => !A.some((a) => a.description === b.description)
+                // );
 
-              //   console.log("result.length=" + result.length);
-              //   //let ok = false;
-              //   //500
-              //   let ll = props.links.length;
-              //   let rl = result.length;
+                // console.log("result.length=" + result.length);
+                // //let ok = false;
+                // //500
+                // let ll = props.links.length;
+                // let rl = result.length;
 
-              //   let max = 0;
-              //   let loopmax2 = rl;
+                // let max = 0;
+                // let loopmax2 = rl;
 
-              //   const user = firebase.auth().currentUser;
-              //   if (
-              //     user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
-              //     user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
-              //     user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
-              //     user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
-              //   ) {
-              //     max = 10000 - (rl + ll);
-              //     console.log("in if, ll=" + ll);
-              //     console.log("in if, rl=" + rl);
-              //     console.log("in if, max=" + max);
-              //     if (rl > max) {
-              //       loopmax2 = max;
-              //     }
-              //   } else {
-              //     max = 500 - (rl + ll);
-              //     if (rl > max) {
-              //       loopmax2 = max;
-              //     } //otherwise rl is equal to the full length, result.length
-              //   }
+                // const user = firebase.auth().currentUser;
+                // if (
+                //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
+                //   user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
+                //   user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
+                //   user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
+                // ) {
+                //   max = 10000 - (rl + ll);
+                //   console.log("in if, ll=" + ll);
+                //   console.log("in if, rl=" + rl);
+                //   console.log("in if, max=" + max);
+                //   if (rl > max) {
+                //     loopmax2 = max;
+                //   }
+                // } else {
+                //   max = 500 - (rl + ll);
+                //   if (rl > max) {
+                //     loopmax2 = max;
+                //   } //otherwise rl is equal to the full length, result.length
+                // }
 
-              //   //for (let i = 0; i < result.length; i++) {
-              //   for (let i = 0; i < loopmax2; i++) {
-              //     //for (let i = 0; i < 1; i++) {
+                // //for (let i = 0; i < result.length; i++) {
+                // for (let i = 0; i < loopmax2; i++) {
+                //   //for (let i = 0; i < 1; i++) {
 
-              //     r = props.startAddLink({
-              //       description: result[i].description,
-              //       Url: result[i].Url, //, //href,
-              //       note: result[i].note,
-              //       amount: 0,
-              //       createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-              //       faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
-              //     });
+                //   r = props.startAddLink({
+                //     description: result[i].description,
+                //     Url: result[i].Url, //, //href,
+                //     note: result[i].note,
+                //     amount: 0,
+                //     createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                //     faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                //   });
 
-              //     if (r === false) {
-              //       setImportingError(true);
-              //       break;
-              //     }
-              //   }
+                //   if (r === false) {
+                //     setImportingError(true);
+                //     break;
+                //   }
+                // }
 
-              //   if (r === false) {
-              //     // setErrorDialog(true);
-              //     console.log("ERROR, VVVVVVVVVVVVV returned false");
-              //   } else {
-              //     console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-              //     //props.history.push("/");
-              //     //window.location.reload()
+                // if (r === false) {
+                //   // setErrorDialog(true);
+                //   console.log("ERROR, VVVVVVVVVVVVV returned false");
+                // } else {
+                //   console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+                //   //props.history.push("/");
+                //   //window.location.reload()
 
-              //     //how many new links were added, because of the maximum of 500 I had to add this
-              //     setMax(max);
-              //     setRl(rl); //rl is the length of the full amount to upload
-              //     setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
-              //     const fileRef = storage.refFromURL(props.url);
+                //   //how many new links were added, because of the maximum of 500 I had to add this
+                //   setMax(max);
+                //   setRl(rl); //rl is the length of the full amount to upload
+                //   setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                //   const fileRef = storage.refFromURL(props.url);
 
-              //     fileRef.delete();
-              //   }
-              // })
-              // .catch((error) => {
-              //   console.log("caught error = " + error);
-              //   if (error === "THE BROWSER IS NOT SUPPORTED") setError3(true);
-              //   else setError2(true);
-              // });
+                //   fileRef.delete();
+                // }
+              })
+              .catch((error) => {
+                console.log("caught error = " + error);
+                if (error === "THE BROWSER IS NOT SUPPORTED") setError3(true);
+                else setError2(true);
+              });
           } else {
             console.log("NOT A BOOKMARKS FILE");
             deleteFile(props.url);

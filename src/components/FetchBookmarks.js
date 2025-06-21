@@ -272,6 +272,9 @@ const FetchBookmarks = (props) => {
                                 }
                               } else {
                                 //folder
+                                hashtagv = getHashtag(
+                              data.message[i].children[j].children[k].children[l].title
+                            );
                                 for (
                                   let m = 0;
                                   data.message[i].children[j].children[k]

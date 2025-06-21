@@ -162,19 +162,7 @@ const FetchBookmarks = (props) => {
                     j++
                   ) {
                     console.log("inside loop");
-                    //hashtagsArray[l]=getHashtag(data.message[i].children[j].title) //#bookmarks-a
-                    
-                    
-                    l = l + 1;
-                    
-                      for (
-                        let j = 0;
-                        data.message[i].children &&
-                        j < data.message[i].children.length;
-                        j++
-                      ) {
-                        console.log("inside most loop");
-                        //let type=data.message[i].children[j].children[n].type //Bookmark
+
                         let url = data.message[i].children[j].url; //the url of the page
                         let title =
                           data.message[i].children[j].title; //the link text for the page
@@ -194,7 +182,7 @@ const FetchBookmarks = (props) => {
                             faviconURL: icon, //"https://google.com/favicon.ico" //icon
                           });
                         }
-                      }
+                      
                     
                   }
                   } else {
@@ -208,12 +196,6 @@ hashtagv="#menu"
                   ) {
                     console.log("inside loop");
                     
-                    
-                   //
-                    //l = l + 1;
-                    
-                     
-                        console.log("inside most loop");
                         //let type=data.message[i].children[j].children[n].type //Bookmark
                         let url = data.message[i].children[j].url; //the url of the page
                         let title =

@@ -154,6 +154,8 @@ const FetchBookmarks = (props) => {
                        hashtagv = getHashtag(data.message[i].title)
                     
                     
+                   
+
                     
                   for (
                     let j = 0;
@@ -182,9 +184,12 @@ const FetchBookmarks = (props) => {
                             faviconURL: icon, //"https://google.com/favicon.ico" //icon
                           });
                         }
-                      
-                    
+                       
                   }
+                  
+                
+                
+                
                   } else {
 hashtagv="#otherbookmarks"
 //////////////////////////////////////////////

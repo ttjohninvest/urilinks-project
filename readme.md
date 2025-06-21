@@ -1,6 +1,7 @@
 # Git Commands
 
 todo to do
+it should be able to handle any depth of nesting
 bookmark file size that is under 100kb will work, about 125 bookmarks
 -----------------------------------------------------------------------------------------
 express server api to convert the bookmarks.html file into json so that I can process it

@@ -124,7 +124,6 @@ const FetchBookmarks = (props) => {
 
             let r = true;
             let htmllinksarray = [];
-            
 
             fetch("https://urilinks-project-vercel-api-5.vercel.app", {
               method: "POST",
@@ -134,45 +133,40 @@ const FetchBookmarks = (props) => {
               body: htmlContent,
             })
               .then((response) => response.json())
-              .then((data) => { //json
+              .then((data) => {
+                //json
                 console.log("Success:", data);
-                if(data.error) {
-                  console.log(data.error)
-                  return
+                if (data.error) {
+                  console.log(data.error);
+                  return;
                 }
                 //////
                 //message.type="folder" process message.children[i] too
-//hashtagsArray[0]=getHashtag(data.message[0].children[0].title="Bookmarks-A") //#bookmarks-a
+                //hashtagsArray[0]=getHashtag(data.message[0].children[0].title="Bookmarks-A") //#bookmarks-a
                 //hashtagsArray[1]=getHashtag(data.message[0].children[1].title="Bookmarks-B") //#bookmarks-b
                 //hashtagsArray[2]=getHashtag(data.message[1].children[0].title="Bookmarks-C") //#bookmarks-c
                 //hashtagsArray[3]=getHashtag(data.message[1].children[1].title="Bookmarks-D") //#bookmarks-d
                 //message.type="folder" process message.children[i] too
                 // console.log("outside of all the loops");
-                let hashtagv
+                let hashtagv;
                 for (let i = 0; data.message && i < data.message.length; i++) {
-                  if(i===0) {
-                       hashtagv = getHashtag(data.message[i].title)
+                  if (i === 0) {
+                    hashtagv = getHashtag(data.message[i].title);
 
+                    //data.message[i].children[j].children && data.message[i].children[j].children.length
+                    //data.message[i].children             && data.message[i].children.length
+                    //data.message[i].type is "folder"
+                    //data.message[i].type is undefined
 
-                       //data.message[i].children[j].children && data.message[i].children[j].children.length
-                       //data.message[i].children             && data.message[i].children.length
-                       //data.message[i].type is "folder"
-                       //data.message[i].type is undefined
-                    
-                   
                     for (
-                    let j = 0;
-                    data.message[i].children &&
-                    j < data.message[i].children.length;
-                    j++
-                  ) {
-                   
-                    if(data.message[i].children.type === undefined) {
- 
-
+                      let j = 0;
+                      data.message[i].children &&
+                      j < data.message[i].children.length;
+                      j++
+                    ) {
+                      if (data.message[i].children.type === undefined) {
                         let url = data.message[i].children[j].url; //the url of the page
-                        let title =
-                          data.message[i].children[j].title; //the link text for the page
+                        let title = data.message[i].children[j].title; //the link text for the page
                         let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                         let icon = data.message[i].children[j].icon; //the little icon of the page
 
@@ -189,89 +183,83 @@ const FetchBookmarks = (props) => {
                             faviconURL: icon, //"https://google.com/favicon.ico" //icon
                           });
                         }
+                      } else {
+                        for (
+                          let j = 0;
+                          data.message[i].children &&
+                          j < data.message[i].children.length;
+                          j++
+                        ) {
+                          hashtagv = getHashtag(
+                            data.message[i].children[j].title
+                          );
+                          for (
+                            let k = 0;
+                            data.message[i].children[j].children &&
+                            k < data.message[i].children[j].children[k].length;
+                            k++
+                          ) {
+                            let url =
+                              data.message[i].children[j].children[k].url; //the url of the page
+                            let title =
+                              data.message[i].children[j].children[k].title; //the link text for the page
+                            let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                            let icon =
+                              data.message[i].children[j].children[k].icon; //the little icon of the page
 
-                      
-                       
-                    } else {
-                    for (
-                    let j = 0;
-                    data.message[i].children &&
-                    j < data.message[i].children.length;
-                    j++
-                  ) {
-                    hashtagv = getHashtag(data.message[i].children[j].title)
-                    for (
-                    let k = 0;
-                    data.message[i].children[j].children &&
-                    k < data.message[i].children[j].children[k].length;
-                    k++
-                  ) {
-                  
-
-                        let url = data.message[i].children[j].children[k].url; //the url of the page
-                        let title =
-                          data.message[i].children[j].children[k].title; //the link text for the page
-                        let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                        let icon = data.message[i].children[j].children[k].icon; //the little icon of the page
-
-                        console.log("title=" + title);
-                        if (!hasControlCharacters(title) && title.length > 0) {
-                          //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                          console.log("pushing unto htmllinksarray");
-                          htmllinksarray.push({
-                            description: title,
-                            Url: url, //, //href,
-                            note: hashtagv,
-                            amount: 0,
-                            createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                            faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                          });
+                            console.log("title=" + title);
+                            if (
+                              !hasControlCharacters(title) &&
+                              title.length > 0
+                            ) {
+                              //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
+                              console.log("pushing unto htmllinksarray");
+                              htmllinksarray.push({
+                                description: title,
+                                Url: url, //, //href,
+                                note: hashtagv,
+                                amount: 0,
+                                createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                                faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                              });
+                            }
+                          } //nested for with k
                         }
-                      }//nested for with k
-                  }
+                      }
                     }
-                   
-                  }
-                    
-
                   } else {
-hashtagv="#otherbookmarks"
-//////////////////////////////////////////////
-                     for (
-                    let j = 0;
-                    data.message[i].children &&
-                    j < data.message[i].children.length;
-                    j++
-                  ) {
-                    console.log("inside loop");
-                    
-                        //let type=data.message[i].children[j].children[n].type //Bookmark
-                        let url = data.message[i].children[j].url; //the url of the page
-                        let title =
-                          data.message[i].children[j].title; //the link text for the page
-                        let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                        let icon = data.message[i].children[j].icon; //the little icon of the page
+                    hashtagv = "#otherbookmarks";
+                    //////////////////////////////////////////////
+                    for (
+                      let j = 0;
+                      data.message[i].children &&
+                      j < data.message[i].children.length;
+                      j++
+                    ) {
+                      console.log("inside loop");
 
-                        console.log("title=" + title);
-                        if (!hasControlCharacters(title) && title.length > 0) {
-                          //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))
-                          console.log("pushing unto htmllinksarray");
-                          htmllinksarray.push({
-                            description: title,
-                            Url: url, //, //href,
-                            note: hashtagv,
-                            amount: 0,
-                            createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                            faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                          });
-                        }
-                      
-                    
-                  }
+                      //let type=data.message[i].children[j].children[n].type //Bookmark
+                      let url = data.message[i].children[j].url; //the url of the page
+                      let title = data.message[i].children[j].title; //the link text for the page
+                      let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                      let icon = data.message[i].children[j].icon; //the little icon of the page
 
+                      console.log("title=" + title);
+                      if (!hasControlCharacters(title) && title.length > 0) {
+                        //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))
+                        console.log("pushing unto htmllinksarray");
+                        htmllinksarray.push({
+                          description: title,
+                          Url: url, //, //href,
+                          note: hashtagv,
+                          amount: 0,
+                          createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                          faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                        });
+                      }
+                    }
                   }
                   console.log("outside loop");
-                 
 
                   console.log("before the end of the outer loop");
                 }
@@ -355,7 +343,7 @@ hashtagv="#otherbookmarks"
                 //hashtagsArray[1]=getHashtag(data.message[0].children[1].title="Bookmarks-B") //#bookmarks-b
                 //hashtagsArray[2]=getHashtag(data.message[1].children[0].title="Bookmarks-C") //#bookmarks-c
                 //hashtagsArray[3]=getHashtag(data.message[1].children[1].title="Bookmarks-D") //#bookmarks-d
-                
+
                 // console.log("outside of all the loops");
                 // for (let i = 0; data.message && i < data.message.length; i++) {
                 //   console.log("outside loop");
@@ -402,7 +390,7 @@ hashtagv="#otherbookmarks"
                 //         }
                 //       }
                 //     } else if (type === "bookmark") {
-                      
+
                 //         console.log("inside most loop");
                 //         //let type=data.message[i].children[j].children[n].type //Bookmark
                 //         let url = data.message[i].children[j].url; //the url of the page
@@ -424,7 +412,7 @@ hashtagv="#otherbookmarks"
                 //             faviconURL: icon, //"https://google.com/favicon.ico" //icon
                 //           });
                 //         }
-                      
+
                 //     }
                 //   }
 

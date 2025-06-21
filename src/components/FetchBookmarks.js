@@ -219,7 +219,7 @@ const FetchBookmarks = (props) => {
                                 Url: url, //, //href,
                                 note: hashtagv,
                                 amount: 0,
-                                createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                                createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                 faviconURL: icon, //"https://google.com/favicon.ico" //icon
                               });
                             }

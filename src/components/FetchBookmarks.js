@@ -153,7 +153,8 @@ fetch('https://urilinks-project-vercel-api-5.vercel.app', {
         console.log("outside loop")
       for(let j = 0; data.message[i].children && j<data.message[i].children.length; j++) {
         console.log("inside loop")
-        hashtagsArray[l]=getHashtag(data.message[i].children[j].title) //#bookmarks-a
+        //hashtagsArray[l]=getHashtag(data.message[i].children[j].title) //#bookmarks-a
+        let hashtagv=getHashtag(data.message[i].children[j].title)
         l = l + 1
         for(let n = 0; data.message[i].children[j].children && n<data.message[i].children[j].children.length; n++) {
             console.log("inside most loop")
@@ -162,7 +163,7 @@ fetch('https://urilinks-project-vercel-api-5.vercel.app', {
           let title=data.message[i].children[j].children[n].title //the link text for the page
           let add_date=now.getTime() //data.message[0].children[0].children[0].add_date="9787657654"
           let icon=data.message[i].children[j].children[n].icon //the little icon of the page
-
+          
           console.log("title="+title)
               if (
                 !hasControlCharacters(title) && title.length > 0
@@ -172,7 +173,7 @@ fetch('https://urilinks-project-vercel-api-5.vercel.app', {
                 htmllinksarray.push({
                   description: title,
                   Url: url, //, //href,
-                  note: hashtagsArray[l],
+                  note: hashtagv,
                   amount: 0,
                   createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -180,7 +181,7 @@ fetch('https://urilinks-project-vercel-api-5.vercel.app', {
               }
       }
     }
-     console.log("hashtagsArray="+JSON.stringify(hashtagsArray))
+     
      console.log("before the end of the outer loop")
   }
 
@@ -230,7 +231,7 @@ console.log("htmllinksarray="+JSON.stringify(htmllinksarray))
               r = props.startAddLink({
                 description: result[i].description,
                 Url: result[i].Url, //, //href,
-                note: hashtagv,
+                note:  result[i].note,
                 amount: 0,
                 createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                 faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon

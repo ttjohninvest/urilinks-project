@@ -181,12 +181,7 @@ const FetchBookmarks = (props) => {
                           });
                         }
                       } else {
-                        // for (
-                        //   let j = 0;
-                        //   data.message[i].children &&
-                        //   j < data.message[i].children.length;
-                        //   j++
-                        // ) {
+                     
                         console.log("data.message[i].children[j].children="+JSON.stringify(data.message[i].children[j].children))
                         
                           hashtagv = getHashtag(
@@ -198,8 +193,8 @@ const FetchBookmarks = (props) => {
                             k < data.message[i].children[j].children.length;
                             k++
                           ) {
-                            console.log(k)
-                            let url =
+                               if(data.message[i].children[j].children[k].type==="bookmark") {
+                               let url =
                               data.message[i].children[j].children[k].url; //the url of the page
                               console.log("url="+url)
                             let title =
@@ -224,8 +219,46 @@ const FetchBookmarks = (props) => {
                                 faviconURL: icon, //"https://google.com/favicon.ico" //icon
                               });
                             }
+                               } else {
+                                 hashtagv = getHashtag(
+                            data.message[i].children[j].children[k].title
+                          );
+                          for (
+                            let l = 0;
+                            data.message[i].children[j].children[k].children &&
+                            l < data.message[i].children[j].children[k].children.length;
+                            l++
+                          ) {
+                              let url =
+                              data.message[i].children[j].children[k].children[l].url; //the url of the page
+                              console.log("url="+url)
+                            let title =
+                              data.message[i].children[j].children[k].children[l].title; //the link text for the page
+                            let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                            let icon =
+                              data.message[i].children[j].children[k].children[l].icon; //the little icon of the page
+
+                            console.log("title=" + title);
+                            if (
+                              !hasControlCharacters(title) &&
+                              title.length > 0
+                            ) {
+                              //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
+                              console.log("pushing unto htmllinksarray");
+                              htmllinksarray.push({
+                                description: title,
+                                Url: url, //, //href,
+                                note: hashtagv,
+                                amount: 0,
+                                createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                                faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                              });
+                            }
+                          }
+                               }
+                               
                           } //nested for with k
-                        //}
+                        
                       }
                     }
                   } else {

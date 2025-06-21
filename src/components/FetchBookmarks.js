@@ -133,8 +133,8 @@ const FetchBookmarks = (props) => {
               body: htmlContent,
             })
               .then((response) => response.json())
-              .then((data) => {
-                console.log("Success:", JSON.stringify(data));
+              .then((data) => { //json
+                console.log("Success:", data);
                 //////
                 //hashtagsArray[0]=getHashtag(data.message[0].children[0].title="Bookmarks-A") //#bookmarks-a
                 //hashtagsArray[1]=getHashtag(data.message[0].children[1].title="Bookmarks-B") //#bookmarks-b

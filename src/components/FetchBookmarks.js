@@ -151,18 +151,9 @@ const FetchBookmarks = (props) => {
                 let hashtagv
                 for (let i = 0; data.message && i < data.message.length; i++) {
                   console.log("outside loop");
-                  if(data.message[i].type!=="folder") {
-
-                  } else { //data.message[i].type is equal to folder
-                    if(i===0) {
-                      hashtagv = getHashtag(
-                      data.message[i].title
-                    );
-                    } else {
-                      hashtagv="#menu"
-                    }
-                    
-                  for (
+                  if(data.message[i].type!=="folder") { //this is the second one, menu
+                  hashtagv="#menu"
+                     for (
                     let j = 0;
                     data.message[i].children &&
                     j < data.message[i].children.length;
@@ -173,37 +164,13 @@ const FetchBookmarks = (props) => {
                     
                     let type = data.message[i].children[j].type;
                     l = l + 1;
-                    if (type === "folder") {
+                    
                       for (
-                        let n = 0;
-                        data.message[i].children[j].children &&
-                        n < data.message[i].children[j].children.length;
-                        n++
+                        let j = 0;
+                        data.message[i].children &&
+                        j < data.message[i].children[j].length;
+                        j++
                       ) {
-                        console.log("inside most loop");
-                        //let type=data.message[i].children[j].children[n].type //Bookmark
-                        let url = data.message[i].children[j].children[n].url; //the url of the page
-                        let title =
-                          data.message[i].children[j].children[n].title; //the link text for the page
-                        let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                        let icon = data.message[i].children[j].children[n].icon; //the little icon of the page
-
-                        console.log("title=" + title);
-                        if (!hasControlCharacters(title) && title.length > 0) {
-                          //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))
-                          console.log("pushing unto htmllinksarray");
-                          htmllinksarray.push({
-                            description: title,
-                            Url: url, //, //href,
-                            note: hashtagv,
-                            amount: 0,
-                            createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                            faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                          });
-                        }
-                      }
-                    } else if (type === "bookmark") {
-                      
                         console.log("inside most loop");
                         //let type=data.message[i].children[j].children[n].type //Bookmark
                         let url = data.message[i].children[j].url; //the url of the page
@@ -225,8 +192,58 @@ const FetchBookmarks = (props) => {
                             faviconURL: icon, //"https://google.com/favicon.ico" //icon
                           });
                         }
-                      
-                    }
+                      }
+                    
+                  }
+
+                  } else { //data.message[i].type is equal to folder
+                    
+                    
+                      hashtagv = getHashtag(data.message[i].title)
+                    
+                    
+                    
+                  for (
+                    let j = 0;
+                    data.message[i].children &&
+                    j < data.message[i].children.length;
+                    j++
+                  ) {
+                    console.log("inside loop");
+                    //hashtagsArray[l]=getHashtag(data.message[i].children[j].title) //#bookmarks-a
+                    
+                    
+                    l = l + 1;
+                    
+                      for (
+                        let n = 0;
+                        data.message[i].children &&
+                        n < data.message[i].children.length;
+                        n++
+                      ) {
+                        console.log("inside most loop");
+                        //let type=data.message[i].children[j].children[n].type //Bookmark
+                        let url = data.message[i].children[j].url; //the url of the page
+                        let title =
+                          data.message[i].children[j].title; //the link text for the page
+                        let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                        let icon = data.message[i].children[j].icon; //the little icon of the page
+
+                        console.log("title=" + title);
+                        if (!hasControlCharacters(title) && title.length > 0) {
+                          //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))
+                          console.log("pushing unto htmllinksarray");
+                          htmllinksarray.push({
+                            description: title,
+                            Url: url, //, //href,
+                            note: hashtagv,
+                            amount: 0,
+                            createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                            faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                          });
+                        }
+                      }
+                    
                   }
                 }
 

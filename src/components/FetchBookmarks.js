@@ -151,11 +151,11 @@ fetch('https://urilinks-project-vercel-api-5.vercel.app', {
               console.log("outside of all the loops")
     for(let i = 0; i<data.message.length;i++) {
         console.log("outside loop")
-      for(let j = 0; j<data.message[i].children.length; j++) {
+      for(let j = 0; data.message[i].children && j<data.message[i].children.length; j++) {
         console.log("inside loop")
         hashtagsArray[l]=getHashtag(data.message[i].children[j].title) //#bookmarks-a
         l = l + 1
-        for(let n = 0; n<data.message[i].children[j].children.length; n++) {
+        for(let n = 0; data.message[i].children[j].children && n<data.message[i].children[j].children.length; n++) {
             console.log("inside most loop")
           let type=data.message[i].children[j].children[n].type //Bookmark
           let url=data.message[i].children[j].children[n].url //the url of the page

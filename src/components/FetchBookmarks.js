@@ -140,19 +140,12 @@ const FetchBookmarks = (props) => {
                   console.log(data.error);
                   return;
                 }
-                //////
-                //message.type="folder" process message.children[i] too
-                //hashtagsArray[0]=getHashtag(data.message[0].children[0].title="Bookmarks-A") //#bookmarks-a
-                //hashtagsArray[1]=getHashtag(data.message[0].children[1].title="Bookmarks-B") //#bookmarks-b
-                //hashtagsArray[2]=getHashtag(data.message[1].children[0].title="Bookmarks-C") //#bookmarks-c
-                //hashtagsArray[3]=getHashtag(data.message[1].children[1].title="Bookmarks-D") //#bookmarks-d
-                //message.type="folder" process message.children[i] too
-                // console.log("outside of all the loops");
+             
                 let hashtagv;
                 for (let i = 0; data.message && i < data.message.length; i++) {
                   if (i === 0) {
                     hashtagv = getHashtag(data.message[i].title);
-
+                    console.log("1 hashtagv=data.message["+i+"].title="+hashtagv)
                     for (
                       let j = 0;
                       data.message[i].children &&
@@ -190,6 +183,7 @@ const FetchBookmarks = (props) => {
                         hashtagv = getHashtag(
                           data.message[i].children[j].title
                         );
+                        console.log("2,hashtagv=data.message["+i+"].children["+j+"].title="+hashtagv)
                         for (
                           let k = 0;
                           data.message[i].children[j].children &&
@@ -229,6 +223,8 @@ const FetchBookmarks = (props) => {
                             hashtagv = getHashtag(
                               data.message[i].children[j].children[k].title
                             );
+                            console.log("3,hashtagv=data.message["+i+"].children["+j+"].children["+k+"].title="+hashtagv)
+                       
                             for (
                               let l = 0;
                               data.message[i].children[j].children[k]
@@ -275,6 +271,8 @@ const FetchBookmarks = (props) => {
                                 hashtagv = getHashtag(
                               data.message[i].children[j].children[k].children[l].title
                             );
+                            console.log("4,hashtagv=data.message["+i+"].children["+j+"].children["+k+"].title="+hashtagv)
+                       
                                 for (
                                   let m = 0;
                                   data.message[i].children[j].children[k]

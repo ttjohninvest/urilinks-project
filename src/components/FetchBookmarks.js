@@ -229,6 +229,7 @@ const FetchBookmarks = (props) => {
                             const hashtagv3 = getHashtag(
                               data.message[i].children[j].children[k].title
                             );
+                            console.log("hashtagv3"+hashtagv3)
                             for (
                               let l = 0;
                               data.message[i].children[j].children[k]
@@ -269,6 +270,8 @@ const FetchBookmarks = (props) => {
                                     createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                     faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                   });
+                                } else {
+                                  console.log("NOT pushing unto htmllinksarray");
                                 }
                               } else {
                                 //folder
@@ -276,6 +279,7 @@ const FetchBookmarks = (props) => {
                                   data.message[i].children[j].children[k]
                                     .children[l].title
                                 );
+                                console.log("hashtagv4="+hashtagv4)
                                 for (
                                   let m = 0;
                                   data.message[i].children[j].children[k]
@@ -319,13 +323,15 @@ const FetchBookmarks = (props) => {
                                         createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                         faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                       });
-                                    }
+                                    }else {
+                                  console.log("NOT pushing unto htmllinksarray");
+                                }
                                   } else {
                                     const hashtagv5 = getHashtag(
                                       data.message[i].children[j].children[k]
                                         .children[l].children[m].title
                                     );
-
+console.log("hashtagv5="+hashtagv5)
                                     for (
                                       let n = 0;
                                       data.message[i].children[j].children[k]
@@ -376,7 +382,9 @@ const FetchBookmarks = (props) => {
                                             createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                             faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                           });
-                                        }
+                                        }else {
+                                  console.log("NOT pushing unto htmllinksarray");
+                                }
                                       } else {
                                         const hashtagv6 = getHashtag(
                                           data.message[i].children[j].children[
@@ -384,7 +392,7 @@ const FetchBookmarks = (props) => {
                                           ].children[l].children[m].children[n]
                                             .title
                                         );
-
+console.log("hashtagv5="+hashtagv5)
                                         for (
                                           let o = 0;
                                           data.message[i].children[j].children[
@@ -440,7 +448,9 @@ const FetchBookmarks = (props) => {
                                                 createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                 faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                               });
-                                            }
+                                            }else {
+                                  console.log("NOT pushing unto htmllinksarray");
+                                }
                                           } else {
                                             const hashtagv7 = getHashtag(
                                               data.message[i].children[j]
@@ -448,7 +458,7 @@ const FetchBookmarks = (props) => {
                                                 .children[m].children[n]
                                                 .children[o].title
                                             );
-
+console.log("hashtagv7="+hashtagv7)
                                             for (
                                               let p = 0;
                                               data.message[i].children[j]
@@ -509,7 +519,9 @@ const FetchBookmarks = (props) => {
                                                     createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                     faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                                   });
-                                                }
+                                                }else {
+                                  console.log("NOT pushing unto htmllinksarray");
+                                }
                                               } else {
                                                 const hashtagv8 = getHashtag(
                                                   data.message[i].children[j]
@@ -518,7 +530,7 @@ const FetchBookmarks = (props) => {
                                                     .children[o].children[p]
                                                     .title
                                                 );
-
+console.log("hashtagv8="+hashtagv8)
                                                 for (
                                                   let q = 0;
                                                   data.message[i].children[j]
@@ -588,7 +600,9 @@ const FetchBookmarks = (props) => {
                                                           now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                         faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                                       });
-                                                    }
+                                                    }else {
+                                  console.log("NOT pushing unto htmllinksarray");
+                                }
                                                   } else {
                                                     const hashtagv9 = getHashtag(
                                                       data.message[i].children[

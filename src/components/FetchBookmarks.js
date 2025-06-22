@@ -318,7 +318,7 @@ const FetchBookmarks = (props) => {
                       }
                     }
                   } else {
-                    hashtagv = "#otherbookmarks";
+                    let hashtagv = "#otherbookmarks";
                     //////////////////////////////////////////////
                     for (
                       let j = 0;

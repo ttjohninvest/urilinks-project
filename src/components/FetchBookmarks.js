@@ -145,7 +145,7 @@ const FetchBookmarks = (props) => {
                 for (let i = 0; data.message && i < data.message.length; i++) {
                   if (i === 0) {
                     const hashtagv1 = getHashtag(data.message[i].title);
-                    console.log("1 hashtagv=data.message["+i+"].title="+hashtagv)
+                    console.log("1 hashtagv=data.message["+i+"].title="+hashtagv1)
                     for (
                       let j = 0;
                       data.message[i].children &&
@@ -183,7 +183,7 @@ const FetchBookmarks = (props) => {
                         const hashtagv2 = getHashtag(
                           data.message[i].children[j].title
                         );
-                        console.log("2,hashtagv=data.message["+i+"].children["+j+"].title="+hashtagv)
+                        console.log("2,hashtagv=data.message["+i+"].children["+j+"].title="+hashtagv2)
                         for (
                           let k = 0;
                           data.message[i].children[j].children &&
@@ -223,7 +223,7 @@ const FetchBookmarks = (props) => {
                             const hashtagv3 = getHashtag(
                               data.message[i].children[j].children[k].title
                             );
-                            console.log("3,hashtagv=data.message["+i+"].children["+j+"].children["+k+"].title="+hashtagv)
+                            console.log("3,hashtagv=data.message["+i+"].children["+j+"].children["+k+"].title="+hashtagv3)
                        
                             for (
                               let l = 0;
@@ -271,7 +271,7 @@ const FetchBookmarks = (props) => {
                                 const hashtagv4 = getHashtag(
                               data.message[i].children[j].children[k].children[l].title
                             );
-                            console.log("4,hashtagv=data.message["+i+"].children["+j+"].children["+k+"].title="+hashtagv)
+                            console.log("4,hashtagv=data.message["+i+"].children["+j+"].children["+k+"].title="+hashtagv4)
                        
                                 for (
                                   let m = 0;

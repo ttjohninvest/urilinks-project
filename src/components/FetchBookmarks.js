@@ -707,7 +707,9 @@ if (
         now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
       faviconURL: icon, //"https://google.com/favicon.ico" //icon
     });
-  }
+  }else {
+                                  console.log("NOT pushing unto htmllinksarray");
+                                }
 } else {
   const hashtagv10 = getHashtag(
     data.message[i]
@@ -830,7 +832,9 @@ if (
             icon, //"https://google.com/favicon.ico" //icon
         }
       );
-    }
+    }else {
+                                  console.log("NOT pushing unto htmllinksarray");
+                                }
   } else {
     const hashtagv11 = getHashtag(
     data.message[i]
@@ -955,7 +959,9 @@ if (
             icon, //"https://google.com/favicon.ico" //icon
         }
       );
-    }
+    }else {
+                                  console.log("NOT pushing unto htmllinksarray");
+                                }
   }else {
  const hashtagv12 = getHashtag(
     data.message[i]

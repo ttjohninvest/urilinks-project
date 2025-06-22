@@ -612,6 +612,7 @@ console.log("hashtagv8="+hashtagv8)
                                                         .children[o].children[p]
                                                         .children[q].title
                                                     );
+                                                    console.log("hashtagv9="+hashtagv9)
 
 for (
 let r = 0;
@@ -723,7 +724,7 @@ if (
       .children[q]
       .children[r].title
   );
-
+console.log("hashtagv10="+hashtagv10)
   for (
     let s = 0;
     data.message[i]
@@ -848,7 +849,7 @@ if (
       .children[q]
       .children[r].children[s].title
   );
-
+console.log("hashtagv11="+hashtagv11)
   for (
     let t = 0;
     data.message[i]
@@ -975,6 +976,7 @@ if (
       .children[q]
       .children[r].children[s].children[t].title
   );
+  console.log("hashtagv12="+hashtagv12)
 
   for (
     let u = 0;
@@ -1102,6 +1104,7 @@ const hashtagv13 = getHashtag(
       .children[q]
       .children[r].children[s].children[t].children[u].title
   );
+  console.log("hashtagv13="+hashtagv13)
 
   for (
     let v = 0;

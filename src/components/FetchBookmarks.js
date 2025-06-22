@@ -141,10 +141,10 @@ const FetchBookmarks = (props) => {
                   return;
                 }
              
-                let hashtagv;
+                //let hashtagv;
                 for (let i = 0; data.message && i < data.message.length; i++) {
                   if (i === 0) {
-                    hashtagv = getHashtag(data.message[i].title);
+                    const hashtagv1 = getHashtag(data.message[i].title);
                     console.log("1 hashtagv=data.message["+i+"].title="+hashtagv)
                     for (
                       let j = 0;
@@ -168,7 +168,7 @@ const FetchBookmarks = (props) => {
                           htmllinksarray.push({
                             description: title,
                             Url: url, //, //href,
-                            note: hashtagv,
+                            note: hashtagv1,
                             amount: 0,
                             createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                             faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -180,7 +180,7 @@ const FetchBookmarks = (props) => {
                             JSON.stringify(data.message[i].children[j].children)
                         );
 
-                        hashtagv = getHashtag(
+                        const hashtagv2 = getHashtag(
                           data.message[i].children[j].title
                         );
                         console.log("2,hashtagv=data.message["+i+"].children["+j+"].title="+hashtagv)
@@ -213,14 +213,14 @@ const FetchBookmarks = (props) => {
                               htmllinksarray.push({
                                 description: title,
                                 Url: url, //, //href,
-                                note: hashtagv,
+                                note: hashtagv2,
                                 amount: 0,
                                 createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                 faviconURL: icon, //"https://google.com/favicon.ico" //icon
                               });
                             }
                           } else {
-                            hashtagv = getHashtag(
+                            const hashtagv3 = getHashtag(
                               data.message[i].children[j].children[k].title
                             );
                             console.log("3,hashtagv=data.message["+i+"].children["+j+"].children["+k+"].title="+hashtagv)
@@ -260,7 +260,7 @@ const FetchBookmarks = (props) => {
                                   htmllinksarray.push({
                                     description: title,
                                     Url: url, //, //href,
-                                    note: hashtagv,
+                                    note: hashtagv3,
                                     amount: 0,
                                     createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                     faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -268,7 +268,7 @@ const FetchBookmarks = (props) => {
                                 }
                               } else {
                                 //folder
-                                hashtagv = getHashtag(
+                                const hashtagv4 = getHashtag(
                               data.message[i].children[j].children[k].children[l].title
                             );
                             console.log("4,hashtagv=data.message["+i+"].children["+j+"].children["+k+"].title="+hashtagv)
@@ -304,7 +304,7 @@ const FetchBookmarks = (props) => {
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
-                                      note: hashtagv,
+                                      note: hashtagv4,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon

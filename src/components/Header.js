@@ -67,7 +67,7 @@ export const Header = (props) => {
                         height="35"
                         alt="Logo"
                       />
-                      <div><img src={photoURL} width="32" height="32" style={{ borderRadius: '50%' }} /></div>
+                      
                     </div>
                     <h1 title="Please use it for good. Bookmarks for internet pages, urls/links">
                       urilinks (bookmarking)
@@ -75,7 +75,7 @@ export const Header = (props) => {
                   </div>
                 </Link>
               </div>
-
+<div><img src={photoURL} width="32" height="32" style={{ borderRadius: '50%' }} /></div>
               <div>
                 <Link className="header__title" to="/benefits">
                   <span

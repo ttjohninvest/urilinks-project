@@ -7,7 +7,7 @@ const Benefits = () => (
       <li>urilinks.com Benefits:</li>
       <li>Add Uri/Url Link button on the home page is used to add a url link to your private account.</li>
       <li>Please use it for good.</li>
-      <li>Using the website is free. It supports 500 uri/url links per private user account.</li>
+      <li>Using the website is free. It supports 250 uri/url links per private user account.</li>
       <li>Everyone gets their own private account.</li>
       <li>Your account is secret from other accounts.</li>
       <li>
@@ -15,12 +15,11 @@ const Benefits = () => (
         with hash tags.
       </li>
       <li>
-        links are uri/url links. uri, uniform resource identifier, is a more
+        Links are uri/url links. uri, uniform resource identifier, is a more
         general term for url, uniform resource locator.
       </li>
       <li>
-        A better way to do bookmarks and have your own webpage with your own
-        hash tag organizable links on it.
+        You are able to see your bookmarks better in a neat clickable list layout. You may add a note to your link from the Add Uri/Url Link button or later through the Edit Uri/Url Link button.
       </li>
       <li>
         All of your holy church, entertainment, business or educational links

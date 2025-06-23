@@ -46,7 +46,14 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log("logged in user=" + JSON.stringify(user));//user.photoURL
     store.dispatch(login(user.uid));
-    setSettings({photoURL:user.photoURL})
+    console.log("user.photoURL="+user.photoURL)
+    console.log("calling setSettings")
+    setSettings({
+  settingsOption1:"",
+  settingsOption2:"",
+  group:"",
+  photoURL:user.photoURL
+})
 
     store
       .dispatch(startSetLinks())

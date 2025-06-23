@@ -29,7 +29,11 @@ const FetchBookmarks = (props) => {
   const [max, setMax] = useState(0);
   const [rl, setRl] = useState(0);
   const [loopmax, setLoopmax] = useState(0);
+  const [max2, setMax2] = useState(0);
+  const [rl2, setRl2] = useState(0);
+  const [loopmax2, setLoopmax2] = useState(0);
   const [done, setDone] = useState(false);
+  const [done2, setDone2] = useState(false);
 
   const handleNavigation = () => {
     setShowDialog(true);
@@ -125,8 +129,9 @@ const FetchBookmarks = (props) => {
             // console.log(data.message[1].children[1].title)
 
             let r = true;
+            let r2 = true;
             let htmllinksarray = [];
-            let htmllinksarray2 = [];
+            
 
             fetch("https://urilinks-project-vercel-api-5.vercel.app", {
               method: "POST",
@@ -553,6 +558,83 @@ const FetchBookmarks = (props) => {
                         } //nested for with k //
                       }
                     }
+setDone(true)
+                //
+                // console.log("three loops ended");
+                // console.log("htmllinksarray=" + JSON.stringify(htmllinksarray));
+
+                // let A = props.links;
+                // let B = htmllinksarray;
+                // let result = B.filter(
+                //   (b) => !A.some((a) => a.description === b.description)
+                // );
+
+                // console.log("result.length=" + result.length);
+                // //let ok = false;
+                // //500
+                // let ll = props.links.length;
+                // let rl = result.length;
+
+                // let max = 0;
+                // let loopmax2 = rl;
+
+                // const user = firebase.auth().currentUser;
+                // if (
+                //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
+                //   user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
+                //   user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
+                //   user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
+                // ) {
+                //   max = 10000 - (rl + ll);
+                //   console.log("in if, ll=" + ll);
+                //   console.log("in if, rl=" + rl);
+                //   console.log("in if, max=" + max);
+                //   if (rl > max) {
+                //     loopmax2 = max;
+                //   }
+                // } else {
+                //   max = 500 - (rl + ll);
+                //   if (rl > max) {
+                //     loopmax2 = max;
+                //   } //otherwise rl is equal to the full length, result.length
+                // }
+
+                // //for (let i = 0; i < result.length; i++) {
+                // for (let i = 0; i < loopmax2; i++) {
+                //   //for (let i = 0; i < 1; i++) {
+
+                //   r = props.startAddLink({
+                //     description: result[i].description,
+                //     Url: result[i].Url, //, //href,
+                //     note: result[i].note,
+                //     amount: 0,
+                //     createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                //     faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                //   });
+
+                //   if (r === false) {
+                //     setImportingError(true);
+                //     break;
+                //   }
+                // }
+
+                // if (r === false) {
+                //   // setErrorDialog(true);
+                //   console.log("ERROR, VVVVVVVVVVVVV returned false");
+                // } else {
+                //   console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+                //   //props.history.push("/");
+                //   //window.location.reload()
+
+                //   //how many new links were added, because of the maximum of 500 I had to add this
+                //   setMax(max);
+                //   setRl(rl); //rl is the length of the full amount to upload
+                //   setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                //   const fileRef = storage.refFromURL(props.url);
+
+                //   fileRef.delete();
+                // }
+
                   } else {
                     hashtagv = "#otherbookmarks";
                     //////////////////////////////////////////////
@@ -574,8 +656,8 @@ const FetchBookmarks = (props) => {
                         console.log("title=" + title);
                         if (!hasControlCharacters(title) && title.length > 0) {
                           //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                          console.log("pushing unto htmllinksarray2");
-                          htmllinksarray2.push({
+                          console.log("pushing unto htmllinksarray");
+                          htmllinksarray.push({
                             description: title,
                             Url: url, //, //href,
                             note: hashtagv1,
@@ -619,8 +701,8 @@ const FetchBookmarks = (props) => {
                               title.length > 0
                             ) {
                               //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                              console.log("pushing unto htmllinksarray2");
-                              htmllinksarray2.push({
+                              console.log("pushing unto htmllinksarray");
+                              htmllinksarray.push({
                                 description: title,
                                 Url: url, //, //href,
                                 note: hashtagv2,
@@ -665,8 +747,8 @@ const FetchBookmarks = (props) => {
                                   title.length > 0
                                 ) {
                                   //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                  console.log("pushing unto htmllinksarray2");
-                                  htmllinksarray2.push({
+                                  console.log("pushing unto htmllinksarray");
+                                  htmllinksarray.push({
                                     description: title,
                                     Url: url, //, //href,
                                     note: hashtagv3,
@@ -676,7 +758,7 @@ const FetchBookmarks = (props) => {
                                   });
                                 } else {
                                   console.log(
-                                    "NOT pushing unto htmllinksarray2"
+                                    "NOT pushing unto htmllinksarray"
                                   );
                                 }
                               } else {
@@ -719,9 +801,9 @@ const FetchBookmarks = (props) => {
                                     ) {
                                       //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                       console.log(
-                                        "pushing unto htmllinksarray2"
+                                        "pushing unto htmllinksarray"
                                       );
-                                      htmllinksarray2.push({
+                                      htmllinksarray.push({
                                         description: title,
                                         Url: url, //, //href,
                                         note: hashtagv4,
@@ -731,7 +813,7 @@ const FetchBookmarks = (props) => {
                                       });
                                     } else {
                                       console.log(
-                                        "NOT pushing unto htmllinksarray2"
+                                        "NOT pushing unto htmllinksarray"
                                       );
                                     }
                                   } else {
@@ -780,9 +862,9 @@ const FetchBookmarks = (props) => {
                                         ) {
                                           //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                           console.log(
-                                            "pushing unto htmllinksarray2"
+                                            "pushing unto htmllinksarray"
                                           );
-                                          htmllinksarray2.push({
+                                          htmllinksarray.push({
                                             description: title,
                                             Url: url, //, //href,
                                             note: hashtagv5,
@@ -792,7 +874,7 @@ const FetchBookmarks = (props) => {
                                           });
                                         } else {
                                           console.log(
-                                            "NOT pushing unto htmllinksarray2"
+                                            "NOT pushing unto htmllinksarray"
                                           );
                                         }
                                       } else {
@@ -848,9 +930,9 @@ const FetchBookmarks = (props) => {
                                             ) {
                                               //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                               console.log(
-                                                "pushing unto htmllinksarray2"
+                                                "pushing unto htmllinksarray"
                                               );
-                                              htmllinksarray2.push({
+                                              htmllinksarray.push({
                                                 description: title,
                                                 Url: url, //, //href,
                                                 note: hashtagv6,
@@ -860,7 +942,7 @@ const FetchBookmarks = (props) => {
                                               });
                                             } else {
                                               console.log(
-                                                "NOT pushing unto htmllinksarray2"
+                                                "NOT pushing unto htmllinksarray"
                                               );
                                             }
                                           } else {
@@ -923,9 +1005,9 @@ const FetchBookmarks = (props) => {
                                                 ) {
                                                   //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                   console.log(
-                                                    "pushing unto htmllinksarray2"
+                                                    "pushing unto htmllinksarray"
                                                   );
-                                                  htmllinksarray2.push({
+                                                  htmllinksarray.push({
                                                     description: title,
                                                     Url: url, //, //href,
                                                     note: hashtagv7,
@@ -935,7 +1017,7 @@ const FetchBookmarks = (props) => {
                                                   });
                                                 } else {
                                                   console.log(
-                                                    "NOT pushing unto htmllinksarray2"
+                                                    "NOT pushing unto htmllinksarray"
                                                   );
                                                 }
                                               }
@@ -952,15 +1034,91 @@ const FetchBookmarks = (props) => {
                         } //nested for with k //
                       }
                     }
+
+                    setDone2(true)
+                //
+                // console.log("three loops ended");
+                // console.log("htmllinksarray=" + JSON.stringify(htmllinksarray));
+
+                // let A = props.links;
+                // let B = htmllinksarray;
+                // let result = B.filter(
+                //   (b) => !A.some((a) => a.description === b.description)
+                // );
+
+                // console.log("result.length=" + result.length);
+                // //let ok = false;
+                // //500
+                // let ll = props.links.length;
+                // let rl = result.length;
+
+                // let max = 0;
+                // let loopmax2 = rl;
+
+                // const user = firebase.auth().currentUser;
+                // if (
+                //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
+                //   user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
+                //   user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
+                //   user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
+                // ) {
+                //   max = 10000 - (rl + ll);
+                //   console.log("in if, ll=" + ll);
+                //   console.log("in if, rl=" + rl);
+                //   console.log("in if, max=" + max);
+                //   if (rl > max) {
+                //     loopmax2 = max;
+                //   }
+                // } else {
+                //   max = 500 - (rl + ll);
+                //   if (rl > max) {
+                //     loopmax2 = max;
+                //   } //otherwise rl is equal to the full length, result.length
+                // }
+
+                // //for (let i = 0; i < result.length; i++) {
+                // for (let i = 0; i < loopmax2; i++) {
+                //   //for (let i = 0; i < 1; i++) {
+
+                //   r2 = props.startAddLink({
+                //     description: result[i].description,
+                //     Url: result[i].Url, //, //href,
+                //     note: result[i].note,
+                //     amount: 0,
+                //     createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                //     faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                //   });
+
+                //   if (r2 === false) {
+                //     setImportingError(true);
+                //     break;
+                //   }
+                // }
+
+                // if (r2 === false) {
+                //   // setErrorDialog(true);
+                //   console.log("ERROR, VVVVVVVVVVVVV returned false");
+                // } else {
+                //   console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+                //   //props.history.push("/");
+                //   //window.location.reload()
+
+                //   //how many new links were added, because of the maximum of 500 I had to add this
+                //   setMax2(max);
+                //   setRl2(rl); //rl is the length of the full amount to upload
+                //   setLoopmax2(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                //   // const fileRef = storage.refFromURL(props.url);
+
+                //   // fileRef.delete();
+                // }
                     
                   }
                   console.log("outside loop");
 
                   console.log("before the end of the outer loop");
                 }
-                setDone(true)
-                //
-                console.log("three loops ended");
+                
+                 console.log("three loops ended");
                 console.log("htmllinksarray=" + JSON.stringify(htmllinksarray));
 
                 let A = props.links;
@@ -1030,11 +1188,10 @@ const FetchBookmarks = (props) => {
                   setMax(max);
                   setRl(rl); //rl is the length of the full amount to upload
                   setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
-                  const fileRef = storage.refFromURL(props.url);
+                  // const fileRef = storage.refFromURL(props.url);
 
-                  fileRef.delete();
+                  // fileRef.delete();
                 }
-                
               })
               .catch((error) => {
                 console.log("caught error = " + error);
@@ -1070,7 +1227,7 @@ const FetchBookmarks = (props) => {
         ? "Error importing bookmarks"
         : !error &&
           !error2 &&
-          done ?<ImportedBookmarks rl={loopmax} max={rl} />:<LoadingPage />}
+          done && done2 ?<ImportedBookmarks rl={loopmax} max={rl} />:<LoadingPage />}
     </div>
   );
 };

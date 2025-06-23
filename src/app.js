@@ -47,13 +47,8 @@ firebase.auth().onAuthStateChanged((user) => {
     console.log("logged in user=" + JSON.stringify(user));//user.photoURL
     store.dispatch(login(user.uid));
     console.log("user.photoURL="+user.photoURL)
-    console.log("calling setSettings")
-    setSettings({
-  settingsOption1:"",
-  settingsOption2:"",
-  group:"",
-  photoURL:user.photoURL
-})
+    console.log("calling setSettings to set the user.photoURL into redux")
+  
 
     store
       .dispatch(startSetLinks())
@@ -73,8 +68,14 @@ firebase.auth().onAuthStateChanged((user) => {
         //return store.dispatch(startSetSettings()).then(() => {
           return store.dispatch(startSetLinksFileDate()).then(() => {
           //startSetSettings reads the links from the db and stores them in redux
-
+  setSettings({
+  settingsOption1:"",
+  settingsOption2:"",
+  group:"",
+  photoURL:user.photoURL
+})
           renderApp(); //displays the array links stored in redux
+          
           if (history.location.pathname === "/") {
             history.push("/dashboard");
           }

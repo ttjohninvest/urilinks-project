@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import * as firebase from "firebase";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
@@ -17,7 +18,8 @@ export const Header = (props) => {
   const ideas = () => {};
 
   useEffect(()=>{
-    console.log("photoURL="+props.settings.photoURL)
+    const user = firebase.auth().currentUser;
+    console.log("Header, photoURL="+user.photoURL)
   },[])
 
   const deleteAccount = () => {

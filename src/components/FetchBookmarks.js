@@ -7,6 +7,7 @@ import moment from "moment";
 import { history } from "../routers/AppRouter";
 import ImportedBookmarks from "./ImportedBookmarks";
 import { storage } from "../firebase/firebase";
+import LoadingPage from ".//LoadingPage";
 
 import {
   isChrome,
@@ -852,7 +853,7 @@ const FetchBookmarks = (props) => {
         ? "Error importing bookmarks"
         : !error &&
           !error2 &&
-          done && <ImportedBookmarks rl={loopmax} max={rl} />}
+          done ?<ImportedBookmarks rl={loopmax} max={rl} />:<LoadingPage />}
     </div>
   );
 };

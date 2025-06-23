@@ -1,6 +1,7 @@
 # Git Commands
 
 todo to do
+isBrave === undefined needs to be taken out, figure out how to check for the brave browser I want to leave it in
 it should be able to handle any depth of nesting
 bookmark file size that is under 100kb will work, about 125 bookmarks
 -----------------------------------------------------------------------------------------

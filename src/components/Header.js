@@ -14,11 +14,13 @@ import logo from "../assets/images/logo9.png";
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
+  const [photoURL, setPhotoURL] = useState("")
   const ideas = () => {};
 
   useEffect(()=>{
     const user = firebase.auth().currentUser;
     console.log("Header, photoURL="+user.photoURL)
+    setPhotoURL(user.photoURL)
   },[])
 
   const deleteAccount = () => {
@@ -73,7 +75,7 @@ export const Header = (props) => {
                   </div>
                 </Link>
               </div>
-<div><img src={props.settings.photoURL} width="16" height="16" /></div>
+<div><img src={photoURL} width="16" height="16" /></div>
               <div>
                 <Link className="header__title" to="/benefits">
                   <span

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
@@ -15,6 +15,10 @@ import * as firebase from "firebase";
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const ideas = () => {};
+
+  useEffect(()=>{
+    console.log("photoURL="+props.settings.photoURL)
+  },[])
 
   const deleteAccount = () => {
     let text;
@@ -68,7 +72,7 @@ export const Header = (props) => {
                   </div>
                 </Link>
               </div>
-
+<div><img src={props.settings.photoURL} width="16" height="16" /></div>
               <div>
                 <Link className="header__title" to="/benefits">
                   <span
@@ -124,7 +128,7 @@ export const Header = (props) => {
                   className="button button--link ib text-size-3"
                   onClick={props.startLogout}
                 >
-                  (Logout)<img src={props.settings.photoURL} width="16" height="16" />
+                  (Logout)
                 </button>
               </div>
             </div>

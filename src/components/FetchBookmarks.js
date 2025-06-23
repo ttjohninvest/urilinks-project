@@ -146,6 +146,7 @@ const FetchBookmarks = (props) => {
                 //json
                 console.log("Success:");
                 console.log(data);
+                return
                 console.log(JSON.stringify(data, null, 4));
                 if (data.error) {
                   console.log(data.error);

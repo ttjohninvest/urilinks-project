@@ -163,7 +163,7 @@ const FetchBookmarks = (props) => {
                 //folder
 
                 for (let i = 0; data.message && i < data.message.length; i++) {
-                  if (data.message.length) { //3 is firefox
+                  if (data.message.length===3) { //3 is firefox
                     if (i === 0) {
                       const hashtagv1 = getHashtag(data.message[i].title);
 

@@ -12,7 +12,7 @@ import * as firebase from "firebase";
 //   startLogout()
 // }
 
-export const Header = ({ startLogout }) => {
+export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const ideas = () => {};
 
@@ -122,9 +122,9 @@ export const Header = ({ startLogout }) => {
               <div>
                 <button
                   className="button button--link ib text-size-3"
-                  onClick={startLogout}
+                  onClick={props.startLogout}
                 >
-                  (Logout)
+                  (Logout)<img src={props.settings.photoURL} width="16" height="16" />
                 </button>
               </div>
             </div>
@@ -137,6 +137,10 @@ export const Header = ({ startLogout }) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  settings:state.settings
+});
+
 const mapDispatchToProps = (dispatch) => ({
   startLogout: () => {
     dispatch(startLogout())
@@ -148,4 +152,4 @@ const mapDispatchToProps = (dispatch) => ({
   setLinks: (links) => dispatch(setLinks(links)),
 });
 
-export default connect(undefined, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

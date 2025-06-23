@@ -8,6 +8,7 @@ import { startSetLinks } from "./actions/links";
 import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
 import { login, logout } from "./actions/auth";
+import { setSettings } from "./actions/settings";
 //import getVisibleLinks from './selectors/links';
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
@@ -43,8 +44,9 @@ firebase.auth().onAuthStateChanged((user) => {
  
 
   if (user) {
-    console.log("logged in user=" + JSON.stringify(user));
+    console.log("logged in user=" + JSON.stringify(user));//user.photoURL
     store.dispatch(login(user.uid));
+    setSettings({photoURL:user.photoURL})
 
     store
       .dispatch(startSetLinks())

@@ -28,6 +28,7 @@ const FetchBookmarks = (props) => {
   const [max, setMax] = useState(0);
   const [rl, setRl] = useState(0);
   const [loopmax, setLoopmax] = useState(0);
+  const [done, setDone] = useState(false);
 
   const handleNavigation = () => {
     setShowDialog(true);
@@ -136,8 +137,8 @@ const FetchBookmarks = (props) => {
               .then((data) => {
                 //json
                 console.log("Success:");
-                console.log(data)
-                console.log(JSON.stringify(data,null,4))
+                console.log(data);
+                console.log(JSON.stringify(data, null, 4));
                 if (data.error) {
                   console.log(data.error);
                   return;
@@ -148,7 +149,7 @@ const FetchBookmarks = (props) => {
                 //or
                 //bookmark with folder // if they all has one bookmark and one folder it works
                 //folder
-                
+
                 for (let i = 0; data.message && i < data.message.length; i++) {
                   if (i === 0) {
                     const hashtagv1 = getHashtag(data.message[i].title);
@@ -189,7 +190,7 @@ const FetchBookmarks = (props) => {
 
                         const hashtagv2 = getHashtag(
                           data.message[i].children[j].title
-                        )
+                        );
 
                         for (
                           let k = 0;
@@ -230,7 +231,7 @@ const FetchBookmarks = (props) => {
                             const hashtagv3 = getHashtag(
                               data.message[i].children[j].children[k].title
                             );
-                            console.log("hashtagv3"+hashtagv3)
+                            console.log("hashtagv3" + hashtagv3);
                             for (
                               let l = 0;
                               data.message[i].children[j].children[k]
@@ -272,7 +273,9 @@ const FetchBookmarks = (props) => {
                                     faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                   });
                                 } else {
-                                  console.log("NOT pushing unto htmllinksarray");
+                                  console.log(
+                                    "NOT pushing unto htmllinksarray"
+                                  );
                                 }
                               } else {
                                 //folder
@@ -280,7 +283,7 @@ const FetchBookmarks = (props) => {
                                   data.message[i].children[j].children[k]
                                     .children[l].title
                                 );
-                                console.log("hashtagv4="+hashtagv4)
+                                console.log("hashtagv4=" + hashtagv4);
                                 for (
                                   let m = 0;
                                   data.message[i].children[j].children[k]
@@ -324,15 +327,17 @@ const FetchBookmarks = (props) => {
                                         createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                         faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                       });
-                                    }else {
-                                  console.log("NOT pushing unto htmllinksarray");
-                                }
+                                    } else {
+                                      console.log(
+                                        "NOT pushing unto htmllinksarray"
+                                      );
+                                    }
                                   } else {
                                     const hashtagv5 = getHashtag(
                                       data.message[i].children[j].children[k]
                                         .children[l].children[m].title
                                     );
-console.log("hashtagv5="+hashtagv5)
+                                    console.log("hashtagv5=" + hashtagv5);
                                     for (
                                       let n = 0;
                                       data.message[i].children[j].children[k]
@@ -383,9 +388,11 @@ console.log("hashtagv5="+hashtagv5)
                                             createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                             faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                           });
-                                        }else {
-                                  console.log("NOT pushing unto htmllinksarray");
-                                }
+                                        } else {
+                                          console.log(
+                                            "NOT pushing unto htmllinksarray"
+                                          );
+                                        }
                                       } else {
                                         const hashtagv6 = getHashtag(
                                           data.message[i].children[j].children[
@@ -393,7 +400,7 @@ console.log("hashtagv5="+hashtagv5)
                                           ].children[l].children[m].children[n]
                                             .title
                                         );
-console.log("hashtagv6="+hashtagv6)
+                                        console.log("hashtagv6=" + hashtagv6);
                                         for (
                                           let o = 0;
                                           data.message[i].children[j].children[
@@ -449,9 +456,11 @@ console.log("hashtagv6="+hashtagv6)
                                                 createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                 faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                               });
-                                            }else {
-                                  console.log("NOT pushing unto htmllinksarray");
-                                }
+                                            } else {
+                                              console.log(
+                                                "NOT pushing unto htmllinksarray"
+                                              );
+                                            }
                                           } else {
                                             const hashtagv7 = getHashtag(
                                               data.message[i].children[j]
@@ -459,7 +468,9 @@ console.log("hashtagv6="+hashtagv6)
                                                 .children[m].children[n]
                                                 .children[o].title
                                             );
-console.log("hashtagv7="+hashtagv7)
+                                            console.log(
+                                              "hashtagv7=" + hashtagv7
+                                            );
                                             for (
                                               let p = 0;
                                               data.message[i].children[j]
@@ -520,10 +531,12 @@ console.log("hashtagv7="+hashtagv7)
                                                     createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                     faviconURL: icon, //"https://google.com/favicon.ico" //icon
                                                   });
-                                                }else {
-                                  console.log("NOT pushing unto htmllinksarray");
-                                }
-                                              } 
+                                                } else {
+                                                  console.log(
+                                                    "NOT pushing unto htmllinksarray"
+                                                  );
+                                                }
+                                              }
                                             }
                                           }
                                         }
@@ -573,6 +586,7 @@ console.log("hashtagv7="+hashtagv7)
 
                   console.log("before the end of the outer loop");
                 }
+                setDone(true)
                 //
                 console.log("three loops ended");
                 console.log("htmllinksarray=" + JSON.stringify(htmllinksarray));
@@ -798,7 +812,7 @@ console.log("hashtagv7="+hashtagv7)
                 //   //how many new links were added, because of the maximum of 500 I had to add this
                 //   setMax(max);
                 //   setRl(rl); //rl is the length of the full amount to upload
-  9              //   setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                9; //   setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
                 //   const fileRef = storage.refFromURL(props.url);
 
                 //   fileRef.delete();
@@ -836,7 +850,9 @@ console.log("hashtagv7="+hashtagv7)
       {error3 ? <div>Error: The browser is not supported.</div> : ""}
       {importingError === true
         ? "Error importing bookmarks"
-        : !error && !error2 && <ImportedBookmarks rl={loopmax} max={rl} />}
+        : !error &&
+          !error2 &&
+          done && <ImportedBookmarks rl={loopmax} max={rl} />}
     </div>
   );
 };

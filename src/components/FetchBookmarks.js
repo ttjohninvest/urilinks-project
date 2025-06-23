@@ -142,6 +142,7 @@ const FetchBookmarks = (props) => {
                 console.log(JSON.stringify(data, null, 4));
                 if (data.error) {
                   console.log(data.error);
+                  alert("An error occurred when loading the bookmarks file. Please make sure their are bookmarks.")
                   return;
                 }
                 //////

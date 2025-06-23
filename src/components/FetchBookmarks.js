@@ -1079,7 +1079,7 @@ setDone(true)
         ? "Error importing bookmarks"
         : !error &&
           !error2 &&
-          done && done2 ?<ImportedBookmarks rl={loopmax} max={rl} />:<LoadingPage />}
+          done ?<ImportedBookmarks rl={loopmax} max={rl} />:<LoadingPage />}
     </div>
   );
 };

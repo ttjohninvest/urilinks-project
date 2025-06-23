@@ -992,7 +992,7 @@ const FetchBookmarks = (props) => {
                 let loopmax2 = rl;
 
                 const user = firebase.auth().currentUser;
-                if (true ||
+                if (
                   (user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
                   user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
                   user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
@@ -1006,7 +1006,7 @@ const FetchBookmarks = (props) => {
                     loopmax2 = max;
                   }
                 } else {
-                  max = 500 - (rl + ll);
+                  max = 250 - (rl + ll);
                   if (rl > max) {
                     loopmax2 = max;
                   } //otherwise rl is equal to the full length, result.length

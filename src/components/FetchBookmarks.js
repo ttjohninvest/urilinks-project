@@ -61,7 +61,7 @@ const FetchBookmarks = (props) => {
     //const allSpacesRemoved = str.replaceAll(' ', '')
     let stringWithoutTabs = str.replace(/\t/g, "");
     let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
-    let notabsorspacesordashes = stringWithoutTabs.replace(/\-/g, "");
+    let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
     //lowercase
     const lc = notabsorspacesordashes.toLowerCase();
     //prepend "#"

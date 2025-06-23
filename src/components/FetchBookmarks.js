@@ -559,558 +559,410 @@ const FetchBookmarks = (props) => {
                       }
                     }
 setDone(true)
-                //
-                // console.log("three loops ended");
-                // console.log("htmllinksarray=" + JSON.stringify(htmllinksarray));
-
-                // let A = props.links;
-                // let B = htmllinksarray;
-                // let result = B.filter(
-                //   (b) => !A.some((a) => a.description === b.description)
-                // );
-
-                // console.log("result.length=" + result.length);
-                // //let ok = false;
-                // //500
-                // let ll = props.links.length;
-                // let rl = result.length;
-
-                // let max = 0;
-                // let loopmax2 = rl;
-
-                // const user = firebase.auth().currentUser;
-                // if (
-                //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
-                //   user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
-                //   user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
-                //   user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
-                // ) {
-                //   max = 10000 - (rl + ll);
-                //   console.log("in if, ll=" + ll);
-                //   console.log("in if, rl=" + rl);
-                //   console.log("in if, max=" + max);
-                //   if (rl > max) {
-                //     loopmax2 = max;
-                //   }
-                // } else {
-                //   max = 500 - (rl + ll);
-                //   if (rl > max) {
-                //     loopmax2 = max;
-                //   } //otherwise rl is equal to the full length, result.length
-                // }
-
-                // //for (let i = 0; i < result.length; i++) {
-                // for (let i = 0; i < loopmax2; i++) {
-                //   //for (let i = 0; i < 1; i++) {
-
-                //   r = props.startAddLink({
-                //     description: result[i].description,
-                //     Url: result[i].Url, //, //href,
-                //     note: result[i].note,
-                //     amount: 0,
-                //     createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                //     faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
-                //   });
-
-                //   if (r === false) {
-                //     setImportingError(true);
-                //     break;
-                //   }
-                // }
-
-                // if (r === false) {
-                //   // setErrorDialog(true);
-                //   console.log("ERROR, VVVVVVVVVVVVV returned false");
-                // } else {
-                //   console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-                //   //props.history.push("/");
-                //   //window.location.reload()
-
-                //   //how many new links were added, because of the maximum of 500 I had to add this
-                //   setMax(max);
-                //   setRl(rl); //rl is the length of the full amount to upload
-                //   setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
-                //   const fileRef = storage.refFromURL(props.url);
-
-                //   fileRef.delete();
-                // }
+                
 
                   } else {
-                    hashtagv = "#otherbookmarks";
-                    //////////////////////////////////////////////
-                    for (
-                      let j = 0;
-                      data.message[i].children &&
-                      j < data.message[i].children.length;
-                      j++
-                    ) {
-                      if (
-                        data.message[i].children[j].type === "bookmark" ||
-                        data.message[i].children[j].type === undefined
-                      ) {
-                        let url = data.message[i].children[j].url; //the url of the page
-                        let title = data.message[i].children[j].title; //the link text for the page
-                        let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                        let icon = data.message[i].children[j].icon; //the little icon of the page
+                    // hashtagv = "#otherbookmarks";
+                    // //////////////////////////////////////////////
+                    // for (
+                    //   let j = 0;
+                    //   data.message[i].children &&
+                    //   j < data.message[i].children.length;
+                    //   j++
+                    // ) {
+                    //   if (
+                    //     data.message[i].children[j].type === "bookmark" ||
+                    //     data.message[i].children[j].type === undefined
+                    //   ) {
+                    //     let url = data.message[i].children[j].url; //the url of the page
+                    //     let title = data.message[i].children[j].title; //the link text for the page
+                    //     let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                    //     let icon = data.message[i].children[j].icon; //the little icon of the page
 
-                        console.log("title=" + title);
-                        if (!hasControlCharacters(title) && title.length > 0) {
-                          //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                          console.log("pushing unto htmllinksarray");
-                          htmllinksarray.push({
-                            description: title,
-                            Url: url, //, //href,
-                            note: hashtagv1,
-                            amount: 0,
-                            createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                            faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                          });
-                        }
-                      } else { //or folder
-                        console.log(
-                          "data.message[i].children[j].children=" +
-                            JSON.stringify(data.message[i].children[j].children)
-                        );
+                    //     console.log("title=" + title);
+                    //     if (!hasControlCharacters(title) && title.length > 0) {
+                    //       //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
+                    //       console.log("pushing unto htmllinksarray");
+                    //       htmllinksarray.push({
+                    //         description: title,
+                    //         Url: url, //, //href,
+                    //         note: hashtagv1,
+                    //         amount: 0,
+                    //         createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                    //         faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                    //       });
+                    //     }
+                    //   } else { //or folder
+                    //     console.log(
+                    //       "data.message[i].children[j].children=" +
+                    //         JSON.stringify(data.message[i].children[j].children)
+                    //     );
 
-                        const hashtagv2 = getHashtag(
-                          data.message[i].children[j].title
-                        );
+                    //     const hashtagv2 = getHashtag(
+                    //       data.message[i].children[j].title
+                    //     );
 
-                        for (
-                          let k = 0;
-                          data.message[i].children[j].children &&
-                          k < data.message[i].children[j].children.length;
-                          k++
-                        ) {
-                          if (
-                            data.message[i].children[j].children[k].type ===
-                            "bookmark"
-                          ) {
-                            let url =
-                              data.message[i].children[j].children[k].url; //the url of the page
-                            console.log("url=" + url);
-                            let title =
-                              data.message[i].children[j].children[k].title; //the link text for the page
-                            let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                            let icon =
-                              data.message[i].children[j].children[k].icon; //the little icon of the page
+                    //     for (
+                    //       let k = 0;
+                    //       data.message[i].children[j].children &&
+                    //       k < data.message[i].children[j].children.length;
+                    //       k++
+                    //     ) {
+                    //       if (
+                    //         data.message[i].children[j].children[k].type ===
+                    //         "bookmark"
+                    //       ) {
+                    //         let url =
+                    //           data.message[i].children[j].children[k].url; //the url of the page
+                    //         console.log("url=" + url);
+                    //         let title =
+                    //           data.message[i].children[j].children[k].title; //the link text for the page
+                    //         let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                    //         let icon =
+                    //           data.message[i].children[j].children[k].icon; //the little icon of the page
 
-                            console.log("title=" + title);
-                            if (
-                              !hasControlCharacters(title) &&
-                              title.length > 0
-                            ) {
-                              //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                              console.log("pushing unto htmllinksarray");
-                              htmllinksarray.push({
-                                description: title,
-                                Url: url, //, //href,
-                                note: hashtagv2,
-                                amount: 0,
-                                createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                                faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                              });
-                            }
-                          } else {
-                            const hashtagv3 = getHashtag(
-                              data.message[i].children[j].children[k].title
-                            );
-                            console.log("hashtagv3" + hashtagv3);
-                            for (
-                              let l = 0;
-                              data.message[i].children[j].children[k]
-                                .children &&
-                              l <
-                                data.message[i].children[j].children[k].children
-                                  .length;
-                              l++
-                            ) {
-                              if (
-                                data.message[i].children[j].children[k]
-                                  .children[l].type === "bookmark"
-                              ) {
-                                let url =
-                                  data.message[i].children[j].children[k]
-                                    .children[l].url; //the url of the page
-                                console.log("url=" + url);
-                                let title =
-                                  data.message[i].children[j].children[k]
-                                    .children[l].title; //the link text for the page
-                                let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                                let icon =
-                                  data.message[i].children[j].children[k]
-                                    .children[l].icon; //the little icon of the page
+                    //         console.log("title=" + title);
+                    //         if (
+                    //           !hasControlCharacters(title) &&
+                    //           title.length > 0
+                    //         ) {
+                    //           //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
+                    //           console.log("pushing unto htmllinksarray");
+                    //           htmllinksarray.push({
+                    //             description: title,
+                    //             Url: url, //, //href,
+                    //             note: hashtagv2,
+                    //             amount: 0,
+                    //             createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                    //             faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                    //           });
+                    //         }
+                    //       } else {
+                    //         const hashtagv3 = getHashtag(
+                    //           data.message[i].children[j].children[k].title
+                    //         );
+                    //         console.log("hashtagv3" + hashtagv3);
+                    //         for (
+                    //           let l = 0;
+                    //           data.message[i].children[j].children[k]
+                    //             .children &&
+                    //           l <
+                    //             data.message[i].children[j].children[k].children
+                    //               .length;
+                    //           l++
+                    //         ) {
+                    //           if (
+                    //             data.message[i].children[j].children[k]
+                    //               .children[l].type === "bookmark"
+                    //           ) {
+                    //             let url =
+                    //               data.message[i].children[j].children[k]
+                    //                 .children[l].url; //the url of the page
+                    //             console.log("url=" + url);
+                    //             let title =
+                    //               data.message[i].children[j].children[k]
+                    //                 .children[l].title; //the link text for the page
+                    //             let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                    //             let icon =
+                    //               data.message[i].children[j].children[k]
+                    //                 .children[l].icon; //the little icon of the page
 
-                                console.log("title=" + title);
-                                if (
-                                  !hasControlCharacters(title) &&
-                                  title.length > 0
-                                ) {
-                                  //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                  console.log("pushing unto htmllinksarray");
-                                  htmllinksarray.push({
-                                    description: title,
-                                    Url: url, //, //href,
-                                    note: hashtagv3,
-                                    amount: 0,
-                                    createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                                    faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                                  });
-                                } else {
-                                  console.log(
-                                    "NOT pushing unto htmllinksarray"
-                                  );
-                                }
-                              } else {
-                                //folder
-                                const hashtagv4 = getHashtag(
-                                  data.message[i].children[j].children[k]
-                                    .children[l].title
-                                );
-                                console.log("hashtagv4=" + hashtagv4);
-                                for (
-                                  let m = 0;
-                                  data.message[i].children[j].children[k]
-                                    .children[l].children &&
-                                  m <
-                                    data.message[i].children[j].children[k]
-                                      .children[l].children.length;
-                                  m++
-                                ) {
-                                  if (
-                                    data.message[i].children[j].children[k]
-                                      .children[l].children[m].type ===
-                                    "bookmark"
-                                  ) {
-                                    let url =
-                                      data.message[i].children[j].children[k]
-                                        .children[l].children[m].url; //the url of the page
-                                    console.log("url=" + url);
-                                    let title =
-                                      data.message[i].children[j].children[k]
-                                        .children[l].children[m].title; //the link text for the page
-                                    let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                                    let icon =
-                                      data.message[i].children[j].children[k]
-                                        .children[l].children[m].icon; //the little icon of the page
+                    //             console.log("title=" + title);
+                    //             if (
+                    //               !hasControlCharacters(title) &&
+                    //               title.length > 0
+                    //             ) {
+                    //               //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
+                    //               console.log("pushing unto htmllinksarray");
+                    //               htmllinksarray.push({
+                    //                 description: title,
+                    //                 Url: url, //, //href,
+                    //                 note: hashtagv3,
+                    //                 amount: 0,
+                    //                 createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                    //                 faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                    //               });
+                    //             } else {
+                    //               console.log(
+                    //                 "NOT pushing unto htmllinksarray"
+                    //               );
+                    //             }
+                    //           } else {
+                    //             //folder
+                    //             const hashtagv4 = getHashtag(
+                    //               data.message[i].children[j].children[k]
+                    //                 .children[l].title
+                    //             );
+                    //             console.log("hashtagv4=" + hashtagv4);
+                    //             for (
+                    //               let m = 0;
+                    //               data.message[i].children[j].children[k]
+                    //                 .children[l].children &&
+                    //               m <
+                    //                 data.message[i].children[j].children[k]
+                    //                   .children[l].children.length;
+                    //               m++
+                    //             ) {
+                    //               if (
+                    //                 data.message[i].children[j].children[k]
+                    //                   .children[l].children[m].type ===
+                    //                 "bookmark"
+                    //               ) {
+                    //                 let url =
+                    //                   data.message[i].children[j].children[k]
+                    //                     .children[l].children[m].url; //the url of the page
+                    //                 console.log("url=" + url);
+                    //                 let title =
+                    //                   data.message[i].children[j].children[k]
+                    //                     .children[l].children[m].title; //the link text for the page
+                    //                 let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                    //                 let icon =
+                    //                   data.message[i].children[j].children[k]
+                    //                     .children[l].children[m].icon; //the little icon of the page
 
-                                    console.log("title=" + title);
-                                    if (
-                                      !hasControlCharacters(title) &&
-                                      title.length > 0
-                                    ) {
-                                      //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                      console.log(
-                                        "pushing unto htmllinksarray"
-                                      );
-                                      htmllinksarray.push({
-                                        description: title,
-                                        Url: url, //, //href,
-                                        note: hashtagv4,
-                                        amount: 0,
-                                        createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                                        faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                                      });
-                                    } else {
-                                      console.log(
-                                        "NOT pushing unto htmllinksarray"
-                                      );
-                                    }
-                                  } else {
-                                    const hashtagv5 = getHashtag(
-                                      data.message[i].children[j].children[k]
-                                        .children[l].children[m].title
-                                    );
-                                    console.log("hashtagv5=" + hashtagv5);
-                                    for (
-                                      let n = 0;
-                                      data.message[i].children[j].children[k]
-                                        .children[l].children[m].children &&
-                                      n <
-                                        data.message[i].children[j].children[k]
-                                          .children[l].children[m].children
-                                          .length;
-                                      n++
-                                    ) {
-                                      if (
-                                        data.message[i].children[j].children[k]
-                                          .children[l].children[m].children[n]
-                                          .type === "bookmark"
-                                      ) {
-                                        let url =
-                                          data.message[i].children[j].children[
-                                            k
-                                          ].children[l].children[m].children[n]
-                                            .url; //the url of the page
-                                        console.log("url=" + url);
-                                        let title =
-                                          data.message[i].children[j].children[
-                                            k
-                                          ].children[l].children[m].children[n]
-                                            .title; //the link text for the page
-                                        let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                                        let icon =
-                                          data.message[i].children[j].children[
-                                            k
-                                          ].children[l].children[m].children[n]
-                                            .icon; //the little icon of the page
+                    //                 console.log("title=" + title);
+                    //                 if (
+                    //                   !hasControlCharacters(title) &&
+                    //                   title.length > 0
+                    //                 ) {
+                    //                   //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
+                    //                   console.log(
+                    //                     "pushing unto htmllinksarray"
+                    //                   );
+                    //                   htmllinksarray.push({
+                    //                     description: title,
+                    //                     Url: url, //, //href,
+                    //                     note: hashtagv4,
+                    //                     amount: 0,
+                    //                     createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                    //                     faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                    //                   });
+                    //                 } else {
+                    //                   console.log(
+                    //                     "NOT pushing unto htmllinksarray"
+                    //                   );
+                    //                 }
+                    //               } else {
+                    //                 const hashtagv5 = getHashtag(
+                    //                   data.message[i].children[j].children[k]
+                    //                     .children[l].children[m].title
+                    //                 );
+                    //                 console.log("hashtagv5=" + hashtagv5);
+                    //                 for (
+                    //                   let n = 0;
+                    //                   data.message[i].children[j].children[k]
+                    //                     .children[l].children[m].children &&
+                    //                   n <
+                    //                     data.message[i].children[j].children[k]
+                    //                       .children[l].children[m].children
+                    //                       .length;
+                    //                   n++
+                    //                 ) {
+                    //                   if (
+                    //                     data.message[i].children[j].children[k]
+                    //                       .children[l].children[m].children[n]
+                    //                       .type === "bookmark"
+                    //                   ) {
+                    //                     let url =
+                    //                       data.message[i].children[j].children[
+                    //                         k
+                    //                       ].children[l].children[m].children[n]
+                    //                         .url; //the url of the page
+                    //                     console.log("url=" + url);
+                    //                     let title =
+                    //                       data.message[i].children[j].children[
+                    //                         k
+                    //                       ].children[l].children[m].children[n]
+                    //                         .title; //the link text for the page
+                    //                     let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                    //                     let icon =
+                    //                       data.message[i].children[j].children[
+                    //                         k
+                    //                       ].children[l].children[m].children[n]
+                    //                         .icon; //the little icon of the page
 
-                                        console.log("title=" + title);
-                                        if (
-                                          !hasControlCharacters(title) &&
-                                          title.length > 0
-                                        ) {
-                                          //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                          console.log(
-                                            "pushing unto htmllinksarray"
-                                          );
-                                          htmllinksarray.push({
-                                            description: title,
-                                            Url: url, //, //href,
-                                            note: hashtagv5,
-                                            amount: 0,
-                                            createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                                            faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                                          });
-                                        } else {
-                                          console.log(
-                                            "NOT pushing unto htmllinksarray"
-                                          );
-                                        }
-                                      } else {
-                                        const hashtagv6 = getHashtag(
-                                          data.message[i].children[j].children[
-                                            k
-                                          ].children[l].children[m].children[n]
-                                            .title
-                                        );
-                                        console.log("hashtagv6=" + hashtagv6);
-                                        for (
-                                          let o = 0;
-                                          data.message[i].children[j].children[
-                                            k
-                                          ].children[l].children[m].children[n]
-                                            .children &&
-                                          o <
-                                            data.message[i].children[j]
-                                              .children[k].children[l].children[
-                                              m
-                                            ].children[n].children.length;
-                                          o++
-                                        ) {
-                                          if (
-                                            data.message[i].children[j]
-                                              .children[k].children[l].children[
-                                              m
-                                            ].children[n].children[o].type ===
-                                            "bookmark"
-                                          ) {
-                                            let url =
-                                              data.message[i].children[j]
-                                                .children[k].children[l]
-                                                .children[m].children[n]
-                                                .children[o].url; //the url of the page
-                                            console.log("url=" + url);
-                                            let title =
-                                              data.message[i].children[j]
-                                                .children[k].children[l]
-                                                .children[m].children[n]
-                                                .children[o].title; //the link text for the page
-                                            let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                                            let icon =
-                                              data.message[i].children[j]
-                                                .children[k].children[l]
-                                                .children[m].children[n]
-                                                .children[o].icon; //the little icon of the page
+                    //                     console.log("title=" + title);
+                    //                     if (
+                    //                       !hasControlCharacters(title) &&
+                    //                       title.length > 0
+                    //                     ) {
+                    //                       //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
+                    //                       console.log(
+                    //                         "pushing unto htmllinksarray"
+                    //                       );
+                    //                       htmllinksarray.push({
+                    //                         description: title,
+                    //                         Url: url, //, //href,
+                    //                         note: hashtagv5,
+                    //                         amount: 0,
+                    //                         createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                    //                         faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                    //                       });
+                    //                     } else {
+                    //                       console.log(
+                    //                         "NOT pushing unto htmllinksarray"
+                    //                       );
+                    //                     }
+                    //                   } else {
+                    //                     const hashtagv6 = getHashtag(
+                    //                       data.message[i].children[j].children[
+                    //                         k
+                    //                       ].children[l].children[m].children[n]
+                    //                         .title
+                    //                     );
+                    //                     console.log("hashtagv6=" + hashtagv6);
+                    //                     for (
+                    //                       let o = 0;
+                    //                       data.message[i].children[j].children[
+                    //                         k
+                    //                       ].children[l].children[m].children[n]
+                    //                         .children &&
+                    //                       o <
+                    //                         data.message[i].children[j]
+                    //                           .children[k].children[l].children[
+                    //                           m
+                    //                         ].children[n].children.length;
+                    //                       o++
+                    //                     ) {
+                    //                       if (
+                    //                         data.message[i].children[j]
+                    //                           .children[k].children[l].children[
+                    //                           m
+                    //                         ].children[n].children[o].type ===
+                    //                         "bookmark"
+                    //                       ) {
+                    //                         let url =
+                    //                           data.message[i].children[j]
+                    //                             .children[k].children[l]
+                    //                             .children[m].children[n]
+                    //                             .children[o].url; //the url of the page
+                    //                         console.log("url=" + url);
+                    //                         let title =
+                    //                           data.message[i].children[j]
+                    //                             .children[k].children[l]
+                    //                             .children[m].children[n]
+                    //                             .children[o].title; //the link text for the page
+                    //                         let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                    //                         let icon =
+                    //                           data.message[i].children[j]
+                    //                             .children[k].children[l]
+                    //                             .children[m].children[n]
+                    //                             .children[o].icon; //the little icon of the page
 
-                                            console.log("title=" + title);
-                                            if (
-                                              !hasControlCharacters(title) &&
-                                              title.length > 0
-                                            ) {
-                                              //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                              console.log(
-                                                "pushing unto htmllinksarray"
-                                              );
-                                              htmllinksarray.push({
-                                                description: title,
-                                                Url: url, //, //href,
-                                                note: hashtagv6,
-                                                amount: 0,
-                                                createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                                                faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                                              });
-                                            } else {
-                                              console.log(
-                                                "NOT pushing unto htmllinksarray"
-                                              );
-                                            }
-                                          } else {
-                                            const hashtagv7 = getHashtag(
-                                              data.message[i].children[j]
-                                                .children[k].children[l]
-                                                .children[m].children[n]
-                                                .children[o].title
-                                            );
-                                            console.log(
-                                              "hashtagv7=" + hashtagv7
-                                            );
-                                            for (
-                                              let p = 0;
-                                              data.message[i].children[j]
-                                                .children[k].children[l]
-                                                .children[m].children[n]
-                                                .children[o].children &&
-                                              p <
-                                                data.message[i].children[j]
-                                                  .children[k].children[l]
-                                                  .children[m].children[n]
-                                                  .children[o].children.length;
-                                              p++
-                                            ) {
-                                              if (
-                                                data.message[i].children[j]
-                                                  .children[k].children[l]
-                                                  .children[m].children[n]
-                                                  .children[o].children[p]
-                                                  .type === "bookmark"
-                                              ) {
-                                                let url =
-                                                  data.message[i].children[j]
-                                                    .children[k].children[l]
-                                                    .children[m].children[n]
-                                                    .children[o].children[p]
-                                                    .url; //the url of the page
-                                                console.log("url=" + url);
-                                                let title =
-                                                  data.message[i].children[j]
-                                                    .children[k].children[l]
-                                                    .children[m].children[n]
-                                                    .children[o].children[p]
-                                                    .title; //the link text for the page
-                                                let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
-                                                let icon =
-                                                  data.message[i].children[j]
-                                                    .children[k].children[l]
-                                                    .children[m].children[n]
-                                                    .children[o].children[p]
-                                                    .icon; //the little icon of the page
+                    //                         console.log("title=" + title);
+                    //                         if (
+                    //                           !hasControlCharacters(title) &&
+                    //                           title.length > 0
+                    //                         ) {
+                    //                           //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
+                    //                           console.log(
+                    //                             "pushing unto htmllinksarray"
+                    //                           );
+                    //                           htmllinksarray.push({
+                    //                             description: title,
+                    //                             Url: url, //, //href,
+                    //                             note: hashtagv6,
+                    //                             amount: 0,
+                    //                             createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                    //                             faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                    //                           });
+                    //                         } else {
+                    //                           console.log(
+                    //                             "NOT pushing unto htmllinksarray"
+                    //                           );
+                    //                         }
+                    //                       } else {
+                    //                         const hashtagv7 = getHashtag(
+                    //                           data.message[i].children[j]
+                    //                             .children[k].children[l]
+                    //                             .children[m].children[n]
+                    //                             .children[o].title
+                    //                         );
+                    //                         console.log(
+                    //                           "hashtagv7=" + hashtagv7
+                    //                         );
+                    //                         for (
+                    //                           let p = 0;
+                    //                           data.message[i].children[j]
+                    //                             .children[k].children[l]
+                    //                             .children[m].children[n]
+                    //                             .children[o].children &&
+                    //                           p <
+                    //                             data.message[i].children[j]
+                    //                               .children[k].children[l]
+                    //                               .children[m].children[n]
+                    //                               .children[o].children.length;
+                    //                           p++
+                    //                         ) {
+                    //                           if (
+                    //                             data.message[i].children[j]
+                    //                               .children[k].children[l]
+                    //                               .children[m].children[n]
+                    //                               .children[o].children[p]
+                    //                               .type === "bookmark"
+                    //                           ) {
+                    //                             let url =
+                    //                               data.message[i].children[j]
+                    //                                 .children[k].children[l]
+                    //                                 .children[m].children[n]
+                    //                                 .children[o].children[p]
+                    //                                 .url; //the url of the page
+                    //                             console.log("url=" + url);
+                    //                             let title =
+                    //                               data.message[i].children[j]
+                    //                                 .children[k].children[l]
+                    //                                 .children[m].children[n]
+                    //                                 .children[o].children[p]
+                    //                                 .title; //the link text for the page
+                    //                             let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
+                    //                             let icon =
+                    //                               data.message[i].children[j]
+                    //                                 .children[k].children[l]
+                    //                                 .children[m].children[n]
+                    //                                 .children[o].children[p]
+                    //                                 .icon; //the little icon of the page
 
-                                                console.log("title=" + title);
-                                                if (
-                                                  !hasControlCharacters(
-                                                    title
-                                                  ) &&
-                                                  title.length > 0
-                                                ) {
-                                                  //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                                  console.log(
-                                                    "pushing unto htmllinksarray"
-                                                  );
-                                                  htmllinksarray.push({
-                                                    description: title,
-                                                    Url: url, //, //href,
-                                                    note: hashtagv7,
-                                                    amount: 0,
-                                                    createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                                                    faviconURL: icon, //"https://google.com/favicon.ico" //icon
-                                                  });
-                                                } else {
-                                                  console.log(
-                                                    "NOT pushing unto htmllinksarray"
-                                                  );
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        } //nested for with k //
-                      }
-                    }
+                    //                             console.log("title=" + title);
+                    //                             if (
+                    //                               !hasControlCharacters(
+                    //                                 title
+                    //                               ) &&
+                    //                               title.length > 0
+                    //                             ) {
+                    //                               //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
+                    //                               console.log(
+                    //                                 "pushing unto htmllinksarray"
+                    //                               );
+                    //                               htmllinksarray.push({
+                    //                                 description: title,
+                    //                                 Url: url, //, //href,
+                    //                                 note: hashtagv7,
+                    //                                 amount: 0,
+                    //                                 createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                    //                                 faviconURL: icon, //"https://google.com/favicon.ico" //icon
+                    //                               });
+                    //                             } else {
+                    //                               console.log(
+                    //                                 "NOT pushing unto htmllinksarray"
+                    //                               );
+                    //                             }
+                    //                           }
+                    //                         }
+                    //                       }
+                    //                     }
+                    //                   }
+                    //                 }
+                    //               }
+                    //             }
+                    //           }
+                    //         }
+                    //       }
+                    //     } //nested for with k //
+                    //   }
+                    // }
 
-                    setDone2(true)
-                //
-                // console.log("three loops ended");
-                // console.log("htmllinksarray=" + JSON.stringify(htmllinksarray));
-
-                // let A = props.links;
-                // let B = htmllinksarray;
-                // let result = B.filter(
-                //   (b) => !A.some((a) => a.description === b.description)
-                // );
-
-                // console.log("result.length=" + result.length);
-                // //let ok = false;
-                // //500
-                // let ll = props.links.length;
-                // let rl = result.length;
-
-                // let max = 0;
-                // let loopmax2 = rl;
-
-                // const user = firebase.auth().currentUser;
-                // if (
-                //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
-                //   user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
-                //   user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
-                //   user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
-                // ) {
-                //   max = 10000 - (rl + ll);
-                //   console.log("in if, ll=" + ll);
-                //   console.log("in if, rl=" + rl);
-                //   console.log("in if, max=" + max);
-                //   if (rl > max) {
-                //     loopmax2 = max;
-                //   }
-                // } else {
-                //   max = 500 - (rl + ll);
-                //   if (rl > max) {
-                //     loopmax2 = max;
-                //   } //otherwise rl is equal to the full length, result.length
-                // }
-
-                // //for (let i = 0; i < result.length; i++) {
-                // for (let i = 0; i < loopmax2; i++) {
-                //   //for (let i = 0; i < 1; i++) {
-
-                //   r2 = props.startAddLink({
-                //     description: result[i].description,
-                //     Url: result[i].Url, //, //href,
-                //     note: result[i].note,
-                //     amount: 0,
-                //     createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                //     faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
-                //   });
-
-                //   if (r2 === false) {
-                //     setImportingError(true);
-                //     break;
-                //   }
-                // }
-
-                // if (r2 === false) {
-                //   // setErrorDialog(true);
-                //   console.log("ERROR, VVVVVVVVVVVVV returned false");
-                // } else {
-                //   console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-                //   //props.history.push("/");
-                //   //window.location.reload()
-
-                //   //how many new links were added, because of the maximum of 500 I had to add this
-                //   setMax2(max);
-                //   setRl2(rl); //rl is the length of the full amount to upload
-                //   setLoopmax2(loopmax2); //loopmax2 is the modified length if rl would overflow 500
-                //   // const fileRef = storage.refFromURL(props.url);
-
-                //   // fileRef.delete();
-                // }
+                    // setDone2(true)
+                
                     
                   }
                   console.log("outside loop");

@@ -6,7 +6,6 @@ import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
 import logo from "../assets/images/logo9.png";
 //import { getAuth } from "firebase";
-import * as firebase from "firebase";
 
 // const preStartLogout=()=>{
 //   setLinks([])

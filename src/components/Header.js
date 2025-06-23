@@ -127,7 +127,7 @@ export const Header = (props) => {
                 </Link>
               </div>
 
-              <div>
+              <div className="margin-top-11">
                 <button
                   className="button button--link ib text-size-3"
                   onClick={props.startLogout}

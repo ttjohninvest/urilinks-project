@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useRef} from "react";
+import { connect } from "react-redux";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
 
@@ -50,6 +51,7 @@ const LinkDashboardPage = (props) => {
   },[])
 
  useEffect(() => {
+      console.log("LinkDashboardPage, props.settings.photoURL="+props.settings.photoURL)
        // Save scroll position before leaving
        window.addEventListener('beforeunload', () => {
          sessionStorage.setItem('scrollPosition', window.scrollY);
@@ -105,5 +107,12 @@ const LinkDashboardPage = (props) => {
   );
 };
 
-export default LinkDashboardPage;
+const mapStateToProps = (state) => ({
+  settings:state.settings
+});
+
+
+
+export default connect(mapStateToProps, undefined)(LinkDashboardPage);
+//export default LinkDashboardPage;
 

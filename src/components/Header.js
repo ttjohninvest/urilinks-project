@@ -75,7 +75,7 @@ export const Header = (props) => {
                   </div>
                 </Link>
               </div>
-<div><img src={photoURL} width="32" height="32" style={{ borderRadius: '50%' }} /></div>
+<div><img src={photoURL} width="32" height="32" style={{ borderRadius: '50%' }} className="marin-top-t" /></div>
               <div>
                 <Link className="header__title" to="/benefits">
                   <span

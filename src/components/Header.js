@@ -75,9 +75,9 @@ export const Header = (props) => {
                   </div>
                 </Link>
               </div>
-
+<div><img src={photoURL} width="32" height="32" style={{ borderRadius: '50%' }} className="" /></div>
               <div>
-                <div><img src={photoURL} width="32" height="32" style={{ borderRadius: '50%' }} className="" /></div>
+                
                 <Link className="header__title" to="/benefits">
                   <span
                     className="margin-right-1-ib"

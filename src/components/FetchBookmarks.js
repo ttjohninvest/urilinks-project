@@ -67,6 +67,7 @@ const FetchBookmarks = (props) => {
     //prepend "#"
     const hashtag = "#" + lc;
     //return the hashtag
+    console.log("TTTTTTTTTTTTTTTTTTTTTTT, str="+str)
     console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag="+hashtag)
     return hashtag;
   };

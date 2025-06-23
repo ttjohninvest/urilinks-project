@@ -5,6 +5,7 @@ const Benefits = () => (
   <div className="list-header__flex__center">
     <ul>
       <li>urilinks.com Benefits:</li>
+      <li>You may upload your bookmarks from Brave, Chrome, Edge, Firefox or Opera browser.</li>
       <li>Add Uri/Url Link button on the home page is used to add a url link to your private account.</li>
       <li>Please use it for good.</li>
       <li>Using the website is free. It supports 250 uri/url links per private user account.</li>

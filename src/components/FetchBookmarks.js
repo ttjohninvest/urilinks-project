@@ -67,6 +67,7 @@ const FetchBookmarks = (props) => {
     //prepend "#"
     const hashtag = "#" + lc;
     //return the hashtag
+    console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag="+hashtag)
     return hashtag;
   };
 
@@ -569,7 +570,7 @@ const FetchBookmarks = (props) => {
                         }
                       }
                     } else if(i===1) { //another folder
-  const hashtagv1 = getHashtag(data.message[i].title);
+                     const hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;

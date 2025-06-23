@@ -72,9 +72,10 @@ const FetchBookmarks = (props) => {
   };
 
   const hasControlCharacters = (str) => {
-    const regex = /\\c[ABCDEFGHIKLNOPQRSUVWXYZ]/;
-    const result = regex.test(str);
-    return result;
+    // const regex = /\\c[ABCDEFGHIKLNOPQRSUVWXYZ]/;
+    // const result = regex.test(str);
+    // return result;
+    return false
   };
 
   useEffect(() => {

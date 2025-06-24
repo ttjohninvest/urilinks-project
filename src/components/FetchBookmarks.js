@@ -131,6 +131,20 @@ const FetchBookmarks = (props) => {
             // console.log(data.message[1].children[0].title)
             // console.log(data.message[1].children[1].title)
 
+             fetch("urilinks-project-splitbm-vercel-fi79vfvo5.vercel.app", {
+              method: "POST",
+              headers: {
+                "Content-Type": " text/plain; charset=UTF-8",
+              },
+              body: htmlContent,
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                //json
+                console.log("Split Success:");
+                console.log(data);
+              })
+
             let r = true;
             let r2 = true;
             let htmllinksarray = [];

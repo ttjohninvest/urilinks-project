@@ -23,6 +23,7 @@ const FetchBookmarks = (props) => {
   const [error, setError] = useState(false);
   const [error2, setError2] = useState(false);
   const [error3, setError3] = useState(false);
+   const [error4, setError4] = useState(false);
   const [importingError, setImportingError] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [myArray, setMyArray] = useState([]);
@@ -1387,7 +1388,7 @@ const FetchBookmarks = (props) => {
                         }
                       }
                     }
-                  } else if(isChrome || isOpera || isBrave === undefined || isEdge) { //for the other browsers
+                  } else if(data.message.length===2 || data.message.length===1 ) { //for the other browsers
                     if (i === 0) {
                       const hashtagv1 = getHashtag(data.message[i].title);
 
@@ -2206,7 +2207,7 @@ const FetchBookmarks = (props) => {
                       }
                     }
                   } else {
-                    throw new Error("THE BROWSER IS NOT SUPPORTED")
+                    throw new Error("THIS BOOKMARRKS FILE IS NOT SUPPORTED")
                   }
 
                   console.log("outside loop");
@@ -2292,7 +2293,9 @@ const FetchBookmarks = (props) => {
               })
               .catch((error) => {
                 console.log("caught error = " + error);
-                if (error === "THE BROWSER IS NOT SUPPORTED") setError3(true);
+                if(error === "THIS BOOKMARRKS FILE IS NOT SUPPORTED")
+                  setError4(true)
+                else if (error === "THE BROWSER IS NOT SUPPORTED") setError3(true);
                 else setError2(true);
               });
           } else {
@@ -2320,6 +2323,7 @@ const FetchBookmarks = (props) => {
         ""
       )}
       {error3 ? <div>Error: The browser is not supported.</div> : ""}
+      {error4 ? <div>Error: This bookmarks file is not supported.</div> : ""}
       {importingError === true ? (
         "Error importing bookmarks"
       ) : !error && !error2 && done ? (

@@ -1,10 +1,13 @@
 # Git Commands
 
 todo to do
-isBrave === undefined needs to be taken out, figure out how to check for the brave browser I want to leave it in
+I sent a fiver message on 6/23/2025 at 9:35pm.
+narrow videos don't have a description, but it looks like it was added
 it should be able to handle any depth of nesting
 bookmark file size that is under 100kb will work, about 125 bookmarks
------------------------------------------------------------------------------------------
+
+---
+
 express server api to convert the bookmarks.html file into json so that I can process it
 in FetchBookmarks.js and convert all of the folder names into hashtags
 
@@ -18,12 +21,13 @@ urilinks-project-vercel-app
 
 command to login into github from the command line
 gh auth login
---------------------------------------------------------------------------------------------
+
+---
+
 i may need a tool to split up the bookmarks file for the user and press it in a loop in the code
 their is no limit on the number of hashtags, I need to set a limit
 
 the add_date timestamp from the bookmarks html file is failing, I have to use the current timestamp
-
 
 I sent 4 ads to 4 different affiliate marketer groups on fb, waiting for response from group admins, 6/8/2025
 put the function in to delete the data from firebase if the user deletes gmail email from google
@@ -341,5 +345,3 @@ putting the blog with this domain it is at internetmarks0.blogspot.com, which is
 still having problem with ADD_DATE,
 it is being put into props.links, but it is not displaying because
 because the way I convert the timestamp is wrong
-
-

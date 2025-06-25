@@ -24,7 +24,7 @@ const ImportedBookmarks = (props) => {
           </div>
         ) : props.max === props.rl ? (
           <div className="margin-top-1111b font-weight-bold">
-            Successfully imported all the unique bookmarks.{" "}
+            Successfully imported all unique bookmarks.{" "}
             {`${props.rl} of ${props.max}`}
           </div>
         ) : (

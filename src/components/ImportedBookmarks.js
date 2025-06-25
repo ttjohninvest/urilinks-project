@@ -23,7 +23,7 @@ const ImportedBookmarks = (props) => {
             uploaded overflowed the maximum number of 500 bookmarks.
           </div>
         ) : props.max === props.rl ? (
-          <div>
+          <div className="margin-top-1111b">
             Successfully imported all of the bookmarks.{" "}
             {`${props.rl} of ${props.max}`}
           </div>
@@ -55,8 +55,8 @@ const ImportedBookmarks = (props) => {
               </button>
             </div>
           </div>
-           <div className="rectangle-2">
-            <div>These are the bookmarks that were added.</div>
+           <div className="rectangle-2 margin-top-1111b">
+            <div className="margin-top-1111b">These are the bookmarks that were added.</div>
             
               {props.result.map((r, i) => (
                 <li>{r.description}</li>

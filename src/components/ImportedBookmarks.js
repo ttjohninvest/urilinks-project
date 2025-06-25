@@ -23,7 +23,7 @@ const ImportedBookmarks = (props) => {
             uploaded overflowed the maximum number of 500 bookmarks.
           </div>
         ) : props.max === props.rl ? (
-          <div className="margin-top-1111b">
+          <div className="margin-top-1111b font-weight-bold">
             Successfully imported all of the bookmarks.{" "}
             {`${props.rl} of ${props.max}`}
           </div>

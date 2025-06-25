@@ -409,6 +409,7 @@ export class LinkListFilters extends React.Component {
           </div>
           <div className="input-group__item- select-filters border-green-">
             <DateRangePicker
+              className="zindex"
               startDate={this.props.filters.startDate}
               endDate={this.props.filters.endDate}
               onDatesChange={this.onDatesChange}

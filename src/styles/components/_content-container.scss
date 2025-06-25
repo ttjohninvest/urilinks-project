@@ -41,10 +41,11 @@
   padding:.5rem;
 }
 
-.flexrowt {
+.flexrowtfw {
   display:flex;
   flex-direction:row;
   width:82rem;
+  flex-wrap:wrap;
 }
 
 .flexrow1 {

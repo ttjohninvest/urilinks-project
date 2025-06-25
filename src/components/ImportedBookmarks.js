@@ -36,7 +36,7 @@ const ImportedBookmarks = (props) => {
 
         {/* {props.max===props.rl?<div>Successfully imported all of the bookmarks. {`${props.rl} of ${props.max}`}</div>
 : <div>Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is 500 bookmarks</div>} */}
-        <div className="flexrowt">
+        <div className="flexrowtfw">
          
 
           <div className="rectangle-1">

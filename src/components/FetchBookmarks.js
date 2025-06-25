@@ -20,6 +20,7 @@ import {
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
+  const [result, setResult] = useState([]);
   const [error, setError] = useState(false);
   const [error2, setError2] = useState(false);
   const [error3, setError3] = useState(false);
@@ -2239,7 +2240,7 @@ const FetchBookmarks = (props) => {
                 let result = B.filter(
                   (b) => !A.some((a) => a.description === b.description)
                 );
-
+                
                 console.log("result.length=" + result.length);
                 //let ok = false;
                 //500
@@ -2304,6 +2305,7 @@ const FetchBookmarks = (props) => {
                   // const fileRef = storage.refFromURL(props.url);
 
                   // fileRef.delete();
+                  setResult(result)
                 }
               })
               .catch((error) => {

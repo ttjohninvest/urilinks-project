@@ -13,6 +13,10 @@ const ImportedBookmarks = (props) => {
     window.location.reload();
   };
 
+  const printIt=()=>{
+    window.print()
+  }
+
   return (
     <div className="container2">
       <div className="flexcol">
@@ -56,6 +60,7 @@ const ImportedBookmarks = (props) => {
             </div>
           </div>
            <div className="rectangle-2 margin-top-1111b">
+            {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b">print</div>}
             {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}
             
               {props.result.map((r, i) => (

@@ -2,6 +2,7 @@ import React from "react";
 //import { history } from "../routers/AppRouter";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import printerImage from "../assets/images/printer_image.png";
 
 const ImportedBookmarks = (props) => {
   const goToHomePage = () => {
@@ -24,7 +25,7 @@ const ImportedBookmarks = (props) => {
     <div className="container2">
       <div className="flexcol">
         {props.rl === 0 ? (
-          <div className="margin-top-1111b">
+          <div className="margin-top-1111c">
             Bookmarks were not uploaded because they may have been already
             uploaded,the bookmarks file was empty or the bookmarks file being
             uploaded overflowed the maximum number of 250 bookmarks.
@@ -63,7 +64,7 @@ const ImportedBookmarks = (props) => {
             </div>
           </div>
            <div className="rectangle-2 margin-top-1111b">
-            {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b">print</div>}
+            {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b"><img src={printerImage} width="25" height="25"/></div>}
             {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}
             
               {props.result.map((r, i) => (

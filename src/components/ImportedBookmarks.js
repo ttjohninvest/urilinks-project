@@ -59,7 +59,7 @@ const ImportedBookmarks = (props) => {
             {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}
             
               {props.result.map((r, i) => (
-                <li>{r.description}, <span className="font-weight-bold" title="You may use this hashtag in hashtag search to find it.">{r.note}</span></li>
+                <li>{r.description}, <span className="font-weight-1" title="You may use this hashtag in hashtag search to find it.">{r.note}</span></li>
               ))}
             
           </div>

@@ -2342,7 +2342,7 @@ const FetchBookmarks = (props) => {
       {importingError === true ? (
         "Error importing bookmarks"
       ) : !error && !error2 && done ? (
-        <ImportedBookmarks rl={loopmax} max={rl} />
+        <ImportedBookmarks result={result} rl={loopmax} max={rl} />
       ) : (
         <LoadingPage />
       )}

@@ -64,7 +64,7 @@ const ImportedBookmarks = (props) => {
             </div>
           </div>
            <div className="rectangle-2 margin-top-1111b">
-            {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b"><img src={printerImage} width="25" height="25"/></div>}
+            {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b"><img src={printerImage} width="25" height="25" style={{borderRadius:'50%'}}/></div>}
             {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}
             
               {props.result.map((r, i) => (

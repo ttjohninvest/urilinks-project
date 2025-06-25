@@ -17,7 +17,7 @@ const ImportedBookmarks = (props) => {
     <div className="container2">
       <div className="flexcol">
         {props.rl === 0 ? (
-          <div className="">
+          <div className="margin-top-1111b">
             Bookmarks were not uploaded because they may have been already
             uploaded,the bookmarks file was empty or the bookmarks file being
             uploaded overflowed the maximum number of 500 bookmarks.
@@ -56,7 +56,7 @@ const ImportedBookmarks = (props) => {
             </div>
           </div>
            <div className="rectangle-2 margin-top-1111b">
-            <div className="margin-top-1111b">These are the bookmarks that were added.</div>
+            {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}
             
               {props.result.map((r, i) => (
                 <li>{r.description}</li>

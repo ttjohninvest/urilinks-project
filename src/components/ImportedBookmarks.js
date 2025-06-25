@@ -16,38 +16,53 @@ const ImportedBookmarks = (props) => {
   return (
     <div className="container2">
       <div className="flexcol">
+        {props.rl === 0 ? (
+          <div className="">
+            Bookmarks were not uploaded because they may have been already
+            uploaded,the bookmarks file was empty or the bookmarks file being
+            uploaded overflowed the maximum number of 500 bookmarks.
+          </div>
+        ) : props.max === props.rl ? (
+          <div>
+            Successfully imported all of the bookmarks.{" "}
+            {`${props.rl} of ${props.max}`}
+          </div>
+        ) : (
+          <div>
+            Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is
+            500 bookmarks
+          </div>
+        )}
 
-  {props.rl===0?<div className=''>Bookmarks were not uploaded because they may have been already uploaded,the bookmarks file was empty or the bookmarks file being uploaded overflowed the maximum number of 500 bookmarks.</div>
-: props.max===props.rl?<div>Successfully imported all of the bookmarks. {`${props.rl} of ${props.max}`}</div>
-: <div>Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is 500 bookmarks</div> 
-}
-
-{/* {props.max===props.rl?<div>Successfully imported all of the bookmarks. {`${props.rl} of ${props.max}`}</div>
+        {/* {props.max===props.rl?<div>Successfully imported all of the bookmarks. {`${props.rl} of ${props.max}`}</div>
 : <div>Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is 500 bookmarks</div>} */}
-<div className="flexrowt">
-  <div>
-    <div>These are the bookmarks that were added.</div>
-    <ul>
-       {props.result.map((r,i)=> <li>{r.description}</li>)}
- </ul>
-  </div>
-   
-  <div>
-<div className="margin-top-2">
-          <button className="button-style-1- button" onClick={returnAndRefresh}>
-            Return and Refresh
-          </button>
-        </div>
+        <div className="flexrowt">
+          <div>
+            {/* <div>These are the bookmarks that were added.</div>
+            <ul>
+              {props.result.map((r, i) => (
+                <li>{r.description}</li>
+              ))}
+            </ul> */}
+          </div>
 
-        <div className="margin-top-2">
-          <button className="button-style-1- button" onClick={goToHomePage}>
-            Return
-          </button>
-        </div>
-  </div>
+          <div>
+            <div className="margin-top-2">
+              <button
+                className="button-style-1- button"
+                onClick={returnAndRefresh}
+              >
+                Return and Refresh
+              </button>
+            </div>
 
-</div>
-        
+            <div className="margin-top-2">
+              <button className="button-style-1- button" onClick={goToHomePage}>
+                Return
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

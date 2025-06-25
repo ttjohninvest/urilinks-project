@@ -55,7 +55,7 @@ const ImportedBookmarks = (props) => {
               </button>
             </div>
           </div>
-           <div className="rectangle-1">
+           <div className="rectangle-2">
             <div>These are the bookmarks that were added.</div>
             <ul>
               {props.result.map((r, i) => (

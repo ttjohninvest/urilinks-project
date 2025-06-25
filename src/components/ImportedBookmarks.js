@@ -14,7 +14,10 @@ const ImportedBookmarks = (props) => {
   };
 
   const printIt=()=>{
+    const oldTitle = document.title
+    document.title = "urilinks new links";
     window.print()
+    document.title=oldTitle
   }
 
   return (

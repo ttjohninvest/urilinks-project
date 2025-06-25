@@ -38,15 +38,15 @@ const ImportedBookmarks = (props) => {
 : <div>Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is 500 bookmarks</div>} */}
         <div className="flexrowt">
           <div>
-            {/* <div>These are the bookmarks that were added.</div>
+            <div>These are the bookmarks that were added.</div>
             <ul>
               {props.result.map((r, i) => (
                 <li>{r.description}</li>
               ))}
-            </ul> */}
+            </ul>
           </div>
 
-          <div>
+          <div className="rectangle-1">
             <div className="margin-top-2">
               <button
                 className="button-style-1- button"

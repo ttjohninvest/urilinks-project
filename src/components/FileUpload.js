@@ -36,13 +36,13 @@ class FileUpload extends React.Component {
 
   componentDidMount() {
    
-    const x = document.getElementById("real-file")
-    const y = document.getElementById("custom-button")
-    const z = document.getElementById("custom-text")
+    // const x = document.getElementById("real-file")
+    // const y = document.getElementById("custom-button")
+    // const z = document.getElementById("custom-text")
     this.setState({
-      realFileBtn:x,
-      customBtn:y,
-      customText:z
+      realFileBtn:document.getElementById("real-file"),
+      customBtn:document.getElementById("custom-button"),
+      customText:document.getElementById("custom-text")
     })
     
     this.state.realFileBtn.addEventListener("change",this.realFileBtnHandler)
@@ -53,8 +53,8 @@ class FileUpload extends React.Component {
 
   componentWillUnmount() {
     //window.removeEventListener('keydown', this.handleKeyDown);
-    this.state.customBtn.removeEventListener('click', this.customBtnHandler);
-    this.state.realFileBtn.removeEventListener('click', this.realFileBtnHandler);
+    // this.state.customBtn.removeEventListener('click', this.customBtnHandler);
+    // this.state.realFileBtn.removeEventListener('click', this.realFileBtnHandler);
   }
 
 

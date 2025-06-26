@@ -14,41 +14,81 @@ class FileUpload extends React.Component {
     progress:0,
   }
 
-  // this.element1 = React.createRef();
-  // this.element2 = React.createRef();
-  // this.element3 = React.createRef();
-
+  // this.handleEvent1 = this.handleEvent1.bind(this);
+  // this.handleEvent2 = this.handleEvent2.bind(this);
+  // this.handleEvent3 = this.handleEvent3.bind(this);
   }
 
+  /*
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleEvent1 = this.handleEvent1.bind(this);
+    this.handleEvent2 = this.handleEvent2.bind(this);
+    this.myElement = React.createRef();
+  }
+
+  handleEvent1(event) {
+    // Handle the first event
+  }
+
+  handleEvent2(event) {
+    // Handle the second event
+  }
 
   componentDidMount() {
- 
-    // this.element1.current.addEventListener("click",this.realFileBtnHandler)
-
-    // this.element2.current.addEventListener('click', this.customBtnHandler);
-
+    this.myElement.current.addEventListener('event1', this.handleEvent1);
+    this.myElement.current.addEventListener('event2', this.handleEvent2);
   }
 
-   componentWillUnmount() {
-    //  this.element1.current.removeEventListener("click",this.realFileBtnHandler) //change
+  componentWillUnmount() {
+    this.myElement.current.removeEventListener('event1', this.handleEvent1);
+    this.myElement.current.removeEventListener('event2', this.handleEvent2);
+  }
 
-    // this.element2.current.removeEventListener('click', this.customBtnHandler);
+  render() {
+    return (
+      <div ref={this.myElement}>
+       
+      </div>
+    );
+  }
+}
+  */
+
+//    handleEvent1(event) {
+//     console.log("handleEvent1,event="+JSON.stringify(event))
+// //    if(event.target.value) {
+// // this.handleEvent3.innerHTML=event.target.value
+// //    } else {
+// //     this.handleEvent3.innerHTML="file not uploaded yet"
+// //    }
+//    }
+
+  // handleEvent2(event) {
+  //   // Handle the second event
+  //   this.handleEvent1.click()
+  // }
+
+  // handleEvent3(event) {
    
-   }
+  // }
 
-    // realFileBtnHandler() {
-    //   if(this.element3.current.value) {
-    //           this.element3.current.innerHTML = this.element1.current.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]
-    //   } else {
-    //           this.element3.current.innerHTML = "no file chosen yet"
-    //   }
-    // }
 
-    //  customBtnHandler() {
-    //   console.log("customBtnHandler")
-    //   this.element1.current.click()
-    // }
+  // componentDidMount() {
+ 
+  //  window.addEventListener('change', this.handleEvent1);
+  //   window.addEventListener('click', this.handleEvent2);
+
+  // }
+
+  //  componentWillUnmount() {
+  //   window.removeEventListener('event1', this.handleEvent1);
+  //   window.removeEventListener('event2', this.handleEvent2);
    
+  //  }
+
+    
 
   formHandler = (e) => {
     e.preventDefault();

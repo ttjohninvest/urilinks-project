@@ -12,50 +12,56 @@ class FileUpload extends React.Component {
 
   this.state = {
     progress:0,
-    realFileBtn:undefined,
-    customBtn:undefined,
-    customText:undefined
+    // realFileBtn:undefined,
+    // customBtn:undefined,
+    // customText:undefined
   }
 
-  this.realFileBtnHandler = this.realFileBtnHandler.bind(this);
-    this.customBtnHandler = this.customBtnHandler.bind(this);
+  // this.realFileBtnHandler = this.realFileBtnHandler.bind(this);
+  //   this.customBtnHandler = this.customBtnHandler.bind(this);
 
   }
 
-  realFileBtnHandler() {
-      if(this.state.realFileBtn.value) {
-              this.state.customText.innerHTML = this.state.realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]
-      } else {
-              this.state.customText.innerHTML = "no file chosen yet"
-      }
-  }
+ 
+  // componentDidMount() {
+  // //    const realFileBtn = document.getElementById("real-file")
+  // //    const customBtn = document.getElementById("custom-button")
+  // //    const customText = document.getElementById("custom-text")
+  
+  // //    realFileBtnHandler() {
+  // //     if(realFileBtn.value) {
+  // //             customText.innerHTML = this.state.realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]
+  // //     } else {
+  // //             customText.innerHTML = "no file chosen yet"
+  // //     }
+  // // }
 
-  customBtnHandler() {
-      this.state.realFileBtn.click()
-  }
-
-  componentDidMount() {
-   
-    // const x = document.getElementById("real-file")
-    // const y = document.getElementById("custom-button")
-    // const z = document.getElementById("custom-text")
-    this.setState({
-      realFileBtn:document.getElementById("real-file"),
-      customBtn:document.getElementById("custom-button"),
-      customText:document.getElementById("custom-text")
-    })
+  // // customBtnHandler() {
+  // //     realFileBtn.click()
+  // // }
+  
+  //   // const x = document.getElementById("real-file")
+  //   // const y = document.getElementById("custom-button")
+  //   // const z = document.getElementById("custom-text")
+  //   // this.setState({
+  //   //   realFileBtn:document.getElementById("real-file"),
+  //   //   customBtn:document.getElementById("custom-button"),
+  //   //   customText:document.getElementById("custom-text")
+  //   // })
     
-    this.state.realFileBtn.addEventListener("change",this.realFileBtnHandler)
+  //   //this.state.realFileBtn.addEventListener("change",this.realFileBtnHandler)
+  //   //realFileBtn.addEventListener("change",this.realFileBtnHandler)
 
-    this.state.customBtn.addEventListener('click', this.customBtnHandler);
+  //   //this.state.customBtn.addEventListener('click', this.customBtnHandler);
+  //   //customBtn.addEventListener('click', this.customBtnHandler);
 
-  }
+  // }
 
-  componentWillUnmount() {
-    //window.removeEventListener('keydown', this.handleKeyDown);
-    // this.state.customBtn.removeEventListener('click', this.customBtnHandler);
-    // this.state.realFileBtn.removeEventListener('click', this.realFileBtnHandler);
-  }
+  // componentWillUnmount() {
+  //   //window.removeEventListener('keydown', this.handleKeyDown);
+  //   // this.state.customBtn.removeEventListener('click', this.customBtnHandler);
+  //   // this.state.realFileBtn.removeEventListener('click', this.realFileBtnHandler);
+  // }
 
 
   formHandler = (e) => {
@@ -110,9 +116,9 @@ class FileUpload extends React.Component {
      return (
     <div className="App">
       <form onSubmit={this.formHandler}>
-        <input id="real-file" type="file" className="input" accept=".html" hidden="hidden" />
-        <button  id="custom-button" type="button" className="button">choose a file</button>
-        <span id="custom-text">no file chosen yet</span>
+        <input id="real-file" type="file" className="input" accept=".html" />
+        {/* <button  id="custom-button" type="button" className="button">choose a file</button>
+        <span id="custom-text">no file chosen yet</span> */}
         <button type="submit">Upload</button>
       </form>
       <hr />

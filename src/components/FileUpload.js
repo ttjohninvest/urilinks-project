@@ -46,7 +46,7 @@ class FileUpload extends React.Component {
 
      customBtnHandler() {
       console.log("customBtnHandler")
-      this.element1.click()
+      this.element1.current.click()
     }
    
 

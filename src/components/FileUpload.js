@@ -14,40 +14,40 @@ class FileUpload extends React.Component {
     progress:0,
   }
 
-  this.element1 = React.createRef();
-  this.element2 = React.createRef();
-  this.element3 = React.createRef();
+  // this.element1 = React.createRef();
+  // this.element2 = React.createRef();
+  // this.element3 = React.createRef();
 
   }
 
 
   componentDidMount() {
  
-    this.element1.current.addEventListener("click",this.realFileBtnHandler)
+    // this.element1.current.addEventListener("click",this.realFileBtnHandler)
 
-    this.element2.current.addEventListener('click', this.customBtnHandler);
+    // this.element2.current.addEventListener('click', this.customBtnHandler);
 
   }
 
    componentWillUnmount() {
-     this.element1.current.removeEventListener("change",this.realFileBtnHandler)
+    //  this.element1.current.removeEventListener("click",this.realFileBtnHandler) //change
 
-    this.element2.current.removeEventListener('click', this.customBtnHandler);
+    // this.element2.current.removeEventListener('click', this.customBtnHandler);
    
    }
 
-    realFileBtnHandler() {
-      if(this.element3.current.value) {
-              this.element3.current.innerHTML = this.element1.current.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]
-      } else {
-              this.element3.current.innerHTML = "no file chosen yet"
-      }
-    }
+    // realFileBtnHandler() {
+    //   if(this.element3.current.value) {
+    //           this.element3.current.innerHTML = this.element1.current.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]
+    //   } else {
+    //           this.element3.current.innerHTML = "no file chosen yet"
+    //   }
+    // }
 
-     customBtnHandler() {
-      console.log("customBtnHandler")
-      this.element1.current.click()
-    }
+    //  customBtnHandler() {
+    //   console.log("customBtnHandler")
+    //   this.element1.current.click()
+    // }
    
 
   formHandler = (e) => {
@@ -103,16 +103,16 @@ class FileUpload extends React.Component {
     <div className="App">
       <form onSubmit={this.formHandler}>
         <input 
-        ref={this.element1} 
-        id="real-file" type="file" className="input visibility-hidden" accept=".html" 
+        //ref={this.element1} 
+        id="real-file" type="file" className="input" accept=".html" 
         //hidden="hidden" 
         />
-        <button 
-        ref={this.element2}  
-        id="custom-button" type="button" className="button">choose a file</button>
-        <span 
+        {/* <button 
+        //ref={this.element2}  
+        id="custom-button" type="button" className="button">choose a file</button> */}
+        {/* <span 
         ref={this.element3} 
-        id="custom-text">no file chosen yet</span>
+        id="custom-text">no file chosen yet</span> */}
         <button type="submit">Upload</button>
       </form>
       <hr />

@@ -36,8 +36,8 @@ class FileUpload extends React.Component {
 
   componentDidMount() {
    
-    const x = document.getElementById("real-file"),
-    const y = document.getElementById("custom-button"),
+    const x = document.getElementById("real-file")
+    const y = document.getElementById("custom-button")
     const z = document.getElementById("custom-text")
     this.setState({
       realFileBtn:x,

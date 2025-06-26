@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
 import { storage } from "../firebase/firebase";
@@ -12,57 +12,42 @@ class FileUpload extends React.Component {
 
   this.state = {
     progress:0,
-    // realFileBtn:undefined,
-    // customBtn:undefined,
-    // customText:undefined
   }
 
-  // this.realFileBtnHandler = this.realFileBtnHandler.bind(this);
-  //   this.customBtnHandler = this.customBtnHandler.bind(this);
+  this.element1 = React.createRef();
+  this.element2 = React.createRef();
+  this.element3 = React.createRef();
 
   }
 
+
+  componentDidMount() {
  
-  // componentDidMount() {
-  // //    const realFileBtn = document.getElementById("real-file")
-  // //    const customBtn = document.getElementById("custom-button")
-  // //    const customText = document.getElementById("custom-text")
-  
-  // //    realFileBtnHandler() {
-  // //     if(realFileBtn.value) {
-  // //             customText.innerHTML = this.state.realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]
-  // //     } else {
-  // //             customText.innerHTML = "no file chosen yet"
-  // //     }
-  // // }
+    this.element1.current.addEventListener("change",this.realFileBtnHandler)
 
-  // // customBtnHandler() {
-  // //     realFileBtn.click()
-  // // }
-  
-  //   // const x = document.getElementById("real-file")
-  //   // const y = document.getElementById("custom-button")
-  //   // const z = document.getElementById("custom-text")
-  //   // this.setState({
-  //   //   realFileBtn:document.getElementById("real-file"),
-  //   //   customBtn:document.getElementById("custom-button"),
-  //   //   customText:document.getElementById("custom-text")
-  //   // })
-    
-  //   //this.state.realFileBtn.addEventListener("change",this.realFileBtnHandler)
-  //   //realFileBtn.addEventListener("change",this.realFileBtnHandler)
+    this.element2.current.addEventListener('click', this.customBtnHandler);
 
-  //   //this.state.customBtn.addEventListener('click', this.customBtnHandler);
-  //   //customBtn.addEventListener('click', this.customBtnHandler);
+  }
 
-  // }
+   componentWillUnmount() {
+     this.element1.current.removeEventListener("change",this.realFileBtnHandler)
 
-  // componentWillUnmount() {
-  //   //window.removeEventListener('keydown', this.handleKeyDown);
-  //   // this.state.customBtn.removeEventListener('click', this.customBtnHandler);
-  //   // this.state.realFileBtn.removeEventListener('click', this.realFileBtnHandler);
-  // }
+    this.element2.current.removeEventListener('click', this.customBtnHandler);
+   
+   }
 
+    realFileBtnHandler() {
+      if(this.element3.current.value) {
+              this.element3.current.innerHTML = this.element1.current.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]
+      } else {
+              this.element3.current.innerHTML = "no file chosen yet"
+      }
+    }
+
+     customBtnHandler() {
+      this.element1.current.click()
+    }
+   
 
   formHandler = (e) => {
     e.preventDefault();
@@ -116,9 +101,9 @@ class FileUpload extends React.Component {
      return (
     <div className="App">
       <form onSubmit={this.formHandler}>
-        <input id="real-file" type="file" className="input" accept=".html" />
-        {/* <button  id="custom-button" type="button" className="button">choose a file</button>
-        <span id="custom-text">no file chosen yet</span> */}
+        <input ref={this.element1} id="real-file" type="file" className="input" accept=".html" hidden="hidden" />
+        <button ref={this.element2}  id="custom-button" type="button" className="button">choose a file</button>
+        <span ref={this.element3} id="custom-text">no file chosen yet</span>
         <button type="submit">Upload</button>
       </form>
       <hr />

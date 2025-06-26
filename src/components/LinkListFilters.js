@@ -352,7 +352,7 @@ export class LinkListFilters extends React.Component {
             (this.state.mappedDataLong &&
               this.state.mappedDataLong.length > 1)) && (
                 <div>
-                <div className="cursor-pointer" onClick={this.scrollDown}>scroll down past the hashtags</div>
+                {/* <div className="cursor-pointer" onClick={this.scrollDown}>scroll down past the hashtags</div> */}
                 <ExpandableArray
               mappedDataShort={this.props.hashtags}
               mappedDataLong={this.state.mappedDataLong}

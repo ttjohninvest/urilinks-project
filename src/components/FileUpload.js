@@ -23,7 +23,7 @@ class FileUpload extends React.Component {
 
   componentDidMount() {
  
-    this.element1.current.addEventListener("change",this.realFileBtnHandler)
+    this.element1.current.addEventListener("click",this.realFileBtnHandler)
 
     this.element2.current.addEventListener('click', this.customBtnHandler);
 

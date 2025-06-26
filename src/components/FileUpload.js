@@ -11,10 +11,52 @@ class FileUpload extends React.Component {
   super(props)
 
   this.state = {
-    progress:0
+    progress:0,
+    realFileBtn:undefined,
+    customBtn:undefined,
+    customText:undefined
   }
 
+  this.realFileBtnHandler = this.realFileBtnHandler.bind(this);
+    this.customBtnHandler = this.customBtnHandler.bind(this);
+
   }
+
+  realFileBtnHandler() {
+      if(this.state.realFileBtn.value) {
+              this.state.customText.innerHTML = this.state.realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]
+      } else {
+              this.state.customText.innerHTML = "no file chosen yet"
+      }
+  }
+
+  customBtnHandler() {
+      this.state.realFileBtn.click()
+  }
+
+  componentDidMount() {
+   
+    const x = document.getElementById("real-file"),
+    const y = document.getElementById("custom-button"),
+    const z = document.getElementById("custom-text")
+    this.setState({
+      realFileBtn:x,
+      customBtn:y,
+      customText:z
+    })
+    
+    this.state.realFileBtn.addEventListener("change",this.realFileBtnHandler)
+
+    this.state.customBtn.addEventListener('click', this.customBtnHandler);
+
+  }
+
+  componentWillUnmount() {
+    //window.removeEventListener('keydown', this.handleKeyDown);
+    this.state.customBtn.removeEventListener('click', this.customBtnHandler);
+    this.state.realFileBtn.removeEventListener('click', this.realFileBtnHandler);
+  }
+
 
   formHandler = (e) => {
     e.preventDefault();
@@ -68,7 +110,9 @@ class FileUpload extends React.Component {
      return (
     <div className="App">
       <form onSubmit={this.formHandler}>
-        <input type="file" className="input" accept=".html" />
+        <input id="real-file" type="file" className="input" accept=".html" hidden="hidden" />
+        <button  id="custom-button" type="button" className="button">choose a file</button>
+        <span id="custom-text">no file chosen yet</span>
         <button type="submit">Upload</button>
       </form>
       <hr />

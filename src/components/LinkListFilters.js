@@ -311,6 +311,13 @@ export class LinkListFilters extends React.Component {
     this.setState({ height });
   };
 
+  getHeight = () => {
+    const height = this.elementRef.current.offsetHeight;
+    console.log("2 OOOOOOOOOOOOOOOOOOOOO height=" + height);
+    this.setState({ height });
+    return height
+  };
+
   setit = (value, event) => {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
@@ -332,6 +339,11 @@ export class LinkListFilters extends React.Component {
     window.location.reload();
   };
 
+  scrollDown=()=>{
+    let d = this.getHeight()
+    window.scrollTo(0,d)
+  }
+
   render() {
     return (
       <div className="content-container border-green-">
@@ -339,7 +351,9 @@ export class LinkListFilters extends React.Component {
           {((this.props.hashtags && this.props.hashtags.length > 0) ||
             (this.state.mappedDataLong &&
               this.state.mappedDataLong.length > 1)) && (
-            <ExpandableArray
+                <div>
+                <div className="cursor-pointer" onClick={scrollDown}>scroll down past the hashtags</div>
+                <ExpandableArray
               mappedDataShort={this.props.hashtags}
               mappedDataLong={this.state.mappedDataLong}
               maxLength={this.SHORT_HASHTAG_LENGTH}
@@ -347,6 +361,8 @@ export class LinkListFilters extends React.Component {
               morehashtags={this.state.morehashtags}
               setit={this.setit}
             />
+                </div>
+            
           )}
         </div>
 

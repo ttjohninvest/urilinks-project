@@ -17,6 +17,11 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
 
+
+  const moveIt = () => {
+    window.scrollTo(0,props.getHeight())
+  }
+
   const toggleExpanded = () => {
     setExpanded(!expanded);
     console.log("morehashtags");
@@ -47,6 +52,7 @@ function ExpandableArray(props) {
             </span>
             (welcome) clickable hash tags in alphabetical order
           </div>
+          <div><a href="#" onClick={moveIt}>scroll past</a></div>
           <div
             ref={props.ref}
             className="flexandwrap margin-top-1 background-white-1 borderradius5"

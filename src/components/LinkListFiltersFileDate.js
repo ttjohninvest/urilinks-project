@@ -311,6 +311,11 @@ export class LinkListFiltersFileDate extends React.Component {
     this.setState({ height });
   };
 
+  getHeight = () => {
+    const height = this.elementRef.current.offsetHeight;
+    return height
+  }
+
   setit = (value, event) => {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
@@ -346,6 +351,7 @@ export class LinkListFiltersFileDate extends React.Component {
               ref={this.elementRef}
               morehashtags={this.state.morehashtags}
               setit={this.setit}
+              getHeight = {this.getHeight}
             />
           )}
         </div>

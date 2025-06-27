@@ -1,3 +1,9 @@
+urilinks.com with whatsapp b page on fb: I had to go through a whole process:
+https://www.facebook.com/profile.php?id=61577860079195, manychat.com helped me to make this fb business page
+this is a link on the page to urilinks.com
+I changed the address to a non existent address because I don't want them mailing me here. The mail will be sent back.
+ttjohninvest@gmail.com, ttjohninvestfn, ttjohninvestln
+facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do

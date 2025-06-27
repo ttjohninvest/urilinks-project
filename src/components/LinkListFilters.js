@@ -19,7 +19,7 @@ function ExpandableArray(props) {
 
  
   const moveIt = () => {
-    window.scrollTo(0,this.elementRef.current.offsetHeight)
+    window.scrollTo(0,props.elementRef.current.offsetHeight)
   }
 
   const toggleExpanded = () => {
@@ -52,7 +52,7 @@ function ExpandableArray(props) {
             </span>
             (welcome) clickable hash tags in alphabetical order
           </div>
-          <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div>
+          {/* <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div> */}
            
           <div
             ref={props.ref}
@@ -318,11 +318,7 @@ export class LinkListFilters extends React.Component {
     this.setState({ height });
   };
 
-  getHeight = () => {
-    const height = this.elementRef.current.offsetHeight;
-    return height
-  };
-
+  
   setit = (value, event) => {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);

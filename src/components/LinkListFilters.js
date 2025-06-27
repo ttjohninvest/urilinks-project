@@ -52,10 +52,8 @@ function ExpandableArray(props) {
             </span>
             (welcome) clickable hash tags in alphabetical order
           </div>
-          {/* <div><a href="#" onClick={moveIt} className="button-m button--link">scroll to search section</a></div> */}
-           <button className="button-m button--link" onClick={moveIt}>
-            scroll to search section
-          </button>
+          <div><a href="#" onClick={moveIt} className="button-m button--link">scroll to search section</a></div>
+           
           <div
             ref={props.ref}
             className="flexandwrap margin-top-1 background-white-1 borderradius5"

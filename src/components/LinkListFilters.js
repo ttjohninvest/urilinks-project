@@ -52,7 +52,7 @@ function ExpandableArray(props) {
             </span>
             (welcome) clickable hash tags in alphabetical order
           </div>
-          <div><a href="#" onClick={moveIt} className="button-m button--link">scroll to search section</a></div>
+          <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div>
            
           <div
             ref={props.ref}

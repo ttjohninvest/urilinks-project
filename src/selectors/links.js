@@ -96,7 +96,7 @@ if (dateObject.toString() !== 'Invalid Date') {
     .sort((a, b) => {
       if (sortBy === "date") {
         return a.createdAt < b.createdAt ? 1 : -1;
-      } else if (sortBy === "description" || sortBy === "hashtag") {
+      } else if (sortBy === "description" || sortBy === "hashtag" || sortBy === "notetext") {
         return a.description.toLowerCase() > b.description.toLowerCase()
           ? 1
           : -1;

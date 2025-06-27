@@ -39,7 +39,7 @@ const Benefits = () => (
 
       <li>
         For each website link that you save, you have the option of entering a
-        note.
+        note. Hashtag(s) are entered into the note area. Example: #givingcharity #mountains. You may enter as many hashtags as their is room.
       </li>
 
       <li>
@@ -51,14 +51,8 @@ const Benefits = () => (
       </li>
 
       <li>
-        Their are three options to get results: "Date", "Link Text", "Hast Tag
-        and Note Text".
-      </li>
-
-      <li>
-        Select what kind of search you want from the{" "}
-        <span className="highlight1">drop down list</span>: "Date","Link Text",
-        "Hash Tag" or "Note Text" from the drop down menu.
+        Their are three options to get search results: "Date", "Link Text", "Hast Tag
+        and Note Text" from the dropdown list.
       </li>
 
       <ul>
@@ -74,7 +68,7 @@ const Benefits = () => (
 
         <li>
           "Hash Tag" selected: the results will give links that contain the hash
-          tag in the note. You may organize any group of links this way. For
+          tag in the note. They will be given in alphabetical order. You may organize any group of links this way. For
           example, if you have 5 uri/url links that are your favorites, put The
           hash tag #favorite in the note section for each of the 5 in the add
           uri/url form. You will need two or more hash tags for the hash tags
@@ -83,7 +77,7 @@ const Benefits = () => (
 
         <li>
           "Note Text" selected: the results will display results that have the
-          search term in the link's note section.
+          search term in the link's note section. The results list will be given in alphabetical order.
         </li>
       </ul>
 

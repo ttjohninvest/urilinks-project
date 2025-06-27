@@ -5,7 +5,7 @@ const Benefits = () => (
   <div className="list-header__flex__center">
     <ul>
       <li>urilinks.com Benefits:</li>
-      <li>You may upload your bookmarks from Brave, Chrome, Firefox, Edge, Vivaldi or Opera browser. After you have uploaded through the "bookmarks uploader" link, the bookmark folders are converted into hashtags for easy finding during hashtag search.</li>
+      <li>You may upload your bookmarks from Brave, Chrome, Firefox, Edge, Vivaldi or Opera browser. After you have uploaded through the "bookmarks uploader" link, the bookmark folders are converted into hashtags with spaces, tabs and hyphens removed for easy finding during hashtag search.</li>
       <li>Add Uri/Url Link button on the home page is used to add a url link to your private account.</li>
       <li>Please use it for good.</li>
       <li>Using the website is free. It supports 250 uri/url links per private user account.</li>

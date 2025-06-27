@@ -17,9 +17,9 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
 
-
+ 
   const moveIt = () => {
-    window.scrollTo(0,props.getHeight())
+    window.scrollTo(0,this.elementRef.current.offsetHeight)
   }
 
   const toggleExpanded = () => {
@@ -320,8 +320,6 @@ export class LinkListFilters extends React.Component {
 
   getHeight = () => {
     const height = this.elementRef.current.offsetHeight;
-    console.log("2 OOOOOOOOOOOOOOOOOOOOO height=" + height);
-    this.setState({ height });
     return height
   };
 
@@ -367,7 +365,7 @@ export class LinkListFilters extends React.Component {
               ref={this.elementRef}
               morehashtags={this.state.morehashtags}
               setit={this.setit}
-              getHeight={this.getHeight}
+            
             />
                 </div>
             

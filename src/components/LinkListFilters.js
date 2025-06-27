@@ -367,6 +367,7 @@ export class LinkListFilters extends React.Component {
               ref={this.elementRef}
               morehashtags={this.state.morehashtags}
               setit={this.setit}
+              getHeight={this.getHeight}
             />
                 </div>
             

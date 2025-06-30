@@ -66,7 +66,7 @@ const ImportedBookmarks = (props) => {
            <div className="rectangle-2 margin-top-1111b">
             {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b" title="You may print this list to the printer."><img src={printerImage} width="32" height="32" style={{borderRadius:'50%'}}/></div>}
             {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}
-            <ul className="text-size-4">
+            <ul className="">
            
               {props.result.map((r, i) => (
                 <li>{r.description}, <span className="font-weight-1" title="You may use this hashtag in hashtag search to find it.">{r.note}</span></li>

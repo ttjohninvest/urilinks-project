@@ -7,6 +7,7 @@ facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do
+provide a service to delete all bookmarks that have a specific hashtag
 heroku charges: https://help.heroku.com/sharing/e1b3252f-d290-4c40-9f29-951a55d4db77, requested basic plan only,$7.00/month
 I sent a fiver message on 6/23/2025 at 9:35pm. I sent cancel request. no answer cancel worked on 6/29/2025, 8:40am
 narrow videos don't have a description, but it looks like it was added
@@ -353,4 +354,6 @@ still having problem with ADD_DATE,
 it is being put into props.links, but it is not displaying because
 because the way I convert the timestamp is wrong
 
+urilinks.com marketing
 urilinks-project-splitbm-vercel-api, splits the bookmarks.html file into multiple arrays so parse will run if the file is over 100k
+youtube.com uploaded video that I got from Sagar C. on 6/29/2025 at 9:13am, account: ttjohninvest@gmail.com.

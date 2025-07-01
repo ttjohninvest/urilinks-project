@@ -49,10 +49,11 @@ const LoginPage=({startLogin}) => {
       <h1 className="box-layout__title">urilinks.com</h1>
       <p>An easier way to do internet bookmarks with hash tags, free tool</p>
       <iframe 
+      
       width="200" 
       height="150" 
       //className="wh" 
-      src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes" title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <button className="button" onClick={startLogin}>
         Please login with google
       </button>

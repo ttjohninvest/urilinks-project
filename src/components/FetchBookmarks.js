@@ -1,3 +1,4 @@
+//you have to remove the hyphens from the link text
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
@@ -8,15 +9,6 @@ import { history } from "../routers/AppRouter";
 import ImportedBookmarks from "./ImportedBookmarks";
 import { storage } from "../firebase/firebase";
 import LoadingPage from ".//LoadingPage";
-
-import {
-  isChrome,
-  isFirefox,
-  isSafari,
-  isEdge,
-  isOpera,
-  isBrave,
-} from "react-device-detect";
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
@@ -2238,7 +2230,7 @@ const FetchBookmarks = (props) => {
                 let A = props.links;
                 let B = htmllinksarray;
                 let result = B.filter(
-                  (b) => !A.some((a) => a.description === b.description)
+                  (b) => !A.some((a) => a.description.replace(/-/g, ' ') === b.description.replace(/-/g, ' '))
                 );
                 
                 console.log("result.length=" + result.length);

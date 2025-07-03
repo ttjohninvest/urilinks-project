@@ -2227,10 +2227,14 @@ const FetchBookmarks = (props) => {
                 console.log("three loops ended");
                 console.log("htmllinksarray=" + JSON.stringify(htmllinksarray));
 
+                // let result = B.filter(
+                //   (b) => !A.some((a) => a.description.replace(/-/g, ' ') === b.description.replace(/-/g, ' '))
+                // ); //I am having a problem with the hyphen
+
                 let A = props.links;
                 let B = htmllinksarray;
                 let result = B.filter(
-                  (b) => !A.some((a) => a.description.replace(/-/g, ' ') === b.description.replace(/-/g, ' '))
+                  (b) => !A.some((a) => a.description === b.description)
                 );
                 
                 console.log("result.length=" + result.length);

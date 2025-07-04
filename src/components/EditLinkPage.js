@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
-import { startEditLink, startRemoveLink } from "../actions/links";
+import { startEditLink, startRemoveLink, removeLink } from "../actions/links";
 
 export class EditLinkPage extends React.Component {
   onSubmit = (link) => {
@@ -16,6 +16,7 @@ export class EditLinkPage extends React.Component {
     //event.preventDefault()
     //this.props.hashtags
     //console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, value="+value)
+    this.props.removeLink({ id: this.props.link.id })
     this.props.startRemoveLink({ id: this.props.link.id });
     this.props.history.push("/");
     window.location.reload()
@@ -51,6 +52,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = (dispatch, props) => ({
   startEditLink: (id, link) => dispatch(startEditLink(id, link)),
   startRemoveLink: (data) => dispatch(startRemoveLink(data)),
+  removeLink: (data) => dispatch(removeLink(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditLinkPage);

@@ -50,13 +50,15 @@ const LoginPage=({startLogin}) => {
     className="box-layout__box">
       <h1 className="box-layout__title">urilinks.com</h1>
       <p>Welcome to an easier way to do internet bookmarks with hash tags, free tool</p>
-      <iframe 
+      <a href="https://youtu.be/SFkvTgFhBVs" target="_blank">welcome to tutorial</a>
+      {/* <iframe 
       
       width="200" 
       height="150" 
       //className="wh" 
       src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes" title="Youtube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <button className="button" onClick={startLogin}>
+      */}
+      <button className="button" onClick={startLogin}> 
         Please login with google
       </button>
     </div>

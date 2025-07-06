@@ -50,7 +50,7 @@ const LoginPage=({startLogin}) => {
     className="box-layout__box">
       <h1 className="box-layout__title">urilinks.com</h1>
       <p>Welcome to an easier way to do internet bookmarks with hash tags, free tool</p>
-      <a href="https://youtu.be/SFkvTgFhBVs" target="_blank">welcome to tutorial</a>
+      <a href="https://youtu.be/SFkvTgFhBVs" target="_blank">welcome to tutorial on youtube</a>
       {/* <iframe 
       
       width="200" 

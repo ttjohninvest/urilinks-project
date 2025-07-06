@@ -230,7 +230,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
         {this.state.error && <p className="form__error flexrow2w">{this.state.error}</p>}
         <input
           type="text"
-          //placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
+          ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
           placeholder="text for url"
           autoFocus
           className="text-input"
@@ -241,7 +241,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
         />
         <input
           type="text"
-          //placeholder="Uri/Url Link, example: https://gmail.com"
+          ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="url"
           className="text-input"
           value={this.state.Url}

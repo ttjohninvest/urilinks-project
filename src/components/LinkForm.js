@@ -263,7 +263,8 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           isOutsideRange={() => false}
         />
         <textarea
-          placeholder="Add a note for your uri/url link (optional)"
+          //placeholder="Add a note for your uri/url link (optional)"
+          placeholder="Add a note (optional)"
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}

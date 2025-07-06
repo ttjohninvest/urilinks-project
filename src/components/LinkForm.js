@@ -231,12 +231,12 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
         <input
           type="text"
           ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
-          placeholder="text for url"
+          placeholder="text"
           autoFocus
           className="text-input"
           value={this.state.description}
           onChange={this.onDescriptionChange}
-          title="Uri, Uniform Resource Identifier"
+          title="text for url"
           maxlength="2048"
         />
         <input

@@ -94,9 +94,9 @@ const LinkDashboardPage = (props) => {
           <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
           <LinkList />
         </div>
-        <div className="border2black">
+        {/* <div className="border2black">
 right column
-        </div>
+        </div> */}
       </div>
     </div>
   );

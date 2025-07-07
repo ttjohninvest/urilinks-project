@@ -7,6 +7,9 @@ facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do
+bus to good shephard for suit
+find a building where I can share it with all of the offices
+see if I can move it to the right side column for selection, first put in a border that scroll separately from the center div
 you have to remove the hyphens from the link text all of the hyphens in these have to be removed data.message[i].children[j].title
 provide a service to delete all bookmarks that have a specific hashtag
 heroku charges: https://help.heroku.com/sharing/e1b3252f-d290-4c40-9f29-951a55d4db77, requested basic plan only,$7.00/month

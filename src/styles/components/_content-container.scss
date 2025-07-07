@@ -76,6 +76,12 @@
   align-items:center;
   flex-wrap:wrap;
 }
+.flexrow2lw {
+  display:flex;
+  flex-direction:row;
+  align-items:left;
+  flex-wrap:wrap;
+}
 
 .flexrow2c {
   display:flex;

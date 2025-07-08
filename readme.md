@@ -4,9 +4,12 @@ this is a link on the page to urilinks.com
 I changed the address to a non existent address because I don't want them mailing me here. The mail will be sent back.
 ttjohninvest@gmail.com, ttjohninvestfn, ttjohninvestln
 facebook, I can not change my fb name until 8/25/2025
+
 # Git Commands
 
 todo to do
+videos/be-seen-be-safe-bus-mural-7-7-2025
+pictures/be-seen-be-safe
 bus to good shephard for suit
 find a building where I can share it with all of the offices
 see if I can move it to the right side column for selection, first put in a border that scroll separately from the center div

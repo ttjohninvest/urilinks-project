@@ -56,7 +56,7 @@ function ExpandableArray(props) {
            
           <div
             ref={props.ref}
-            className="flexandwrap- margin-top-1 background-white-1 borderradius5"
+            className="flexandwrap- grid-container5 margin-top-1 background-white-1 borderradius5"
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             {!expanded

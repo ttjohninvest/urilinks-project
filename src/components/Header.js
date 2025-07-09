@@ -50,7 +50,7 @@ export const Header = (props) => {
     }
   };
 
-  scrolldown = () => {
+  const scrolldown = () => {
     //this scrolls the results into view, the first and subsequent result is shown
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "smooth",
@@ -106,7 +106,7 @@ export const Header = (props) => {
                   </span>
                 </Link>
               </div>
-              <div onClick={scrolldown}>arrow
+              <div className="header__title" onClick={scrolldown}>arrow
                 
               </div>
               <div>

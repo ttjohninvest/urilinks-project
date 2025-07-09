@@ -78,7 +78,7 @@ function ExpandableArray(props) {
                 })
               : props.mappedDataShort.map((s, index) => {
                   return (
-                    <div key={index} className="padding-all text-size-5 element5">
+                    <div key={index} className="padding-all text-size-5 element5 border5">
                       <a
                         className="nounderline text-color-black"
                         href="#"

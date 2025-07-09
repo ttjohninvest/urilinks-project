@@ -119,7 +119,7 @@ export const Header = (props) => {
                 </Link>
               </div>
               {!inviewport && <div id="scrolldownid" className="header__title padding-top-11 cursor-pointer"
-               onClick={scrolldown} title="if the search and results section is not in view, click this to scroll result section into view.">
+               onClick={scrolldown} title="if the search and results section is not in view, click this to scroll search and results section into view.">
                 (search section)
               </div>}
               <div>

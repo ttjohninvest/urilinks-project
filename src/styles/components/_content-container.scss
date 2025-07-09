@@ -44,7 +44,7 @@
 .grid-container5 {
   display: grid;
   //grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr);
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
   gap: 10px;
 }
 
@@ -58,7 +58,7 @@
   // word-break: break-all;
   // overflow-wrap: break-word;
   font-family: monospace;
-  width: 200px; /* Set a fixed width */
+  width: 225px; /* Set a fixed width */
     white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide any overflow */
     text-overflow: ellipsis; /* Add the ellipsis */

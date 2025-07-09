@@ -106,7 +106,7 @@ export const Header = (props) => {
                   </span>
                 </Link>
               </div>
-              <div className="header__title" onClick={scrolldown}>arrow
+              <div className="header__title padding-top-11" onClick={scrolldown} title="if the results section is not in view, click this to scroll result section into view.">(scrolldown)
                 
               </div>
               <div>

@@ -15,12 +15,24 @@ import logo from "../assets/images/logo9.png";
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("")
+  const [inviewport, setInviewport]=useState(false)
   const ideas = () => {};
+
+  const isInViewport=()=>{
+  const rect = document.getElementById("scrolldownid").getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
 
   useEffect(()=>{
     const user = firebase.auth().currentUser;
     console.log("Header, photoURL="+user.photoURL)
     setPhotoURL(user.photoURL)
+    setInviewport(isInViewport())
   },[])
 
   const deleteAccount = () => {
@@ -106,9 +118,10 @@ export const Header = (props) => {
                   </span>
                 </Link>
               </div>
-              <div className="header__title padding-top-11" onClick={scrolldown} title="if the results section is not in view, click this to scroll result section into view.">(scrolldown)
-                
-              </div>
+              {!inviewport && <div id="scrolldownid" className="header__title padding-top-11"
+               onClick={scrolldown} title="if the results section is not in view, click this to scroll result section into view.">
+                (scrolldown)
+              </div>}
               <div>
                 <Link className="header__title" to="/settings">
                   {/* <span>Settings</span> */}

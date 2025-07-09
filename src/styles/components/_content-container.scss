@@ -49,8 +49,13 @@
 }
 
 .element5 {
-  word-break: break-all;
-  //overflow-wrap: break-word;
+  // word-break: break-all;
+  // overflow-wrap: break-word;
+  font-family: monospace;
+  width: 200px; /* Set a fixed width */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide any overflow */
+    text-overflow: ellipsis; /* Add the ellipsis */
 }
 
 .flexrowtfw {

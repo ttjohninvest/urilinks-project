@@ -50,6 +50,14 @@ export const Header = (props) => {
     }
   };
 
+  scrolldown = () => {
+    //this scrolls the results into view, the first and subsequent result is shown
+    document.querySelector("#before-before-link-summary-id").scrollIntoView({
+      behavior: "smooth",
+    });
+    
+  };
+
   return (
     <div>
       {!deleteAccountError ? (
@@ -98,7 +106,9 @@ export const Header = (props) => {
                   </span>
                 </Link>
               </div>
-
+              <div onClick={scrolldown}>arrow
+                
+              </div>
               <div>
                 <Link className="header__title" to="/settings">
                   {/* <span>Settings</span> */}

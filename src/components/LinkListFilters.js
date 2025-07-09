@@ -63,7 +63,7 @@ function ExpandableArray(props) {
               ? props.mappedDataShort.map((s, index) => {
                   if (index < 50)
                     return (
-                      <div key={index} className="padding-all text-size-5">
+                      <div key={index} className="padding-all text-size-5 element5">
                         <a
                           className="nounderline text-color-black"
                           href="#"

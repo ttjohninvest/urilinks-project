@@ -48,6 +48,11 @@
   gap: 10px;
 }
 
+.element5 {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
 .flexrowtfw {
   display:flex;
   flex-direction:row;

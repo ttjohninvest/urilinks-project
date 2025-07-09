@@ -1,13 +1,8 @@
 import uuid from "uuid";
-import Cryptr from 'cryptr';
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags"
 import setHashTags2WithCount from "./hashtags2withcount"
 
-//const cryptr = new Cryptr('myTotallySecretKey');
-
-//const encryptedString = cryptr.encrypt();
-//const decryptedString = cryptr.decrypt(encryptedString);
 // ADD_LINK
 export const addLink = (link) => ({
   type: "ADD_LINK",
@@ -26,30 +21,19 @@ export const startAddLink = (linkData = {}) => {
       faviconURL = "",
     } = linkData;
     const link = { description, Url, note, amount, createdAt, faviconURL };
-    const secretKey = 'you-should-pick-something-strong-and-secure';
-
-const cryptr = new Cryptr('myTotallySecretKey');
-
-    const encryptedLink = {
-description:cryptr.encrypt(description),
-Url,
-note:cryptr.encrypt(note),
-amount,
-createdAt,
-faviconURL,
-    }
+   
     //////
     //return false;
     
     console.log("startAddLink, link="+JSON.stringify(link))
     return database
       .ref(`users/${uid}/links`)
-      .push(encryptedLink)
+      .push(link)
       .then((ref) => {
         dispatch(
           addLink({
             id: ref.key,
-            ...encryptedLink,
+            ...link,
           })
         );
         return true;

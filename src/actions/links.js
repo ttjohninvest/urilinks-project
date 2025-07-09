@@ -1,4 +1,5 @@
 import uuid from "uuid";
+import encryptDecrypt from 'encryptDecrypt';
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags"
 import setHashTags2WithCount from "./hashtags2withcount"
@@ -20,18 +21,30 @@ export const startAddLink = (linkData = {}) => {
       faviconURL = "",
     } = linkData;
     const link = { description, Url, note, amount, createdAt, faviconURL };
+    const secretKey = 'you-should-pick-something-strong-and-secure';
+
+const encryptDecrypt = encryptDecrypt(secretKey);
+
+    const encryptedLink = {
+description:encryptDecrypt.encrypt(description),
+Url,
+note:encryptDecrypt.encrypt(note),
+amount,
+createdAt,
+faviconURL,
+    }
     ////
     //return false;
     
     console.log("startAddLink, link="+JSON.stringify(link))
     return database
       .ref(`users/${uid}/links`)
-      .push(link)
+      .push(encryptedLink)
       .then((ref) => {
         dispatch(
           addLink({
             id: ref.key,
-            ...link,
+            ...encryptedLink,
           })
         );
         return true;

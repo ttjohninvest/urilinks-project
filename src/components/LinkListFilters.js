@@ -347,7 +347,7 @@ export class LinkListFilters extends React.Component {
 
   render() {
     return (
-      <div className="content-container border-green- padding-tb-1">
+      <div className="content-container border-green-">
         <div>
           {((this.props.hashtags && this.props.hashtags.length > 0) ||
             (this.state.mappedDataLong &&

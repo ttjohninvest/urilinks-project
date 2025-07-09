@@ -1,8 +1,13 @@
 import uuid from "uuid";
-import encryptDecrypt from 'encryptDecrypt';
+import Cryptr from 'cryptr';
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags"
 import setHashTags2WithCount from "./hashtags2withcount"
+
+//const cryptr = new Cryptr('myTotallySecretKey');
+
+//const encryptedString = cryptr.encrypt();
+//const decryptedString = cryptr.decrypt(encryptedString);
 // ADD_LINK
 export const addLink = (link) => ({
   type: "ADD_LINK",
@@ -23,12 +28,12 @@ export const startAddLink = (linkData = {}) => {
     const link = { description, Url, note, amount, createdAt, faviconURL };
     const secretKey = 'you-should-pick-something-strong-and-secure';
 
-const encryptDecrypt = encryptDecrypt(secretKey);
+const cryptr = new Cryptr('myTotallySecretKey');
 
     const encryptedLink = {
-description:encryptDecrypt.encrypt(description),
+description:cryptr.encrypt(description),
 Url,
-note:encryptDecrypt.encrypt(note),
+note:cryptr.encrypt(note),
 amount,
 createdAt,
 faviconURL,

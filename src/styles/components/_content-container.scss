@@ -41,18 +41,18 @@
   padding:.5rem;
 }
 
+.border5 {
+  border-width:2px;
+  border-style:solid;
+  border-color:black;
+}
+
 .grid-container5 {
   display: grid;
   place-items: center;
   //grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr);
   grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
-  gap: 10px;
-}
-
-.border5 {
-  border-width:2px;
-  border-style:solid;
-  border-color:black;
+  gap: 5px;
 }
 
 .element5 {

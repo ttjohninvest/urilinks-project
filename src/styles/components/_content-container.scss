@@ -41,6 +41,11 @@
   padding:.2rem;
 }
 
+.scrollable-ul {
+  height: 200px;
+  overflow-y: auto;
+}
+
 .border5 {
   border-width:1px;
   border-style:solid;

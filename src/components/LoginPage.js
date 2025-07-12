@@ -44,7 +44,7 @@ const LoginPage = ({ startLogin }) => {
   if (true)
     //count < 20 )
     return (
-      <div className="box-layout">
+      <div className="box-layout margin-topt">
         <div className="flexrowz">
         <div
           title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
@@ -82,7 +82,7 @@ const LoginPage = ({ startLogin }) => {
          <div>
             <iframe
               width="1000"
-              height="650"
+              height="580"
               //className="wh"
               src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes"
               title="Youtube video player"

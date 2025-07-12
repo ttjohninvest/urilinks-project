@@ -50,16 +50,16 @@ const LoginPage = ({ startLogin }) => {
           title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
           className="box-layout__box"
         >
-          <h1 className="box-layout__title text-size-8 coolShadow ">
+          <h1 className="box-layout__title text-size-8- coolShadow- ">
             urilinks.com
           </h1>
-          <p className="text-size-8 coolShadow ">
+          <p className="text-size-8- coolShadow- ">
             Welcome to an easier way to do internet bookmarks with hash tags,
             free tool
           </p>
-          <p className="text-size-8 coolShadow ">
+          {/* <p className="text-size-8 coolShadow ">
             I am trying to help my son. Please give it a try.
-          </p>
+          </p> */}
           {/* <div className="margin-bottom-18">
             <a
               href="https://youtu.be/SFkvTgFhBVs"
@@ -73,7 +73,7 @@ const LoginPage = ({ startLogin }) => {
          
 
           <button
-            className="button text-size-8 coolShadow"
+            className="button text-size-8- coolShadow-"
             onClick={startLogin}
           >
             Please login with google

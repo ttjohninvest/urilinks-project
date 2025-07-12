@@ -51,7 +51,7 @@ const LoginPage=({startLogin}) => {
       <h1 className="box-layout__title text-size-8 coolShadow ">urilinks.com</h1>
       <p className="text-size-8 coolShadow ">Welcome to an easier way to do internet bookmarks with hash tags, free tool</p>
       <p className="text-size-8 coolShadow ">I am trying to help my son. Please give it a try.</p>
-      <a href="https://youtu.be/SFkvTgFhBVs" className="text-size-8 coolShadow " target="_blank" title="Please click to see the 1 minute 44 seconds tutorial on youtube to help you get started.">tutorial</a>
+      <div className="margin-bottom-18"><a href="https://youtu.be/SFkvTgFhBVs" className="text-size-8 coolShadow " target="_blank" title="Please click to see the 1 minute 44 seconds tutorial on youtube to help you get started.">tutorial</a></div>
       {/* <iframe 
       
       width="200" 

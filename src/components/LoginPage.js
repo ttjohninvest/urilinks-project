@@ -81,8 +81,8 @@ const LoginPage = ({ startLogin }) => {
         </div>
          <div>
             <iframe
-              width="800"
-              height="600"
+              width="1000"
+              height="650"
               //className="wh"
               src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes"
               title="Youtube video player"

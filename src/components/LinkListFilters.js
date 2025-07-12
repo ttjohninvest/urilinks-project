@@ -63,9 +63,9 @@ function ExpandableArray(props) {
               ? props.mappedDataShort.map((s, index) => {
                   if (index < 50)
                     return (
-                      <div key={index} className="padding-all text-size-5 element5 border5 coolShadow">
+                      <div key={index} className="padding-all text-size-5 element5 border5 ">
                         <a
-                          className="nounderline text-color-black"
+                          className="nounderline text-color-black- coolShadow"
                           href="#"
                           onClick={() => props.setit(s.hashtag, event)}
                            title={`${s.hashtag}, click to scroll to results`}
@@ -80,7 +80,7 @@ function ExpandableArray(props) {
                   return (
                     <div key={index} className="padding-all text-size-5 element5 border5">
                       <a
-                        className="nounderline text-color-black"
+                        className="nounderline text-color-black- coolShadow"
                         href="#"
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${s.hashtag}, click to scroll to results`}

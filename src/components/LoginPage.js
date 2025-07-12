@@ -80,7 +80,7 @@ const LoginPage = ({ startLogin }) => {
           </button>
         </div>
          <div className="margin-left-11">
-          <div>tutorial:</div>
+          
             <iframe
               width="1000"
               height="580"

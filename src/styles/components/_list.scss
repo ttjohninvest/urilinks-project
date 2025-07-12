@@ -63,6 +63,22 @@
   height: 500px;
 }
 
+ //body{ font-family: sans-serif; font-size: 2em; }
+
+.coolShadow {
+    color: white; 
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 
+      -1px 1px 0 #000,
+      -2px 2px 0 #000,
+      -3px 3px 0 #000,
+      -4px 4px 0 #000,
+      -5px 5px 0 #000,
+      -6px 6px 0 #000,
+      -7px 7px 0 #000;
+}
+
 .margin-top-1a {
   margin-top: 2rem;
 }

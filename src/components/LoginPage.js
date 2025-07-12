@@ -79,7 +79,7 @@ const LoginPage = ({ startLogin }) => {
             Please login with google
           </button>
         </div>
-         <div className="margin-left-11">
+         <div className="margin-left-11 borderRadius4">
           
             <iframe
               width="1000"

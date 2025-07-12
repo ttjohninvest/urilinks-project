@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { startLogin } from "../actions/auth";
 
 const LoginPage = ({ startLogin }) => {
-  const [innerWidth, setInnerWidth] = useState(0);
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   //const [count, setCount] = useState(0);
   // const [userId, setUserId] = useState('');
   // const [maximumPage, setMaximumPage] = useState(false);
@@ -42,63 +42,66 @@ const LoginPage = ({ startLogin }) => {
   //         fetchData();
   // }, []);
 
-  useEffect(()=>{
-    setInnerWidth(window.innerWidth);
-  },[])
+  useEffect(() => {
+    //setInnerWidth(window.innerWidth);
+    const handleResize = () => setInnerWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   if (true)
     //count < 20 )
     return (
       <div className="box-layout margin-topt">
         <div className="flexrowz">
-        <div
-          title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
-          className="box-layout__box"
-        >
-          <h1 className="box-layout__title text-size-8- coolShadow- ">
-            urilinks.com
-          </h1>
-          <p className="text-size-8- coolShadow- ">
-            Welcome to an easier way to do internet bookmarks with hash tags,
-            free tool
-          </p>
-          {/* <p className="text-size-8 coolShadow ">
+          <div
+            title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
+            className="box-layout__box"
+          >
+            <h1 className="box-layout__title text-size-8- coolShadow- ">
+              urilinks.com
+            </h1>
+            <p className="text-size-8- coolShadow- ">
+              Welcome to an easier way to do internet bookmarks with hash tags,
+              free tool
+            </p>
+            {/* <p className="text-size-8 coolShadow ">
             I am trying to help my son. Please give it a try.
           </p> */}
-          <div className="margin-bottom-18">
-            <a
-              href="https://youtu.be/SFkvTgFhBVs"
-              className="text-size-8 coolShadow "
-              target="_blank"
-              title="Please click to see the 1 minute 44 seconds tutorial on youtube to help you get started."
-            >
-              see tutorial on youtube
-            </a>
-          </div>
-         
+            <div className="margin-bottom-18">
+              <a
+                href="https://youtu.be/SFkvTgFhBVs"
+                className="text-size-8 coolShadow "
+                target="_blank"
+                title="Please click to see the 1 minute 44 seconds tutorial on youtube to help you get started."
+              >
+                see tutorial on youtube
+              </a>
+            </div>
 
-          <button
-            className="button text-size-8- coolShadow-"
-            onClick={startLogin}
-          >
-            Please login with google
-          </button>
-        </div>
-         {innerWidth>1000 && <div className="margin-left-11 borderRadius4">
-          
-            <iframe
-              width="1000"
-              height="580"
-              //className="wh"
-              src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes"
-              title="Youtube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>}
+            <button
+              className="button text-size-8- coolShadow-"
+              onClick={startLogin}
+            >
+              Please login with google
+            </button>
           </div>
+          {innerWidth > 1000 && (
+            <div className="margin-left-11 borderRadius4">
+              <iframe
+                width="1000"
+                height="580"
+                //className="wh"
+                src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes"
+                title="Youtube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          )}
+        </div>
       </div>
     );
   else return <div>too many</div>;

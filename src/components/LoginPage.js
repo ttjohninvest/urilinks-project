@@ -59,7 +59,7 @@ const LoginPage=({startLogin}) => {
       //className="wh" 
       src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes" title="Youtube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       */}
-      <button className="button" onClick={startLogin}> 
+      <button className="button text-size-8 coolShadow" onClick={startLogin}> 
         Please login with google
       </button>
     </div>

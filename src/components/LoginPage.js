@@ -60,16 +60,16 @@ const LoginPage = ({ startLogin }) => {
           <p className="text-size-8 coolShadow ">
             I am trying to help my son. Please give it a try.
           </p>
-          <div className="margin-bottom-18">
+          {/* <div className="margin-bottom-18">
             <a
               href="https://youtu.be/SFkvTgFhBVs"
               className="text-size-8 coolShadow "
               target="_blank"
               title="Please click to see the 1 minute 44 seconds tutorial on youtube to help you get started."
             >
-              see tutorial
+              see tutorial on youtube
             </a>
-          </div>
+          </div> */}
          
 
           <button
@@ -81,8 +81,8 @@ const LoginPage = ({ startLogin }) => {
         </div>
          <div>
             <iframe
-              width="600"
-              height="400"
+              width="800"
+              height="600"
               //className="wh"
               src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes"
               title="Youtube video player"

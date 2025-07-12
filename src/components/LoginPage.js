@@ -48,7 +48,7 @@ const LoginPage = ({ startLogin }) => {
         <div className="flexrowz">
         <div
           title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
-          className="box-layout__box"
+          className="box-layout__box heightA"
         >
           <h1 className="box-layout__title text-size-8- coolShadow- ">
             urilinks.com

@@ -65,7 +65,7 @@ function ExpandableArray(props) {
                     return (
                       <div key={index} className="padding-all text-size-5 element5 border5 ">
                         <a
-                          className="nounderline text-color-black- coolShadow"
+                          className="nounderline text-color-black"
                           href="#"
                           onClick={() => props.setit(s.hashtag, event)}
                            title={`${s.hashtag}, click to scroll to results`}
@@ -80,7 +80,7 @@ function ExpandableArray(props) {
                   return (
                     <div key={index} className="padding-all text-size-5 element5 border5">
                       <a
-                        className="nounderline text-color-black- coolShadow"
+                        className="nounderline text-color-black "
                         href="#"
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${s.hashtag}, click to scroll to results`}

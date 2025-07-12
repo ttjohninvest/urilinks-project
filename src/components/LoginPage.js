@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { startLogin } from "../actions/auth";
 
 const LoginPage = ({ startLogin }) => {
+  const [innerWidth, setInnerWidth] = useState(0);
   //const [count, setCount] = useState(0);
   // const [userId, setUserId] = useState('');
   // const [maximumPage, setMaximumPage] = useState(false);
@@ -41,6 +42,10 @@ const LoginPage = ({ startLogin }) => {
   //         fetchData();
   // }, []);
 
+  useEffect(()=>{
+    setInnerWidth(window.innerWidth);
+  },[])
+
   if (true)
     //count < 20 )
     return (
@@ -48,7 +53,7 @@ const LoginPage = ({ startLogin }) => {
         <div className="flexrowz">
         <div
           title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
-          className="box-layout__box heightA"
+          className="box-layout__box"
         >
           <h1 className="box-layout__title text-size-8- coolShadow- ">
             urilinks.com
@@ -60,7 +65,7 @@ const LoginPage = ({ startLogin }) => {
           {/* <p className="text-size-8 coolShadow ">
             I am trying to help my son. Please give it a try.
           </p> */}
-          {/* <div className="margin-bottom-18">
+          <div className="margin-bottom-18">
             <a
               href="https://youtu.be/SFkvTgFhBVs"
               className="text-size-8 coolShadow "
@@ -69,7 +74,7 @@ const LoginPage = ({ startLogin }) => {
             >
               see tutorial on youtube
             </a>
-          </div> */}
+          </div>
          
 
           <button
@@ -79,7 +84,7 @@ const LoginPage = ({ startLogin }) => {
             Please login with google
           </button>
         </div>
-         <div className="margin-left-11 borderRadius4">
+         {innerWidth>1000 && <div className="margin-left-11 borderRadius4">
           
             <iframe
               width="1000"
@@ -92,7 +97,7 @@ const LoginPage = ({ startLogin }) => {
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>
-          </div>
+          </div>}
           </div>
       </div>
     );

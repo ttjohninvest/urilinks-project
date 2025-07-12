@@ -75,7 +75,7 @@ const LoginPage = ({ startLogin }) => {
                 target="_blank"
                 title="Please click to see the 1 minute 44 seconds tutorial on youtube to help you get started."
               >
-                Please see tutorial on youtube.
+                Click to see tutorial on youtube.
               </a>
             </div>}
 

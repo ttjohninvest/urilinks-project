@@ -68,16 +68,16 @@ const LoginPage = ({ startLogin }) => {
             {/* <p className="text-size-8 coolShadow ">
             I am trying to help my son. Please give it a try.
           </p> */}
-            <div className="margin-bottom-18">
+            {innerWidth<=1000 && <div className="margin-bottom-18">
               <a
                 href="https://youtu.be/SFkvTgFhBVs"
-                className="text-size-8 coolShadow "
+                className="text-size-8- coolShadow- "
                 target="_blank"
                 title="Please click to see the 1 minute 44 seconds tutorial on youtube to help you get started."
               >
                 see tutorial on youtube
               </a>
-            </div>
+            </div>}
 
             <button
               className="button text-size-8- coolShadow-"

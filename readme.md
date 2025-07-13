@@ -8,6 +8,7 @@ facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do
+id.me, I told them at support@id.me the problem on 7/12/25 at 5:50pm, use johmcg64@gmail.com
 videos/be-seen-be-safe-bus-mural-7-7-2025
 pictures/be-seen-be-safe
 bus to good shephard for suit

@@ -8,6 +8,8 @@ facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do
+linkedin.com message to connections: Thank you. As you may know, I am the executive programmer for the start up, urilinks.com. I am currently looking for my first users. In leveraging the internet infrustructure, my program is basically a scalable virtual filing cabinet where the hastags are the folder names and the contents of the folders are web pages and all content is searchable. I hope you are blessed and have continuous happiness in your life.
+
 id.me, I told them at support@id.me the problem on 7/12/25 at 5:50pm, use johmcg64@gmail.com
 videos/be-seen-be-safe-bus-mural-7-7-2025
 pictures/be-seen-be-safe

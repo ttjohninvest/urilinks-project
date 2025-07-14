@@ -59,11 +59,11 @@ class BookmarksManager extends React.Component {
       //console.log("upload did happen")
     }
   };
-
+//this.state.didUpload===false
   render() {
     return (
       <div>
-         {this.state.didUpload===false?<ol>
+         {true?<ol>
          <li>
             From the browser, export (download) your bookmarks file and then
             choose and upload your bookmarks file in step 2.

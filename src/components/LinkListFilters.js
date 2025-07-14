@@ -401,7 +401,7 @@ export class LinkListFilters extends React.Component {
 
 
   <div className="header__title padding-top-11 curs"
-               onClick={this.scrollup} title="scroll to top">
+               onClick={this.scrollUp} title="scroll to top">
                 (up)
               </div>
 

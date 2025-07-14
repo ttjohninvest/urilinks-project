@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 
 import { connect } from "react-redux";
-import { withRouter, useNavigate } from "react-router-dom";
+import { withRouter, Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import FileUpload from "./FileUpload";
 
@@ -51,7 +51,8 @@ class BookmarksManager extends React.Component {
 
   setCheckDidUpload = () => {
     //this.setState({ didUpload: true });
-    useNavigate("/fetchbookmarks")
+    return <Navigate to="/fetchbookmarks" />;
+    //useNavigate("/fetchbookmarks")
     if (this.state.didUpload === false) {
       //console.log("upload did not happen")
     } else {

@@ -15,13 +15,13 @@ import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
 import { firebase } from "./firebase/firebase";
 import LoadingPage from "./components/LoadingPage";
-import translate from 'baidu-translate-api'
-//
+// import translate from 'baidu-translate-api'
+// //
 
-translate("让我们来翻译吧!").then(res => {
-    console.log(res.trans_result.dst);
-    // Let's translate it!
-});
+// translate("让我们来翻译吧!").then(res => {
+//     console.log(res.trans_result.dst);
+//     // Let's translate it!
+// });
 
 console.log=()=>{} //
 const store = configureStore();

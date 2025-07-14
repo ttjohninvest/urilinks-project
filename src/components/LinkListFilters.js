@@ -131,6 +131,10 @@ export class LinkListFilters extends React.Component {
     this.setit = this.setit.bind(this);
   }
 
+  scrollUp = () => {
+    window.scrollTo(0,0)
+  }
+
   onDatesChange = ({ startDate, endDate }) => {
     this.props.setStartDate(startDate);
     this.props.setEndDate(endDate);
@@ -394,6 +398,15 @@ export class LinkListFilters extends React.Component {
               }
             />
           </div>
+
+
+  <div className="header__title padding-top-11 curs"
+               onClick={this.scrollup} title="scroll to top">
+                (up)
+              </div>
+
+
+
           <div className="input-group__item">
             <select
               className="select select-filters"

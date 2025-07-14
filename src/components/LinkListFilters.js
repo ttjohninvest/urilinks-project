@@ -17,10 +17,9 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
 
- 
   const moveIt = () => {
-    window.scrollTo(0,props.elementRef.current.offsetHeight)
-  }
+    window.scrollTo(0, props.elementRef.current.offsetHeight);
+  };
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
@@ -53,7 +52,7 @@ function ExpandableArray(props) {
             (welcome) clickable hash tags in alphabetical order
           </div>
           {/* <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div> */}
-           
+
           <div
             ref={props.ref}
             className="flexandwrap- grid-container5 margin-top-1 background-white-1 borderradius5"
@@ -63,12 +62,15 @@ function ExpandableArray(props) {
               ? props.mappedDataShort.map((s, index) => {
                   if (index < 50)
                     return (
-                      <div key={index} className="padding-all text-size-5 element5 border5 ">
+                      <div
+                        key={index}
+                        className="padding-all text-size-5 element5 border5 "
+                      >
                         <a
                           className="nounderline text-color-black"
                           href="#"
                           onClick={() => props.setit(s.hashtag, event)}
-                           title={`${s.hashtag}, click to scroll to results`}
+                          title={`${s.hashtag}, click to scroll to results`}
                         >
                           {s.hashtag}
                         </a>
@@ -78,7 +80,10 @@ function ExpandableArray(props) {
                 })
               : props.mappedDataShort.map((s, index) => {
                   return (
-                    <div key={index} className="padding-all text-size-5 element5 border5">
+                    <div
+                      key={index}
+                      className="padding-all text-size-5 element5 border5"
+                    >
                       <a
                         className="nounderline text-color-black "
                         href="#"
@@ -132,8 +137,11 @@ export class LinkListFilters extends React.Component {
   }
 
   scrollUp = () => {
-    window.scrollTo(0,0)
-  }
+    //window.scrollTo(0, 0);
+     document.querySelector("#top").scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   onDatesChange = ({ startDate, endDate }) => {
     this.props.setStartDate(startDate);
@@ -260,45 +268,55 @@ export class LinkListFilters extends React.Component {
 
     const sortBy = window.localStorage.getItem("sortBy");
     console.log("componentDidMount, sortBy=" + sortBy);
-    
 
-  
-  if (this.props.filters.sortBy==='date'|| sortBy === "date") {
+    if (this.props.filters.sortBy === "date" || sortBy === "date") {
       this.props.setTextFilter(searchLinks1);
-      
+
       this.props.sortByDate();
       this.setState({ sortBy: "date" });
-    } else if (this.props.filters.sortBy==='description'|| sortBy === "description") {
+    } else if (
+      this.props.filters.sortBy === "description" ||
+      sortBy === "description"
+    ) {
       this.props.setTextFilter(searchLinks2);
-      
+
       this.props.sortByDescription();
       this.setState({ sortBy: "description" });
-    } else if (this.props.filters.sortBy==='notetext' || sortBy === "notetext") {
+    } else if (
+      this.props.filters.sortBy === "notetext" ||
+      sortBy === "notetext"
+    ) {
       this.props.setTextFilter(searchLinks4);
       this.props.sortByNoteText();
       this.setState({ sortBy: "notetext" });
-    } else if (this.props.filters.sortBy==='hashtag' || sortBy === "hashtag") {
+    } else if (
+      this.props.filters.sortBy === "hashtag" ||
+      sortBy === "hashtag"
+    ) {
       //this.setState({ sortBy: "hashtag" });
       this.props.sortByHashTag();
-      if (this.props.filters.text==='' || searchLinks3 === "" || searchLinks3 === undefined || searchLinks3 === null)
-      {
-          if(searchLinks3==='' || searchLinks3 === undefined || searchLinks3 === null) {
-             this.props.setTextFilter("#");
-          }
-            
-          else {
-            this.props.setTextFilter(searchLinks3);  
-          } 
-      }
-        
-      else {
+      if (
+        this.props.filters.text === "" ||
+        searchLinks3 === "" ||
+        searchLinks3 === undefined ||
+        searchLinks3 === null
+      ) {
+        if (
+          searchLinks3 === "" ||
+          searchLinks3 === undefined ||
+          searchLinks3 === null
+        ) {
+          this.props.setTextFilter("#");
+        } else {
+          this.props.setTextFilter(searchLinks3);
+        }
+      } else {
         this.props.setTextFilter(searchLinks3);
-
       }
       this.setState({ sortBy: "hashtag" });
     }
 
-     if (this.myRef.current) this.myRef.current.focus();
+    if (this.myRef.current) this.myRef.current.focus();
 
     console.log(
       "VVVVVVVVVVVVVVVVVVVV, this.props.hashtags=" + this.props.hashtags
@@ -307,14 +325,11 @@ export class LinkListFilters extends React.Component {
     this.setState({
       morehashtags: morehashtags === "true" ? true : false,
     });
-
   }
 
   componentWillUnmount() {}
 
-  componentDidUpdate(prevProps) {
-   
-  }
+  componentDidUpdate(prevProps) {}
 
   updateHeight = () => {
     const height = this.elementRef.current.offsetHeight;
@@ -322,11 +337,10 @@ export class LinkListFilters extends React.Component {
     this.setState({ height });
   };
 
-  
   setit = (value, event) => {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
-    
+
     this.props.sortByHashTag();
     this.props.setTextFilter(value);
 
@@ -337,17 +351,16 @@ export class LinkListFilters extends React.Component {
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "smooth",
     });
-    
   };
 
   refreshIt = () => {
     window.location.reload();
   };
 
-  scrollDown=()=>{
-    let d = this.getHeight()
-    window.scrollTo(0,d)
-  }
+  scrollDown = () => {
+    let d = this.getHeight();
+    window.scrollTo(0, d);
+  };
 
   render() {
     return (
@@ -356,19 +369,17 @@ export class LinkListFilters extends React.Component {
           {((this.props.hashtags && this.props.hashtags.length > 0) ||
             (this.state.mappedDataLong &&
               this.state.mappedDataLong.length > 1)) && (
-                <div>
-                {/* <div className="cursor-pointer" onClick={this.scrollDown}>scroll down past the hashtags</div> */}
-                <ExpandableArray
-              mappedDataShort={this.props.hashtags}
-              mappedDataLong={this.state.mappedDataLong}
-              maxLength={this.SHORT_HASHTAG_LENGTH}
-              ref={this.elementRef}
-              morehashtags={this.state.morehashtags}
-              setit={this.setit}
-            
-            />
-                </div>
-            
+            <div>
+              {/* <div className="cursor-pointer" onClick={this.scrollDown}>scroll down past the hashtags</div> */}
+              <ExpandableArray
+                mappedDataShort={this.props.hashtags}
+                mappedDataLong={this.state.mappedDataLong}
+                maxLength={this.SHORT_HASHTAG_LENGTH}
+                ref={this.elementRef}
+                morehashtags={this.state.morehashtags}
+                setit={this.setit}
+              />
+            </div>
           )}
         </div>
 
@@ -381,13 +392,12 @@ export class LinkListFilters extends React.Component {
               ref={this.myRef}
               type="text"
               className="text-input text-input-filters"
-              placeholder={ 
+              placeholder={
                 this.props.filters.sortBy === "date"
                   ? "Search for Link(s)"
                   : "Search for Link(s)"
               }
               value={this.props.filters.text}
-              
               onChange={this.onTextChange}
               title={
                 this.props.filters.sortBy === "date"
@@ -399,20 +409,20 @@ export class LinkListFilters extends React.Component {
             />
           </div>
 
-
-  <div className="header__title padding-top-11 curs"
-               onClick={this.scrollUp} title="scroll to top">
-                (up)
-              </div>
-
-
+          <div
+            className="header__title padding-top-11 curs"
+            onClick={this.scrollUp}
+            title="scroll to top"
+          >
+            (up)
+          </div>
 
           <div className="input-group__item">
             <select
               className="select select-filters"
               value={this.state.sortBy}
               //value={this.props.filters.sortBy}
-              
+
               onChange={this.onSortChange}
               title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
             >

@@ -74,7 +74,7 @@ export const Header = (props) => {
   
 
   return (
-    <div>
+    <div id="top">
       {!deleteAccountError ? (
         <header className="header">
           <div className="content-container">

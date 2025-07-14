@@ -50,8 +50,8 @@ class BookmarksManager extends React.Component {
   };
 
   setCheckDidUpload = () => {
-    //this.setState({ didUpload: true });
-    return <Navigate to="/fetchbookmarks" />;
+    this.setState({ didUpload: true });
+    // return <Navigate to="/fetchbookmarks" />;
     //useNavigate("/fetchbookmarks")
     if (this.state.didUpload === false) {
       //console.log("upload did not happen")
@@ -63,8 +63,8 @@ class BookmarksManager extends React.Component {
   render() {
     return (
       <div>
-        <ol>
-          <li>
+         {this.state.didUpload===false?<ol>
+         <li>
             From the browser, export (download) your bookmarks file and then
             choose and upload your bookmarks file in step 2.
           </li>
@@ -93,7 +93,7 @@ class BookmarksManager extends React.Component {
               ""
             )}
           </Link>
-        </ol>
+        </ol>:<Navigate to="/fetchbookmarks" />}
       </div>
     );
   }

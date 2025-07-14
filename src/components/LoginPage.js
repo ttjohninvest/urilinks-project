@@ -92,7 +92,7 @@ const LoginPage = ({ startLogin }) => {
                 width="1000"
                 height="580"
                 //className="wh"
-                src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes"
+                src="https://www.youtube.com/embed/SFkvTgFhBVs?si=lrq-1ZawZD7l4kes?autoplay=1"
                 title="Youtube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -43,7 +43,6 @@ const TeirsPayment3 = () => {
       <h3>Basic</h3>
       <p className="price" style={{color:'#13253b'}}>$10/month</p>
       <ul>
-        <li>5 Projects</li>
         <li>10GB Storage</li>
         <li>Email Support</li>
       </ul>
@@ -55,7 +54,6 @@ const TeirsPayment3 = () => {
       <h3>Standard</h3>
       <p className="price" style={{color:'#13253b'}}>$20/month</p>
       <ul>
-        <li>15 Projects</li>
         <li>50GB Storage</li>
         <li>Priority Support</li>
       </ul>
@@ -67,7 +65,6 @@ const TeirsPayment3 = () => {
       <h3>Premium</h3>
       <p className="price"  style={{color:'#13253b'}}>$50/month</p>
       <ul>
-        <li>Unlimited Projects</li>
         <li>200GB Storage</li>
         <li>24/7 Support</li>
       </ul>

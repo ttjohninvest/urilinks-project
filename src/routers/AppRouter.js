@@ -14,6 +14,7 @@ import Benefits from "../components/Benefits";
 import NotFoundPage from "../components/NotFoundPage";
 import LoginPage from "../components/LoginPage";
 import IdeasPage from "../components/IdeasPage";
+import TeirsPayment3 from "../components/TeirsPayment3";
 import BookmarksManager from "../components/BookmarksManager";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
@@ -28,6 +29,7 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={LoginPage} exact={true} />
         <PrivateRoute path="/dashboard" component={LinkDashboardPage} />
+         <PrivateRoute path="/teirspayment3" component={TeirsPayment3} />
         <PrivateRoute path="/settings" component={AddSettingsPage} />
         <PrivateRoute path="/termsandprivacy" component={TermsAndPrivacy} />
         <PrivateRoute path="/benefits" component={Benefits} />

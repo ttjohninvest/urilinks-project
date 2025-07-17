@@ -8,6 +8,10 @@ facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do
+on 7/16/25, rnduplessis@cunninghambroadcasting.com, alumnus mvp stories on page https://nevadasportsnet.com/sports/wolf-pack-track-and-field
+professordaveexplains@gmail.com, m sent on 7/16/25
+id day on aug 15 2025 at 3:15, leave at 11:00am
+on 7/15/25, I sent to message to https://www.societylibrary.org/, see ttjohninvest@gmail.com
 linkedin.com message to connections: Thank you. As you may know, I am the executive programmer for the start up, urilinks.com. I am currently looking for my first users. In leveraging the internet infrustructure, my program is basically a scalable virtual filing cabinet where the hastags are the folder names and the contents of the folders are web pages and all content is searchable. I hope you are blessed and have continuous happiness in your life.
 
 id.me, I told them at support@id.me the problem on 7/12/25 at 5:50pm, use johmcg64@gmail.com
@@ -23,6 +27,36 @@ I sent a fiver message on 6/23/2025 at 9:35pm. I sent cancel request. no answer 
 narrow videos don't have a description, but it looks like it was added
 it should be able to handle any depth of nesting
 bookmark file size that is under 100kb will work, about 125 bookmarks
+
+---------------------------------------ssa begin-----------------------------------------
+
+We may use 07/17/2025 as the official date of your application for Social Security benefits. In order to use 07/17/2025, we must receive the signed application by 01/18/2026 or you may lose Social Security benefits.
+
+If you intend to apply for Supplemental Security Income (SSI) benefit payments, we may use 07/17/2025 as the official date of your SSI application. In order to use 07/17/2025, we must receive the signed application by 09/15/2025 or you may lose SSI benefit payments.
+
+If any of these dates fall on weekend or federal holiday, we must receive the signed application by the following business day.
+
+What is Advance Designation?
+
+If you qualify for benefits, you will be responsible for managing or directing the management of those benefits. In the event SSA later determines that you have become unable to do so yourself, we will appoint a third party as a Representative Payee to receive and manage the benefits on your behalf. You have the option to provide contact information for individuals you would like us to consider in the future if you need a Representative Payee. We refer to these three contacts as Advanced Designees. You may visit https://www.ssa.gov/payee/ to learn more about Representative Payees.
+
+What You Need to Know
+
+You can make updates or change the order of priority of your Advance Designees(s) at any time by:
+signing in to your my Social Security account
+calling us toll-free at 1-800-772-1213 (TTY 1-800-325-0778)
+If you qualify for benefits, we will notify you annually of your Advance Designee(s).
+Privacy Act Statement
+Collection and Use of Personal Information
+Section 205(j) of the Social Security Act, as amended, allows us to collect this information, which we will use to maintain and update your advance designation of a representative payee. Providing this information is voluntary, but not providing all or part of the information may prevent us from selecting the representative payee(s) you designate to act on your behalf. As law permits, we may use and share the information you submit, including with other Federal, State, and local agencies, contractors, employers, and others, as outlined in the routine uses within System of Records Notice (SORN) 60-0089, available at www.ssa.gov/privacy. The information you submit may also be used in computer matching programs to establish or verify eligibility for Federal benefit programs and to recoup debts under these programs.
+
+Thank you for applying for retirement online.
+Your Confirmation Number is: 78878648
+
+You can check the status of your application online by signing in to or creating a my Social Security account.
+
+We will contact you with any updates or questions we may have about your information.
+---------------------------------------ssa end-------------------------------------------
 
 ---
 

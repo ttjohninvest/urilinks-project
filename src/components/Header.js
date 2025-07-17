@@ -14,26 +14,26 @@ import logo from "../assets/images/logo9.png";
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
-  const [photoURL, setPhotoURL] = useState("")
-  const [inviewport, setInviewport]=useState(false)
+  const [photoURL, setPhotoURL] = useState("");
+  const [inviewport, setInviewport] = useState(false);
   const ideas = () => {};
 
-//   const isInViewport=()=>{
-//   const rect = document.getElementById("scrolldownid").getBoundingClientRect();
-//   return (
-//     rect.top >= 0 &&
-//     rect.left >= 0 &&
-//     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-//     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-//   );
-// }
+  //   const isInViewport=()=>{
+  //   const rect = document.getElementById("scrolldownid").getBoundingClientRect();
+  //   return (
+  //     rect.top >= 0 &&
+  //     rect.left >= 0 &&
+  //     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+  //     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  //   );
+  // }
 
-  useEffect(()=>{
+  useEffect(() => {
     const user = firebase.auth().currentUser;
-    console.log("Header, photoURL="+user.photoURL)
-    setPhotoURL(user.photoURL)
+    console.log("Header, photoURL=" + user.photoURL);
+    setPhotoURL(user.photoURL);
     //setInviewport(isInViewport())
-  },[])
+  }, []);
 
   const deleteAccount = () => {
     let text;
@@ -67,11 +67,7 @@ export const Header = (props) => {
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "smooth",
     });
-    
   };
-
-
-  
 
   return (
     <div id="top">
@@ -90,7 +86,6 @@ export const Header = (props) => {
                         height="35"
                         alt="Logo"
                       />
-                      
                     </div>
                     <h1 title="Please use it for good. Bookmarks for internet pages, urls/links">
                       urilinks (bookmarking)
@@ -98,9 +93,16 @@ export const Header = (props) => {
                   </div>
                 </Link>
               </div>
-<div><img src={photoURL} width="32" height="32" style={{ borderRadius: '50%' }} className="" /></div>
               <div>
-                
+                <img
+                  src={photoURL}
+                  width="32"
+                  height="32"
+                  style={{ borderRadius: "50%" }}
+                  className=""
+                />
+              </div>
+              <div>
                 <Link className="header__title" to="/benefits">
                   <span
                     className="margin-right-1-ib"
@@ -121,20 +123,23 @@ export const Header = (props) => {
                   </span>
                 </Link>
               </div>
-               <div>
+              <div>
                 <Link className="header__title" to="/teirspayment3">
-                  <span
-                    className="ib"
-                    title="payment tier policy"
-                  >
+                  <span className="ib" title="payment tier policy">
                     (pt3)
                   </span>
                 </Link>
               </div>
-              {!inviewport && <div id="scrolldownid" className="header__title padding-top-11 cursor-pointer"
-               onClick={scrolldown} title="if the search and results section is not in view, click this to scroll search and results section into view.">
-                (search section)
-              </div>}
+              {!inviewport && (
+                <div
+                  id="scrolldownid"
+                  className="header__title padding-top-11 cursor-pointer"
+                  onClick={scrolldown}
+                  title="if the search and results section is not in view, click this to scroll search and results section into view."
+                >
+                  (search section)
+                </div>
+              )}
               <div>
                 <Link className="header__title" to="/settings">
                   {/* <span>Settings</span> */}
@@ -182,7 +187,7 @@ export const Header = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  settings:state.settings
+  settings: state.settings,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -37,41 +37,41 @@ const TeirsPayment3 = () => {
 
   return(
     <div className="body1">
-    <div class="pricing-table">
+    <div className="pricing-table">
   
-    <div id="t1" class="pricing-card">
+    <div id="t1" className="pricing-card">
       <h3>Basic</h3>
-      <p class="price">$10/month</p>
+      <p className="price"  style={{color:$dark-blue}}>$10/month</p>
       <ul>
         <li>5 Projects</li>
         <li>10GB Storage</li>
         <li>Email Support</li>
       </ul>
-      <button>Choose Basic</button>
+      <button style={{backgroundColor:$dark-blue}}>Choose Basic</button>
     </div>
 
    
-    <div id="t2" class="pricing-card">
+    <div id="t2" className="pricing-card">
       <h3>Standard</h3>
-      <p class="price">$20/month</p>
+      <p className="price" style={{backgroundColor:$dark-blue}}>$20/month</p>
       <ul>
         <li>15 Projects</li>
         <li>50GB Storage</li>
         <li>Priority Support</li>
       </ul>
-      <button>Choose Standard</button>
+      <button style={{backgroundColor:$dark-blue}}>Choose Standard</button>
     </div>
 
    
-    <div  id="t3" class="pricing-card">
+    <div  id="t3" className="pricing-card">
       <h3>Premium</h3>
-      <p class="price">$50/month</p>
+      <p className="price"  style={{backgroundColor:$dark-blue}}>$50/month</p>
       <ul>
         <li>Unlimited Projects</li>
         <li>200GB Storage</li>
         <li>24/7 Support</li>
       </ul>
-      <button>Choose Premium</button>
+      <button style={{backgroundColor:$dark-blue}}>Choose Premium</button>
     </div>
   </div>
   </div>)

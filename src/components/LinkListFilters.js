@@ -49,7 +49,7 @@ function ExpandableArray(props) {
             <span className="is-active ib right-margin-1 margin-right-1">
               {}
             </span>
-            (welcome) clickable hash tags in alphabetical order
+            (welcome) clickable hash tags in alphabetical order<br />God be merciful to me a sinner. Please go and sin no more.
           </div>
           {/* <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div> */}
 

@@ -2250,11 +2250,11 @@ const FetchBookmarks = (props) => {
                 let loopmax2 = rl;
 
                 const user = firebase.auth().currentUser;
-                if (
+                if (false && (
                   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
                   user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
                   user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
-                  user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
+                  user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2")
                 ) {
                   max = 10000 - (rl + ll);
                   console.log("in if, ll=" + ll);
@@ -2373,7 +2373,7 @@ console.log("load pay page")
   //importingError===true?"Error importing bookmarks":
   return (
     <div>
-    {payPage?<div>
+    {payPage===true?<div>
       <TeirsPayment3 />
    </div>
     :<div>

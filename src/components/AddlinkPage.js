@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
+import TeirsPayment3 from "./TeirsPayment3";
 
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
@@ -87,14 +88,17 @@ export const AddLinkPage = (props) => {
           </div>
         </div>
       ) : (
-        <div className="content-container- centerit">
-          <div>The maximum number of links that can be added is 500</div>
-          <div>
-            <button className="button-style-1- button" onClick={goBack}>
-              Go Back
-            </button>
-          </div>
+        <div>
+          <TeirsPayment3 />
         </div>
+        // <div className="content-container- centerit">
+        //   <div>The maximum number of links that can be added is 500</div>
+        //   <div>
+        //     <button className="button-style-1- button" onClick={goBack}>
+        //       Go Back
+        //     </button>
+        //   </div>
+        // </div>
       )}
     </div>
   );

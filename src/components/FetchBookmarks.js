@@ -8,7 +8,8 @@ import moment from "moment";
 import { history } from "../routers/AppRouter";
 import ImportedBookmarks from "./ImportedBookmarks";
 import { storage } from "../firebase/firebase";
-import LoadingPage from ".//LoadingPage";
+import LoadingPage from "./LoadingPage";
+import TeirsPayment3 from "./TeirsPayment3"
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
@@ -27,6 +28,7 @@ const FetchBookmarks = (props) => {
   const [rl2, setRl2] = useState(0);
   const [loopmax2, setLoopmax2] = useState(0);
   const [done, setDone] = useState(false);
+  const [payPage, setPayPage] = useState(false)
 
   const handleNavigation = () => {
     setShowDialog(true);
@@ -2262,13 +2264,12 @@ const FetchBookmarks = (props) => {
                     loopmax2 = max;
                   }
                 } else {
-                  max = 250 - (rl + ll);
-                  if (rl > max) {
+                  //max = 250 - (rl + ll);
+                  max = 1 - (rl + ll);
+                  if (rl > max && max > 0) {
                     loopmax2 = max;
-                  } //otherwise rl is equal to the full length, result.length
-                }
 
-                //for (let i = 0; i < result.length; i++) {
+                      //for (let i = 0; i < result.length; i++) {
                 for (let i = 0; i < loopmax2; i++) {
                   //for (let i = 0; i < 1; i++) {
 
@@ -2304,6 +2305,50 @@ const FetchBookmarks = (props) => {
                   // fileRef.delete();
                   setResult(result)
                 }
+
+                  } //otherwise rl is equal to the full length, result.length
+                  else {
+                    setPayPage(true)
+console.log("load pay page")
+                  }
+                }
+
+                // //for (let i = 0; i < result.length; i++) {
+                // for (let i = 0; i < loopmax2; i++) {
+                //   //for (let i = 0; i < 1; i++) {
+
+                //   r = props.startAddLink({
+                //     description: result[i].description,
+                //     Url: result[i].Url, //, //href,
+                //     note: result[i].note,
+                //     amount: 0,
+                //     createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                //     faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                //   });
+
+                //   if (r === false) {
+                //     setImportingError(true);
+                //     break;
+                //   }
+                // }
+
+                // if (r === false) {
+                //   // setErrorDialog(true);
+                //   console.log("ERROR, VVVVVVVVVVVVV returned false");
+                // } else {
+                //   console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+                //   //props.history.push("/");
+                //   //window.location.reload()
+
+                //   //how many new links were added, because of the maximum of 500 I had to add this
+                //   setMax(max);
+                //   setRl(rl); //rl is the length of the full amount to upload
+                //   setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                //   // const fileRef = storage.refFromURL(props.url);
+
+                //   // fileRef.delete();
+                //   setResult(result)
+                // }
               })
               .catch((error) => {
                 console.log("caught error = " + error);
@@ -2328,6 +2373,10 @@ const FetchBookmarks = (props) => {
   //importingError===true?"Error importing bookmarks":
   return (
     <div>
+    {payPage?<div>
+      <TeirsPayment3 />
+   </div>
+    :<div>
       {error ? <div>Error: Unable to read from firebase storage</div> : ""}
       {error2 ? (
         <div>
@@ -2345,7 +2394,9 @@ const FetchBookmarks = (props) => {
       ) : (
         <LoadingPage />
       )}
-    </div>
+    </div>}
+
+     </div>
   );
 };
 

@@ -99,7 +99,7 @@ export const LinkList = (props) => {
               checked={selectedOption === "option2"}
               onChange={handleOptionChange}
             />
-            <div className="the-inline-block- label-text margin-bottom5- underline" title="click to see the list of links titles only">
+            <div className="the-inline-block- label-text margin-bottom5- underline" title="click to see the list of links (titles only)">
               links list with out details
             </div>
           </label>

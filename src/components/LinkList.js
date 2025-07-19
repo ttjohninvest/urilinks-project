@@ -82,7 +82,7 @@ export const LinkList = (props) => {
               checked={selectedOption === "option1"}
               onChange={handleOptionChange}
             />
-            <div className="the-inline-block- label-text label-text-right">
+            <div className="the-inline-block- label-text label-text-right underline">
               links list with details
             </div>
           </label>
@@ -97,7 +97,7 @@ export const LinkList = (props) => {
               checked={selectedOption === "option2"}
               onChange={handleOptionChange}
             />
-            <div className="the-inline-block- label-text margin-bottom5-">
+            <div className="the-inline-block- label-text margin-bottom5- underline">
               links list with out details
             </div>
           </label>

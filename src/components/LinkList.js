@@ -51,10 +51,10 @@ export const LinkList = (props) => {
   }, []);
 
   const printIt = () => {
-    // const oldTitle = document.title;
-    // document.title = "urilinks new links";
-    // window.print();
-    // document.title = oldTitle;
+    const oldTitle = document.title;
+    document.title = "urilinks list of links";
+    //window.print();
+    
     var printContent = document.getElementById("listid").innerHTML;
     var newWin = window.open("", "", "width=800,height=600");
     newWin.document.write("<html><head><title>Print</title></head><body>");
@@ -64,6 +64,7 @@ export const LinkList = (props) => {
     newWin.focus();
     newWin.print();
     newWin.close();
+    document.title = oldTitle;
   };
 
   return (

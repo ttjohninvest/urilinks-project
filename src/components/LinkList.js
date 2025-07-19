@@ -121,7 +121,7 @@ export const LinkList = (props) => {
           {props.links.length > 0 && (
             <div
               onClick={printIt}
-              className="margin-top-1111b"
+              className="margin-top-1111b cursor-pointer"
               title="You may print this list to the printer."
             >
               <img

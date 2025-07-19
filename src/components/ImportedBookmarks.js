@@ -65,7 +65,7 @@ const ImportedBookmarks = (props) => {
             </div>
           </div>
            <div className="rectangle-2 margin-top-1111b">
-            {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b" title="You may print this list to the printer."><img src={printerImage} width="32" height="32" style={{borderRadius:'50%'}}/></div>}
+            {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b cursor-pointer" title="You may print this list to the printer."><img src={printerImage} width="32" height="32" style={{borderRadius:'50%'}}/></div>}
             {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}
             <ul className="scrollable-ul">
            

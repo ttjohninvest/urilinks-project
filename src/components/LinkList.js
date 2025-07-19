@@ -55,10 +55,10 @@ export const LinkList = (props) => {
     
     
     var printContent = document.getElementById("listid").innerHTML;
-    var newWin = window.open("", "", "width=800,height=600");
+    var newWin = window.open("", "", "width=1000,height=600");
     
     //newWin.title = "urilinks list of links";
-    newWin.document.write("<html><head><title>urilinks list of links</title></head><body>");
+    newWin.document.write("<html><head><title>urilinks.com list of links</title></head><body>");
     newWin.document.write(printContent);
     newWin.document.write("</body></html>");
     newWin.document.close();

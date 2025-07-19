@@ -5,33 +5,33 @@ const TeirsPayment3 = () => {
     const[a, setA] = useState(0)
 
     useEffect(()=>{
-        function handleClickT1(event) {
+    //     function handleClickT1(event) {
     
-        console.log('handleClickT1');
+    //     console.log('handleClickT1');
       
-    }
+    // }
 
-    function handleClickT2(event) {
+    // function handleClickT2(event) {
     
-        console.log('handleClickT2');
+    //     console.log('handleClickT2');
       
-    }
+    // }
 
-    function handleClickT3(event) {
+    // function handleClickT3(event) {
     
-        console.log('handleClickT3');
+    //     console.log('handleClickT3');
       
-    }
+    // }
 
-    window.document.getElementById("t1").addEventListener('click', handleClickT1);
-    window.document.getElementById("t2").addEventListener('click', handleClickT2);
-    window.document.getElementById("t3").addEventListener('click', handleClickT3);
+    // window.document.getElementById("t1").addEventListener('click', handleClickT1);
+    // window.document.getElementById("t2").addEventListener('click', handleClickT2);
+    // window.document.getElementById("t3").addEventListener('click', handleClickT3);
 
-    return () => {
-      window.removeEventListener('click', handleClickT1);
-      window.removeEventListener('click', handleClickT2);
-      window.removeEventListener('click', handleClickT2);
-    };
+    // return () => {
+    //   window.removeEventListener('click', handleClickT1);
+    //   window.removeEventListener('click', handleClickT2);
+    //   window.removeEventListener('click', handleClickT2);
+    // };
 
     },[])
 

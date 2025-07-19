@@ -76,7 +76,7 @@ export const LinkList = (props) => {
           <label className="inline-block__flex">
             <input
               ref={myRef}
-              className="the-inline-block"
+              className="the-inline-block zindex2"
               type="radio"
               value="option1"
               checked={selectedOption === "option1"}

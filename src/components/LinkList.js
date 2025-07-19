@@ -51,10 +51,19 @@ export const LinkList = (props) => {
   }, []);
 
   const printIt = () => {
-    const oldTitle = document.title;
-    document.title = "urilinks new links";
-    window.print();
-    document.title = oldTitle;
+    // const oldTitle = document.title;
+    // document.title = "urilinks new links";
+    // window.print();
+    // document.title = oldTitle;
+    var printContent = document.getElementById("listid").innerHTML;
+    var newWin = window.open('', '', 'width=800,height=600');
+    newWin.document.write('<html><head><title>Print</title></head><body>');
+    newWin.document.write(printContent);
+    newWin.document.write('</body></html>');
+    newWin.document.close();
+    newWin.focus();
+    newWin.print();
+    newWin.close();
   };
 
   return (
@@ -117,7 +126,7 @@ export const LinkList = (props) => {
           )}
         </div>
       ) : (
-        <div className="list-body margin-top-11-">
+        <div id="listid" className="list-body margin-top-11-">
           {props.links.length > 0 && (
             <div
               onClick={printIt}

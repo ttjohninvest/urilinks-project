@@ -51,20 +51,21 @@ export const LinkList = (props) => {
   }, []);
 
   const printIt = () => {
-    const oldTitle = document.title;
-    document.title = "urilinks list of links";
-    //window.print();
+    
+    
     
     var printContent = document.getElementById("listid").innerHTML;
     var newWin = window.open("", "", "width=800,height=600");
-    newWin.document.write("<html><head><title>Print</title></head><body>");
+    
+    //newWin.title = "urilinks list of links";
+    newWin.document.write("<html><head><title>urilinks list of links</title></head><body>");
     newWin.document.write(printContent);
     newWin.document.write("</body></html>");
     newWin.document.close();
     newWin.focus();
     newWin.print();
     newWin.close();
-    document.title = oldTitle;
+  
   };
 
   return (

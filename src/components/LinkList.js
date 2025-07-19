@@ -1,48 +1,43 @@
-
-import React,{useState,useEffect,useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
 import selectLinks from "../selectors/links";
 import LinksSummary from "./LinksSummary";
-
+import printerImage from "../assets/images/printer_image.png";
 
 ////
 export const LinkList = (props) => {
-  const [selectedOption, setSelectedOption] = useState("option1")
-  
-  const myRef = useRef()
+  const [selectedOption, setSelectedOption] = useState("option1");
+
+  const myRef = useRef();
 
   const handleOptionChange = (event) => {
-    console.log("handleOptionChange, event.target.value="+event.target.value)
-      setSelectedOption(event.target.value)
+    console.log("handleOptionChange, event.target.value=" + event.target.value);
+    setSelectedOption(event.target.value);
 
-      if(event.target.value==="option1")
-       window.localStorage.setItem("whichOption","option1")
-      else if(event.target.value==="option2")
-       window.localStorage.setItem("whichOption","option2")
-      else window.localStorage.setItem("whichOption","option1")
-    
+    if (event.target.value === "option1")
+      window.localStorage.setItem("whichOption", "option1");
+    else if (event.target.value === "option2")
+      window.localStorage.setItem("whichOption", "option2");
+    else window.localStorage.setItem("whichOption", "option1");
   };
 
-//   window.addEventListener("beforeunload",(event)=>{
-//     return null;
-// })
-// and
+  //   window.addEventListener("beforeunload",(event)=>{
+  //     return null;
+  // })
+  // and
 
- 
- useEffect(()=>{
-    window.onbeforeunload=null;
-  },[])
-  
+  useEffect(() => {
+    window.onbeforeunload = null;
+  }, []);
 
-  useEffect(()=>{
-    const option = window.localStorage.getItem("whichOption")
-    if(option) setSelectedOption(option)
-  },[])
+  useEffect(() => {
+    const option = window.localStorage.getItem("whichOption");
+    if (option) setSelectedOption(option);
+  }, []);
 
-  useEffect(()=>{
-  
+  useEffect(() => {
     const element = myRef.current;
 
     if (element) {
@@ -53,62 +48,91 @@ export const LinkList = (props) => {
         element.removeEventListener("click", handleOptionChange);
       };
     }
-  },[])
+  }, []);
 
+  const printIt = () => {
+    const oldTitle = document.title;
+    document.title = "urilinks new links";
+    window.print();
+    document.title = oldTitle;
+  };
 
   return (
     <div className="content-container website-background-color margin-top-1a">
-      
       <div id="before-link-summary-id" className="flexrow2b margin-bottom-5a">
         {/* <div className="show-for-desktop margin-left-11111"></div> */}
         {/* <div className="list-header__flex"> */}
-          <LinksSummary />
-              <div className="margin-bottom5-">
-                <label className="inline-block__flex">
-                  <input
-                    ref={myRef}
-                    className="the-inline-block"
-                    type="radio"
-                    value="option1"
-                    checked={selectedOption === "option1"}
-                    onChange={handleOptionChange}
-                  />
-                  <div className="the-inline-block- label-text label-text-right">links list with details</div>
-                </label>
-              </div>
-              <div className="margin-left-1">
-                <label className="inline-block__flex">
-                  <input
-                    ref={myRef}
-                    className="the-inline-block zindex2"
-                    type="radio"
-                    value="option2"
-                    checked={selectedOption === "option2"}
-                    onChange={handleOptionChange}
-                  />
-                  <div className="the-inline-block- label-text margin-bottom5-">links list with out details</div>
-                </label>
-              </div>
-            
-              
-            {/* </div> */}
+        <LinksSummary />
+        <div className="margin-bottom5-">
+          <label className="inline-block__flex">
+            <input
+              ref={myRef}
+              className="the-inline-block"
+              type="radio"
+              value="option1"
+              checked={selectedOption === "option1"}
+              onChange={handleOptionChange}
+            />
+            <div className="the-inline-block- label-text label-text-right">
+              links list with details
+            </div>
+          </label>
+        </div>
+        <div className="margin-left-1">
+          <label className="inline-block__flex">
+            <input
+              ref={myRef}
+              className="the-inline-block zindex2"
+              type="radio"
+              value="option2"
+              checked={selectedOption === "option2"}
+              onChange={handleOptionChange}
+            />
+            <div className="the-inline-block- label-text margin-bottom5-">
+              links list with out details
+            </div>
+          </label>
+        </div>
+
+        {/* </div> */}
       </div>
-     
-     
+
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
+            
+             {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b" title="You may print this list to the printer."><img src={printerImage} width="32" height="32" style={{borderRadius:'50%'}}/></div>}
+               
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
               <span>0 links found</span>
             </div>
           ) : (
             props.links.map((link) => {
-              return <div><LinkListItem key={link.id} {...link} /></div>;
+              return (
+                <div>
+                  <LinkListItem key={link.id} {...link} />
+                </div>
+              );
             })
           )}
         </div>
       ) : (
         <div className="list-body margin-top-11-">
+          {props.links.length > 0 && (
+            <div
+              onClick={printIt}
+              className="margin-top-1111b"
+              title="You may print this list to the printer."
+            >
+              <img
+                src={printerImage}
+                width="32"
+                height="32"
+                style={{ borderRadius: "50%" }}
+              />
+            </div>
+          )}
+
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
               <span>0 links found</span>
@@ -122,8 +146,6 @@ export const LinkList = (props) => {
       )}
     </div>
   );
-
-  
 };
 
 const mapStateToProps = (state) => {
@@ -132,7 +154,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-
 export default connect(mapStateToProps)(LinkList);
-
-

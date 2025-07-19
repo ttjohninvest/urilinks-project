@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import printerImage from "../assets/images/printer_image.png";
-
+ 
 const ImportedBookmarks = (props) => {
   const goToHomePage = () => {
     props.history.push("/"); // Navigates back one step in the history
@@ -20,6 +20,7 @@ const ImportedBookmarks = (props) => {
     window.print()
     document.title=oldTitle
   }
+          
 
   return (
     <div className="container2">

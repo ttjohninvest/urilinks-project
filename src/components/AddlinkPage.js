@@ -51,11 +51,11 @@ export const AddLinkPage = (props) => {
   const onSubmit = (link) => {
     console.log("in onSubmit");
     const user = firebase.auth().currentUser;
-    if (count < 250 
-      || user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 
+    if (count < 250 || (count < 10000 && (
+      user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 
       || user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473"
       || user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" 
-      || user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"
+      || user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2"))
     ) {
       const r = props.startAddLink(link);
       if (r === false) {

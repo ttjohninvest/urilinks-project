@@ -56,10 +56,10 @@ export const LinkList = (props) => {
     // window.print();
     // document.title = oldTitle;
     var printContent = document.getElementById("listid").innerHTML;
-    var newWin = window.open('', '', 'width=800,height=600');
-    newWin.document.write('<html><head><title>Print</title></head><body>');
+    var newWin = window.open("", "", "width=800,height=600");
+    newWin.document.write("<html><head><title>Print</title></head><body>");
     newWin.document.write(printContent);
-    newWin.document.write('</body></html>');
+    newWin.document.write("</body></html>");
     newWin.document.close();
     newWin.focus();
     newWin.print();
@@ -108,29 +108,10 @@ export const LinkList = (props) => {
 
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
-            
-             {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b" title="You may print this list to the printer."><img src={printerImage} width="32" height="32" style={{borderRadius:'50%'}}/></div>}
-               
-          {props.links.length === 0 ? (
-            <div className="list-item list-item--message">
-              <span>0 links found</span>
-            </div>
-          ) : (
-            props.links.map((link) => {
-              return (
-                <div>
-                  <LinkListItem key={link.id} {...link} />
-                </div>
-              );
-            })
-          )}
-        </div>
-      ) : (
-        <div id="listid" className="list-body margin-top-11-">
-          {props.links.length > 0 && (
+          {props.rl > 0 && (
             <div
               onClick={printIt}
-              className="margin-top-1111b cursor-pointer"
+              className="margin-top-1111b"
               title="You may print this list to the printer."
             >
               <img
@@ -148,9 +129,41 @@ export const LinkList = (props) => {
             </div>
           ) : (
             props.links.map((link) => {
-              return <LinkListItem2 key={link.id} {...link} />;
+              return (
+                <div>
+                  <LinkListItem key={link.id} {...link} />
+                </div>
+              );
             })
           )}
+        </div>
+      ) : (
+        <div className="list-body margin-top-11-">
+          {props.links.length > 0 && (
+            <div
+              onClick={printIt}
+              className="margin-top-1111b cursor-pointer"
+              title="You may print this list to the printer."
+            >
+              <img
+                src={printerImage}
+                width="32"
+                height="32"
+                style={{ borderRadius: "50%" }}
+              />
+            </div>
+          )}
+          <div id="listid">
+            {props.links.length === 0 ? (
+              <div className="list-item list-item--message">
+                <span>0 links found</span>
+              </div>
+            ) : (
+              props.links.map((link) => {
+                return <LinkListItem2 key={link.id} {...link} />;
+              })
+            )}
+          </div>
         </div>
       )}
     </div>

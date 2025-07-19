@@ -70,6 +70,10 @@ vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com
 project: urilinks-project-vercel-app
 
+vercel.com log, ttjohninvest@gmail.com
+on chrome select github.com, github.com account is ttjohninvest@gmail.com
+project: urilinks-project-vercel-stripe-app
+
 github.com, ttjohninvest@gmail.com
 chrome will log in automatically
 urilinks-project-vercel-app

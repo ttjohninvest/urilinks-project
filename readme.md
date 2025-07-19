@@ -8,6 +8,8 @@ facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do
+stripe backup code oenw-ovhq-ejih-xpnn-rxcm
+
 on 7/17/25 1984 houston marathon results coming to johmcg64@gmail.com.
 on 7/16/25, rnduplessis@cunninghambroadcasting.com, alumnus mvp stories on page https://nevadasportsnet.com/sports/wolf-pack-track-and-field
 professordaveexplains@gmail.com, m sent on 7/16/25

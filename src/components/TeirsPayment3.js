@@ -37,7 +37,11 @@ const TeirsPayment3 = () => {
 
   return(
     <div className="body1">
-    <div className="pricing-table">
+        
+<stripe-pricing-table pricing-table-id="prctbl_1Rmi60K6yDYe5WAxC2Rj4wdw"
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+    {/* <div className="pricing-table">
   
     <div id="t1" className="pricing-card">
       <h3>Basic</h3>
@@ -48,6 +52,8 @@ const TeirsPayment3 = () => {
       </ul>
       <button style={{backgroundColor:'#13253b'}}>Choose Basic</button>
     </div>
+
+    
 
    
     <div id="t2" className="pricing-card">
@@ -70,7 +76,7 @@ const TeirsPayment3 = () => {
       </ul>
       <button style={{backgroundColor:'#13253b'}}>Choose Premium</button>
     </div>
-  </div>
+  </div> */}
   </div>)
 }
 

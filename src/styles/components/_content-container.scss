@@ -52,21 +52,21 @@
   border-color:black;
 }
 
-// .grid-container5 {
-//   display: grid;
-//   place-items: center;
-//   grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
-//   grid-auto-flow: column;
-//   gap: 5px;
-// }
-
 .grid-container5 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  grid-auto-flow: column; /* Items flow down the columns first */
-    grid-auto-columns: 300px 100px;
-  gap: 10px; /* Optional: Adds space between items */
+  place-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  grid-auto-flow: column;
+  gap: 5px;
 }
+
+// .grid-container5 {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr); /* 2 columns */
+//   grid-auto-flow: column; /* Items flow down the columns first */
+//     grid-auto-columns: 300px 100px;
+//   gap: 10px; /* Optional: Adds space between items */
+// }
 
 .element5 {
   // word-break: break-all;

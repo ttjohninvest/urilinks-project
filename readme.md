@@ -8,6 +8,7 @@ facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do
+urilinks-project-vercel-stripe-app
 stripe backup code oenw-ovhq-ejih-xpnn-rxcm
 
 on 7/17/25 1984 houston marathon results coming to johmcg64@gmail.com.
@@ -73,6 +74,10 @@ project: urilinks-project-vercel-app
 vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com
 project: urilinks-project-vercel-stripe-app
+
+get the errors out if their are any
+vercel login
+vercel logs urilinks-project-vercel-stripe-api.vercel.app
 
 github.com, ttjohninvest@gmail.com
 chrome will log in automatically

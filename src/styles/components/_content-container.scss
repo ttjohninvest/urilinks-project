@@ -53,11 +53,17 @@
 }
 
 .grid-container5 {
+  // display: grid;
+  // place-items: center;
+  
+  // grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  // gap: 5px;
   display: grid;
-  place-items: center;
-  //grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr);
-  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
-  gap: 5px;
+  grid-template-columns: repeat(3, 225px); /* 2 columns */
+  //grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(0, auto)); /* Adjusting rows */
+  grid-auto-flow: row; /* This makes it flow down the rows first */
+  gap: 5px; /* Optional: Adds space between items */
 }
 
 .element5 {

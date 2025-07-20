@@ -63,7 +63,7 @@
 .grid-container5 {
 display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  grid-auto-flow: row; /* Items flow down the columns first */
+  grid-auto-flow: column; /* Items flow down the columns first */
   gap: 10px; /* Optional: Adds space between items */
 }
 .element5 {

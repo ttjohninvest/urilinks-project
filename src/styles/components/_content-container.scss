@@ -55,7 +55,7 @@
 .grid-container5 {
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(225px, 1fr));
   grid-auto-flow: columns;
   gap: 5px;
    

@@ -92,7 +92,7 @@ export const AddLinkPage = (props) => {
         </div>
       ) : (
         <div>
-          <TeirsPayment3 />
+          {/* <TeirsPayment3 /> */}
         </div>
         // <div className="content-container- centerit">
         //   <div>The maximum number of links that can be added is 500</div>

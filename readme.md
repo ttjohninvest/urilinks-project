@@ -9,12 +9,11 @@ facebook, I can not change my fb name until 8/25/2025
 
 todo to do
 urilinks-project-vercel-stripe-app
-stripe backup code oenw-ovhq-ejih-xpnn-rxcm
+stripe backup code: oenw-ovhq-ejih-xpnn-rxcm
 
-on 7/17/25 1984 houston marathon results coming to johmcg64@gmail.com.
 on 7/16/25, rnduplessis@cunninghambroadcasting.com, alumnus mvp stories on page https://nevadasportsnet.com/sports/wolf-pack-track-and-field
 professordaveexplains@gmail.com, m sent on 7/16/25
-id day on aug 15 2025 at 3:15, leave at 11:00am
+state id day on aug 15 2025 at 3:15, leave at 11:00am
 on 7/15/25, I sent to message to https://www.societylibrary.org/, see ttjohninvest@gmail.com
 linkedin.com message to connections: Thank you. As you may know, I am the executive programmer for the start up, urilinks.com. I am currently looking for my first users. In leveraging the internet infrustructure, my program is basically a scalable virtual filing cabinet where the hastags are the folder names and the contents of the folders are web pages and all content is searchable. I hope you are blessed and have continuous happiness in your life.
 

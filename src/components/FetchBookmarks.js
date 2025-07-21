@@ -2411,7 +2411,7 @@ console.log("load pay page")
   return (
     <div>
     {payPage===true?<div>
-      <TeirsPayment3 />
+      {/* <TeirsPayment3 /> */}
    </div>
     :<div>
       {error ? <div>Error: Unable to read from firebase storage</div> : ""}

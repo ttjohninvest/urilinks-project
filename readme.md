@@ -8,6 +8,9 @@ facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do
+I commented out TeirsPayment3 and (p) in the header until I can get urilinks-project-vercel-stripe-api to be called
+ The payment is working, stripe recorded the payment
+ 
 urilinks-project-vercel-stripe-app
 stripe backup code: oenw-ovhq-ejih-xpnn-rxcm
 

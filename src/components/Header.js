@@ -18,7 +18,7 @@ export const Header = (props) => {
   const [inviewport, setInviewport] = useState(false);
   const ideas = () => {};
 
-  //   const isInViewport=()=>{
+  //   const isInViewport=()=>{//
   //   const rect = document.getElementById("scrolldownid").getBoundingClientRect();
   //   return (
   //     rect.top >= 0 &&

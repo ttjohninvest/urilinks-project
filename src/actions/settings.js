@@ -10,12 +10,13 @@ export const getSettings = () => {
       .ref(`users/${uid}/settings`)
       .once("value")
       .then((snapshot) => {
-        let settings = {};
+        
         console.log("action/getSettings from db, ...snapshot")
         console.log("action/getSettings from db, ...snapshot="+JSON.stringify({...snapshot}))
-        settings={...snapshot}
+        console.log("action/getSettings from db, snapshot.plan="+snapshot.plan)
+        //settings={...snapshot}
       
-        dispatch(setSettings(settings));
+        dispatch(setSettings({...snapshot}));
       })
     }
 };

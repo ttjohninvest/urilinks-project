@@ -82,10 +82,14 @@ return store.dispatch(getSettings()).then(() => {
           
   const createCustomer = async () => {
   //const response = await fetch('/create-customer', {
+  method: "POST",
+              headers: {
+                "Content-Type": " text/plain; charset=UTF-8",
+              },
   const response = await fetch('https://urilinks-project-create-customer-ap.vercel.app', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'text/plain; charset=UTF-8',
     },
     body: JSON.stringify({ email:user.email, uid:user.uid }),
   });

@@ -2,6 +2,7 @@
 import database from "../firebase/firebase";
 
 export const getSettings = () => {
+  console.log("actions/getSettings")
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
   console.log("actions/getSettings, uid="+uid)

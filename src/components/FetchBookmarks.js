@@ -31,14 +31,14 @@ const FetchBookmarks = (props) => {
   const [payPage, setPayPage] = useState(false)
 
   const getPlanMax=()=>{
-    let max=150
+    let max=250
     //props.settings.plan
     if(props.settings.plan==="free") {
-     max=150
+     max=250
     } else if(props.settings.plan==="basic") {
-max=250
+max=1500
     } else if(props.settings.plan==="standard") {
-max=500
+max=2500
     } else { //premium
 max=5000
     }

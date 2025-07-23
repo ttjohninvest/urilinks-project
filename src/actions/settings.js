@@ -12,13 +12,10 @@ export const getSettings = () => {
       .once("value")
       .then((snapshot) => {
         
-        console.log("action/getSettings from db, ...snapshot")
-        console.log("action/getSettings from db, ...snapshot="+JSON.stringify({...snapshot}))
-        console.log("action/getSettings from db, snapshot.selectedOption1="+snapshot.selectedOption1)
-
-         
-       console.log("action/getSettings from db, ...snapshot, x="+JSON.stringify(...snapshot))
-       dispatch(setSettings({...snapshot}));
+       
+        console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
+    
+        dispatch(setSettings(snapshot.val()));
        
       })
     }

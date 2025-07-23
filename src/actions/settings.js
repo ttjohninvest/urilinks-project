@@ -11,12 +11,18 @@ export const getSettings = () => {
       .ref(`users/${uid}/settings`)
       .once("value")
       .then((snapshot) => {
-        console.log("action/getSettings from db, snapshot="+snapshot)
+        
        let settings
         console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         settings = snapshot.val()
-        if(settings.plan === undefined) {
- settings = {...snapshot.val(),
+        if(settings===null) {
+        settings = {
+          plan:"free"
+        }
+        }
+        else if(settings.plan === undefined) {
+ settings = {
+  //...snapshot.val(),
           plan:"free"
         }
         }

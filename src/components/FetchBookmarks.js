@@ -30,6 +30,21 @@ const FetchBookmarks = (props) => {
   const [done, setDone] = useState(false);
   const [payPage, setPayPage] = useState(false)
 
+  const getPlanMax=()=>{
+    let max=150
+    //props.settings.plan
+    if(props.settings.plan==="free") {
+     max=150
+    } else if(props.settings.plan==="basic") {
+max=250
+    } else if(props.settings.plan==="standard") {
+max=500
+    } else { //premium
+max=5000
+    }
+    return max
+  }
+
   const handleNavigation = () => {
     setShowDialog(true);
   };
@@ -2301,7 +2316,7 @@ for (let i = 0; i < loopmax2; i++) {
                 }
 
                 } else {
-                  max = 250 - (rl + ll);
+                  max = getPlanMax() - (rl + ll);
                   //max = 1 - (rl + ll);
                   if (rl > max && max > 0) {
                     loopmax2 = max;

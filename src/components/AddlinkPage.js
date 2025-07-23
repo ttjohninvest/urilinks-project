@@ -14,6 +14,21 @@ export const AddLinkPage = (props) => {
   const [errorDialog, setErrorDialog] = useState(false);
   //const history = useHistory();
 
+   const getPlanMax=()=>{
+    let max=150
+    //props.settings.plan
+    if(props.settings.plan==="free") {
+     max=150
+    } else if(props.settings.plan==="basic") {
+max=250
+    } else if(props.settings.plan==="standard") {
+max=500
+    } else { //premium
+max=5000
+    }
+    return max
+  }
+
   const goBack = () => {
     props.history.goBack(); // Navigates back one step in the history
   };
@@ -52,7 +67,7 @@ export const AddLinkPage = (props) => {
   const onSubmit = (link) => {
     console.log("in onSubmit");
     const user = firebase.auth().currentUser;
-    if (count < 250 || (count < 10000 && (
+    if (count < getPlanMax() || (count < 10000 && (
       user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 
       || user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473"
       || user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" 
@@ -108,8 +123,13 @@ export const AddLinkPage = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  
+  settings: state.settings
+});
+
 const mapDispatchToProps = (dispatch) => ({
   startAddLink: (link) => dispatch(startAddLink(link)),
 });
 
-export default withRouter(connect(undefined, mapDispatchToProps)(AddLinkPage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddLinkPage));

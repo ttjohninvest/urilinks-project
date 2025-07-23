@@ -1,6 +1,6 @@
-const setCustomerId = (v) => ({
+export const setCustomerId = (v) => ({
   type: "SET_CUSTOMERID",
   customerId:v,
 });
 
-export default setCustomerId;
+//export default setCustomerId;

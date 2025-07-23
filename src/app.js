@@ -78,7 +78,8 @@ firebase.auth().onAuthStateChanged((user) => {
           //console.log("before, getSettings") 
           //getSettings()
           //console.log("after, getSettings")
-return store.dispatch(getSettings()).then(() => {
+return store.dispatch(getSettings()).then((r) => {
+  console.log("getSettings, settings="+JSON.stringify(r))
   //create stripe customer here, begin https://search.brave.com/search?q=using+react+how+do+i+create+a+stripe+customer+during+registration&summary=1&conversation=4cf05c04b8982177ac075c
           
   //this function puts the user id as metadata into stripe
@@ -95,10 +96,10 @@ return store.dispatch(getSettings()).then(() => {
   const data = await response.json();
   //data.customer.id
   console.log("data.customer.id="+data.customer.id)
-  
-  return store.dispatch(setCustomerId(data.customer.id)).then(() => {
-    console.log(data);
-  })
+   console.log(data);
+  //store.dispatch(setCustomerId(data.customer.id))
+   
+ 
   //data.customer.metadata.uid
   
 };

@@ -10,7 +10,7 @@ export const getSettings = () => {
       .once("value")
       .then((snapshot) => {
         let settings = {};
-         
+         console.log("action/getSettings from db, ...snapshot="+JSON.stringify({...snapshot}))
         settings={...snapshot}
       
         dispatch(setSettings(settings));

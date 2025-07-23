@@ -74,9 +74,9 @@ firebase.auth().onAuthStateChanged((user) => {
         //return store.dispatch(startSetSettings()).then(() => {
           return store.dispatch(startSetLinksFileDate()).then(() => {
           //startSetSettings reads the links from the db and stores them in redux
- 
+          console.log("before, getSettings") 
           getSettings()
-
+          console.log("after, getSettings")
 
           renderApp(); //displays the array links stored in redux
           

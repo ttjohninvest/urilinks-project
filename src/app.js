@@ -106,7 +106,7 @@ return store.dispatch(getSettings()).then((r) => {
 };
 
 createCustomer()  
-store.dispatch(setCustomerId(a))
+//store.dispatch(setCustomerId(a))
 
   renderApp(); //displays the array links stored in redux
           

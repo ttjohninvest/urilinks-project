@@ -2266,10 +2266,7 @@ max=5000
 
                 const user = firebase.auth().currentUser;
                 if (true && (
-                  user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
-                  user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473" ||
-                  user.uid === "WJGHkWycjKQxPK83Fi4zqx53bCl1" ||
-                  user.uid === "kRXrwGyZoXRPKwmQoKWvG7XDx5b2")
+                  user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
                 ) {
                   max = 10000 - (rl + ll);
                   console.log("in if, ll=" + ll);

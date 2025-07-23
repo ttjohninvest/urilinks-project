@@ -90,6 +90,7 @@ export default PricingPage;
       */}
         
 <stripe-pricing-table pricing-table-id="prctbl_1Rmi60K6yDYe5WAxC2Rj4wdw"
+customer-session-client-secret=""
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
 </stripe-pricing-table>
     {/* <div className="pricing-table">

@@ -75,10 +75,20 @@ in FetchBookmarks.js and convert all of the folder names into hashtags
 vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com
 project: urilinks-project-vercel-app
+purpose: convert bookmarks file into json
 
 vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com
 project: urilinks-project-vercel-stripe-app
+purpose: webhook function after customer makes a selection from the prebuilt pricing table
+this is where the firebase realtime database will update the plan, basic, standard or premium
+the incomming metadata will contain the user's id, urilinks-project-create-customer-app contributes to this
+
+vercel.com log, ttjohninvest@gmail.com
+on chrome select github.com, github.com account is ttjohninvest@gmail.com
+project: urilinks-project-create-customer-app
+vsc project name: urilinks-project-create-customer-api
+purpose: register current customer with stripe during customer registration for use with prebuilt pricing table
 
 get the errors out if their are any
 vercel login

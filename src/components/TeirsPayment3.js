@@ -8,6 +8,20 @@ const TeirsPayment3 = () => {
     //     function handleClickT1(event) {
     
     //     console.log('handleClickT1');
+//     const session = await stripe.checkout.sessions.create({
+//   line_items: [
+//     {
+//       price: 'price_1234567890',
+//       quantity: 1,
+//     },
+//   ],
+//   mode: 'payment',
+//   metadata: {
+//     userId: 123,
+//   },
+//   success_url: 'https://example.com/success',
+//   cancel_url: 'https://example.com/cancel',
+// });   
       
     // }
 
@@ -37,6 +51,43 @@ const TeirsPayment3 = () => {
 
   return(
     <div className="body1 flexrow2w">
+
+      {/*
+      Pass the Session Secret to the Pricing Table: The session secret needs to be passed to the pricing table. 
+      In React, you can use the useEffect hook to fetch the session secret 
+      from the backend and assign it to the customer-session-client-secret attribute.
+      */}
+
+      {/*
+      import * as React from 'react';
+
+function PricingPage() {
+  return (
+    <stripe-pricing-table 
+      pricing-table-id="prctbl_1Yournvid97goeshhereO" 
+      publishable-key="pk_test_51PQwgyG8ornv55ThisP5L7wyDIsY0DoYM66FakedVgqpKeyw6LinYcVm0DMJu4rwGCA7mym9EYBHBULpK2owTpwLRD00XbTgIs06" 
+      customer-session-client-secret="{{CLIENT_SECRET}}"
+    >
+    </stripe-pricing-table>
+  );
+}
+
+export default PricingPage;
+      */}
+
+      {/*
+      The customer-session-client-secret attribute is used in Stripe's prebuilt pricing table to associate 
+      the pricing table with an existing customer session. This attribute allows the pricing table to be used 
+      with an existing customer, ensuring that the customer's details are correctly linked during the payment 
+      process.
+
+      To implement this, you need to create a customer session using stripe.customerSessions.create() and obtain the 
+      client_secret from the customer session. Then, you add the customer-session-client-secret attribute to the 
+      stripe-pricing-table and set the client_secret to it.
+
+      This approach ensures that the pricing table is linked to the specific customer session, providing a seamless 
+      experience for the user.
+      */}
         
 <stripe-pricing-table pricing-table-id="prctbl_1Rmi60K6yDYe5WAxC2Rj4wdw"
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">

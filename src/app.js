@@ -78,12 +78,29 @@ firebase.auth().onAuthStateChanged((user) => {
           //getSettings()
           //console.log("after, getSettings")
 return store.dispatch(getSettings()).then(() => {
-          renderApp(); //displays the array links stored in redux
+  //create stripe customer here, begin https://search.brave.com/search?q=using+react+how+do+i+create+a+stripe+customer+during+registration&summary=1&conversation=4cf05c04b8982177ac075c
+          
+  const createCustomer = async () => {
+  //const response = await fetch('/create-customer', {
+  const response = await fetch('https://urilinks-project-create-customer-ap.vercel.app', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email:user.emal, uid:user.uid }),
+  });
+  const data = await response.json();
+  console.log(data);
+};
+
+createCustomer()  
+  
+  renderApp(); //displays the array links stored in redux
           
           if (history.location.pathname === "/") {
             history.push("/dashboard");
           }
-
+  //create stripe customer here, end
         })
 
 

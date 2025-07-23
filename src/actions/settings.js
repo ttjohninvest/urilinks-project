@@ -6,17 +6,23 @@ export const getSettings = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
   console.log("actions/getSettings, uid="+uid)
+  let s
    return database
       .ref(`users/${uid}/settings`)
       .once("value")
       .then((snapshot) => {
         
-        console.log("action/getSettings from db, ...snapshot")
-        console.log("action/getSettings from db, ...snapshot="+JSON.stringify({...snapshot}))
-        console.log("action/getSettings from db, snapshot.selectedOption1="+snapshot.selectedOption1)
-        //settings={...snapshot}
-      
-        dispatch(setSettings({...snapshot}));
+        // console.log("action/getSettings from db, ...snapshot")
+        // console.log("action/getSettings from db, ...snapshot="+JSON.stringify({...snapshot}))
+        // console.log("action/getSettings from db, snapshot.selectedOption1="+snapshot.selectedOption1)
+
+          snapshot.forEach((childSnapshot) => {
+         
+          s = {...childSnapshot};
+        });
+       console.log("action/getSettings from db, ...snapshot, x="+JSON.stringify(s))
+       dispatch(setSettings({...s}));
+       
       })
     }
 };

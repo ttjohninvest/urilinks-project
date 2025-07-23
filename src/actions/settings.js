@@ -13,7 +13,7 @@ export const getSettings = () => {
         
         console.log("action/getSettings from db, ...snapshot")
         console.log("action/getSettings from db, ...snapshot="+JSON.stringify({...snapshot}))
-        console.log("action/getSettings from db, snapshot.plan="+snapshot.plan)
+        console.log("action/getSettings from db, snapshot.selectedOption1="+snapshot.selectedOption1)
         //settings={...snapshot}
       
         dispatch(setSettings({...snapshot}));

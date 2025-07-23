@@ -87,7 +87,7 @@ return store.dispatch(getSettings()).then(() => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ email:user.emal, uid:user.uid }),
+    body: JSON.stringify({ email:user.email, uid:user.uid }),
   });
   const data = await response.json();
   console.log(data);

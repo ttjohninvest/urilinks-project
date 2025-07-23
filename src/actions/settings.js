@@ -9,7 +9,7 @@ export const getSettings = () => {
       .ref(`users/${uid}/settings`)
       .once("value")
       .then((snapshot) => {
-        const settings = {};
+        let settings = {};
          
         settings={...snapshot}
       

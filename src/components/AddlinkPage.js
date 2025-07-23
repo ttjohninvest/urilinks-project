@@ -68,8 +68,8 @@ max=5000
     console.log("in onSubmit");
     const user = firebase.auth().currentUser;
     if (count < 
-      250
-      //getPlanMax() 
+      //250
+      getPlanMax() 
       || (count < 10000 && (
       user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 
       || user.uid === "NyeF3Cz2yvV3gpo2dwNoBSkRI473"

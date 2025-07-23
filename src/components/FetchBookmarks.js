@@ -2317,8 +2317,8 @@ for (let i = 0; i < loopmax2; i++) {
 
                 } else {
                   max = 
-                  250
-                  //getPlanMax() 
+                  //250
+                  getPlanMax() 
                   - (rl + ll);
                   //max = 1 - (rl + ll);
                   if (rl > max && max > 0) {

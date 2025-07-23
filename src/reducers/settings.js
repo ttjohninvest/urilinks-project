@@ -4,7 +4,8 @@ const settingsReducerDefaultState = {
   settingsOption1:"",
   settingsOption2:"",
   group:"",
-  photoURL:""
+  photoURL:"",
+  plan:"free"
 };
 
 export default (state = settingsReducerDefaultState, action) => {

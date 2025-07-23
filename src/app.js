@@ -7,6 +7,7 @@ import configureStore from "./store/configureStore";
 import { startSetLinks } from "./actions/links";
 import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
+import { getSettings } from "./actions/settings";
 import { login, logout } from "./actions/auth";
 import { setSettings } from "./actions/settings";
 //import getVisibleLinks from './selectors/links';
@@ -23,7 +24,7 @@ import LoadingPage from "./components/LoadingPage";
 //     // Let's translate it!
 // });
 
-console.log=()=>{} //
+//console.log=()=>{} //
 const store = configureStore();
 store.subscribe(() => {
   console.log('Store state:', store.getState());
@@ -74,11 +75,18 @@ firebase.auth().onAuthStateChanged((user) => {
           return store.dispatch(startSetLinksFileDate()).then(() => {
           //startSetSettings reads the links from the db and stores them in redux
  
+          getSettings()
+
+
           renderApp(); //displays the array links stored in redux
           
           if (history.location.pathname === "/") {
             history.push("/dashboard");
           }
+
+
+
+
         }).catch((error) => {
           console.log("error", error);
         });

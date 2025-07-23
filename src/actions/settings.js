@@ -1,6 +1,22 @@
 
 import database from "../firebase/firebase";
 
+export const getSettings = () => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+  
+   return database
+      .ref(`users/${uid}/settings`)
+      .once("value")
+      .then((snapshot) => {
+        const settings = {};
+         
+        settings={...snapshot}
+      
+        dispatch(setSettings(settings));
+      })
+    }
+};
 
 // ADD_LINK
 export const addSettings = (settings) => ({

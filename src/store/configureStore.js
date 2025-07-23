@@ -41,7 +41,7 @@ export default () => {
       setit: setitReducer,
       setitfiledate: setitfiledateReducer,
       url: storageReducer,
-      customerId: customeridReducer,
+      customerId: customeridReducer
       
     }),
     composeEnhancers(applyMiddleware(thunk))

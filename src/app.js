@@ -86,7 +86,7 @@ return store.dispatch(getSettings()).then(() => {
   const response = await fetch('https://urilinks-project-create-customer-ap.vercel.app', {
     method: 'POST',
     headers: {
-      'Content-Type': 'text/plain; charset=UTF-8',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({ email:user.email, uid:user.uid }),
   });

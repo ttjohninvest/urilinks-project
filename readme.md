@@ -8,6 +8,8 @@ facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do
+set the plan in the webhook function
+be accurate with the number of links stored before showing the pay page
 getSettings in app.js, is not working, I need to know the plan in componentDidMount in LinkListFilters.js
 I commented out TeirsPayment3 and (p) in the header until I can get urilinks-project-vercel-stripe-api to be called
  The payment is working, stripe recorded the payment

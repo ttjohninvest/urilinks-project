@@ -15,7 +15,7 @@ export const getSettings = () => {
        
         console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
     
-        dispatch(setSettings(snapshot.val()));
+        //dispatch(setSettings(snapshot.val()));
        
       })
     }

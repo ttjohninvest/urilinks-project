@@ -259,21 +259,21 @@ export class LinkListFilters extends React.Component {
   componentDidMount() {
     //get the plan from settings so I know how many links a person can have
     console.log("In LinkListFilters.js, this.props.settings="+JSON.stringify(this.props.settings))
-    const user = firebase.auth().currentUser;
-    database
-      .ref(`users/${user.uid}/settings`)
-      .once("value")
-      .then((snapshot) => {
+    // const user = firebase.auth().currentUser;
+    // database
+    //   .ref(`users/${user.uid}/settings`)
+    //   .once("value")
+    //   .then((snapshot) => {
         
-        console.log("componentDidMount, ...snapshot")
-        console.log("componentDidMount, ...snapshot="+JSON.stringify(snapshot.val()))
-        //console.log("componentDidMount, snapshot.selectedOption1="+snapshot.selectedOption1)
+    //     console.log("componentDidMount, ...snapshot")
+    //     console.log("componentDidMount, ...snapshot="+JSON.stringify(snapshot.val()))
+    //     //console.log("componentDidMount, snapshot.selectedOption1="+snapshot.selectedOption1)
 
          
-       console.log("action/getSettings from db, ...snapshot, x="+JSON.stringify(...snapshot))
-       //dispatch(setSettings({...snapshot}));
+      
+    //    //dispatch(setSettings({...snapshot}));
        
-      })
+    //   })
     
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");

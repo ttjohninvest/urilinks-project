@@ -6,17 +6,17 @@ export const getSettings = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
   console.log("actions/getSettings, uid="+uid)
-  //  return database
-  //     .ref(`users/${uid}/settings`)
-  //     .once("value")
-  //     .then((snapshot) => {
-  //       let settings = {};
-  //       console.log("action/getSettings from db, ...snapshot")
-  //        //console.log("action/getSettings from db, ...snapshot="+JSON.stringify({...snapshot}))
-  //       settings={...snapshot}
+   return database
+      .ref(`users/${uid}/settings`)
+      .once("value")
+      .then((snapshot) => {
+        let settings = {};
+        console.log("action/getSettings from db, ...snapshot")
+        console.log("action/getSettings from db, ...snapshot="+JSON.stringify({...snapshot}))
+        settings={...snapshot}
       
-  //       dispatch(setSettings(settings));
-  //     })
+        dispatch(setSettings(settings));
+      })
     }
 };
 

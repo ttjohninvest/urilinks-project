@@ -77,14 +77,14 @@ firebase.auth().onAuthStateChanged((user) => {
           //console.log("before, getSettings") 
           //getSettings()
           //console.log("after, getSettings")
-
+return store.dispatch(getSettings()).then(() => {
           renderApp(); //displays the array links stored in redux
           
           if (history.location.pathname === "/") {
             history.push("/dashboard");
           }
 
-
+        })
 
 
         }).catch((error) => {

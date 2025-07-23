@@ -254,8 +254,11 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
     //get the plan from settings so I know how many links a person can have
-    //console.log("In LinkListFilters.js, this.props.settings="+JSON.stringify(this.props.settings))
-    //this.props.setTheHashTagDivHeight(this.state.height);
+    console.log("In LinkListFilters.js, this.props.settings="+JSON.stringify(this.props.settings))
+    
+    
+    
+    this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
     const searchLinks1 = window.localStorage.getItem("searchLinks1");

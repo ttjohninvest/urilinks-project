@@ -95,7 +95,7 @@ return store.dispatch(getSettings()).then(() => {
   const data = await response.json();
   //data.customer.id
   console.log("data.customer.id="+data.customer.id)
-  store.dispatch(setCustomerId(data.customer.id))
+  //store.dispatch(setCustomerId(data.customer.id))
   //data.customer.metadata.uid
   console.log(data);
 };

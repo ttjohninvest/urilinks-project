@@ -8,6 +8,7 @@ import { startSetLinks } from "./actions/links";
 import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
 import { getSettings } from "./actions/settings";
+import { setCustomerId } from "./actions/setcustomerid";
 import { login, logout } from "./actions/auth";
 import { setSettings } from "./actions/settings";
 //import getVisibleLinks from './selectors/links';
@@ -94,8 +95,8 @@ return store.dispatch(getSettings()).then(() => {
   const data = await response.json();
   //data.customer.id
   console.log("data.customer.id="+data.customer.id)
-  //customer.metadata.uid
-  //customer.id
+  store.dispatch(setCustomerId(data.customer.id))
+  //data.customer.metadata.uid
   console.log(data);
 };
 

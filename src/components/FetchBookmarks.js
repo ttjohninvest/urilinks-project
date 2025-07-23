@@ -2314,11 +2314,12 @@ for (let i = 0; i < loopmax2; i++) {
 
                 } else {
                   max = 250 - (rl + ll);
+                  if(max>=0) {
                   //max = getPlanMax() - (rl + ll);
                   //max = 1 - (rl + ll);
                   if (rl > max && max > 0) {
                     loopmax2 = max;
-
+                  }
                       //for (let i = 0; i < result.length; i++) {
                 for (let i = 0; i < loopmax2; i++) {
                   //for (let i = 0; i < 1; i++) {
@@ -2356,8 +2357,9 @@ for (let i = 0; i < loopmax2; i++) {
                   setResult(result)
                 }
 
-                  } //otherwise rl is equal to the full length, result.length
-                  else {
+                  //} //otherwise rl is equal to the full length, result.length
+              }
+               else {
                     setPayPage(true)
 console.log("load pay page")
                   }

@@ -11,7 +11,7 @@ export const getSettings = () => {
       .ref(`users/${uid}/settings`)
       .once("value")
       .then((snapshot) => {
-        
+        console.log("action/getSettings from db, snapshot="+snapshot)
        let settings
         console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         settings = snapshot.val()

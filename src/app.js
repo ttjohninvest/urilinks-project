@@ -79,9 +79,9 @@ firebase.auth().onAuthStateChanged((user) => {
           //getSettings()
           //console.log("after, getSettings")
 return store.dispatch(getSettings()).then((r) => {
-  console.log("getSettings, settings="+JSON.stringify(r))
+  //console.log("getSettings, settings="+JSON.stringify(r))
   //create stripe customer here, begin https://search.brave.com/search?q=using+react+how+do+i+create+a+stripe+customer+during+registration&summary=1&conversation=4cf05c04b8982177ac075c
-          
+          let a
   //this function puts the user id as metadata into stripe
   const createCustomer = async () => {
   //const response = await fetch('/create-customer', {
@@ -96,6 +96,7 @@ return store.dispatch(getSettings()).then((r) => {
   const data = await response.json();
   //data.customer.id
   console.log("data.customer.id="+data.customer.id)
+  a=data.customer.id
    console.log(data);
   //store.dispatch(setCustomerId(data.customer.id))
    
@@ -105,7 +106,8 @@ return store.dispatch(getSettings()).then((r) => {
 };
 
 createCustomer()  
-  
+store.dispatch(setCustomerId(a))
+
   renderApp(); //displays the array links stored in redux
           
           if (history.location.pathname === "/") {

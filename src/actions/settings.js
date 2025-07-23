@@ -12,10 +12,17 @@ export const getSettings = () => {
       .once("value")
       .then((snapshot) => {
         
-       
+       let settings
         console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
-    
+        settings = snapshot.val()
+        if(settings.plan === undefined) {
+ settings = {...snapshot.val(),
+          plan:"free"
+        }
+        }
+       
         //dispatch(setSettings(snapshot.val()));
+        dispatch(setSettings(settings));
        
       })
     }

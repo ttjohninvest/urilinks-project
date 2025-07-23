@@ -259,6 +259,7 @@ export class LinkListFilters extends React.Component {
   componentDidMount() {
     //get the plan from settings so I know how many links a person can have
     console.log("In LinkListFilters.js, this.props.settings="+JSON.stringify(this.props.settings))
+    //if(this.props.settings.plan===undefined)
     // const user = firebase.auth().currentUser;
     // database
     //   .ref(`users/${user.uid}/settings`)

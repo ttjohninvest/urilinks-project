@@ -15,6 +15,11 @@ export const getTheplan = () => {
        let theplan
         //console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         //console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
+        
+        console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
+        console.log("action/getSettings from db, snapshot.val()="+snapshot.val())
+        
+        
         theplan = snapshot.val()//JSON.parse(JSON.stringify(snapshot.val()))
 //         if(theplan===null) {
 //         theplan = {
@@ -28,7 +33,7 @@ export const getTheplan = () => {
 //         }
 //         }
        
-        dispatch(setTheplan({plan:theplan}));
+        dispatch(setTheplan(JSON.parse({plan:theplan})));
         // if(theplan === undefined || theplan === null)
         //     dispatch(setTheplan({plan:"free"}));
         // //else dispatch(setTheplan(theplan));

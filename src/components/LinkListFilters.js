@@ -57,7 +57,7 @@ function ExpandableArray(props) {
             <div>plan: {props.plan}</div>
              <div>
                             <Link className="header__title" to="/teirspayment3">
-                              <span className="ib color-black" title="payment tier policy">
+                              <span className="ib color-black text-size-7" title="payment tier policy">
                                 upgrade plan
                               </span>
                             </Link>

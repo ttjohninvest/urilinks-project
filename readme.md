@@ -8,6 +8,7 @@ facebook, I can not change my fb name until 8/25/2025
 # Git Commands
 
 todo to do
+at the beginning of the program you have to read theplan from the database
 metadata is now with the stripe customer but it is not being sent to the webhook function, contact stripe support
 set the plan in the webhook function
 be accurate with the number of links stored before showing the pay page

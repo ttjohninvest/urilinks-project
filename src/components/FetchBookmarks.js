@@ -92,6 +92,7 @@ max=5000
 
   useEffect(() => {
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
+    console.log("FetchBookmarks.js, props.theplan.plan="+props.theplan.plan)
     if (props.url === "") setImportingError(true);
     const text = "Is it ok to upload the bookmarks?";
     if (confirm(text) == true) {

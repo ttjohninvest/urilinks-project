@@ -8,7 +8,7 @@ export const getTheplan = () => {
   console.log("actions/getTheplan, uid="+uid)
   let s
    return database
-      .ref(`users/${uid}/theplan`)
+      .ref(`users/${uid}/settings`)
       .once("value")
       .then((snapshot) => {
         

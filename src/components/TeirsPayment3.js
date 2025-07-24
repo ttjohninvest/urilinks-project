@@ -1,10 +1,13 @@
 
 import React, {useEffect, useState} from 'react'
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-const TeirsPayment3 = () => {
-    const[a, setA] = useState(0)
+const TeirsPayment3 = (props) => {
+   
 
     useEffect(()=>{
+      console.log("props.customerId.customerId="+props.customerId.customerId)
     //     function handleClickT1(event) {
     
     //     console.log('handleClickT1');
@@ -88,11 +91,17 @@ export default PricingPage;
       This approach ensures that the pricing table is linked to the specific customer session, providing a seamless 
       experience for the user.
       */}
+
+
         
-<stripe-pricing-table pricing-table-id="prctbl_1Rmi60K6yDYe5WAxC2Rj4wdw"
+{/* <stripe-pricing-table pricing-table-id="prctbl_1Rmi60K6yDYe5WAxC2Rj4wdw"
 customer-session-client-secret=""
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
-</stripe-pricing-table>
+</stripe-pricing-table> */}
+    
+    
+    
+    
     {/* <div className="pricing-table">
   
     <div id="t1" className="pricing-card">
@@ -132,4 +141,17 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
   </div>)
 }
 
-export default TeirsPayment3;
+
+const mapStateToProps = (state) => ({
+  
+  customerId: state.customerId
+});
+
+// const mapDispatchToProps = (dispatch) => ({
+//   startAddLink: (link) => dispatch(startAddLink(link)),
+// });
+
+export default withRouter(connect(mapStateToProps, undefined)(TeirsPayment3));
+
+
+//export default TeirsPayment3;

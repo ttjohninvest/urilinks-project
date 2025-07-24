@@ -8,20 +8,23 @@ const TeirsPayment3 = (props) => {
   useEffect(() => {
     console.log("props.customerId.customerId=" + props.customerId.customerId);
 
-    const fetchData = async () => {
-      const response = fetch("https://urilinks-project-client-secret-api.vercel.app", {
+    // const fetchData = async () => {
+      fetch("https://urilinks-project-client-secret-api.vercel.app", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ customerId:props.customerId.customerId}) //JSON.stringify({ customerId: props.customerId.customerId }),
                                            
+      }).then((res)=>{
+        console.log(res)
+          // const data = res.json();
+          // console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
       });
-      const data = await response.json();
-      console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
+      
       //setClientSecret(data.clientSecret);
-    };
-    fetchData();
+    // };
+    // fetchData();
     //     function handleClickT1(event) {
 
     //     console.log('handleClickT1');

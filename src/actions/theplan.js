@@ -15,7 +15,7 @@ export const getTheplan = () => {
        let theplan
         console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
-        theplan = snapshot.val()
+        theplan = JSON.parse(JSON.stringify(snapshot.val()))
 //         if(theplan===null) {
 //         theplan = {
 //           plan:"free"
@@ -28,7 +28,7 @@ export const getTheplan = () => {
 //         }
 //         }
        
-        dispatch(setTheplan(snapshot.val()));
+        dispatch(setTheplan(theplan));
         // if(theplan === undefined || theplan === null)
         //     dispatch(setTheplan({plan:"free"}));
         // //else dispatch(setTheplan(theplan));

@@ -54,7 +54,7 @@ function ExpandableArray(props) {
               {}
             </span>
             <div>(welcome) clickable hash tags in alphabetical order<br />Please go and sin no more, ok.</div>
-            {/* <div>plan: {props.theplan.plan}</div> */}
+            <div>plan: {props.plan}</div>
           </div>
           {/* <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div> */}
 
@@ -402,6 +402,7 @@ export class LinkListFilters extends React.Component {
                 ref={this.elementRef}
                 morehashtags={this.state.morehashtags}
                 setit={this.setit}
+                plan={this.props.theplan.plan}
               />
             </div>
           )}

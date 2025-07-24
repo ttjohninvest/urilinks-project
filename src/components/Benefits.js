@@ -16,6 +16,9 @@ const Benefits = () => (
         with hash tags.
       </li>
       <li>
+        Bookmarks are sharable with others, just email a person with your bookmarks.html file.
+      </li>
+      <li>
         Links are uri/url links. uri, uniform resource identifier, is a more
         general term for url, uniform resource locator.
       </li>

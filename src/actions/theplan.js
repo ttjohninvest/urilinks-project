@@ -10,7 +10,7 @@ export const getTheplan = () => {
       .ref(`users/${uid}/theplan/plan`)
       .once("value")
       .then((snapshot) => {
-        let theplan=snapshot.val();
+        let theplan
         //console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         //console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
 
@@ -25,7 +25,8 @@ export const getTheplan = () => {
           theplan = "free";
         } else if (snapshot.val() === undefined) {
           theplan = "free";
-        }
+        } else {
+          theplan=snapshot.val();
 
         dispatch(setTheplan({ plan: theplan }));
         // if(theplan === undefined || theplan === null)

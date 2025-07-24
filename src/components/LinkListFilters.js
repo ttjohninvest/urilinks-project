@@ -56,13 +56,13 @@ function ExpandableArray(props) {
             <div>(welcome) clickable hash tags in alphabetical order<br />Please go and sin no more, ok.</div>
             <div className="flexrow2e">
  <div title="current plan">plan: {props.plan.replace(/"/g, "")}</div>
-             <div className="margin-left-11">
+             {/* <div className="margin-left-11">
                             <Link className="header__title" to="/teirspayment3">
                               <span className="ib color-black text-size-5 general-font" title="click for plan options">
                                 (upgrade plan)
                               </span>
                             </Link>
-                          </div> 
+                          </div>  */}
             </div>
            
           </div>

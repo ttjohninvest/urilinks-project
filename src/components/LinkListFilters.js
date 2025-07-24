@@ -1,5 +1,5 @@
 import React, { useState, createRef } from "react";
-
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { DateRangePicker } from "react-dates";
@@ -55,6 +55,13 @@ function ExpandableArray(props) {
             </span> */}
             <div>(welcome) clickable hash tags in alphabetical order<br />Please go and sin no more, ok.</div>
             <div>plan: {props.plan}</div>
+             <div>
+                            <Link className="header__title" to="/teirspayment3">
+                              <span className="ib" title="payment tier policy">
+                                upgrade plan
+                              </span>
+                            </Link>
+                          </div> 
           </div>
           {/* <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div> */}
 

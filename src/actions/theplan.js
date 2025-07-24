@@ -28,14 +28,14 @@ export const getTheplan = () => {
 //         }
 //         }
        
-        //dispatch(setSettings(snapshot.val()));
-        if(theplan === undefined || theplan === null)
-            dispatch(setTheplan({plan:"free"}));
-        //else dispatch(setTheplan(theplan));
-        else {
-            const p = snapshot().val().plan
-            dispatch(setTheplan({plan:JSON.stringify(p)}));
-        }
+        dispatch(setTheplan(snapshot.val()));
+        // if(theplan === undefined || theplan === null)
+        //     dispatch(setTheplan({plan:"free"}));
+        // //else dispatch(setTheplan(theplan));
+        // else {
+        //     const p = snapshot().val().plan
+        //     dispatch(setTheplan({plan:JSON.stringify(p)}));
+        // }
        
       })
     }

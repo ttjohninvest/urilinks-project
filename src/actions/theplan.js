@@ -33,8 +33,8 @@ export const getTheplan = () => {
             dispatch(setTheplan({plan:"free"}));
         //else dispatch(setTheplan(theplan));
         else {
-            const p = JSON.parse(snapshot().val()).plan
-            dispatch(setTheplan({plan:p}));
+            const p = snapshot().val().plan
+            dispatch(setTheplan({plan:JSON.stringify(p)}));
         }
        
       })

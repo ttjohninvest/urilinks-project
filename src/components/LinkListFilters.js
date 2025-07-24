@@ -50,9 +50,9 @@ function ExpandableArray(props) {
             className="flexrow2c padding-around"
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
-            <span className="is-active ib right-margin-1 margin-right-1">
+            {/* <span className="is-active ib right-margin-1 margin-right-1">
               {}
-            </span>
+            </span> */}
             <div>(welcome) clickable hash tags in alphabetical order<br />Please go and sin no more, ok.</div>
             <div>plan: {props.plan}</div>
           </div>

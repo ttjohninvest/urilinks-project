@@ -9,7 +9,7 @@ const TeirsPayment3 = (props) => {
     console.log("props.customerId.customerId=" + props.customerId.customerId);
 
     const fetchData = async () => {
-      const response = fetch("https://urilinks-project-client-secret-api.vercel.app/", {
+      const response = fetch("https://urilinks-project-client-secr-git-13ebae-johns-projects-25d9f8ed.vercel.app", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

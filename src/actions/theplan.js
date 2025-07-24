@@ -30,7 +30,8 @@ export const getTheplan = () => {
         //dispatch(setSettings(snapshot.val()));
         if(theplan === undefined || theplan === null)
             dispatch(setTheplan({plan:"free"}));
-        else dispatch(setTheplan(theplan));
+        //else dispatch(setTheplan(theplan));
+        else dispatch(setTheplan({plan:"free"}));
        
       })
     }

@@ -125,6 +125,13 @@
   padding:1rem;
 }
 
+.flexrow2e {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap:wrap;
+}
+
 .flexrow2w {
   display:flex;
   flex-direction:row;

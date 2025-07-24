@@ -54,7 +54,8 @@ function ExpandableArray(props) {
               {}
             </span> */}
             <div>(welcome) clickable hash tags in alphabetical order<br />Please go and sin no more, ok.</div>
-            <div>plan: {props.plan}</div>
+            <div className="flexrow2e">
+ <div>plan: {props.plan}</div>
              <div>
                             <Link className="header__title" to="/teirspayment3">
                               <span className="ib color-black text-size-5" title="payment tier policy">
@@ -62,6 +63,8 @@ function ExpandableArray(props) {
                               </span>
                             </Link>
                           </div> 
+            </div>
+           
           </div>
           {/* <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div> */}
 

@@ -13,8 +13,8 @@ const TeirsPayment3 = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ customerId:props.customerId.customerId}) //JSON.stringify({ customerId: props.customerId.customerId }),
+        }
+        //body: JSON.stringify({ customerId:props.customerId.customerId}) //JSON.stringify({ customerId: props.customerId.customerId }),
                                            
       }).then((res)=>{
        

@@ -22,6 +22,7 @@ const TeirsPayment3 = (props) => {
           // console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
       }).then((data)=>{
           console.log(data)
+          setClientSecret(data.clientSecret);
       }).catch(error => console.error('There was a problem with the fetch operation:', error));
       
       //setClientSecret(data.clientSecret);
@@ -109,11 +110,11 @@ export default PricingPage;
       experience for the user.
       */}
 
-      {/* <stripe-pricing-table
+      <stripe-pricing-table
         pricing-table-id="prctbl_1Rmi60K6yDYe5WAxC2Rj4wdw"
-        customer-session-client-secret="cuss_secret_SjhledL0bjNxwRS2AxUG4DjYYsQpDy1KBDfhXZgxQEzm9qs"
+        customer-session-client-secret={clientSecret}
         publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
-      ></stripe-pricing-table> */}
+      ></stripe-pricing-table>
 
       {/* <div className="pricing-table">
   

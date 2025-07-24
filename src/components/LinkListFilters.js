@@ -53,7 +53,8 @@ function ExpandableArray(props) {
             <span className="is-active ib right-margin-1 margin-right-1">
               {}
             </span>
-            (welcome) clickable hash tags in alphabetical order<br />Please go and sin no more, ok.
+            <div>(welcome) clickable hash tags in alphabetical order<br />Please go and sin no more, ok.</div>
+            <div>plan: {theplan.plan}</div>
           </div>
           {/* <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div> */}
 
@@ -496,6 +497,7 @@ const mapStateToProps = (state) => ({
   hashtags: state.hashtags,
   setit: state.setit,
   settings: state.settings,
+  theplan: state.theplan
 });
 
 const mapDispatchToProps = (dispatch) => ({

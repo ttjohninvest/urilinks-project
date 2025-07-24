@@ -14,18 +14,18 @@ export const getTheplan = () => {
         
        let theplan
         console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
-        theplan = {...snapshot.val()}
-        if(theplan===null) {
-        theplan = {
-          plan:"free"
-        }
-        }
-        else if(theplan.plan === undefined) {
- theplan = {
-  //...snapshot.val(),
-          plan:"free"
-        }
-        }
+        theplan = snapshot.val()
+//         if(theplan===null) {
+//         theplan = {
+//           plan:"free"
+//         }
+//         }
+//         else if(theplan.plan === undefined) {
+//  theplan = {
+//   //...snapshot.val(),
+//           plan:"free"
+//         }
+//         }
        
         //dispatch(setSettings(snapshot.val()));
         dispatch(setTheplan(theplan));

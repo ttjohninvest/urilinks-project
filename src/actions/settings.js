@@ -29,6 +29,15 @@ export const getSettings = () => {
        
         //dispatch(setSettings(snapshot.val()));
         dispatch(setSettings(settings));
+         if(settings === undefined || settings === null)
+                    dispatch(setSettings({
+  settingsOption1:"",
+  settingsOption2:"",
+  group:"",
+  photoURL:"",
+  plan:"free"
+}));
+                else dispatch(setSettings(settings));
        
       })
     }

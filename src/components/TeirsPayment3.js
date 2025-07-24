@@ -4,7 +4,8 @@ import { withRouter } from "react-router-dom";
 
 const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
-
+  const [pk_live, setPklive] = useState(process.env.PK_LIVE)
+  const [pti, setPti] = useState(process.env.PTI)
   useEffect(() => {
     console.log("props.customerId.customerId=" + props.customerId.customerId);
 
@@ -111,9 +112,9 @@ export default PricingPage;
       */}
 
       <stripe-pricing-table
-        pricing-table-id="prctbl_1Rmi60K6yDYe5WAxC2Rj4wdw"
+        pricing-table-id={pti}
         customer-session-client-secret={clientSecret}
-        publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        publishable-key={pk_live}
       ></stripe-pricing-table>
 
       {/* <div className="pricing-table">

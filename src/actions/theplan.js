@@ -20,8 +20,10 @@ export const getTheplan = () => {
         console.log("action/getSettings from db, snapshot.val()="+snapshot.val())
         
         
-        theplan = JSON.stringify(snapshot.val())//JSON.parse(JSON.stringify(snapshot.val()))
-//         if(theplan===null) {
+        //theplan = JSON.stringify(snapshot.val())//JSON.parse(JSON.stringify(snapshot.val()))
+//         
+theplan = snapshot.val()
+//if(theplan===null) {
 //         theplan = {
 //           plan:"free"
 //         }

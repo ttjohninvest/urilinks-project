@@ -1,36 +1,33 @@
-
 import database from "../firebase/firebase";
 
 export const getTheplan = () => {
-  console.log("actions/getTheplan")
+  console.log("actions/getTheplan");
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-  console.log("actions/getTheplan, uid="+uid)
-  let s
-   return database
+    console.log("actions/getTheplan, uid=" + uid);
+    let s;
+    return database
       .ref(`users/${uid}/theplan/plan`)
       .once("value")
       .then((snapshot) => {
-        
-       let theplan
+        let theplan;
         //console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         //console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
-        
-        // console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
-        // console.log("action/getSettings from db, snapshot.val()="+snapshot.val())
-        
-        
+
+        console.log(
+          "action/getTheplan from db, snapshot.val()=" + snapshot.val()
+        );
+
         //theplan = JSON.stringify(snapshot.val())//JSON.parse(JSON.stringify(snapshot.val()))
-//         
-theplan = snapshot.val()
-if(theplan===null) {
-        theplan = "free"
+        //
+
+        if (snapshot.val() === null) {
+          theplan = "free";
+        } else if (snapshot.val() === undefined) {
+          theplan = "free";
         }
-        else if(theplan.plan === undefined) {
- theplan = "free"
-        }
-       
-        dispatch(setTheplan({plan:theplan}));
+
+        dispatch(setTheplan({ plan: theplan }));
         // if(theplan === undefined || theplan === null)
         //     dispatch(setTheplan({plan:"free"}));
         // //else dispatch(setTheplan(theplan));
@@ -38,9 +35,8 @@ if(theplan===null) {
         //     const p = snapshot().val().plan
         //     dispatch(setTheplan({plan:p}));
         // }
-       
-      })
-    }
+      });
+  };
 };
 
 // ADD_LINK
@@ -49,24 +45,27 @@ export const addTheplan = (theplan) => ({
   theplan,
 });
 
-
 export const startAddTheplan = (theplanData = {}) => {
-  console.log("startAddTheplan, theplanData="+JSON.stringify(theplanData))
+  console.log("startAddTheplan, theplanData=" + JSON.stringify(theplanData));
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-  
-    return database
-      .ref(`users/${uid}/theplan`)
-      //.push(settingsData)
-      .update(theplanData)
-      .then(() => {
-        console.log("in startAddTheplan, just before the call to dispatch to add theplanData to redux")
-        dispatch(
-          addTheplan({
-            ...theplanData,
-          })
-        );
-      });
+
+    return (
+      database
+        .ref(`users/${uid}/theplan`)
+        //.push(settingsData)
+        .update(theplanData)
+        .then(() => {
+          console.log(
+            "in startAddTheplan, just before the call to dispatch to add theplanData to redux"
+          );
+          dispatch(
+            addTheplan({
+              ...theplanData,
+            })
+          );
+        })
+    );
   };
 };
 
@@ -113,11 +112,11 @@ export const setTheplan = (theplan) => ({
 
 //this puts the links array in the global redux store to be used to list the output
 // export const startSetTheplan = () => {
-  
+
 //   return (dispatch, getState) => {
-    
+
 //     const uid = getState().auth.uid;
-    
+
 //     return database
 //       .ref(`users/${uid}/theplan`)
 //       .once("value")
@@ -138,11 +137,10 @@ export const setTheplan = (theplan) => ({
 //             selectedOption2:""
 //           }
 //         }
-       
+
 //         dispatch(setSettings(xy))
-      
+
 //       }).catch(error=>console.log("error="+error));
 //   };
 
 // };
-

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
+import { useSelector } from 'react-redux';
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 
@@ -17,6 +18,7 @@ import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
 import { firebase } from "./firebase/firebase";
 import LoadingPage from "./components/LoadingPage";
+
 // import translate from 'baidu-translate-api'
 // //
 
@@ -32,7 +34,9 @@ store.subscribe(() => {
 });
 const jsx = (
   <Provider store={store}>
+   
     <AppRouter />
+    
   </Provider>
 );
 let hasRendered = false;
@@ -81,7 +85,7 @@ firebase.auth().onAuthStateChanged((user) => {
 return store.dispatch(getSettings()).then((r) => {
   //console.log("getSettings, settings="+JSON.stringify(r))
   //create stripe customer here, begin https://search.brave.com/search?q=using+react+how+do+i+create+a+stripe+customer+during+registration&summary=1&conversation=4cf05c04b8982177ac075c
-          let a
+          
   //this function puts the user id as metadata into stripe
   const createCustomer = async () => {
   //const response = await fetch('/create-customer', {
@@ -96,10 +100,11 @@ return store.dispatch(getSettings()).then((r) => {
   const data = await response.json();
   //data.customer.id
   console.log("data.customer.id="+data.customer.id)
-  a=data.customer.id
+
    console.log(data);
   //store.dispatch(setCustomerId(data.customer.id))
-   
+  const settings = useSelector(state => state.settings);
+   console.log(settings)
  
   //data.customer.metadata.uid
   

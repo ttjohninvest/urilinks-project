@@ -103,6 +103,7 @@ return store.dispatch(getSettings()).then(() => {
   console.log("user.customerId="+user.customerId)
 
    console.log(data);
+   store.dispatch(setSettings({plan:"free"}))
   //store.dispatch(setCustomerId(data.customer.id))
   // const settings = useSelector(state => state.settings);
   //  console.log(settings)
@@ -113,7 +114,7 @@ return store.dispatch(getSettings()).then(() => {
 
 createCustomer()  
 //return store.dispatch(setCustomerId(user.customerId)).then(()=>{
-  return store.dispatch({ type: 'SET_CUSTOMERID', action: user.customerId }).then(()=>{
+  //return store.dispatch({ type: 'SET_CUSTOMERID', action: user.customerId }).then(()=>{
 
    renderApp(); //displays the array links stored in redux
           
@@ -121,7 +122,7 @@ createCustomer()
             history.push("/dashboard");
           }
   //create stripe customer here, end
-        })
+       // })
 
 
 })

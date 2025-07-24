@@ -9,12 +9,12 @@ const TeirsPayment3 = (props) => {
     console.log("props.customerId.customerId=" + props.customerId.customerId);
 
     const fetchData = async () => {
-      const response = fetch("https://urilinks-project-client-secret-api.vercel.app", {
+      const response = fetch("https://urilinks-project-client-secret-api.vercel.app/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ customerId: props.customerId.customerId }),
+        body: { customerId:"cus_SjjIq2kK8pKs11"} //JSON.stringify({ customerId: props.customerId.customerId }),
       });
       const data = await response.json();
       console.log("data.clientSecret="+data.clientSecret)

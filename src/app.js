@@ -103,8 +103,8 @@ return store.dispatch(getSettings()).then(() => {
   console.log("user.customerId="+user.customerId)
 
    console.log(data);
-   store.dispatch(setSettings({plan:"free"}))
-  //store.dispatch(setCustomerId(data.customer.id))
+   //store.dispatch(setSettings({plan:"free"})) //worked
+  store.dispatch(setCustomerId({customerId:data.customer.id}))
   // const settings = useSelector(state => state.settings);
   //  console.log(settings)
  

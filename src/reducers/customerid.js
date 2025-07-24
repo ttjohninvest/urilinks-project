@@ -1,9 +1,13 @@
-const customeridReducerDefaultState = ""
+const customeridReducerDefaultState = {
+  customerId:""
+};
 
 export default (state = customeridReducerDefaultState, action) => {
   switch (action.type) {
     case "SET_CUSTOMERID":
-      return action.customerId;
+      return {
+        ...action.customerId
+      }
     default:
       return state;
   }

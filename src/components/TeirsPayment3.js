@@ -14,7 +14,7 @@ const TeirsPayment3 = (props) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: { customerId:"cus_SjjIq2kK8pKs11"} //JSON.stringify({ customerId: props.customerId.customerId }),
+        body: JSON.stringify({ customerId:"cus_SjjIq2kK8pKs11"}) //JSON.stringify({ customerId: props.customerId.customerId }),
       });
       const data = await response.json();
       console.log("data.clientSecret="+data.clientSecret)

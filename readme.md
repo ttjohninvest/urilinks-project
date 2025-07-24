@@ -90,6 +90,15 @@ project: urilinks-project-create-customer-app
 vsc project name: urilinks-project-create-customer-api
 purpose: register current customer with stripe during customer registration for use with prebuilt pricing table
 
+vercel.com log, ttjohninvest@gmail.com
+on chrome select github.com, github.com account is ttjohninvest@gmail.com
+project: urilinks-project-client-secret-app
+vsc project name: urilinks-project-client-secret-api
+purpose: to get the customer-session-client-secret for prebuilt pricing  table so stripe know what custmer it is and so
+ it can pass the metadata user id to the webhook function so I can update the database with the plan the user selected
+ from the pricing table
+
+
 get the errors out if their are any
 vercel login
 vercel logs urilinks-project-vercel-stripe-api.vercel.app

@@ -1,43 +1,55 @@
-
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 const TeirsPayment3 = (props) => {
-   
+  const [clientSecret, setClientSecret] = useState("");
 
-    useEffect(()=>{
-      console.log("props.customerId.customerId="+props.customerId.customerId)
+  useEffect(() => {
+    console.log("props.customerId.customerId=" + props.customerId.customerId);
+
+    // const fetchData = async () => {
+    //   const response = fetch("urilinks-project-client-secret-api.vercel.app", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ customerId: props.customerId.customerId }),
+    //   });
+    //   const data = await response.json();
+    //   setClientSecret(data.clientSecret);
+    // };
+    // fetchData();
     //     function handleClickT1(event) {
-    
+
     //     console.log('handleClickT1');
-//     const session = await stripe.checkout.sessions.create({
-//   line_items: [
-//     {
-//       price: 'price_1234567890',
-//       quantity: 1,
-//     },
-//   ],
-//   mode: 'payment',
-//   metadata: {
-//     userId: 123,
-//   },
-//   success_url: 'https://example.com/success',
-//   cancel_url: 'https://example.com/cancel',
-// });   
-      
+    //     const session = await stripe.checkout.sessions.create({
+    //   line_items: [
+    //     {
+    //       price: 'price_1234567890',
+    //       quantity: 1,
+    //     },
+    //   ],
+    //   mode: 'payment',
+    //   metadata: {
+    //     userId: 123,
+    //   },
+    //   success_url: 'https://example.com/success',
+    //   cancel_url: 'https://example.com/cancel',
+    // });
+
     // }
 
     // function handleClickT2(event) {
-    
+
     //     console.log('handleClickT2');
-      
+
     // }
 
     // function handleClickT3(event) {
-    
+
     //     console.log('handleClickT3');
-      
+
     // }
 
     // window.document.getElementById("t1").addEventListener('click', handleClickT1);
@@ -49,12 +61,10 @@ const TeirsPayment3 = (props) => {
     //   window.removeEventListener('click', handleClickT2);
     //   window.removeEventListener('click', handleClickT2);
     // };
+  }, []);
 
-    },[])
-
-  return(
+  return (
     <div className="body1 flexrow2w">
-
       {/*
       Pass the Session Secret to the Pricing Table: The session secret needs to be passed to the pricing table. 
       In React, you can use the useEffect hook to fetch the session secret 
@@ -92,17 +102,13 @@ export default PricingPage;
       experience for the user.
       */}
 
+      <stripe-pricing-table
+        pricing-table-id="prctbl_1Rmi60K6yDYe5WAxC2Rj4wdw"
+        customer-session-client-secret="cuss_secret_SjhledL0bjNxwRS2AxUG4DjYYsQpDy1KBDfhXZgxQEzm9qs"
+        publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+      ></stripe-pricing-table>
 
-        
-{/* <stripe-pricing-table pricing-table-id="prctbl_1Rmi60K6yDYe5WAxC2Rj4wdw"
-customer-session-client-secret=""
-publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
-</stripe-pricing-table> */}
-    
-    
-    
-    
-    {/* <div className="pricing-table">
+      {/* <div className="pricing-table">
   
     <div id="t1" className="pricing-card">
       <h3>Basic</h3>
@@ -138,13 +144,12 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
       <button style={{backgroundColor:'#13253b'}}>Choose Premium</button>
     </div>
   </div> */}
-  </div>)
-}
-
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => ({
-  
-  customerId: state.customerId
+  customerId: state.customerId,
 });
 
 // const mapDispatchToProps = (dispatch) => ({
@@ -152,6 +157,5 @@ const mapStateToProps = (state) => ({
 // });
 
 export default withRouter(connect(mapStateToProps, undefined)(TeirsPayment3));
-
 
 //export default TeirsPayment3;

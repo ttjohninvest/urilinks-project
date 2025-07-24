@@ -77,8 +77,12 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
         //return store.dispatch(startSetSettings()).then(() => {
+          
+          
           //return store.dispatch(startSetLinksFileDate()).then(() => {
-          //startSetSettings reads the links from the db and stores them in redux
+          return store.dispatch(getTheplan()).then(() => {
+          
+            //startSetSettings reads the links from the db and stores them in redux
           //console.log("before, getSettings") 
           //getSettings()
           //console.log("after, getSettings")
@@ -128,11 +132,16 @@ createCustomer()
 
 })
 
- 
-
+        }).catch((error) => {
+          console.log("theplan, error", error);
+        });
+        // setStartLinksFileDate
         // }).catch((error) => {
         //   console.log("error", error);
         // });
+
+
+
       })
       .catch((error) => {
         console.log("error", error);

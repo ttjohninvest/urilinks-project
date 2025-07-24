@@ -52,7 +52,7 @@ function ExpandableArray(props) {
           >
             {/* <span className="is-active ib right-margin-1 margin-right-1">
               {}
-            </span> */}
+            </span>*/}
             <div>(welcome) clickable hash tags in alphabetical order<br />Please go and sin no more, ok.</div>
             <div className="flexrow2e">
  <div>plan: {props.plan}</div>

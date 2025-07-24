@@ -10,7 +10,7 @@ export const getTheplan = () => {
       .ref(`users/${uid}/theplan/plan`)
       .once("value")
       .then((snapshot) => {
-        let theplan;
+        let theplan=snapshot.val();
         //console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         //console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
 

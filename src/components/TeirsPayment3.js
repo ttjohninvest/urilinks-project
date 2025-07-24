@@ -17,10 +17,12 @@ const TeirsPayment3 = (props) => {
         body: JSON.stringify({ customerId:props.customerId.customerId}) //JSON.stringify({ customerId: props.customerId.customerId }),
                                            
       }).then((res)=>{
-        console.log(res)
-          // const data = res.json();
+       
+          return res.json();
           // console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
-      });
+      }).then((data)=>{
+          console.log(data)
+      }).catch(error => console.error('There was a problem with the fetch operation:', error));
       
       //setClientSecret(data.clientSecret);
     // };

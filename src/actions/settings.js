@@ -15,17 +15,17 @@ export const getSettings = () => {
        let settings
         console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         settings = snapshot.val()
-        if(settings===null) {
-        settings = {
-          plan:"free"
-        }
-        }
-        else if(settings.plan === undefined) {
- settings = {
-  //...snapshot.val(),
-          plan:"free"
-        }
-        }
+//         if(settings===null) {
+//         settings = {
+//           ...snapshot.val()
+//         }
+//         }
+//         else if(settings.plan === undefined) {
+//  settings = {
+//   ...snapshot.val()
+         
+//         }
+//         }
        
         //dispatch(setSettings(snapshot.val()));
         dispatch(setSettings(settings));

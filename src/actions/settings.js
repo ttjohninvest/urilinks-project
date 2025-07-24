@@ -28,7 +28,7 @@ export const getSettings = () => {
 //         }
        
         //dispatch(setSettings(snapshot.val()));
-        dispatch(setSettings(settings));
+        //dispatch(setSettings(settings));
          if(settings === undefined || settings === null)
                     dispatch(setSettings({
   settingsOption1:"",

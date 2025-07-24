@@ -23,17 +23,12 @@ export const getTheplan = () => {
         //theplan = JSON.stringify(snapshot.val())//JSON.parse(JSON.stringify(snapshot.val()))
 //         
 theplan = snapshot.val()
-//if(theplan===null) {
-//         theplan = {
-//           plan:"free"
-//         }
-//         }
-//         else if(theplan.plan === undefined) {
-//  theplan = {
-//   //...snapshot.val(),
-//           plan:"free"
-//         }
-//         }
+if(theplan===null) {
+        theplan = "free"
+        }
+        else if(theplan.plan === undefined) {
+ theplan = "free"
+        }
        
         dispatch(setTheplan({plan:theplan}));
         // if(theplan === undefined || theplan === null)

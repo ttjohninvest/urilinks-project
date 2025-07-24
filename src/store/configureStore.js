@@ -18,7 +18,7 @@ import setitReducer from '../reducers/setit';
 import setitfiledateReducer from '../reducers/setitfiledate';
 import storageReducer from '../reducers/storage';
 import customeridReducer from '../reducers/customerid';
-
+import theplanReducer from '../reducers/theplan';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -41,7 +41,8 @@ export default () => {
       setit: setitReducer,
       setitfiledate: setitfiledateReducer,
       url: storageReducer,
-      customerId: customeridReducer
+      customerId: customeridReducer,
+      theplan: theplanReducer
       
     }),
     composeEnhancers(applyMiddleware(thunk))

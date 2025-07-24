@@ -90,6 +90,7 @@ return store.dispatch(getSettings()).then(() => {
   const createCustomer = async () => {
   //const response = await fetch('/create-customer', {
 
+  //this call tells stripe about the uid metadata
   const response = await fetch('https://urilinks-project-create-customer-ap.vercel.app', {
     method: 'POST',
     headers: {

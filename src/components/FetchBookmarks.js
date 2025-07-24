@@ -33,11 +33,11 @@ const FetchBookmarks = (props) => {
   const getPlanMax=()=>{
     let max=250
     //props.settings.plan
-    if(props.settings.plan==="free") {
+    if(props.theplan.plan==="free") {
      max=250
-    } else if(props.settings.plan==="basic") {
+    } else if(props.theplan.plan==="basic") {
 max=1500
-    } else if(props.settings.plan==="standard") {
+    } else if(props.theplan.plan==="standard") {
 max=2500
     } else { //premium
 max=5000
@@ -2456,7 +2456,7 @@ console.log("load pay page")
 const mapStateToProps = (state) => ({
   url: state.url,
   links: state.links,
-  settings: state.settings,
+  theplan: state.theplan
 });
 
 const mapDispatchToProps = (dispatch) => ({

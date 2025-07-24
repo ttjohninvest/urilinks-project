@@ -498,7 +498,7 @@ const mapStateToProps = (state) => ({
   hashtags: state.hashtags,
   setit: state.setit,
   settings: state.settings,
-  //theplan: state.theplan
+  theplan: state.theplan
 });
 
 const mapDispatchToProps = (dispatch) => ({

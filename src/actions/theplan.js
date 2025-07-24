@@ -8,14 +8,14 @@ export const getTheplan = () => {
   console.log("actions/getTheplan, uid="+uid)
   let s
    return database
-      .ref(`users/${uid}/settings`)
+      .ref(`users/${uid}/theplan/plan`)
       .once("value")
       .then((snapshot) => {
         
        let theplan
-        console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
-        console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
-        theplan = JSON.parse(JSON.stringify(snapshot.val()))
+        //console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
+        //console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
+        theplan = snapshot.val()//JSON.parse(JSON.stringify(snapshot.val()))
 //         if(theplan===null) {
 //         theplan = {
 //           plan:"free"
@@ -28,7 +28,7 @@ export const getTheplan = () => {
 //         }
 //         }
        
-        dispatch(setTheplan(theplan));
+        dispatch(setTheplan({plan:theplan}));
         // if(theplan === undefined || theplan === null)
         //     dispatch(setTheplan({plan:"free"}));
         // //else dispatch(setTheplan(theplan));

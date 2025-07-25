@@ -104,7 +104,7 @@ const Benefits = () => (
     ttjohninvest@gmail.com, 775 507-0098
     <br />
     <br />
-    --urilinks.com
+    urilinks.com
   </div>
 );
 

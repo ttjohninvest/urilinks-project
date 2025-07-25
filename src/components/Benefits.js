@@ -93,6 +93,9 @@ const Benefits = () => (
         As you enter the <span className="highlight1">Search Link text</span>,
         the results will display, no need to press a search button.
       </li>
+       <li>
+        I now offer 4 plans, free, basic, standard and premium. free is space to store up to 250 links. basic is $10.00 and space to store up to 500 links. standard is space to store up to 1,500 links. premium is $30.00 and space to store up to 5,000 links.
+      </li>
       <li>These are the supported browsers:  chrome, firefox, edge, opera, brave</li>
       <li>To find your newly uploaded bookmarks, select hashtag from the dropdown menu and then in the field to the left enter the hash tag.</li>
     </ul>

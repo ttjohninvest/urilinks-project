@@ -17,11 +17,11 @@ export const AddLinkPage = (props) => {
     const getPlanMax=()=>{
     let max=150
     //props.settings.plan
-    if(props.theplan.plan==="free") {
+    if(props.theplan.plan.replace(/"/g, "")==="free") {
      max=250
-    } else if(props.theplan.plan==="basic") {
+    } else if(props.theplan.plan.replace(/"/g, "")==="basic") {
 max=1500
-    } else if(props.theplan.plan==="standard") {
+    } else if(props.theplan.plan.replace(/"/g, "")==="standard") {
 max=2500
     } else { //premium
 max=5000

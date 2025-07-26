@@ -65,6 +65,7 @@ const LoginPage = ({ startLogin }) => {
               Welcome to an easier way to do internet bookmarks with hash tags,
               free tool
             </p>
+            <p>Please contact me: Mr. McGovern at 775 507 0098 or ttjohninvest@gmail.com</p>
             {/* <p className="text-size-8 coolShadow ">
             I am trying to help my son. Please give it a try.
           </p> */}
@@ -78,7 +79,7 @@ const LoginPage = ({ startLogin }) => {
                 Please click to see the tutorial on youtube.com.
               </a>
             </div>}
-<div>Please contact me: Mr. McGovern at 775 507 0098 or ttjohninvest@gmail.com</div>
+
             <button
               className="button text-size-8- coolShadow-"
               onClick={startLogin}

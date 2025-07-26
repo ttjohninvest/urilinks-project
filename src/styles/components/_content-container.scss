@@ -128,8 +128,8 @@
 .flexrow2e {
   display:flex;
   flex-direction: row;
-  // justify-content: space-between;
-  justify-content: left;
+  justify-content: space-between;
+  //justify-content: left;
   flex-wrap:wrap;
 }
 
@@ -149,7 +149,8 @@
 .flexrow2c {
   display:flex;
   flex-direction:column;
-  align-items:center;
+  //align-items:center;
+  align-items:left;
   justify-content:center;
   flex-wrap:wrap;
 }

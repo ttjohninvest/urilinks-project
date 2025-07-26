@@ -78,7 +78,7 @@ const LoginPage = ({ startLogin }) => {
                 Please click to see the tutorial on youtube.com.
               </a>
             </div>}
-
+<div>Please contact me: Mr. McGovern at 775 507 0098 or ttjohninvest@gmail.com</div>
             <button
               className="button text-size-8- coolShadow-"
               onClick={startLogin}

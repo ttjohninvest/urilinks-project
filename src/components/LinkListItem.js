@@ -53,7 +53,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
       </div>
       <div className="list-item__data-  text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2">{note}</div>
      <div className="flexrow2w">
-      {/* <FBShareButton url={Url} /> */}
+      <FBShareButton url={Url} />
       <LinkedInShareButton url={Url} /></div>
     </div>
   );

@@ -5,9 +5,23 @@ I changed the address to a non existent address because I don't want them mailin
 ttjohninvest@gmail.com, ttjohninvestfn, ttjohninvestln
 facebook, I can not change my fb name until 8/25/2025
 
+discord
+ttjohninvest4@gmail.com
+ttjohnhappy
+123ZXc12%
+
 # Git Commands
 
 todo to do
+
+****
+appwrite.io, urilinks-project-social-app
+
+
+****
+
+
+stripe secret key, stripe update time, see urilinks.com googledocuments for roll it or delete it time so I can keep accepting payments
 test upgrade plan when you get more money in the bank
 at the beginning of the program you have to read theplan from the database
 metadata is now with the stripe customer but it is not being sent to the webhook function, contact stripe support
@@ -15,8 +29,8 @@ set the plan in the webhook function
 be accurate with the number of links stored before showing the pay page
 getSettings in app.js, is not working, I need to know the plan in componentDidMount in LinkListFilters.js
 I commented out TeirsPayment3 and (p) in the header until I can get urilinks-project-vercel-stripe-api to be called
- The payment is working, stripe recorded the payment
- 
+The payment is working, stripe recorded the payment
+
 urilinks-project-vercel-stripe-app
 stripe backup code: oenw-ovhq-ejih-xpnn-rxcm
 
@@ -97,10 +111,9 @@ vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com
 project: urilinks-project-client-secret-app
 vsc project name: urilinks-project-client-secret-api
-purpose: to get the customer-session-client-secret for prebuilt pricing  table so stripe know what custmer it is and so
- it can pass the metadata user id to the webhook function so I can update the database with the plan the user selected
- from the pricing table
-
+purpose: to get the customer-session-client-secret for prebuilt pricing table so stripe know what custmer it is and so
+it can pass the metadata user id to the webhook function so I can update the database with the plan the user selected
+from the pricing table
 
 get the errors out if their are any
 vercel login
@@ -256,6 +269,10 @@ set the domain name
 set the domain that I can use
 "can do" sourcelinks.com
 
+yorbmarks.com
+yorurls.com
+urlmarkers.com
+foliomarks.com
 urilinks.com
 linksplease.com
 plurallink.com available

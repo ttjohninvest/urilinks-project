@@ -457,3 +457,40 @@ because the way I convert the timestamp is wrong
 urilinks.com marketing
 urilinks-project-splitbm-vercel-api, splits the bookmarks.html file into multiple arrays so parse will run if the file is over 100k
 youtube.com uploaded video that I got from Sagar C. on 6/29/2025 at 9:13am, account: ttjohninvest@gmail.com.
+
+*******************************************************************************
+ribbon code, it needs to be converted to css
+  <div className="rounded-sm bg-amber-100- w-36 aspect-square absolute -top-2 -right-2 overflow-hidden">
+               <div className="absolute h-2 w-2 top-0 left-0 bg-amber-500"></div>
+               <div className="absolute h-2 w-2 bottom-0 right-0 bg-amber-500"></div>
+               <a
+                 href={h25}
+                 className="hover:bg-yellow-300 bg-amber-300 block w-[141.42%]- w-square-diagonal absolute bottom-0 right-0 rotate-45 origin-bottom-right text-amber-800 font-semibold UPPERCASE text-xs text-center tracking-wider py-1.5 shadow-sm"
+               >
+                 camping
+               </a>
+              
+             </div>
+			 
+			 rounded-sm border-radius: 4px
+			 w-36
+			 aspect-square
+			 absolute
+			 -top-2
+			 -right-2
+			 overflow-hidden
+			 
+			 absolute
+			 h-2
+			 w-2
+			 left-0
+			 left-0
+			 bg-amber-500
+			 
+			 absolute
+			 h-2
+			 w-2
+			 bottom-0
+			 right-0
+			 bg-amber-500
+*************************************************************************

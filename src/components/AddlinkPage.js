@@ -15,7 +15,7 @@ export const AddLinkPage = (props) => {
   //const history = useHistory();
 
     const getPlanMax=()=>{
-    let max=150
+    let max=250
     //props.settings.plan
     if(props.theplan.plan.replace(/"/g, "")==="free") {
      max=250

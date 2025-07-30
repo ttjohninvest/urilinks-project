@@ -18,7 +18,15 @@ todo to do
 appwrite.io, urilinks-project-social-app
 
 
-****
+***************************************************
+
+To provide a social media user interface to bookmarks do the following:
+social-media-react contains social media code
+social-media-node-express contains the other one
+it needs mongodb and other values for environment variables
+open two projects, in github.com and vercel.com
+
+***************************************************
 
 
 stripe secret key, stripe update time, see urilinks.com googledocuments for roll it or delete it time so I can keep accepting payments
@@ -85,6 +93,18 @@ We will contact you with any updates or questions we may have about your informa
 ---------------------------------------ssa end-------------------------------------------
 
 ---
+
+To provide a social media user interface to bookmarks do the following:
+social-media-react contains social media code
+social-media-node-express contains the other one
+it needs mongodb and other values for environment variables
+open two projects, in github.com and vercel.com
+
+mongodb.com, ttjohninvest@gmail.com
+123ZXc12%$%$%
+
+user un: ttjohninvest
+user pw: BU6mccOyhauoXaaq
 
 express server api to convert the bookmarks.html file into json so that I can process it
 in FetchBookmarks.js and convert all of the folder names into hashtags

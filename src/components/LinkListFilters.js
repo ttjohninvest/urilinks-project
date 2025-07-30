@@ -93,7 +93,7 @@ function ExpandableArray(props) {
                     );
                   else return false;
                 })
-              : props.mappedDataShort.map((s, index) => {
+              : props.mappedDataShort.map((s, index) => { //have 3 map calls and display the first column then the second column and then the thrid column
                   return (
                     <div
                       key={index}

@@ -268,7 +268,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}
-          maxlength="1024"
+          maxlength="2300"
         ></textarea>
         <div>
           <button className="button">Save Uri/Url Link</button>

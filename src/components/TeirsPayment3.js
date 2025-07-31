@@ -112,12 +112,17 @@ export default PricingPage;
       */}
       <div className="flexcol">
  {/* <div className="alignCenter margin-bottom-1">Three plans offered: <span>basic</span>, <span>standard</span>, <span>premium</span>:</div> */}
-      <div className="flexrow2wpt">
+      <stripe-pricing-table pricing-table-id="prctbl_1RqkCGK6yDYe5WAxGg18nnjJ"
+      customer-session-client-secret={clientSecret}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+      
+      {/* <div className="flexrow2wpt">
 <stripe-pricing-table pricing-table-id="prctbl_1RqkCGK6yDYe5WAxGg18nnjJ"
 customer-session-client-secret={clientSecret}
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
 </stripe-pricing-table>
-      </div>
+      </div> */}
       </div>
      
 

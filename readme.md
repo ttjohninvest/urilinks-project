@@ -14,11 +14,11 @@ ttjohnhappy
 
 todo to do
 
-****
+---
+
 appwrite.io, urilinks-project-social-app
 
-
-***************************************************
+---
 
 To provide a social media user interface to bookmarks do the following:
 social-media-react contains social media code
@@ -26,8 +26,7 @@ social-media-node-express contains the other one
 it needs mongodb and other values for environment variables
 open two projects, in github.com and vercel.com
 
-***************************************************
-
+---
 
 stripe secret key, stripe update time, see urilinks.com googledocuments for roll it or delete it time so I can keep accepting payments
 test upgrade plan when you get more money in the bank
@@ -289,6 +288,9 @@ set the domain name
 set the domain that I can use
 "can do" sourcelinks.com
 
++++++++
+uribookmarks.com
++++++++
 yorbmarks.com
 yorurls.com
 urlmarkers.com
@@ -478,8 +480,10 @@ urilinks.com marketing
 urilinks-project-splitbm-vercel-api, splits the bookmarks.html file into multiple arrays so parse will run if the file is over 100k
 youtube.com uploaded video that I got from Sagar C. on 6/29/2025 at 9:13am, account: ttjohninvest@gmail.com.
 
-*******************************************************************************
+---
+
 ribbon code, it needs to be converted to css
+
   <div className="rounded-sm bg-amber-100- w-36 aspect-square absolute -top-2 -right-2 overflow-hidden">
                <div className="absolute h-2 w-2 top-0 left-0 bg-amber-500"></div>
                <div className="absolute h-2 w-2 bottom-0 right-0 bg-amber-500"></div>

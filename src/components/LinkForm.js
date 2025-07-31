@@ -269,7 +269,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}
-          maxlength={props.plan.plan.replace(/"/g, "")==="free"?1048:2300}//"2300"
+          maxlength={props.theplan.plan.replace(/"/g, "")==="free"?1048:2300}//"2300"
         ></textarea>
         <div>
           <button className="button">Save Uri/Url Link</button>

@@ -110,10 +110,13 @@ export default PricingPage;
       This approach ensures that the pricing table is linked to the specific customer session, providing a seamless 
       experience for the user.
       */}
+      <div className="flexrow2wpt">
 <stripe-pricing-table pricing-table-id="prctbl_1RqkCGK6yDYe5WAxGg18nnjJ"
 customer-session-client-secret={clientSecret}
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
 </stripe-pricing-table>
+      </div>
+
      
 {/* <stripe-pricing-table pricing-table-id="prctbl_1Rmi60K6yDYe5WAxC2Rj4wdw"
 customer-session-client-secret={clientSecret}

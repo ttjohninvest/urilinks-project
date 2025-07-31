@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 
-export default class LinkForm extends React.Component {
+class LinkForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -268,7 +269,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}
-          maxlength="2300"
+          maxlength={props.plan.plan.replace(/"/g, "")==="free"?1048:2300}//"2300"
         ></textarea>
         <div>
           <button className="button">Save Uri/Url Link</button>
@@ -277,3 +278,9 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  theplan: state.theplan
+});
+
+export default connect(mapStateToProps, undefined)(LinkForm);

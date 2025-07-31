@@ -110,6 +110,7 @@ export default PricingPage;
       This approach ensures that the pricing table is linked to the specific customer session, providing a seamless 
       experience for the user.
       */}
+      <div className="alignCenter margin-bottom-1">Three plans: basic, standard, premium</div>
       <div className="flexrow2wpt">
 <stripe-pricing-table pricing-table-id="prctbl_1RqkCGK6yDYe5WAxGg18nnjJ"
 customer-session-client-secret={clientSecret}

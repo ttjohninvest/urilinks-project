@@ -111,7 +111,7 @@ export default PricingPage;
       experience for the user.
       */}
       <div className="flexcol">
- <div className="alignCenter margin-bottom-1">Three plans offered: basic, standard, premium:</div>
+ <div className="alignCenter margin-bottom-1">Three plans offered: <span>basic</span>, <span>standard</span>, <span>premium</span>:</div>
       <div className="flexrow2wpt">
 <stripe-pricing-table pricing-table-id="prctbl_1RqkCGK6yDYe5WAxGg18nnjJ"
 customer-session-client-secret={clientSecret}

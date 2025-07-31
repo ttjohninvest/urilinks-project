@@ -23,7 +23,7 @@ const Benefits = () => (
         general term for url, uniform resource locator.
       </li>
       <li>
-        You are able to see your bookmarks better in a neat clickable list layout. You may add a note up to 2,300 characters to your link from the Add Uri/Url Link button or later through the Edit Uri/Url Link button.
+        You are able to see your bookmarks better in a neat clickable list layout. You may add a note up to 1,024 characters using the free plan, 2,300 for the other plans to your link from the Add Uri/Url Link button or later through the Edit Uri/Url Link button.
       </li>
       <li>
         All of your holy church, entertainment, business or educational links

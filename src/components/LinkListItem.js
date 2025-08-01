@@ -17,12 +17,12 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
  
 
   return (
-    <div className="margin-bottom-1 rounded-tl-lg-1- rounded-tr-lg-1- borderRadius4">
-      <div className="border-blue- card-background-color">
-        <div className="list-item__flex border-green-">
-          <div className="border-orange-">
+    <div className="margin-bottom-1">
+      <div className="card-background-color">
+        <div className="list-item__flex">
+          <div className="">
           <div className="flexrow2 margin-5"><div><img className="borderradius50 margin-top-1111" width="16" height="16" src={faviconURL} /></div>
-            <div className="padding-left-11 padding-bottom-11">
+            <div className="padding-left-11 padding-bottom-11 borderRadius4">
               <a
                 ref={myRef}
                 className="nounderline text-size-5 text-color-db"

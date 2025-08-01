@@ -57,11 +57,10 @@
   place-items: center;
   grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
   //grid-template-columns: repeat(3, minmax(225px, 1fr));
-  grid-auto-flow: columns;
+  grid-auto-flow: rows;
   //gap: 5px;
   gap: 5px;
  
-  background-size: 100% 100%;
    
 }
 

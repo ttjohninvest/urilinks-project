@@ -68,7 +68,7 @@ function ExpandableArray(props) {
           </div>
           {/* <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div> */}
 
-<div className="flexrow2w">
+{/* <div className="flexrow2w"> */}
      <div className="border2black">
 right column
         </div>
@@ -127,7 +127,7 @@ right column
    <div className="border2black">
 right column
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 }

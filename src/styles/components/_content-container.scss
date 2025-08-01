@@ -59,9 +59,8 @@
   //grid-template-columns: repeat(3, minmax(225px, 1fr));
   grid-auto-flow: columns;
   //gap: 5px;
-  gap: 10px;
-  background-image: linear-gradient(90deg, black 1px, transparent 1px),
-                    linear-gradient(black 1px, transparent 1px);
+  gap: 5px;
+ 
   background-size: 100% 100%;
    
 }

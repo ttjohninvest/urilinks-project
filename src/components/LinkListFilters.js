@@ -79,7 +79,7 @@ function ExpandableArray(props) {
                     return (
                       <div
                         key={index}
-                        className="padding-all text-size-5 element5 border5 "
+                        className="padding-all text-size-5 element5 border5-"
                       >
                         <a
                           className="nounderline text-color-black"
@@ -97,7 +97,7 @@ function ExpandableArray(props) {
                   return (
                     <div
                       key={index}
-                      className="padding-all text-size-5 element5 border5"
+                      className="padding-all text-size-5 element5 border5-"
                     >
                       <a
                         className="nounderline text-color-black "

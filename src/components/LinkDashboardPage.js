@@ -90,16 +90,16 @@ const LinkDashboardPage = (props) => {
   return (
     <div>
       <div id="very-top-id" className="website-background-color flexrow2lw- ">
-          <div className="border2black">
-right column
-        </div>
+          {/* <div className="border2black">
+left column
+        </div> */}
         <div className="padding-tb-1">
           <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
           <LinkList />
         </div>
-        <div className="border2black">
+        {/* <div className="border2black">
 right column
-        </div>
+        </div> */}
       </div>
     </div>
   );

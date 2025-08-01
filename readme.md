@@ -15,6 +15,9 @@ ttjohnhappy
 todo to do
 
 ---
+application: teacher puts the bookmarks she wants into urilinks.com, so the students can only look at her list. She said
+students are being distracted to non course work, entertainment, she called it.
+Only my website can open up on school computer, kiosk setup.
 
 appwrite.io, urilinks-project-social-app
 
@@ -498,25 +501,6 @@ ribbon code, it needs to be converted to css
               
              </div>
 			 
-			 rounded-sm border-radius: 4px
-			 w-36
-			 aspect-square
-			 absolute
-			 -top-2
-			 -right-2
-			 overflow-hidden
-			 
-			 absolute
-			 h-2
-			 w-2
-			 left-0
-			 left-0
-			 bg-amber-500
-			 
-			 absolute
-			 h-2
-			 w-2
-			 bottom-0
-			 right-0
-			 bg-amber-500
-*************************************************************************
+tools
+
+https://atkinsio.com/bookmarks-html-generator/

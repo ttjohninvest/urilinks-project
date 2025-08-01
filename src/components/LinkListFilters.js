@@ -70,7 +70,7 @@ function ExpandableArray(props) {
 
 {/* <div className="flexrow2w"> */}
      <div className="border2black">
-right column
+         column a
         </div>
           <div
             ref={props.ref}
@@ -125,7 +125,7 @@ right column
         <div></div>
       )}
    <div className="border2black">
-right column
+       column a
         </div>
       {/* </div> */}
     </div>

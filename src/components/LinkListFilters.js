@@ -68,7 +68,6 @@ function ExpandableArray(props) {
           </div>
           {/* <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div> */}
 
-{/* <div className="flexrow2w"> */}
      <div className="border2black">
          column a
         </div>
@@ -124,10 +123,10 @@ function ExpandableArray(props) {
       ) : (
         <div></div>
       )}
-   <div className="border2black">
-       column a
-        </div>
-      {/* </div> */}
+   {/* <div className="border2black">
+       column b
+        </div> */}
+     
     </div>
   );
 }

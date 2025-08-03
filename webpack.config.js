@@ -49,18 +49,7 @@ module.exports = (env) => {
         exclude: /node_modules/,
         loader: "url-loader"
        
-      },
-      {
-        test: /\.gif$/,
-        use: [
-          {
-            loader: 'file-loader',
-             options: {
-                sourceMap: true
-              }
-          },
-        ],
-      },
+      }
     ]
     },
     plugins: [

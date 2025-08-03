@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import * as firebase from "firebase";
 import { connect } from "react-redux";
 import { startLogin } from "../actions/auth";
+import penguinSayingHello from "../assets/gifs/penguin-saying-hello.gif";
+
 
 const LoginPage = ({ startLogin }) => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
@@ -61,6 +63,7 @@ const LoginPage = ({ startLogin }) => {
             <h1 className="box-layout__title text-size-8- coolShadow- ">
               urilinks.com
             </h1>
+            <img src={penguinSayingHello} width="100" height="100" />
             <p className="text-size-8- coolShadow- ">
               Welcome to an easier way to do internet bookmarks with hash tags,
               free tool

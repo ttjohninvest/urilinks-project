@@ -42,6 +42,8 @@ module.exports = (env) => {
               }
             },
             {
+              test: /\.(gif)$/,
+              exclude: /node_modules/,
               loader: 'file-loader',
               options: {
                 sourceMap: true
@@ -51,7 +53,7 @@ module.exports = (env) => {
         })
       },
       {
-        test: /\.(png|jpg|ico|gif)$/,
+        test: /\.(png|jpg|ico)$/,
         exclude: /node_modules/,
         loader: "url-loader"
        

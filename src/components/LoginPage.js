@@ -63,7 +63,7 @@ const LoginPage = ({ startLogin }) => {
             <h1 className="box-layout__title text-size-8- coolShadow- ">
               urilinks.com
             </h1>
-            <img src={penguinSayingHello} width="100" height="100" />
+            {/* <img src={penguinSayingHello} width="100" height="100" /> */}
             <p className="text-size-8- coolShadow- ">
               Welcome to an easier way to do internet bookmarks with hash tags,
               free tool

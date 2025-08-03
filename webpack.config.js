@@ -40,14 +40,6 @@ module.exports = (env) => {
               options: {
                 sourceMap: true
               }
-            },
-            {
-              test: /\.(gif)$/,
-              exclude: /node_modules/,
-              loader: 'file-loader',
-              options: {
-                sourceMap: true
-              }
             }
           ]
         })

@@ -503,4 +503,9 @@ ribbon code, it needs to be converted to css
 			 
 tools
 
+
 https://atkinsio.com/bookmarks-html-generator/
+
+tools for learning
+for building community
+discord.com: browser bookmarks learning about server

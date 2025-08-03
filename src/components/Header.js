@@ -152,7 +152,7 @@ export const Header = (props) => {
               <div>
                 <Link className="header__title" to="/ideas">
                   <span className="ib" title="some ideas for hash tags">
-                    (Ideas)
+                    (Bookmark Ideas)
                   </span>
                 </Link>
               </div>

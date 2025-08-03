@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as firebase from "firebase";
 import { connect } from "react-redux";
 import { startLogin } from "../actions/auth";
-import penguinSayingHello from "../assets/gifs/penguin-saying-hello.gif";
+//import penguinSayingHello from "../assets/gifs/penguin-saying-hello.gif";
 
 
 const LoginPage = ({ startLogin }) => {

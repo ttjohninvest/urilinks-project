@@ -40,12 +40,18 @@ module.exports = (env) => {
               options: {
                 sourceMap: true
               }
+            },
+            {
+              loader: 'file-loader',
+              options: {
+                sourceMap: true
+              }
             }
           ]
         })
       },
       {
-        test: /\.(png|jpg|ico)$/,
+        test: /\.(png|jpg|ico|gif)$/,
         exclude: /node_modules/,
         loader: "url-loader"
        

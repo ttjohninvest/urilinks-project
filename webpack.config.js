@@ -55,7 +55,9 @@ module.exports = (env) => {
         use: [
           {
             loader: 'file-loader',
-           
+             options: {
+                sourceMap: true
+              }
           },
         ],
       },

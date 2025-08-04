@@ -165,6 +165,16 @@ export class LinkListFilters extends React.Component {
     });
   };
 
+  deleteHashtagLinks = () => {
+    console.log("hashtag is "+this.props.filters.text)
+    const hashtag = this.props.filters.text
+    if(this.props.filters.sortBy === "hashtag") {
+
+    }
+    console.log("deletes all of the hashtag links")
+    
+  };
+
   onDatesChange = ({ startDate, endDate }) => {
     this.props.setStartDate(startDate);
     this.props.setEndDate(endDate);
@@ -458,6 +468,14 @@ export class LinkListFilters extends React.Component {
           >
             (up)
           </div>
+
+           {/* <div
+            className="header__title padding-top-11 cursor-pointer"
+            onClick={this.deleteHashtagLinks}
+            title="deletes all of the hashtag links"
+          >
+            (delete links by hashtag)
+          </div> */}
 
           <div className="input-group__item">
             <select

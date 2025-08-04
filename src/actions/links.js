@@ -27,7 +27,7 @@ export const startAddLink = (linkData = {}) => {
     
     console.log("startAddLink, link="+JSON.stringify(link))
     return database
-      .ref(`users/${uid}/hashx/links`)
+      .ref(`users/${uid}/links`)
       .push(link)
       .then((ref) => {
         dispatch(

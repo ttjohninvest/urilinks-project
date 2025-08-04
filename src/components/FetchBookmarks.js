@@ -70,10 +70,16 @@ max=10000
 function getHashNameUsingDomainName(url) {
     const urlObj = new URL(url);
 	const dn = urlObj.origin.replace(/^.*\/\//, '')
-	const dn2 = dn.replace(/^www\./, "");
-	const d = dn2.split(".")
-	const d2 = d[0].replace(/-/g,"")
+	const d = dn.split(".") //2,3,4,5
+  const dlen = d.length
+  //2-2, 3-2,4-2
+  //a.b.domain.com
+  if(dlen>=2) {
+const d2 = d[dlen-2].replace(/-/g,"")
     return "#"+d2;
+  }
+  return "#"
+	
 }
 
   const getHashtag = (str) => {

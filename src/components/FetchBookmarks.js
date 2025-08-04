@@ -82,21 +82,21 @@ const d2 = d[dlen-2].replace(/-/g,"")
 	
 }
 
-  const getHashtag = (str) => {
-    let stringWithoutTabs = str.replace(/\t/g, "");
-    let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
-    let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
-    //lowercase
-    const lc = notabsorspacesordashes.toLowerCase();
-    //prepend "#"
-    const hashtag = "#" + lc;
-    //return the hashtag
-    console.log("TTTTTTTTTTTTTTTTTTTTTTT, str="+str)
-    console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag="+hashtag)
-    return hashtag;
+  // const getHashtag = (str) => {
+  //   let stringWithoutTabs = str.replace(/\t/g, "");
+  //   let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
+  //   let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
+  //   //lowercase
+  //   const lc = notabsorspacesordashes.toLowerCase();
+  //   //prepend "#"
+  //   const hashtag = "#" + lc;
+  //   //return the hashtag
+  //   console.log("TTTTTTTTTTTTTTTTTTTTTTT, str="+str)
+  //   console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag="+hashtag)
+  //   return hashtag;
     
    
-  };
+  // };
 
   const getHashtag2 = (url) => {
     

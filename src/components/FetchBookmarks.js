@@ -67,9 +67,16 @@ max=10000
     }
   };
 
+function getHashNameUsingDomainName(url) {
+    const urlObj = new URL(url);
+	const dn = urlObj.origin.replace(/^.*\/\//, '')
+	const dn2 = dn.replace(/^www\./, "");
+	const d = dn2.split(".")
+	const d2 = d[0].replace(/-/g,"")
+    return "#"+d2;
+}
+
   const getHashtag = (str) => {
-    //remove whitespace
-    //const allSpacesRemoved = str.replaceAll(' ', '')
     let stringWithoutTabs = str.replace(/\t/g, "");
     let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
     let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
@@ -81,6 +88,15 @@ max=10000
     console.log("TTTTTTTTTTTTTTTTTTTTTTT, str="+str)
     console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag="+hashtag)
     return hashtag;
+    
+   
+  };
+
+  const getHashtag2 = (url) => {
+    
+      return getHashNameUsingDomainName(url)
+    
+   
   };
 
   const hasControlCharacters = (str) => {
@@ -192,7 +208,7 @@ max=10000
                 for (let i = 0; data.message && i < data.message.length; i++) {
                   if (data.message.length===3) { //3 is firefox
                     if (i === 0) {
-                      const hashtagv1 = getHashtag(data.message[i].title);
+                      //const hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;
@@ -209,7 +225,7 @@ max=10000
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
-                          console.log("title=" + title);
+                          const hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -233,9 +249,9 @@ max=10000
                               )
                           );
 
-                          const hashtagv2 = getHashtag(
-                            data.message[i].children[j].title
-                          );
+                          // const hashtagv2 = getHashtag(
+                          //   data.message[i].children[j].title
+                          // );
 
                           for (
                             let k = 0;
@@ -257,6 +273,7 @@ max=10000
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
+                              const hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -273,10 +290,10 @@ max=10000
                                 });
                               }
                             } else {
-                              const hashtagv3 = getHashtag(
-                                data.message[i].children[j].children[k].title
-                              );
-                              console.log("hashtagv3" + hashtagv3);
+                              // const hashtagv3 = getHashtag(
+                              //   data.message[i].children[j].children[k].title
+                              // );
+                              //console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
                                 data.message[i].children[j].children[k]
@@ -303,6 +320,7 @@ max=10000
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
+                                  const hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -324,11 +342,11 @@ max=10000
                                   }
                                 } else {
                                   //folder
-                                  const hashtagv4 = getHashtag(
-                                    data.message[i].children[j].children[k]
-                                      .children[l].title
-                                  );
-                                  console.log("hashtagv4=" + hashtagv4);
+                                  // const hashtagv4 = getHashtag(
+                                  //   data.message[i].children[j].children[k]
+                                  //     .children[l].title
+                                  // );
+                                  //console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
                                     data.message[i].children[j].children[k]
@@ -356,6 +374,7 @@ max=10000
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
+                                      const hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -378,11 +397,11 @@ max=10000
                                         );
                                       }
                                     } else {
-                                      const hashtagv5 = getHashtag(
-                                        data.message[i].children[j].children[k]
-                                          .children[l].children[m].title
-                                      );
-                                      console.log("hashtagv5=" + hashtagv5);
+                                      // const hashtagv5 = getHashtag(
+                                      //   data.message[i].children[j].children[k]
+                                      //     .children[l].children[m].title
+                                      // );
+                                      //console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
                                         data.message[i].children[j].children[k]
@@ -405,6 +424,7 @@ max=10000
                                               .children[k].children[l].children[
                                               m
                                             ].children[n].url; //the url of the page
+
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -419,6 +439,7 @@ max=10000
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
+                                          const hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -441,13 +462,13 @@ max=10000
                                             );
                                           }
                                         } else {
-                                          const hashtagv6 = getHashtag(
-                                            data.message[i].children[j]
-                                              .children[k].children[l].children[
-                                              m
-                                            ].children[n].title
-                                          );
-                                          console.log("hashtagv6=" + hashtagv6);
+                                          // const hashtagv6 = getHashtag(
+                                          //   data.message[i].children[j]
+                                          //     .children[k].children[l].children[
+                                          //     m
+                                          //   ].children[n].title
+                                          // );
+                                          //console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
                                             data.message[i].children[j]
@@ -486,6 +507,7 @@ max=10000
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
+                                              const hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -508,15 +530,15 @@ max=10000
                                                 );
                                               }
                                             } else {
-                                              const hashtagv7 = getHashtag(
-                                                data.message[i].children[j]
-                                                  .children[k].children[l]
-                                                  .children[m].children[n]
-                                                  .children[o].title
-                                              );
-                                              console.log(
-                                                "hashtagv7=" + hashtagv7
-                                              );
+                                              // const hashtagv7 = getHashtag(
+                                              //   data.message[i].children[j]
+                                              //     .children[k].children[l]
+                                              //     .children[m].children[n]
+                                              //     .children[o].title
+                                              // );
+                                              // console.log(
+                                              //   "hashtagv7=" + hashtagv7
+                                              // );
                                               for (
                                                 let p = 0;
                                                 data.message[i].children[j]
@@ -560,6 +582,7 @@ max=10000
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
+                                                  const hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -598,7 +621,7 @@ max=10000
                         }
                       }
                     } else if(i===1) { //another folder
-                     const hashtagv1 = getHashtag(data.message[i].title);
+                     //const hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;
@@ -616,6 +639,7 @@ max=10000
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
+                          const hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -639,9 +663,9 @@ max=10000
                               )
                           );
 
-                          const hashtagv2 = getHashtag(
-                            data.message[i].children[j].title
-                          );
+                          // const hashtagv2 = getHashtag(
+                          //   data.message[i].children[j].title
+                          // );
 
                           for (
                             let k = 0;
@@ -663,6 +687,7 @@ max=10000
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
+                              const hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -679,10 +704,10 @@ max=10000
                                 });
                               }
                             } else {
-                              const hashtagv3 = getHashtag(
-                                data.message[i].children[j].children[k].title
-                              );
-                              console.log("hashtagv3" + hashtagv3);
+                              // const hashtagv3 = getHashtag(
+                              //   data.message[i].children[j].children[k].title
+                              // );
+                              //console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
                                 data.message[i].children[j].children[k]
@@ -709,6 +734,7 @@ max=10000
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
+                                  const hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -730,11 +756,11 @@ max=10000
                                   }
                                 } else {
                                   //folder
-                                  const hashtagv4 = getHashtag(
-                                    data.message[i].children[j].children[k]
-                                      .children[l].title
-                                  );
-                                  console.log("hashtagv4=" + hashtagv4);
+                                  // const hashtagv4 = getHashtag(
+                                  //   data.message[i].children[j].children[k]
+                                  //     .children[l].title
+                                  // );
+                                  //console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
                                     data.message[i].children[j].children[k]
@@ -762,6 +788,7 @@ max=10000
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
+                                      const hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -784,11 +811,11 @@ max=10000
                                         );
                                       }
                                     } else {
-                                      const hashtagv5 = getHashtag(
-                                        data.message[i].children[j].children[k]
-                                          .children[l].children[m].title
-                                      );
-                                      console.log("hashtagv5=" + hashtagv5);
+                                      // const hashtagv5 = getHashtag(
+                                      //   data.message[i].children[j].children[k]
+                                      //     .children[l].children[m].title
+                                      // );
+                                      // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
                                         data.message[i].children[j].children[k]
@@ -825,6 +852,7 @@ max=10000
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
+                                          const hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -847,13 +875,13 @@ max=10000
                                             );
                                           }
                                         } else {
-                                          const hashtagv6 = getHashtag(
-                                            data.message[i].children[j]
-                                              .children[k].children[l].children[
-                                              m
-                                            ].children[n].title
-                                          );
-                                          console.log("hashtagv6=" + hashtagv6);
+                                          // const hashtagv6 = getHashtag(
+                                          //   data.message[i].children[j]
+                                          //     .children[k].children[l].children[
+                                          //     m
+                                          //   ].children[n].title
+                                          // );
+                                          // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
                                             data.message[i].children[j]
@@ -892,6 +920,7 @@ max=10000
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
+                                              const hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -914,15 +943,15 @@ max=10000
                                                 );
                                               }
                                             } else {
-                                              const hashtagv7 = getHashtag(
-                                                data.message[i].children[j]
-                                                  .children[k].children[l]
-                                                  .children[m].children[n]
-                                                  .children[o].title
-                                              );
-                                              console.log(
-                                                "hashtagv7=" + hashtagv7
-                                              );
+                                              // const hashtagv7 = getHashtag(
+                                              //   data.message[i].children[j]
+                                              //     .children[k].children[l]
+                                              //     .children[m].children[n]
+                                              //     .children[o].title
+                                              // );
+                                              // console.log(
+                                              //   "hashtagv7=" + hashtagv7
+                                              // );
                                               for (
                                                 let p = 0;
                                                 data.message[i].children[j]
@@ -966,6 +995,7 @@ max=10000
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
+                                                  const hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1007,7 +1037,7 @@ max=10000
                     else { //This one is menu, for Other Bookmarks
                       //i==2
                       //hashtagv = "#otherbookmarks";
-                      const hashtagv1 = getHashtag(data.message[i].title);
+                      //const hashtagv1 = getHashtag(data.message[i].title);
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -1025,6 +1055,7 @@ max=10000
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
+                          const hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1049,9 +1080,9 @@ max=10000
                               )
                           );
 
-                          const hashtagv2 = getHashtag(
-                            data.message[i].children[j].title
-                          );
+                          // const hashtagv2 = getHashtag(
+                          //   data.message[i].children[j].title
+                          // );
 
                           for (
                             let k = 0;
@@ -1073,6 +1104,7 @@ max=10000
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
+                              const hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1089,10 +1121,10 @@ max=10000
                                 });
                               }
                             } else {
-                              const hashtagv3 = getHashtag(
-                                data.message[i].children[j].children[k].title
-                              );
-                              console.log("hashtagv3" + hashtagv3);
+                              // const hashtagv3 = getHashtag(
+                              //   data.message[i].children[j].children[k].title
+                              // );
+                              // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
                                 data.message[i].children[j].children[k]
@@ -1119,6 +1151,7 @@ max=10000
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
+                                  const hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1140,11 +1173,11 @@ max=10000
                                   }
                                 } else {
                                   //folder
-                                  const hashtagv4 = getHashtag(
-                                    data.message[i].children[j].children[k]
-                                      .children[l].title
-                                  );
-                                  console.log("hashtagv4=" + hashtagv4);
+                                  // const hashtagv4 = getHashtag(
+                                  //   data.message[i].children[j].children[k]
+                                  //     .children[l].title
+                                  // );
+                                  // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
                                     data.message[i].children[j].children[k]
@@ -1172,6 +1205,7 @@ max=10000
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
+                                      const hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1194,11 +1228,11 @@ max=10000
                                         );
                                       }
                                     } else {
-                                      const hashtagv5 = getHashtag(
-                                        data.message[i].children[j].children[k]
-                                          .children[l].children[m].title
-                                      );
-                                      console.log("hashtagv5=" + hashtagv5);
+                                      // const hashtagv5 = getHashtag(
+                                      //   data.message[i].children[j].children[k]
+                                      //     .children[l].children[m].title
+                                      // );
+                                      // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
                                         data.message[i].children[j].children[k]
@@ -1235,6 +1269,7 @@ max=10000
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
+                                          const hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1257,13 +1292,13 @@ max=10000
                                             );
                                           }
                                         } else {
-                                          const hashtagv6 = getHashtag(
-                                            data.message[i].children[j]
-                                              .children[k].children[l].children[
-                                              m
-                                            ].children[n].title
-                                          );
-                                          console.log("hashtagv6=" + hashtagv6);
+                                          // const hashtagv6 = getHashtag(
+                                          //   data.message[i].children[j]
+                                          //     .children[k].children[l].children[
+                                          //     m
+                                          //   ].children[n].title
+                                          // );
+                                          // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
                                             data.message[i].children[j]
@@ -1302,6 +1337,7 @@ max=10000
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
+                                              const hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1324,15 +1360,15 @@ max=10000
                                                 );
                                               }
                                             } else {
-                                              const hashtagv7 = getHashtag(
-                                                data.message[i].children[j]
-                                                  .children[k].children[l]
-                                                  .children[m].children[n]
-                                                  .children[o].title
-                                              );
-                                              console.log(
-                                                "hashtagv7=" + hashtagv7
-                                              );
+                                              // const hashtagv7 = getHashtag(
+                                              //   data.message[i].children[j]
+                                              //     .children[k].children[l]
+                                              //     .children[m].children[n]
+                                              //     .children[o].title
+                                              // );
+                                              // console.log(
+                                              //   "hashtagv7=" + hashtagv7
+                                              // );
                                               for (
                                                 let p = 0;
                                                 data.message[i].children[j]
@@ -1376,6 +1412,7 @@ max=10000
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
+                                                  const hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1416,7 +1453,7 @@ max=10000
                     }
                   } else if(data.message.length===2 || data.message.length===1 ) { //for the other browsers
                     if (i === 0) {
-                      const hashtagv1 = getHashtag(data.message[i].title);
+                      //const hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;
@@ -1434,6 +1471,7 @@ max=10000
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
+                          const hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1457,9 +1495,9 @@ max=10000
                               )
                           );
 
-                          const hashtagv2 = getHashtag(
-                            data.message[i].children[j].title
-                          );
+                          // const hashtagv2 = getHashtag(
+                          //   data.message[i].children[j].title
+                          // );
 
                           for (
                             let k = 0;
@@ -1481,6 +1519,7 @@ max=10000
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
+                              const hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1497,10 +1536,10 @@ max=10000
                                 });
                               }
                             } else {
-                              const hashtagv3 = getHashtag(
-                                data.message[i].children[j].children[k].title
-                              );
-                              console.log("hashtagv3" + hashtagv3);
+                              // const hashtagv3 = getHashtag(
+                              //   data.message[i].children[j].children[k].title
+                              // );
+                              // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
                                 data.message[i].children[j].children[k]
@@ -1527,6 +1566,7 @@ max=10000
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
+                                  const hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1548,11 +1588,11 @@ max=10000
                                   }
                                 } else {
                                   //folder
-                                  const hashtagv4 = getHashtag(
-                                    data.message[i].children[j].children[k]
-                                      .children[l].title
-                                  );
-                                  console.log("hashtagv4=" + hashtagv4);
+                                  // const hashtagv4 = getHashtag(
+                                  //   data.message[i].children[j].children[k]
+                                  //     .children[l].title
+                                  // );
+                                  // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
                                     data.message[i].children[j].children[k]
@@ -1580,6 +1620,7 @@ max=10000
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
+                                      const hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1602,11 +1643,11 @@ max=10000
                                         );
                                       }
                                     } else {
-                                      const hashtagv5 = getHashtag(
-                                        data.message[i].children[j].children[k]
-                                          .children[l].children[m].title
-                                      );
-                                      console.log("hashtagv5=" + hashtagv5);
+                                      // const hashtagv5 = getHashtag(
+                                      //   data.message[i].children[j].children[k]
+                                      //     .children[l].children[m].title
+                                      // );
+                                      // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
                                         data.message[i].children[j].children[k]
@@ -1643,6 +1684,7 @@ max=10000
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
+                                          const hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1665,13 +1707,13 @@ max=10000
                                             );
                                           }
                                         } else {
-                                          const hashtagv6 = getHashtag(
-                                            data.message[i].children[j]
-                                              .children[k].children[l].children[
-                                              m
-                                            ].children[n].title
-                                          );
-                                          console.log("hashtagv6=" + hashtagv6);
+                                          // const hashtagv6 = getHashtag(
+                                          //   data.message[i].children[j]
+                                          //     .children[k].children[l].children[
+                                          //     m
+                                          //   ].children[n].title
+                                          // );
+                                          // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
                                             data.message[i].children[j]
@@ -1710,6 +1752,7 @@ max=10000
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
+                                              const hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1732,15 +1775,15 @@ max=10000
                                                 );
                                               }
                                             } else {
-                                              const hashtagv7 = getHashtag(
-                                                data.message[i].children[j]
-                                                  .children[k].children[l]
-                                                  .children[m].children[n]
-                                                  .children[o].title
-                                              );
-                                              console.log(
-                                                "hashtagv7=" + hashtagv7
-                                              );
+                                              // const hashtagv7 = getHashtag(
+                                              //   data.message[i].children[j]
+                                              //     .children[k].children[l]
+                                              //     .children[m].children[n]
+                                              //     .children[o].title
+                                              // );
+                                              // console.log(
+                                              //   "hashtagv7=" + hashtagv7
+                                              // );
                                               for (
                                                 let p = 0;
                                                 data.message[i].children[j]
@@ -1784,6 +1827,7 @@ max=10000
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
+                                                  const hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1825,7 +1869,7 @@ max=10000
                     else {
                       //i==1
                       //hashtagv = "#otherbookmarks";
-                      const hashtagv1 = getHashtag(data.message[i].title);
+                      //const hashtagv1 = getHashtag(data.message[i].title);
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -1843,6 +1887,7 @@ max=10000
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
+                          const hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1867,9 +1912,9 @@ max=10000
                               )
                           );
 
-                          const hashtagv2 = getHashtag(
-                            data.message[i].children[j].title
-                          );
+                          // const hashtagv2 = getHashtag(
+                          //   data.message[i].children[j].title
+                          // );
 
                           for (
                             let k = 0;
@@ -1891,6 +1936,7 @@ max=10000
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
+                              const hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1907,10 +1953,10 @@ max=10000
                                 });
                               }
                             } else {
-                              const hashtagv3 = getHashtag(
-                                data.message[i].children[j].children[k].title
-                              );
-                              console.log("hashtagv3" + hashtagv3);
+                              // const hashtagv3 = getHashtag(
+                              //   data.message[i].children[j].children[k].title
+                              // );
+                              // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
                                 data.message[i].children[j].children[k]
@@ -1937,6 +1983,7 @@ max=10000
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
+                                  const hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1958,11 +2005,11 @@ max=10000
                                   }
                                 } else {
                                   //folder
-                                  const hashtagv4 = getHashtag(
-                                    data.message[i].children[j].children[k]
-                                      .children[l].title
-                                  );
-                                  console.log("hashtagv4=" + hashtagv4);
+                                  // const hashtagv4 = getHashtag(
+                                  //   data.message[i].children[j].children[k]
+                                  //     .children[l].title
+                                  // );
+                                  // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
                                     data.message[i].children[j].children[k]
@@ -1990,6 +2037,7 @@ max=10000
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
+                                      const hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -2012,11 +2060,11 @@ max=10000
                                         );
                                       }
                                     } else {
-                                      const hashtagv5 = getHashtag(
-                                        data.message[i].children[j].children[k]
-                                          .children[l].children[m].title
-                                      );
-                                      console.log("hashtagv5=" + hashtagv5);
+                                      // const hashtagv5 = getHashtag(
+                                      //   data.message[i].children[j].children[k]
+                                      //     .children[l].children[m].title
+                                      // );
+                                      // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
                                         data.message[i].children[j].children[k]
@@ -2053,6 +2101,7 @@ max=10000
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
+                                          const hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -2075,13 +2124,13 @@ max=10000
                                             );
                                           }
                                         } else {
-                                          const hashtagv6 = getHashtag(
-                                            data.message[i].children[j]
-                                              .children[k].children[l].children[
-                                              m
-                                            ].children[n].title
-                                          );
-                                          console.log("hashtagv6=" + hashtagv6);
+                                          // const hashtagv6 = getHashtag(
+                                          //   data.message[i].children[j]
+                                          //     .children[k].children[l].children[
+                                          //     m
+                                          //   ].children[n].title
+                                          // );
+                                          // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
                                             data.message[i].children[j]
@@ -2120,6 +2169,7 @@ max=10000
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
+                                              const hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -2142,15 +2192,15 @@ max=10000
                                                 );
                                               }
                                             } else {
-                                              const hashtagv7 = getHashtag(
-                                                data.message[i].children[j]
-                                                  .children[k].children[l]
-                                                  .children[m].children[n]
-                                                  .children[o].title
-                                              );
-                                              console.log(
-                                                "hashtagv7=" + hashtagv7
-                                              );
+                                              // const hashtagv7 = getHashtag(
+                                              //   data.message[i].children[j]
+                                              //     .children[k].children[l]
+                                              //     .children[m].children[n]
+                                              //     .children[o].title
+                                              // );
+                                              // console.log(
+                                              //   "hashtagv7=" + hashtagv7
+                                              // );
                                               for (
                                                 let p = 0;
                                                 data.message[i].children[j]
@@ -2194,6 +2244,7 @@ max=10000
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
+                                                  const hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title

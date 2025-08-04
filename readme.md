@@ -509,3 +509,39 @@ https://atkinsio.com/bookmarks-html-generator/
 tools for learning
 for building community
 discord.com: browser bookmarks learning about server
+
+************************************************************************************************
+tools list of urls to bookmarks.html
+const fs = require('fs');
+
+// Read URLs from the text file
+const urls = fs.readFileSync('urls.txt', 'utf-8')
+  .split('\n')
+  .map(line => line.trim())
+  .filter(line => line.length);
+
+// Simple title extraction from URL for bookmark name
+function getTitle(url) {
+  return url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+}
+
+
+let bookmarks = `
+<!DOCTYPE NETSCAPE-Bookmark-file-1>
+<!-- This is an automatically generated file. -->
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>Bookmarks</TITLE>
+<H1>Bookmarks</H1>
+<DL><p>
+`;
+
+urls.forEach(url => {
+  bookmarks += `    <DT><A HREF="${url}">${getTitle(url)}</A>\n`;
+});
+
+bookmarks += `</DL><p>
+`;
+
+fs.writeFileSync('bookmarks.html', bookmarks, 'utf-8');
+console.log('bookmarks.html created!');
+**********************************************************************************

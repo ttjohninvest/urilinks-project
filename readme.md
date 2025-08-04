@@ -15,7 +15,9 @@ ttjohnhappy
 todo to do
 
 delete all of the links associated with a hashtag
+ this is the only way to delete links by hashtag, ${uid}/x/links, where x is the hashtag name without the hash symbol
  add a text field for the hashtag name and a delete button
+ ${uid}/#x/links, it does not like the # in the relatve url
 ---
 application: teacher puts the bookmarks she wants into urilinks.com, so the students can only look at her list. She said
 students are being distracted to non course work, entertainment, she called it.

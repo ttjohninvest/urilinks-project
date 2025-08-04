@@ -14,6 +14,8 @@ ttjohnhappy
 
 todo to do
 
+delete all of the links associated with a hashtag
+ add a text field for the hashtag name and a delete button
 ---
 application: teacher puts the bookmarks she wants into urilinks.com, so the students can only look at her list. She said
 students are being distracted to non course work, entertainment, she called it.

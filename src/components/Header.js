@@ -160,7 +160,7 @@ export const Header = (props) => {
                <div>
                 <a className="header__title" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
                   <span className="ib" title="convert a list of text urls to bookmarks.html">
-                    (get page urls for bookmarks)
+                    (get page urls for bookmarks file)
                   </span>
                 </a>
               </div>

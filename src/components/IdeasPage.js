@@ -179,7 +179,11 @@ const IdeasPage = () => {
     ]
 
  const ideasArray2 =   [
-"Jesus Christ's Church",
+"Church, Jesus Christ's",
+"Church, Catholic",
+"Church, Non Denominational",
+"Church, Denonminational",
+"Church, Holy Bible Study, King James Version",
 "Algebra: A fundamental branch of mathematics dealing with symbols and the rules for manipulating them.",
 "Biology: The scientific study of living organisms and life processes.",
 "Chemistry: The study of matter, its composition, structure, properties, and the changes it undergoes.",

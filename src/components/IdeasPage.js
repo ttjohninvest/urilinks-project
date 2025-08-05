@@ -252,7 +252,6 @@ const IdeasPage = () => {
 "Science in Society: A subject examining the relationship between science and societal issues.",
 "Use of Mathematics: A subject focusing on applying mathematical skills in real-world contexts.",
 "World Development: A subject studying global development issues, though it has been withdrawn in some systems.",
-"Anthropology: The study of human societies and cultures, though it has been withdrawn in some systems.",
 "Archaeology: The study of human history through material remains, though it has been withdrawn in some systems.",
 "Citizenship Studies: A subject focusing on civic responsibilities and democratic processes, though it has been withdrawn in some systems.",
 "Classics: A subject studying ancient Greek and Roman civilizations, though it has been withdrawn in some systems.",

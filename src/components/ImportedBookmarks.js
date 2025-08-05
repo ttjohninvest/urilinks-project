@@ -32,8 +32,7 @@ const ImportedBookmarks = (props) => {
         {props.rl === 0 ? (
           <div className="margin-top-1111c">
             Bookmarks were not uploaded because they may have been already
-            uploaded,the bookmarks file was empty or the bookmarks file being
-            uploaded overflowed the maximum number of bookmarks.
+            uploaded.
           </div>
         ) : props.max === props.rl ? (
           <div className="margin-top-1111b font-weight-bold">

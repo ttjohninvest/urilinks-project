@@ -180,6 +180,7 @@ const IdeasPage = () => {
 
  const ideasArray2 =   [
 "1, Church, Jesus Christ's",
+"1, Church, Call upon the name of Jesus Christ to be saved.",
 "1. Church, Catholic",
 "1, Church, Non Denominational",
 "1, Church, Denonminational",

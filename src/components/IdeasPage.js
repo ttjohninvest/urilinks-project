@@ -1,4 +1,4 @@
-"import React from 'react';
+
 
 const IdeasPage = () => {
     
@@ -179,6 +179,7 @@ const IdeasPage = () => {
     ]
 
  const ideasArray2 =   [
+"Jesus Christ's Church",
 "Algebra: A fundamental branch of mathematics dealing with symbols and the rules for manipulating them.",
 "Biology: The scientific study of living organisms and life processes.",
 "Chemistry: The study of matter, its composition, structure, properties, and the changes it undergoes.",

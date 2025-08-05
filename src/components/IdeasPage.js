@@ -180,6 +180,7 @@ const IdeasPage = () => {
 
  const ideasArray2 =   [
 "1, Church, Jesus Christ's",
+"1, Church, Charity, Giving",
 "1, Church, Call upon the name of Jesus Christ to be saved. References: Romans chapter 10, verse 13, Acts chapter 2, verse 21",
 "1. Church, Catholic",
 "1, Church, Non Denominational",

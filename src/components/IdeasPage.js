@@ -1,4 +1,4 @@
-import React from 'react';
+"import React from 'react';
 
 const IdeasPage = () => {
     
@@ -177,13 +177,101 @@ const IdeasPage = () => {
         "ai, convolutional neural networks",
         "ai, natural language"
     ]
+
+ const ideasArray2 =   [
+"Algebra: A fundamental branch of mathematics dealing with symbols and the rules for manipulating them.",
+"Biology: The scientific study of living organisms and life processes.",
+"Chemistry: The study of matter, its composition, structure, properties, and the changes it undergoes.",
+"Physics: The natural science that studies matter, its motion, and behavior through space and time.",
+"Mathematics: The study of numbers, quantities, shapes, and patterns, encompassing areas like algebra, geometry, and calculus.",
+"English: A core subject focusing on language, literature, reading, and writing skills.",
+"History: The study of past events, particularly those involving human societies.",
+"Geography: The study of Earth's landscapes, environments, populations, and the relationships between them.",
+"Computer Science: The study of computers, computational systems, and their applications.",
+"Art: A creative subject involving visual expression through drawing, painting, and other media.",
+"Music: A subject focused on the creation, performance, and appreciation of sound and rhythm.",
+"Physical Education (PE): A subject promoting physical fitness, health, and motor skills through sports and exercise.",
+"Psychology: The scientific study of the mind and behavior.",
+"Economics: The study of how individuals, businesses, and governments allocate resources.",
+"Environmental Science: An interdisciplinary field studying the environment and solutions to environmental problems.",
+"Philosophy: The study of fundamental questions about existence, knowledge, values, and reason.",
+"Religious Studies: The academic study of religions, their beliefs, practices, and impacts.",
+"Foreign Languages: Subjects like French, Spanish, German, and Chinese, focusing on language acquisition and cultural understanding.",
+"Journalism: A subject covering the principles and practices of news reporting and media communication.",
+"Drama/Theater: A subject involving performance, script analysis, and stage production.",
+"Photography: A creative subject focused on capturing images using cameras and digital tools.",
+"Media Studies: The analysis of media content, production, and its societal impact.",
+"Sociology: The study of society, social relationships, and institutions.",
+"Political Science: The study of governments, political systems, and public policies.",
+"Home Economics: A subject covering practical life skills like nutrition, family management, and consumer education.",
+"Business Studies: A subject focusing on business operations, management, and economic principles.",
+"Accounting: The practice of recording, summarizing, and reporting financial transactions.",
+"Architecture: A subject involving the design and planning of buildings and structures.",
+"Engineering: A broad field applying scientific principles to design and build structures, machines, and systems.",
+"Astronomy: The study of celestial objects and phenomena beyond Earth's atmosphere.",
+"Zoology: The scientific study of animals, their behavior, and classification.",
+"Calculus: A branch of mathematics dealing with rates of change and accumulation.",
+"Statistics: The science of collecting, analyzing, interpreting, and presenting data.",
+"Latin: A classical language often studied for its historical and linguistic value.",
+"Greek: A classical language with significant influence on Western culture and science.",
+"Classics: The study of ancient Greek and Roman civilizations, literature, and history.",
+"Civics: A subject focusing on the rights and responsibilities of citizens and government.",
+"Health Education: A subject promoting physical, mental, and social well-being.",
+"Yoga: A physical and mental discipline often included in physical education programs.",
+"X-ray Technology: A specialized subject in medical sciences focusing on diagnostic imaging.",
+"Dance: A subject involving choreography, performance, and movement expression.",
+"Creative Writing: A subject focused on developing narrative and expressive writing skills.",
+"Cultural Studies: An interdisciplinary subject examining culture and its influence on society.",
+"Environmental Management: A subject focused on sustainable resource use and environmental protection.",
+"Digital Media and Design: A subject covering digital content creation and visual communication.",
+"Design and Technology: A subject involving the design, creation, and evaluation of products.",
+"Food Science and Nutrition: A subject studying the science of food and its impact on health.",
+"Film Studies: A subject analyzing films as art, culture, and industry.",
+"Information Technology: A subject focused on the use and management of computer systems and networks.",
+"Law: A subject studying legal systems, principles, and regulations.",
+"Politics: A subject examining political systems, ideologies, and governance.",
+"Sports Science: A subject exploring the science behind physical activity and athletic performance.",
+"Software Systems Development: A subject focused on creating and managing software applications.",
+"Global Perspectives and Research: A subject encouraging critical thinking on global issues.",
+"Thinking Skills: A subject developing logical reasoning and problem-solving abilities.",
+"Travel and Tourism: A subject studying the industry and its economic and cultural impacts.",
+"Performing Arts: A broad subject encompassing theater, music, and dance performance.",
+"Marine Science: A subject focused on the study of oceans and marine life.",
+"Human Biology: A subject studying the human body and its functions.",
+"Further Mathematics: An advanced level of mathematics often taken alongside standard A-Level Mathematics.",
+"Economics and Business: A combined subject focusing on economic principles and business management.",
+"Engineering: A subject covering the principles and practices of designing and building systems.",
+"General Studies: A broad subject covering various topics, though it has been withdrawn in some systems.",
+"Science in Society: A subject examining the relationship between science and societal issues.",
+"Use of Mathematics: A subject focusing on applying mathematical skills in real-world contexts.",
+"World Development: A subject studying global development issues, though it has been withdrawn in some systems.",
+"Anthropology: The study of human societies and cultures, though it has been withdrawn in some systems.",
+"Archaeology: The study of human history through material remains, though it has been withdrawn in some systems.",
+"Citizenship Studies: A subject focusing on civic responsibilities and democratic processes, though it has been withdrawn in some systems.",
+"Classics: A subject studying ancient Greek and Roman civilizations, though it has been withdrawn in some systems.",
+"Communication and Culture: A subject examining how communication shapes culture, though it has been withdrawn in some systems.",
+"Creative Writing: A subject focused on developing narrative and expressive writing skills, though it has been withdrawn in some systems.",
+"Critical Thinking: A subject developing logical reasoning and argument evaluation, though it has been withdrawn in some systems.",
+"Dutch: A language subject, though it has been withdrawn in some systems.",
+"Engineering: A subject covering the principles and practices of designing and building systems, though it has been withdrawn in some systems.",
+"General Studies: A broad subject covering various topics, though it has been withdrawn in some systems.",
+"Humanities: A broad subject area covering history, philosophy, and literature, though it has been withdrawn in some systems.",
+"Information and Communication Technology: A subject focused on digital technology, though it has been withdrawn in some systems.",
+"Leisure Studies: A subject studying leisure activities and their social impact, though it has been withdrawn in some systems.",
+"Performance Studies: A subject examining performance in various contexts, though it has been withdrawn in some systems.",
+"Pure Mathematics: A subject focusing on abstract mathematical concepts, though it has been withdrawn in some systems.",
+"Quantitative Methods: A subject focused on data analysis and statistics, though it has been withdrawn in some systems.",
+"Science in Society: A subject examining the relationship between science and societal issues, though it has been withdrawn in some systems.",
+"Use of Mathematics: A subject focusing on applying mathematical skills in real-world contexts, though it has been withdrawn in some systems.",
+"World Development: A subject studying global development issues, though it has been withdrawn in some systems."
+  ]
     
      return(
      
      <div>
       <div className="flexrow2w margin-top-111 margin-bottom-3a margin-left-11 text-size-8">Subect Ideas which can be used as hash tags, for example Charity, Giving, #charitygiving, for grouping url websites together</div>
 <ul className="">
-      {ideasArray.sort().map((item, index) => (
+      {ideasArray2.sort().map((item, index) => (
         <li key={index}>{item}</li>
       ))}
     </ul>
@@ -193,4 +281,4 @@ const IdeasPage = () => {
   )   
 };
 
-export default IdeasPage;
+export default IdeasPage;"

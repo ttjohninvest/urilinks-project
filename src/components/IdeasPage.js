@@ -282,4 +282,4 @@ const IdeasPage = () => {
   )   
 };
 
-export default IdeasPage;"
+export default IdeasPage;

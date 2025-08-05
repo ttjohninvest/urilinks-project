@@ -86,7 +86,7 @@ export const AddLinkPageFileDate = (props) => {
         </div>
       ) : (
         <div className="content-container- centerit">
-          <div>The maximum number of links that can be added is 500</div>
+          {/* <div>The maximum number of links that can be added is 500</div> */}
           <div>
             <button className="button-style-1- button" onClick={goBack}>
               Go Back

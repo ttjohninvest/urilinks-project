@@ -58,6 +58,7 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log("logged in user=" + JSON.stringify(user));//user.photoURL
     store.dispatch(login(user.uid));
+    store.dispatch(setUid(user.uid));
     // console.log("user.photoURL="+user.photoURL)
     // console.log("calling setSettings to set the user.photoURL into redux")
   
@@ -121,7 +122,7 @@ return store.dispatch(getSettings()).then(() => {
   
 };
 
-createCustomer()  
+//createCustomer()  
 //return store.dispatch(setCustomerId(user.customerId)).then(()=>{
   //return store.dispatch({ type: 'SET_CUSTOMERID', action: user.customerId }).then(()=>{
 

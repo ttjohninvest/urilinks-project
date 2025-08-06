@@ -43,7 +43,6 @@ export default () => {
       url: storageReducer,
       customerId: customeridReducer,
       theplan: theplanReducer
-      
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

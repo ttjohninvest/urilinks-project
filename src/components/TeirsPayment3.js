@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import * as firebase from "firebase";
 
 const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pk_live, setPklive] = useState(process.env.PK_LIVE)
   const [pti, setPti] = useState(process.env.PTI)
+  const [uid,setUid]=useState(firebase.auth().currentUser.uid)
   useEffect(() => {
     console.log("props.customerId.customerId=" + props.customerId.customerId);
 
@@ -114,6 +116,7 @@ export default PricingPage;
  {/* <div className="alignCenter margin-bottom-1">Three plans offered: <span>basic</span>, <span>standard</span>, <span>premium</span>:</div> */}
       <stripe-pricing-table pricing-table-id="prctbl_1RqkCGK6yDYe5WAxGg18nnjJ"
       customer-session-client-secret={clientSecret}
+      client_reference_id={uid}
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
 </stripe-pricing-table>
       
@@ -186,6 +189,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
 
 const mapStateToProps = (state) => ({
   customerId: state.customerId,
+  uid:state.uid,
 });
 
 // const mapDispatchToProps = (dispatch) => ({

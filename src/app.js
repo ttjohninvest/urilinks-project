@@ -93,10 +93,13 @@ return store.dispatch(getSettings()).then(() => {
           
   //this function puts the user id as metadata into stripe
   const createCustomer = async () => {
+    console.log("in createCustomer")
   //const response = await fetch('/create-customer', {
 
   //this call tells stripe about the uid metadata
+  //urilinks-project-create-customer-p9ea34f4i.vercel.app
   const response = await fetch('https://urilinks-project-create-customer-ap.vercel.app', {
+  //const response = await fetch('https://urilinks-project-create-customer-p9ea34f4i.vercel.app', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -106,7 +109,7 @@ return store.dispatch(getSettings()).then(() => {
   const data = await response.json();
   //data.customer.id
   user.customerId = data.customer.id
-  console.log("user.customerId="+user.customerId)
+  console.log("in createCustomer, user.customerId="+user.customerId)
 
    console.log(data);
    //store.dispatch(setSettings({plan:"free"})) //worked

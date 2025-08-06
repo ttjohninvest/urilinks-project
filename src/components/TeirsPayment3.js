@@ -7,10 +7,11 @@ const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pk_live, setPklive] = useState(process.env.PK_LIVE)
   const [pti, setPti] = useState(process.env.PTI)
-  const [uid,setUid]=useState("")
+  const [theUserId,setTheUserId]=useState("")
+
   useEffect(() => {
     console.log("props.customerId.customerId=" + props.customerId.customerId);
-
+    setTheUserId(firebase.auth().currentUser.uid)
     // const fetchData = async () => {
       fetch("https://urilinks-project-client-secret-api.vercel.app", {
         method: "POST",
@@ -26,7 +27,7 @@ const TeirsPayment3 = (props) => {
       }).then((data)=>{
           console.log(data)
           setClientSecret(data.clientSecret);
-          setUid(firebase.auth().currentUser.uid)
+          
       }).catch(error => console.error('There was a problem with the fetch operation:', error));
       
       //setClientSecret(data.clientSecret);
@@ -117,7 +118,7 @@ export default PricingPage;
  {/* <div className="alignCenter margin-bottom-1">Three plans offered: <span>basic</span>, <span>standard</span>, <span>premium</span>:</div> */}
       <stripe-pricing-table pricing-table-id="prctbl_1RqkCGK6yDYe5WAxGg18nnjJ"
       customer-session-client-secret={clientSecret}
-      client_reference_id={uid}
+      client_reference_id={theUserId}
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
 </stripe-pricing-table>
       

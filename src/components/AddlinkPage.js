@@ -26,6 +26,8 @@ max=2500
     } else { //premium
 max=10000
     }
+
+    console.log("AddLinkPage.js, bookmarks, max="+max)
     return max
   }
 

@@ -93,36 +93,31 @@ return store.dispatch(getSettings()).then(() => {
   //create stripe customer here, begin https://search.brave.com/search?q=using+react+how+do+i+create+a+stripe+customer+during+registration&summary=1&conversation=4cf05c04b8982177ac075c
           
   //this function puts the user id as metadata into stripe
-  const createCustomer = async () => {
-    console.log("in createCustomer")
-  //const response = await fetch('/create-customer', {
-
-  //this call tells stripe about the uid metadata
-  //urilinks-project-create-customer-p9ea34f4i.vercel.app
-  const response = await fetch('https://urilinks-project-create-customer-ap.vercel.app', {
-  //const response = await fetch('https://urilinks-project-create-customer-p9ea34f4i.vercel.app', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email:user.email, uid:user.uid }),
-  });
-  const data = await response.json();
-  //data.customer.id
-  user.customerId = data.customer.id
-  console.log("in createCustomer, user.customerId="+user.customerId)
-
-   console.log(data);
-   //store.dispatch(setSettings({plan:"free"})) //worked
-  store.dispatch(setCustomerId({customerId:data.customer.id}))
-  // const settings = useSelector(state => state.settings);
-  //  console.log(settings)
+//   const createCustomer = async () => {
+//     console.log("in createCustomer")
  
-  //data.customer.metadata.uid
+//   const response = await fetch('https://urilinks-project-create-customer-ap.vercel.app', {
   
-};
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ email:user.email, uid:user.uid }),
+//   });
+//   const data = await response.json();
+ 
+//   user.customerId = data.customer.id
+//   console.log("in createCustomer, user.customerId="+user.customerId)
 
-//createCustomer()  
+//    console.log(data);
+   
+//   store.dispatch(setCustomerId({customerId:data.customer.id}))
+  
+  
+// };
+
+//createCustomer() 
+ 
 //return store.dispatch(setCustomerId(user.customerId)).then(()=>{
   //return store.dispatch({ type: 'SET_CUSTOMERID', action: user.customerId }).then(()=>{
 

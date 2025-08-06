@@ -549,3 +549,17 @@ bookmarks += `</DL><p>
 fs.writeFileSync('bookmarks.html', bookmarks, 'utf-8');
 console.log('bookmarks.html created!');
 **********************************************************************************
+
+realtime database rules
+{
+  "rules": {
+    "users": {
+      "$user_id": {
+        // grants write access to the owner of this user account
+        // whose uid must exactly match the key ($user_id)
+        ".write": "$user_id === auth.uid",
+        ".read": "auth !== null && auth.uid === $user_id"
+      }
+    }
+  }
+}

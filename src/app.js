@@ -121,7 +121,7 @@ return store.dispatch(getSettings()).then(() => {
   
 };
 
-createCustomer()  
+//createCustomer()  
 //return store.dispatch(setCustomerId(user.customerId)).then(()=>{
   //return store.dispatch({ type: 'SET_CUSTOMERID', action: user.customerId }).then(()=>{
 

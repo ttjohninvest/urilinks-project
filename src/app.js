@@ -58,7 +58,7 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log("logged in user=" + JSON.stringify(user));//user.photoURL
     store.dispatch(login(user.uid));
-    store.dispatch(setUid(user.uid));
+    
     // console.log("user.photoURL="+user.photoURL)
     // console.log("calling setSettings to set the user.photoURL into redux")
   

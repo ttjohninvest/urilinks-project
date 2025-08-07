@@ -13,7 +13,7 @@ ttjohnhappy
 # Git Commands
 
 todo to do
-
+on ubgrade a subscrition, the other subscription needs to be canceled in a webhook funciton
 delete all of the links associated with a hashtag
  this is the only way to delete links by hashtag, ${uid}/x/links, where x is the hashtag name without the hash symbol
  add a text field for the hashtag name and a delete button

@@ -36,6 +36,7 @@ max=10000
   };
 
   useEffect(() => {
+    console.log("getPlanMax()="+getPlanMax())
     const fetchData = async () => {
       try {
         const user = firebase.auth().currentUser;

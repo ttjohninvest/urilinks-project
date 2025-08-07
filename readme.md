@@ -127,11 +127,13 @@ purpose: webhook function after customer makes a selection from the prebuilt pri
 this is where the firebase realtime database will update the plan, basic, standard or premium
 the incomming metadata will contain the user's id, urilinks-project-create-customer-app contributes to this
 
+/* not used anymore, I am passing client-reference-id directly to the pricing table
 vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com
 project: urilinks-project-create-customer-app
 vsc project name: urilinks-project-create-customer-api
 purpose: register current customer with stripe during customer registration for use with prebuilt pricing table
+*/
 
 vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com
@@ -140,6 +142,21 @@ vsc project name: urilinks-project-client-secret-api
 purpose: to get the customer-session-client-secret for prebuilt pricing table so stripe know what custmer it is and so
 it can pass the metadata user id to the webhook function so I can update the database with the plan the user selected
 from the pricing table
+
+vercel.com: urilinks-project-bookmarks-html-generator-master
+github.com: ttjohninvest/urilinks-project-bookmarks-html-generator-master
+vsc project name: urilinks-project-bookmarks-html-generator-master
+purpose: this is the webpage that has input for the list of urls, bookmarks, to be converted into a bookmark.html file
+
+vercel.com: urilinks-project-links-to-tabs-express
+github.com: ttjohninvest/urilinks-project-links-to-tabs-express
+vsc project: urilinks-project-urls-to-tabs-express 
+purpose: removes duplicate urls,bookmarks, and the forward slash at the end of urls, bookmarks.
+
+vercel.com: urilinks-project-urls-to-tabs-html
+github.com: ttjohninvest/urilinks-project-urls-to-tabs-html
+vsc project: urilinks-project-urls-to-tabs-html
+purpose: for list of urls input, and it writes the bookmarks.html file to be used by urilinks.com bookmarks uploader
 
 get the errors out if their are any
 vercel login

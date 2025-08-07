@@ -59,7 +59,7 @@ function ExpandableArray(props) {
              <div className="margin-left-11">
                             <Link className="header__title" to="/teirspayment3">
                               <span className="ib color-black text-size-5 general-font" title="click for plan options">
-                                {props.theplan.plan.replace(/"/g,"") !== "premium" && '(click to upgrade plan)'}
+                                {props.theplan.plan.replace(/"/g,"") !== "premium" ? '(click to upgrade plan)':""}
                               </span>
                             </Link>
                           </div> 

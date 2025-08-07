@@ -1,4 +1,4 @@
-import React, { useState, createRef } from "react";
+import React, { useState, createRef,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -20,6 +20,7 @@ import {
 
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
+  const [plan, setPlan] = useState("")
 
   const moveIt = () => {
     window.scrollTo(0, props.elementRef.current.offsetHeight);
@@ -30,6 +31,10 @@ function ExpandableArray(props) {
     console.log("morehashtags");
     window.localStorage.setItem("morehashtags", !expanded);
   };
+
+  useEffect(()=>{
+    setPlan(props.theplan.plan.replace(/"/g,""))
+  },[])
 
   console.log("ExpandableArray, expanded=" + expanded);
   //console.log("ExpandableArray, mappedDataLong.length="+props.mappedDataLong.length)
@@ -59,7 +64,7 @@ function ExpandableArray(props) {
              <div className="margin-left-11">
                             <Link className="header__title" to="/teirspayment3">
                               <span className="ib color-black text-size-5 general-font" title="click for plan options">
-                                {props.theplan.plan.replace(/"/g,"") !== "premium" ? '(click to upgrade plan)':""}
+                                {plan !== "premium" ? '(click to upgrade plan)':""}
                               </span>
                             </Link>
                           </div> 

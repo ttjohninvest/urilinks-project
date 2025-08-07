@@ -14,6 +14,7 @@ ttjohnhappy
 
 todo to do
 on ubgrade a subscrition, the other subscription needs to be canceled in a webhook funciton
+ i tried to do it in urlinks-project-vercel-stripe-api but the event customer.subscription.created is not going their
 delete all of the links associated with a hashtag
  this is the only way to delete links by hashtag, ${uid}/x/links, where x is the hashtag name without the hash symbol
  add a text field for the hashtag name and a delete button

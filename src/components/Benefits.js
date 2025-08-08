@@ -19,7 +19,7 @@ const Benefits = () => (
         Bookmarks are sharable with others, just email a person with your bookmarks.html file.
       </li>
       <li>
-        If you Bookmark google or youtube pages, you may need to change the hashtag by editing the note section in the link because for a youtube page the default hastag will be #youtube and for a good page, the default hashtag will be #google.
+        If you bookmark google or youtube pages, you may need to change the hashtag by editing the note section in the link because for a youtube page the default hashtag will be #youtube and for a google page, the default hashtag will be #google.
       </li>
       <li>
         Links are uri/url links. uri, uniform resource identifier, is a more

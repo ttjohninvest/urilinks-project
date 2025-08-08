@@ -123,13 +123,13 @@ export const Header = (props) => {
                   </span>
                 </Link>
               </div>
-              {/* <div>
+              <div>
                 <Link className="header__title" to="/teirspayment3">
                   <span className="ib" title="payment tier policy">
-                    (p)
+                    (plans ($))
                   </span>
                 </Link>
-              </div>  */}
+              </div> 
               {!inviewport && (
                 <div
                   id="scrolldownid"

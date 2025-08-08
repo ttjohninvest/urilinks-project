@@ -13,6 +13,7 @@ ttjohnhappy
 # Git Commands
 
 todo to do
+https://help.heroku.com/sharing/b646b5d3-4a7a-4031-97ee-89587b5dd83b
 on ubgrade a subscrition, the other subscription needs to be canceled in a webhook funciton
  i tried to do it in urlinks-project-vercel-stripe-api but the event customer.subscription.created is not going their
 delete all of the links associated with a hashtag

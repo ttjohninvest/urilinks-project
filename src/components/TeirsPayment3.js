@@ -23,7 +23,7 @@ const TeirsPayment3 = (props) => {
       }).then((res)=>{
        
           return res.json();
-          // console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
+          // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
       }).then((data)=>{
           console.log(data)
           setClientSecret(data.clientSecret);

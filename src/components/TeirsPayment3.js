@@ -280,7 +280,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
 const mapStateToProps = (state) => ({
   customerId: state.customerId,
   uid: state.uid,
-  plan: state.theplan,
+  theplan: state.theplan,
   links: state.links,
 });
 

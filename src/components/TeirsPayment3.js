@@ -196,14 +196,10 @@ export default PricingPage;
       )}
 */}
 
-<stripe-pricing-table 
-     pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
-     client-reference-id={theUserId}
-publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
-</stripe-pricing-table>
 
-{/*
-{props.theplan.plan.replace(/"/g, "") === "free" &&
+
+
+{(props.theplan.plan.replace(/"/g, "") === "free" || props.theplan.plan.replace(/"/g, "") === null || props.theplan.plan.replace(/"/g, "") === undefined) &&
       props.links.length <= 250 ? (
      <stripe-pricing-table 
      pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
@@ -230,7 +226,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
       ) : (
         <div></div>
       )}
-*/}
+
 
 
 

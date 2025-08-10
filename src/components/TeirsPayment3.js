@@ -126,7 +126,8 @@ export default PricingPage;
       {/* >= 1501 show premium table */}
       {/* >= 2501 don't show the pricing table */}
 
-      {props.theplan.plan.replace(/"/g, "") === "free" &&
+{/*
+ {props.theplan.plan.replace(/"/g, "") === "free" &&
       props.links.length <= 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
@@ -135,6 +136,7 @@ export default PricingPage;
         ></stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
         props.links.length >= 251 ? (
+        
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
           client-reference-id={theUserId}
@@ -153,6 +155,42 @@ export default PricingPage;
       ) : (
         <div></div>
       )}
+
+*/}
+     
+
+ {false ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
+          client-reference-id={theUserId}
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        ></stripe-pricing-table>
+      ) : true ? (
+        
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
+          client-reference-id={theUserId}
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        ></stripe-pricing-table>
+      ) : false ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
+          client-reference-id={theUserId}
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        ></stripe-pricing-table>
+      ) : false ? (
+        <div>Hi, you will need to remove some bookmarks to choose a cheaper plan</div>
+      ) : (
+        <div></div>
+      )}
+
+
+
+
+
+
+
+
 
       {/* <stripe-pricing-table pricing-table-id="prctbl_1RqkCGK6yDYe5WAxGg18nnjJ"
       customer-session-client-secret={clientSecret}

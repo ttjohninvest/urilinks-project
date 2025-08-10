@@ -123,13 +123,13 @@ export const Header = (props) => {
                   </span>
                 </Link>
               </div>
-              <div>
+              {/* <div>
                 <Link className="header__title" to="/teirspayment3">
                   <span className="ib" title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)">
                     (plans ($))
                   </span>
                 </Link>
-              </div> 
+              </div>  */}
               {!inviewport && (
                 <div
                   id="scrolldownid"

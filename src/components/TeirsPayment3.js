@@ -9,6 +9,7 @@ const TeirsPayment3 = (props) => {
   const [pti, setPti] = useState(process.env.PTI);
   const [theUserId, setTheUserId] = useState("");
    const [isFree, setIsFree] = useState(false);
+   const [isBasic, setIsBasic] = useState(false);
    const [isStandard, setIsStandard] = useState(false);
    const [isPremium, setIsPremium] = useState(false);
 
@@ -20,6 +21,9 @@ const TeirsPayment3 = (props) => {
     if(props.theplan.plan.replace(/"/g, "")==="free") {
       console.log("calling setIsFree")
       setIsFree(true)
+    } else if(props.theplan.plan.replace(/"/g, "")==="basic") {
+      console.log("calling setIsBasic")
+      setIsBasic(true)
     } else if(props.theplan.plan.replace(/"/g, "")==="standard") {
       setIsStandard(true)
     } else if(props.theplan.plan.replace(/"/g, "")==="premium") {
@@ -183,7 +187,7 @@ export default PricingPage;
       {/* >= 2501 don't show the pricing table */}
 
 
- {
+ { isBasic &&
       props.links.length <= 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
@@ -315,56 +319,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
 
 */}
 
-
-
-
-
-
-
-
-
-      {/* <stripe-pricing-table pricing-table-id="prctbl_1RqkCGK6yDYe5WAxGg18nnjJ"
-      customer-session-client-secret={clientSecret}
-      client-reference-id={theUserId}
-publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
-</stripe-pricing-table> */}
-
-      {/* <div className="pricing-table">
-  
-    <div id="t1" className="pricing-card">
-      <h3>Basic</h3>
-      <p className="price" style={{color:'#13253b'}}>$10/month</p>
-      <ul>
-        <li>10GB Storage</li>
-        
-      </ul>
-      <button style={{backgroundColor:'#13253b'}}>Choose Basic</button>
-    </div>
-
-    
-
-   
-    <div id="t2" className="pricing-card">
-      <h3>Standard</h3>
-      <p className="price" style={{color:'#13253b'}}>$20/month</p>
-      <ul>
-        <li>50GB Storage</li>
-        
-      </ul>
-      <button style={{backgroundColor:'#13253b'}}>Choose Standard</button>
-    </div>
-
-   
-    <div  id="t3" className="pricing-card">
-      <h3>Premium</h3>
-      <p className="price"  style={{color:'#13253b'}}>$50/month</p>
-      <ul>
-        <li>200GB Storage</li>
-        
-      </ul>
-      <button style={{backgroundColor:'#13253b'}}>Choose Premium</button>
-    </div>
-  </div> */}
+     
     </div>
   );
 };

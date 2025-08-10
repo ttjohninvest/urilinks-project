@@ -196,27 +196,80 @@ export default PricingPage;
       ) :<div></div>
   } */}
 
+  {/*
+  make a pricing table with only basic on it
+  make a pricing table with only standard on it
+  */}
 
- {isFree || isBasic || isStandard || isPremium && props.links.length <= 250 ? (
-        <stripe-pricing-table
-          pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
-          client-reference-id={theUserId}
-          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
-        ></stripe-pricing-table>
-      ) : isBasic || isStandard || isPremium && (props.links.length >= 251 && props.links.length) <= 1500 ? (
-        <stripe-pricing-table
-          pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
-          client-reference-id={theUserId}
-          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
-        ></stripe-pricing-table>
-      ) : isStandard || isPremium && (props.links.length >= 1501 && props.links.length <= 2500) ? (
-        <stripe-pricing-table
-          pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
-          client-reference-id={theUserId}
-          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
-        ></stripe-pricing-table>
-      ) : 
-        (props.links.length >= 2501 && props.links.length <= 10000) ? (
+
+ {isFree && props.links.length <= 250 ? (
+        <stripe-pricing-table pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
+        client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+      ) : isBasic && (props.links.length >= 251 && props.links.length) <= 1500 ? (
+        //show standard and premium table
+       <stripe-pricing-table pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
+       client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+      ) : isStandard && (props.links.length >= 1501 && props.links.length <= 2500) ? (
+        //show the premium table
+        <stripe-pricing-table pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
+        client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+      ) : isPremium && (props.links.length <= 250) ?
+        //show free, basic and standard table
+       <stripe-pricing-table pricing-table-id="prctbl_1RucXxK6yDYe5WAxDVmQUbAB"
+       client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+        : isPremium && (props.links.length >= 251 && props.links.length <= 1500) ?
+        //show basic, standard table
+       <stripe-pricing-table pricing-table-id="prctbl_1Ruc13K6yDYe5WAxkJhgM4JU"
+       client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+        : isPremium && (props.links.length >= 1501 && props.links.length <= 2500) ?
+        //show the standard table
+      <stripe-pricing-table pricing-table-id="prctbl_1RubxvK6yDYe5WAxS10OaKC3"
+      client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+        :  isStandard && (props.links.length <= 250) ?
+        //show free basic and premium
+     <stripe-pricing-table pricing-table-id="prctbl_1RucLdK6yDYe5WAx0tZdURIi"
+     client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+
+        :isStandard && (props.links.length >= 251 && props.links.length <= 1500) ?
+        //show the basic and premium table
+        <stripe-pricing-table pricing-table-id="prctbl_1RucNzK6yDYe5WAxYCLQ9TsU"
+         client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+        :isStandard && (props.links.length >= 1501 && props.links.length <= 2500) ?
+        //show the premium table
+        <stripe-pricing-table pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
+        client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+        :isBasic && (props.links.length <= 250) ?
+        //show the free, standard and premium table
+        <stripe-pricing-table pricing-table-id="prctbl_1RuciwK6yDYe5WAxnKXjMsd6"
+client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+        
+        : isBasic && (props.links.length >= 251 && props.links.length <= 1500) ?
+        //show the standard and premium table
+        <stripe-pricing-table pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
+        client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+        :(props.links.length >= 2501 && props.links.length <= 10000) ? (
         <div>Hi, you will need to remove some bookmarks to choose a cheaper plan</div>
       ) : (
         <div></div>

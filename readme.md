@@ -13,6 +13,7 @@ ttjohnhappy
 # Git Commands
 
 todo to do
+in TeirsPayment.js, make sure their is two links one to upgrade the plan and one to down grade the plan
 in stripe, you need to make two more tables, a standard and premium table and a preumim table
 if they are storing more than 1,500 bookmarks, see urilinks-project-vercel-stripe-api
 https://help.heroku.com/sharing/b646b5d3-4a7a-4031-97ee-89587b5dd83b

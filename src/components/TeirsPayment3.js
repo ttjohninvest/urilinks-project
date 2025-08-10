@@ -118,8 +118,6 @@ export default PricingPage;
       */}
       {/* <div className="flexcol"> */}
       {/* <div className="alignCenter margin-bottom-1">Three plans offered: <span>basic</span>, <span>standard</span>, <span>premium</span>:</div> */}
-      
-
 
       {/* I need to make two more tables, a standard and premium table and a preumim table*/}
       {/* if the user has stored 2501 boomarks, it can not choose the basic, or standard plans */}
@@ -127,27 +125,31 @@ export default PricingPage;
       {/* >= 251 show standard and premium table */}
       {/* >= 1501 show premium table */}
       {/* >= 2501 don't show the pricing table */}
-      
-      {props.theplan.plan.replace(/"/g, "") === "free" && props.links.length <= 250 ? (
+
+      {props.theplan.plan.replace(/"/g, "") === "free" &&
+      props.links.length <= 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
           client-reference-id={theUserId}
           publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "basic" && props.links.length >= 251 ? (
-        <stripe-pricing-table  
-          pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
-          client-reference-id={theUserId}
-          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
-        ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") !== "standard" && props.links.length >= 1501 ? (
+      ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
+        props.links.length >= 251 ? (
         <stripe-pricing-table
-          pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
+          pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
           client-reference-id={theUserId}
           publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") !== "premium"  && props.links.length >= 2501 ? (
-       <div></div>
+      ) : props.theplan.plan.replace(/"/g, "") !== "standard" &&
+        props.links.length >= 1501 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
+          client-reference-id={theUserId}
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        ></stripe-pricing-table>
+      ) : props.theplan.plan.replace(/"/g, "") !== "premium" &&
+        props.links.length >= 2501 ? (
+        <div></div>
       ) : (
         <div></div>
       )}
@@ -202,7 +204,7 @@ const mapStateToProps = (state) => ({
   customerId: state.customerId,
   uid: state.uid,
   plan: state.theplan,
-  links: state.links
+  links: state.links,
 });
 
 // const mapDispatchToProps = (dispatch) => ({

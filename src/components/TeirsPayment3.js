@@ -17,11 +17,11 @@ const TeirsPayment3 = (props) => {
     console.log("TeirsPayment3, props.links.length="+props.links.length)
     console.log("TeirsPayment3, props.theplan.plan.replace(/''/g, '')="+props.theplan.plan.replace(/"/g, ""))
 
-    if(+props.theplan.plan.replace(/"/g, "")==="free") {
+    if(props.theplan.plan.replace(/"/g, "")==="free") {
       setIsFree(true)
-    } else if(+props.theplan.plan.replace(/"/g, "")==="standard") {
+    } else if(props.theplan.plan.replace(/"/g, "")==="standard") {
       setIsStandard(true)
-    } else if(+props.theplan.plan.replace(/"/g, "")==="premium") {
+    } else if(props.theplan.plan.replace(/"/g, "")==="premium") {
       setIsPremium(true)
     }
 

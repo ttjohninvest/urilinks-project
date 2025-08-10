@@ -11,7 +11,7 @@ const TeirsPayment3 = (props) => {
    const [isFree, setIsFree] = useState(false);
    const [isBasic, setIsBasic] = useState(false);
    const [isStandard, setIsStandard] = useState(false);
-   //const [isPremium, setIsPremium] = useState(false);
+   
 
 
   useEffect(() => {
@@ -202,7 +202,7 @@ export default PricingPage;
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isBasic && props.links.length >= 251 ? (
+      ) : isBasic ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
           client-reference-id={theUserId}

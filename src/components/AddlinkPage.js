@@ -69,7 +69,7 @@ max=10000
 
   const onSubmit = (link) => {
     console.log("in onSubmit");
-    const user = firebase.auth().currentUser;
+    const user = firebase.auth().currentUser; 
     // if (count < 250 || (count < 10000 && (
     //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 
     //)

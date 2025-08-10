@@ -62,7 +62,7 @@ function ExpandableArray(props) {
              <div className="margin-left-11">
                             <Link className="header__title" to="/teirspayment3">
                               <span className="ib color-black text-size-5 general-font" title="click for plan options">
-                                (click to change plan)
+                                {this.props.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ? '(click to change plan)':''}
                                 {/* {props.plan.replace(/"/g, "") !== "premium" ? '(click to change plan)':""} */}
                               </span>
                             </Link>
@@ -157,6 +157,7 @@ export class LinkListFilters extends React.Component {
       hashtags: [],
       hashtags2: [],
       morehashtags: morehashtags === "true" ? true : false,
+      uid:""
     };
 
     this.setit = this.setit.bind(this);
@@ -289,6 +290,10 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
+    const user = firebase.auth().currentUser;
+    this.setState({ uid: user.uid});
+      
+
     //get the plan from settings so I know how many links a person can have
     console.log("In LinkListFilters.js, this.props.settings="+JSON.stringify(this.props.settings))
     //if(this.props.settings.plan===undefined)
@@ -329,6 +334,8 @@ export class LinkListFilters extends React.Component {
 
       this.props.sortByDate();
       this.setState({ sortBy: "date" });
+      
+
     } else if (
       this.props.filters.sortBy === "description" ||
       sortBy === "description"

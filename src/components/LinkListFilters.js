@@ -76,11 +76,7 @@ function ExpandableArray(props) {
             </div>
            
           </div>
-          {/* <div><a href="#" onClick={moveIt} className="">scroll to search section</a></div> */}
-
-     {/* <div className="border2black">
-         column a
-        </div> */}
+        
           <div
             ref={props.ref}
             className="grid-container5 margin-top-1 background-white-1 borderradius5"

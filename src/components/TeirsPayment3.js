@@ -149,7 +149,7 @@ export default PricingPage;
         ></stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") !== "premium" &&
         props.links.length >= 2501 ? (
-        <div></div>
+        <div>Hi, you will need to remove some bookmarks to choose a cheaper plan</div>
       ) : (
         <div></div>
       )}

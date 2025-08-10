@@ -117,9 +117,9 @@ export default PricingPage;
       {/* <div className="flexcol"> */}
  {/* <div className="alignCenter margin-bottom-1">Three plans offered: <span>basic</span>, <span>standard</span>, <span>premium</span>:</div> */}
       
-      <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-<stripe-pricing-table pricing-table-id="prctbl_1Rme9T2fleTjRvBStNZeDve7"
- client-reference-id={theUserId}
+   <stripe-pricing-table 
+   pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
+client-reference-id={theUserId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
       

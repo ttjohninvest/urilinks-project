@@ -18,6 +18,7 @@ const TeirsPayment3 = (props) => {
     console.log("TeirsPayment3, props.theplan.plan.replace(/''/g, '')="+props.theplan.plan.replace(/"/g, ""))
 
     if(props.theplan.plan.replace(/"/g, "")==="free") {
+      console.log("calling setIsFree")
       setIsFree(true)
     } else if(props.theplan.plan.replace(/"/g, "")==="standard") {
       setIsStandard(true)
@@ -182,7 +183,7 @@ export default PricingPage;
       {/* >= 2501 don't show the pricing table */}
 
 
- {isFree === true &&
+ {true === true &&
       props.links.length <= 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"

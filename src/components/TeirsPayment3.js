@@ -8,10 +8,23 @@ const TeirsPayment3 = (props) => {
   const [pk_live, setPklive] = useState(process.env.PK_LIVE);
   const [pti, setPti] = useState(process.env.PTI);
   const [theUserId, setTheUserId] = useState("");
+   const [isFree, setIsFree] = useState(false);
+   const [isStandard, setIsStandard] = useState(false);
+   const [isPremium, setIsPremium] = useState(false);
+
 
   useEffect(() => {
     console.log("TeirsPayment3, props.links.length="+props.links.length)
     console.log("TeirsPayment3, props.theplan.plan.replace(/''/g, '')="+props.theplan.plan.replace(/"/g, ""))
+    
+    if(+props.theplan.plan.replace(/"/g, "")==="free") {
+      setIsFree(true)
+    } else if(+props.theplan.plan.replace(/"/g, "")==="standard") {
+      setIsStandard(true)
+    } else if(+props.theplan.plan.replace(/"/g, "")==="premium") {
+      setIsPremium(true)
+    }
+
     console.log("props.customerId.customerId=" + props.customerId.customerId);
     setTheUserId(firebase.auth().currentUser.uid);
     // const fetchData = async () => {
@@ -169,21 +182,21 @@ export default PricingPage;
       {/* >= 2501 don't show the pricing table */}
 
 
- {props.theplan.plan.replace(/"/g, "") === "free" &&
+ {isFree &&
       props.links.length <= 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : 
+      ) : isStandard &&
         props.links.length >= 251 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : 
+      ) : isPremium &&
         props.links.length >= 1501 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"

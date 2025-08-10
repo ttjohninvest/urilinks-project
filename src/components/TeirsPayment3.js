@@ -166,27 +166,27 @@ export default PricingPage;
       {/* >= 1501 show premium table */}
       {/* >= 2501 don't show the pricing table */}
 
-{/*
+
  {props.theplan.plan.replace(/"/g, "") === "free" &&
       props.links.length <= 250 ? (
         <stripe-pricing-table
-          pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
+          pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
           client-reference-id={theUserId}
-          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
         props.links.length >= 251 ? (
         <stripe-pricing-table
-          pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
+          pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
           client-reference-id={theUserId}
-          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") !== "standard" &&
         props.links.length >= 1501 ? (
         <stripe-pricing-table
-          pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
+          pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
           client-reference-id={theUserId}
-          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") !== "premium" &&
         props.links.length >= 2501 ? (
@@ -194,12 +194,12 @@ export default PricingPage;
       ) : (
         <div></div>
       )}
-*/}
 
 
 
 
-{(props.theplan.plan.replace(/"/g, "") === "free" || props.theplan.plan.replace(/"/g, "") === null || props.theplan.plan.replace(/"/g, "") === undefined) &&
+{/*
+{(props.theplan.plan.replace(/"/g, "") === "free") &&
       props.links.length <= 250 ? (
      <stripe-pricing-table 
      pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
@@ -226,6 +226,8 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
       ) : (
         <div></div>
       )}
+
+*/}
 
 
 

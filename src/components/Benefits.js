@@ -134,8 +134,6 @@ const Benefits = () => (
         menu and then in the field to the left enter the hash tag.
       </li>
     <li>
-    <br />
-    <br />
     ttjohninvest@gmail.com, 775 507-0098, Mr. McGovern
     <br />
     <br />

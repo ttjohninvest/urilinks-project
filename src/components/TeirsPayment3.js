@@ -183,7 +183,7 @@ export default PricingPage;
       {/* >= 2501 don't show the pricing table */}
 
 
- {true === true &&
+ {
       props.links.length <= 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"

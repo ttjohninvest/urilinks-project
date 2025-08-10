@@ -202,20 +202,20 @@ export default PricingPage;
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isBasic ? (
+      ) : isBasic && (props.links.length >= 251 && props.links.length) <= 1500 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isStandard && props.links.length >= 1501 ? (
+      ) : isStandard && (props.links.length >= 1501 && props.links.length <= 2500) ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
       ) : 
-        props.links.length >= 2501 ? (
+        (props.links.length >= 2501 && props.links.length <= 10000) ? (
         <div>Hi, you will need to remove some bookmarks to choose a cheaper plan</div>
       ) : (
         <div></div>

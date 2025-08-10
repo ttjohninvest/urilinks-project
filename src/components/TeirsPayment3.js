@@ -283,11 +283,10 @@ export default PricingPage;
         ></stripe-pricing-table>
       ) : isBasic && props.links.length <= 250 ? (
         //show the free, standard and premium table
-        <stripe-pricing-table
-          pricing-table-id="prctbl_1RuciwK6yDYe5WAxnKXjMsd6"
-          client-reference-id={theUserId}
-          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
-        ></stripe-pricing-table>
+       <stripe-pricing-table pricing-table-id="prctbl_1RuciwK6yDYe5WAxnKXjMsd6"
+        client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
       ) : isBasic && props.links.length >= 251 && props.links.length <= 1500 ? (
         //show the standard and premium table
         <stripe-pricing-table

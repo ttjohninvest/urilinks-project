@@ -16,7 +16,7 @@ const TeirsPayment3 = (props) => {
   useEffect(() => {
     console.log("TeirsPayment3, props.links.length="+props.links.length)
     console.log("TeirsPayment3, props.theplan.plan.replace(/''/g, '')="+props.theplan.plan.replace(/"/g, ""))
-    
+
     if(+props.theplan.plan.replace(/"/g, "")==="free") {
       setIsFree(true)
     } else if(+props.theplan.plan.replace(/"/g, "")==="standard") {
@@ -182,7 +182,7 @@ export default PricingPage;
       {/* >= 2501 don't show the pricing table */}
 
 
- {isFree &&
+ {true &&
       props.links.length <= 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"

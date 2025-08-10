@@ -119,7 +119,7 @@ export default PricingPage;
       
    <stripe-pricing-table 
    pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
-client-reference-id={theUserId}
+client-reference-id={theUserId+"&"+10}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
       

@@ -13,6 +13,8 @@ ttjohnhappy
 # Git Commands
 
 todo to do
+you need to count the number of bookmarks a person has and stop them from getting the basic plan
+if they are storing more than 1,500 bookmarks, see urilinks-project-vercel-stripe-api
 https://help.heroku.com/sharing/b646b5d3-4a7a-4031-97ee-89587b5dd83b
 on ubgrade a subscrition, the other subscription needs to be canceled in a webhook funciton
  i tried to do it in urlinks-project-vercel-stripe-api but the event customer.subscription.created is not going their

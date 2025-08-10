@@ -524,7 +524,7 @@ const TermsAndPrivacy = () => (
     Effective as of May 10th, 2025
     <br />
     <br />
-    ttjohninvest@gmail.com, 775 507-0098
+    ttjohninvest@gmail.com, 775 507-0098, Mr. McGovern
     <br />
     <br />
     urilinks.com

@@ -182,7 +182,18 @@ export default PricingPage;
       {/* >= 2501 don't show the pricing table */}
 
 
- {true &&
+ {isFree === true &&
+      props.links.length <= 250 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
+      ) :<div></div>
+  }
+
+{/*
+ {isFree &&
       props.links.length <= 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
@@ -209,8 +220,67 @@ export default PricingPage;
       ) : (
         <div></div>
       )}
+*/}
 
+{/*
+ {isFree &&
+      props.links.length <= 250 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
+      ) : isStandard &&
+        props.links.length >= 251 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
+      ) : isPremium &&
+        props.links.length >= 1501 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
+      ) : 
+        props.links.length >= 2501 ? (
+        <div>Hi, you will need to remove some bookmarks to choose a cheaper plan</div>
+      ) : (
+        <div></div>
+      )}
+*/}
 
+{/*
+ {isFree &&
+      props.links.length <= 250 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
+      ) : isStandard &&
+        props.links.length >= 251 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
+      ) : isPremium &&
+        props.links.length >= 1501 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
+      ) : 
+        props.links.length >= 2501 ? (
+        <div>Hi, you will need to remove some bookmarks to choose a cheaper plan</div>
+      ) : (
+        <div></div>
+      )}
+*/}
 
 
 {/*

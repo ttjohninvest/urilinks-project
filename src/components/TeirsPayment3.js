@@ -10,6 +10,8 @@ const TeirsPayment3 = (props) => {
   const [theUserId, setTheUserId] = useState("");
 
   useEffect(() => {
+    console.log("TeirsPayment3, props.links.length="+props.links.length)
+    console.log("TeirsPayment3, props.theplan.plan.replace(/''/g, '')="+props.theplan.plan.replace(/"/g, ""))
     console.log("props.customerId.customerId=" + props.customerId.customerId);
     setTheUserId(firebase.auth().currentUser.uid);
     // const fetchData = async () => {

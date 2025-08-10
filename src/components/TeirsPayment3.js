@@ -65,7 +65,13 @@ const TeirsPayment3 = (props) => {
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isBasic &&
+      ) : isBasic && props.links.length <= 250 ? (
+        //show the almost free, standard and premium table
+       <stripe-pricing-table pricing-table-id="prctbl_1RugCoK6yDYe5WAx5x4SZEPL"
+       client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
+    ): isBasic &&
         (props.links.length >= 251 && props.links.length) <= 1500 ? (
         //show standard and premium table
         <stripe-pricing-table
@@ -136,20 +142,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isBasic && props.links.length <= 250 ? (
-        //show the almost free, standard and premium table
-       <stripe-pricing-table pricing-table-id="prctbl_1RugCoK6yDYe5WAx5x4SZEPL"
-       client-reference-id={theUserId}
-publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
-</stripe-pricing-table>
-      ) : isBasic && props.links.length >= 251 && props.links.length <= 1500 ? (
-        //show the standard and premium table
-        <stripe-pricing-table
-          pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
-          client-reference-id={theUserId}
-          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
-        ></stripe-pricing-table>
-      ) : (
+      )  : (
         <div></div>
       )}
 

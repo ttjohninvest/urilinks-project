@@ -133,13 +133,15 @@ const Benefits = () => (
         To find your newly uploaded bookmarks, select hashtag from the dropdown
         menu and then in the field to the left enter the hash tag.
       </li>
-    </ul>
+    <li>
     <br />
     <br />
     ttjohninvest@gmail.com, 775 507-0098
     <br />
     <br />
     urilinks.com
+    </li>
+    </ul>
   </div>
 );
 

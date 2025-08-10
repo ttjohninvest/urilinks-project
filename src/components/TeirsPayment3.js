@@ -83,12 +83,11 @@ const TeirsPayment3 = (props) => {
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
       ) : isPremium && props.links.length <= 250 ? (
-        //show free, basic and standard table
-        <stripe-pricing-table
-          pricing-table-id="prctbl_1RucXxK6yDYe5WAxDVmQUbAB"
-          client-reference-id={theUserId}
-          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
-        ></stripe-pricing-table>
+        //show almost free, basic and standard table
+        <stripe-pricing-table pricing-table-id="prctbl_1RugHTK6yDYe5WAxm2AZhNUT"
+        client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
       ) : isPremium &&
         props.links.length >= 251 &&
         props.links.length <= 1500 ? (
@@ -114,12 +113,11 @@ const TeirsPayment3 = (props) => {
           Hi, you will need to remove some bookmarks to choose a cheaper plan
         </div>
       ) : isStandard && props.links.length <= 250 ? (
-        //show free basic and premium
-        <stripe-pricing-table
-          pricing-table-id="prctbl_1RucLdK6yDYe5WAx0tZdURIi"
-          client-reference-id={theUserId}
-          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
-        ></stripe-pricing-table>
+        //show almost free basic and premium
+        <stripe-pricing-table pricing-table-id="prctbl_1RugLIK6yDYe5WAxJ3KDXCV9"
+        client-reference-id={theUserId}
+publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
+</stripe-pricing-table>
       ) : isStandard &&
         props.links.length >= 251 &&
         props.links.length <= 1500 ? (
@@ -139,9 +137,9 @@ const TeirsPayment3 = (props) => {
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
       ) : isBasic && props.links.length <= 250 ? (
-        //show the free, standard and premium table
-       <stripe-pricing-table pricing-table-id="prctbl_1RuciwK6yDYe5WAxnKXjMsd6"
-        client-reference-id={theUserId}
+        //show the almost free, standard and premium table
+       <stripe-pricing-table pricing-table-id="prctbl_1RugCoK6yDYe5WAx5x4SZEPL"
+       client-reference-id={theUserId}
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
 </stripe-pricing-table>
       ) : isBasic && props.links.length >= 251 && props.links.length <= 1500 ? (

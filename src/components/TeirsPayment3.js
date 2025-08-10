@@ -5,32 +5,34 @@ import * as firebase from "firebase";
 
 const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
-  const [pk_live, setPklive] = useState(process.env.PK_LIVE)
-  const [pti, setPti] = useState(process.env.PTI)
-  const [theUserId,setTheUserId]=useState("")
+  const [pk_live, setPklive] = useState(process.env.PK_LIVE);
+  const [pti, setPti] = useState(process.env.PTI);
+  const [theUserId, setTheUserId] = useState("");
 
   useEffect(() => {
     console.log("props.customerId.customerId=" + props.customerId.customerId);
-    setTheUserId(firebase.auth().currentUser.uid)
+    setTheUserId(firebase.auth().currentUser.uid);
     // const fetchData = async () => {
-      fetch("https://urilinks-project-client-secret-api.vercel.app", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ customerId:props.customerId.customerId}) //JSON.stringify({ customerId: props.customerId.customerId }),
-                                           
-      }).then((res)=>{
-       
-          return res.json();
-          // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
-      }).then((data)=>{
-          console.log(data)
-          setClientSecret(data.clientSecret);
-          
-      }).catch(error => console.error('There was a problem with the fetch operation:', error));
-      
-      //setClientSecret(data.clientSecret);
+    fetch("https://urilinks-project-client-secret-api.vercel.app", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ customerId: props.customerId.customerId }), //JSON.stringify({ customerId: props.customerId.customerId }),
+    })
+      .then((res) => {
+        return res.json();
+        // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
+      })
+      .then((data) => {
+        console.log(data);
+        setClientSecret(data.clientSecret);
+      })
+      .catch((error) =>
+        console.error("There was a problem with the fetch operation:", error)
+      );
+
+    //setClientSecret(data.clientSecret);
     // };
     // fetchData();
     //     function handleClickT1(event) {
@@ -115,23 +117,40 @@ export default PricingPage;
       experience for the user.
       */}
       {/* <div className="flexcol"> */}
- {/* <div className="alignCenter margin-bottom-1">Three plans offered: <span>basic</span>, <span>standard</span>, <span>premium</span>:</div> */}
-      
-   <stripe-pricing-table 
-   pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
-client-reference-id={theUserId+"&"+10}
-publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
-</stripe-pricing-table>
-      
+      {/* <div className="alignCenter margin-bottom-1">Three plans offered: <span>basic</span>, <span>standard</span>, <span>premium</span>:</div> */}
+      {props.theplan.plan.replace(/"/g, "") === "free" && props.links.length <= 250 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
+          client-reference-id={theUserId}
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        ></stripe-pricing-table>
+      ) : props.theplan.plan.replace(/"/g, "") === "basic" && props.links.length <= 1500 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
+          client-reference-id={theUserId}
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        ></stripe-pricing-table>
+      ) : props.theplan.plan.replace(/"/g, "") !== "standard" && props.links.length <= 2500 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
+          client-reference-id={theUserId}
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        ></stripe-pricing-table>
+      ) : props.theplan.plan.replace(/"/g, "") !== "premium"  && props.links.length <= 10000 ? (
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
+          client-reference-id={theUserId}
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        ></stripe-pricing-table>
+      ) : (
+        <div></div>
+      )}
+
       {/* <stripe-pricing-table pricing-table-id="prctbl_1RqkCGK6yDYe5WAxGg18nnjJ"
       customer-session-client-secret={clientSecret}
       client-reference-id={theUserId}
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
 </stripe-pricing-table> */}
-      
-
-
-     
 
       {/* <div className="pricing-table">
   
@@ -175,7 +194,9 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
 
 const mapStateToProps = (state) => ({
   customerId: state.customerId,
-  uid:state.uid,
+  uid: state.uid,
+  plan: state.theplan,
+  links: state.links
 });
 
 // const mapDispatchToProps = (dispatch) => ({
@@ -185,3 +206,4 @@ const mapStateToProps = (state) => ({
 export default withRouter(connect(mapStateToProps, undefined)(TeirsPayment3));
 
 //export default TeirsPayment3;
+//props.plan.replace(/"/g, "") !== "premium" ?

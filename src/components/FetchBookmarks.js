@@ -29,7 +29,7 @@ const FetchBookmarks = (props) => {
   const [loopmax2, setLoopmax2] = useState(0);
   const [done, setDone] = useState(false);
   const [payPage, setPayPage] = useState(false)
-  const [o,setO] = useState(props.match.params.option)
+  const [oo,setOo] = useState(props.match.params.option)
 
   const getPlanMax=()=>{
     let max=250
@@ -221,7 +221,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                   if (data.message.length===3) { //3 is firefox
                     if (i === 0) {
                       let hashtagv1
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
@@ -240,7 +240,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                            let hashtagv1
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
@@ -266,7 +266,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           );
                       
                       let hashtagv2
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv2 = getHashtag(
                              data.message[i].children[j].title
                            );
@@ -292,7 +292,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                               console.log("title=" + title);
                               let hashtagv2
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
@@ -311,7 +311,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               }
                             } else {
                               let hashtagv3
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv3 = getHashtag(
                                  data.message[i].children[j].children[k].title
                                );
@@ -343,7 +343,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                   console.log("title=" + title);
                                   let hashtagv3
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
@@ -367,7 +367,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 } else {
                                   //folder
                                   let hashtagv4
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv4 = getHashtag(
                                      data.message[i].children[j].children[k]
                                        .children[l].title
@@ -401,7 +401,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                       console.log("title=" + title);
                                       let hashtagv4
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
@@ -426,7 +426,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       }
                                     } else {
                                       let hashtagv5
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv5 = getHashtag(
                                          data.message[i].children[j].children[k]
                                           .children[l].children[m].title
@@ -470,7 +470,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                           console.log("title=" + title);
                                           let hashtagv5
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
@@ -495,7 +495,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           }
                                         } else {
                                           let hashtagv6
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv6 = getHashtag(
                                              data.message[i].children[j]
                                                .children[k].children[l].children[
@@ -542,7 +542,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                               console.log("title=" + title);
                                               let hashtagv6
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
@@ -567,7 +567,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                               }
                                             } else {
                                               let hashtagv7
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv7 = getHashtag(
                                                  data.message[i].children[j]
                                                    .children[k].children[l]
@@ -621,7 +621,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                                   console.log("title=" + title);
                                                   let hashtagv7
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
@@ -662,7 +662,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                       }
                     } else if(i===1) { //another folder, 
                      let hashtagv1
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
@@ -682,7 +682,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                           console.log("title=" + title);
                           let hashtagv1
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
@@ -708,7 +708,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           );
 
                       let hashtagv2
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv2 = getHashtag(
                              data.message[i].children[j].title
                            );
@@ -734,7 +734,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                               console.log("title=" + title);
                               let hashtagv2
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
@@ -753,7 +753,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               }
                             } else {
                               let hashtagv3
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv3 = getHashtag(
                                  data.message[i].children[j].children[k].title
                                );
@@ -785,7 +785,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                   console.log("title=" + title);
                                   let hashtagv3
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
@@ -809,7 +809,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 } else {
                                   //folder
                                   let hashtagv4
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv4 = getHashtag(
                                      data.message[i].children[j].children[k]
                                        .children[l].title
@@ -843,7 +843,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                       console.log("title=" + title);
                                       let hashtagv4
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
@@ -868,7 +868,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       }
                                     } else {
                                       let hashtagv5
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv5 = getHashtag(
                                          data.message[i].children[j].children[k]
                                            .children[l].children[m].title
@@ -911,7 +911,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                           console.log("title=" + title);
                                           let hashtagv5
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
@@ -936,7 +936,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           }
                                         } else {
                                           let hashtagv6
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv6 = getHashtag(
                                              data.message[i].children[j]
                                                .children[k].children[l].children[
@@ -983,7 +983,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                               console.log("title=" + title);
                                               let hashtagv6
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
@@ -1008,7 +1008,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                               }
                                             } else {
                                               let hashtagv7
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv7 = getHashtag(
                                                  data.message[i].children[j]
                                                    .children[k].children[l]
@@ -1062,7 +1062,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                                   console.log("title=" + title);
                                                   let hashtagv7
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
@@ -1106,7 +1106,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                       //i==2
                       //hashtagv = "#otherbookmarks";
                       let hashtagv1
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv1 = getHashtag(data.message[i].title);
                       //////////////////////////////////////////////
                       for (
@@ -1126,7 +1126,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                           console.log("title=" + title);
                           let hashtagv1
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
@@ -1153,7 +1153,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           );
 
                          let hashtagv2
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv2 = getHashtag(
                              data.message[i].children[j].title
                            );
@@ -1179,7 +1179,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                               console.log("title=" + title);
                               let hashtagv2
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
@@ -1198,7 +1198,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               }
                             } else {
                               let hashtagv3
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv3 = getHashtag(
                                  data.message[i].children[j].children[k].title
                                );
@@ -1230,7 +1230,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                   console.log("title=" + title);
                                   let hashtagv3
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
@@ -1254,7 +1254,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 } else {
                                   //folder
                                   let hashtagv4
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv4 = getHashtag(
                                      data.message[i].children[j].children[k]
                                        .children[l].title
@@ -1288,7 +1288,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                       console.log("title=" + title);
                                       let hashtagv4
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
@@ -1313,7 +1313,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       }
                                     } else {
                                       let hashtagv5
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv5 = getHashtag(
                                          data.message[i].children[j].children[k]
                                            .children[l].children[m].title
@@ -1356,7 +1356,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                           console.log("title=" + title);
                                           let hashtagv5
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
@@ -1381,7 +1381,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           }
                                         } else {
                                           let hashtagv6
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv6 = getHashtag(
                                              data.message[i].children[j]
                                                .children[k].children[l].children[
@@ -1428,7 +1428,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                               console.log("title=" + title);
                                               let hashtagv6
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
@@ -1453,7 +1453,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                               }
                                             } else {
                                               let hashtagv7
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv7 = getHashtag(
                                                  data.message[i].children[j]
                                                    .children[k].children[l]
@@ -1507,7 +1507,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                                   console.log("title=" + title);
                                                   let hashtagv7
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
@@ -1550,7 +1550,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                   } else if(data.message.length===2 || data.message.length===1 ) { //for the other browsers
                     if (i === 0) {
                       let hashtagv1
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
@@ -1570,7 +1570,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                           console.log("title=" + title);
                           let hashtagv1
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
@@ -1596,7 +1596,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           );
 
                           let hashtagv2
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv2 = getHashtag(
                              data.message[i].children[j].title
                            );
@@ -1622,7 +1622,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                               console.log("title=" + title);
                               let hashtagv2
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
@@ -1641,7 +1641,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               }
                             } else {
                               let hashtagv3
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv3 = getHashtag(
                                  data.message[i].children[j].children[k].title
                                );
@@ -1673,7 +1673,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                   console.log("title=" + title);
                                   let hashtagv3
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
@@ -1697,7 +1697,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 } else {
                                   //folder
                                   let hashtagv4
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv4 = getHashtag(
                                      data.message[i].children[j].children[k]
                                        .children[l].title
@@ -1731,7 +1731,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                       console.log("title=" + title);
                                       let hashtagv4
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
@@ -1756,7 +1756,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       }
                                     } else {
                                       let hashtagv5
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv5 = getHashtag(
                                          data.message[i].children[j].children[k]
                                            .children[l].children[m].title
@@ -1799,7 +1799,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                           console.log("title=" + title);
                                           let hashtagv5
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
@@ -1824,7 +1824,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           }
                                         } else {
                                           let hashtagv6
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv6 = getHashtag(
                                              data.message[i].children[j]
                                                .children[k].children[l].children[
@@ -1871,7 +1871,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                               console.log("title=" + title);
                                               let hashtagv6
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
@@ -1896,7 +1896,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                               }
                                             } else {
                                               let hashtagv7
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv7 = getHashtag(
                                                  data.message[i].children[j]
                                                    .children[k].children[l]
@@ -1950,7 +1950,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                                   console.log("title=" + title);
                                                   let hashtagv7
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
@@ -1994,7 +1994,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                       //i==1
                       //hashtagv = "#otherbookmarks";
                       let hashtagv1
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv1 = getHashtag(data.message[i].title);
                       //////////////////////////////////////////////
                       for (
@@ -2014,7 +2014,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                           console.log("title=" + title);
                           let hashtagv1
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
@@ -2041,7 +2041,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           );
 
                           let hashtagv2
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv2 = getHashtag(
                              data.message[i].children[j].title
                            );
@@ -2067,7 +2067,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                               console.log("title=" + title);
                               let hashtagv2
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
@@ -2086,7 +2086,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               }
                             } else {
                               let hashtagv3
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv3 = getHashtag(
                                  data.message[i].children[j].children[k].title
                                );
@@ -2118,7 +2118,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                   console.log("title=" + title);
                                   let hashtagv3
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
@@ -2142,7 +2142,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 } else {
                                   //folder
                                   let hashtagv4
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv4 = getHashtag(
                                      data.message[i].children[j].children[k]
                                        .children[l].title
@@ -2176,7 +2176,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                       console.log("title=" + title);
                                       let hashtagv4
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
@@ -2201,7 +2201,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       }
                                     } else {
                                       let hashtagv5
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv5= getHashtag(
                                          data.message[i].children[j].children[k]
                                            .children[l].children[m].title
@@ -2244,7 +2244,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                           console.log("title=" + title);
                                           let hashtagv5
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
@@ -2269,7 +2269,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           }
                                         } else {
                                           let hashtagv6
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv6 = getHashtag(
                                              data.message[i].children[j]
                                                .children[k].children[l].children[
@@ -2316,7 +2316,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                               console.log("title=" + title);
                                               let hashtagv6
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
@@ -2341,7 +2341,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                               }
                                             } else {
                                               let hashtagv7
-                      if(o==="usefoldernames")
+                      if(oo==="usefoldernames")
                             hashtagv7 = getHashtag(
                                                  data.message[i].children[j]
                                                    .children[k].children[l]
@@ -2395,7 +2395,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                                   console.log("title=" + title);
                                                   let hashtagv7
-                      if(o==="usedomainnames")
+                      if(oo==="usedomainnames")
                             hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(

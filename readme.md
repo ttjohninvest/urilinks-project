@@ -13,17 +13,27 @@ ttjohnhappy
 # Git Commands
 
 todo to do
+hashtag, I am not deriving the hashtag name from the domain name because of the new functionality that I put in
+about getting a list of urls from a webpage which solved a problem, but I still
+need convert the folder name to the hashtag if I am not using the new functionality but the old
+I NEED TO PRESENT THE USER WITH A QUESTION: CONVERT THE BOOKMARK FOLDER NAMES TO HASHTAGS OR
+CONVERT THE DOMAIN HAMES TO HASHTAGS?
+ the tile in FetchBookmarks.js contained the folder name, that is what I was using before, you can see the code
+ that I switched it to.
+ 
 in TeirsPayment.js, make sure their is two links one to upgrade the plan (code done) and one to down grade the plan
 in stripe, you need to make two more tables, a standard and premium table and a preumim table
 if they are storing more than 1,500 bookmarks, see urilinks-project-vercel-stripe-api
 https://help.heroku.com/sharing/b646b5d3-4a7a-4031-97ee-89587b5dd83b
 on ubgrade a subscrition, the other subscription needs to be canceled in a webhook funciton
- i tried to do it in urlinks-project-vercel-stripe-api but the event customer.subscription.created is not going their
+i tried to do it in urlinks-project-vercel-stripe-api but the event customer.subscription.created is not going their
 delete all of the links associated with a hashtag
- this is the only way to delete links by hashtag, ${uid}/x/links, where x is the hashtag name without the hash symbol
- add a text field for the hashtag name and a delete button
- ${uid}/#x/links, it does not like the # in the relatve url
+this is the only way to delete links by hashtag, ${uid}/x/links, where x is the hashtag name without the hash symbol
+add a text field for the hashtag name and a delete button
+${uid}/#x/links, it does not like the # in the relatve url
+
 ---
+
 application: teacher puts the bookmarks she wants into urilinks.com, so the students can only look at her list. She said
 students are being distracted to non course work, entertainment, she called it.
 Only my website can open up on school computer, kiosk setup.
@@ -132,13 +142,13 @@ purpose: webhook function after customer makes a selection from the prebuilt pri
 this is where the firebase realtime database will update the plan, basic, standard or premium
 the incomming metadata will contain the user's id, urilinks-project-create-customer-app contributes to this
 
-/* not used anymore, I am passing client-reference-id directly to the pricing table
+/_ not used anymore, I am passing client-reference-id directly to the pricing table
 vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com
 project: urilinks-project-create-customer-app
 vsc project name: urilinks-project-create-customer-api
 purpose: register current customer with stripe during customer registration for use with prebuilt pricing table
-*/
+_/
 
 vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com
@@ -155,7 +165,7 @@ purpose: this is the webpage that has input for the list of urls, bookmarks, to 
 
 vercel.com: urilinks-project-links-to-tabs-express
 github.com: ttjohninvest/urilinks-project-links-to-tabs-express
-vsc project: urilinks-project-urls-to-tabs-express 
+vsc project: urilinks-project-urls-to-tabs-express
 purpose: removes duplicate urls,bookmarks, and the forward slash at the end of urls, bookmarks.
 
 vercel.com: urilinks-project-urls-to-tabs-html
@@ -529,30 +539,30 @@ ribbon code, it needs to be converted to css
 			 
 tools
 
-
 https://atkinsio.com/bookmarks-html-generator/
 
 tools for learning
 for building community
 discord.com: browser bookmarks learning about server
 
-************************************************************************************************
+---
+
 tools list of urls to bookmarks.html
 const fs = require('fs');
 
 // Read URLs from the text file
 const urls = fs.readFileSync('urls.txt', 'utf-8')
-  .split('\n')
-  .map(line => line.trim())
-  .filter(line => line.length);
+.split('\n')
+.map(line => line.trim())
+.filter(line => line.length);
 
 // Simple title extraction from URL for bookmark name
 function getTitle(url) {
-  return url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+return url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 }
 
-
 let bookmarks = `
+
 <!DOCTYPE NETSCAPE-Bookmark-file-1>
 <!-- This is an automatically generated file. -->
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
@@ -562,7 +572,7 @@ let bookmarks = `
 `;
 
 urls.forEach(url => {
-  bookmarks += `    <DT><A HREF="${url}">${getTitle(url)}</A>\n`;
+bookmarks += `    <DT><A HREF="${url}">${getTitle(url)}</A>\n`;
 });
 
 bookmarks += `</DL><p>
@@ -570,18 +580,19 @@ bookmarks += `</DL><p>
 
 fs.writeFileSync('bookmarks.html', bookmarks, 'utf-8');
 console.log('bookmarks.html created!');
-**********************************************************************************
+
+---
 
 realtime database rules
 {
-  "rules": {
-    "users": {
-      "$user_id": {
+"rules": {
+"users": {
+"$user_id": {
         // grants write access to the owner of this user account
         // whose uid must exactly match the key ($user_id)
-        ".write": "$user_id === auth.uid",
-        ".read": "auth !== null && auth.uid === $user_id"
-      }
-    }
-  }
+".write": "$user_id === auth.uid",
+".read": "auth !== null && auth.uid === $user_id"
+}
+}
+}
 }

@@ -81,14 +81,33 @@ class BookmarksManager extends React.Component {
           onChange={this.onHashtagChange}
           maxlength="2048"
           /></li>:''} */}
+<li>
+<input type="radio" id="option1" name="group1" value="option1" />
+<label for="option1">convert folder names to hashtags</label>
+</li>
+
+<li>
+  <input type="radio" id="option2" name="group1" value="option2" />
+<label for="option2">convert domain names to hashtags</label>
+</li>
+          
+
+ 
+                
+
 
           <Link className="header__title" to="/fetchbookmarks">
             {this.state.didUpload ? (
-              <li>
+              <div>
+
+                <li>
                 <span className="ib text-color-black text-size-8">
                   import bookmarks
                 </span>
+
               </li>
+              </div>
+            
             ) : (
               ""
             )}

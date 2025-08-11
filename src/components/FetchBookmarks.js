@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
 import { startAddLink } from "../actions/links";
-import { withRouter } from "react-router-dom";
+import { withRouter, useParams } from "react-router-dom";
 import moment from "moment";
 import { history } from "../routers/AppRouter";
 import ImportedBookmarks from "./ImportedBookmarks";

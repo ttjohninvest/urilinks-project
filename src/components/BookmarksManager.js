@@ -18,8 +18,6 @@ class BookmarksManager extends React.Component {
     };
   }
 
-  
-
   handleRadioChange = (event) => {
     const value = event.target.value;
     this.setState({selectedOption:value})

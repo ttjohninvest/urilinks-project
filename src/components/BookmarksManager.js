@@ -14,7 +14,7 @@ class BookmarksManager extends React.Component {
     this.state = {
       didUpload: false,
       hashtag: "#",
-      selectedOption:""
+      selectedOption:"usefoldernames"
     };
   }
 
@@ -88,15 +88,15 @@ class BookmarksManager extends React.Component {
           maxlength="2048"
           /></li>:''} */}
 
-          {this.state.didUpload || true? (<ul>
+          {this.state.didUpload ? (<ul>
             <li>
-<input type="radio" id="option1" name="group1" value="option1" checked={this.state.selectedOption === 'option1'} onChange={this.handleRadioChange}/>
-<label for="option1">convert folder names to hashtags</label>
+<input type="radio" id="option1" name="group1" value="usefoldernames" checked={this.state.selectedOption === 'usefoldernames'} onChange={this.handleRadioChange}/>
+<label for="option1">convert folder names to hashtags</label> {/*use this option to convert a browser exported boomarks.html file*/}
 </li>
 
 <li>
-  <input type="radio" id="option2" name="group1" value="option2"  checked={this.state.selectedOption === 'option2'} onChange={this.handleRadioChange}/>
-<label for="option2">convert domain names to hashtags</label>
+  <input type="radio" id="option2" name="group1" value="usedomainnames"  checked={this.state.selectedOption === 'usedomainnames'} onChange={this.handleRadioChange}/>
+<label for="option2">convert domain names to hashtags</label> {/*use this option to convert a boomarks.html file that was generated with */}
 </li>
           </ul>):''}
 

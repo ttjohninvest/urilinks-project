@@ -83,21 +83,21 @@ const d2 = d[dlen-2].replace(/-/g,"")
 	
 }
 
-  // const getHashtag = (str) => {
-  //   let stringWithoutTabs = str.replace(/\t/g, "");
-  //   let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
-  //   let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
-  //   //lowercase
-  //   const lc = notabsorspacesordashes.toLowerCase();
-  //   //prepend "#"
-  //   const hashtag = "#" + lc;
-  //   //return the hashtag
-  //   console.log("TTTTTTTTTTTTTTTTTTTTTTT, str="+str)
-  //   console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag="+hashtag)
-  //   return hashtag;
+  const getHashtag = (str) => {
+    let stringWithoutTabs = str.replace(/\t/g, "");
+    let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
+    let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
+    //lowercase
+    const lc = notabsorspacesordashes.toLowerCase();
+    //prepend "#"
+    const hashtag = "#" + lc;
+    //return the hashtag
+    console.log("TTTTTTTTTTTTTTTTTTTTTTT, str="+str)
+    console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag="+hashtag)
+    return hashtag;
     
    
-  // };
+  };
 
   const getHashtag2 = (url) => {
     
@@ -220,7 +220,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                 for (let i = 0; data.message && i < data.message.length; i++) {
                   if (data.message.length===3) { //3 is firefox
                     if (i === 0) {
-                      //const hashtagv1 = getHashtag(data.message[i].title);
+                      let hashtagv1
+                      if(o==="usefoldernames")
+                            hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;
@@ -237,7 +239,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
-                          const hashtagv1 = getHashtag2(url)
+                           let hashtagv1
+                      if(o==="usedomainnames")
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -260,10 +264,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children
                               )
                           );
-
-                          // const hashtagv2 = getHashtag(
-                          //   data.message[i].children[j].title
-                          // );
+                      
+                      let hashtagv2
+                      if(o==="usefoldernames")
+                            hashtagv2 = getHashtag(
+                             data.message[i].children[j].title
+                           );
 
                           for (
                             let k = 0;
@@ -285,7 +291,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              const hashtagv2 = getHashtag2(url)
+                              let hashtagv2
+                      if(o==="usedomainnames")
+                            hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -302,9 +310,11 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 });
                               }
                             } else {
-                              // const hashtagv3 = getHashtag(
-                              //   data.message[i].children[j].children[k].title
-                              // );
+                              let hashtagv3
+                      if(o==="usefoldernames")
+                            hashtagv3 = getHashtag(
+                                 data.message[i].children[j].children[k].title
+                               );
                               //console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -332,7 +342,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  const hashtagv3 = getHashtag2(url)
+                                  let hashtagv3
+                      if(o==="usedomainnames")
+                            hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -354,10 +366,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                   }
                                 } else {
                                   //folder
-                                  // const hashtagv4 = getHashtag(
-                                  //   data.message[i].children[j].children[k]
-                                  //     .children[l].title
-                                  // );
+                                  let hashtagv4
+                      if(o==="usefoldernames")
+                            hashtagv4 = getHashtag(
+                                     data.message[i].children[j].children[k]
+                                       .children[l].title
+                                   );
                                   //console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -386,7 +400,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      const hashtagv4 = getHashtag2(url)
+                                      let hashtagv4
+                      if(o==="usedomainnames")
+                            hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -409,10 +425,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                         );
                                       }
                                     } else {
-                                      // const hashtagv5 = getHashtag(
-                                      //   data.message[i].children[j].children[k]
-                                      //     .children[l].children[m].title
-                                      // );
+                                      let hashtagv5
+                      if(o==="usefoldernames")
+                            hashtagv5 = getHashtag(
+                                         data.message[i].children[j].children[k]
+                                          .children[l].children[m].title
+                                      );
                                       //console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -451,7 +469,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          const hashtagv5 = getHashtag2(url)
+                                          let hashtagv5
+                      if(o==="usedomainnames")
+                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -474,12 +494,14 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             );
                                           }
                                         } else {
-                                          // const hashtagv6 = getHashtag(
-                                          //   data.message[i].children[j]
-                                          //     .children[k].children[l].children[
-                                          //     m
-                                          //   ].children[n].title
-                                          // );
+                                          let hashtagv6
+                      if(o==="usefoldernames")
+                            hashtagv6 = getHashtag(
+                                             data.message[i].children[j]
+                                               .children[k].children[l].children[
+                                               m
+                                             ].children[n].title
+                                           );
                                           //console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -519,7 +541,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              const hashtagv6 = getHashtag2(url)
+                                              let hashtagv6
+                      if(o==="usedomainnames")
+                            hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -542,12 +566,14 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                 );
                                               }
                                             } else {
-                                              // const hashtagv7 = getHashtag(
-                                              //   data.message[i].children[j]
-                                              //     .children[k].children[l]
-                                              //     .children[m].children[n]
-                                              //     .children[o].title
-                                              // );
+                                              let hashtagv7
+                      if(o==="usefoldernames")
+                            hashtagv7 = getHashtag(
+                                                 data.message[i].children[j]
+                                                   .children[k].children[l]
+                                                   .children[m].children[n]
+                                                   .children[o].title
+                                               );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -594,7 +620,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  const hashtagv7 = getHashtag2(url)
+                                                  let hashtagv7
+                      if(o==="usedomainnames")
+                            hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -632,8 +660,10 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           } //nested for with k //
                         }
                       }
-                    } else if(i===1) { //another folder
-                     //const hashtagv1 = getHashtag(data.message[i].title);
+                    } else if(i===1) { //another folder, 
+                     let hashtagv1
+                      if(o==="usefoldernames")
+                            hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;
@@ -651,7 +681,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          const hashtagv1 = getHashtag2(url)
+                          let hashtagv1
+                      if(o==="usedomainnames")
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -675,9 +707,11 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               )
                           );
 
-                          // const hashtagv2 = getHashtag(
-                          //   data.message[i].children[j].title
-                          // );
+                      let hashtagv2
+                      if(o==="usefoldernames")
+                            hashtagv2 = getHashtag(
+                             data.message[i].children[j].title
+                           );
 
                           for (
                             let k = 0;
@@ -699,7 +733,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              const hashtagv2 = getHashtag2(url)
+                              let hashtagv2
+                      if(o==="usedomainnames")
+                            hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -716,9 +752,11 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 });
                               }
                             } else {
-                              // const hashtagv3 = getHashtag(
-                              //   data.message[i].children[j].children[k].title
-                              // );
+                              let hashtagv3
+                      if(o==="usefoldernames")
+                            hashtagv3 = getHashtag(
+                                 data.message[i].children[j].children[k].title
+                               );
                               //console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -746,7 +784,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  const hashtagv3 = getHashtag2(url)
+                                  let hashtagv3
+                      if(o==="usedomainnames")
+                            hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -768,10 +808,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                   }
                                 } else {
                                   //folder
-                                  // const hashtagv4 = getHashtag(
-                                  //   data.message[i].children[j].children[k]
-                                  //     .children[l].title
-                                  // );
+                                  let hashtagv4
+                      if(o==="usefoldernames")
+                            hashtagv4 = getHashtag(
+                                     data.message[i].children[j].children[k]
+                                       .children[l].title
+                                   );
                                   //console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -800,7 +842,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      const hashtagv4 = getHashtag2(url)
+                                      let hashtagv4
+                      if(o==="usedomainnames")
+                            hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -823,10 +867,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                         );
                                       }
                                     } else {
-                                      // const hashtagv5 = getHashtag(
-                                      //   data.message[i].children[j].children[k]
-                                      //     .children[l].children[m].title
-                                      // );
+                                      let hashtagv5
+                      if(o==="usefoldernames")
+                            hashtagv5 = getHashtag(
+                                         data.message[i].children[j].children[k]
+                                           .children[l].children[m].title
+                                       );
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -864,7 +910,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          const hashtagv5 = getHashtag2(url)
+                                          let hashtagv5
+                      if(o==="usedomainnames")
+                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -887,12 +935,14 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             );
                                           }
                                         } else {
-                                          // const hashtagv6 = getHashtag(
-                                          //   data.message[i].children[j]
-                                          //     .children[k].children[l].children[
-                                          //     m
-                                          //   ].children[n].title
-                                          // );
+                                          let hashtagv6
+                      if(o==="usefoldernames")
+                            hashtagv6 = getHashtag(
+                                             data.message[i].children[j]
+                                               .children[k].children[l].children[
+                                               m
+                                             ].children[n].title
+                                           );
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -932,7 +982,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              const hashtagv6 = getHashtag2(url)
+                                              let hashtagv6
+                      if(o==="usedomainnames")
+                            hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -955,12 +1007,14 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                 );
                                               }
                                             } else {
-                                              // const hashtagv7 = getHashtag(
-                                              //   data.message[i].children[j]
-                                              //     .children[k].children[l]
-                                              //     .children[m].children[n]
-                                              //     .children[o].title
-                                              // );
+                                              let hashtagv7
+                      if(o==="usefoldernames")
+                            hashtagv7 = getHashtag(
+                                                 data.message[i].children[j]
+                                                   .children[k].children[l]
+                                                   .children[m].children[n]
+                                                   .children[o].title
+                                               );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -1007,7 +1061,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  const hashtagv7 = getHashtag2(url)
+                                                  let hashtagv7
+                      if(o==="usedomainnames")
+                            hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1049,7 +1105,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                     else { //This one is menu, for Other Bookmarks
                       //i==2
                       //hashtagv = "#otherbookmarks";
-                      //const hashtagv1 = getHashtag(data.message[i].title);
+                      let hashtagv1
+                      if(o==="usefoldernames")
+                            hashtagv1 = getHashtag(data.message[i].title);
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -1067,7 +1125,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          const hashtagv1 = getHashtag2(url)
+                          let hashtagv1
+                      if(o==="usedomainnames")
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1092,9 +1152,11 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               )
                           );
 
-                          // const hashtagv2 = getHashtag(
-                          //   data.message[i].children[j].title
-                          // );
+                         let hashtagv2
+                      if(o==="usefoldernames")
+                            hashtagv2 = getHashtag(
+                             data.message[i].children[j].title
+                           );
 
                           for (
                             let k = 0;
@@ -1116,7 +1178,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              const hashtagv2 = getHashtag2(url)
+                              let hashtagv2
+                      if(o==="usedomainnames")
+                            hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1133,9 +1197,11 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 });
                               }
                             } else {
-                              // const hashtagv3 = getHashtag(
-                              //   data.message[i].children[j].children[k].title
-                              // );
+                              let hashtagv3
+                      if(o==="usefoldernames")
+                            hashtagv3 = getHashtag(
+                                 data.message[i].children[j].children[k].title
+                               );
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -1163,7 +1229,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  const hashtagv3 = getHashtag2(url)
+                                  let hashtagv3
+                      if(o==="usedomainnames")
+                            hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1185,10 +1253,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                   }
                                 } else {
                                   //folder
-                                  // const hashtagv4 = getHashtag(
-                                  //   data.message[i].children[j].children[k]
-                                  //     .children[l].title
-                                  // );
+                                  let hashtagv4
+                      if(o==="usefoldernames")
+                            hashtagv4 = getHashtag(
+                                     data.message[i].children[j].children[k]
+                                       .children[l].title
+                                   );
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -1217,7 +1287,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      const hashtagv4 = getHashtag2(url)
+                                      let hashtagv4
+                      if(o==="usedomainnames")
+                            hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1240,10 +1312,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                         );
                                       }
                                     } else {
-                                      // const hashtagv5 = getHashtag(
-                                      //   data.message[i].children[j].children[k]
-                                      //     .children[l].children[m].title
-                                      // );
+                                      let hashtagv5
+                      if(o==="usefoldernames")
+                            hashtagv5 = getHashtag(
+                                         data.message[i].children[j].children[k]
+                                           .children[l].children[m].title
+                                       );
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -1281,7 +1355,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          const hashtagv5 = getHashtag2(url)
+                                          let hashtagv5
+                      if(o==="usedomainnames")
+                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1304,12 +1380,14 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             );
                                           }
                                         } else {
-                                          // const hashtagv6 = getHashtag(
-                                          //   data.message[i].children[j]
-                                          //     .children[k].children[l].children[
-                                          //     m
-                                          //   ].children[n].title
-                                          // );
+                                          let hashtagv6
+                      if(o==="usefoldernames")
+                            hashtagv6 = getHashtag(
+                                             data.message[i].children[j]
+                                               .children[k].children[l].children[
+                                               m
+                                             ].children[n].title
+                                           );
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -1349,7 +1427,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              const hashtagv6 = getHashtag2(url)
+                                              let hashtagv6
+                      if(o==="usedomainnames")
+                            hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1372,12 +1452,14 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                 );
                                               }
                                             } else {
-                                              // const hashtagv7 = getHashtag(
-                                              //   data.message[i].children[j]
-                                              //     .children[k].children[l]
-                                              //     .children[m].children[n]
-                                              //     .children[o].title
-                                              // );
+                                              let hashtagv7
+                      if(o==="usefoldernames")
+                            hashtagv7 = getHashtag(
+                                                 data.message[i].children[j]
+                                                   .children[k].children[l]
+                                                   .children[m].children[n]
+                                                   .children[o].title
+                                               );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -1424,7 +1506,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  const hashtagv7 = getHashtag2(url)
+                                                  let hashtagv7
+                      if(o==="usedomainnames")
+                            hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1465,7 +1549,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                     }
                   } else if(data.message.length===2 || data.message.length===1 ) { //for the other browsers
                     if (i === 0) {
-                      //const hashtagv1 = getHashtag(data.message[i].title);
+                      let hashtagv1
+                      if(o==="usefoldernames")
+                            hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;
@@ -1483,7 +1569,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          const hashtagv1 = getHashtag2(url)
+                          let hashtagv1
+                      if(o==="usedomainnames")
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1507,9 +1595,11 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               )
                           );
 
-                          // const hashtagv2 = getHashtag(
-                          //   data.message[i].children[j].title
-                          // );
+                          let hashtagv2
+                      if(o==="usefoldernames")
+                            hashtagv2 = getHashtag(
+                             data.message[i].children[j].title
+                           );
 
                           for (
                             let k = 0;
@@ -1531,7 +1621,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              const hashtagv2 = getHashtag2(url)
+                              let hashtagv2
+                      if(o==="usedomainnames")
+                            hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1548,9 +1640,11 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 });
                               }
                             } else {
-                              // const hashtagv3 = getHashtag(
-                              //   data.message[i].children[j].children[k].title
-                              // );
+                              let hashtagv3
+                      if(o==="usefoldernames")
+                            hashtagv3 = getHashtag(
+                                 data.message[i].children[j].children[k].title
+                               );
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -1578,7 +1672,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  const hashtagv3 = getHashtag2(url)
+                                  let hashtagv3
+                      if(o==="usedomainnames")
+                            hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1600,10 +1696,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                   }
                                 } else {
                                   //folder
-                                  // const hashtagv4 = getHashtag(
-                                  //   data.message[i].children[j].children[k]
-                                  //     .children[l].title
-                                  // );
+                                  let hashtagv4
+                      if(o==="usefoldernames")
+                            hashtagv4 = getHashtag(
+                                     data.message[i].children[j].children[k]
+                                       .children[l].title
+                                   );
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -1632,7 +1730,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      const hashtagv4 = getHashtag2(url)
+                                      let hashtagv4
+                      if(o==="usedomainnames")
+                            hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1655,10 +1755,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                         );
                                       }
                                     } else {
-                                      // const hashtagv5 = getHashtag(
-                                      //   data.message[i].children[j].children[k]
-                                      //     .children[l].children[m].title
-                                      // );
+                                      let hashtagv5
+                      if(o==="usefoldernames")
+                            hashtagv5 = getHashtag(
+                                         data.message[i].children[j].children[k]
+                                           .children[l].children[m].title
+                                       );
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -1696,7 +1798,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          const hashtagv5 = getHashtag2(url)
+                                          let hashtagv5
+                      if(o==="usedomainnames")
+                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1719,12 +1823,14 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             );
                                           }
                                         } else {
-                                          // const hashtagv6 = getHashtag(
-                                          //   data.message[i].children[j]
-                                          //     .children[k].children[l].children[
-                                          //     m
-                                          //   ].children[n].title
-                                          // );
+                                          let hashtagv6
+                      if(o==="usefoldernames")
+                            hashtagv6 = getHashtag(
+                                             data.message[i].children[j]
+                                               .children[k].children[l].children[
+                                               m
+                                             ].children[n].title
+                                           );
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -1764,7 +1870,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              const hashtagv6 = getHashtag2(url)
+                                              let hashtagv6
+                      if(o==="usedomainnames")
+                            hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1787,12 +1895,14 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                 );
                                               }
                                             } else {
-                                              // const hashtagv7 = getHashtag(
-                                              //   data.message[i].children[j]
-                                              //     .children[k].children[l]
-                                              //     .children[m].children[n]
-                                              //     .children[o].title
-                                              // );
+                                              let hashtagv7
+                      if(o==="usefoldernames")
+                            hashtagv7 = getHashtag(
+                                                 data.message[i].children[j]
+                                                   .children[k].children[l]
+                                                   .children[m].children[n]
+                                                   .children[o].title
+                                               );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -1839,7 +1949,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  const hashtagv7 = getHashtag2(url)
+                                                  let hashtagv7
+                      if(o==="usedomainnames")
+                            hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1881,7 +1993,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                     else {
                       //i==1
                       //hashtagv = "#otherbookmarks";
-                      //const hashtagv1 = getHashtag(data.message[i].title);
+                      let hashtagv1
+                      if(o==="usefoldernames")
+                            hashtagv1 = getHashtag(data.message[i].title);
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -1899,7 +2013,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          const hashtagv1 = getHashtag2(url)
+                          let hashtagv1
+                      if(o==="usedomainnames")
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1924,9 +2040,11 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               )
                           );
 
-                          // const hashtagv2 = getHashtag(
-                          //   data.message[i].children[j].title
-                          // );
+                          let hashtagv2
+                      if(o==="usefoldernames")
+                            hashtagv2 = getHashtag(
+                             data.message[i].children[j].title
+                           );
 
                           for (
                             let k = 0;
@@ -1948,7 +2066,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              const hashtagv2 = getHashtag2(url)
+                              let hashtagv2
+                      if(o==="usedomainnames")
+                            hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1965,9 +2085,11 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 });
                               }
                             } else {
-                              // const hashtagv3 = getHashtag(
-                              //   data.message[i].children[j].children[k].title
-                              // );
+                              let hashtagv3
+                      if(o==="usefoldernames")
+                            hashtagv3 = getHashtag(
+                                 data.message[i].children[j].children[k].title
+                               );
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -1995,7 +2117,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  const hashtagv3 = getHashtag2(url)
+                                  let hashtagv3
+                      if(o==="usedomainnames")
+                            hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -2017,10 +2141,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                   }
                                 } else {
                                   //folder
-                                  // const hashtagv4 = getHashtag(
-                                  //   data.message[i].children[j].children[k]
-                                  //     .children[l].title
-                                  // );
+                                  let hashtagv4
+                      if(o==="usefoldernames")
+                            hashtagv4 = getHashtag(
+                                     data.message[i].children[j].children[k]
+                                       .children[l].title
+                                   );
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -2049,7 +2175,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      const hashtagv4 = getHashtag2(url)
+                                      let hashtagv4
+                      if(o==="usedomainnames")
+                            hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -2072,10 +2200,12 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                         );
                                       }
                                     } else {
-                                      // const hashtagv5 = getHashtag(
-                                      //   data.message[i].children[j].children[k]
-                                      //     .children[l].children[m].title
-                                      // );
+                                      let hashtagv5
+                      if(o==="usefoldernames")
+                            hashtagv5= getHashtag(
+                                         data.message[i].children[j].children[k]
+                                           .children[l].children[m].title
+                                       );
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -2113,7 +2243,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          const hashtagv5 = getHashtag2(url)
+                                          let hashtagv5
+                      if(o==="usedomainnames")
+                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -2136,12 +2268,14 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             );
                                           }
                                         } else {
-                                          // const hashtagv6 = getHashtag(
-                                          //   data.message[i].children[j]
-                                          //     .children[k].children[l].children[
-                                          //     m
-                                          //   ].children[n].title
-                                          // );
+                                          let hashtagv6
+                      if(o==="usefoldernames")
+                            hashtagv6 = getHashtag(
+                                             data.message[i].children[j]
+                                               .children[k].children[l].children[
+                                               m
+                                             ].children[n].title
+                                           );
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -2181,7 +2315,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              const hashtagv6 = getHashtag2(url)
+                                              let hashtagv6
+                      if(o==="usedomainnames")
+                            hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -2204,12 +2340,14 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                 );
                                               }
                                             } else {
-                                              // const hashtagv7 = getHashtag(
-                                              //   data.message[i].children[j]
-                                              //     .children[k].children[l]
-                                              //     .children[m].children[n]
-                                              //     .children[o].title
-                                              // );
+                                              let hashtagv7
+                      if(o==="usefoldernames")
+                            hashtagv7 = getHashtag(
+                                                 data.message[i].children[j]
+                                                   .children[k].children[l]
+                                                   .children[m].children[n]
+                                                   .children[o].title
+                                               );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -2256,7 +2394,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  const hashtagv7 = getHashtag2(url)
+                                                  let hashtagv7
+                      if(o==="usedomainnames")
+                            hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title

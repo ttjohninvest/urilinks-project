@@ -113,6 +113,8 @@ const d2 = d[dlen-2].replace(/-/g,"")
   };
 
   useEffect(() => {
+    const { option } = useParams()
+    console.log("FetchBookmarks.js, option="+option)
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
     console.log("FetchBookmarks.js, props.theplan.plan="+props.theplan.plan)
     if (props.url === "") setImportingError(true);

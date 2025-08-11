@@ -14,8 +14,16 @@ class BookmarksManager extends React.Component {
     this.state = {
       didUpload: false,
       hashtag: "#",
+      selectedOption:""
     };
   }
+
+  
+
+  handleRadioChange = (event) => {
+    const value = event.target.value;
+    setSelectedOption(value);
+  };
 
   onHashtagChange = (e) => {
     const hashtag = e.target.value;
@@ -81,22 +89,20 @@ class BookmarksManager extends React.Component {
           onChange={this.onHashtagChange}
           maxlength="2048"
           /></li>:''} */}
-<li>
-<input type="radio" id="option1" name="group1" value="option1" />
+
+          {this.state.didUpload || true? (<ul>
+            <li>
+<input type="radio" id="option1" name="group1" value="option1" checked={selectedOption === 'option1'} onChange={this.handleRadioChange}/>
 <label for="option1">convert folder names to hashtags</label>
 </li>
 
 <li>
-  <input type="radio" id="option2" name="group1" value="option2" />
+  <input type="radio" id="option2" name="group1" value="option2"  checked={selectedOption === 'option2'} onChange={this.handleRadioChange}/>
 <label for="option2">convert domain names to hashtags</label>
 </li>
-          
+          </ul>):''}
 
- 
-                
-
-
-          <Link className="header__title" to="/fetchbookmarks">
+          <Link className="header__title" to={`/fetchbookmarks/${this.state.selectedOption}`} >
             {this.state.didUpload ? (
               <div>
 

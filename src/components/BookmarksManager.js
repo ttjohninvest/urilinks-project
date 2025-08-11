@@ -92,12 +92,12 @@ class BookmarksManager extends React.Component {
 
           {this.state.didUpload || true? (<ul>
             <li>
-<input type="radio" id="option1" name="group1" value="option1" checked={selectedOption === 'option1'} onChange={this.handleRadioChange}/>
+<input type="radio" id="option1" name="group1" value="option1" checked={this.state.selectedOption === 'option1'} onChange={this.handleRadioChange}/>
 <label for="option1">convert folder names to hashtags</label>
 </li>
 
 <li>
-  <input type="radio" id="option2" name="group1" value="option2"  checked={selectedOption === 'option2'} onChange={this.handleRadioChange}/>
+  <input type="radio" id="option2" name="group1" value="option2"  checked={this.state.selectedOption === 'option2'} onChange={this.handleRadioChange}/>
 <label for="option2">convert domain names to hashtags</label>
 </li>
           </ul>):''}

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
 import { startAddLink } from "../actions/links";
-import { withRouter, useParams } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import moment from "moment";
 import { history } from "../routers/AppRouter";
 import ImportedBookmarks from "./ImportedBookmarks";
@@ -113,8 +113,9 @@ const d2 = d[dlen-2].replace(/-/g,"")
   };
 
   useEffect(() => {
-    const { option } = useParams()
-    console.log("FetchBookmarks.js, option="+option)
+    //const { option } = useParams()
+    
+    console.log("FetchBookmarks.js, props.location.state.option="+props.location.state.option)
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
     console.log("FetchBookmarks.js, props.theplan.plan="+props.theplan.plan)
     if (props.url === "") setImportingError(true);

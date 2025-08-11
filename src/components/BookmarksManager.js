@@ -100,8 +100,8 @@ class BookmarksManager extends React.Component {
 </li>
           </ul>):''}
 
-          <Link className="header__title" to={{ pathname: "/fetchbookmarks", state: { selectedOption: this.state.selectedOption } }} >
-            
+          {/* <Link className="header__title" to={{ pathname: "/fetchbookmarks", state: { selectedOption: this.state.selectedOption } }} > */}
+            <Link className="header__title" to={`/fetchbookmarks/${this.state.selectedOption}`} >
             
             {this.state.didUpload ? (
               <div>

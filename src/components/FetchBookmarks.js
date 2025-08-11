@@ -115,7 +115,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
   useEffect(() => {
     //const { option } = useParams()
     
-    console.log("FetchBookmarks.js, props.location.state.option="+props.location.state.option)
+    console.log("FetchBookmarks.js, props.match.params.option"+props.match.params.option)
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
     console.log("FetchBookmarks.js, props.theplan.plan="+props.theplan.plan)
     if (props.url === "") setImportingError(true);

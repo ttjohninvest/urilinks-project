@@ -38,7 +38,7 @@ const AppRouter = () => (
         <PrivateRoute path="/createfiledate" component={AddLinkPageFileDate} />
         <PrivateRoute path="/edit/:id" component={EditLinkPage} />
         <PrivateRoute path="/ideas" component={IdeasPage} />
-        <PrivateRoute path="/fetchbookmarks/:selectedOption" component={FetchBookmarks} />
+        <PrivateRoute path="/fetchbookmarks/:option" component={FetchBookmarks} />
         <PrivateRoute path="/bookmarksmanager" component={BookmarksManager} />
         <Route component={NotFoundPage} />
       </Switch>

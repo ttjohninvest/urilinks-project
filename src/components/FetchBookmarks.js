@@ -239,7 +239,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
-                           let hashtagv1
+                         
                       if(oo==="usedomainnames")
                             hashtagv1 = getHashtag2(url)
                           if (
@@ -291,7 +291,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              let hashtagv2
+                              
                       if(oo==="usedomainnames")
                             hashtagv2 = getHashtag2(url)
                               if (
@@ -342,7 +342,6 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  let hashtagv3
                       if(oo==="usedomainnames")
                             hashtagv3 = getHashtag2(url)
                                   if (
@@ -400,7 +399,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      let hashtagv4
+                                      
                       if(oo==="usedomainnames")
                             hashtagv4 = getHashtag2(url)
                                       if (
@@ -469,7 +468,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          let hashtagv5
+                                          
                       if(oo==="usedomainnames")
                             hashtagv5 = getHashtag2(url)
                                           if (
@@ -541,7 +540,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              let hashtagv6
+                                              
                       if(oo==="usedomainnames")
                             hashtagv6 = getHashtag2(url)
                                               if (
@@ -620,7 +619,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  let hashtagv7
+                                                  
                       if(oo==="usedomainnames")
                             hashtagv7 = getHashtag2(url)
                                                   if (
@@ -681,7 +680,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          let hashtagv1
+                          
                       if(oo==="usedomainnames")
                             hashtagv1 = getHashtag2(url)
                           if (
@@ -733,7 +732,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              let hashtagv2
+                              
                       if(oo==="usedomainnames")
                             hashtagv2 = getHashtag2(url)
                               if (
@@ -784,7 +783,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  let hashtagv3
+                                  
                       if(oo==="usedomainnames")
                             hashtagv3 = getHashtag2(url)
                                   if (
@@ -842,7 +841,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      let hashtagv4
+                                      
                       if(oo==="usedomainnames")
                             hashtagv4 = getHashtag2(url)
                                       if (
@@ -910,7 +909,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          let hashtagv5
+                                          
                       if(oo==="usedomainnames")
                             hashtagv5 = getHashtag2(url)
                                           if (
@@ -982,7 +981,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              let hashtagv6
+                                              
                       if(oo==="usedomainnames")
                             hashtagv6 = getHashtag2(url)
                                               if (
@@ -1061,7 +1060,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  let hashtagv7
+                                                  
                       if(oo==="usedomainnames")
                             hashtagv7 = getHashtag2(url)
                                                   if (
@@ -1125,7 +1124,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          let hashtagv1
+                          
                       if(oo==="usedomainnames")
                             hashtagv1 = getHashtag2(url)
                           if (
@@ -1178,7 +1177,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              let hashtagv2
+                              
                       if(oo==="usedomainnames")
                             hashtagv2 = getHashtag2(url)
                               if (
@@ -1229,7 +1228,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  let hashtagv3
+                                  
                       if(oo==="usedomainnames")
                             hashtagv3 = getHashtag2(url)
                                   if (
@@ -1287,7 +1286,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      let hashtagv4
+                                      
                       if(oo==="usedomainnames")
                             hashtagv4 = getHashtag2(url)
                                       if (
@@ -1355,7 +1354,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          let hashtagv5
+                                          
                       if(oo==="usedomainnames")
                             hashtagv5 = getHashtag2(url)
                                           if (
@@ -1427,7 +1426,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              let hashtagv6
+                                              
                       if(oo==="usedomainnames")
                             hashtagv6 = getHashtag2(url)
                                               if (
@@ -1506,7 +1505,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  let hashtagv7
+                                                  
                       if(oo==="usedomainnames")
                             hashtagv7 = getHashtag2(url)
                                                   if (
@@ -1569,7 +1568,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          let hashtagv1
+                          
                       if(oo==="usedomainnames")
                             hashtagv1 = getHashtag2(url)
                           if (
@@ -1621,7 +1620,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              let hashtagv2
+                              
                       if(oo==="usedomainnames")
                             hashtagv2 = getHashtag2(url)
                               if (
@@ -1672,7 +1671,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  let hashtagv3
+                                  
                       if(oo==="usedomainnames")
                             hashtagv3 = getHashtag2(url)
                                   if (
@@ -1730,7 +1729,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      let hashtagv4
+                                      
                       if(oo==="usedomainnames")
                             hashtagv4 = getHashtag2(url)
                                       if (
@@ -1798,7 +1797,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          let hashtagv5
+                                          
                       if(oo==="usedomainnames")
                             hashtagv5 = getHashtag2(url)
                                           if (
@@ -1870,7 +1869,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              let hashtagv6
+                                              
                       if(oo==="usedomainnames")
                             hashtagv6 = getHashtag2(url)
                                               if (
@@ -1949,7 +1948,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  let hashtagv7
+                                                  
                       if(oo==="usedomainnames")
                             hashtagv7 = getHashtag2(url)
                                                   if (
@@ -2013,7 +2012,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          let hashtagv1
+                          
                       if(oo==="usedomainnames")
                             hashtagv1 = getHashtag2(url)
                           if (
@@ -2066,7 +2065,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              let hashtagv2
+                              
                       if(oo==="usedomainnames")
                             hashtagv2 = getHashtag2(url)
                               if (
@@ -2117,7 +2116,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  let hashtagv3
+                                  
                       if(oo==="usedomainnames")
                             hashtagv3 = getHashtag2(url)
                                   if (
@@ -2175,7 +2174,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      let hashtagv4
+                                      
                       if(oo==="usedomainnames")
                             hashtagv4 = getHashtag2(url)
                                       if (
@@ -2243,7 +2242,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          let hashtagv5
+                                          
                       if(oo==="usedomainnames")
                             hashtagv5 = getHashtag2(url)
                                           if (
@@ -2315,7 +2314,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              let hashtagv6
+                                              
                       if(oo==="usedomainnames")
                             hashtagv6 = getHashtag2(url)
                                               if (
@@ -2394,7 +2393,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  let hashtagv7
+                                                  
                       if(oo==="usedomainnames")
                             hashtagv7 = getHashtag2(url)
                                                   if (

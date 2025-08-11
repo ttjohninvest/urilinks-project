@@ -29,6 +29,7 @@ const FetchBookmarks = (props) => {
   const [loopmax2, setLoopmax2] = useState(0);
   const [done, setDone] = useState(false);
   const [payPage, setPayPage] = useState(false)
+  const [o,setO] = useState(props.match.params.option)
 
   const getPlanMax=()=>{
     let max=250
@@ -116,7 +117,8 @@ const d2 = d[dlen-2].replace(/-/g,"")
     //const { option } = useParams()
     //props.match.params.option can be either usefoldernames or
     //usedomainnames
-    console.log("FetchBookmarks.js, props.match.params.option="+props.match.params.option)
+    //console.log("FetchBookmarks.js, props.match.params.option="+props.match.params.option)
+    console.log("FetchBookmarks.js, props.match.params.option="+o)
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
     console.log("FetchBookmarks.js, props.theplan.plan="+props.theplan.plan)
     if (props.url === "") setImportingError(true);

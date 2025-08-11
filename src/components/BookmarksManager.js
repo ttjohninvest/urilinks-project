@@ -14,13 +14,13 @@ class BookmarksManager extends React.Component {
     this.state = {
       didUpload: false,
       hashtag: "#",
-      selectedOption:"usefoldernames"
+      selectedOption: "usefoldernames",
     };
   }
 
   handleRadioChange = (event) => {
     const value = event.target.value;
-    this.setState({selectedOption:value})
+    this.setState({ selectedOption: value });
   };
 
   onHashtagChange = (e) => {
@@ -65,19 +65,20 @@ class BookmarksManager extends React.Component {
       //console.log("upload did happen")
     }
   };
-//this.state.didUpload===false
+  //this.state.didUpload===false
   render() {
     return (
       <div>
-         {true?<ol>
-         <li>
-            From the browser, export (download) your bookmarks file and then
-            choose and upload your bookmarks file in step 2.
-          </li>
-          <li>
-            <FileUpload setCheckDidUpload={this.setCheckDidUpload} />
-          </li>
-          {/* {this.state.didUpload?<li><input
+        {true ? (
+          <ol>
+            <li>
+              From the browser, export (download) your bookmarks file and then
+              choose and upload your bookmarks file in step 2.
+            </li>
+            <li>
+              <FileUpload setCheckDidUpload={this.setCheckDidUpload} />
+            </li>
+            {/* {this.state.didUpload?<li><input
           title=" The defaults hash tags are #chromebookmarks, #firefoxbookmarks,#safaribookmarks,#edgebookmarks,#operabookmarks, #bravebookmarks depending on the browser that you are using"
           type="text"
           placeholder="hashtag to group these bookmarks under"
@@ -88,37 +89,59 @@ class BookmarksManager extends React.Component {
           maxlength="2048"
           /></li>:''} */}
 
-          {this.state.didUpload ? (<ul>
-            <li>
-<input type="radio" id="option1" name="group1" value="usefoldernames" checked={this.state.selectedOption === 'usefoldernames'} onChange={this.handleRadioChange}/>
-<label for="option1">convert folder names to hashtags</label> {/*use this option to convert a browser exported boomarks.html file*/}
-</li>
-
-<li>
-  <input type="radio" id="option2" name="group1" value="usedomainnames"  checked={this.state.selectedOption === 'usedomainnames'} onChange={this.handleRadioChange}/>
-<label for="option2">convert domain names to hashtags</label> {/*use this option to convert a boomarks.html file that was generated with */}
-</li>
-          </ul>):''}
-
-          {/* <Link className="header__title" to={{ pathname: "/fetchbookmarks", state: { selectedOption: this.state.selectedOption } }} > */}
-            <Link className="header__title" to={`/fetchbookmarks/${this.state.selectedOption}`} >
-            
             {this.state.didUpload ? (
-              <div>
+              <ul>
+                <li>
+                  <input
+                    type="radio"
+                    id="option1"
+                    name="group1"
+                    value="usefoldernames"
+                    checked={this.state.selectedOption === "usefoldernames"}
+                    onChange={this.handleRadioChange}
+                  />
+                  <label for="option1">convert folder names to hashtags</label>{" "}
+                  {/*use this option to convert a browser exported boomarks.html file*/}
+                </li>
 
                 <li>
-                <span className="ib text-color-black text-size-8">
-                  import bookmarks
-                </span>
-
-              </li>
-              </div>
-            
+                  <input
+                    type="radio"
+                    id="option2"
+                    name="group1"
+                    value="usedomainnames"
+                    checked={this.state.selectedOption === "usedomainnames"}
+                    onChange={this.handleRadioChange}
+                  />
+                  <label for="option2">convert domain names to hashtags</label>{" "}
+                  {/*use this option to convert a boomarks.html file that was generated with */}
+                </li>
+              </ul>
             ) : (
               ""
             )}
-          </Link>
-        </ol>:<Navigate to="/fetchbookmarks" />}
+
+            {/* <Link className="header__title" to={{ pathname: "/fetchbookmarks", state: { selectedOption: this.state.selectedOption } }} > */}
+            <Link
+              className="header__title"
+              to={`/fetchbookmarks/${this.state.selectedOption}`}
+            >
+              {this.state.didUpload ? (
+                <div>
+                  <li>
+                    <span className="ib text-color-black text-size-8">
+                      import bookmarks
+                    </span>
+                  </li>
+                </div>
+              ) : (
+                ""
+              )}
+            </Link>
+          </ol>
+        ) : (
+          <Navigate to="/fetchbookmarks" />
+        )}
       </div>
     );
   }

@@ -22,7 +22,7 @@ class BookmarksManager extends React.Component {
 
   handleRadioChange = (event) => {
     const value = event.target.value;
-    setSelectedOption(value);
+    this.setState({selectedOption:value})
   };
 
   onHashtagChange = (e) => {

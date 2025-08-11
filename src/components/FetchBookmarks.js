@@ -118,7 +118,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
     //props.match.params.option can be either usefoldernames or
     //usedomainnames
     //console.log("FetchBookmarks.js, props.match.params.option="+props.match.params.option)
-    console.log("FetchBookmarks.js, props.match.params.option="+o)
+    console.log("FetchBookmarks.js, props.match.params.option, oo="+oo)
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
     console.log("FetchBookmarks.js, props.theplan.plan="+props.theplan.plan)
     if (props.url === "") setImportingError(true);

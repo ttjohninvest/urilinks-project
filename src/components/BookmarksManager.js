@@ -91,7 +91,7 @@ class BookmarksManager extends React.Component {
 
             {this.state.didUpload ? (
               <div>
-                <li>
+                <li className="ib margin-left-11 margin-bottom-1">
                   <input
                     type="radio"
                     id="option1"
@@ -104,7 +104,7 @@ class BookmarksManager extends React.Component {
                   {/*use this option to convert a browser exported boomarks.html file*/}
                 </li>
 
-                <li>
+                <li className="ib margin-left-11">
                   <input
                     type="radio"
                     id="option2"

@@ -90,7 +90,7 @@ class BookmarksManager extends React.Component {
           /></li>:''} */}
 
             {this.state.didUpload ? (
-              <ul>
+              <div>
                 <li>
                   <input
                     type="radio"
@@ -116,7 +116,7 @@ class BookmarksManager extends React.Component {
                   <label for="option2" title="this one is or get page urls for bookmarks.html file which was not written from a browser export.">convert domain names to hashtags</label>{" "}
                   {/*use this option to convert a boomarks.html file that was generated with */}
                 </li>
-              </ul>
+              </div>
             ) : (
               ""
             )}

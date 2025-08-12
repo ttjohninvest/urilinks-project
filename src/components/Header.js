@@ -169,7 +169,7 @@ export const Header = (props) => {
                 <Link className="header__title" to="/bookmarksmanager">
                   <span
                     className="ib"
-                    title="tool to upload bookmarks from chrome, opera, firefox, or brave browser"
+                    title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
                   >
                     (Bookmarks Uploader)
                   </span>

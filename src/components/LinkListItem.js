@@ -145,8 +145,11 @@ const LinkListItem = ({
                     </span>
                   </div>
                 </div>
-                <div id="resultsId"></div>
+                <div className="flexcol4">
+ <div id="resultsId"></div>
                 <ul id={"uldata" + id}></ul>
+                </div>
+               
               </div>
             </div>
           </div>

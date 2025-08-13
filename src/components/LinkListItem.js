@@ -105,6 +105,10 @@ const LinkListItem = ({
               </div>
               <div className="padding-left-11 padding-bottom-11 borderRadius4">
                 <div className="flexcol3">
+
+                  <div className="flexrow2wpt">
+
+                  
                   <div>
                     <a
                       ref={myRef}
@@ -116,7 +120,18 @@ const LinkListItem = ({
                     >
                       {description}
                     </a>
-                  </div>
+                  </div> <div className="">
+            <h3 className="">
+              <Link className="nounderline  text-size-1" to={`/edit/${id}`}>
+                <div>
+                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11">
+                    edit or remove
+                  </span>
+                </div>
+              </Link>
+            </h3>
+          </div>
+          </div>
 
                   <div>
                     <span
@@ -140,7 +155,7 @@ const LinkListItem = ({
               </div>
             </div>
           </div>
-          <div className="border-orange-">
+          {/* <div className="">
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${id}`}>
                 <div>
@@ -150,7 +165,7 @@ const LinkListItem = ({
                 </div>
               </Link>
             </h3>
-          </div>
+          </div> */}
         </div>
 
         <div className="list-item__sub-title- padding-left-1 text-size-2">

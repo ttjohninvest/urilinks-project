@@ -126,7 +126,7 @@ const LinkListItem = ({
                       title={"click to open the webpage: " + Url}
                       onClick={storeScrollPosition}
                     >
-                      {description}
+                      To page: {description}
                     </a>
                   </div> 
           </div>
@@ -143,7 +143,7 @@ const LinkListItem = ({
                         className="ib cursor-pointer margin-left-114"
                         title="click to see the clickable available webpage urls."
                       >
-                        {Url}
+                        To list: {Url}
                       </span>
                     </span>
                   </div>

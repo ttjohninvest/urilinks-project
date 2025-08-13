@@ -26,9 +26,9 @@ const LinkListItem = ({
     //you need to call dispatch(setSetit(false)) here////
   };
 
-  const sort1 =()=>{
-     console.log("sort1,data.length="+data.length)
-  }
+  // const sort1 =()=>{
+  //    console.log("sort1,data.length="+data.length)
+  // }
 
   const getUrlsList = (url2, id) => {
   
@@ -64,13 +64,13 @@ const LinkListItem = ({
           } else {
             let lia = document.createElement("li");
             lia.innerText = "sort"
-            let a = document.createElement("a");
-            a.href = "#";
-            a.data = data
-            a.addEventListener('click', function(event) {
-    console.log('Button was clicked!', event.currentTarget.data.length);
+            let span = document.createElement("span");
+            //a.href = "#";
+            //a.data = data
+            span.addEventListener('click', function(event) {
+    console.log('Button was clicked!') //, event.currentTarget.data.length);
 });
-            lia.appendChild(a)
+            lia.appendChild(span)
             
             let li0 = document.createElement("li");
             li0.className="lsn"

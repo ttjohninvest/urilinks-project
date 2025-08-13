@@ -26,9 +26,9 @@ const LinkListItem = ({
     //you need to call dispatch(setSetit(false)) here////
   };
 
-  // const sort1 =()=>{
-  //    console.log("sort1,data.length="+data.length)
-  // }
+  const sortit=(event)=>{
+    console.log('Button was clicked, event.currentTarget.data.length='+event.currentTarget.data.length);
+  }
 
   const getUrlsList = (url2, id) => {
   
@@ -67,9 +67,10 @@ const LinkListItem = ({
             span.innerHTML="sort"
             //a.href = "#";
             span.data = data
-            span.addEventListener('click', function(event) {
-    console.log('Button was clicked!'+event.currentTarget.data.length);
-});
+//             span.addEventListener('click', function(event) {
+//     console.log('Button was clicked!'+event.currentTarget.data.length);
+// });
+ span.addEventListener('click', sortit1);
             ul.appendChild(span)
             
             let li0 = document.createElement("li");

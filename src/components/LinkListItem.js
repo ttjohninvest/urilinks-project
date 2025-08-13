@@ -112,7 +112,7 @@ const LinkListItem = ({
                   <div>
                     <a
                       ref={myRef}
-                      className="ib nounderline text-size-5 text-color-db margin-bottom-114-"
+                      className="ib nounderline text-size-5 text-color-db margin-bottom-114"
                       href={Url}
                       target="_self"
                       title={"click to open the webpage: " + Url}

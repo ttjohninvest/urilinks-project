@@ -108,9 +108,10 @@ else {
               >
                 {description}
               </a>
+              <span onClick={()=>getUrlsList(Url,id)}>{Url}</span>
               {/* <span onClick={getUrlsList(Url,id)}>{Url}</span> */}
-              {s===1?<span onClick={()=>getUrlsList(Url,id,1)}>{Url}</span>
-              :<span onClick={()=>getUrlsList(Url,id,0)}>{Url}</span>}
+              {/* {s===1?<span onClick={()=>getUrlsList(Url,id)}>{Url}</span>
+              :<span onClick={()=>getUrlsList(Url,id)}>{Url}</span>} */}
               <ul id={'uldata'+id}></ul>
             </div>
             </div>

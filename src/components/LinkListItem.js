@@ -28,8 +28,8 @@ const LinkListItem = ({
 
   const getUrlsList = (url2, id) => {
     setActiveId(id)
-    if (s === 1) {
-      setS(0);
+    //if (s === 1) {
+      //setS(0);
       const ul = document.getElementById("uldata" + id);
 
       fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
@@ -82,11 +82,11 @@ const LinkListItem = ({
         .catch((error) => {
           console.error("Error:", error);
         });
-    } else {
-      setS(0);
-      const ul = document.getElementById("uldata" + id);
-      ul.innerHTML = "";
-    }
+    // } else {
+    //   setS(0);
+    //   const ul = document.getElementById("uldata" + id);
+    //   ul.innerHTML = "";
+    // }
   };
 
   return (

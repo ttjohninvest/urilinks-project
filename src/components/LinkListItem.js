@@ -103,7 +103,7 @@ else {
              
                 <a
                 ref={myRef}
-                className="ib nounderline text-size-5 text-color-db"
+                className="ib nounderline text-size-5 text-color-db margin-bottom-114"
                 href={Url}
                 target="_self"
                 title={"click to open the webpage: "+Url}
@@ -112,7 +112,7 @@ else {
                 {description}
               </a>
                 
-<span onClick={()=>getUrlsList(Url,id)} className="ib margin-left-114 cursor-pointer" title="click to see the available webpage urls to click on.">{Url}</span>
+<span onClick={()=>getUrlsList(Url,id)} className="ib margin-left-114 cursor-pointer  margin-bottom-114" title="click to see the available webpage urls to click on.">{Url}</span>
                
              
               

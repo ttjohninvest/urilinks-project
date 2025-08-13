@@ -62,15 +62,15 @@ const LinkListItem = ({
             //  let r = document.getElementById("resultsId")
             // r.innerHTML = `Results: ${data.length} url(s)`;
           } else {
-//             let lia = document.createElement("li");
-//             lia.innerText = "sort"
-//             let span = document.createElement("span");
-//             //a.href = "#";
-//             //a.data = data
-//             span.addEventListener('click', function(event) {
-//     console.log('Button was clicked!') //, event.currentTarget.data.length);
-// });
-//             lia.appendChild(span)
+            
+            let span = document.createElement("span");
+            span.innerHTML="sort"
+            //a.href = "#";
+            //a.data = data
+            span.addEventListener('click', function(event) {
+    console.log('Button was clicked!') //, event.currentTarget.data.length);
+});
+            ul.appendChild(span)
             
             let li0 = document.createElement("li");
             li0.className="lsn"

@@ -18,6 +18,7 @@ const LinkListItem = ({
   const myRef = useRef(null);
 
   const [s, setS] = useState(1);
+  const [activeId, setActiveId] = useState(null);
 
   const storeScrollPosition = () => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
@@ -26,6 +27,7 @@ const LinkListItem = ({
   };
 
   const getUrlsList = (url2, id) => {
+    setActiveId(id)
     if (s === 1) {
       setS(0);
       const ul = document.getElementById("uldata" + id);
@@ -45,17 +47,7 @@ const LinkListItem = ({
           return response.json();
         })
         .then((data) => {
-          //console.log('data='+JSON.stringify(data))
-          // data.map(function (url) {
-          //   let li = document.createElement("li");
-          //   let name = document.createElement("h2");
-
-          //   name.innerHTML = `${url}`;
-
-          //   li.appendChild(name);
-
-          //   ul.appendChild(li);
-          // });
+       
           if (data.length === 0) {
             let li = document.createElement("li");
              li.className="lsn"
@@ -149,8 +141,8 @@ const LinkListItem = ({
                   </div>
                 </div>
                
- {/* <div id="resultsId"></div> */}
-                <ol id={"uldata" + id} start="0"></ol>
+ 
+                {activeId === id?<ol id={"uldata" + id} start="0"></ol>:''}
               
                
               </div>

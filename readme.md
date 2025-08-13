@@ -13,6 +13,7 @@ ttjohnhappy
 # Git Commands
 
 todo to do
+in LinkListItem.js, get each one's urls on page to open and close separately somehow
 hashtag, I am not deriving the hashtag name from the domain name because of the new functionality that I put in
 about getting a list of urls from a webpage which solved a problem, but I still
 need convert the folder name to the hashtag if I am not using the new functionality but the old

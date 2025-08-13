@@ -112,7 +112,7 @@ const LinkListItem = ({
                   <div>
                     <a
                       ref={myRef}
-                      className="ib nounderline text-size-5 text-color-db margin-bottom-114"
+                      className="ib nounderline text-size-5 text-color-db margin-bottom-114-"
                       href={Url}
                       target="_self"
                       title={"click to open the webpage: " + Url}
@@ -132,7 +132,7 @@ const LinkListItem = ({
                       <br />
                       <span
                         onClick={() => getUrlsList(Url, id)}
-                        className="ib cursor-pointer margin-left-115"
+                        className="ib cursor-pointer margin-left-114"
                         title="click to see the clickable available webpage urls."
                       >
                         {Url}

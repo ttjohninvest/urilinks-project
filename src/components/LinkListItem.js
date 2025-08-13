@@ -66,7 +66,10 @@ const LinkListItem = ({
             lia.innerText = "sort"
             let a = document.createElement("a");
             a.href = "#";
-            a.onClick={sort1}
+            a.data = data
+            a.addEventListener('click', function(event) {
+    console.log('Button was clicked!', event.currentTarget.data.length);
+});
             lia.appendChild(a)
             
             let li0 = document.createElement("li");

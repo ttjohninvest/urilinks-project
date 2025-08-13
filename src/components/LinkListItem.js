@@ -84,6 +84,7 @@ else {
             console.error("Error:", error);
           });
     } else {
+      setS(0)
       const ul = document.getElementById("uldata"+id);
       ul.innerHTML=''
     }

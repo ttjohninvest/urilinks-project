@@ -9,15 +9,19 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
   console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL="+faviconURL)
   const myRef = useRef(null);
 
+  const [s,setS] = useState(1)
+
   const storeScrollPosition = () => {
     window.localStorage.setItem("scrollPosition",window.scrollY)
     // window.localStorage.setItem("scrollY",window.scrollY)
     //you need to call dispatch(setSetit(false)) here//
   }
 
-  const getUrlsList = (url2,id) => {
+  const getUrlsList = (url2,id,t) => {
     
-        const ul = document.getElementById("uldata"+id);
+    if(s===1) {
+      setS(0)
+ const ul = document.getElementById("uldata"+id);
 
         fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
           method: "POST",
@@ -79,6 +83,10 @@ else {
           .catch((error) => {
             console.error("Error:", error);
           });
+    } else {
+      ul.innerHTML=''
+    }
+       
       
   }
  
@@ -101,7 +109,8 @@ else {
                 {description}
               </a>
               {/* <span onClick={getUrlsList(Url,id)}>{Url}</span> */}
-              <span onClick={()=>getUrlsList(Url,id)}>{Url}</span>
+              {s===1?<span onClick={()=>getUrlsList(Url,id,1)}>{Url}</span>
+              :<span onClick={()=>getUrlsList(Url,id,0)}>{Url}</span>}
               <ul id={'uldata'+id}></ul>
             </div>
             </div>

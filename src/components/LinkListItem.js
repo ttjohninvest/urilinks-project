@@ -66,9 +66,9 @@ const LinkListItem = ({
             let span = document.createElement("span");
             span.innerHTML="sort"
             //a.href = "#";
-            //a.data = data
+            span.data = data
             span.addEventListener('click', function(event) {
-    console.log('Button was clicked!') //, event.currentTarget.data.length);
+    console.log('Button was clicked!'+event.currentTarget.data.length);
 });
             ul.appendChild(span)
             

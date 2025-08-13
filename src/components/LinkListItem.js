@@ -14,6 +14,73 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
     // window.localStorage.setItem("scrollY",window.scrollY)
     //you need to call dispatch(setSetit(false)) here//
   }
+
+  const getUrlsList = (url2,id) => {
+    
+        const ul = document.getElementById("uldata"+id);
+
+        fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url: url2 }),
+        })
+          // .then(response => response.json())
+          // .then(data => console.log(data))
+          // .catch(error => console.error('Error:', error));
+          .then((response) => {
+            //console.log("response")
+            return response.json();
+          })
+          .then((data) => {
+            //console.log('data='+JSON.stringify(data))
+            // data.map(function (url) {
+            //   let li = document.createElement("li");
+            //   let name = document.createElement("h2");
+
+            //   name.innerHTML = `${url}`;
+
+            //   li.appendChild(name);
+
+            //   ul.appendChild(li);
+            // });
+            if(data.length===0) {
+ 
+              let li = document.createElement("li");
+             
+            
+              li.innerHTML = `Results: 0`;
+
+            
+
+              ul.appendChild(li);
+           
+            }
+else {
+  let li0 = document.createElement("li");
+   li0.innerHTML = `Results: ${data.length} url(s)`;
+   ul.appendChild(li0);
+ data.map((url) => {
+  
+              let li = document.createElement("li");
+              let a = document.createElement("a");
+              a.href = url;
+              a.target = "_blank";
+              a.innerHTML = `${url}`;
+
+              li.appendChild(a);
+
+              ul.appendChild(li);
+            });
+}
+           
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      
+  }
  
 
   return (
@@ -33,6 +100,8 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
               >
                 {description}
               </a>
+              <span onClick={getUrlsList(Url,id)}>{Url}</span>
+              <ul id={uldata+id}></ul>
             </div>
             </div>
           </div>

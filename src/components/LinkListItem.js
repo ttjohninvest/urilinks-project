@@ -17,11 +17,11 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
     //you need to call dispatch(setSetit(false)) here//
   }
 
-  const getUrlsList = (url2,id,t) => {
+  const getUrlsList = (url2,id) => {
     
     if(s===1) {
       setS(0)
- const ul = document.getElementById("uldata"+id);
+      const ul = document.getElementById("uldata"+id);
 
         fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
           method: "POST",
@@ -110,10 +110,8 @@ else {
               >
                 {description}
               </a>
-              <span onClick={()=>getUrlsList(Url,id)}>{Url}</span>
-              {/* <span onClick={getUrlsList(Url,id)}>{Url}</span> */}
-              {/* {s===1?<span onClick={()=>getUrlsList(Url,id)}>{Url}</span>
-              :<span onClick={()=>getUrlsList(Url,id)}>{Url}</span>} */}
+              <span onClick={()=>getUrlsList(Url,id)} className="curson-pointer" title="click to see the available urls on the page.">{Url}</span>
+             
               <ul id={'uldata'+id}></ul>
             </div>
             </div>

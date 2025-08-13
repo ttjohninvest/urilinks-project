@@ -100,11 +100,10 @@ else {
           <div className="">
           <div className="flexrow2 margin-5"><div><img className="borderradius50 margin-top-1111" width="16" height="16" src={faviconURL} /></div>
             <div className="padding-left-11 padding-bottom-11 borderRadius4">
-              <div className="flexrow3">
- <div>
+             
                 <a
                 ref={myRef}
-                className="nounderline text-size-5 text-color-db"
+                className="ib nounderline text-size-5 text-color-db"
                 href={Url}
                 target="_self"
                 title={Url}
@@ -112,11 +111,9 @@ else {
               >
                 {description}
               </a>
-                </div>
-                <div>
-<span onClick={()=>getUrlsList(Url,id)} className="curson-pointer" title="click to see the available urls on the page.">{Url}</span>
-                </div>
-              </div>
+                
+<span onClick={()=>getUrlsList(Url,id)} className="ib margin-left-11 cursor-pointer" title="click to see the available urls on the page.">{Url}</span>
+               
              
               
              

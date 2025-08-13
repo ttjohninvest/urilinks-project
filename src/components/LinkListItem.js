@@ -18,12 +18,17 @@ const LinkListItem = ({
   const myRef = useRef(null);
 
   const [s, setS] = useState(1);
+  const [data, setData] = useState([]);
 
   const storeScrollPosition = () => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
     // window.localStorage.setItem("scrollY",window.scrollY)
     //you need to call dispatch(setSetit(false)) here////
   };
+
+  const sort1 =()=>{
+     console.log("sort1,data.length="+data.length)
+  }
 
   const getUrlsList = (url2, id) => {
   
@@ -46,7 +51,7 @@ const LinkListItem = ({
           return response.json();
         })
         .then((data) => {
-       
+          setData(data)
           if (data.length === 0) {
             let li = document.createElement("li");
              li.className="lsn"
@@ -57,9 +62,13 @@ const LinkListItem = ({
             //  let r = document.getElementById("resultsId")
             // r.innerHTML = `Results: ${data.length} url(s)`;
           } else {
+            let lia = document.createElement("li");
+            lia.innerText = "sort"
+            lia.onClick={sort1}
             let li0 = document.createElement("li");
             li0.className="lsn"
             li0.innerHTML = `Results: ${data.length} url(s)`;
+            ul.appendChild(lia);
             ul.appendChild(li0);
 
             //   let r = document.getElementById("resultsId")

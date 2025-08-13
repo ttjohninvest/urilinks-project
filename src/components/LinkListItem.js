@@ -26,7 +26,7 @@ const LinkListItem = ({
     //you need to call dispatch(setSetit(false)) here////
   };
 
-  const sortit=(event)=>{
+  const sortit1=(event)=>{
     console.log('Button was clicked, event.currentTarget.data.length='+event.currentTarget.data.length);
   }
 

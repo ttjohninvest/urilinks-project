@@ -57,15 +57,20 @@ const LinkListItem = ({
           //   ul.appendChild(li);
           // });
           if (data.length === 0) {
-            let li = document.createElement("li");
+            // let li = document.createElement("li");
 
-            li.innerHTML = `Results: 0`;
+            // li.innerHTML = `Results: 0`;
 
-            ul.appendChild(li);
+            // ul.appendChild(li);
+             let r = document.getElementById("resultsId")
+            r.innerHTML = `Results: ${data.length} url(s)`;
           } else {
-            let li0 = document.createElement("li");
-            li0.innerHTML = `Results: ${data.length} url(s)`;
-            ul.appendChild(li0);
+            // let li0 = document.createElement("li");
+            // li0.innerHTML = `Results: ${data.length} url(s)`;
+            // ul.appendChild(li0);
+              let r = document.getElementById("resultsId")
+            r.innerHTML = `Results: ${data.length} url(s)`;
+            
             data.map((url) => {
               let li = document.createElement("li");
               let a = document.createElement("a");
@@ -140,7 +145,7 @@ const LinkListItem = ({
                     </span>
                   </div>
                 </div>
-
+                <div id="resultsId"></div>
                 <ul id={"uldata" + id}></ul>
               </div>
             </div>

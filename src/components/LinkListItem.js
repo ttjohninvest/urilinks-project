@@ -97,7 +97,7 @@ const LinkListItem = ({
             <div className="flexrow2 margin-5">
               <div>
                 <img
-                  className="borderradius50 margin-top-1111"
+                  className="borderradius50 margin-top-1111 margin-right-114"
                   width="16"
                   height="16"
                   src={faviconURL}

@@ -64,7 +64,11 @@ const LinkListItem = ({
           } else {
             let lia = document.createElement("li");
             lia.innerText = "sort"
-            lia.onClick={sort1}
+            let a = document.createElement("a");
+            a.href = "#";
+            a.onClick={sort1}
+            lia.appendChild(a)
+            
             let li0 = document.createElement("li");
             li0.className="lsn"
             li0.innerHTML = `Results: ${data.length} url(s)`;

@@ -75,7 +75,7 @@ const LinkListItem = ({
             let li0 = document.createElement("li");
             li0.className="lsn"
             li0.innerHTML = `Results: ${data.length} url(s)`;
-            ul.appendChild(lia);
+            
             ul.appendChild(li0);
 
             //   let r = document.getElementById("resultsId")

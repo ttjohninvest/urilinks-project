@@ -112,7 +112,7 @@ else {
                 {description}
               </a>
                 
-<span title='click the following link to see an index of clickable urls on the page.'>PAGE URLS SOURCE:<br /><span onClick={()=>getUrlsList(Url,id)} className="ib margin-left-114 cursor-pointer  margin-bottom-114-" title="click to see the clickable available webpage urls.">{Url}</span></span>
+<span className="ib margin-left-114 " title='click the following link to see an index of clickable urls on the page.'>PAGE URLS SOURCE:<br /><span onClick={()=>getUrlsList(Url,id)} className="ib margin-left-114- cursor-pointer" title="click to see the clickable available webpage urls.">{Url}</span></span>
                
              
               

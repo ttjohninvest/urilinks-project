@@ -18,7 +18,6 @@ const LinkListItem = ({
   const myRef = useRef(null);
 
   const [s, setS] = useState(1);
-  const [activeId, setActiveId] = useState(null);
 
   const storeScrollPosition = () => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
@@ -27,9 +26,9 @@ const LinkListItem = ({
   };
 
   const getUrlsList = (url2, id) => {
-    setActiveId(id)
-    //if (s === 1) {
-      //setS(0);
+  
+    if (s === 1) {
+      setS(0);
       const ul = document.getElementById("uldata" + id);
 
       fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
@@ -82,11 +81,11 @@ const LinkListItem = ({
         .catch((error) => {
           console.error("Error:", error);
         });
-    // } else {
-    //   setS(0);
-    //   const ul = document.getElementById("uldata" + id);
-    //   ul.innerHTML = "";
-    // }
+    } else {
+      setS(1);
+      const ul = document.getElementById("uldata" + id);
+      ul.innerHTML = "";
+    }
   };
 
   return (
@@ -142,7 +141,7 @@ const LinkListItem = ({
                 </div>
                
  
-                {activeId === id?<ol id={"uldata" + id} start="0"></ol>:''}
+                <ol id={"uldata" + id} start="0"></ol>
               
                
               </div>

@@ -106,7 +106,7 @@ const LinkListItem = ({
               <div className="padding-left-11 padding-bottom-11 borderRadius4">
                 <div className="flexcol3">
 
-                  <div className="flexrow2wpt">
+                  <div className="flexrow2wpt2">
 
                   
                   <div>

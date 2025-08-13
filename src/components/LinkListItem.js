@@ -106,13 +106,13 @@ else {
                 className="ib nounderline text-size-5 text-color-db"
                 href={Url}
                 target="_self"
-                title={"click to open the home page of the website: "+Url}
+                title={"click to open the webpage: "+Url}
                 onClick={storeScrollPosition}
               >
                 {description}
               </a>
                 
-<span onClick={()=>getUrlsList(Url,id)} className="ib margin-left-114 cursor-pointer" title="click to see the available urls to click on the page.">{Url}</span>
+<span onClick={()=>getUrlsList(Url,id)} className="ib margin-left-114 cursor-pointer" title="click to see the available urls to click on the webpage.">{Url}</span>
                
              
               

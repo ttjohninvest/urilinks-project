@@ -150,7 +150,7 @@ const LinkListItem = ({
                 </div>
                
  {/* <div id="resultsId"></div> */}
-                <ol id={"uldata" + id}></ol>
+                <ol id={"uldata" + id} start="0"></ol>
               
                
               </div>

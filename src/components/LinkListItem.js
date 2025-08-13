@@ -14,7 +14,7 @@ const LinkListItem = ({ id, description, Url, note, amount, createdAt, faviconUR
   const storeScrollPosition = () => {
     window.localStorage.setItem("scrollPosition",window.scrollY)
     // window.localStorage.setItem("scrollY",window.scrollY)
-    //you need to call dispatch(setSetit(false)) here//
+    //you need to call dispatch(setSetit(false)) here////
   }
 
   const getUrlsList = (url2,id) => {

@@ -97,7 +97,7 @@ const LinkListItem = ({
             <div className="flexrow2 margin-5">
               <div>
                 <img
-                  className="borderradius50 margin-top-1111 margin-right-114"
+                  className="borderradius50 margin-top-1111"
                   width="16"
                   height="16"
                   src={faviconURL}
@@ -125,7 +125,7 @@ const LinkListItem = ({
 
                   <div>
                     <span
-                      className="ib margin-left-114 "
+                      className="ib margin-left-114- margin-left-n"
                       title="click the following link to see an index of clickable urls on the page."
                     >
                       PAGE URLS SOURCE:

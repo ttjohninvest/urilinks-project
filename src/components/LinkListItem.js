@@ -75,7 +75,7 @@ const LinkListItem = ({
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
-    setS(1) //makes the other list ready to be displayed
+    //setS(1) //makes the other list ready to be displayed
     const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
     ul.innerHTML=''
     if (data1s.length === 0) {
@@ -112,7 +112,7 @@ const LinkListItem = ({
     if (s === 1) {
       setS(0);
       const ul = document.getElementById("uldata" + id);
-
+      ul.innerHTML = ""
       fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
         method: "POST",
         headers: {

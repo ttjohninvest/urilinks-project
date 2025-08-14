@@ -71,8 +71,8 @@ const LinkListItem = ({
 
     console.log("data1 sorted by name and extension in hostname="+JSON.stringify(data1s),null,4);
     //return data1s //the hostname and its extension is sorted in ascending order
-    setData2s(data1s)
-    setSortit1flag(true) //sortit1flag
+    //setData2s(data1s)
+    //setSortit1flag(true) //sortit1flag
   };
 
   const getUrlsList = (url2, id) => {

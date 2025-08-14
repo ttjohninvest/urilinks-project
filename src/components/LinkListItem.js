@@ -76,7 +76,7 @@ const LinkListItem = ({
   };
 
   const getUrlsList = (url2, id) => {
-    if(sortit1flag===false) {
+    //if(sortit1flag===false) {
     if (s === 1) {
       setS(0);
       const ul = document.getElementById("uldata" + id);
@@ -145,48 +145,48 @@ const LinkListItem = ({
       const ul = document.getElementById("uldata" + id);
       ul.innerHTML = "";
     }
-  } else {
-if (s2 === 1) {
-  setS(1);
-      setS2(0);
-       const ul = document.getElementById("uldata" + id);
-       ul.innerHTML=""
-       if (data2s.length === 0) {
-            let li = document.createElement("li");
-            li.className = "lsn";
-            li.innerHTML = `Results: 0`;
+//   } else {
+// if (s2 === 1) {
+//   setS(1);
+//       setS2(0);
+//        const ul = document.getElementById("uldata" + id);
+//        ul.innerHTML=""
+//        if (data2s.length === 0) {
+//             let li = document.createElement("li");
+//             li.className = "lsn";
+//             li.innerHTML = `Results: 0`;
 
-            ul.appendChild(li);
+//             ul.appendChild(li);
 
-          } else {
+//           } else {
            
 
-            let li0 = document.createElement("li");
-            li0.className = "lsn";
-            li0.innerHTML = `Results: ${data2s.length} url(s)`;
+//             let li0 = document.createElement("li");
+//             li0.className = "lsn";
+//             li0.innerHTML = `Results: ${data2s.length} url(s)`;
 
-            ul.appendChild(li0);
+//             ul.appendChild(li0);
 
-            data2s.map((url) => {
-              let li = document.createElement("li");
-              let a = document.createElement("a");
-              a.href = data2s.url;
-              a.target = "_blank";
-              a.innerHTML = `${data2s.url}`;
+//             data2s.map((url) => {
+//               let li = document.createElement("li");
+//               let a = document.createElement("a");
+//               a.href = data2s.url;
+//               a.target = "_blank";
+//               a.innerHTML = `${data2s.url}`;
 
-              li.appendChild(a);
+//               li.appendChild(a);
 
-              ul.appendChild(li);
-            });
-          }
+//               ul.appendChild(li);
+//             });
+//           }
 
-}
-else {
-      setS2(1);
-      const ul = document.getElementById("uldata" + id);
-      ul.innerHTML = "";
-    }
-  }
+// }
+// else {
+//       setS2(1);
+//       const ul = document.getElementById("uldata" + id);
+//       ul.innerHTML = "";
+//     }
+//   }
   };
 
   return (

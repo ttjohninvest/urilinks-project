@@ -26,12 +26,25 @@ const LinkListItem = ({
     //you need to call dispatch(setSetit(false)) here////
   };
 
-  const sortit1=(event)=>{
-    console.log('Button was clicked, event.currentTarget.data.length='+event.currentTarget.data.length);
-  }
+  const sortit1 = (event) => {
+    console.log(
+      "Button was clicked, event.currentTarget.data.length=" +
+        event.currentTarget.data.length
+    );
+    let url
+    for(let i = 0; i<event.currentTarget.data.length;i++) {
+       url = new URL(event.currentTarget.data[i]);
+       console.log(url.protocol); // "https:"
+console.log(url.hostname); // "www.example.com"
+console.log(url.port);     // "8080"
+console.log(url.pathname); // "/path/to/page"
+console.log(url.search);   // "?query=string"
+console.log(url.hash);     // "#fragment"
+console.log("")
+    }
+  };
 
   const getUrlsList = (url2, id) => {
-  
     if (s === 1) {
       setS(0);
       const ul = document.getElementById("uldata" + id);
@@ -51,10 +64,10 @@ const LinkListItem = ({
           return response.json();
         })
         .then((data) => {
-          setData(data)
+          setData(data);
           if (data.length === 0) {
             let li = document.createElement("li");
-             li.className="lsn"
+            li.className = "lsn";
             li.innerHTML = `Results: 0`;
 
             ul.appendChild(li);
@@ -62,26 +75,23 @@ const LinkListItem = ({
             //  let r = document.getElementById("resultsId")
             // r.innerHTML = `Results: ${data.length} url(s)`;
           } else {
-            
             let span = document.createElement("span");
-            span.innerHTML="sort"
-            //a.href = "#";
-            span.data = data
-//             span.addEventListener('click', function(event) {
-//     console.log('Button was clicked!'+event.currentTarget.data.length);
-// });
- span.addEventListener('click', sortit1);
-            ul.appendChild(span)
+            span.innerHTML = "sort";
+            span.className = "cursor-pointer"
+            span.data = data;
             
+            span.addEventListener("click", sortit1);
+            ul.appendChild(span);
+
             let li0 = document.createElement("li");
-            li0.className="lsn"
+            li0.className = "lsn";
             li0.innerHTML = `Results: ${data.length} url(s)`;
-            
+
             ul.appendChild(li0);
 
             //   let r = document.getElementById("resultsId")
             // r.innerHTML = `Results: ${data.length} url(s)`;
-            
+
             data.map((url) => {
               let li = document.createElement("li");
               let a = document.createElement("a");
@@ -121,23 +131,20 @@ const LinkListItem = ({
               </div>
               <div className="padding-left-11 padding-bottom-11 borderRadius4">
                 <div className="flexcol3">
-
                   <div className="flexrow2wpt2-">
-
-                  
-                  <div>
-                    <a
-                      ref={myRef}
-                      className="ib nounderline text-size-5 text-color-db margin-bottom-114"
-                      href={Url}
-                      target="_self"
-                      title={"click to open the webpage: " + Url}
-                      onClick={storeScrollPosition}
-                    >
-                      To page: {description}
-                    </a>
-                  </div> 
-          </div>
+                    <div>
+                      <a
+                        ref={myRef}
+                        className="ib nounderline text-size-5 text-color-db margin-bottom-114"
+                        href={Url}
+                        target="_self"
+                        title={"click to open the webpage: " + Url}
+                        onClick={storeScrollPosition}
+                      >
+                        To page: {description}
+                      </a>
+                    </div>
+                  </div>
 
                   <div>
                     <span
@@ -156,11 +163,8 @@ const LinkListItem = ({
                     </span>
                   </div>
                 </div>
-               
- 
+
                 <ol id={"uldata" + id} start="0"></ol>
-              
-               
               </div>
             </div>
           </div>

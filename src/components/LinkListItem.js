@@ -98,7 +98,7 @@ const LinkListItem = ({
               let a = document.createElement("a");
               a.href = d.url;
               a.target = "_blank";
-              a.innerHTML = `${d.url}`;
+              a.innerHTML = `${d.name+", "+d.url}`;
 
               li.appendChild(a);
 

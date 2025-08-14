@@ -228,7 +228,7 @@ const sortit2 = (event) => {
             // r.innerHTML = `Results: ${data.length} url(s)`;
           } else {
             let span = document.createElement("span");
-            span.innerHTML = "sort";
+            span.innerHTML = "sort1";
             span.className = "cursor-pointer";
             let obj = {
               data:data,
@@ -242,7 +242,7 @@ const sortit2 = (event) => {
 
             let span2 = document.createElement("span");
             span2.innerHTML = "sort2";
-            span.className = "cursor-pointer";
+            span2.className = "cursor-pointer";
             let obj2 = {
               data:data,
               id:id
@@ -250,7 +250,7 @@ const sortit2 = (event) => {
             //span.data = data;
             span2.obj = obj2;
 
-            span.addEventListener("click", sortit2);
+            span2.addEventListener("click", sortit2);
             ul.appendChild(span2);
 
             let li0 = document.createElement("li");

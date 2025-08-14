@@ -57,7 +57,7 @@ const LinkListItem = ({
     //data1 is ready here
     console.log("data1="+JSON.stringify(data1))
     console.log()
-    console.log("data1 sorted by name and extension in hostname="+JSON.stringify(data1.sort((a, b) => a.name.value - b.name.value)),null,4);
+    console.log("data1 sorted by name and extension in hostname="+JSON.stringify(data1.sort((a, b) => a.name.value - b.name.value),null,4));
   };
 
   const getUrlsList = (url2, id) => {

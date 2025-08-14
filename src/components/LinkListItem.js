@@ -21,7 +21,7 @@ const LinkListItem = ({
   const [s2, setS2] = useState(1);
   const [data, setData] = useState([]);
   const [data2s, setData2s] = useState([]);
-   const [sortit1flag, setSortit1flag] = useState([]);
+  const [sortit1flag, setSortit1flag] = useState([]);
 
   const storeScrollPosition = () => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
@@ -30,17 +30,19 @@ const LinkListItem = ({
   };
 
   const sortit1 = (event) => {
-    
     console.log(
       "Button was clicked, event.currentTarget.data.length=" +
         event.currentTarget.data.length
     );
     let url;
-    let data1=[]
-    let ndata=[]
+    let data1 = [];
+    let ndata = [];
     for (let i = 0; i < event.currentTarget.data.length; i++) {
       url = new URL(event.currentTarget.data[i]);
-      let name = new URL(event.currentTarget.data[i]).hostname.split('.').slice(-2).join('.')
+      let name = new URL(event.currentTarget.data[i]).hostname
+        .split(".")
+        .slice(-2)
+        .join(".");
       // console.log("url.protocol="+url.protocol); // "https:"
       // console.log("url.hostname="+url.hostname); // "www.example.com"
       // console.log("url.port="+url.port); // "8080"
@@ -49,28 +51,29 @@ const LinkListItem = ({
       // console.log("url.hash="+url.hash); // "#fragment"
       // console.log("-----------------------------------------------------------------------------");
       ndata = {
-        hostname:url.hostname,
-        name:name,
-        pathname:url.pathname,
-        url:url
-      }
-      data1.push(ndata)
-      
-
+        hostname: url.hostname,
+        name: name,
+        pathname: url.pathname,
+        url: url,
+      };
+      data1.push(ndata);
     }
     //data1 is ready here
-//     array.sort((a, b) => a.name.localeCompare(b.name));
+    //     array.sort((a, b) => a.name.localeCompare(b.name));
 
-// For descending order, reverse the arguments:
+    // For descending order, reverse the arguments:
 
-// array.sort((a, b) => b.name.localeCompare(a.name));
-// console.log("data1="+JSON.stringify(data1))
-// console.log()
+    // array.sort((a, b) => b.name.localeCompare(a.name));
+    // console.log("data1="+JSON.stringify(data1))
+    // console.log()
 
-    let data1s = data1.sort((a, b) => a.name.localeCompare(b.name))
+    let data1s = data1.sort((a, b) => a.name.localeCompare(b.name));
 
-    console.log("data1 sorted by name and extension in hostname="+JSON.stringify(data1s),null,4);
-    //return data1s //the hostname and its extension is sorted in ascending order
+    console.log(
+      "data1 sorted by name and extension in hostname=" +
+        JSON.stringify(data1s,null,4)
+     
+    );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
   };
@@ -145,48 +148,47 @@ const LinkListItem = ({
       const ul = document.getElementById("uldata" + id);
       ul.innerHTML = "";
     }
-//   } else {
-// if (s2 === 1) {
-//   setS(1);
-//       setS2(0);
-//        const ul = document.getElementById("uldata" + id);
-//        ul.innerHTML=""
-//        if (data2s.length === 0) {
-//             let li = document.createElement("li");
-//             li.className = "lsn";
-//             li.innerHTML = `Results: 0`;
+    //   } else {
+    // if (s2 === 1) {
+    //   setS(1);
+    //       setS2(0);
+    //        const ul = document.getElementById("uldata" + id);
+    //        ul.innerHTML=""
+    //        if (data2s.length === 0) {
+    //             let li = document.createElement("li");
+    //             li.className = "lsn";
+    //             li.innerHTML = `Results: 0`;
 
-//             ul.appendChild(li);
+    //             ul.appendChild(li);
 
-//           } else {
-           
+    //           } else {
 
-//             let li0 = document.createElement("li");
-//             li0.className = "lsn";
-//             li0.innerHTML = `Results: ${data2s.length} url(s)`;
+    //             let li0 = document.createElement("li");
+    //             li0.className = "lsn";
+    //             li0.innerHTML = `Results: ${data2s.length} url(s)`;
 
-//             ul.appendChild(li0);
+    //             ul.appendChild(li0);
 
-//             data2s.map((url) => {
-//               let li = document.createElement("li");
-//               let a = document.createElement("a");
-//               a.href = data2s.url;
-//               a.target = "_blank";
-//               a.innerHTML = `${data2s.url}`;
+    //             data2s.map((url) => {
+    //               let li = document.createElement("li");
+    //               let a = document.createElement("a");
+    //               a.href = data2s.url;
+    //               a.target = "_blank";
+    //               a.innerHTML = `${data2s.url}`;
 
-//               li.appendChild(a);
+    //               li.appendChild(a);
 
-//               ul.appendChild(li);
-//             });
-//           }
+    //               ul.appendChild(li);
+    //             });
+    //           }
 
-// }
-// else {
-//       setS2(1);
-//       const ul = document.getElementById("uldata" + id);
-//       ul.innerHTML = "";
-//     }
-//   }
+    // }
+    // else {
+    //       setS2(1);
+    //       const ul = document.getElementById("uldata" + id);
+    //       ul.innerHTML = "";
+    //     }
+    //   }
   };
 
   return (

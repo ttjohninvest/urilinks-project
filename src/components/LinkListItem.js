@@ -31,15 +31,15 @@ const LinkListItem = ({
 
   const sortit1 = (event) => {
     console.log(
-      "Button was clicked, event.currentTarget.data.length=" +
-        event.currentTarget.data.length
+      "Button was clicked, event.currentTarget.obj.data.length=" +
+        event.currentTarget.obj.data.length
     );
     let url;
     let data1 = [];
     let ndata = [];
-    for (let i = 0; i < event.currentTarget.data.length; i++) {
-      url = new URL(event.currentTarget.data[i]);
-      let name = new URL(event.currentTarget.data[i]).hostname
+    for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
+      url = new URL(event.currentTarget.obj.data[i]);
+      let name = new URL(event.currentTarget.obj.data[i]).hostname
         .split(".")
         .slice(-2)
         .join(".");
@@ -72,13 +72,12 @@ const LinkListItem = ({
     console.log(
       "data1 sorted by name and extension in hostname=" +
         JSON.stringify(data1s,null,4)
-     
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
-
-    const ul = document.getElementById("uldata" + id);
-ul.innerHTML=''
+    setS(1) //makes the other list ready to be displayed
+    const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+    ul.innerHTML=''
     if (data1s.length === 0) {
             let li = document.createElement("li");
             li.className = "lsn";
@@ -88,22 +87,18 @@ ul.innerHTML=''
 
           } else {
            
-
             let li0 = document.createElement("li");
             li0.className = "lsn";
             li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
             ul.appendChild(li0);
 
-            //   let r = document.getElementById("resultsId")
-            // r.innerHTML = `Results: ${data.length} url(s)`;
-
-            data1s.map((url) => {
+            data1s.map((d) => {
               let li = document.createElement("li");
               let a = document.createElement("a");
-              a.href = data1s.url;
+              a.href = d.url;
               a.target = "_blank";
-              a.innerHTML = `${data1s.url}`;
+              a.innerHTML = `${d.url}`;
 
               li.appendChild(a);
 
@@ -147,7 +142,12 @@ ul.innerHTML=''
             let span = document.createElement("span");
             span.innerHTML = "sort";
             span.className = "cursor-pointer";
-            span.data = data;
+            let obj = {
+              data:data,
+              id:id
+            }
+            //span.data = data;
+            span.obj = obj;
 
             span.addEventListener("click", sortit1);
             ul.appendChild(span);
@@ -157,9 +157,6 @@ ul.innerHTML=''
             li0.innerHTML = `Results: ${data.length} url(s)`;
 
             ul.appendChild(li0);
-
-            //   let r = document.getElementById("resultsId")
-            // r.innerHTML = `Results: ${data.length} url(s)`;
 
             data.map((url) => {
               let li = document.createElement("li");

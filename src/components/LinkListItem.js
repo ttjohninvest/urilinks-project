@@ -392,7 +392,7 @@ const sortit2 = (event) => {
             // r.innerHTML = `Results: ${data.length} url(s)`;
           } else {
             let span = document.createElement("span");
-            span.innerHTML = "sort1";
+            span.innerHTML = "sort1a";
             span.className = "ib cursor-pointer";
             span.title="sorts in ascending order on the name and extension in the domain name"
             let obj = {
@@ -406,7 +406,7 @@ const sortit2 = (event) => {
             ul.appendChild(span);
 
             let span2 = document.createElement("span");
-            span2.innerHTML = "sort2";
+            span2.innerHTML = "sort2a";
             span2.className = "ib margin-left-11 cursor-pointer";
             span2.title="sorts in ascending order on the name, extension and the pathname in the full url"
             let obj2 = {
@@ -420,7 +420,7 @@ const sortit2 = (event) => {
             ul.appendChild(span2);
 
             let span4 = document.createElement("span");
-            span4.innerHTML = "sort3";
+            span4.innerHTML = "sort3d";
             span4.className = "ib margin-left-11 cursor-pointer";
             span4.title="sorts in descending order on the name and extension in the domain name"
             let obj4 = {
@@ -434,7 +434,7 @@ const sortit2 = (event) => {
             ul.appendChild(span4);
 
             let span3 = document.createElement("span");
-            span3.innerHTML = "sort4";
+            span3.innerHTML = "sort4d";
             span3.className = "ib margin-left-11 cursor-pointer";
             span3.title="sorts in descending order on the name, extension and the pathname in the full url"
             let obj3 = {

@@ -229,7 +229,8 @@ const sortit2 = (event) => {
           } else {
             let span = document.createElement("span");
             span.innerHTML = "sort1";
-            span.className = "cursor-pointer";
+            span.className = "ib cursor-pointer";
+            span.title="sorts in ascending order on the name and extension in the domain name"
             let obj = {
               data:data,
               id:id
@@ -242,7 +243,8 @@ const sortit2 = (event) => {
 
             let span2 = document.createElement("span");
             span2.innerHTML = "sort2";
-            span2.className = "cursor-pointer";
+            span2.className = "ib margin-left-11 cursor-pointer";
+            span2.title="sorts in ascending order on the name, extension and the pathname in the full url"
             let obj2 = {
               data:data,
               id:id

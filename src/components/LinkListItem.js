@@ -76,6 +76,40 @@ const LinkListItem = ({
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
+
+    const ul = document.getElementById("uldata" + id);
+ul.innerHTML=''
+    if (data1s.length === 0) {
+            let li = document.createElement("li");
+            li.className = "lsn";
+            li.innerHTML = `Results: 0`;
+
+            ul.appendChild(li);
+
+          } else {
+           
+
+            let li0 = document.createElement("li");
+            li0.className = "lsn";
+            li0.innerHTML = `Results: ${data1s.length} url(s)`;
+
+            ul.appendChild(li0);
+
+            //   let r = document.getElementById("resultsId")
+            // r.innerHTML = `Results: ${data.length} url(s)`;
+
+            data1s.map((url) => {
+              let li = document.createElement("li");
+              let a = document.createElement("a");
+              a.href = data1s.url;
+              a.target = "_blank";
+              a.innerHTML = `${data1s.url}`;
+
+              li.appendChild(a);
+
+              ul.appendChild(li);
+            });
+          }
   };
 
   const getUrlsList = (url2, id) => {

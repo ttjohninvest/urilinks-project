@@ -32,16 +32,27 @@ const LinkListItem = ({
         event.currentTarget.data.length
     );
     let url;
+    let data1=[]
+    let ndata=[]
     for (let i = 0; i < event.currentTarget.data.length; i++) {
       url = new URL(event.currentTarget.data[i]);
-      console.log("url.protocol="+url.protocol); // "https:"
-      console.log("url.hostname="+url.hostname); // "www.example.com"
-      console.log("url.port="+url.port); // "8080"
-      console.log("url.pathname="+url.pathname); // "/path/to/page"
-      console.log("url.search="+url.search); // "?query=string"
-      console.log("url.hash="+url.hash); // "#fragment"
-      console.log("-----------------------------------------------------------------------------");
+      // console.log("url.protocol="+url.protocol); // "https:"
+      // console.log("url.hostname="+url.hostname); // "www.example.com"
+      // console.log("url.port="+url.port); // "8080"
+      // console.log("url.pathname="+url.pathname); // "/path/to/page"
+      // console.log("url.search="+url.search); // "?query=string"
+      // console.log("url.hash="+url.hash); // "#fragment"
+      // console.log("-----------------------------------------------------------------------------");
+      ndata = {
+        hostname:url.hostname,
+        pathname:url.pathname,
+        url:url
+      }
+      data1.push(ndata)
+
     }
+    //data1 is ready here
+    console.log("data1="+JSON.stringify(data1))
   };
 
   const getUrlsList = (url2, id) => {

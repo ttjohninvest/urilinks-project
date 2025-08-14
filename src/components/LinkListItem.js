@@ -195,6 +195,170 @@ const sortit2 = (event) => {
           }
   };
 
+  const sortit3 = (event) => {
+    console.log(
+      "Button was clicked, event.currentTarget.obj.data.length=" +
+        event.currentTarget.obj.data.length
+    );
+    let url;
+    let data1 = [];
+    let ndata = [];
+    for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
+      url = new URL(event.currentTarget.obj.data[i]);
+      let name = new URL(event.currentTarget.obj.data[i]).hostname
+        .split(".")
+        .slice(-2)
+        .join(".");
+      // console.log("url.protocol="+url.protocol); // "https:"
+      // console.log("url.hostname="+url.hostname); // "www.example.com"
+      // console.log("url.port="+url.port); // "8080"
+      // console.log("url.pathname="+url.pathname); // "/path/to/page"
+      // console.log("url.search="+url.search); // "?query=string"
+      // console.log("url.hash="+url.hash); // "#fragment"
+      // console.log("-----------------------------------------------------------------------------");
+      ndata = {
+        hostname: url.hostname,
+        name: name,
+        pathname: url.pathname,
+        url: url,
+      };
+      data1.push(ndata);
+    }
+    //data1 is ready here
+    //     array.sort((a, b) => a.name.localeCompare(b.name));
+
+    // For descending order, reverse the arguments:
+
+    // array.sort((a, b) => b.name.localeCompare(a.name));
+    // console.log("data1="+JSON.stringify(data1))
+    // console.log()
+
+    //let data1s = data1.sort((a, b) => a.name.localeCompare(b.name));
+      let data1s = data1.sort((a, b) => {
+  // Compare by name first
+  if (a.name !== b.name) {
+    return b.name.localeCompare(a.name);
+  }
+  // If names are equal, compare by department
+  return b.pathname.localeCompare(a.pathname);
+});
+
+    console.log(
+      "data1 sorted by two fields name and pathname=" +
+        JSON.stringify(data1s,null,4)
+    );
+    //setData2s(data1s)
+    //setSortit1flag(true) //sortit1flag
+    //setS(1) //makes the other list ready to be displayed
+    const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+    ul.innerHTML=''
+    if (data1s.length === 0) {
+            let li = document.createElement("li");
+            li.className = "lsn";
+            li.innerHTML = `Results: 0`;
+
+            ul.appendChild(li);
+
+          } else {
+           
+            let li0 = document.createElement("li");
+            li0.className = "lsn";
+            li0.innerHTML = `Results: ${data1s.length} url(s)`;
+
+            ul.appendChild(li0);
+
+            data1s.map((d) => {
+              let li = document.createElement("li");
+              let a = document.createElement("a");
+              a.href = d.url;
+              a.target = "_blank";
+              a.innerHTML = `${d.name+", "+d.url}`;
+
+              li.appendChild(a);
+
+              ul.appendChild(li);
+            });
+          }
+  };
+
+  const sortit4 = (event) => {
+    console.log(
+      "Button was clicked, event.currentTarget.obj.data.length=" +
+        event.currentTarget.obj.data.length
+    );
+    let url;
+    let data1 = [];
+    let ndata = [];
+    for (let i = 0; i < event.currentTarget.obj.data.length; i++) {
+      url = new URL(event.currentTarget.obj.data[i]);
+      let name = new URL(event.currentTarget.obj.data[i]).hostname
+        .split(".")
+        .slice(-2)
+        .join(".");
+      // console.log("url.protocol="+url.protocol); // "https:"
+      // console.log("url.hostname="+url.hostname); // "www.example.com"
+      // console.log("url.port="+url.port); // "8080"
+      // console.log("url.pathname="+url.pathname); // "/path/to/page"
+      // console.log("url.search="+url.search); // "?query=string"
+      // console.log("url.hash="+url.hash); // "#fragment"
+      // console.log("-----------------------------------------------------------------------------");
+      ndata = {
+        hostname: url.hostname,
+        name: name,
+        pathname: url.pathname,
+        url: url,
+      };
+      data1.push(ndata);
+    }
+    //data1 is ready here
+    //     array.sort((a, b) => a.name.localeCompare(b.name));
+
+    // For descending order, reverse the arguments:
+
+    // array.sort((a, b) => b.name.localeCompare(a.name));
+    // console.log("data1="+JSON.stringify(data1))
+    // console.log()
+
+    let data1s = data1.sort((a, b) => b.name.localeCompare(a.name));
+
+    console.log(
+      "data1 sorted by name and extension in hostname=" +
+        JSON.stringify(data1s,null,4)
+    );
+    //setData2s(data1s)
+    //setSortit1flag(true) //sortit1flag
+    //setS(1) //makes the other list ready to be displayed
+    const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+    ul.innerHTML=''
+    if (data1s.length === 0) {
+            let li = document.createElement("li");
+            li.className = "lsn";
+            li.innerHTML = `Results: 0`;
+
+            ul.appendChild(li);
+
+          } else {
+           
+            let li0 = document.createElement("li");
+            li0.className = "lsn";
+            li0.innerHTML = `Results: ${data1s.length} url(s)`;
+
+            ul.appendChild(li0);
+
+            data1s.map((d) => {
+              let li = document.createElement("li");
+              let a = document.createElement("a");
+              a.href = d.url;
+              a.target = "_blank";
+              a.innerHTML = `${d.name+", "+d.url}`;
+
+              li.appendChild(a);
+
+              ul.appendChild(li);
+            });
+          }
+  };
+
   const getUrlsList = (url2, id) => {
     
     if (s === 1) {
@@ -254,6 +418,39 @@ const sortit2 = (event) => {
 
             span2.addEventListener("click", sortit2);
             ul.appendChild(span2);
+
+            let span4 = document.createElement("span");
+            span4.innerHTML = "sort3";
+            span4.className = "ib margin-left-11 cursor-pointer";
+            span4.title="sorts in ascending order on the name, extension and the pathname in the full url"
+            let obj4 = {
+              data:data,
+              id:id
+            }
+            //span.data = data;
+            span4.obj = obj4;
+
+            span4.addEventListener("click", sortit4);
+            ul.appendChild(span4);
+
+            let span3 = document.createElement("span");
+            span3.innerHTML = "sort4";
+            span3.className = "ib margin-left-11 cursor-pointer";
+            span3.title="sorts in descending order on the name, extension and the pathname in the full url"
+            let obj3 = {
+              data:data,
+              id:id
+            }
+            //span.data = data;
+            span3.obj = obj3;
+
+            span3.addEventListener("click", sortit3);
+            ul.appendChild(span3);
+
+
+            
+
+
 
             let li0 = document.createElement("li");
             li0.className = "lsn";

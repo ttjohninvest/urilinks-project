@@ -31,16 +31,16 @@ const LinkListItem = ({
       "Button was clicked, event.currentTarget.data.length=" +
         event.currentTarget.data.length
     );
-    let url
-    for(let i = 0; i<event.currentTarget.data.length;i++) {
-       url = new URL(event.currentTarget.data[i]);
-       console.log(url.protocol); // "https:"
-console.log(url.hostname); // "www.example.com"
-console.log(url.port);     // "8080"
-console.log(url.pathname); // "/path/to/page"
-console.log(url.search);   // "?query=string"
-console.log(url.hash);     // "#fragment"
-console.log("")
+    let url;
+    for (let i = 0; i < event.currentTarget.data.length; i++) {
+      url = new URL(event.currentTarget.data[i]);
+      console.log("url.protocol="+url.protocol); // "https:"
+      console.log("url.hostname="+url.hostname); // "www.example.com"
+      console.log("url.port="+url.port); // "8080"
+      console.log("url.pathname="+url.pathname); // "/path/to/page"
+      console.log("url.search="+url.search); // "?query=string"
+      console.log("url.hash="+url.hash); // "#fragment"
+      console.log("-----------------------------------------------------------------------------");
     }
   };
 
@@ -77,9 +77,9 @@ console.log("")
           } else {
             let span = document.createElement("span");
             span.innerHTML = "sort";
-            span.className = "cursor-pointer"
+            span.className = "cursor-pointer";
             span.data = data;
-            
+
             span.addEventListener("click", sortit1);
             ul.appendChild(span);
 

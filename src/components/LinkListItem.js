@@ -36,6 +36,7 @@ const LinkListItem = ({
     let ndata=[]
     for (let i = 0; i < event.currentTarget.data.length; i++) {
       url = new URL(event.currentTarget.data[i]);
+      let name = URI.parse(url.hostname).host.split('.').last(2).join('.')
       // console.log("url.protocol="+url.protocol); // "https:"
       // console.log("url.hostname="+url.hostname); // "www.example.com"
       // console.log("url.port="+url.port); // "8080"
@@ -45,6 +46,7 @@ const LinkListItem = ({
       // console.log("-----------------------------------------------------------------------------");
       ndata = {
         hostname:url.hostname,
+        name:name,
         pathname:url.pathname,
         url:url
       }
@@ -54,7 +56,8 @@ const LinkListItem = ({
     }
     //data1 is ready here
     console.log("data1="+JSON.stringify(data1))
-    console.log("data1 sorted by hostname="+JSON.stringify(data1.sort((a, b) => a.hostname.value - b.hostname.value)));
+    console.log()
+    console.log("data1 sorted by name and extension in hostname="+JSON.stringify(data1.sort((a, b) => a.name.value - b.name.value)));
   };
 
   const getUrlsList = (url2, id) => {

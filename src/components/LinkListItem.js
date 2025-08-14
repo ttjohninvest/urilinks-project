@@ -422,7 +422,7 @@ const sortit2 = (event) => {
             let span4 = document.createElement("span");
             span4.innerHTML = "sort3";
             span4.className = "ib margin-left-11 cursor-pointer";
-            span4.title="sorts in ascending order on the name, extension and the pathname in the full url"
+            span4.title="sorts in descending order on the name and extension in the domain name"
             let obj4 = {
               data:data,
               id:id

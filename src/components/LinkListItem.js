@@ -18,7 +18,10 @@ const LinkListItem = ({
   const myRef = useRef(null);
 
   const [s, setS] = useState(1);
+  const [s2, setS2] = useState(1);
   const [data, setData] = useState([]);
+  const [data2s, setData2s] = useState([]);
+   const [sortit1flag, setSortit1flag] = useState([]);
 
   const storeScrollPosition = () => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
@@ -27,6 +30,7 @@ const LinkListItem = ({
   };
 
   const sortit1 = (event) => {
+    
     console.log(
       "Button was clicked, event.currentTarget.data.length=" +
         event.currentTarget.data.length
@@ -60,13 +64,19 @@ const LinkListItem = ({
 // For descending order, reverse the arguments:
 
 // array.sort((a, b) => b.name.localeCompare(a.name));
-    console.log("data1="+JSON.stringify(data1))
-    console.log()
-    console.log("data1 sorted by name and extension in hostname="+JSON.stringify(data1.sort((a, b) => 
-      a.name.localeCompare(b.name)),null,4));
+// console.log("data1="+JSON.stringify(data1))
+// console.log()
+
+    let data1s = data1.sort((a, b) => a.name.localeCompare(b.name))
+
+    console.log("data1 sorted by name and extension in hostname="+JSON.stringify(data1s),null,4);
+    //return data1s //the hostname and its extension is sorted in ascending order
+    setData2s(data1s)
+    setSortit1flag(true) //sortit1flag
   };
 
   const getUrlsList = (url2, id) => {
+    if(sortit1flag===false) {
     if (s === 1) {
       setS(0);
       const ul = document.getElementById("uldata" + id);
@@ -135,6 +145,48 @@ const LinkListItem = ({
       const ul = document.getElementById("uldata" + id);
       ul.innerHTML = "";
     }
+  } else {
+if (s2 === 1) {
+  setS(1);
+      setS2(0);
+       const ul = document.getElementById("uldata" + id);
+       ul.innerHTML=""
+       if (data2s.length === 0) {
+            let li = document.createElement("li");
+            li.className = "lsn";
+            li.innerHTML = `Results: 0`;
+
+            ul.appendChild(li);
+
+          } else {
+           
+
+            let li0 = document.createElement("li");
+            li0.className = "lsn";
+            li0.innerHTML = `Results: ${data2s.length} url(s)`;
+
+            ul.appendChild(li0);
+
+            data2s.map((url) => {
+              let li = document.createElement("li");
+              let a = document.createElement("a");
+              a.href = data2s.url;
+              a.target = "_blank";
+              a.innerHTML = `${data2s.url}`;
+
+              li.appendChild(a);
+
+              ul.appendChild(li);
+            });
+          }
+
+}
+else {
+      setS2(1);
+      const ul = document.getElementById("uldata" + id);
+      ul.innerHTML = "";
+    }
+  }
   };
 
   return (

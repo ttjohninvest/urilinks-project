@@ -143,7 +143,7 @@ const LinkListItem = ({
         for (let i = 0; i < pathnamearray.length; i++) {
           if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
-            a3.title=`click to search for ${pathnamearray[i + 1]} with google.com`
+            a3.title=`click to search for ${pathnamearray[i + 1]}`
             a3.className="nounderline"
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
@@ -249,7 +249,7 @@ const LinkListItem = ({
         for (let i = 0; i < pathnamearray.length; i++) {
           if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
-            a3.title=`click to search for ${pathnamearray[i + 1]} with google.com`
+            a3.title=`click to search for ${pathnamearray[i + 1]}`
             a3.className="nounderline"
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
@@ -377,7 +377,7 @@ const LinkListItem = ({
         for (let i = 0; i < pathnamearray.length; i++) {
           if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
-            a3.title=`click to search for ${pathnamearray[i + 1]} with google.com`
+            a3.title=`click to search for ${pathnamearray[i + 1]}`
             a3.className="nounderline"
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
@@ -479,7 +479,7 @@ const LinkListItem = ({
         for (let i = 0; i < pathnamearray.length; i++) {
           if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
-            a3.title=`click to search for ${pathnamearray[i + 1]} with google.com`
+            a3.title=`click to search for ${pathnamearray[i + 1]}`
             a3.className="nounderline"
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";

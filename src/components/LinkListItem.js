@@ -140,7 +140,7 @@ const LinkListItem = ({
             let a3 = document.createElement("a");
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
-            a3.innerHTML = `,${pathnamearray[i + 1]}`;
+            a3.innerHTML = `,  ${pathnamearray[i + 1]}`;
             span2.appendChild(a3);
           }
         }
@@ -240,7 +240,7 @@ const LinkListItem = ({
             let a3 = document.createElement("a");
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
-            a3.innerHTML = `,${pathnamearray[i + 1]}`;
+            a3.innerHTML = `,  ${pathnamearray[i + 1]}`;
             span2.appendChild(a3);
           }
         }
@@ -362,7 +362,7 @@ const LinkListItem = ({
             let a3 = document.createElement("a");
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
-            a3.innerHTML = `,${pathnamearray[i + 1]}`;
+            a3.innerHTML = `,  ${pathnamearray[i + 1]}`;
             span2.appendChild(a3);
           }
         }
@@ -458,7 +458,7 @@ const LinkListItem = ({
             let a3 = document.createElement("a");
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
-            a3.innerHTML = `,${pathnamearray[i + 1]}`;
+            a3.innerHTML = `,  ${pathnamearray[i + 1]}`;
             span2.appendChild(a3);
           }
         }

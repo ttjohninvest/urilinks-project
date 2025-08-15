@@ -589,6 +589,7 @@ const LinkListItem = ({
               // console.log("urlstruct.hash="+urlstruct.hash); // "#fragment"
               let li = document.createElement("li");
               let a = document.createElement("a");
+              a.className="nounderline"
               a.href = url;
               a.target = "_blank";
               a.innerHTML = `${url}`;

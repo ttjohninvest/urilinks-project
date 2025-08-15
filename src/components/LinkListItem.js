@@ -668,7 +668,7 @@ const LinkListItem = ({
                       <span
                         onClick={() => getUrlsList(Url, id)}
                         className="ib cursor-pointer margin-left-114"
-                        title="click to see the clickable available page urls."
+                        title="click to see the clickable page urls from the above page"
                       >
                         To List: {Url}
                         {/*To list: {Url}*/}

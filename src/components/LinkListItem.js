@@ -642,7 +642,7 @@ const LinkListItem = ({
                         className="ib cursor-pointer margin-left-114"
                         title="click to see the clickable available webpage urls."
                       >
-                        To List: {description+":"+Url}
+                        To List: {Url}
                         {/*To list: {Url}*/}
                       </span>
                     </span>

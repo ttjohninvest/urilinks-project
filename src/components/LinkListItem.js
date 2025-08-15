@@ -516,7 +516,7 @@ const LinkListItem = ({
             span.innerHTML = "sort1a";
             span.className = "ib cursor-pointer";
             span.title =
-              "sorts in ascending order on the name and extension in the domain name";
+              "click to sort in ascending order on the name and extension in the domain name";
             let obj = {
               data: data,
               id: id,
@@ -531,7 +531,7 @@ const LinkListItem = ({
             span2.innerHTML = "sort2a";
             span2.className = "ib margin-left-11 cursor-pointer";
             span2.title =
-              "sorts in ascending order on the name, extension and the pathname in the full url";
+              "click to sort in ascending order on the name, extension and the pathname in the full url";
             let obj2 = {
               data: data,
               id: id,
@@ -546,7 +546,7 @@ const LinkListItem = ({
             span4.innerHTML = "sort3d";
             span4.className = "ib margin-left-11 cursor-pointer";
             span4.title =
-              "sorts in descending order on the name and extension in the domain name";
+              "click to sort in descending order on the name and extension in the domain name";
             let obj4 = {
               data: data,
               id: id,
@@ -561,7 +561,7 @@ const LinkListItem = ({
             span3.innerHTML = "sort4d";
             span3.className = "ib margin-left-11 cursor-pointer";
             span3.title =
-              "sorts in descending order on the name, extension and the pathname in the full url";
+              "click to sort in descending order on the name, extension and the pathname in the full url";
             let obj3 = {
               data: data,
               id: id,

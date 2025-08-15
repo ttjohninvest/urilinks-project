@@ -29,9 +29,7 @@ const LinkListItem = ({
     //you need to call dispatch(setSetit(false)) here////
   };
 
-
-
-const sortit2 = (event) => {
+  const sortit2 = (event) => {
     console.log(
       "Button was clicked, event.currentTarget.obj.data.length=" +
         event.currentTarget.obj.data.length
@@ -70,51 +68,49 @@ const sortit2 = (event) => {
     // console.log()
 
     //let data1s = data1.sort((a, b) => a.name.localeCompare(b.name));
-      let data1s = data1.sort((a, b) => {
-  // Compare by name first
-  if (a.name !== b.name) {
-    return a.name.localeCompare(b.name);
-  }
-  // If names are equal, compare by department
-  return a.pathname.localeCompare(b.pathname);
-});
+    let data1s = data1.sort((a, b) => {
+      // Compare by name first
+      if (a.name !== b.name) {
+        return a.name.localeCompare(b.name);
+      }
+      // If names are equal, compare by department
+      return a.pathname.localeCompare(b.pathname);
+    });
 
     console.log(
       "data1 sorted by two fields name and pathname=" +
-        JSON.stringify(data1s,null,4)
+        JSON.stringify(data1s, null, 4)
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
     //setS(1) //makes the other list ready to be displayed
     const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    ul.innerHTML=''
+    ul.innerHTML = "";
     if (data1s.length === 0) {
-            let li = document.createElement("li");
-            li.className = "lsn";
-            li.innerHTML = `Results: 0`;
+      let li = document.createElement("li");
+      li.className = "lsn";
+      li.innerHTML = `Results: 0`;
 
-            ul.appendChild(li);
+      ul.appendChild(li);
+    } else {
+      let li0 = document.createElement("li");
+      li0.className = "lsn";
+      li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
-          } else {
-           
-            let li0 = document.createElement("li");
-            li0.className = "lsn";
-            li0.innerHTML = `Results: ${data1s.length} url(s)`;
+      ul.appendChild(li0);
 
-            ul.appendChild(li0);
+      data1s.map((d) => {
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        a.href = d.url;
+        a.target = "_blank";
+        a.innerHTML = `${d.name + ", " + d.url}`;
 
-            data1s.map((d) => {
-              let li = document.createElement("li");
-              let a = document.createElement("a");
-              a.href = d.url;
-              a.target = "_blank";
-              a.innerHTML = `${d.name+", "+d.url}`;
+        li.appendChild(a);
 
-              li.appendChild(a);
-
-              ul.appendChild(li);
-            });
-          }
+        ul.appendChild(li);
+      });
+    }
   };
 
   const sortit1 = (event) => {
@@ -159,65 +155,62 @@ const sortit2 = (event) => {
 
     console.log(
       "data1 sorted by name and extension in hostname=" +
-        JSON.stringify(data1s,null,4)
+        JSON.stringify(data1s, null, 4)
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
     //setS(1) //makes the other list ready to be displayed
     const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    ul.innerHTML=''
+    ul.innerHTML = "";
     if (data1s.length === 0) {
-            let li = document.createElement("li");
-            li.className = "lsn";
-            li.innerHTML = `Results: 0`;
+      let li = document.createElement("li");
+      li.className = "lsn";
+      li.innerHTML = `Results: 0`;
 
-            ul.appendChild(li);
+      ul.appendChild(li);
+    } else {
+      let li0 = document.createElement("li");
+      li0.className = "lsn";
+      li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
-          } else {
-           
-            let li0 = document.createElement("li");
-            li0.className = "lsn";
-            li0.innerHTML = `Results: ${data1s.length} url(s)`;
+      ul.appendChild(li0);
 
-            ul.appendChild(li0);
+      data1s.map((d) => {
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        a.href = d.url;
+        a.target = "_blank";
+        a.innerHTML = `${d.url}`;
 
-            data1s.map((d) => {
-              let li = document.createElement("li");
-              let a = document.createElement("a");
-              a.href = d.url;
-              a.target = "_blank";
-              a.innerHTML = `${d.url}`;
+        let a2 = document.createElement("a");
+        a2.href = "https://" + d.hostname;
+        a2.target = "_blank";
+        a2.innerHTML = `${d.hostname}`;
 
-              
-              let a2 = document.createElement("a");
-              a2.href = "https://"+d.hostname;
-              a2.target = "_blank";
-              a2.innerHTML = `${d.hostname}`;
+        let span2 = document.createElement("span");
+        let br2 = document.createElement("br");
 
-              let span2 = document.createElement("span");
-              let br2 = document.createElement("br");
-              
-              span2.appendChild(a)
-              span2.appendChild(br2)
-              span2.appendChild(a2)
-//https://www.google.com/search?q=arthritis
+        span2.appendChild(a);
+        span2.appendChild(br2);
+        span2.appendChild(a2);
+        //https://www.google.com/search?q=arthritis
 
-              let pathnamearray = d.pathname.split("/")
+        let pathnamearray = d.pathname.split("/");
 
-              for(let i = 0; i < pathnamearray.length; i++) {
-                 if(pathnamearray[i+1]!==undefined) {
-               let a3 = document.createElement("a");
-              a3.href = "https://www.google.com/search?q="+pathnamearray[i+1];
-              a3.target = "_blank";
-              a3.innerHTML = `,${pathnamearray[i+1]}`;
-              span2.appendChild(a3)
-              }
-              }
-
-              li.appendChild(span2);
-              ul.appendChild(li);
-            });
+        for (let i = 0; i < pathnamearray.length; i++) {
+          if (pathnamearray[i + 1] !== undefined && pathnamearray[i + 1] !== "default.htm") {
+            let a3 = document.createElement("a");
+            a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+            a3.target = "_blank";
+            a3.innerHTML = `,${pathnamearray[i + 1]}`;
+            span2.appendChild(a3);
           }
+        }
+
+        li.appendChild(span2);
+        ul.appendChild(li);
+      });
+    }
   };
 
   const sortit3 = (event) => {
@@ -259,51 +252,87 @@ const sortit2 = (event) => {
     // console.log()
 
     //let data1s = data1.sort((a, b) => a.name.localeCompare(b.name));
-      let data1s = data1.sort((a, b) => {
-  // Compare by name first
-  if (a.name !== b.name) {
-    return b.name.localeCompare(a.name);
-  }
-  // If names are equal, compare by department
-  return b.pathname.localeCompare(a.pathname);
-});
+    let data1s = data1.sort((a, b) => {
+      // Compare by name first
+      if (a.name !== b.name) {
+        return b.name.localeCompare(a.name);
+      }
+      // If names are equal, compare by department
+      return b.pathname.localeCompare(a.pathname);
+    });
 
     console.log(
       "data1 sorted by two fields name and pathname=" +
-        JSON.stringify(data1s,null,4)
+        JSON.stringify(data1s, null, 4)
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
     //setS(1) //makes the other list ready to be displayed
     const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    ul.innerHTML=''
+    ul.innerHTML = "";
     if (data1s.length === 0) {
-            let li = document.createElement("li");
-            li.className = "lsn";
-            li.innerHTML = `Results: 0`;
+      let li = document.createElement("li");
+      li.className = "lsn";
+      li.innerHTML = `Results: 0`;
 
-            ul.appendChild(li);
+      ul.appendChild(li);
+    } else {
+      let li0 = document.createElement("li");
+      li0.className = "lsn";
+      li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
-          } else {
-           
-            let li0 = document.createElement("li");
-            li0.className = "lsn";
-            li0.innerHTML = `Results: ${data1s.length} url(s)`;
+      ul.appendChild(li0);
 
-            ul.appendChild(li0);
+      data1s.map((d) => {
+        // let li = document.createElement("li");
+        // let a = document.createElement("a");
+        // a.href = d.url;
+        // a.target = "_blank";
+        // a.innerHTML = `${d.name + ", " + d.url}`;
 
-            data1s.map((d) => {
-              let li = document.createElement("li");
-              let a = document.createElement("a");
-              a.href = d.url;
-              a.target = "_blank";
-              a.innerHTML = `${d.name+", "+d.url}`;
+        // li.appendChild(a);
 
-              li.appendChild(a);
+        // ul.appendChild(li);
 
-              ul.appendChild(li);
-            });
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        a.href = d.url;
+        a.target = "_blank";
+        a.innerHTML = `${d.url}`;
+
+        // li.appendChild(a);
+
+        // ul.appendChild(li);
+
+        let a2 = document.createElement("a");
+        a2.href = "https://" + d.hostname;
+        a2.target = "_blank";
+        a2.innerHTML = `${d.hostname}`;
+
+        let span2 = document.createElement("span");
+        let br2 = document.createElement("br");
+
+        span2.appendChild(a);
+        span2.appendChild(br2);
+        span2.appendChild(a2);
+        //https://www.google.com/search?q=arthritis
+
+        let pathnamearray = d.pathname.split("/");
+
+        for (let i = 0; i < pathnamearray.length; i++) {
+          if (pathnamearray[i + 1] !== undefined && pathnamearray[i + 1] !== "default.htm") {
+            let a3 = document.createElement("a");
+            a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+            a3.target = "_blank";
+            a3.innerHTML = `,${pathnamearray[i + 1]}`;
+            span2.appendChild(a3);
           }
+        }
+
+        li.appendChild(span2);
+        ul.appendChild(li);
+      });
+    }
   };
 
   const sortit4 = (event) => {
@@ -340,81 +369,73 @@ const sortit2 = (event) => {
 
     console.log(
       "data1 sorted by name and extension in hostname=" +
-        JSON.stringify(data1s,null,4)
+        JSON.stringify(data1s, null, 4)
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
     //setS(1) //makes the other list ready to be displayed
     const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    ul.innerHTML=''
+    ul.innerHTML = "";
     if (data1s.length === 0) {
-            let li = document.createElement("li");
-            li.className = "lsn";
-            li.innerHTML = `Results: 0`;
+      let li = document.createElement("li");
+      li.className = "lsn";
+      li.innerHTML = `Results: 0`;
 
-            ul.appendChild(li);
+      ul.appendChild(li);
+    } else {
+      let li0 = document.createElement("li");
+      li0.className = "lsn";
+      li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
-          } else {
-           
-            let li0 = document.createElement("li");
-            li0.className = "lsn";
-            li0.innerHTML = `Results: ${data1s.length} url(s)`;
+      ul.appendChild(li0);
 
-            ul.appendChild(li0);
+      data1s.map((d) => {
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        a.href = d.url;
+        a.target = "_blank";
+        a.innerHTML = `${d.url}`;
 
-            data1s.map((d) => {
-              let li = document.createElement("li");
-              let a = document.createElement("a");
-              a.href = d.url;
-              a.target = "_blank";
-              a.innerHTML = `${d.url}`;
+        // li.appendChild(a);
 
-              // li.appendChild(a);
+        // ul.appendChild(li);
 
-              // ul.appendChild(li);
+        let a2 = document.createElement("a");
+        a2.href = "https://" + d.hostname;
+        a2.target = "_blank";
+        a2.innerHTML = `${d.hostname}`;
 
-              
-              let a2 = document.createElement("a");
-              a2.href = "https://"+d.hostname;
-              a2.target = "_blank";
-              a2.innerHTML = `${d.hostname}`;
+        let span2 = document.createElement("span");
+        let br2 = document.createElement("br");
 
-              let span2 = document.createElement("span");
-              let br2 = document.createElement("br");
+        span2.appendChild(a);
+        span2.appendChild(br2);
+        span2.appendChild(a2);
+        //https://www.google.com/search?q=arthritis
 
-             
-              
-              span2.appendChild(a)
-              span2.appendChild(br2)
-              span2.appendChild(a2)
-//https://www.google.com/search?q=arthritis
+        let pathnamearray = d.pathname.split("/");
 
-              let pathnamearray = d.pathname.split("/")
-
-              for(let i = 0; i < pathnamearray.length; i++) {
-                if(pathnamearray[i+1]!==undefined) {
-              let a3 = document.createElement("a");
-              a3.href = "https://www.google.com/search?q="+pathnamearray[i+1];
-              a3.target = "_blank";
-              a3.innerHTML = `,${pathnamearray[i+1]}`;
-              span2.appendChild(a3)
-                }
-              
-              }
-
-              li.appendChild(span2);
-              ul.appendChild(li);
-             
-            });
+        for (let i = 0; i < pathnamearray.length; i++) {
+          if (pathnamearray[i + 1] !== undefined && pathnamearray[i + 1] !== "default.htm") {
+            let a3 = document.createElement("a");
+            a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+            a3.target = "_blank";
+            a3.innerHTML = `,${pathnamearray[i + 1]}`;
+            span2.appendChild(a3);
           }
+        }
+
+        li.appendChild(span2);
+        ul.appendChild(li);
+      });
+    }
   };
 
   const getUrlsList = (url2, id) => {
-    
     if (s === 1) {
       setS(0);
       const ul = document.getElementById("uldata" + id);
-      ul.innerHTML = ""
+      ul.innerHTML = "";
       fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
         method: "POST",
         headers: {
@@ -444,11 +465,12 @@ const sortit2 = (event) => {
             let span = document.createElement("span");
             span.innerHTML = "sort1a";
             span.className = "ib cursor-pointer";
-            span.title="sorts in ascending order on the name and extension in the domain name"
+            span.title =
+              "sorts in ascending order on the name and extension in the domain name";
             let obj = {
-              data:data,
-              id:id
-            }
+              data: data,
+              id: id,
+            };
             //span.data = data;
             span.obj = obj;
 
@@ -458,11 +480,12 @@ const sortit2 = (event) => {
             let span2 = document.createElement("span");
             span2.innerHTML = "sort2a";
             span2.className = "ib margin-left-11 cursor-pointer";
-            span2.title="sorts in ascending order on the name, extension and the pathname in the full url"
+            span2.title =
+              "sorts in ascending order on the name, extension and the pathname in the full url";
             let obj2 = {
-              data:data,
-              id:id
-            }
+              data: data,
+              id: id,
+            };
             //span.data = data;
             span2.obj = obj2;
 
@@ -472,11 +495,12 @@ const sortit2 = (event) => {
             let span4 = document.createElement("span");
             span4.innerHTML = "sort3d";
             span4.className = "ib margin-left-11 cursor-pointer";
-            span4.title="sorts in descending order on the name and extension in the domain name"
+            span4.title =
+              "sorts in descending order on the name and extension in the domain name";
             let obj4 = {
-              data:data,
-              id:id
-            }
+              data: data,
+              id: id,
+            };
             //span.data = data;
             span4.obj = obj4;
 
@@ -486,21 +510,17 @@ const sortit2 = (event) => {
             let span3 = document.createElement("span");
             span3.innerHTML = "sort4d";
             span3.className = "ib margin-left-11 cursor-pointer";
-            span3.title="sorts in descending order on the name, extension and the pathname in the full url"
+            span3.title =
+              "sorts in descending order on the name, extension and the pathname in the full url";
             let obj3 = {
-              data:data,
-              id:id
-            }
+              data: data,
+              id: id,
+            };
             //span.data = data;
             span3.obj = obj3;
 
             span3.addEventListener("click", sortit3);
             ul.appendChild(span3);
-
-
-            
-
-
 
             let li0 = document.createElement("li");
             li0.className = "lsn";
@@ -517,15 +537,53 @@ const sortit2 = (event) => {
               // console.log("urlstruct.pathname="+urlstruct.pathname); // "/path/to/page"
               // console.log("urlstruct.search="+urlstruct.search); // "?query=string"
               // console.log("urlstruct.hash="+urlstruct.hash); // "#fragment"
+              // let li = document.createElement("li");
+              // let a = document.createElement("a");
+              // a.href = url;
+              // a.target = "_blank";
+              // a.innerHTML = `${url}`;
+
+              // li.appendChild(a);
+
+              // ul.appendChild(li);
+
               let li = document.createElement("li");
-              let a = document.createElement("a");
-              a.href = url;
-              a.target = "_blank";
-              a.innerHTML = `${url}`;
+        let a = document.createElement("a");
+        a.href = d.url;
+        a.target = "_blank";
+        a.innerHTML = `${d.url}`;
 
-              li.appendChild(a);
+        // li.appendChild(a);
 
-              ul.appendChild(li);
+        // ul.appendChild(li);
+
+        let a2 = document.createElement("a");
+        a2.href = "https://" + d.hostname;
+        a2.target = "_blank";
+        a2.innerHTML = `${d.hostname}`;
+
+        let span2 = document.createElement("span");
+        let br2 = document.createElement("br");
+
+        span2.appendChild(a);
+        span2.appendChild(br2);
+        span2.appendChild(a2);
+        //https://www.google.com/search?q=arthritis
+
+        let pathnamearray = d.pathname.split("/");
+
+        for (let i = 0; i < pathnamearray.length; i++) {
+          if (pathnamearray[i + 1] !== undefined && pathnamearray[i + 1] !== "default.htm") {
+            let a3 = document.createElement("a");
+            a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+            a3.target = "_blank";
+            a3.innerHTML = `,${pathnamearray[i + 1]}`;
+            span2.appendChild(a3);
+          }
+        }
+
+        li.appendChild(span2);
+        ul.appendChild(li);
             });
           }
         })
@@ -537,7 +595,6 @@ const sortit2 = (event) => {
       const ul = document.getElementById("uldata" + id);
       ul.innerHTML = "";
     }
-    
   };
 
   return (

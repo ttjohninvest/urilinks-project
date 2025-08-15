@@ -111,8 +111,9 @@ const LinkListItem = ({
         // ul.appendChild(li);
 
         let li = document.createElement("li");
-        li.title="click to open the page"
+        
         let a = document.createElement("a");
+        a.title="click to open the page"
         a.className="nounderline"
         a.href = d.url;
         a.target = "_blank";
@@ -123,7 +124,7 @@ const LinkListItem = ({
         // ul.appendChild(li);
 
         let a2 = document.createElement("a");
-        a2.title=`click to search for ${d.hostname} with google.com`
+        a2.title=`click to open page,${d.hostname}`
         a2.className="nounderline"
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
@@ -143,7 +144,7 @@ const LinkListItem = ({
           if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
             a3.title=`click to search for ${pathnamearray[i + 1]} with google.com`
-            a.className="nounderline"
+            a3.className="nounderline"
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
             a3.innerHTML = `,  ${pathnamearray[i + 1]}`;
@@ -222,13 +223,14 @@ const LinkListItem = ({
       data1s.map((d) => {
         let li = document.createElement("li");
         let a = document.createElement("a");
+        a.title="click to open the page"
         a.className="nounderline"
         a.href = d.url;
         a.target = "_blank";
         a.innerHTML = `${d.url}`;
 
         let a2 = document.createElement("a");
-         a2.title=`click to search for ${d.hostname} with google.com`
+         a2.title=`click to open page,${d.hostname}`
         a2.className="nounderline"
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
@@ -345,6 +347,7 @@ const LinkListItem = ({
 
         let li = document.createElement("li");
         let a = document.createElement("a");
+        a.title="click to open the page"
         a.className="nounderline"
         a.href = d.url;
         a.target = "_blank";
@@ -355,7 +358,7 @@ const LinkListItem = ({
         // ul.appendChild(li);
 
         let a2 = document.createElement("a");
-         a2.title=`click to search for ${d.hostname} with google.com`
+         a2.title=`click to open page,${d.hostname}`
         a2.className="nounderline"
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
@@ -446,6 +449,7 @@ const LinkListItem = ({
       data1s.map((d) => {
         let li = document.createElement("li");
         let a = document.createElement("a");
+        a.title="click to open the page"
         a.className="nounderline"
         a.href = d.url;
         a.target = "_blank";
@@ -456,7 +460,7 @@ const LinkListItem = ({
         // ul.appendChild(li);
 
         let a2 = document.createElement("a");
-         a2.title=`click to search for ${d.hostname} with google.com`
+         a2.title=`click to open page,${d.hostname}`
         a2.className="nounderline"
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
@@ -599,6 +603,7 @@ const LinkListItem = ({
               let li = document.createElement("li");
               li.title="click to go to page"
               let a = document.createElement("a");
+              a.title="click to open the page"
               a.className="nounderline"
               a.href = url;
               a.target = "_blank";

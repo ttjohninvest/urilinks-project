@@ -588,6 +588,7 @@ const LinkListItem = ({
               // console.log("urlstruct.search="+urlstruct.search); // "?query=string"
               // console.log("urlstruct.hash="+urlstruct.hash); // "#fragment"
               let li = document.createElement("li");
+              li.title="click to go to page"
               let a = document.createElement("a");
               a.className="nounderline"
               a.href = url;

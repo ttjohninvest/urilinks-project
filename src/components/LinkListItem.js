@@ -188,17 +188,21 @@ const sortit2 = (event) => {
               a.target = "_blank";
               a.innerHTML = `${d.url}`;
 
-              let li2 = document.createElement("li");
+              
               let a2 = document.createElement("a");
               a2.href = "https://"+d.hostname;
               a2.target = "_blank";
               a2.innerHTML = `${d.hostname}`;
 
-              li.appendChild(a);
-              li2.appendChild(a2);
+              let span2 = document.createElement("span");
+              let br2 = document.createElement("br");
 
+              span2.appendChild(a)
+              span2.appendChild(br2)
+              span2.appendChild(a2)
+              
+              li.appendChild(span2);
               ul.appendChild(li);
-              ul.appendChild(li2);
             });
           }
   };
@@ -356,17 +360,22 @@ const sortit2 = (event) => {
 
               // ul.appendChild(li);
 
-               let li2 = document.createElement("li");
+              
               let a2 = document.createElement("a");
               a2.href = "https://"+d.hostname;
               a2.target = "_blank";
               a2.innerHTML = `${d.hostname}`;
 
-              li.appendChild(a);
-              li2.appendChild(a2);
+              let span2 = document.createElement("span");
+              let br2 = document.createElement("br");
 
+              span2.appendChild(a)
+              span2.appendChild(br2)
+              span2.appendChild(a2)
+
+              li.appendChild(span2);
               ul.appendChild(li);
-              ul.appendChild(li2);
+             
             });
           }
   };

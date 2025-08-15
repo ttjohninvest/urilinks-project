@@ -186,11 +186,19 @@ const sortit2 = (event) => {
               let a = document.createElement("a");
               a.href = d.url;
               a.target = "_blank";
-              a.innerHTML = `${d.name+", "+d.url}`;
+              a.innerHTML = `${d.url}`;
+
+              let li2 = document.createElement("li");
+              let a2 = document.createElement("a");
+              a2.href = "https://"+d.hostname;
+              a2.target = "_blank";
+              a2.innerHTML = `${d.hostname}`;
 
               li.appendChild(a);
+              li2.appendChild(a2);
 
               ul.appendChild(li);
+              ul.appendChild(li2);
             });
           }
   };
@@ -310,14 +318,6 @@ const sortit2 = (event) => {
       };
       data1.push(ndata);
     }
-    //data1 is ready here
-    //     array.sort((a, b) => a.name.localeCompare(b.name));
-
-    // For descending order, reverse the arguments:
-
-    // array.sort((a, b) => b.name.localeCompare(a.name));
-    // console.log("data1="+JSON.stringify(data1))
-    // console.log()
 
     let data1s = data1.sort((a, b) => b.name.localeCompare(a.name));
 
@@ -350,11 +350,23 @@ const sortit2 = (event) => {
               let a = document.createElement("a");
               a.href = d.url;
               a.target = "_blank";
-              a.innerHTML = `${d.name+", "+d.url}`;
+              a.innerHTML = `${d.url}`;
+
+              // li.appendChild(a);
+
+              // ul.appendChild(li);
+
+               let li2 = document.createElement("li");
+              let a2 = document.createElement("a");
+              a2.href = "https://"+d.hostname;
+              a2.target = "_blank";
+              a2.innerHTML = `${d.hostname}`;
 
               li.appendChild(a);
+              li2.appendChild(a2);
 
               ul.appendChild(li);
+              ul.appendChild(li2);
             });
           }
   };
@@ -458,7 +470,15 @@ const sortit2 = (event) => {
 
             ul.appendChild(li0);
 
+            //here
             data.map((url) => {
+              //let urlstruct = new URL(url);
+              // console.log("urlstruct.protocol="+urlstruct.protocol); // "https:"
+              // console.log("urlstruct.hostname="+urlstruct.hostname); // "www.example.com"
+              // console.log("urlstruct.port="+urlstruct.port); // "8080"
+              // console.log("urlstruct.pathname="+urlstruct.pathname); // "/path/to/page"
+              // console.log("urlstruct.search="+urlstruct.search); // "?query=string"
+              // console.log("urlstruct.hash="+urlstruct.hash); // "#fragment"
               let li = document.createElement("li");
               let a = document.createElement("a");
               a.href = url;

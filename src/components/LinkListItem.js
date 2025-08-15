@@ -199,7 +199,7 @@ const sortit2 = (event) => {
 
 //https://www.google.com/search?q=arthritis
 
-              const pathnamearray = url.pathname.split("/")
+              let pathnamearray = url.pathname.split("/")
               // for(let i = 0; i < pathnamearray.length; i++) {
               //   pathnamearray[i]
               // }
@@ -207,7 +207,7 @@ const sortit2 = (event) => {
               let a3 = document.createElement("a");
               a3.href = "https://www.google.com/search?q="+pathnamearray[1];
               a3.target = "_blank";
-              a3.innerHTML = `${pathnamearray[1]}`;
+              a3.innerHTML = `,${pathnamearray[1]}`;
               
 
               span2.appendChild(a)

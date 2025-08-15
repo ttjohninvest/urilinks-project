@@ -196,24 +196,27 @@ const sortit2 = (event) => {
 
               let span2 = document.createElement("span");
               let br2 = document.createElement("br");
-
-//https://www.google.com/search?q=arthritis
-
-              let pathnamearray = d.pathname.split("/")
-              // for(let i = 0; i < pathnamearray.length; i++) {
-              //   pathnamearray[i]
-              // }
-
-              let a3 = document.createElement("a");
-              a3.href = "https://www.google.com/search?q="+pathnamearray[1];
-              a3.target = "_blank";
-              a3.innerHTML = `,${pathnamearray[1]}`;
               
-
               span2.appendChild(a)
               span2.appendChild(br2)
               span2.appendChild(a2)
+//https://www.google.com/search?q=arthritis
+
+              let pathnamearray = d.pathname.split("/")
+
+              for(let i = 0; i < pathnamearray.length; i++) {
+               let a3 = document.createElement("a");
+              a3.href = "https://www.google.com/search?q="+pathnamearray[i+1];
+              a3.target = "_blank";
+              a3.innerHTML = `,${pathnamearray[i+1]}`;
               span2.appendChild(a3)
+              }
+
+              
+              
+
+              
+              
               
               li.appendChild(span2);
               ul.appendChild(li);

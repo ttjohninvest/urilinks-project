@@ -205,19 +205,15 @@ const sortit2 = (event) => {
               let pathnamearray = d.pathname.split("/")
 
               for(let i = 0; i < pathnamearray.length; i++) {
+                 if(pathnamearray[i+1]!==undefined) {
                let a3 = document.createElement("a");
               a3.href = "https://www.google.com/search?q="+pathnamearray[i+1];
               a3.target = "_blank";
               a3.innerHTML = `,${pathnamearray[i+1]}`;
               span2.appendChild(a3)
               }
+              }
 
-              
-              
-
-              
-              
-              
               li.appendChild(span2);
               ul.appendChild(li);
             });
@@ -386,9 +382,25 @@ const sortit2 = (event) => {
               let span2 = document.createElement("span");
               let br2 = document.createElement("br");
 
+             
+              
               span2.appendChild(a)
               span2.appendChild(br2)
               span2.appendChild(a2)
+//https://www.google.com/search?q=arthritis
+
+              let pathnamearray = d.pathname.split("/")
+
+              for(let i = 0; i < pathnamearray.length; i++) {
+                if(pathnamearray[i+1]!==undefined) {
+              let a3 = document.createElement("a");
+              a3.href = "https://www.google.com/search?q="+pathnamearray[i+1];
+              a3.target = "_blank";
+              a3.innerHTML = `,${pathnamearray[i+1]}`;
+              span2.appendChild(a3)
+                }
+              
+              }
 
               li.appendChild(span2);
               ul.appendChild(li);

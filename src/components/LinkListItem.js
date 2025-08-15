@@ -205,9 +205,9 @@ const sortit2 = (event) => {
               // }
 
               let a3 = document.createElement("a");
-              a3.href = "https://www.google.com/search?q="+pathnamearray[0];
+              a3.href = "https://www.google.com/search?q="+pathnamearray[1];
               a3.target = "_blank";
-              a3.innerHTML = `${pathnamearray[0]}`;
+              a3.innerHTML = `${pathnamearray[1]}`;
               
 
               span2.appendChild(a)

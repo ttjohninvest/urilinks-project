@@ -199,7 +199,7 @@ const sortit2 = (event) => {
 
 //https://www.google.com/search?q=arthritis
 
-              let pathnamearray = url.pathname.split("/")
+              let pathnamearray = d.pathname.split("/")
               // for(let i = 0; i < pathnamearray.length; i++) {
               //   pathnamearray[i]
               // }

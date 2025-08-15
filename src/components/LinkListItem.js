@@ -136,7 +136,7 @@ const LinkListItem = ({
         let pathnamearray = d.pathname.split("/");
 
         for (let i = 0; i < pathnamearray.length; i++) {
-          if (pathnamearray[i + 1] !== undefined && pathnamearray[i + 1] !== "default.htm") {
+          if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
@@ -236,7 +236,7 @@ const LinkListItem = ({
         let pathnamearray = d.pathname.split("/");
 
         for (let i = 0; i < pathnamearray.length; i++) {
-          if (pathnamearray[i + 1] !== undefined && pathnamearray[i + 1] !== "default.htm") {
+          if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
@@ -358,7 +358,7 @@ const LinkListItem = ({
         let pathnamearray = d.pathname.split("/");
 
         for (let i = 0; i < pathnamearray.length; i++) {
-          if (pathnamearray[i + 1] !== undefined && pathnamearray[i + 1] !== "default.htm") {
+          if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
@@ -454,7 +454,7 @@ const LinkListItem = ({
         let pathnamearray = d.pathname.split("/");
 
         for (let i = 0; i < pathnamearray.length; i++) {
-          if (pathnamearray[i + 1] !== undefined && pathnamearray[i + 1] !== "default.htm") {
+          if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
@@ -642,7 +642,8 @@ const LinkListItem = ({
                         className="ib cursor-pointer margin-left-114"
                         title="click to see the clickable available webpage urls."
                       >
-                        To list: {Url}
+                        To List: {description+":"+Url}
+                        {/*To list: {Url}*/}
                       </span>
                     </span>
                   </div>

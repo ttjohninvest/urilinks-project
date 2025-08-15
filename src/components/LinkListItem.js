@@ -100,15 +100,7 @@ const LinkListItem = ({
       ul.appendChild(li0);
 
       data1s.map((d) => {
-        // let li = document.createElement("li");
-        // let a = document.createElement("a");
-        // a.href = d.url;
-        // a.target = "_blank";
-        // a.innerHTML = `${d.name + ", " + d.url}`;
-
-        // li.appendChild(a);
-
-        // ul.appendChild(li);
+       
 
         let li = document.createElement("li");
         
@@ -226,7 +218,7 @@ const LinkListItem = ({
         a.title="click to open the page"
         a.className="nounderline"
         a.href = d.url;
-        a.target = "_blank";
+        //a.target = "_blank";
         a.innerHTML = `${d.url}`;
 
         let a2 = document.createElement("a");
@@ -335,15 +327,7 @@ const LinkListItem = ({
       ul.appendChild(li0);
 
       data1s.map((d) => {
-        // let li = document.createElement("li");
-        // let a = document.createElement("a");
-        // a.href = d.url;
-        // a.target = "_blank";
-        // a.innerHTML = `${d.name + ", " + d.url}`;
-
-        // li.appendChild(a);
-
-        // ul.appendChild(li);
+       
 
         let li = document.createElement("li");
         let a = document.createElement("a");
@@ -352,10 +336,6 @@ const LinkListItem = ({
         a.href = d.url;
         a.target = "_blank";
         a.innerHTML = `${d.url}`;
-
-        // li.appendChild(a);
-
-        // ul.appendChild(li);
 
         let a2 = document.createElement("a");
          a2.title=`click to open page,${d.hostname}`
@@ -454,10 +434,6 @@ const LinkListItem = ({
         a.href = d.url;
         a.target = "_blank";
         a.innerHTML = `${d.url}`;
-
-        // li.appendChild(a);
-
-        // ul.appendChild(li);
 
         let a2 = document.createElement("a");
          a2.title=`click to open page,${d.hostname}`

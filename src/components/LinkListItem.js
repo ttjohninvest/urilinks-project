@@ -195,10 +195,10 @@ const sortit2 = (event) => {
               a2.innerHTML = `${d.hostname}`;
 
               let span2 = document.createElement("span");
-              let br2 = document.createElement("br");
+              //let br2 = document.createElement("br");
 
               span2.appendChild(a)
-              span2.appendChild(br2)
+              //span2.appendChild(br2)
               span2.appendChild(a2)
               
               li.appendChild(span2);
@@ -370,7 +370,7 @@ const sortit2 = (event) => {
               let br2 = document.createElement("br");
 
               span2.appendChild(a)
-              span2.appendChild(br2)
+              //span2.appendChild(br2)
               span2.appendChild(a2)
 
               li.appendChild(span2);

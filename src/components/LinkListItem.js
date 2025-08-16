@@ -503,7 +503,7 @@ const LinkListItem = ({
           } else {
             let span = document.createElement("span");
             span.innerHTML = "sort1a";
-            span.className = "ib cursor-pointer orange";
+            span.className = "ib cursor-pointer corange";
             span.title =
               "click to sort the results in ascending order on the name and extension in the domain name";
             let obj = {
@@ -518,7 +518,7 @@ const LinkListItem = ({
 
             let span2 = document.createElement("span");
             span2.innerHTML = "sort2a";
-            span2.className = "ib margin-left-11 cursor-pointer orange";
+            span2.className = "ib margin-left-11 cursor-pointer corange";
             span2.title =
               "click to sort the results in ascending order on the name, extension and the pathname in the full url";
             let obj2 = {
@@ -533,7 +533,7 @@ const LinkListItem = ({
 
             let span4 = document.createElement("span");
             span4.innerHTML = "sort3d";
-            span4.className = "ib margin-left-11 cursor-pointer orange";
+            span4.className = "ib margin-left-11 cursor-pointer corange";
             span4.title =
               "click to sort the results in descending order on the name and extension in the domain name";
             let obj4 = {
@@ -548,7 +548,7 @@ const LinkListItem = ({
 
             let span3 = document.createElement("span");
             span3.innerHTML = "sort4d";
-            span3.className = "ib margin-left-11 cursor-pointer orange";
+            span3.className = "ib margin-left-11 cursor-pointer corange";
             span3.title =
               "click to sort the results in descending order on the name, extension and the pathname in the full url";
             let obj3 = {

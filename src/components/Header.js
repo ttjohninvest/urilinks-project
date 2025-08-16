@@ -6,6 +6,8 @@ import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
 import logo from "../assets/images/logo9.png";
 //import { getAuth } from "firebase";
+import XShareButton from "./XShareButton"
+
 
 // const preStartLogout=()=>{
 //   setLinks([])
@@ -174,6 +176,10 @@ export const Header = (props) => {
                     (Bookmarks Uploader)
                   </span>
                 </Link>
+              </div>
+
+              <div>
+                <XShareButton /> 
               </div>
 
               <div className="margin-top-1111a">

@@ -4,6 +4,7 @@ import moment from "moment";
 import numeral from "numeral";
 import FBShareButton from "./FBShareButton";
 import LinkedInShareButton from "./LinkedInShareButton";
+import XShareButton from "/XShareButton"
 
 const LinkListItem = ({
   id,
@@ -680,6 +681,7 @@ const LinkListItem = ({
       <div className="flexrow2w">
         <FBShareButton url={Url} />
         <LinkedInShareButton url={Url} />
+        <XShareButton />
       </div>
     </div>
   );

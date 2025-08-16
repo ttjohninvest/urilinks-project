@@ -117,7 +117,7 @@ const LinkListItem = ({
 
         let a2 = document.createElement("a");
         a2.title=`click to open page,${d.hostname}`
-        a2.className="nounderline"
+        a2.className="nounderline cpurple"
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
         a2.innerHTML = `${d.hostname}`;
@@ -223,7 +223,7 @@ const LinkListItem = ({
 
         let a2 = document.createElement("a");
          a2.title=`click to open page,${d.hostname}`
-        a2.className="nounderline"
+        a2.className="nounderline cpurple"
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
         a2.innerHTML = `${d.hostname}`;
@@ -339,7 +339,7 @@ const LinkListItem = ({
 
         let a2 = document.createElement("a");
          a2.title=`click to open page,${d.hostname}`
-        a2.className="nounderline"
+        a2.className="nounderline cpurple"
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
         a2.innerHTML = `${d.hostname}`;
@@ -437,7 +437,7 @@ const LinkListItem = ({
 
         let a2 = document.createElement("a");
          a2.title=`click to open page,${d.hostname}`
-        a2.className="nounderline"
+        a2.className="nounderline cpurple"
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
         a2.innerHTML = `${d.hostname}`;

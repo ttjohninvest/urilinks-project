@@ -88,13 +88,13 @@ const LinkListItem = ({
     ul.innerHTML = "";
     if (data1s.length === 0) {
       let li = document.createElement("li");
-      li.className = "lsn";
+      li.className = "lsn corangered";
       li.innerHTML = `Results: 0`;
 
       ul.appendChild(li);
     } else {
       let li0 = document.createElement("li");
-      li0.className = "lsn";
+      li0.className = "lsn corangered";
       li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
       ul.appendChild(li0);
@@ -201,13 +201,13 @@ const LinkListItem = ({
     ul.innerHTML = "";
     if (data1s.length === 0) {
       let li = document.createElement("li");
-      li.className = "lsn";
+      li.className = "lsn corangered";
       li.innerHTML = `Results: 0`;
 
       ul.appendChild(li);
     } else {
       let li0 = document.createElement("li");
-      li0.className = "lsn";
+      li0.className = "lsn corangered";
       li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
       ul.appendChild(li0);
@@ -315,13 +315,13 @@ const LinkListItem = ({
     ul.innerHTML = "";
     if (data1s.length === 0) {
       let li = document.createElement("li");
-      li.className = "lsn";
+      li.className = "lsn corangered";
       li.innerHTML = `Results: 0`;
 
       ul.appendChild(li);
     } else {
       let li0 = document.createElement("li");
-      li0.className = "lsn";
+      li0.className = "lsn corangered";
       li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
       ul.appendChild(li0);
@@ -415,13 +415,13 @@ const LinkListItem = ({
     ul.innerHTML = "";
     if (data1s.length === 0) {
       let li = document.createElement("li");
-      li.className = "lsn";
+      li.className = "lsn corangered";
       li.innerHTML = `Results: 0`;
 
       ul.appendChild(li);
     } else {
       let li0 = document.createElement("li");
-      li0.className = "lsn";
+      li0.className = "lsn corangered";
       li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
       ul.appendChild(li0);
@@ -493,7 +493,7 @@ const LinkListItem = ({
           setData(data);
           if (data.length === 0) {
             let li = document.createElement("li");
-            li.className = "lsn";
+            li.className = "lsn corangered";
             li.innerHTML = `Results: 0`;
 
             ul.appendChild(li);
@@ -562,7 +562,7 @@ const LinkListItem = ({
             ul.appendChild(span3);
 
             let li0 = document.createElement("li");
-            li0.className = "lsn";
+            li0.className = "lsn corangered";
             li0.innerHTML = `Results: ${data.length} url(s)`;
 
             ul.appendChild(li0);

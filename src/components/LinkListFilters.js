@@ -1,4 +1,4 @@
-import React, { useState, createRef,useEffect } from "react";
+import React, { useState, createRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -6,7 +6,6 @@ import { DateRangePicker } from "react-dates";
 
 import database from "../firebase/firebase";
 import * as firebase from "firebase";
-
 
 import {
   setTextFilter,
@@ -20,13 +19,12 @@ import {
 
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
-  const [uid, setUid] = useState("")
- 
-  useEffect(()=>{
-    
+  const [uid, setUid] = useState("");
+
+  useEffect(() => {
     const user = firebase.auth().currentUser;
-    setUid(user.uid)
-  },[])
+    setUid(user.uid);
+  }, []);
 
   const moveIt = () => {
     window.scrollTo(0, props.elementRef.current.offsetHeight);
@@ -37,8 +35,6 @@ function ExpandableArray(props) {
     console.log("morehashtags");
     window.localStorage.setItem("morehashtags", !expanded);
   };
-
-  
 
   console.log("ExpandableArray, expanded=" + expanded);
   //console.log("ExpandableArray, mappedDataLong.length="+props.mappedDataLong.length)
@@ -55,27 +51,6 @@ function ExpandableArray(props) {
     <div>
       {props.mappedDataShort.length > 0 ? (
         <div>
-          <div
-            className="flexrow2c padding-around padding-left-a borderRadius4"
-            title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
-          >
-            {/* <span className="is-active ib right-margin-1 margin-right-1">
-              {}
-            </span>*/}
-            <div>(welcome) clickable hash tags in alphabetical order<br />Please go and sin no more, ok. Happy it.</div>
-            <div className="flexrow2e">
- <div title="current plan">plan: {props.plan.replace(/"/g, "")}</div>
-             <div className="margin-left-11">
-                            <Link className="header__title" to="/teirspayment3">
-                              <span className="ib color-black text-size-5 general-font" title="click for plan options">
-                                {uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ? '(click to change plan)':''}
-                                {/* {props.plan.replace(/"/g, "") !== "premium" ? '(click to change plan)':""} */}
-                              </span>
-                            </Link>
-                          </div> 
-            </div>
-           
-          </div>
         
           <div
             ref={props.ref}
@@ -102,7 +77,8 @@ function ExpandableArray(props) {
                     );
                   else return false;
                 })
-              : props.mappedDataShort.map((s, index) => { //have 3 map calls and display the first column then the second column and then the thrid column
+              : props.mappedDataShort.map((s, index) => {
+                  //have 3 map calls and display the first column then the second column and then the thrid column
                   return (
                     <div
                       key={index}
@@ -129,10 +105,9 @@ function ExpandableArray(props) {
       ) : (
         <div></div>
       )}
-   {/* <div className="border2black">
+      {/* <div className="border2black">
        column b
         </div> */}
-     
     </div>
   );
 }
@@ -159,7 +134,6 @@ export class LinkListFilters extends React.Component {
       hashtags: [],
       hashtags2: [],
       morehashtags: morehashtags === "true" ? true : false,
-      
     };
 
     this.setit = this.setit.bind(this);
@@ -167,19 +141,17 @@ export class LinkListFilters extends React.Component {
 
   scrollUp = () => {
     //window.scrollTo(0, 0);
-     document.querySelector("#top").scrollIntoView({
+    document.querySelector("#top").scrollIntoView({
       behavior: "smooth",
     });
   };
 
   deleteHashtagLinks = () => {
-    console.log("hashtag is "+this.props.filters.text)
-    const hashtag = this.props.filters.text
-    if(this.props.filters.sortBy === "hashtag") {
-
+    console.log("hashtag is " + this.props.filters.text);
+    const hashtag = this.props.filters.text;
+    if (this.props.filters.sortBy === "hashtag") {
     }
-    console.log("deletes all of the hashtag links")
-    
+    console.log("deletes all of the hashtag links");
   };
 
   onDatesChange = ({ startDate, endDate }) => {
@@ -292,28 +264,26 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
-    
-      
-
     //get the plan from settings so I know how many links a person can have
-    console.log("In LinkListFilters.js, this.props.settings="+JSON.stringify(this.props.settings))
+    console.log(
+      "In LinkListFilters.js, this.props.settings=" +
+        JSON.stringify(this.props.settings)
+    );
     //if(this.props.settings.plan===undefined)
     // const user = firebase.auth().currentUser;
     // database
     //   .ref(`users/${user.uid}/settings`)
     //   .once("value")
     //   .then((snapshot) => {
-        
+
     //     console.log("componentDidMount, ...snapshot")
     //     console.log("componentDidMount, ...snapshot="+JSON.stringify(snapshot.val()))
     //     //console.log("componentDidMount, snapshot.selectedOption1="+snapshot.selectedOption1)
 
-         
-      
     //    //dispatch(setSettings({...snapshot}));
-       
+
     //   })
-    
+
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
@@ -335,8 +305,6 @@ export class LinkListFilters extends React.Component {
 
       this.props.sortByDate();
       this.setState({ sortBy: "date" });
-      
-
     } else if (
       this.props.filters.sortBy === "description" ||
       sortBy === "description"
@@ -481,7 +449,7 @@ export class LinkListFilters extends React.Component {
             (up)
           </div>
 
-           {/* <div
+          {/* <div
             className="header__title padding-top-11 cursor-pointer"
             onClick={this.deleteHashtagLinks}
             title="deletes all of the hashtag links"
@@ -545,7 +513,7 @@ const mapStateToProps = (state) => ({
   hashtags: state.hashtags,
   setit: state.setit,
   settings: state.settings,
-  theplan: state.theplan
+  theplan: state.theplan,
 });
 
 const mapDispatchToProps = (dispatch) => ({

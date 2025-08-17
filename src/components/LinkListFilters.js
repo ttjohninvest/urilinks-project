@@ -49,10 +49,10 @@ function ExpandableArray(props) {
 
   return (
     <div>
-      {props.mappedDataShort.length > 0 ? (
+      {/* {props.mappedDataShort.length > 0 ? (
         <div>
         
-          <div
+           <div
             ref={props.ref}
             className="grid-container5 margin-top-1 background-white-1 borderradius5"
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
@@ -104,10 +104,21 @@ function ExpandableArray(props) {
         </div>
       ) : (
         <div></div>
-      )}
-      {/* <div className="border2black">
-       column b
-        </div> */}
+      )}  */}
+
+      
+         <div
+            ref={props.ref}
+            className="grid-container5 margin-top-1 background-white-1 borderradius5"
+            title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
+          >
+            {true ? ['a','b'].map((s, index) => {
+
+              }):<div></div>}
+
+              </div>
+      
+      
     </div>
   );
 }

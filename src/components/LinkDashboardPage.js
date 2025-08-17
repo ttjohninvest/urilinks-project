@@ -89,7 +89,7 @@ const LinkDashboardPage = (props) => {
 
   return (
     <div>
-      <div id="very-top-id" className="website-background-color flexrow2lw- ">
+      <div id="very-top-id" className="website-background-color">
           {/* <div className="border2black">
 left column
         </div> */}

@@ -113,7 +113,7 @@ function ExpandableArray(props) {
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             {true ? ['a','b'].map((s, index) => {
-
+return <div>{s}</div>
               }):<div></div>}
 
               </div>

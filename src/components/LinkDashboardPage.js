@@ -93,10 +93,15 @@ const LinkDashboardPage = (props) => {
           {/* <div className="border2black">
 left column
         </div> */}
-        <div className="padding-tb-1">
+        {/* <div className="padding-tb-1">
           <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
           <LinkList />
-        </div>
+        </div> */}
+         <div ref={props.ref} className="grid-container5">
+      {["a", "b"].map((s, index) => {
+        return <div>{s}</div>;
+      })}
+    </div>
         {/* <div className="border2black">
 right column
         </div> */}

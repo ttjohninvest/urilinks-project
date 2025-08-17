@@ -48,77 +48,10 @@ function ExpandableArray(props) {
   else displayedArray = props.mappedDataShort;
 
   return (
-    <div>
-      {/* {props.mappedDataShort.length > 0 ? (
-        <div>
-        
-           <div
-            ref={props.ref}
-            className="grid-container5 margin-top-1 background-white-1 borderradius5"
-            title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
-          >
-            {!expanded
-              ? props.mappedDataShort.map((s, index) => {
-                  if (index < 50)
-                    return (
-                      <div
-                        key={index}
-                        className="padding-all text-size-5 element5 border5-"
-                      >
-                        <a
-                          className="nounderline text-color-black"
-                          href="#"
-                          onClick={() => props.setit(s.hashtag, event)}
-                          title={`${s.hashtag}, click to scroll to results`}
-                        >
-                          {s.hashtag}
-                        </a>
-                      </div>
-                    );
-                  else return false;
-                })
-              : props.mappedDataShort.map((s, index) => {
-                  //have 3 map calls and display the first column then the second column and then the thrid column
-                  return (
-                    <div
-                      key={index}
-                      className="padding-all text-size-5 element5 border5-"
-                    >
-                      <a
-                        className="nounderline text-color-black "
-                        href="#"
-                        onClick={() => props.setit(s.hashtag, event)}
-                        title={`${s.hashtag}, click to scroll to results`}
-                      >
-                        {s.hashtag}
-                      </a>
-                    </div>
-                  );
-                })}
-
-            {!expanded && <span className="text-size-5">...</span>}
-          </div>
-          <button className="button-m button--link" onClick={toggleExpanded}>
-            {expanded ? "Show Less Hashtags" : "Show More Hashtags"}
-          </button>
-        </div>
-      ) : (
-        <div></div>
-      )}  */}
-
-      
-         <div
-            ref={props.ref}
-            className="grid-container5 margin-top-1 background-white-1 borderradius5"
-            title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
-          >
-            {true ? ['a','b'].map((s, index) => {
-return <div>{s}</div>
-              }):<div></div>}
-
-              </div>
-      
-      
+    <div ref={props.ref} className="grid-container5">
+      {["a", "b"].map((s, index) => {
+        return <div>{s}</div>;
+      })}
     </div>
   );
 }

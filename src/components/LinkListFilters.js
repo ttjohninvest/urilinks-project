@@ -49,7 +49,7 @@ function ExpandableArray(props) {
 
   return (
     <div ref={props.ref} className="grid-container5">
-      {["a", "b"].map((s, index) => {
+      {["a", "b","b","a", "b","a", "b","b","a", "b","a", "b","b","a", "b"].map((s, index) => {
         return <div>{s}</div>;
       })}
     </div>

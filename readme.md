@@ -618,7 +618,7 @@ gap: 5px;
 
 .item-newspaper {
 min-width:225px;
-background-color:#007744;
+//background-color:#007744;
 }
 
 #item1-newspaper {

@@ -400,6 +400,10 @@ export class LinkListFilters extends React.Component {
     this.setState({
       morehashtags: morehashtags === "true" ? true : false,
     });
+
+     this.setState({
+      newspaper: newspaper === "true" ? true : false,
+    });
   }
 
   componentWillUnmount() {}

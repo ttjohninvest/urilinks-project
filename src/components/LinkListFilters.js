@@ -402,7 +402,7 @@ export class LinkListFilters extends React.Component {
     });
 
      this.setState({
-      newspaper: newspaper === "true" ? true : false,
+      newspaper: this.state.newspaper === "true" ? true : false,
     });
   }
 

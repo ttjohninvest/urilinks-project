@@ -19,9 +19,9 @@ about getting a list of urls from a webpage which solved a problem, but I still
 need convert the folder name to the hashtag if I am not using the new functionality but the old
 I NEED TO PRESENT THE USER WITH A QUESTION: CONVERT THE BOOKMARK FOLDER NAMES TO HASHTAGS OR
 CONVERT THE DOMAIN HAMES TO HASHTAGS?
- the tile in FetchBookmarks.js contained the folder name, that is what I was using before, you can see the code
- that I switched it to.
- 
+the tile in FetchBookmarks.js contained the folder name, that is what I was using before, you can see the code
+that I switched it to.
+
 in TeirsPayment.js, make sure their is two links one to upgrade the plan (code done) and one to down grade the plan
 in stripe, you need to make two more tables, a standard and premium table and a preumim table
 if they are storing more than 1,500 bookmarks, see urilinks-project-vercel-stripe-api
@@ -599,3 +599,31 @@ realtime database rules
 }
 }
 }
+
+---
+
+hastags read top to bottom with this code
+//100%
+//100% will show 14 narrow rows
+//100vh fills the whole screen increases row height as needed to do so
+.grid-container5-newspaper {
+display:grid;
+width:100vw;
+height:100vh;
+grid-template:repeat(14,1fr)/repeat(4,1fr);
+grid-auto-flow:column;
+gap: 5px;
+//grid-auto-columns: minmax(0, 1fr); /_ it will always stay within the width specification _/
+}
+
+.item-newspaper {
+min-width:225px;
+background-color:#007744;
+}
+
+#item1-newspaper {
+min-width:225px;
+background-color:#ff0000;
+}
+
+---

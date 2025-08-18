@@ -19,26 +19,24 @@
 }
 
 .centerit {
- display:flex;
- flex-direction:column;
- justify-content:center;
- align-items: center;
- min-height: 100vh;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .text-color {
   color: $dark-blue;
 }
 
-
-  .some-component{
-    position: sticky;
-    top: 0;
-} 
+.some-component {
+  position: sticky;
+  top: 0;
+}
 
 .padding-all {
-  padding:.2rem;
+  padding: 0.2rem;
 }
 
 .scrollable-ul {
@@ -47,9 +45,9 @@
 }
 
 .border5 {
-  border-width:1px;
-  border-style:solid;
-  border-color:black;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
 }
 
 .grid-container5 {
@@ -78,40 +76,39 @@
   // overflow-wrap: break-word;
   font-family: monospace;
   width: 225px; /* Set a fixed width */
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide any overflow */
-    text-overflow: ellipsis; /* Add the ellipsis */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide any overflow */
+  text-overflow: ellipsis; /* Add the ellipsis */
 }
 
 .flexrowtfw {
-  display:flex;
-  flex-direction:row;
-  width:82rem;
-  flex-wrap:wrap;
+  display: flex;
+  flex-direction: row;
+  width: 82rem;
+  flex-wrap: wrap;
 }
 
 .flexrow3 {
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 
 .flexcol3 {
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
 }
 
-
 .flexrowz {
-   display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
 }
 
 .flexrow1 {
-  display:flex;
-  flex-direction:row;
-  width:15rem;
+  display: flex;
+  flex-direction: row;
+  width: 15rem;
 }
 .heightA {
   // height: 300px;
@@ -125,109 +122,121 @@
 }
 
 .topbottom0 {
-  top:0;
-  bottom:0;
+  top: 0;
+  bottom: 0;
 }
 
 .borderRadius4 {
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 .flexrow2 {
-  display:flex;
-  flex-direction:row;
-  align-items:center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .flexcol {
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 300px;
-  flex-wrap:wrap;
-  padding:1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
 }
 
 .flexrow2e {
-  display:flex;
+  display: flex;
   flex-direction: row;
   //justify-content: space-between;
   justify-content: left;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 
 .flexrow2wpt {
-  display:flex;
-  flex-direction:row;
-  flex-wrap:wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .flexrow2wpt2 {
-  display:flex;
-  flex-direction:row;
-  justify-content:space-between;
-  flex-wrap:wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-
 
 .flexrow2w {
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  flex-wrap:wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .flexrow2lw {
-  display:flex;
-  flex-direction:row;
-  align-items:left;
-  flex-wrap:wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  flex-wrap: wrap;
 }
 
 .flexrow2c {
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   //align-items:center;
-  align-items:left;
-  justify-content:center;
-  flex-wrap:wrap;
+  align-items: left;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-
 
 .flexrow2b {
   display: flex;
-  flex-direction:row;
-  justify-content:space-between;
-  align-items:center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   background: $off-white;
   border: 1px solid darken($off-white, 7%);
   color: $grey;
   padding: 1rem 1rem;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 
 .borderradius50 {
-  border-radius:50%;
+  border-radius: 50%;
 }
 
 .borderradius5 {
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 .flexandwrap {
-  display:flex;
-  flex-direction:row;
-  flex-wrap:wrap;
-  justify-content:space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   border-style: outset;
-  border-width:5px;
-  border-color:$dark-blue;
+  border-width: 5px;
+  border-color: $dark-blue;
 }
 
 .flexcolandwrap {
-  display:flex;
-  flex-direction:column;
-  
-  border-color:$dark-blue;
+  display: flex;
+  flex-direction: column;
+
+  border-color: $dark-blue;
 }
 
+.grid-container5-newspaper {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template: repeat(14, 1fr) / repeat(4, 1fr);
+  grid-auto-flow: column;
+  gap: 5px;
+  //grid-auto-columns: minmax(0, 1fr); /_ it will always stay within the width specification _/
+}
+
+.item-newspaper {
+  min-width: 225px;
+  background-color: #007744;
+}

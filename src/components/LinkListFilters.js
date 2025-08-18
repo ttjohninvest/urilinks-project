@@ -401,9 +401,9 @@ export class LinkListFilters extends React.Component {
       morehashtags: morehashtags === "true" ? true : false,
     });
 
-     this.setState({
-      newspaper: newspaper === "true" ? true : false,
-    });
+    //  this.setState({
+    //   newspaper: newspaper === "true" ? true : false,
+    // });
   }
 
   componentWillUnmount() {}

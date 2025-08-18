@@ -158,9 +158,9 @@ function ExpandableArray(props) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export class LinkListFilters extends React.Component {
 
-    morehashtags = window.localStorage.getItem("morehashtags");
-    np = window.localStorage.getItem("newspaper");
-    
+    // morehashtags = window.localStorage.getItem("morehashtags");
+    // np = window.localStorage.getItem("newspaper");
+
   constructor(props) {
     super(props);
     this.SHORT_HASHTAG_LENGTH = 30;
@@ -169,7 +169,7 @@ export class LinkListFilters extends React.Component {
 
     // let morehashtags = window.localStorage.getItem("morehashtags");
     // let np = window.localStorage.getItem("newspaper");
-    console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
+    //console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
       sortBy: "hashtag",
       items: [],
@@ -180,8 +180,8 @@ export class LinkListFilters extends React.Component {
       height: 0,
       hashtags: [],
       hashtags2: [],
-      morehashtags: morehashtags === "true" ? true : false,
-      newspaper: !!np === "true" ? true : false
+      morehashtags: window.localStorage.getItem("morehashtags") === "true" ? true : false,
+      newspaper: !!window.localStorage.getItem("newspaper") === "true" ? true : false
     };
 
     this.setit = this.setit.bind(this);

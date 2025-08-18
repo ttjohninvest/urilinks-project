@@ -69,7 +69,7 @@ function ExpandableArray(props) {
               Please go and sin no more, ok. Happy it.
               <br />
               <button className="button-m button--link color-black" onClick={toggleNewspaper}>
-            {newspaper ? "Show other view" : "show other view"}
+            {newspaper ? "show other view" : "show other view"}
           </button>
             </div>
 
@@ -164,7 +164,7 @@ export class LinkListFilters extends React.Component {
     this.myRef = React.createRef();
 
     let morehashtags = window.localStorage.getItem("morehashtags");
-     let newspaper = window.localStorage.getItem("newspaper");
+    let newspaper = window.localStorage.getItem("newspaper");
     console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
       sortBy: "hashtag",
@@ -401,9 +401,9 @@ export class LinkListFilters extends React.Component {
       morehashtags: morehashtags === "true" ? true : false,
     });
 
-    //  this.setState({
-    //   newspaper: newspaper === "true" ? true : false,
-    // });
+     this.setState({
+      newspaper: newspaper === "true" ? true : false,
+    });
   }
 
   componentWillUnmount() {}

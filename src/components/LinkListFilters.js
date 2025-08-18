@@ -66,13 +66,13 @@ function ExpandableArray(props) {
               (welcome) clickable hash tags in alphabetical order
               <br />
               Please go and sin no more, ok. Happy it.
-              <br />
+              {/* <br />
               <button
                 className="button-m button--link color-black"
                 onClick={toggleNewspaper}
               >
                 {newspaper ? "show other view" : "show other view"}
-              </button>
+              </button> */}
             </div>
 
             <div className="flexrow2e">
@@ -186,8 +186,9 @@ export class LinkListFilters extends React.Component {
       hashtags2: [],
       morehashtags:
         window.localStorage.getItem("morehashtags") === "true" ? true : false,
-      newspaper:
-        !!window.localStorage.getItem("newspaper") === "true" ? true : false,
+      newspaper:false
+      // newspaper:
+      //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
     };
 
     this.setit = this.setit.bind(this);
@@ -411,9 +412,9 @@ export class LinkListFilters extends React.Component {
       morehashtags: morehashtags === "true" ? true : false,
     });
 
-    this.setState({
-      newspaper: !!this.state.newspaper === "true" ? true : false,
-    });
+    // this.setState({
+    //   newspaper: !!this.state.newspaper === "true" ? true : false,
+    // });
   }
 
   componentWillUnmount() {}

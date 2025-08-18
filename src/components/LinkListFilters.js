@@ -1,4 +1,4 @@
-  import React, { useState, createRef, useEffect } from "react";
+import React, { useState, createRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -20,7 +20,7 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
-  const [newspaper, setNewspaper]=useState(props.newspaper)
+  const [newspaper, setNewspaper] = useState(props.newspaper);
 
   useEffect(() => {
     const user = firebase.auth().currentUser;
@@ -62,15 +62,17 @@ function ExpandableArray(props) {
             className="flexrow2c padding-around padding-left-a borderRadius4"
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
-            
             <div>
               (welcome) clickable hash tags in alphabetical order
               <br />
               Please go and sin no more, ok. Happy it.
               <br />
-              <button className="button-m button--link color-black" onClick={toggleNewspaper}>
-            {newspaper ? "show other view" : "show other view"}
-          </button>
+              <button
+                className="button-m button--link color-black"
+                onClick={toggleNewspaper}
+              >
+                {newspaper ? "show other view" : "show other view"}
+              </button>
             </div>
 
             <div className="flexrow2e">
@@ -91,12 +93,15 @@ function ExpandableArray(props) {
                 </Link>
               </div>
             </div>
-
           </div>
 
           <div
             ref={props.ref}
-            className={`${newspaper===false?"grid-container5": "grid-container5-newspaper"} margin-top-1 background-white-1 borderradius5`}
+            className={`${
+              newspaper === false
+                ? "grid-container5"
+                : "grid-container5-newspaper"
+            } margin-top-1 background-white-1 borderradius5`}
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             {!expanded
@@ -157,9 +162,8 @@ function ExpandableArray(props) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export class LinkListFilters extends React.Component {
-
-    // morehashtags = window.localStorage.getItem("morehashtags");
-    // np = window.localStorage.getItem("newspaper");
+  // morehashtags = window.localStorage.getItem("morehashtags");
+  // np = window.localStorage.getItem("newspaper");
 
   constructor(props) {
     super(props);
@@ -180,8 +184,10 @@ export class LinkListFilters extends React.Component {
       height: 0,
       hashtags: [],
       hashtags2: [],
-      morehashtags: window.localStorage.getItem("morehashtags") === "true" ? true : false,
-      newspaper: !!window.localStorage.getItem("newspaper") === "true" ? true : false
+      morehashtags:
+        window.localStorage.getItem("morehashtags") === "true" ? true : false,
+      newspaper:
+        !!window.localStorage.getItem("newspaper") === "true" ? true : false,
     };
 
     this.setit = this.setit.bind(this);
@@ -405,7 +411,7 @@ export class LinkListFilters extends React.Component {
       morehashtags: morehashtags === "true" ? true : false,
     });
 
-     this.setState({
+    this.setState({
       newspaper: !!this.state.newspaper === "true" ? true : false,
     });
   }
@@ -447,7 +453,7 @@ export class LinkListFilters extends React.Component {
 
   render() {
     return (
-      <div className="content-container border-green-">
+      <div className="content-container- border-green-">
         <div>
           {((this.props.hashtags && this.props.hashtags.length > 0) ||
             (this.state.mappedDataLong &&
@@ -580,4 +586,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);
-

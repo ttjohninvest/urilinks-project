@@ -75,7 +75,7 @@ export const Header = (props) => {
     <div id="top">
       {!deleteAccountError ? (
         <header className="header">
-          <div className="content-container">
+          <div className="content-container-">
             <div className="header__content flexrow2w">
               <div>
                 <Link className="header__title" to="/dashboard">

@@ -453,7 +453,7 @@ export class LinkListFilters extends React.Component {
 
   render() {
     return (
-      <div className="content-container border-green-">
+      <div className="content-container- border-green-">
         <div>
           {((this.props.hashtags && this.props.hashtags.length > 0) ||
             (this.state.mappedDataLong &&
@@ -508,13 +508,7 @@ export class LinkListFilters extends React.Component {
             (up)
           </div>
 
-          {/* <div
-            className="header__title padding-top-11 cursor-pointer"
-            onClick={this.deleteHashtagLinks}
-            title="deletes all of the hashtag links"
-          >
-            (delete links by hashtag)
-          </div> */}
+         
 
           <div className="input-group__item">
             <select
@@ -547,7 +541,7 @@ export class LinkListFilters extends React.Component {
               </option>
             </select>
           </div>
-          <div className="input-group__item- select-filters border-green-">
+          <div className="select-filters">
             <DateRangePicker
               className="zindex"
               startDate={this.props.filters.startDate}

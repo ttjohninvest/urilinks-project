@@ -603,6 +603,7 @@ realtime database rules
 ---
 
 hastags read top to bottom with this code
+example: file:///C:/Users/Admin/Downloads/new67.html
 //100%
 //100% will show 14 narrow rows
 //100vh fills the whole screen increases row height as needed to do so

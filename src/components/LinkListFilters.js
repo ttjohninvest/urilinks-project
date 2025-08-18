@@ -20,6 +20,7 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
+  const [newspaper, setNewspaper]=useState(false)
 
   useEffect(() => {
     const user = firebase.auth().currentUser;
@@ -85,7 +86,7 @@ function ExpandableArray(props) {
 
           <div
             ref={props.ref}
-            className="grid-container5 grid-container5-newspaper- margin-top-1 background-white-1 borderradius5"
+            className={`${newspaper===false?"grid-container5": "grid-container5-newspaper"} margin-top-1 background-white-1 borderradius5`}
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             {!expanded

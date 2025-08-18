@@ -157,14 +157,18 @@ function ExpandableArray(props) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export class LinkListFilters extends React.Component {
+
+    morehashtags = window.localStorage.getItem("morehashtags");
+    np = window.localStorage.getItem("newspaper");
+    
   constructor(props) {
     super(props);
     this.SHORT_HASHTAG_LENGTH = 30;
     this.elementRef = React.createRef();
     this.myRef = React.createRef();
 
-    let morehashtags = window.localStorage.getItem("morehashtags");
-    let np = window.localStorage.getItem("newspaper");
+    // let morehashtags = window.localStorage.getItem("morehashtags");
+    // let np = window.localStorage.getItem("newspaper");
     console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
       sortBy: "hashtag",

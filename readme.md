@@ -608,8 +608,8 @@ hastags read top to bottom with this code
 //100vh fills the whole screen increases row height as needed to do so
 .grid-container5-newspaper {
 display:grid;
-width:100%;
-height:100%;
+width:100vh;
+height:100vh;
 grid-template:repeat(14,1fr)/repeat(4,1fr);
 grid-auto-flow:column;
 gap: 5px;

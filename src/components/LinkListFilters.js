@@ -186,7 +186,7 @@ export class LinkListFilters extends React.Component {
       hashtags2: [],
       morehashtags:
         window.localStorage.getItem("morehashtags") === "true" ? true : false,
-      newspaper:false
+      newspaper: true,
       // newspaper:
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
     };
@@ -508,8 +508,6 @@ export class LinkListFilters extends React.Component {
           >
             (up)
           </div>
-
-         
 
           <div className="input-group__item">
             <select

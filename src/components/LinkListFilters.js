@@ -20,7 +20,7 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
-  const [newspaper, setNewspaper]=useState(false)
+  const [newspaper, setNewspaper]=useState(props.newspaper)
 
   useEffect(() => {
     const user = firebase.auth().currentUser;
@@ -35,6 +35,12 @@ function ExpandableArray(props) {
     setExpanded(!expanded);
     console.log("morehashtags");
     window.localStorage.setItem("morehashtags", !expanded);
+  };
+
+  const toggleNewspaper = () => {
+    setNewspaper(!newspaper);
+    console.log("newspaper");
+    window.localStorage.setItem("newspaper", !newspaper);
   };
 
   console.log("ExpandableArray, expanded=" + expanded);
@@ -61,6 +67,10 @@ function ExpandableArray(props) {
               (welcome) clickable hash tags in alphabetical order
               <br />
               Please go and sin no more, ok. Happy it.
+              <br />
+              <button className="button-m button--link" onClick={toggleNewspaper}>
+            {newspaper ? "Show newspaper view" : "show other view"}
+          </button>
             </div>
 
             <div className="flexrow2e">

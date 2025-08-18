@@ -69,7 +69,7 @@ function ExpandableArray(props) {
               Please go and sin no more, ok. Happy it.
               <br />
               <button className="button-m button--link color-black" onClick={toggleNewspaper}>
-            {newspaper ? "Show newspaper view" : "show other view"}
+            {newspaper ? "Show other view" : "show other view"}
           </button>
             </div>
 

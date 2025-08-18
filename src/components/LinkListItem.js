@@ -582,7 +582,7 @@ const LinkListItem = ({
               li.title="click to go to page"
               let a = document.createElement("a");
               a.title="click to open the page"
-              a.className="nounderline color1"
+              a.className="nounderline color1- color-purple"
               a.href = url;
               a.target = "_blank";
               a.innerHTML = `${url}`;
@@ -625,7 +625,7 @@ const LinkListItem = ({
                     <div>
                       <a
                         ref={myRef}
-                        className="ib nounderline text-size-5 text-color-db margin-bottom-114 color1"
+                        className="ib nounderline text-size-5 text-color-db margin-bottom-114 color1- color-purple"
                         href={Url}
                         target="_self"
                         title={"click to open the webpage: " + Url}
@@ -645,7 +645,7 @@ const LinkListItem = ({
                       <br />
                       <span
                         onClick={() => getUrlsList(Url, id)}
-                        className="ib cursor-pointer margin-left-114 color1"
+                        className="ib cursor-pointer margin-left-114 color1-  color-purple"
                         title="click to see the clickable page urls from the above page"
                       >
                         To List: {Url}
@@ -663,7 +663,7 @@ const LinkListItem = ({
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${id}`}>
                 <div>
-                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11">
+                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
                     edit or remove
                   </span>
                 </div>
@@ -672,7 +672,7 @@ const LinkListItem = ({
           </div>
         </div>
 
-        <div className="list-item__sub-title- padding-left-1 text-size-2">
+        <div className="list-item__sub-title- padding-left-1 text-size-2 color-purple">
           Entered: {moment(createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
         </div>
       </div>

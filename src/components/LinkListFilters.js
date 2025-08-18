@@ -164,7 +164,7 @@ export class LinkListFilters extends React.Component {
     this.myRef = React.createRef();
 
     let morehashtags = window.localStorage.getItem("morehashtags");
-    let newspaper = window.localStorage.getItem("newspaper");
+    //let newspaper = window.localStorage.getItem("newspaper");
     console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
       sortBy: "hashtag",
@@ -177,7 +177,7 @@ export class LinkListFilters extends React.Component {
       hashtags: [],
       hashtags2: [],
       morehashtags: morehashtags === "true" ? true : false,
-      newspaper: newspaper === "true" ? true : false
+      newspaper: false //!!newspaper === "true" ? true : false
     };
 
     this.setit = this.setit.bind(this);
@@ -401,9 +401,9 @@ export class LinkListFilters extends React.Component {
       morehashtags: morehashtags === "true" ? true : false,
     });
 
-     this.setState({
-      newspaper: this.state.newspaper === "true" ? true : false,
-    });
+    //  this.setState({
+    //   newspaper: this.state.newspaper === "true" ? true : false,
+    // });
   }
 
   componentWillUnmount() {}

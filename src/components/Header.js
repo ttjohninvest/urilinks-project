@@ -79,7 +79,7 @@ export const Header = (props) => {
             <div className="header__content flexrow2w">
               <div>
                 <Link className="header__title- nounderline" to="/dashboard">
-                  <div className="header-flex-row-">
+                  <div className="header-flex-row">
                     <div className="margin-top-111- margin-right-111-">
                       <img
                         className="rounded-full-1"
@@ -89,9 +89,9 @@ export const Header = (props) => {
                         alt="Logo"
                       />
                     </div>
-                    <h1 className="color-white-1 cursor-pointer" title="Please use it for good. Bookmarks for internet pages, urls/links">
+                    <div className="color-white-1 cursor-pointer" title="Please use it for good. Bookmarks for internet pages, urls/links">
                       urilinks (bookmarking)
-                    </h1>
+                    </div>
                   </div>
                 </Link>
               </div>

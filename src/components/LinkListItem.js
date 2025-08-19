@@ -32,6 +32,7 @@ const LinkListItem = ({
   };
 
   const scrolltotop = () => {
+    window.localStorage.setItem("scrollPosition", 0);
     window.scrollTo(0,0)
     // window.localStorage.setItem("scrollY",window.scrollY)
     //you need to call dispatch(setSetit(false)) here////

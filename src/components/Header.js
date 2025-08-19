@@ -78,14 +78,15 @@ export const Header = (props) => {
           <div className="content-container-">
             <div className="header__content- flexrow2w">
               <div>
-                <Link className="header__title- nounderline" to="/dashboard">   
-                      <img
+                <Link className="header__title- nounderline" to="/dashboard">  
+                aaaaa 
+                      {/* <img
                         className="rounded-full-1"
                         src={logo}
                         width="35"
                         height="35"
                         alt="Logo"
-                      />
+                      /> */}
                 </Link>
               </div>
               <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
@@ -94,13 +95,14 @@ export const Header = (props) => {
                   </Link>
               </div>
               <div>
-                <img
+                bbbbb
+                {/* <img
                   src={photoURL}
                   width="32"
                   height="32"
                   style={{ borderRadius: "50%" }}
                   className="margin-top-tt"
-                />
+                /> */}
               </div>
               <div>
                 <Link className="header__title- nounderline" to="/benefits">

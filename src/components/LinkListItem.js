@@ -691,16 +691,16 @@ const LinkListItem = ({
         <LinkedInShareButton url={Url} />
         {/* <XShareButton /> */}
          <div>
-                      <a
+                      <span
                         
                         className="ib nounderline text-size-5 text-color-db color-purple"
-                        href="#"
+                        
                        
                         title={"scroll to the top"}
                         onClick={scrolltotop}
                       >
                         X
-                      </a>
+                      </span>
                     </div>
       </div>
     </div>

@@ -76,10 +76,9 @@ export const Header = (props) => {
       {!deleteAccountError ? (
         <header className="header">
           <div className="content-container-">
-            <div className="header__content flexrow2w">
+            <div className="header__content- flexrow2w">
               <div>
                 <Link className="header__title- nounderline" to="/dashboard">
-                  <div className="header-flex-row">
                     <div className="margin-top-111- margin-right-111-">
                       <img
                         className="rounded-full-1"
@@ -89,12 +88,13 @@ export const Header = (props) => {
                         alt="Logo"
                       />
                     </div>
-                    <div className="color-white-1 cursor-pointer" title="Please use it for good. Bookmarks for internet pages, urls/links">
-                      urilinks (bookmarking)
-                    </div>
-                  </div>
+                   
+                  
                 </Link>
               </div>
+               <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
+                      urilinks (bookmarking)
+                    </div>
               <div>
                 <img
                   src={photoURL}

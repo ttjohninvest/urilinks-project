@@ -80,7 +80,7 @@ export const Header = (props) => {
               <div>
                 <Link className="header__title- nounderline" to="/dashboard">   
                       <img
-                        className="rounded-full-1 margin-top-tt"
+                        className="rounded-full-1"
                         src={logo}
                         width="35"
                         height="35"
@@ -89,7 +89,7 @@ export const Header = (props) => {
                 </Link>
               </div>
               <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
-                  <Link className="header__title- nounderline cursor-pointer" to="/dashboard">
+                  <Link className="header__title- nounderline color-white-1 cursor-pointer" to="/dashboard">
                      urilinks (bookmarking)
                   </Link>
               </div>

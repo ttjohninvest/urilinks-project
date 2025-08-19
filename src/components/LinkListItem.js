@@ -31,13 +31,6 @@ const LinkListItem = ({
     //you need to call dispatch(setSetit(false)) here////
   };
 
-  const scrolltotop = () => {
-    window.localStorage.setItem("scrollPosition", 0);
-    window.scrollTo(0,0)
-    // window.localStorage.setItem("scrollY",window.scrollY)
-    //you need to call dispatch(setSetit(false)) here////
-  };
-
   const sortit2 = (event) => {
     console.log(
       "Button was clicked, event.currentTarget.obj.data.length=" +
@@ -690,18 +683,7 @@ const LinkListItem = ({
         <FBShareButton url={Url} />
         <LinkedInShareButton url={Url} />
         {/* <XShareButton /> */}
-         <div>
-                      <span
-                        
-                        className="ib nounderline text-size-5 text-color-db color-purple"
-                        
-                       
-                        title={"scroll to the top"}
-                        onClick={scrolltotop}
-                      >
-                        X
-                      </span>
-                    </div>
+         
       </div>
     </div>
   );

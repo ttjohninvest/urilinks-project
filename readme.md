@@ -611,7 +611,7 @@ example: file:///C:/Users/Admin/Downloads/new67.html
 display:grid;
 width:100vh;
 height:100vh;
-grid-template:repeat(14,1fr)/repeat(4,1fr);
+grid-template:repeat(10,1fr)/repeat(4,1fr);
 grid-auto-flow:column;
 gap: 5px;
 //grid-auto-columns: minmax(0, 1fr); /_ it will always stay within the width specification _/

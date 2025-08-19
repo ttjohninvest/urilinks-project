@@ -79,7 +79,7 @@ export const Header = (props) => {
             <div className="header__content- flexrow2w">
               <div>
                 <Link className="header__title- nounderline" to="/dashboard">
-                    <div className="margin-top-111- margin-right-111-">
+                    {/* <div className="margin-top-111- margin-right-111-"> */}
                       <img
                         className="rounded-full-1"
                         src={logo}
@@ -87,7 +87,7 @@ export const Header = (props) => {
                         height="35"
                         alt="Logo"
                       />
-                    </div>
+                    {/* </div> */}
                    
                   
                 </Link>

@@ -78,23 +78,21 @@ export const Header = (props) => {
           <div className="content-container-">
             <div className="header__content- flexrow2w">
               <div>
-                <Link className="header__title- nounderline" to="/dashboard">
-                    {/* <div className="margin-top-111- margin-right-111-"> */}
+                <Link className="header__title- nounderline" to="/dashboard">   
                       <img
-                        className="rounded-full-1"
+                        className="rounded-full-1 margin-top-tt"
                         src={logo}
                         width="35"
                         height="35"
                         alt="Logo"
                       />
-                    {/* </div> */}
-                   
-                  
                 </Link>
               </div>
-               <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
-                      urilinks (bookmarking)
-                    </div>
+              <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
+                  <Link className="header__title- nounderline cursor-pointer" to="/dashboard">
+                     urilinks (bookmarking)
+                  </Link>
+              </div>
               <div>
                 <img
                   src={photoURL}

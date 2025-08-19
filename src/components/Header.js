@@ -89,7 +89,7 @@ export const Header = (props) => {
                         alt="Logo"
                       />
                     </div>
-                    <h1 title="Please use it for good. Bookmarks for internet pages, urls/links">
+                    <h1 className="color-white-1 cursor-pointer" title="Please use it for good. Bookmarks for internet pages, urls/links">
                       urilinks (bookmarking)
                     </h1>
                   </div>
@@ -101,7 +101,7 @@ export const Header = (props) => {
                   width="32"
                   height="32"
                   style={{ borderRadius: "50%" }}
-                  className=""
+                  className="padding-top-111"
                 />
               </div>
               <div>

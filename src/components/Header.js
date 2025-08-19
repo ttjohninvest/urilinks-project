@@ -107,7 +107,7 @@ export const Header = (props) => {
               <div>
                 <Link className="header__title-" to="/benefits">
                   <span
-                    className="margin-right-1-ib-"
+                    className="margin-right-1-ib- color-white-1 cursor-pointer"
                     title="How to use this website"
                   >
                     (Benefits)
@@ -118,7 +118,7 @@ export const Header = (props) => {
               <div>
                 <Link className="header__title-" to="/termsandprivacy">
                   <span
-                    className="ib-"
+                    className="ib- color-white-1 cursor-pointer"
                     title="terms, conditions and privacy policy"
                   >
                     (legal)
@@ -135,7 +135,7 @@ export const Header = (props) => {
               {!inviewport && (
                 <div
                   id="scrolldownid"
-                  className="header__title- padding-top-11- cursor-pointer"
+                  className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer"
                   onClick={scrolldown}
                   title="if the search and results section is not in view, click this to scroll search and results section into view."
                 >
@@ -153,7 +153,7 @@ export const Header = (props) => {
           </div> */}
               <div>
                 <Link className="header__title-" to="/ideas">
-                  <span className="ib-" title="some ideas for hash tags">
+                  <span className="ib- color-white-1 cursor-pointer" title="some ideas for hash tags">
                     (Bookmark Ideas)
                   </span>
                 </Link>
@@ -161,7 +161,7 @@ export const Header = (props) => {
 
                <div>
                 <a className="header__title-" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
-                  <span className="ib-" title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader.">
+                  <span className="ib- color-white-1 cursor-pointer" title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader.">
                     (get page urls for bookmarks file)
                   </span>
                 </a>
@@ -170,7 +170,7 @@ export const Header = (props) => {
               <div>
                 <Link className="header__title-" to="/bookmarksmanager">
                   <span
-                    className="ib-"
+                    className="ib- color-white-1 cursor-pointer"
                     title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
                   >
                     (Bookmarks Uploader)
@@ -184,7 +184,7 @@ export const Header = (props) => {
 
               <div className="margin-top-1111a-">
                 <button
-                  className="button- button--link- ib- text-size-3-"
+                  className="button- button--link- ib- text-size-3- color-white-1 cursor-pointer"
                   onClick={props.startLogout}
                 >
                   (Logout)

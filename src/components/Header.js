@@ -101,7 +101,7 @@ export const Header = (props) => {
                   width="32"
                   height="32"
                   style={{ borderRadius: "50%" }}
-                  className="padding-top-111-"
+                  className="margin-top-tt"
                 />
               </div>
               <div>
@@ -160,8 +160,8 @@ export const Header = (props) => {
               </div>
 
                <div>
-                <a className="header__title-" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
-                  <span className="ib- color-white-1 cursor-pointer nounderline" title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader.">
+                <a className="header__title- nounderline" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
+                  <span className="ib- color-white-1 cursor-pointer" title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader.">
                     (get page urls for bookmarks file)
                   </span>
                 </a>

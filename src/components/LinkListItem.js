@@ -688,8 +688,8 @@ const addIdToDelete=(id)=>{
                 {/* </div> */}
               </Link>
               <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
-                   <input type="checkbox" id={"delete%"+props.key} name={"delete%"+props.key} value={props.key} onChange={handleCheckboxDelete}/>
-                   <label for={"delete%"+props.key} />
+                   <input type="checkbox" id={"delete%"+id} name={"delete%"+id} value={id} onChange={handleCheckboxDelete}/>
+                   <label for={"delete%"+id} />
                   </span>
             </h3>
           </div>

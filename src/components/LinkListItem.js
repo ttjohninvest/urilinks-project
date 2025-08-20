@@ -24,6 +24,10 @@ const LinkListItem = ({
   const [data2s, setData2s] = useState([]);
   const [sortit1flag, setSortit1flag] = useState([]);
 
+  const handleCheckboxDelete = (event) => {
+    console.log("bookmark id="+event.target.value)
+  };
+
   const storeScrollPosition = () => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
     // window.localStorage.setItem("scrollY",window.scrollY)
@@ -663,7 +667,7 @@ const LinkListItem = ({
                 {/* </div> */}
               </Link>
               <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
-                   <input type="checkbox" id={"delete%"+id} name={"delete%"+id} value="delete"/>
+                   <input type="checkbox" id={"delete%"+id} name={"delete%"+id} value={id} onChange={handleCheckboxDelete}/>
                    <label for={"delete%"+id} />
                   </span>
             </h3>

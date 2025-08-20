@@ -31,7 +31,7 @@ export class EditLinkPageFileDate extends React.Component {
         <div className="content-container">
           <LinkFormFileDate link={this.props.linkfiledate} onSubmit={this.onSubmit} />
            <button className="button button--secondary" onClick={this.onRemove}>
-            Remove Link
+            Remove bookmark
           </button>
           {/* <button className="button button--secondary" onClick={()=>this.onRemove(this.props.filters.text, event)}>
             Remove Link

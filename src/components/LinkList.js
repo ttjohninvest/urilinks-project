@@ -108,7 +108,7 @@ export const LinkList = (props) => {
               onChange={handleOptionChange}
             />
             <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)">
-              <span className="button-2 ib" title="links list with out details">list details</span>
+              <span className="button-2 ib" title="links list with out details">list bookmarks</span>
             </div>
           </label>
         </div>

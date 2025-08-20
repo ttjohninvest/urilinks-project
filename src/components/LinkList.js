@@ -10,8 +10,23 @@ import printerImage from "../assets/images/printer_image.png";
 ////
 export const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1");
+  const [deleteData, setDeleteData] = useState([]);
 
   const myRef = useRef();
+  const darray = []
+
+  const setDeleteData2 = (id) => {
+     //localStorage.setItem('deleteData', id)
+     darray.push(id);
+     setDeleteData(darray)
+     localStorage.setItem('deleteData', deleteData)
+     console.log("deleteData="+localStorage.getItem('deleteData'))
+  }
+
+  const getDeleteData2 = () => {
+     //localStorage.setItem('deleteData', id)
+     return deleteData
+  }
 
   const handleOptionChange = (event) => {
     console.log("handleOptionChange, event.target.value=" + event.target.value);
@@ -134,7 +149,7 @@ export const LinkList = (props) => {
             props.links.map((link) => {
               return (
                 <div>
-                  <LinkListItem key={link.id} {...link} />
+                  <LinkListItem key={link.id} {...link} setDeleteData2={setDeleteData2} getDeleteData2={getDeleteData2} />
                 </div>
               );
             })

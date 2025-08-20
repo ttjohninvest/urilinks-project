@@ -14,6 +14,8 @@ const LinkListItem = ({
   amount,
   createdAt,
   faviconURL,
+  setDeleteData2,
+  getDeleteData2,
 }) => {
   console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + faviconURL);
   const myRef = useRef(null);
@@ -24,8 +26,26 @@ const LinkListItem = ({
   const [data2s, setData2s] = useState([]);
   const [sortit1flag, setSortit1flag] = useState([]);
 
+
+// function Book(BookTitle, BookAuthor, BookPages){
+//   this.title = BookTitle,
+//   this.author = BookAuthor,
+//   this.pages = BookPages
+// }
+// This function triggers when a button is clicked
+//function addNewBook(id){
+const addIdToDelete=(id)=>{
+   //let book = new Book(title.value, author.value, pages.value);
+   //let bookStringified = JSON.stringify(book);
+   
+   //bookData.push(bookStringified);
+   setDeleteData2(id);
+}
+
   const handleCheckboxDelete = (event) => {
     console.log("bookmark id="+event.target.value)
+    addIdToDelete(event.target.value)
+    console.log("bookmark ids="+localStorage.getItem('deleteData'))
   };
 
   const storeScrollPosition = () => {

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startEditLink, startRemoveLink, removeLink } from "../actions/links";
 
+
 export class EditLinkPage extends React.Component {
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);

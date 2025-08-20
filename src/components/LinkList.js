@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
+import { startRemoveLink, removeLink } from "../actions/links";
+
 import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
 import selectLinks from "../selectors/links";
 import LinksSummary from "./LinksSummary";
 import printerImage from "../assets/images/printer_image.png";
+
 
 
 ////
@@ -20,6 +23,9 @@ export const LinkList = (props) => {
      
      setDeleteData(deleteData => [...deleteData, id])
      console.log("deleteData="+JSON.stringify(deleteData))
+
+     removeLink({ id: id })
+     startRemoveLink({ id: id });
      
   }
 

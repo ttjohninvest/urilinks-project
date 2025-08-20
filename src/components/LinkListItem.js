@@ -56,6 +56,7 @@ const addIdToDelete=(id)=>{
       //alert("Item deleted.");
     } else {
       // User clicked Cancel
+      document.getElementById('delete%'+event.target.value).checked = false;
       alert("Deletion canceled.");
     }
 

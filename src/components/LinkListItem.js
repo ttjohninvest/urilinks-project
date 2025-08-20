@@ -46,7 +46,7 @@ const addIdToDelete=(id)=>{
   const handleCheckboxDelete = (event) => {
     console.log("bookmark id="+event.target.value)
     addIdToDelete(event.target.value)
-    console.log("bookmark ids="+localStorage.getItem('deleteData'))
+    //console.log("bookmark ids="+localStorage.getItem('deleteData'))
   };
 
   const storeScrollPosition = () => {

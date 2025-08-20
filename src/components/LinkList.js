@@ -17,8 +17,7 @@ export const LinkList = (props) => {
 
   const setDeleteData2 = (id) => {
      //localStorage.setItem('deleteData', id)
-     darray.push(id);
-     setDeleteData(darray)
+     setDeleteData(deleteData => [...deleteData, id])
      localStorage.setItem('deleteData', deleteData)
      console.log("deleteData="+localStorage.getItem('deleteData'))
   }

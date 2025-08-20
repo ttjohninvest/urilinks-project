@@ -676,7 +676,7 @@ const addIdToDelete=(id)=>{
                       PAGE URLS SOURCE:
                       <br />
                       <span
-                        onClick={() => getUrlsList(props.Url, id)}
+                        onClick={() => getUrlsList(props.Url, props.id)}
                         className="ib cursor-pointer margin-left-114 color1-  color-purple"
                         title="click to see the clickable page urls from the above page"
                       >

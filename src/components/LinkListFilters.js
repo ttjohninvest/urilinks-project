@@ -55,7 +55,7 @@ function ExpandableArray(props) {
   else displayedArray = props.mappedDataShort;
 
   return (
-    <div>
+    <div className="bg-white-1">
       {props.mappedDataShort.length > 0 ? (
         <div>
           <div

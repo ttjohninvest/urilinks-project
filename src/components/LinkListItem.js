@@ -655,16 +655,17 @@ const LinkListItem = ({
           <div className="">
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${id}`}>
-                <div>
+                {/* <div> */}
                   <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
                     edit or remove
                   </span>
-                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
+                  
+                {/* </div> */}
+              </Link>
+              <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
                    <input type="checkbox" id={"delete%"+id} name={"delete%"+id} value="delete"/>
                    <label for={"delete%"+id} />
                   </span>
-                </div>
-              </Link>
             </h3>
           </div>
         </div>

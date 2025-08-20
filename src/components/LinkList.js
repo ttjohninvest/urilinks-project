@@ -24,8 +24,11 @@ export const LinkList = (props) => {
      setDeleteData(deleteData => [...deleteData, id])
      console.log("deleteData="+JSON.stringify(deleteData))
 
+     console.log("calling removeLink")
      removeLink({ id: id })
+     console.log("calling startRemoveLink")
      startRemoveLink({ id: id });
+     console.log("done calling startRemoveLink")
      
   }
 

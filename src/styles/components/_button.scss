@@ -13,7 +13,7 @@
 
 .button-2 {
   /*background: $blue;*/
-  background-color: $dark-blue;
+  background-color: purple;
   border: none;
   color: white;
   display: inline-block;
@@ -22,6 +22,7 @@
   line-height: 1;
   padding: $s-size;
   text-decoration: none;
+  border-radius:5px;
 }
 
 .button-m {

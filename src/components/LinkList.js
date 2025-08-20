@@ -90,7 +90,7 @@ export const LinkList = (props) => {
               onChange={handleOptionChange}
             />
             <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)">
-              <span className="button-2 ib">links list with details</span>
+              <span className="button-2 ib" title="links list with details">list bookmarks</span>
             </div>
             {/* <div className="label-text label-text-right"  title="click to see the list of links with details">
               <span className="button-2 ib cursor-pinter">links list with details</span>
@@ -108,7 +108,7 @@ export const LinkList = (props) => {
               onChange={handleOptionChange}
             />
             <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)">
-              <span className="button-2 ib">links list with out details</span>
+              <span className="button-2 ib" title="links list with out details">list details</span>
             </div>
           </label>
         </div>

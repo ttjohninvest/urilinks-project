@@ -1,4 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { startRemoveLink, removeLink } from "../actions/links";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
@@ -6,18 +8,17 @@ import FBShareButton from "./FBShareButton";
 import LinkedInShareButton from "./LinkedInShareButton";
 //import XShareButton from "./XShareButton"
 
-const LinkListItem = ({
-  id,
-  description,
-  Url,
-  note,
-  amount,
-  createdAt,
-  faviconURL,
-  setDeleteData2,
-  getDeleteData2,
-}) => {
-  console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + faviconURL);
+// const LinkListItem = ({
+//   id,
+//   description,
+//   Url,
+//   note,
+//   amount,
+//   createdAt,
+//   faviconURL,
+// }) => {
+  const LinkListItem = (props) => {
+  console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL);
   const myRef = useRef(null);
 
   const [s, setS] = useState(1);
@@ -45,8 +46,20 @@ const addIdToDelete=(id)=>{
 
   const handleCheckboxDelete = (event) => {
     console.log("bookmark id="+event.target.value)
-    addIdToDelete(event.target.value)
+    //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
+    let result = confirm("Are you sure you want to delete?");
+    if (result) {
+      // User clicked OK, perform the deletion
+      props.removeLink({ id: event.target.value });
+      props.startRemoveLink({ id: event.target.value });
+      //alert("Item deleted.");
+    } else {
+      // User clicked Cancel
+      alert("Deletion canceled.");
+    }
+
+
   };
 
   const storeScrollPosition = () => {
@@ -634,7 +647,7 @@ const addIdToDelete=(id)=>{
                   className="borderradius50 margin-top-1111"
                   width="16"
                   height="16"
-                  src={faviconURL}
+                  src={props.faviconURL}
                 />
               </div>
               <div className="padding-left-11 padding-bottom-11 borderRadius4">
@@ -644,12 +657,12 @@ const addIdToDelete=(id)=>{
                       <a
                         ref={myRef}
                         className="ib nounderline text-size-5 text-color-db margin-bottom-114 color1- color-purple"
-                        href={Url}
+                        href={props.Url}
                         target="_self"
-                        title={"click to open the webpage: " + Url}
+                        title={"click to open the webpage: " + props.Url}
                         onClick={storeScrollPosition}
                       >
-                        To page: {description}
+                        To page: {props.description}
                       </a>
                     </div>
                   </div>
@@ -662,24 +675,24 @@ const addIdToDelete=(id)=>{
                       PAGE URLS SOURCE:
                       <br />
                       <span
-                        onClick={() => getUrlsList(Url, id)}
+                        onClick={() => getUrlsList(props.Url, id)}
                         className="ib cursor-pointer margin-left-114 color1-  color-purple"
                         title="click to see the clickable page urls from the above page"
                       >
-                        To List: {Url}
+                        To List: {props.Url}
                         {/*To list: {Url}*/}
                       </span>
                     </span>
                   </div>
                 </div>
 
-                <ol id={"uldata" + id} start="0"></ol>
+                <ol id={"uldata" + props.id} start="0"></ol>
               </div>
             </div>
           </div>
           <div className="">
             <h3 className="">
-              <Link className="nounderline  text-size-1" to={`/edit/${id}`}>
+              <Link className="nounderline  text-size-1" to={`/edit/${props.id}`}>
                 {/* <div> */}
                   <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
                     edit or remove
@@ -688,27 +701,34 @@ const addIdToDelete=(id)=>{
                 {/* </div> */}
               </Link>
               <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
-                   <input type="checkbox" id={"delete%"+id} name={"delete%"+id} value={id} onChange={handleCheckboxDelete}/>
-                   <label for={"delete%"+id} />
+                   <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete}/>
+                   <label for={"delete%"+props.id} />
                   </span>
             </h3>
           </div>
         </div>
 
         <div className="list-item__sub-title- padding-left-1 text-size-2 color-purple">
-          Entered: {moment(createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
+          Entered: {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
         </div>
       </div>
       <div className="list-item__data-  text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2">
-        {note}
+        {props.note}
       </div>
       <div className="flexrow2w">
-        <FBShareButton url={Url} />
-        <LinkedInShareButton url={Url} />
+        <FBShareButton url={props.Url} />
+        <LinkedInShareButton url={props.Url} />
         {/* <XShareButton /> */}
       </div>
     </div>
   );
 };
 
-export default LinkListItem;
+//export default LinkListItem;
+
+const mapDispatchToProps = (dispatch, props) => ({
+  startRemoveLink: (data) => dispatch(startRemoveLink(data)),
+  removeLink: (data) => dispatch(removeLink(data)),
+});
+
+export default connect(undefined, mapDispatchToProps)(LinkListItem);

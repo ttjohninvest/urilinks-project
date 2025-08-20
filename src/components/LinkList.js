@@ -16,27 +16,7 @@ export const LinkList = (props) => {
   const [deleteData, setDeleteData] = useState([]);
 
   const myRef = useRef();
-  const darray = []
-
-  const setDeleteData2 = (id) => {
-    console.log("LinkList, setDeleteData2, id="+id)
-     
-     setDeleteData(deleteData => [...deleteData, id])
-     console.log("deleteData="+JSON.stringify(deleteData))
-
-     console.log("calling removeLink")
-     removeLink({ id: id })
-     console.log("calling startRemoveLink")
-     startRemoveLink({ id: id });
-     console.log("done calling startRemoveLink")
-     
-  }
-
-  const getDeleteData2 = () => {
-     //localStorage.setItem('deleteData', id)
-     return deleteData
-  }
-
+ 
   const handleOptionChange = (event) => {
     console.log("handleOptionChange, event.target.value=" + event.target.value);
     setSelectedOption(event.target.value);
@@ -158,7 +138,7 @@ export const LinkList = (props) => {
             props.links.map((link) => {
               return (
                 <div>
-                  <LinkListItem key={link.id} {...link} setDeleteData2={setDeleteData2} getDeleteData2={getDeleteData2} />
+                  <LinkListItem key={link.id} {...link} />
                 </div>
               );
             })

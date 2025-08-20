@@ -12,7 +12,7 @@ const Benefits = () => (
         spaces, tabs and hyphens removed for easy finding during hashtag search.
       </li>
       <li>
-        Add Uri/Url Link button on the home page is used to add a url link to
+        Add bookmark button on the home page is used to add a uri/url link bookmark to
         your private account.
       </li>
       <li>Please use it for good.</li>
@@ -40,7 +40,7 @@ const Benefits = () => (
       <li>
         You are able to see your bookmarks better in a neat clickable list
         layout. You may add a note up to 1,024 characters using the free plan,
-        2,300 for the other plans to your link from the Add Uri/Url Link button
+        2,300 for the other plans to your link from the Add bookmark button
         or later through the Edit Uri/Url Link button.
       </li>
       <li>
@@ -65,7 +65,7 @@ const Benefits = () => (
       </li>
 
       <li>
-        To enter a link to save, press "Add Uri/Url Link" button, copy and paste
+        To enter a link to save, press "Add bookmark" button, copy and paste
         in the link text or type it in, copy and paste in the link uri/url from
         the browser or type it inside the uri/url text field in the website,
         type in or copy and paste in an optional note, then click "Save Uri/Url
@@ -93,7 +93,7 @@ const Benefits = () => (
           tag in the note. They will be given in alphabetical order. You may
           organize any group of links this way. For example, if you have 5
           uri/url links that are your favorites, put The hash tag #favorite in
-          the note section for each of the 5 in the add uri/url form. You will
+          the note section for each of the 5 in the add bookmark form. You will
           need two or more hash tags for the hash tags window to appear.
         </li>
 

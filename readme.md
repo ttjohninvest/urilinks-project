@@ -467,7 +467,7 @@ urilinks Benefits:
         For each website link that you save, you have the option of entering a
         note.
 
-        To enter a link to save, press "Add Uri/Url Link" button, copy and paste
+        To enter a link to save, press "Add bookmark" button, copy and paste
         in the link text or type it in, copy and paste in the link uri/url from
         the browser or type it inside the uri/url text field in the website,
         type in or copy and paste in an optional note, then click "Save Uri/Url

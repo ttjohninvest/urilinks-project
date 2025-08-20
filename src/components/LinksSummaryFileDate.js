@@ -15,7 +15,7 @@ export const LinksSummaryFileDate = ({ linkCount, linksTotal }) => {
        <div id="link-summary-id" className="text-size-5 margin-right-1"><span className="is-active">{linkCount}</span> Uri/Url Link's Found</div>
         
           <Link className="button-2 ib text-size-5" to="/createfiledate">
-            Add Uri/Url Link FileDate 
+            Add bookmark FileDate 
           </Link>
         
       </div>

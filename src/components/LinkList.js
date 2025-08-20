@@ -16,11 +16,12 @@ export const LinkList = (props) => {
   const darray = []
 
   const setDeleteData2 = (id) => {
+    console.log("LinkList, setDeleteData2, id="+id)
      //localStorage.setItem('deleteData', id)
      setDeleteData(deleteData => [...deleteData, id])
      localStorage.setItem('deleteData', deleteData)
      console.log("deleteData="+localStorage.getItem('deleteData'))
-     console.log("deleteData="+JSON.parse(localStorage.getItem('deleteData')))
+     //console.log("deleteData="+JSON.parse(localStorage.getItem('deleteData')))
   }
 
   const getDeleteData2 = () => {

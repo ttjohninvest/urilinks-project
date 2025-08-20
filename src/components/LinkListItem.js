@@ -35,6 +35,7 @@ const LinkListItem = ({
 // This function triggers when a button is clicked
 //function addNewBook(id){
 const addIdToDelete=(id)=>{
+  console.log("LinkListItem, id="+id)
    //let book = new Book(title.value, author.value, pages.value);
    //let bookStringified = JSON.stringify(book);
    

@@ -20,6 +20,7 @@ export const LinkList = (props) => {
      setDeleteData(deleteData => [...deleteData, id])
      localStorage.setItem('deleteData', deleteData)
      console.log("deleteData="+localStorage.getItem('deleteData'))
+     console.log("deleteData="+JSON.parse(localStorage.getItem('deleteData')))
   }
 
   const getDeleteData2 = () => {

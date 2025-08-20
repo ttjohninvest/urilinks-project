@@ -116,7 +116,7 @@ const LinkListItem = ({
 
         let a2 = document.createElement("a");
         a2.title = `click to open page,${d.hostname}`;
-        a2.className = "nounderline text-color-black";
+        a2.className = "nounderline color-black";
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
         a2.innerHTML = `${d.hostname}`;
@@ -135,7 +135,7 @@ const LinkListItem = ({
           if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
             a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-            a3.className = "nounderline text-color-black";
+            a3.className = "nounderline color-black";
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
             a3.innerHTML = `,  ${pathnamearray[i + 1]}`;
@@ -222,7 +222,7 @@ const LinkListItem = ({
 
         let a2 = document.createElement("a");
         a2.title = `click to open page,${d.hostname}`;
-        a2.className = "nounderline text-color-black";
+        a2.className = "nounderline color-black";
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
         a2.innerHTML = `${d.hostname}`;
@@ -241,7 +241,7 @@ const LinkListItem = ({
           if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
             a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-            a3.className = "nounderline text-color-black";
+            a3.className = "nounderline color-black";
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
             a3.innerHTML = `,  ${pathnamearray[i + 1]}`;
@@ -336,7 +336,7 @@ const LinkListItem = ({
 
         let a2 = document.createElement("a");
         a2.title = `click to open page,${d.hostname}`;
-        a2.className = "nounderline text-color-black";
+        a2.className = "nounderline color-black";
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
         a2.innerHTML = `${d.hostname}`;
@@ -355,7 +355,7 @@ const LinkListItem = ({
           if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
             a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-            a3.className = "nounderline text-color-black";
+            a3.className = "nounderline color-black";
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
             a3.innerHTML = `,  ${pathnamearray[i + 1]}`;
@@ -434,7 +434,7 @@ const LinkListItem = ({
 
         let a2 = document.createElement("a");
         a2.title = `click to open page,${d.hostname}`;
-        a2.className = "nounderline text-color-black";
+        a2.className = "nounderline color-black";
         a2.href = "https://" + d.hostname;
         a2.target = "_blank";
         a2.innerHTML = `${d.hostname}`;
@@ -453,7 +453,7 @@ const LinkListItem = ({
           if (pathnamearray[i + 1] !== undefined) {
             let a3 = document.createElement("a");
             a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-            a3.className = "nounderline text-color-black";
+            a3.className = "nounderline color-black";
             a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
             a3.target = "_blank";
             a3.innerHTML = `,  ${pathnamearray[i + 1]}`;

@@ -100,7 +100,13 @@ class BookmarksManager extends React.Component {
                     checked={this.state.selectedOption === "usefoldernames"}
                     onChange={this.handleRadioChange}
                   />
-                  <label for="option1" title="this is for importing bookmarks that were exported from a browser">      convert folder names to hashtags</label>{" "}
+                  <label
+                    for="option1"
+                    title="this is for importing bookmarks that were exported from a browser"
+                  >
+                    {" "}
+                    convert folder names to hashtags
+                  </label>{" "}
                   {/*use this option to convert a browser exported boomarks.html file*/}
                 </li>
 
@@ -113,7 +119,13 @@ class BookmarksManager extends React.Component {
                     checked={this.state.selectedOption === "usedomainnames"}
                     onChange={this.handleRadioChange}
                   />
-                  <label for="option2" title="this one is or get page urls for bookmarks.html file which was not written from a browser export.">      convert domain names to hashtags</label>{" "}
+                  <label
+                    for="option2"
+                    title="this one is or get page urls for bookmarks.html file which was not written from a browser export."
+                  >
+                    {" "}
+                    convert domain names to hashtags
+                  </label>{" "}
                   {/*use this option to convert a boomarks.html file that was generated with */}
                 </li>
               </div>
@@ -129,7 +141,7 @@ class BookmarksManager extends React.Component {
               {this.state.didUpload ? (
                 <div>
                   <li>
-                    <span className="ib text-color-black text-size-8">
+                    <span className="ib color-black text-size-8">
                       import bookmarks
                     </span>
                   </li>

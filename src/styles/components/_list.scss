@@ -48,12 +48,8 @@
   color: purple;
 }
 
-.cb1:hover {
+input.cb1[type="checkbox"]:hover {
   accent-color: purple;
-}
-
-input[type="checkbox"]:hover {
-  accent-color: #4CAF50;
 }
 
 .bg-white-1 {

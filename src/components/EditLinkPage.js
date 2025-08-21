@@ -27,12 +27,12 @@ export class EditLinkPage extends React.Component {
       <div>
         <div className="page-header">
           <div className="content-container">
-            <h1 className="page-header__title">Edit bookmark</h1>
+            <h1 className="page-header__title- button-2">Edit bookmark</h1>
           </div>
         </div>
         <div className="content-container">
           <LinkForm link={this.props.link} onSubmit={this.onSubmit} />
-           <button className="button button--secondary" onClick={this.onRemove}>
+           <button className="button- button--secondary- button-2" onClick={this.onRemove}>
             Remove bookmark
           </button>
           {/* <button className="button button--secondary" onClick={()=>this.onRemove(this.props.filters.text, event)}>

@@ -54,7 +54,7 @@ const ImportedBookmarks = (props) => {
           <div className="rectangle-1">
             <div className="margin-top-2">
               <button
-                className="button-style-1- button"
+                className="button-style-1- button-2"
                 onClick={returnAndRefresh}
               >
                 Return and Refresh
@@ -62,7 +62,7 @@ const ImportedBookmarks = (props) => {
             </div>
 
             <div className="margin-top-2">
-              <button className="button-style-1- button" onClick={goToHomePage}>
+              <button className="button-style-1- button-2" onClick={goToHomePage}>
                 Return
               </button>
             </div>

@@ -68,7 +68,7 @@ const LoginPage = ({ startLogin }) => {
               Welcome to an easier way to do internet bookmarks with hash tags,
               free tool
             </p>
-            <p>Please contact me: Mr. McGovern at 775 507 0098 or ttjohninvest@gmail.com</p>
+            <p>Please contact Elf at 775 507 0098 or elftitle@gmail.com</p>
             {/* <p className="text-size-8 coolShadow ">
             I am trying to help my son. Please give it a try.
           </p> */}

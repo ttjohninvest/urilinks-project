@@ -134,7 +134,7 @@ const Benefits = () => (
         menu and then in the field to the left enter the hash tag.
       </li>
     <li>
-    ttjohninvest@gmail.com, 775 507-0098, Mr. McGovern
+    elftitle@gmail.com, 775 507-0098, Elf
     <br />
     <br />
     urilinks.com

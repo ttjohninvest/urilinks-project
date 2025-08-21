@@ -51,7 +51,21 @@ social-media-node-express contains the other one
 it needs mongodb and other values for environment variables
 open two projects, in github.com and vercel.com
 
----
+--------------------------
+tools:
+stripe.com (payment processor)
+ttjohninvest@gmail.com
+google based signin
+vercel.com (stripe cloud functions)
+ttjohninvest@gmail.com
+github.com (code repository)
+ttjohninvest@gmail.com
+cloudflare.com (statistics)
+ttjohninvest@gmail.com
+firebase.google.com (stores data)
+heroku.com (host for code)
+ttjohninvest@gmail.com
+----------------------------
 
 stripe secret key, stripe update time, see urilinks.com googledocuments for roll it or delete it time so I can keep accepting payments
 test upgrade plan when you get more money in the bank
@@ -68,7 +82,7 @@ stripe backup code: oenw-ovhq-ejih-xpnn-rxcm
 
 on 7/16/25, rnduplessis@cunninghambroadcasting.com, alumnus mvp stories on page https://nevadasportsnet.com/sports/wolf-pack-track-and-field
 professordaveexplains@gmail.com, m sent on 7/16/25
-state id day on aug 15 2025 at 3:15, leave at 11:00am
+
 on 7/15/25, I sent to message to https://www.societylibrary.org/, see ttjohninvest@gmail.com
 linkedin.com message to connections: Thank you. As you may know, I am the executive programmer for the start up, urilinks.com. I am currently looking for my first users. In leveraging the internet infrustructure, my program is basically a scalable virtual filing cabinet where the hastags are the folder names and the contents of the folders are web pages and all content is searchable. I hope you are blessed and have continuous happiness in your life.
 
@@ -186,6 +200,19 @@ urilinks-project-vercel-app
 
 command to login into github from the command line
 gh auth login
+
+stripe.com
+un:
+pw:
+
+cloudflare.com
+ttjohninvest@gmail.com
+
+heroku.com
+ttjohninvest@gmail.com
+
+firebase.google.com
+
 
 ---
 

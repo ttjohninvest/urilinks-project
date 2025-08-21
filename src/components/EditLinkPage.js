@@ -27,7 +27,9 @@ export class EditLinkPage extends React.Component {
       <div>
         <div className="page-header">
           <div className="content-container">
-            <h1 className="page-header__title color-purple">Edit bookmark</h1>
+            <h1 className="page-header__title">
+              <span className="color-purple">Edit bookmark</span>
+              </h1>
           </div>
         </div>
         <div className="content-container">

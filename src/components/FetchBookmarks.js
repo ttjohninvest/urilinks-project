@@ -84,16 +84,15 @@ const FetchBookmarks = (props) => {
   }
 
   const getTheHashtag = (url, kht) => {
-    
     const hashtag = getHashNameUsingDomainName(url);
     if (hashtag !== kht) {
       return hashtag + " " + kht;
     }
-    return hashtag
+    return hashtag;
   };
 
   const getHashtag = (str) => {
-    console.log("getHashtag")
+    console.log("getHashtag");
     let stringWithoutTabs = str.replace(/\t/g, "");
     let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
     let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
@@ -168,12 +167,11 @@ const FetchBookmarks = (props) => {
           ) {
             let l = 0;
             let hashtagsArray = [];
-            
 
             let r = true;
             let r2 = true;
             let htmllinksarray = [];
-            
+
             fetch("https://urilinks-project-vercel-api-5.vercel.app", {
               method: "POST",
               headers: {
@@ -202,21 +200,22 @@ const FetchBookmarks = (props) => {
                 //or
                 //bookmark with folder // if they all has one bookmark and one folder it works
                 //folder
-                let kht
-console.log("before for")
+                let kht;
+                let kht2;
+                let kht3;
+                console.log("before for");
                 for (let i = 0; data.message && i < data.message.length; i++) {
-                console.log("in for")
-  
+                  console.log("in for");
+
                   if (data.message.length === 3) {
                     //3 is firefox
                     if (i === 0) {
                       let hashtagv1;
                       if (oo === "usefoldernames") {
-console.log("usefoldernames")
+                        console.log("usefoldernames");
 
                         hashtagv1 = getHashtag(data.message[i].title);
                       }
-                                                    
 
                       for (
                         let j = 0;
@@ -233,18 +232,23 @@ console.log("usefoldernames")
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
-                          console.log("oo="+oo)
+                          console.log("oo=" + oo);
                           if (oo === "usedomainnames") {
- console.log("usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+                            if (i === 0 && kht2 === undefined) {
+                              kht2 = getHashtag2(url);
+                              hashtagv1 = kht2;
+                            } else {
+                              hashtagv1 = getTheHashtag(url, kht2);
+                            }
                           }
-                           
+
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing into htmllinksarray"); console.log(1);
+                            console.log("pushing into htmllinksarray");
+                            console.log(1);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -290,13 +294,14 @@ console.log("usefoldernames")
                               console.log("title=" + title);
 
                               if (oo === "usedomainnames")
-                                hashtagv2 = getHashtag2(url)
+                                hashtagv2 = getHashtag2(url);
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing into htmllinksarray");console.log(2);
+                                console.log("pushing into htmllinksarray");
+                                console.log(2);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -340,13 +345,14 @@ console.log("usefoldernames")
 
                                   console.log("title=" + title);
                                   if (oo === "usedomainnames")
-                                    hashtagv3 = getHashtag2(url)
+                                    hashtagv3 = getHashtag2(url);
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing into htmllinksarray");console.log(3);
+                                    console.log("pushing into htmllinksarray");
+                                    console.log(3);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -398,7 +404,7 @@ console.log("usefoldernames")
                                       console.log("title=" + title);
 
                                       if (oo === "usedomainnames")
-                                        hashtagv4 = getHashtag2(url)
+                                        hashtagv4 = getHashtag2(url);
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -406,7 +412,8 @@ console.log("usefoldernames")
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
                                           "pushing into htmllinksarray"
-                                        );console.log(4);
+                                        );
+                                        console.log(4);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -468,7 +475,7 @@ console.log("usefoldernames")
                                           console.log("title=" + title);
 
                                           if (oo === "usedomainnames")
-                                            hashtagv5 = getHashtag2(url)
+                                            hashtagv5 = getHashtag2(url);
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -476,7 +483,8 @@ console.log("usefoldernames")
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
                                               "pushing into htmllinksarray"
-                                            );console.log(5);
+                                            );
+                                            console.log(5);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -539,7 +547,7 @@ console.log("usefoldernames")
                                               console.log("title=" + title);
 
                                               if (oo === "usedomainnames")
-                                                hashtagv6 = getHashtag2(url)
+                                                hashtagv6 = getHashtag2(url);
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -547,7 +555,8 @@ console.log("usefoldernames")
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
                                                   "pushing into htmllinksarray"
-                                                );console.log(6);
+                                                );
+                                                console.log(6);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -618,7 +627,8 @@ console.log("usefoldernames")
                                                   console.log("title=" + title);
 
                                                   if (oo === "usedomainnames")
-                                                    hashtagv7 = getHashtag2(url)
+                                                    hashtagv7 =
+                                                      getHashtag2(url);
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -628,7 +638,8 @@ console.log("usefoldernames")
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
                                                       "pushing into htmllinksarray"
-                                                    );console.log(7);
+                                                    );
+                                                    console.log(7);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -680,13 +691,14 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+                            hashtagv1 = getHashtag2(url);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing into htmllinksarray");console.log(8);
+                            console.log("pushing into htmllinksarray");
+                            console.log(8);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -732,13 +744,14 @@ console.log("usefoldernames")
                               console.log("title=" + title);
 
                               if (oo === "usedomainnames")
-                                hashtagv2 = getHashtag2(url)
+                                hashtagv2 = getHashtag2(url);
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing into htmllinksarray");console.log(9);
+                                console.log("pushing into htmllinksarray");
+                                console.log(9);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -783,13 +796,14 @@ console.log("usefoldernames")
                                   console.log("title=" + title);
 
                                   if (oo === "usedomainnames")
-                                    hashtagv3 = getHashtag2(url)
+                                    hashtagv3 = getHashtag2(url);
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing into htmllinksarray");console.log(10);
+                                    console.log("pushing into htmllinksarray");
+                                    console.log(10);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -841,7 +855,7 @@ console.log("usefoldernames")
                                       console.log("title=" + title);
 
                                       if (oo === "usedomainnames")
-                                        hashtagv4 = getHashtag2(url)
+                                        hashtagv4 = getHashtag2(url);
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -849,7 +863,8 @@ console.log("usefoldernames")
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
                                           "pushing into htmllinksarray"
-                                        );console.log(11);
+                                        );
+                                        console.log(11);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -910,7 +925,7 @@ console.log("usefoldernames")
                                           console.log("title=" + title);
 
                                           if (oo === "usedomainnames")
-                                            hashtagv5 = getHashtag2(url)
+                                            hashtagv5 = getHashtag2(url);
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -918,7 +933,8 @@ console.log("usefoldernames")
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
                                               "pushing into htmllinksarray"
-                                            );console.log(12);
+                                            );
+                                            console.log(12);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -981,7 +997,7 @@ console.log("usefoldernames")
                                               console.log("title=" + title);
 
                                               if (oo === "usedomainnames")
-                                                hashtagv6 = getHashtag2(url)
+                                                hashtagv6 = getHashtag2(url);
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -989,7 +1005,8 @@ console.log("usefoldernames")
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
                                                   "pushing into htmllinksarray"
-                                                );console.log(13);
+                                                );
+                                                console.log(13);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -1060,7 +1077,8 @@ console.log("usefoldernames")
                                                   console.log("title=" + title);
 
                                                   if (oo === "usedomainnames")
-                                                    hashtagv7 = getHashtag2(url)
+                                                    hashtagv7 =
+                                                      getHashtag2(url);
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1070,7 +1088,8 @@ console.log("usefoldernames")
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
                                                       "pushing into htmllinksarray"
-                                                    );console.log(14);
+                                                    );
+                                                    console.log(14);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -1124,13 +1143,14 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+                            hashtagv1 = getHashtag2(url);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing into htmllinksarray");console.log(15);
+                            console.log("pushing into htmllinksarray");
+                            console.log(15);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -1177,13 +1197,14 @@ console.log("usefoldernames")
                               console.log("title=" + title);
 
                               if (oo === "usedomainnames")
-                                hashtagv2 = getHashtag2(url)
+                                hashtagv2 = getHashtag2(url);
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing into htmllinksarray");console.log(16);
+                                console.log("pushing into htmllinksarray");
+                                console.log(16);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -1228,13 +1249,14 @@ console.log("usefoldernames")
                                   console.log("title=" + title);
 
                                   if (oo === "usedomainnames")
-                                    hashtagv3 = getHashtag2(url)
+                                    hashtagv3 = getHashtag2(url);
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing into htmllinksarray");console.log(17);
+                                    console.log("pushing into htmllinksarray");
+                                    console.log(17);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -1286,7 +1308,7 @@ console.log("usefoldernames")
                                       console.log("title=" + title);
 
                                       if (oo === "usedomainnames")
-                                        hashtagv4 = getHashtag2(url)
+                                        hashtagv4 = getHashtag2(url);
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1294,7 +1316,8 @@ console.log("usefoldernames")
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
                                           "pushing into htmllinksarray"
-                                        );console.log(18);
+                                        );
+                                        console.log(18);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -1355,7 +1378,7 @@ console.log("usefoldernames")
                                           console.log("title=" + title);
 
                                           if (oo === "usedomainnames")
-                                            hashtagv5 = getHashtag2(url)
+                                            hashtagv5 = getHashtag2(url);
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1363,7 +1386,8 @@ console.log("usefoldernames")
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
                                               "pushing into htmllinksarray"
-                                            );console.log(19);
+                                            );
+                                            console.log(19);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -1426,7 +1450,7 @@ console.log("usefoldernames")
                                               console.log("title=" + title);
 
                                               if (oo === "usedomainnames")
-                                                hashtagv6 = getHashtag2(url)
+                                                hashtagv6 = getHashtag2(url);
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1434,7 +1458,8 @@ console.log("usefoldernames")
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
                                                   "pushing into htmllinksarray"
-                                                );console.log(20);
+                                                );
+                                                console.log(20);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -1505,7 +1530,8 @@ console.log("usefoldernames")
                                                   console.log("title=" + title);
 
                                                   if (oo === "usedomainnames")
-                                                    hashtagv7 = getHashtag2(url)
+                                                    hashtagv7 =
+                                                      getHashtag2(url);
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1515,7 +1541,8 @@ console.log("usefoldernames")
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
                                                       "pushing into htmllinksarray"
-                                                    );console.log(21);
+                                                    );
+                                                    console.log(21);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -1572,19 +1599,20 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            if(i===0 && kht===undefined) {
-                              kht = getHashtag2(url)
-                              hashtagv1 = kht
+                            if (i === 0 && kht === undefined) {
+                              kht = getHashtag2(url);
+                              hashtagv1 = kht;
                             } else {
-                              hashtagv1 = getTheHashtag(url,kht)
+                              hashtagv1 = getTheHashtag(url, kht);
                             }
-                            
+
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing into htmllinksarray");console.log(22);
+                            console.log("pushing into htmllinksarray");
+                            console.log(22);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -1630,13 +1658,14 @@ console.log("usefoldernames")
                               console.log("title=" + title);
 
                               if (oo === "usedomainnames")
-                                hashtagv2 = getHashtag2(url)
+                                hashtagv2 = getHashtag2(url);
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing into htmllinksarray");console.log(23);
+                                console.log("pushing into htmllinksarray");
+                                console.log(23);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -1681,13 +1710,14 @@ console.log("usefoldernames")
                                   console.log("title=" + title);
 
                                   if (oo === "usedomainnames")
-                                    hashtagv3 = getHashtag2(url)
+                                    hashtagv3 = getHashtag2(url);
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing into htmllinksarray");console.log(24);
+                                    console.log("pushing into htmllinksarray");
+                                    console.log(24);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -1739,7 +1769,7 @@ console.log("usefoldernames")
                                       console.log("title=" + title);
 
                                       if (oo === "usedomainnames")
-                                        hashtagv4 = getHashtag2(url)
+                                        hashtagv4 = getHashtag2(url);
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1747,7 +1777,8 @@ console.log("usefoldernames")
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
                                           "pushing into htmllinksarray"
-                                        );console.log(25);
+                                        );
+                                        console.log(25);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -1808,7 +1839,7 @@ console.log("usefoldernames")
                                           console.log("title=" + title);
 
                                           if (oo === "usedomainnames")
-                                            hashtagv5 = getHashtag2(url)
+                                            hashtagv5 = getHashtag2(url);
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1816,7 +1847,8 @@ console.log("usefoldernames")
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
                                               "pushing into htmllinksarray"
-                                            );console.log(26);
+                                            );
+                                            console.log(26);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -1879,7 +1911,7 @@ console.log("usefoldernames")
                                               console.log("title=" + title);
 
                                               if (oo === "usedomainnames")
-                                                hashtagv6 = getHashtag2(url)
+                                                hashtagv6 = getHashtag2(url);
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1887,7 +1919,8 @@ console.log("usefoldernames")
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
                                                   "pushing into htmllinksarray"
-                                                );console.log(27);
+                                                );
+                                                console.log(27);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -1958,7 +1991,8 @@ console.log("usefoldernames")
                                                   console.log("title=" + title);
 
                                                   if (oo === "usedomainnames")
-                                                    hashtagv7 = getHashtag2(url)
+                                                    hashtagv7 =
+                                                      getHashtag2(url);
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1968,7 +2002,8 @@ console.log("usefoldernames")
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
                                                       "pushing into htmllinksarray"
-                                                    );console.log(28);
+                                                    );
+                                                    console.log(28);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -2022,13 +2057,14 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+                            hashtagv1 = getHashtag2(url);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing into htmllinksarray");console.log(29);
+                            console.log("pushing into htmllinksarray");
+                            console.log(29);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -2075,13 +2111,14 @@ console.log("usefoldernames")
                               console.log("title=" + title);
 
                               if (oo === "usedomainnames")
-                                hashtagv2 = getHashtag2(url)
+                                hashtagv2 = getHashtag2(url);
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing into htmllinksarray");console.log(30);
+                                console.log("pushing into htmllinksarray");
+                                console.log(30);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -2126,13 +2163,14 @@ console.log("usefoldernames")
                                   console.log("title=" + title);
 
                                   if (oo === "usedomainnames")
-                                    hashtagv3 = getHashtag2(url)
+                                    hashtagv3 = getHashtag2(url);
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing into htmllinksarray");console.log(31);
+                                    console.log("pushing into htmllinksarray");
+                                    console.log(31);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -2184,7 +2222,7 @@ console.log("usefoldernames")
                                       console.log("title=" + title);
 
                                       if (oo === "usedomainnames")
-                                        hashtagv4 = getHashtag2(url)
+                                        hashtagv4 = getHashtag2(url);
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -2192,7 +2230,8 @@ console.log("usefoldernames")
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
                                           "pushing into htmllinksarray"
-                                        );console.log(32);
+                                        );
+                                        console.log(32);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -2253,7 +2292,7 @@ console.log("usefoldernames")
                                           console.log("title=" + title);
 
                                           if (oo === "usedomainnames")
-                                            hashtagv5 = getHashtag2(url)
+                                            hashtagv5 = getHashtag2(url);
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -2261,7 +2300,8 @@ console.log("usefoldernames")
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
                                               "pushing into htmllinksarray"
-                                            );console.log(33);
+                                            );
+                                            console.log(33);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -2324,7 +2364,7 @@ console.log("usefoldernames")
                                               console.log("title=" + title);
 
                                               if (oo === "usedomainnames")
-                                                hashtagv6 = getHashtag2(url)
+                                                hashtagv6 = getHashtag2(url);
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -2332,7 +2372,8 @@ console.log("usefoldernames")
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
                                                   "pushing into htmllinksarray"
-                                                );console.log(34);
+                                                );
+                                                console.log(34);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -2403,7 +2444,8 @@ console.log("usefoldernames")
                                                   console.log("title=" + title);
 
                                                   if (oo === "usedomainnames")
-                                                    hashtagv7 = getHashtag2(url)
+                                                    hashtagv7 =
+                                                      getHashtag2(url);
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -2413,7 +2455,8 @@ console.log("usefoldernames")
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
                                                       "pushing into htmllinksarray"
-                                                    );console.log(35);
+                                                    );
+                                                    console.log(35);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -2450,7 +2493,9 @@ console.log("usefoldernames")
 
                   console.log("before the end of the outer loop");
                 }
-                kht=undefined
+                kht = undefined;
+                kht2 = undefined;
+                kht3 = undefined;
                 //throw new Error("ERROR ERROR ERROR")
                 setDone(true);
 

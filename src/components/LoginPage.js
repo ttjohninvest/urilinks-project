@@ -65,10 +65,11 @@ const LoginPage = ({ startLogin }) => {
             </h1>
             {/* <img src={penguinSayingHello} width="100" height="100" /> */}
             <p className="text-size-8- coolShadow- ">
-              Welcome to an easier way to do internet bookmarks with hash tags,
-              free tool
+              Women and mens internet page bookmarker, free plan. It has three other inexpensive plans I think you may enjoy as well.
+              {/* Welcome to an easier way to do internet bookmarks with hash tags,
+              free tool */}
             </p>
-            <p>Please contact Elf at 775 507 0098</p>
+            <p>Please contact Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p>
             {/* <p className="text-size-8 coolShadow ">
             I am trying to help my son. Please give it a try.
           </p> */}

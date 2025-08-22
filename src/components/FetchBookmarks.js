@@ -263,7 +263,7 @@ console.log("usefoldernames")
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing unto htmllinksarray");
+                            console.log("pushing into htmllinksarray"); console.log(1);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -315,7 +315,7 @@ console.log("usefoldernames")
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing unto htmllinksarray");
+                                console.log("pushing into htmllinksarray");console.log(2);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -365,7 +365,7 @@ console.log("usefoldernames")
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing unto htmllinksarray");
+                                    console.log("pushing into htmllinksarray");console.log(3);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -376,7 +376,7 @@ console.log("usefoldernames")
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing unto htmllinksarray"
+                                      "NOT pushing into htmllinksarray"
                                     );
                                   }
                                 } else {
@@ -427,8 +427,8 @@ console.log("usefoldernames")
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing unto htmllinksarray"
-                                        );
+                                          "pushing into htmllinksarray"
+                                        );console.log(4);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -439,7 +439,7 @@ console.log("usefoldernames")
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing unto htmllinksarray"
+                                          "NOT pushing into htmllinksarray"
                                         );
                                       }
                                     } else {
@@ -500,8 +500,8 @@ console.log("usefoldernames")
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing unto htmllinksarray"
-                                            );
+                                              "pushing into htmllinksarray"
+                                            );console.log(5);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -512,7 +512,7 @@ console.log("usefoldernames")
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing unto htmllinksarray"
+                                              "NOT pushing into htmllinksarray"
                                             );
                                           }
                                         } else {
@@ -574,8 +574,8 @@ console.log("usefoldernames")
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing unto htmllinksarray"
-                                                );
+                                                  "pushing into htmllinksarray"
+                                                );console.log(6);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -586,7 +586,7 @@ console.log("usefoldernames")
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing unto htmllinksarray"
+                                                  "NOT pushing into htmllinksarray"
                                                 );
                                               }
                                             } else {
@@ -658,8 +658,8 @@ console.log("usefoldernames")
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing unto htmllinksarray"
-                                                    );
+                                                      "pushing into htmllinksarray"
+                                                    );console.log(7);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -670,7 +670,7 @@ console.log("usefoldernames")
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing unto htmllinksarray"
+                                                      "NOT pushing into htmllinksarray"
                                                     );
                                                   }
                                                 }
@@ -717,7 +717,7 @@ console.log("usefoldernames")
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing unto htmllinksarray");
+                            console.log("pushing into htmllinksarray");console.log(8);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -769,7 +769,7 @@ console.log("usefoldernames")
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing unto htmllinksarray");
+                                console.log("pushing into htmllinksarray");console.log(9);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -820,7 +820,7 @@ console.log("usefoldernames")
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing unto htmllinksarray");
+                                    console.log("pushing into htmllinksarray");console.log(10);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -831,7 +831,7 @@ console.log("usefoldernames")
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing unto htmllinksarray"
+                                      "NOT pushing into htmllinksarray"
                                     );
                                   }
                                 } else {
@@ -882,8 +882,8 @@ console.log("usefoldernames")
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing unto htmllinksarray"
-                                        );
+                                          "pushing into htmllinksarray"
+                                        );console.log(11);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -894,7 +894,7 @@ console.log("usefoldernames")
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing unto htmllinksarray"
+                                          "NOT pushing into htmllinksarray"
                                         );
                                       }
                                     } else {
@@ -954,8 +954,8 @@ console.log("usefoldernames")
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing unto htmllinksarray"
-                                            );
+                                              "pushing into htmllinksarray"
+                                            );console.log(12);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -966,7 +966,7 @@ console.log("usefoldernames")
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing unto htmllinksarray"
+                                              "NOT pushing into htmllinksarray"
                                             );
                                           }
                                         } else {
@@ -1028,8 +1028,8 @@ console.log("usefoldernames")
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing unto htmllinksarray"
-                                                );
+                                                  "pushing into htmllinksarray"
+                                                );console.log(13);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -1040,7 +1040,7 @@ console.log("usefoldernames")
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing unto htmllinksarray"
+                                                  "NOT pushing into htmllinksarray"
                                                 );
                                               }
                                             } else {
@@ -1112,8 +1112,8 @@ console.log("usefoldernames")
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing unto htmllinksarray"
-                                                    );
+                                                      "pushing into htmllinksarray"
+                                                    );console.log(14);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -1124,7 +1124,7 @@ console.log("usefoldernames")
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing unto htmllinksarray"
+                                                      "NOT pushing into htmllinksarray"
                                                     );
                                                   }
                                                 }
@@ -1173,7 +1173,7 @@ console.log("usefoldernames")
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing unto htmllinksarray");
+                            console.log("pushing into htmllinksarray");console.log(15);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -1226,7 +1226,7 @@ console.log("usefoldernames")
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing unto htmllinksarray");
+                                console.log("pushing into htmllinksarray");console.log(16);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -1277,7 +1277,7 @@ console.log("usefoldernames")
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing unto htmllinksarray");
+                                    console.log("pushing into htmllinksarray");console.log(17);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -1288,7 +1288,7 @@ console.log("usefoldernames")
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing unto htmllinksarray"
+                                      "NOT pushing into htmllinksarray"
                                     );
                                   }
                                 } else {
@@ -1339,8 +1339,8 @@ console.log("usefoldernames")
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing unto htmllinksarray"
-                                        );
+                                          "pushing into htmllinksarray"
+                                        );console.log(18);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -1351,7 +1351,7 @@ console.log("usefoldernames")
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing unto htmllinksarray"
+                                          "NOT pushing into htmllinksarray"
                                         );
                                       }
                                     } else {
@@ -1411,8 +1411,8 @@ console.log("usefoldernames")
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing unto htmllinksarray"
-                                            );
+                                              "pushing into htmllinksarray"
+                                            );console.log(19);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -1423,7 +1423,7 @@ console.log("usefoldernames")
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing unto htmllinksarray"
+                                              "NOT pushing into htmllinksarray"
                                             );
                                           }
                                         } else {
@@ -1485,8 +1485,8 @@ console.log("usefoldernames")
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing unto htmllinksarray"
-                                                );
+                                                  "pushing into htmllinksarray"
+                                                );console.log(20);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -1497,7 +1497,7 @@ console.log("usefoldernames")
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing unto htmllinksarray"
+                                                  "NOT pushing into htmllinksarray"
                                                 );
                                               }
                                             } else {
@@ -1569,8 +1569,8 @@ console.log("usefoldernames")
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing unto htmllinksarray"
-                                                    );
+                                                      "pushing into htmllinksarray"
+                                                    );console.log(21);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -1581,7 +1581,7 @@ console.log("usefoldernames")
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing unto htmllinksarray"
+                                                      "NOT pushing into htmllinksarray"
                                                     );
                                                   }
                                                 }
@@ -1633,7 +1633,7 @@ console.log("usefoldernames")
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing unto htmllinksarray");
+                            console.log("pushing into htmllinksarray");console.log(22);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -1685,7 +1685,7 @@ console.log("usefoldernames")
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing unto htmllinksarray");
+                                console.log("pushing into htmllinksarray");console.log(23);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -1736,7 +1736,7 @@ console.log("usefoldernames")
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing unto htmllinksarray");
+                                    console.log("pushing into htmllinksarray");console.log(24);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -1747,7 +1747,7 @@ console.log("usefoldernames")
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing unto htmllinksarray"
+                                      "NOT pushing into htmllinksarray"
                                     );
                                   }
                                 } else {
@@ -1798,8 +1798,8 @@ console.log("usefoldernames")
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing unto htmllinksarray"
-                                        );
+                                          "pushing into htmllinksarray"
+                                        );console.log(25);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -1810,7 +1810,7 @@ console.log("usefoldernames")
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing unto htmllinksarray"
+                                          "NOT pushing into htmllinksarray"
                                         );
                                       }
                                     } else {
@@ -1870,8 +1870,8 @@ console.log("usefoldernames")
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing unto htmllinksarray"
-                                            );
+                                              "pushing into htmllinksarray"
+                                            );console.log(26);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -1882,7 +1882,7 @@ console.log("usefoldernames")
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing unto htmllinksarray"
+                                              "NOT pushing into htmllinksarray"
                                             );
                                           }
                                         } else {
@@ -1944,8 +1944,8 @@ console.log("usefoldernames")
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing unto htmllinksarray"
-                                                );
+                                                  "pushing into htmllinksarray"
+                                                );console.log(27);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -1956,7 +1956,7 @@ console.log("usefoldernames")
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing unto htmllinksarray"
+                                                  "NOT pushing into htmllinksarray"
                                                 );
                                               }
                                             } else {
@@ -2028,8 +2028,8 @@ console.log("usefoldernames")
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing unto htmllinksarray"
-                                                    );
+                                                      "pushing into htmllinksarray"
+                                                    );console.log(28);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -2040,7 +2040,7 @@ console.log("usefoldernames")
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing unto htmllinksarray"
+                                                      "NOT pushing into htmllinksarray"
                                                     );
                                                   }
                                                 }
@@ -2089,7 +2089,7 @@ console.log("usefoldernames")
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing unto htmllinksarray");
+                            console.log("pushing into htmllinksarray");console.log(29);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -2142,7 +2142,7 @@ console.log("usefoldernames")
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing unto htmllinksarray");
+                                console.log("pushing into htmllinksarray");console.log(30);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -2193,7 +2193,7 @@ console.log("usefoldernames")
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing unto htmllinksarray");
+                                    console.log("pushing into htmllinksarray");console.log(31);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -2204,7 +2204,7 @@ console.log("usefoldernames")
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing unto htmllinksarray"
+                                      "NOT pushing into htmllinksarray"
                                     );
                                   }
                                 } else {
@@ -2255,8 +2255,8 @@ console.log("usefoldernames")
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing unto htmllinksarray"
-                                        );
+                                          "pushing into htmllinksarray"
+                                        );console.log(32);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -2267,7 +2267,7 @@ console.log("usefoldernames")
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing unto htmllinksarray"
+                                          "NOT pushing into htmllinksarray"
                                         );
                                       }
                                     } else {
@@ -2327,8 +2327,8 @@ console.log("usefoldernames")
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing unto htmllinksarray"
-                                            );
+                                              "pushing into htmllinksarray"
+                                            );console.log(33);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -2339,7 +2339,7 @@ console.log("usefoldernames")
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing unto htmllinksarray"
+                                              "NOT pushing into htmllinksarray"
                                             );
                                           }
                                         } else {
@@ -2401,8 +2401,8 @@ console.log("usefoldernames")
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing unto htmllinksarray"
-                                                );
+                                                  "pushing into htmllinksarray"
+                                                );console.log(34);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -2413,7 +2413,7 @@ console.log("usefoldernames")
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing unto htmllinksarray"
+                                                  "NOT pushing into htmllinksarray"
                                                 );
                                               }
                                             } else {
@@ -2485,8 +2485,8 @@ console.log("usefoldernames")
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing unto htmllinksarray"
-                                                    );
+                                                      "pushing into htmllinksarray"
+                                                    );console.log(35);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -2497,7 +2497,7 @@ console.log("usefoldernames")
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing unto htmllinksarray"
+                                                      "NOT pushing into htmllinksarray"
                                                     );
                                                   }
                                                 }

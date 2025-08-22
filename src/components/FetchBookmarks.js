@@ -222,8 +222,10 @@ const FetchBookmarks = (props) => {
                 //or
                 //bookmark with folder // if they all has one bookmark and one folder it works
                 //folder
-
+console.log("before for")
                 for (let i = 0; data.message && i < data.message.length; i++) {
+                console.log("in for")
+  
                   if (data.message.length === 3) {
                     //3 is firefox
                     if (i === 0) {
@@ -2521,7 +2523,7 @@ console.log("usefoldernames")
 
                   console.log("before the end of the outer loop");
                 }
-                throw new Error("ERROR ERROR ERROR")
+                //throw new Error("ERROR ERROR ERROR")
                 setDone(true);
 
                 console.log("three loops ended");

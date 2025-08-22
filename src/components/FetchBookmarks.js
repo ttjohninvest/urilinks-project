@@ -228,10 +228,12 @@ const FetchBookmarks = (props) => {
                     //3 is firefox
                     if (i === 0) {
                       let hashtagv1;
-                      if (oo === "usefoldernames")
-                                                    console.log("usefoldernames")
+                      if (oo === "usefoldernames") {
+console.log("usefoldernames")
 
                         hashtagv1 = getHashtag(data.message[i].title);
+                      }
+                                                    
 
                       for (
                         let j = 0;
@@ -248,9 +250,12 @@ const FetchBookmarks = (props) => {
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
-                          if (oo === "usedomainnames")
-                            console.log("usedomainnames")
+                          console.log("oo="+oo)
+                          if (oo === "usedomainnames") {
+ console.log("usedomainnames")
                             hashtagv1 = getHashtag2(url);
+                          }
+                           
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0

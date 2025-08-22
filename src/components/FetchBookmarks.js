@@ -229,6 +229,8 @@ const FetchBookmarks = (props) => {
                     if (i === 0) {
                       let hashtagv1;
                       if (oo === "usefoldernames")
+                                                    console.log("usefoldernames")
+
                         hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
@@ -247,6 +249,7 @@ const FetchBookmarks = (props) => {
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           if (oo === "usedomainnames")
+                            console.log("usedomainnames")
                             hashtagv1 = getHashtag2(url);
                           if (
                             !hasControlCharacters(title) &&

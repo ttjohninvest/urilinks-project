@@ -88,7 +88,7 @@ const FetchBookmarks = (props) => {
     if (hashtag != hashtagv1) {
       return hashtag + " " + hashtagv1;
     }
-    return hashtag;
+    return hashtag + " " + hashtagv1;
   };
 
   const getHashtag = (str) => {

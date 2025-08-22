@@ -293,7 +293,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               console.log("title=" + title);
                               
                       if(oo==="usedomainnames")
-                            hashtagv2 = getHashtag2(url)
+                            hashtagv2 = getHashtag2(url)+" "+hashtagv1+" "+hashtagv1
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -343,7 +343,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
                                   console.log("title=" + title);
                       if(oo==="usedomainnames")
-                            hashtagv3 = getHashtag2(url)
+                            hashtagv3 = getHashtag2(url)+" "+hashtagv1
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -401,7 +401,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       console.log("title=" + title);
                                       
                       if(oo==="usedomainnames")
-                            hashtagv4 = getHashtag2(url)
+                            hashtagv4 = getHashtag2(url)+" "+hashtagv1
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -470,7 +470,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           console.log("title=" + title);
                                           
                       if(oo==="usedomainnames")
-                            hashtagv5 = getHashtag2(url)
+                            hashtagv5 = getHashtag2(url)+" "+hashtagv1
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -542,7 +542,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                               console.log("title=" + title);
                                               
                       if(oo==="usedomainnames")
-                            hashtagv6 = getHashtag2(url)
+                            hashtagv6 = getHashtag2(url)+" "+hashtagv1
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -621,7 +621,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   console.log("title=" + title);
                                                   
                       if(oo==="usedomainnames")
-                            hashtagv7 = getHashtag2(url)
+                            hashtagv7 = getHashtag2(url)+" "+hashtagv1
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -734,7 +734,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               console.log("title=" + title);
                               
                       if(oo==="usedomainnames")
-                            hashtagv2 = getHashtag2(url)
+                            hashtagv2 = getHashtag2(url)+" "+hashtagv1
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -785,7 +785,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                   console.log("title=" + title);
                                   
                       if(oo==="usedomainnames")
-                            hashtagv3 = getHashtag2(url)
+                            hashtagv3 = getHashtag2(url)+" "+hashtagv1
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -843,7 +843,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       console.log("title=" + title);
                                       
                       if(oo==="usedomainnames")
-                            hashtagv4 = getHashtag2(url)
+                            hashtagv4 = getHashtag2(url)+" "+hashtagv1
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -911,7 +911,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           console.log("title=" + title);
                                           
                       if(oo==="usedomainnames")
-                            hashtagv5 = getHashtag2(url)
+                            hashtagv5 = getHashtag2(url)+" "+hashtagv1
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -983,7 +983,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                               console.log("title=" + title);
                                               
                       if(oo==="usedomainnames")
-                            hashtagv6 = getHashtag2(url)
+                            hashtagv6 = getHashtag2(url)+" "+hashtagv1
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1062,7 +1062,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   console.log("title=" + title);
                                                   
                       if(oo==="usedomainnames")
-                            hashtagv7 = getHashtag2(url)
+                            hashtagv7 = getHashtag2(url)+" "+hashtagv1
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1179,7 +1179,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               console.log("title=" + title);
                               
                       if(oo==="usedomainnames")
-                            hashtagv2 = getHashtag2(url)
+                            hashtagv2 = getHashtag2(url)+" "+hashtagv1
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1230,7 +1230,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                   console.log("title=" + title);
                                   
                       if(oo==="usedomainnames")
-                            hashtagv3 = getHashtag2(url)
+                            hashtagv3 = getHashtag2(url)+" "+hashtagv1
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1288,7 +1288,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       console.log("title=" + title);
                                       
                       if(oo==="usedomainnames")
-                            hashtagv4 = getHashtag2(url)
+                            hashtagv4 = getHashtag2(url)+" "+hashtagv1
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1356,7 +1356,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           console.log("title=" + title);
                                           
                       if(oo==="usedomainnames")
-                            hashtagv5 = getHashtag2(url)
+                            hashtagv5 = getHashtag2(url)+" "+hashtagv1
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1428,7 +1428,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                               console.log("title=" + title);
                                               
                       if(oo==="usedomainnames")
-                            hashtagv6 = getHashtag2(url)
+                            hashtagv6 = getHashtag2(url)+" "+hashtagv1
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1507,7 +1507,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   console.log("title=" + title);
                                                   
                       if(oo==="usedomainnames")
-                            hashtagv7 = getHashtag2(url)
+                            hashtagv7 = getHashtag2(url)+" "+hashtagv1
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1622,7 +1622,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               console.log("title=" + title);
                               
                       if(oo==="usedomainnames")
-                            hashtagv2 = getHashtag2(url)
+                            hashtagv2 = getHashtag2(url)+" "+hashtagv1
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1673,7 +1673,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                   console.log("title=" + title);
                                   
                       if(oo==="usedomainnames")
-                            hashtagv3 = getHashtag2(url)
+                            hashtagv3 = getHashtag2(url)+" "+hashtagv1
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1731,7 +1731,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       console.log("title=" + title);
                                       
                       if(oo==="usedomainnames")
-                            hashtagv4 = getHashtag2(url)
+                            hashtagv4 = getHashtag2(url)+" "+hashtagv1
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1799,7 +1799,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           console.log("title=" + title);
                                           
                       if(oo==="usedomainnames")
-                            hashtagv5 = getHashtag2(url)
+                            hashtagv5 = getHashtag2(url)+" "+hashtagv1
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1871,7 +1871,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                               console.log("title=" + title);
                                               
                       if(oo==="usedomainnames")
-                            hashtagv6 = getHashtag2(url)
+                            hashtagv6 = getHashtag2(url)+" "+hashtagv1
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1950,7 +1950,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   console.log("title=" + title);
                                                   
                       if(oo==="usedomainnames")
-                            hashtagv7 = getHashtag2(url)
+                            hashtagv7 = getHashtag2(url)+" "+hashtagv1
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -2067,7 +2067,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                               console.log("title=" + title);
                               
                       if(oo==="usedomainnames")
-                            hashtagv2 = getHashtag2(url)
+                            hashtagv2 = getHashtag2(url)+" "+hashtagv1
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -2118,7 +2118,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                   console.log("title=" + title);
                                   
                       if(oo==="usedomainnames")
-                            hashtagv3 = getHashtag2(url)
+                            hashtagv3 = getHashtag2(url)+" "+hashtagv1
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -2176,7 +2176,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                       console.log("title=" + title);
                                       
                       if(oo==="usedomainnames")
-                            hashtagv4 = getHashtag2(url)
+                            hashtagv4 = getHashtag2(url)+" "+hashtagv1
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -2244,7 +2244,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                           console.log("title=" + title);
                                           
                       if(oo==="usedomainnames")
-                            hashtagv5 = getHashtag2(url)
+                            hashtagv5 = getHashtag2(url)+" "+hashtagv1
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -2316,7 +2316,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                               console.log("title=" + title);
                                               
                       if(oo==="usedomainnames")
-                            hashtagv6 = getHashtag2(url)
+                            hashtagv6 = getHashtag2(url)+" "+hashtagv1
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -2395,7 +2395,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
                                                   console.log("title=" + title);
                                                   
                       if(oo==="usedomainnames")
-                            hashtagv7 = getHashtag2(url)
+                            hashtagv7 = getHashtag2(url)+" "+hashtagv1
                                                   if (
                                                     !hasControlCharacters(
                                                       title

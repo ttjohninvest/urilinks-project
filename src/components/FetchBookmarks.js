@@ -86,9 +86,9 @@ const FetchBookmarks = (props) => {
   const getTheHashtag = (url, hashtagv1) => {
     const hashtag = getHashNameUsingDomainName(url);
     if (hashtag != hashtagv1) {
-      return hashtag + " " + hashtagv1;
+      return hashtag + " 1" + hashtagv1;
     }
-    return hashtag + " " + hashtagv1;
+    return hashtag + " 2" + hashtagv1;
   };
 
   const getHashtag = (str) => {

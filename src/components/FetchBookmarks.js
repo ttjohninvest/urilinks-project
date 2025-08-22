@@ -85,7 +85,7 @@ const d2 = d[dlen-2].replace(/-/g,"")
 
 const getTheHashtag = (url,ht) => {
 const ht1 = getHashNameUsingDomainName(url)
-if(ht !== ht1) 
+if(ht !== ht1) {
   return ht1+" "+ ht
 } 
 return ht1

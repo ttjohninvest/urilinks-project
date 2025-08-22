@@ -9,7 +9,7 @@ import { history } from "../routers/AppRouter";
 import ImportedBookmarks from "./ImportedBookmarks";
 import { storage } from "../firebase/firebase";
 import LoadingPage from "./LoadingPage";
-import TeirsPayment3 from "./TeirsPayment3"
+import TeirsPayment3 from "./TeirsPayment3";
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
@@ -17,7 +17,7 @@ const FetchBookmarks = (props) => {
   const [error, setError] = useState(false);
   const [error2, setError2] = useState(false);
   const [error3, setError3] = useState(false);
-   const [error4, setError4] = useState(false);
+  const [error4, setError4] = useState(false);
   const [importingError, setImportingError] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [myArray, setMyArray] = useState([]);
@@ -28,23 +28,24 @@ const FetchBookmarks = (props) => {
   const [rl2, setRl2] = useState(0);
   const [loopmax2, setLoopmax2] = useState(0);
   const [done, setDone] = useState(false);
-  const [payPage, setPayPage] = useState(false)
-  const [oo,setOo] = useState(props.match.params.option)
+  const [payPage, setPayPage] = useState(false);
+  const [oo, setOo] = useState(props.match.params.option);
 
-  const getPlanMax=()=>{
-    let max=250
+  const getPlanMax = () => {
+    let max = 250;
     //props.settings.plan
-    if(props.theplan.plan.replace(/"/g, "")==="free") {
-     max=250
-    } else if(props.theplan.plan.replace(/"/g, "")==="basic") {
-max=1500
-    } else if(props.theplan.plan.replace(/"/g, "")==="standard") {
-max=2500
-    } else { //premium
-max=10000
+    if (props.theplan.plan.replace(/"/g, "") === "free") {
+      max = 250;
+    } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
+      max = 1500;
+    } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
+      max = 2500;
+    } else {
+      //premium
+      max = 10000;
     }
-    return max
-  }
+    return max;
+  };
 
   const handleNavigation = () => {
     setShowDialog(true);
@@ -68,28 +69,27 @@ max=10000
     }
   };
 
-function getHashNameUsingDomainName(url) {
+  function getHashNameUsingDomainName(url) {
     const urlObj = new URL(url);
-	const dn = urlObj.origin.replace(/^.*\/\//, '')
-	const d = dn.split(".") //2,3,4,5
-  const dlen = d.length
-  //2-2, 3-2,4-2
-  //a.b.domain.com
-  if(dlen>=2) {
-const d2 = d[dlen-2].replace(/-/g,"")
-    return "#"+d2;
+    const dn = urlObj.origin.replace(/^.*\/\//, "");
+    const d = dn.split("."); //2,3,4,5
+    const dlen = d.length;
+    //2-2, 3-2,4-2
+    //a.b.domain.com
+    if (dlen >= 2) {
+      const d2 = d[dlen - 2].replace(/-/g, "");
+      return "#" + d2;
+    }
+    return "#";
   }
-  return "#"
-	
-}
 
-const getTheHashtag = (url,ht) => {
-const ht1 = getHashNameUsingDomainName(url)
-if(ht !== ht1) {
-  return ht1+" "+ ht
-} 
-return ht1
-}
+  const getTheHashtag = (url, hashtagv1) => {
+    const hashtag = getHashNameUsingDomainName(url);
+    if (hashtag != hashtagv1) {
+      return hashtag + " " + hashtagv1;
+    }
+    return hashtag;
+  };
 
   const getHashtag = (str) => {
     let stringWithoutTabs = str.replace(/\t/g, "");
@@ -100,18 +100,13 @@ return ht1
     //prepend "#"
     const hashtag = "#" + lc;
     //return the hashtag
-    console.log("TTTTTTTTTTTTTTTTTTTTTTT, str="+str)
-    console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag="+hashtag)
+    console.log("TTTTTTTTTTTTTTTTTTTTTTT, str=" + str);
+    console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag=" + hashtag);
     return hashtag;
-    
-   
   };
 
   const getHashtag2 = (url) => {
-    
-      return getHashNameUsingDomainName(url)
-    
-   
+    return getHashNameUsingDomainName(url);
   };
 
   const hasControlCharacters = (str) => {
@@ -126,9 +121,9 @@ return ht1
     //props.match.params.option can be either usefoldernames or
     //usedomainnames
     //console.log("FetchBookmarks.js, props.match.params.option="+props.match.params.option)
-    console.log("FetchBookmarks.js, props.match.params.option, oo="+oo)
+    console.log("FetchBookmarks.js, props.match.params.option, oo=" + oo);
     //fetch('C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User%20Data\\Default\\Bookmarks')
-    console.log("FetchBookmarks.js, props.theplan.plan="+props.theplan.plan)
+    console.log("FetchBookmarks.js, props.theplan.plan=" + props.theplan.plan);
     if (props.url === "") setImportingError(true);
     const text = "Is it ok to upload the bookmarks?";
     if (confirm(text) == true) {
@@ -217,7 +212,7 @@ return ht1
                   );
                   return;
                 }
-              
+
                 //////
                 //different cases
                 //bookmark
@@ -226,11 +221,12 @@ return ht1
                 //folder
 
                 for (let i = 0; data.message && i < data.message.length; i++) {
-                  if (data.message.length===3) { //3 is firefox
+                  if (data.message.length === 3) {
+                    //3 is firefox
                     if (i === 0) {
-                      let hashtagv1
-                      if(oo==="usefoldernames")
-                            hashtagv1 = getHashtag(data.message[i].title);
+                      let hashtagv1;
+                      if (oo === "usefoldernames")
+                        hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;
@@ -247,9 +243,8 @@ return ht1
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
-                         
-                      if(oo==="usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+                          if (oo === "usedomainnames")
+                            hashtagv1 = getHashtag2(url);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -272,12 +267,12 @@ return ht1
                                 data.message[i].children[j].children
                               )
                           );
-                      
-                      let hashtagv2
-                      if(oo==="usefoldernames")
+
+                          let hashtagv2;
+                          if (oo === "usefoldernames")
                             hashtagv2 = getHashtag(
-                             data.message[i].children[j].title
-                           );
+                              data.message[i].children[j].title
+                            );
 
                           for (
                             let k = 0;
@@ -299,9 +294,9 @@ return ht1
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              
-                      if(oo==="usedomainnames")
-                            hashtagv2 = getTheHashtag(url,hashtagv1)
+
+                              if (oo === "usedomainnames")
+                                hashtagv2 = getTheHashtag(url, hashtagv1);
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -318,11 +313,11 @@ return ht1
                                 });
                               }
                             } else {
-                              let hashtagv3
-                      if(oo==="usefoldernames")
-                            hashtagv3 = getHashtag(
-                                 data.message[i].children[j].children[k].title
-                               );
+                              let hashtagv3;
+                              if (oo === "usefoldernames")
+                                hashtagv3 = getHashtag(
+                                  data.message[i].children[j].children[k].title
+                                );
                               //console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -350,8 +345,8 @@ return ht1
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                      if(oo==="usedomainnames")
-                            hashtagv3 = getTheHashtag(url,hashtagv1)
+                                  if (oo === "usedomainnames")
+                                    hashtagv3 = getTheHashtag(url, hashtagv1);
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -373,12 +368,12 @@ return ht1
                                   }
                                 } else {
                                   //folder
-                                  let hashtagv4
-                      if(oo==="usefoldernames")
-                            hashtagv4 = getHashtag(
-                                     data.message[i].children[j].children[k]
-                                       .children[l].title
-                                   );
+                                  let hashtagv4;
+                                  if (oo === "usefoldernames")
+                                    hashtagv4 = getHashtag(
+                                      data.message[i].children[j].children[k]
+                                        .children[l].title
+                                    );
                                   //console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -407,9 +402,12 @@ return ht1
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      
-                      if(oo==="usedomainnames")
-                            hashtagv4 = getTheHashtag(url,hashtagv1)
+
+                                      if (oo === "usedomainnames")
+                                        hashtagv4 = getTheHashtag(
+                                          url,
+                                          hashtagv1
+                                        );
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -432,12 +430,13 @@ return ht1
                                         );
                                       }
                                     } else {
-                                      let hashtagv5
-                      if(oo==="usefoldernames")
-                            hashtagv5 = getHashtag(
-                                         data.message[i].children[j].children[k]
-                                          .children[l].children[m].title
-                                      );
+                                      let hashtagv5;
+                                      if (oo === "usefoldernames")
+                                        hashtagv5 = getHashtag(
+                                          data.message[i].children[j].children[
+                                            k
+                                          ].children[l].children[m].title
+                                        );
                                       //console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -476,9 +475,12 @@ return ht1
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          
-                      if(oo==="usedomainnames")
-                            hashtagv5 = getTheHashtag(url,hashtagv1)
+
+                                          if (oo === "usedomainnames")
+                                            hashtagv5 = getTheHashtag(
+                                              url,
+                                              hashtagv1
+                                            );
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -501,14 +503,13 @@ return ht1
                                             );
                                           }
                                         } else {
-                                          let hashtagv6
-                      if(oo==="usefoldernames")
-                            hashtagv6 = getHashtag(
-                                             data.message[i].children[j]
-                                               .children[k].children[l].children[
-                                               m
-                                             ].children[n].title
-                                           );
+                                          let hashtagv6;
+                                          if (oo === "usefoldernames")
+                                            hashtagv6 = getHashtag(
+                                              data.message[i].children[j]
+                                                .children[k].children[l]
+                                                .children[m].children[n].title
+                                            );
                                           //console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -548,9 +549,12 @@ return ht1
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              
-                      if(oo==="usedomainnames")
-                            hashtagv6 = getTheHashtag(url,hashtagv1)
+
+                                              if (oo === "usedomainnames")
+                                                hashtagv6 = getTheHashtag(
+                                                  url,
+                                                  hashtagv1
+                                                );
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -573,14 +577,14 @@ return ht1
                                                 );
                                               }
                                             } else {
-                                              let hashtagv7
-                      if(oo==="usefoldernames")
-                            hashtagv7 = getHashtag(
-                                                 data.message[i].children[j]
-                                                   .children[k].children[l]
-                                                   .children[m].children[n]
-                                                   .children[o].title
-                                               );
+                                              let hashtagv7;
+                                              if (oo === "usefoldernames")
+                                                hashtagv7 = getHashtag(
+                                                  data.message[i].children[j]
+                                                    .children[k].children[l]
+                                                    .children[m].children[n]
+                                                    .children[o].title
+                                                );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -627,9 +631,12 @@ return ht1
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  
-                      if(oo==="usedomainnames")
-                            hashtagv7 = getTheHashtag(url,hashtagv1)
+
+                                                  if (oo === "usedomainnames")
+                                                    hashtagv7 = getTheHashtag(
+                                                      url,
+                                                      hashtagv1
+                                                    );
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -667,10 +674,11 @@ return ht1
                           } //nested for with k //
                         }
                       }
-                    } else if(i===1) { //another folder, 
-                     let hashtagv1
-                      if(oo==="usefoldernames")
-                            hashtagv1 = getHashtag(data.message[i].title);
+                    } else if (i === 1) {
+                      //another folder,
+                      let hashtagv1;
+                      if (oo === "usefoldernames")
+                        hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;
@@ -688,9 +696,9 @@ return ht1
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          
-                      if(oo==="usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+
+                          if (oo === "usedomainnames")
+                            hashtagv1 = getHashtag2(url);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -714,11 +722,11 @@ return ht1
                               )
                           );
 
-                      let hashtagv2
-                      if(oo==="usefoldernames")
+                          let hashtagv2;
+                          if (oo === "usefoldernames")
                             hashtagv2 = getHashtag(
-                             data.message[i].children[j].title
-                           );
+                              data.message[i].children[j].title
+                            );
 
                           for (
                             let k = 0;
@@ -740,9 +748,9 @@ return ht1
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              
-                      if(oo==="usedomainnames")
-                            hashtagv2 = getTheHashtag(url,hashtagv1)
+
+                              if (oo === "usedomainnames")
+                                hashtagv2 = getTheHashtag(url, hashtagv1);
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -759,11 +767,11 @@ return ht1
                                 });
                               }
                             } else {
-                              let hashtagv3
-                      if(oo==="usefoldernames")
-                            hashtagv3 = getHashtag(
-                                 data.message[i].children[j].children[k].title
-                               );
+                              let hashtagv3;
+                              if (oo === "usefoldernames")
+                                hashtagv3 = getHashtag(
+                                  data.message[i].children[j].children[k].title
+                                );
                               //console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -791,9 +799,9 @@ return ht1
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  
-                      if(oo==="usedomainnames")
-                            hashtagv3 = getTheHashtag(url,hashtagv1)
+
+                                  if (oo === "usedomainnames")
+                                    hashtagv3 = getTheHashtag(url, hashtagv1);
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -815,12 +823,12 @@ return ht1
                                   }
                                 } else {
                                   //folder
-                                  let hashtagv4
-                      if(oo==="usefoldernames")
-                            hashtagv4 = getHashtag(
-                                     data.message[i].children[j].children[k]
-                                       .children[l].title
-                                   );
+                                  let hashtagv4;
+                                  if (oo === "usefoldernames")
+                                    hashtagv4 = getHashtag(
+                                      data.message[i].children[j].children[k]
+                                        .children[l].title
+                                    );
                                   //console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -849,9 +857,12 @@ return ht1
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      
-                      if(oo==="usedomainnames")
-                            hashtagv4 = getTheHashtag(url,hashtagv1)
+
+                                      if (oo === "usedomainnames")
+                                        hashtagv4 = getTheHashtag(
+                                          url,
+                                          hashtagv1
+                                        );
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -874,12 +885,13 @@ return ht1
                                         );
                                       }
                                     } else {
-                                      let hashtagv5
-                      if(oo==="usefoldernames")
-                            hashtagv5 = getHashtag(
-                                         data.message[i].children[j].children[k]
-                                           .children[l].children[m].title
-                                       );
+                                      let hashtagv5;
+                                      if (oo === "usefoldernames")
+                                        hashtagv5 = getHashtag(
+                                          data.message[i].children[j].children[
+                                            k
+                                          ].children[l].children[m].title
+                                        );
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -917,9 +929,12 @@ return ht1
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          
-                      if(oo==="usedomainnames")
-                            hashtagv5 = getTheHashtag(url,hashtagv1)
+
+                                          if (oo === "usedomainnames")
+                                            hashtagv5 = getTheHashtag(
+                                              url,
+                                              hashtagv1
+                                            );
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -942,14 +957,13 @@ return ht1
                                             );
                                           }
                                         } else {
-                                          let hashtagv6
-                      if(oo==="usefoldernames")
-                            hashtagv6 = getHashtag(
-                                             data.message[i].children[j]
-                                               .children[k].children[l].children[
-                                               m
-                                             ].children[n].title
-                                           );
+                                          let hashtagv6;
+                                          if (oo === "usefoldernames")
+                                            hashtagv6 = getHashtag(
+                                              data.message[i].children[j]
+                                                .children[k].children[l]
+                                                .children[m].children[n].title
+                                            );
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -989,9 +1003,12 @@ return ht1
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              
-                      if(oo==="usedomainnames")
-                            hashtagv6 = getTheHashtag(url,hashtagv1)
+
+                                              if (oo === "usedomainnames")
+                                                hashtagv6 = getTheHashtag(
+                                                  url,
+                                                  hashtagv1
+                                                );
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1014,14 +1031,14 @@ return ht1
                                                 );
                                               }
                                             } else {
-                                              let hashtagv7
-                      if(oo==="usefoldernames")
-                            hashtagv7 = getHashtag(
-                                                 data.message[i].children[j]
-                                                   .children[k].children[l]
-                                                   .children[m].children[n]
-                                                   .children[o].title
-                                               );
+                                              let hashtagv7;
+                                              if (oo === "usefoldernames")
+                                                hashtagv7 = getHashtag(
+                                                  data.message[i].children[j]
+                                                    .children[k].children[l]
+                                                    .children[m].children[n]
+                                                    .children[o].title
+                                                );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -1068,9 +1085,12 @@ return ht1
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  
-                      if(oo==="usedomainnames")
-                            hashtagv7 = getTheHashtag(url,hashtagv1)
+
+                                                  if (oo === "usedomainnames")
+                                                    hashtagv7 = getTheHashtag(
+                                                      url,
+                                                      hashtagv1
+                                                    );
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1108,13 +1128,13 @@ return ht1
                           } //nested for with k //
                         }
                       }
-                    }
-                    else { //This one is menu, for Other Bookmarks
+                    } else {
+                      //This one is menu, for Other Bookmarks
                       //i==2
                       //hashtagv = "#otherbookmarks";
-                      let hashtagv1
-                      if(oo==="usefoldernames")
-                            hashtagv1 = getHashtag(data.message[i].title);
+                      let hashtagv1;
+                      if (oo === "usefoldernames")
+                        hashtagv1 = getHashtag(data.message[i].title);
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -1132,9 +1152,9 @@ return ht1
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          
-                      if(oo==="usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+
+                          if (oo === "usedomainnames")
+                            hashtagv1 = getHashtag2(url);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1159,11 +1179,11 @@ return ht1
                               )
                           );
 
-                         let hashtagv2
-                      if(oo==="usefoldernames")
+                          let hashtagv2;
+                          if (oo === "usefoldernames")
                             hashtagv2 = getHashtag(
-                             data.message[i].children[j].title
-                           );
+                              data.message[i].children[j].title
+                            );
 
                           for (
                             let k = 0;
@@ -1185,9 +1205,9 @@ return ht1
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              
-                      if(oo==="usedomainnames")
-                            hashtagv2 = getTheHashtag(url,hashtagv1)
+
+                              if (oo === "usedomainnames")
+                                hashtagv2 = getTheHashtag(url, hashtagv1);
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1204,11 +1224,11 @@ return ht1
                                 });
                               }
                             } else {
-                              let hashtagv3
-                      if(oo==="usefoldernames")
-                            hashtagv3 = getHashtag(
-                                 data.message[i].children[j].children[k].title
-                               );
+                              let hashtagv3;
+                              if (oo === "usefoldernames")
+                                hashtagv3 = getHashtag(
+                                  data.message[i].children[j].children[k].title
+                                );
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -1236,9 +1256,9 @@ return ht1
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  
-                      if(oo==="usedomainnames")
-                            hashtagv3 = getTheHashtag(url,hashtagv1)
+
+                                  if (oo === "usedomainnames")
+                                    hashtagv3 = getTheHashtag(url, hashtagv1);
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1260,12 +1280,12 @@ return ht1
                                   }
                                 } else {
                                   //folder
-                                  let hashtagv4
-                      if(oo==="usefoldernames")
-                            hashtagv4 = getHashtag(
-                                     data.message[i].children[j].children[k]
-                                       .children[l].title
-                                   );
+                                  let hashtagv4;
+                                  if (oo === "usefoldernames")
+                                    hashtagv4 = getHashtag(
+                                      data.message[i].children[j].children[k]
+                                        .children[l].title
+                                    );
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -1294,9 +1314,12 @@ return ht1
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      
-                      if(oo==="usedomainnames")
-                            hashtagv4 = getTheHashtag(url,hashtagv1)
+
+                                      if (oo === "usedomainnames")
+                                        hashtagv4 = getTheHashtag(
+                                          url,
+                                          hashtagv1
+                                        );
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1319,12 +1342,13 @@ return ht1
                                         );
                                       }
                                     } else {
-                                      let hashtagv5
-                      if(oo==="usefoldernames")
-                            hashtagv5 = getHashtag(
-                                         data.message[i].children[j].children[k]
-                                           .children[l].children[m].title
-                                       );
+                                      let hashtagv5;
+                                      if (oo === "usefoldernames")
+                                        hashtagv5 = getHashtag(
+                                          data.message[i].children[j].children[
+                                            k
+                                          ].children[l].children[m].title
+                                        );
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -1362,9 +1386,12 @@ return ht1
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          
-                      if(oo==="usedomainnames")
-                            hashtagv5 = getTheHashtag(url,hashtagv1)
+
+                                          if (oo === "usedomainnames")
+                                            hashtagv5 = getTheHashtag(
+                                              url,
+                                              hashtagv1
+                                            );
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1387,14 +1414,13 @@ return ht1
                                             );
                                           }
                                         } else {
-                                          let hashtagv6
-                      if(oo==="usefoldernames")
-                            hashtagv6 = getHashtag(
-                                             data.message[i].children[j]
-                                               .children[k].children[l].children[
-                                               m
-                                             ].children[n].title
-                                           );
+                                          let hashtagv6;
+                                          if (oo === "usefoldernames")
+                                            hashtagv6 = getHashtag(
+                                              data.message[i].children[j]
+                                                .children[k].children[l]
+                                                .children[m].children[n].title
+                                            );
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -1434,9 +1460,12 @@ return ht1
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              
-                      if(oo==="usedomainnames")
-                            hashtagv6 = getTheHashtag(url,hashtagv1)
+
+                                              if (oo === "usedomainnames")
+                                                hashtagv6 = getTheHashtag(
+                                                  url,
+                                                  hashtagv1
+                                                );
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1459,14 +1488,14 @@ return ht1
                                                 );
                                               }
                                             } else {
-                                              let hashtagv7
-                      if(oo==="usefoldernames")
-                            hashtagv7 = getHashtag(
-                                                 data.message[i].children[j]
-                                                   .children[k].children[l]
-                                                   .children[m].children[n]
-                                                   .children[o].title
-                                               );
+                                              let hashtagv7;
+                                              if (oo === "usefoldernames")
+                                                hashtagv7 = getHashtag(
+                                                  data.message[i].children[j]
+                                                    .children[k].children[l]
+                                                    .children[m].children[n]
+                                                    .children[o].title
+                                                );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -1513,9 +1542,12 @@ return ht1
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  
-                      if(oo==="usedomainnames")
-                            hashtagv7 = getTheHashtag(url,hashtagv1)
+
+                                                  if (oo === "usedomainnames")
+                                                    hashtagv7 = getTheHashtag(
+                                                      url,
+                                                      hashtagv1
+                                                    );
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1554,11 +1586,15 @@ return ht1
                         }
                       }
                     }
-                  } else if(data.message.length===2 || data.message.length===1 ) { //for the other browsers
+                  } else if (
+                    data.message.length === 2 ||
+                    data.message.length === 1
+                  ) {
+                    //for the other browsers
                     if (i === 0) {
-                      let hashtagv1
-                      if(oo==="usefoldernames")
-                            hashtagv1 = getHashtag(data.message[i].title);
+                      let hashtagv1;
+                      if (oo === "usefoldernames")
+                        hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;
@@ -1576,9 +1612,9 @@ return ht1
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          
-                      if(oo==="usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+
+                          if (oo === "usedomainnames")
+                            hashtagv1 = getHashtag2(url);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1602,11 +1638,11 @@ return ht1
                               )
                           );
 
-                          let hashtagv2
-                      if(oo==="usefoldernames")
+                          let hashtagv2;
+                          if (oo === "usefoldernames")
                             hashtagv2 = getHashtag(
-                             data.message[i].children[j].title
-                           );
+                              data.message[i].children[j].title
+                            );
 
                           for (
                             let k = 0;
@@ -1628,9 +1664,9 @@ return ht1
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              
-                      if(oo==="usedomainnames")
-                            hashtagv2 = getTheHashtag(url,hashtagv1)
+
+                              if (oo === "usedomainnames")
+                                hashtagv2 = getTheHashtag(url, hashtagv1);
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1647,11 +1683,11 @@ return ht1
                                 });
                               }
                             } else {
-                              let hashtagv3
-                      if(oo==="usefoldernames")
-                            hashtagv3 = getHashtag(
-                                 data.message[i].children[j].children[k].title
-                               );
+                              let hashtagv3;
+                              if (oo === "usefoldernames")
+                                hashtagv3 = getHashtag(
+                                  data.message[i].children[j].children[k].title
+                                );
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -1679,9 +1715,9 @@ return ht1
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  
-                      if(oo==="usedomainnames")
-                            hashtagv3 = getTheHashtag(url,hashtagv1)
+
+                                  if (oo === "usedomainnames")
+                                    hashtagv3 = getTheHashtag(url, hashtagv1);
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1703,12 +1739,12 @@ return ht1
                                   }
                                 } else {
                                   //folder
-                                  let hashtagv4
-                      if(oo==="usefoldernames")
-                            hashtagv4 = getHashtag(
-                                     data.message[i].children[j].children[k]
-                                       .children[l].title
-                                   );
+                                  let hashtagv4;
+                                  if (oo === "usefoldernames")
+                                    hashtagv4 = getHashtag(
+                                      data.message[i].children[j].children[k]
+                                        .children[l].title
+                                    );
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -1737,9 +1773,12 @@ return ht1
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      
-                      if(oo==="usedomainnames")
-                            hashtagv4 = getTheHashtag(url,hashtagv1)
+
+                                      if (oo === "usedomainnames")
+                                        hashtagv4 = getTheHashtag(
+                                          url,
+                                          hashtagv1
+                                        );
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1762,12 +1801,13 @@ return ht1
                                         );
                                       }
                                     } else {
-                                      let hashtagv5
-                      if(oo==="usefoldernames")
-                            hashtagv5 = getHashtag(
-                                         data.message[i].children[j].children[k]
-                                           .children[l].children[m].title
-                                       );
+                                      let hashtagv5;
+                                      if (oo === "usefoldernames")
+                                        hashtagv5 = getHashtag(
+                                          data.message[i].children[j].children[
+                                            k
+                                          ].children[l].children[m].title
+                                        );
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -1805,9 +1845,12 @@ return ht1
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          
-                      if(oo==="usedomainnames")
-                            hashtagv5 = getTheHashtag(url,hashtagv1)
+
+                                          if (oo === "usedomainnames")
+                                            hashtagv5 = getTheHashtag(
+                                              url,
+                                              hashtagv1
+                                            );
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1830,14 +1873,13 @@ return ht1
                                             );
                                           }
                                         } else {
-                                          let hashtagv6
-                      if(oo==="usefoldernames")
-                            hashtagv6 = getHashtag(
-                                             data.message[i].children[j]
-                                               .children[k].children[l].children[
-                                               m
-                                             ].children[n].title
-                                           );
+                                          let hashtagv6;
+                                          if (oo === "usefoldernames")
+                                            hashtagv6 = getHashtag(
+                                              data.message[i].children[j]
+                                                .children[k].children[l]
+                                                .children[m].children[n].title
+                                            );
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -1877,9 +1919,12 @@ return ht1
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              
-                      if(oo==="usedomainnames")
-                            hashtagv6 = getTheHashtag(url,hashtagv1)
+
+                                              if (oo === "usedomainnames")
+                                                hashtagv6 = getTheHashtag(
+                                                  url,
+                                                  hashtagv1
+                                                );
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1902,14 +1947,14 @@ return ht1
                                                 );
                                               }
                                             } else {
-                                              let hashtagv7
-                      if(oo==="usefoldernames")
-                            hashtagv7 = getHashtag(
-                                                 data.message[i].children[j]
-                                                   .children[k].children[l]
-                                                   .children[m].children[n]
-                                                   .children[o].title
-                                               );
+                                              let hashtagv7;
+                                              if (oo === "usefoldernames")
+                                                hashtagv7 = getHashtag(
+                                                  data.message[i].children[j]
+                                                    .children[k].children[l]
+                                                    .children[m].children[n]
+                                                    .children[o].title
+                                                );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -1956,9 +2001,12 @@ return ht1
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  
-                      if(oo==="usedomainnames")
-                            hashtagv7 = getTheHashtag(url,hashtagv1)
+
+                                                  if (oo === "usedomainnames")
+                                                    hashtagv7 = getTheHashtag(
+                                                      url,
+                                                      hashtagv1
+                                                    );
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -2000,9 +2048,9 @@ return ht1
                     else {
                       //i==1
                       //hashtagv = "#otherbookmarks";
-                      let hashtagv1
-                      if(oo==="usefoldernames")
-                            hashtagv1 = getHashtag(data.message[i].title);
+                      let hashtagv1;
+                      if (oo === "usefoldernames")
+                        hashtagv1 = getHashtag(data.message[i].title);
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -2020,9 +2068,9 @@ return ht1
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-                          
-                      if(oo==="usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+
+                          if (oo === "usedomainnames")
+                            hashtagv1 = getHashtag2(url);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -2047,11 +2095,11 @@ return ht1
                               )
                           );
 
-                          let hashtagv2
-                      if(oo==="usefoldernames")
+                          let hashtagv2;
+                          if (oo === "usefoldernames")
                             hashtagv2 = getHashtag(
-                             data.message[i].children[j].title
-                           );
+                              data.message[i].children[j].title
+                            );
 
                           for (
                             let k = 0;
@@ -2073,9 +2121,9 @@ return ht1
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-                              
-                      if(oo==="usedomainnames")
-                            hashtagv2 = getTheHashtag(url,hashtagv1)
+
+                              if (oo === "usedomainnames")
+                                hashtagv2 = getTheHashtag(url, hashtagv1);
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -2092,11 +2140,11 @@ return ht1
                                 });
                               }
                             } else {
-                              let hashtagv3
-                      if(oo==="usefoldernames")
-                            hashtagv3 = getHashtag(
-                                 data.message[i].children[j].children[k].title
-                               );
+                              let hashtagv3;
+                              if (oo === "usefoldernames")
+                                hashtagv3 = getHashtag(
+                                  data.message[i].children[j].children[k].title
+                                );
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -2124,9 +2172,9 @@ return ht1
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  
-                      if(oo==="usedomainnames")
-                            hashtagv3 = getTheHashtag(url,hashtagv1)
+
+                                  if (oo === "usedomainnames")
+                                    hashtagv3 = getTheHashtag(url, hashtagv1);
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -2148,12 +2196,12 @@ return ht1
                                   }
                                 } else {
                                   //folder
-                                  let hashtagv4
-                      if(oo==="usefoldernames")
-                            hashtagv4 = getHashtag(
-                                     data.message[i].children[j].children[k]
-                                       .children[l].title
-                                   );
+                                  let hashtagv4;
+                                  if (oo === "usefoldernames")
+                                    hashtagv4 = getHashtag(
+                                      data.message[i].children[j].children[k]
+                                        .children[l].title
+                                    );
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -2182,9 +2230,12 @@ return ht1
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-                                      
-                      if(oo==="usedomainnames")
-                            hashtagv4 = getTheHashtag(url,hashtagv1)
+
+                                      if (oo === "usedomainnames")
+                                        hashtagv4 = getTheHashtag(
+                                          url,
+                                          hashtagv1
+                                        );
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -2207,12 +2258,13 @@ return ht1
                                         );
                                       }
                                     } else {
-                                      let hashtagv5
-                      if(oo==="usefoldernames")
-                            hashtagv5= getHashtag(
-                                         data.message[i].children[j].children[k]
-                                           .children[l].children[m].title
-                                       );
+                                      let hashtagv5;
+                                      if (oo === "usefoldernames")
+                                        hashtagv5 = getHashtag(
+                                          data.message[i].children[j].children[
+                                            k
+                                          ].children[l].children[m].title
+                                        );
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -2250,9 +2302,12 @@ return ht1
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-                                          
-                      if(oo==="usedomainnames")
-                            hashtagv5 = getTheHashtag(url,hashtagv1)
+
+                                          if (oo === "usedomainnames")
+                                            hashtagv5 = getTheHashtag(
+                                              url,
+                                              hashtagv1
+                                            );
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -2275,14 +2330,13 @@ return ht1
                                             );
                                           }
                                         } else {
-                                          let hashtagv6
-                      if(oo==="usefoldernames")
-                            hashtagv6 = getHashtag(
-                                             data.message[i].children[j]
-                                               .children[k].children[l].children[
-                                               m
-                                             ].children[n].title
-                                           );
+                                          let hashtagv6;
+                                          if (oo === "usefoldernames")
+                                            hashtagv6 = getHashtag(
+                                              data.message[i].children[j]
+                                                .children[k].children[l]
+                                                .children[m].children[n].title
+                                            );
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -2322,9 +2376,12 @@ return ht1
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-                                              
-                      if(oo==="usedomainnames")
-                            hashtagv6 = getTheHashtag(url,hashtagv1)
+
+                                              if (oo === "usedomainnames")
+                                                hashtagv6 = getTheHashtag(
+                                                  url,
+                                                  hashtagv1
+                                                );
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -2347,14 +2404,14 @@ return ht1
                                                 );
                                               }
                                             } else {
-                                              let hashtagv7
-                      if(oo==="usefoldernames")
-                            hashtagv7 = getHashtag(
-                                                 data.message[i].children[j]
-                                                   .children[k].children[l]
-                                                   .children[m].children[n]
-                                                   .children[o].title
-                                               );
+                                              let hashtagv7;
+                                              if (oo === "usefoldernames")
+                                                hashtagv7 = getHashtag(
+                                                  data.message[i].children[j]
+                                                    .children[k].children[l]
+                                                    .children[m].children[n]
+                                                    .children[o].title
+                                                );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -2401,9 +2458,12 @@ return ht1
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-                                                  
-                      if(oo==="usedomainnames")
-                            hashtagv7 = getTheHashtag(url,hashtagv1)
+
+                                                  if (oo === "usedomainnames")
+                                                    hashtagv7 = getTheHashtag(
+                                                      url,
+                                                      hashtagv1
+                                                    );
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -2443,7 +2503,7 @@ return ht1
                       }
                     }
                   } else {
-                    throw new Error("THIS BOOKMARRKS FILE IS NOT SUPPORTED")
+                    throw new Error("THIS BOOKMARRKS FILE IS NOT SUPPORTED");
                   }
 
                   console.log("outside loop");
@@ -2454,7 +2514,10 @@ return ht1
 
                 console.log("three loops ended");
                 console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
-                console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ, htmllinksarray=" + JSON.stringify(htmllinksarray));
+                console.log(
+                  "JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ, htmllinksarray=" +
+                    JSON.stringify(htmllinksarray)
+                );
                 console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
                 // let result = B.filter(
                 //   (b) => !A.some((a) => a.description.replace(/-/g, ' ') === b.description.replace(/-/g, ' '))
@@ -2465,7 +2528,7 @@ return ht1
                 let result = B.filter(
                   (b) => !A.some((a) => a.description === b.description)
                 );
-                
+
                 console.log("result.length=" + result.length);
                 //let ok = false;
                 //500
@@ -2476,8 +2539,9 @@ return ht1
                 let loopmax2 = rl;
 
                 const user = firebase.auth().currentUser;
-                if (true && (
-                  user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2") //johmcg64@gmail.com
+                if (
+                  true &&
+                  user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" //johmcg64@gmail.com
                 ) {
                   max = 10000 - (rl + ll);
                   console.log("in if, ll=" + ll);
@@ -2487,93 +2551,91 @@ return ht1
                     loopmax2 = max;
                   }
 
-for (let i = 0; i < loopmax2; i++) {
-                  //for (let i = 0; i < 1; i++) {
+                  for (let i = 0; i < loopmax2; i++) {
+                    //for (let i = 0; i < 1; i++) {
 
-                  r = props.startAddLink({
-                    description: result[i].description,
-                    Url: result[i].Url, //, //href,
-                    note: result[i].note,
-                    amount: 0,
-                    createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                    faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
-                  });
+                    r = props.startAddLink({
+                      description: result[i].description,
+                      Url: result[i].Url, //, //href,
+                      note: result[i].note,
+                      amount: 0,
+                      createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                      faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                    });
+
+                    if (r === false) {
+                      setImportingError(true);
+                      break;
+                    }
+                  }
 
                   if (r === false) {
-                    setImportingError(true);
-                    break;
+                    // setErrorDialog(true);
+                    console.log("ERROR, VVVVVVVVVVVVV returned false");
+                  } else {
+                    console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+                    //props.history.push("/");
+                    //window.location.reload()
+
+                    //how many new links were added, because of the maximum of 500 I had to add this
+                    setMax(max);
+                    setRl(rl); //rl is the length of the full amount to upload
+                    setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                    // const fileRef = storage.refFromURL(props.url);
+
+                    // fileRef.delete();
+                    setResult(result);
                   }
-                }
-
-                if (r === false) {
-                  // setErrorDialog(true);
-                  console.log("ERROR, VVVVVVVVVVVVV returned false");
-                } else {
-                  console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-                  //props.history.push("/");
-                  //window.location.reload()
-
-                  //how many new links were added, because of the maximum of 500 I had to add this
-                  setMax(max);
-                  setRl(rl); //rl is the length of the full amount to upload
-                  setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
-                  // const fileRef = storage.refFromURL(props.url);
-
-                  // fileRef.delete();
-                  setResult(result)
-                }
-
                 } else {
                   //max = 250 - (rl + ll);
                   max = getPlanMax() - (rl + ll);
-                  if(max>=0) {
-                  //max = getPlanMax() - (rl + ll);
-                  //max = 1 - (rl + ll);
-                  if (rl > max && max > 0) {
-                    loopmax2 = max;
-                  }
-                      //for (let i = 0; i < result.length; i++) {
-                for (let i = 0; i < loopmax2; i++) {
-                  //for (let i = 0; i < 1; i++) {
+                  if (max >= 0) {
+                    //max = getPlanMax() - (rl + ll);
+                    //max = 1 - (rl + ll);
+                    if (rl > max && max > 0) {
+                      loopmax2 = max;
+                    }
+                    //for (let i = 0; i < result.length; i++) {
+                    for (let i = 0; i < loopmax2; i++) {
+                      //for (let i = 0; i < 1; i++) {
 
-                  r = props.startAddLink({
-                    description: result[i].description,
-                    Url: result[i].Url, //, //href,
-                    note: result[i].note,
-                    amount: 0,
-                    createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                    faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
-                  });
+                      r = props.startAddLink({
+                        description: result[i].description,
+                        Url: result[i].Url, //, //href,
+                        note: result[i].note,
+                        amount: 0,
+                        createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                        faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                      });
 
-                  if (r === false) {
-                    setImportingError(true);
-                    break;
-                  }
-                }
+                      if (r === false) {
+                        setImportingError(true);
+                        break;
+                      }
+                    }
 
-                if (r === false) {
-                  // setErrorDialog(true);
-                  console.log("ERROR, VVVVVVVVVVVVV returned false");
-                } else {
-                  console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-                  //props.history.push("/");
-                  //window.location.reload()
+                    if (r === false) {
+                      // setErrorDialog(true);
+                      console.log("ERROR, VVVVVVVVVVVVV returned false");
+                    } else {
+                      console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+                      //props.history.push("/");
+                      //window.location.reload()
 
-                  //how many new links were added, because of the maximum of 500 I had to add this
-                  setMax(max);
-                  setRl(rl); //rl is the length of the full amount to upload
-                  setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
-                  // const fileRef = storage.refFromURL(props.url);
+                      //how many new links were added, because of the maximum of 500 I had to add this
+                      setMax(max);
+                      setRl(rl); //rl is the length of the full amount to upload
+                      setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                      // const fileRef = storage.refFromURL(props.url);
 
-                  // fileRef.delete();
-                  setResult(result)
-                }
+                      // fileRef.delete();
+                      setResult(result);
+                    }
 
-                  //} //otherwise rl is equal to the full length, result.length
-              }
-               else {
-                    setPayPage(true)
-console.log("load pay page")
+                    //} //otherwise rl is equal to the full length, result.length
+                  } else {
+                    setPayPage(true);
+                    console.log("load pay page");
                   }
                 }
 
@@ -2616,9 +2678,10 @@ console.log("load pay page")
               })
               .catch((error) => {
                 console.log("caught error = " + error);
-                if(error === "THIS BOOKMARRKS FILE IS NOT SUPPORTED")
-                  setError4(true)
-                else if (error === "THE BROWSER IS NOT SUPPORTED") setError3(true);
+                if (error === "THIS BOOKMARRKS FILE IS NOT SUPPORTED")
+                  setError4(true);
+                else if (error === "THE BROWSER IS NOT SUPPORTED")
+                  setError3(true);
                 else setError2(true);
               });
           } else {
@@ -2637,37 +2700,42 @@ console.log("load pay page")
   //importingError===true?"Error importing bookmarks":
   return (
     <div>
-    {payPage===true?<div>
-      {/* <TeirsPayment3 /> */}
-   </div>
-    :<div>
-      {error ? <div>Error: Unable to read from firebase storage</div> : ""}
-      {error2 ? (
+      {payPage === true ? (
+        <div>{/* <TeirsPayment3 /> */}</div>
+      ) : (
         <div>
-          Error: The file needs to be a bookmarks file with an html extension.
+          {error ? <div>Error: Unable to read from firebase storage</div> : ""}
+          {error2 ? (
+            <div>
+              Error: The file needs to be a bookmarks file with an html
+              extension.
+            </div>
+          ) : (
+            ""
+          )}
+          {error3 ? <div>Error: The browser is not supported.</div> : ""}
+          {error4 ? (
+            <div>Error: This bookmarks file is not supported.</div>
+          ) : (
+            ""
+          )}
+          {importingError === true ? (
+            "Error importing bookmarks"
+          ) : !error && !error2 && done ? (
+            <ImportedBookmarks result={result} rl={loopmax} max={rl} />
+          ) : (
+            <LoadingPage />
+          )}
         </div>
-      ) : (
-        ""
       )}
-      {error3 ? <div>Error: The browser is not supported.</div> : ""}
-      {error4 ? <div>Error: This bookmarks file is not supported.</div> : ""}
-      {importingError === true ? (
-        "Error importing bookmarks"
-      ) : !error && !error2 && done ? (
-        <ImportedBookmarks result={result} rl={loopmax} max={rl} />
-      ) : (
-        <LoadingPage />
-      )}
-    </div>}
-
-     </div>
+    </div>
   );
 };
 
 const mapStateToProps = (state) => ({
   url: state.url,
   links: state.links,
-  theplan: state.theplan
+  theplan: state.theplan,
 });
 
 const mapDispatchToProps = (dispatch) => ({

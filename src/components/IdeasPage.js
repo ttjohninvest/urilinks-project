@@ -191,7 +191,7 @@ const IdeasPage = () => {
     "Physics: The natural science that studies matter, its motion, and behavior through space and time.",
     "Probability and Statistics for Scientists and Engineers: The study of the likelihood that something is going to happen.",
     "Mathematics: The study of numbers, quantities, shapes, and patterns, encompassing areas like algebra, geometry, and calculus.",
-    "Marketing: The study of to make a list of ads and placing them in different places  that people will buy from.",
+    "Marketing: The study of how to make a list of ads and placing them in different places  that people will buy from.",
     "English: A core subject focusing on language, literature, reading, and writing skills.",
     "History: The study of past events, particularly those involving human societies.",
     "Geography: The study of Earth's landscapes, environments, populations, and the relationships between them.",

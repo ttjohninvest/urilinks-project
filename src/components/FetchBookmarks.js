@@ -86,6 +86,7 @@ const FetchBookmarks = (props) => {
   const getTheHashtag = (url, hashtagv1) => {
     
     const hashtag = getHashNameUsingDomainName(url);
+    console.log("getTheHashtag, hashtag="+hashtag+", hashtagv1="+hashtagv1)
     if (hashtag != hashtagv1) {
       return hashtag + " " + hashtagv1;
     }
@@ -93,6 +94,7 @@ const FetchBookmarks = (props) => {
   };
 
   const getHashtag = (str) => {
+    console.log("getHashtag")
     let stringWithoutTabs = str.replace(/\t/g, "");
     let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
     let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");

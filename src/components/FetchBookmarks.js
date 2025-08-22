@@ -2513,6 +2513,7 @@ const FetchBookmarks = (props) => {
 
                   console.log("before the end of the outer loop");
                 }
+                throw new Error("ERROR ERROR ERROR")
                 setDone(true);
 
                 console.log("three loops ended");

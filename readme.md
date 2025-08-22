@@ -15,6 +15,8 @@ ttjohnhappy
 # Git Commands
 
 todo to do
+try to get #amazon appended to #6pm so it looks like this #6pm #amazon in FetchBookmarks.js so this way all of 
+the urls taken from amazon.com can be found by clicking #amazon
 in LinkListItem.js, get each one's urls on page to open and close separately somehow
 hashtag, I am not deriving the hashtag name from the domain name because of the new functionality that I put in
 about getting a list of urls from a webpage which solved a problem, but I still

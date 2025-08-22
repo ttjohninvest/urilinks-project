@@ -83,12 +83,11 @@ const FetchBookmarks = (props) => {
     return "#";
   }
 
-  const getTheHashtag = (url, hashtagv1) => {
+  const getTheHashtag = (url, kht) => {
     
     const hashtag = getHashNameUsingDomainName(url);
-    console.log("getTheHashtag, hashtag="+hashtag+", hashtagv1="+hashtagv1)
-    if (hashtag != hashtagv1) {
-      return hashtag + " " + hashtagv1;
+    if (hashtag !== kht) {
+      return hashtag + " " + kht;
     }
     return hashtag
   };
@@ -169,31 +168,12 @@ const FetchBookmarks = (props) => {
           ) {
             let l = 0;
             let hashtagsArray = [];
-            //console.log(data.message.length)
-            //console.log(data.message[0].children.length)
-            // console.log(data.message[0].children[0].title)
-            // console.log(data.message[0].children[1].title)
-            // console.log(data.message[1].children[0].title)
-            // console.log(data.message[1].children[1].title)
-
-            //  fetch("urilinks-project-splitbm-vercel-fi79vfvo5.vercel.app", {
-            //   method: "POST",
-            //   headers: {
-            //     "Content-Type": " text/plain; charset=UTF-8",
-            //   },
-            //   body: htmlContent,
-            // })
-            //   .then((response) => response.json())
-            //   .then((data) => {
-            //     //json
-            //     console.log("Split Success:");
-            //     console.log(data);
-            //   })
+            
 
             let r = true;
             let r2 = true;
             let htmllinksarray = [];
-
+            
             fetch("https://urilinks-project-vercel-api-5.vercel.app", {
               method: "POST",
               headers: {
@@ -222,6 +202,7 @@ const FetchBookmarks = (props) => {
                 //or
                 //bookmark with folder // if they all has one bookmark and one folder it works
                 //folder
+                let kht
 console.log("before for")
                 for (let i = 0; data.message && i < data.message.length; i++) {
                 console.log("in for")
@@ -1591,7 +1572,13 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+                            if(i===0 && kht===undefined) {
+                              kht = getHashtag2(url)
+                              hashtagv1 = kht
+                            } else {
+                              hashtagv1 = getTheHashtag(url,kht)
+                            }
+                            
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -2463,6 +2450,7 @@ console.log("usefoldernames")
 
                   console.log("before the end of the outer loop");
                 }
+                kht=undefined
                 //throw new Error("ERROR ERROR ERROR")
                 setDone(true);
 

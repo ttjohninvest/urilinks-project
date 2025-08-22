@@ -255,7 +255,7 @@ console.log("usefoldernames")
                           console.log("oo="+oo)
                           if (oo === "usedomainnames") {
  console.log("usedomainnames")
-                            hashtagv1 = getTheHashtag(url, hashtagv1);
+                            hashtagv1 = getHashtag2(url)
                           }
                            
                           if (
@@ -309,7 +309,7 @@ console.log("usefoldernames")
                               console.log("title=" + title);
 
                               if (oo === "usedomainnames")
-                                hashtagv2 = getTheHashtag(url, hashtagv1);
+                                hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -359,7 +359,7 @@ console.log("usefoldernames")
 
                                   console.log("title=" + title);
                                   if (oo === "usedomainnames")
-                                    hashtagv3 = getTheHashtag(url, hashtagv1);
+                                    hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -417,10 +417,7 @@ console.log("usefoldernames")
                                       console.log("title=" + title);
 
                                       if (oo === "usedomainnames")
-                                        hashtagv4 = getTheHashtag(
-                                          url,
-                                          hashtagv1
-                                        );
+                                        hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -490,10 +487,7 @@ console.log("usefoldernames")
                                           console.log("title=" + title);
 
                                           if (oo === "usedomainnames")
-                                            hashtagv5 = getTheHashtag(
-                                              url,
-                                              hashtagv1
-                                            );
+                                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -564,10 +558,7 @@ console.log("usefoldernames")
                                               console.log("title=" + title);
 
                                               if (oo === "usedomainnames")
-                                                hashtagv6 = getTheHashtag(
-                                                  url,
-                                                  hashtagv1
-                                                );
+                                                hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -646,10 +637,7 @@ console.log("usefoldernames")
                                                   console.log("title=" + title);
 
                                                   if (oo === "usedomainnames")
-                                                    hashtagv7 = getTheHashtag(
-                                                      url,
-                                                      hashtagv1
-                                                    );
+                                                    hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -711,7 +699,7 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getTheHashtag(url, hashtagv1);
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -763,7 +751,7 @@ console.log("usefoldernames")
                               console.log("title=" + title);
 
                               if (oo === "usedomainnames")
-                                hashtagv2 = getTheHashtag(url, hashtagv1);
+                                hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -814,7 +802,7 @@ console.log("usefoldernames")
                                   console.log("title=" + title);
 
                                   if (oo === "usedomainnames")
-                                    hashtagv3 = getTheHashtag(url, hashtagv1);
+                                    hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -872,10 +860,7 @@ console.log("usefoldernames")
                                       console.log("title=" + title);
 
                                       if (oo === "usedomainnames")
-                                        hashtagv4 = getTheHashtag(
-                                          url,
-                                          hashtagv1
-                                        );
+                                        hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -944,10 +929,7 @@ console.log("usefoldernames")
                                           console.log("title=" + title);
 
                                           if (oo === "usedomainnames")
-                                            hashtagv5 = getTheHashtag(
-                                              url,
-                                              hashtagv1
-                                            );
+                                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1018,10 +1000,7 @@ console.log("usefoldernames")
                                               console.log("title=" + title);
 
                                               if (oo === "usedomainnames")
-                                                hashtagv6 = getTheHashtag(
-                                                  url,
-                                                  hashtagv1
-                                                );
+                                                hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1100,10 +1079,7 @@ console.log("usefoldernames")
                                                   console.log("title=" + title);
 
                                                   if (oo === "usedomainnames")
-                                                    hashtagv7 = getTheHashtag(
-                                                      url,
-                                                      hashtagv1
-                                                    );
+                                                    hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1167,7 +1143,7 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getTheHashtag(url, hashtagv1);
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1220,7 +1196,7 @@ console.log("usefoldernames")
                               console.log("title=" + title);
 
                               if (oo === "usedomainnames")
-                                hashtagv2 = getTheHashtag(url, hashtagv1);
+                                hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1271,7 +1247,7 @@ console.log("usefoldernames")
                                   console.log("title=" + title);
 
                                   if (oo === "usedomainnames")
-                                    hashtagv3 = getTheHashtag(url, hashtagv1);
+                                    hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1329,10 +1305,7 @@ console.log("usefoldernames")
                                       console.log("title=" + title);
 
                                       if (oo === "usedomainnames")
-                                        hashtagv4 = getTheHashtag(
-                                          url,
-                                          hashtagv1
-                                        );
+                                        hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1401,10 +1374,7 @@ console.log("usefoldernames")
                                           console.log("title=" + title);
 
                                           if (oo === "usedomainnames")
-                                            hashtagv5 = getTheHashtag(
-                                              url,
-                                              hashtagv1
-                                            );
+                                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1475,10 +1445,7 @@ console.log("usefoldernames")
                                               console.log("title=" + title);
 
                                               if (oo === "usedomainnames")
-                                                hashtagv6 = getTheHashtag(
-                                                  url,
-                                                  hashtagv1
-                                                );
+                                                hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1557,10 +1524,7 @@ console.log("usefoldernames")
                                                   console.log("title=" + title);
 
                                                   if (oo === "usedomainnames")
-                                                    hashtagv7 = getTheHashtag(
-                                                      url,
-                                                      hashtagv1
-                                                    );
+                                                    hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1627,7 +1591,7 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getTheHashtag(url, hashtagv1);
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1679,7 +1643,7 @@ console.log("usefoldernames")
                               console.log("title=" + title);
 
                               if (oo === "usedomainnames")
-                                hashtagv2 = getTheHashtag(url, hashtagv1);
+                                hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1730,7 +1694,7 @@ console.log("usefoldernames")
                                   console.log("title=" + title);
 
                                   if (oo === "usedomainnames")
-                                    hashtagv3 = getTheHashtag(url, hashtagv1);
+                                    hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1788,10 +1752,7 @@ console.log("usefoldernames")
                                       console.log("title=" + title);
 
                                       if (oo === "usedomainnames")
-                                        hashtagv4 = getTheHashtag(
-                                          url,
-                                          hashtagv1
-                                        );
+                                        hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1860,10 +1821,7 @@ console.log("usefoldernames")
                                           console.log("title=" + title);
 
                                           if (oo === "usedomainnames")
-                                            hashtagv5 = getTheHashtag(
-                                              url,
-                                              hashtagv1
-                                            );
+                                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1934,10 +1892,7 @@ console.log("usefoldernames")
                                               console.log("title=" + title);
 
                                               if (oo === "usedomainnames")
-                                                hashtagv6 = getTheHashtag(
-                                                  url,
-                                                  hashtagv1
-                                                );
+                                                hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -2016,10 +1971,7 @@ console.log("usefoldernames")
                                                   console.log("title=" + title);
 
                                                   if (oo === "usedomainnames")
-                                                    hashtagv7 = getTheHashtag(
-                                                      url,
-                                                      hashtagv1
-                                                    );
+                                                    hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -2083,7 +2035,7 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getTheHashtag(url, hashtagv1);
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -2136,7 +2088,7 @@ console.log("usefoldernames")
                               console.log("title=" + title);
 
                               if (oo === "usedomainnames")
-                                hashtagv2 = getTheHashtag(url, hashtagv1);
+                                hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -2187,7 +2139,7 @@ console.log("usefoldernames")
                                   console.log("title=" + title);
 
                                   if (oo === "usedomainnames")
-                                    hashtagv3 = getTheHashtag(url, hashtagv1);
+                                    hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -2245,10 +2197,7 @@ console.log("usefoldernames")
                                       console.log("title=" + title);
 
                                       if (oo === "usedomainnames")
-                                        hashtagv4 = getTheHashtag(
-                                          url,
-                                          hashtagv1
-                                        );
+                                        hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -2317,10 +2266,7 @@ console.log("usefoldernames")
                                           console.log("title=" + title);
 
                                           if (oo === "usedomainnames")
-                                            hashtagv5 = getTheHashtag(
-                                              url,
-                                              hashtagv1
-                                            );
+                                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -2391,10 +2337,7 @@ console.log("usefoldernames")
                                               console.log("title=" + title);
 
                                               if (oo === "usedomainnames")
-                                                hashtagv6 = getTheHashtag(
-                                                  url,
-                                                  hashtagv1
-                                                );
+                                                hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -2473,10 +2416,7 @@ console.log("usefoldernames")
                                                   console.log("title=" + title);
 
                                                   if (oo === "usedomainnames")
-                                                    hashtagv7 = getTheHashtag(
-                                                      url,
-                                                      hashtagv1
-                                                    );
+                                                    hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title

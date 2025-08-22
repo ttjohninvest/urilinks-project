@@ -255,7 +255,7 @@ console.log("usefoldernames")
                           console.log("oo="+oo)
                           if (oo === "usedomainnames") {
  console.log("usedomainnames")
-                            hashtagv1 = getHashtag2(url);
+                            hashtagv1 = getTheHashtag(url, hashtagv1);
                           }
                            
                           if (
@@ -711,7 +711,7 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url);
+                            hashtagv1 = getTheHashtag(url, hashtagv1);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1167,7 +1167,7 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url);
+                            hashtagv1 = getTheHashtag(url, hashtagv1);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1627,7 +1627,7 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url);
+                            hashtagv1 = getTheHashtag(url, hashtagv1);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -2083,7 +2083,7 @@ console.log("usefoldernames")
                           console.log("title=" + title);
 
                           if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url);
+                            hashtagv1 = getTheHashtag(url, hashtagv1);
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0

@@ -664,3 +664,14 @@ background-color:#ff0000;
 }
 
 ---
+Header.js
+removed from Header.js, it came after (search section)
+<div>
+                <Link className="header__title-" to="/settings">
+                  {/* <span>Settings</span> */}
+                </Link>
+              </div>
+
+              {/* <div className="color-white-1" onClick={deleteAccount}>
+            delete account
+          </div> */}

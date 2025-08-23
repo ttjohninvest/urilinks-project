@@ -506,6 +506,66 @@ const addIdToDelete=(id)=>{
     }
   };
 
+  /*
+function fetchData() {
+        const ul = document.getElementById("data");
+        document.getElementById("data").innerHTML = "";
+        const url2 = document.getElementById("urlid").value;
+        //urilinks-project-links-to-tabs-expr.vercel.app
+        //fetch("http://localhost:3000/data", {
+        fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url: url2 }),
+        })
+          // .then(response => response.json())
+          // .then(data => console.log(data))
+          // .catch(error => console.error('Error:', error));
+          .then((response) => {
+            //console.log("response")
+            return response.json();
+          })
+          .then((urls) => {
+            
+            if(urls.length===0) {
+ 
+              let li = document.createElement("li");
+             
+            
+              li.innerHTML = `Results: 0`;
+
+            
+
+              ul.appendChild(li);
+           
+            }
+else {
+  let li0 = document.createElement("li");
+   li0.innerHTML = `Results: ${urls.length} url(s)`;
+   ul.appendChild(li0);
+ urls.map((url) => {
+  
+              let li = document.createElement("li");
+              let a = document.createElement("a");
+              a.href = url;
+              a.target = "_blank";
+              a.innerHTML = `${url}`;
+
+              li.appendChild(a);
+
+              ul.appendChild(li);
+            });
+}
+           
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+  */
+
   const getUrlsList = (url2, id) => {
     if (s === 1) {
       setS(0);

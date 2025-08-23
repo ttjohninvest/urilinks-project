@@ -582,8 +582,8 @@ else {
           return response.json();
         })
         .then((data) => {
-          setData(data.urls);
-          if (data.urls.length === 0) {
+          setData(data);
+          if (data.length === 0) {
             let li = document.createElement("li");
             li.className = "lsn corangered";
             li.innerHTML = `Results: 0`;
@@ -599,7 +599,7 @@ else {
             span.title =
               "click to sort the results in ascending order on the name and extension in the domain name";
             let obj = {
-              data: data.urls,
+              data: data,
               id: id,
             };
             //span.data = data;
@@ -614,7 +614,7 @@ else {
             span2.title =
               "click to sort the results in ascending order on the name, extension and the pathname in the full url";
             let obj2 = {
-              data: data.urls,
+              data: data,
               id: id,
             };
             //span.data = data;
@@ -629,7 +629,7 @@ else {
             span4.title =
               "click to sort the results in descending order on the name and extension in the domain name";
             let obj4 = {
-              data: data.urls,
+              data: data,
               id: id,
             };
             //span.data = data;
@@ -644,7 +644,7 @@ else {
             span3.title =
               "click to sort the results in descending order on the name, extension and the pathname in the full url";
             let obj3 = {
-              data: data.urls,
+              data: data,
               id: id,
             };
             //span.data = data;
@@ -660,7 +660,7 @@ else {
             ul.appendChild(li0);
 
             //here
-            data.urls.map((url,index) => {
+            data.map((url,index) => {
               //let urlstruct = new URL(url);
               // console.log("urlstruct.protocol="+urlstruct.protocol); // "https:"
               // console.log("urlstruct.hostname="+urlstruct.hostname); // "www.example.com"

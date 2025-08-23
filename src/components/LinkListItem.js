@@ -677,7 +677,7 @@ else {
               a.href = url; //use a.href='#' for drilldown version
               a.target = "_blank"; //remove the target attribute for drilldown version
               //a.onClick = {()=>drilldown(url,index)} 
-              a.innerHTML = data.title+", "+`${url}`;
+              a.innerHTML = `${url}`; //data.title+", "+`${url}`;
 
               li.appendChild(a);
 

@@ -99,12 +99,12 @@ function ExpandableArray(props) {
             ref={props.ref}
             className={`${
               newspaper === false
-                ? "grid-container5"
-                : "grid-container5-newspaper"
+                ? "grid-container5 paddingparent"
+                : "grid-container5-newspaper paddingparent"
             } margin-top-1 background-white-1 borderradius5`}
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
-            <div className="paddingparent">
+           
             {!expanded
               ? props.mappedDataShort.map((s, index) => {
                   if (index < 50)
@@ -143,7 +143,7 @@ function ExpandableArray(props) {
                     </div>
                   );
                 })}
-</div>
+
             {!expanded && <span className="text-size-5">...</span>}
           </div>
           <button className="button-m button--link" onClick={toggleExpanded}>

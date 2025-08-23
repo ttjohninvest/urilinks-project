@@ -1575,12 +1575,11 @@ const FetchBookmarks = (props) => {
                   } else if (
                     data.message.length === 2 ||
                     data.message.length === 1
-                  ) {
-                    //for the other browsers
+                  ) { //for the other browsers
                     if (i === 0) {
-                      let hashtagv1;
-                      if (oo === "usefoldernames")
-                        hashtagv1 = getHashtag(data.message[i].title);
+                      let hashtagv1
+                      if(oo==="usefoldernames")
+                            hashtagv1 = getHashtag(data.message[i].title);
 
                       for (
                         let j = 0;
@@ -1598,24 +1597,15 @@ const FetchBookmarks = (props) => {
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-
-                          if (oo === "usedomainnames") {
- if (i === 0 && kht === undefined) {
-                              kht = getHashtag2(url);
-                              hashtagv1 = kht;
-                            } else {
-                              hashtagv1 = getTheHashtag(url, kht);
-                            }
-                          }
-                           
-
+                          
+                      if(oo==="usedomainnames")
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing into htmllinksarray");
-                            console.log(22);
+                            console.log("pushing unto htmllinksarray");
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -1633,11 +1623,11 @@ const FetchBookmarks = (props) => {
                               )
                           );
 
-                          let hashtagv2;
-                          if (oo === "usefoldernames")
+                          let hashtagv2
+                      if(oo==="usefoldernames")
                             hashtagv2 = getHashtag(
-                              data.message[i].children[j].title
-                            );
+                             data.message[i].children[j].title
+                           );
 
                           for (
                             let k = 0;
@@ -1659,16 +1649,15 @@ const FetchBookmarks = (props) => {
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-
-                              if (oo === "usedomainnames")
-                                hashtagv2 = getHashtag2(url);
+                              
+                      if(oo==="usedomainnames")
+                            hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing into htmllinksarray");
-                                console.log(23);
+                                console.log("pushing unto htmllinksarray");
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -1679,11 +1668,11 @@ const FetchBookmarks = (props) => {
                                 });
                               }
                             } else {
-                              let hashtagv3;
-                              if (oo === "usefoldernames")
-                                hashtagv3 = getHashtag(
-                                  data.message[i].children[j].children[k].title
-                                );
+                              let hashtagv3
+                      if(oo==="usefoldernames")
+                            hashtagv3 = getHashtag(
+                                 data.message[i].children[j].children[k].title
+                               );
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -1711,16 +1700,15 @@ const FetchBookmarks = (props) => {
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-
-                                  if (oo === "usedomainnames")
-                                    hashtagv3 = getHashtag2(url);
+                                  
+                      if(oo==="usedomainnames")
+                            hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing into htmllinksarray");
-                                    console.log(24);
+                                    console.log("pushing unto htmllinksarray");
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -1731,17 +1719,17 @@ const FetchBookmarks = (props) => {
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing into htmllinksarray"
+                                      "NOT pushing unto htmllinksarray"
                                     );
                                   }
                                 } else {
                                   //folder
-                                  let hashtagv4;
-                                  if (oo === "usefoldernames")
-                                    hashtagv4 = getHashtag(
-                                      data.message[i].children[j].children[k]
-                                        .children[l].title
-                                    );
+                                  let hashtagv4
+                      if(oo==="usefoldernames")
+                            hashtagv4 = getHashtag(
+                                     data.message[i].children[j].children[k]
+                                       .children[l].title
+                                   );
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -1770,18 +1758,17 @@ const FetchBookmarks = (props) => {
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-
-                                      if (oo === "usedomainnames")
-                                        hashtagv4 = getHashtag2(url);
+                                      
+                      if(oo==="usedomainnames")
+                            hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing into htmllinksarray"
+                                          "pushing unto htmllinksarray"
                                         );
-                                        console.log(25);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -1792,17 +1779,16 @@ const FetchBookmarks = (props) => {
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing into htmllinksarray"
+                                          "NOT pushing unto htmllinksarray"
                                         );
                                       }
                                     } else {
-                                      let hashtagv5;
-                                      if (oo === "usefoldernames")
-                                        hashtagv5 = getHashtag(
-                                          data.message[i].children[j].children[
-                                            k
-                                          ].children[l].children[m].title
-                                        );
+                                      let hashtagv5
+                      if(oo==="usefoldernames")
+                            hashtagv5 = getHashtag(
+                                         data.message[i].children[j].children[k]
+                                           .children[l].children[m].title
+                                       );
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -1840,18 +1826,17 @@ const FetchBookmarks = (props) => {
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-
-                                          if (oo === "usedomainnames")
-                                            hashtagv5 = getHashtag2(url);
+                                          
+                      if(oo==="usedomainnames")
+                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing into htmllinksarray"
+                                              "pushing unto htmllinksarray"
                                             );
-                                            console.log(26);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -1862,17 +1847,18 @@ const FetchBookmarks = (props) => {
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing into htmllinksarray"
+                                              "NOT pushing unto htmllinksarray"
                                             );
                                           }
                                         } else {
-                                          let hashtagv6;
-                                          if (oo === "usefoldernames")
-                                            hashtagv6 = getHashtag(
-                                              data.message[i].children[j]
-                                                .children[k].children[l]
-                                                .children[m].children[n].title
-                                            );
+                                          let hashtagv6
+                      if(oo==="usefoldernames")
+                            hashtagv6 = getHashtag(
+                                             data.message[i].children[j]
+                                               .children[k].children[l].children[
+                                               m
+                                             ].children[n].title
+                                           );
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -1912,18 +1898,17 @@ const FetchBookmarks = (props) => {
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-
-                                              if (oo === "usedomainnames")
-                                                hashtagv6 = getHashtag2(url);
+                                              
+                      if(oo==="usedomainnames")
+                            hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing into htmllinksarray"
+                                                  "pushing unto htmllinksarray"
                                                 );
-                                                console.log(27);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -1934,18 +1919,18 @@ const FetchBookmarks = (props) => {
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing into htmllinksarray"
+                                                  "NOT pushing unto htmllinksarray"
                                                 );
                                               }
                                             } else {
-                                              let hashtagv7;
-                                              if (oo === "usefoldernames")
-                                                hashtagv7 = getHashtag(
-                                                  data.message[i].children[j]
-                                                    .children[k].children[l]
-                                                    .children[m].children[n]
-                                                    .children[o].title
-                                                );
+                                              let hashtagv7
+                      if(oo==="usefoldernames")
+                            hashtagv7 = getHashtag(
+                                                 data.message[i].children[j]
+                                                   .children[k].children[l]
+                                                   .children[m].children[n]
+                                                   .children[o].title
+                                               );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -1992,10 +1977,9 @@ const FetchBookmarks = (props) => {
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-
-                                                  if (oo === "usedomainnames")
-                                                    hashtagv7 =
-                                                      getHashtag2(url);
+                                                  
+                      if(oo==="usedomainnames")
+                            hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -2004,9 +1988,8 @@ const FetchBookmarks = (props) => {
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing into htmllinksarray"
+                                                      "pushing unto htmllinksarray"
                                                     );
-                                                    console.log(28);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -2017,7 +2000,7 @@ const FetchBookmarks = (props) => {
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing into htmllinksarray"
+                                                      "NOT pushing unto htmllinksarray"
                                                     );
                                                   }
                                                 }
@@ -2038,9 +2021,9 @@ const FetchBookmarks = (props) => {
                     else {
                       //i==1
                       //hashtagv = "#otherbookmarks";
-                      let hashtagv1;
-                      if (oo === "usefoldernames")
-                        hashtagv1 = getHashtag(data.message[i].title);
+                      let hashtagv1
+                      if(oo==="usefoldernames")
+                            hashtagv1 = getHashtag(data.message[i].title);
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -2058,16 +2041,15 @@ const FetchBookmarks = (props) => {
                           let icon = data.message[i].children[j].icon; //the little icon of the page
 
                           console.log("title=" + title);
-
-                          if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url);
+                          
+                      if(oo==="usedomainnames")
+                            hashtagv1 = getHashtag2(url)
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                            console.log("pushing into htmllinksarray");
-                            console.log(29);
+                            console.log("pushing unto htmllinksarray");
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -2086,11 +2068,11 @@ const FetchBookmarks = (props) => {
                               )
                           );
 
-                          let hashtagv2;
-                          if (oo === "usefoldernames")
+                          let hashtagv2
+                      if(oo==="usefoldernames")
                             hashtagv2 = getHashtag(
-                              data.message[i].children[j].title
-                            );
+                             data.message[i].children[j].title
+                           );
 
                           for (
                             let k = 0;
@@ -2112,16 +2094,15 @@ const FetchBookmarks = (props) => {
                                 data.message[i].children[j].children[k].icon; //the little icon of the page
 
                               console.log("title=" + title);
-
-                              if (oo === "usedomainnames")
-                                hashtagv2 = getHashtag2(url);
+                              
+                      if(oo==="usedomainnames")
+                            hashtagv2 = getHashtag2(url)
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                console.log("pushing into htmllinksarray");
-                                console.log(30);
+                                console.log("pushing unto htmllinksarray");
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -2132,11 +2113,11 @@ const FetchBookmarks = (props) => {
                                 });
                               }
                             } else {
-                              let hashtagv3;
-                              if (oo === "usefoldernames")
-                                hashtagv3 = getHashtag(
-                                  data.message[i].children[j].children[k].title
-                                );
+                              let hashtagv3
+                      if(oo==="usefoldernames")
+                            hashtagv3 = getHashtag(
+                                 data.message[i].children[j].children[k].title
+                               );
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -2164,16 +2145,15 @@ const FetchBookmarks = (props) => {
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-
-                                  if (oo === "usedomainnames")
-                                    hashtagv3 = getHashtag2(url);
+                                  
+                      if(oo==="usedomainnames")
+                            hashtagv3 = getHashtag2(url)
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
-                                    console.log("pushing into htmllinksarray");
-                                    console.log(31);
+                                    console.log("pushing unto htmllinksarray");
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -2184,17 +2164,17 @@ const FetchBookmarks = (props) => {
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing into htmllinksarray"
+                                      "NOT pushing unto htmllinksarray"
                                     );
                                   }
                                 } else {
                                   //folder
-                                  let hashtagv4;
-                                  if (oo === "usefoldernames")
-                                    hashtagv4 = getHashtag(
-                                      data.message[i].children[j].children[k]
-                                        .children[l].title
-                                    );
+                                  let hashtagv4
+                      if(oo==="usefoldernames")
+                            hashtagv4 = getHashtag(
+                                     data.message[i].children[j].children[k]
+                                       .children[l].title
+                                   );
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -2223,18 +2203,17 @@ const FetchBookmarks = (props) => {
                                           .children[l].children[m].icon; //the little icon of the page
 
                                       console.log("title=" + title);
-
-                                      if (oo === "usedomainnames")
-                                        hashtagv4 = getHashtag2(url);
+                                      
+                      if(oo==="usedomainnames")
+                            hashtagv4 = getHashtag2(url)
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing into htmllinksarray"
+                                          "pushing unto htmllinksarray"
                                         );
-                                        console.log(32);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -2245,17 +2224,16 @@ const FetchBookmarks = (props) => {
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing into htmllinksarray"
+                                          "NOT pushing unto htmllinksarray"
                                         );
                                       }
                                     } else {
-                                      let hashtagv5;
-                                      if (oo === "usefoldernames")
-                                        hashtagv5 = getHashtag(
-                                          data.message[i].children[j].children[
-                                            k
-                                          ].children[l].children[m].title
-                                        );
+                                      let hashtagv5
+                      if(oo==="usefoldernames")
+                            hashtagv5= getHashtag(
+                                         data.message[i].children[j].children[k]
+                                           .children[l].children[m].title
+                                       );
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -2293,18 +2271,17 @@ const FetchBookmarks = (props) => {
                                             ].children[n].icon; //the little icon of the page
 
                                           console.log("title=" + title);
-
-                                          if (oo === "usedomainnames")
-                                            hashtagv5 = getHashtag2(url);
+                                          
+                      if(oo==="usedomainnames")
+                            hashtagv5 = getHashtag2(url)
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing into htmllinksarray"
+                                              "pushing unto htmllinksarray"
                                             );
-                                            console.log(33);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -2315,17 +2292,18 @@ const FetchBookmarks = (props) => {
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing into htmllinksarray"
+                                              "NOT pushing unto htmllinksarray"
                                             );
                                           }
                                         } else {
-                                          let hashtagv6;
-                                          if (oo === "usefoldernames")
-                                            hashtagv6 = getHashtag(
-                                              data.message[i].children[j]
-                                                .children[k].children[l]
-                                                .children[m].children[n].title
-                                            );
+                                          let hashtagv6
+                      if(oo==="usefoldernames")
+                            hashtagv6 = getHashtag(
+                                             data.message[i].children[j]
+                                               .children[k].children[l].children[
+                                               m
+                                             ].children[n].title
+                                           );
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -2365,18 +2343,17 @@ const FetchBookmarks = (props) => {
                                                   .children[o].icon; //the little icon of the page
 
                                               console.log("title=" + title);
-
-                                              if (oo === "usedomainnames")
-                                                hashtagv6 = getHashtag2(url);
+                                              
+                      if(oo==="usedomainnames")
+                            hashtagv6 = getHashtag2(url)
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing into htmllinksarray"
+                                                  "pushing unto htmllinksarray"
                                                 );
-                                                console.log(34);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -2387,18 +2364,18 @@ const FetchBookmarks = (props) => {
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing into htmllinksarray"
+                                                  "NOT pushing unto htmllinksarray"
                                                 );
                                               }
                                             } else {
-                                              let hashtagv7;
-                                              if (oo === "usefoldernames")
-                                                hashtagv7 = getHashtag(
-                                                  data.message[i].children[j]
-                                                    .children[k].children[l]
-                                                    .children[m].children[n]
-                                                    .children[o].title
-                                                );
+                                              let hashtagv7
+                      if(oo==="usefoldernames")
+                            hashtagv7 = getHashtag(
+                                                 data.message[i].children[j]
+                                                   .children[k].children[l]
+                                                   .children[m].children[n]
+                                                   .children[o].title
+                                               );
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -2445,10 +2422,9 @@ const FetchBookmarks = (props) => {
                                                       .icon; //the little icon of the page
 
                                                   console.log("title=" + title);
-
-                                                  if (oo === "usedomainnames")
-                                                    hashtagv7 =
-                                                      getHashtag2(url);
+                                                  
+                      if(oo==="usedomainnames")
+                            hashtagv7 = getHashtag2(url)
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -2457,9 +2433,8 @@ const FetchBookmarks = (props) => {
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing into htmllinksarray"
+                                                      "pushing unto htmllinksarray"
                                                     );
-                                                    console.log(35);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -2470,7 +2445,7 @@ const FetchBookmarks = (props) => {
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing into htmllinksarray"
+                                                      "NOT pushing unto htmllinksarray"
                                                     );
                                                   }
                                                 }

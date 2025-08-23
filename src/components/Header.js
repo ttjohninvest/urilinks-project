@@ -77,11 +77,11 @@ export const Header = (props) => {
         <header className="header">
           <div className="content-container-">
             <div className="header__content- flexrow2w">
-              <div className="padding-top-111 padding-left-11">
+              <div className="padding-top-111- padding-left-11">
                 <Link className="header__title- nounderline ib" to="/dashboard" title="refresh">  
                  
                       <img
-                        className="rounded-full-1 ib  margin-bottom-11"
+                        className="rounded-full-1 ib-  margin-bottom-11-"
                         src={logo}
                         width="35"
                         height="35"
@@ -94,14 +94,14 @@ export const Header = (props) => {
                      urilinks (bookmarking)
                   </Link>
               </div>
-              <div className="padding-top-111">
+              <div className="padding-top-111-">
                 
                 <img
                   src={photoURL}
                   width="32"
                   height="32"
                   style={{ borderRadius: "50%" }}
-                  className="ib margin-bottom-11"
+                  className="ib- margin-bottom-11-"
                 />
               </div>
               <div>

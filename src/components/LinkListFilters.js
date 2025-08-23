@@ -57,12 +57,12 @@ function ExpandableArray(props) {
   return (
     <div className="bg-white-1">
       {props.mappedDataShort.length > 0 ? (
-        <div className="paddingparent">
+        <div className="">
           <div
             className="flexrow2c padding-around padding-left-a borderRadius4"
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
-            <div>
+            <div className="text-size-5">
               (welcome) clickable hash tags in alphabetical order
               <br />
               Please go and sin no more, ok. Happy it.
@@ -99,8 +99,8 @@ function ExpandableArray(props) {
             ref={props.ref}
             className={`${
               newspaper === false
-                ? "grid-container5"
-                : "grid-container5-newspaper"
+                ? "grid-container5 paddingparent"
+                : "grid-container5-newspaper paddingparent"
             } margin-top-1 background-white-1 borderradius5`}
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >

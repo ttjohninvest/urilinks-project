@@ -506,25 +506,20 @@ const addIdToDelete=(id)=>{
     }
   };
 
-  /*
-function fetchData() {
-        const ul = document.getElementById("data");
-        document.getElementById("data").innerHTML = "";
-        const url2 = document.getElementById("urlid").value;
-        //urilinks-project-links-to-tabs-expr.vercel.app
-        //fetch("http://localhost:3000/data", {
+  /* drill down this code can be used to drill down into urls,
+  append the new list of urls returned from this function to li.index
+const drilldown=(url,index)=>{
+
+        //const ul = document.getElementById("data");
+        const ul = document.createElement("ul");
+        
         fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ url: url2 }),
-        })
-          // .then(response => response.json())
-          // .then(data => console.log(data))
-          // .catch(error => console.error('Error:', error));
-          .then((response) => {
-            //console.log("response")
+          body: JSON.stringify({ url: url }),
+        }).then((response) => {
             return response.json();
           })
           .then((urls) => {
@@ -539,23 +534,27 @@ function fetchData() {
             
 
               ul.appendChild(li);
+              document.getElementById(index).appenChild(ul)
            
             }
 else {
   let li0 = document.createElement("li");
    li0.innerHTML = `Results: ${urls.length} url(s)`;
    ul.appendChild(li0);
- urls.map((url) => {
+   
+ urls.map((url,index) => {
   
               let li = document.createElement("li");
+              li.id = index
               let a = document.createElement("a");
-              a.href = url;
-              a.target = "_blank";
-              a.innerHTML = `${url}`;
-
+              a.href = url; //'#' //drill down
+              a.target = "_blank"; //remove drilldown
+              a.innerHTML = `${url}`; 
+               //a.onClick = {()=>drilldown(url,index)}
               li.appendChild(a);
 
               ul.appendChild(li);
+              document.getElementById(index).appenChild(ul)
             });
 }
            
@@ -563,7 +562,8 @@ else {
           .catch((error) => {
             console.error("Error:", error);
           });
-      }
+      
+}
   */
 
   const getUrlsList = (url2, id) => {
@@ -577,11 +577,7 @@ else {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ url: url2 }),
-      })
-        // .then(response => response.json())
-        // .then(data => console.log(data))
-        // .catch(error => console.error('Error:', error));
-        .then((response) => {
+      }).then((response) => {
           //console.log("response")
           return response.json();
         })
@@ -664,7 +660,7 @@ else {
             ul.appendChild(li0);
 
             //here
-            data.map((url) => {
+            data.map((url,index) => {
               //let urlstruct = new URL(url);
               // console.log("urlstruct.protocol="+urlstruct.protocol); // "https:"
               // console.log("urlstruct.hostname="+urlstruct.hostname); // "www.example.com"
@@ -673,12 +669,14 @@ else {
               // console.log("urlstruct.search="+urlstruct.search); // "?query=string"
               // console.log("urlstruct.hash="+urlstruct.hash); // "#fragment"
               let li = document.createElement("li");
+              li.id = index //index has to be unique
               li.title = "click to go to page";
               let a = document.createElement("a");
               a.title = "click to open the page";
               a.className = "nounderline color1- color-purple";
-              a.href = url;
-              a.target = "_blank";
+              a.href = url; //use a.href='#' for drilldown version
+              a.target = "_blank"; //remove the target attribute for drilldown version
+              //a.onClick = {()=>drilldown(url,index)} 
               a.innerHTML = `${url}`;
 
               li.appendChild(a);

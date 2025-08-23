@@ -142,15 +142,7 @@ export const Header = (props) => {
                   (search section)
                 </div>
               )}
-              <div>
-                <Link className="header__title-" to="/settings">
-                  {/* <span>Settings</span> */}
-                </Link>
-              </div>
-
-              {/* <div className="color-white-1" onClick={deleteAccount}>
-            delete account
-          </div> */}
+              
               <div>
                 <Link className="header__title- nounderline" to="/ideas">
                   <span className="ib- color-white-1 cursor-pointer" title="some ideas for hash tags">

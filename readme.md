@@ -54,6 +54,11 @@ it needs mongodb and other values for environment variables
 open two projects, in github.com and vercel.com
 
 --------------------------
+tools (utilities)
+get an old file command:
+git show HEAD~26:src/components/FetchBookmarks.js > FetchBookmarks-old.js
+
+
 tools:
 stripe.com (payment processor)
 ttjohninvest@gmail.com

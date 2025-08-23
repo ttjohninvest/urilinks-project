@@ -1598,8 +1598,16 @@ const FetchBookmarks = (props) => {
 
                           console.log("title=" + title);
                           
-                      if(oo==="usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+                      //if(oo==="usedomainnames")
+                            //hashtagv1 = getHashtag2(url)
+                       if (oo === "usedomainnames") {
+                            if (i === 0 && kht === undefined) {
+                              kht = getHashtag2(url);
+                              hashtagv1 = kht;
+                            } else {
+                              hashtagv1 = getTheHashtag(url, kht);
+                            }
+                          }
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0

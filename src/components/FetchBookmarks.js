@@ -203,6 +203,7 @@ const FetchBookmarks = (props) => {
                 let kht;
                 let kht2;
                 let kht3;
+                console.log("oo="+oo)
                 console.log("before for");
                 for (let i = 0; data.message && i < data.message.length; i++) {
                   console.log("in for");
@@ -1598,13 +1599,15 @@ const FetchBookmarks = (props) => {
 
                           console.log("title=" + title);
 
-                          if (oo === "usedomainnames")
-                            if (i === 0 && kht === undefined) {
+                          if (oo === "usedomainnames") {
+ if (i === 0 && kht === undefined) {
                               kht = getHashtag2(url);
                               hashtagv1 = kht;
                             } else {
                               hashtagv1 = getTheHashtag(url, kht);
                             }
+                          }
+                           
 
                           if (
                             !hasControlCharacters(title) &&

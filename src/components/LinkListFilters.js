@@ -57,7 +57,7 @@ function ExpandableArray(props) {
   return (
     <div className="bg-white-1">
       {props.mappedDataShort.length > 0 ? (
-        <div>
+        <div className="paddingparent">
           <div
             className="flexrow2c padding-around padding-left-a borderRadius4"
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."

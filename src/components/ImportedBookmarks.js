@@ -48,7 +48,7 @@ max=10000
           
 
   return (
-    <div className="container2">
+    <div className="container2 positionit">
       <div className="flexcol">
         {props.rl === 0 ? (
           <div className="margin-top-1111c">

@@ -1140,7 +1140,9 @@ const FetchBookmarks = (props) => {
                       //hashtagv = "#otherbookmarks";
                       let hashtagv1;
                       if (oo === "usefoldernames")
-                        hashtagv1 = getHashtag(data.message[i].title);
+                        hashtagv1 = getHashtag(
+                      data.message[i].title
+                    );
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -1169,6 +1171,7 @@ const FetchBookmarks = (props) => {
                             console.log("pushing into htmllinksarray");
                             console.log(15);
                             htmllinksarray.push({
+                              longname:data.message[i].title,
                               description: title,
                               Url: url, //, //href,
                               note: hashtagv1,
@@ -1223,6 +1226,7 @@ const FetchBookmarks = (props) => {
                                 console.log("pushing into htmllinksarray");
                                 console.log(16);
                                 htmllinksarray.push({
+                                  longname:data.message[i].children[j].title,
                                   description: title,
                                   Url: url, //, //href,
                                   note: hashtagv2,
@@ -1275,6 +1279,7 @@ const FetchBookmarks = (props) => {
                                     console.log("pushing into htmllinksarray");
                                     console.log(17);
                                     htmllinksarray.push({
+                                      longname:data.message[i].children[j].children[k].title,
                                       description: title,
                                       Url: url, //, //href,
                                       note: hashtagv3,
@@ -1336,6 +1341,7 @@ const FetchBookmarks = (props) => {
                                         );
                                         console.log(18);
                                         htmllinksarray.push({
+                                          longname:data.message[i].children[j].children[k].children[l].title,
                                           description: title,
                                           Url: url, //, //href,
                                           note: hashtagv4,
@@ -1406,6 +1412,7 @@ const FetchBookmarks = (props) => {
                                             );
                                             console.log(19);
                                             htmllinksarray.push({
+                                              longname:data.message[i].children[j].children[k].children[l].children[m].title,
                                               description: title,
                                               Url: url, //, //href,
                                               note: hashtagv5,
@@ -1478,6 +1485,7 @@ const FetchBookmarks = (props) => {
                                                 );
                                                 console.log(20);
                                                 htmllinksarray.push({
+                                                  longname:data.message[i].children[j].children[k].children[l].children[m].children[n].title,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   note: hashtagv6,
@@ -1561,6 +1569,7 @@ const FetchBookmarks = (props) => {
                                                     );
                                                     console.log(21);
                                                     htmllinksarray.push({
+                                                      longname:data.message[i].children[j].children[k].children[l].children[m].children[n].children[o].title,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       note: hashtagv7,
@@ -1595,7 +1604,9 @@ const FetchBookmarks = (props) => {
                     if (i === 0) {
                       let hashtagv1
                       if(oo==="usefoldernames")
-                            hashtagv1 = getHashtag(data.message[i].title);
+                            hashtagv1 = getHashtag(
+                          data.message[i].title
+                        );
 
                       for (
                         let j = 0;
@@ -1631,6 +1642,7 @@ const FetchBookmarks = (props) => {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                             console.log("pushing unto htmllinksarray");
                             htmllinksarray.push({
+                              longname:data.message[i].title,
                               description: title,
                               Url: url, //, //href,
                               note: hashtagv1,
@@ -1683,6 +1695,7 @@ const FetchBookmarks = (props) => {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                 console.log("pushing unto htmllinksarray");
                                 htmllinksarray.push({
+                                  longname:data.message[i].children[j].title,
                                   description: title,
                                   Url: url, //, //href,
                                   note: hashtagv2,
@@ -1734,6 +1747,7 @@ const FetchBookmarks = (props) => {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                     console.log("pushing unto htmllinksarray");
                                     htmllinksarray.push({
+                                      longname:data.message[i].children[j].children[k].title,
                                       description: title,
                                       Url: url, //, //href,
                                       note: hashtagv3,
@@ -1794,6 +1808,7 @@ const FetchBookmarks = (props) => {
                                           "pushing unto htmllinksarray"
                                         );
                                         htmllinksarray.push({
+                                          longname:data.message[i].children[j].children[k].children[l].title,
                                           description: title,
                                           Url: url, //, //href,
                                           note: hashtagv4,
@@ -1862,6 +1877,7 @@ const FetchBookmarks = (props) => {
                                               "pushing unto htmllinksarray"
                                             );
                                             htmllinksarray.push({
+                                              longname:data.message[i].children[j].children[k].children[l].children[m].title,
                                               description: title,
                                               Url: url, //, //href,
                                               note: hashtagv5,
@@ -1934,6 +1950,7 @@ const FetchBookmarks = (props) => {
                                                   "pushing unto htmllinksarray"
                                                 );
                                                 htmllinksarray.push({
+                                                  longname:data.message[i].children[j].children[k].children[l].children[m].children[n].title,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   note: hashtagv6,
@@ -2015,6 +2032,7 @@ const FetchBookmarks = (props) => {
                                                       "pushing unto htmllinksarray"
                                                     );
                                                     htmllinksarray.push({
+                                                      longname:data.message[i].children[j].children[k].children[l].children[m].children[n].children[o].title,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       note: hashtagv7,
@@ -2047,7 +2065,9 @@ const FetchBookmarks = (props) => {
                       //hashtagv = "#otherbookmarks";
                       let hashtagv1
                       if(oo==="usefoldernames")
-                            hashtagv1 = getHashtag(data.message[i].title);
+                            hashtagv1 = getHashtag(
+                          data.message[i].title
+                        );
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -2075,6 +2095,7 @@ const FetchBookmarks = (props) => {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                             console.log("pushing unto htmllinksarray");
                             htmllinksarray.push({
+                              longname:data.message[i].title,
                               description: title,
                               Url: url, //, //href,
                               note: hashtagv1,
@@ -2128,6 +2149,7 @@ const FetchBookmarks = (props) => {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                 console.log("pushing unto htmllinksarray");
                                 htmllinksarray.push({
+                                  longname:data.message[i].children[j].title,
                                   description: title,
                                   Url: url, //, //href,
                                   note: hashtagv2,
@@ -2179,6 +2201,7 @@ const FetchBookmarks = (props) => {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                     console.log("pushing unto htmllinksarray");
                                     htmllinksarray.push({
+                                      longname:data.message[i].children[j].children[k].title,
                                       description: title,
                                       Url: url, //, //href,
                                       note: hashtagv3,
@@ -2239,6 +2262,7 @@ const FetchBookmarks = (props) => {
                                           "pushing unto htmllinksarray"
                                         );
                                         htmllinksarray.push({
+                                          longname:data.message[i].children[j].children[k].children[l].title,
                                           description: title,
                                           Url: url, //, //href,
                                           note: hashtagv4,
@@ -2307,6 +2331,7 @@ const FetchBookmarks = (props) => {
                                               "pushing unto htmllinksarray"
                                             );
                                             htmllinksarray.push({
+                                              longname:data.message[i].children[j].children[k].children[l].children[m].title,
                                               description: title,
                                               Url: url, //, //href,
                                               note: hashtagv5,
@@ -2379,6 +2404,7 @@ const FetchBookmarks = (props) => {
                                                   "pushing unto htmllinksarray"
                                                 );
                                                 htmllinksarray.push({
+                                                  longname:data.message[i].children[j].children[k].children[l].children[m].children[n].title,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   note: hashtagv6,
@@ -2460,6 +2486,7 @@ const FetchBookmarks = (props) => {
                                                       "pushing unto htmllinksarray"
                                                     );
                                                     htmllinksarray.push({
+                                                      longname:data.message[i].children[j].children[k].children[l].children[m].children[n].children[o].title,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       note: hashtagv7,

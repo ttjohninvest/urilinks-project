@@ -1,13 +1,34 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 //import { history } from "../routers/AppRouter";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import printerImage from "../assets/images/printer_image.png";
  
 const ImportedBookmarks = (props) => {
+  const [max, setMax] = useState(0)
   const goToHomePage = () => {
     props.history.push("/"); // Navigates back one step in the history
   };
+
+
+  const getPlanMax=()=>{
+    let max=250
+    //props.settings.plan
+    if(props.theplan.plan.replace(/"/g, "")==="free") {
+     max=250
+    } else if(props.theplan.plan.replace(/"/g, "")==="basic") {
+max=1500
+    } else if(props.theplan.plan.replace(/"/g, "")==="standard") {
+max=2500
+    } else { //premium
+max=10000
+    }
+    return max
+  }
+
+  useEffect(()=>{
+    setMax(getPlanMax())
+  },[])
 
   const returnAndRefresh = () => {
     props.history.push("/");
@@ -42,7 +63,7 @@ const ImportedBookmarks = (props) => {
         ) : (
           <div>
             Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is
-            250 bookmarks
+            ${max} bookmarks
           </div>
         )}
 
@@ -83,4 +104,8 @@ const ImportedBookmarks = (props) => {
   );
 };
 
-export default withRouter(connect(undefined, undefined)(ImportedBookmarks));
+const mapStateToProps = (state) => ({
+  theplan: state.theplan,
+});
+
+export default withRouter(connect(mapStateToProps, undefined)(ImportedBookmarks));

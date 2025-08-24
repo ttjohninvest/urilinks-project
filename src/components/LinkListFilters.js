@@ -117,7 +117,7 @@ function ExpandableArray(props) {
                           className="nounderline color-white-1"
                           href="#"
                           onClick={() => props.setit(s.hashtag, event)}
-                          title={`${s.hashtag}, click to scroll to results`}
+                          title={`${s.longname}:${s.hashtag}, click to scroll to results`}
                         >
                           {s.hashtag}
                         </a>
@@ -136,7 +136,7 @@ function ExpandableArray(props) {
                         className="nounderline color-white-1 "
                         href="#"
                         onClick={() => props.setit(s.hashtag, event)}
-                        title={`${s.hashtag}, click to scroll to results`}
+                        title={`${s.longname}:${s.hashtag}, click to scroll to results`}
                       >
                         {s.hashtag}
                       </a>

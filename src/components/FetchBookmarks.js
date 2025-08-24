@@ -2571,6 +2571,7 @@ const FetchBookmarks = (props) => {
                     //for (let i = 0; i < 1; i++) {
 
                     r = props.startAddLink({
+                      longname:result[i].longname,
                       description: result[i].description,
                       Url: result[i].Url, //, //href,
                       note: result[i].note,
@@ -2616,6 +2617,7 @@ const FetchBookmarks = (props) => {
                       //for (let i = 0; i < 1; i++) {
 
                       r = props.startAddLink({
+                        longname:result[i].longname,
                         description: result[i].description,
                         Url: result[i].Url, //, //href,
                         note: result[i].note,

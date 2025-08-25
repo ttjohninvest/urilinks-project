@@ -243,20 +243,20 @@ export const startSetLinks = () => {
          console.log('longnamesnowhitespace2='+JSON.stringify(longnamesnowhitespace2))
          console.log('longnames2='+JSON.stringify(longnames2))
          console.log('hashtags3withcount='+JSON.stringify(hashtags3withcount))
-         for(let i=0; i<longnames2.length;i++) {
-          hashtags3withcount[i].longname = longnames2[i]
-         }
+        //  for(let i=0; i<longnames2.length;i++) {
+        //   hashtags3withcount[i].longname = longnames2[i]
+        //  }
         //have longnamesnowhitespace
         //have longnames
         //have hashtags3withcount
-        // for(let i=0;i<longnamesnowhitespace2.length;i++) {
-        //   for(let j=0;hashtags3withcount.length;j++) {
-        //     if(longnamesnowhitespace2[i]===hashtags3withcount[j].hashtag) {
-        //       hashtags3withcount[j].longname = longnames[i]
-        //       break
-        //     }
-        //   }
-        // }
+        for(let i=0;i<longnamesnowhitespace2.length;i++) {
+          for(let j=0;hashtags3withcount.length;j++) {
+            if(longnamesnowhitespace2[i]===hashtags3withcount[j].hashtag) {
+              hashtags3withcount[j].longname = longnames[i]
+              break
+            }
+          }
+        }
 
         // console.log('hashtags3withcount='+JSON.stringify(hashtags3withcount))
 

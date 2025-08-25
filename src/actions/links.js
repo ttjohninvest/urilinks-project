@@ -245,14 +245,14 @@ export const startSetLinks = () => {
         //have longnamesnowhitespace
         //have longnames
         //have hashtags3withcount
-        for(let i=0;i<longnamesnowhitespace2.length;i++) {
-          for(let j=0;hashtags3withcount.length;j++) {
-            if(longnamesnowhitespace2[i]===hashtags3withcount[j].hashtag) {
-              hashtags3withcount[j].longname = longnames[i]
-              break
-            }
-          }
-        }
+        // for(let i=0;i<longnamesnowhitespace2.length;i++) {
+        //   for(let j=0;hashtags3withcount.length;j++) {
+        //     if(longnamesnowhitespace2[i]===hashtags3withcount[j].hashtag) {
+        //       hashtags3withcount[j].longname = longnames[i]
+        //       break
+        //     }
+        //   }
+        // }
 
         // console.log('hashtags3withcount='+JSON.stringify(hashtags3withcount))
 

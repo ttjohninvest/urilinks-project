@@ -230,7 +230,7 @@ export const startSetLinks = () => {
            
             
         //   //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
-        // });
+         });
 
          console.log('longnamesnowhitespace='+JSON.stringify(longnamesnowhitespace))
          console.log('longnames='+JSON.stringify(longnames))

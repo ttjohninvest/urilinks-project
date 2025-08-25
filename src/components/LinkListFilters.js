@@ -65,7 +65,7 @@ function ExpandableArray(props) {
             <div className="text-size-5">
               (welcome) clickable hash tags in alphabetical order
               <br />
-              I belive that Jesus is the Christ. I believe that Jesus Christ is the Son of God.
+              I believe that Jesus is the Christ. I believe that Jesus Christ is the Son of God.
               <br />
               Please go and sin no more, ok. Happy it.
               {/* <br />

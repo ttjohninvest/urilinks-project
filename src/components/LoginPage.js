@@ -54,7 +54,7 @@ const LoginPage = ({ startLogin }) => {
   if (true)
     //count < 20 )
     return (
-      <div className="box-layout topbottom0 positionit">
+      <div className="box-layout topbottom0 positionit2">
         <div className="flexrowz">
           <div
             title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."

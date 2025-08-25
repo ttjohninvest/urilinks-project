@@ -217,13 +217,17 @@ export const startSetLinks = () => {
          const longnamesnowhitespace = []
          const longnames = []
         links.forEach((link) => {
-            let stringWithoutTabs = link.longname?.replace(/\t/g, "");
-            let notabsorspaces = stringWithoutTabs?.replace(/\s/g, "");
-            let notabsorspacesordashes = notabsorspaces?.replace(/\-/g, "");
+            let stringWithoutTabs = link?.longname.replace(/\t/g, "");
+            if(stringWithoutTabs !== undefined) {
+                let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
+                let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
           
-          //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, x1="+JSON.stringify(x1))
-          longnamesnowhitespace.push(notabsorspacesordashes);
-          longnames.push(link.longname)
+                //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, x1="+JSON.stringify(x1))
+                longnamesnowhitespace.push(notabsorspacesordashes);
+                longnames.push(link.longname)
+            }
+           
+            
           //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
         //have longnamesnowhitespace

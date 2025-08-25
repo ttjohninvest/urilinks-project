@@ -176,7 +176,9 @@ export const startSetLinks = () => {
         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links));
 
-        let hashtags = [];
+         let hashtags = [];
+         const longnamesnowhitespace = []
+         const longnames = []
 
         //if(this.props.links.length>0) {
         links.forEach((link) => {
@@ -184,7 +186,30 @@ export const startSetLinks = () => {
           let x1 = extractHashtags(link.note);
           //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, x1="+JSON.stringify(x1))
           hashtags.push(...x1);
+          //longnames.push(link.longname)
+
+          if(link.longname !== undefined) {
+
+                let stringWithoutTabs = link.longname.replace(/\t/g, "");
+                let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
+                let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
+                longnamesnowhitespace.push(notabsorspacesordashes);
+                longnames.push(link.longname)
+            
+          }
+
           //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
+        });
+
+        let longnamesnowhitespace2 = removeDuplicates(longnamesnowhitespace);
+        longnamesnowhitespace2.sort((a, b) => {
+          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+        });
+
+        
+        let longnames2 = removeDuplicates(longnames);
+        longnames2.sort((a, b) => {
+          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
         });
        
         //at this point hashtags contains the number of times each hashtag is being used
@@ -214,37 +239,20 @@ export const startSetLinks = () => {
         })
 
         console.log("ZZZZZZZZZZZZZZZZZZZZZZZ, hashtags3withcount="+JSON.stringify(hashtags3withcount))
-         const longnamesnowhitespace = []
-         const longnames = []
-        links.forEach((link) => {
-          if(link.longname !== undefined) {
-
-                let stringWithoutTabs = link.longname.replace(/\t/g, "");
-                let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
-                let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
-                longnamesnowhitespace.push(notabsorspacesordashes);
-                longnames.push(link.longname)
-            
-          }
-            
-           
-            
-        //   //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
-         });
 
          console.log('longnamesnowhitespace='+JSON.stringify(longnamesnowhitespace))
          console.log('longnames='+JSON.stringify(longnames))
-        // //have longnamesnowhitespace
-        // //have longnames
-        // //have hashtags3withcount
-        // for(let i=0;i<longnamesnowhitespace.length;i++) {
-        //   for(let j=0;hashtags3withcount.length;j++) {
-        //     if(longnamesnowhitespace[i]===hashtags3withcount[j].hashtag) {
-        //       hashtags3withcount[j].longname = longnames[i]
-        //       break
-        //     }
-        //   }
-        // }
+        //have longnamesnowhitespace
+        //have longnames
+        //have hashtags3withcount
+        for(let i=0;i<longnamesnowhitespace2.length;i++) {
+          for(let j=0;hashtags3withcount.length;j++) {
+            if(longnamesnowhitespace2[i]===hashtags3withcount[j].hashtag) {
+              hashtags3withcount[j].longname = longnames[i]
+              break
+            }
+          }
+        }
 
         // console.log('hashtags3withcount='+JSON.stringify(hashtags3withcount))
 

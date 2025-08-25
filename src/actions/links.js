@@ -240,8 +240,9 @@ export const startSetLinks = () => {
 
         console.log("ZZZZZZZZZZZZZZZZZZZZZZZ, hashtags3withcount="+JSON.stringify(hashtags3withcount))
 
-         console.log('longnamesnowhitespace='+JSON.stringify(longnamesnowhitespace))
-         console.log('longnames='+JSON.stringify(longnames))
+         console.log('longnamesnowhitespace2='+JSON.stringify(longnamesnowhitespace2))
+         console.log('longnames2='+JSON.stringify(longnames2))
+         console.log('hashtags3withcount='+JSON.stringify(hashtags3withcount))
         //have longnamesnowhitespace
         //have longnames
         //have hashtags3withcount

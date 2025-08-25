@@ -252,7 +252,7 @@ export const startSetLinks = () => {
         for(let i=0;i<longnamesnowhitespace2.length;i++) {
           for(let j=0;hashtags3withcount.length;j++) {
             if(longnamesnowhitespace2[i]===hashtags3withcount[j].hashtag) {
-              hashtags3withcount[j].longname = longnames[i]
+              hashtags3withcount[j].longname = longnames2[i]
               break
             }
           }

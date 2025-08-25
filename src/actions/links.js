@@ -137,7 +137,7 @@ export const setLinksAll = (links) => ({
           count = count + 1
          }
        })
-       newArray.push({hashtag:hashtag,count:count})
+       newArray.push({hashtag:hashtag,count:count,longname:undefined})
      })
      return newArray
   }
@@ -214,6 +214,29 @@ export const startSetLinks = () => {
         })
 
         console.log("ZZZZZZZZZZZZZZZZZZZZZZZ, hashtags3withcount="+JSON.stringify(hashtags3withcount))
+         const longnamesnowhitespace = []
+         const longnames = []
+        links.forEach((link) => {
+            let stringWithoutTabs = link.longname?.replace(/\t/g, "");
+            let notabsorspaces = stringWithoutTabs?.replace(/\s/g, "");
+            let notabsorspacesordashes = notabsorspaces?.replace(/\-/g, "");
+          
+          //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, x1="+JSON.stringify(x1))
+          longnamesnowhitespace.push(notabsorspacesordashes);
+          longnames.push(link.longname)
+          //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
+        });
+        //have longnamesnowhitespace
+        //have longnames
+        //have hashtags3withcount
+        for(let i=0;i<longnamesnowhitespace.length;i++) {
+          for(let j=0;hashtags3withcount.length;j++) {
+            if(longnamesnowhitespace[i]===hashtags3withcount[j].hashtag) {
+              hashtags3withcount[j].longname = longnames[i]
+              break
+            }
+          }
+        }
 
 
 

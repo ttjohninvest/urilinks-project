@@ -137,7 +137,7 @@ export const setLinksAll = (links) => ({
           count = count + 1
          }
        })
-       newArray.push({hashtag:hashtag,count:count,longname:undefined})
+       newArray.push({hashtag:hashtag,count:count,longname:""})
      })
      return newArray
   }

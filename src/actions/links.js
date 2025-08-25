@@ -217,7 +217,7 @@ export const startSetLinks = () => {
          const longnamesnowhitespace = []
          const longnames = []
         links.forEach((link) => {
-            let stringWithoutTabs = link?.longname.replace(/\t/g, "");
+            let stringWithoutTabs = link.longname.replace(/\t/g, "");
             if(stringWithoutTabs !== undefined) {
                 let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
                 let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");

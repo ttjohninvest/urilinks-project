@@ -243,6 +243,9 @@ export const startSetLinks = () => {
          console.log('longnamesnowhitespace2='+JSON.stringify(longnamesnowhitespace2))
          console.log('longnames2='+JSON.stringify(longnames2))
          console.log('hashtags3withcount='+JSON.stringify(hashtags3withcount))
+         for(let i=0; i<longnames2.length;i++) {
+          hashtags3withcount[i].longname = longnames2[i]
+         }
         //have longnamesnowhitespace
         //have longnames
         //have hashtags3withcount

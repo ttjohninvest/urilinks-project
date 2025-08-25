@@ -188,15 +188,15 @@ export const startSetLinks = () => {
           hashtags.push(...x1);
           //longnames.push(link.longname)
 
-          if(link.longname !== undefined) {
+          // if(link.longname !== undefined) {
 
-                let stringWithoutTabs = link.longname.replace(/\t/g, "");
-                let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
-                let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
-                longnamesnowhitespace.push(notabsorspacesordashes);
-                longnames.push(link.longname)
+          //       let stringWithoutTabs = link.longname.replace(/\t/g, "");
+          //       let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
+          //       let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
+          //       longnamesnowhitespace.push(notabsorspacesordashes);
+          //       longnames.push(link.longname)
             
-          }
+          // }
 
           //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
@@ -238,28 +238,28 @@ export const startSetLinks = () => {
           })
         })
 
-        console.log("ZZZZZZZZZZZZZZZZZZZZZZZ, hashtags3withcount="+JSON.stringify(hashtags3withcount))
+        // console.log("ZZZZZZZZZZZZZZZZZZZZZZZ, hashtags3withcount="+JSON.stringify(hashtags3withcount))
 
-         console.log('longnamesnowhitespace2='+JSON.stringify(longnamesnowhitespace2))
-         console.log('longnames2='+JSON.stringify(longnames2))
-         console.log('hashtags3withcount='+JSON.stringify(hashtags3withcount))
-        //  for(let i=0; i<longnames2.length;i++) {
-        //   hashtags3withcount[i].longname = longnames2[i]
-        //  }
-        //have longnamesnowhitespace
-        //have longnames
-        //have hashtags3withcount
-        for(let i=0;i<longnamesnowhitespace2.length;i++) {
-          console.log("longnamesnowhitespace2["+i+"]="+longnamesnowhitespace2[i])
-          for(let j=0;hashtags3withcount.length;j++) {
-            console.log("hashtags3withcount["+j+"].hashtag="+hashtags3withcount[j].hashtag)
-            let v = "#"+longnamesnowhitespace2[i]
-            if(v===hashtags3withcount[j].hashtag) {
-              hashtags3withcount[j].longname = longnames2[i]
-              break
-            }
-          }
-        }
+        //  console.log('longnamesnowhitespace2='+JSON.stringify(longnamesnowhitespace2))
+        //  console.log('longnames2='+JSON.stringify(longnames2))
+        //  console.log('hashtags3withcount='+JSON.stringify(hashtags3withcount))
+        // //  for(let i=0; i<longnames2.length;i++) {
+        // //   hashtags3withcount[i].longname = longnames2[i]
+        // //  }
+        // //have longnamesnowhitespace
+        // //have longnames
+        // //have hashtags3withcount
+        // for(let i=0;i<longnamesnowhitespace2.length;i++) {
+        //   console.log("longnamesnowhitespace2["+i+"]="+longnamesnowhitespace2[i])
+        //   for(let j=0;hashtags3withcount.length;j++) {
+        //     console.log("hashtags3withcount["+j+"].hashtag="+hashtags3withcount[j].hashtag)
+        //     let v = "#"+longnamesnowhitespace2[i]
+        //     if(v===hashtags3withcount[j].hashtag) {
+        //       hashtags3withcount[j].longname = longnames2[i]
+        //       break
+        //     }
+        //   }
+        // }
 
         // console.log('hashtags3withcount='+JSON.stringify(hashtags3withcount))
 

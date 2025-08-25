@@ -213,27 +213,27 @@ export const startSetLinks = () => {
           })
         })
 
-        // console.log("ZZZZZZZZZZZZZZZZZZZZZZZ, hashtags3withcount="+JSON.stringify(hashtags3withcount))
-        //  const longnamesnowhitespace = []
-        //  const longnames = []
-        // links.forEach((link) => {
-        //   if(link.longname !== undefined) {
+        console.log("ZZZZZZZZZZZZZZZZZZZZZZZ, hashtags3withcount="+JSON.stringify(hashtags3withcount))
+         const longnamesnowhitespace = []
+         const longnames = []
+        links.forEach((link) => {
+          if(link.longname !== undefined) {
 
-        //         let stringWithoutTabs = link.longname.replace(/\t/g, "");
-        //         let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
-        //         let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
-        //         longnamesnowhitespace.push(notabsorspacesordashes);
-        //         longnames.push(link.longname)
+                let stringWithoutTabs = link.longname.replace(/\t/g, "");
+                let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
+                let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
+                longnamesnowhitespace.push(notabsorspacesordashes);
+                longnames.push(link.longname)
             
-        //   }
+          }
             
            
             
         //   //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         // });
 
-        //  console.log('longnamesnowhitespace='+JSON.stringify(longnamesnowhitespace))
-        //  console.log('longnames='+JSON.stringify(longnames))
+         console.log('longnamesnowhitespace='+JSON.stringify(longnamesnowhitespace))
+         console.log('longnames='+JSON.stringify(longnames))
         // //have longnamesnowhitespace
         // //have longnames
         // //have hashtags3withcount

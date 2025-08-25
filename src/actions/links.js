@@ -217,19 +217,23 @@ export const startSetLinks = () => {
          const longnamesnowhitespace = []
          const longnames = []
         links.forEach((link) => {
-            let stringWithoutTabs = link.longname.replace(/\t/g, "");
-            if(stringWithoutTabs !== undefined) {
+          if(link.longname !== undefined) {
+            
+                let stringWithoutTabs = link.longname.replace(/\t/g, "");
                 let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
                 let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
-          
-                //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, x1="+JSON.stringify(x1))
                 longnamesnowhitespace.push(notabsorspacesordashes);
                 longnames.push(link.longname)
-            }
+            
+          }
+            
            
             
           //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
+
+         console.log('longnamesnowhitespace='+JSON.stringify(longnamesnowhitespace))
+         console.log('longnames='+JSON.stringify(longnames))
         //have longnamesnowhitespace
         //have longnames
         //have hashtags3withcount
@@ -242,7 +246,7 @@ export const startSetLinks = () => {
           }
         }
 
-
+        console.log('hashtags3withcount='+JSON.stringify(hashtags3withcount))
 
         //console.log("actions/links.js, ZZZZZZZZZZZZZZZZZ, hashtags2="+JSON.stringify(hashtags2))
         //dispatch(setHashTags(hashtags2));

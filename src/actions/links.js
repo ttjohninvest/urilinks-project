@@ -250,7 +250,7 @@ export const startSetLinks = () => {
         //have longnames
         //have hashtags3withcount
         for(let i=0;i<longnamesnowhitespace2.length;i++) {
-          console.log("longnamesnowhitespace2["+i+"]="+longnamesnowhitespace2)
+          console.log("longnamesnowhitespace2["+i+"]="+longnamesnowhitespace2[i])
           for(let j=0;hashtags3withcount.length;j++) {
             console.log("hashtags3withcount["+j+"].hashtag="+hashtags3withcount[j].hashtag)
             if(longnamesnowhitespace2[i]===hashtags3withcount[j].hashtag) {

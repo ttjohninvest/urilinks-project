@@ -156,8 +156,10 @@ export const setLinksAll = (links) => ({
 export const startSetLinks = () => {
   console.log("startSetLinks");
   return (dispatch, getState) => {
+    dispatch(setLinks([]));
     const uid = getState().auth.uid;
     const hashtags = [];
+    
 
     return database
       .ref(`users/${uid}/links`)

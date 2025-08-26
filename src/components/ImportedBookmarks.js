@@ -63,7 +63,7 @@ max=10000
         ) : (
           <div>
             Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is
-            ${max} bookmarks
+            {max} bookmarks
           </div>
         )}
 

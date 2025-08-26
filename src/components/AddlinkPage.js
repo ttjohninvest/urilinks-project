@@ -76,7 +76,7 @@ max=10000
     // ) {
     if (count < getPlanMax() 
       || (count < 10000 && (
-      user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 
+      user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" || user.uid === 'RZOEMMu7Nwa5bQ51sf71FfDX3A93'
      ))
     ) {
       const r = props.startAddLink(link);

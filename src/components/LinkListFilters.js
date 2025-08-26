@@ -87,7 +87,7 @@ function ExpandableArray(props) {
                     className="ib color-black text-size-5 general-font"
                     title="click for plan options"
                   >
-                    {uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2"
+                    {(uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" || uid === 'RZOEMMu7Nwa5bQ51sf71FfDX3A93')
                       ? "(click to change plan)"
                       : ""}
                     {/* {props.plan.replace(/"/g, "") !== "premium" ? '(click to change plan)':""} */}

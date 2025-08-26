@@ -2514,7 +2514,7 @@ const FetchBookmarks = (props) => {
                 const user = firebase.auth().currentUser;
                 if (
                   true &&
-                  user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" //johmcg64@gmail.com
+                  (user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" || user.uid === 'RZOEMMu7Nwa5bQ51sf71FfDX3A93')//johmcg64@gmail.com
                 ) {
                   max = 10000 - (rl + ll);
                   console.log("in if, ll=" + ll);

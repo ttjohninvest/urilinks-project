@@ -2644,7 +2644,7 @@ const FetchBookmarks = (props) => {
           {error ? <div>Error: Unable to read from firebase storage</div> : ""}
           {error2 ? (
             <div>
-              Error: An exception error was thrown.
+              Error: An exception error was thrown. Please try rewritting the bookmarks.html file or make it smaller.
             </div>
           ) : (
             ""

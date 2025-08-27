@@ -6,6 +6,7 @@ import moment from "moment";
 import numeral from "numeral";
 import FBShareButton from "./FBShareButton";
 import LinkedInShareButton from "./LinkedInShareButton";
+import XShareButton from "./XShareButton";
 //import AddToAny from './AddToAny';
 
 //import XShareButton from "./XShareButton"

@@ -509,66 +509,6 @@ const addIdToDelete=(id)=>{
     }
   };
 
-  /* drill down this code can be used to drill down into urls,
-  append the new list of urls returned from this function to li.index
-const drilldown=(url,index)=>{
-
-        //const ul = document.getElementById("data");
-        const ul = document.createElement("ul");
-        
-        fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ url: url }),
-        }).then((response) => {
-            return response.json();
-          })
-          .then((urls) => {
-            
-            if(urls.length===0) {
- 
-              let li = document.createElement("li");
-             
-            
-              li.innerHTML = `Results: 0`;
-
-            
-
-              ul.appendChild(li);
-              document.getElementById(index).appenChild(ul)
-           
-            }
-else {
-  let li0 = document.createElement("li");
-   li0.innerHTML = `Results: ${urls.length} url(s)`;
-   ul.appendChild(li0);
-   
- urls.map((url,index) => {
-  
-              let li = document.createElement("li");
-              li.id = index
-              let a = document.createElement("a");
-              a.href = url; //'#' //drill down
-              a.target = "_blank"; //remove drilldown
-              a.innerHTML = `${url}`; 
-               //a.onClick = {()=>drilldown(url,index)}
-              li.appendChild(a);
-
-              ul.appendChild(li);
-              document.getElementById(index).appenChild(ul)
-            });
-}
-           
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      
-}
-  */
-
   const getUrlsList = (url2, id) => {
     if (s === 1) {
       setS(0);
@@ -697,7 +637,7 @@ else {
       ul.innerHTML = "";
     }
   };
-
+//
   return (
     <div className="margin-bottom-1">
       <div className="card-background-color">

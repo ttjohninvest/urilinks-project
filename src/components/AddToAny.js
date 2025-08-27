@@ -16,7 +16,7 @@ class AddToAny extends React.Component{
     return(
       <div>
 <a href="https://www.addtoany.com/share#url=https%3A%2F%2Furilinks.com&amp;title=" target="_blank">
-a
+<img src="https://static.addtoany.com/buttons/a2a.svg" width="32" height="32" style="background-color:royalblue" />
 </a>
 
 </div>

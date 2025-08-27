@@ -150,7 +150,7 @@ const addIdToDelete=(id)=>{
         a.className = "nounderline color-purple";
         a.href = d.url;
         a.target = "_blank";
-        a.innerHTML = `${d.url}`;
+        a.innerHTML = `${decodeURIComponent(d.url)}`;
 
         // li.appendChild(a);
 
@@ -260,7 +260,7 @@ const addIdToDelete=(id)=>{
         a.className = "nounderline color-purple";
         a.href = d.url;
         //a.target = "_blank";
-        a.innerHTML = `${d.url}`;
+        a.innerHTML = `${decodeURIComponent(d.url)}`;
 
         let a2 = document.createElement("a");
         a2.title = `click to open page,${d.hostname}`;
@@ -374,7 +374,7 @@ const addIdToDelete=(id)=>{
         a.className = "nounderline color1- color-purple";
         a.href = d.url;
         a.target = "_blank";
-        a.innerHTML = `${d.url}`;
+        a.innerHTML = `${decodeURIComponent(d.url)}`;
 
         let a2 = document.createElement("a");
         a2.title = `click to open page,${d.hostname}`;
@@ -472,7 +472,7 @@ const addIdToDelete=(id)=>{
         a.className = "nounderline color-purple";
         a.href = d.url;
         a.target = "_blank";
-        a.innerHTML = `${d.url}`;
+        a.innerHTML = `${decodeURIComponent(d.url)}`;
 
         let a2 = document.createElement("a");
         a2.title = `click to open page,${d.hostname}`;
@@ -680,7 +680,7 @@ else {
               a.href = url; //use a.href='#' for drilldown version
               a.target = "_blank"; //remove the target attribute for drilldown version
               //a.onClick = {()=>drilldown(url,index)} 
-              a.innerHTML = `${url}`; //data.title+", "+`${url}`;
+              a.innerHTML = `${decodeURIComponent(url)}`; //data.title+", "+`${url}`;
 
               li.appendChild(a);
 
@@ -741,7 +741,7 @@ else {
                         className="ib cursor-pointer margin-left-114 color1-  color-purple"
                         title="click to see the clickable page urls from the above page"
                       >
-                        To List: {props.Url}
+                        To List: {decodeURIComponent(props.Url)}
                         {/*To list: {Url}*/}
                       </span>
                     </span>

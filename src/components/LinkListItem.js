@@ -6,7 +6,7 @@ import moment from "moment";
 import numeral from "numeral";
 import FBShareButton from "./FBShareButton";
 import LinkedInShareButton from "./LinkedInShareButton";
-import AddToAny from './AddToAny';
+//import AddToAny from './AddToAny';
 
 //import XShareButton from "./XShareButton"
 
@@ -779,7 +779,7 @@ else {
       <div className="flexrow2w">
         <FBShareButton url={props.Url} />
         <LinkedInShareButton url={props.Url} />
-        <AddToAny />
+        {/* <AddToAny /> */}
 
         {/* <XShareButton /> */}
       </div>

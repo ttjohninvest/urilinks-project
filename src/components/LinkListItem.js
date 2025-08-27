@@ -719,12 +719,12 @@ else {
                       <a
                         ref={myRef}
                         className="ib nounderline text-size-5 text-color-db margin-bottom-114 color1- color-purple"
-                        href={decodeURIComponent(props.Url)}
+                        href={props.Url}
                         target="_self"
                         title={"click to open the webpage: " + props.Url}
                         onClick={storeScrollPosition}
                       >
-                        To page: {props.description}
+                        To page: {decodeURIComponent(props.description)}
                       </a>
                     </div>
                   </div>

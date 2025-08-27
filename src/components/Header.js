@@ -170,10 +170,6 @@ export const Header = (props) => {
                 </Link>
               </div>
 
-              <div>
-                <XShareButton /> 
-              </div>
-
               <div className="margin-top-1111a-">
                 <button
                   className="button button--link ib text-size-3- color-white-1 cursor-pointer"

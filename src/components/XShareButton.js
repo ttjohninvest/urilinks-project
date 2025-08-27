@@ -3,16 +3,19 @@ import React from 'react'
 class XShareButton extends React.Component{
   constructor(props){
     super(props);
-    // this.state = {
-    //  url : this.props.url
-    // }
+    this.state = {
+     url : this.props.url
+    }
   }
-
+ /* <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" className="color-white-1 text-size-2- nounderline cursor-pointer" data-show-count="false" title="Share urilinks.com to your twitter news feed">(t)</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> */
+        
   render(){
-    //let encodedURL = encodeURI(this.state.url);
+    let encodedURL = encodeURI(this.state.url);
     return(
       <div>
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" className="color-white-1 text-size-2- nounderline cursor-pointer" data-show-count="false" title="Share urilinks.com to your twitter news feed">(t)</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+       <a href={`https://x.com/intent/post?original_referer=https%3A%2F%2Furilinks.com%2F&url=${encodedURL}`} >
+       <img className="facebooklogo__image" src="/images/xlogo.png" title="share on x.com" />
+       </a>
          </div>
     )
   }

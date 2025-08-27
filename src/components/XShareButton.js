@@ -12,7 +12,7 @@ class XShareButton extends React.Component{
   render(){
     let encodedURL = encodeURI(this.state.url);
     return(
-      <div className="margin-top-115">
+      <div className="margin-top-115 margin-right-115">
        <a href={`https://x.com/intent/post?original_referer=https%3A%2F%2Furilinks.com%2F&url=${encodedURL}`} >
        <img className="x__image" src="/images/xlogo.png" title="share on x.com was twitter.com" />
        </a>

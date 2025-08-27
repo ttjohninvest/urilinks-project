@@ -14,7 +14,7 @@ class XShareButton extends React.Component{
     return(
       <div>
        <a href={`https://x.com/intent/post?original_referer=https%3A%2F%2Furilinks.com%2F&url=${encodedURL}`} >
-       <img className="x__image" src="/images/xlogo.png" title="share on x.com" />
+       <img className="x__image" src="/images/xlogo.png" title="share on x/twitter.com" />
        </a>
          </div>
     )

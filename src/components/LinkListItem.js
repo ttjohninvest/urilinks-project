@@ -782,7 +782,7 @@ else {
         <LinkedInShareButton url={props.Url} />
         {/* <AddToAny /> */}
 
-        <XShareButton />
+        <XShareButton  url={props.Url} />
       </div>
     </div>
   );

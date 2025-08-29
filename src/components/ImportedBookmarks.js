@@ -21,7 +21,7 @@ max=1500
     } else if(props.theplan.plan.replace(/"/g, "")==="standard") {
 max=2500
     } else { //premium
-max=10000
+max=5000
     }
     return max
   }

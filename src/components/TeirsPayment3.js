@@ -114,7 +114,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
         ></stripe-pricing-table>
       ) : isPremium &&
         props.links.length >= 2501 &&
-        props.links.length <= 10000 ? (
+        props.links.length <= 5000 ? (
         <div>
           Hi, you will need to remove some bookmarks to choose a cheaper plan
         </div>

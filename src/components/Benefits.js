@@ -122,7 +122,7 @@ const Benefits = () => (
         I can give the first storage capacity of 250 bookmarks for free. The
         basic plan is $4.99/year and space to store up to 1500 bookmarks. The
         standard plan is $9.99/year and space to store up to 2,500 bookmarks and
-        the premium plan is $14.99 and space to store up to 10,000 bookmarks.
+        the premium plan is $14.99 and space to store up to 5,000 bookmarks.
         Please see the header section of the home page and click on the "click
         to change plan" link.
       </li>

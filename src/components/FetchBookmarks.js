@@ -42,7 +42,7 @@ const FetchBookmarks = (props) => {
       max = 2500;
     } else {
       //premium
-      max = 10000;
+      max = 5000;
     }
     return max;
   };

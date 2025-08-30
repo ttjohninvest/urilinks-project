@@ -2561,7 +2561,8 @@ const FetchBookmarks = (props) => {
                   }
                 } else {
                   //max = 250 - (rl + ll);
-                  max = getPlanMax() - (rl + ll);
+                  let max2 = getPlanMax()
+                  max = max2 - (rl + ll);
                   if (max >= 0) {
                     //max = getPlanMax() - (rl + ll);
                     //max = 1 - (rl + ll);
@@ -2606,9 +2607,12 @@ const FetchBookmarks = (props) => {
                     }
 
                     //} //otherwise rl is equal to the full length, result.length
-                  } else {
+                  } else if(max2 !== 5000) {
                     setPayPage(true);
                     console.log("load pay page");
+                  } else {
+                    props.history.push("/");
+                    //window.location.reload()
                   }
                 }
 

@@ -2607,7 +2607,7 @@ const FetchBookmarks = (props) => {
                     }
 
                     //} //otherwise rl is equal to the full length, result.length
-                  } else if(max2 !== 5000) {
+                  } else if(max2 !== 5000 && (user.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" || user.uid !== 'RZOEMMu7Nwa5bQ51sf71FfDX3A93')) {
                     setPayPage(true);
                     console.log("load pay page");
                   } else {

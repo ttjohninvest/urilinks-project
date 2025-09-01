@@ -5,6 +5,7 @@ const Benefits = () => (
   <div className="list-header__flex__center">
     <ul>
       <li>urilinks.com Benefits:</li>
+      <li><a href="https://search.brave.com/search?q=how+can+internet+bookmarks+be+used+to+help+a+person+organize+content&summary=1&conversation=2f44b07dcd08552e79c776" target="_blank">how to organize internet bookmarks</a></li>
       <li><a href="https://search.brave.com/search?q=what+new+things+do+people+want+the+internet+to+do&summary=1&conversation=dd5502c25aaba566496b06" target="_blank">the future use of the internet</a></li>
       <li><a href="https://search.brave.com/search?q=do+people+want+to+use+bookmarks+when+they+use+the+internet&summary=1&conversation=e6c5f096d07c806684f4a9" target="_blank">people still use bookmarks</a></li>
       <li>

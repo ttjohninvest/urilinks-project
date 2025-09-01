@@ -5,6 +5,7 @@ const Benefits = () => (
   <div className="list-header__flex__center">
     <ul>
       <li>urilinks.com Benefits:</li>
+      <li><a href="https://search.brave.com/search?q=do+people+want+to+use+bookmarks+when+they+use+the+internet&summary=1&conversation=e6c5f096d07c806684f4a9" target="_blank">people still use bookmarks</a></li>
       <li>
         You may upload your bookmarks from Brave, Chrome, Firefox, Edge, Vivaldi
         or Opera browser. After you have uploaded through the "bookmarks

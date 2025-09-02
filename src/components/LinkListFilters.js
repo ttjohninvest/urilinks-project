@@ -61,84 +61,84 @@ function ExpandableArray(props) {
   //v is the first letter after #
   let cn = ''
   switch(v) {
-    case "a":
+    case 'a':
       cn="colorfora"
       //return "colorfora";
     break;
-    case "b":
+    case 'b':
 cn="colorforb"
 
     break;
-      case "c":
+      case 'c':
 cn="colorforc"
     break;
-      case "d":
+      case 'd':
 cn="colorford"
     break;
-      case "e":
+      case 'e':
 cn="colorfore"
     break;
-      case "f":
+      case 'f':
 cn="colorfor"
     break;
-      case "g":
+      case 'g':
 cn="colorforg"
     break;
-      case "h":
+      case 'h':
 cn="colorforh"
     break;
-      case "i":
+      case 'i':
 cn="colorfori"
     break;
-      case "j":
+      case 'j':
 cn="colorforj"
     break;
-      case "k":
+      case 'k':
 cn="colorfork"
     break;
-      case "l":
+      case 'l':
 cn="colorforl"
     break;
-      case "m":
+      case 'm':
 cn="colorform"
     break;
-      case "n":
+      case 'n':
 cn="colorforn"
     break;
-      case "o":
+      case 'o':
 cn="colorforo"
     break;
-      case "p":
+      case 'p':
 cn="colorforp"
     break;
-      case "q":
+      case 'q':
 cn="colorforq"
     break;
-      case "r":
+      case 'r':
 cn="colorforr"
     break;
-      case "s":
+      case 's':
 cn="colorfors"
     break;
-      case "t":
+      case 't':
 cn="colorfort"
     break;
-      case "u":
+      case 'u':
 cn="colorforu"
     break;
-      case "v":
+      case 'v':
 cn="colorforv"
     break;
-      case "w":
+      case 'w':
 cn="colorforw"
     break;
-      case "x":
+      case 'x':
 cn="colorforx"
     break;
-      case "y":
+      case 'y':
 cn="colorfory"
     break;
-      case "z":
+      case 'z':
 cn="colorforz"
     break;
     default:
@@ -233,9 +233,8 @@ return cn
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${s.longname}:${s.hashtag}, click to scroll to results`}
                       >
-                         {'#'}<span className={`colorfora`}>{s.hashtag[1]}</span>{s.hashtag.substring(2)}
                   
-                       {/* {'#'}<span className={`{${highlight(s.hashtag[1])}}`}>{s.hashtag[1]}</span>{s.hashtag.substring(2)} */}
+                       {'#'}<span className={`{${highlight(s.hashtag[1])}}`}>{s.hashtag[1]}</span>{s.hashtag.substring(2)}
                       </a>
                     </div>
                   );

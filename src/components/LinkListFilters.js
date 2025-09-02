@@ -56,7 +56,7 @@ function ExpandableArray(props) {
 
   //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
   const highlight = (v) => {
-    //return 'colorfora';
+    return 'color-white-1';
 
     //v is the first letter after #
      let cn = '';

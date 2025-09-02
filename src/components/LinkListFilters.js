@@ -66,6 +66,7 @@ function ExpandableArray(props) {
   switch(v) {
     case "a":
       cn="colorfora"
+      //return "colorfora";
     break;
     case "b":
 cn="colorforb"
@@ -216,7 +217,7 @@ return cn
                           onClick={() => props.setit(s.hashtag, event)}
                           title={`${s.longname}:${s.hashtag}, click to scroll to results`}
                         >
-                          {'#'}<span className={`{${highlight(s.hashtag[1])}}`}></span>{s.hashtag[1]}{s.hashtag.substring(2)}
+                          {'#'}<span className={`{${highlight(s.hashtag[1])}}`}>{s.hashtag[1]}</span>{s.hashtag.substring(2)}
                         </a>
                       </div>
                     );
@@ -235,7 +236,7 @@ return cn
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${s.longname}:${s.hashtag}, click to scroll to results`}
                       >
-                       {'#'}<span className={`{${highlight(s.hashtag[1])}}`}></span>{s.hashtag[1]}{s.hashtag.substring(2)}
+                       {'#'}<span className={`{${highlight(s.hashtag[1])}}`}>{s.hashtag[1]}</span>{s.hashtag.substring(2)}
                       </a>
                     </div>
                   );

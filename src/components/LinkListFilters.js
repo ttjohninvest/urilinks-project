@@ -55,9 +55,6 @@ function ExpandableArray(props) {
   else displayedArray = props.mappedDataShort;
 
  
-
-
- 
  //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
  const highlight=(v)=>{
 
@@ -236,7 +233,9 @@ return cn
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${s.longname}:${s.hashtag}, click to scroll to results`}
                       >
-                       {'#'}<span className={`{${highlight(s.hashtag[1])}}`}>{s.hashtag[1]}</span>{s.hashtag.substring(2)}
+                         {'#'}<span className={`colorfora`}>{s.hashtag[1]}</span>{s.hashtag.substring(2)}
+                  
+                       {/* {'#'}<span className={`{${highlight(s.hashtag[1])}}`}>{s.hashtag[1]}</span>{s.hashtag.substring(2)} */}
                       </a>
                     </div>
                   );

@@ -54,6 +54,101 @@ function ExpandableArray(props) {
   if (expanded === true) displayedArray = props.mappedDataLong;
   else displayedArray = props.mappedDataShort;
 
+ 
+
+
+ 
+ //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
+ const highlight=(v)=>{
+
+  //v is the first letter after #
+  let cn = ''
+  switch(v) {
+    case "a":
+      cn="colorfora"
+    break;
+    case "b":
+cn="colorforb"
+
+    break;
+      case "c":
+cn="colorforc"
+    break;
+      case "d":
+cn="colorford"
+    break;
+      case "e":
+cn="colorfore"
+    break;
+      case "f":
+cn="colorfor"
+    break;
+      case "g":
+cn="colorforg"
+    break;
+      case "h":
+cn="colorforh"
+    break;
+      case "i":
+cn="colorfori"
+    break;
+      case "j":
+cn="colorforj"
+    break;
+      case "k":
+cn="colorfork"
+    break;
+      case "l":
+cn="colorforl"
+    break;
+      case "m":
+cn="colorform"
+    break;
+      case "n":
+cn="colorforn"
+    break;
+      case "o":
+cn="colorforo"
+    break;
+      case "p":
+cn="colorforp"
+    break;
+      case "q":
+cn="colorforq"
+    break;
+      case "r":
+cn="colorforr"
+    break;
+      case "s":
+cn="colorfors"
+    break;
+      case "t":
+cn="colorfort"
+    break;
+      case "u":
+cn="colorforu"
+    break;
+      case "v":
+cn="colorforv"
+    break;
+      case "w":
+cn="colorforw"
+    break;
+      case "x":
+cn="colorforx"
+    break;
+      case "y":
+cn="colorfory"
+    break;
+      case "z":
+cn="colorforz"
+    break;
+    default:
+cn="color-white-1"
+  }
+return cn
+ }
+
   return (
     <div className="bg-white-1">
       {props.mappedDataShort.length > 0 ? (
@@ -121,7 +216,7 @@ function ExpandableArray(props) {
                           onClick={() => props.setit(s.hashtag, event)}
                           title={`${s.longname}:${s.hashtag}, click to scroll to results`}
                         >
-                          {s.hashtag}
+                          {'#'}<span className={`{${highlight(s.hashtag[1])}}`}></span>{s.hashtag[1]}{s.hashtag.substring(2)}
                         </a>
                       </div>
                     );
@@ -140,7 +235,7 @@ function ExpandableArray(props) {
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${s.longname}:${s.hashtag}, click to scroll to results`}
                       >
-                        {s.hashtag}
+                       {'#'}<span className={`{${highlight(s.hashtag[1])}}`}></span>{s.hashtag[1]}{s.hashtag.substring(2)}
                       </a>
                     </div>
                   );

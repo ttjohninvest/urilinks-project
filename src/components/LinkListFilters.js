@@ -56,10 +56,12 @@ function ExpandableArray(props) {
 
   //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
   const highlight = (v) => {
+    //return 'colorfora';
+
     //v is the first letter after #
-    let cn = '';
-    v='a'
-    return ('colorfora')
+     let cn = '';
+    // v='a'
+    
     if (v === 'a') cn = "colorfora";
     else if (v === 'b') cn = "colorforv";
     else if (v === 'c') cn = "colorforc";
@@ -185,7 +187,7 @@ function ExpandableArray(props) {
                       >
                         {/* {s.hashtag} */}
                         {"#"}
-                        <span className={`{${highlight(s.hashtag[1])}}`}>
+                        <span className={highlight(s.hashtag[1])}>
                           {s.hashtag[1]}
                         </span>
                         {s.hashtag.substring(2)}

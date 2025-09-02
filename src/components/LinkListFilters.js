@@ -59,6 +59,7 @@ function ExpandableArray(props) {
     //v is the first letter after #
     let cn = '';
     v='a'
+    return ('colorfora')
     if (v === 'a') cn = "colorfora";
     else if (v === 'b') cn = "colorforv";
     else if (v === 'c') cn = "colorforc";

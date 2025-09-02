@@ -99,7 +99,7 @@ function ExpandableArray(props) {
         <div className="">
           <div
             className="flexrow2c padding-around padding-left-a borderRadius4"
-            title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
+            title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             <div className="text-size-5">
               (welcome) clickable hash tags in alphabetical order
@@ -145,7 +145,7 @@ function ExpandableArray(props) {
                 ? "grid-container5"
                 : "grid-container5-newspaper"
             } paddingparent margin-top-1 background-white-1 borderradius5`}
-            title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
+            title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             {!expanded
               ? props.mappedDataShort.map((s, index) => {

@@ -54,98 +54,40 @@ function ExpandableArray(props) {
   if (expanded === true) displayedArray = props.mappedDataLong;
   else displayedArray = props.mappedDataShort;
 
- 
- //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
- const highlight=(v)=>{
+  //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
+  const highlight = (v) => {
+    //v is the first letter after #
+    let cn = '';
+    if (v === 'a') cn = "colorfora";
+    else if (v === 'b') cn = "colorforv";
+    else if (v === 'c') cn = "colorforc";
+    else if (v === 'd') cn = "colorford";
+    else if (v === 'e') cn = "colorfore";
+    else if (v === 'f') cn = "colorforf";
+    else if (v === 'g') cn = "colorforg";
+    else if (v === 'h') cn = "colorforh";
+    else if (v === 'i') cn = "colorfori";
+    else if (v === 'j') cn = "colorforj";
+    else if (v === 'k') cn = "colorfork";
+    else if (v === 'l') cn = "colorforl";
+    else if (v === 'm') cn = "colorform";
+    else if (v === 'n') cn = "colorforn";
+    else if (v === 'o') cn = "colorforo";
+    else if (v === 'p') cn = "colorforp";
+    else if (v === 'q') cn = "colorforq";
+    else if (v === 'r') cn = "colorforr";
+    else if (v === 's') cn = "colorfors";
+    else if (v === 't') cn = "colorfort";
+    else if (v === 'u') cn = "colorforu";
+    else if (v === 'v') cn = "colorforv";
+    else if (v === 'w') cn = "colorforw";
+    else if (v === 'x') cn = "colorforx";
+    else if (v === 'y') cn = "colorfory";
+    else if (v === 'z') cn = "colorforz";
+    else cn = "color-white-1";
 
-  //v is the first letter after #
-  let cn = ''
-  switch(v) {
-    case 'a':
-      cn="colorfora"
-      //return "colorfora";
-    break;
-    case 'b':
-cn="colorforb"
-
-    break;
-      case 'c':
-cn="colorforc"
-    break;
-      case 'd':
-cn="colorford"
-    break;
-      case 'e':
-cn="colorfore"
-    break;
-      case 'f':
-cn="colorfor"
-    break;
-      case 'g':
-cn="colorforg"
-    break;
-      case 'h':
-cn="colorforh"
-    break;
-      case 'i':
-cn="colorfori"
-    break;
-      case 'j':
-cn="colorforj"
-    break;
-      case 'k':
-cn="colorfork"
-    break;
-      case 'l':
-cn="colorforl"
-    break;
-      case 'm':
-cn="colorform"
-    break;
-      case 'n':
-cn="colorforn"
-    break;
-      case 'o':
-cn="colorforo"
-    break;
-      case 'p':
-cn="colorforp"
-    break;
-      case 'q':
-cn="colorforq"
-    break;
-      case 'r':
-cn="colorforr"
-    break;
-      case 's':
-cn="colorfors"
-    break;
-      case 't':
-cn="colorfort"
-    break;
-      case 'u':
-cn="colorforu"
-    break;
-      case 'v':
-cn="colorforv"
-    break;
-      case 'w':
-cn="colorforw"
-    break;
-      case 'x':
-cn="colorforx"
-    break;
-      case 'y':
-cn="colorfory"
-    break;
-      case 'z':
-cn="colorforz"
-    break;
-    default:
-cn="color-green"
-  }
-return cn
- }
+    return cn;
+  };
 
   return (
     <div className="bg-white-1">
@@ -158,7 +100,8 @@ return cn
             <div className="text-size-5">
               (welcome) clickable hash tags in alphabetical order
               <br />
-              I believe that Jesus is the Christ. I believe that Jesus Christ is the Son of God.
+              I believe that Jesus is the Christ. I believe that Jesus Christ is
+              the Son of God.
               <br />
               Please go and sin no more, ok. Happy it.
               {/* <br />
@@ -180,7 +123,8 @@ return cn
                     className="ib color-black text-size-5 general-font"
                     title="click for plan options"
                   >
-                    {(uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" || uid === 'RZOEMMu7Nwa5bQ51sf71FfDX3A93')
+                    {uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
+                    uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93"
                       ? "(click to change plan)"
                       : ""}
                     {/* {props.plan.replace(/"/g, "") !== "premium" ? '(click to change plan)':""} */}
@@ -199,7 +143,6 @@ return cn
             } paddingparent margin-top-1 background-white-1 borderradius5`}
             title="Alphabetical order, left to right, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
-           
             {!expanded
               ? props.mappedDataShort.map((s, index) => {
                   if (index < 50)
@@ -214,7 +157,11 @@ return cn
                           onClick={() => props.setit(s.hashtag, event)}
                           title={`${s.longname}:${s.hashtag}, click to scroll to results`}
                         >
-                          {'#'}<span className={`{${highlight(s.hashtag[1])}}`}>{s.hashtag[1]}</span>{s.hashtag.substring(2)}
+                          {"#"}
+                          <span className={`{${highlight(s.hashtag[1])}}`}>
+                            {s.hashtag[1]}
+                          </span>
+                          {s.hashtag.substring(2)}
                         </a>
                       </div>
                     );
@@ -233,8 +180,11 @@ return cn
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${s.longname}:${s.hashtag}, click to scroll to results`}
                       >
-                  
-                       {'#'}<span className={`{${highlight(s.hashtag[1])}}`}>{s.hashtag[1]}</span>{s.hashtag.substring(2)}
+                        {"#"}
+                        <span className={`{${highlight(s.hashtag[1])}}`}>
+                          {s.hashtag[1]}
+                        </span>
+                        {s.hashtag.substring(2)}
                       </a>
                     </div>
                   );
@@ -242,7 +192,10 @@ return cn
 
             {!expanded && <span className="text-size-5">...</span>}
           </div>
-          <button className="button-m button--link color-black" onClick={toggleExpanded}>
+          <button
+            className="button-m button--link color-black"
+            onClick={toggleExpanded}
+          >
             {expanded ? "Show Less Hashtags" : "Show More Hashtags"}
           </button>
         </div>

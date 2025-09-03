@@ -65,7 +65,7 @@ const LoginPage = ({ startLogin }) => {
             </h1>
             {/* <img src={penguinSayingHello} width="100" height="100" /> */}
             <p className="text-size-8- coolShadow- ">
-              Women and mens internet page bookmarker, free plan. It has three other inexpensive plans I think you may enjoy as well.
+              You are welcome to use this. It organizes internet internet bookmarks through a web interface using alphabetically arranged clickable hashtags which is easier to access and read than chrome browser bookmarks. It has a free plan to store up to 250 bookmarks. It has three other inexpensive plans I think you may enjoy as well.
               {/* Welcome to an easier way to do internet bookmarks with hash tags,
               free tool */}
             </p>

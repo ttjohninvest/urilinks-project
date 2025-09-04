@@ -667,11 +667,11 @@ const addIdToDelete=(id)=>{
                         To page: {decodeURIComponent(props.description)}
                       </a>
                     </div>
-                      <div className="">
+                      <div className="margin-bottom-114">
             <h3 className="">
               <Link className="nounderline  text-size-1- text-size-5" to={`/edit/${props.id}`}>
                
-                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11- color-white-1 button-2">
+                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11-  color-white-1 button-2">
                     edit or remove
                   </span>
                   

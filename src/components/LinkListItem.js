@@ -654,7 +654,7 @@ const addIdToDelete=(id)=>{
               </div>
               <div className="padding-left-11 padding-bottom-11 borderRadius4">
                 <div className="flexcol3">
-                  <div className="">
+                  <div className="flexrow4">
                     <div>
                       <a
                         ref={myRef}
@@ -667,6 +667,22 @@ const addIdToDelete=(id)=>{
                         To page: {decodeURIComponent(props.description)}
                       </a>
                     </div>
+                      <div className="">
+            <h3 className="">
+              <Link className="nounderline  text-size-1" to={`/edit/${props.id}`}>
+               
+                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2">
+                    edit or remove
+                  </span>
+                  
+               
+              </Link>
+              <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
+                   <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
+                   <label for={"delete%"+props.id} />
+                  </span>
+            </h3>
+          </div>
                   </div>
 
                   <div>
@@ -692,22 +708,22 @@ const addIdToDelete=(id)=>{
               </div>
             </div>
           </div>
-          <div className="">
+          {/* <div className="">
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${props.id}`}>
-                {/* <div> */}
+               
                   <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2">
                     edit or remove
                   </span>
                   
-                {/* </div> */}
+               
               </Link>
               <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
                    <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
                    <label for={"delete%"+props.id} />
                   </span>
             </h3>
-          </div>
+          </div> */}
         </div>
 
         <div className="list-item__sub-title- padding-left-1 text-size-2 color-purple">

@@ -668,11 +668,11 @@ const addIdToDelete=(id)=>{
                       </a>
                     </div>
                       <div className="margin-bottom-1141">
-            <div className="alignItemsCenter- flexrow4">
+            <div className="flexrow4">
               <div>
  <Link className="nounderline text-size-5 inline-block-margin-left-1" to={`/edit/${props.id}`}>
                
-                  <span className="padding-right-11 inline-block-margin-left-1- color-white-1 button-2">
+                  <span className="padding-right-11 color-white-1 button-2">
                     edit or remove
                   </span>
                   
@@ -680,7 +680,7 @@ const addIdToDelete=(id)=>{
               </Link>
               </div>
              <div>
- <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11- color-purple">
+ <span className="padding-right-11 inline-block-margin-left-1 color-purple">
                    <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
                    <label for={"delete%"+props.id} />
                   </span>

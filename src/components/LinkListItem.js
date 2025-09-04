@@ -658,7 +658,7 @@ const addIdToDelete=(id)=>{
                     <div>
                       <a
                         ref={myRef}
-                        className="ib nounderline text-size-5 text-color-db margin-bottom-114 color1- color-purple"
+                        className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple"
                         href={props.Url}
                         target="_self"
                         title={"click to open the webpage: " + props.Url}
@@ -667,11 +667,11 @@ const addIdToDelete=(id)=>{
                         To page: {decodeURIComponent(props.description)}
                       </a>
                     </div>
-                      <div className="margin-bottom-114">
+                      <div className="margin-bottom-1141">
             <h3 className="">
-              <Link className="nounderline  text-size-1- text-size-5" to={`/edit/${props.id}`}>
+              <Link className="nounderline text-size-5" to={`/edit/${props.id}`}>
                
-                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11-  color-white-1 button-2">
+                  <span className="padding-right-11 inline-block-margin-left-1 color-white-1 button-2">
                     edit or remove
                   </span>
                   

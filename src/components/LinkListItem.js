@@ -677,7 +677,7 @@ const addIdToDelete=(id)=>{
                   
                
               </Link>
-              <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 padding-top-114 color-purple">
+              <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 margin-top-114 color-purple">
                    <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
                    <label for={"delete%"+props.id} />
                   </span>

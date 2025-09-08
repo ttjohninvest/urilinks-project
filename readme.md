@@ -1,3 +1,36 @@
+=========================================================================================
+Friendship:
+Adults can not find friendship with other humans but they can find information sharing.  Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen. They will go their separate ways.
+
+To begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
+
+Thank you for sharing. I love you unconditionally. Adults can not find friendship with other humans but they can find information sharing.  Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen but service can still happen.  I used to be skinny but now I have a cute little tummy and I love it. I am fine. To begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
+==========================================================================================
+
+CHRISTIAN BROADCASTING NETWORKS
+Christian Broadcasting Network (CBN): A major U.S.-based Christian media organization with a wide range of programming, including news, talk shows, and religious content.
+cbn.com (1961)
+Trinity Broadcasting Network (TBN): A large Christian television network with a significant international presence and diverse programming.
+tbn.org
+Daystar Television Network: A Christian network known for its evangelical programming, with a Canadian branch also operating.
+https://daystar.com/
+Hope Channel: A Christian network that broadcasts religious programming, including services and teaching shows.
+hopetv.org
+Eternal Word Television Network (EWTN): A Catholic network providing religious programming, news, and educational content.
+ewtn.org
+Three Angels Broadcasting Network (3ABN): A global network with multiple sub-networks, including 3ABN International and 3ABN Kids Network.
+3abn.org
+SonLife Broadcasting Network: A Christian network based in Nashville, Tennessee, offering faith-based programming.
+sonlifetv.org
+Emmanuel TV: A Nigerian-based Christian network broadcasting live services and inspirational content.
+emmanuel.tv
+Parables TV: A network focused on family-friendly Christian films and series.
+parablestv.com
+Faith Unveiled Network: A Christian network featuring teachings, music, and inspirational stories.
+https://faithunveilednetwork.com/
+
+CHRISTIAN BROADCASTING NETWORKS
+
 elf, elftitle@gmail.com is on login page
 
 urilinks.com with whatsapp b page on fb: I had to go through a whole process:
@@ -677,3 +710,15 @@ removed from Header.js, it came after (search section)
               {/* <div className="color-white-1" onClick={deleteAccount}>
             delete account
           </div> */}
+
+==============
+items like watches, from R.W. Sears, that went from luxury to necessity (money maker)
+he made sure the customers were satisfied with their purchase or return with no money loss
+
+ai prompts, catalog of prompts
+general:
+ give me a list of mathematical ai problem solving prompts
+ give me a list of travel planning ideas
+ give me a list of places to travel to for a vacation
+price comparison to find lowest price and were
+ compare mens underwear prices betwen macy's and nordstrom's

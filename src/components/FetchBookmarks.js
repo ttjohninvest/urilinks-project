@@ -2615,6 +2615,7 @@ let yturl = isityt(url)
                     r = props.startAddLink({
                       description: result[i].description,
                       Url: result[i].Url, //, //href,
+                      yturl:result[i].yturl,
                       note: result[i].note,
                       amount: 0,
                       createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2661,6 +2662,7 @@ let yturl = isityt(url)
                       r = props.startAddLink({
                         description: result[i].description,
                         Url: result[i].Url, //, //href,
+                        yturl:result[i].yturl,
                         note: result[i].note,
                         amount: 0,
                         createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work

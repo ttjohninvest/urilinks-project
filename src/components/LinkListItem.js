@@ -658,9 +658,10 @@ const addIdToDelete=(id)=>{
                     <div>
                       {
                       props.Url.includes('youtube') 
-                      && <img width="128" height="72" src="https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" />}<a
+                      && <img className="borderRadius4" width="128" height="72" src="https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" />}
+                      <a
                         ref={myRef}
-                        className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple"
+                        className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"
                         href={props.Url}
                         target="_self"
                         title={"click to open the webpage: " + props.Url}

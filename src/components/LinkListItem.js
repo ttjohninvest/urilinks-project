@@ -671,12 +671,14 @@ const addIdToDelete=(id)=>{
                 <div className="flexcol3">
                   <div className="flexrow4">
                     <div>
+                      {props.yturl}
                       {
                       //isityt(props.Url)
-                      !!props.yturl
+                      //!!props.yturl
+                      true
                       && 
                       <img className="borderRadius4" width="128" height="72" 
-                      //src={`https://img.youtube.com/vi/${visityt}/mqdefault.jpg`} 
+                      //src={`https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg`} 
                       src={props.yturl} 
                       />}
                       <a

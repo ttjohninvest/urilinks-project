@@ -48,7 +48,7 @@ ttjohnhappy
 # Git Commands
 
 todo to do
-patreon error report sent to them on 8-24-2025 from elftitle@gmail.com
+youtube video thumbnail should be with all of the youtube links, I got the code in FetchBookmarks.js and LinkListItem.js but the thumbnail is not appearing, if I put the image link directly in the LinkListItem.js it appears.
 try to get #amazon appended to #6pm so it looks like this #6pm #amazon in FetchBookmarks.js so this way all of 
 the urls taken from amazon.com can be found by clicking #amazon
 in LinkListItem.js, get each one's urls on page to open and close separately somehow

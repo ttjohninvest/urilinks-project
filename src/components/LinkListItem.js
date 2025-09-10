@@ -656,7 +656,9 @@ const addIdToDelete=(id)=>{
                 <div className="flexcol3">
                   <div className="flexrow4">
                     <div>
-                      {props.description.includes('youtube') && <img src="https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" />}<a
+                      {
+                      //props.description.includes('youtube') 
+                      true && <img src="https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" />}<a
                         ref={myRef}
                         className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple"
                         href={props.Url}

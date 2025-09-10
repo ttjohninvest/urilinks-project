@@ -672,8 +672,13 @@ const addIdToDelete=(id)=>{
                   <div className="flexrow4">
                     <div>
                       {
-                      isityt(props.Url)
-                      && <img className="borderRadius4" width="128" height="72" src={`https://img.youtube.com/vi/${visityt}/mqdefault.jpg`} />}
+                      //isityt(props.Url)
+                      !!props.yturl
+                      && 
+                      <img className="borderRadius4" width="128" height="72" 
+                      //src={`https://img.youtube.com/vi/${visityt}/mqdefault.jpg`} 
+                      src={props.yturl} 
+                      />}
                       <a
                         ref={myRef}
                         className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"

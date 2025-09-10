@@ -31,6 +31,22 @@ const FetchBookmarks = (props) => {
   const [payPage, setPayPage] = useState(false);
   const [oo, setOo] = useState(props.match.params.option);
 
+    const isityt=(url)=>{
+       if(url.includes('youtube')) {
+
+        //get the id
+        let a = url.split("v=")
+        let b = a[1].split("&")
+        let ytid = b[0]
+        let yturl = "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
+      //setVisityt(ytid)
+      return yturl
+       }
+
+       return ""
+  }
+
+
   const getPlanMax = () => {
     let max = 250;
     //props.settings.plan
@@ -229,6 +245,7 @@ const FetchBookmarks = (props) => {
                           data.message[i].children[j].type === undefined
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
+                          let yturl = isityt(url)
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -253,6 +270,7 @@ const FetchBookmarks = (props) => {
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
+                              yturl:yturl,
                               note: hashtagv1,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -285,7 +303,8 @@ const FetchBookmarks = (props) => {
                             ) {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
-                              console.log("url=" + url);
+                              let yturl = isityt(url)
+                                console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
                               let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
@@ -306,6 +325,7 @@ const FetchBookmarks = (props) => {
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
+                                  yturl:yturl,
                                   note: hashtagv2,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -335,6 +355,7 @@ const FetchBookmarks = (props) => {
                                   let url =
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
+                                      let yturl = isityt(url)
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -357,6 +378,7 @@ const FetchBookmarks = (props) => {
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
+                                      yturl:yturl,
                                       note: hashtagv3,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -393,6 +415,7 @@ const FetchBookmarks = (props) => {
                                       let url =
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
+                                          let yturl = isityt(url)
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -418,6 +441,7 @@ const FetchBookmarks = (props) => {
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
+                                          yturl:yturl,
                                           note: hashtagv4,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -459,7 +483,7 @@ const FetchBookmarks = (props) => {
                                               .children[k].children[l].children[
                                               m
                                             ].children[n].url; //the url of the page
-
+let yturl = isityt(url)
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -489,6 +513,7 @@ const FetchBookmarks = (props) => {
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
+                                              yturl:yturl,
                                               note: hashtagv5,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -532,6 +557,7 @@ const FetchBookmarks = (props) => {
                                                   .children[k].children[l]
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
+                                                  let yturl = isityt(url)
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -561,6 +587,7 @@ const FetchBookmarks = (props) => {
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
+                                                  yturl:yturl,
                                                   note: hashtagv6,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -610,6 +637,7 @@ const FetchBookmarks = (props) => {
                                                       .children[m].children[n]
                                                       .children[o].children[p]
                                                       .url; //the url of the page
+                                                      let yturl = isityt(url)
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -644,6 +672,7 @@ const FetchBookmarks = (props) => {
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
+                                                      yturl:yturl,
                                                       note: hashtagv7,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -685,6 +714,7 @@ const FetchBookmarks = (props) => {
                           data.message[i].children[j].type === undefined
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
+                          let yturl = isityt(url)
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -703,6 +733,7 @@ const FetchBookmarks = (props) => {
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
+                              yturl:yturl,
                               note: hashtagv1,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -735,6 +766,7 @@ const FetchBookmarks = (props) => {
                             ) {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
+                                let yturl = isityt(url)
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -756,6 +788,7 @@ const FetchBookmarks = (props) => {
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
+                                  yturl:yturl,
                                   note: hashtagv2,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -785,6 +818,7 @@ const FetchBookmarks = (props) => {
                                   let url =
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
+                                      let yturl = isityt(url)
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -808,6 +842,7 @@ const FetchBookmarks = (props) => {
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
+                                      yturl:yturl,
                                       note: hashtagv3,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -844,6 +879,7 @@ const FetchBookmarks = (props) => {
                                       let url =
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
+                                          let yturl = isityt(url)
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -869,6 +905,7 @@ const FetchBookmarks = (props) => {
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
+                                          yturl:yturl,
                                           note: hashtagv4,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -910,6 +947,7 @@ const FetchBookmarks = (props) => {
                                               .children[k].children[l].children[
                                               m
                                             ].children[n].url; //the url of the page
+                                            let yturl = isityt(url)
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -939,6 +977,7 @@ const FetchBookmarks = (props) => {
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
+                                              yturl:yturl,
                                               note: hashtagv5,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -982,6 +1021,7 @@ const FetchBookmarks = (props) => {
                                                   .children[k].children[l]
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
+                                                  let yturl = isityt(url)
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -1011,6 +1051,7 @@ const FetchBookmarks = (props) => {
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
+                                                  yturl:yturl,
                                                   note: hashtagv6,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1060,6 +1101,7 @@ const FetchBookmarks = (props) => {
                                                       .children[m].children[n]
                                                       .children[o].children[p]
                                                       .url; //the url of the page
+                                                      let yturl = isityt(url)
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -1094,6 +1136,7 @@ const FetchBookmarks = (props) => {
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
+                                                      yturl:yturl,
                                                       note: hashtagv7,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1137,6 +1180,7 @@ const FetchBookmarks = (props) => {
                           data.message[i].children[j].type === undefined
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
+                          let yturl = isityt(url)
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -1155,6 +1199,7 @@ const FetchBookmarks = (props) => {
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
+                              yturl:yturl,
                               note: hashtagv1,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1188,6 +1233,7 @@ const FetchBookmarks = (props) => {
                             ) {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
+                                let yturl = isityt(url)
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -1209,6 +1255,7 @@ const FetchBookmarks = (props) => {
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
+                                  yturl:yturl,
                                   note: hashtagv2,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1238,6 +1285,7 @@ const FetchBookmarks = (props) => {
                                   let url =
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
+                                      let yturl = isityt(url)
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -1261,6 +1309,7 @@ const FetchBookmarks = (props) => {
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
+                                      yturl:yturl,
                                       note: hashtagv3,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1297,6 +1346,7 @@ const FetchBookmarks = (props) => {
                                       let url =
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
+                                          let yturl = isityt(url)
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -1322,6 +1372,7 @@ const FetchBookmarks = (props) => {
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
+                                          yturl:yturl,
                                           note: hashtagv4,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1363,6 +1414,7 @@ const FetchBookmarks = (props) => {
                                               .children[k].children[l].children[
                                               m
                                             ].children[n].url; //the url of the page
+                                            let yturl = isityt(url)
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -1392,6 +1444,7 @@ const FetchBookmarks = (props) => {
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
+                                              yturl:yturl,
                                               note: hashtagv5,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1435,6 +1488,7 @@ const FetchBookmarks = (props) => {
                                                   .children[k].children[l]
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
+                                                  let yturl = isityt(url)
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -1464,6 +1518,7 @@ const FetchBookmarks = (props) => {
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
+                                                  yturl:yturl,
                                                   note: hashtagv6,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1513,6 +1568,7 @@ const FetchBookmarks = (props) => {
                                                       .children[m].children[n]
                                                       .children[o].children[p]
                                                       .url; //the url of the page
+                                                      let yturl = isityt(url)
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -1547,6 +1603,7 @@ const FetchBookmarks = (props) => {
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
+                                                      yturl:yturl,
                                                       note: hashtagv7,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1592,6 +1649,7 @@ const FetchBookmarks = (props) => {
                           data.message[i].children[j].type === undefined
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
+                          let yturl = isityt(url)
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -1617,6 +1675,7 @@ const FetchBookmarks = (props) => {
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
+                              yturl:yturl,
                               note: hashtagv1,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1649,6 +1708,7 @@ const FetchBookmarks = (props) => {
                             ) {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
+                                let yturl = isityt(url)
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -1669,6 +1729,7 @@ const FetchBookmarks = (props) => {
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
+                                  yturl:yturl,
                                   note: hashtagv2,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1698,6 +1759,7 @@ const FetchBookmarks = (props) => {
                                   let url =
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
+                                      let yturl = isityt(url)
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -1720,6 +1782,7 @@ const FetchBookmarks = (props) => {
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
+                                      yturl:yturl,
                                       note: hashtagv3,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1756,6 +1819,7 @@ const FetchBookmarks = (props) => {
                                       let url =
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
+                                          let yturl = isityt(url)
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -1780,6 +1844,7 @@ const FetchBookmarks = (props) => {
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
+                                          yturl:yturl,
                                           note: hashtagv4,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1820,6 +1885,7 @@ const FetchBookmarks = (props) => {
                                               .children[k].children[l].children[
                                               m
                                             ].children[n].url; //the url of the page
+                                            let yturl = isityt(url)
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -1848,6 +1914,7 @@ const FetchBookmarks = (props) => {
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
+                                              yturl:yturl,
                                               note: hashtagv5,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1892,6 +1959,7 @@ const FetchBookmarks = (props) => {
                                                   .children[k].children[l]
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
+                                                  let yturl = isityt(url)
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -1920,6 +1988,7 @@ const FetchBookmarks = (props) => {
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
+                                                  yturl:yturl,
                                                   note: hashtagv6,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1969,6 +2038,7 @@ const FetchBookmarks = (props) => {
                                                       .children[m].children[n]
                                                       .children[o].children[p]
                                                       .url; //the url of the page
+                                                      let yturl = isityt(url)
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -2001,6 +2071,7 @@ const FetchBookmarks = (props) => {
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
+                                                      yturl:yturl,
                                                       note: hashtagv7,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2044,6 +2115,7 @@ const FetchBookmarks = (props) => {
                           data.message[i].children[j].type === undefined
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
+                          let yturl = isityt(url)
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -2061,6 +2133,7 @@ const FetchBookmarks = (props) => {
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
+                              yturl:yturl,
                               note: hashtagv1,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2094,6 +2167,7 @@ const FetchBookmarks = (props) => {
                             ) {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
+                                let yturl = isityt(url)
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -2114,6 +2188,7 @@ const FetchBookmarks = (props) => {
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
+                                  yturl:yturl,
                                   note: hashtagv2,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2143,6 +2218,7 @@ const FetchBookmarks = (props) => {
                                   let url =
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
+                                      let yturl = isityt(url)
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -2165,6 +2241,7 @@ const FetchBookmarks = (props) => {
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
+                                      yturl:yturl,
                                       note: hashtagv3,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2201,6 +2278,7 @@ const FetchBookmarks = (props) => {
                                       let url =
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
+                                          let yturl = isityt(url)
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -2225,6 +2303,7 @@ const FetchBookmarks = (props) => {
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
+                                          yturl:yturl,
                                           note: hashtagv4,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2265,6 +2344,7 @@ const FetchBookmarks = (props) => {
                                               .children[k].children[l].children[
                                               m
                                             ].children[n].url; //the url of the page
+                                            let yturl = isityt(url)
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -2293,6 +2373,7 @@ const FetchBookmarks = (props) => {
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
+                                              yturl:yturl,
                                               note: hashtagv5,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2337,6 +2418,7 @@ const FetchBookmarks = (props) => {
                                                   .children[k].children[l]
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
+                                                  let yturl = isityt(url)
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -2365,6 +2447,7 @@ const FetchBookmarks = (props) => {
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
+                                                  yturl:yturl,
                                                   note: hashtagv6,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2414,6 +2497,7 @@ const FetchBookmarks = (props) => {
                                                       .children[m].children[n]
                                                       .children[o].children[p]
                                                       .url; //the url of the page
+                                                      let yturl = isityt(url)
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -2446,6 +2530,7 @@ const FetchBookmarks = (props) => {
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
+                                                      yturl:yturl,
                                                       note: hashtagv7,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work

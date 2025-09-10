@@ -657,7 +657,7 @@ const addIdToDelete=(id)=>{
                   <div className="flexrow4">
                     <div>
                       {
-                      props.description.includes('youtube') 
+                      props.Url.includes('youtube') 
                       && <img src="https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" />}<a
                         ref={myRef}
                         className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple"

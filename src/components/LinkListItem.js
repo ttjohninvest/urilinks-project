@@ -674,8 +674,8 @@ const addIdToDelete=(id)=>{
                       props.yturl={props.yturl}
                       {
                       //isityt(props.Url)
-                      //!!props.yturl
-                      true
+                      !!props.yturl
+                      //true
                       && 
                       <img className="borderRadius4" width="128" height="72" 
                       //src={`https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg`} 

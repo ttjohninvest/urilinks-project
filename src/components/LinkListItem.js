@@ -29,6 +29,21 @@ import XShareButton from "./XShareButton";
   const [data, setData] = useState([]);
   const [data2s, setData2s] = useState([]);
   const [sortit1flag, setSortit1flag] = useState([]);
+  const [visityt, setVisityt] = useState("")
+
+  const isityt=(url)=>{
+       if(url.includes('youtube')) {
+
+        //get the id
+        let a = url.split("v=")
+        let b = a[1].split("&")
+        let ytid = b[0]
+      setVisityt(ytid)
+      return
+       }
+
+       setVisityt("")
+  }
 
 
 // function Book(BookTitle, BookAuthor, BookPages){
@@ -657,8 +672,8 @@ const addIdToDelete=(id)=>{
                   <div className="flexrow4">
                     <div>
                       {
-                      props.Url.includes('youtube') 
-                      && <img className="borderRadius4" width="128" height="72" src="https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" />}
+                      isityt(props.Url)
+                      && <img className="borderRadius4" width="128" height="72" src={`https://img.youtube.com/vi/${visityt}/mqdefault.jpg`} />}
                       <a
                         ref={myRef}
                         className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"

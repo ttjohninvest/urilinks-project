@@ -671,7 +671,7 @@ const addIdToDelete=(id)=>{
                 <div className="flexcol3">
                   <div className="flexrow4">
                     <div>
-                      {props.yturl}
+                      props.yturl={props.yturl}
                       {
                       //isityt(props.Url)
                       //!!props.yturl

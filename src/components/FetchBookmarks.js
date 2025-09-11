@@ -35,9 +35,18 @@ const FetchBookmarks = (props) => {
        if(url.includes('youtube')) {
 //https://www.youtube.com/watch?v=L9ervwr0qq0&list=RDL9ervwr0qq0&start_radio=1
       //   //get the id
+      let ytid
          let a = url.split("=")
-         let b = a[1].split("&")
-         let ytid = b[0]
+         if(a[1].includes('&'))
+         {
+let b = a[1].split("&")
+ytid = b[0]
+         } else {
+ytid = a[1]
+         }
+
+         
+         
          console.log("ytid="+ytid)
         
       // //setVisityt(ytid)

@@ -37,11 +37,12 @@ const FetchBookmarks = (props) => {
       //   //get the id
          let a = url.split("?v=")
          let b = a[1].split("&")
-      //   let ytid = b[0]
+         let ytid = b[0]
+         console.log("ytuid="+ytid)
         
       // //setVisityt(ytid)
-      //return "https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" //yturl
-      return "https://img.youtube.com/vi/"+b[0]+"/mqdefault.jpg"
+      return "https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" //yturl
+      //return "https://img.youtube.com/vi/"+b[0]+"/mqdefault.jpg"
        }
 
        return ""

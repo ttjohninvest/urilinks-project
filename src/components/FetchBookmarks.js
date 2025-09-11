@@ -36,13 +36,13 @@ const FetchBookmarks = (props) => {
 //https://www.youtube.com/watch?v=L9ervwr0qq0&list=RDL9ervwr0qq0&start_radio=1
       //   //get the id
          let a = url.split("=")
-         //let b = a[1].split("&")
-         //let ytid = b[0]
-         //console.log("ytuid="+ytid)
+         let b = a[1].split("&")
+         let ytid = b[0]
+         console.log("ytid="+ytid)
         
       // //setVisityt(ytid)
-      return "https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" //yturl
-      //return "https://img.youtube.com/vi/"+b[0]+"/mqdefault.jpg"
+      //return "https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" //yturl
+      return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
        }
 
        return ""

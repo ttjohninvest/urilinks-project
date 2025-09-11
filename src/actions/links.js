@@ -16,12 +16,13 @@ export const startAddLink = (linkData = {}) => {
       longname="",
       description = "",
       Url = "",
+      yturl = "",
       note = "",
       amount = 0,
       createdAt = 0,
       faviconURL = "",
     } = linkData;
-    const link = {longname, description, Url, note, amount, createdAt, faviconURL };
+    const link = {longname, description, Url, yturl, note, amount, createdAt, faviconURL };
    
     //////
     //return false;

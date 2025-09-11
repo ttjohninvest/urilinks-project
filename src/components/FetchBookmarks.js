@@ -32,7 +32,7 @@ const FetchBookmarks = (props) => {
   const [oo, setOo] = useState(props.match.params.option);
 
     const isityt=(url)=>{
-       if(url.includes('youtube')) {
+       //if(url.includes('youtube')) {
 
       //   //get the id
       //   let a = url.split("v=")
@@ -41,9 +41,9 @@ const FetchBookmarks = (props) => {
       //   let yturl = "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
       // //setVisityt(ytid)
       return "https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" //yturl
-       }
+       //}
 
-       return ""
+       //return ""
   }
 
 

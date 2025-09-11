@@ -35,10 +35,10 @@ const FetchBookmarks = (props) => {
        if(url.includes('youtube')) {
 //https://www.youtube.com/watch?v=L9ervwr0qq0&list=RDL9ervwr0qq0&start_radio=1
       //   //get the id
-         let a = url.split("?v=")
-         let b = a[1].split("&")
-         let ytid = b[0]
-         console.log("ytuid="+ytid)
+         let a = url.split("=")
+         //let b = a[1].split("&")
+         //let ytid = b[0]
+         //console.log("ytuid="+ytid)
         
       // //setVisityt(ytid)
       return "https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" //yturl

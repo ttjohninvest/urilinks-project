@@ -676,10 +676,22 @@ const addIdToDelete=(id)=>{
                       !!props.yturl
                       //true
                       && 
-                      <img className="borderRadius4" width="128" height="72" 
+                       <a
+                        ref={myRef}
+                        className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"
+                        href={props.Url}
+                        target="_self"
+                        title={"click to open the webpage: " + props.Url}
+                        onClick={storeScrollPosition}
+                      >
+                        <img className="borderRadius4" width="128" height="72" 
                       //src={`https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg`} 
                       src={props.yturl} 
-                      />}
+                      />
+                      </a>
+                      
+                      
+                      }
                       <a
                         ref={myRef}
                         className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"

@@ -684,7 +684,8 @@ const addIdToDelete=(id)=>{
                         title={"click to open the webpage: " + props.Url}
                         onClick={storeScrollPosition}
                       >
-                        <img className="borderRadius4" width="128" height="72" 
+                        <img className="borderRadius4 rem8 rem45"
+                        // width="128" height="72" 
                       //src={`https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg`} 
                       src={props.yturl} 
                       />

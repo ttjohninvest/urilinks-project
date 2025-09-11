@@ -48,6 +48,7 @@ ttjohnhappy
 # Git Commands
 
 todo to do
+sears cataglog buy, see the hashtag for the link to where it is
 youtube video thumbnail should be with all of the youtube links, I got the code in FetchBookmarks.js and LinkListItem.js but the thumbnail is not appearing, if I put the image link directly in the LinkListItem.js it appears.
 try to get #amazon appended to #6pm so it looks like this #6pm #amazon in FetchBookmarks.js so this way all of 
 the urls taken from amazon.com can be found by clicking #amazon

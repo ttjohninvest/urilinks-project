@@ -31,19 +31,27 @@ const FetchBookmarks = (props) => {
   const [payPage, setPayPage] = useState(false);
   const [oo, setOo] = useState(props.match.params.option);
 
+  function getYouTubeVideoID(url) {
+    const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([^"&?\/\s]{11})/;
+    const match = url.match(regex);
+    return match ? match : null;
+}   
+
     const isityt=(url)=>{
        if(url.includes('youtube')) {
 //https://www.youtube.com/watch?v=L9ervwr0qq0&list=RDL9ervwr0qq0&start_radio=1
       //   //get the id
-      let ytid
-         let a = url.split("=")
-         if(a[1].includes('&'))
-         {
-let b = a[1].split("&")
-ytid = b[0]
-         } else {
-ytid = a[1]
-         }
+//       let ytid
+//          let a = url.split("=")
+//          if(a[1].includes('&'))
+//          {
+// let b = a[1].split("&")
+// ytid = b[0]
+//          } else {
+// ytid = a[1]
+//          }
+
+ytid=getYouTubeVideoID(url)
 
          
          

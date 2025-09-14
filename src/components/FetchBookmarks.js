@@ -41,8 +41,16 @@ const FetchBookmarks = (props) => {
        if(url.includes('youtube')) {
 //https://www.youtube.com/watch?v=L9ervwr0qq0&list=RDL9ervwr0qq0&start_radio=1
       //   //get the id
-
       let ytid
+if(url.includes('shorts')) {
+let a = url.split("/")
+let i = a.length-1
+ytid = a[i]
+
+
+
+} else {
+
          let a = url.split("v=")
          if(a[1].includes('&'))
          {
@@ -52,15 +60,17 @@ ytid = b[0]
 ytid = a[1]
          }
 
+}
+      
 
 
          
          
          console.log("ytid="+ytid)
-        
+return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"        
       // //setVisityt(ytid)
       //return "https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" //yturl
-      return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
+      
        }
 
        return ""

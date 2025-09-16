@@ -556,7 +556,7 @@ export class LinkListFilters extends React.Component {
 
         <div
           id="before-before-link-summary-id"
-          className="input-group some-component borderRadius4"
+          className="input-group some-component borderRadius4 flexrow2w"
         >
           <div className="input-group__item">
             <input

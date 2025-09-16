@@ -389,7 +389,7 @@ export class LinkListFilters extends React.Component {
   const tl = [];
 
   this.props.links.forEach(function(element) {
-    if(element.foldername==="books")
+    if(!!element.foldername===true)
     tl.push({ label: element.foldername, value: element.foldername });
   });
 

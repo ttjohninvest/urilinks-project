@@ -245,6 +245,7 @@ export class LinkListFilters extends React.Component {
       newspaper: true,
       // newspaper:
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
+      technologyList:[],
     };
 
     this.setit = this.setit.bind(this);
@@ -383,6 +384,16 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
+
+    
+  const tl = [];
+
+  // Use forEach to populate the array of objects
+  this.props.list.forEach(function(element) {
+    tl.push({ label: element.foldername, value: element.foldername });
+  });
+
+ this.setState({ technologyList: tl });
     //get the plan from settings so I know how many links a person can have
     console.log(
       "In LinkListFilters.js, this.props.settings=" +
@@ -605,32 +616,14 @@ export class LinkListFilters extends React.Component {
             </select>
           </div>
           <div className="input-group__item">
-            <select
-              className="select select-filters"
-              value={"foldername"}
-              //value={this.props.filters.sortBy}
-
-              onChange={this.onSortChange2}
-              title="results is everything under the foldername"
-            >
-              {this.props.links.forEach((r) => {
-                if(!!r.foldername===true) {
-                  return (
-                    <option value={r.foldername} title="">
-                      {r.foldername}
-                    </option>
-                );
-                }
-              
-              })}
-            </select>
-            
-              {/* {this.props.links.forEach((r) => {
-                if(r.foldername==="books") {
-                  return (r.foldername);
-                }
-              
-              })} */}
+         
+              <select>
+        {technologyList.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
             
           </div>
           <div className="select-filters">

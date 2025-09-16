@@ -2929,7 +2929,7 @@ foldername =""
                       Url: result[i].Url, //, //href,
                       yturl:result[i].yturl,
                       note: result[i].note,
-                      foldername:result[i].foldername,
+                      foldername:"books",//result[i].foldername,
                       amount: 0,
                       createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                       faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
@@ -2977,7 +2977,7 @@ foldername =""
                         Url: result[i].Url, //, //href,
                         yturl:result[i].yturl,
                         note: result[i].note,
-                        foldername:result[i].foldername,
+                        foldername:"books",//result[i].foldername,
                         amount: 0,
                         createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                         faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon

@@ -605,7 +605,7 @@ export class LinkListFilters extends React.Component {
             </select>
           </div>
           <div className="input-group__item">
-            {/* <select
+            <select
               className="select select-filters"
               value={"foldername"}
               //value={this.props.filters.sortBy}
@@ -623,14 +623,14 @@ export class LinkListFilters extends React.Component {
                 }
               
               })}
-            </select> */}
+            </select>
             
-              {this.props.links.forEach((r) => {
+              {/* {this.props.links.forEach((r) => {
                 if(r.foldername==="books") {
                   return (r.foldername);
                 }
               
-              })}
+              })} */}
             
           </div>
           <div className="select-filters">

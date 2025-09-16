@@ -288,7 +288,7 @@ const FetchBookmarks = (props) => {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                             console.log("pushing into htmllinksarray");
                             console.log(1);
-                            console.log("15 folfername="+foldername);
+                            console.log("15 foldername:="+foldername);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -351,7 +351,7 @@ const FetchBookmarks = (props) => {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                 console.log("pushing into htmllinksarray");
                                 console.log(2);
-                                console.log("16 folfername="+foldername);
+                                console.log("16 foldername:="+foldername);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -413,7 +413,7 @@ const FetchBookmarks = (props) => {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                     console.log("pushing into htmllinksarray");
                                     console.log(3);
-                                    console.log("17 folfername="+foldername);
+                                    console.log("17 foldername:="+foldername);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -486,7 +486,7 @@ const FetchBookmarks = (props) => {
                                           "pushing into htmllinksarray"
                                         );
                                         console.log(4);
-                                        console.log("18 folfername="+foldername);
+                                        console.log("18 foldername:="+foldername);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -569,7 +569,7 @@ const FetchBookmarks = (props) => {
                                               "pushing into htmllinksarray"
                                             );
                                             console.log(5);
-                                            console.log("19 folfername="+foldername);
+                                            console.log("19 foldername:="+foldername);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -654,7 +654,7 @@ const FetchBookmarks = (props) => {
                                                   "pushing into htmllinksarray"
                                                 );
                                                 console.log(6);
-                                                console.log("20 folfername="+foldername);
+                                                console.log("20 foldername:="+foldername);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -751,7 +751,7 @@ const FetchBookmarks = (props) => {
                                                       "pushing into htmllinksarray"
                                                     );
                                                     console.log(7);
-                                                    console.log("21 folfername="+foldername);
+                                                    console.log("21 foldername:="+foldername);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -819,7 +819,7 @@ const FetchBookmarks = (props) => {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                             console.log("pushing into htmllinksarray");
                             console.log(8);
-                            console.log("22 folfername="+foldername);
+                            console.log("22 foldername:="+foldername);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -881,7 +881,7 @@ const FetchBookmarks = (props) => {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                 console.log("pushing into htmllinksarray");
                                 console.log(9);
-                                console.log("23 folfername="+foldername);
+                                console.log("23 foldername:="+foldername);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -944,7 +944,7 @@ const FetchBookmarks = (props) => {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                     console.log("pushing into htmllinksarray");
                                     console.log(10);
-                                    console.log("24 folfername="+foldername);
+                                    console.log("24 foldername:="+foldername);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -1017,7 +1017,7 @@ const FetchBookmarks = (props) => {
                                           "pushing into htmllinksarray"
                                         );
                                         console.log(11);
-                                        console.log("25 folfername="+foldername);
+                                        console.log("25 foldername:="+foldername);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -1100,7 +1100,7 @@ const FetchBookmarks = (props) => {
                                               "pushing into htmllinksarray"
                                             );
                                             console.log(12);
-                                            console.log("26 folfername="+foldername);
+                                            console.log("26 foldername:="+foldername);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -1185,7 +1185,7 @@ const FetchBookmarks = (props) => {
                                                   "pushing into htmllinksarray"
                                                 );
                                                 console.log(13);
-                                                console.log("27 folfername="+foldername);
+                                                console.log("27 foldername:="+foldername);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -1282,7 +1282,7 @@ const FetchBookmarks = (props) => {
                                                       "pushing into htmllinksarray"
                                                     );
                                                     console.log(14);
-                                                    console.log("28 folfername="+foldername);
+                                                    console.log("28 foldername:="+foldername);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -1353,7 +1353,7 @@ const FetchBookmarks = (props) => {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                             console.log("pushing into htmllinksarray");
                             console.log(15);
-                            console.log("29 folfername="+foldername);
+                            console.log("29 foldername:="+foldername);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -1416,7 +1416,7 @@ const FetchBookmarks = (props) => {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                 console.log("pushing into htmllinksarray");
                                 console.log(16);
-                                console.log("30 folfername="+foldername);
+                                console.log("30 foldername:="+foldername);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -1479,7 +1479,7 @@ const FetchBookmarks = (props) => {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                     console.log("pushing into htmllinksarray");
                                     console.log(17);
-                                    console.log("31 folfername="+foldername);
+                                    console.log("31 foldername:="+foldername);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -1552,7 +1552,7 @@ const FetchBookmarks = (props) => {
                                           "pushing into htmllinksarray"
                                         );
                                         console.log(18);
-                                        console.log("32 folfername="+foldername);
+                                        console.log("32 foldername:="+foldername);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -1635,7 +1635,7 @@ const FetchBookmarks = (props) => {
                                               "pushing into htmllinksarray"
                                             );
                                             console.log(19);
-                                            console.log("33 folfername="+foldername);
+                                            console.log("33 foldername:="+foldername);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -1720,7 +1720,7 @@ const FetchBookmarks = (props) => {
                                                   "pushing into htmllinksarray"
                                                 );
                                                 console.log(20);
-                                                console.log("34 folfername="+foldername);
+                                                console.log("34 foldername:="+foldername);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -1817,7 +1817,7 @@ const FetchBookmarks = (props) => {
                                                       "pushing into htmllinksarray"
                                                     );
                                                     console.log(21);
-                                                    console.log("35 folfername="+foldername);
+                                                    console.log("35 foldername:="+foldername);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -1895,7 +1895,7 @@ const FetchBookmarks = (props) => {
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                             console.log("pushing unto htmllinksarray");
-                            console.log("1 folfername="+foldername);
+                            console.log("1 foldername:="+foldername);
                             
 
                             htmllinksarray.push({
@@ -1958,7 +1958,7 @@ const FetchBookmarks = (props) => {
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                 console.log("pushing unto htmllinksarray");
-                                console.log("2 folfername="+foldername);
+                                console.log("2 foldername:="+foldername);
 
                                 htmllinksarray.push({
                                   description: title,
@@ -2021,7 +2021,7 @@ const FetchBookmarks = (props) => {
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                     console.log("pushing unto htmllinksarray");
-                                    console.log("3 folfername="+foldername);
+                                    console.log("3 foldername:="+foldername);
 
                                     htmllinksarray.push({
                                       description: title,
@@ -2094,7 +2094,7 @@ const FetchBookmarks = (props) => {
                                         console.log(
                                           "pushing unto htmllinksarray"
                                         );
-                                        console.log("4 folfername="+foldername);
+                                        console.log("4 foldername:="+foldername);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -2176,7 +2176,7 @@ const FetchBookmarks = (props) => {
                                             console.log(
                                               "pushing unto htmllinksarray"
                                             );
-                                            console.log("5 folfername="+foldername);
+                                            console.log("5 foldername:="+foldername);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -2260,7 +2260,7 @@ const FetchBookmarks = (props) => {
                                                 console.log(
                                                   "pushing unto htmllinksarray"
                                                 );
-                                                console.log("6 folfername="+foldername);
+                                                console.log("6 foldername:="+foldername);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -2356,7 +2356,7 @@ const FetchBookmarks = (props) => {
                                                     console.log(
                                                       "pushing unto htmllinksarray"
                                                     );
-                                                    console.log("7 folfername="+foldername);
+                                                    console.log("7 foldername:="+foldername);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -2426,7 +2426,7 @@ const FetchBookmarks = (props) => {
                           ) {
                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                             console.log("pushing unto htmllinksarray");
-                            console.log("8 folfername="+foldername);
+                            console.log("8 foldername:="+foldername);
                             htmllinksarray.push({
                               description: title,
                               Url: url, //, //href,
@@ -2488,7 +2488,7 @@ const FetchBookmarks = (props) => {
                               ) {
                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                 console.log("pushing unto htmllinksarray");
-                                console.log("9 folfername="+foldername);
+                                console.log("9 foldername:="+foldername);
                                 htmllinksarray.push({
                                   description: title,
                                   Url: url, //, //href,
@@ -2550,7 +2550,7 @@ const FetchBookmarks = (props) => {
                                   ) {
                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                     console.log("pushing unto htmllinksarray");
-                                    console.log("10 folfername="+foldername);
+                                    console.log("10 foldername:="+foldername);
                                     htmllinksarray.push({
                                       description: title,
                                       Url: url, //, //href,
@@ -2622,7 +2622,7 @@ const FetchBookmarks = (props) => {
                                         console.log(
                                           "pushing unto htmllinksarray"
                                         );
-                                        console.log("11 folfername="+foldername);
+                                        console.log("11 foldername:="+foldername);
                                         htmllinksarray.push({
                                           description: title,
                                           Url: url, //, //href,
@@ -2704,7 +2704,7 @@ const FetchBookmarks = (props) => {
                                             console.log(
                                               "pushing unto htmllinksarray"
                                             );
-                                            console.log("12 folfername="+foldername);
+                                            console.log("12 foldername:="+foldername);
                                             htmllinksarray.push({
                                               description: title,
                                               Url: url, //, //href,
@@ -2788,7 +2788,7 @@ const FetchBookmarks = (props) => {
                                                 console.log(
                                                   "pushing unto htmllinksarray"
                                                 );
-                                                console.log("13 folfername="+foldername);
+                                                console.log("13 foldername:="+foldername);
                                                 htmllinksarray.push({
                                                   description: title,
                                                   Url: url, //, //href,
@@ -2884,7 +2884,7 @@ const FetchBookmarks = (props) => {
                                                     console.log(
                                                       "pushing unto htmllinksarray"
                                                     );
-                                                    console.log("14 folfername="+foldername);
+                                                    console.log("14 foldername:="+foldername);
                                                     htmllinksarray.push({
                                                       description: title,
                                                       Url: url, //, //href,
@@ -2926,7 +2926,7 @@ const FetchBookmarks = (props) => {
                 kht = undefined;
                 kht2 = undefined;
                 kht3 = undefined;
-                throw new Error("ERROR ERROR ERROR")
+                //throw new Error("ERROR ERROR ERROR")
                 setDone(true);
 
                 console.log("three loops ended");
@@ -2977,7 +2977,7 @@ const FetchBookmarks = (props) => {
                       Url: result[i].Url, //, //href,
                       yturl: result[i].yturl,
                       note: result[i].note,
-                      foldername: "books", //result[i].foldername,
+                      foldername: result[i].foldername,
                       amount: 0,
                       createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                       faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
@@ -3025,7 +3025,7 @@ const FetchBookmarks = (props) => {
                         Url: result[i].Url, //, //href,
                         yturl: result[i].yturl,
                         note: result[i].note,
-                        foldername: "books", //result[i].foldername,
+                        foldername: result[i].foldername,
                         amount: 0,
                         createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                         faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon

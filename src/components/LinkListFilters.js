@@ -390,6 +390,7 @@ export class LinkListFilters extends React.Component {
 
   // Use forEach to populate the array of objects
   this.props.links.forEach(function(element) {
+    if(element.foldername==="books")
     tl.push({ label: element.foldername, value: element.foldername });
   });
 

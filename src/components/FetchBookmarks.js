@@ -1961,11 +1961,12 @@ const FetchBookmarks = (props) => {
                                 console.log("2 foldername:="+foldername);
 
                                 htmllinksarray.push({
+                                  foldername:foldername,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
-                                  foldername: foldername,
+                                  
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2926,7 +2927,7 @@ const FetchBookmarks = (props) => {
                 kht = undefined;
                 kht2 = undefined;
                 kht3 = undefined;
-                //throw new Error("ERROR ERROR ERROR")
+                
                 setDone(true);
 
                 console.log("three loops ended");
@@ -2936,6 +2937,8 @@ const FetchBookmarks = (props) => {
                     JSON.stringify(htmllinksarray)
                 );
                 console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
+
+                throw new Error("ERROR ERROR ERROR")
                 // let result = B.filter(
                 //   (b) => !A.some((a) => a.description.replace(/-/g, ' ') === b.description.replace(/-/g, ' '))
                 // ); //I am having a problem with the hyphen

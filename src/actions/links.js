@@ -18,12 +18,12 @@ export const startAddLink = (linkData = {}) => {
       Url = "",
       yturl = "",
       note = "",
-      filename = "",
+      foldername = "",
       amount = 0,
       createdAt = 0,
       faviconURL = "",
     } = linkData;
-    const link = {longname, description, Url, yturl, note, filename, amount, createdAt, faviconURL };
+    const link = {longname, description, Url, yturl, note, foldername, amount, createdAt, faviconURL };
    
     //////
     //return false;

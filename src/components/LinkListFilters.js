@@ -245,7 +245,7 @@ export class LinkListFilters extends React.Component {
       newspaper: true,
       // newspaper:
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
-      technologyList:[{ label: 'a', value: 'a' },{ label: 'b', value: 'b' }],
+      //technologyList:[],
     };
 
     this.setit = this.setit.bind(this);
@@ -386,14 +386,14 @@ export class LinkListFilters extends React.Component {
   componentDidMount() {
 
     //const array1 = ['a','b']
-  const tl = [];
+//   const tl = [];
 
-  // Use forEach to populate the array of objects
-  this.props.links.forEach(function(element) {
-    tl.push({ label: element.foldername, value: element.foldername });
-  });
+//   // Use forEach to populate the array of objects
+//   this.props.links.forEach(function(element) {
+//     tl.push({ label: element.foldername, value: element.foldername });
+//   });
 
- this.setState({ technologyList: tl });
+//  this.setState({ technologyList: tl });
     //get the plan from settings so I know how many links a person can have
     console.log(
       "In LinkListFilters.js, this.props.settings=" +
@@ -615,7 +615,7 @@ export class LinkListFilters extends React.Component {
               </option>
             </select>
           </div>
-          <div className="input-group__item">
+          {/* <div className="input-group__item">
          
               <select>
         {this.state.technologyList.map(option => (
@@ -625,7 +625,7 @@ export class LinkListFilters extends React.Component {
         ))}
       </select>
             
-          </div>
+          </div> */}
           <div className="select-filters">
             <DateRangePicker
               className="zindex"

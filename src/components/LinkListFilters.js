@@ -15,6 +15,7 @@ import {
   setStartDate,
   setEndDate,
   sortByNoteText,
+  sortByFolderText
 } from "../actions/filters";
 
 function ExpandableArray(props) {
@@ -245,7 +246,7 @@ export class LinkListFilters extends React.Component {
       newspaper: true,
       // newspaper:
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
-      technologyList: [],
+      foldernamesList: [],
     };
 
     this.setit = this.setit.bind(this);
@@ -326,12 +327,12 @@ export class LinkListFilters extends React.Component {
     // this.props.setTextFilter(e.target.value);
   };
 
-  onSortChange2 = (e) => {
+  onFolderChange = (e) => {
     console.log("onSortChange2, e.target.value="+e.target.value);
-alert( "e.target.value="+e.target.value)
-    //e.target.value //constains the folder name
-
-    //this.props.sortByNoteText();
+    //alert( "e.target.value="+e.target.value)
+   
+    document.getElementById('termid').value = e.target.value
+    //this.props.sortByFolderText();
   };
 
   onSortChange = (e) => {
@@ -396,7 +397,7 @@ alert( "e.target.value="+e.target.value)
       return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
     });
 
-    this.setState({ technologyList: tl });
+    this.setState({ foldernamesList: tl });
     //get the plan from settings so I know how many links a person can have
     console.log(
       "In LinkListFilters.js, this.props.settings=" +
@@ -559,6 +560,7 @@ alert( "e.target.value="+e.target.value)
         >
           <div className="input-group__item-">
             <input
+              id="termid"
               ref={this.myRef}
               type="text"
               className="text-input text-input-filters"
@@ -620,9 +622,9 @@ alert( "e.target.value="+e.target.value)
           </div>
           <div className="input-group__item- padding-top-11- cursor-pointer">
             <select className="select select-filters"
-            onChange={this.onSortChange2}
+            onChange={this.onFolderChange}
             >
-              {this.state.technologyList.map((option) => (
+              {this.state.foldernamesList.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
@@ -665,6 +667,7 @@ const mapDispatchToProps = (dispatch) => ({
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
+  sortByFolderText: () => dispatch(sortByFolderText()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

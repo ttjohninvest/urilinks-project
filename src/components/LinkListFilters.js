@@ -333,7 +333,7 @@ export class LinkListFilters extends React.Component {
    
     //document.getElementById('termid').value = e.target.value
     this.props.setTextFilter(e.target.value);
-
+    this.setState({ sortBy: "folder" });
     this.props.sortByFolderText();
   };
 

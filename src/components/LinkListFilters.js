@@ -328,7 +328,7 @@ export class LinkListFilters extends React.Component {
 
   onSortChange2 = (e) => {
     console.log("onSortChange2, e.target.value="+e.target.value);
-
+alert( "e.target.value="+e.target.value)
     //e.target.value //constains the folder name
 
     //this.props.sortByNoteText();

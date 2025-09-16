@@ -325,6 +325,18 @@ export class LinkListFilters extends React.Component {
     // this.props.setTextFilter(e.target.value);
   };
 
+  onSortChange2 = (e) => {
+       console.log("onSortChange2")
+     
+    //e.target.value //constains the folder name
+      
+      
+      
+      
+      //this.props.sortByNoteText();
+    
+  }
+
   onSortChange = (e) => {
     console.log("onSortChange=(), e.target.value=" + e.target.value);
     if (e.target.value === "date") {
@@ -594,6 +606,28 @@ export class LinkListFilters extends React.Component {
               >
                 Date
               </option>
+              
+            </select>
+          </div>
+          <div className="input-group__item">
+            
+            <select
+              className="select select-filters"
+              value={"foldername"}
+              //value={this.props.filters.sortBy}
+
+              onChange={this.onSortChange2}
+              title="results is everything under the foldername"
+            >
+{this.props.links.forEach((r)=>{
+return (<option value={r.foldername} title="">
+                {r.foldername}
+              </option>)
+})
+
+}
+              
+              
             </select>
           </div>
           <div className="select-filters">

@@ -1,3 +1,6 @@
+Fetchbookmarks.js, put foldernames in
+
+
 =========================================================================================
 Friendship:
 Adults can not find friendship with other humans but they can find information sharing.  Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen. They will go their separate ways.

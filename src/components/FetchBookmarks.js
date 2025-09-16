@@ -246,6 +246,7 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                 //or
                 //bookmark with folder // if they all has one bookmark and one folder it works
                 //folder
+                let foldername;
                 let kht;
                 let kht2;
                 let kht3;
@@ -262,6 +263,7 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                         console.log("usefoldernames");
 
                         hashtagv1 = getHashtag(data.message[i].title);
+                        foldername=data.message[i].title
                       }
 
                       for (
@@ -288,6 +290,7 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                             } else {
                               hashtagv1 = getTheHashtag(url, kht2);
                             }
+                            foldername=""
                           }
 
                           if (
@@ -302,6 +305,7 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                               Url: url, //, //href,
                               yturl:yturl,
                               note: hashtagv1,
+                              foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                               faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -316,11 +320,14 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                           );
 
                           let hashtagv2;
-                          if (oo === "usefoldernames")
-                            hashtagv2 = getHashtag(
+
+                          if (oo === "usefoldernames") {
+hashtagv2 = getHashtag(
                               data.message[i].children[j].title
                             );
-
+                        foldername=data.message[i].children[j].title
+                          }
+                            
                           for (
                             let k = 0;
                             data.message[i].children[j].children &&
@@ -343,8 +350,11 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
 
                               console.log("title=" + title);
 
-                              if (oo === "usedomainnames")
+                              if (oo === "usedomainnames") {
                                 hashtagv2 = getHashtag2(url);
+                                foldername=""
+                              }
+
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -357,6 +367,7 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                                   Url: url, //, //href,
                                   yturl:yturl,
                                   note: hashtagv2,
+                                  foldername:foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -364,10 +375,13 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                               }
                             } else {
                               let hashtagv3;
-                              if (oo === "usefoldernames")
-                                hashtagv3 = getHashtag(
+                              if (oo === "usefoldernames") {
+ hashtagv3 = getHashtag(
                                   data.message[i].children[j].children[k].title
                                 );
+                                foldername=data.message[i].children[j].children[k].title
+                              }
+                               
                               //console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -396,8 +410,11 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                                       .children[l].icon; //the little icon of the page
 
                                   console.log("title=" + title);
-                                  if (oo === "usedomainnames")
-                                    hashtagv3 = getHashtag2(url);
+                                  if (oo === "usedomainnames") {
+hashtagv3 = getHashtag2(url);
+foldername=""
+                                  }
+                                    
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -410,6 +427,7 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                                       Url: url, //, //href,
                                       yturl:yturl,
                                       note: hashtagv3,
+                                      foldername:foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -422,11 +440,15 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                                 } else {
                                   //folder
                                   let hashtagv4;
-                                  if (oo === "usefoldernames")
-                                    hashtagv4 = getHashtag(
+                                  if (oo === "usefoldernames") {
+hashtagv4 = getHashtag(
                                       data.message[i].children[j].children[k]
                                         .children[l].title
                                     );
+                                    foldername=data.message[i].children[j].children[k]
+                                        .children[l].title
+                                  }
+                                    
                                   //console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -457,8 +479,11 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
 
                                       console.log("title=" + title);
 
-                                      if (oo === "usedomainnames")
-                                        hashtagv4 = getHashtag2(url);
+                                      if (oo === "usedomainnames") {
+hashtagv4 = getHashtag2(url);
+foldername=""
+                                      }
+                                        
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -473,6 +498,7 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                                           Url: url, //, //href,
                                           yturl:yturl,
                                           note: hashtagv4,
+                                          foldername:foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                           faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -484,12 +510,17 @@ return "https://img.youtube.com/vi/"+ytid+"/mqdefault.jpg"
                                       }
                                     } else {
                                       let hashtagv5;
-                                      if (oo === "usefoldernames")
-                                        hashtagv5 = getHashtag(
+                                      if (oo === "usefoldernames") {
+hashtagv5 = getHashtag(
                                           data.message[i].children[j].children[
                                             k
                                           ].children[l].children[m].title
                                         );
+                                        foldername=data.message[i].children[j].children[
+                                            k
+                                          ].children[l].children[m].title
+                                      }
+                                        
                                       //console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -529,8 +560,11 @@ let yturl = isityt(url)
 
                                           console.log("title=" + title);
 
-                                          if (oo === "usedomainnames")
-                                            hashtagv5 = getHashtag2(url);
+                                          if (oo === "usedomainnames") {
+hashtagv5 = getHashtag2(url);
+foldername=""
+                                          }
+                                            
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -545,6 +579,7 @@ let yturl = isityt(url)
                                               Url: url, //, //href,
                                               yturl:yturl,
                                               note: hashtagv5,
+                                              foldername:foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                               faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -556,12 +591,18 @@ let yturl = isityt(url)
                                           }
                                         } else {
                                           let hashtagv6;
-                                          if (oo === "usefoldernames")
-                                            hashtagv6 = getHashtag(
+                                          if (oo === "usefoldernames") {
+ hashtagv6 = getHashtag(
                                               data.message[i].children[j]
                                                 .children[k].children[l]
                                                 .children[m].children[n].title
                                             );
+                                            foldername= data.message[i].children[j]
+                                                .children[k].children[l]
+                                                .children[m].children[n].title
+                                            
+                                          }
+                                           
                                           //console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -603,8 +644,11 @@ let yturl = isityt(url)
 
                                               console.log("title=" + title);
 
-                                              if (oo === "usedomainnames")
-                                                hashtagv6 = getHashtag2(url);
+                                              if (oo === "usedomainnames") {
+hashtagv6 = getHashtag2(url);
+foldername=""
+                                              }
+                                                
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -619,6 +663,7 @@ let yturl = isityt(url)
                                                   Url: url, //, //href,
                                                   yturl:yturl,
                                                   note: hashtagv6,
+                                                  foldername:foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -630,13 +675,19 @@ let yturl = isityt(url)
                                               }
                                             } else {
                                               let hashtagv7;
-                                              if (oo === "usefoldernames")
-                                                hashtagv7 = getHashtag(
+                                              if (oo === "usefoldernames") {
+ hashtagv7 = getHashtag(
                                                   data.message[i].children[j]
                                                     .children[k].children[l]
                                                     .children[m].children[n]
                                                     .children[o].title
                                                 );
+                                                foldername=data.message[i].children[j]
+                                                    .children[k].children[l]
+                                                    .children[m].children[n]
+                                                    .children[o].title
+                                              }
+                                               
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -685,9 +736,12 @@ let yturl = isityt(url)
 
                                                   console.log("title=" + title);
 
-                                                  if (oo === "usedomainnames")
-                                                    hashtagv7 =
+                                                  if (oo === "usedomainnames") {
+hashtagv7 =
                                                       getHashtag2(url);
+                                                      foldername=""
+                                                  }
+                                                    
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -704,6 +758,7 @@ let yturl = isityt(url)
                                                       Url: url, //, //href,
                                                       yturl:yturl,
                                                       note: hashtagv7,
+                                                      foldername:foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -730,8 +785,11 @@ let yturl = isityt(url)
                     } else if (i === 1) {
                       //another folder,
                       let hashtagv1;
-                      if (oo === "usefoldernames")
-                        hashtagv1 = getHashtag(data.message[i].title);
+                      if (oo === "usefoldernames") {
+hashtagv1 = getHashtag(data.message[i].title);
+foldername=data.message[i].title
+                      }
+                        
 
                       for (
                         let j = 0;
@@ -751,8 +809,11 @@ let yturl = isityt(url)
 
                           console.log("title=" + title);
 
-                          if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url);
+                          if (oo === "usedomainnames") {
+hashtagv1 = getHashtag2(url);
+foldername=""
+                          }
+                            
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -765,6 +826,7 @@ let yturl = isityt(url)
                               Url: url, //, //href,
                               yturl:yturl,
                               note: hashtagv1,
+                              foldername:foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                               faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -779,10 +841,13 @@ let yturl = isityt(url)
                           );
 
                           let hashtagv2;
-                          if (oo === "usefoldernames")
-                            hashtagv2 = getHashtag(
+                          if (oo === "usefoldernames") {
+hashtagv2 = getHashtag(
                               data.message[i].children[j].title
                             );
+                            foldername=data.message[i].children[j].title
+                          }
+                            
 
                           for (
                             let k = 0;
@@ -806,8 +871,11 @@ let yturl = isityt(url)
 
                               console.log("title=" + title);
 
-                              if (oo === "usedomainnames")
-                                hashtagv2 = getHashtag2(url);
+                              if (oo === "usedomainnames") {
+hashtagv2 = getHashtag2(url);
+foldername=""
+                              }
+                                
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -820,6 +888,7 @@ let yturl = isityt(url)
                                   Url: url, //, //href,
                                   yturl:yturl,
                                   note: hashtagv2,
+                                  foldername:foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -827,10 +896,13 @@ let yturl = isityt(url)
                               }
                             } else {
                               let hashtagv3;
-                              if (oo === "usefoldernames")
-                                hashtagv3 = getHashtag(
+                              if (oo === "usefoldernames") {
+hashtagv3 = getHashtag(
                                   data.message[i].children[j].children[k].title
                                 );
+                                foldername=data.message[i].children[j].children[k].title
+                              }
+                                
                               //console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -860,8 +932,11 @@ let yturl = isityt(url)
 
                                   console.log("title=" + title);
 
-                                  if (oo === "usedomainnames")
-                                    hashtagv3 = getHashtag2(url);
+                                  if (oo === "usedomainnames") {
+hashtagv3 = getHashtag2(url);
+foldername=""
+                                  }
+                                    
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -874,6 +949,7 @@ let yturl = isityt(url)
                                       Url: url, //, //href,
                                       yturl:yturl,
                                       note: hashtagv3,
+                                      foldername:foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -886,11 +962,15 @@ let yturl = isityt(url)
                                 } else {
                                   //folder
                                   let hashtagv4;
-                                  if (oo === "usefoldernames")
-                                    hashtagv4 = getHashtag(
+                                  if (oo === "usefoldernames") {
+ hashtagv4 = getHashtag(
                                       data.message[i].children[j].children[k]
                                         .children[l].title
                                     );
+                                    foldername=data.message[i].children[j].children[k]
+                                        .children[l].title
+                                  }
+                                   
                                   //console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -921,8 +1001,11 @@ let yturl = isityt(url)
 
                                       console.log("title=" + title);
 
-                                      if (oo === "usedomainnames")
-                                        hashtagv4 = getHashtag2(url);
+                                      if (oo === "usedomainnames") {
+hashtagv4 = getHashtag2(url);
+foldername=""
+                                      }
+                                        
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -937,6 +1020,7 @@ let yturl = isityt(url)
                                           Url: url, //, //href,
                                           yturl:yturl,
                                           note: hashtagv4,
+                                          foldername:foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                           faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -948,12 +1032,17 @@ let yturl = isityt(url)
                                       }
                                     } else {
                                       let hashtagv5;
-                                      if (oo === "usefoldernames")
-                                        hashtagv5 = getHashtag(
+                                      if (oo === "usefoldernames") {
+ hashtagv5 = getHashtag(
                                           data.message[i].children[j].children[
                                             k
                                           ].children[l].children[m].title
                                         );
+                                        foldername=data.message[i].children[j].children[
+                                            k
+                                          ].children[l].children[m].title
+                                      }
+                                       
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -993,8 +1082,11 @@ let yturl = isityt(url)
 
                                           console.log("title=" + title);
 
-                                          if (oo === "usedomainnames")
-                                            hashtagv5 = getHashtag2(url);
+                                          if (oo === "usedomainnames") {
+hashtagv5 = getHashtag2(url);
+foldername=""
+                                          }
+                                            
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1009,6 +1101,7 @@ let yturl = isityt(url)
                                               Url: url, //, //href,
                                               yturl:yturl,
                                               note: hashtagv5,
+                                              foldername:foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                               faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1020,12 +1113,17 @@ let yturl = isityt(url)
                                           }
                                         } else {
                                           let hashtagv6;
-                                          if (oo === "usefoldernames")
-                                            hashtagv6 = getHashtag(
+                                          if (oo === "usefoldernames") {
+hashtagv6 = getHashtag(
                                               data.message[i].children[j]
                                                 .children[k].children[l]
                                                 .children[m].children[n].title
                                             );
+                                            foldername= data.message[i].children[j]
+                                                .children[k].children[l]
+                                                .children[m].children[n].title
+                                          }
+                                            
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -1067,8 +1165,11 @@ let yturl = isityt(url)
 
                                               console.log("title=" + title);
 
-                                              if (oo === "usedomainnames")
-                                                hashtagv6 = getHashtag2(url);
+                                              if (oo === "usedomainnames") {
+hashtagv6 = getHashtag2(url);
+foldername=""
+                                              }
+                                                
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1083,6 +1184,7 @@ let yturl = isityt(url)
                                                   Url: url, //, //href,
                                                   yturl:yturl,
                                                   note: hashtagv6,
+                                                  foldername:foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1094,13 +1196,19 @@ let yturl = isityt(url)
                                               }
                                             } else {
                                               let hashtagv7;
-                                              if (oo === "usefoldernames")
-                                                hashtagv7 = getHashtag(
+                                              if (oo === "usefoldernames") {
+ hashtagv7 = getHashtag(
                                                   data.message[i].children[j]
                                                     .children[k].children[l]
                                                     .children[m].children[n]
                                                     .children[o].title
                                                 );
+                                                foldername=data.message[i].children[j]
+                                                    .children[k].children[l]
+                                                    .children[m].children[n]
+                                                    .children[o].title
+                                              }
+                                               
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -1149,9 +1257,12 @@ let yturl = isityt(url)
 
                                                   console.log("title=" + title);
 
-                                                  if (oo === "usedomainnames")
-                                                    hashtagv7 =
+                                                  if (oo === "usedomainnames") {
+hashtagv7 =
                                                       getHashtag2(url);
+                                                      foldername=""
+                                                  }
+                                                    
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1168,6 +1279,7 @@ let yturl = isityt(url)
                                                       Url: url, //, //href,
                                                       yturl:yturl,
                                                       note: hashtagv7,
+                                                      foldername:foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1196,8 +1308,11 @@ let yturl = isityt(url)
                       //i==2
                       //hashtagv = "#otherbookmarks";
                       let hashtagv1;
-                      if (oo === "usefoldernames")
-                        hashtagv1 = getHashtag(data.message[i].title);
+                      if (oo === "usefoldernames") {
+hashtagv1 = getHashtag(data.message[i].title);
+foldername=data.message[i].title
+                      }
+                        
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -1217,8 +1332,11 @@ let yturl = isityt(url)
 
                           console.log("title=" + title);
 
-                          if (oo === "usedomainnames")
-                            hashtagv1 = getHashtag2(url);
+                          if (oo === "usedomainnames") {
+hashtagv1 = getHashtag2(url);
+foldername=""
+                          }
+                            
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -1231,6 +1349,7 @@ let yturl = isityt(url)
                               Url: url, //, //href,
                               yturl:yturl,
                               note: hashtagv1,
+                              foldername:foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                               faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1246,10 +1365,13 @@ let yturl = isityt(url)
                           );
 
                           let hashtagv2;
-                          if (oo === "usefoldernames")
-                            hashtagv2 = getHashtag(
+                          if (oo === "usefoldernames") {
+  hashtagv2 = getHashtag(
                               data.message[i].children[j].title
                             );
+                            foldername=data.message[i].children[j].title
+                          }
+                          
 
                           for (
                             let k = 0;
@@ -1273,8 +1395,11 @@ let yturl = isityt(url)
 
                               console.log("title=" + title);
 
-                              if (oo === "usedomainnames")
-                                hashtagv2 = getHashtag2(url);
+                              if (oo === "usedomainnames") {
+hashtagv2 = getHashtag2(url);
+foldername=""
+                              }
+                                
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1287,6 +1412,7 @@ let yturl = isityt(url)
                                   Url: url, //, //href,
                                   yturl:yturl,
                                   note: hashtagv2,
+                                  filename:filename,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1294,10 +1420,13 @@ let yturl = isityt(url)
                               }
                             } else {
                               let hashtagv3;
-                              if (oo === "usefoldernames")
-                                hashtagv3 = getHashtag(
+                              if (oo === "usefoldernames") {
+ hashtagv3 = getHashtag(
                                   data.message[i].children[j].children[k].title
                                 );
+                                filename= data.message[i].children[j].children[k].title
+                              }
+                               
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -1327,8 +1456,11 @@ let yturl = isityt(url)
 
                                   console.log("title=" + title);
 
-                                  if (oo === "usedomainnames")
-                                    hashtagv3 = getHashtag2(url);
+                                  if (oo === "usedomainnames") {
+hashtagv3 = getHashtag2(url);
+filename=""
+                                  }
+                                    
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1341,6 +1473,7 @@ let yturl = isityt(url)
                                       Url: url, //, //href,
                                       yturl:yturl,
                                       note: hashtagv3,
+                                      filename:filename,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1353,11 +1486,15 @@ let yturl = isityt(url)
                                 } else {
                                   //folder
                                   let hashtagv4;
-                                  if (oo === "usefoldernames")
-                                    hashtagv4 = getHashtag(
+                                  if (oo === "usefoldernames") {
+hashtagv4 = getHashtag(
                                       data.message[i].children[j].children[k]
                                         .children[l].title
                                     );
+                                    filename=data.message[i].children[j].children[k]
+                                        .children[l].title
+                                  }
+                                    
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -1388,8 +1525,11 @@ let yturl = isityt(url)
 
                                       console.log("title=" + title);
 
-                                      if (oo === "usedomainnames")
-                                        hashtagv4 = getHashtag2(url);
+                                      if (oo === "usedomainnames") {
+hashtagv4 = getHashtag2(url);
+filename=""
+                                      }
+                                        
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1404,6 +1544,7 @@ let yturl = isityt(url)
                                           Url: url, //, //href,
                                           yturl:yturl,
                                           note: hashtagv4,
+                                          filename:filename,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                           faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1415,12 +1556,18 @@ let yturl = isityt(url)
                                       }
                                     } else {
                                       let hashtagv5;
-                                      if (oo === "usefoldernames")
-                                        hashtagv5 = getHashtag(
+                                      if (oo === "usefoldernames") {
+hashtagv5 = getHashtag(
                                           data.message[i].children[j].children[
                                             k
                                           ].children[l].children[m].title
                                         );
+                                        filename=data.message[i].children[j].children[
+                                            k
+                                          ].children[l].children[m].title
+                                        
+                                      }
+                                        
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -1460,8 +1607,11 @@ let yturl = isityt(url)
 
                                           console.log("title=" + title);
 
-                                          if (oo === "usedomainnames")
-                                            hashtagv5 = getHashtag2(url);
+                                          if (oo === "usedomainnames") {
+hashtagv5 = getHashtag2(url);
+filename=""
+                                          }
+                                            
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1476,6 +1626,7 @@ let yturl = isityt(url)
                                               Url: url, //, //href,
                                               yturl:yturl,
                                               note: hashtagv5,
+                                              filename:filename,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                               faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1487,12 +1638,17 @@ let yturl = isityt(url)
                                           }
                                         } else {
                                           let hashtagv6;
-                                          if (oo === "usefoldernames")
-                                            hashtagv6 = getHashtag(
+                                          if (oo === "usefoldernames") {
+hashtagv6 = getHashtag(
                                               data.message[i].children[j]
                                                 .children[k].children[l]
                                                 .children[m].children[n].title
                                             );
+                                            filename=data.message[i].children[j]
+                                                .children[k].children[l]
+                                                .children[m].children[n].title
+                                          }
+                                            
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -1534,8 +1690,11 @@ let yturl = isityt(url)
 
                                               console.log("title=" + title);
 
-                                              if (oo === "usedomainnames")
-                                                hashtagv6 = getHashtag2(url);
+                                              if (oo === "usedomainnames") {
+hashtagv6 = getHashtag2(url);
+filename=""
+                                              }
+                                                
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -1550,6 +1709,7 @@ let yturl = isityt(url)
                                                   Url: url, //, //href,
                                                   yturl:yturl,
                                                   note: hashtagv6,
+                                                  filename:filename,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1561,13 +1721,19 @@ let yturl = isityt(url)
                                               }
                                             } else {
                                               let hashtagv7;
-                                              if (oo === "usefoldernames")
-                                                hashtagv7 = getHashtag(
+                                              if (oo === "usefoldernames") {
+ hashtagv7 = getHashtag(
                                                   data.message[i].children[j]
                                                     .children[k].children[l]
                                                     .children[m].children[n]
                                                     .children[o].title
                                                 );
+                                                filename=data.message[i].children[j]
+                                                    .children[k].children[l]
+                                                    .children[m].children[n]
+                                                    .children[o].title
+                                              }
+                                               
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -1616,9 +1782,12 @@ let yturl = isityt(url)
 
                                                   console.log("title=" + title);
 
-                                                  if (oo === "usedomainnames")
-                                                    hashtagv7 =
+                                                  if (oo === "usedomainnames") {
+hashtagv7 =
                                                       getHashtag2(url);
+                                                      filename=""
+                                                  }
+                                                    
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -1635,6 +1804,7 @@ let yturl = isityt(url)
                                                       Url: url, //, //href,
                                                       yturl:yturl,
                                                       note: hashtagv7,
+                                                      filename:filename,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1665,8 +1835,11 @@ let yturl = isityt(url)
                   ) { //for the other browsers
                     if (i === 0) {
                       let hashtagv1
-                      if(oo==="usefoldernames")
-                            hashtagv1 = getHashtag(data.message[i].title);
+                      if(oo==="usefoldernames") {
+ hashtagv1 = getHashtag(data.message[i].title);
+ filename=data.message[i].title
+                      }
+                           
 
                       for (
                         let j = 0;
@@ -1695,6 +1868,7 @@ let yturl = isityt(url)
                             } else {
                               hashtagv1 = getTheHashtag(url, kht);
                             }
+                            filename=""
                           }
                           if (
                             !hasControlCharacters(title) &&
@@ -1707,6 +1881,7 @@ let yturl = isityt(url)
                               Url: url, //, //href,
                               yturl:yturl,
                               note: hashtagv1,
+                              filename:filename,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                               faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1721,10 +1896,13 @@ let yturl = isityt(url)
                           );
 
                           let hashtagv2
-                      if(oo==="usefoldernames")
-                            hashtagv2 = getHashtag(
+                      if(oo==="usefoldernames") {
+ hashtagv2 = getHashtag(
                              data.message[i].children[j].title
                            );
+                           filename=data.message[i].children[j].title
+                      }
+                           
 
                           for (
                             let k = 0;
@@ -1748,8 +1926,11 @@ let yturl = isityt(url)
 
                               console.log("title=" + title);
                               
-                      if(oo==="usedomainnames")
-                            hashtagv2 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv2 = getHashtag2(url)
+filename=""
+                      }
+                            
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -1761,6 +1942,7 @@ let yturl = isityt(url)
                                   Url: url, //, //href,
                                   yturl:yturl,
                                   note: hashtagv2,
+                                  filename:filename,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1768,10 +1950,13 @@ let yturl = isityt(url)
                               }
                             } else {
                               let hashtagv3
-                      if(oo==="usefoldernames")
-                            hashtagv3 = getHashtag(
+                      if(oo==="usefoldernames") {
+ hashtagv3 = getHashtag(
                                  data.message[i].children[j].children[k].title
                                );
+                               filename=data.message[i].children[j].children[k].title
+                      }
+                           
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -1801,8 +1986,11 @@ let yturl = isityt(url)
 
                                   console.log("title=" + title);
                                   
-                      if(oo==="usedomainnames")
-                            hashtagv3 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv3 = getHashtag2(url)
+filename=""
+                      }
+                            
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -1814,6 +2002,7 @@ let yturl = isityt(url)
                                       Url: url, //, //href,
                                       yturl:yturl,
                                       note: hashtagv3,
+                                      filename:filename,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1826,11 +2015,15 @@ let yturl = isityt(url)
                                 } else {
                                   //folder
                                   let hashtagv4
-                      if(oo==="usefoldernames")
-                            hashtagv4 = getHashtag(
+                      if(oo==="usefoldernames") {
+ hashtagv4 = getHashtag(
                                      data.message[i].children[j].children[k]
                                        .children[l].title
                                    );
+                                   filename=data.message[i].children[j].children[k]
+                                       .children[l].title
+                      }
+                           
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -1861,8 +2054,11 @@ let yturl = isityt(url)
 
                                       console.log("title=" + title);
                                       
-                      if(oo==="usedomainnames")
-                            hashtagv4 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv4 = getHashtag2(url)
+filename=""
+                      }
+                            
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -1876,6 +2072,7 @@ let yturl = isityt(url)
                                           Url: url, //, //href,
                                           yturl:yturl,
                                           note: hashtagv4,
+                                          filename:filename,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                           faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1887,11 +2084,15 @@ let yturl = isityt(url)
                                       }
                                     } else {
                                       let hashtagv5
-                      if(oo==="usefoldernames")
-                            hashtagv5 = getHashtag(
+                      if(oo==="usefoldernames") {
+ hashtagv5 = getHashtag(
                                          data.message[i].children[j].children[k]
                                            .children[l].children[m].title
                                        );
+                                       filename=data.message[i].children[j].children[k]
+                                           .children[l].children[m].title
+                      }
+                           
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -1931,8 +2132,11 @@ let yturl = isityt(url)
 
                                           console.log("title=" + title);
                                           
-                      if(oo==="usedomainnames")
-                            hashtagv5 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv5 = getHashtag2(url)
+filename=""
+                      }
+                            
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -1946,6 +2150,7 @@ let yturl = isityt(url)
                                               Url: url, //, //href,
                                               yturl:yturl,
                                               note: hashtagv5,
+                                              filename:filename,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                               faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -1957,13 +2162,19 @@ let yturl = isityt(url)
                                           }
                                         } else {
                                           let hashtagv6
-                      if(oo==="usefoldernames")
-                            hashtagv6 = getHashtag(
+                      if(oo==="usefoldernames") {
+hashtagv6 = getHashtag(
                                              data.message[i].children[j]
                                                .children[k].children[l].children[
                                                m
                                              ].children[n].title
                                            );
+                                           filename=data.message[i].children[j]
+                                               .children[k].children[l].children[
+                                               m
+                                             ].children[n].title
+                      }
+                            
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -2005,8 +2216,11 @@ let yturl = isityt(url)
 
                                               console.log("title=" + title);
                                               
-                      if(oo==="usedomainnames")
-                            hashtagv6 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv6 = getHashtag2(url)
+filename=""
+                      }
+                            
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -2020,6 +2234,7 @@ let yturl = isityt(url)
                                                   Url: url, //, //href,
                                                   yturl:yturl,
                                                   note: hashtagv6,
+                                                  filename:filename,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2031,13 +2246,19 @@ let yturl = isityt(url)
                                               }
                                             } else {
                                               let hashtagv7
-                      if(oo==="usefoldernames")
-                            hashtagv7 = getHashtag(
+                      if(oo==="usefoldernames") {
+hashtagv7 = getHashtag(
                                                  data.message[i].children[j]
                                                    .children[k].children[l]
                                                    .children[m].children[n]
                                                    .children[o].title
                                                );
+                                               filename=data.message[i].children[j]
+                                                   .children[k].children[l]
+                                                   .children[m].children[n]
+                                                   .children[o].title
+                      }
+                            
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -2086,8 +2307,11 @@ let yturl = isityt(url)
 
                                                   console.log("title=" + title);
                                                   
-                      if(oo==="usedomainnames")
-                            hashtagv7 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv7 = getHashtag2(url)
+filename=""
+                      }
+                            
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -2103,6 +2327,7 @@ let yturl = isityt(url)
                                                       Url: url, //, //href,
                                                       yturl:yturl,
                                                       note: hashtagv7,
+                                                      filename:filename,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2131,8 +2356,11 @@ let yturl = isityt(url)
                       //i==1
                       //hashtagv = "#otherbookmarks";
                       let hashtagv1
-                      if(oo==="usefoldernames")
-                            hashtagv1 = getHashtag(data.message[i].title);
+                      if(oo==="usefoldernames") {
+ hashtagv1 = getHashtag(data.message[i].title);
+ filename=data.message[i].title
+                      }
+                           
                       //////////////////////////////////////////////
                       for (
                         let j = 0;
@@ -2152,8 +2380,11 @@ let yturl = isityt(url)
 
                           console.log("title=" + title);
                           
-                      if(oo==="usedomainnames")
-                            hashtagv1 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv1 = getHashtag2(url)
+filename=""
+                      }
+                            
                           if (
                             !hasControlCharacters(title) &&
                             title.length > 0
@@ -2165,6 +2396,7 @@ let yturl = isityt(url)
                               Url: url, //, //href,
                               yturl:yturl,
                               note: hashtagv1,
+                              filename:filename,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                               faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2180,10 +2412,13 @@ let yturl = isityt(url)
                           );
 
                           let hashtagv2
-                      if(oo==="usefoldernames")
-                            hashtagv2 = getHashtag(
+                      if(oo==="usefoldernames") {
+hashtagv2 = getHashtag(
                              data.message[i].children[j].title
                            );
+                           filename=data.message[i].children[j].title
+                      }
+                            
 
                           for (
                             let k = 0;
@@ -2207,8 +2442,11 @@ let yturl = isityt(url)
 
                               console.log("title=" + title);
                               
-                      if(oo==="usedomainnames")
-                            hashtagv2 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv2 = getHashtag2(url)
+filename=""
+                      }
+                            
                               if (
                                 !hasControlCharacters(title) &&
                                 title.length > 0
@@ -2220,6 +2458,7 @@ let yturl = isityt(url)
                                   Url: url, //, //href,
                                   yturl:yturl,
                                   note: hashtagv2,
+                                  filename:filename,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2227,10 +2466,13 @@ let yturl = isityt(url)
                               }
                             } else {
                               let hashtagv3
-                      if(oo==="usefoldernames")
-                            hashtagv3 = getHashtag(
+                      if(oo==="usefoldernames") {
+ hashtagv3 = getHashtag(
                                  data.message[i].children[j].children[k].title
                                );
+                               filename=data.message[i].children[j].children[k].title
+                      }
+                           
                               // console.log("hashtagv3" + hashtagv3);
                               for (
                                 let l = 0;
@@ -2260,8 +2502,11 @@ let yturl = isityt(url)
 
                                   console.log("title=" + title);
                                   
-                      if(oo==="usedomainnames")
-                            hashtagv3 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv3 = getHashtag2(url)
+filename=""
+                      }
+                            
                                   if (
                                     !hasControlCharacters(title) &&
                                     title.length > 0
@@ -2273,6 +2518,7 @@ let yturl = isityt(url)
                                       Url: url, //, //href,
                                       yturl:yturl,
                                       note: hashtagv3,
+                                      filename:filename,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2285,11 +2531,15 @@ let yturl = isityt(url)
                                 } else {
                                   //folder
                                   let hashtagv4
-                      if(oo==="usefoldernames")
-                            hashtagv4 = getHashtag(
+                      if(oo==="usefoldernames") {
+ hashtagv4 = getHashtag(
                                      data.message[i].children[j].children[k]
                                        .children[l].title
                                    );
+                                   filename=data.message[i].children[j].children[k]
+                                       .children[l].title
+                      }
+                           
                                   // console.log("hashtagv4=" + hashtagv4);
                                   for (
                                     let m = 0;
@@ -2320,8 +2570,11 @@ let yturl = isityt(url)
 
                                       console.log("title=" + title);
                                       
-                      if(oo==="usedomainnames")
-                            hashtagv4 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv4 = getHashtag2(url)
+filename=""
+                      }
+                            
                                       if (
                                         !hasControlCharacters(title) &&
                                         title.length > 0
@@ -2335,6 +2588,7 @@ let yturl = isityt(url)
                                           Url: url, //, //href,
                                           yturl:yturl,
                                           note: hashtagv4,
+                                          filename:filename,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                           faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2346,11 +2600,15 @@ let yturl = isityt(url)
                                       }
                                     } else {
                                       let hashtagv5
-                      if(oo==="usefoldernames")
-                            hashtagv5= getHashtag(
+                      if(oo==="usefoldernames") {
+ hashtagv5= getHashtag(
                                          data.message[i].children[j].children[k]
                                            .children[l].children[m].title
                                        );
+                                       filename=data.message[i].children[j].children[k]
+                                           .children[l].children[m].title
+                      }
+                           
                                       // console.log("hashtagv5=" + hashtagv5);
                                       for (
                                         let n = 0;
@@ -2390,8 +2648,11 @@ let yturl = isityt(url)
 
                                           console.log("title=" + title);
                                           
-                      if(oo==="usedomainnames")
-                            hashtagv5 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv5 = getHashtag2(url)
+filename=""
+                      }
+                            
                                           if (
                                             !hasControlCharacters(title) &&
                                             title.length > 0
@@ -2405,6 +2666,7 @@ let yturl = isityt(url)
                                               Url: url, //, //href,
                                               yturl:yturl,
                                               note: hashtagv5,
+                                              filename:filename,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                               faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2416,13 +2678,19 @@ let yturl = isityt(url)
                                           }
                                         } else {
                                           let hashtagv6
-                      if(oo==="usefoldernames")
-                            hashtagv6 = getHashtag(
+                      if(oo==="usefoldernames") {
+ hashtagv6 = getHashtag(
                                              data.message[i].children[j]
                                                .children[k].children[l].children[
                                                m
                                              ].children[n].title
                                            );
+                                           filename= data.message[i].children[j]
+                                               .children[k].children[l].children[
+                                               m
+                                             ].children[n].title
+                      }
+                           
                                           // console.log("hashtagv6=" + hashtagv6);
                                           for (
                                             let o = 0;
@@ -2464,8 +2732,11 @@ let yturl = isityt(url)
 
                                               console.log("title=" + title);
                                               
-                      if(oo==="usedomainnames")
-                            hashtagv6 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv6 = getHashtag2(url)
+filename=""
+                      }
+                            
                                               if (
                                                 !hasControlCharacters(title) &&
                                                 title.length > 0
@@ -2479,6 +2750,7 @@ let yturl = isityt(url)
                                                   Url: url, //, //href,
                                                   yturl:yturl,
                                                   note: hashtagv6,
+                                                  filename:filename,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2490,13 +2762,19 @@ let yturl = isityt(url)
                                               }
                                             } else {
                                               let hashtagv7
-                      if(oo==="usefoldernames")
-                            hashtagv7 = getHashtag(
+                      if(oo==="usefoldernames") {
+ hashtagv7 = getHashtag(
                                                  data.message[i].children[j]
                                                    .children[k].children[l]
                                                    .children[m].children[n]
                                                    .children[o].title
                                                );
+                                               filename=data.message[i].children[j]
+                                                   .children[k].children[l]
+                                                   .children[m].children[n]
+                                                   .children[o].title
+                      }
+                           
                                               // console.log(
                                               //   "hashtagv7=" + hashtagv7
                                               // );
@@ -2545,8 +2823,11 @@ let yturl = isityt(url)
 
                                                   console.log("title=" + title);
                                                   
-                      if(oo==="usedomainnames")
-                            hashtagv7 = getHashtag2(url)
+                      if(oo==="usedomainnames") {
+hashtagv7 = getHashtag2(url)
+filename=""
+                      }
+                            
                                                   if (
                                                     !hasControlCharacters(
                                                       title
@@ -2562,6 +2843,7 @@ let yturl = isityt(url)
                                                       Url: url, //, //href,
                                                       yturl:yturl,
                                                       note: hashtagv7,
+                                                      filename:filename,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                                       faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2647,6 +2929,7 @@ let yturl = isityt(url)
                       Url: result[i].Url, //, //href,
                       yturl:result[i].yturl,
                       note: result[i].note,
+                      filename:result[i].filename,
                       amount: 0,
                       createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                       faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
@@ -2694,6 +2977,7 @@ let yturl = isityt(url)
                         Url: result[i].Url, //, //href,
                         yturl:result[i].yturl,
                         note: result[i].note,
+                        filename:result[i].filename,
                         amount: 0,
                         createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                         faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon

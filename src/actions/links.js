@@ -18,11 +18,12 @@ export const startAddLink = (linkData = {}) => {
       Url = "",
       yturl = "",
       note = "",
+      filename = "",
       amount = 0,
       createdAt = 0,
       faviconURL = "",
     } = linkData;
-    const link = {longname, description, Url, yturl, note, amount, createdAt, faviconURL };
+    const link = {longname, description, Url, yturl, note, filename, amount, createdAt, faviconURL };
    
     //////
     //return false;
@@ -204,16 +205,16 @@ export const startSetLinks = () => {
           //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         });
 
-        let longnamesnowhitespace2 = removeDuplicates(longnamesnowhitespace);
-        longnamesnowhitespace2.sort((a, b) => {
-          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-        });
+        // let longnamesnowhitespace2 = removeDuplicates(longnamesnowhitespace);
+        // longnamesnowhitespace2.sort((a, b) => {
+        //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+        // });
 
         
-        let longnames2 = removeDuplicates(longnames);
-        longnames2.sort((a, b) => {
-          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-        });
+        // let longnames2 = removeDuplicates(longnames);
+        // longnames2.sort((a, b) => {
+        //   return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+        // });
        
         //at this point hashtags contains the number of times each hashtag is being used
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)

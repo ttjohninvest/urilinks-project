@@ -385,15 +385,15 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
 
-    const array1 = ['a','b']
-//   const tl = [];
+    //const array1 = ['a','b']
+  const tl = [];
 
-//   // Use forEach to populate the array of objects
-//   array1.forEach(function(element) {
-//     tl.push({ label: element, value: element });
-//   });
+  // Use forEach to populate the array of objects
+  this.props.lists.forEach(function(element) {
+    tl.push({ label: element.foldername, value: element.foldername });
+  });
 
-//  this.setState({ technologyList: tl });
+ this.setState({ technologyList: tl });
     //get the plan from settings so I know how many links a person can have
     console.log(
       "In LinkListFilters.js, this.props.settings=" +

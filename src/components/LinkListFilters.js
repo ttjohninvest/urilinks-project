@@ -245,7 +245,7 @@ export class LinkListFilters extends React.Component {
       newspaper: true,
       // newspaper:
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
-      technologyList:[],
+      technologyList: [],
     };
 
     this.setit = this.setit.bind(this);
@@ -384,20 +384,19 @@ export class LinkListFilters extends React.Component {
   };
 
   componentDidMount() {
-
     //const array1 = ['a','b']
-  const tl = [];
+    const tl = [];
 
-  this.props.links.forEach(function(element) {
-    if(!!element.foldername===true)
-    tl.push({ label: element.foldername, value: element.foldername });
-  });
+    this.props.links.forEach(function (element) {
+      if (!!element.foldername === true)
+        tl.push({ label: element.foldername, value: element.foldername });
+    });
 
-   tl.sort((a, b) => {
-          return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
-        });
+    tl.sort((a, b) => {
+      return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
+    });
 
- this.setState({ technologyList: tl });
+    this.setState({ technologyList: tl });
     //get the plan from settings so I know how many links a person can have
     console.log(
       "In LinkListFilters.js, this.props.settings=" +
@@ -620,15 +619,13 @@ export class LinkListFilters extends React.Component {
             </select>
           </div>
           <div className="input-group__item- padding-top-11- cursor-pointer">
-         
-              <select>
-        {this.state.technologyList.map(option => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-            
+            <select className="select select-filters">
+              {this.state.technologyList.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="select-filters">
             <DateRangePicker

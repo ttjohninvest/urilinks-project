@@ -618,7 +618,7 @@ export class LinkListFilters extends React.Component {
           <div className="input-group__item">
          
               <select>
-        {technologyList.map(option => (
+        {this.state.technologyList.map(option => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>

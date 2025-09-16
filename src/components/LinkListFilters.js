@@ -56,38 +56,38 @@ function ExpandableArray(props) {
 
   //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
   const highlight = (v) => {
-    return 'color-white-1';
+    return "color-white-1";
 
     //v is the first letter after #
-     let cn = '';
+    let cn = "";
     // v='a'
-    
-    if (v === 'a') cn = "colorfora";
-    else if (v === 'b') cn = "colorforv";
-    else if (v === 'c') cn = "colorforc";
-    else if (v === 'd') cn = "colorford";
-    else if (v === 'e') cn = "colorfore";
-    else if (v === 'f') cn = "colorforf";
-    else if (v === 'g') cn = "colorforg";
-    else if (v === 'h') cn = "colorforh";
-    else if (v === 'i') cn = "colorfori";
-    else if (v === 'j') cn = "colorforj";
-    else if (v === 'k') cn = "colorfork";
-    else if (v === 'l') cn = "colorforl";
-    else if (v === 'm') cn = "colorform";
-    else if (v === 'n') cn = "colorforn";
-    else if (v === 'o') cn = "colorforo";
-    else if (v === 'p') cn = "colorforp";
-    else if (v === 'q') cn = "colorforq";
-    else if (v === 'r') cn = "colorforr";
-    else if (v === 's') cn = "colorfors";
-    else if (v === 't') cn = "colorfort";
-    else if (v === 'u') cn = "colorforu";
-    else if (v === 'v') cn = "colorforv";
-    else if (v === 'w') cn = "colorforw";
-    else if (v === 'x') cn = "colorforx";
-    else if (v === 'y') cn = "colorfory";
-    else if (v === 'z') cn = "colorforz";
+
+    if (v === "a") cn = "colorfora";
+    else if (v === "b") cn = "colorforv";
+    else if (v === "c") cn = "colorforc";
+    else if (v === "d") cn = "colorford";
+    else if (v === "e") cn = "colorfore";
+    else if (v === "f") cn = "colorforf";
+    else if (v === "g") cn = "colorforg";
+    else if (v === "h") cn = "colorforh";
+    else if (v === "i") cn = "colorfori";
+    else if (v === "j") cn = "colorforj";
+    else if (v === "k") cn = "colorfork";
+    else if (v === "l") cn = "colorforl";
+    else if (v === "m") cn = "colorform";
+    else if (v === "n") cn = "colorforn";
+    else if (v === "o") cn = "colorforo";
+    else if (v === "p") cn = "colorforp";
+    else if (v === "q") cn = "colorforq";
+    else if (v === "r") cn = "colorforr";
+    else if (v === "s") cn = "colorfors";
+    else if (v === "t") cn = "colorfort";
+    else if (v === "u") cn = "colorforu";
+    else if (v === "v") cn = "colorforv";
+    else if (v === "w") cn = "colorforw";
+    else if (v === "x") cn = "colorforx";
+    else if (v === "y") cn = "colorfory";
+    else if (v === "z") cn = "colorforz";
     else cn = "color-white-1";
 
     return cn;
@@ -326,16 +326,12 @@ export class LinkListFilters extends React.Component {
   };
 
   onSortChange2 = (e) => {
-       console.log("onSortChange2")
-     
+    console.log("onSortChange2");
+
     //e.target.value //constains the folder name
-      
-      
-      
-      
-      //this.props.sortByNoteText();
-    
-  }
+
+    //this.props.sortByNoteText();
+  };
 
   onSortChange = (e) => {
     console.log("onSortChange=(), e.target.value=" + e.target.value);
@@ -606,12 +602,10 @@ export class LinkListFilters extends React.Component {
               >
                 Date
               </option>
-              
             </select>
           </div>
           <div className="input-group__item">
-            {this.props.links.length}
-            {/* <select
+            <select
               className="select select-filters"
               value={"foldername"}
               //value={this.props.filters.sortBy}
@@ -619,16 +613,17 @@ export class LinkListFilters extends React.Component {
               onChange={this.onSortChange2}
               title="results is everything under the foldername"
             >
-{this.props.links.forEach((r)=>{
-return (<option value={r.foldername} title="">
-                {r.foldername}
-              </option>)
-})
-
-}
+              {this.props.links.forEach((r) => {
+                if(!!r.foldername===true) {
+                  return (
+                    <option value={r.foldername} title="">
+                      {r.foldername}
+                    </option>
+                );
+                }
               
-              
-            </select> */}
+              })}
+            </select>
           </div>
           <div className="select-filters">
             <DateRangePicker

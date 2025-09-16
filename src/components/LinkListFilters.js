@@ -331,8 +331,10 @@ export class LinkListFilters extends React.Component {
     console.log("onSortChange2, e.target.value="+e.target.value);
     //alert( "e.target.value="+e.target.value)
    
-    document.getElementById('termid').value = e.target.value
-    //this.props.sortByFolderText();
+    //document.getElementById('termid').value = e.target.value
+    this.props.setTextFilter(e.target.value);
+
+    this.props.sortByFolderText();
   };
 
   onSortChange = (e) => {

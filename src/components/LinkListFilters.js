@@ -556,7 +556,7 @@ export class LinkListFilters extends React.Component {
 
         <div
           id="before-before-link-summary-id"
-          className="input-group some-component borderRadius4 flexrow2w"
+          className="input-group some-component borderRadius4 flexrow2w-"
         >
           <div className="input-group__item">
             <input
@@ -619,7 +619,7 @@ export class LinkListFilters extends React.Component {
               </option>
             </select>
           </div>
-          <div className="input-group__item">
+          <div className="input-group__item  padding-top-11 cursor-pointer">
          
               <select>
         {this.state.technologyList.map(option => (

@@ -2904,7 +2904,7 @@ const FetchBookmarks = (props) => {
                 kht = undefined;
                 kht2 = undefined;
                 kht3 = undefined;
-                //throw new Error("ERROR ERROR ERROR")
+                throw new Error("ERROR ERROR ERROR")
                 setDone(true);
 
                 console.log("three loops ended");

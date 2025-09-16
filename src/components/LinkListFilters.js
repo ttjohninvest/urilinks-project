@@ -556,9 +556,9 @@ export class LinkListFilters extends React.Component {
 
         <div
           id="before-before-link-summary-id"
-          className="input-group some-component borderRadius4 flexrow2w-"
+          className="input-group- some-component borderRadius4 flexrow2w"
         >
-          <div className="input-group__item">
+          <div className="input-group__item-">
             <input
               ref={this.myRef}
               type="text"
@@ -581,14 +581,14 @@ export class LinkListFilters extends React.Component {
           </div>
 
           <div
-            className="header__title padding-top-11 cursor-pointer"
+            className="header__title padding-top-11- cursor-pointer"
             onClick={this.scrollUp}
             title="scroll to top"
           >
             (up)
           </div>
 
-          <div className="input-group__item">
+          <div className="input-group__item-">
             <select
               className="select select-filters"
               value={this.state.sortBy}
@@ -619,7 +619,7 @@ export class LinkListFilters extends React.Component {
               </option>
             </select>
           </div>
-          <div className="input-group__item  padding-top-11 cursor-pointer">
+          <div className="input-group__item- padding-top-11- cursor-pointer">
          
               <select>
         {this.state.technologyList.map(option => (

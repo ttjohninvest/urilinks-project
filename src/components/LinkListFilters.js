@@ -327,7 +327,7 @@ export class LinkListFilters extends React.Component {
   };
 
   onSortChange2 = (e) => {
-    console.log("onSortChange2");
+    console.log("onSortChange2, e.target.value="+e.target.value);
 
     //e.target.value //constains the folder name
 
@@ -619,7 +619,9 @@ export class LinkListFilters extends React.Component {
             </select>
           </div>
           <div className="input-group__item- padding-top-11- cursor-pointer">
-            <select className="select select-filters">
+            <select className="select select-filters"
+            onChange={this.onSortChange2}
+            >
               {this.state.technologyList.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}

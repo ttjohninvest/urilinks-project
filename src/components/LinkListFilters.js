@@ -393,6 +393,10 @@ export class LinkListFilters extends React.Component {
     tl.push({ label: element.foldername, value: element.foldername });
   });
 
+   tl.sort((a, b) => {
+          return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
+        });
+
  this.setState({ technologyList: tl });
     //get the plan from settings so I know how many links a person can have
     console.log(

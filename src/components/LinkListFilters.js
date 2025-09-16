@@ -245,7 +245,7 @@ export class LinkListFilters extends React.Component {
       newspaper: true,
       // newspaper:
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
-      technologyList:[],
+      technologyList:[{ label: 'a', value: 'a' },{ label: 'b', value: 'b' }],
     };
 
     this.setit = this.setit.bind(this);
@@ -386,14 +386,14 @@ export class LinkListFilters extends React.Component {
   componentDidMount() {
 
     const array1 = ['a','b']
-  const tl = [];
+//   const tl = [];
 
-  // Use forEach to populate the array of objects
-  array1.forEach(function(element) {
-    tl.push({ label: element, value: element });
-  });
+//   // Use forEach to populate the array of objects
+//   array1.forEach(function(element) {
+//     tl.push({ label: element, value: element });
+//   });
 
- this.setState({ technologyList: tl });
+//  this.setState({ technologyList: tl });
     //get the plan from settings so I know how many links a person can have
     console.log(
       "In LinkListFilters.js, this.props.settings=" +

@@ -385,12 +385,12 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
 
-    
+    const array1 = ['a','b']
   const tl = [];
 
   // Use forEach to populate the array of objects
-  this.props.list.forEach(function(element) {
-    tl.push({ label: element.foldername, value: element.foldername });
+  array1.forEach(function(element) {
+    tl.push({ label: element, value: element });
   });
 
  this.setState({ technologyList: tl });

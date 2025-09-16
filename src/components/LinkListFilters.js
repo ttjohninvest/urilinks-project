@@ -610,8 +610,8 @@ export class LinkListFilters extends React.Component {
             </select>
           </div>
           <div className="input-group__item">
-            
-            <select
+            {this.props.links.length}
+            {/* <select
               className="select select-filters"
               value={"foldername"}
               //value={this.props.filters.sortBy}
@@ -628,7 +628,7 @@ return (<option value={r.foldername} title="">
 }
               
               
-            </select>
+            </select> */}
           </div>
           <div className="select-filters">
             <DateRangePicker

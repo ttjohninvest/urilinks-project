@@ -332,7 +332,9 @@ export class LinkListFilters extends React.Component {
     //alert( "e.target.value="+e.target.value)
    
     //document.getElementById('termid').value = e.target.value
-    this.props.setTextFilter(e.target.value);
+    if (this.myRef.current) this.myRef.current.focus();
+    window.localStorage.setItem("sortBy", "folder");
+    //this.props.setTextFilter(e.target.value);
     this.setState({ sortBy: "folder" });
     this.props.sortByFolderText();
   };

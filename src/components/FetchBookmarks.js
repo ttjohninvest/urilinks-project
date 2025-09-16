@@ -2938,7 +2938,7 @@ const FetchBookmarks = (props) => {
                 );
                 console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
 
-                throw new Error("ERROR ERROR ERROR")
+                //throw new Error("ERROR ERROR ERROR")
                 // let result = B.filter(
                 //   (b) => !A.some((a) => a.description.replace(/-/g, ' ') === b.description.replace(/-/g, ' '))
                 // ); //I am having a problem with the hyphen
@@ -2974,7 +2974,7 @@ const FetchBookmarks = (props) => {
 
                   for (let i = 0; i < loopmax2; i++) {
                     //for (let i = 0; i < 1; i++) {
-
+ console.log("1 result["+i+"].foldername="+result[i].foldername)
                     r = props.startAddLink({
                       description: result[i].description,
                       Url: result[i].Url, //, //href,
@@ -2991,7 +2991,7 @@ const FetchBookmarks = (props) => {
                       break;
                     }
                   }
-
+throw new Error("ERROR ERROR ERROR")
                   if (r === false) {
                     // setErrorDialog(true);
                     console.log("ERROR, VVVVVVVVVVVVV returned false");
@@ -3022,7 +3022,7 @@ const FetchBookmarks = (props) => {
                     //for (let i = 0; i < result.length; i++) {
                     for (let i = 0; i < loopmax2; i++) {
                       //for (let i = 0; i < 1; i++) {
-
+                      console.log("2 result["+i+"].foldername="+result[i].foldername)
                       r = props.startAddLink({
                         description: result[i].description,
                         Url: result[i].Url, //, //href,

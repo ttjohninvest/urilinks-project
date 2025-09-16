@@ -5,7 +5,7 @@ Fetchbookmarks.js, put foldernames in
 Friendship:
 Adults can not find friendship with other humans but they can find information sharing.  Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen. They will go their separate ways.
 
-To begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
+I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
 
 Thank you for sharing. I love you unconditionally. Adults can not find friendship with other humans but they can find information sharing.  Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen but service can still happen.  I used to be skinny but now I have a cute little tummy and I love it. I am fine. To begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
 ==========================================================================================
@@ -500,6 +500,7 @@ I asked my precious Jesus Christ to give me wisdom about denomination and non de
 Answer: "7th Heaven", "all of it"
 
 marketing
+get a reported to write a story
 on 5/23/25, I made a reno.craigslist post with the title: "tool to organize url links by hash tag on your own secure web page"
 in community/news
 flagged and removed: reno.craigslist.org/vnn/d/reno-secure-tool-to-organize-url-links/7852457919.html

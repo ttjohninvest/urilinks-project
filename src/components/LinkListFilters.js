@@ -604,7 +604,7 @@ export class LinkListFilters extends React.Component {
               </option>
             </select>
           </div>
-          {/* <div className="input-group__item">
+          <div className="input-group__item">
             <select
               className="select select-filters"
               value={"foldername"}
@@ -624,7 +624,7 @@ export class LinkListFilters extends React.Component {
               
               })}
             </select>
-          </div> */}
+          </div>
           <div className="select-filters">
             <DateRangePicker
               className="zindex"

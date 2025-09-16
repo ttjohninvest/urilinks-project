@@ -2991,7 +2991,7 @@ const FetchBookmarks = (props) => {
                       break;
                     }
                   }
-throw new Error("ERROR ERROR ERROR")
+//throw new Error("ERROR ERROR ERROR")
                   if (r === false) {
                     // setErrorDialog(true);
                     console.log("ERROR, VVVVVVVVVVVVV returned false");

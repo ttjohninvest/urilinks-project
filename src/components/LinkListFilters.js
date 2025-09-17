@@ -337,6 +337,8 @@ export class LinkListFilters extends React.Component {
     //this.props.setTextFilter(e.target.value);
     this.setState({ sortBy: "folder" });
     this.props.sortByFolderText();
+    this.props.setTextFilter(e.target.value);
+
   };
 
   onSortChange = (e) => {

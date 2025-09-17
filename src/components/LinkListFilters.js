@@ -383,12 +383,24 @@ export class LinkListFilters extends React.Component {
     return hashtags;
   };
 
-  removeDuplicates = (stringArray) => {
-    const stringifiedArray = stringArray.join(" ");
-    const lcstring = stringifiedArray.toLowerCase();
-    const lcStringArray = lcstring.split(" ");
-    return [...new Set(lcStringArray)];
-  };
+  // removeDuplicates = (stringArray) => {
+  //   const stringifiedArray = stringArray.join(" ");
+  //   const lcstring = stringifiedArray.toLowerCase();
+  //   const lcStringArray = lcstring.split(" ");
+  //   return [...new Set(lcStringArray)];
+  // };
+
+  
+    removeDuplicatesByKey(array, keyFunction) {
+    const seen = new Set();
+    return array.filter(item => {
+        const key = keyFunction(item);
+        const duplicate = seen.has(key);
+        seen.add(key);
+        return !duplicate;
+    });
+}
+  
 
   componentDidMount() {
     //const array1 = ['a','b']
@@ -403,9 +415,9 @@ export class LinkListFilters extends React.Component {
       return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
     });
 
-    //const tl2 = this.removeDuplicates(tl)
+    const tl2 = removeDuplicatesByKey(tl, item => item.value);
 
-    this.setState({ foldernamesList: tl });
+    this.setState({ foldernamesList: tl2 });
     //get the plan from settings so I know how many links a person can have
     console.log(
       "In LinkListFilters.js, this.props.settings=" +

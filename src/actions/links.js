@@ -121,6 +121,7 @@ export const setLinksAll = (links) => ({
     return hashtags;
   };
 
+
   const removeDuplicates = (stringArray) => {
     const stringifiedArray = stringArray.join(" ");
     const lcstring = stringifiedArray.toLowerCase();

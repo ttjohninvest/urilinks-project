@@ -403,7 +403,9 @@ export class LinkListFilters extends React.Component {
       return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
     });
 
-    this.setState({ foldernamesList: tl });
+    const tl2 = removeDuplicates(tl)
+
+    this.setState({ foldernamesList: tl2 });
     //get the plan from settings so I know how many links a person can have
     console.log(
       "In LinkListFilters.js, this.props.settings=" +

@@ -401,14 +401,24 @@ export class LinkListFilters extends React.Component {
     });
 }
   
+truncate(str, maxLength) {
+    const ellipsis = '...';
+    return str.length > maxLength ? str.slice(0, maxLength - ellipsis.length) + ellipsis : str;
+}
+
+// Example usage:
+//console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."   
 
   componentDidMount() {
     //const array1 = ['a','b']
     const tl = [];
 
     this.props.links.forEach(function (element) {
-      if (!!element.foldername === true)
-        tl.push({ label: element.foldername, value: element.foldername });
+      if (!!element.foldername === true) {
+let str = this.truncate(element.foldername, 40)
+ tl.push({ label: str, value: element.foldername });
+      }
+       
     });
 
     tl.sort((a, b) => {
@@ -643,7 +653,7 @@ export class LinkListFilters extends React.Component {
           <div className="input-group__item- padding-top-11- cursor-pointer">
             <select className="select select-filters"
             onChange={this.onFolderChange}
-             title="pick a foldername to search for its bookmarks"
+             title="pick a folder name in this list to search for its bookmarks"
             >
               <option key={''} value={''}>
                   search folder name
@@ -651,7 +661,7 @@ export class LinkListFilters extends React.Component {
              
               {this.state.foldernamesList.map((option,i) => (
                 
-                <option key={option.value} value={option.value}>
+                <option key={option.value} value={option.value} title={option.value}>
                   {option.label}
                 </option>
 

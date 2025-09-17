@@ -644,8 +644,8 @@ export class LinkListFilters extends React.Component {
             <select className="select select-filters"
             onChange={this.onFolderChange}
             >
-              <option key={''} value={''}>
-                  pick folder name
+              <option key={''} value={''} title="pick a foldername to search for its bookmarks">
+                  search folder name
                 </option>
              
               {this.state.foldernamesList.map((option,i) => (

@@ -40,6 +40,7 @@ if (dateObject.toString() !== 'Invalid Date') {
       if(sortBy!=="date" && !!text===false) text=''
 
        let isTextInDescription, isTextInNote;
+       let isTextInFoldername
 
        if(sortBy==='folder') { // || sortBy==='date') {
           if(!!link.foldername===false) return false

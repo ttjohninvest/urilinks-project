@@ -645,7 +645,7 @@ export class LinkListFilters extends React.Component {
             onChange={this.onFolderChange}
             >
               <option key={''} value={''}>
-                  {pick folder name}
+                  pick folder name
                 </option>
              
               {this.state.foldernamesList.map((option,i) => (

@@ -388,7 +388,7 @@ export class LinkListFilters extends React.Component {
   //   const lcstring = stringifiedArray.toLowerCase();
   //   const lcStringArray = lcstring.split(" ");
   //   return [...new Set(lcStringArray)];
-  // };
+  // };//
 
   
     removeDuplicatesByKey(array, keyFunction) {

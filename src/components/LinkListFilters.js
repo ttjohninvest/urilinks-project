@@ -643,8 +643,9 @@ export class LinkListFilters extends React.Component {
           <div className="input-group__item- padding-top-11- cursor-pointer">
             <select className="select select-filters"
             onChange={this.onFolderChange}
+             title="pick a foldername to search for its bookmarks"
             >
-              <option key={''} value={''} title="pick a foldername to search for its bookmarks">
+              <option key={''} value={''}>
                   search folder name
                 </option>
              

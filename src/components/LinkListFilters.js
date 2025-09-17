@@ -644,12 +644,16 @@ export class LinkListFilters extends React.Component {
             <select className="select select-filters"
             onChange={this.onFolderChange}
             >
+              <option key={''} value={''}>
+                  {pick folder name}
+                </option>
              
               {this.state.foldernamesList.map((option,i) => (
                 
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
+
               ))}
             </select>
           </div>

@@ -42,11 +42,18 @@ if (dateObject.toString() !== 'Invalid Date') {
        let isTextInDescription, isTextInNote;
        let isTextInFoldername
 
+      //  if(sortBy==='folder') { // || sortBy==='date') {
+      //     if(!!link.foldername===false) return false
+      //     isTextInFoldername = link.foldername?link.foldername
+      //     .toLowerCase()
+      //     .includes(text.toLowerCase()):false;
+      //     return isTextInFoldername //&& startDateMatch && endDateMatch;
+      //   }
+
        if(sortBy==='folder') { // || sortBy==='date') {
           if(!!link.foldername===false) return false
-          isTextInFoldername = link.foldername?link.foldername
-          .toLowerCase()
-          .includes(text.toLowerCase()):false;
+          isTextInFoldername = link.foldername?link.foldername.toLowerCase()
+          ===text.toLowerCase():false;
           return isTextInFoldername //&& startDateMatch && endDateMatch;
         }
 
@@ -79,12 +86,10 @@ if (dateObject.toString() !== 'Invalid Date') {
 
        if(sortBy==='folder') { // || sortBy==='date') {
           if(!!link.foldername===false) return false
-          isTextInFoldername = link.foldername?link.foldername
-          .toLowerCase()
-          .includes(text.toLowerCase()):false;
+          isTextInFoldername = link.foldername?link.foldername.toLowerCase()
+          ===text.toLowerCase():false;
           return isTextInFoldername //&& startDateMatch && endDateMatch;
         }
-
        else
        if(sortBy==='description') { // || sortBy==='date') {
           if(!!link.description===false) return false

@@ -410,12 +410,13 @@ truncate(str, maxLength) {
 //console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."   
 
   componentDidMount() {
+
     //const array1 = ['a','b']
     const tl = [];
 
     this.props.links.forEach(function (element) {
       if (!!element.foldername === true) {
-let str = this.truncate(element.foldername, 40)
+let str = truncate(element.foldername, 40)
  tl.push({ label: str, value: element.foldername });
       }
        

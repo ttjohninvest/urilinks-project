@@ -401,10 +401,10 @@ export class LinkListFilters extends React.Component {
     });
 }
   
-truncate(str, maxLength) {
-    const ellipsis = '...';
-    return str.length > maxLength ? str.slice(0, maxLength - ellipsis.length) + ellipsis : str;
-}
+// truncate(str, maxLength) {
+//     const ellipsis = '...';
+//     return str.length > maxLength ? str.slice(0, maxLength - ellipsis.length) + ellipsis : str;
+// }
 
 // Example usage:
 //console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."   
@@ -416,8 +416,9 @@ truncate(str, maxLength) {
 
     this.props.links.forEach(function (element) {
       if (!!element.foldername === true) {
-let str = truncate(element.foldername, 40)
- tl.push({ label: str, value: element.foldername });
+
+let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) + "..." : str
+ tl.push({ label: str2, value: element.foldername });
       }
        
     });

@@ -19,8 +19,8 @@ export const sortByNoteText = () => ({
   type: 'SORT_BY_NOTETEXT'
 });
 
-export const sortByFolderText = () => ({
-  type: 'SORT_BY_FOLDERTEXT'
+export const sortByFolder = () => ({
+  type: 'SORT_BY_FOLDER'
 });
 
 export const sortByHashTag = () => ({

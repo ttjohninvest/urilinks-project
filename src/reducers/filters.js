@@ -31,6 +31,11 @@ export default (state = filtersReducerDefaultState, action) => {
           ...state,
           sortBy: 'hashtag'
         };
+      case 'SORT_BY_FOLDER':
+      return {
+        ...state,
+        sortBy: 'folder'
+      };
     case 'SORT_BY_AMOUNT':
       return {
         ...state,

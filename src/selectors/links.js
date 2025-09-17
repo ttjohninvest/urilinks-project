@@ -41,7 +41,15 @@ if (dateObject.toString() !== 'Invalid Date') {
 
        let isTextInDescription, isTextInNote;
 
-       if(sortBy==='description') { // || sortBy==='date') {
+       if(sortBy==='folder') { // || sortBy==='date') {
+          if(!!link.foldername===false) return false
+          isTextInFoldername = link.foldername?link.foldername
+          .toLowerCase()
+          .includes(text.toLowerCase()):false;
+          return isTextInFoldername //&& startDateMatch && endDateMatch;
+        }
+
+       else if(sortBy==='description') { // || sortBy==='date') {
           if(!!link.description===false) return false
           isTextInDescription = link.description?link.description
           .toLowerCase()
@@ -68,6 +76,15 @@ if (dateObject.toString() !== 'Invalid Date') {
 
        let isTextInDescription, isTextInNote;
 
+       if(sortBy==='folder') { // || sortBy==='date') {
+          if(!!link.foldername===false) return false
+          isTextInFoldername = link.foldername?link.foldername
+          .toLowerCase()
+          .includes(text.toLowerCase()):false;
+          return isTextInFoldername //&& startDateMatch && endDateMatch;
+        }
+
+       else
        if(sortBy==='description') { // || sortBy==='date') {
           if(!!link.description===false) return false
           isTextInDescription = link.description?link.description
@@ -102,6 +119,11 @@ if (dateObject.toString() !== 'Invalid Date') {
           : -1;
       } else if (sortBy === "hashtag") {
         return removeHashTags(a.note.toLowerCase()) > removeHashTags(b.note.toLowerCase())
+          ? 1
+          : -1;
+      }
+      else if (sortBy === "folder") {
+        return a.foldername.toLowerCase() > b.foldername.toLowerCase()
           ? 1
           : -1;
       }

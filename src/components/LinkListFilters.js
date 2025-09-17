@@ -15,7 +15,7 @@ import {
   setStartDate,
   setEndDate,
   sortByNoteText,
-  sortByFolderText
+  sortByFolder
 } from "../actions/filters";
 
 function ExpandableArray(props) {
@@ -336,7 +336,7 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("sortBy", "folder");
     //this.props.setTextFilter(e.target.value);
     this.setState({ sortBy: "folder" });
-    this.props.sortByFolderText();
+    this.props.sortByFolder();
     this.props.setTextFilter(e.target.value);
 
   };
@@ -673,7 +673,7 @@ const mapDispatchToProps = (dispatch) => ({
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
-  sortByFolderText: () => dispatch(sortByFolderText()),
+  sortByFolder: () => dispatch(sortByFolder()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

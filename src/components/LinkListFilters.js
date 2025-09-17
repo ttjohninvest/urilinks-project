@@ -403,7 +403,7 @@ export class LinkListFilters extends React.Component {
       return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
     });
 
-    const tl2 = removeDuplicates(tl)
+    const tl2 = this.removeDuplicates(tl)
 
     this.setState({ foldernamesList: tl2 });
     //get the plan from settings so I know how many links a person can have

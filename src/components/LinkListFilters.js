@@ -417,7 +417,7 @@ export class LinkListFilters extends React.Component {
     this.props.links.forEach(function (element) {
       if (!!element.foldername === true) {
 
-let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) + "..." : str
+let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) + "..." : element.foldername
  tl.push({ label: str2, value: element.foldername });
       }
        

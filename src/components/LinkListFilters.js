@@ -588,7 +588,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
 
         <div
           id="before-before-link-summary-id"
-          className="borderRadius4 flexrow2w"
+          className="bg-color-2 borderRadius4 flexrow2w"
         >
           <div className="">
             <input

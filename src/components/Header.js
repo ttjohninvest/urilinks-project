@@ -77,7 +77,7 @@ export const Header = (props) => {
         <header className="header">
           <div className="">
             <div className="flexrow2w">
-               <div className="padding-leftright padding-top-11124"></div>
+               <div className="padding-leftright padding-top-11124">
                 <Link className="nounderline ib" to="/dashboard" title="refresh">  
                 
                       <img

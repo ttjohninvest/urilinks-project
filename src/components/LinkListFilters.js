@@ -588,7 +588,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
 
         <div
           id="before-before-link-summary-id"
-          className="padding-1- input-group- some-component borderRadius4 flexrow2w"
+          className=".padding-bottom-3 input-group- some-component borderRadius4 flexrow2w"
         >
           <div className="input-group__item-">
             <input

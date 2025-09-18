@@ -595,7 +595,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
               id="termid"
               ref={this.myRef}
               type="text"
-              className="text-input text-input-filters"
+              className="text-input text-input-filters-"
               placeholder={
                 this.props.filters.sortBy === "date"
                   ? "Search for Link(s)"

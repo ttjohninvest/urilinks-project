@@ -102,7 +102,7 @@ function ExpandableArray(props) {
             className="flexrow2c padding-around- padding-left-a borderRadius4"
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
-            <div className="text-size-5">
+            <div className="text-size-5 padding-top-11">
               (welcome) clickable hash tags in alphabetical order
               <br />
               I believe that Jesus is the Christ. I believe that Jesus Christ is

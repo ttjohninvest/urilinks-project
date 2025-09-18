@@ -588,14 +588,14 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
 
         <div
           id="before-before-link-summary-id"
-          className="padding-bottom-3 input-group- some-component borderRadius4 flexrow2w"
+          className="borderRadius4 flexrow2w"
         >
-          <div className="input-group__item-">
+          <div className="">
             <input
               id="termid"
               ref={this.myRef}
               type="text"
-              className="text-input text-input-filters"
+              className="text-input- text-input-filters-"
               placeholder={
                 this.props.filters.sortBy === "date"
                   ? "Search for Link(s)"
@@ -614,16 +614,16 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
           </div>
 
           <div
-            className="header__title padding-top-11- cursor-pointer"
+            className="cursor-pointer"
             onClick={this.scrollUp}
             title="scroll to top"
           >
             (up)
           </div>
 
-          <div className="input-group__item-">
+          <div className="">
             <select
-              className="select select-filters-"
+              className="select-"
               value={this.state.sortBy}
               //value={this.props.filters.sortBy}
 
@@ -652,8 +652,8 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
               </option>
             </select>
           </div>
-          <div className="input-group__item-  cursor-pointer">
-            <select className="select select-filters-"
+          <div className="cursor-pointer">
+            <select className="select-"
             onChange={this.onFolderChange}
              title="pick a folder name in this list to search for its bookmarks"
             >
@@ -670,7 +670,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
               ))}
             </select>
           </div>
-          <div className="select-filters-">
+          <div className="">
             <DateRangePicker
               className="zindex"
               startDate={this.props.filters.startDate}

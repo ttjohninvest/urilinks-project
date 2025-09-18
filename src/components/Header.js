@@ -75,10 +75,10 @@ export const Header = (props) => {
     <div id="top">
       {!deleteAccountError ? (
         <header className="header">
-          <div className="content-container-">
-            <div className="header__content- flexrow2w">
-              <div className="padding-top-1112 padding-left-11- padding-leftright">
-                <Link className="header__title- nounderline ib" to="/dashboard" title="refresh">  
+          <div className="">
+            <div className="flexrow2w">
+              <div className="padding-top-1112- padding-leftright">
+                <Link className="nounderline ib" to="/dashboard" title="refresh">  
                  
                       <img
                         className="rounded-full-1 ib-  margin-bottom-11-"
@@ -90,7 +90,7 @@ export const Header = (props) => {
                 </Link>
               </div>
               <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
-                  <Link className="header__title- nounderline color-white-1 cursor-pointer" to="/dashboard"  title="refresh">
+                  <Link className="nounderline color-white-1 cursor-pointer" to="/dashboard"  title="refresh">
                      urilinks (bookmarking)
                   </Link>
               </div>

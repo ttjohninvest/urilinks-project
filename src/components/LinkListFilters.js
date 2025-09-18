@@ -565,7 +565,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
 
   render() {
     return (
-      <div className="content-container- border-green-">
+      <div className="">
         <div>
           {((this.props.hashtags && this.props.hashtags.length > 0) ||
             (this.state.mappedDataLong &&
@@ -588,14 +588,14 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
 
         <div
           id="before-before-link-summary-id"
-          className="bg-color-2 borderRadius4 flexrow2w"
+          className="bg-color-2 borderRadius4- flexrow2w"
         >
           <div className="">
             <input
               id="termid"
               ref={this.myRef}
               type="text"
-              className="text-input- text-input-filters-"
+              className="text-input text-input-filters"
               placeholder={
                 this.props.filters.sortBy === "date"
                   ? "Search for Link(s)"
@@ -623,7 +623,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
 
           <div className="">
             <select
-              className="select-"
+              className="select"
               value={this.state.sortBy}
               //value={this.props.filters.sortBy}
 
@@ -653,7 +653,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
             </select>
           </div>
           <div className="cursor-pointer">
-            <select className="select-"
+            <select className="select"
             onChange={this.onFolderChange}
              title="pick a folder name in this list to search for its bookmarks"
             >

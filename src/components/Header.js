@@ -77,11 +77,11 @@ export const Header = (props) => {
         <header className="header">
           <div className="">
             <div className="flexrow2w">
-              <div className="padding-leftright padding-top">
-                <Link className="nounderline ib" to="/dashboard" title="refresh">  
+              <div className="padding-leftright padding-top-">
+                <Link className="nounderline ib-" to="/dashboard" title="refresh">  
                  
                       <img
-                        className="rounded-full-1 ib-  margin-bottom-11-"
+                        className="rounded-full-1"
                         src={logo}
                         width="35"
                         height="35"

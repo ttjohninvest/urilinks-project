@@ -38,17 +38,17 @@ const FetchBookmarks = (props) => {
   // }
 
   const isityt = (url) => {
-    if (url.includes("youtube")) {
+    if (!!url === true && url.includes("youtube")) {
       //https://www.youtube.com/watch?v=L9ervwr0qq0&list=RDL9ervwr0qq0&start_radio=1
       //   //get the id
       let ytid;
-      if (url.includes("shorts")) {
+      if (!!url === true && url.includes("shorts")) {
         let a = url.split("/");
         let i = a.length - 1;
         ytid = a[i];
       } else {
         let a = url.split("v=");
-        if (a[1].includes("&")) {
+        if (!!a[1] === true && a[1].includes("&")) {
           let b = a[1].split("&");
           ytid = b[0];
         } else {

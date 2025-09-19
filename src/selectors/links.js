@@ -133,6 +133,7 @@ if (dateObject.toString() !== 'Invalid Date') {
           ? 1
           : -1;
       } else {
+         if(!!a.foldername === true)
          return a.foldername.toLowerCase() > b.foldername.toLowerCase()
           ? 1
           : -1;

@@ -132,6 +132,10 @@ if (dateObject.toString() !== 'Invalid Date') {
         return a.foldername.toLowerCase() > b.foldername.toLowerCase()
           ? 1
           : -1;
+      } else {
+         return a.foldername.toLowerCase() > b.foldername.toLowerCase()
+          ? 1
+          : -1;
       }
     });
 };

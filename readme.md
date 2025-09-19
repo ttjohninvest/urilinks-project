@@ -54,6 +54,7 @@ ttjohnhappy
 # Git Commands
 
 todo to do
+the results of foldername are out of order, the code is in selector folder
 put in note section Keep it if you are scared to spend it wrong 13:12 50th ANNIVERSARY CELEBRATION OF ENCYCLOPAEDIA BRITTANICA EDUCATIONAL EBE FILMS 64584
 put in note section how to be peaceful and productive in a regulating environment Mowglis Archival Films Compilation, a camp
 

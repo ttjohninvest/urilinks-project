@@ -131,7 +131,8 @@ if (dateObject.toString() !== 'Invalid Date') {
           : -1;
       }
       else if (true || sortBy === "folder") {
-        return a.foldername.toLowerCase() > b.foldername.toLowerCase()
+        console.log("selector sortBy===folder")
+        return a.foldername > b.foldername
           ? 1
           : -1;
       } 

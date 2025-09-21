@@ -132,7 +132,7 @@ if (dateObject.toString() !== 'Invalid Date') {
       }
       else if (true || sortBy === "folder") {
         console.log("selector sortBy===folder")
-        return a.foldername > b.foldername
+        return a.foldername < b.foldername
           ? 1
           : -1;
       } 

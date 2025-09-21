@@ -125,7 +125,7 @@ if (dateObject.toString() !== 'Invalid Date') {
           ? 1
           : -1;
       } else*/
-         if (sortBy === "hashtag") {
+         if (false && sortBy === "hashtag") {
         return removeHashTags(a.note.toLowerCase()) > removeHashTags(b.note.toLowerCase())
           ? 1
           : -1;

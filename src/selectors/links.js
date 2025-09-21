@@ -109,7 +109,7 @@ if (dateObject.toString() !== 'Invalid Date') {
           .toLowerCase()
           .includes(text.toLowerCase()):false;
           return isTextInNote
-        }
+        } 
         else return true; 
 }
 
@@ -128,7 +128,7 @@ if (dateObject.toString() !== 'Invalid Date') {
           ? 1
           : -1;
       }
-      else if (sortBy === "folder") {
+      else if (true || sortBy === "folder") {
         return a.foldername.toLowerCase() > b.foldername.toLowerCase()
           ? 1
           : -1;

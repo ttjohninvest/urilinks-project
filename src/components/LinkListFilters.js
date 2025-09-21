@@ -336,8 +336,16 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("sortBy", "folder");
     //this.props.setTextFilter(e.target.value);
     this.setState({ sortBy: "folder" });
-    this.props.sortByFolder();
     this.props.setTextFilter(e.target.value);
+    this.props.sortByFolder();
+
+    /*
+      //this.props.setTextFilter("");
+      //if (this.myRef.current) this.myRef.current.focus();
+      //window.localStorage.setItem("sortBy", "description");
+      //this.setState({ sortBy: "description" });
+      //this.props.sortByDescription();
+    */
 
   };
 
@@ -663,7 +671,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
              
               {this.state.foldernamesList.map((option,i) => (
                 
-                <option key={option.value} value={'folder'} title={option.value}>
+                <option key={option.value} value={option.value} title={option.value}>
                   {option.label}
                 </option>
 

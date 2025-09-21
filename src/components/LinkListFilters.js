@@ -663,7 +663,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
              
               {this.state.foldernamesList.map((option,i) => (
                 
-                <option key={option.value} value={option.value} title={option.value}>
+                <option key={option.value} value={'folder'} title={option.value}>
                   {option.label}
                 </option>
 

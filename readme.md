@@ -3,10 +3,12 @@ Fetchbookmarks.js, put foldernames in
 
 =========================================================================================
 Keep it if you are scared to spend it wrong.
+Adults do not get excited to go do things together like kids do, that 
+is the main difference. 
 Friendship:
 Adults can not find friendship with other humans but they can find information sharing.  Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen. They will go their separate ways.
 
-I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
+I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves.
 
 Their is no such thing is evolution of life forms from one form to another. Precious Holy Father God created all life forms as have been seen or discovered through precious Holy Jesus Christ. I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
 
@@ -54,6 +56,11 @@ ttjohnhappy
 # Git Commands
 
 todo to do
+
+go to where people teach evolution and invite them to call upon the name of Christ.
+urilinks sharing topics see urilinks.com
+google does not provide this information:
+ Google does not disclose information that is considered valuable to the public, such as content from educational or government institutions
 the results of foldername are out of order, the code is in selector folder
 put in note section Keep it if you are scared to spend it wrong 13:12 50th ANNIVERSARY CELEBRATION OF ENCYCLOPAEDIA BRITTANICA EDUCATIONAL EBE FILMS 64584
 put in note section how to be peaceful and productive in a regulating environment Mowglis Archival Films Compilation, a camp

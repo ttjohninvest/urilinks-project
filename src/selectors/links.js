@@ -124,16 +124,17 @@ if (dateObject.toString() !== 'Invalid Date') {
         return a.description.toLowerCase() > b.description.toLowerCase()
           ? 1
           : -1;
-      } else if (sortBy === "hashtag") {
+      } else*/
+         if (sortBy === "hashtag") {
         return removeHashTags(a.note.toLowerCase()) > removeHashTags(b.note.toLowerCase())
           ? 1
           : -1;
       }
-      else if (true || sortBy === "folder") {*/
+      else if (true || sortBy === "folder") {
         return a.foldername.toLowerCase() > b.foldername.toLowerCase()
           ? 1
           : -1;
-      //} 
+      } 
     });
 };
 

@@ -115,7 +115,7 @@ if (dateObject.toString() !== 'Invalid Date') {
 
 
       
-    })//
+    })
     .sort((a, b) => {
       if (sortBy === "date") {
         return a.createdAt < b.createdAt ? 1 : -1;

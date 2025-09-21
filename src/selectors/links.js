@@ -117,6 +117,7 @@ if (dateObject.toString() !== 'Invalid Date') {
       
     })
     .sort((a, b) => {
+      /*
       if (sortBy === "date") {
         return a.createdAt < b.createdAt ? 1 : -1;
       } else if (sortBy === "description" || sortBy === "hashtag" || sortBy === "notetext") {
@@ -128,11 +129,11 @@ if (dateObject.toString() !== 'Invalid Date') {
           ? 1
           : -1;
       }
-      else if (true || sortBy === "folder") {
+      else if (true || sortBy === "folder") {*/
         return a.foldername.toLowerCase() > b.foldername.toLowerCase()
           ? 1
           : -1;
-      } 
+      //} 
     });
 };
 

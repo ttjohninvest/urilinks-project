@@ -121,7 +121,7 @@ if (dateObject.toString() !== 'Invalid Date') {
       if (sortBy === "date") {
         return a.createdAt < b.createdAt ? 1 : -1;
       } else if (sortBy === "description" || sortBy === "hashtag" || sortBy === "notetext") {
-        return a.description.toLowerCase().replace('"',"") > b.description.toLowerCase().replace('"',"")
+        return a.description.replace('"',"").toLowerCase() > b.description.replace('"',""),toLowerCase()
           ? 1
           : -1;
       } else
@@ -133,7 +133,7 @@ if (dateObject.toString() !== 'Invalid Date') {
       else if (sortBy === "folder") {
         console.log("selector sortBy===folder, a.description.toLowerCase()="+a.description.toLowerCase())
         console.log("selector sortBy===folder, b.description.toLowerCase()="+b.description.toLowerCase())
-        return a.description.toLowerCase().replace('"',"") > b.description.toLowerCase().replace('"',"")
+        return a.description.replace('"',"").toLowerCase() > b.description.replace('"',"").toLowerCase()
           ? 1
           : -1;
       } 

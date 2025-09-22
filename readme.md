@@ -56,7 +56,9 @@ ttjohnhappy
 # Git Commands
 
 todo to do
-
+mr potato head pieces, https://www.ebay.com/b/Mr-Potato-Head-Parts/2576/bn_7023428255?mkcid=2&mkevt=1&mkrid=711-175623-139228-7&mkscid=102&keyword=nonbrand&norover=1
+people doing things for each other in the city, see the foldernames list in urilinks.com
+ can urilinks.com fit in somewhere in the local community?
 go to where people teach evolution and invite them to call upon the name of Christ.
 urilinks sharing topics see urilinks.com
 google does not provide this information:

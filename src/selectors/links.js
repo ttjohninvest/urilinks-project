@@ -120,23 +120,12 @@ if (dateObject.toString() !== 'Invalid Date') {
       
       if (sortBy === "date") {
         return a.createdAt < b.createdAt ? 1 : -1;
-      } else if (sortBy === "description" || sortBy === "hashtag" || sortBy === "notetext") {
+      } else if (sortBy === "description" || sortBy === "hashtag" || sortBy === "notetext" || sortBy === "folder") {
         return a.description.toLowerCase() > b.description.toLowerCase()
           ? 1
           : -1;
-      } else
-         if (sortBy === "hashtag") {
-        return removeHashTags(a.note.toLowerCase()) > removeHashTags(b.note.toLowerCase())
-          ? 1
-          : -1;
       }
-      else if (sortBy === "folder") {
-        console.log("selector sortBy===folder, a.foldername.toLowerCase()="+a.foldername.toLowerCase())
-        console.log("selector sortBy===folder, b.foldername.toLowerCase()="+b.foldername.toLowerCase())
-        return a.foldername.toLowerCase() > b.foldername.toLowerCase()
-          ? 1
-          : -1;
-      } 
+     
     });
 };
 

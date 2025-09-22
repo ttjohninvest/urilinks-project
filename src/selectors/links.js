@@ -131,9 +131,9 @@ if (dateObject.toString() !== 'Invalid Date') {
           : -1;
       }
       else if (sortBy === "folder") {
-        console.log("selector sortBy===folder, a.description.toLowerCase()="+a.description.toLowerCase())
-        console.log("selector sortBy===folder, b.description.toLowerCase()="+b.description.toLowerCase())
-        return a.description.toLowerCase() > b.description.toLowerCase()
+        console.log("selector sortBy===folder, a.foldername.toLowerCase()="+a.foldername.toLowerCase())
+        console.log("selector sortBy===folder, b.foldername.toLowerCase()="+b.foldername.toLowerCase())
+        return a.foldername.toLowerCase() > b.foldername.toLowerCase()
           ? 1
           : -1;
       } 

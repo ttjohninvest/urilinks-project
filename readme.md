@@ -2,17 +2,42 @@ Fetchbookmarks.js, put foldernames in
 
 
 =========================================================================================
+Always stay clothed outside.
+Resist temptation.
+
+
 Keep it if you are scared to spend it wrong.
+
 Adults do not get excited to go do things together like kids do, that 
 is the main difference. 
 Friendship:
 Adults can not find friendship with other humans but they can find information sharing.  Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen. They will go their separate ways.
+
+Romans 9:16
+So then it is not of him that willeth, nor of him that runneth, but of God that sheweth mercy.
+
+1 John 4:17
+Herein is our love made perfect, that we may have boldness in the day of judgment: because as he is, so are we in this world.
+
+Psalms 84:11
+For the LORD God is a sun and shield: the LORD will give grace and glory: no good thing will he withhold from them that walk uprightly.
+
+Proverbs 2:7
+He layeth up sound wisdom for the righteous: he is a buckler to them that walk uprightly
+
+"Angel" "Snow" Thank Jesus!
 
 I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves.
 
 Their is no such thing is evolution of life forms from one form to another. Precious Holy Father God created all life forms as have been seen or discovered through precious Holy Jesus Christ. I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
 
 Thank you for sharing. I love you unconditionally. Adults can not find friendship with other humans but they can find information sharing.  Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen but service can still happen.  I used to be skinny but now I have a cute little tummy and I love it. I am fine. To begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
+
+Proverbs 15:21
+Folly is joy to him that is destitute of wisdom: but a man of understanding walketh uprightly.
+
+1Ti 6:5
+Perverse disputings of men of corrupt minds, and destitute of the truth, supposing that gain is godliness: from such withdraw thyself.
 ==========================================================================================
 
 CHRISTIAN BROADCASTING NETWORKS
@@ -422,6 +447,9 @@ set the domain that I can use
 "can do" sourcelinks.com
 
 domain names
+calluponjesus.org
+calluponchrist.org
+
 urlsphere.com
 
 +++++++

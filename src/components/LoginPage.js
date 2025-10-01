@@ -64,9 +64,7 @@ const LoginPage = ({ startLogin }) => {
               urilinks.com
             </h1>
             <p className="text-size-8- coolShadow- ">
-              1000 users/month
-              {/* Welcome to an easier way to do internet bookmarks with hash tags,
-              free tool */}
+              <a href="https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true">By signing up, you help me to support people in need in the philipines</a>
             </p>
             {/* <img src={penguinSayingHello} width="100" height="100" /> */}
             <p className="text-size-8- coolShadow- ">

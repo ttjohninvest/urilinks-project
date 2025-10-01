@@ -64,7 +64,7 @@ const LoginPage = ({ startLogin }) => {
               urilinks.com
             </h1>
             <p className="text-size-8- coolShadow- ">
-              <a href="https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true" target="_blank">By signing up, you help me to support people in need in the philipines</a>
+              <a classname="blueText" href="https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true" target="_blank">By signing up, you help me to support people in need in the philipines</a>
             </p>
             {/* <img src={penguinSayingHello} width="100" height="100" /> */}
             <p className="text-size-8- coolShadow- ">

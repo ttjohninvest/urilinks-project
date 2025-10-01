@@ -661,7 +661,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
             </select>
           </div>
           <div className="cursor-pointer">
-            <select className="select"
+            <select className="select cursor-pointer"
             onChange={this.onFolderChange}
              title="pick a folder name in this list to search for its bookmarks"
             >

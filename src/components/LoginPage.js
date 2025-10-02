@@ -66,6 +66,10 @@ const LoginPage = ({ startLogin }) => {
             <p className="text-size-8- coolShadow- ">
               <a classname="blueText" href="https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true" target="_blank">By signing up, you help me to support people in need in the philippines</a>
             </p>
+             <p className="text-size-8- coolShadow- ">
+              <a classname="blueText" href="https://globalchristianrelief.org/?utm_medium=web&utm_source=organic">Please give to persecuted christians</a>
+            </p>
+            
             {/* <img src={penguinSayingHello} width="100" height="100" /> */}
             <p className="text-size-8- coolShadow- ">
               Welcome precious. Worry about forgetting is diminished by using this. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags which is easier to access and read than chrome browser bookmarks. It has a free plan to store up to 250 bookmarks. It has three other inexpensive plans I think you may enjoy as well.

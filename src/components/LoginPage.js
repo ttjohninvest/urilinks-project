@@ -64,22 +64,18 @@ const LoginPage = ({ startLogin }) => {
               urilinks.com
             </h1>
 
-            <p className="text-size-8- coolShadow- margin-left-118">
-              <a classname="blueText" href="https://www.blueletterbible.org/kjv/rom/10/13/s_1056013" target="_blank">Please say "I call upon the name of Jesus Christ to be saved. Also, you may click to see the reference at Romans 10:13"</a>
+            <p className="margin-left-118">
+              <a classname="blueText" href="https://www.blueletterbible.org/kjv/rom/10/13/s_1056013" target="_blank">Please say "I call upon the name of Jesus Christ to be saved." Also, you may click to see the reference at Romans 10:13</a>
             </p>
              
-            
-            {/* <img src={penguinSayingHello} width="100" height="100" /> */}
-            <p className="text-size-8- coolShadow- ">
+            <p className="margin-left-118">
               Welcome precious. Worry about forgetting is diminished by using this. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags which is easier to access and read than chrome browser bookmarks. It has a free plan to store up to 250 bookmarks. It has three other inexpensive plans I think you may enjoy as well.
-              {/* Welcome to an easier way to do internet bookmarks with hash tags,
-              free tool */}
             </p>
-            <p>Please contact Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p>
+            <p className="margin-left-118">Please contact Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p>
             {/* <p className="text-size-8 coolShadow ">
             I am trying to help my son. Please give it a try.
           </p> */}
-            {innerWidth<=1000 && <div className="margin-bottom-18">
+            {innerWidth<=1000 && <div className="margin-left-118 margin-bottom-18">
               <a
                 href="https://youtu.be/SFkvTgFhBVs"
                 className="text-size-8- coolShadow- "

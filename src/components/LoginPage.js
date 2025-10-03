@@ -60,8 +60,12 @@ const LoginPage = ({ startLogin }) => {
             title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
             className="box-layout__box"
           >
-            <h1 className="box-layout__title text-size-8- coolShadow- ">
+            <h1 className="box-layout__title">
               urilinks.com
+            </h1>
+
+             <h1 className="box-layout__title">
+              GOD'S SALVATION INVITATION
             </h1>
 
             <p className="margin-left-11">

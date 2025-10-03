@@ -63,7 +63,7 @@ const LoginPage = ({ startLogin }) => {
             
 
              <h3 className="margin-left-11 box-layout__title">
-              HOLY GOD'S SALVATION INVITATION
+              HOLY LOVING GOD'S SALVATION INVITATION
             </h3>
 
             <p className="margin-left-11">

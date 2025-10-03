@@ -63,12 +63,11 @@ const LoginPage = ({ startLogin }) => {
             <h1 className="box-layout__title text-size-8- coolShadow- ">
               urilinks.com
             </h1>
+
             <p className="text-size-8- coolShadow- ">
-              <a classname="blueText" href="https://www.globalgiving.org/search/?size=25&nextPage=1&sortField=sortorder&loadAllResults=true" target="_blank">By signing up, you help me to support people in need in the philippines</a>
+              <a classname="blueText" href="https://www.blueletterbible.org/kjv/rom/10/13/s_1056013" target="_blank">Please say "I call upon the name of Jesus Christ to be saved. Also, you may click to see the reference at Romans 10:13."</a>
             </p>
-             <p className="text-size-8- coolShadow- ">
-              <a classname="blueText" href="https://globalchristianrelief.org/?utm_medium=web&utm_source=organic">Please give to persecuted christians</a>
-            </p>
+             
             
             {/* <img src={penguinSayingHello} width="100" height="100" /> */}
             <p className="text-size-8- coolShadow- ">

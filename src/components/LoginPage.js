@@ -65,7 +65,7 @@ const LoginPage = ({ startLogin }) => {
             </h1>
 
             <p className="margin-left-11">
-              <a classname="blueText" href="https://www.blueletterbible.org/kjv/rom/10/13/s_1056013" target="_blank">May invite you to call upon the name of Jesus Christ to be saved? Please say "I call upon the name of Jesus Christ to be saved." Also, you may click to see the holy bible reference at Romans 10:13</a>
+              <a classname="blueText" href="https://www.blueletterbible.org/kjv/rom/10/13/s_1056013" target="_blank">May invite you to call upon the name of Jesus Christ to be saved? Please say "I call upon the name of Jesus Christ to be saved." Also, you may click to see the holy bible reference at Romans 10:13 or</a><a classname="blueText" href="https://www.blueletterbible.org/kjv/act/2/21/s_1020021" target="_blank">acts 2:21</a>
             </p>
              
             <p className="margin-left-11">

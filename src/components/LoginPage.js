@@ -64,8 +64,8 @@ const LoginPage = ({ startLogin }) => {
               urilinks.com
             </h1>
 
-            <p className="text-size-8- coolShadow- ">
-              <a classname="blueText margin-left-118" href="https://www.blueletterbible.org/kjv/rom/10/13/s_1056013" target="_blank">Please say "I call upon the name of Jesus Christ to be saved. Also, you may click to see the reference at Romans 10:13."</a>
+            <p className="text-size-8- coolShadow- margin-left-118">
+              <a classname="blueText" href="https://www.blueletterbible.org/kjv/rom/10/13/s_1056013" target="_blank">Please say "I call upon the name of Jesus Christ to be saved. Also, you may click to see the reference at Romans 10:13"</a>
             </p>
              
             

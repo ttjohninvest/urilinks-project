@@ -60,17 +60,19 @@ const LoginPage = ({ startLogin }) => {
             title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
             className="box-layout__box"
           >
-            <h1 className="box-layout__title">
-              urilinks.com
-            </h1>
+            
 
-             <h1 className="box-layout__title">
+             <h1 className="margin-left-11 box-layout__title">
               HOLY GOD'S SALVATION INVITATION
             </h1>
 
             <p className="margin-left-11">
               <a classname="blueText" href="https://www.blueletterbible.org/kjv/rom/10/13/s_1056013" target="_blank">Please, may I invite you to call upon the name of Jesus Christ to be saved? Please say "I call upon the name of Jesus Christ to be saved." Also, you may click to see the holy bible reference at Romans 10:13 or </a><a classname="blueText" href="https://www.blueletterbible.org/kjv/act/2/21/s_1020021" target="_blank">acts 2:21</a>
             </p>
+
+            <h1 className="margin-left-11 box-layout__title">
+              urilinks.com
+            </h1>
              
             <p className="margin-left-11">
               Welcome precious. Worry about forgetting is diminished by using this. It works like a physical file organizer. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags or folder names which is easier to access and read than chrome browser bookmarks. It has a free plan to store up to 250 bookmarks. It has three other inexpensive plans I think you may enjoy as well.

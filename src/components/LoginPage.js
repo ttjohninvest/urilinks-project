@@ -64,17 +64,15 @@ const LoginPage = ({ startLogin }) => {
               urilinks.com
             </h1>
 
-            <p className="margin-left-118">
+            <p className="margin-left-11">
               <a classname="blueText" href="https://www.blueletterbible.org/kjv/rom/10/13/s_1056013" target="_blank">Please say "I call upon the name of Jesus Christ to be saved." Also, you may click to see the reference at Romans 10:13</a>
             </p>
              
-            <p className="margin-left-118">
+            <p className="margin-left-11">
               Welcome precious. Worry about forgetting is diminished by using this. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags which is easier to access and read than chrome browser bookmarks. It has a free plan to store up to 250 bookmarks. It has three other inexpensive plans I think you may enjoy as well.
             </p>
-            <p className="margin-left-118">Please contact Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p>
-            {/* <p className="text-size-8 coolShadow ">
-            I am trying to help my son. Please give it a try.
-          </p> */}
+            <p className="margin-left-11">Please contact Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p>
+           
             {innerWidth<=1000 && <div className="margin-left-118 margin-bottom-18">
               <a
                 href="https://youtu.be/SFkvTgFhBVs"
@@ -87,7 +85,7 @@ const LoginPage = ({ startLogin }) => {
             </div>}
 
             <button
-              className="button text-size-8- coolShadow-"
+              className="button"
               onClick={startLogin}
             >
               Please login with google

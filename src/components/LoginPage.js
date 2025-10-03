@@ -69,7 +69,7 @@ const LoginPage = ({ startLogin }) => {
             </p>
              
             <p className="margin-left-11">
-              Welcome precious. Worry about forgetting is diminished by using this. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags which is easier to access and read than chrome browser bookmarks. It has a free plan to store up to 250 bookmarks. It has three other inexpensive plans I think you may enjoy as well.
+              Welcome precious. Worry about forgetting is diminished by using this. It works like a physical file organizer. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags which is easier to access and read than chrome browser bookmarks. It has a free plan to store up to 250 bookmarks. It has three other inexpensive plans I think you may enjoy as well.
             </p>
             <p className="margin-left-11">Please contact Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p>
            

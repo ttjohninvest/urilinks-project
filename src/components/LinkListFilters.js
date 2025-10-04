@@ -433,7 +433,7 @@ export class LinkListFilters extends React.Component {
   componentDidMount() {
 // this.setState({ foldernamesList: [] });
     //const array1 = ['a','b']
-    const tl = [];
+    let tl = [];
 
     this.props.links.forEach(function (element) {
       if (!!element.foldername === true) {
@@ -448,7 +448,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
       return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
     });
 
-    const tl2 = this.removeDuplicatesByKey(tl, item => item.value);
+    let tl2 = this.removeDuplicatesByKey(tl, item => item.value);
 
     this.setState({ foldernamesList: tl2 });
     //get the plan from settings so I know how many links a person can have

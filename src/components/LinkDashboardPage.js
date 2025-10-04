@@ -52,7 +52,7 @@ const LinkDashboardPage = (props) => {
         "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT window.scrollY=" + window.scrollY
       );
       setTheValue(props.theValue)
-      window.location.reload()
+      
   }, []);
 
   // useEffect(() => {

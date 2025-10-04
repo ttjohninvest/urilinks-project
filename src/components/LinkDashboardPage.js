@@ -23,7 +23,6 @@ const LinkDashboardPage = (props) => {
     // Adding scroll event listener
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup function to remove the event listener
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -40,9 +39,6 @@ const LinkDashboardPage = (props) => {
     console.log("LinkDashboardPage.js, sp=" + sp);
     window.scrollTo(0, sp);
     // window.scrollTo(0,sp-heightofdiv)
-  }, []);
-
-  useEffect(() => {
     console.log(
       "LinkDashboardPage, props.settings.photoURL=" + props.settings.photoURL
     );
@@ -54,7 +50,21 @@ const LinkDashboardPage = (props) => {
       console.log(
         "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT window.scrollY=" + window.scrollY
       );
-    });
+  }, []);
+
+  // useEffect(() => {
+  //   console.log(
+  //     "LinkDashboardPage, props.settings.photoURL=" + props.settings.photoURL
+  //   );
+  //   // Save scroll position before leaving
+  //   window.addEventListener("beforeunload", () => {
+  //     sessionStorage.setItem("scrollPosition", window.scrollY);
+  //     console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+  //     console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+  //     console.log(
+  //       "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT window.scrollY=" + window.scrollY
+  //     );
+  //   },[]);
 
     // Restore scroll position on page load
     const savedScrollPosition = parseInt(

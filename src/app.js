@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 
@@ -28,16 +28,14 @@ import LoadingPage from "./components/LoadingPage";
 //     // Let's translate it!
 // });
 
-console.log=()=>{}
+console.log = () => {};
 const store = configureStore();
 store.subscribe(() => {
-  console.log('Store state:', store.getState());
+  console.log("Store state:", store.getState());
 });
 const jsx = (
   <Provider store={store}>
-   
     <AppRouter />
-    
   </Provider>
 );
 let hasRendered = false;
@@ -51,122 +49,34 @@ const renderApp = () => {
 
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
-//the call back function runs on login and logout
 firebase.auth().onAuthStateChanged((user) => {
- 
-
   if (user) {
-    console.log("logged in user=" + JSON.stringify(user));//user.photoURL
+    console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
     store.dispatch(login(user.uid));
-    
-    // console.log("user.photoURL="+user.photoURL)
-    // console.log("calling setSettings to set the user.photoURL into redux")
-  
 
     store
       .dispatch(startSetLinks())
       .then(() => {
-        // renderApp(); //displays the array links stored in redux
-        //      if (history.location.pathname === "/") {
-        //        history.push("/dashboard");
-        //     }
+        return store
+          .dispatch(getTheplan())
+          .then(() => {
+            return store.dispatch(getSettings()).then(() => {
+              renderApp();
 
-        //startSetLinks reads the links from the db and stores them in redux
-
-
- 
-
-
-
-        //return store.dispatch(startSetSettings()).then(() => {
-          
-          
-          //return store.dispatch(startSetLinksFileDate()).then(() => {
-          return store.dispatch(getTheplan()).then(() => {
-          
-            //startSetSettings reads the links from the db and stores them in redux
-          //console.log("before, getSettings") 
-          //getSettings()
-          //console.log("after, getSettings")
-return store.dispatch(getSettings()).then(() => {
-  //console.log("getSettings, settings="+JSON.stringify(r))
-  //create stripe customer here, begin https://search.brave.com/search?q=using+react+how+do+i+create+a+stripe+customer+during+registration&summary=1&conversation=4cf05c04b8982177ac075c
-          
-  //this function puts the user id as metadata into stripe
-//   const createCustomer = async () => {
-//     console.log("in createCustomer")
- 
-//   const response = await fetch('https://urilinks-project-create-customer-ap.vercel.app', {
-  
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({ email:user.email, uid:user.uid }),
-//   });
-//   const data = await response.json();
- 
-//   user.customerId = data.customer.id
-//   console.log("in createCustomer, user.customerId="+user.customerId)
-
-//    console.log(data);
-   
-//   store.dispatch(setCustomerId({customerId:data.customer.id}))
-  
-  
-// };
-
-//createCustomer() 
- 
-//return store.dispatch(setCustomerId(user.customerId)).then(()=>{
-  //return store.dispatch({ type: 'SET_CUSTOMERID', action: user.customerId }).then(()=>{
-
-   renderApp(); //displays the array links stored in redux
-          
-          if (history.location.pathname === "/") {
-            history.push("/dashboard");
-              //props.history.push("/");
-        window.location.reload()
-          }
-  //create stripe customer here, end
-       // })
-
-
-})
-
-        }).catch((error) => {
-          console.log("theplan, error", error);
-        });
-        // setStartLinksFileDate
-        // }).catch((error) => {
-        //   console.log("error", error);
-        // });
-
-
-
+              if (history.location.pathname === "/") {
+                history.push("/dashboard");
+              }
+            });
+          })
+          .catch((error) => {
+            console.log("theplan, error", error);
+          });
       })
       .catch((error) => {
         console.log("error", error);
-      })
-
-      // return store.dispatch(startSetLinksFileDate()).then(() => {
-      //     //startSetSettings reads the links from the db and stores them in redux
-
-      //     renderApp(); //displays the array links stored in redux
-      //     if (history.location.pathname === "/") {
-      //       history.push("/dashboard");
-      //     }
-      //   }).catch((error) => {
-      //     console.log("error", error);
-      //   });
-      // })
-      // .catch((error) => {
-      //   console.log("error", error);
-      // })
-      // })
-      
+      });
   } else {
-    console.log("logout happened")
+    console.log("logout happened");
     store.dispatch(logout());
     renderApp();
     history.push("/");

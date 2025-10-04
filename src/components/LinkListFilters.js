@@ -418,7 +418,7 @@ export class LinkListFilters extends React.Component {
 //console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."   
 
   componentDidMount() {
-
+this.setState({ foldernamesList: [] });
     //const array1 = ['a','b']
     const tl = [];
 

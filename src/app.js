@@ -125,6 +125,8 @@ return store.dispatch(getSettings()).then(() => {
           
           if (history.location.pathname === "/") {
             history.push("/dashboard");
+              //props.history.push("/");
+        window.location.reload()
           }
   //create stripe customer here, end
        // })

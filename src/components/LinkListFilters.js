@@ -417,9 +417,17 @@ export class LinkListFilters extends React.Component {
 // Example usage:
 //console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."  
 
+
+
  static getDerivedStateFromProps(nextProps, prevState) {
-   this.setState({ foldernamesList: [] });
-    return null;
+    
+      return {
+        filenameList: []
+        
+      };
+   
+   
+    
   }
 
   componentDidMount() {

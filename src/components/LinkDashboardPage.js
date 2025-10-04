@@ -12,6 +12,7 @@ const LinkDashboardPage = (props) => {
   const [heightofdiv, setHeightOfDiv] = useState(0);
   const [scrollPos, setScrollPos] = useState(0);
   const [first, setFirst] = useState(true); //true for LinkListFilters
+  const [theValue, setTheValue] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +51,7 @@ const LinkDashboardPage = (props) => {
       console.log(
         "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT window.scrollY=" + window.scrollY
       );
+      setTheValue(props.theValue)
   }, []);
 
   // useEffect(() => {

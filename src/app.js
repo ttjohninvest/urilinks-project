@@ -60,7 +60,7 @@ firebase.auth().onAuthStateChanged((user) => {
         return store
           .dispatch(getTheplan())
           .then(() => {
-            return store.dispatch(getSettings()).then(() => {
+            //return store.dispatch(getSettings()).then(() => {
               renderApp();
 
               if (history.location.pathname === "/") {
@@ -68,7 +68,7 @@ firebase.auth().onAuthStateChanged((user) => {
               } else if (history.location.pathname === "/dashboard") { 
                 history.push("/dashboard")
               }
-            });
+            //});
           })
           .catch((error) => {
             console.log("theplan, error", error);

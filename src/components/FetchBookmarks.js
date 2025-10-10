@@ -132,8 +132,9 @@ const FetchBookmarks = (props) => {
     let stringWithoutTabs = str.replace(/\t/g, "");
     let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
     let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
+    let noperiodseither = notabsorspacesordashes.replace(/\./g, "");
     //lowercase
-    const lc = notabsorspacesordashes.toLowerCase();
+    const lc = noperiodseither.toLowerCase();
     //prepend "#"
     const hashtag = "#" + lc;
     //return the hashtag

@@ -25,7 +25,7 @@ For the LORD God is a sun and shield: the LORD will give grace and glory: no goo
 Proverbs 2:7
 He layeth up sound wisdom for the righteous: he is a buckler to them that walk uprightly
 
-"Angel" "Snow" Thank Jesus!
+"Angel" "Snow" Thanks Jesus!
 
 I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves.
 

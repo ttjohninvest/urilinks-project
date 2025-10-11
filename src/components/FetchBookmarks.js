@@ -129,12 +129,13 @@ const FetchBookmarks = (props) => {
 
   const getHashtag = (str) => {
     console.log("getHashtag");
-    let stringWithoutTabs = str.replace(/\t/g, "");
-    let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
-    let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
-    let noperiodseither = notabsorspacesordashes.replace(/\./g, "");
-    //lowercase
-    const lc = noperiodseither.toLowerCase();
+    const cleaned = str.replace(/[^a-zA-Z0-9\s]/g, '')
+    // let stringWithoutTabs = str.replace(/\t/g, "");
+    // let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
+    // let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
+    // let noperiodseither = notabsorspacesordashes.replace(/\./g, "");
+    // //lowercase
+    const lc = cleaned.toLowerCase();
     //prepend "#"
     const hashtag = "#" + lc;
     //return the hashtag

@@ -129,7 +129,8 @@ const FetchBookmarks = (props) => {
 
   const getHashtag = (str) => {
     console.log("getHashtag");
-    const cleaned = str.replace(/[^a-zA-Z0-9\s]/g, '')
+    //const cleaned = str.replace(/[^a-zA-Z0-9/s]/g, '')
+    const cleaned = str.replace(/[^a-zA-Z0-9]/g, '')
     // let stringWithoutTabs = str.replace(/\t/g, "");
     // let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
     // let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");

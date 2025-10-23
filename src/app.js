@@ -27,9 +27,10 @@ import LoadingPage from "./components/LoadingPage";
 //     console.log(res.trans_result.dst);
 //     // Let's translate it!
 // });
-
-console.log = () => {};
+let firsttime=false
+//console.log = () => {};
 const store = configureStore();
+console.log("store.theplan="+store.theplan)
 store.subscribe(() => {
   console.log("Store state:", store.getState());
 });
@@ -49,6 +50,44 @@ const renderApp = () => {
 
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
+if(firsttime===true) {
+if ("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"==="W4XCM1PRqtZeAzCZ0ALlEFrIwaw1") {
+    //console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
+    //store.dispatch(login(user.uid));
+    //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
+    store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
+
+    store
+      .dispatch(startSetLinks())
+      .then(() => {
+        return store
+          .dispatch(getTheplan())
+          .then(() => {
+            //return store.dispatch(getSettings()).then(() => {
+              renderApp();
+
+              if (history.location.pathname === "/") {
+                history.push("/dashboard");
+              } else if (history.location.pathname === "/dashboard") { 
+                history.push("/dashboard")
+              }
+            //});
+          })
+          .catch((error) => {
+            console.log("theplan, error", error);
+          });
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  } else {
+    console.log("logout happened");
+    store.dispatch(logout());
+    renderApp();
+    history.push("/");
+  }
+
+ } else {
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
@@ -84,3 +123,4 @@ firebase.auth().onAuthStateChanged((user) => {
     history.push("/");
   }
 });
+ }

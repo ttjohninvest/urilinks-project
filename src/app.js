@@ -31,7 +31,7 @@ let firsttime=false
 //console.log = () => {};
 const store = configureStore();
 let theStore = store.getState()
-console.log("theStore.theplan="+theStore.theplan)
+console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
 store.subscribe(() => {
   console.log("Store state:", store.getState());
 });

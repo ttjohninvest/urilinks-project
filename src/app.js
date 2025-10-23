@@ -30,7 +30,7 @@ import LoadingPage from "./components/LoadingPage";
 let firsttime=false
 //console.log = () => {};
 const store = configureStore();
-console.log("store.theplan="+store.theplan)
+console.log("store="+JSON.stringify(store))
 store.subscribe(() => {
   console.log("Store state:", store.getState());
 });

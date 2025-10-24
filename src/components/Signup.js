@@ -40,11 +40,12 @@ firebase.auth().onAuthStateChanged((user) => {
               //renderApp();
             //history.push("/dashboard");
              props.setSignup({signup:true});
-              if (history.location.pathname === "/") {
-                history.push("/dashboard");
-              } else if (history.location.pathname === "/dashboard") {
-                history.push("/dashboard");
-              }
+             history.push("/dashboard");
+            //   if (history.location.pathname === "/") {
+            //     history.push("/dashboard");
+            //   } else if (history.location.pathname === "/dashboard") {
+            //     history.push("/dashboard");
+            //   }
               //});
             })
             .catch((error) => {

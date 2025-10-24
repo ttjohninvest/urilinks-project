@@ -1,5 +1,5 @@
 const signupReducerDefaultState = {
-  signup:false
+  signup:true
 };
 
 export default (state = signupReducerDefaultState, action) => {

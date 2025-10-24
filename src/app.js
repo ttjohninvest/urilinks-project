@@ -52,8 +52,10 @@ const renderApp = () => {
 };
 
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
-
-if (window.localStorage.getItem("signup")===null) { //firsttime
+let v="0"
+if(window.localStorage.getItem("signup")!=="0")
+ v="1"
+if (v==="0") { //firsttime
   //if (false) {
 
     store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
@@ -82,7 +84,7 @@ if (window.localStorage.getItem("signup")===null) { //firsttime
       });
  
 } else {
-   //window.localStorage.setItem("signup", "0");
+   //window.localStorage.setItem("signup", null);
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log("logged in user=" + JSON.stringify(user)); //user.photoURL

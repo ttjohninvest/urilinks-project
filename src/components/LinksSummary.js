@@ -33,21 +33,21 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
   );
 };
 
-// const mapStateToProps = (state) => {
-//   const visibleLinks = selectLinks(state.links, state.filters);
+const mapStateToProps = (state) => {
+  const visibleLinks = selectLinks(state.links, state.filters);
 
-//   return {
-//     linkCount: visibleLinks.length,
-//     linksTotal: selectLinksTotal(visibleLinks),
-//     signup:state.signup
-//   };
-// };
-
-const mapStateToProps = (state) => ({
-   linkCount: visibleLinks.length,
+  return {
+    linkCount: visibleLinks.length,
     linksTotal: selectLinksTotal(visibleLinks),
-  signup: state.signup
-});
+    signup:state.signup
+  };
+};
+
+// const mapStateToProps = (state) => ({
+//    linkCount: visibleLinks.length,
+//     linksTotal: selectLinksTotal(visibleLinks),
+//   signup: state.signup
+// });
 
 
 

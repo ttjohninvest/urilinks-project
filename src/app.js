@@ -26,8 +26,11 @@ import LoadingPage from "./components/LoadingPage";
 // translate("让我们来翻译吧!").then(res => {
 //     console.log(res.trans_result.dst);
 //     // Let's translate it!
-// });
-let firsttime = true;
+// });\
+
+let firsttime = false;
+//let firsttime = true;
+
 //console.log = () => {};
 const store = configureStore();
 let theStore = store.getState();

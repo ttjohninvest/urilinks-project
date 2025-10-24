@@ -3,6 +3,8 @@
 
 
 import React, {useEffect} from "react";
+import { Provider } from "react-redux";
+import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { firebase } from "../firebase/firebase";
@@ -31,15 +33,31 @@ firebase.auth().onAuthStateChanged((user) => {
       console.log("2 logged in user=" + JSON.stringify(user)); //user.photoURL
       store.dispatch(login(user.uid));
 
+
+      let hasRendered = false;
+const renderApp = () => {
+  console.log("about to render the app");
+  if (!hasRendered) {
+    ReactDOM.render(
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>,
+      document.getElementById("app")
+    );
+    hasRendered = true;
+  }
+};
+
       store.dispatch(startSetLinks())
         .then(() => {
           return store
             .dispatch(getTheplan())
             .then(() => {
+                props.setSignup({signup:true});
               //return store.dispatch(getSettings()).then(() => {
-              //renderApp();
+              renderApp();
             //history.push("/dashboard");
-             props.setSignup({signup:true});
+             
              history.push("/dashboard");
             //   if (history.location.pathname === "/") {
             //     history.push("/dashboard");
@@ -58,7 +76,7 @@ firebase.auth().onAuthStateChanged((user) => {
     } else {
       console.log("logout happened");
       store.dispatch(logout());
-      //renderApp();
+      renderApp();
       history.push("/");
     }
   });

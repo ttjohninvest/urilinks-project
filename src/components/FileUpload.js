@@ -106,9 +106,20 @@ class MyComponent extends React.Component {
   };
 
   uploadFiles = (file) => {
-    //
-    const user = firebase.auth().currentUser;
-    const uploadTask = storage.ref(`files/${user.uid}/${file.name}`).put(file);
+    //"W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
+    let user
+    let uid
+    let uploadTask
+    if(this.props.signup===true) {
+user = firebase.auth().currentUser;
+uid=user.uid
+uploadTask = storage.ref(`files/${uid}/${file.name}`).put(file);
+    } else {
+uploadTask = storage.ref(`files/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/${file.name}`).put(file);
+uid="W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
+    }
+
+  
     uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -124,7 +135,7 @@ class MyComponent extends React.Component {
             
           storage
           .ref("files")
-          .child(user.uid+"/"+file.name)
+          .child(uid+"/"+file.name)
           .getDownloadURL()
           .then((url) => {
             //use this url in FetchBookmarks.js
@@ -162,11 +173,15 @@ class MyComponent extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  signup:state.signup
+});
+
 const mapDispatchToProps = (dispatch) => ({
   setStorageUrl: (url) => dispatch(setStorageUrl(url)),
 });
 
-export default connect(undefined, mapDispatchToProps)(FileUpload);
+export default connect(mapStateToProps, mapDispatchToProps)(FileUpload);
 
 
 // import React, { useState } from "react";

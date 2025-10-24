@@ -31,9 +31,14 @@ export const Header = (props) => {
   // }
 
   useEffect(() => {
-    const user = firebase.auth().currentUser;
+    if(props.signup===true) {
+   const user = firebase.auth().currentUser;
     console.log("Header, photoURL=" + user.photoURL);
     setPhotoURL(user.photoURL);
+    }
+    else {
+      setPhotoURL("");
+    }
     //setInviewport(isInViewport())
   }, []);
 
@@ -196,6 +201,7 @@ export const Header = (props) => {
 
 const mapStateToProps = (state) => ({
   settings: state.settings,
+  signup:state.signup
 });
 
 const mapDispatchToProps = (dispatch) => ({

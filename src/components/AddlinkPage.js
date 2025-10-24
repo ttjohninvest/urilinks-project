@@ -38,8 +38,9 @@ max=5000
   useEffect(() => {
     console.log("getPlanMax()="+getPlanMax())
     const fetchData = async () => {
-      try {
-        const user = firebase.auth().currentUser;
+      try {//W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+        if(props.signup===true) {
+ const user = firebase.auth().currentUser;
         if (user) {
           const uid = user.uid;
           setUserId(uid);
@@ -47,8 +48,20 @@ max=5000
         } else {
           console.log("No user is currently logged in.");
         }
+        } else {
+          setUserId("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
+        }
+       
         const db = firebase.database();
-        const snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
+          //try {//W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+            let snapshot
+        if(props.signup===true) {
+          const user = firebase.auth().currentUser;
+        snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
+        } else {
+          snapshot = await db.ref(`/users/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/links`).once("value");
+        }
+
         if (snapshot.exists()) {
           const data = snapshot.val();
           const count = Object.keys(data).length;
@@ -69,14 +82,15 @@ max=5000
 
   const onSubmit = (link) => {
     console.log("in onSubmit");
-    const user = firebase.auth().currentUser; 
+    if(props.signup === true) {
+const user = firebase.auth().currentUser; 
     // if (count < 250 || (count < 10000 && (
     //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 
     //)
     // ) {
     if (count < getPlanMax() 
       || (count < 10000 && (
-      user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" || user.uid === 'RZOEMMu7Nwa5bQ51sf71FfDX3A93'
+      "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
      ))
     ) {
       const r = props.startAddLink(link);
@@ -92,6 +106,32 @@ max=5000
       console.log("maximum links reached");
       setMaximumPage(true);
     }
+    } else {
+
+    // if (count < 250 || (count < 10000 && (
+    //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 
+    //)
+    // ) {
+    if (count < getPlanMax() 
+      || (count < 10000 && (
+      "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
+     ))
+    ) {
+      const r = props.startAddLink(link);
+      if (r === false) {
+        setErrorDialog(true);
+        console.log("VVVVVVVVVVVVV returned false");
+      } else {
+        
+        props.history.push("/");
+        window.location.reload()
+      }
+    } else {
+      console.log("maximum links reached");
+      setMaximumPage(true);
+    }
+    }
+    
   };
 
   return (
@@ -125,7 +165,8 @@ max=5000
 };
 
 const mapStateToProps = (state) => ({
-  theplan: state.theplan
+  theplan: state.theplan,
+  signup:state.signup
 });
 
 const mapDispatchToProps = (dispatch) => ({

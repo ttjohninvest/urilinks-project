@@ -3006,12 +3006,12 @@ const FetchBookmarks = (props) => {
 
                 let max = 0;
                 let loopmax2 = rl;
-
+//W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+                if(props.signup === true) {
                 const user = firebase.auth().currentUser;
                 if (
                   true &&
-                  (user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
-                    user.uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93") //johmcg64@gmail.com
+                  (user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2") //johmcg64@gmail.com
                 ) {
                   max = 10000 - (rl + ll);
                   console.log("in if, ll=" + ll);
@@ -3124,6 +3124,123 @@ const FetchBookmarks = (props) => {
                     //window.location.reload()
                   }
                 }
+              } else {
+ 
+                if (
+                  true &&
+                  ("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"=== "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1") //johmcg64@gmail.com
+                ) {
+                  max = 10000 - (rl + ll);
+                  console.log("in if, ll=" + ll);
+                  console.log("in if, rl=" + rl);
+                  console.log("in if, max=" + max);
+                  if (rl > max) {
+                    loopmax2 = max;
+                  }
+
+                  for (let i = 0; i < loopmax2; i++) {
+                    //for (let i = 0; i < 1; i++) {
+                    console.log(
+                      "1 result[" + i + "].foldername=" + result[i].foldername
+                    );
+                    r = props.startAddLink({
+                      description: result[i].description,
+                      Url: result[i].Url, //, //href,
+                      yturl: result[i].yturl,
+                      note: result[i].note,
+                      foldername: result[i].foldername,
+                      amount: 0,
+                      createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                      faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                    });
+
+                    if (r === false) {
+                      setImportingError(true);
+                      break;
+                    }
+                  }
+                  //throw new Error("ERROR ERROR ERROR")
+                  if (r === false) {
+                    // setErrorDialog(true);
+                    console.log("ERROR, VVVVVVVVVVVVV returned false");
+                  } else {
+                    console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+                    //props.history.push("/");
+                    //window.location.reload()
+
+                    //how many new links were added, because of the maximum of 500 I had to add this
+                    setMax(max);
+                    setRl(rl); //rl is the length of the full amount to upload
+                    setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                    // const fileRef = storage.refFromURL(props.url);
+
+                    // fileRef.delete();
+                    setResult(result);
+                  }
+                } else {
+                  //max = 250 - (rl + ll);
+                  let max2 = getPlanMax();
+                  max = max2 - (rl + ll);
+                  if (max >= 0) {
+                    //max = getPlanMax() - (rl + ll);
+                    //max = 1 - (rl + ll);
+                    if (rl > max && max > 0) {
+                      loopmax2 = max;
+                    }
+                    //for (let i = 0; i < result.length; i++) {
+                    for (let i = 0; i < loopmax2; i++) {
+                      //for (let i = 0; i < 1; i++) {
+                      console.log(
+                        "2 result[" + i + "].foldername=" + result[i].foldername
+                      );
+                      r = props.startAddLink({
+                        description: result[i].description,
+                        Url: result[i].Url, //, //href,
+                        yturl: result[i].yturl,
+                        note: result[i].note,
+                        foldername: result[i].foldername,
+                        amount: 0,
+                        createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                        faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                      });
+
+                      if (r === false) {
+                        setImportingError(true);
+                        break;
+                      }
+                    }
+
+                    if (r === false) {
+                      // setErrorDialog(true);
+                      console.log("ERROR, VVVVVVVVVVVVV returned false");
+                    } else {
+                      console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+                      //props.history.push("/");
+                      //window.location.reload()
+
+                      //how many new links were added, because of the maximum of 500 I had to add this
+                      setMax(max);
+                      setRl(rl); //rl is the length of the full amount to upload
+                      setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                      // const fileRef = storage.refFromURL(props.url);
+
+                      // fileRef.delete();
+                      setResult(result);
+                    }
+
+                    //} //otherwise rl is equal to the full length, result.length
+                  } else if (
+                    max2 !== 5000 &&
+                    ("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" !== "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" )
+                  ) {
+                    setPayPage(true);
+                    console.log("load pay page");
+                  } else {
+                    props.history.push("/");
+                    //window.location.reload()
+                  }
+                }
+              }
               })
               .catch((error) => {
                 console.log("caught error = " + error);
@@ -3187,6 +3304,7 @@ const mapStateToProps = (state) => ({
   url: state.url,
   links: state.links,
   theplan: state.theplan,
+  signup: state.signup
 });
 
 const mapDispatchToProps = (dispatch) => ({

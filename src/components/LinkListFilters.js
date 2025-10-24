@@ -24,8 +24,13 @@ function ExpandableArray(props) {
   const [newspaper, setNewspaper] = useState(props.newspaper);
 
   useEffect(() => {
-    const user = firebase.auth().currentUser;
+    if(this.props.signup === true) {
+ const user = firebase.auth().currentUser;
     setUid(user.uid);
+    } else {
+ setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
+    }
+   
   }, []);
 
   const moveIt = () => {
@@ -719,6 +724,7 @@ const mapStateToProps = (state) => ({
   setit: state.setit,
   settings: state.settings,
   theplan: state.theplan,
+  signup:state.signup
 });
 
 const mapDispatchToProps = (dispatch) => ({

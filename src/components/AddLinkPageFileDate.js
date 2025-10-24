@@ -19,7 +19,8 @@ export const AddLinkPageFileDate = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const user = firebase.auth().currentUser;
+        if(props.signup === true) {
+ const user = firebase.auth().currentUser;
         if (user) {
           const uid = user.uid;
           setUserId(uid);
@@ -40,6 +41,26 @@ export const AddLinkPageFileDate = (props) => {
           console.log("else part, count=" + 0);
           setCount(0);
         }
+        } else {
+ 
+          setUserId("");
+          
+        
+        const db = firebase.database();
+        const snapshot = await db
+          .ref(`/users/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/linksfiledate`)
+          .once("value");
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          const count = Object.keys(data).length;
+          console.log("count=" + count);
+          setCount(count);
+        } else {
+          console.log("else part, count=" + 0);
+          setCount(0);
+        }
+        }
+       
       } catch (error) {
         console.error("Error fetching data:", error);
         setCount(-1); // Indicate an error

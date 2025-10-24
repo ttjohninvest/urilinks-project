@@ -31,14 +31,14 @@ export const Header = (props) => {
   // }
 
   useEffect(() => {
-    if(props.signup===true) {
+    //if(props.signup===true) {
    const user = firebase.auth().currentUser;
     console.log("Header, photoURL=" + user.photoURL);
     setPhotoURL(user.photoURL);
-    }
-    else {
-      setPhotoURL("");
-    }
+    // }
+    // else {
+    //   setPhotoURL("");
+    // }
     //setInviewport(isInViewport())
   }, []);
 

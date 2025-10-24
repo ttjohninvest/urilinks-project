@@ -39,7 +39,7 @@ max=5000
     console.log("getPlanMax()="+getPlanMax())
     const fetchData = async () => {
       try {//W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
-        if(props.signup===true) {
+        if(props.signup.signup===true) {
  const user = firebase.auth().currentUser;
         if (user) {
           const uid = user.uid;
@@ -55,7 +55,7 @@ max=5000
         const db = firebase.database();
           //try {//W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
             let snapshot
-        if(props.signup===true) {
+        if(props.signup.signup===true) {
           const user = firebase.auth().currentUser;
         snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
@@ -82,7 +82,7 @@ max=5000
 
   const onSubmit = (link) => {
     console.log("in onSubmit");
-    if(props.signup === true) {
+    if(props.signup.signup === true) {
 const user = firebase.auth().currentUser; 
     // if (count < 250 || (count < 10000 && (
     //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 

@@ -3007,7 +3007,7 @@ const FetchBookmarks = (props) => {
                 let max = 0;
                 let loopmax2 = rl;
 //W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
-                if(props.signup === true) {
+                if(props.signup.signup === true) {
                 const user = firebase.auth().currentUser;
                 if (
                   true &&

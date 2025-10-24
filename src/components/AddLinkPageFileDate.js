@@ -19,7 +19,7 @@ export const AddLinkPageFileDate = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if(props.signup === true) {
+        if(props.signup.signup === true) {
  const user = firebase.auth().currentUser;
         if (user) {
           const uid = user.uid;

@@ -110,7 +110,7 @@ class MyComponent extends React.Component {
     let user
     let uid
     let uploadTask
-    if(this.props.signup===true) {
+    if(this.props.signup.signup===true) {
 user = firebase.auth().currentUser;
 uid=user.uid
 uploadTask = storage.ref(`files/${uid}/${file.name}`).put(file);

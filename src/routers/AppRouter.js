@@ -8,6 +8,7 @@ import AddSettingsPage from "../components/AddSettingsPage";
 import AddLinkPage from "../components/AddlinkPage";
 
 import EditLinkPage from "../components/EditLinkPage";
+import Signup from "../components/Signup";
 import TermsAndPrivacy from "../components/TermsAndPrivacy";
 import Benefits from "../components/Benefits";
 //import LinkSettingsPage from "../components/LinkSettingsPage";

@@ -14,14 +14,14 @@ export const LinksSummary = (props) => {
  {props.signup.signup === true ? <div className="flexrow2">
        <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="is-active">{props.linkCount}</span> bookmarks Found</div>
         
-          <Link className="button-2 ib text-size-5 bg-color-1" to="/create">
+          <Link className="button-2 ib text-size-5 bg-color-1 pointereventsauto" to="/create">
             Add bookmark
           </Link>
         
       </div>:<div>
       <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="is-active">{props.linkCount}</span> bookmarks Found</div>
         
-          <Link className="button-2 ib text-size-5 bg-color-1" to="/create">
+          <Link className="button-2 ib text-size-5 bg-color-1 pointereventsnone" to="/create">
             Add bookmark
           </Link>
         

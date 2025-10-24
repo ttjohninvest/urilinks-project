@@ -97,7 +97,7 @@ const LoginPage = ({ startLogin }) => {
               Please login with google
             </button>
           </div>
-          {innerWidth > 1000 && (
+          {/* {innerWidth > 1000 && (
             <div className="margin-left-11 borderRadius4">
               <iframe
                 width="1000"
@@ -111,7 +111,7 @@ const LoginPage = ({ startLogin }) => {
                 allowfullscreen
               ></iframe>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     );

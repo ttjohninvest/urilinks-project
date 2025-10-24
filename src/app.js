@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
-
+import  setSignup  from "./actions/signup";
 import configureStore from "./store/configureStore";
 import { startSetLinks } from "./actions/links";
 import { startSetLinksFileDate } from "./actions/linksfiledate";
@@ -48,13 +48,17 @@ const params = new URLSearchParams(window.location.search);
 const signup = params.get('signup'); // Returns "John"
 
 console.log("signup="+signup)
+//console.log("store.getState().signup="+store.getState().signup)
+
 let store = configureStore();
-if(signup !== "signup") {
-//store = configureStore();
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
 console.log("theStore.theplan.plan=" + theStore.theplan.plan);
 store.subscribe(() => {});
+
+if(signup !== "signup") {
+
+
 
 
     store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
@@ -85,6 +89,10 @@ store.subscribe(() => {});
 
 }  else {
   
+    store.dispatch({
+  type: "SET_SIGNUP",
+  signu:{signup:true}
+})
   
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {

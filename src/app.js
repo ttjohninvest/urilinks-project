@@ -57,7 +57,7 @@ const renderApp = () => {
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
 //if (true) { //firsttime
-  if (false) {
+  if (signup !== "signup") {
 
     store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
 

@@ -18,8 +18,8 @@ import LoadingPage from "./LoadingPage";
 
 
 export const Signup = (props) => {
-
-    const store = configureStore();
+useEffect(()=>{
+const store = configureStore();
     //let theStore = store.getState();
     //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
     //console.log("theStore.theplan.plan=" + theStore.theplan.plan);
@@ -27,6 +27,8 @@ export const Signup = (props) => {
         console.log("in signup.js, store.state = "+store.getState())
     });
 
+},[])
+    
 //     let hasRendered = false;
 // const renderApp = () => {
 //   console.log("about to render the app");

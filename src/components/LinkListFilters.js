@@ -24,7 +24,7 @@ function ExpandableArray(props) {
   const [newspaper, setNewspaper] = useState(props.newspaper);
 
   useEffect(() => {
-    if(props.signup.signup === true) {
+    if(props.signup === true) {
  const user = firebase.auth().currentUser;
     setUid(user.uid);
     } else {

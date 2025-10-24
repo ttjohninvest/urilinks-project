@@ -8,6 +8,7 @@ import { firebase } from "../firebase/firebase";
 import configureStore from "../store/configureStore";
 import { startSetLinks } from "../actions/links";
 import { getTheplan } from "../actions/theplan";
+import { login, logout } from "../actions/auth";
 
 
 export const Signup = (props) => {

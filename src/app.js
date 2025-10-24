@@ -53,8 +53,8 @@ const renderApp = () => {
 
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 let v=0
-// if(window.localStorage.getItem("signup")!==undefined)
-//    v = parseInt(window.localStorage.getItem("signup"))
+if(window.localStorage.getItem("signup")!==null)
+    v = parseInt(window.localStorage.getItem("signup"))
 if (v===0) { //firsttime
   //if (false) {
 

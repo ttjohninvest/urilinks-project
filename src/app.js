@@ -28,8 +28,8 @@ import LoadingPage from "./components/LoadingPage";
 //     // Let's translate it!
 // });\
 
-let firsttime = false;
-//let firsttime = true;
+//let firsttime = false;
+let firsttime = true;
 
 //console.log = () => {};
 const store = configureStore();

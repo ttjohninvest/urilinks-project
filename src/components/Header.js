@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
 import logo from "../assets/images/logo9.png";
+import myprofile from "../assets/images/myprofile.png";
 //import { getAuth } from "firebase";
 import XShareButton from "./XShareButton"
 
@@ -108,7 +109,7 @@ export const Header = (props) => {
                      urilinks (bookmarking)
                   </Link>
               </div>
-              <div className="padding-top-1112">
+              {props.signup.signup===true ? <div className="padding-top-1112">
                 
                 <img
                   src={photoURL}
@@ -117,7 +118,17 @@ export const Header = (props) => {
                   style={{ borderRadius: "50%" }}
                   className="ib- margin-bottom-11-"
                 />
-              </div>
+              </div>:
+              <div className="padding-top-1112">
+                
+                <img
+                  src={myprofile}
+                  width="32"
+                  height="32"
+                  style={{ borderRadius: "50%" }}
+                  className="ib- margin-bottom-11-"
+                />
+              </div>}
               <div>
                 <Link className="header__title- nounderline" to="/benefits">
                   <span

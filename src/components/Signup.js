@@ -14,7 +14,7 @@ import { getTheplan } from "../actions/theplan";
 import { login, logout } from "../actions/auth";
 import AppRouter, { history } from "../routers/AppRouter";
 import  setSignup  from "../actions/signup";
-
+import LoadingPage from "./LoadingPage";
 
 
 export const Signup = (props) => {

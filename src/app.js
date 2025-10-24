@@ -48,9 +48,9 @@ const params = new URLSearchParams(window.location.search);
 const signup = params.get('signup'); // Returns "John"
 
 console.log("signup="+signup)
-let store
+let store = configureStore();
 if(signup !== "signup") {
-store = configureStore();
+//store = configureStore();
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
 console.log("theStore.theplan.plan=" + theStore.theplan.plan);

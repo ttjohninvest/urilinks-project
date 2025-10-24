@@ -9,6 +9,8 @@ import configureStore from "../store/configureStore";
 import { startSetLinks } from "../actions/links";
 import { getTheplan } from "../actions/theplan";
 import { login, logout } from "../actions/auth";
+import AppRouter, { history } from "../routers/AppRouter";
+
 
 
 export const Signup = (props) => {

@@ -29,6 +29,7 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={LoginPage} exact={true} />
         <PrivateRoute path="/dashboard" component={LinkDashboardPage} componentProps={{ theValue: true }} />
+        <PrivateRoute path="/signup" component={Signup} componentProps={{ theValue2: true }} />
          <PrivateRoute path="/teirspayment3" component={TeirsPayment3} />
         <PrivateRoute path="/settings" component={AddSettingsPage} />
         <PrivateRoute path="/termsandprivacy" component={TermsAndPrivacy} />

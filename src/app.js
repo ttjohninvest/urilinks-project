@@ -27,33 +27,32 @@ import LoadingPage from "./components/LoadingPage";
 //     console.log(res.trans_result.dst);
 //     // Let's translate it!
 // });
-let firsttime=false
+let firsttime = false;
 //console.log = () => {};
 const store = configureStore();
-let theStore = store.getState()
+let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
-console.log("theStore.theplan.plan="+theStore.theplan.plan)
-store.subscribe(() => {
-  console.log("Store state:", store.getState());
-});
-const jsx = (
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>
-);
+console.log("theStore.theplan.plan=" + theStore.theplan.plan);
+store.subscribe(() => {});
+
 let hasRendered = false;
 const renderApp = () => {
   console.log("about to render the app");
   if (!hasRendered) {
-    ReactDOM.render(jsx, document.getElementById("app"));
+    ReactDOM.render(
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>,
+      document.getElementById("app")
+    );
     hasRendered = true;
   }
 };
 
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
-if(firsttime===true) {
-if ("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"==="W4XCM1PRqtZeAzCZ0ALlEFrIwaw1") {
+if (firsttime === true) {
+  if ("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1") {
     //console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
     //store.dispatch(login(user.uid));
     //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
@@ -66,13 +65,13 @@ if ("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"==="W4XCM1PRqtZeAzCZ0ALlEFrIwaw1") {
           .dispatch(getTheplan())
           .then(() => {
             //return store.dispatch(getSettings()).then(() => {
-              renderApp();
+            renderApp();
 
-              if (history.location.pathname === "/") {
-                history.push("/dashboard");
-              } else if (history.location.pathname === "/dashboard") { 
-                history.push("/dashboard")
-              }
+            if (history.location.pathname === "/") {
+              history.push("/dashboard");
+            } else if (history.location.pathname === "/dashboard") {
+              history.push("/dashboard");
+            }
             //});
           })
           .catch((error) => {
@@ -88,41 +87,40 @@ if ("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"==="W4XCM1PRqtZeAzCZ0ALlEFrIwaw1") {
     renderApp();
     history.push("/");
   }
+} else {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
+      store.dispatch(login(user.uid));
 
- } else {
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
-    store.dispatch(login(user.uid));
-
-    store
-      .dispatch(startSetLinks())
-      .then(() => {
-        return store
-          .dispatch(getTheplan())
-          .then(() => {
-            //return store.dispatch(getSettings()).then(() => {
+      store
+        .dispatch(startSetLinks())
+        .then(() => {
+          return store
+            .dispatch(getTheplan())
+            .then(() => {
+              //return store.dispatch(getSettings()).then(() => {
               renderApp();
 
               if (history.location.pathname === "/") {
                 history.push("/dashboard");
-              } else if (history.location.pathname === "/dashboard") { 
-                history.push("/dashboard")
+              } else if (history.location.pathname === "/dashboard") {
+                history.push("/dashboard");
               }
-            //});
-          })
-          .catch((error) => {
-            console.log("theplan, error", error);
-          });
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-  } else {
-    console.log("logout happened");
-    store.dispatch(logout());
-    renderApp();
-    history.push("/");
-  }
-});
- }
+              //});
+            })
+            .catch((error) => {
+              console.log("theplan, error", error);
+            });
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    } else {
+      console.log("logout happened");
+      store.dispatch(logout());
+      renderApp();
+      history.push("/");
+    }
+  });
+}

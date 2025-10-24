@@ -34,12 +34,12 @@ firebase.auth().onAuthStateChanged((user) => {
             .then(() => {
               //return store.dispatch(getSettings()).then(() => {
               //renderApp();
-            history.push("/dashboard");
-            //   if (history.location.pathname === "/") {
-            //     history.push("/dashboard");
-            //   } else if (history.location.pathname === "/dashboard") {
-            //     history.push("/dashboard");
-            //   }
+            //history.push("/dashboard");
+              if (history.location.pathname === "/") {
+                history.push("/dashboard");
+              } else if (history.location.pathname === "/dashboard") {
+                history.push("/dashboard");
+              }
               //});
             })
             .catch((error) => {

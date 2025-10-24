@@ -27,69 +27,69 @@ export const Signup = (props) => {
         console.log("in signup.js, store.state = "+store.getState())
     });
 
-    let hasRendered = false;
-const renderApp = () => {
-  console.log("about to render the app");
-  if (!hasRendered) {
-    ReactDOM.render(
-      <Provider store={store}>
-        <AppRouter />
-      </Provider>,
-      document.getElementById("app")
-    );
-    hasRendered = true;
-  }
-};
+//     let hasRendered = false;
+// const renderApp = () => {
+//   console.log("about to render the app");
+//   if (!hasRendered) {
+//     ReactDOM.render(
+//       <Provider store={store}>
+//         <AppRouter />
+//       </Provider>,
+//       document.getElementById("app")
+//     );
+//     hasRendered = true;
+//   }
+// };
   
-    useEffect(()=>{
+//     useEffect(()=>{
 
 
 
-ReactDOM.render(<LoadingPage />, document.getElementById("app"));
+// ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
 
-firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      console.log("2 logged in user=" + JSON.stringify(user)); //user.photoURL
-      store.dispatch(login(user.uid));
+// firebase.auth().onAuthStateChanged((user) => {
+//     if (user) {
+//       console.log("2 logged in user=" + JSON.stringify(user)); //user.photoURL
+//       store.dispatch(login(user.uid));
 
 
       
 
-      store.dispatch(startSetLinks())
-        .then(() => {
-          return store
-            .dispatch(getTheplan())
-            .then(() => {
-                props.setSignup({signup:true});
-              //return store.dispatch(getSettings()).then(() => {
-              renderApp();
-            //history.push("/dashboard");
+//       store.dispatch(startSetLinks())
+//         .then(() => {
+//           return store
+//             .dispatch(getTheplan())
+//             .then(() => {
+//                 props.setSignup({signup:true});
+//               //return store.dispatch(getSettings()).then(() => {
+//               renderApp();
+//             //history.push("/dashboard");
              
-             history.push("/dashboard");
-            //   if (history.location.pathname === "/") {
-            //     history.push("/dashboard");
-            //   } else if (history.location.pathname === "/dashboard") {
-            //     history.push("/dashboard");
-            //   }
-              //});
-            })
-            .catch((error) => {
-              console.log("theplan, error", error);
-            });
-        })
-        .catch((error) => {
-          console.log("error", error);
-        });
-    } else {
-      console.log("logout happened");
-      store.dispatch(logout());
-      renderApp();
-      history.push("/");
-    }
-  });
+//              history.push("/dashboard");
+//             //   if (history.location.pathname === "/") {
+//             //     history.push("/dashboard");
+//             //   } else if (history.location.pathname === "/dashboard") {
+//             //     history.push("/dashboard");
+//             //   }
+//               //});
+//             })
+//             .catch((error) => {
+//               console.log("theplan, error", error);
+//             });
+//         })
+//         .catch((error) => {
+//           console.log("error", error);
+//         });
+//     } else {
+//       console.log("logout happened");
+//       store.dispatch(logout());
+//       renderApp();
+//       history.push("/");
+//     }
+//   });
 
-    },[])
+//     },[])
 
   return (
     <div>

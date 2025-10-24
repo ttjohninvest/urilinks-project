@@ -11,7 +11,7 @@ import { startSetLinks } from "../actions/links";
 import { getTheplan } from "../actions/theplan";
 import { login, logout } from "../actions/auth";
 import AppRouter, { history } from "../routers/AppRouter";
-import { setSignup } from "../actions/signup";
+import  setSignup  from "../actions/signup";
 
 
 
@@ -71,15 +71,16 @@ Signup
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    settings: state.settings,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     settings: state.settings,
+//   };
+// };
 
 const mapDispatchToProps = (dispatch) => ({
   setSignup: (v) => dispatch(setSignup(v)),
 });
 
 //export default connect(mapStateToProps)(Signup);
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Signup));
+//export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Signup));
+export default connect(undefined, mapDispatchToProps)(Signup);

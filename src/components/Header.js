@@ -31,7 +31,7 @@ export const Header = (props) => {
   // }
 
   useEffect(() => {
-    if(props.signup.signup===false) {
+    if(props.signup.signup===true) {
    const user = firebase.auth().currentUser;
     console.log("Header, photoURL=" + user.photoURL);
     setPhotoURL(user.photoURL);

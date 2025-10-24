@@ -31,7 +31,7 @@ export const Header = (props) => {
   // }
 
   useEffect(() => {
-    try {
+    
     console.log("props.signup.signup="+props.signup.signup)
     if(props.signup.signup===true) {
    const user = firebase.auth().currentUser;
@@ -41,9 +41,7 @@ export const Header = (props) => {
     else {
       setPhotoURL("");
     }
-  } catch {
-
-  }
+  
     //setInviewport(isInViewport())
   }, []);
 

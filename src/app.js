@@ -27,10 +27,13 @@ import LoadingPage from "./components/LoadingPage";
 //     console.log(res.trans_result.dst);
 //     // Let's translate it!
 // });\
-
-
-
 //console.log = () => {};
+
+const params = new URLSearchParams(window.location.search);
+const signup = params.get('signup'); // Returns "John"
+
+console.log("signup="+signup)
+
 const store = configureStore();
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))

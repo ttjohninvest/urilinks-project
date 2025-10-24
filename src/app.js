@@ -91,7 +91,7 @@ if(signup !== "signup") {
   
     store.dispatch({
   type: "SET_SIGNUP",
-  signu:{signup:true}
+  signup:{signup:true}
 })
   
     firebase.auth().onAuthStateChanged((user) => {

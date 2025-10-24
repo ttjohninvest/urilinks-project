@@ -109,11 +109,11 @@ function ExpandableArray(props) {
           >
             <div className="text-size-5 padding-top-11">
               (welcome) clickable hash tags in alphabetical order
-              <br />
+              {/* <br />
               I believe that Jesus is the Christ. I believe that Jesus Christ is
               the Son of God.
               <br />
-              Please go and sin no more, ok. Happy it.
+              Please go and sin no more, ok. Happy it. */}
               {/* <br />
               <button
                 className="button-m button--link color-black"

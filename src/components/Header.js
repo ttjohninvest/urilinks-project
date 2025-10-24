@@ -122,6 +122,7 @@ export const Header = (props) => {
               <div className="padding-top-1112">
                 
                 <img
+                  title="welcome"
                   src={myprofile}
                   width="32"
                   height="32"

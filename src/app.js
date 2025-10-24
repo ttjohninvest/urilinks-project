@@ -27,7 +27,7 @@ import LoadingPage from "./components/LoadingPage";
 //     console.log(res.trans_result.dst);
 //     // Let's translate it!
 // });
-let firsttime = true;
+let firsttime = false;
 //console.log = () => {};
 const store = configureStore();
 let theStore = store.getState();
@@ -87,5 +87,38 @@ if (firsttime === true) {
     history.push("/");
   }
 } else {
+  firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
+        store.dispatch(login(user.uid));
   
+        store.dispatch(startSetLinks())
+          .then(() => {
+            return store
+              .dispatch(getTheplan())
+              .then(() => {
+                //return store.dispatch(getSettings()).then(() => {
+                //renderApp();
+              //history.push("/dashboard");
+                if (history.location.pathname === "/") {
+                  history.push("/dashboard");
+                } else if (history.location.pathname === "/dashboard") {
+                  history.push("/dashboard");
+                }
+                //});
+              })
+              .catch((error) => {
+                console.log("theplan, error", error);
+              });
+          })
+          .catch((error) => {
+            console.log("error", error);
+          });
+      } else {
+        console.log("logout happened");
+        store.dispatch(logout());
+        //renderApp();
+        history.push("/");
+      }
+    });
 }

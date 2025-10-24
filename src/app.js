@@ -98,7 +98,7 @@ if (firsttime === true) {
               .dispatch(getTheplan())
               .then(() => {
                 //return store.dispatch(getSettings()).then(() => {
-                //renderApp();
+                renderApp();
               //history.push("/dashboard");
                 if (history.location.pathname === "/") {
                   history.push("/dashboard");
@@ -117,7 +117,7 @@ if (firsttime === true) {
       } else {
         console.log("logout happened");
         store.dispatch(logout());
-        //renderApp();
+        renderApp();
         history.push("/");
       }
     });

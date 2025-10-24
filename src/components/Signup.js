@@ -20,7 +20,7 @@ import LoadingPage from "./LoadingPage";
 export const Signup = (props) => {
 useEffect(()=>{
   console.log("in Signup")
-  window.location.href+"https://urilinks.com?signup=signun"
+  window.location.href="https://urilinks.com?signup=signun"
 // const store = configureStore();
 //     //let theStore = store.getState();
 //     //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))

@@ -18,8 +18,8 @@ export const LinksSummary = (props) => {
             Add bookmark
           </Link>
         
-      </div>:<div>
-      <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="is-active">{props.linkCount}</span> bookmarks Found</div>
+      </div>:<div className="flexrow2">
+       <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="is-active">{props.linkCount}</span> bookmarks Found</div>
         
           <Link className="button-2 ib text-size-5 bg-color-1 pointereventsnone" to="/create">
             Add bookmark

@@ -48,14 +48,14 @@ const params = new URLSearchParams(window.location.search);
 const signup = params.get('signup'); // Returns "John"
 
 console.log("signup="+signup)
-
+let store
 if(signup !== "signup") {
-let store = configureStore();
+store = configureStore();
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
 console.log("theStore.theplan.plan=" + theStore.theplan.plan);
 store.subscribe(() => {});
-if (signup !== "signup") {
+
 
     store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
 
@@ -82,7 +82,9 @@ if (signup !== "signup") {
         console.log("error", error);
       });
  
-} else {
+
+}  else {
+  
   
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -118,72 +120,7 @@ if (signup !== "signup") {
         history.push("/");
       }
     });
-}
-} else {
-  if (signup !== "signup") {
 
-    store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
-
-    store.dispatch(startSetLinks())
-      .then(() => {
-        return store
-          .dispatch(getTheplan())
-          .then(() => {
-            //return store.dispatch(getSettings()).then(() => {
-            renderApp(store);
-
-            if (history.location.pathname === "/") {
-              history.push("/dashboard");
-            } else if (history.location.pathname === "/dashboard") {
-              history.push("/dashboard");
-            }
-            //});
-          })
-          .catch((error) => {
-            console.log("theplan, error", error);
-          });
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
- 
-} else {
-  
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
-        store.dispatch(login(user.uid));
-  
-        store.dispatch(startSetLinks())
-          .then(() => {
-            return store
-              .dispatch(getTheplan())
-              .then(() => {
-                //return store.dispatch(getSettings()).then(() => {
-                renderApp(store);
-              //history.push("/dashboard");
-                if (history.location.pathname === "/") {
-                  history.push("/dashboard");
-                } else if (history.location.pathname === "/dashboard") {
-                  history.push("/dashboard");
-                }
-                //});
-              })
-              .catch((error) => {
-                console.log("theplan, error", error);
-              });
-          })
-          .catch((error) => {
-            console.log("error", error);
-          });
-      } else {
-        console.log("logout happened");
-        store.dispatch(logout());
-        renderApp(store);
-        history.push("/");
-      }
-    });
-}
 }
 
 

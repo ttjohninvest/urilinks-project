@@ -162,13 +162,21 @@ export const Header = (props) => {
                 </Link>
               </div>
 
-               <div>
-                <a className="header__title- nounderline" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
+               {props.signup.signup=== true ?<div>
+                <a className="header__title- nounderline pointereventsauto" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
+                  <span className="ib- color-white-1 cursor-pointer" title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader.">
+                    (get page urls for bookmarks file)
+                  </span>
+                </a>
+              </div>:
+              <div>
+                <a className="header__title- nounderline pointereventsnone" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
                   <span className="ib- color-white-1 cursor-pointer" title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader.">
                     (get page urls for bookmarks file)
                   </span>
                 </a>
               </div>
+              }
 
               <div>
                 <Link className="header__title- nounderline" to="/bookmarksmanager">

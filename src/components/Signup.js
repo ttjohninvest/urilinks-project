@@ -26,15 +26,8 @@ export const Signup = (props) => {
     store.subscribe(() => {
         console.log("in signup.js, store.state = "+store.getState())
     });
-  
-    useEffect(()=>{
-firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      console.log("2 logged in user=" + JSON.stringify(user)); //user.photoURL
-      store.dispatch(login(user.uid));
 
-
-      let hasRendered = false;
+    let hasRendered = false;
 const renderApp = () => {
   console.log("about to render the app");
   if (!hasRendered) {
@@ -47,6 +40,21 @@ const renderApp = () => {
     hasRendered = true;
   }
 };
+  
+    useEffect(()=>{
+
+
+
+
+
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log("2 logged in user=" + JSON.stringify(user)); //user.photoURL
+      store.dispatch(login(user.uid));
+
+
+      
 
       store.dispatch(startSetLinks())
         .then(() => {

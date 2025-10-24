@@ -28,7 +28,7 @@ export const Signup = (props) => {
     useEffect(()=>{
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
+      console.log("2 logged in user=" + JSON.stringify(user)); //user.photoURL
       store.dispatch(login(user.uid));
 
       store.dispatch(startSetLinks())

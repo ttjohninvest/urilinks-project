@@ -24,7 +24,7 @@ function ExpandableArray(props) {
   const [newspaper, setNewspaper] = useState(props.newspaper);
 
   useEffect(() => {
-    if(this.props.signup === true) {
+    if(props.signup === true) {
  const user = firebase.auth().currentUser;
     setUid(user.uid);
     } else {
@@ -609,6 +609,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
                 setit={this.setit}
                 plan={this.props.theplan.plan}
                 newspaper={this.state.newspaper}
+                signup={this.props.signup}
               />
             </div>
           )}

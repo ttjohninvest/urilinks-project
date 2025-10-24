@@ -84,7 +84,7 @@ if (v==="0") { //firsttime
       });
  
 } else {
-   //window.localStorage.setItem("signup", null);
+   window.localStorage.setItem("signup", "0");
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log("logged in user=" + JSON.stringify(user)); //user.photoURL

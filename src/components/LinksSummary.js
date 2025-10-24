@@ -10,15 +10,25 @@ export const LinksSummary = ({ linkCount, linksTotal }) => {
   const formattedLinksTotal = numeral(linksTotal / 100).format("$0,0.00");
 
   return (
-    
-      <div className="flexrow2">
-       <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55"><span className="is-active">{linkCount}</span> bookmarks Found</div>
+    <div>
+ {props.signup.signup === true ? <div className="flexrow2">
+       <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="is-active">{linkCount}</span> bookmarks Found</div>
+        
+          <Link className="button-2 ib text-size-5 bg-color-1" to="/create">
+            Add bookmark
+          </Link>
+        
+      </div>:<div>
+      <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="is-active">{linkCount}</span> bookmarks Found</div>
         
           <Link className="button-2 ib text-size-5 bg-color-1" to="/create">
             Add bookmark
           </Link>
         
       </div>
+      }
+    </div>
+     
     
   );
 };
@@ -29,7 +39,8 @@ const mapStateToProps = (state) => {
   return {
     linkCount: visibleLinks.length,
     linksTotal: selectLinksTotal(visibleLinks),
+    signup:state.signup
   };
 };
 
-export default connect(mapStateToProps)(LinksSummary);
+export default connect(mapStateToProps,undefined)(LinksSummary);

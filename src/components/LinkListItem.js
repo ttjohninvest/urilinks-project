@@ -706,8 +706,17 @@ const addIdToDelete=(id)=>{
                     </div>
                       <div className="margin-bottom-1141">
             <div className="flexrow4">
-              <div>
- <Link className="nounderline text-size-5 inline-block-margin-left-1" to={`/edit/${props.id}`}>
+              {props.signup.signup === true ?<div>
+ <Link className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto" to={`/edit/${props.id}`}>
+               
+                  <span className="padding-right-11 color-white-1 button-2">
+                    edit or remove
+                  </span>
+                  
+               
+              </Link>
+              </div>:<div>
+ <Link className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone" to={`/edit/${props.id}`}>
                
                   <span className="padding-right-11 color-white-1 button-2">
                     edit or remove
@@ -716,12 +725,21 @@ const addIdToDelete=(id)=>{
                
               </Link>
               </div>
+
+  }
+             {props.signup.signup === true ?<div>
+ <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                   <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
+                   <label for={"delete%"+props.id} />
+                  </span>
+             </div>:
              <div>
- <span className="padding-right-11 inline-block-margin-left-1 color-purple">
+ <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                    <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
                    <label for={"delete%"+props.id} />
                   </span>
              </div>
+             }
              
             </div>
           </div>
@@ -788,9 +806,14 @@ const addIdToDelete=(id)=>{
 
 //export default LinkListItem;
 
+const mapStateToProps = (state) => ({
+  signup: state.signup
+});
+
+
 const mapDispatchToProps = (dispatch, props) => ({
   startRemoveLink: (data) => dispatch(startRemoveLink(data)),
   removeLink: (data) => dispatch(removeLink(data)),
 });
 
-export default connect(undefined, mapDispatchToProps)(LinkListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(LinkListItem);

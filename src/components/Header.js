@@ -193,8 +193,18 @@ export const Header = (props) => {
               </div>
               }
 
+              {props.signup.signup=== true ?<div>
+                <Link className="header__title- nounderline pointereventsauto" to="/bookmarksmanager">
+                  <span
+                    className="ib- color-white-1 cursor-pointer"
+                    title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
+                  >
+                    (Bookmarks Uploader)
+                  </span>
+                </Link>
+              </div>:
               <div>
-                <Link className="header__title- nounderline" to="/bookmarksmanager">
+                <Link className="header__title- nounderline pointereventsnone" to="/bookmarksmanager">
                   <span
                     className="ib- color-white-1 cursor-pointer"
                     title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
@@ -203,6 +213,7 @@ export const Header = (props) => {
                   </span>
                 </Link>
               </div>
+              }
 
               <div className="margin-top-1111a-">
                 <button

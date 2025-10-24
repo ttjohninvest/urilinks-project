@@ -21,7 +21,9 @@ export const Signup = (props) => {
     //let theStore = store.getState();
     //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
     //console.log("theStore.theplan.plan=" + theStore.theplan.plan);
-    store.subscribe(() => {});
+    store.subscribe(() => {
+        console.log("in signup.js, store.state = "+store.getState())
+    });
   
     useEffect(()=>{
 firebase.auth().onAuthStateChanged((user) => {

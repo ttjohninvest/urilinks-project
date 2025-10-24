@@ -119,10 +119,10 @@ export const Header = (props) => {
                   className="ib- margin-bottom-11-"
                 />
               </div>:
-              <div className="padding-top-1112">
+              <div className="padding-top-1112" title="welcome">
                 
                 <img
-                  title="welcome"
+                  
                   src={myprofile}
                   width="32"
                   height="32"

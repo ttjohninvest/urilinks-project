@@ -14,9 +14,9 @@ import { login, logout } from "../actions/auth";
 export const Signup = (props) => {
 
     const store = configureStore();
-    let theStore = store.getState();
+    //let theStore = store.getState();
     //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
-    console.log("theStore.theplan.plan=" + theStore.theplan.plan);
+    //console.log("theStore.theplan.plan=" + theStore.theplan.plan);
     store.subscribe(() => {});
   
     useEffect(()=>{

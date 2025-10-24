@@ -50,7 +50,7 @@ const renderApp = () => {
     hasRendered = true;
   }
 };
-renderApp();
+//renderApp();
 // ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
 // //if (true) { //firsttime

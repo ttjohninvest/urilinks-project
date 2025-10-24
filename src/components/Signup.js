@@ -98,7 +98,7 @@ useEffect(()=>{
 
   return (
     <div>
-Signup
+
     </div>
   );
 };

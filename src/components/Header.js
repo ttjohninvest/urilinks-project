@@ -215,14 +215,16 @@ export const Header = (props) => {
               </div>
               }
 
-              <div className="margin-top-1111a-">
+              {props.signup.signup === true ? <div className="margin-top-1111a-">
                 <button
                   className="button button--link ib text-size-3- color-white-1 cursor-pointer"
                   onClick={props.startLogout}
                 >
                   (Logout)
                 </button>
-              </div>
+              </div>:""
+             
+              }
             </div>
           </div>
         </header>

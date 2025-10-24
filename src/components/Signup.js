@@ -4,12 +4,14 @@
 
 import React, {useEffect} from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { firebase } from "../firebase/firebase";
 import configureStore from "../store/configureStore";
 import { startSetLinks } from "../actions/links";
 import { getTheplan } from "../actions/theplan";
 import { login, logout } from "../actions/auth";
 import AppRouter, { history } from "../routers/AppRouter";
+import { setSignup } from "../actions/signup";
 
 
 
@@ -35,6 +37,7 @@ firebase.auth().onAuthStateChanged((user) => {
               //return store.dispatch(getSettings()).then(() => {
               //renderApp();
             //history.push("/dashboard");
+             props.setSignup({signup:true});
               if (history.location.pathname === "/") {
                 history.push("/dashboard");
               } else if (history.location.pathname === "/dashboard") {
@@ -72,4 +75,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Signup);
+const mapDispatchToProps = (dispatch) => ({
+  setSignup: (v) => dispatch(setSignup(v)),
+});
+
+//export default connect(mapStateToProps)(Signup);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Signup));

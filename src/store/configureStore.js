@@ -42,7 +42,8 @@ export default () => {
       setitfiledate: setitfiledateReducer,
       url: storageReducer,
       customerId: customeridReducer,
-      theplan: theplanReducer
+      theplan: theplanReducer,
+      signup: signupReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

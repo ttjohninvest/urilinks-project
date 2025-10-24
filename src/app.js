@@ -34,11 +34,14 @@ const signup = params.get('signup'); // Returns "John"
 
 console.log("signup="+signup)
 
+if(signup !== "signup") {
 const store = configureStore();
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
 console.log("theStore.theplan.plan=" + theStore.theplan.plan);
 store.subscribe(() => {});
+}
+
 
 let hasRendered = false;
 const renderApp = () => {

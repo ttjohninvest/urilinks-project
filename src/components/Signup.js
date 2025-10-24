@@ -19,13 +19,14 @@ import LoadingPage from "./LoadingPage";
 
 export const Signup = (props) => {
 useEffect(()=>{
-const store = configureStore();
-    //let theStore = store.getState();
-    //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
-    //console.log("theStore.theplan.plan=" + theStore.theplan.plan);
-    store.subscribe(() => {
-        console.log("in signup.js, store.state = "+store.getState())
-    });
+  console.log("in Signup")
+// const store = configureStore();
+//     //let theStore = store.getState();
+//     //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
+//     //console.log("theStore.theplan.plan=" + theStore.theplan.plan);
+//     store.subscribe(() => {
+//         console.log("in signup.js, store.state = "+store.getState())
+//     });
 
 },[])
     
@@ -100,16 +101,16 @@ Signup
   );
 };
 
-// const mapStateToProps = (state) => {
-//   return {
-//     settings: state.settings,
-//   };
-// };
+const mapStateToProps = (state) => {
+  return {
+    settings: state.settings,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   setSignup: (v) => dispatch(setSignup(v)),
 });
 
 //export default connect(mapStateToProps)(Signup);
-//export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Signup));
-export default connect(undefined, mapDispatchToProps)(Signup);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Signup));
+//export default connect(undefined, mapDispatchToProps)(Signup);

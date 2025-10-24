@@ -27,7 +27,7 @@ import LoadingPage from "./components/LoadingPage";
 //     console.log(res.trans_result.dst);
 //     // Let's translate it!
 // });
-let firsttime = false;
+let firsttime = true;
 //console.log = () => {};
 const store = configureStore();
 let theStore = store.getState();

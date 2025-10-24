@@ -20,8 +20,7 @@ import LoadingPage from "./LoadingPage";
 export const Signup = (props) => {
 useEffect(()=>{
   console.log("in Signup")
-  window.localStorage.setItem("signup", "1");
-  window.location.reload(true)
+  
 // const store = configureStore();
 //     //let theStore = store.getState();
 //     //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))

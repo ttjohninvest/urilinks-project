@@ -20,13 +20,13 @@ import LoadingPage from "./LoadingPage";
 export const Signup = (props) => {
 useEffect(()=>{
   console.log("in Signup")
-// const store = configureStore();
-//     //let theStore = store.getState();
-//     //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
-//     //console.log("theStore.theplan.plan=" + theStore.theplan.plan);
-//     store.subscribe(() => {
-//         console.log("in signup.js, store.state = "+store.getState())
-//     });
+const store = configureStore();
+    //let theStore = store.getState();
+    //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
+    //console.log("theStore.theplan.plan=" + theStore.theplan.plan);
+    store.subscribe(() => {
+        console.log("in signup.js, store.state = "+store.getState())
+    });
 
 },[])
     

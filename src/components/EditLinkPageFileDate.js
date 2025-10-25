@@ -8,7 +8,8 @@ export class EditLinkPageFileDate extends React.Component {
     this.props.startEditLinkFileDate(this.props.linkfiledate.id, linkfiledate);
     
     this.props.history.push("/");
-    window.location.reload()
+    //window.location.reload()
+    window.location.href="https://urilinks.com?signup=signup"
   };
   //onRemove = (value,event) => {
     onRemove = () => {
@@ -18,7 +19,8 @@ export class EditLinkPageFileDate extends React.Component {
     //console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, value="+value)
     this.props.startRemoveLinkFileDate({ id: this.props.linkfiledate.id });
     this.props.history.push("/");
-    window.location.reload()
+    //window.location.reload()
+    window.location.href="https://urilinks.com?signup=signup"
   };
   render() {
     return (

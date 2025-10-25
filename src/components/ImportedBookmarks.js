@@ -32,7 +32,8 @@ max=5000
 
   const returnAndRefresh = () => {
     props.history.push("/");
-    window.location.reload();
+    //window.location.reload();
+    window.location.href="https://urilinks.com?signup=signup"
   };
 
   const printIt=()=>{

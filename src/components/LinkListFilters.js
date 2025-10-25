@@ -588,7 +588,8 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
   };
 
   refreshIt = () => {
-    window.location.reload();
+    //window.location.reload();
+    window.location.href="https://urilinks.com?signup=signup"
   };
 
   scrollDown = () => {

@@ -357,7 +357,8 @@ export class LinkListFiltersFileDate extends React.Component {
   };
 
   refreshIt = () => {
-    window.location.reload();
+    //window.location.reload();
+    window.location.href="https://urilinks.com?signup=signup"
   };
 
   render() {

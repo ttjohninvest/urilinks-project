@@ -100,7 +100,8 @@ const user = firebase.auth().currentUser;
       } else {
         
         props.history.push("/");
-        window.location.reload()
+        //window.location.reload()
+        window.location.href="https://urilinks.com?signup=signup"
       }
     } else {
       console.log("maximum links reached");
@@ -124,7 +125,8 @@ const user = firebase.auth().currentUser;
       } else {
         
         props.history.push("/");
-        window.location.reload()
+        //window.location.reload()
+        window.location.href="https://urilinks.com?signup=signup"
       }
     } else {
       console.log("maximum links reached");

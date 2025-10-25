@@ -9,7 +9,8 @@ export class EditLinkPage extends React.Component {
     this.props.startEditLink(this.props.link.id, link);
     
     this.props.history.push("/");
-    window.location.reload()
+    //window.location.reload()
+    window.location.href="https://urilinks.com?signup=signup"
   };
   //onRemove = (value,event) => {
     onRemove = () => {
@@ -20,7 +21,8 @@ export class EditLinkPage extends React.Component {
     this.props.removeLink({ id: this.props.link.id })
     this.props.startRemoveLink({ id: this.props.link.id });
     this.props.history.push("/");
-    window.location.reload()
+    //window.location.reload()
+    window.location.href="https://urilinks.com?signup=signup"
   };
   render() {
     return (

@@ -27,6 +27,8 @@ He layeth up sound wisdom for the righteous: he is a buckler to them that walk u
 
 "Angel" "Snow" Thanks Jesus!
 
+Are their people sharing the wonderful news of the Gospel of Jesus Christ? Are people being invited to call on the name of Jesus Christ for salvation? Are the homeless being taken care of? Were are the churches? Are people in the community praying?
+
 I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves.
 
 Their is no such thing is evolution of life forms from one form to another. Precious Holy Father God created all life forms as have been seen or discovered through precious Holy Jesus Christ. I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
@@ -446,10 +448,12 @@ set the domain name
 set the domain that I can use
 "can do" sourcelinks.com
 
+
+
 domain names
 calluponjesus.org
 calluponchrist.org
-
+bmklinks.com or bmkurls.com
 urlsphere.com
 
 +++++++

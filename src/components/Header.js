@@ -100,7 +100,7 @@ export const Header = (props) => {
                 </Link>
               </div>
              { props.signup.signup === false && <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
-                  <Link className="nounderline color-white-1 cursor-pointer" to="/signup"  title="refresh">
+                  <Link className="nounderline color-white-1 cursor-pointer" to="/signup"  title="">
                     LOGIN
                   </Link>
               </div>}

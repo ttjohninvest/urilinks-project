@@ -145,10 +145,10 @@ git show HEAD~26:src/components/FetchBookmarks.js > FetchBookmarks-old.js
 
 tools:
 stripe.com (payment processor)
-ttjohninvest@gmail.com
-google based signin
+ttjohninvest@gmail.com (google login)
+google based signin 
 vercel.com (stripe cloud functions)
-ttjohninvest@gmail.com
+ttjohninvest@gmail.com (google login)
 github.com (code repository)
 ttjohninvest@gmail.com
 cloudflare.com (statistics)

@@ -75,11 +75,10 @@ const LoginPage = ({ startLogin }) => {
             </h3>
              
             <p className="margin-left-11">
-              Welcome precious. Worry about forgetting is diminished by using this. It works like a physical file organizer. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags or folder names which is easier to access and read than chrome browser bookmarks. It has a free plan to store up to 250 bookmarks. It has three other inexpensive plans I think you may enjoy as well.
-            </p>
-            <p className="margin-left-11">Please contact Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p>
+              Welcome. Worry about forgetting is diminished by using this. It works like a physical file organizer. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags or folder names. It is more satisfying and easy than chrome browser bookmarks.</p>
+            <p className="margin-left-11">Please contact me, Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p>
            
-            {innerWidth<=1000 && <div className="margin-left-118 margin-bottom-18">
+            {/* {innerWidth<=1000 && <div className="margin-left-118 margin-bottom-18">
               <a
                 href="https://youtu.be/SFkvTgFhBVs"
                 className="text-size-8- coolShadow- "
@@ -88,7 +87,7 @@ const LoginPage = ({ startLogin }) => {
               >
                 Please click to see the tutorial on youtube.com.
               </a>
-            </div>}
+            </div>} */}
 
             <button
               className="button"

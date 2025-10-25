@@ -109,7 +109,7 @@ function ExpandableArray(props) {
           >
             <div className="text-size-5 padding-top-11">
               <div>(welcome) clickable hash tags in alphabetical order</div>
-              {props.signup.signup === false ?<div>Check out the search folder name dropdown list for bookmarks in a folder</div>:<div>Examples</div>}
+              {props.signup.signup === false ?<div>Check out the search folder name dropdown list for bookmarks in a folder</div>:<div>Examples{props.signup.signup}</div>}
               {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
               {/* <br />
               I believe that Jesus is the Christ. I believe that Jesus Christ is

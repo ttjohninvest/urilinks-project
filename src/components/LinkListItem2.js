@@ -15,7 +15,8 @@ const LinkListItem2 = ({ id, description, Url, note, amount, createdAt, faviconU
       <a
         className="nounderline text-size-1 text-color-db- color-purple ib margin-top-11111"
         href={Url}
-        target="_self"
+        //target="_self"
+        target="_blank"
         title={Url}
         onClick={storeScrollPosition}
       >

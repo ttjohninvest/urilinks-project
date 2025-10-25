@@ -680,7 +680,8 @@ const addIdToDelete=(id)=>{
                         ref={myRef}
                         className="ib  margin-right-114 nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"
                         href={props.Url}
-                        target="_self"
+                         //target="_self"
+                        target="_blank"
                         title={"click to open the webpage: " + props.Url}
                         onClick={storeScrollPosition}
                       >
@@ -697,7 +698,8 @@ const addIdToDelete=(id)=>{
                         ref={myRef}
                         className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"
                         href={props.Url}
-                        target="_self"
+                        //target="_self"
+                        target="_blank"
                         title={"click to open the webpage: " + props.Url}
                         onClick={storeScrollPosition}
                       >

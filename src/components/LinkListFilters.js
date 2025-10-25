@@ -110,7 +110,7 @@ function ExpandableArray(props) {
             <div className="text-size-5 padding-top-11">
               (welcome) clickable hash tags in alphabetical order
               <br />
-              Check out the search foldername dropdown list for bookmarks in a folder<br />
+              Check out the search foldername dropdown list for example bookmarks in a folder<br />
               {/* <br />
               I believe that Jesus is the Christ. I believe that Jesus Christ is
               the Son of God.

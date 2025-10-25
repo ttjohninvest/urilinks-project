@@ -108,8 +108,8 @@ function ExpandableArray(props) {
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             <div className="text-size-5 padding-top-11">
-              <div>(welcome) clickable hash tags in alphabetical order</div>
-              {props.signup.signup === false ?<div>Check out the search folder name dropdown list for bookmarks in a folder</div>:<div>Examples{props.signup.signup}</div>}
+              <div>(welcome) clickable hash tags matrix in alphabetical order</div>
+              {props.signup === false ?<div>Check out the search folder name dropdown list for example bookmarks in a folder</div>:<div>Check out the search folder name dropdown list for bookmarks in a folder</div>}
               {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
               {/* <br />
               I believe that Jesus is the Christ. I believe that Jesus Christ is

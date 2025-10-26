@@ -2,7 +2,6 @@ import React, { useState, createRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-
 import { DateRangePicker } from "react-dates";
 
 import database from "../firebase/firebase";
@@ -16,22 +15,34 @@ import {
   setStartDate,
   setEndDate,
   sortByNoteText,
-  sortByFolder
+  sortByFolder,
 } from "../actions/filters";
 
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
+  const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
 
   useEffect(() => {
-    if(props.signup === true) {
- const user = firebase.auth().currentUser;
-    setUid(user.uid);
+    if (props.signup === true) {
+      const user = firebase.auth().currentUser;
+      setUid(user.uid);
     } else {
- setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
+      setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
     }
-   
+
+    if (props.theplan.plan.replace(/"/g, "") === "free") {
+      setMax(250);
+    } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
+      setMax(1500);
+    } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
+      setMax(2500);
+    } else {
+      //premium
+
+      setMax(5000);
+    }
   }, []);
 
   const moveIt = () => {
@@ -109,10 +120,31 @@ function ExpandableArray(props) {
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             <div className="text-size-5 padding-top-11">
-             
-              <div><h3>BOOKMARKS ORGANIZER</h3></div>
-              {props.signup === false ?<div>(welcome to urilinks.com) clickable hash tags matrix example in alphabetical order</div>:<div>(welcome to urilinks.com) clickable hash tags matrix in alphabetical order</div>}
-              {props.signup === false ?<div>Check out the search folder name dropdown list for example bookmarks in a folder</div>:<div>Check out the search folder name dropdown list for bookmarks in a folder</div>}
+              <div>
+                <h3>BOOKMARKS ORGANIZER</h3>
+              </div>
+              {props.signup === false ? (
+                <div>
+                  (welcome to urilinks.com) clickable hash tags matrix example
+                  in alphabetical order
+                </div>
+              ) : (
+                <div>
+                  (welcome to urilinks.com) clickable hash tags matrix in
+                  alphabetical order
+                </div>
+              )}
+              {props.signup === false ? (
+                <div>
+                  Check out the search folder name dropdown list for example
+                  bookmarks in a folder
+                </div>
+              ) : (
+                <div>
+                  Check out the search folder name dropdown list for bookmarks
+                  in a folder
+                </div>
+              )}
               {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
               {/* <br />
               I believe that Jesus is the Christ. I believe that Jesus Christ is
@@ -129,18 +161,44 @@ function ExpandableArray(props) {
             </div>
 
             <div className="flexrow2e">
-              {props.signup === true ?<div title="current plan">
-                plan: {props.plan.replace(/"/g, "")}
-              </div>:<div></div>}
+              {props.signup === true ? (
+                <div title="current plan">
+                  plan: {props.plan.replace(/"/g, "")}
+                </div>
+              ) : (
+                <div></div>
+              )}
               <div className="margin-left-11">
                 <Link className="header__title" to="/teirspayment3">
                   <span
                     className="ib color-black text-size-5 general-font"
                     title="click for plan options"
                   >
-                    {props.signup === true ? <span>
-(click to change plan)
-                    </span>:<span></span>}
+                    {max === 250 ? (
+                      <span>(stores upto 250 bookmarks)</span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {max === 1500 ? (
+                      <span>(stores upto 1500 bookmarks)</span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {max === 250 ? (
+                      <span>(stores upto 2500 bookmarks)</span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {max === 5000 ? (
+                      <span>(stores upto 5000 bookmarks)</span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {props.signup === true ? (
+                      <span>(click to change plan)</span>
+                    ) : (
+                      <span></span>
+                    )}
                     {/* {uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
                     uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93"
                       ? "(click to change plan)"
@@ -341,15 +399,15 @@ export class LinkListFilters extends React.Component {
   };
 
   onFolderChange = (e) => {
-    console.log("onSortChange2, e.target.value="+e.target.value);
+    console.log("onSortChange2, e.target.value=" + e.target.value);
     //alert( "e.target.value="+e.target.value)
-   this.props.setTextFilter(e.target.value);
-   
+    this.props.setTextFilter(e.target.value);
+
     if (this.myRef.current) this.myRef.current.focus();
     window.localStorage.setItem("sortBy", "folder");
     //this.props.setTextFilter(e.target.value);
     this.setState({ sortBy: "folder" });
-    
+
     this.props.sortByFolder();
 
     /*
@@ -359,7 +417,6 @@ export class LinkListFilters extends React.Component {
       //this.setState({ sortBy: "description" });
       //this.props.sortByDescription();
     */
-
   };
 
   onSortChange = (e) => {
@@ -411,59 +468,52 @@ export class LinkListFilters extends React.Component {
   //   return [...new Set(lcStringArray)];
   // };//
 
-  
-    removeDuplicatesByKey(array, keyFunction) {
+  removeDuplicatesByKey(array, keyFunction) {
     const seen = new Set();
-    return array.filter(item => {
-        const key = keyFunction(item);
-        const duplicate = seen.has(key);
-        seen.add(key);
-        return !duplicate;
+    return array.filter((item) => {
+      const key = keyFunction(item);
+      const duplicate = seen.has(key);
+      seen.add(key);
+      return !duplicate;
     });
-}
-  
-// truncate(str, maxLength) {
-//     const ellipsis = '...';
-//     return str.length > maxLength ? str.slice(0, maxLength - ellipsis.length) + ellipsis : str;
-// }
+  }
 
-// Example usage:
-//console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."  
+  // truncate(str, maxLength) {
+  //     const ellipsis = '...';
+  //     return str.length > maxLength ? str.slice(0, maxLength - ellipsis.length) + ellipsis : str;
+  // }
 
+  // Example usage:
+  //console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."
 
-
- static getDerivedStateFromProps(nextProps, prevState) {
-    
-      return {
-        filenameList: []
-        
-      };
-   
-   
-    
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      filenameList: [],
+    };
   }
 
   componentDidMount() {
-      //props.history.push("/");
-        //window.location.reload()
-// this.setState({ foldernamesList: [] });
+    //props.history.push("/");
+    //window.location.reload()
+    // this.setState({ foldernamesList: [] });
     //const array1 = ['a','b']
     let tl = [];
 
     this.props.links.forEach(function (element) {
       if (!!element.foldername === true) {
-
-let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) + "..." : element.foldername
- tl.push({ label: str2, value: element.foldername });
+        let str2 =
+          element.foldername.length > 40
+            ? element.foldername.slice(0, 40 - 3) + "..."
+            : element.foldername;
+        tl.push({ label: str2, value: element.foldername });
       }
-       
     });
 
     tl.sort((a, b) => {
       return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
     });
 
-    let tl2 = this.removeDuplicatesByKey(tl, item => item.value);
+    let tl2 = this.removeDuplicatesByKey(tl, (item) => item.value);
 
     this.setState({ foldernamesList: tl2 });
     //get the plan from settings so I know how many links a person can have
@@ -592,7 +642,7 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
 
   refreshIt = () => {
     //window.location.reload();
-    window.location.href="https://urilinks.com?signup=signup"
+    window.location.href = "https://urilinks.com?signup=signup";
   };
 
   scrollDown = () => {
@@ -691,20 +741,24 @@ let str2 = element.foldername.length > 40 ? element.foldername.slice(0, 40 - 3) 
             </select>
           </div>
           <div className="cursor-pointer">
-            <select className="select cursor-pointer"
-            onChange={this.onFolderChange}
-             title="pick a folder name in this list to search for its bookmarks"
+            <select
+              className="select cursor-pointer"
+              onChange={this.onFolderChange}
+              title="pick a folder name in this list to search for its bookmarks"
             >
-              <option key={''} value={''}>
-                  search folder name
-                </option>
-             
-              {this.state.foldernamesList.map((option,i) => (
-                
-                <option  className="cursor-pointer" key={option.value} value={option.value} title={option.value}>
+              <option key={""} value={""}>
+                search folder name
+              </option>
+
+              {this.state.foldernamesList.map((option, i) => (
+                <option
+                  className="cursor-pointer"
+                  key={option.value}
+                  value={option.value}
+                  title={option.value}
+                >
                   {option.label}
                 </option>
-
               ))}
             </select>
           </div>
@@ -734,7 +788,8 @@ const mapStateToProps = (state) => ({
   setit: state.setit,
   settings: state.settings,
   theplan: state.theplan,
-  signup:state.signup
+  signup: state.signup,
+  theplan: state.theplan,
 });
 
 const mapDispatchToProps = (dispatch) => ({

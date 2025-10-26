@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
 import FBShareButton from "./FBShareButton";
-import FBShareButton2 from "./FBShareButton2";
-//import MessengerButton from "./MessengerButton";
+//import FBShareButton2 from "./FBShareButton2";
+import MessengerButton from "./MessengerButton";
 import LinkedInShareButton from "./LinkedInShareButton";
 import XShareButton from "./XShareButton";
 //import AddToAny from './AddToAny';
@@ -799,8 +799,8 @@ const addIdToDelete=(id)=>{
       </div>
       <div className="flexrow2w">
         <FBShareButton url={props.Url} />
-        <FBShareButton2 url={props.Url} />
-        {/* <MessengerButton /> */}
+        
+        <MessengerButton />
         <LinkedInShareButton url={props.Url} />
         {/* <AddToAny /> */}
 

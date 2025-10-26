@@ -72,9 +72,9 @@ if(signup !== "signup") {
             renderApp(store);
 
             if (history.location.pathname === "/") {
-              history.push("/dashboard");
-            } else if (history.location.pathname === "/dashboard") {
-              history.push("/dashboard");
+              history.push("/dashboard?signup=signup");
+            } else if (history.location.pathname === "/dashboard?signup=signup") {
+              history.push("/dashboard?signup=signup");
             }
             //});
           })
@@ -108,9 +108,9 @@ if(signup !== "signup") {
                 renderApp(store);
               //history.push("/dashboard");
                 if (history.location.pathname === "/") {
-                  history.push("/dashboard");
-                } else if (history.location.pathname === "/dashboard") {
-                  history.push("/dashboard");
+                  history.push("/dashboard?signup=signup");
+                } else if (history.location.pathname === "/dashboard?signup=signup") {
+                  history.push("/dashboard?signup=signup");
                 }
                 //});
               })

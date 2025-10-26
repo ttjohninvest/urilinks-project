@@ -129,7 +129,7 @@ function ExpandableArray(props) {
             </div>
 
             <div className="flexrow2e">
-              {props.signup.signup === true ?<div title="current plan">
+              {props.signup === true ?<div title="current plan">
                 plan: {props.plan.replace(/"/g, "")}
               </div>:<div></div>}
               <div className="margin-left-11">
@@ -138,7 +138,7 @@ function ExpandableArray(props) {
                     className="ib color-black text-size-5 general-font"
                     title="click for plan options"
                   >
-                    {props.signup.signup === true ? <span>
+                    {props.signup === true ? <span>
 (click to change plan)
                     </span>:<span></span>}
                     {/* {uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||

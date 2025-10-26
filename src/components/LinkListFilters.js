@@ -1,6 +1,7 @@
 import React, { useState, createRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import welcome from "../assets/images/welcome.gif";
 
 import { DateRangePicker } from "react-dates";
 
@@ -108,6 +109,7 @@ function ExpandableArray(props) {
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             <div className="text-size-5 padding-top-11">
+              <div><img src={welcome} width="64" height="64"/></div>
               <div><h3>BOOKMARKS ORGANIZER</h3></div>
               {props.signup === false ?<div>(welcome to urilinks.com) clickable hash tags matrix example in alphabetical order</div>:<div>(welcome to urilinks.com) clickable hash tags matrix in alphabetical order</div>}
               {props.signup === false ?<div>Check out the search folder name dropdown list for example bookmarks in a folder</div>:<div>Check out the search folder name dropdown list for bookmarks in a folder</div>}

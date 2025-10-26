@@ -666,6 +666,7 @@ export class LinkListFilters extends React.Component {
                 ref={this.elementRef}
                 morehashtags={this.state.morehashtags}
                 setit={this.setit}
+                theplan={this.props.theplan}
                 plan={this.props.theplan.plan}
                 newspaper={this.state.newspaper}
                 signup={this.props.signup.signup}

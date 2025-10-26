@@ -3013,7 +3013,7 @@ const FetchBookmarks = (props) => {
                   true &&
                   (user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2") //johmcg64@gmail.com
                 ) {
-                  max = 10000 - (rl + ll);
+                  max = 5000 - (rl + ll);
                   console.log("in if, ll=" + ll);
                   console.log("in if, rl=" + rl);
                   console.log("in if, max=" + max);
@@ -3114,8 +3114,7 @@ const FetchBookmarks = (props) => {
                     //} //otherwise rl is equal to the full length, result.length
                   } else if (
                     max2 !== 5000 &&
-                    (user.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
-                      user.uid !== "RZOEMMu7Nwa5bQ51sf71FfDX3A93")
+                    (user.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
                   ) {
                     setPayPage(true);
                     console.log("load pay page");

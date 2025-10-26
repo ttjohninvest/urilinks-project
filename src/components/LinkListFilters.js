@@ -121,7 +121,7 @@ function ExpandableArray(props) {
           >
             <div className="text-size-5 padding-top-11">
               <div>
-                <h3>FRIENDLY BOOKMARKS ORGANIZER, 😃</h3>
+                <h3>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃</h3>
               </div>
               {props.signup === false ? (
                 <div>

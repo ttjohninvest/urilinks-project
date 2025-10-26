@@ -11,7 +11,7 @@ class FBShareButton2 extends React.Component{
   render(){
     let encodedURL = encodeURI(this.state.url);
     return(
-      <div><a href={`https://facebook.com/sharer/sharer.php?u=${encodedURL}`} className="text-size-3 nounderline" target="_blank"><img className="facebooklogo__image" src="/images/messenger.png" title="share on facebook" /></a></div>
+      <div><a href={`https://facebook.com/sharer/sharer.php?u=${encodedURL}`} className="text-size-3 nounderline" target="_blank"><img className="facebooklogo__image" src="/images/facebooklogo.png" title="share on facebook" /></a></div>
     )
   }
 }

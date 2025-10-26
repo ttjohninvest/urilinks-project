@@ -125,12 +125,12 @@ function ExpandableArray(props) {
               </div>
               {props.signup === false ? (
                 <div>
-                  (welcome to urilinks.com) clickable hash tags matrix example
+                  (welcome to urilinks.com) clickable hash tags example
                   in alphabetical order
                 </div>
               ) : (
                 <div>
-                  (welcome to urilinks.com) clickable hash tags matrix in
+                  (welcome to urilinks.com) clickable hash tags in
                   alphabetical order
                 </div>
               )}

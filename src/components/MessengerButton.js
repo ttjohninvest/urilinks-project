@@ -11,7 +11,7 @@ class MessengerButton extends React.Component{
   render(){
    
     return(
-      <div><a href={`https://messenger.com`} className="text-size-3 nounderline" target="_blank"><img className="messengerlogo__image" src="/images/messenger.png" title="open facebook messenger" /></a></div>
+      <div><a href={`https://messenger.com`} className="text-size-3 nounderline margin-top-55" target="_blank"><img className="messengerlogo__image" src="/images/messenger.png" title="open facebook messenger" /></a></div>
     )
   }
 }

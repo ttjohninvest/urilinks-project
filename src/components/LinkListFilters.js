@@ -171,22 +171,22 @@ function ExpandableArray(props) {
               <div>
                 {props.signup === true ?
                 <div className="margin-right-1">
-                {max === 250 ? (
+                {props.theplan.plan.replace(/"/g, "") === "free" ? (
                       <span>(stores upto 250 bookmarks)</span>
                     ) : (
                       <span></span>
                     )}
-                    {max === 1500 ? (
+                    {props.theplan.plan.replace(/"/g, "") === "basic" ? (
                       <span>(stores upto 1500 bookmarks)</span>
                     ) : (
                       <span></span>
                     )}
-                    {max === 250 ? (
+                    {props.theplan.plan.replace(/"/g, "") === "standard" ? (
                       <span>(stores upto 2500 bookmarks)</span>
                     ) : (
                       <span></span>
                     )}
-                    {max === 5000 ? (
+                    {props.theplan.plan.replace(/"/g, "") === "premium" ? (
                       <span>(stores upto 5000 bookmarks)</span>
                     ) : (
                       <span></span>

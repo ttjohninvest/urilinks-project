@@ -31,6 +31,13 @@ const Benefits = () => (
         bookmarks.html file.
       </li>
       <li>
+        To chat about a bookmark you have, follow these steps:<br />
+        1. see if family member or friend is online by click on the blue circle bedow the bookmark.<br />
+        2. if person is online, send him or her a chat saying you are going to send a bookmark to their news feed.<br />
+        3. click on facebook button to the far left below the bookmark to send the bookmark to person's facebook news feed.<br />
+        5. go back to messenger to chat abbout the bookmark with your family member or friend.<br />
+      </li>
+      <li>
         If you bookmark google or youtube pages, you may need to change the
         hashtag by editing the note section in the link because for a youtube
         page the default hashtag will be #youtube and for a google page, the

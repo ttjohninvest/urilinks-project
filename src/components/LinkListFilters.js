@@ -121,11 +121,8 @@ function ExpandableArray(props) {
           >
             <div className="text-size-5 padding-top-11">
               <div>
-                <h3>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃{props.signup === false && <span>, CLICK { props.signup === false && <span className="" title="">
-                                  <Link className="nounderline color-white-1 cursor-pointer" to="/signup"  title="">
-                                    LOGIN
-                                  </Link>
-                              </span>}</span>} </h3>
+                <h3>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃{props.signup === false && <span>, CLICK<span>
+                                  <Link className="cursor-pointer" to="/signup"  title=""> LOGIN</Link></span></span>} </h3>
               </div>
               {props.signup === false && <iframe width="265" height="157" src="https://www.youtube.com/embed/MO6xhLtfwW0?si=Xu21MgLFK39k2eP6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>}
               {props.signup === false ? (

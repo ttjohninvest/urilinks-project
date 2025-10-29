@@ -94,7 +94,8 @@ const LoginPage = ({ startLogin }) => {
             >
               Please login with google
             </button>
-            <p className="margin-left-11">Contact Information: Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p>
+            {/* <p className="margin-left-11">Contact Information: Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p> */}
+           <p className="margin-left-11">An all smiles production</p>
            
           </div>
           {/* {innerWidth > 1000 && (

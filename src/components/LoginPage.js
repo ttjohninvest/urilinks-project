@@ -74,9 +74,9 @@ const LoginPage = ({ startLogin }) => {
               urilinks.com
             </h3>
              
-            <p className="margin-left-11">
-              Welcome. Worry about forgetting is diminished by using this. It works like a physical file organizer. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags or folder names. It is more satisfying and easy than chrome browser bookmarks.</p>
-            
+            {/* <p className="margin-left-11">
+               Welcome. Worry about forgetting is diminished by using this. It works like a physical file organizer. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags or folder names. It is more satisfying and easy than chrome browser bookmarks.</p> */}
+            <p className="margin-left-11">Welcome, what makes you smile?</p>
             {/* {innerWidth<=1000 && <div className="margin-left-118 margin-bottom-18">
               <a
                 href="https://youtu.be/SFkvTgFhBVs"

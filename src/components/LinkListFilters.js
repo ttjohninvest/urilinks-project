@@ -121,30 +121,31 @@ function ExpandableArray(props) {
           >
             <div className="text-size-5 padding-top-11">
               <div>
+                <h3>WELCOME, WHAT MAKES YOU SMILE?</h3>
+              </div>
+              <div>
                 <h3>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃{props.signup === false && <span>, CLICK<span>
                                   <Link className="cursor-pointer nounderline" to="/signup"  title=""> LOGIN</Link></span></span>} </h3>
               </div>
               {props.signup === false && <iframe width="265" height="157" src="https://www.youtube.com/embed/MO6xhLtfwW0?si=Xu21MgLFK39k2eP6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>}
               {props.signup === false ? (
                 <div>
-                  (welcome to urilinks.com) clickable hash tags example
+                  Cickable hash tags example to see bookmarked web pages
                   in alphabetical order
                 </div>
               ) : (
                 <div>
-                  (welcome to urilinks.com) clickable hash tags in
+                  Clickable hash tags to see bookmarked web pages in 
                   alphabetical order
                 </div>
               )}
               {props.signup === false ? (
                 <div>
-                  Check out the search folder name dropdown list for example
-                  bookmarks in a folder
+                  To see to see bookmarked web pages, check out the search folder name dropdown list
                 </div>
               ) : (
                 <div>
-                  Check out the search folder name dropdown list for bookmarks
-                  in a folder
+                 To see to see bookmarked web pages, check out the search folder name dropdown list
                 </div>
               )}
               {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}

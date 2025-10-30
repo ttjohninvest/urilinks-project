@@ -437,7 +437,7 @@ const TermsAndPrivacy = () => (
     Your use of the website, urilinks.com, constitutes your agreement with these terms.
     <br />
     <br />
-    Effective as of May 10th, 2025
+    Effective as of October 31st, 2025
     <br />
     <br />
     <br />
@@ -521,7 +521,7 @@ const TermsAndPrivacy = () => (
     Your use of the website, urilinks.com, constitutes your agreement with this data privacy policy.
     <br />
     <br />
-    Effective as of May 10th, 2025
+    Effective as of October 31s, 2025
     <br />
     <br />
     ttjohninvest@gmail.com, 775 507-0098, John

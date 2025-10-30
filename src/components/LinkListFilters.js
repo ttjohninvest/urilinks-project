@@ -127,13 +127,13 @@ function ExpandableArray(props) {
                
                 {props.signup === false ? <div className="text-size-1">HI, MY NAME IS JOHN. PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</div>:<div className="text-size-1">THANK YOU.</div>}
               
-              {/* <div> */}
+             
                 <div className="text-size-1"><span className="text-size-9">😃 </span>YOUR FRIENDLY BOOKMARKS ORGANIZER{props.signup === false && <span>, CLICK<span>
                                   <Link className="cursor-pointer nounderline" to="/signup"  title=""> LOGIN</Link></span></span>} </div>
-              {/* </div> */}
-               <div>
+              
+              
                 {props.signup === false ? <div className="text-size-1">WHEN YOU SIGNUP (CLICK LOGIN) FOR AN ACCOUNT, YOU GET AN EMPTY PAGE TO START ADDING YOUR FAVORITE BOOKMARKS.</div>:<div className="text-size-1">YOU MAY START ADDING YOUR FAVORITE BOOKMARKS.</div>}
-              </div>
+              <br />
               {props.signup === false && <div><iframe width="300" height="200" src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe></div>}
               {props.signup === false ? (
                 <div>

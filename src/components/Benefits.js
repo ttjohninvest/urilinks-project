@@ -29,6 +29,11 @@ const Benefits = () => (
         3. click on facebook button to the far left below the bookmark to send the bookmark to person's facebook news feed.<br />
         5. go back to messenger to chat abbout the bookmark with your family member or friend.<br />
       </li>
+       <li>
+        To add a bookmark one at a time:
+        1. click "Add Bookmark"
+        2. fill out the information
+      </li>
      
       <li>
         Add bookmark button on the home page is used to add a uri/url link bookmark to
@@ -82,14 +87,6 @@ const Benefits = () => (
         For each website link that you save, you have the option of entering a
         note. Hashtag(s) are entered into the note area. Example: #givingcharity
         #mountains. You may enter as many hashtags as their is room.
-      </li>
-
-      <li>
-        To enter a link to save, press "Add bookmark" button, copy and paste
-        in the link text or type it in, copy and paste in the link uri/url from
-        the browser or type it inside the uri/url text field in the website,
-        type in or copy and paste in an optional note, then click "Save Uri/Url
-        Link".
       </li>
 
       <li>

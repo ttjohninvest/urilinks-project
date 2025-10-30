@@ -123,6 +123,9 @@ function ExpandableArray(props) {
               <div>
                 <h3>WELCOME, WHAT MAKES YOU SMILE?</h3>
               </div>
+               <div>
+                <h3>PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</h3>
+              </div>
               <div>
                 <h3>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃{props.signup === false && <span>, CLICK<span>
                                   <Link className="cursor-pointer nounderline" to="/signup"  title=""> LOGIN</Link></span></span>} </h3>

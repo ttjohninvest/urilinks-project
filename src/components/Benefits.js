@@ -1,5 +1,7 @@
 import React from "react";
 import { addSettings } from "./../actions/settings";
+import FileUpload from './FileUpload';
+import { combineReducers } from 'redux';
 
 const Benefits = () => (
   <div className="list-header__flex__center">
@@ -8,17 +10,31 @@ const Benefits = () => (
       <li><a href="https://search.brave.com/search?q=how+can+internet+bookmarks+be+used+to+help+a+person+organize+content&summary=1&conversation=2f44b07dcd08552e79c776" target="_blank">how to organize internet bookmarks</a></li>
       <li><a href="https://search.brave.com/search?q=what+new+things+do+people+want+the+internet+to+do&summary=1&conversation=dd5502c25aaba566496b06" target="_blank">the future use of the internet</a></li>
       <li><a href="https://search.brave.com/search?q=do+people+want+to+use+bookmarks+when+they+use+the+internet&summary=1&conversation=e6c5f096d07c806684f4a9" target="_blank">people still use bookmarks</a></li>
-      <li>
-        You may upload your bookmarks from Brave, Chrome, Firefox, Edge, Vivaldi
-        or Opera browser. After you have uploaded through the "bookmarks
-        uploader" link, the bookmark folders are converted into hashtags with
-        spaces, tabs and hyphens removed for easy finding during hashtag search.
+       <li>
+        To upload a browser's bookmarks file:<br />
+        1. go to the bookmarks manager and export the bookmarks FileUpload<br />
+        2. click on "bookmarks uploader" within urilinks.combineReducers<br />
+        3. click on "upload file" to select the bookmmarks file you exported<br />
+        4. click on "upload"<br />
+        5. click on "convert folder names to hashtags"<br />
+        6. click on "import bookmarks"<br />
+        7. follow the confirmation step.<br />
+        8. look for the bookmarks in the hashtag list or through "search folder name" dropdown list
+       </li>
+
+       <li>
+        To chat about a bookmark you have, follow these steps:<br />
+        1. see if family member or friend is online by click on the blue circle bedow the bookmark.<br />
+        2. if person is online, send him or her a chat saying you are going to send a bookmark to their news feed.<br />
+        3. click on facebook button to the far left below the bookmark to send the bookmark to person's facebook news feed.<br />
+        5. go back to messenger to chat abbout the bookmark with your family member or friend.<br />
       </li>
+     
       <li>
         Add bookmark button on the home page is used to add a uri/url link bookmark to
         your private account.
       </li>
-      <li>Please use it for good.</li>
+     
 
       <li>Everyone gets their own private account.</li>
       <li>Your account is secret from other accounts.</li>
@@ -30,13 +46,7 @@ const Benefits = () => (
         Bookmarks are sharable with others, just email a person with your
         bookmarks.html file.
       </li>
-      <li>
-        To chat about a bookmark you have, follow these steps:<br />
-        1. see if family member or friend is online by click on the blue circle bedow the bookmark.<br />
-        2. if person is online, send him or her a chat saying you are going to send a bookmark to their news feed.<br />
-        3. click on facebook button to the far left below the bookmark to send the bookmark to person's facebook news feed.<br />
-        5. go back to messenger to chat abbout the bookmark with your family member or friend.<br />
-      </li>
+      
       <li>
         If you bookmark google or youtube pages, you may need to change the
         hashtag by editing the note section in the link because for a youtube

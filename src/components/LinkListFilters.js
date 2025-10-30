@@ -155,6 +155,8 @@ function ExpandableArray(props) {
                  To see to see bookmarked web pages, check out the search folder name dropdown list
                 </div>
               )}
+
+              {props.signup === false && <div>Please give it try to see how it works.</div>}
               {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
               {/* <br />
               I believe that Jesus is the Christ. I believe that Jesus Christ is

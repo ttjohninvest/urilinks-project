@@ -120,13 +120,13 @@ function ExpandableArray(props) {
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             <div className="text-size-5 padding-top-11">
-              <div>
+              
                 <h3>WELCOME</h3>
                 {/* <h3>WELCOME, WHAT MAKES YOU SMILE?</h3> */}
-              </div>
-               <div>
+              
+               
                 {props.signup === false ? <h3>HI, MY NAME IS JOHN. PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</h3>:<h3>THANK YOU.</h3>}
-              </div>
+              
               <div>
                 <h3>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃{props.signup === false && <span>, CLICK<span>
                                   <Link className="cursor-pointer nounderline" to="/signup"  title=""> LOGIN</Link></span></span>} </h3>

@@ -130,7 +130,7 @@ function ExpandableArray(props) {
                <div>
                 {props.signup === false ? <h3>WHEN YOU SIGNUP (CLICK LOGIN) FOR AN ACCOUNT, YOU GET AN EMPTY PAGE TO START ADDING YOUR FAVORITE BOOKMARKS.</h3>:<h3>YOU MAY START ADDING YOUR FAVORITE BOOKMARKS.</h3>}
               </div>
-              {props.signup === false && <div><iframe width="300" height="200" src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><iframe width="300" height="200" src="https://www.youtube.com/embed/cD0H-UX9tqw?si=kmwP9Kh5afyCp_kg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>}
+              {props.signup === false && <div><iframe width="300" height="200" src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe></div>}
               {props.signup === false ? (
                 <div>
                   Cickable hash tags example to see bookmarked web pages

@@ -121,18 +121,18 @@ function ExpandableArray(props) {
           >
             <div className="text-size-5 padding-top-11">
               
-                <h6>WELCOME</h6>
-                {/* <h6>WELCOME, WHAT MAKES YOU SMILE?</h6> */}
+                <h4>WELCOME</h4>
+                {/* <h4>WELCOME, WHAT MAKES YOU SMILE?</h4> */}
               
                
-                {props.signup === false ? <h6>HI, MY NAME IS JOHN. PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</h6>:<h6>THANK YOU.</h6>}
+                {props.signup === false ? <h4>HI, MY NAME IS JOHN. PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</h4>:<h4>THANK YOU.</h4>}
               
               <div>
-                <h6>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃{props.signup === false && <span>, CLICK<span>
-                                  <Link className="cursor-pointer nounderline" to="/signup"  title=""> LOGIN</Link></span></span>} </h6>
+                <h4>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃{props.signup === false && <span>, CLICK<span>
+                                  <Link className="cursor-pointer nounderline" to="/signup"  title=""> LOGIN</Link></span></span>} </h4>
               </div>
                <div>
-                {props.signup === false ? <h6>WHEN YOU SIGNUP (CLICK LOGIN) FOR AN ACCOUNT, YOU GET AN EMPTY PAGE TO START ADDING YOUR FAVORITE BOOKMARKS.</h6>:<h6>YOU MAY START ADDING YOUR FAVORITE BOOKMARKS.</h6>}
+                {props.signup === false ? <h4>WHEN YOU SIGNUP (CLICK LOGIN) FOR AN ACCOUNT, YOU GET AN EMPTY PAGE TO START ADDING YOUR FAVORITE BOOKMARKS.</h4>:<h4>YOU MAY START ADDING YOUR FAVORITE BOOKMARKS.</h4>}
               </div>
               {props.signup === false && <div><iframe width="300" height="200" src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe></div>}
               {props.signup === false ? (

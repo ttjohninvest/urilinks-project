@@ -125,7 +125,7 @@ function ExpandableArray(props) {
                 {/* <h3>WELCOME, WHAT MAKES YOU SMILE?</h3> */}
               </div>
                <div>
-                {props.signup === false ? <h3>HI, MY NAME IS JOHN. PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</h3>:<h3>Thank you.</h3>}
+                {props.signup === false ? <h3>HI, MY NAME IS JOHN. PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</h3>:<h3>THANK YOU.</h3>}
               </div>
               <div>
                 <h3>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃{props.signup === false && <span>, CLICK<span>

@@ -10,6 +10,18 @@ const Benefits = () => (
       <li><a href="https://search.brave.com/search?q=how+can+internet+bookmarks+be+used+to+help+a+person+organize+content&summary=1&conversation=2f44b07dcd08552e79c776" target="_blank">how to organize internet bookmarks</a></li>
       <li><a href="https://search.brave.com/search?q=what+new+things+do+people+want+the+internet+to+do&summary=1&conversation=dd5502c25aaba566496b06" target="_blank">the future use of the internet</a></li>
       <li><a href="https://search.brave.com/search?q=do+people+want+to+use+bookmarks+when+they+use+the+internet&summary=1&conversation=e6c5f096d07c806684f4a9" target="_blank">people still use bookmarks</a></li>
+
+      <li>
+        You save bookmarks to web pages that you want to return to. It is similar to
+        a filing cabinet for pages.
+      </li>       
+       <li>Everyone gets their own private account.</li>
+      <li>Your account is secret from other accounts.</li>
+      <li>
+       You may export and then import bookmarks to this program from these browsers: chrome, firefox, edge, opera, brave
+      </li>
+     
+      <li>Instructional Steps:</li>
        <li>
         To upload a browser's bookmarks file:<br />
         1. go to the bookmarks manager and export the bookmarks FileUpload<br />
@@ -20,7 +32,19 @@ const Benefits = () => (
         6. click on "import bookmarks"<br />
         7. follow the confirmation step.<br />
         8. look for the bookmarks in the hashtag list or through "search folder name" dropdown list
+         <li>
+        Note: If you bookmark google or youtube pages, you may need to change the
+        hashtag by editing the note section in the link because for a youtube
+        page the default hashtag will be #youtube and for a google page, the
+        default hashtag will be #google.
+      </li>
        </li>
+
+        <li>
+        To add a bookmark one at a time:
+        1. click "Add Bookmark"
+        2. fill out the information
+      </li>
 
        <li>
         To chat about a bookmark you have, follow these steps:<br />
@@ -29,21 +53,8 @@ const Benefits = () => (
         3. click on facebook button to the far left below the bookmark to send the bookmark to person's facebook news feed.<br />
         5. go back to messenger to chat abbout the bookmark with your family member or friend.<br />
       </li>
-       <li>
-        To add a bookmark one at a time:
-        1. click "Add Bookmark"
-        2. fill out the information
-      </li>
-     
-      <li>
-        Add bookmark button on the home page is used to add a uri/url link bookmark to
-        your private account.
-      </li>
-     
 
-      <li>Everyone gets their own private account.</li>
-      <li>Your account is secret from other accounts.</li>
-      <li>
+       <li>
         AI cannot replace the way you want to organize your internet bookmarks
         with hash tags.
       </li>
@@ -51,37 +62,20 @@ const Benefits = () => (
         Bookmarks are sharable with others, just email a person with your
         bookmarks.html file.
       </li>
-      
-      <li>
-        If you bookmark google or youtube pages, you may need to change the
-        hashtag by editing the note section in the link because for a youtube
-        page the default hashtag will be #youtube and for a google page, the
-        default hashtag will be #google.
-      </li>
-      <li>
-        Links are uri/url links. uri, uniform resource identifier, is a more
-        general term for url, uniform resource locator.
-      </li>
+    
       <li>
         You are able to see your bookmarks better in a neat clickable list
         layout. You may add a note up to 1,024 characters using the free plan,
         2,300 for the other plans to your link from the Add bookmark button
         or later through the Edit Uri/Url Link button.
       </li>
+
       <li>
         All of your holy church, entertainment, business or educational links
         are in one place with one click link activation.
       </li>
 
-      <li>
-        The links will activate in place but if you want the link to open in a
-        new browser tab, right click on the link and select open in new tab.
-      </li>
-
-      <li>
-        You save links to websites that you want to return to. It is similar to
-        a rolodex for phone numbers.
-      </li>
+    
 
       <li>
         For each website link that you save, you have the option of entering a
@@ -143,15 +137,18 @@ const Benefits = () => (
         Please see the header section of the home page and click on the "click
         to change plan" link.
       </li>
-      <li>
-        These are the supported browsers: chrome, firefox, edge, opera, brave
-      </li>
+    
       <li>
         To find your newly uploaded bookmarks, select hashtag from the dropdown
         menu and then in the field to the left enter the hash tag.
       </li>
+      <li>Glossary:</li>
+      <li>
+        Bookmarks are uri/url links. uri, uniform resource identifier, is a more
+        general term for url, uniform resource locator.
+      </li>
     <li>
-    ttjohninvest@gmail.com, 775 507-0098, Mr. McGovern
+    ttjohninvest@gmail.com, 775 507-0098, John
     <br />
     <br />
     urilinks.com

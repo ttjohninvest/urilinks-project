@@ -130,6 +130,8 @@ Only my website can open up on school computer, kiosk setup.
 appwrite.io, urilinks-project-social-app
 
 ---
+projects: what are real computer problems to solve?
+project: urilinks.com
 
 To provide a social media user interface to bookmarks do the following:
 social-media-react contains social media code

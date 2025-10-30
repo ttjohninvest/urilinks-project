@@ -116,23 +116,23 @@ function ExpandableArray(props) {
       {props.mappedDataShort.length > 0 ? (
         <div className="">
           <div
-            className="flexrow2c padding-around- padding-left-a borderRadius4"
+            className="flexrow2c padding-left-a borderRadius4"
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             <div className="text-size-5 padding-top-11">
               
-                <h3>WELCOME</h3>
-                {/* <h3>WELCOME, WHAT MAKES YOU SMILE?</h3> */}
+                <h6>WELCOME</h6>
+                {/* <h6>WELCOME, WHAT MAKES YOU SMILE?</h6> */}
               
                
-                {props.signup === false ? <h3>HI, MY NAME IS JOHN. PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</h3>:<h3>THANK YOU.</h3>}
+                {props.signup === false ? <h6>HI, MY NAME IS JOHN. PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</h6>:<h6>THANK YOU.</h6>}
               
               <div>
-                <h3>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃{props.signup === false && <span>, CLICK<span>
-                                  <Link className="cursor-pointer nounderline" to="/signup"  title=""> LOGIN</Link></span></span>} </h3>
+                <h6>YOUR FRIENDLY BOOKMARKS ORGANIZER, 😃{props.signup === false && <span>, CLICK<span>
+                                  <Link className="cursor-pointer nounderline" to="/signup"  title=""> LOGIN</Link></span></span>} </h6>
               </div>
                <div>
-                {props.signup === false ? <h3>WHEN YOU SIGNUP (CLICK LOGIN) FOR AN ACCOUNT, YOU GET AN EMPTY PAGE TO START ADDING YOUR FAVORITE BOOKMARKS.</h3>:<h3>YOU MAY START ADDING YOUR FAVORITE BOOKMARKS.</h3>}
+                {props.signup === false ? <h6>WHEN YOU SIGNUP (CLICK LOGIN) FOR AN ACCOUNT, YOU GET AN EMPTY PAGE TO START ADDING YOUR FAVORITE BOOKMARKS.</h6>:<h6>YOU MAY START ADDING YOUR FAVORITE BOOKMARKS.</h6>}
               </div>
               {props.signup === false && <div><iframe width="300" height="200" src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe></div>}
               {props.signup === false ? (

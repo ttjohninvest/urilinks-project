@@ -121,7 +121,8 @@ function ExpandableArray(props) {
           >
             <div className="text-size-5 padding-top-11">
               <div>
-                <h3>WELCOME, WHAT MAKES YOU SMILE?</h3>
+                <h3>WELCOME</h3>
+                {/* <h3>WELCOME, WHAT MAKES YOU SMILE?</h3> */}
               </div>
                <div>
                 <h3>HI, MY NAME IS JOHN. PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</h3>

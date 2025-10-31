@@ -136,7 +136,7 @@ export const Header = (props) => {
                     className="margin-right-1-ib- color-white-1 cursor-pointer"
                     title="How to use this website"
                   >
-                    (Benefits)
+                    (How to use)
                   </span>
                 </Link>
               </div>

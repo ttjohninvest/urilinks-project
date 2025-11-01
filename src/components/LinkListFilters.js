@@ -132,7 +132,9 @@ function ExpandableArray(props) {
                                   <Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>} </div>
               
               
-                {props.signup === false ? <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks.</div>:<div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.</div>}
+                {props.signup === false ? <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks.</div>:<div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.<br />
+                The hastags are the folder names read from the browser bookmarks file with spaces removed and lowercased. The folder names are copied in the drop down list.
+                </div>}
               <br />
               {props.signup === false && <div><iframe width="300" height="200" src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe></div>}
               {props.signup === false ? (

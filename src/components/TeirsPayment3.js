@@ -59,7 +59,7 @@ const TeirsPayment3 = (props) => {
   return (
     <div className="body1 flexrow2w">
  
-      {isFree && props.links.length <= 250 ? (
+      {props.theplan.plan.replace(/"/g, "") === "free" && props.links.length <= 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
           client-reference-id={theUserId}
@@ -71,7 +71,7 @@ const TeirsPayment3 = (props) => {
        client-reference-id={theUserId}
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
 </stripe-pricing-table>
-    ): isBasic &&
+    ): props.theplan.plan.replace(/"/g, "") === "basic" &&
         (props.links.length >= 251 && props.links.length) <= 1500 ? (
         //show standard and premium table
         <stripe-pricing-table
@@ -79,7 +79,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isStandard &&
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length >= 1501 &&
         props.links.length <= 2500 ? (
         //show the premium table
@@ -88,13 +88,13 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isPremium && props.links.length <= 250 ? (
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" && props.links.length <= 250 ? (
         //show almost free, basic and standard table
         <stripe-pricing-table pricing-table-id="prctbl_1RugHTK6yDYe5WAxm2AZhNUT"
         client-reference-id={theUserId}
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
 </stripe-pricing-table>
-      ) : isPremium &&
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length >= 251 &&
         props.links.length <= 1500 ? (
         //show basic, standard table
@@ -103,7 +103,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isPremium &&
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length >= 1501 &&
         props.links.length <= 2500 ? (
         //show the standard table
@@ -112,7 +112,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isPremium &&
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length >= 2501 &&
         props.links.length <= 5000 ? (
         <div>
@@ -124,7 +124,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
         client-reference-id={theUserId}
 publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
 </stripe-pricing-table>
-      ) : isStandard &&
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length >= 251 &&
         props.links.length <= 1500 ? (
         //show the basic and premium table
@@ -133,7 +133,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isStandard &&
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length >= 1501 &&
         props.links.length <= 2500 ? (
         //show the premium table

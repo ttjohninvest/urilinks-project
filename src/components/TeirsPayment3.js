@@ -20,19 +20,19 @@ const TeirsPayment3 = (props) => {
         props.theplan.plan.replace(/"/g, "")
     );
 
-    if (props.theplan.plan.replace(/"/g, "") === "free") {
-      console.log("calling setIsFree");
-      setIsFree(true);
-    } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
-      console.log("calling setIsBasic");
-      setIsBasic(true);
-    } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
-      setIsStandard(true);
-    } else if (props.theplan.plan.replace(/"/g, "") === "premium") {
-      setIsPremium(true);
-    }
+    // if (props.theplan.plan.replace(/"/g, "") === "free") {
+    //   console.log("calling setIsFree");
+    //   setIsFree(true);
+    // } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
+    //   console.log("calling setIsBasic");
+    //   setIsBasic(true);
+    // } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
+    //   setIsStandard(true);
+    // } else if (props.theplan.plan.replace(/"/g, "") === "premium") {
+    //   setIsPremium(true);
+    // }
 
-    console.log("props.customerId.customerId=" + props.customerId.customerId);
+    //console.log("props.customerId.customerId=" + props.customerId.customerId);
     setTheUserId(firebase.auth().currentUser.uid);
     // const fetchData = async () => {
     fetch("https://urilinks-project-client-secret-api.vercel.app", {

@@ -22,7 +22,7 @@ const Benefits = () => (
        <li>
         To upload a browser's bookmarks file:<br />
         1. go to the bookmarks manager and export the bookmarks FileUpload<br />
-        2. click on "bookmarks uploader" within urilinks.combineReducers<br />
+        2. click on "bookmarks file uploader" within urilinks.combineReducers<br />
         3. click on "upload file" to select the bookmmarks file you exported<br />
         4. click on "upload"<br />
         5. click on "convert folder names to hashtags"<br />

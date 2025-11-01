@@ -121,18 +121,18 @@ function ExpandableArray(props) {
           >
             <div className="text-size-5 padding-top-11">
               
-                <div className="text-size-1">WELCOME</div>
+                <div className="text-size-1">Welcome</div>
                 {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
               
                
-                {props.signup === false ? <div className="text-size-1">HI, MY NAME IS JOHN. PLEASE ACCEPT ME AS YOUR PROVIDER OF AN INTERNET WEB PAGE BOOKMARKING TOOL.</div>:<div className="text-size-1">THANK YOU.</div>}
+                {props.signup === false ? <div className="text-size-1">hi, my name is john. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">THANK YOU.</div>}
               
              
-                <div className="text-size-1"><span className="text-size-9">😃 </span>YOUR FRIENDLY BOOKMARKS ORGANIZER{props.signup === false && <span>, CLICK<span>
-                                  <Link className="cursor-pointer nounderline" to="/signup"  title=""> LOGIN</Link></span></span>} </div>
+                <div className="text-size-1"><span className="text-size-9">😃 </span>Your friendly bookmarks organizer{props.signup === false && <span>, click<span>
+                                  <Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>} </div>
               
               
-                {props.signup === false ? <div className="text-size-1">WHEN YOU SIGNUP (CLICK LOGIN) FOR AN ACCOUNT, YOU GET AN EMPTY PAGE TO START ADDING YOUR FAVORITE BOOKMARKS.</div>:<div className="text-size-1">YOU MAY START ADDING YOUR FAVORITE BOOKMARKS.</div>}
+                {props.signup === false ? <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks.</div>:<div className="text-size-1">YOU MAY START ADDING YOUR FAVORITE BOOKMARKS using the Add Bookmark button below or Bookmarks File Uploader above.</div>}
               <br />
               {props.signup === false && <div><iframe width="300" height="200" src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe></div>}
               {props.signup === false ? (

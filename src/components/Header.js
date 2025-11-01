@@ -101,7 +101,7 @@ export const Header = (props) => {
               </div>
              { props.signup.signup === false && <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
                   <Link className="nounderline color-white-1 cursor-pointer" to="/signup"  title="">
-                    LOGIN
+                    login
                   </Link>
               </div>}
               <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
@@ -199,7 +199,7 @@ export const Header = (props) => {
                     className="ib- color-white-1 cursor-pointer pointereventsauto"
                     title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
                   >
-                    (Bookmarks Uploader)
+                    (Bookmarks File Uploader)
                   </span>
                 </Link>
               </div>:
@@ -209,7 +209,7 @@ export const Header = (props) => {
                     className="ib- color-white-1 cursor-pointer pointereventsnone"
                     title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
                   >
-                    (Bookmarks Uploader)
+                    (Bookmarks File Uploader)
                   </span>
                 </Link>
               </div>

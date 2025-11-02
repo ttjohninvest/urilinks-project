@@ -134,9 +134,9 @@ function ExpandableArray(props) {
               
                 {props.signup === false ? <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks.</div>:
                 <div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.<br />
+                The hastags are the folder names read from the browser bookmarks file with spaces removed and lowercased. The folder names are copied in the drop down list.<br />
                 You may share your bookmarks with linkedin, facebook, or twitter/x<br />
-                You may immediately chat about a bookmark with a family or friend usingfacebook messenger, the blue circle. You just check if he she is online using fb messenger<br />
-                           The hastags are the folder names read from the browser bookmarks file with spaces removed and lowercased. The folder names are copied in the drop down list.
+                You may immediately chat about a bookmark with a family or friend using facebook messenger, click the blue circle. You just check if he she is online using fb messenger<br />
                 and if so, send the bookmark and then chat about it
                 </div>}
               <br />

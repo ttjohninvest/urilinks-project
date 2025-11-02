@@ -144,12 +144,11 @@ function ExpandableArray(props) {
     </button>
     <div className="" //{`${isToggled ? 'show information' : 'hide information'}`}
     >
-                { isToggled && props.signup === false && <span>, click<span>
-                                  <Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>} </div>
+                { isToggled && props.signup === false && <span>, click<span><Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>} </div>
               
               
-                { isToggled && props.signup === false ? <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks. <br />You may add a note to each of your bookmarks.<br /></div>:
-                 isToggled && <div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.<br />
+                { isToggled && props.signup === false && <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks. <br />You may add a note to each of your bookmarks.<br /></div>}
+                 { isToggled && props.signup === true && <div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.<br />
                 The hastags are the folder names read from the browser bookmarks file with spaces removed and lowercased. The folder names are copied in the drop down list.<br />You may add a note to each of your bookmarks.<br />
                 You may share your bookmarks with linkedin, facebook, or twitter/x<br />
                 You may immediately chat about a bookmark with a family or friend using facebook messenger, click the blue circle. You just check if he she is online using fb messenger<br />

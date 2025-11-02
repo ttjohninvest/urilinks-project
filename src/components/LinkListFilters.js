@@ -140,9 +140,10 @@ function ExpandableArray(props) {
       className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
       aria-label="Toggle button"
     >
-      {isToggled ? 'show' : 'hide'}
+      {isToggled ? 'show information' : 'hide information'}
     </button>
-    <div className={`${isToggled ? 'show information' : 'hide information'}`}>
+    <div className="" //{`${isToggled ? 'show information' : 'hide information'}`}
+    >
                 { isToggled && props.signup === false && <span>, click<span>
                                   <Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>} </div>
               

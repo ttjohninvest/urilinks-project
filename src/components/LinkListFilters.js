@@ -21,8 +21,14 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
-  const [max, setMax] = useState(250);
+  //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
+
+   const [isToggled, setIsToggled] = useState(false);
+
+  const handleChange = () => {
+    setIsToggled(!isToggled);
+  };
 
   useEffect(() => {
     if (props.signup === true) {
@@ -32,17 +38,17 @@ function ExpandableArray(props) {
       setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
     }
 
-    if (props.theplan.plan.replace(/"/g, "") === "free") {
-      setMax(250);
-    } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
-      setMax(1500);
-    } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
-      setMax(2500);
-    } else {
-      //premium
+    // if (props.theplan.plan.replace(/"/g, "") === "free") {
+    //   setMax(250);
+    // } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
+    //   setMax(1500);
+    // } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
+    //   setMax(2500);
+    // } else {
+    //   //premium
 
-      setMax(5000);
-    }
+    //   setMax(5000);
+    // }
   }, []);
 
   const moveIt = () => {
@@ -132,7 +138,13 @@ function ExpandableArray(props) {
                                   <Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>} </div>
               
               
-                {props.signup === false ? <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks. <br />You may add a note to each of your bookmarks.<br /></div>:
+                {props.signup === false ? <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks. <br />You may add a note to each of your bookmarks. <button
+      onClick={handleChange}
+      className={`toggle-button ${isToggled ? 'on' : 'off'}`}
+      aria-label="Toggle button"
+    >
+      {isToggled ? 'ON' : 'OFF'}
+    </button><br /></div>:
                 <div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.<br />
                 The hastags are the folder names read from the browser bookmarks file with spaces removed and lowercased. The folder names are copied in the drop down list.<br />
                 You may share your bookmarks with linkedin, facebook, or twitter/x<br />

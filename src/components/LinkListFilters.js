@@ -135,18 +135,15 @@ function ExpandableArray(props) {
               
              
                 <div className="text-size-1"><span className="text-size-9">😃 </span>Your friendly bookmarks organizer
-                
-    <div className="" //{`${isToggled ? 'show information' : 'hide information'}`}
-    >
-                { isToggled && props.signup === false && <span>, click<span><Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>} </div>
+                { isToggled && props.signup === false && <span>, click<span><Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>}
               
-              <button
+             {/* <button
       onClick={handleChange}
       className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
       aria-label="Toggle button"
     >
       {isToggled ? 'hide information' : 'show information'}
-    </button>
+    </button> */}
               
                 { isToggled && props.signup === false && <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks. <br />You may add a note to each of your bookmarks.<br /></div>}
                  { isToggled && props.signup === true && <div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.<br />

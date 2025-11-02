@@ -125,14 +125,14 @@ function ExpandableArray(props) {
                 {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
               
                
-                {props.signup === false ? <div className="text-size-1">hi, my name is john. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">THANK YOU.</div>}
+                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">THANK YOU.</div>}
               
              
                 <div className="text-size-1"><span className="text-size-9">😃 </span>Your friendly bookmarks organizer{props.signup === false && <span>, click<span>
                                   <Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>} </div>
               
               
-                {props.signup === false ? <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks.</div>:
+                {props.signup === false ? <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks. <br />You may add a note to each of your bookmarks.<br /></div>:
                 <div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.<br />
                 The hastags are the folder names read from the browser bookmarks file with spaces removed and lowercased. The folder names are copied in the drop down list.<br />
                 You may share your bookmarks with linkedin, facebook, or twitter/x<br />

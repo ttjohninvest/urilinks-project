@@ -137,12 +137,12 @@ function ExpandableArray(props) {
                 <div className="text-size-1"><span className="text-size-9">😃 </span>Your friendly bookmarks organizer
                 <button
       onClick={handleChange}
-      className="button-2 ib text-size-5 bg-color-1" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
+      className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
       aria-label="Toggle button"
     >
       {isToggled ? 'show' : 'hide'}
     </button>
-    <div className={`${isToggled ? 'show' : 'hide'}`}>
+    <div className={`${isToggled ? 'show information' : 'hide information'}`}>
                 { isToggled && props.signup === false && <span>, click<span>
                                   <Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>} </div>
               

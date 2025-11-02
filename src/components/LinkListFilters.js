@@ -142,6 +142,7 @@ function ExpandableArray(props) {
     >
       {isToggled ? 'ON' : 'OFF'}
     </button>
+    <div className={`${isToggled ? 'show' : 'hide'}`}>
                 {props.signup === false && <span>, click<span>
                                   <Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>} </div>
               
@@ -153,6 +154,7 @@ function ExpandableArray(props) {
                 You may immediately chat about a bookmark with a family or friend using facebook messenger, click the blue circle. You just check if he she is online using fb messenger<br />
                 and if so, send the bookmark and then chat about it
                 </div>}
+                </div>
               <br />
               {props.signup === false && <div><iframe width="300" height="200" src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe></div>}
               {props.signup === false ? (

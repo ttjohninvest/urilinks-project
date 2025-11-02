@@ -131,7 +131,7 @@ function ExpandableArray(props) {
                 {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
               
                
-                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">THANK YOU.</div>}
+                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">Thank you.</div>}
               
              
                 <div className="text-size-1"><span className="text-size-9">😃 </span>Your friendly bookmarks organizer

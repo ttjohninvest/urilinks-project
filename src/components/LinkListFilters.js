@@ -152,7 +152,7 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div>
-                 Check out the search folder name dropdown list in the organge rectangle for folder names with bookmarked web pages
+                 Check out the search folder name dropdown list in the orange rectangle for folder names with bookmarked web pages
                 </div>
               )}
 

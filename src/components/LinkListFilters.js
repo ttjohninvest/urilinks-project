@@ -161,26 +161,31 @@ function ExpandableArray(props) {
                 </div>
               <br />
               {props.signup === false && <div><iframe width="300" height="200" src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe></div>}
-              {props.signup === false ? (
+              { isToggled && props.signup === false && (
                 <div>
                   Click example hashtag to see bookmarked web page(s)
                 </div>
-              ) : (
+              ) }
+              
+              { isToggled && props.signup === true && (
                 <div>
                   Click hashtag to see bookmarked web page(s)
                 </div>
               )}
-              {props.signup === false ? (
+
+              {isToggled && props.signup === false && (
                 <div>
                   To see to see bookmarked web pages, check out the search folder name dropdown list
                 </div>
-              ) : (
+              )} 
+              
+              {isToggled && props.signup === true && (
                 <div>
                  Check out the search folder name dropdown list in the orange rectangle for folder names with bookmarked web pages
                 </div>
               )}
 
-              {props.signup === false && <div>Please give it try to see how it works.</div>}
+              {isToggled && props.signup === false && <div>Please give it try to see how it works.</div>}
               {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
               {/* <br />
               I believe that Jesus is the Christ. I believe that Jesus Christ is
@@ -197,15 +202,17 @@ function ExpandableArray(props) {
             </div>
 
             <div className="flexrow2e">
-              {props.signup === true ? (
+              {isToggled && props.signup === true && (
                 <div title="current plan" className="margin-right-1">
                   plan: {props.plan.replace(/"/g, "")}
                 </div>
-              ) : (
+              )}
+              
+              {isToggled && props.signup === false && (
                 <div></div>
               )}
               <div>
-                {props.signup === true ?
+                {isToggled && props.signup === true &&
                 <div className="margin-right-1">
                 {props.theplan.plan.replace(/"/g, "") === "free" ? (
                       <span>(It stores upto 250 bookmarks)</span>
@@ -228,9 +235,9 @@ function ExpandableArray(props) {
                       <span></span>
                     )}
                     </div>
-                :""
-                
-                }
+                    }
+                {isToggled && props.signup === false && ""}
+
               </div>
               <div className="margin-left-11">
                 <Link className="header__title" to="/teirspayment3">
@@ -241,9 +248,11 @@ function ExpandableArray(props) {
 
                     
 
-                    {props.signup === true ? (
+                    {isToggled && props.signup === true && (
                       <span>(click to change plan)</span>
-                    ) : (
+                    )}
+                    
+                    {isToggled && props.signup === false (
                       <span></span>
                     )}
                     {/* {uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||

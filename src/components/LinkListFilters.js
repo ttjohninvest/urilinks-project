@@ -135,7 +135,13 @@ function ExpandableArray(props) {
               
              
                 <div className="text-size-1"><span className="text-size-9">😃 </span>Your friendly bookmarks organizer
-                { isToggled && props.signup === false && <span>, click<span><Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>}
+                { isToggled && props.signup === false ? <span>, click<span><Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>: <button
+      onClick={handleChange}
+      className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
+      aria-label="Toggle button"
+    >
+      {isToggled ? 'hide information' : 'show information'}
+    </button>}
               
              {/* <button
       onClick={handleChange}
@@ -145,8 +151,8 @@ function ExpandableArray(props) {
       {isToggled ? 'hide information' : 'show information'}
     </button> */}
               
-                { isToggled && props.signup === false && <div className="text-size-1">when you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks. <br />You may add a note to each of your bookmarks.<br /></div>}
-                 { isToggled && props.signup === true && <div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.<br />
+                { isToggled && props.signup === false && <div className="text-size-1">When you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks. <br />You may add a note to each of your bookmarks.<br /></div>}
+                { isToggled && props.signup === true && <div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.<br />
                 The hastags are the folder names read from the browser bookmarks file with spaces removed and lowercased. The folder names are copied in the drop down list.<br />You may add a note to each of your bookmarks.<br />
                 You may share your bookmarks with linkedin, facebook, or twitter/x<br />
                 You may immediately chat about a bookmark with a family or friend using facebook messenger, click the blue circle. You just check if he she is online using fb messenger<br />

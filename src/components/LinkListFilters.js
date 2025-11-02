@@ -252,7 +252,7 @@ function ExpandableArray(props) {
                       <span>(click to change plan)</span>
                     )}
                     
-                    {isToggled && props.signup === false (
+                    {isToggled && props.signup === false &&  (
                       <span></span>
                     )}
                     {/* {uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||

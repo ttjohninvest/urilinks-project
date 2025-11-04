@@ -74,7 +74,7 @@ max=5000
         <div className="flexrowtfw">
          
 
-          <div className="rectangle-1">
+          {props.max === props.rl ? <div className="rectangle-1">
             <div className="margin-top-2">
               <button
                 className="button-style-1- button-2"
@@ -89,7 +89,15 @@ max=5000
                 Return
               </button>
             </div>
-          </div>
+          </div>:
+          <div className="margin-top-2">
+              <button className="button-style-1- button-2" onClick={goToHomePage}>
+                Return
+              </button>
+            </div>
+}
+
+
            { props.max === props.rl && <div className="rectangle-2 margin-top-1111b">
             {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b cursor-pointer" title="You may print this list to the printer."><img src={printerImage} width="32" height="32" style={{borderRadius:'50%'}}/></div>}
             {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}

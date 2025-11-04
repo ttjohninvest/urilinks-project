@@ -1,17 +1,15 @@
 Fetchbookmarks.js, put foldernames in
 
-
 =========================================================================================
 Always stay clothed outside.
 Resist temptation.
 
-
 Keep it if you are scared to spend it wrong.
 
-Adults do not get excited to go do things together like kids do, that 
-is the main difference. 
+Adults do not get excited to go do things together like kids do, that
+is the main difference.
 Friendship:
-Adults can not find friendship with other humans but they can find information sharing.  Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen. They will go their separate ways.
+Adults can not find friendship with other humans but they can find information sharing. Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen. They will go their separate ways.
 
 Romans 9:16
 So then it is not of him that willeth, nor of him that runneth, but of God that sheweth mercy.
@@ -33,7 +31,7 @@ I invite you to begin your journey with Jesus Christ, please say "I call upon th
 
 Their is no such thing is evolution of life forms from one form to another. Precious Holy Father God created all life forms as have been seen or discovered through precious Holy Jesus Christ. I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
 
-Thank you for sharing. I love you unconditionally. Adults can not find friendship with other humans but they can find information sharing.  Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen but service can still happen.  I used to be skinny but now I have a cute little tummy and I love it. I am fine. To begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
+Thank you for sharing. I love you unconditionally. Adults can not find friendship with other humans but they can find information sharing. Friendship requires sharing activities and relating and if the two people are not willing to share and relate, friendship won't happen but service can still happen. I used to be skinny but now I have a cute little tummy and I love it. I am fine. To begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
 
 Proverbs 15:21
 Folly is joy to him that is destitute of wisdom: but a man of understanding walketh uprightly.
@@ -83,23 +81,26 @@ ttjohnhappy
 # Git Commands
 
 todo to do
+10:30am 11/3/2025, Maybe va loan, 100000 to move to yerington
+Dominique with Veterans United 573-876-2600 ex 3600
+credit score is 0, needs to be at least 620 to get the loan
+status: credit counselor going to be calling me
+
 mr potato head pieces, https://www.ebay.com/b/Mr-Potato-Head-Parts/2576/bn_7023428255?mkcid=2&mkevt=1&mkrid=711-175623-139228-7&mkscid=102&keyword=nonbrand&norover=1
 people doing things for each other in the city, see the foldernames list in urilinks.com
- can urilinks.com fit in somewhere in the local community?
+can urilinks.com fit in somewhere in the local community?
 go to where people teach evolution and invite them to call upon the name of Christ.
 urilinks sharing topics see urilinks.com
 google does not provide this information:
- Google does not disclose information that is considered valuable to the public, such as content from educational or government institutions
+Google does not disclose information that is considered valuable to the public, such as content from educational or government institutions
 the results of foldername are out of order, the code is in selector folder
 put in note section Keep it if you are scared to spend it wrong 13:12 50th ANNIVERSARY CELEBRATION OF ENCYCLOPAEDIA BRITTANICA EDUCATIONAL EBE FILMS 64584
 put in note section how to be peaceful and productive in a regulating environment Mowglis Archival Films Compilation, a camp
 
-
-
 when selecting folder name update text field and using selector return all the results that fave that folder name
 sears cataglog buy, see the hashtag for the link to where it is
 youtube video thumbnail should be with all of the youtube links, I got the code in FetchBookmarks.js and LinkListItem.js but the thumbnail is not appearing, if I put the image link directly in the LinkListItem.js it appears.
-try to get #amazon appended to #6pm so it looks like this #6pm #amazon in FetchBookmarks.js so this way all of 
+try to get #amazon appended to #6pm so it looks like this #6pm #amazon in FetchBookmarks.js so this way all of
 the urls taken from amazon.com can be found by clicking #amazon
 in LinkListItem.js, get each one's urls on page to open and close separately somehow
 hashtag, I am not deriving the hashtag name from the domain name because of the new functionality that I put in
@@ -130,6 +131,7 @@ Only my website can open up on school computer, kiosk setup.
 appwrite.io, urilinks-project-social-app
 
 ---
+
 projects: what are real computer problems to solve?
 project: urilinks.com
 
@@ -139,16 +141,16 @@ social-media-node-express contains the other one
 it needs mongodb and other values for environment variables
 open two projects, in github.com and vercel.com
 
---------------------------
+---
+
 tools (utilities)
 get an old file command:
 git show HEAD~26:src/components/FetchBookmarks.js > FetchBookmarks-old.js
 
-
 tools:
 stripe.com (payment processor)
 ttjohninvest@gmail.com (google login)
-google based signin 
+google based signin
 vercel.com (stripe cloud functions)
 ttjohninvest@gmail.com (google login)
 github.com (code repository)
@@ -158,7 +160,8 @@ ttjohninvest@gmail.com
 firebase.google.com (stores data)
 heroku.com (host for code)
 ttjohninvest@gmail.com
-----------------------------
+
+---
 
 stripe secret key, stripe update time, see urilinks.com googledocuments for roll it or delete it time so I can keep accepting payments
 test upgrade plan when you get more money in the bank
@@ -306,7 +309,6 @@ ttjohninvest@gmail.com
 
 firebase.google.com
 
-
 ---
 
 i may need a tool to split up the bookmarks file for the user and press it in a loop in the code
@@ -450,8 +452,6 @@ set the domain name
 set the domain that I can use
 "can do" sourcelinks.com
 
-
-
 domain names
 whatmakesyousmile.site
 calluponjesus.org
@@ -554,10 +554,13 @@ I asked my precious Jesus Christ to give me wisdom about denomination and non de
 Answer: "7th Heaven", "all of it"
 
 marketing
-  <a href="https://search.brave.com/search?q=how+can+internet+bookmarks+be+used+to+help+a+person+organize+content&summary=1&conversation=2f44b07dcd08552e79c776" target="_blank">how to organize internet bookmarks</a>
-      <a href="https://search.brave.com/search?q=what+new+things+do+people+want+the+internet+to+do&summary=1&conversation=dd5502c25aaba566496b06" target="_blank">the future use of the internet</a>
-      <a href="https://search.brave.com/search?q=do+people+want+to+use+bookmarks+when+they+use+the+internet&summary=1&conversation=e6c5f096d07c806684f4a9" target="_blank">people still use bookmarks</a>  
+I Contacted by phone and left a message about starting a new business in Tulsa Oaklahoma
+Oklahoma Small Business Development Center
+301 W University Blvd. Durant, OK 74701 (580) 745-2877 Email Us · Funded in part through a Cooperative Agreement with the U.S. Small Business Administration. All opinions, conclusions, and/or recommendations expressed herein are those of the author(s) and do not necessarily
 
+<a href="https://search.brave.com/search?q=how+can+internet+bookmarks+be+used+to+help+a+person+organize+content&summary=1&conversation=2f44b07dcd08552e79c776" target="_blank">how to organize internet bookmarks</a>
+<a href="https://search.brave.com/search?q=what+new+things+do+people+want+the+internet+to+do&summary=1&conversation=dd5502c25aaba566496b06" target="_blank">the future use of the internet</a>
+<a href="https://search.brave.com/search?q=do+people+want+to+use+bookmarks+when+they+use+the+internet&summary=1&conversation=e6c5f096d07c806684f4a9" target="_blank">people still use bookmarks</a>
 
 get a reported to write a story
 on 5/23/25, I made a reno.craigslist post with the title: "tool to organize url links by hash tag on your own secure web page"
@@ -763,8 +766,10 @@ background-color:#ff0000;
 }
 
 ---
+
 Header.js
 removed from Header.js, it came after (search section)
+
 <div>
                 <Link className="header__title-" to="/settings">
                   {/* <span>Settings</span> */}
@@ -781,8 +786,8 @@ he made sure the customers were satisfied with their purchase or return with no 
 
 ai prompts, catalog of prompts
 general:
- give me a list of mathematical ai problem solving prompts
- give me a list of travel planning ideas
- give me a list of places to travel to for a vacation
+give me a list of mathematical ai problem solving prompts
+give me a list of travel planning ideas
+give me a list of places to travel to for a vacation
 price comparison to find lowest price and were
- compare mens underwear prices betwen macy's and nordstrom's
+compare mens underwear prices betwen macy's and nordstrom's

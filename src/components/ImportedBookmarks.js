@@ -63,8 +63,9 @@ max=5000
           </div>
         ) : (
           <div>
-            Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is
-            {max} bookmarks
+            Did not import any bookmarks. The limit of 5000 has been exceeded.
+            {/* Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is
+            {max} bookmarks */}
           </div>
         )}
 
@@ -89,7 +90,7 @@ max=5000
               </button>
             </div>
           </div>
-           <div className="rectangle-2 margin-top-1111b">
+           { props.max === props.rl && <div className="rectangle-2 margin-top-1111b">
             {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b cursor-pointer" title="You may print this list to the printer."><img src={printerImage} width="32" height="32" style={{borderRadius:'50%'}}/></div>}
             {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}
             <ul className="scrollable-ul">
@@ -98,7 +99,7 @@ max=5000
                 <li>{r.description}, <span className="font-weight-1" title="You may use this hashtag in hashtag search to find it.">{r.note}:{r.longname}</span></li>
               ))}
              </ul>
-          </div>
+          </div>}
         </div>
       </div>
     </div>

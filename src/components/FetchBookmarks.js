@@ -3017,9 +3017,15 @@ const FetchBookmarks = (props) => {
                   console.log("in if, ll=" + ll);
                   console.log("in if, rl=" + rl);
                   console.log("in if, max=" + max);
-                  if (rl > max) {
-                    loopmax2 = max;
+                  if(max < 0) {
+                    loopmax2 = rl-(-1*max)
                   }
+                  else {
+                    loopmax2 = rl;
+                  }
+                  // else if (rl > max) {
+                  //   loopmax2 = max;
+                  // }
 
                   for (let i = 0; i < loopmax2; i++) {
                     //for (let i = 0; i < 1; i++) {

@@ -86,6 +86,9 @@ Dominique with Veterans United 573-876-2600 ex 3600
 credit score is 0, needs to be at least 620 to get the loan
 status: credit counselor going to be calling me
 
+4900 bookmarks, want to put in 20 more, put in 10 to make 5000 and give it a list of the 10
+that could not be stored
+
 mr potato head pieces, https://www.ebay.com/b/Mr-Potato-Head-Parts/2576/bn_7023428255?mkcid=2&mkevt=1&mkrid=711-175623-139228-7&mkscid=102&keyword=nonbrand&norover=1
 people doing things for each other in the city, see the foldernames list in urilinks.com
 can urilinks.com fit in somewhere in the local community?

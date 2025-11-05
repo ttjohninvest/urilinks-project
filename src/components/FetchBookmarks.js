@@ -3070,6 +3070,9 @@ const FetchBookmarks = (props) => {
                   //max = 250 - (rl + ll);
                   let max2 = getPlanMax();
                   max = max2 - (rl + ll);
+
+                 
+
                   if (max >= 0) {
                     //max = getPlanMax() - (rl + ll);
                     //max = 1 - (rl + ll);
@@ -3122,6 +3125,38 @@ const FetchBookmarks = (props) => {
                     max2 !== 5000 &&
                     (user.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
                   ) {
+                       let max3 = getPlanMax();
+                       max = max3 - (rl + ll);
+
+                       if(max < 0) {
+                        loopmax2 = rl-(-1*max)
+                       }
+                       
+                      
+                       for (let i = 0; i < loopmax2; i++) {
+                      //for (let i = 0; i < 1; i++) {
+                      console.log(
+                        "2 result[" + i + "].foldername=" + result[i].foldername
+                      );
+                      r = props.startAddLink({
+                        description: result[i].description,
+                        Url: result[i].Url, //, //href,
+                        yturl: result[i].yturl,
+                        note: result[i].note,
+                        foldername: result[i].foldername,
+                        amount: 0,
+                        createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                        faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                      });
+
+                      if (r === false) {
+                        setImportingError(true);
+                        break;
+                      }
+                    }
+
+
+
                     setPayPage(true);
                     console.log("load pay page");
                   } else {

@@ -3080,7 +3080,8 @@ const FetchBookmarks = (props) => {
 
                       // fileRef.delete();
                       if (max < 0) {
-                        setResult2(result.slice(0,-(rl - skip)));
+                        //setResult2(result.slice(0,-(rl - skip)));
+                        setResult2(result);
                         setResult(result.slice(rl - skip));
                       } else {
                         setResult(result);

@@ -103,12 +103,16 @@ max=5000
             {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}
             <ul className="scrollable-ul">
            
-              {props.result.map((r, i) => (
+              {props.result2.map((r, i) => (
                 <li>{r.description}, <span className="font-weight-1" title="You may use this hashtag in hashtag search to find it.">{r.note}:{r.longname}</span></li>
               ))}
              </ul>
           </div>}
         </div>
+
+
+
+        
       </div>
     </div>
   );

@@ -39,6 +39,73 @@ const ImportedBookmarks2 = (props) => {
   return (
     <div className="container2 positionit">
       <div className="flexcol">
+
+ <div className="flexrowtfw">
+          {true && (
+            <div>
+              <div className="rectangle-1">
+                <div className="margin-top-2">
+                  <button
+                    className="button-style-1- button-2"
+                    onClick={openPaymentPage}
+                  >
+                    go to payment page
+                  </button>
+                </div>
+              </div>
+              <div className="margin-top-2">
+                <button
+                  className="button-style-1- button-2"
+                  onClick={closeThisPage}
+                >
+                  Close and Return
+                </button>
+              </div>
+            </div>
+          )}
+
+          {true && (
+            <div className="rectangle-2 margin-top-1111b">
+              {true && (
+                <div
+                  onClick={printIt}
+                  className="margin-top-1111b cursor-pointer"
+                  title="You may print this list to the printer."
+                >
+                  <img
+                    src={printerImage}
+                    width="32"
+                    height="32"
+                    style={{ borderRadius: "50%" }}
+                  />
+                </div>
+              )}
+              {true && (
+                <div className="margin-top-1111b">
+                  These are the bookmarks that were not added:
+                </div>
+              )}
+              <ul className="scrollable-ul">
+                {props.result2.map((r, i) => (
+                  <li>
+                    {r.description},{" "}
+                    <span
+                      className="font-weight-1"
+                      title="You may use this hashtag in hashtag search to find it."
+                    >
+                      {r.note}:{r.longname}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+
+
+
+
         <div className="flexrowtfw">
           {true && (
             <div>

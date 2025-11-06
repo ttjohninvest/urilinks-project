@@ -3320,10 +3320,10 @@ const FetchBookmarks = (props) => {
   return (
     <div>
       {morePage === true ? <div>
-      <ImportedBookmarks2 result={result} />
+      <ImportedBookmarks2 result={result}  setThePayPage={setThePayPage} closeThisPage={closeThisPage} />
       </div>:payPage === true ? (
         <div>
-          <TeirsPayment3 setThePayPage={setThePayPage} closeThisPage={closeThisPage} />
+          <TeirsPayment3 />
         </div>
       ) : (
         <div>

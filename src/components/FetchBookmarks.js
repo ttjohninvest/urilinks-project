@@ -15,6 +15,7 @@ import TeirsPayment3 from "./TeirsPayment3";
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
   const [result, setResult] = useState([]);
+  const [result2, setResult2] = useState([]);
   const [error, setError] = useState(false);
   const [error2, setError2] = useState(false);
   const [error3, setError3] = useState(false);
@@ -3079,6 +3080,7 @@ const FetchBookmarks = (props) => {
 
                       // fileRef.delete();
                       if (max < 0) {
+                        setResult2(result.slice(0,-(rl - skip)));
                         setResult(result.slice(rl - skip));
                       } else {
                         setResult(result);
@@ -3333,7 +3335,7 @@ const FetchBookmarks = (props) => {
     <div>
       {morePage === true ? (
         <div>
-                      {/* <ImportedBookmarks result={result} rl={loopmax} max={rl} /> */}
+                      {max < 0 && <ImportedBookmarks result={result2} rl={loopmax} max={rl} />}
 
           <ImportedBookmarks2
             result={result}

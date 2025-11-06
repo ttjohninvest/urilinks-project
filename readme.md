@@ -89,6 +89,9 @@ status: credit counselor going to be calling me
 urilinks, before calling TeirsPayment3, display information about the bookmarks that were not written because
 because plan maximum was exceeded and provide a button to go to the payment page TeirsPayment3.
 
+display the ones that were added above the ones that were not added <importbookmarks2
+use another variable like result, so their will be two variables
+
 4900 bookmarks, want to put in 20 more, put in 10 to make 5000 and give it a list of the 10
 that could not be stored
 

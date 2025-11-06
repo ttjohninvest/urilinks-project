@@ -54,14 +54,14 @@ props.closeThisPage(true)
             <div className="margin-top-2">
               <button
                 className="button-style-1- button-2"
-                onClick={openPaymentPage}
+                onClick={props.openPaymentPage}
               >
                 go to payment page
               </button>
             </div>           
           </div>:
           <div className="margin-top-2">
-              <button className="button-style-1- button-2" onClick={closeThisPage}>
+              <button className="button-style-1- button-2" onClick={props.closeThisPage}>
                 Return
               </button>
             </div>

@@ -40,7 +40,7 @@ const ImportedBookmarks2 = (props) => {
     <div className="container2 positionit">
       <div className="flexcol">
 
- <div className="flexrowtfw">
+ {/* <div className="flexrowtfw">
           {true && (
             <div>
               <div className="rectangle-1">
@@ -62,7 +62,7 @@ const ImportedBookmarks2 = (props) => {
                 </button>
               </div>
             </div>
-          )}
+          )} 
 
           {true && (
             <div className="rectangle-2 margin-top-1111b">
@@ -100,7 +100,7 @@ const ImportedBookmarks2 = (props) => {
               </ul>
             </div>
           )}
-        </div>
+        </div> */}
 
 
 

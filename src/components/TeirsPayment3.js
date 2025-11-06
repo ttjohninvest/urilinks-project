@@ -13,6 +13,10 @@ const TeirsPayment3 = (props) => {
   const [isStandard, setIsStandard] = useState(false);
   const [isPremium, setIsPremium] = useState(false);
 
+   const goToHomePage = () => {
+              props.history.push("/"); // Navigates back one step in the history
+            };
+
   useEffect(() => {
     console.log("TeirsPayment3, props.links.length=" + props.links.length);
     console.log(
@@ -115,9 +119,21 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
       ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length >= 2501 &&
         props.links.length <= 5000 ? (
-        <div>
+          <div>
+ <div>
           Hi, you will need to remove some bookmarks to choose a cheaper plan
         </div>
+        <div>
+            <button
+                            className="button-2 ib margin-left-11 cursor-pointer"
+                            onClick={goToHomePage}
+                          >
+                            goto the hpme page
+                          </button>
+                          
+        </div>
+          </div>
+       
       ) : isStandard && props.links.length <= 250 ? (
         //show almost free basic and premium
         <stripe-pricing-table pricing-table-id="prctbl_1RugLIK6yDYe5WAxJ3KDXCV9"

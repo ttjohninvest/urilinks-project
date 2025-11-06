@@ -3055,10 +3055,10 @@ const FetchBookmarks = (props) => {
                       faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
                     });
 
-                    if (r === false) {
-                      setImportingError(true);
-                      break;
-                    }
+                    // if (r === false) {
+                    //   setImportingError(true);
+                    //   break;
+                    // }
                   }
                   //throw new Error("ERROR ERROR ERROR")
                   if (r === false) {
@@ -3108,10 +3108,10 @@ const FetchBookmarks = (props) => {
                         faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
                       });
 
-                      if (r === false) {
-                        setImportingError(true);
-                        break;
-                      }
+                      // if (r === false) {
+                      //   setImportingError(true);
+                      //   break;
+                      // }
                     }
 
                     if (r === false) {
@@ -3161,10 +3161,10 @@ const FetchBookmarks = (props) => {
                         faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
                       });
 
-                      if (r === false) {
-                        setImportingError(true);
-                        break;
-                      }
+                      // if (r === false) {
+                      //   setImportingError(true);
+                      //   break;
+                      // }
                     }
 
 
@@ -3206,10 +3206,10 @@ const FetchBookmarks = (props) => {
                       faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
                     });
 
-                    if (r === false) {
-                      setImportingError(true);
-                      break;
-                    }
+                    // if (r === false) {
+                    //   setImportingError(true);
+                    //   break;
+                    // }
                   }
                   //throw new Error("ERROR ERROR ERROR")
                   if (r === false) {
@@ -3256,10 +3256,10 @@ const FetchBookmarks = (props) => {
                         faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
                       });
 
-                      if (r === false) {
-                        setImportingError(true);
-                        break;
-                      }
+                      // if (r === false) {
+                      //   setImportingError(true);
+                      //   break;
+                      // }
                     }
 
                     if (r === false) {

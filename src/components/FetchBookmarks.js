@@ -3079,7 +3079,7 @@ const FetchBookmarks = (props) => {
                     // const fileRef = storage.refFromURL(props.url);
 
                     // fileRef.delete();
-                    setResult(result.slice(skip));
+                    setResult(result.slice(rl-skip));
                   }
                   if(max < 0) setMorePage(true)
                 } else {

@@ -7,6 +7,7 @@ import { withRouter } from "react-router-dom";
 import moment from "moment";
 import { history } from "../routers/AppRouter";
 import ImportedBookmarks from "./ImportedBookmarks";
+import ImportedBookmarks2 from "./ImportedBookmarks2";
 import { storage } from "../firebase/firebase";
 import LoadingPage from "./LoadingPage";
 import TeirsPayment3 from "./TeirsPayment3";
@@ -28,6 +29,7 @@ const FetchBookmarks = (props) => {
   const [rl2, setRl2] = useState(0);
   const [loopmax2, setLoopmax2] = useState(0);
   const [done, setDone] = useState(false);
+   const [morePage, setMorePage] = useState(false);
   const [payPage, setPayPage] = useState(false);
   const [oo, setOo] = useState(props.match.params.option);
 
@@ -36,6 +38,16 @@ const FetchBookmarks = (props) => {
   //     const match = url.match(regex);
   //     return match ? match : null;
   // }
+
+   const closeThisPage = () => {
+    setMorePage(true)
+    setPayPage(true)
+  }
+
+  const setThePayPage = () => {
+    setMorePage(false)
+    setPayPage(true)
+  }
 
   const isityt = (url) => {
     if (!!url === true && url.includes("youtube")) {
@@ -3156,8 +3168,8 @@ const FetchBookmarks = (props) => {
                     }
 
 
-
-                    setPayPage(true);
+                    setMorePage(true)
+                    //setPayPage(true);
                     console.log("load pay page");
                   } else {
                     props.history.push("/");
@@ -3170,7 +3182,7 @@ const FetchBookmarks = (props) => {
                   true &&
                   ("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"=== "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1") //johmcg64@gmail.com
                 ) {
-                  max = 10000 - (rl + ll);
+                  max = 5000 - (rl + ll);
                   console.log("in if, ll=" + ll);
                   console.log("in if, rl=" + rl);
                   console.log("in if, max=" + max);
@@ -3306,9 +3318,11 @@ const FetchBookmarks = (props) => {
   //importingError===true?"Error importing bookmarks":
   return (
     <div>
-      {payPage === true ? (
+      {morePage === true ? <div>
+      <ImportedBookmarks2 result={result} />
+      </div>:payPage === true ? (
         <div>
-          <TeirsPayment3 />
+          <TeirsPayment3 setThePayPage={setThePayPage} closeThisPage={closeThisPage} />
         </div>
       ) : (
         <div>

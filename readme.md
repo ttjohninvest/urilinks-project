@@ -86,6 +86,9 @@ Dominique with Veterans United 573-876-2600 ex 3600
 credit score is 0, needs to be at least 620 to get the loan
 status: credit counselor going to be calling me
 
+urilinks, before calling TeirsPayment3, display information about the bookmarks that were not written because
+because plan maximum was exceeded and provide a button to go to the payment page TeirsPayment3.
+
 4900 bookmarks, want to put in 20 more, put in 10 to make 5000 and give it a list of the 10
 that could not be stored
 
@@ -143,6 +146,8 @@ social-media-react contains social media code
 social-media-node-express contains the other one
 it needs mongodb and other values for environment variables
 open two projects, in github.com and vercel.com
+
+GUI-CLI Integration: Users want more tools that allow interaction with GUI features, like clipboard access or managing desktop settings from the command line across different operating systems.
 
 ---
 

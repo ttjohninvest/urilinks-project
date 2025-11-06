@@ -3336,7 +3336,7 @@ const FetchBookmarks = (props) => {
     <div>
       {morePage === true ? (
         <div>
-                      {max < 0 && <ImportedBookmarks result={result2} rl={loopmax} max={rl} />}
+                      {max < 0 && <ImportedBookmarks2 result={result2} rl={loopmax} max={rl} />}
 
           <ImportedBookmarks2
             result={result}

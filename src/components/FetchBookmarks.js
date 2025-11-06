@@ -3336,14 +3336,14 @@ const FetchBookmarks = (props) => {
     <div>
       {morePage === true ? (
         <div className="flexcol3">
-                      {max < 0 && <ImportedBookmarks2 result={result2}  setThePayPage={setThePayPage}
-            closeThisPage={closeThisPage} />}
+                      {max < 0 && <div><ImportedBookmarks2 result={result2}  setThePayPage={setThePayPage}
+            closeThisPage={closeThisPage} /></div>}
 
-          <ImportedBookmarks2
+          <div><ImportedBookmarks2
             result={result}
             setThePayPage={setThePayPage}
             closeThisPage={closeThisPage}
-          />
+          /></div>
         </div>
       ) : payPage === true ? (
         <div>

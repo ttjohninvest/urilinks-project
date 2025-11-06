@@ -50,7 +50,8 @@ props.closeThisPage(true)
         <div className="flexrowtfw">
          
 
-          {true ? <div className="rectangle-1">
+          {true && <div>
+            <div className="rectangle-1">
             <div className="margin-top-2">
               <button
                 className="button-style-1- button-2"
@@ -59,11 +60,12 @@ props.closeThisPage(true)
                 go to payment page
               </button>
             </div>           
-          </div>:
+          </div>
           <div className="margin-top-2">
               <button className="button-style-1- button-2" onClick={props.closeThisPage}>
                 Return
               </button>
+            </div>
             </div>
 }
 

@@ -3025,15 +3025,18 @@ const FetchBookmarks = (props) => {
                   true &&
                   (user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2") //johmcg64@gmail.com
                 ) {
+                  let skip = 0
                   max = 5000 - (rl + ll);
                   console.log("in if, ll=" + ll);
                   console.log("in if, rl=" + rl);
                   console.log("in if, max=" + max);
                   if(max < 0) {
                     loopmax2 = rl-(-1*max)
+                    skip = rl-loopmax2
                   }
                   else {
                     loopmax2 = rl;
+                    skip=0
                   }
                   // else if (rl > max) {
                   //   loopmax2 = max;
@@ -3076,7 +3079,7 @@ const FetchBookmarks = (props) => {
                     // const fileRef = storage.refFromURL(props.url);
 
                     // fileRef.delete();
-                    setResult(result);
+                    setResult(result.slice(skip));
                   }
                   if(max < 0) setMorePage(true)
                 } else {

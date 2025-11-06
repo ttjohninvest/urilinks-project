@@ -3083,11 +3083,13 @@ const FetchBookmarks = (props) => {
                         //setResult2(result.slice(0,-(rl - skip)));
                         setResult2(result);
                         setResult(result.slice(rl - skip));
+                        setMorePage(true);
                       } else {
                         setResult(result);
+                         
                       }
                     }
-                    if (max < 0) setMorePage(true);
+                  
                   } else {
                     //max = 250 - (rl + ll);
                     let max2 = getPlanMax();

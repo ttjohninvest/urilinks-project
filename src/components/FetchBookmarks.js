@@ -40,8 +40,8 @@ const FetchBookmarks = (props) => {
   // }
 
    const closeThisPage = () => {
-    setMorePage(true)
-    setPayPage(true)
+    setMorePage(false)
+    setPayPage(false)
   }
 
   const setThePayPage = () => {

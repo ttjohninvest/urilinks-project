@@ -29,10 +29,10 @@ function ExpandableArray(props) {
   const handleChange = () => {
     
    
-
-    setIsToggled(!isToggled);
+let isT = !isToggled
+    setIsToggled(isT);
     
-window.localStorage.setItem("hideinformation", isToggled);
+window.localStorage.setItem("hideinformation", isT);
    
   };
 

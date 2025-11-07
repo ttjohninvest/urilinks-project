@@ -37,10 +37,10 @@ let x=false
   const handleChange = () => {
     
    
-let isT = !isToggled
-    setIsToggled(isT);
+//let isT = !isToggled
+    setIsToggled(!isToggled);
     
-window.localStorage.setItem("hideinformation", isT);
+    window.localStorage.setItem("hideinformation", isToggled);
    
   };
 

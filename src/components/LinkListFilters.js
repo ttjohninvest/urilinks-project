@@ -30,7 +30,7 @@ let x=true
    else {
    x = window.localStorage.getItem("hideinformation")
    }
-
+//
    const [isToggled, setIsToggled] = useState(x);
 
   const handleChange = () => {

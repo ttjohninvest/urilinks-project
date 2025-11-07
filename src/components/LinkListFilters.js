@@ -27,6 +27,13 @@ function ExpandableArray(props) {
    const [isToggled, setIsToggled] = useState(true);
 
   const handleChange = () => {
+    
+    if(isToggled) {
+window.localStorage.setItem("hideinformation", false);
+    } else {
+window.localStorage.setItem("hideinformation", true);
+    }
+
     setIsToggled(!isToggled);
   };
 
@@ -36,6 +43,13 @@ function ExpandableArray(props) {
       setUid(user.uid);
     } else {
       setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
+    }
+
+    const x = window.localStorage.getItem("hideinformation");
+    if(x===true) {
+setIsToggled(false);
+    } else {
+setIsToggled(true);
     }
 
     // if (props.theplan.plan.replace(/"/g, "") === "free") {

@@ -28,13 +28,12 @@ function ExpandableArray(props) {
 
   const handleChange = () => {
     
-    if(isToggled) {
-window.localStorage.setItem("hideinformation", false);
-    } else {
-window.localStorage.setItem("hideinformation", true);
-    }
+   
 
     setIsToggled(!isToggled);
+    
+window.localStorage.setItem("hideinformation", isToggled);
+   
   };
 
   useEffect(() => {

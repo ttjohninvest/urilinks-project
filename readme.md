@@ -86,6 +86,10 @@ Dominique with Veterans United 573-876-2600 ex 3600
 credit score is 0, needs to be at least 620 to get the loan
 status: credit counselor going to be calling me
 
+yt-url-3 trying to use netlify api getting module not found error
+sit will be a fast way to get a url with screen shots for yt comment
+vercel, try it instead of netlify.com
+
 urilinks, before calling TeirsPayment3, display information about the bookmarks that were not written because
 because plan maximum was exceeded and provide a button to go to the payment page TeirsPayment3.
 

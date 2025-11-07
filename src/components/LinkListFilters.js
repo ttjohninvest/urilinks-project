@@ -24,7 +24,7 @@ function ExpandableArray(props) {
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
 
-   const [isToggled, setIsToggled] = useState(true);
+   const [isToggled, setIsToggled] = useState(window.localStorage.getItem("hideinformation"));
 
   const handleChange = () => {
     

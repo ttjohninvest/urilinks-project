@@ -47,9 +47,9 @@ window.localStorage.setItem("hideinformation", false);
 
     const x = window.localStorage.getItem("hideinformation");
     if(x===true) {
-setIsToggled(false);
-    } else {
 setIsToggled(true);
+    } else {
+setIsToggled(false);
     }
 
     // if (props.theplan.plan.replace(/"/g, "") === "free") {

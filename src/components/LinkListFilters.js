@@ -23,13 +23,15 @@ function ExpandableArray(props) {
   const [uid, setUid] = useState("");
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
-
+let x=true
   if(window.localStorage.getItem("hideinformation")===null) {
-const [isToggled, setIsToggled] = useState(true);
+  
   }
    else {
-    const [isToggled, setIsToggled] = useState(window.localStorage.getItem("hideinformation"));
+   x = window.localStorage.getItem("hideinformation")
    }
+
+   const [isToggled, setIsToggled] = useState(x);
 
   const handleChange = () => {
     

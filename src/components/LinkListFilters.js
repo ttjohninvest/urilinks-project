@@ -23,11 +23,12 @@ function ExpandableArray(props) {
   const [uid, setUid] = useState("");
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
-let x=true
+let x=false
   if(window.localStorage.getItem("hideinformation")===null) {
-  
+  window.localStorage.setItem("hideinformation", false);
   }
    else {
+    window.localStorage.setItem("hideinformation", true);
    x = window.localStorage.getItem("hideinformation")
    }
 //

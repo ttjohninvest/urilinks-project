@@ -128,7 +128,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
                             className="button-2 ib margin-left-11 cursor-pointer"
                             onClick={goToHomePage}
                           >
-                            goto the hpme page
+                            goto the home page
                           </button>
                           
         </div>

@@ -86,6 +86,10 @@ VCA Lakeside Animal Hospital
 
 todo to do
 
+make it like linktr.ee by
+adding &id=kdjeew009f67gr to the url so the the can be shared with others
+if the id exists bypass the login, just let em see the page
+
 yt-url-3-html
 file:///C:/Users/Admin/Documents/1-maxschwarzmueller/1-toolbox-for-nextjs/1-websites/0a-tools-nextjs/yt-url-3-html/index.html
 it needs to store the already uploaded file to amazon s3 now see app.js

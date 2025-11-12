@@ -46,7 +46,7 @@ const renderApp = (store) => {
 //window.location.search = "?signup=signup"
 const params = new URLSearchParams(window.location.search);
 const signup = params.get('signup'); // Returns "John"
-
+const id = params.get('id');
 console.log("signup="+signup)
 //console.log("store.getState().signup="+store.getState().signup)
 
@@ -56,13 +56,19 @@ let theStore = store.getState();
 console.log("theStore.theplan.plan=" + theStore.theplan.plan);
 store.subscribe(() => {});
 
-if(signup !== "signup") {
+if(signup !== "signup"
+
+  && id
+  !==""
+
+) {
 
 
 
     //D9LSg6elood8Yc5gd5oDMp3JNAQ2
     //store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
-    store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
+    //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
+    store.dispatch(login(id));
 
     store.dispatch(startSetLinks())
       .then(() => {

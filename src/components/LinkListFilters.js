@@ -152,8 +152,8 @@ setIsToggled(false);
                 {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
               
                
-                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">Thank you.</div>}
-              
+                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">Thank you. Your sharable url is: https://urilinks.com/dashboard?signup=&id={props.uid}</div>}
+                
              
                 <div className="text-size-1"><span className="text-size-9">😃 </span>Your friendly bookmarks organizer
                 { isToggled && props.signup === false ? <span>, click<span><Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>: <button
@@ -747,6 +747,7 @@ export class LinkListFilters extends React.Component {
                 plan={this.props.theplan.plan}
                 newspaper={this.state.newspaper}
                 signup={this.props.signup.signup}
+                uid = {this.props.auth.uid}
               />
             </div>
           )}
@@ -868,6 +869,7 @@ const mapStateToProps = (state) => ({
   theplan: state.theplan,
   signup: state.signup,
   theplan: state.theplan,
+  auth:state.auth
 });
 
 const mapDispatchToProps = (dispatch) => ({

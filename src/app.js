@@ -55,13 +55,14 @@ let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
 console.log("theStore.theplan.plan=" + theStore.theplan.plan);
 store.subscribe(() => {});
+if(signup !== "signup") {
+  
+// if(signup !== "signup"
 
-if(signup !== "signup"
+//   && id
+//   !==""
 
-  && id
-  !==""
-
-) {
+// ) {
 
 
 

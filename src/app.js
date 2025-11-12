@@ -56,7 +56,7 @@ let theStore = store.getState();
 console.log("theStore.theplan.plan=" + theStore.theplan.plan);
 store.subscribe(() => {});
 if(signup !== "signup") {
-  
+
 // if(signup !== "signup"
 
 //   && id
@@ -67,9 +67,8 @@ if(signup !== "signup") {
 
 
     //D9LSg6elood8Yc5gd5oDMp3JNAQ2
-    //store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
-    //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
-    store.dispatch(login(id));
+    store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
+    //store.dispatch(login(id));
 
     store.dispatch(startSetLinks())
       .then(() => {

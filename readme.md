@@ -27,7 +27,7 @@ He layeth up sound wisdom for the righteous: he is a buckler to them that walk u
 
 Are their people sharing the wonderful news of the Gospel of Jesus Christ? Are people being invited to call on the name of Jesus Christ for salvation? Are the homeless being taken care of? Were are the churches? Are people in the community praying?
 
-I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves.
+I invite everybody to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves.
 
 Their is no such thing is evolution of life forms from one form to another. Precious Holy Father God created all life forms as have been seen or discovered through precious Holy Jesus Christ. I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.
 
@@ -80,7 +80,20 @@ ttjohnhappy
 
 # Git Commands
 
+veternarians, free help message, I contacted and left my last name and phone number
+VCA Lakeside Animal Hospital
+
+
 todo to do
+
+yt-url-3-html
+file:///C:/Users/Admin/Documents/1-maxschwarzmueller/1-toolbox-for-nextjs/1-websites/0a-tools-nextjs/yt-url-3-html/index.html
+it needs to store the already uploaded file to amazon s3 now see app.js
+s3 account established
+console.aws.amazon.com
+
+
+
 10:30am 11/3/2025, Maybe va loan, 100000 to move to yerington
 Dominique with Veterans United 573-876-2600 ex 3600
 credit score is 0, needs to be at least 620 to get the loan
@@ -89,6 +102,11 @@ status: credit counselor going to be calling me
 yt-url-3 trying to use netlify api getting module not found error
 sit will be a fast way to get a url with screen shots for yt comment
 vercel, try it instead of netlify.com
+
+yt-url-3, I sent a message to netlify support regarding @netlify/api module folder not found error
+on 11/7/2025 at about 5:32pm.
+
+
 
 urilinks, before calling TeirsPayment3, display information about the bookmarks that were not written because
 because plan maximum was exceeded and provide a button to go to the payment page TeirsPayment3.
@@ -468,6 +486,7 @@ set the domain that I can use
 "can do" sourcelinks.com
 
 domain names
+googlebytes.com, googlesize.com, 
 whatmakesyousmile.site
 calluponjesus.org
 calluponchrist.org

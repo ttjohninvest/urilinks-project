@@ -143,12 +143,14 @@ setIsToggled(false);
 
    const copyToClipboard = (e) => {
     //this.textArea.select();
-    textAreaRef.current.textContent();
-    document.execCommand('copy');
+    const text = textAreaRef.current.textContent();
+    console.log('Anchor text:', text);
+    navigator.clipboard.writeText(text)
+    //document.execCommand('copy');
     // This is just personal preference.
     // I prefer to not show the whole text area selected.
     e.target.focus();
-    setCopySuccess('Copied!');
+    setCopySuccess('Copied '+text);
   };
 
   return (

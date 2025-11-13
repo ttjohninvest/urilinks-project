@@ -72,7 +72,7 @@ if(signup !== "signup") {
     console.log("2 signup="+signup)
 console.log("2 id="+id)
     
-    if(id!=="")
+    if(id!==null)
     {
 store.dispatch(login(id));
     } else {

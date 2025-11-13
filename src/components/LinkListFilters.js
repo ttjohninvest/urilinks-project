@@ -143,7 +143,7 @@ setIsToggled(false);
 
    const copyToClipboard = (e) => {
     //this.textArea.select();
-    textAreaRef.current.select();
+    textAreaRef.current.textContent();
     document.execCommand('copy');
     // This is just personal preference.
     // I prefer to not show the whole text area selected.

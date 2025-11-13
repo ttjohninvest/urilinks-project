@@ -134,7 +134,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
         </div>
           </div>
        
-      ) : isStandard && props.links.length <= 250 ? (
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" && props.links.length <= 250 ? (
         //show almost free basic and premium
         <stripe-pricing-table pricing-table-id="prctbl_1RugLIK6yDYe5WAxJ3KDXCV9"
         client-reference-id={theUserId}

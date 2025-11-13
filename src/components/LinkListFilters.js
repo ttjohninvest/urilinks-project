@@ -139,7 +139,7 @@ setIsToggled(false);
     return cn;
   };
 
-   copyToClipboard = (e) => {
+   const copyToClipboard = (e) => {
     //this.textArea.select();
     document.execCommand('copy');
     // This is just personal preference.

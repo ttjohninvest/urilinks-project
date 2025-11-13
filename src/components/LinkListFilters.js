@@ -21,6 +21,7 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
+  const [copySuccess, setCopySuccess] = setState("")
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
 let x=false
@@ -138,6 +139,15 @@ setIsToggled(false);
     return cn;
   };
 
+   copyToClipboard = (e) => {
+    //this.textArea.select();
+    document.execCommand('copy');
+    // This is just personal preference.
+    // I prefer to not show the whole text area selected.
+    e.target.focus();
+    setCopySuccess('Copied!');
+  };
+
   return (
     <div className="bg-white-1">
       {props.mappedDataShort.length > 0 ? (
@@ -152,7 +162,15 @@ setIsToggled(false);
                 {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
               
                
-                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">Thank you. Your sharable url is: <a href="#"  className="ib border5 padding-all borderradius55 copy-click"  data-tooltip-text="Click To Copy" data-tooltip-text-copied="✔ Copied" >https://urilinks.com/dashboard?signup=&id={props.uid}</a></div>}
+                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">Thank you. Your sharable url is: <a href="#"  className="ib border5 padding-all borderradius55 copy-click"  data-tooltip-text="Click To Copy" data-tooltip-text-copied="✔ Copied" >https://urilinks.com/dashboard?signup=&id={props.uid}
+                  
+          
+            
+          
+                  </a>
+                  <button onClick={copyToClipboard}>Copy</button> 
+                 {copySuccess}
+                  </div>}
                 
              
                 <div className="text-size-1"><span className="text-size-9">😃 </span>Your friendly bookmarks organizer

@@ -490,6 +490,12 @@ set the domain that I can use
 "can do" sourcelinks.com
 
 domain names
+urlviv.com
+cultureviv.com
+socioviv.com
+urllinkup.com is available
+urlsocio.com is available
+urlsoc.com
 googlebytes.com, googlesize.com, 
 whatmakesyousmile.site
 calluponjesus.org

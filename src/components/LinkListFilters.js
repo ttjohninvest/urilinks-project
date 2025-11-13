@@ -167,7 +167,7 @@ setIsToggled(false);
                 {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
               
                
-                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.<br />Get your sharable url to share your content with everybody.</div>:<div className="text-size-1">Thank you. Your sharable url is: 
+                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.<br /><span className="font-weight-bold">Get your sharable url to share your content with everybody.</span></div>:<div className="text-size-1">Thank you. Your sharable url is: 
                   <a href="#"  ref={textAreaRef}
                 className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"  
                 >

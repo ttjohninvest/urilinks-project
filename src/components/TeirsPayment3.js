@@ -18,9 +18,9 @@ const TeirsPayment3 = (props) => {
             };
 
   useEffect(() => {
-    console.log("TeirsPayment3, props.links.length=" + props.links.length);
+    console.log("4 TeirsPayment3, props.links.length=" + props.links.length);
     console.log(
-      "TeirsPayment3, props.theplan.plan.replace(/''/g, '')=" +
+      "TeirsPayment4, props.theplan.plan.replace(/''/g, '')=" +
         props.theplan.plan.replace(/"/g, "")
     );
 

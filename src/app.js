@@ -27,7 +27,9 @@ import LoadingPage from "./components/LoadingPage";
 //     console.log(res.trans_result.dst);
 //     // Let's translate it!
 // });
-console.log = () => {};
+
+
+//console.log = () => {};
 
 let hasRendered = false;
 const renderApp = (store) => {
@@ -47,7 +49,8 @@ const renderApp = (store) => {
 const params = new URLSearchParams(window.location.search);
 const signup = params.get('signup');
 const id = params.get('id');
-console.log("signup="+signup)
+console.log("1 signup="+signup)
+console.log("1 id="+id)
 //console.log("store.getState().signup="+store.getState().signup)
 
 let store = configureStore();
@@ -65,6 +68,9 @@ if(signup !== "signup") {
     //D9LSg6elood8Yc5gd5oDMp3JNAQ2
     //store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
     //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
+
+    console.log("2 signup="+signup)
+console.log("2 id="+id)
     
     if(id!=="")
     {

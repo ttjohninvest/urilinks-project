@@ -24,6 +24,8 @@ function ExpandableArray(props) {
   const [copySuccess, setCopySuccess] = useState("")
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
+  const textAreaRef = useRef(null);
+
 let x=false
   if(window.localStorage.getItem("hideinformation")===null) {
   window.localStorage.setItem("hideinformation", false);
@@ -141,6 +143,7 @@ setIsToggled(false);
 
    const copyToClipboard = (e) => {
     //this.textArea.select();
+    textAreaRef.current.select();
     document.execCommand('copy');
     // This is just personal preference.
     // I prefer to not show the whole text area selected.
@@ -162,7 +165,9 @@ setIsToggled(false);
                 {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
               
                
-                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">Thank you. Your sharable url is: <a href="#"  className="ib border5 padding-all borderradius55 copy-click"  data-tooltip-text="Click To Copy" data-tooltip-text-copied="✔ Copied" >https://urilinks.com/dashboard?signup=&id={props.uid}
+                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">Thank you. Your sharable url is: <a href="#"  
+                ref={textAreaRef}
+                className="ib border5 padding-all borderradius55 copy-click"  data-tooltip-text="Click To Copy" data-tooltip-text-copied="✔ Copied" >https://urilinks.com/dashboard?signup=&id={props.uid}
                   
           
             

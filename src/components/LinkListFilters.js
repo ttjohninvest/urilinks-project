@@ -21,7 +21,7 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
-  const [copySuccess, setCopySuccess] = setState("")
+  const [copySuccess, setCopySuccess] = useState("")
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
 let x=false

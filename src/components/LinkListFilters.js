@@ -169,13 +169,11 @@ setIsToggled(false);
                
                 {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.</div>:<div className="text-size-1">Thank you. Your sharable url is: 
                   <a href="#"  ref={textAreaRef}
-                className="ib border5 padding-all borderradius55 copy-click-"  
-                //data-tooltip-text="Click To Copy" 
-                //data-tooltip-text-copied="✔ Copied" 
+                className="ib border5 padding-all borderradius55"  
                 >
                   https://urilinks.com/dashboard?signup=&id={props.uid}
                 </a>
-                  <button onClick={copyToClipboard}>Copy</button> 
+                  <button className="button-2" onClick={copyToClipboard}>Copy sharable url</button> 
                  {copySuccess}
                   </div>}
                 

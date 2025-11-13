@@ -239,11 +239,11 @@ display:none;
 /*start copy-click*/
 .copy-click {
   position: relative;
-  padding-bottom: 2px;
+  // padding-bottom: 2px;
   text-decoration: none;
   cursor: copy;
   color: #484848;
-  border-bottom: 1px dashed #767676;
+  // border-bottom: 1px dashed #767676;
   transition: background-color calc(var(--duration) * 2) var(--ease);
 }
 

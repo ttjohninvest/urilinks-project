@@ -143,7 +143,7 @@ setIsToggled(false);
 
    const copyToClipboard = (e) => {
     //this.textArea.select();
-    const text = textAreaRef.current.textContent();
+    const text = textAreaRef.current.innerText;
     console.log('Anchor text:', text);
     navigator.clipboard.writeText(text)
     //document.execCommand('copy');

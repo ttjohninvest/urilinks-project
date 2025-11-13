@@ -173,7 +173,7 @@ setIsToggled(false);
                 >
                   https://urilinks.com/dashboard?signup=&id={props.uid}
                 </a>
-                  <button className="button-2" onClick={copyToClipboard}>Copy sharable url</button> 
+                  <button className="button-2 ib margin-left-11" onClick={copyToClipboard}>Copy sharable url</button> 
                  {copySuccess}
                   </div>}
                 

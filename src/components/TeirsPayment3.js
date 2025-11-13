@@ -63,13 +63,13 @@ const TeirsPayment3 = (props) => {
   return (
     <div className="body1 flexrow2w">
  
-      {props.theplan.plan.replace(/"/g, "") === "free" && props.links.length <= 250 ? (
+      {props.theplan.plan.replace(/"/g, "") === "free" && props.links.length <= 250 || props.links.length > 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isBasic && props.links.length <= 250 ? (
+      ) : isBasic && props.links.length <= 250  || props.links.length > 250 ? (
         //show the almost free, standard and premium table
        <stripe-pricing-table pricing-table-id="prctbl_1RugCoK6yDYe5WAx5x4SZEPL"
        client-reference-id={theUserId}
@@ -92,7 +92,7 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" && props.links.length <= 250 ? (
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" && props.links.length <= 250  || props.links.length > 250 ? (
         //show almost free, basic and standard table
         <stripe-pricing-table pricing-table-id="prctbl_1RugHTK6yDYe5WAxm2AZhNUT"
         client-reference-id={theUserId}

@@ -37,7 +37,7 @@ const renderApp = (store) => {
   if (!hasRendered) {
     ReactDOM.render(
       <Provider store={store}>
-        <AppRouter />
+        <AppRouter signup={signup} />
       </Provider>,
       document.getElementById("app")
     );
@@ -86,7 +86,7 @@ store.dispatch(login(id));
           .dispatch(getTheplan())
           .then(() => {
             //return store.dispatch(getSettings()).then(() => {
-            renderApp(store);
+            renderApp(store,signup);
 
             if (history.location.pathname === "/") {
               history.push("/dashboard?signup=signup");
@@ -122,7 +122,7 @@ store.dispatch(login(id));
               .dispatch(getTheplan())
               .then(() => {
                 //return store.dispatch(getSettings()).then(() => {
-                renderApp(store);
+                renderApp(store,signup);
               //history.push("/dashboard");
                 if (history.location.pathname === "/") {
                   history.push("/dashboard?signup=signup");
@@ -141,7 +141,7 @@ store.dispatch(login(id));
       } else {
         console.log("logout happened");
         store.dispatch(logout());
-        renderApp(store);
+        renderApp(store,signup);
         history.push("/");
       }
     });

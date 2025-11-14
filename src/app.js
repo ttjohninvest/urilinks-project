@@ -124,10 +124,20 @@ store.dispatch(login(id));
                 //return store.dispatch(getSettings()).then(() => {
                 renderApp(store,signup);
               //history.push("/dashboard");
+
+  // props.history.push("/");
+  //   //window.location.reload();
+  //   window.location.href="https://urilinks.com?signup=signup"
+
+
+
+
                 if (history.location.pathname === "/") {
                   history.push("/dashboard?signup=signup");
+                  window.location.href="https://urilinks.com?signup=signup"
                 } else if (history.location.pathname === "/dashboard?signup=signup") {
                   history.push("/dashboard?signup=signup");
+                  window.location.href="https://urilinks.com?signup=signup"
                 }
                 //});
               })

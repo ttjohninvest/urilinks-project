@@ -133,10 +133,12 @@ store.dispatch(login(id));
 
 
                 if (history.location.pathname === "/") {
-                  history.push("/dashboard?signup=signup");
+                  //history.push("/dashboard?signup=signup");
                   window.location.href="https://urilinks.com?signup=signup"
                 } else if (history.location.pathname === "/dashboard?signup=signup") {
-                  history.push("/dashboard?signup=signup");
+                  //history.push("/dashboard?signup=signup");
+                  window.location.href="https://urilinks.com?signup=signup"
+                } else {
                   window.location.href="https://urilinks.com?signup=signup"
                 }
                 //});

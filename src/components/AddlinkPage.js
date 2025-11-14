@@ -89,7 +89,8 @@ const user = firebase.auth().currentUser;
     //)
     // ) {
     //if (count < getPlanMax() && (count < 5000 )) {
-    if (count < getPlanMax()) {
+    //if (count < getPlanMax()) {
+    if(true) {
       link.foldername=link.description
       const r = props.startAddLink(link);
       if (r === false) {

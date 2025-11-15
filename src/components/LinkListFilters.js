@@ -712,6 +712,15 @@ export class LinkListFilters extends React.Component {
     // this.setState({
     //   newspaper: !!this.state.newspaper === "true" ? true : false,
     // });
+
+     
+        const hasRefreshed = sessionStorage.getItem('hasRefreshed');
+        if (!hasRefreshed) {
+          sessionStorage.setItem('hasRefreshed', 'true');
+          window.location.reload();
+        }
+        
+    
   }
 
   componentWillUnmount() {}

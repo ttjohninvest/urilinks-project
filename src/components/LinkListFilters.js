@@ -131,7 +131,7 @@ function ExpandableArray(props) {
                     className="button-2 ib margin-right-1"
                     onClick={copyToClipboard}
                   >
-                    Copy sharable url
+                    Copy sharable link
                   </button>
                   {copySuccess}
                 </div>

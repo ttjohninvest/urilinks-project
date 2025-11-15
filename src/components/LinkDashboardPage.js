@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
-import startSetHasrefreshed from "../actions/hasrefreshed";
+import setHasrefreshed from "../actions/hasrefreshed";
 
 import LinkListFileDate from "./LinkListFileDate";
 import LinkListFiltersFileDate from "./LinkListFiltersFileDate";
@@ -107,7 +107,7 @@ const LinkDashboardPage = (props) => {
     console.log("LinkDashboardPage.js, should be false, props.hasrefreshed.hasrefreshed="+props.hasrefreshed.hasrefreshed)
     if (!props.hasrefreshed.hasrefreshed) {
       // sessionStorage.setItem('hasRefreshed', 'true');
-      startSetHasrefreshed({hasrefreshed:true})
+      setHasrefreshed({hasrefreshed:true})
       console.log("LinkDashboardPage.js, should be true, props.hasrefreshed.hasrefreshed="+props.hasrefreshed.hasrefreshed)
       //window.location.reload();
     }
@@ -139,5 +139,10 @@ const mapStateToProps = (state) => ({
   hasrefreshed: state.hasrefreshed
 });
 
-export default connect(mapStateToProps, undefined)(LinkDashboardPage);
+const mapDispatchToProps = (dispatch) => ({
+  setHasrefreshed: (hasrefreshed)=>dispatch(setHasrefreshed(hasrefreshed))
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(LinkDashboardPage);
 //export default LinkDashboardPage;

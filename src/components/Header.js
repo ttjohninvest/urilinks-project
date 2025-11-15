@@ -8,7 +8,7 @@ import logo from "../assets/images/logo9.png";
 import myprofile from "../assets/images/myprofile.png";
 //import { getAuth } from "firebase";
 import XShareButton from "./XShareButton"
-import startSetHasrefreshed from "../actions/hasrefreshed";
+import setHasrefreshed from "../actions/hasrefreshed";
 
 
 // const preStartLogout=()=>{
@@ -84,7 +84,7 @@ export const Header = (props) => {
   const logoutit=()=>{
     //sessionStorage.setItem('hasRefreshed', 'false');
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    startSetHasrefreshed({hasrefreshed:false})
+    setHasrefreshed({hasrefreshed:false})
     
                     props.startLogout()
   }
@@ -263,6 +263,7 @@ const mapDispatchToProps = (dispatch) => ({
       );
   },
   setLinks: (links) => dispatch(setLinks(links)),
+  setHasrefreshed: (hasrefreshed)=>dispatch(setHasrefreshed(hasrefreshed))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

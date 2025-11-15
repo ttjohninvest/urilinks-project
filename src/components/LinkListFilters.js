@@ -595,7 +595,7 @@ export class LinkListFilters extends React.Component {
   componentDidMount() {
     //props.history.push("/");
     //window.location.reload()
-    // this.setState({ foldernamesList: [] });
+    //this.setState({ foldernamesList: [] });
     //const array1 = ['a','b']
     let tl = [];
 

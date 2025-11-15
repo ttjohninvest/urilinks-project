@@ -119,7 +119,7 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div className="text-size-1">
-                  Thank you. Your sharable url is:
+                  Thank you. Your sharable link is:
                   <a
                     href="#"
                     ref={textAreaRef}

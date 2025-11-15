@@ -101,7 +101,7 @@ const LinkDashboardPage = (props) => {
     //   console.log("LinkListFilters.js, window.location.reload()")
     //   window.location.reload();
     // }
-    //window.location.reload();
+    window.location.reload();
     setAvalue(!avalue)
     
   }, []);

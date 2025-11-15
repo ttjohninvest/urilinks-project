@@ -86,6 +86,8 @@ VCA Lakeside Animal Hospital
 
 todo to do
 
+problem when click logout, then login, select one, it does not refresh, so the drop down list is not updating
+
 make it like linktr.ee by
 adding &id=kdjeew009f67gr to the url so the the can be shared with others
 if the id exists bypass the login, just let em see the page

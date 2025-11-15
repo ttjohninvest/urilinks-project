@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
+import setHasrefreshed from "../actions/hasrefreshed";
 
 import LinkListFileDate from "./LinkListFileDate";
 import LinkListFiltersFileDate from "./LinkListFiltersFileDate";
@@ -102,11 +103,12 @@ const LinkDashboardPage = (props) => {
     //   window.location.reload();
     // }
     //window.location.reload();
-    const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    console.log("LinkListFilters.js, should be false, hasRefreshed="+hasRefreshed)
-    if (!hasRefreshed) {
-      sessionStorage.setItem('hasRefreshed', 'true');
-      setAvalue(!avalue)
+    //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
+    //console.log("LinkListFilters.js, should be false, hasRefreshed="+hasRefreshed)
+    if (!props.hasrefreshed.hasrefreshed) {
+      // sessionStorage.setItem('hasRefreshed', 'true');
+      setHasrefreshed(true)
+      window.location.reload();
     }
     
     
@@ -133,6 +135,7 @@ right column
 
 const mapStateToProps = (state) => ({
   settings: state.settings,
+  hasrefreshed: state.hasrefreshed
 });
 
 export default connect(mapStateToProps, undefined)(LinkDashboardPage);

@@ -111,8 +111,7 @@ function ExpandableArray(props) {
 
               {props.signup === false ? (
                 <div className="text-size-1">
-                  hi, my name is John. please accept me as your provider of an
-                  internet link to links page.
+                  hi, my name is John. Here is a link to links tool.
                   <br />
                   <span className="font-weight-bold">
                     Get your sharable url to share your content with everybody.

@@ -1,6 +1,20 @@
-const setHasrefreshed = (hasrefreshed) => ({
+export const setHasrefreshed = (hasrefreshed) => ({
   type: "ADD_HASREFRESHED",
   hasrefreshed,
 });
 
-export default setHasrefreshed;
+const startSetHasrefreshed = (hasrefreshed = {}) => {
+    return (dispatch, getState) => {
+   
+
+    return (
+       dispatch(
+            setHasrefreshed({
+              ...hasrefreshed,
+            })
+          )
+    );
+  };
+};
+
+export default startSetHasrefreshed;

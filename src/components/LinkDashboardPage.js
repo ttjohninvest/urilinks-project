@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
-import setHasrefreshed from "../actions/hasrefreshed";
+import startSetHasrefreshed from "../actions/hasrefreshed";
 
 import LinkListFileDate from "./LinkListFileDate";
 import LinkListFiltersFileDate from "./LinkListFiltersFileDate";
@@ -107,7 +107,7 @@ const LinkDashboardPage = (props) => {
     console.log("LinkListFilters.js, should be false, props.hasrefreshed.hasrefreshed="+props.hasrefreshed.hasrefreshed)
     if (!props.hasrefreshed.hasrefreshed) {
       // sessionStorage.setItem('hasRefreshed', 'true');
-      setHasrefreshed({hasrefreshed:true})
+      startSetHasrefreshed({hasrefreshed:true})
       window.location.reload();
     }
     

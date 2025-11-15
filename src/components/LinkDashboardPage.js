@@ -93,11 +93,12 @@ const LinkDashboardPage = (props) => {
   }, [scrollPos]);
 
   useEffect(() => {
-    const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    if (!hasRefreshed) {
-      sessionStorage.setItem('hasRefreshed', 'true');
-      window.location.reload();
-    }
+    // const hasRefreshed = sessionStorage.getItem('hasRefreshed');
+    // if (!hasRefreshed) {
+    //   sessionStorage.setItem('hasRefreshed', 'true');
+    //   window.location.reload();
+    // }
+     window.location.reload();
   }, []);
 
   return (

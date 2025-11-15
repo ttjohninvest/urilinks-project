@@ -85,7 +85,7 @@ const TeirsPayment3 = (props) => {
 
         </div>
       ) : props.theplan.plan.replace(/"/g, "") === "free" ? (<div>
-        <div>free, you may store up to 250 links, <span>You have stored {props.links.length} links.</span></div>
+        <div className="margin-left-11">You are on the free plan. You may store up to 250 links, <span>You have stored {props.links.length} links.</span></div>
          <div>
             <button
               className="button-2 ib margin-left-11 cursor-pointer"
@@ -96,7 +96,7 @@ const TeirsPayment3 = (props) => {
           </div>
           </div>
       ) : props.theplan.plan.replace(/"/g, "") === "basic" ? (<div>
-        <div>basic, you may store up to 1500 links, <span>You have stored {props.links.length} links.</span></div>
+        <div className="margin-left-11">You are on the basic plan. You may store up to 1500 links, <span>You have stored {props.links.length} links.</span></div>
          <div>
             <button
               className="button-2 ib margin-left-11 cursor-pointer"
@@ -107,7 +107,7 @@ const TeirsPayment3 = (props) => {
           </div>
           </div>
       ) : props.theplan.plan.replace(/"/g, "") === "standard" ? (<div>
-        <div>standard, you may store up to 2500 links, <span>You have stored {props.links.length} links.</span></div>
+        <div className="margin-left-11">You are on the standard plan. You may store up to 2500 links, <span>You have stored {props.links.length} links.</span></div>
          <div>
             <button
               className="button-2 ib margin-left-11 cursor-pointer"
@@ -119,8 +119,8 @@ const TeirsPayment3 = (props) => {
           </div>
       ) : props.theplan.plan.replace(/"/g, "") === "premium" ? (
         <div>
-          <div>
-            premium, you may store up to 5000 links, <span>You have stored {props.links.length} links.</span>
+          <div className="margin-left-11">
+            You are on the premium plan. You may store up to 5000 links, <span>You have stored {props.links.length} links.</span>
           </div>
           <div>
             <button

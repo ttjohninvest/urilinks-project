@@ -29,7 +29,7 @@ import LoadingPage from "./components/LoadingPage";
 // });
 
 
-//console.log = () => {};
+console.log = () => {};
 
 let hasRendered = false;
 const renderApp = (store) => {

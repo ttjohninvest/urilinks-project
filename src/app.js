@@ -143,7 +143,7 @@ store.dispatch(login(id));
                  
                        // sessionStorage.setItem('hasRefreshed', 'true');
                        
-                       //window.location.href="https://urilinks.com?signup=signup"
+                       window.location.href="https://urilinks.com/o?signup=signup"
                        //window.location.reload();
                      
                      

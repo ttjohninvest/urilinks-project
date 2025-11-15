@@ -114,7 +114,7 @@ function ExpandableArray(props) {
                   hi, my name is John. Here is a link to links tool.
                   <br />
                   <span className="font-weight-bold">
-                    Get your sharable url to share your content with everybody.
+                    Get your sharable link to share your links with everybody.
                   </span>
                 </div>
               ) : (

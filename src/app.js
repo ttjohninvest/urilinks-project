@@ -91,7 +91,7 @@ store.dispatch(login(id));
             if (history.location.pathname === "/") {
               history.push("/dashboard?signup=signup&x=0");
             } else if (history.location.pathname === "/dashboard?signup=signup") {
-              history.push("/dashboard?signup=signup&x=0");
+              history.push("/dashboard?signup=signup&x=1");
             }
             //});
           })
@@ -134,10 +134,10 @@ store.dispatch(login(id));
 
                 if (history.location.pathname === "/") {
                   //history.push("/dashboard?signup=signup");
-                  window.location.href="https://urilinks.com?signup=signup"
+                  window.location.href="https://urilinks.com?signup=signup&x=2"
                 } else if (history.location.pathname === "/dashboard?signup=signup") {
                   //history.push("/dashboard?signup=signup");
-                  window.location.href="https://urilinks.com?signup=signup"
+                  window.location.href="https://urilinks.com?signup=signup&x=3"
                 } else {
                  
                 }

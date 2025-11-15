@@ -112,7 +112,7 @@ function ExpandableArray(props) {
               {props.signup === false ? (
                 <div className="text-size-1">
                   hi, my name is John. please accept me as your provider of an
-                  internet web page bookmarking tool.
+                  internet link to links page.
                   <br />
                   <span className="font-weight-bold">
                     Get your sharable url to share your content with everybody.
@@ -139,8 +139,7 @@ function ExpandableArray(props) {
               )}
 
               <div className="text-size-1">
-                <span className="text-size-9">😃 </span>Your friendly bookmarks
-                organizer
+                <span className="text-size-9">😃 </span>Your friendly link to links tool
                 {isToggled && props.signup === false ? (
                   <span>
                     , click

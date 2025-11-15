@@ -42,7 +42,7 @@ const renderApp = (store) => {
       document.getElementById("app")
     );
     hasRendered = true;
-    window.location.reload();
+    
   }
 };
 

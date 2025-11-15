@@ -101,8 +101,14 @@ const LinkDashboardPage = (props) => {
     //   console.log("LinkListFilters.js, window.location.reload()")
     //   window.location.reload();
     // }
-    window.location.reload();
-    setAvalue(!avalue)
+    //window.location.reload();
+    const hasRefreshed = sessionStorage.getItem('hasRefreshed');
+    console.log("LinkListFilters.js, should be false, hasRefreshed="+hasRefreshed)
+    if (!hasRefreshed) {
+      sessionStorage.setItem('hasRefreshed', 'true');
+      setAvalue(!avalue)
+    }
+    
     
   }, []);
 

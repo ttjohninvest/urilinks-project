@@ -107,20 +107,18 @@ const LinkDashboardPage = (props) => {
     //window.location.reload();
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
     //console.log("1 LinkDashboardPage.js, should be false, props.hasrefreshed.hasrefreshed="+props.hasrefreshed.hasrefreshed)
-    const x = useSelector(state => state.hasrefreshed.hasrefreshed.value);
-    if (!x) {
+    
+    if (!props.hasrefreshed.hasrefreshed) {
       // sessionStorage.setItem('hasRefreshed', 'true');
       props.setHasrefreshed({hasrefreshed:true})
 
-       window.location.reload();
+      //window.location.reload();
     }
     
     
   }, []);
 
-  useEffect(()=>{
-    //window.location.reload();
-  },[])
+ 
 
   return (
     <div>

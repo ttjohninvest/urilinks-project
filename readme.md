@@ -87,6 +87,14 @@ VCA Lakeside Animal Hospital
 
 
 todo to do
+provie a link that stops payments
+payment plan from 250 to 1500 to 2500 to 5000 but not down, people are not goint to want to delete 2500 links one at a time
+offer a way to doqnload all links to a bookmarks file
+tell them to delte bookmarks through the bookmarks manager because they can delete them faster by folder
+tell them they can upload the bookmarks to a new account with a smaller plan
+
+
+for batch bookmark uploading add payment page
 
 problem when click logout, then login, select one, it does not refresh, so the drop down list is not updating
 

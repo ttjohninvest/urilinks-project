@@ -21,30 +21,26 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
-  const [copySuccess, setCopySuccess] = useState("")
+  const [copySuccess, setCopySuccess] = useState("");
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
   const textAreaRef = useRef(null);
 
-let x=false
-  if(window.localStorage.getItem("hideinformation")===null) {
-  window.localStorage.setItem("hideinformation", false);
-  }
-   else {
+  let x = false;
+  if (window.localStorage.getItem("hideinformation") === null) {
+    window.localStorage.setItem("hideinformation", false);
+  } else {
     window.localStorage.setItem("hideinformation", true);
-   x = window.localStorage.getItem("hideinformation")
-   }
-//
-   const [isToggled, setIsToggled] = useState(x);
+    x = window.localStorage.getItem("hideinformation");
+  }
+  //
+  const [isToggled, setIsToggled] = useState(x);
 
   const handleChange = () => {
-    
-   
-//let isT = !isToggled
+    //let isT = !isToggled
     setIsToggled(!isToggled);
-    
+
     window.localStorage.setItem("hideinformation", isToggled);
-   
   };
 
   useEffect(() => {
@@ -56,32 +52,21 @@ let x=false
     }
 
     const x = window.localStorage.getItem("hideinformation");
-    if(x===true) {
-setIsToggled(true);
+    if (x === true) {
+      setIsToggled(true);
     } else {
-setIsToggled(false);
+      setIsToggled(false);
     }
 
-    // if (props.theplan.plan.replace(/"/g, "") === "free") {
-    //   setMax(250);
-    // } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
-    //   setMax(1500);
-    // } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
-    //   setMax(2500);
-    // } else {
-    //   //premium
-
-    //   setMax(5000);
+    // const hasRefreshed = sessionStorage.getItem("hasRefreshed");
+    // console.log(
+    //   "LinkListFilters.js, should be false, hasRefreshed=" + hasRefreshed
+    // );
+    // if (!hasRefreshed) {
+    //   //sessionStorage.setItem('hasRefreshed', 'true');
+    //   console.log("LinkListFilters.js, window.location.reload()");
+    //   window.location.reload();
     // }
-
-    const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    console.log("LinkListFilters.js, should be false, hasRefreshed="+hasRefreshed)
-    if (!hasRefreshed) {
-      //sessionStorage.setItem('hasRefreshed', 'true');
-      console.log("LinkListFilters.js, window.location.reload()")
-      window.location.reload();
-    }
-    
   }, []);
 
   const moveIt = () => {
@@ -100,66 +85,16 @@ setIsToggled(false);
     window.localStorage.setItem("newspaper", !newspaper);
   };
 
-  console.log("ExpandableArray, expanded=" + expanded);
-  //console.log("ExpandableArray, mappedDataLong.length="+props.mappedDataLong.length)
-  console.log("props.mappedDataShort=" + props.mappedDataShort);
-  console.log(
-    "EEEEEEEEEEEEEEEEEEEE, ExpandableArray, mappedDataShort.length=" +
-      props.mappedDataShort.length
-  );
-  let displayedArray;
-  if (expanded === true) displayedArray = props.mappedDataLong;
-  else displayedArray = props.mappedDataShort;
-
-  //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
-  const highlight = (v) => {
-    return "color-white-1";
-
-    //v is the first letter after #
-    let cn = "";
-    // v='a'
-
-    if (v === "a") cn = "colorfora";
-    else if (v === "b") cn = "colorforv";
-    else if (v === "c") cn = "colorforc";
-    else if (v === "d") cn = "colorford";
-    else if (v === "e") cn = "colorfore";
-    else if (v === "f") cn = "colorforf";
-    else if (v === "g") cn = "colorforg";
-    else if (v === "h") cn = "colorforh";
-    else if (v === "i") cn = "colorfori";
-    else if (v === "j") cn = "colorforj";
-    else if (v === "k") cn = "colorfork";
-    else if (v === "l") cn = "colorforl";
-    else if (v === "m") cn = "colorform";
-    else if (v === "n") cn = "colorforn";
-    else if (v === "o") cn = "colorforo";
-    else if (v === "p") cn = "colorforp";
-    else if (v === "q") cn = "colorforq";
-    else if (v === "r") cn = "colorforr";
-    else if (v === "s") cn = "colorfors";
-    else if (v === "t") cn = "colorfort";
-    else if (v === "u") cn = "colorforu";
-    else if (v === "v") cn = "colorforv";
-    else if (v === "w") cn = "colorforw";
-    else if (v === "x") cn = "colorforx";
-    else if (v === "y") cn = "colorfory";
-    else if (v === "z") cn = "colorforz";
-    else cn = "color-white-1";
-
-    return cn;
-  };
-
-   const copyToClipboard = (e) => {
+  const copyToClipboard = (e) => {
     //this.textArea.select();
     const text = textAreaRef.current.innerText;
-    console.log('Anchor text:', text);
-    navigator.clipboard.writeText(text)
+    console.log("Anchor text:", text);
+    navigator.clipboard.writeText(text);
     //document.execCommand('copy');
     // This is just personal preference.
     // I prefer to not show the whole text area selected.
     e.target.focus();
-    setCopySuccess('Copied '+text);
+    setCopySuccess("Copied " + text);
   };
 
   return (
@@ -171,74 +106,148 @@ setIsToggled(false);
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             <div className="text-size-5 padding-top-11">
-              
-                <div className="text-size-1">Welcome, what makes you smile?</div>
-                {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
-              
-               
-                {props.signup === false ? <div className="text-size-1">hi, my name is John. please accept me as your provider of an internet web page bookmarking tool.<br /><span className="font-weight-bold">Get your sharable url to share your content with everybody.</span></div>:<div className="text-size-1">Thank you. Your sharable url is: 
-                  <a href="#"  ref={textAreaRef}
-                className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"  
-                >
-                  https://urilinks.com/dashboard?signup=&id={props.uid}
-                </a>
-                  <button className="button-2 ib margin-right-1" onClick={copyToClipboard}>Copy sharable url</button> 
-                 {copySuccess}
-                  </div>}
-                
-             
-                <div className="text-size-1"><span className="text-size-9">😃 </span>Your friendly bookmarks organizer
-                { isToggled && props.signup === false ? <span>, click<span><Link className="cursor-pointer nounderline" to="/signup"  title=""> login</Link></span></span>: <button
-      onClick={handleChange}
-      className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
-      aria-label="Toggle button"
-    >
-      {isToggled ? 'hide information' : 'show information'}
-    </button>}
-              
-             {/* <button
+              <div className="text-size-1">Welcome, what makes you smile?</div>
+              {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
+
+              {props.signup === false ? (
+                <div className="text-size-1">
+                  hi, my name is John. please accept me as your provider of an
+                  internet web page bookmarking tool.
+                  <br />
+                  <span className="font-weight-bold">
+                    Get your sharable url to share your content with everybody.
+                  </span>
+                </div>
+              ) : (
+                <div className="text-size-1">
+                  Thank you. Your sharable url is:
+                  <a
+                    href="#"
+                    ref={textAreaRef}
+                    className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                  >
+                    https://urilinks.com/dashboard?signup=&id={props.uid}
+                  </a>
+                  <button
+                    className="button-2 ib margin-right-1"
+                    onClick={copyToClipboard}
+                  >
+                    Copy sharable url
+                  </button>
+                  {copySuccess}
+                </div>
+              )}
+
+              <div className="text-size-1">
+                <span className="text-size-9">😃 </span>Your friendly bookmarks
+                organizer
+                {isToggled && props.signup === false ? (
+                  <span>
+                    , click
+                    <span>
+                      <Link
+                        className="cursor-pointer nounderline"
+                        to="/signup"
+                        title=""
+                      >
+                        {" "}
+                        login
+                      </Link>
+                    </span>
+                  </span>
+                ) : (
+                  <button
+                    onClick={handleChange}
+                    className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
+                    aria-label="Toggle button"
+                  >
+                    {isToggled ? "hide information" : "show information"}
+                  </button>
+                )}
+                {/* <button
       onClick={handleChange}
       className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
       aria-label="Toggle button"
     >
       {isToggled ? 'hide information' : 'show information'}
     </button> */}
-              
-                { isToggled && props.signup === false && <div className="text-size-1">When you signup (click login) for an account, you get an empty page to start adding your favorite bookmarks. <br />You may add a note to each of your bookmarks.<br /></div>}
-                { isToggled && props.signup === true && <div className="text-size-1">You may start adding your favorite bookmarks using the Add Bookmark button below or Bookmarks File Uploader above.<br/>The hashtags in purple rectangles and the folder names in the dropdown list in the orange rectangle are added in alphabetical order.<br />
-                The hastags are the folder names read from the browser bookmarks file with spaces removed and lowercased. The folder names are copied in the drop down list.<br />You may add a note to each of your bookmarks.<br />
-                You may share your bookmarks with linkedin, facebook, or twitter/x<br />
-                You may immediately chat about a bookmark with a family or friend using facebook messenger, click the blue circle. You just check if he she is online using fb messenger<br />
-                and if so, send the bookmark and then chat about it
-                </div>}
-                </div>
+                {isToggled && props.signup === false && (
+                  <div className="text-size-1">
+                    When you signup (click login) for an account, you get an
+                    empty page to start adding your favorite bookmarks. <br />
+                    You may add a note to each of your bookmarks.
+                    <br />
+                  </div>
+                )}
+                {isToggled && props.signup === true && (
+                  <div className="text-size-1">
+                    You may start adding your favorite bookmarks using the Add
+                    Bookmark button below or Bookmarks File Uploader above.
+                    <br />
+                    The hashtags in purple rectangles and the folder names in
+                    the dropdown list in the orange rectangle are added in
+                    alphabetical order.
+                    <br />
+                    The hastags are the folder names read from the browser
+                    bookmarks file with spaces removed and lowercased. The
+                    folder names are copied in the drop down list.
+                    <br />
+                    You may add a note to each of your bookmarks.
+                    <br />
+                    You may share your bookmarks with linkedin, facebook, or
+                    twitter/x
+                    <br />
+                    You may immediately chat about a bookmark with a family or
+                    friend using facebook messenger, click the blue circle. You
+                    just check if he she is online using fb messenger
+                    <br />
+                    and if so, send the bookmark and then chat about it
+                  </div>
+                )}
+              </div>
               <br />
-              {props.signup === false && props.uid==="W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && <div><iframe width="300" height="200" src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe></div>}
-              { isToggled && props.signup === false && (
-                <div>
-                  Click example hashtag to see bookmarked web page(s)
-                </div>
-              ) }
-              
-              { isToggled && props.signup === true && (
-                <div>
-                  Click hashtag to see bookmarked web page(s)
-                </div>
+              {props.signup === false &&
+                props.uid === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && (
+                  <div>
+                    <iframe
+                      width="300"
+                      height="200"
+                      src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    >
+                      {" "}
+                    </iframe>
+                  </div>
+                )}
+              {isToggled && props.signup === false && (
+                <div>Click example hashtag to see bookmarked web page(s)</div>
+              )}
+
+              {isToggled && props.signup === true && (
+                <div>Click hashtag to see bookmarked web page(s)</div>
               )}
 
               {isToggled && props.signup === false && (
                 <div>
-                  To see to see bookmarked web pages, check out the search folder name dropdown list
-                </div>
-              )} 
-              
-              {isToggled && props.signup === true && (
-                <div>
-                 Check out the search folder name dropdown list in the orange rectangle for folder names with bookmarked web pages
+                  To see to see bookmarked web pages, check out the search
+                  folder name dropdown list
                 </div>
               )}
 
-              {isToggled && props.signup === false && <div>Please give it try to see how it works.</div>}
+              {isToggled && props.signup === true && (
+                <div>
+                  Check out the search folder name dropdown list in the orange
+                  rectangle for folder names with bookmarked web pages
+                </div>
+              )}
+
+              {isToggled && props.signup === false && (
+                <div>Please give it try to see how it works.</div>
+              )}
               {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
               {/* <br />
               I believe that Jesus is the Christ. I believe that Jesus Christ is
@@ -260,14 +269,12 @@ setIsToggled(false);
                   plan: {props.plan.replace(/"/g, "")}
                 </div>
               )}
-              
-              {isToggled && props.signup === false && (
-                <div></div>
-              )}
+
+              {isToggled && props.signup === false && <div></div>}
               <div>
-                {isToggled && props.signup === true &&
-                <div className="margin-right-1">
-                {props.theplan.plan.replace(/"/g, "") === "free" ? (
+                {isToggled && props.signup === true && (
+                  <div className="margin-right-1">
+                    {props.theplan.plan.replace(/"/g, "") === "free" ? (
                       <span>(It stores upto 250 bookmarks)</span>
                     ) : (
                       <span></span>
@@ -287,10 +294,9 @@ setIsToggled(false);
                     ) : (
                       <span></span>
                     )}
-                    </div>
-                    }
+                  </div>
+                )}
                 {isToggled && props.signup === false && ""}
-
               </div>
               <div className="margin-left-11">
                 <Link className="header__title" to="/teirspayment3">
@@ -298,16 +304,11 @@ setIsToggled(false);
                     className="ib color-black text-size-5 general-font"
                     title="click for plan options"
                   >
-
-                    
-
                     {isToggled && props.signup === true && (
                       <span>(click to change plan)</span>
                     )}
-                    
-                    {isToggled && props.signup === false &&  (
-                      <span></span>
-                    )}
+
+                    {isToggled && props.signup === false && <span></span>}
                     {/* {uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
                     uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93"
                       ? "(click to change plan)"
@@ -395,6 +396,46 @@ setIsToggled(false);
     </div>
   );
 }
+/*
+  //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
+  const highlight = (v) => {
+    return "color-white-1";
+
+    //v is the first letter after #
+    let cn = "";
+    // v='a'
+
+    if (v === "a") cn = "colorfora";
+    else if (v === "b") cn = "colorforv";
+    else if (v === "c") cn = "colorforc";
+    else if (v === "d") cn = "colorford";
+    else if (v === "e") cn = "colorfore";
+    else if (v === "f") cn = "colorforf";
+    else if (v === "g") cn = "colorforg";
+    else if (v === "h") cn = "colorforh";
+    else if (v === "i") cn = "colorfori";
+    else if (v === "j") cn = "colorforj";
+    else if (v === "k") cn = "colorfork";
+    else if (v === "l") cn = "colorforl";
+    else if (v === "m") cn = "colorform";
+    else if (v === "n") cn = "colorforn";
+    else if (v === "o") cn = "colorforo";
+    else if (v === "p") cn = "colorforp";
+    else if (v === "q") cn = "colorforq";
+    else if (v === "r") cn = "colorforr";
+    else if (v === "s") cn = "colorfors";
+    else if (v === "t") cn = "colorfort";
+    else if (v === "u") cn = "colorforu";
+    else if (v === "v") cn = "colorforv";
+    else if (v === "w") cn = "colorforw";
+    else if (v === "x") cn = "colorforx";
+    else if (v === "y") cn = "colorfory";
+    else if (v === "z") cn = "colorforz";
+    else cn = "color-white-1";
+
+    return cn;
+  };
+*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -721,15 +762,6 @@ export class LinkListFilters extends React.Component {
     // this.setState({
     //   newspaper: !!this.state.newspaper === "true" ? true : false,
     // });
-
-     
-        // const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-        // if (!hasRefreshed) {
-        //   sessionStorage.setItem('hasRefreshed', 'true');
-        //   window.location.reload();
-        // }
-        
-    
   }
 
   componentWillUnmount() {}
@@ -788,7 +820,7 @@ export class LinkListFilters extends React.Component {
                 plan={this.props.theplan.plan}
                 newspaper={this.state.newspaper}
                 signup={this.props.signup.signup}
-                uid = {this.props.auth.uid}
+                uid={this.props.auth.uid}
               />
             </div>
           )}
@@ -910,7 +942,7 @@ const mapStateToProps = (state) => ({
   theplan: state.theplan,
   signup: state.signup,
   theplan: state.theplan,
-  auth:state.auth
+  auth: state.auth,
 });
 
 const mapDispatchToProps = (dispatch) => ({

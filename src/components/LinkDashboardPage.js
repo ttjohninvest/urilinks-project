@@ -93,13 +93,14 @@ const LinkDashboardPage = (props) => {
   }, [scrollPos]);
 
   useEffect(() => {
-    const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    console.log("LinkListFilters.js, should be false, hasRefreshed="+hasRefreshed)
-    if (!hasRefreshed) {
-      sessionStorage.setItem('hasRefreshed', 'true');
-      console.log("LinkListFilters.js, window.location.reload()")
-      window.location.reload();
-    }
+    // const hasRefreshed = sessionStorage.getItem('hasRefreshed');
+    // console.log("LinkListFilters.js, should be false, hasRefreshed="+hasRefreshed)
+    // if (!hasRefreshed) {
+    //   sessionStorage.setItem('hasRefreshed', 'true');
+    //   console.log("LinkListFilters.js, window.location.reload()")
+    //   window.location.reload();
+    // }
+    window.location.reload();
     
   }, []);
 

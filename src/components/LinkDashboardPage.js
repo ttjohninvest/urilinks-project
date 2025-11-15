@@ -13,6 +13,7 @@ const LinkDashboardPage = (props) => {
   const [scrollPos, setScrollPos] = useState(0);
   const [first, setFirst] = useState(true); //true for LinkListFilters
   const [theValue, setTheValue] = useState(false)
+  const [avalue, setAvalue] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,7 +101,8 @@ const LinkDashboardPage = (props) => {
     //   console.log("LinkListFilters.js, window.location.reload()")
     //   window.location.reload();
     // }
-    window.location.reload();
+    //window.location.reload();
+    setAvalue(!avalue)
     
   }, []);
 

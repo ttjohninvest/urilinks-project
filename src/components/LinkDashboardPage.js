@@ -6,6 +6,7 @@ import setHasrefreshed from "../actions/hasrefreshed";
 
 import LinkListFileDate from "./LinkListFileDate";
 import LinkListFiltersFileDate from "./LinkListFiltersFileDate";
+import { useSelector } from 'react-redux';
 
 const LinkDashboardPage = (props) => {
   //const elementRef = useRef()
@@ -15,6 +16,7 @@ const LinkDashboardPage = (props) => {
   const [first, setFirst] = useState(true); //true for LinkListFilters
   const [theValue, setTheValue] = useState(false)
   const [avalue, setAvalue] = useState(0)
+   
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,16 +106,22 @@ const LinkDashboardPage = (props) => {
     // }
     //window.location.reload();
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    console.log("1 LinkDashboardPage.js, should be false, props.hasrefreshed.hasrefreshed="+props.hasrefreshed.hasrefreshed)
-    if (!props.hasrefreshed.hasrefreshed) {
+    //console.log("1 LinkDashboardPage.js, should be false, props.hasrefreshed.hasrefreshed="+props.hasrefreshed.hasrefreshed)
+    const x = useSelector(state => state.hasrefreshed);
+    if (!x) {
       // sessionStorage.setItem('hasRefreshed', 'true');
       props.setHasrefreshed({hasrefreshed:true})
+
       console.log("2 LinkDashboardPage.js, should be true, props.hasrefreshed.hasrefreshed="+props.hasrefreshed.hasrefreshed)
-      //window.location.reload();
+      window.location.reload();
     }
     
     
   }, []);
+
+  useEffect(()=>{
+    //window.location.reload();
+  },[])
 
   return (
     <div>

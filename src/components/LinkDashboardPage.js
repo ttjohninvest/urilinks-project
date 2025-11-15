@@ -16,6 +16,7 @@ const LinkDashboardPage = (props) => {
   const [first, setFirst] = useState(true); //true for LinkListFilters
   const [theValue, setTheValue] = useState(false)
   const [avalue, setAvalue] = useState(0)
+  const [bvalue, setBvalue] = useState(0)
    
 
   useEffect(() => {
@@ -56,22 +57,12 @@ const LinkDashboardPage = (props) => {
         "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT window.scrollY=" + window.scrollY
       );
       setTheValue(props.theValue)
-      
+      setBvalue(!bvalue)
   }, []);
 
-  // useEffect(() => {
-  //   console.log(
-  //     "LinkDashboardPage, props.settings.photoURL=" + props.settings.photoURL
-  //   );
-  //   // Save scroll position before leaving
-  //   window.addEventListener("beforeunload", () => {
-  //     sessionStorage.setItem("scrollPosition", window.scrollY);
-  //     console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-  //     console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-  //     console.log(
-  //       "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT window.scrollY=" + window.scrollY
-  //     );
-  //   },[]);
+ 
+//useEffect(()=>{
+
 
     // Restore scroll position on page load
     const savedScrollPosition = parseInt(
@@ -96,27 +87,7 @@ const LinkDashboardPage = (props) => {
     };
   }, [scrollPos]);
 
-  useEffect(() => {
-    // const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    // console.log("LinkListFilters.js, should be false, hasRefreshed="+hasRefreshed)
-    // if (!hasRefreshed) {
-    //   sessionStorage.setItem('hasRefreshed', 'true');
-    //   console.log("LinkListFilters.js, window.location.reload()")
-    //   window.location.reload();
-    // }
-    //window.location.reload();
-    //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    //console.log("1 LinkDashboardPage.js, should be false, props.hasrefreshed.hasrefreshed="+props.hasrefreshed.hasrefreshed)
-    
-    if (!props.hasrefreshed.hasrefreshed) {
-      // sessionStorage.setItem('hasRefreshed', 'true');
-      props.setHasrefreshed({hasrefreshed:true})
-
-      //window.location.reload();
-    }
-    
-    
-  }, []);
+  
 
  
 
@@ -137,7 +108,7 @@ right column
       </div>
     </div>
   );
-};
+  };
 
 const mapStateToProps = (state) => ({
   settings: state.settings,

@@ -139,8 +139,14 @@ store.dispatch(login(id));
                 } else if (history.location.pathname === "/dashboard?signup=signup") {
                   //history.push("/dashboard?signup=signup");
                   window.location.href="https://urilinks.com?signup=signup&x=3"
-                } else {
+                } else if (history.location.pathname === "/dashboard"){
                  
+                       // sessionStorage.setItem('hasRefreshed', 'true');
+                       
+                       //window.location.href="https://urilinks.com?signup=signup"
+                       //window.location.reload();
+                     
+                     
                 }
                 //});
               })

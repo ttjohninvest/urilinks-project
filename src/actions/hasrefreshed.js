@@ -4,5 +4,4 @@ const setHasrefreshed = (hasrefreshed) => ({
 });
 
 
-
 export default setHasrefreshed;

@@ -202,7 +202,7 @@ export const Header = (props) => {
               </div>
               }
 
-              {props.signup.signup=== true  ?<div className="pointereventsauto hide">
+              {props.signup.signup=== true  ?<div className="pointereventsauto hide-">
                 <Link className="header__title- nounderline pointereventsauto" to="/bookmarksmanager">
                   <span
                     className="ib- color-white-1 cursor-pointer pointereventsauto"
@@ -212,7 +212,7 @@ export const Header = (props) => {
                   </span>
                 </Link>
               </div>:
-              <div className="pointereventsnone margin-right-1 hide">
+              <div className="pointereventsnone margin-right-1 hide-">
                 <Link className="header__title- nounderline pointereventsnone" to="/bookmarksmanager">
                   <span
                     className="ib- color-white-1 cursor-pointer pointereventsnone"

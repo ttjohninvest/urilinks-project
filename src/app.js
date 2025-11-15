@@ -139,7 +139,7 @@ store.dispatch(login(id));
                   //history.push("/dashboard?signup=signup");
                   window.location.href="https://urilinks.com?signup=signup"
                 } else {
-                  window.location.href="https://urilinks.com?signup=signup"
+                 
                 }
                 //});
               })

@@ -1,5 +1,5 @@
 const hasrefreshedReducerDefaultState = {
-  hasrefreshed:true
+  hasrefreshed:false
 };
 
 export default (state = hasrefreshedReducerDefaultState, action) => {

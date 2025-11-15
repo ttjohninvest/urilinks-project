@@ -84,7 +84,7 @@ export const Header = (props) => {
   const logoutit=()=>{
     //sessionStorage.setItem('hasRefreshed', 'false');
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    //props.setHasrefreshed({hasrefreshed:true})
+    props.setHasrefreshed({hasrefreshed:false})
     
                     props.startLogout()
   }

@@ -820,6 +820,7 @@ export class LinkListFilters extends React.Component {
                 newspaper={this.state.newspaper}
                 signup={this.props.signup.signup}
                 uid={this.props.auth.uid}
+                links={this.props.links}
               />
             </div>
           )}

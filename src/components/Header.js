@@ -80,6 +80,11 @@ export const Header = (props) => {
     });
   };
 
+  const logoutit=()=>{
+    sessionStorage.setItem('hasRefreshed', 'true');
+                    props.startLogout()
+  }
+
   return (
     <div id="top">
       {!deleteAccountError ? (
@@ -218,7 +223,11 @@ export const Header = (props) => {
               {props.signup.signup === true ? <div className="margin-top-1111a-">
                 <button
                   className="button button--link ib text-size-3- color-white-1 cursor-pointer"
-                  onClick={props.startLogout}
+                  onClick={
+                    logoutit
+          
+                  
+                  }
                 >
                   (Logout)
                 </button>

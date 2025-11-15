@@ -67,21 +67,27 @@ const TeirsPayment3 = (props) => {
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "basic" && props.links.length > 250 &&
+      ) : props.theplan.plan.replace(/"/g, "") === "basic" 
+      //&& props.links.length > 250 
+      &&
         props.links.length <= 1500 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "standard" && props.links.length > 1500 &&
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" 
+      //&& props.links.length > 1500 
+      &&
         props.links.length <= 2500 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" && props.links.length > 2500 &&
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" 
+      //&& props.links.length > 2500 
+      &&
         props.links.length <= 5000 ? (
-        <div>Thank you. No more plans. Your plan is  
+        <div>Thank you. You are on the premium plan which is the highest plan.  
 
         </div>
       ) : props.theplan.plan.replace(/"/g, "") === "free" ? (<div>

@@ -97,6 +97,7 @@ const LinkDashboardPage = (props) => {
     console.log("LinkListFilters.js, should be false, hasRefreshed="+hasRefreshed)
     if (!hasRefreshed) {
       sessionStorage.setItem('hasRefreshed', 'true');
+      console.log("1 about to reload the page")
       window.location.reload();
     }
     

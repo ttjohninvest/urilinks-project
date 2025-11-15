@@ -186,14 +186,14 @@ export const Header = (props) => {
                 </Link>
               </div>
 
-               {props.signup.signup=== true ?<div>
+               {props.signup.signup=== true ?<div className="displaynone">
                 <a className="header__title- nounderline pointereventsauto" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
                   <span className="ib- color-white-1 cursor-pointer" title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader.">
                     (get page urls for bookmarks file)
                   </span>
                 </a>
               </div>:
-              <div>
+              <div className="displaynone">
                 <a className="header__title- nounderline pointereventsnone" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
                   <span className="ib- color-white-1 cursor-pointer" title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader.">
                     (get page urls for bookmarks file)
@@ -202,7 +202,7 @@ export const Header = (props) => {
               </div>
               }
 
-              {props.signup.signup=== true  ?<div className="pointereventsauto">
+              {props.signup.signup=== true  ?<div className="pointereventsauto displaynone">
                 <Link className="header__title- nounderline pointereventsauto" to="/bookmarksmanager">
                   <span
                     className="ib- color-white-1 cursor-pointer pointereventsauto"
@@ -212,7 +212,7 @@ export const Header = (props) => {
                   </span>
                 </Link>
               </div>:
-              <div className="pointereventsnone margin-right-1">
+              <div className="pointereventsnone margin-right-1 displaynone">
                 <Link className="header__title- nounderline pointereventsnone" to="/bookmarksmanager">
                   <span
                     className="ib- color-white-1 cursor-pointer pointereventsnone"

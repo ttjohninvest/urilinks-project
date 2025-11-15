@@ -7,7 +7,7 @@ useEffect(()=>{
 history.push("/");
 },[])
   return(<div>
-    404 - 
+    
     {/* <Link to="/">Go home</Link> */}
   </div>)
 };

@@ -104,11 +104,11 @@ const LinkDashboardPage = (props) => {
     // }
     //window.location.reload();
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    console.log("LinkListFilters.js, should be false, props.hasrefreshed.hasrefreshed="+props.hasrefreshed.hasrefreshed)
+    console.log("LinkDashboardPage.js, should be false, props.hasrefreshed.hasrefreshed="+props.hasrefreshed.hasrefreshed)
     if (!props.hasrefreshed.hasrefreshed) {
       // sessionStorage.setItem('hasRefreshed', 'true');
       startSetHasrefreshed({hasrefreshed:true})
-      window.location.reload();
+      //window.location.reload();
     }
     
     

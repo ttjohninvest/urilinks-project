@@ -129,7 +129,10 @@ const ImportedBookmarks2 = (props) => {
                   </div>
                   <div>You have stored {props.links.length} links.</div>
                 </div>
-                {props.theplan.plan.replace(/"/g, "") !== "premium" && (
+                {
+                
+                props.theplan === undefined ||
+                    props.theplan === null || props.theplan.plan.replace(/"/g, "") !== "premium" && (
                   <div className="margin-top-2">
                     <button
                       className="button-style-1- button-2"

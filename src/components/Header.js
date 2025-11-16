@@ -34,7 +34,7 @@ export const Header = (props) => {
   // }
 
   const setPhotoURLdb = (photoURL) => { 
-  console.log("Header.js, photoURL="+photoURL)
+  console.log("setPhotoURLdb, Header.js, photoURL="+photoURL)
   ////put the photoURL in the database
   startAddPhotourl({photourl:photoURL})
   console.log("Header.js, done calling startAddPhotourl")
@@ -46,8 +46,9 @@ export const Header = (props) => {
     if(props.signup.signup===true) {
    const user = firebase.auth().currentUser;
     console.log("Header, photoURL=" + user.photoURL);
-    setPhotoURL(user.photoURL);
-    setPhotoURLdb(user.uid,user.photoURL);
+    const purl = user.photoURL
+    setPhotoURL(purl);
+    setPhotoURLdb(purl);
     }
     else {
       setPhotoURL("");

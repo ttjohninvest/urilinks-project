@@ -302,7 +302,7 @@ function ExpandableArray(props) {
                     className="ib color-black text-size-5 general-font"
                     title="click for plan options"
                   >
-                    {isToggled && props.signup === true && props.theplan.plan.replace(/"/g, "") === "premium" && (
+                    {isToggled && props.signup === true && props.theplan.plan.replace(/"/g, "") !== "premium" && (
                       <span>(click to change plan)</span>
                     )}
 

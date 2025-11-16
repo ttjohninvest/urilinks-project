@@ -49,6 +49,7 @@ export const Header = (props) => {
     //if(props.signup.signup===false) {
     const user = firebase.auth().currentUser;
     if(user !== null && user !== undefined) {
+      console.log("Header.js, user="+JSON.stringify(user))
 console.log("Header, photoURL=" + user.photoURL);
     const purl = user.photoURL
     setPhotoURL(purl);

@@ -84,7 +84,7 @@ const FetchBookmarks = (props) => {
     let max = 250;
     //props.settings.plan
     if (props.theplan.plan.replace(/"/g, "") === "free") {
-      max = 276;
+      max = 286;
     } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
       max = 1500;
     } else if (props.theplan.plan.replace(/"/g, "") === "standard") {

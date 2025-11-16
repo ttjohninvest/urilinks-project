@@ -142,7 +142,8 @@ export const Header = (props) => {
                 
                 <img
                   
-                  src={myprofile}
+                  //src={myprofile}
+                  src={photoURL}
                   width="32"
                   height="32"
                   style={{ borderRadius: "50%" }}

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
-import  setSignup  from "./actions/signup";
+import setSignup from "./actions/signup";
 import configureStore from "./store/configureStore";
 import { startSetLinks } from "./actions/links";
 import { startSetLinksFileDate } from "./actions/linksfiledate";
@@ -28,7 +28,6 @@ import LoadingPage from "./components/LoadingPage";
 //     // Let's translate it!
 // });
 
-
 //console.log = () => {};
 
 let hasRendered = false;
@@ -42,16 +41,15 @@ const renderApp = (store) => {
       document.getElementById("app")
     );
     hasRendered = true;
-    
   }
 };
 
 //window.location.search = "?signup=signup"
 const params = new URLSearchParams(window.location.search);
-const signup = params.get('signup');
-const id = params.get('id');
-console.log("1 signup="+signup)
-console.log("1 id="+id)
+const signup = params.get("signup");
+const id = params.get("id");
+console.log("1 signup=" + signup);
+console.log("1 id=" + id);
 //console.log("store.getState().signup="+store.getState().signup)
 
 let store = configureStore();
@@ -62,113 +60,99 @@ store.subscribe(() => {});
 
 //if(signup !== "signup") {
 
-if(signup !== "signup") {
+if (signup !== "signup") {
+  //D9LSg6elood8Yc5gd5oDMp3JNAQ2
+  //store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
+  //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
 
+  console.log("2 signup=" + signup);
+  console.log("2 id=" + id);
 
+  if (id !== null) {
+    store.dispatch(login(id));
+  } else {
+    store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
+  }
 
-    //D9LSg6elood8Yc5gd5oDMp3JNAQ2
-    //store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
-    //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
+  store
+    .dispatch(startSetLinks())
+    .then(() => {
+      return store
+        .dispatch(getTheplan())
+        .then(() => {
+          //return store.dispatch(getSettings()).then(() => {
+          renderApp(store, signup);
 
-    console.log("2 signup="+signup)
-console.log("2 id="+id)
-    
-    if(id!==null)
-    {
-store.dispatch(login(id));
-    } else {
-      store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
-    }
-    
+          if (history.location.pathname === "/") {
+            history.push("/dashboard?signup=signup&x=0");
+          } else if (history.location.pathname === "/dashboard?signup=signup") {
+            history.push("/dashboard?signup=signup&x=1");
+          }
+          //});
+        })
+        .catch((error) => {
+          console.log("theplan, error", error);
+        });
+    })
+    .catch((error) => {
+      console.log("error", error);
+    });
+} else {
+  store.dispatch({
+    type: "SET_SIGNUP",
+    signup: { signup: true },
+  });
 
-    store.dispatch(startSetLinks())
-      .then(() => {
-        return store
-          .dispatch(getTheplan())
-          .then(() => {
-            //return store.dispatch(getSettings()).then(() => {
-            renderApp(store,signup);
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
+      store.dispatch(login(user.uid));
 
-            if (history.location.pathname === "/") {
-              history.push("/dashboard?signup=signup&x=0");
-            } else if (history.location.pathname === "/dashboard?signup=signup") {
-              history.push("/dashboard?signup=signup&x=1");
-            }
-            //});
-          })
-          .catch((error) => {
-            console.log("theplan, error", error);
-          });
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
- 
-
-}  else {
-  
-    store.dispatch({
-  type: "SET_SIGNUP",
-  signup:{signup:true}
-})
-  
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
-        store.dispatch(login(user.uid));
-  
-        store.dispatch(startSetLinks())
-          .then(() => {
-            return store
-              .dispatch(getTheplan())
-              .then(() => {
-                //return store.dispatch(getSettings()).then(() => {
-                renderApp(store,signup);
+      store
+        .dispatch(startSetLinks())
+        .then(() => {
+          return store
+            .dispatch(getTheplan())
+            .then(() => {
+              //return store.dispatch(getSettings()).then(() => {
+              renderApp(store, signup);
               //history.push("/dashboard");
 
-  // props.history.push("/");
-  //   //window.location.reload();
-  //   window.location.href="https://urilinks.com?signup=signup"
+              // props.history.push("/");
+              //   //window.location.reload();
+              //   window.location.href="https://urilinks.com?signup=signup"
 
+              if (history.location.pathname === "/") {
+                //history.push("/dashboard?signup=signup");
+                window.location.href = "https://urilinks.com?signup=signup&x=2";
+              } else if (
+                history.location.pathname === "/dashboard?signup=signup"
+              ) {
+                //history.push("/dashboard?signup=signup");
+                window.location.href = "https://urilinks.com?signup=signup&x=3";
+              } else if (history.location.pathname === "/dashboard") {
+                // sessionStorage.setItem('hasRefreshed', 'true');
 
-
-
-                if (history.location.pathname === "/") {
-                  //history.push("/dashboard?signup=signup");
-                  window.location.href="https://urilinks.com?signup=signup&x=2"
-                } else if (history.location.pathname === "/dashboard?signup=signup") {
-                  //history.push("/dashboard?signup=signup");
-                  window.location.href="https://urilinks.com?signup=signup&x=3"
-                } else if (history.location.pathname === "/dashboard"){
-                 
-                       // sessionStorage.setItem('hasRefreshed', 'true');
-                       
-                       window.location.href="https://urilinks.com/o?signup=signup"
-                       //window.location.reload();
-                     
-                     
-                }
-                //});
-              })
-              .catch((error) => {
-                console.log("theplan, error", error);
-              });
-          })
-          .catch((error) => {
-            console.log("error", error);
-          });
-      } else {
-        console.log("logout happened");
-        store.dispatch(logout());
-        renderApp(store,signup);
-        history.push("/");
-      }
-    });
-
+                window.location.href = "https://urilinks.com/o?signup=signup";
+                //window.location.reload();
+              }
+              //});
+            })
+            .catch((error) => {
+              console.log("theplan, error", error);
+            });
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    } else {
+      console.log("logout happened");
+      store.dispatch(logout());
+      renderApp(store, signup);
+      history.push("/");
+    }
+  });
 }
-
-
-
 
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
@@ -199,14 +183,14 @@ ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 //       .catch((error) => {
 //         console.log("error", error);
 //       });
- 
+
 // } else {
-  
+
 //     firebase.auth().onAuthStateChanged((user) => {
 //       if (user) {
 //         console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
 //         store.dispatch(login(user.uid));
-  
+
 //         store.dispatch(startSetLinks())
 //           .then(() => {
 //             return store

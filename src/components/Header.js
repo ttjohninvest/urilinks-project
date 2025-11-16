@@ -42,19 +42,21 @@ export const Header = (props) => {
 
   useEffect(() => {
     
-    console.log("props.signup.signup="+props.signup.signup)
-    if(props.signup.signup===true) {
-   const user = firebase.auth().currentUser;
-    console.log("Header, photoURL=" + user.photoURL);
-    const purl = user.photoURL
-    setPhotoURL(purl);
-    setPhotoURLdb(purl);
-    }
-    else {
-      setPhotoURL("");
-    }
-  
-    //setInviewport(isInViewport())
+    console.log("Header.js, useEffect, props.signup.signup="+props.signup.signup)
+    const user = firebase.auth().currentUser;
+    console.log("Header.js, useEffect, user.uid=" + user.uid);
+    setPhotoURL("");
+    // if(props.signup.signup===true) {
+    // const user = firebase.auth().currentUser;
+    // console.log("Header, photoURL=" + user.photoURL);
+    // const purl = user.photoURL
+    // setPhotoURL(purl);
+    // setPhotoURLdb(purl);
+    // }
+    // else {
+    //   setPhotoURL("");
+    // }
+    
   }, []);
 
   const deleteAccount = () => {

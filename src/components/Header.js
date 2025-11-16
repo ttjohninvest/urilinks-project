@@ -145,15 +145,22 @@ console.log("Header, photoURL=" + user.photoURL);
               </div>:
               <div className="padding-top-1112" title="welcome">
                 
-                <img
-                  
-                  //src={myprofile}
+                {firebase.auth().currentUser !==null && firebase.auth().currentUser !== undefined ? <img
                   src={photoURL}
                   width="32"
                   height="32"
                   style={{ borderRadius: "50%" }}
                   className="ib- margin-bottom-11-"
+                />:
+                <img
+                  
+                  src={myprofile}
+                  width="32"
+                  height="32"
+                  style={{ borderRadius: "50%" }}
+                  className="ib- margin-bottom-11-"
                 />
+                }
               </div>}
               <div>
                 <Link className="header__title- nounderline" to="/benefits">

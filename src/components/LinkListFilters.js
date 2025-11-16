@@ -314,7 +314,8 @@ function ExpandableArray(props) {
                     {/* {props.plan.replace(/"/g, "") !== "premium" ? '(click to change plan)':""} */}
                   </span>
                 </Link>
-                {props.signup !== false && <div><span>You have stored {props.links.length} links.</span></div>}
+                {//props.signup !== false &&
+                 <div><span>You have stored {props.links.length} links.</span></div>}
               </div>
             </div>
           </div>

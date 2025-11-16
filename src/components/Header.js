@@ -36,7 +36,7 @@ export const Header = (props) => {
   const setPhotoURLdb = (photoURL) => { 
   console.log("setPhotoURLdb, Header.js, photoURL="+photoURL)
   ////put the photoURL in the database
-  startAddPhotourl({photourl:photoURL})
+  props.startAddPhotourl({photourl:photoURL})
   console.log("Header.js, done calling startAddPhotourl")
   }
 
@@ -273,7 +273,8 @@ const mapDispatchToProps = (dispatch) => ({
       );
   },
   setLinks: (links) => dispatch(setLinks(links)),
-  setHasrefreshed: (hasrefreshed)=>dispatch(setHasrefreshed(hasrefreshed))
+  setHasrefreshed: (hasrefreshed)=>dispatch(setHasrefreshed(hasrefreshed)),
+  startAddPhotourl: (photourl)=>dispatch(startAddPhotourl(photourl))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

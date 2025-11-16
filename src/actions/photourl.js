@@ -33,21 +33,21 @@ export const addPhotourl = (photourl) => ({
 
 export const startAddPhotourl = (photourl = {}) => {
   console.log("actions/photourl.js, startAddPhotourl, photourl="+JSON.stringify(photourl))
-//   return (dispatch, getState) => {
-//     const uid = getState().auth.uid;
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
   
-//     return database
-//       .ref(`users/${uid}/photourl`)
-//       .update(photourl)
-//       .then(() => {
-//         console.log("actions/photourl.js, startAddPhotourl, just before the call to dispatch to add settingsData to redux, photpurl="+JSON.stringify(photourl))
-//         dispatch(
-//           addPhotourl({
-//             ...photourl,
-//           })
-//         );
-//       });
-//   };
+    return database
+      .ref(`users/${uid}/photourl`)
+      .update(photourl)
+      .then(() => {
+        console.log("actions/photourl.js, startAddPhotourl, just before the call to dispatch to add settingsData to redux, photpurl="+JSON.stringify(photourl))
+        dispatch(
+          addPhotourl({
+            ...photourl,
+          })
+        );
+      });
+  };
 };
 
 export const removePhotourl = () => ({

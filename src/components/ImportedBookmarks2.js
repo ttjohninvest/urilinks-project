@@ -110,14 +110,37 @@ const ImportedBookmarks2 = (props) => {
           {true && (
             <div>
               <div className="rectangle-1">
-                <div className="margin-top-2">
+                <div>
+
+                  <div>You are currently on plan
+{
+  props.theplan.plan.replace(/"/g, "") === "free" &&
+      props.links.length <= 250  ? (
+       <span> free</span>
+      ) : props.theplan.plan.replace(/"/g, "") === "basic" 
+      && props.links.length <= 1500 ? (
+        <span> basic</span>
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
+        props.links.length <= 2500 ? (
+        <span> standard</span>
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
+        props.links.length <= 5000 ? (
+       <span> premium, which is the highest plan</span>
+      ) : ""
+}
+
+
+                  </div>
+                  <div>You have stored {props.links.length} links.</div>
+                </div>
+                {props.theplan.plan.replace(/"/g, "") !== "premium" && <div className="margin-top-2">
                   <button
                     className="button-style-1- button-2"
                     onClick={openPaymentPage}
                   >
-                    go to payment page
+                    go to plans page
                   </button>
-                </div>
+                </div>}
               </div>
               <div className="margin-top-2">
                 <button
@@ -172,9 +195,10 @@ const ImportedBookmarks2 = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   theplan: state.theplan,
-// });
+const mapStateToProps = (state) => ({
+  theplan: state.theplan,
+  links: state.links
+});
 
 //export default withRouter(connect(mapStateToProps, undefined)(ImportedBookmarks2));
 export default withRouter(connect(undefined, undefined)(ImportedBookmarks2));

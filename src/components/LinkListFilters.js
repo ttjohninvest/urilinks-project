@@ -115,7 +115,7 @@ function ExpandableArray(props) {
               {props.signup === false ? (
                 <div className="text-size-1">
                   <span className="font-weight-bold">
-                    You can get your sharable link to share your links with everybody by logging in, adding links and copy and pasting your link anywhere links are accepted like youtube comments, instagram profile, facebook.
+                    You can get your sharable link to share your links page with everybody by logging in, adding links and copy and pasting your link anywhere links are accepted like youtube comments, instagram profile, facebook.
                   </span>
                 </div>
               ) : (

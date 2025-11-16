@@ -108,7 +108,7 @@ function ExpandableArray(props) {
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             <div className="text-size-5 padding-top-11">
-              <div className="text-size-1">From, {theuser.displayName}<span className="hide">, {theuser.email}</span></div>
+              <div className="text-size-1">From, {theuser.displayName}<span className="hide-">, {theuser.email}</span></div>
               <div className="text-size-1">Welcome, what makes you smile?</div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
 

@@ -36,7 +36,7 @@ export const Header = (props) => {
   const setPhotoURLdb = (uid,photoURL) => {
    console.log("Header.js, uid="+uid) 
   console.log("Header.js, photoURL="+photoURL)
-  //put the photoURL in the database
+  ////put the photoURL in the database
   startAddPhotourl({photourl:photoURL})
   }
 

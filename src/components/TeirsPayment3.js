@@ -62,7 +62,7 @@ const TeirsPayment3 = (props) => {
   return (
     <div className="body1 flexrow2w">
       {props.theplan.plan.replace(/"/g, "") === "free" &&
-      props.links.length <= 400  ? (
+      props.links.length <= 250  ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
            client-reference-id={theUserId}

@@ -111,8 +111,6 @@ function ExpandableArray(props) {
 
               {props.signup === false ? (
                 <div className="text-size-1">
-                    Here is a link to links tool.
-                  <br />
                   <span className="font-weight-bold">
                     Get your sharable link to share your links with everybody.
                   </span>

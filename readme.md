@@ -87,6 +87,9 @@ VCA Lakeside Animal Hospital
 
 
 todo to do
+store the following into database
+Add a settings page to get the person's name to put on sharable link page
+also need the person's profile image to share on sharable link page, user.photoURL
 
 same email will overwrite in stripe. I don't want that because I want the earlier subscription to be in the list
 tell them to delte bookmarks through the bookmarks manager because they can delete them faster by folder

@@ -202,4 +202,5 @@ const mapStateToProps = (state) => ({
 });
 
 //export default withRouter(connect(mapStateToProps, undefined)(ImportedBookmarks2));
-export default withRouter(connect(undefined, undefined)(ImportedBookmarks2));
+export default withRouter(connect(mapStateToProps, undefined)(ImportedBookmarks2));
+//export default connect(mapStateToProps, undefined)(ImportedBookmarks2);

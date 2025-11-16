@@ -225,9 +225,6 @@ The payment is working, stripe recorded the payment
 urilinks-project-vercel-stripe-app
 stripe backup code: oenw-ovhq-ejih-xpnn-rxcm
 
-on 7/16/25, rnduplessis@cunninghambroadcasting.com, alumnus mvp stories on page https://nevadasportsnet.com/sports/wolf-pack-track-and-field
-professordaveexplains@gmail.com, m sent on 7/16/25
-
 on 7/15/25, I sent to message to https://www.societylibrary.org/, see ttjohninvest@gmail.com
 linkedin.com message to connections: Thank you. As you may know, I am the executive programmer for the start up, urilinks.com. I am currently looking for my first users. In leveraging the internet infrustructure, my program is basically a scalable virtual filing cabinet where the hastags are the folder names and the contents of the folders are web pages and all content is searchable. I hope you are blessed and have continuous happiness in your life.
 

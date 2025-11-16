@@ -115,7 +115,7 @@ export const Header = (props) => {
               </div>}
               <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
                   <Link className="nounderline color-white-1 cursor-pointer" to="/dashboard"  title="refresh">
-                     urilinks (bookmarking)
+                     urilinks (link to links tool)
                   </Link>
               </div>
               {props.signup.signup===true ? <div className="padding-top-1112">

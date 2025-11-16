@@ -9,6 +9,7 @@ import myprofile from "../assets/images/myprofile.png";
 //import { getAuth } from "firebase";
 import XShareButton from "./XShareButton"
 import setHasrefreshed from "../actions/hasrefreshed";
+import {startAddPhotourl} from "../actions/photourl"
 
 
 // const preStartLogout=()=>{
@@ -30,7 +31,14 @@ export const Header = (props) => {
   //     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
   //     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   //   );
-  // }+
+  // }
+
+  const setPhotoURLdb = (uid,photoURL) => {
+   console.log("Header.js, uid="+uid) 
+  console.log("Header.js, photoURL="+photoURL)
+  //put the photoURL in the database
+  startAddPhotourl({photourl:photoURL})
+  }
 
   useEffect(() => {
     
@@ -39,6 +47,7 @@ export const Header = (props) => {
    const user = firebase.auth().currentUser;
     console.log("Header, photoURL=" + user.photoURL);
     setPhotoURL(user.photoURL);
+    setPhotoURLdb(user.uid,user.photoURL);
     }
     else {
       setPhotoURL("");

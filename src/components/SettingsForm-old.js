@@ -117,7 +117,21 @@ export const SettingsForm = (props) => {
                 </span>
               </label>
             </div>
-           
+            <div className="margin-left-1">
+              <label className="inline-block__flex">
+                <input
+                  ref={myRef2}
+                  className="the-inline-block"
+                  type="checkbox"
+                  value="option2"
+                  checked={selectedOption2 === "option2"}
+                  onChange={handleOptionChange2}
+                />
+                <span className="the-inline-block label-text">
+                checked means to see public links
+                </span>
+              </label>
+            </div>
           </div>
 
           <div>

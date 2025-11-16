@@ -21,6 +21,7 @@ import customeridReducer from '../reducers/customerid';
 import theplanReducer from '../reducers/theplan';
 import signupReducer from '../reducers/signup';
 import hasrefreshedReducer from '../reducers/hasrefreshed';
+import photourlReducer from '../reducers/photourl';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -46,7 +47,8 @@ export default () => {
       customerId: customeridReducer,
       theplan: theplanReducer,
       signup: signupReducer,
-      hasrefreshed: hasrefreshedReducer
+      hasrefreshed: hasrefreshedReducer,
+      photourl: photourlReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

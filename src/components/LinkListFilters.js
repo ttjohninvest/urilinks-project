@@ -223,16 +223,16 @@ function ExpandableArray(props) {
                   </div>
                 )}
               {isToggled && props.signup === false && (
-                <div>Click example hashtag to see bookmarked web page(s)</div>
+                <div>Click example hashtag to see links to webpages</div>
               )}
 
               {isToggled && props.signup === true && (
-                <div>Click hashtag to see bookmarked web page(s)</div>
+                <div>Click hashtag to see links to webpages</div>
               )}
 
               {isToggled && props.signup === false && (
                 <div>
-                  To see to see bookmarked web pages, check out the search
+                  To see to see links to webpages, check out the search
                   folder name dropdown list
                 </div>
               )}
@@ -240,7 +240,7 @@ function ExpandableArray(props) {
               {isToggled && props.signup === true && (
                 <div>
                   Check out the search folder name dropdown list in the orange
-                  rectangle for folder names with bookmarked web pages
+                  rectangle for folder names with links to webpages
                 </div>
               )}
 

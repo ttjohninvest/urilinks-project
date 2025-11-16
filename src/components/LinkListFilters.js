@@ -108,14 +108,14 @@ function ExpandableArray(props) {
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             <div className="text-size-5 padding-top-11">
-              <div className="text-size-1">"From, {!!theuser ? theuser.displayName:"Admin"}<span className="hide">, {!!theuser && theuser.email}</span></div>
+              <div className="text-size-1">{!!theuser && theuser.displayName}<span className="hide">, {!!theuser && theuser.email}</span></div>
               <div className="text-size-1">Welcome, what makes you smile?</div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
 
               {props.signup === false ? (
                 <div className="text-size-1">
                   <span className="font-weight-bold">
-                    Get your sharable link to share your links with everybody by clicking login.
+                    Get your sharable link to share your links with everybody by logging in.
                   </span>
                 </div>
               ) : (

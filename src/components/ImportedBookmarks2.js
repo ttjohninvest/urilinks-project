@@ -114,7 +114,7 @@ const ImportedBookmarks2 = (props) => {
 
                   <div>You are currently on plan
 {
-  props.theplan.plan.replace(/"/g, "") === "free" &&
+  props.theplan.plan.replace(/"/g, "") === "free" || props.theplan === undefined || props.theplan === null &&
       props.links.length <= 250  ? (
        <span> free</span>
       ) : props.theplan.plan.replace(/"/g, "") === "basic" 

@@ -273,7 +273,7 @@ function ExpandableArray(props) {
                 {isToggled && props.signup === true && (
                   <div className="margin-right-1">
                     {props.theplan.plan.replace(/"/g, "") === "free" ? (
-                      <span>(It stores upto 286 bookmarks)</span>
+                      <span>(It stores upto 250 bookmarks)</span>
                     ) : (
                       <span></span>
                     )}

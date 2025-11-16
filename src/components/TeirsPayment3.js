@@ -62,7 +62,7 @@ const TeirsPayment3 = (props) => {
   return (
     <div className="body1 flexrow2w">
       {props.theplan.plan.replace(/"/g, "") === "free" &&
-      props.links.length <= 286  ? (
+      props.links.length <= 250  ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
            client-reference-id={theUserId}
@@ -94,7 +94,7 @@ const TeirsPayment3 = (props) => {
 
         </div>
       ) : props.theplan.plan.replace(/"/g, "") === "free" ? (<div>
-        <div className="margin-left-11">You are on the free plan. You may store up to 286 links, <span>You have stored {props.links.length} links.</span></div>
+        <div className="margin-left-11">You are on the free plan. You may store up to 250 links, <span>You have stored {props.links.length} links.</span></div>
          <div>
             <button
               className="button-2 ib margin-left-11 cursor-pointer"

@@ -39,7 +39,7 @@ const Benefits = () => (
 
         <li>
         To add a bookmark one at a time:
-        1. click "Add Bookmark"
+        1. click "Add Link"
         2. fill out the information
       </li>
 
@@ -63,7 +63,7 @@ const Benefits = () => (
       <li>
         You are able to see your bookmarks better in a neat clickable list
         layout. You may add a note up to 1,024 characters using the free plan,
-        2,300 for the other plans to your link from the Add bookmark button
+        2,300 for the other plans to your link from the Add Link button
         or later through the Edit Uri/Url Link button.
       </li>
 
@@ -101,7 +101,7 @@ const Benefits = () => (
           tag in the note. They will be given in alphabetical order. You may
           organize any group of links this way. For example, if you have 5
           uri/url links that are your favorites, put The hash tag #favorite in
-          the note section for each of the 5 in the add bookmark form. You will
+          the note section for each of the 5 in the add Link form. You will
           need two or more hash tags for the hash tags window to appear.
         </li>
 

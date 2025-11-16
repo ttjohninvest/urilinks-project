@@ -172,15 +172,15 @@ function ExpandableArray(props) {
                 {isToggled && props.signup === false && (
                   <div className="text-size-1">
                     When you signup (click login) for an account, you get an
-                    empty page to start adding your favorite bookmarks. <br />
-                    You may add a note to each of your bookmarks.
+                    empty page to start adding your favorite links. <br />
+                    You may add a note to each of your links.
                     <br />
                   </div>
                 )}
                 {isToggled && props.signup === true && (
                   <div className="text-size-1">
-                    You may start adding your favorite bookmarks using the Add
-                    Bookmark button below or Bookmarks File Uploader above.
+                    You may start adding your favorite links using the Add
+                    Link button below or Bookmarks File Uploader above.
                     <br />
                     The hashtags in purple rectangles and the folder names in
                     the dropdown list in the orange rectangle are added in
@@ -190,9 +190,9 @@ function ExpandableArray(props) {
                     bookmarks file with spaces removed and lowercased. The
                     folder names are copied in the drop down list.
                     <br />
-                    You may add a note to each of your bookmarks.
+                    You may add a note to each of your links.
                     <br />
-                    You may share your bookmarks with linkedin, facebook, or
+                    You may share your links with linkedin, facebook, or
                     twitter/x
                     <br />
                     You may immediately chat about a bookmark with a family or
@@ -273,22 +273,22 @@ function ExpandableArray(props) {
                 {isToggled && props.signup === true && (
                   <div className="margin-right-1">
                     {props.theplan.plan.replace(/"/g, "") === "free" ? (
-                      <span>(It stores upto 250 bookmarks)</span>
+                      <span>(It stores upto 250 links)</span>
                     ) : (
                       <span></span>
                     )}
                     {props.theplan.plan.replace(/"/g, "") === "basic" ? (
-                      <span>(It stores upto 1500 bookmarks)</span>
+                      <span>(It stores upto 1500 links)</span>
                     ) : (
                       <span></span>
                     )}
                     {props.theplan.plan.replace(/"/g, "") === "standard" ? (
-                      <span>(It stores upto 2500 bookmarks)</span>
+                      <span>(It stores upto 2500 links)</span>
                     ) : (
                       <span></span>
                     )}
                     {props.theplan.plan.replace(/"/g, "") === "premium" ? (
-                      <span>(It stores upto 5000 bookmarks)</span>
+                      <span>(It stores upto 5000 links)</span>
                     ) : (
                       <span></span>
                     )}

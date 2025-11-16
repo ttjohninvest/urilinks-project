@@ -148,7 +148,7 @@ const user = firebase.auth().currentUser;
           <div className="page-header">
             <div className="content-container">
               <h1 className="page-header__title">
-                <span className="color-purple">Add bookmark</span>
+                <span className="color-purple">Add Link</span>
               </h1>
             </div>
           </div>

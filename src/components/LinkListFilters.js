@@ -21,7 +21,7 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
-  const [theuser, setTheuser] = useState({});
+  const [theuser, setTheuser] = useState(firebase.auth().currentUser);
   const [copySuccess, setCopySuccess] = useState("");
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);

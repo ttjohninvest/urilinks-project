@@ -127,7 +127,7 @@ const ImportedBookmarks2 = (props) => {
                       ""
                     )}
                   </div>
-                  <div>You have stored {props.links.length} links.</div>
+                  {props.links !== undefined && props.links !== null && <div>You have stored {props.links.length} links.</div>}
                 </div>
                 {
                 

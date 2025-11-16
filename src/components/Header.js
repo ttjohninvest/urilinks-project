@@ -43,15 +43,15 @@ export const Header = (props) => {
   useEffect(() => {
     
     console.log("Header.js, useEffect, props.signup.signup="+props.signup.signup)
-    const user = firebase.auth().currentUser;
-    console.log("Header.js, useEffect, user.uid=" + user.uid);
-    setPhotoURL("");
-    // if(props.signup.signup===true) {
     // const user = firebase.auth().currentUser;
-    // console.log("Header, photoURL=" + user.photoURL);
-    // const purl = user.photoURL
-    // setPhotoURL(purl);
-    // setPhotoURLdb(purl);
+    // console.log("Header.js, useEffect, user.uid=" + user.uid);
+    // setPhotoURL("");
+    //if(props.signup.signup===false) {
+    const user = firebase.auth().currentUser;
+    console.log("Header, photoURL=" + user.photoURL);
+    const purl = user.photoURL
+    setPhotoURL(purl);
+    setPhotoURLdb(purl);
     // }
     // else {
     //   setPhotoURL("");

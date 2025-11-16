@@ -115,7 +115,7 @@ function ExpandableArray(props) {
               {props.signup === false ? (
                 <div className="text-size-1">
                   <span className="font-weight-bold">
-                    Get your sharable link to share your links with everybody by logging in and adding links.
+                    Get your sharable link to share your links with everybody by logging in and adding links and copy and pasting your link into your instagram profile.
                   </span>
                 </div>
               ) : (

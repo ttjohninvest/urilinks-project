@@ -33,11 +33,11 @@ export const Header = (props) => {
   //   );
   // }
 
-  const setPhotoURLdb = (uid,photoURL) => {
-   console.log("Header.js, uid="+uid) 
+  const setPhotoURLdb = (photoURL) => { 
   console.log("Header.js, photoURL="+photoURL)
   ////put the photoURL in the database
   startAddPhotourl({photourl:photoURL})
+  console.log("Header.js, done calling startAddPhotourl")
   }
 
   useEffect(() => {

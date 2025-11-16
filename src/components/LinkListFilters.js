@@ -21,6 +21,7 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
+  const [theuser, setTheuser] = useState({});
   const [copySuccess, setCopySuccess] = useState("");
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
@@ -47,6 +48,7 @@ function ExpandableArray(props) {
     if (props.signup === true) {
       const user = firebase.auth().currentUser;
       setUid(user.uid);
+      setTheuser(user)
     } else {
       setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
     }
@@ -106,6 +108,7 @@ function ExpandableArray(props) {
             title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
           >
             <div className="text-size-5 padding-top-11">
+              <div className="text-size-1">From, {theuser.displayName}<span className="hide">, {theuser.email}</span></div>
               <div className="text-size-1">Welcome, what makes you smile?</div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
 

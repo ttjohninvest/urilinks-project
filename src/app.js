@@ -154,9 +154,9 @@ if (signup !== "signup") {
     } else {
       console.log("logout happened");
       store.dispatch(logout());
-      firebase.auth().disconnect()
+      //firebase.auth().disconnect()
       renderApp(store, signup);
-      history.push("/");
+      history.push("/dashboard?signup=signup");
     }
   });
 }

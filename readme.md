@@ -332,6 +332,14 @@ github.com: ttjohninvest/urilinks-project-urls-to-tabs-html
 vsc project: urilinks-project-urls-to-tabs-html
 purpose: for list of urls input, and it writes the bookmarks.html file to be used by urilinks.com bookmarks uploader
 
+
+vercel.com: urilinks-project-vercel-stripe-cancel-subscription-api
+github.com: ttjohninvest/urilinks-project-vercel-stripe-cancel-subscription-api
+vsc project: urilinks-project-vercel-stripe-cancel-subscription-api
+purpose: when deleting account this cancels the subscription in stripe
+
+C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project-vercel-stripe-cancel-subscription-api
+
 get the errors out if their are any
 vercel login
 vercel logs urilinks-project-vercel-stripe-api.vercel.app

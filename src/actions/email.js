@@ -26,7 +26,7 @@ export const getEmail = () => {
 
 
 export const addEmail = (email) => ({
-  type: "ADD_PHOTOURL",
+  type: "ADD_EMAIL",
   email,
 });
 
@@ -54,6 +54,10 @@ export const removeEmail = () => ({
   type: "REMOVE_SETTINGS",
 });
 
+export const removeAccount = () => ({
+  type: "ADD_EMAIL",
+});
+
 export const startRemoveEmail = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -66,9 +70,21 @@ export const startRemoveEmail = () => {
   };
 };
 
+export const startDeleteAccount = () => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database
+      .ref(`users/${uid}`)
+      .remove()
+      .then(() => {
+        dispatch(removeAccount());
+      });
+  };
+};
+
 // EDIT_LINK
 export const editEmail = (updates) => ({
-  type: "EDIT_PHOTOURL",
+  type: "EDIT_EMAIL",
   updates,
 });
 
@@ -86,7 +102,7 @@ export const startEditEmail = (updates) => {
 
 // SET_SETTINGS
 export const setEmail = (email) => ({
-  type: "SET_PHOTOURL",
+  type: "SET_EMAIL",
   email,
 });
 

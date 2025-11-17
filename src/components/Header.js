@@ -11,6 +11,7 @@ import XShareButton from "./XShareButton"
 import setHasrefreshed from "../actions/hasrefreshed";
 import {startAddPhotourl} from "../actions/photourl"
 import {startAddEmail} from "../actions/email"
+import {startDeleteAccount} from "../actions/email"
 
 // const preStartLogout=()=>{
 //   setLinks([])
@@ -111,6 +112,31 @@ console.log("Header, photoURL=" + user.photoURL);
     props.setHasrefreshed({hasrefreshed:false})
     
                     props.startLogout()
+  }
+
+   const deleteit=()=>{
+    const theemail={"email":"ttjohninvest@gmail.com"}
+    
+                     //delete it from stripe
+                     fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
+              method: "POST",
+              headers: {
+                "Content-Type": " text/plain; charset=UTF-8",
+              },
+              body: theemail,
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                //json
+                console.log("Success:");
+                console.log(data);
+                //return;
+                console.log(JSON.stringify(data, null, 4));
+               }).catch((error)=>{
+                  console.log("cancel subscription error="+error)
+                })
+                    //props.startDeleteAccount()
+                   
   }
 
   return (
@@ -268,7 +294,19 @@ console.log("Header, photoURL=" + user.photoURL);
                   (Logout)
                 </button>
                
-              </div>:""
+              </div>:<div className="margin-top-1111a-">
+                <button
+                  className="button button--link ib text-size-3- color-white-1 cursor-pointer"
+                  onClick={
+                    deleteit
+          
+                  
+                  }
+                >
+                  (delete account)
+                </button>
+               
+              </div>
              
               }
             </div>
@@ -297,7 +335,8 @@ const mapDispatchToProps = (dispatch) => ({
   setLinks: (links) => dispatch(setLinks(links)),
   setHasrefreshed: (hasrefreshed)=>dispatch(setHasrefreshed(hasrefreshed)),
   startAddPhotourl: (photourl)=>dispatch(startAddPhotourl(photourl)),
-  startAddEmail: (email)=>dispatch(startAddEmail(email))
+  startAddEmail: (email)=>dispatch(startAddEmail(email)),
+  startDeleteAccount: (email)=>dispatch(startDeleteAccount(email))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

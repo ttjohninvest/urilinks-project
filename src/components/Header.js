@@ -121,7 +121,7 @@ console.log("Header, photoURL=" + user.photoURL);
                      fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
               method: "POST",
               headers: {
-                "Content-Type": "application/json; charset=UTF-8",
+                "Content-Type": "application/json",
               },
               body: theemail,
             })
@@ -129,9 +129,9 @@ console.log("Header, photoURL=" + user.photoURL);
               .then((data) => {
                 //json
                 console.log("Success:");
-                console.log(data);
-                //return;
-                console.log(JSON.stringify(data, null, 4));
+                // console.log(data);
+                // //return;
+                // console.log(JSON.stringify(data, null, 4));
                }).catch((error)=>{
                   console.log("cancel subscription error="+error)
                 })

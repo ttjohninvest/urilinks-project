@@ -115,7 +115,8 @@ export const Header = (props) => {
   };
 
   const cancelsubscription = () => {
-    const theemail = { "email": props.email };
+    //const theemail = { "email": props.email };
+    const theemail = { "email": "ttjohninvest@gmail.com" };
 
     //delete it from stripe
     //urilinks-project-vercel-stripe-cancel-subscription-2qixoqvno.vercel.app

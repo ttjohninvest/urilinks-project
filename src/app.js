@@ -130,14 +130,14 @@ if (signup !== "signup") {
                 history.location.pathname === "/dashboard?signup=signup"
               ) {
                 console.log("second one")
-                window.location.href = "https://urilinks.com/o?signup=signup&x=3";
+                window.location.href = "https://urilinks.com?signup=signup&x=3";
 
               } else if (history.location.pathname === "/dashboard") {
                 // sessionStorage.setItem('hasRefreshed', 'true');
                 //if (id!==null) {
                 // if(signup==="signup") {
                 //   console.log("third one")
-                //   window.location.href = "https://urilinks.com/o?signup=signup";
+                   window.location.href = "https://urilinks.com/o?signup=signup";
                 // }
 
                 //window.location.reload();
@@ -154,9 +154,9 @@ if (signup !== "signup") {
     } else {
       console.log("logout happened");
       store.dispatch(logout());
-      //firebase.auth().disconnect()
       renderApp(store, signup);
-      history.push("/dashboard?signup=signup");
+      //history.push("/dashboard?signup=signup");
+      history.push("/");
     }
   });
 }

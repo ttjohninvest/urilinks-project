@@ -114,14 +114,14 @@ console.log("Header, photoURL=" + user.photoURL);
                     props.startLogout()
   }
 
-   const deleteit=()=>{
-    const theemail="ttjohninvest@gmail.com" //{"email":"ttjohninvest@gmail.com"}
+   const cancelsubscription=()=>{
+    const theemail={"email":"ttjohninvest@gmail.com"}
     
                      //delete it from stripe
                      fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
               method: "POST",
               headers: {
-                "Content-Type": " text/plain; charset=UTF-8",
+                "Content-Type": "application/json; charset=UTF-8",
               },
               body: theemail,
             })
@@ -300,7 +300,7 @@ console.log("Header, photoURL=" + user.photoURL);
                 <button
                   className="button button--link ib text-size-3- color-white-1 cursor-pointer"
                   onClick={
-                    deleteit
+                    cancelsubscription
           
                   
                   }

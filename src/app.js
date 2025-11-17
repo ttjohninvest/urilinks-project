@@ -136,7 +136,7 @@ if (signup !== "signup") {
                 // sessionStorage.setItem('hasRefreshed', 'true');
                 //if (firstone===false) {
                   console.log("third one")
-                  window.location.href = "https://urilinks.com/o?signup=signup";
+                  //window.location.href = "https://urilinks.com/o?signup=signup";
                 //}
 
                 //window.location.reload();

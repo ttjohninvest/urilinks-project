@@ -294,7 +294,9 @@ console.log("Header, photoURL=" + user.photoURL);
                   (Logout)
                 </button>
                
-              </div>:<div className="margin-top-1111a-">
+              </div>:""}
+
+               {props.signup.signup === true ? <div className="margin-top-1111a-">
                 <button
                   className="button button--link ib text-size-3- color-white-1 cursor-pointer"
                   onClick={
@@ -303,12 +305,14 @@ console.log("Header, photoURL=" + user.photoURL);
                   
                   }
                 >
-                  (delete account)
+                  (DeleteAccount)
                 </button>
                
-              </div>
-             
-              }
+              </div>:""}
+
+
+
+
             </div>
           </div>
         </header>

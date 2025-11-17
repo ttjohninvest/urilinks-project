@@ -130,7 +130,7 @@ if (signup !== "signup") {
                 history.location.pathname === "/dashboard?signup=signup"
               ) {
                 console.log("second one")
-                window.location.href = "https://urilinks.com?signup=signup&x=3";
+                window.location.href = "https://urilinks.com/o?signup=signup&x=3";
 
               } else if (history.location.pathname === "/dashboard") {
                 // sessionStorage.setItem('hasRefreshed', 'true');

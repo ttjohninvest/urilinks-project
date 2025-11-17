@@ -135,7 +135,7 @@ if (signup !== "signup") {
               } else if (history.location.pathname === "/dashboard") {
                 // sessionStorage.setItem('hasRefreshed', 'true');
                 //if (id!==null) {
-                if(signup!=="signup") {
+                if(signup==="signup") {
                   console.log("third one")
                   window.location.href = "https://urilinks.com/o?signup=signup";
                 }

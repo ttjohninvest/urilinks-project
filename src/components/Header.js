@@ -7,11 +7,11 @@ import { setLinks } from "../actions/links";
 import logo from "../assets/images/logo9.png";
 import myprofile from "../assets/images/myprofile.png";
 //import { getAuth } from "firebase";
-import XShareButton from "./XShareButton"
+import XShareButton from "./XShareButton";
 import setHasrefreshed from "../actions/hasrefreshed";
-import {startAddPhotourl} from "../actions/photourl"
-import {startAddEmail} from "../actions/email"
-import {startDeleteAccount} from "../actions/email"
+import { startAddPhotourl } from "../actions/photourl";
+import { startAddEmail } from "../actions/email";
+import { startDeleteAccount } from "../actions/email";
 
 // const preStartLogout=()=>{
 //   setLinks([])
@@ -34,42 +34,42 @@ export const Header = (props) => {
   //   );
   // }
 
-  const setPhotoURLdb = (photoURL) => { 
-  console.log("setPhotoURLdb, Header.js, photoURL="+photoURL)
-  ////put the photoURL in the database
-  props.startAddPhotourl({photourl:photoURL})
-  console.log("Header.js, done calling startAddPhotourl")
-  }
+  const setPhotoURLdb = (photoURL) => {
+    console.log("setPhotoURLdb, Header.js, photoURL=" + photoURL);
+    ////put the photoURL in the database
+    props.startAddPhotourl({ photourl: photoURL });
+    console.log("Header.js, done calling startAddPhotourl");
+  };
 
-   const setEmaildb = (email) => { 
-  console.log("setEmaildb, Header.js, email="+email)
-  ////put the photoURL in the database
-  props.startAddEmail({email:email})
-  console.log("Header.js, done calling startAddEmail")
-  }
+  const setEmaildb = (email) => {
+    console.log("setEmaildb, Header.js, email=" + email);
+    ////put the photoURL in the database
+    props.startAddEmail({ email: email });
+    console.log("Header.js, done calling startAddEmail");
+  };
 
   useEffect(() => {
-    
-    console.log("Header.js, useEffect, props.signup.signup="+props.signup.signup)
+    console.log(
+      "Header.js, useEffect, props.signup.signup=" + props.signup.signup
+    );
     // const user = firebase.auth().currentUser;
     // console.log("Header.js, useEffect, user.uid=" + user.uid);
     // setPhotoURL("");
     //if(props.signup.signup===false) {
     const user = firebase.auth().currentUser;
-    if(user !== null && user !== undefined) {
-      console.log("Header.js, user="+JSON.stringify(user))
-console.log("Header, photoURL=" + user.photoURL);
-    const purl = user.photoURL
-    setPhotoURL(purl);
-    setPhotoURLdb(purl);
-    setEmaildb(user.email)
+    if (user !== null && user !== undefined) {
+      console.log("Header.js, user=" + JSON.stringify(user));
+      console.log("Header, photoURL=" + user.photoURL);
+      const purl = user.photoURL;
+      setPhotoURL(purl);
+      setPhotoURLdb(purl);
+      setEmaildb(user.email);
     }
-    
+
     // }
     // else {
     //   setPhotoURL("");
     // }
-    
   }, []);
 
   const deleteAccount = () => {
@@ -106,38 +106,40 @@ console.log("Header, photoURL=" + user.photoURL);
     });
   };
 
-  const logoutit=()=>{
+  const logoutit = () => {
     //sessionStorage.setItem('hasRefreshed', 'false');
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    props.setHasrefreshed({hasrefreshed:false})
-    
-                    props.startLogout()
-  }
+    props.setHasrefreshed({ hasrefreshed: false });
 
-   const cancelsubscription=()=>{
-    const theemail={"email":"ttjohninvest@gmail.com"}
-    
-                     //delete it from stripe
-                     fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: theemail,
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                //json
-                console.log("Success:");
-                // console.log(data);
-                // //return;
-                // console.log(JSON.stringify(data, null, 4));
-               }).catch((error)=>{
-                  console.log("cancel subscription error="+error)
-                })
-                    //props.startDeleteAccount()
-                   
-  }
+    props.startLogout();
+  };
+
+  const cancelsubscription = () => {
+    const theemail = { "email": "ttjohninvest@gmail.com" };
+
+    //delete it from stripe
+    //urilinks-project-vercel-stripe-cancel-subscription-2qixoqvno.vercel.app
+    //fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
+    fetch("https://urilinks-project-vercel-stripe-cancel-subscription-2qixoqvno.vercel.app", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: theemail,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        //json
+        console.log("Success:");
+        // console.log(data);
+        // //return;
+        // console.log(JSON.stringify(data, null, 4));
+      })
+      .catch((error) => {
+        console.log("cancel subscription error=" + error);
+      });
+    //props.startDeleteAccount()
+  };
 
   return (
     <div id="top">
@@ -145,58 +147,79 @@ console.log("Header, photoURL=" + user.photoURL);
         <header className="header">
           <div className="">
             <div className="flexrow2w">
-               <div className="padding-leftright padding-top-11124">
-                <Link className="nounderline ib" to="/dashboard?signup=signup" title="refresh">  
-                
-                      <img
-                        className="rounded-full-1"
-                        src={logo}
-                        width="35"
-                        height="35"
-                        alt="Logo"
-                      />
-                      
+              <div className="padding-leftright padding-top-11124">
+                <Link
+                  className="nounderline ib"
+                  to="/dashboard?signup=signup"
+                  title="refresh"
+                >
+                  <img
+                    className="rounded-full-1"
+                    src={logo}
+                    width="35"
+                    height="35"
+                    alt="Logo"
+                  />
                 </Link>
               </div>
-             { props.signup.signup === false && <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
-                  <Link className="nounderline color-white-1 cursor-pointer" to="/signup"  title="">
+              {props.signup.signup === false && (
+                <div
+                  className="color-white-1"
+                  title="Please use it for good. Bookmarks for internet pages, urls/links"
+                >
+                  <Link
+                    className="nounderline color-white-1 cursor-pointer"
+                    to="/signup"
+                    title=""
+                  >
                     login
                   </Link>
-              </div>}
-              <div className="color-white-1" title="Please use it for good. Bookmarks for internet pages, urls/links">
-                  <Link className="nounderline color-white-1 cursor-pointer" to="/dashboard"  title="refresh">
-                     urilinks (link to links tool)
-                  </Link>
+                </div>
+              )}
+              <div
+                className="color-white-1"
+                title="Please use it for good. Bookmarks for internet pages, urls/links"
+              >
+                <Link
+                  className="nounderline color-white-1 cursor-pointer"
+                  to="/dashboard"
+                  title="refresh"
+                >
+                  urilinks (link to links tool)
+                </Link>
               </div>
-              {props.signup.signup===true ? <div className="padding-top-1112">
-                
-                <img
-                  src={photoURL}
-                  width="32"
-                  height="32"
-                  style={{ borderRadius: "50%" }}
-                  className="ib- margin-bottom-11-"
-                />
-              </div>:
-              <div className="padding-top-1112" title="welcome">
-                
-                {firebase.auth().currentUser !==null && firebase.auth().currentUser !== undefined ? <img
-                  src={photoURL}
-                  width="32"
-                  height="32"
-                  style={{ borderRadius: "50%" }}
-                  className="ib- margin-bottom-11-"
-                />:
-                <img
-                  
-                  src={myprofile}
-                  width="32"
-                  height="32"
-                  style={{ borderRadius: "50%" }}
-                  className="ib- margin-bottom-11-"
-                />
-                }
-              </div>}
+              {props.signup.signup === true ? (
+                <div className="padding-top-1112">
+                  <img
+                    src={photoURL}
+                    width="32"
+                    height="32"
+                    style={{ borderRadius: "50%" }}
+                    className="ib- margin-bottom-11-"
+                  />
+                </div>
+              ) : (
+                <div className="padding-top-1112" title="welcome">
+                  {firebase.auth().currentUser !== null &&
+                  firebase.auth().currentUser !== undefined ? (
+                    <img
+                      src={photoURL}
+                      width="32"
+                      height="32"
+                      style={{ borderRadius: "50%" }}
+                      className="ib- margin-bottom-11-"
+                    />
+                  ) : (
+                    <img
+                      src={myprofile}
+                      width="32"
+                      height="32"
+                      style={{ borderRadius: "50%" }}
+                      className="ib- margin-bottom-11-"
+                    />
+                  )}
+                </div>
+              )}
               <div>
                 <Link className="header__title- nounderline" to="/benefits">
                   <span
@@ -209,7 +232,10 @@ console.log("Header, photoURL=" + user.photoURL);
               </div>
 
               <div>
-                <Link className="header__title- nounderline" to="/termsandprivacy">
+                <Link
+                  className="header__title- nounderline"
+                  to="/termsandprivacy"
+                >
                   <span
                     className="ib- color-white-1 cursor-pointer"
                     title="terms, conditions and privacy policy"
@@ -218,13 +244,18 @@ console.log("Header, photoURL=" + user.photoURL);
                   </span>
                 </Link>
               </div>
-              {props.signup.signup === true && <div>
-                <Link className="header__title" to="/teirspayment3">
-                  <span className="ib" title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)">
-                    (plans ($))
-                  </span>
-                </Link>
-              </div> }
+              {props.signup.signup === true && (
+                <div>
+                  <Link className="header__title" to="/teirspayment3">
+                    <span
+                      className="ib"
+                      title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
+                    >
+                      (plans ($))
+                    </span>
+                  </Link>
+                </div>
+              )}
               {!inviewport && (
                 <div
                   id="scrolldownid"
@@ -235,84 +266,105 @@ console.log("Header, photoURL=" + user.photoURL);
                   (search section)
                 </div>
               )}
-              
+
               <div>
                 <Link className="header__title- nounderline" to="/ideas">
-                  <span className="ib- color-white-1 cursor-pointer" title="some ideas for hash tags">
+                  <span
+                    className="ib- color-white-1 cursor-pointer"
+                    title="some ideas for hash tags"
+                  >
                     (Bookmark Ideas)
                   </span>
                 </Link>
               </div>
 
-               {props.signup.signup=== true ?<div className="hide-">
-                <a className="header__title- nounderline pointereventsauto" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
-                  <span className="ib- color-white-1 cursor-pointer" title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader.">
-                    (get page urls for bookmarks file)
-                  </span>
-                </a>
-              </div>:
-              <div className="hide-">
-                <a className="header__title- nounderline pointereventsnone" href="https://urilinks-project-urls-to-tabs-html.vercel.app" target="_blank">
-                  <span className="ib- color-white-1 cursor-pointer" title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader.">
-                    (get page urls for bookmarks file)
-                  </span>
-                </a>
-              </div>
-              }
-
-              {props.signup.signup=== true  ?<div className="pointereventsauto hide-">
-                <Link className="header__title- nounderline pointereventsauto" to="/bookmarksmanager">
-                  <span
-                    className="ib- color-white-1 cursor-pointer pointereventsauto"
-                    title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
+              {props.signup.signup === true ? (
+                <div className="hide-">
+                  <a
+                    className="header__title- nounderline pointereventsauto"
+                    href="https://urilinks-project-urls-to-tabs-html.vercel.app"
+                    target="_blank"
                   >
-                    (Bookmarks File Uploader)
-                  </span>
-                </Link>
-              </div>:
-              <div className="pointereventsnone margin-right-1 hide-">
-                <Link className="header__title- nounderline pointereventsnone" to="/bookmarksmanager">
-                  <span
-                    className="ib- color-white-1 cursor-pointer pointereventsnone"
-                    title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
+                    <span
+                      className="ib- color-white-1 cursor-pointer"
+                      title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader."
+                    >
+                      (get page urls for bookmarks file)
+                    </span>
+                  </a>
+                </div>
+              ) : (
+                <div className="hide-">
+                  <a
+                    className="header__title- nounderline pointereventsnone"
+                    href="https://urilinks-project-urls-to-tabs-html.vercel.app"
+                    target="_blank"
                   >
-                    (Bookmarks File Uploader)
-                  </span>
-                </Link>
-              </div>
-              }
+                    <span
+                      className="ib- color-white-1 cursor-pointer"
+                      title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader."
+                    >
+                      (get page urls for bookmarks file)
+                    </span>
+                  </a>
+                </div>
+              )}
 
-              {props.signup.signup === true ? <div className="margin-top-1111a-">
-                <button
-                  className="button button--link ib text-size-3- color-white-1 cursor-pointer"
-                  onClick={
-                    logoutit
-          
-                  
-                  }
-                >
-                  (Logout)
-                </button>
-               
-              </div>:""}
+              {props.signup.signup === true ? (
+                <div className="pointereventsauto hide-">
+                  <Link
+                    className="header__title- nounderline pointereventsauto"
+                    to="/bookmarksmanager"
+                  >
+                    <span
+                      className="ib- color-white-1 cursor-pointer pointereventsauto"
+                      title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
+                    >
+                      (Bookmarks File Uploader)
+                    </span>
+                  </Link>
+                </div>
+              ) : (
+                <div className="pointereventsnone margin-right-1 hide-">
+                  <Link
+                    className="header__title- nounderline pointereventsnone"
+                    to="/bookmarksmanager"
+                  >
+                    <span
+                      className="ib- color-white-1 cursor-pointer pointereventsnone"
+                      title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
+                    >
+                      (Bookmarks File Uploader)
+                    </span>
+                  </Link>
+                </div>
+              )}
 
-               {props.signup.signup === true ? <div className="margin-top-1111a-">
-                <button
-                  className="button button--link ib text-size-3- color-white-1 cursor-pointer"
-                  onClick={
-                    cancelsubscription
-          
-                  
-                  }
-                >
-                  (DeleteAccount)
-                </button>
-               
-              </div>:""}
+              {props.signup.signup === true ? (
+                <div className="margin-top-1111a-">
+                  <button
+                    className="button button--link ib text-size-3- color-white-1 cursor-pointer"
+                    onClick={logoutit}
+                  >
+                    (Logout)
+                  </button>
+                </div>
+              ) : (
+                ""
+              )}
 
-
-
-
+              {props.signup.signup === true ? (
+                <div className="margin-top-1111a-">
+                  <button
+                    className="button button--link ib text-size-3- color-white-1 cursor-pointer"
+                    onClick={cancelsubscription}
+                  >
+                    (DeleteAccount)
+                  </button>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </header>
@@ -325,7 +377,7 @@ console.log("Header, photoURL=" + user.photoURL);
 
 const mapStateToProps = (state) => ({
   settings: state.settings,
-  signup:state.signup
+  signup: state.signup,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -337,10 +389,10 @@ const mapDispatchToProps = (dispatch) => ({
       );
   },
   setLinks: (links) => dispatch(setLinks(links)),
-  setHasrefreshed: (hasrefreshed)=>dispatch(setHasrefreshed(hasrefreshed)),
-  startAddPhotourl: (photourl)=>dispatch(startAddPhotourl(photourl)),
-  startAddEmail: (email)=>dispatch(startAddEmail(email)),
-  startDeleteAccount: (email)=>dispatch(startDeleteAccount(email))
+  setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),
+  startAddPhotourl: (photourl) => dispatch(startAddPhotourl(photourl)),
+  startAddEmail: (email) => dispatch(startAddEmail(email)),
+  startDeleteAccount: (email) => dispatch(startDeleteAccount(email)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

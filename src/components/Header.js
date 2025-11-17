@@ -120,7 +120,7 @@ export const Header = (props) => {
     //delete it from stripe
     //urilinks-project-vercel-stripe-cancel-subscription-2qixoqvno.vercel.app
     //fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
-    fetch("https://urilinks-project-vercel-stripe-cancel-subscription-2qixoqvno.vercel.app", {
+    fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -10,7 +10,7 @@ import myprofile from "../assets/images/myprofile.png";
 import XShareButton from "./XShareButton"
 import setHasrefreshed from "../actions/hasrefreshed";
 import {startAddPhotourl} from "../actions/photourl"
-
+import {startAddEmail} from "../actions/email"
 
 // const preStartLogout=()=>{
 //   setLinks([])
@@ -40,6 +40,13 @@ export const Header = (props) => {
   console.log("Header.js, done calling startAddPhotourl")
   }
 
+   const setEmaildb = (email) => { 
+  console.log("setEmaildb, Header.js, email="+email)
+  ////put the photoURL in the database
+  props.startAddEmail({email:email})
+  console.log("Header.js, done calling startAddEmail")
+  }
+
   useEffect(() => {
     
     console.log("Header.js, useEffect, props.signup.signup="+props.signup.signup)
@@ -54,6 +61,7 @@ console.log("Header, photoURL=" + user.photoURL);
     const purl = user.photoURL
     setPhotoURL(purl);
     setPhotoURLdb(purl);
+    setEmaildb(user.email)
     }
     
     // }
@@ -288,7 +296,8 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setLinks: (links) => dispatch(setLinks(links)),
   setHasrefreshed: (hasrefreshed)=>dispatch(setHasrefreshed(hasrefreshed)),
-  startAddPhotourl: (photourl)=>dispatch(startAddPhotourl(photourl))
+  startAddPhotourl: (photourl)=>dispatch(startAddPhotourl(photourl)),
+  startAddEmail: (email)=>dispatch(startAddEmail(email))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

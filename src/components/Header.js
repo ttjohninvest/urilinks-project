@@ -115,7 +115,7 @@ console.log("Header, photoURL=" + user.photoURL);
   }
 
    const deleteit=()=>{
-    const theemail={"email":"ttjohninvest@gmail.com"}
+    const theemail="ttjohninvest@gmail.com" //{"email":"ttjohninvest@gmail.com"}
     
                      //delete it from stripe
                      fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {

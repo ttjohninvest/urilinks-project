@@ -9,7 +9,7 @@ import { startSetLinks } from "./actions/links";
 import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
 import { getSettings } from "./actions/settings";
-import { getTheplan } from "./actions/theplan";
+import { getTheplan, getTheplan2 } from "./actions/theplan";
 
 import { login, logout } from "./actions/auth";
 import { setSettings } from "./actions/settings";
@@ -80,7 +80,7 @@ if (signup !== "signup") {
     .dispatch(startSetLinks())
     .then(() => {
       return store
-        .dispatch(getTheplan())
+        .dispatch(getTheplan2())
         .then(() => {
           //return store.dispatch(getSettings()).then(() => {
           renderApp(store, signup);

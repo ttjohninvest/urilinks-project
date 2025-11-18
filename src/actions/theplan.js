@@ -40,6 +40,45 @@ export const startAddTheplan = (theplanData = {}) => {
   };
 };
 
+export const getTheplan2 = () => {
+  console.log("actions/getTheplan");
+//   return (dispatch, getState) => {
+//     const uid = getState().auth.uid;
+//     console.log("actions/getTheplan, uid=" + uid);
+//     let s;
+//     return database
+//       //.ref(`users/${uid}/theplan/plan`)
+//       .ref(`users/${uid}/theplan`)
+//       .once("value")
+//       .then((snapshot) => {
+//         let theplan
+//         //console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
+//         //console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
+
+//         console.log(
+//           "action/getTheplan from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+//         );
+// //startAddTheplan
+//         //theplan = JSON.stringify(snapshot.val())//JSON.parse(JSON.stringify(snapshot.val()))
+//         //
+//         let zplan={
+//           plan:"free",
+//           subscriptionId:"",
+//           customerId:""
+//         }
+
+//         if (snapshot.val() === null) {
+//           //theplan = "free";
+//           dispatch(startAddTheplan(zplan))
+//         } else {
+//           //theplan=snapshot.val();
+//           zplan=snapshot.val();
+//           dispatch(setTheplan(zplan));
+//         }
+       
+//       });
+//   };
+};
 
 export const getTheplan = () => {
   console.log("actions/getTheplan");

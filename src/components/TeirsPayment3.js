@@ -89,7 +89,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
 </stripe-pricing-table>
 
       ) : props.theplan.plan.replace(/"/g, "") === "premium" 
-      //&& props.links.length > 2500 
+      ////&& props.links.length > 2500 
       &&
         props.links.length <= 5000 ? (
         <div>Thank you. You are on the premium plan which is the highest plan.  

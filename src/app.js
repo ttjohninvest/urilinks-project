@@ -111,8 +111,8 @@ if (signup !== "signup") {
       store.dispatch(login(user.uid));
       //these two variables will be initialized into the database when a customer buys a plan
       //and available to Delete Account if they are needed
-      store.dispatch(getCustomerId(user.uid)); //this should initialize the redux variable customerId
-      store.dispatch(getSubscriptionId(user.uid));//this should initialize the redux variable subscriptionId
+      //store.dispatch(getCustomerId(user.uid)); //this should initialize the redux variable customerId
+      //store.dispatch(getSubscriptionId(user.uid));//this should initialize the redux variable subscriptionId
 
       store
         .dispatch(startSetLinks())

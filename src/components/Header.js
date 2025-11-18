@@ -100,7 +100,7 @@ export const Header = (props) => {
 
         
     } else {
-    const theemail = { "email": props.email, customerId:props.customerId.customerId, subscriptionId:props.subscriptionId.subscriptionId };
+    const theemail = { "email": props.email, customerId:props.theplan.customerId, subscriptionId:props.theplan.subscriptionId };
    
     fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
       method: "POST",

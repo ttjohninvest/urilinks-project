@@ -72,33 +72,7 @@ export const Header = (props) => {
     // }
   }, []);
 
-  // const deleteAccount = () => {
-  //   let text;
-  //   if (confirm("Please press a button.") == true) {
-  //     console.log("Delete Account");
-
-  //     const user = firebase.auth().currentUser;
-  //     if (user) {
-  //       //const uid = user.uid;
-
-  //       user
-  //         .delete()
-  //         .then(() => {
-  //           console.log("User account deleted, user.uid="+user.uid);
-  //           console.log("User account deleted, props.email="+props.email);
-  //         })
-  //         .catch((error) => {
-  //           setDeleteAccountError(true);
-  //           console.log(
-  //             "Timeout error: To delete your accout, you will need to logout, relogin and then immediately delete the account, error=" +
-  //               error
-  //           );
-  //         });
-  //     }
-  //   } else {
-  //     console.log("Canceled the Deletion of the Account");
-  //   }
-  // };
+ 
 
   const scrolldown = () => {
     //this scrolls the results into view, the first and subsequent result is shown
@@ -117,26 +91,26 @@ export const Header = (props) => {
 
   const cancelsubscription = () => {
     if (confirm("Please press a button.") == true) {
-      props.startDeleteAccount()
-    // const theemail = { "email": props.email };
+      //props.startDeleteAccount()
+    const theemail = { "email": props.email };
    
-    // fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(theemail),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
+    fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(theemail),
+    })
+      .then((response) => response.json())
+      .then((data) => {
         
-    //     console.log("Success:");
+        console.log("Success:");
         
-    //     props.startDeleteAccount()
-    //   })
-    //   .catch((error) => {
-    //     console.log("cancel subscription error=" + error);
-    //   });
+        props.startDeleteAccount()
+      })
+      .catch((error) => {
+        console.log("cancel subscription error=" + error);
+      });
     
     } else {
       alert("Canceled the deletion of the account")

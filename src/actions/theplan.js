@@ -17,7 +17,7 @@ export const getTheplan = () => {
         //console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
 
         console.log(
-          "action/getTheplan from db, snapshot.val()=" + snapshot.val()
+          "action/getTheplan from db, snapshot.val()=" + JSON.stringify(snapshot.val())
         );
 
         //theplan = JSON.stringify(snapshot.val())//JSON.parse(JSON.stringify(snapshot.val()))

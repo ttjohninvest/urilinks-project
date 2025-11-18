@@ -32,7 +32,9 @@ export const startAddTheplan = (theplanData = {}) => {
           //     ...theplanData,
           //   })
           // );
+
           dispatch(setTheplan(theplanData));
+          //setTheplan(theplanData)
         })
     );
   };
@@ -62,7 +64,7 @@ export const getTheplan = () => {
         //
         let zplan={
           plan:"free",
-          subscriptionid:"",
+          subscriptionId:"",
           customerId:""
         }
 

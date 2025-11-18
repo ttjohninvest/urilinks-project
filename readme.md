@@ -88,7 +88,7 @@ VCA Lakeside Animal Hospital
 
 todo to do
 
-delete the customer in stripe like I am canceling the subscription 
+delete customer from the database 
 same email will overwrite in stripe. I don't want that because I want the earlier subscription to be in the list
 
 

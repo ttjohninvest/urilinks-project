@@ -86,7 +86,7 @@ export const Header = (props) => {
     //sessionStorage.setItem('hasRefreshed', 'false');
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
     props.setHasrefreshed({ hasrefreshed: false });
-    props.setTheplan(null)
+    props.setTheplan({subscriptionId:"",plan:"free",customerId:""})
     props.startLogout();
   };
 
@@ -393,7 +393,7 @@ const mapDispatchToProps = (dispatch) => ({
   startAddPhotourl: (photourl) => dispatch(startAddPhotourl(photourl)),
   startAddEmail: (email) => dispatch(startAddEmail(email)),
   startDeleteAccount: (email) => dispatch(startDeleteAccount(email)),
-  setTheplan: () => dispatch(setTheplan(null)),
+  setTheplan: (theplan) => dispatch(setTheplan(theplan)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

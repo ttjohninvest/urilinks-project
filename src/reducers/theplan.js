@@ -1,5 +1,7 @@
 const theplanReducerDefaultState = {
-  plan:"free"
+  plan:"free",
+  subscriptionId:"",
+  customerId:""
 };
 
 export default (state = theplanReducerDefaultState, action) => {

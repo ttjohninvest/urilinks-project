@@ -5,7 +5,6 @@ import * as firebase from "firebase";
 
 const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
-  const [pk_live, setPklive] = useState(process.env.PK_LIVE);
   const [pti, setPti] = useState(process.env.PTI);
   const [theUserId, setTheUserId] = useState("");
   const [isFree, setIsFree] = useState(false);

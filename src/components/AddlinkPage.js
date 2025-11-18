@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
-import TeirsPayment3 from "./TeirsPayment3-live";
+import TeirsPayment3 from "./TeirsPayment3";
 
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);

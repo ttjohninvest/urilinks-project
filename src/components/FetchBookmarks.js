@@ -10,7 +10,7 @@ import ImportedBookmarks from "./ImportedBookmarks";
 import ImportedBookmarks2 from "./ImportedBookmarks2";
 import { storage } from "../firebase/firebase";
 import LoadingPage from "./LoadingPage";
-import TeirsPayment3 from "./TeirsPayment3-live";
+import TeirsPayment3 from "./TeirsPayment3";
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);

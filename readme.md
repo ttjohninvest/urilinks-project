@@ -1,5 +1,11 @@
 Fetchbookmarks.js, put foldernames in
 
+live to sandbox
+set mode to sandbox
+3 different tables each have pk value
+2 sk values go into client secret and vercel stripe api
+
+
 =========================================================================================
 Always stay clothed outside.
 Resist temptation.

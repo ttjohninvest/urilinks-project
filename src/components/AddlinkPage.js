@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
-import TeirsPayment3 from "./TeirsPayment3";
+import TeirsPayment3 from "./TeirsPayment3-live";
 
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
@@ -14,52 +14,56 @@ export const AddLinkPage = (props) => {
   const [errorDialog, setErrorDialog] = useState(false);
   //const history = useHistory();
 
-    const getPlanMax=()=>{
-    let max=250
+  const getPlanMax = () => {
+    let max = 250;
     //props.settings.plan
-    if(props.theplan.plan.replace(/"/g, "")==="free") {
-     max=250
-    } else if(props.theplan.plan.replace(/"/g, "")==="basic") {
-max=1500
-    } else if(props.theplan.plan.replace(/"/g, "")==="standard") {
-max=2500
-    } else { //premium
-max=5000
+    if (props.theplan.plan.replace(/"/g, "") === "free") {
+      max = 250;
+    } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
+      max = 1500;
+    } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
+      max = 2500;
+    } else {
+      //premium
+      max = 5000;
     }
 
-    console.log("AddLinkPage.js, bookmarks, max="+max)
-    return max
-  }
+    console.log("AddLinkPage.js, bookmarks, max=" + max);
+    return max;
+  };
 
   const goBack = () => {
     props.history.goBack(); // Navigates back one step in the history
   };
 
   useEffect(() => {
-    console.log("getPlanMax()="+getPlanMax())
+    console.log("getPlanMax()=" + getPlanMax());
     const fetchData = async () => {
-      try {//W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
-        if(props.signup.signup===true) {
- const user = firebase.auth().currentUser;
-        if (user) {
-          const uid = user.uid;
-          setUserId(uid);
-          console.log("User ID:", uid);
-        } else {
-          console.log("No user is currently logged in.");
-        }
+      try {
+        //W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+        if (props.signup.signup === true) {
+          const user = firebase.auth().currentUser;
+          if (user) {
+            const uid = user.uid;
+            setUserId(uid);
+            console.log("User ID:", uid);
+          } else {
+            console.log("No user is currently logged in.");
+          }
         } else {
           setUserId("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
         }
-       
+
         const db = firebase.database();
-          //try {//W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
-            let snapshot
-        if(props.signup.signup===true) {
+        //try {//W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+        let snapshot;
+        if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
-        snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
+          snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
-          snapshot = await db.ref(`/users/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/links`).once("value");
+          snapshot = await db
+            .ref(`/users/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/links`)
+            .once("value");
         }
 
         if (snapshot.exists()) {
@@ -83,24 +87,23 @@ max=5000
   const onSubmit = (link) => {
     console.log("in onSubmit");
     //if(props.signup.signup === true) {
-const user = firebase.auth().currentUser; 
+    const user = firebase.auth().currentUser;
     // if (count < 250 || (count < 10000 && (
-    //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 
+    //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2"
     //)
     // ) {
     //if (count < getPlanMax() && (count < 5000 )) {
     //if (count < getPlanMax()) {
-    if(true) {
-      link.foldername=link.description
+    if (true) {
+      link.foldername = link.description;
       const r = props.startAddLink(link);
       if (r === false) {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
       } else {
-        
         props.history.push("/");
         //window.location.reload()
-        window.location.href="https://urilinks.com?signup=signup"
+        window.location.href = "https://urilinks.com?signup=signup";
       }
     } else {
       console.log("maximum links reached");
@@ -109,10 +112,10 @@ const user = firebase.auth().currentUser;
     // } else {
 
     // // if (count < 250 || (count < 10000 && (
-    // //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2" 
+    // //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2"
     // //)
     // // ) {
-    // if (count < getPlanMax() 
+    // if (count < getPlanMax()
     //   || (count < 5000 && (
     //   "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
     //  ))
@@ -123,7 +126,7 @@ const user = firebase.auth().currentUser;
     //     setErrorDialog(true);
     //     console.log("VVVVVVVVVVVVV returned false");
     //   } else {
-        
+
     //     props.history.push("/");
     //     //window.location.reload()
     //     window.location.href="https://urilinks.com?signup=signup"
@@ -133,7 +136,6 @@ const user = firebase.auth().currentUser;
     //   setMaximumPage(true);
     // }
     // }
-    
   };
 
   return (
@@ -157,10 +159,7 @@ const user = firebase.auth().currentUser;
           </div>
         </div>
       ) : (
-        <div>
-          {/* <TeirsPayment3 /> */}
-        </div>
-        
+        <div>{/* <TeirsPayment3 /> */}</div>
       )}
     </div>
   );
@@ -168,11 +167,13 @@ const user = firebase.auth().currentUser;
 
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
-  signup:state.signup
+  signup: state.signup,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   startAddLink: (link) => dispatch(startAddLink(link)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddLinkPage));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(AddLinkPage)
+);

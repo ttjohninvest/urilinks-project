@@ -10,7 +10,7 @@ import ImportedBookmarks from "./ImportedBookmarks";
 import ImportedBookmarks2 from "./ImportedBookmarks2";
 import { storage } from "../firebase/firebase";
 import LoadingPage from "./LoadingPage";
-import TeirsPayment3 from "./TeirsPayment3";
+import TeirsPayment3 from "./TeirsPayment3-live";
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
@@ -3022,119 +3022,115 @@ const FetchBookmarks = (props) => {
                 //W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
                 if (props.signup.signup === true) {
                   const user = firebase.auth().currentUser;
-                    let skip = 0;
-                    max = getPlanMax() - (rl + ll);
-                    console.log("in if, ll=" + ll);
-                    console.log("in if, rl=" + rl);
-                    console.log("in if, max=" + max);
+                  let skip = 0;
+                  max = getPlanMax() - (rl + ll);
+                  console.log("in if, ll=" + ll);
+                  console.log("in if, rl=" + rl);
+                  console.log("in if, max=" + max);
+                  if (max < 0) {
+                    loopmax2 = rl - -1 * max;
+                    skip = rl - loopmax2;
+                  } else {
+                    loopmax2 = rl;
+                    skip = 0;
+                  }
+
+                  for (let i = 0; i < loopmax2; i++) {
+                    //for (let i = 0; i < 1; i++) {
+                    console.log(
+                      "1 result[" + i + "].foldername=" + result[i].foldername
+                    );
+                    r = props.startAddLink({
+                      description: result[i].description,
+                      Url: result[i].Url, //, //href,
+                      yturl: result[i].yturl,
+                      note: result[i].note,
+                      foldername: result[i].foldername,
+                      amount: 0,
+                      createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                      faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                    });
+
+                    if (r === false) {
+                      setImportingError(true);
+                      break;
+                    }
+                  }
+                  //throw new Error("ERROR ERROR ERROR")
+                  if (r === false) {
+                    // setErrorDialog(true);
+                    console.log("ERROR, VVVVVVVVVVVVV returned false");
+                  } else {
+                    console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+                    //props.history.push("/");
+                    //window.location.reload()
+
+                    //how many new links were added, because of the maximum of 500 I had to add this
+                    setMax(max);
+                    setRl(rl); //rl is the length of the full amount to upload
+                    setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                    // const fileRef = storage.refFromURL(props.url);
+
+                    // fileRef.delete();
                     if (max < 0) {
-                      loopmax2 = rl - -1 * max;
-                      skip = rl - loopmax2;
+                      //setResult2(result.slice(0,-(rl - skip)));
+                      setResult2(result);
+                      setResult(result.slice(rl - skip));
+                      setMorePage(true);
                     } else {
-                      loopmax2 = rl;
-                      skip = 0;
-                    }
-                  
-
-                    for (let i = 0; i < loopmax2; i++) {
-                      //for (let i = 0; i < 1; i++) {
-                      console.log(
-                        "1 result[" + i + "].foldername=" + result[i].foldername
-                      );
-                      r = props.startAddLink({
-                        description: result[i].description,
-                        Url: result[i].Url, //, //href,
-                        yturl: result[i].yturl,
-                        note: result[i].note,
-                        foldername: result[i].foldername,
-                        amount: 0,
-                        createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                        faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
-                      });
-
-                      if (r === false) {
-                        setImportingError(true);
-                        break;
-                      }
-                    }
-                    //throw new Error("ERROR ERROR ERROR")
-                    if (r === false) {
-                      // setErrorDialog(true);
-                      console.log("ERROR, VVVVVVVVVVVVV returned false");
-                    } else {
-                      console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-                      //props.history.push("/");
-                      //window.location.reload()
-
-                      //how many new links were added, because of the maximum of 500 I had to add this
-                      setMax(max);
-                      setRl(rl); //rl is the length of the full amount to upload
-                      setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
-                      // const fileRef = storage.refFromURL(props.url);
-
-                      // fileRef.delete();
-                      if (max < 0) {
-                        //setResult2(result.slice(0,-(rl - skip)));
-                        setResult2(result);
-                        setResult(result.slice(rl - skip));
-                        setMorePage(true);
-                      } else {
-                        setResult(result);
-                         
-                      }
-                    }
-                  
-                  
-                } else { //not logged in page, first example page
-                
-                    max = 5000 - (rl + ll);
-                    console.log("in if, ll=" + ll);
-                    console.log("in if, rl=" + rl);
-                    console.log("in if, max=" + max);
-                    if (rl > max) {
-                      loopmax2 = max;
-                    }
-
-                    for (let i = 0; i < loopmax2; i++) {
-                      //for (let i = 0; i < 1; i++) {
-                      console.log(
-                        "1 result[" + i + "].foldername=" + result[i].foldername
-                      );
-                      r = props.startAddLink({
-                        description: result[i].description,
-                        Url: result[i].Url, //, //href,
-                        yturl: result[i].yturl,
-                        note: result[i].note,
-                        foldername: result[i].foldername,
-                        amount: 0,
-                        createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
-                        faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
-                      });
-
-                      if (r === false) {
-                        setImportingError(true);
-                        break;
-                      }
-                    }
-                    //throw new Error("ERROR ERROR ERROR")
-                    if (r === false) {
-                      // setErrorDialog(true);
-                      console.log("ERROR, VVVVVVVVVVVVV returned false");
-                    } else {
-                      console.log("NO ERROR, VVVVVVVVVVVVV returned true");
-                      //props.history.push("/");
-                      //window.location.reload()
-
-                      //how many new links were added, because of the maximum of 500 I had to add this
-                      setMax(max);
-                      setRl(rl); //rl is the length of the full amount to upload
-                      setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
-                      // const fileRef = storage.refFromURL(props.url);
-
-                      // fileRef.delete();
                       setResult(result);
                     }
-                  
+                  }
+                } else {
+                  //not logged in page, first example page
+
+                  max = 5000 - (rl + ll);
+                  console.log("in if, ll=" + ll);
+                  console.log("in if, rl=" + rl);
+                  console.log("in if, max=" + max);
+                  if (rl > max) {
+                    loopmax2 = max;
+                  }
+
+                  for (let i = 0; i < loopmax2; i++) {
+                    //for (let i = 0; i < 1; i++) {
+                    console.log(
+                      "1 result[" + i + "].foldername=" + result[i].foldername
+                    );
+                    r = props.startAddLink({
+                      description: result[i].description,
+                      Url: result[i].Url, //, //href,
+                      yturl: result[i].yturl,
+                      note: result[i].note,
+                      foldername: result[i].foldername,
+                      amount: 0,
+                      createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
+                      faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
+                    });
+
+                    if (r === false) {
+                      setImportingError(true);
+                      break;
+                    }
+                  }
+                  //throw new Error("ERROR ERROR ERROR")
+                  if (r === false) {
+                    // setErrorDialog(true);
+                    console.log("ERROR, VVVVVVVVVVVVV returned false");
+                  } else {
+                    console.log("NO ERROR, VVVVVVVVVVVVV returned true");
+                    //props.history.push("/");
+                    //window.location.reload()
+
+                    //how many new links were added, because of the maximum of 500 I had to add this
+                    setMax(max);
+                    setRl(rl); //rl is the length of the full amount to upload
+                    setLoopmax(loopmax2); //loopmax2 is the modified length if rl would overflow 500
+                    // const fileRef = storage.refFromURL(props.url);
+
+                    // fileRef.delete();
+                    setResult(result);
+                  }
                 }
               })
               .catch((error) => {
@@ -3163,15 +3159,17 @@ const FetchBookmarks = (props) => {
     <div>
       {morePage === true ? (
         <div className="flexcol3">
-                      {/* {max < 0 && <div><ImportedBookmarks2 result={result2}  setThePayPage={setThePayPage}
+          {/* {max < 0 && <div><ImportedBookmarks2 result={result2}  setThePayPage={setThePayPage}
             closeThisPage={closeThisPage} /></div>} */}
 
-          <div><ImportedBookmarks2
-          result2={result2}
-            result={result}
-            setThePayPage={setThePayPage}
-            closeThisPage={closeThisPage}
-          /></div>
+          <div>
+            <ImportedBookmarks2
+              result2={result2}
+              result={result}
+              setThePayPage={setThePayPage}
+              closeThisPage={closeThisPage}
+            />
+          </div>
         </div>
       ) : payPage === true ? (
         <div>

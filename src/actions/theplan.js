@@ -8,7 +8,8 @@ export const getTheplan = () => {
     console.log("actions/getTheplan, uid=" + uid);
     let s;
     return database
-      .ref(`users/${uid}/theplan/plan`)
+      //.ref(`users/${uid}/theplan/plan`)
+      .ref(`users/${uid}/theplan`)
       .once("value")
       .then((snapshot) => {
         let theplan
@@ -33,10 +34,11 @@ export const getTheplan = () => {
           //theplan = "free";
         } else {
           //theplan=snapshot.val();
-          //zplan=snapshot.val();
+          zplan=snapshot.val();
         }
         //dispatch(setTheplan(theplan));
-        dispatch(setTheplan(snapshot.val()));
+        //dispatch(setTheplan(snapshot.val()));
+        dispatch(setTheplan(zplan));
         // if(theplan === undefined || theplan === null)
         //     dispatch(setTheplan({plan:"free"}));
         // //else dispatch(setTheplan(theplan));

@@ -95,7 +95,7 @@ export const Header = (props) => {
     console.log("plan="+props.theplan.plan.replace(/"/g, ""))
     if(props.theplan.plan.replace(/"/g, "")==="free") {
         props.startDeleteAccount()
-        window.close()
+        
     } else {
     const theemail = { "email": props.email };
    

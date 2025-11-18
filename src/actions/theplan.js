@@ -33,9 +33,10 @@ export const getTheplan = () => {
           //theplan = "free";
         } else {
           //theplan=snapshot.val();
-          zplan=snapshot.val();
+          //zplan=snapshot.val();
         }
-        dispatch(setTheplan(zplan));
+        //dispatch(setTheplan(theplan));
+        dispatch(setTheplan(snapshot.val()));
         // if(theplan === undefined || theplan === null)
         //     dispatch(setTheplan({plan:"free"}));
         // //else dispatch(setTheplan(theplan));

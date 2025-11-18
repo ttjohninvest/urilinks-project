@@ -86,7 +86,7 @@ export const Header = (props) => {
     //sessionStorage.setItem('hasRefreshed', 'false');
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
     props.setHasrefreshed({ hasrefreshed: false });
-    props.setTheplan({subscriptionId:"",plan:"free",customerId:""})
+    //props.setTheplan({subscriptionId:"",plan:"free",customerId:""})
     props.startLogout();
   };
 

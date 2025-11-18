@@ -72,32 +72,33 @@ export const Header = (props) => {
     // }
   }, []);
 
-  const deleteAccount = () => {
-    let text;
-    if (confirm("Please press a button.") == true) {
-      console.log("Delete Account");
+  // const deleteAccount = () => {
+  //   let text;
+  //   if (confirm("Please press a button.") == true) {
+  //     console.log("Delete Account");
 
-      const user = firebase.auth().currentUser;
-      if (user) {
-        //const uid = user.uid;
+  //     const user = firebase.auth().currentUser;
+  //     if (user) {
+  //       //const uid = user.uid;
 
-        user
-          .delete()
-          .then(() => {
-            console.log("User account deleted");
-          })
-          .catch((error) => {
-            setDeleteAccountError(true);
-            console.log(
-              "Timeout error: To delete your accout, you will need to logout, relogin and then immediately delete the account, error=" +
-                error
-            );
-          });
-      }
-    } else {
-      console.log("Canceled the Deletion of the Account");
-    }
-  };
+  //       user
+  //         .delete()
+  //         .then(() => {
+  //           console.log("User account deleted, user.uid="+user.uid);
+  //           console.log("User account deleted, props.email="+props.email);
+  //         })
+  //         .catch((error) => {
+  //           setDeleteAccountError(true);
+  //           console.log(
+  //             "Timeout error: To delete your accout, you will need to logout, relogin and then immediately delete the account, error=" +
+  //               error
+  //           );
+  //         });
+  //     }
+  //   } else {
+  //     console.log("Canceled the Deletion of the Account");
+  //   }
+  // };
 
   const scrolldown = () => {
     //this scrolls the results into view, the first and subsequent result is shown
@@ -115,6 +116,7 @@ export const Header = (props) => {
   };
 
   const cancelsubscription = () => {
+    if (confirm("Please press a button.") == true) {
     const theemail = { "email": props.email };
     //const theemail = { email: "ttjohninvest@gmail.com" };
 
@@ -135,11 +137,16 @@ export const Header = (props) => {
         // console.log(data);
         // //return;
         // console.log(JSON.stringify(data, null, 4));
+        props.startDeleteAccount()
       })
       .catch((error) => {
         console.log("cancel subscription error=" + error);
       });
-    //props.startDeleteAccount()
+    
+    } else {
+      alert("Canceled the deletion of the account")
+      console.log("Canceled the Deletion of the Account");
+    }
   };
 
   return (

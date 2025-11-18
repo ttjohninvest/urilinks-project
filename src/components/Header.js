@@ -91,7 +91,8 @@ export const Header = (props) => {
 
   const cancelsubscription = () => {
 
-    if (confirm("Please press a button.") == true) {
+    try {
+if (confirm("Please press a button.") == true) {
     console.log("plan="+props.theplan.plan.replace(/"/g, ""))
     //if(true) {
     if(props.theplan.plan.replace(/"/g, "")==="free") {
@@ -127,6 +128,10 @@ export const Header = (props) => {
       alert("Canceled the deletion of the account")
       console.log("Canceled the Deletion of the Account");
     }
+    } catch {
+       alert("an error occurred: 10002222")
+    }
+    
   
   };
 

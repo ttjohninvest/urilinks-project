@@ -1,55 +1,6 @@
 import database from "../firebase/firebase";
 import subscriptionid from "../reducers/subscriptionid";
 
-export const getTheplan = () => {
-  console.log("actions/getTheplan");
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    console.log("actions/getTheplan, uid=" + uid);
-    let s;
-    return database
-      //.ref(`users/${uid}/theplan/plan`)
-      .ref(`users/${uid}/theplan`)
-      .once("value")
-      .then((snapshot) => {
-        let theplan
-        //console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
-        //console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
-
-        console.log(
-          "action/getTheplan from db, snapshot.val()=" + JSON.stringify(snapshot.val())
-        );
-
-        //theplan = JSON.stringify(snapshot.val())//JSON.parse(JSON.stringify(snapshot.val()))
-        //
-        let zplan={
-          plan:"free",
-          subscriptionid:"",
-          customerId:""
-        }
-
-        if (snapshot.val() === null) {
-          //theplan = "free";
-        } else if (snapshot.val() === undefined) {
-          //theplan = "free";
-        } else {
-          //theplan=snapshot.val();
-          zplan=snapshot.val();
-        }
-        //dispatch(setTheplan(theplan));
-        //dispatch(setTheplan(snapshot.val()));
-        dispatch(setTheplan(zplan));
-        // if(theplan === undefined || theplan === null)
-        //     dispatch(setTheplan({plan:"free"}));
-        // //else dispatch(setTheplan(theplan));
-        // else {
-        //     const p = snapshot().val().plan
-        //     dispatch(setTheplan({plan:p}));
-        // }
-      });
-  };
-};
-
 // ADD_LINK
 export const addTheplan = (theplan) => ({
   type: "ADD_THEPLAN",
@@ -79,6 +30,58 @@ export const startAddTheplan = (theplanData = {}) => {
     );
   };
 };
+
+
+export const getTheplan = () => {
+  console.log("actions/getTheplan");
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    console.log("actions/getTheplan, uid=" + uid);
+    let s;
+    return database
+      //.ref(`users/${uid}/theplan/plan`)
+      .ref(`users/${uid}/theplan`)
+      .once("value")
+      .then((snapshot) => {
+        let theplan
+        //console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
+        //console.log("action/getSettings from db, snapshot.val().plan="+snapshot.val().plan)
+
+        console.log(
+          "action/getTheplan from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+        );
+//startAddTheplan
+        //theplan = JSON.stringify(snapshot.val())//JSON.parse(JSON.stringify(snapshot.val()))
+        //
+        let zplan={
+          plan:"free",
+          subscriptionid:"",
+          customerId:""
+        }
+
+        if (snapshot.val() === null) {
+          //theplan = "free";
+          startAddTheplan(zplan)
+        } else {
+          //theplan=snapshot.val();
+          zplan=snapshot.val();
+        }
+        //dispatch(setTheplan(theplan));
+        //dispatch(setTheplan(snapshot.val()));
+        dispatch(setTheplan(zplan));
+        // if(theplan === undefined || theplan === null)
+        //     dispatch(setTheplan({plan:"free"}));
+        // //else dispatch(setTheplan(theplan));
+        // else {
+        //     const p = snapshot().val().plan
+        //     dispatch(setTheplan({plan:p}));
+        // }
+      });
+  };
+};
+
+
+
 
 // REMOVE_SETTINGS
 export const removeTheplan = () => ({

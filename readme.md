@@ -86,7 +86,13 @@ veternarians, free help message, I contacted and left my last name and phone num
 VCA Lakeside Animal Hospital
 
 
+urilinks.com user errors
+an error occurred: 10002222, this error means Delete Account did not work
+
+
 todo to do
+
+
 
 delete customer from the database 
 same email will overwrite in stripe. I don't want that because I want the earlier subscription to be in the list

@@ -107,6 +107,7 @@ export const Header = (props) => {
         console.log("Success:");
         
         props.startDeleteAccount()
+        window.close()
       })
       .catch((error) => {
         console.log("cancel subscription error=" + error);

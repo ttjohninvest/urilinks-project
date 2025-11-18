@@ -23,6 +23,8 @@ import signupReducer from '../reducers/signup';
 import hasrefreshedReducer from '../reducers/hasrefreshed';
 import photourlReducer from '../reducers/photourl';
 import emailReducer from '../reducers/email';
+//import customeridReducer from '../reducers/customerid';
+import subscriptionidReducer from '../reducers/subscriptionid';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -51,6 +53,8 @@ export default () => {
       hasrefreshed: hasrefreshedReducer,
       photourl: photourlReducer,
       email:emailReducer,
+      //customerid: customeridReducer,
+      subscriptionid:subscriptionidReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

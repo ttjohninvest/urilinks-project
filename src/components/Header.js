@@ -99,7 +99,7 @@ export const Header = (props) => {
 
         
     } else {
-    const theemail = { "email": props.email };
+    const theemail = { "email": props.email, customerId:props.customerId.customerId, subscriptionId:props.subscriptionId.subscriptionId };
    
     fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
       method: "POST",
@@ -367,7 +367,9 @@ const mapStateToProps = (state) => ({
   settings: state.settings,
   signup: state.signup,
   email: state.email,
-  theplan: state.theplan
+  theplan: state.theplan,
+  subscriptionId: state.subscriptionId,
+  customerId: state.customerId
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -10,10 +10,12 @@ import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
 import { getSettings } from "./actions/settings";
 import { getTheplan } from "./actions/theplan";
-import { setCustomerId } from "./actions/setcustomerid";
+
 import { login, logout } from "./actions/auth";
 import { setSettings } from "./actions/settings";
 //import getVisibleLinks from './selectors/links';
+import {getCustomerId} from './actions/customerid'
+import {getSubscriptionId} from './actions/subscriptionid'
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";

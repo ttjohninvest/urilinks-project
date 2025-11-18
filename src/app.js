@@ -109,6 +109,8 @@ if (signup !== "signup") {
     if (user) {
       console.log("logged in user=" + JSON.stringify(user)); //user.photoURL
       store.dispatch(login(user.uid));
+      store.dispatch(getCustomerId(user.uid)); //this should initialize the redux variable customerId
+      store.dispatch(getSubscriptionId(user.uid));//this should initialize the redux variable subscriptionId
 
       store
         .dispatch(startSetLinks())

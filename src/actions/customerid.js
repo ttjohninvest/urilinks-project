@@ -5,11 +5,11 @@ const setCustomerId = (customerId) => ({
 
 export default setCustomerId;
 
-export const getCustomerId = () => {
+export const getCustomerId = (uid) => {
   console.log("actions/getEmail")
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-  console.log("actions/getEmail, uid="+uid)
+    //const uid = getState().auth.uid;
+  //console.log("actions/getEmail, uid="+uid)
   let s
    return database
       .ref(`users/${uid}/customerId`)

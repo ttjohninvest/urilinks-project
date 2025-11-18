@@ -5,11 +5,11 @@ const setSubscriptionId = (subscriptionId) => ({
 
 export default setSubscriptionId;
 
-export const getSubscriptionId = () => {
+export const getSubscriptionId = (uid) => {
   console.log("actions/getEmail")
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-  console.log("actions/getSubscriptionId, uid="+uid)
+    //const uid = getState().auth.uid;
+  //console.log("actions/getSubscriptionId, uid="+uid)
   let s
    return database
       .ref(`users/${uid}/subscriptionId`)

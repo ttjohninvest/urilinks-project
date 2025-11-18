@@ -21,11 +21,12 @@ export const startAddTheplan = (theplanData = {}) => {
           console.log(
             "in startAddTheplan, just before the call to dispatch to add theplanData to redux"
           );
-          dispatch(
-            addTheplan({
-              ...theplanData,
-            })
-          );
+          // dispatch(
+          //   addTheplan({
+          //     ...theplanData,
+          //   })
+          // );
+          dispatch(setTheplan(theplanData));
         })
     );
   };

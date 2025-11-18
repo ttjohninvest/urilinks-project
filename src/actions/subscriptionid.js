@@ -1,3 +1,5 @@
+import database from "../firebase/firebase";
+
 const setSubscriptionId = (subscriptionId) => ({
   type: "SET_SUBSCRIPTIONID",
   subscriptionId

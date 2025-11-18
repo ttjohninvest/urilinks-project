@@ -1,3 +1,5 @@
+import database from "../firebase/firebase";
+
 const setCustomerId = (customerId) => ({
   type: "SET_CUSTOMERID",
   customerId
@@ -6,7 +8,7 @@ const setCustomerId = (customerId) => ({
 export default setCustomerId;
 
 export const getCustomerId = (uid) => {
-  console.log("actions/getEmail")
+  console.log("actions/getCustomerId")
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
   //console.log("actions/getEmail, uid="+uid)

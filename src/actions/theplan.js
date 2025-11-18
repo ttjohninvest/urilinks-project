@@ -42,7 +42,7 @@ export const startAddTheplan = (theplanData = {}) => {
 
 export const getTheplan2 = () => {
   console.log("actions/getTheplan");
-//   return (dispatch, getState) => {
+  return (dispatch, getState) => {
 //     const uid = getState().auth.uid;
 //     console.log("actions/getTheplan, uid=" + uid);
 //     let s;
@@ -77,7 +77,7 @@ export const getTheplan2 = () => {
 //         }
        
 //       });
-//   };
+  };
 };
 
 export const getTheplan = () => {

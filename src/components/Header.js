@@ -12,6 +12,7 @@ import setHasrefreshed from "../actions/hasrefreshed";
 import { startAddPhotourl } from "../actions/photourl";
 import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
+import { setTheplan } from "../actions/theplan";
 
 // const preStartLogout=()=>{
 //   setLinks([])
@@ -85,7 +86,7 @@ export const Header = (props) => {
     //sessionStorage.setItem('hasRefreshed', 'false');
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
     props.setHasrefreshed({ hasrefreshed: false });
-
+    props.setTheplan(null)
     props.startLogout();
   };
 
@@ -392,6 +393,7 @@ const mapDispatchToProps = (dispatch) => ({
   startAddPhotourl: (photourl) => dispatch(startAddPhotourl(photourl)),
   startAddEmail: (email) => dispatch(startAddEmail(email)),
   startDeleteAccount: (email) => dispatch(startDeleteAccount(email)),
+  setTheplan: () => dispatch(setTheplan(null)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

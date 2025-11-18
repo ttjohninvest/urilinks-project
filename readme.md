@@ -92,9 +92,9 @@ an error occurred: 10002222, this error means Delete Account did not work
 
 todo to do
 
+cancel the subscription that user upgraded fron by getting the customerId and subscriptionId and
+calling cancel subscription, if you remove the customer then it automatically removes the subscription
 
-
-delete customer from the database 
 same email will overwrite in stripe. I don't want that because I want the earlier subscription to be in the list
 
 

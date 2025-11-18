@@ -93,7 +93,8 @@ export const Header = (props) => {
 
     if (confirm("Please press a button.") == true) {
     console.log("plan="+props.theplan.plan.replace(/"/g, ""))
-    if(props.theplan.plan.replace(/"/g, "")==="free") {
+    if(true) {
+    //if(props.theplan.plan.replace(/"/g, "")==="free") {
         props.startDeleteAccount()
                 logoutit()
 

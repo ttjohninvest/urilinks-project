@@ -92,7 +92,7 @@ export const Header = (props) => {
   const cancelsubscription = () => {
 
     if (confirm("Please press a button.") == true) {
-    
+    console.log("plan="+props.theplan.plan.replace(/"/g, ""))
     if(props.theplan.plan.replace(/"/g, "")==="free") {
         props.startDeleteAccount()
         window.close()

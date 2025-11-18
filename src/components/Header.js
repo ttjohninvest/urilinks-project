@@ -90,8 +90,13 @@ export const Header = (props) => {
   };
 
   const cancelsubscription = () => {
+
     if (confirm("Please press a button.") == true) {
-      //props.startDeleteAccount()
+    
+    if(props.theplan.plan.replace(/"/g, "")==="free") {
+        props.startDeleteAccount()
+        window.close()
+    } else {
     const theemail = { "email": props.email };
    
     fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
@@ -112,11 +117,12 @@ export const Header = (props) => {
       .catch((error) => {
         console.log("cancel subscription error=" + error);
       });
-    
+    }
     } else {
       alert("Canceled the deletion of the account")
       console.log("Canceled the Deletion of the Account");
     }
+  
   };
 
   return (
@@ -356,7 +362,8 @@ export const Header = (props) => {
 const mapStateToProps = (state) => ({
   settings: state.settings,
   signup: state.signup,
-  email: state.email
+  email: state.email,
+  theplan: state.theplan
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -117,31 +117,26 @@ export const Header = (props) => {
 
   const cancelsubscription = () => {
     if (confirm("Please press a button.") == true) {
-    const theemail = { "email": props.email };
-    //const theemail = { email: "ttjohninvest@gmail.com" };
-
-    //delete it from stripe
-    //urilinks-project-vercel-stripe-cancel-subscription-2qixoqvno.vercel.app
-    //fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
-    fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(theemail),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        //json
-        console.log("Success:");
-        // console.log(data);
-        // //return;
-        // console.log(JSON.stringify(data, null, 4));
-        props.startDeleteAccount()
-      })
-      .catch((error) => {
-        console.log("cancel subscription error=" + error);
-      });
+      props.startDeleteAccount()
+    // const theemail = { "email": props.email };
+   
+    // fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(theemail),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+        
+    //     console.log("Success:");
+        
+    //     props.startDeleteAccount()
+    //   })
+    //   .catch((error) => {
+    //     console.log("cancel subscription error=" + error);
+    //   });
     
     } else {
       alert("Canceled the deletion of the account")

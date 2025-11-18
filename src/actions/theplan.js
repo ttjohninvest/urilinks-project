@@ -7,6 +7,12 @@ export const addTheplan = (theplan) => ({
   theplan,
 });
 
+// SET_SETTINGS
+export const setTheplan = (theplan) => ({
+  type: "SET_THEPLAN",
+  theplan,
+});
+
 export const startAddTheplan = (theplanData = {}) => {
   console.log("startAddTheplan, theplanData=" + JSON.stringify(theplanData));
   return (dispatch, getState) => {
@@ -119,11 +125,7 @@ export const startEditTheplan = (updates) => {
   };
 };
 
-// SET_SETTINGS
-export const setTheplan = (theplan) => ({
-  type: "SET_THEPLAN",
-  theplan,
-});
+
 
 //this puts the links array in the global redux store to be used to list the output
 // export const startSetTheplan = () => {

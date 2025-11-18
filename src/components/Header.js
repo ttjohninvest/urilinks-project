@@ -128,8 +128,9 @@ if (confirm("Please press a button.") == true) {
       alert("Canceled the deletion of the account")
       console.log("Canceled the Deletion of the Account");
     }
-    } catch {
+    } catch(error) {
        alert("an error occurred: 10002222")
+       console.log("an error occurred: 10002222, error="+error)
     }
     
   

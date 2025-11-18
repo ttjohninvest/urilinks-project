@@ -68,7 +68,7 @@ export const getTheplan = () => {
 
         if (snapshot.val() === null) {
           //theplan = "free";
-          startAddTheplan(zplan)
+          dispatch(startAddTheplan(zplan))
         } else {
           //theplan=snapshot.val();
           zplan=snapshot.val();

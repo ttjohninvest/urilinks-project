@@ -347,7 +347,7 @@ export const Header = (props) => {
                     className="button button--link ib text-size-3- color-white-1 cursor-pointer"
                     onClick={cancelsubscription}
                   >
-                    (DeleteAccount)
+                    (Delete Account)
                   </button>
                 </div>
               ) : (

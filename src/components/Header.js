@@ -95,6 +95,8 @@ export const Header = (props) => {
     console.log("plan="+props.theplan.plan.replace(/"/g, ""))
     if(props.theplan.plan.replace(/"/g, "")==="free") {
         props.startDeleteAccount()
+                logoutit()
+
         
     } else {
     const theemail = { "email": props.email };
@@ -111,8 +113,9 @@ export const Header = (props) => {
         
         console.log("Success:");
         
-        logoutit()
         props.startDeleteAccount()
+                logoutit()
+
         
       })
       .catch((error) => {

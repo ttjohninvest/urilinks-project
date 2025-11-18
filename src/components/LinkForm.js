@@ -272,7 +272,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           maxlength={this.props.theplan.plan.replace(/"/g, "")==="free"?1048:2300}//"2300"
         ></textarea>
         <div>
-          <button className="button-2">Save bookmark</button>
+          <button className="button-2">Save Link</button>
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>

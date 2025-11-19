@@ -105,7 +105,9 @@ function ExpandableArray(props) {
         <div className="">
           <div
             className="flexrow2c padding-left-a borderRadius4"
-            title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
+            title={props.signup === false ? 
+              "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
+              : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."}
           >
             <div className="text-size-5 padding-top-11">
               <div className="text-size-1">{!!theuser && theuser.displayName}<span className="hide">, {!!theuser && theuser.email}</span></div>
@@ -149,8 +151,8 @@ function ExpandableArray(props) {
                         to="/signup"
                         title=""
                       >
-                        {" "}
-                        login
+                       
+                        (enter)
                       </Link>
                     </span>
                   </span>
@@ -172,7 +174,7 @@ function ExpandableArray(props) {
     </button> */}
                 {isToggled && props.signup === false && (
                   <div className="text-size-1">
-                    When you signup (click login) for an account, you get an
+                    To go inside (click enter) for an account, you get an
                     empty page to start adding your favorite links. <br />
                     You may add a note to each of your links.
                     <br />

@@ -1,10 +1,6 @@
 Fetchbookmarks.js, put foldernames in
 
-live to sandbox
-set mode to sandbox
-3 different tables each have pk value
-3 SK_... go into client secret and vercel stripe api and cancel subscription
-in urilinks-project-vercel-stripe-api "whsec_aSLiT5bL5VXNiFBl1mVm4MU0hAPNM2M2" needs to be used
+
 
 =========================================================================================
 Always stay clothed outside.
@@ -87,9 +83,6 @@ ttjohnhappy
 123ZXc12%
 
 # Git Commands
-
-veternarians, free help message, I contacted and left my last name and phone number
-VCA Lakeside Animal Hospital
 
 
 urilinks.com user errors
@@ -210,20 +203,32 @@ tools (utilities)
 get an old file command:
 git show HEAD~26:src/components/FetchBookmarks.js > FetchBookmarks-old.js
 
-tools:
+tools to make urilinks.com:
 stripe.com (payment processor)
-ttjohninvest@gmail.com (google login)
-google based signin
+ ttjohninvest@gmail.com (google login)
+ google based signin
 vercel.com (stripe cloud functions)
-ttjohninvest@gmail.com (google login)
+ ttjohninvest@gmail.com (google login)
 github.com (code repository)
-ttjohninvest@gmail.com
+ ttjohninvest@gmail.com
 cloudflare.com (statistics)
-ttjohninvest@gmail.com
+ ttjohninvest@gmail.com
 firebase.google.com (stores data)
 heroku.com (host for code)
-ttjohninvest@gmail.com
+ ttjohninvest@gmail.com
 
+---
+get the new key from stripe and put it into SK_LIVE environment variable in vercel for these three
+... cancel subscription api in vercel
+... vercel-stripe-api in vercel
+... client secret api in vercel
+---
+tools to put it into testing steps
+live to sandbox
+set mode to sandbox
+3 different tables each have pk value
+3 SK_... go into client secret and vercel stripe api and cancel subscription
+in urilinks-project-vercel-stripe-api "whsec_aSLiT5bL5VXNiFBl1mVm4MU0hAPNM2M2" needs to be used
 ---
 
 stripe secret key, stripe update time, see urilinks.com googledocuments for roll it or delete it time so I can keep accepting payments

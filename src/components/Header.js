@@ -93,7 +93,7 @@ export const Header = (props) => {
   const cancelsubscription = () => {
 //alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
     try {
-if (confirm("Please press a button.") == true) {
+if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
     //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
     //if(true) {
     if(props.theplan.plan.replace(/"/g, "")==="free") {

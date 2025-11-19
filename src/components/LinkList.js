@@ -137,15 +137,26 @@ export const LinkList = (props) => {
             <div className="list-item list-item--message">
               <span>0 links found</span>
             </div>
-          ) : (
-            props.links.slice(0,5).map((link) => {
+          ) :  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)  ? (
+            props.links.slice(0,1000).map((link) => {
               return (
                 <div>
                   <LinkListItem key={link.id} {...link} />
                 </div>
-              );
+              )
             })
-          )}
+          ):
+          (
+            props.links.map((link) => {
+              return (
+                <div>
+                  <LinkListItem key={link.id} {...link} />
+                </div>
+              )
+            })
+          )
+          
+          }
         </div>
       ) : (
         <div className="list-body margin-top-11-">

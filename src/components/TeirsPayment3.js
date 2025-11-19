@@ -17,7 +17,13 @@ const TeirsPayment3 = (props) => {
     props.history.push("/"); // Navigates back one step in the history
   };
 
+ 
+window.onpopstate = function () {
+    window.history.go(1);
+};   
+
   useEffect(()=>{
+     window.history.pushState(null, null, location.href);
     console.log("3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId);
     //setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
   },[])

@@ -105,7 +105,7 @@ function ExpandableArray(props) {
         <div className="">
           <div
             className="flexrow2c padding-left-a borderRadius4"
-            title={props.signup === false ? 
+            title={props.signup === true ? 
               "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
               : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."}
           >
@@ -310,15 +310,13 @@ function ExpandableArray(props) {
                     )}
 
                     {isToggled && props.signup === false && <span></span>}
-                    {/* {uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" ||
-                    uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93"
-                      ? "(click to change plan)"
-                      : ""} */}
-                    {/* {props.plan.replace(/"/g, "") !== "premium" ? '(click to change plan)':""} */}
+                   
                   </span>
                 </Link>
-                {//props.signup !== false &&
-                 <div><span>You have stored {props.links.length} links.</span></div>}
+      
+                 {props.signup === true ?<div><span>You have stored {props.links.length} links.</span></div>:
+                 <div><span>{props.links.length} links stored</span></div>
+                 }
               </div>
             </div>
           </div>
@@ -330,7 +328,9 @@ function ExpandableArray(props) {
                 ? "grid-container5"
                 : "grid-container5-newspaper"
             } paddingparent margin-top-1 background-white-1 borderradius5`}
-            title="Alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
+            title={props.signup === true ?"Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.":
+"Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags which were entered in the note section to find your links that are grouped by hashtag."
+            }
           >
             {!expanded
               ? props.mappedDataShort.map((s, index) => {

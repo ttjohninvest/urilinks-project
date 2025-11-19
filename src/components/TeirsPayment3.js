@@ -16,8 +16,14 @@ const TeirsPayment3 = (props) => {
     props.history.push("/"); // Navigates back one step in the history
   };
 
+  useEffect(()=>{
+    console.log("3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId);
+    setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
+  },[])
+
   useEffect(() => {
     console.log("4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId);
+    //setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
     // console.log("4 TeirsPayment3, props.links.length=" + props.links.length);
     // console.log(
     //   "TeirsPayment4, props.theplan.plan.replace(/''/g, '')=" +
@@ -38,7 +44,7 @@ const TeirsPayment3 = (props) => {
 
     //console.log("props.customerId.customerId=" + props.customerId.customerId);
     //setTheUserId(firebase.auth().currentUser.uid+"cus_TRuQdOZ1LtZPGB") //props.theplan.customerId);
-    setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
+    
     // const fetchData = async () => {
     fetch("https://urilinks-project-client-secret-api.vercel.app", {
       method: "POST",

@@ -169,7 +169,7 @@ if (confirm("Please press a button.") == true) {
                     to="/signup"
                     title=""
                   >
-                    enter
+                    (enter)
                   </Link>
                 </div>
               )}

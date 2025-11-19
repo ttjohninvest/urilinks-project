@@ -98,6 +98,8 @@ an error occurred: 10002222, this error means Delete Account did not work
 //
 todo to do
 
+i need to save the state to local storage in case user clicks back button on stripe page
+
 cancel the subscription that user upgraded fron by getting the customerId and subscriptionId and
 calling cancel subscription, if you remove the customer then it automatically removes the subscription
 

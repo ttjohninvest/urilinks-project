@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as firebase from "firebase";
+import { useHistory } from 'react-router-dom';
 
 const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
@@ -17,13 +18,20 @@ const TeirsPayment3 = (props) => {
     props.history.push("/"); // Navigates back one step in the history
   };
 
+  const history = useHistory();
+
  
-window.onpopstate = function () {
-    window.history.go(1);
-};   
+  useEffect(() => {
+    // Check if the navigation action is 'POP'
+    if (history.action === 'POP') {
+      console.log('Navigated using back or forward button');
+      // Perform actions based on back/forward navigation
+    }
+  }, [history.action]); 
+   
 
   useEffect(()=>{
-     window.history.pushState(null, null, location.href);
+     
     console.log("3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId);
     //setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
   },[])

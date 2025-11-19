@@ -27,6 +27,7 @@ const TeirsPayment3 = (props) => {
     if (props.history.action === 'POP') {
       console.log('Navigated using back or forward button');
       // Perform actions based on back/forward navigation
+      props.history.push("/")
     }
   }, [props.history.action]); 
    

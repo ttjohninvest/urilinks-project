@@ -6,7 +6,7 @@ import * as firebase from "firebase";
 const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
-  const [theUserId, setTheUserId] = useState(props.theplan.customerId);
+  const [theUserId, setTheUserId] = useState(firebase.auth().currentUser.uid+props.theplan.customerId);
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
   const [isStandard, setIsStandard] = useState(false);
@@ -22,6 +22,7 @@ const TeirsPayment3 = (props) => {
   },[])
 
   useEffect(() => {
+    console.log("4 theUserId="+theUserId)
     console.log("4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId);
     //setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
     // console.log("4 TeirsPayment3, props.links.length=" + props.links.length);

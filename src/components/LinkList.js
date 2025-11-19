@@ -137,7 +137,7 @@ export const LinkList = (props) => {
             <div className="list-item list-item--message">
               <span>0 links found</span>
             </div>
-          ) :  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)  ? (
+          ) :  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) === true  ? (
             props.links.slice(0,100).map((link) => {
               return (
                 <div>
@@ -179,11 +179,17 @@ export const LinkList = (props) => {
               <div className="list-item list-item--message">
                 <span>0 links found</span>
               </div>
-            ) : (
+            ) : /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) === true  ? (
+              props.links.splice(0,100).map((link) => {
+                return <LinkListItem2 key={link.id} {...link} />;
+              })
+            ):
+            (
               props.links.map((link) => {
                 return <LinkListItem2 key={link.id} {...link} />;
               })
-            )}
+            )
+            }
           </div>
         </div>
       )}

@@ -23,14 +23,14 @@ const TeirsPayment3 = (props) => {
 
 
  
-  // useEffect(() => {
-  //   // Check if the navigation action is 'POP'
-  //   if (props.history.action === 'POP') {
-  //     console.log('Navigated using back or forward button');
-  //     // Perform actions based on back/forward navigation
-  //     props.history.push("/")
-  //   }
-  // }, [props.history.action]); 
+  useEffect(() => {
+    // Check if the navigation action is 'POP'
+    if (props.history.action === 'POP') {
+      console.log('Navigated using back or forward button');
+      // Perform actions based on back/forward navigation
+      props.history.push("/")
+    }
+  }, [props.history.action]); 
    
 
   useEffect(()=>{
@@ -72,6 +72,7 @@ const TeirsPayment3 = (props) => {
     if (props.history.action === 'POP') {
       console.log('Navigated using back or forward button');
       // Perform actions based on back/forward navigation
+      
       props.history.push("/")
     }
   }

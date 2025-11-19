@@ -3,7 +3,7 @@ Fetchbookmarks.js, put foldernames in
 live to sandbox
 set mode to sandbox
 3 different tables each have pk value
-2 sk values go into client secret and vercel stripe api
+3 SK_... go into client secret and vercel stripe api and cancel subscription
 in urilinks-project-vercel-stripe-api "whsec_aSLiT5bL5VXNiFBl1mVm4MU0hAPNM2M2" needs to be used
 
 =========================================================================================

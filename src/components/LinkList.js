@@ -137,7 +137,7 @@ export const LinkList = (props) => {
             <div className="list-item list-item--message">
               <span>0 links found</span>
             </div>
-          ) :  true  ? (
+          ) :  false  ? (
             props.links.slice(0,100).map((link) => {
               return (
                 <div>
@@ -179,7 +179,7 @@ export const LinkList = (props) => {
               <div className="list-item list-item--message">
                 <span>0 links found</span>
               </div>
-            ) : true  ? (
+            ) : false  ? (
               props.links.splice(0,100).map((link) => {
                 return <LinkListItem2 key={link.id} {...link} />;
               })

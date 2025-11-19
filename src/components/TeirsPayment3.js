@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as firebase from "firebase";
 //import { useHistory } from 'react-router-dom';
+import LoadingPage from 'LoadingPage'
 
 
 const TeirsPayment3 = (props) => {
@@ -96,7 +97,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
       &&
         props.links.length <= 5000 ? (
         <div> 
-
+<LoadingPage />
         </div>
       ) : props.theplan.plan.replace(/"/g, "") === "free" ? (<div>
         <div className="margin-left-11">You are on the free plan. You may store up to 250 links, <span>You have stored {props.links.length} links.</span></div>

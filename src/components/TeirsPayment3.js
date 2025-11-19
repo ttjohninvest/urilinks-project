@@ -18,7 +18,7 @@ const TeirsPayment3 = (props) => {
 
   useEffect(()=>{
     console.log("3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId);
-    setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
+    //setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
   },[])
 
   useEffect(() => {

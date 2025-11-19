@@ -138,7 +138,7 @@ export const LinkList = (props) => {
               <span>0 links found</span>
             </div>
           ) :  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)  ? (
-            props.links.slice(0,1000).map((link) => {
+            props.links.slice(0,100).map((link) => {
               return (
                 <div>
                   <LinkListItem key={link.id} {...link} />

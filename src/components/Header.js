@@ -91,10 +91,10 @@ export const Header = (props) => {
   };
 
   const cancelsubscription = () => {
-alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
+//alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
     try {
 if (confirm("Please press a button.") == true) {
-    console.log("plan="+props.theplan.plan.replace(/"/g, ""))
+    //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
     //if(true) {
     if(props.theplan.plan.replace(/"/g, "")==="free") {
         props.startDeleteAccount()
@@ -102,7 +102,7 @@ if (confirm("Please press a button.") == true) {
 
         
     } else {
-      alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
+      //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
     const theemail = { "email": props.email, customerId:props.theplan.customerId, subscriptionId:props.theplan.subscriptionId };
    
     fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {

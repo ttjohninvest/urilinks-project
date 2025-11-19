@@ -17,11 +17,12 @@ const TeirsPayment3 = (props) => {
   };
 
   useEffect(() => {
-    console.log("4 TeirsPayment3, props.links.length=" + props.links.length);
-    console.log(
-      "TeirsPayment4, props.theplan.plan.replace(/''/g, '')=" +
-        props.theplan.plan.replace(/"/g, "")
-    );
+    console.log("4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId);
+    // console.log("4 TeirsPayment3, props.links.length=" + props.links.length);
+    // console.log(
+    //   "TeirsPayment4, props.theplan.plan.replace(/''/g, '')=" +
+    //     props.theplan.plan.replace(/"/g, "")
+    // );
 
     // if (props.theplan.plan.replace(/"/g, "") === "free") {
     //   console.log("calling setIsFree");
@@ -36,7 +37,7 @@ const TeirsPayment3 = (props) => {
     // }
 
     //console.log("props.customerId.customerId=" + props.customerId.customerId);
-    setTheUserId(firebase.auth().currentUser.uid);
+    setTheUserId(firebase.auth().currentUser.uid+"%%"+props.theplan.customerId);
     // const fetchData = async () => {
     fetch("https://urilinks-project-client-secret-api.vercel.app", {
       method: "POST",
@@ -64,7 +65,7 @@ const TeirsPayment3 = (props) => {
       props.links.length <= 250  ? (
         
         <stripe-pricing-table pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
-        client-reference-id={theUserId+""+props.theplan.customerId}
+        client-reference-id={theUserId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "basic" 
@@ -74,7 +75,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
         
 
         <stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
-        client-reference-id={theUserId+""+props.theplan.customerId}
+        client-reference-id={theUserId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "standard" 
@@ -83,7 +84,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
         props.links.length <= 2500 ? (
    
 <stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
-client-reference-id={theUserId+""+props.theplan.customerId}
+client-reference-id={theUserId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
 

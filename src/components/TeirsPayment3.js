@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as firebase from "firebase";
@@ -23,14 +23,14 @@ const TeirsPayment3 = (props) => {
 
 
  
-  useEffect(() => {
-    // Check if the navigation action is 'POP'
-    if (props.history.action === 'POP') {
-      console.log('Navigated using back or forward button');
-      // Perform actions based on back/forward navigation
-      props.history.push("/")
-    }
-  }, [props.history.action]); 
+  // useEffect(() => {
+  //   // Check if the navigation action is 'POP'
+  //   if (props.history.action === 'POP') {
+  //     console.log('Navigated using back or forward button');
+  //     // Perform actions based on back/forward navigation
+  //     props.history.push("/")
+  //   }
+  // }, [props.history.action]); 
    
 
   useEffect(()=>{
@@ -62,6 +62,19 @@ const TeirsPayment3 = (props) => {
         console.error("There was a problem with the fetch operation:", error)
       );
   }, []);
+
+  const initializedRef = useRef(false);
+  if (!initializedRef.current) {
+    // This code runs only once, before the first render
+    // Perform checks or setup here
+
+    initializedRef.current = true;
+    if (props.history.action === 'POP') {
+      console.log('Navigated using back or forward button');
+      // Perform actions based on back/forward navigation
+      props.history.push("/")
+    }
+  }
 
   return (
     <div className="body1 flexrow2w">

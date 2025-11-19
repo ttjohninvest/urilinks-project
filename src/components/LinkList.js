@@ -138,7 +138,7 @@ export const LinkList = (props) => {
               <span>0 links found</span>
             </div>
           ) : (
-            props.links.map((link) => {
+            props.links.slice(0,5).map((link) => {
               return (
                 <div>
                   <LinkListItem key={link.id} {...link} />

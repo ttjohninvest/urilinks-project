@@ -6,8 +6,8 @@ import * as firebase from "firebase";
 const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
-  //const [theUserId, setTheUserId] = useState(firebase.auth().currentUser.uid+props.theplan.customerId);
-  const [theUserId, setTheUserId] = useState(firebase.auth().currentUser.uid);
+  const [theUserId, setTheUserId] = useState(firebase.auth().currentUser.uid+props.theplan.customerId);
+  //const [theUserId, setTheUserId] = useState(firebase.auth().currentUser.uid);
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
   const [isStandard, setIsStandard] = useState(false);

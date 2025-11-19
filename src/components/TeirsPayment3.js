@@ -37,7 +37,7 @@ const TeirsPayment3 = (props) => {
     // }
 
     //console.log("props.customerId.customerId=" + props.customerId.customerId);
-    setTheUserId(firebase.auth().currentUser.uid+"ab");
+    setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId);
     // const fetchData = async () => {
     fetch("https://urilinks-project-client-secret-api.vercel.app", {
       method: "POST",

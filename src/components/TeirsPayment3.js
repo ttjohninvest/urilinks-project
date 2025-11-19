@@ -18,7 +18,7 @@ const TeirsPayment3 = (props) => {
     props.history.push("/"); // Navigates back one step in the history
   };
 
-  const history = useHistory();
+  const history = useHistory;
 
  
   useEffect(() => {

@@ -244,7 +244,7 @@ if (confirm("Please press a button.") == true) {
                   </span>
                 </Link>
               </div>
-              {props.signup.signup === true && (
+              {props.theplan.plan.replace(/"/g, "")!=="premium" && signup.signup === true && (
                 <div>
                   <Link className="header__title" to="/teirspayment3">
                     <span

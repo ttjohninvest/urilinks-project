@@ -169,7 +169,7 @@ if (confirm("Please press a button.") == true) {
                     to="/signup"
                     title=""
                   >
-                    login
+                    enter
                   </Link>
                 </div>
               )}
@@ -346,7 +346,7 @@ if (confirm("Please press a button.") == true) {
                     className="button button--link ib text-size-3- color-white-1 cursor-pointer"
                     onClick={logoutit}
                   >
-                    (Logout)
+                    (exit)
                   </button>
                 </div>
               ) : (

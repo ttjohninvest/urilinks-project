@@ -1,57 +1,80 @@
 import React from "react";
 import { addSettings } from "./../actions/settings";
-import FileUpload from './FileUpload';
-import { combineReducers } from 'redux';
+import FileUpload from "./FileUpload";
+import { combineReducers } from "redux";
 
 const Benefits = () => (
   <div className="list-header__flex__center">
     <ul>
       <li>urilinks.com Benefits:</li>
-    
       <li>
-        You save bookmarks to web pages that you want to return to. It is similar to
-        a filing cabinet for pages.
-      </li>       
-       <li>Everyone gets their own private account.</li>
+        I give you a link to your link page to share on your instagram profile.
+      </li>
+      <li>
+        The link looks like this: https://urilinks.com/dashboard?signup=&id=W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+      </li>
+      <li>
+        You save bookmarks to web pages that you want to return to. It is
+        similar to a filing cabinet for pages.
+      </li>
+      <li>Everyone gets their own private account.</li>
       <li>Your account is secret from other accounts.</li>
       <li>
-       You may export and then import bookmarks to this program from these browsers: chrome, firefox, edge, opera, brave
+        You may export and then import bookmarks to this program from these
+        browsers: chrome, firefox, edge, opera, brave
       </li>
-     
+
       <li>Instructional Steps:</li>
-       <li>
-        To upload a browser's bookmarks file:<br />
-        1. go to the bookmarks manager and export the bookmarks FileUpload<br />
-        2. click on "bookmarks file uploader" within urilinks.combineReducers<br />
-        3. click on "upload file" to select the bookmmarks file you exported<br />
-        4. click on "upload"<br />
-        5. click on "convert folder names to hashtags"<br />
-        6. click on "import bookmarks"<br />
-        7. follow the confirmation step.<br />
-        8. look for the bookmarks in the hashtag list or through "search folder name" dropdown list
-         <li>
-        Note: If you bookmark google or youtube pages, you may need to change the
-        hashtag by editing the note section in the link because for a youtube
-        page the default hashtag will be #youtube and for a google page, the
-        default hashtag will be #google.
-      </li>
-       </li>
-
+      <li>
+        To upload a browser's bookmarks file:
+        <br />
+        1. go to the bookmarks manager and export the bookmarks FileUpload
+        <br />
+        2. click on "bookmarks file uploader" within urilinks.combineReducers
+        <br />
+        3. click on "upload file" to select the bookmmarks file you exported
+        <br />
+        4. click on "upload"
+        <br />
+        5. click on "convert folder names to hashtags"
+        <br />
+        6. click on "import bookmarks"
+        <br />
+        7. follow the confirmation step.
+        <br />
+        8. look for the bookmarks in the hashtag list or through "search folder
+        name" dropdown list
         <li>
-        To add a bookmark one at a time:
-        1. click "Add Link"
-        2. fill out the information
+          Note: If you bookmark google or youtube pages, you may need to change
+          the hashtag by editing the note section in the link because for a
+          youtube page the default hashtag will be #youtube and for a google
+          page, the default hashtag will be #google.
+        </li>
       </li>
 
-       <li>
-        To chat about a bookmark you have, follow these steps:<br />
-        1. see if family member or friend is online by click on the blue circle bedow the bookmark.<br />
-        2. if person is online, send him or her a chat saying you are going to send a bookmark to their news feed.<br />
-        3. click on facebook button to the far left below the bookmark to send the bookmark to person's facebook news feed.<br />
-        5. go back to messenger to chat abbout the bookmark with your family member or friend.<br />
+      <li>
+        To add a bookmark one at a time: 1. click "Add Link" 2. fill out the
+        information
       </li>
 
-       <li>
+      <li>
+        To chat about a bookmark you have, follow these steps:
+        <br />
+        1. see if family member or friend is online by click on the blue circle
+        bedow the bookmark.
+        <br />
+        2. if person is online, send him or her a chat saying you are going to
+        send a bookmark to their news feed.
+        <br />
+        3. click on facebook button to the far left below the bookmark to send
+        the bookmark to person's facebook news feed.
+        <br />
+        5. go back to messenger to chat abbout the bookmark with your family
+        member or friend.
+        <br />
+      </li>
+
+      <li>
         AI cannot replace the way you want to organize your internet bookmarks
         with hash tags.
       </li>
@@ -59,20 +82,18 @@ const Benefits = () => (
         Bookmarks are sharable with others, just email a person with your
         bookmarks.html file.
       </li>
-    
+
       <li>
         You are able to see your bookmarks better in a neat clickable list
         layout. You may add a note up to 1,024 characters using the free plan,
-        2,300 for the other plans to your link from the Add Link button
-        or later through the Edit Uri/Url Link button.
+        2,300 for the other plans to your link from the Add Link button or later
+        through the Edit Uri/Url Link button.
       </li>
 
       <li>
         All of your holy church, entertainment, business or educational links
         are in one place with one click link activation.
       </li>
-
-    
 
       <li>
         For each website link that you save, you have the option of entering a
@@ -101,8 +122,8 @@ const Benefits = () => (
           tag in the note. They will be given in alphabetical order. You may
           organize any group of links this way. For example, if you have 5
           uri/url links that are your favorites, put The hash tag #favorite in
-          the note section for each of the 5 in the add Link form. You will
-          need two or more hash tags for the hash tags window to appear.
+          the note section for each of the 5 in the add Link form. You will need
+          two or more hash tags for the hash tags window to appear.
         </li>
 
         <li>
@@ -134,7 +155,7 @@ const Benefits = () => (
         Please see the header section of the home page and click on the "click
         to change plan" link.
       </li>
-    
+
       <li>
         To find your newly uploaded bookmarks, select hashtag from the dropdown
         menu and then in the field to the left enter the hash tag.
@@ -144,12 +165,12 @@ const Benefits = () => (
         Bookmarks are uri/url links. uri, uniform resource identifier, is a more
         general term for url, uniform resource locator.
       </li>
-    <li>
-    ttjohninvest@gmail.com, 775 507-0098, John
-    <br />
-    <br />
-    urilinks.com
-    </li>
+      <li>
+        ttjohninvest@gmail.com, 775 507-0098, John
+        <br />
+        <br />
+        urilinks.com
+      </li>
     </ul>
   </div>
 );

@@ -263,7 +263,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   onClick={scrolldown}
                   title="if the search and results section is not in view, click this to scroll search and results section into view."
                 >
-                  (search section)
+                  (go to search section)
                 </div>
               )}
 

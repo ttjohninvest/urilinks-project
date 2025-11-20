@@ -90,6 +90,152 @@ an error occurred: 10002222, this error means Delete Account did not work
 
 //
 todo to do
+donation for building projects: passionistnuns.org, website, it won't let me make a credit card donation, on email
+it transfers me to the paypal login, paypal won't take my credit card informationn to connect my debit card and it
+won't let me connect my bank account, the dialog opens after I try to login  to the bank but it does not connect.
+contact or send it by money order.
+Passionist Nuns at Saint Joseph's Monastery
+8564 Crisp Rd, Whitesville, KY 42378
+in care of financial dept.
+
+FB AD CREATION https://www.youtube.com/watch?v=zqHH39utmoI
+working targeting and creative for it to work and good landing page experience
+working , for it to work you need working targeting and working ad image, video and copy
+make a fb page
+make a business account
+open up ads manager
+click create ad
+ their are three levels in every fb ad campaign
+ campaign engagement, lead gen, sales, budget are defined
+  ad sets tageting, bids, placement, schedule and sometimes budget as well
+   ads in each ad set copies, video or images you use
+    you can have copies of the same ads running at the same time for testing purposes
+
+ to build a campaign
+  set objective
+  small budget, start with leads or sales
+  with large budget start with brand awareness or traffic and then retarget from there
+  next
+  choose campaign setup
+   small budget and don't have a lot too loose, trust meta with camplaign shopping campaign and use audiences
+  next
+   set your budget, 1x your product price everyday in order to get sufficient data, 2x, 3x is better
+    $3.00/day is the minimum, the more money you give, the better results and data it is going to give
+   set your target
+    if you don't have a lot of data on your buyers focus on only one interest/niche at a time
+     18-65+, all, caring, start broad and narrow things down as you go
+     broad targeting lets fb optimize your campaign with the best audiences
+     broad campaigns can be more cost effective
+     advantage+ helps you choose the best audience
+      if you know customer purchase behavior based on customer data that you have, go superniche and target this group
+  next
+   location, interest, age
+    you can a/b test and run two of the same campaigns for 1 to 2 weeks, one to a intest/niche audience and one to a broad audience,
+     when you have a winner, run with that one, run the winning ad for 3 to 4 weeks, if it works well and its evergreen kepp running it but make sure to keep you creatives fresh which means Keeping creatives fresh means regularly updating ad content to maintain audience engagement and prevent ad fatigue, which occurs when repeated exposure diminishes an ad's effectiveness.
+      FB NEEDS TO LEARN ABOUT WHAT WORKS, ADJUST IMPORTANT DETAILS ON CAMPAIGN UNTIL IT HAS FINISHED THE LEARNING PHASE
+                      IF DELIVERY SAYS LEARNING, FB IN LEARNING PHASE
+                      The Facebook Ads learning phase typically lasts until an ad set achieves approximately 50 optimization events within a 7-day period.
+                      This duration can vary significantly based on factors such as the ad budget, audience size, conversion rate, and the specific optimization goal.
+                      While the standard timeframe is around 7 days, the phase may conclude in a few hours if sufficient data is collected quickly, or it may extend beyond 7 days if the ad set fails to accumulate enough events.
+                      If the system cannot gather the required 50 events within the 7-day window, the ad set may enter a "Learning Limited" status, indicating insufficient data for optimization
+
+                      META NEEDS CONVERSIONS TO LEARN WHAT WORKS
+                       learning period timeframe is based on comversion volume, fb learns in 2 hours if you make 2000 sales per day, 5 sales per week it takes fb a month to learn if it is getting good results
+                  
+
+      then evaluate the impressions https://www.facebook.com/business/help/675615482516035/
+    (notice trying to run interest/niche campaigns without proper customer data won't work)
+
+    next
+     ad creatives, very important, IF AD CREATIVES IS WRONG, GOOD TARGETING WONT WORK.
+      important: use agency, use User Generated Content, UGC or create the ad images video yourself
+
+      A Facebook ad creative refers to the visual and textual elements of an advertising campaign designed to engage and persuade a target audience.
+      choice to boost content you already made
+      or your own ad creatives
+    
+      OPTIONS: videos, images, carasels or collections
+
+      Ads should feel like a post from a friend, organic
+       you want the ad to keep the person looking at it engaged
+       use hook to get person's attention, show how it actually solves their problem
+
+                 [LOOK AT META ADS LIBRARY TO LOOK AT LIVE ADS
+                  LOOK AT ADS THAT HAVE BEEN RUNNING FOR SEVERAL MONTHS AND HAVE BEEN DOING WELL
+                  FIGURE OUT WHY THEY ARE WORKING AND CREATE ADS WITH THE SAME FORMAT
+                  DON'T COMPLETELY COPY, USE THE FORMAT AND MAKE IT YOUR OWN, THIS WAY
+                  YOU CAN USE SOMEONE ELSES TESTING]
+
+                  [ATTENTION GETTING: LIMITED DISCOUNTS, FREE SHIPPING, PRODUCT BUNDLING AND MORE]
+      next 
+       CALL TO ACTION, people need to be told what they must do to get what they want, give a command
+        you need to have these in your creative ad sets or your copy
+         click the link below to shop now, click the link here to get 10% off, 
+
+      next budgeting, bidding
+       budget can be set on campaign level,  ad set level or ad level
+        advantage+ sets budget on campaign level
+       setting budget at ad set level will give more control on how ads are delivered
+
+                 USE CAMPLAIGN BUDGETS FOR TESTING
+                 USE Ad set budget once you  know what is working
+      
+
+       SMALL BUDGET IS THE STARTING POINT UNTIL YOU KNOW YOUR CAMPAIGNS ARE PROFITABLE
+       SMALL BUDGET COPY WHAT WORKS IN YOUR INDUSTRY ALREADY
+
+       next, 
+        bidding strategies, spend based bidding is spending your budget and getting the highest value possible 
+         fb is going to try an optimize your entire budget
+        
+        next, to keep costs low fb recommends this one
+         goal based bidding, you set a cost or value you want to acheive, CPR Cost Per Result, or
+          return on ad spend goal, ROAS goal
+
+        next,
+         manual bidding, here you control how much you bid at ad auctions
+
+      next a/b testing
+       test different ad creatives, different audiences, and your landing pages, test one variable at a time so you
+       know what works, to run a test duplicate you campaign, ad set or ad and then change the variable you want to test
+
+       next
+        TRACK TO SUCCESS OF CAMPAIGN WITH PIXEL CODE, go to events manager, click connect data button, then web then enter
+        your url, urilinks.com, then click write code now and install the code in urilinks.com
+         MAKE SURE YOUR AD CAMPAIGN IS ATTACHED TO THE RIGHT PIXEL CODE
+         monitors conversions, views and actions on your website, or wherever you are sending your leads to
+
+       next analyze key metrics
+        CTR Click Through Rate, your goal is 1-3% click through rate
+        ROAS Return On Ad Spent this shows how much revenue your ad generates
+        CPA Cost Per Action, 
+        Converstion Rate, % of users who took your desired action after interacting with your ad, ecommerce 2% to 5% is standard
+        Frequency, % of people in target audience who saw your ad within a specific timeframe
+        CAC, Cost to Aquire a Customer, 
+
+        Tips for SCALING and maximizing your Return on Investment ROI
+         USE LOOK ALIKE AUDIENCES
+          under advantage+ audience click create new, then click look alike option for top subscribers, top purchasers
+           or highly engaged users
+
+         SCALING STATEGY #2
+          incremental budget scaling
+           increase your budget 20% to 30% every two to three days on ads and camplaigns that are working only
+
+         SCALING STRATEGY #3
+          add new ad creatives every 2 to 3 weeks to keep things fresh while using the format that works best for your 
+           interest/niche. scale up and start using more of what is working, once you know what works, it is all
+           about volume, 
+
+         SCALING STRATEGY #4, 
+          very important: retarget users who have clicke on your ad but did not convert, research indicates
+           that a person needs to see a product or service 7 TIMES before they buy. Once you have retargeted
+           enough people will not be able to forget you.
+
+
+
+
+
 
 i need to save the state to local storage in case user clicks back button on stripe page
 

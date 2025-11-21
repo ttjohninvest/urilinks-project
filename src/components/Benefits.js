@@ -6,7 +6,7 @@ import { combineReducers } from "redux";
 const Benefits = () => (
   <div>
   <div className="list-header__flex__center">
-    urilinks tool:<br />
+    urilinks tool use:<br />
 -for instagram profile or other, a copy and paste-able link provided to your links bio page<br />
 -links are added one at a time or through the bookmarks uploader<br />
 -links are not limited to commercial purposes<br />

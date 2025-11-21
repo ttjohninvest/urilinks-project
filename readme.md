@@ -98,6 +98,10 @@ Passionist Nuns at Saint Joseph's Monastery
 8564 Crisp Rd, Whitesville, KY 42378
 in care of financial dept.
 
+if I only have space for 1 ad, then for it to ad the ad into urilinks.com db, you must 
+create the bookmark file and export the bookmark file with the ad in it, if two ads, then 2 ads in the 
+bookmark file
+
 FB AD CREATION https://www.youtube.com/watch?v=zqHH39utmoI
 working targeting and creative for it to work and good landing page experience
 working , for it to work you need working targeting and working ad image, video and copy
@@ -232,9 +236,23 @@ click create ad
            that a person needs to see a product or service 7 TIMES before they buy. Once you have retargeted
            enough people will not be able to forget you.
 
+I provide a link to your links page, "link in bio."
+All of the functionality is there to get a link to share your links page link on instagram profile, youtube comments or other "link in bio" platforms but I offer up to 5000 links on your links page. Also, I offer a x.com (twitter) like alphabetized hashtag link grouping. These grouping can be changed in the notes section of the link were hashtags may be added or removed for the purpose of regrouping the link. All hastag groupings are clickable to see what links are grouped. Links may also be accessed through an alphabetized drop down list were spaces are not removed from the link title. The first 250 links are free. The paid plans are 251 to 1500 links storage capacity is $4.99 per year, 1501 to 2500 links storage capacity is $9.99 per year and 2501 to 5000 links storage capacity is $14.99 per year.
 
-
-
+urilinks tool benefits
+-for instagram profile or other, a copy and paste-able link provided to your links bio page
+-links are not limited to commercial purposes
+-up to 5000 links storage capacity on links bio page
+-search by link title, hashtag, notes or date range
+-easy grouping or regrouping of links by hashtag
+-clickable hashtags to see grouped links are in in alphabetical order
+-clickable titles to see grouped links are present in dropdown list in alphabetical order
+-upload bookmarks tool provided
+-bookmarks are automatically converted to bio links
+-satisfying
+-plans: 0 to 250 bio links free, 251 to 1500 bio links $4.99 per year, 1501 to 2500 bio links $9.99 per year, 2501 to 5000 bio links $14.99 per year
+-plan may be upgraded at anytime, new plan supersedes old plan and pay cycle renews on day of renewal and old plan is canceled
+-easy account deletion, no refunds
 
 
 i need to save the state to local storage in case user clicks back button on stripe page

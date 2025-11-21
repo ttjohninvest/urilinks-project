@@ -387,6 +387,12 @@ get the new key from stripe and put it into SK_LIVE environment variable in verc
 ... vercel-stripe-api in vercel
 ... client secret api in vercel
 ---
+domain names
+struttinstuff.com expires 11/20/2026
+urilinks.com expires 04/26/2026
+---
+
+
 tools to put it into testing steps
 live to sandbox
 set mode to sandbox
@@ -690,6 +696,9 @@ set the domain that I can use
 "can do" sourcelinks.com
 
 domain names
+struttinstuff.com expires 11/20/2026
+urilinks.com expires 04/26/2026
+
 urlviv.com
 cultureviv.com
 socioviv.com

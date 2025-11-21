@@ -221,7 +221,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                 </div>
               )}
               <div>
-                <Link className="header__title- nounderline" to="/benefits">
+                <Link className="header__title- nounderline" to="/use">
                   <span
                     className="margin-right-1-ib- color-white-1 cursor-pointer"
                     title="How to use this website"

@@ -29,6 +29,7 @@ function ExpandableArray(props) {
   const [newspaper, setNewspaper] = useState(props.newspaper);
   const textAreaRef = useRef(null);
   const [photoURL, setPhotoURL] = useState("");
+  
 
   let x = false;
   if (window.localStorage.getItem("hideinformation") === null) {
@@ -206,15 +207,19 @@ function isMobile() {
                       </Link>
                     </span>
                   </span>
-                ) : (
-                  <button
-                    onClick={handleChange}
-                    className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
-                    aria-label="Toggle button"
-                  >
-                    {isToggled ? "hide information" : "show information"}
-                  </button>
-                )}
+                ) : ""
+                
+                // (
+                //   <button
+                //     onClick={handleChange}
+                //     className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
+                //     aria-label="Toggle button"
+                //   >
+                //     {isToggled ? "hide information" : "show information"}
+                //   </button>
+                // )
+                
+                }
                 {/* <button
       onClick={handleChange}
       className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
@@ -364,7 +369,7 @@ function isMobile() {
                   </span>
                 </Link>
       
-                 {props.signup === true ?<div><span>You have stored {props.links.length} links.</span></div>:
+                 {props.signup === true ?<div><span>You have stored {props.links.length} links</span><span> on the {props.theplan.plan.replace(/"/g, "")} plan.</span></div>:
                  <div><span>{props.links.length} links stored</span></div>
                  }
               </div>

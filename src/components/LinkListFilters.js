@@ -160,18 +160,18 @@ function isMobile() {
               )}
 
               <div className="text-size-1 textCenter"><span className="text-size-9">{!!theuser && theuser.displayName}</span><span className="hide">, {!!theuser && theuser.email}</span></div>
-              <div className="text-size-1">Welcome {!theuser ? "to this example links page. What makes you smile?":", what makes you smile?"}</div>
+              <div className="text-size-1 textLeft">Welcome {!theuser ? "to this example links page. What makes you smile?":", what makes you smile?"}</div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
  
 {/* {isMobile()?"yes":"no"} */}
               {props.signup === false ? (
-                <div className="text-size-1">
+                <div className="text-size-1 textLeft">
                   <span className="font-weight-bold">
                     You can get your sharable link to share your links page with everybody by logging in, adding links and copy and pasting your link anywhere a link is accepted like youtube comments, instagram profile, facebook.
                   </span>
                 </div>
               ) : (
-                <div className="text-size-1">
+                <div className="text-size-1 textLeft">
                   Thank you. Your sharable link is:
                   <a
                     href="#"
@@ -190,7 +190,7 @@ function isMobile() {
                 </div>
               )}
 
-              <div className="text-size-1">
+              <div className="text-size-1 textLeft">
                 <span className="text-size-9">😃 </span>Your friendly link to links tool
                 {isToggled && props.signup === false ? (
                   <span>
@@ -223,7 +223,7 @@ function isMobile() {
       {isToggled ? 'hide information' : 'show information'}
     </button> */}
                 {isToggled && props.signup === false && (
-                  <div className="text-size-1">
+                  <div className="text-size-1 textLeft">
                     To go inside (click enter) for an account, you get an
                     empty page to start adding your favorite links. <br />
                     You may add a note to each of your links.
@@ -231,7 +231,7 @@ function isMobile() {
                   </div>
                 )}
                 {isToggled && props.signup === true && (
-                  <div className="text-size-1">
+                  <div className="text-size-1 textLeft">
                     You may start adding your favorite links using the Add
                     Link button below or Bookmarks File Uploader above.
                     <br />
@@ -259,7 +259,7 @@ function isMobile() {
               <br />
               {props.signup === false &&
                 props.uid === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && (
-                  <div>
+                  <div className="textLeft">
                     <iframe
                       width="300"
                       height="200"
@@ -275,29 +275,29 @@ function isMobile() {
                   </div>
                 )}
               {isToggled && props.signup === false && (
-                <div>Click example hashtag to see links to webpages</div>
+                <div className="textLeft">Click example hashtag to see links to webpages</div>
               )}
 
               {isToggled && props.signup === true && (
-                <div>Click hashtag to see links to webpages</div>
+                <div className="textLeft">Click hashtag to see links to webpages</div>
               )}
 
               {isToggled && props.signup === false && (
-                <div>
+                <div className="textLeft">
                   To see to see links to webpages, check out the search
                   folder name dropdown list
                 </div>
               )}
 
               {isToggled && props.signup === true && (
-                <div>
+                <div className="textLeft">
                   Check out the search folder name dropdown list in the orange
                   rectangle for folder names with links to webpages
                 </div>
               )}
 
               {isToggled && props.signup === false && (
-                <div>Please give it try to see how it works.</div>
+                <div className="textLeft">Please give it try to see how it works.</div>
               )}
               {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
               {/* <br />
@@ -316,7 +316,7 @@ function isMobile() {
 
             <div className="flexrow2e">
               {isToggled && props.signup === true && (
-                <div title="current plan" className="margin-right-1">
+                <div title="current plan" className="margin-right-1 textLeft">
                   plan: {props.plan.replace(/"/g, "")}
                 </div>
               )}

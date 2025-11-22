@@ -658,7 +658,7 @@ const addIdToDelete=(id)=>{
   return (
     <div className="margin-bottom-1">
       <div className="card-background-color">
-        <div className="list-item__flex">
+        <div className="list-item__flex margin-right-117">
           <div className="">
             <div className="flexrow2 margin-5">
               <div>

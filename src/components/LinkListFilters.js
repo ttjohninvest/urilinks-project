@@ -29,6 +29,7 @@ function ExpandableArray(props) {
   const [newspaper, setNewspaper] = useState(props.newspaper);
   const textAreaRef = useRef(null);
   const [photoURL, setPhotoURL] = useState("");
+  const [maximum, setMaximum] = useState(0)
   
 
   let x = false;
@@ -41,6 +42,7 @@ function ExpandableArray(props) {
   //
   const [isToggled, setIsToggled] = useState(x);
 
+
   const handleChange = () => {
     //let isT = !isToggled
     setIsToggled(!isToggled);
@@ -49,6 +51,21 @@ function ExpandableArray(props) {
   };
 
   useEffect(() => {
+
+                   if(props.theplan.plan.replace(/"/g, "") === "free") {
+                       setMaximum(StorageSizes.free)
+                    } 
+                    else if(props.theplan.plan.replace(/"/g, "") === "basic") {
+                       setMaximum(StorageSizes.basic)
+                    }
+                    else if(props.theplan.plan.replace(/"/g, "") === "standard") {
+                       setMaximum(StorageSizes.standard)
+                    }
+                    else if (props.theplan.plan.replace(/"/g, "") === "premium") {
+                       setMaximum(StorageSizes.premium)
+                    }
+
+
      const user = firebase.auth().currentUser;
         if (user !== null && user !== undefined) {
           setPhotoURL(user.photoURL);
@@ -378,7 +395,7 @@ function isMobile() {
                 </Link>
       
                  {props.signup === true ?<div><span>You have stored {props.links.length} links</span><span> on the {props.theplan.plan.replace(/"/g, "")} plan.</span></div>:
-                 <div><span>{props.links.length} links stored</span></div>
+                 <div><span>{props.links.length} links of {props.maximum} stored</span></div>
                  }
               </div>
             </div>

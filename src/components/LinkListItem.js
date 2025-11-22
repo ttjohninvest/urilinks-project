@@ -22,8 +22,10 @@ import XShareButton from "./XShareButton";
 //   createdAt,
 //   faviconURL,
 // }) => {
-  const LinkListItem = (props) => {
-  console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL);
+const LinkListItem = (props) => {
+  console.log(
+    "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL
+  );
   const myRef = useRef(null);
 
   const [s, setS] = useState(1);
@@ -31,41 +33,39 @@ import XShareButton from "./XShareButton";
   const [data, setData] = useState([]);
   const [data2s, setData2s] = useState([]);
   const [sortit1flag, setSortit1flag] = useState([]);
-  const [visityt, setVisityt] = useState("")
+  const [visityt, setVisityt] = useState("");
 
-  const isityt=(url)=>{
-       if(url.includes('youtube')) {
+  const isityt = (url) => {
+    if (url.includes("youtube")) {
+      //get the id
+      let a = url.split("v=");
+      let b = a[1].split("&");
+      let ytid = b[0];
+      setVisityt(ytid);
+      return;
+    }
 
-        //get the id
-        let a = url.split("v=")
-        let b = a[1].split("&")
-        let ytid = b[0]
-      setVisityt(ytid)
-      return
-       }
+    setVisityt("");
+  };
 
-       setVisityt("")
-  }
+  // function Book(BookTitle, BookAuthor, BookPages){
+  //   this.title = BookTitle,
+  //   this.author = BookAuthor,
+  //   this.pages = BookPages
+  // }
+  // This function triggers when a button is clicked
+  //function addNewBook(id){
+  const addIdToDelete = (id) => {
+    console.log("LinkListItem, id=" + id);
+    //let book = new Book(title.value, author.value, pages.value);
+    //let bookStringified = JSON.stringify(book);
 
-
-// function Book(BookTitle, BookAuthor, BookPages){
-//   this.title = BookTitle,
-//   this.author = BookAuthor,
-//   this.pages = BookPages
-// }
-// This function triggers when a button is clicked
-//function addNewBook(id){
-const addIdToDelete=(id)=>{
-  console.log("LinkListItem, id="+id)
-   //let book = new Book(title.value, author.value, pages.value);
-   //let bookStringified = JSON.stringify(book);
-   
-   //bookData.push(bookStringified);
-   setDeleteData2(id);
-}
+    //bookData.push(bookStringified);
+    setDeleteData2(id);
+  };
 
   const handleCheckboxDelete = (event) => {
-    console.log("bookmark id="+event.target.value)
+    console.log("bookmark id=" + event.target.value);
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
     let result = confirm("Are you sure you want to delete?");
@@ -76,11 +76,9 @@ const addIdToDelete=(id)=>{
       //alert("Item deleted.");
     } else {
       // User clicked Cancel
-      document.getElementById('delete%'+event.target.value).checked = false;
+      document.getElementById("delete%" + event.target.value).checked = false;
       alert("Deletion canceled.");
     }
-
-
   };
 
   const storeScrollPosition = () => {
@@ -537,7 +535,8 @@ const addIdToDelete=(id)=>{
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ url: url2 }),
-      }).then((response) => {
+      })
+        .then((response) => {
           //console.log("response")
           return response.json();
         })
@@ -620,7 +619,7 @@ const addIdToDelete=(id)=>{
             ul.appendChild(li0);
 
             //here
-            data.map((url,index) => {
+            data.map((url, index) => {
               //let urlstruct = new URL(url);
               // console.log("urlstruct.protocol="+urlstruct.protocol); // "https:"
               // console.log("urlstruct.hostname="+urlstruct.hostname); // "www.example.com"
@@ -629,14 +628,14 @@ const addIdToDelete=(id)=>{
               // console.log("urlstruct.search="+urlstruct.search); // "?query=string"
               // console.log("urlstruct.hash="+urlstruct.hash); // "#fragment"
               let li = document.createElement("li");
-              li.id = index //index has to be unique
+              li.id = index; //index has to be unique
               li.title = "click to go to page";
               let a = document.createElement("a");
               a.title = "click to open the page";
               a.className = "nounderline color1- color-purple";
               a.href = url; //use a.href='#' for drilldown version
               a.target = "_blank"; //remove the target attribute for drilldown version
-              //a.onClick = {()=>drilldown(url,index)} 
+              //a.onClick = {()=>drilldown(url,index)}
               a.innerHTML = `${decodeURIComponent(url)}`; //data.title+", "+`${url}`;
 
               li.appendChild(a);
@@ -654,47 +653,46 @@ const addIdToDelete=(id)=>{
       ul.innerHTML = "";
     }
   };
-//
+  //
   return (
     <div className="margin-bottom-1">
       <div className="card-background-color">
         <div className="list-item__flex">
           <div className="">
             <div className="flexrow2 margin-5">
-              <div>
+              {/* <div>
                 <img
                   className="borderradius50 margin-top-1111"
                   width="16"
                   height="16"
                   src={props.faviconURL}
                 />
-              </div>
+              </div> */}
               <div className="padding-left-11 padding-bottom-11 borderRadius4">
                 <div className="flexcol3">
                   <div className="flexrow4">
                     <div>
                       {
-                      //isityt(props.Url)
-                      !!props.yturl
-                      //true
-                      && 
-                       <a
-                        ref={myRef}
-                        className="ib  margin-right-114 nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"
-                        href={props.Url}
-                         //target="_self"
-                        target="_blank"
-                        title={"click to open the webpage: " + props.Url}
-                        onClick={storeScrollPosition}
-                      >
-                        <img className="borderRadius4 rem8 rem45"
-                        // width="128" height="72" 
-                      //src={`https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg`} 
-                      src={props.yturl} 
-                      />
-                      </a>
-                      
-                      
+                        //isityt(props.Url)
+                        !!props.yturl && (
+                          //true
+                          <a
+                            ref={myRef}
+                            className="ib  margin-right-114 nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"
+                            href={props.Url}
+                            //target="_self"
+                            target="_blank"
+                            title={"click to open the webpage: " + props.Url}
+                            onClick={storeScrollPosition}
+                          >
+                            <img
+                              className="borderRadius4 rem8 rem45"
+                              // width="128" height="72"
+                              //src={`https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg`}
+                              src={props.yturl}
+                            />
+                          </a>
+                        )
                       }
                       <a
                         ref={myRef}
@@ -705,48 +703,67 @@ const addIdToDelete=(id)=>{
                         title={"click to open the webpage: " + props.Url}
                         onClick={storeScrollPosition}
                       >
-                        To page: {decodeURIComponent(props.description)}
+                        Show Page: {decodeURIComponent(props.description)}
                       </a>
                     </div>
-                      <div className="margin-bottom-1141">
-            <div className="flexrow4">
-              {props.signup.signup === true ?<div>
- <Link className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto" to={`/edit/${props.id}`}>
-               
-                  <span className="padding-right-11 color-white-1 button-2">
-                    edit or remove
-                  </span>
-                  
-               
-              </Link>
-              </div>:<div>
- <Link className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone" to={`/edit/${props.id}`}>
-               
-                  <span className="padding-right-11 color-white-1 button-2">
-                    edit or remove
-                  </span>
-                  
-               
-              </Link>
-              </div>
-
-  }
-             {props.signup.signup === true ?<div>
- <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                   <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
-                   <label for={"delete%"+props.id} />
-                  </span>
-             </div>:
-             <div>
- <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                   <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
-                   <label for={"delete%"+props.id} />
-                  </span>
-             </div>
-             }
-             
-            </div>
-          </div>
+                    <div className="margin-bottom-1141">
+                      <div className="flexrow4">
+                        {props.signup.signup === true ? (
+                          <div>
+                            <Link
+                              className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
+                              to={`/edit/${props.id}`}
+                            >
+                              <span className="padding-right-11 color-white-1 button-2">
+                                edit or remove
+                              </span>
+                            </Link>
+                          </div>
+                        ) : (
+                          <div>
+                            <Link
+                              className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
+                              to={`/edit/${props.id}`}
+                            >
+                              <span className="padding-right-11 color-white-1 button-2">
+                                edit or remove
+                              </span>
+                            </Link>
+                          </div>
+                        )}
+                        {props.signup.signup === true ? (
+                          <div>
+                            <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                              <input
+                                type="checkbox"
+                                id={"delete%" + props.id}
+                                name={"delete%" + props.id}
+                                value={props.id}
+                                onChange={handleCheckboxDelete}
+                                title="remove bookmark"
+                                className="cb1 cursor-pointer"
+                              />
+                              <label for={"delete%" + props.id} />
+                            </span>
+                          </div>
+                        ) : (
+                          <div>
+                            <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                              <input
+                                type="checkbox"
+                                id={"delete%" + props.id}
+                                name={"delete%" + props.id}
+                                value={props.id}
+                                onChange={handleCheckboxDelete}
+                                title="remove bookmark"
+                                className="cb1 cursor-pointer"
+                              />
+                              <label for={"delete%" + props.id} />
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
 
                   <div>
@@ -761,7 +778,7 @@ const addIdToDelete=(id)=>{
                         className="ib cursor-pointer margin-left-114 color1-  color-purple"
                         title="click to see the clickable page urls from the above page"
                       >
-                        To List: {decodeURIComponent(props.Url)}
+                        Show List: {decodeURIComponent(props.Url)}
                         {/*To list: {Url}*/}
                       </span>
                     </span>
@@ -799,12 +816,12 @@ const addIdToDelete=(id)=>{
       </div>
       <div className="flexrow2w">
         <FBShareButton url={props.Url} />
-        
+
         <MessengerButton />
         <LinkedInShareButton url={props.Url} />
         {/* <AddToAny /> */}
 
-        <XShareButton  url={props.Url} />
+        <XShareButton url={props.Url} />
       </div>
     </div>
   );
@@ -813,9 +830,8 @@ const addIdToDelete=(id)=>{
 //export default LinkListItem;
 
 const mapStateToProps = (state) => ({
-  signup: state.signup
+  signup: state.signup,
 });
-
 
 const mapDispatchToProps = (dispatch, props) => ({
   startRemoveLink: (data) => dispatch(startRemoveLink(data)),

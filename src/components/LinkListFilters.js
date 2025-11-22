@@ -137,7 +137,7 @@ function isMobile() {
           <div
             className="flexrow2c padding-left-a borderRadius4"
             title={props.signup === true ? 
-              "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
+              "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
               : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."}
           >
             <div className="text-size-5 padding-top-11 textCenter">
@@ -195,7 +195,7 @@ function isMobile() {
                     href="#"
                     ref={textAreaRef}
                     className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
                     https://urilinks.com/dashboard?signup=&id={props.uid}
                   </a>
@@ -434,7 +434,7 @@ function isMobile() {
                 ? "grid-container5"
                 : "grid-container5-newspaper"
             } paddingparent margin-top-1 background-white-1 borderradius5`}
-            title={props.signup === true ?"Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag.":
+            title={props.signup === true ?"Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag.":
 "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags which were entered in the note section to find your links that are grouped by hashtag."
             }
           >

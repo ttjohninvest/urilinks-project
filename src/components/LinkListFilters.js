@@ -911,12 +911,12 @@ export class LinkListFilters extends React.Component {
             </select>
           </div>
           <div>
-             <div>
+             {/* <div>
  <span className="">
                    <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
                    <label for="dbdropdownid" />
                   </span>
-             </div>
+             </div> */}
              {/* {this.props.signup.signup === true ?<div>
  <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                    <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
@@ -931,7 +931,9 @@ export class LinkListFilters extends React.Component {
              </div>
              } */}
           </div>
-          {this.state.isToggled === true && <div className="cursor-pointer">
+          {
+          //this.state.isToggled === true &&
+          true <div className="cursor-pointer">
             <select
               className="select cursor-pointer"
               onChange={this.onFolderChange}

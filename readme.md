@@ -239,6 +239,10 @@ click create ad
 I provide a link to your links page, "link in bio."
 All of the functionality is there to get a link to share your links page link on instagram profile, youtube comments or other "link in bio" platforms but I offer up to 5000 links on your links page. Also, I offer a x.com (twitter) like alphabetized hashtag link grouping. These grouping can be changed in the notes section of the link were hashtags may be added or removed for the purpose of regrouping the link. All hastag groupings are clickable to see what links are grouped. Links may also be accessed through an alphabetized drop down list were spaces are not removed from the link title. The first 250 links are free. The paid plans are 251 to 1500 links storage capacity is $4.99 per year, 1501 to 2500 links storage capacity is $9.99 per year and 2501 to 5000 links storage capacity is $14.99 per year.
 
+StorageSizes.js free is 250
+basic is 500, standard is 750, premium is 1000
+If you are able to change the sizes, you just need to change these numbers
+
 urilinks tool benefits
 -for instagram profile or other, a copy and paste-able link provided to your links bio page
 -links are not limited to commercial purposes

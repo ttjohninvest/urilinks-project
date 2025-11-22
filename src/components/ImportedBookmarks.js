@@ -64,7 +64,7 @@ max=StorageSizes.premium
           </div>
         ) : (
           <div>
-            Did not import any bookmarks. The limit of {StorageSizes.premium} has been exceeded.
+            The limit of {StorageSizes.premium} has been exceeded.
             {/* Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is
             {max} bookmarks */}
           </div>

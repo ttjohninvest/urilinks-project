@@ -19,6 +19,7 @@ return (<div>
 -upload bookmarks tool provided<br />
 -bookmarks are automatically converted to bio links<br />
 -satisfying<br />
+-your google name and profile picture will appear on your page<br />
 -plans: [0 to {StorageSizes.free} bio links is free], [{StorageSizes.free+1} to {StorageSizes.basic} bio links $4.99 per year], [{StorageSizes.basic+1} to {StorageSizes.standard} bio links $9.99 per year], [{StorageSizes.standard+1} to {StorageSizes.premium} bio links $14.99 per year]<br />
 -plan may be upgraded at anytime, new plan supersedes old plan and pay cycle renews on day of renewal and old plan is canceled<br />
 -easy account deletion, no refunds<br />

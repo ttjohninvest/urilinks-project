@@ -198,7 +198,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
               </div>
 
 
-              
+
               {props.signup.signup === true ? (
                 <div className="padding-top-1112">
                   <img
@@ -284,7 +284,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                     className="ib- color-white-1 cursor-pointer"
                     title="some ideas for hash tags"
                   >
-                    (Bookmark Ideas)
+                    (Link Ideas)
                   </span>
                 </Link>
               </div>

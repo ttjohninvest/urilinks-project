@@ -929,8 +929,8 @@ export class LinkListFilters extends React.Component {
                    <label for="dbdropdownid" />
                   </span>
              </div>
-             } 
-          </div>*/}
+             } */}
+          </div>
           {
           //this.state.isToggled === true &&
           true && <div className="cursor-pointer">

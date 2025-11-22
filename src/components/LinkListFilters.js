@@ -471,7 +471,9 @@ export class LinkListFilters extends React.Component {
       // newspaper:
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
       foldernamesList: [],
-    };
+      isToggled:true
+    }
+ 
 
     this.setit = this.setit.bind(this);
   }
@@ -807,6 +809,7 @@ export class LinkListFilters extends React.Component {
     // let result = confirm("Are you sure you want to set the dropdown list?");
     // if (result) {    
       //alert("show dd")
+      this.setState({isToggled:!isToggled})
       console.log("show dd")
     // } else {
     //  //alert("cancel show dd") 
@@ -928,7 +931,7 @@ export class LinkListFilters extends React.Component {
              </div>
              } */}
           </div>
-          <div className="cursor-pointer">
+          {this.state.isToggled === true && <div className="cursor-pointer">
             <select
               className="select cursor-pointer"
               onChange={this.onFolderChange}
@@ -949,7 +952,7 @@ export class LinkListFilters extends React.Component {
                 </option>
               ))}
             </select>
-          </div>
+          </div>}
           <div className="">
             <DateRangePicker
               className="zindex"

@@ -380,7 +380,7 @@ function isMobile() {
                 props.signup === false && ""}
               </div>
               <div className="margin-left-11">
-                <Link className="header__title" to="/teirspayment3">
+                {/* <Link className="header__title" to="/teirspayment3">
                   <span
                     className="ib color-black text-size-5 general-font"
                     title="click for plan options"
@@ -396,19 +396,28 @@ function isMobile() {
                     {isToggled && props.signup === false && <span></span>}
                    
                   </span>
-                </Link>
+                </Link> */}
       
                   
                  <div className="margin-left-minus-1"><span>{props.links.length} links of {maximum} is stored. Click on a hashtag or folder name to see links.</span></div>
-                 {
+                 <Link className="header__title" to="/teirspayment3">
+                  <span
+                    className="ib color-black text-size-5 general-font margin-left-minus-1"
+                    title="click for plan options"
+                  >
+                    {
                     
                     //isToggled && 
                     
-                    props.signup === true &&
-                    
-                    props.theplan.plan.replace(/"/g, "") === "premium" && (
-                      <div><span>(click to change plan)</span></div>
+                    props.signup === true && props.theplan.plan.replace(/"/g, "") === "premium" && (
+                      <span>(click to change plan)</span>
                     )}
+
+                    {isToggled && props.signup === false && <span></span>}
+                   
+                  </span>
+                </Link>
+
                  {/* {props.signup === true ?<div className=""><span>You have stored {props.links.length} links</span><span> on the {props.theplan.plan.replace(/"/g, "")} plan.</span></div>:
                  <div><span>{props.links.length} links of {maximum} is stored. Click on a hashtag or folder name to see links.</span></div>
                  } */}

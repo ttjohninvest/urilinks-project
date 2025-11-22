@@ -471,7 +471,7 @@ export class LinkListFilters extends React.Component {
       // newspaper:
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
       foldernamesList: [],
-      isToggled:true
+      isToggled:false
     }
  
 

@@ -806,9 +806,11 @@ export class LinkListFilters extends React.Component {
   handleCheckboxShow = (event) => {
     let result = confirm("Are you sure you want to set the dropdown list?");
     if (result) {    
-      alert("show dd")
+      //alert("show dd")
+      console.log("show dd")
     } else {
-     alert("cancel show dd") 
+     //alert("cancel show dd") 
+     console.log("cancel show dd")
     }
   };
 

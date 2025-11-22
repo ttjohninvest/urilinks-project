@@ -189,7 +189,7 @@ function isMobile() {
                   </span>
                 </div>
               ) : (
-                <div className="text-size-1 textLeft">
+                <div className="text-size-1 textLeft margin-top-1">
                   <span className="hide">Thank you. Your sharable link is:</span>
                   <a
                     href="#"
@@ -1044,7 +1044,7 @@ export class LinkListFilters extends React.Component {
               title="pick a folder name in this list to search for its bookmarks"
             >
               <option key={""} value={""}>
-                search folder name
+                folder name
               </option>
 
               {this.state.foldernamesList.map((option, i) => (

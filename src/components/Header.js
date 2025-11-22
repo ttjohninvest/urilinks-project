@@ -329,7 +329,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   >
                     <span
                       className="ib- color-white-1 cursor-pointer pointereventsauto"
-                      title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
+                      title="bookmarks get renamed to links"
                     >
                       (Bookmarks File Uploader)
                     </span>

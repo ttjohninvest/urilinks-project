@@ -400,7 +400,13 @@ function isMobile() {
       
                   
                  <div><span>{props.links.length} links of {maximum} is stored. Click on a hashtag or folder name to see links.</span></div>
-                 
+                 {
+                    
+                    //isToggled && 
+                    
+                    props.signup === true && props.theplan.plan.replace(/"/g, "") !== "premium" && (
+                      <div><span>(click to change plan)</span></div>
+                    )}
                  {/* {props.signup === true ?<div className=""><span>You have stored {props.links.length} links</span><span> on the {props.theplan.plan.replace(/"/g, "")} plan.</span></div>:
                  <div><span>{props.links.length} links of {maximum} is stored. Click on a hashtag or folder name to see links.</span></div>
                  } */}

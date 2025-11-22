@@ -658,7 +658,7 @@ const addIdToDelete=(id)=>{
   return (
     <div className="margin-bottom-1">
       <div className="card-background-color">
-        <div className="list-item__flex margin-right-117">
+        <div className="list-item__flex">
           <div className="">
             <div className="flexrow2 margin-5">
               <div>
@@ -758,7 +758,7 @@ const addIdToDelete=(id)=>{
                       <br />
                       <span
                         onClick={() => getUrlsList(props.Url, props.id)}
-                        className="ib cursor-pointer margin-left-114 color1-  color-purple"
+                        className="ib cursor-pointer margin-left-114 color1-  color-purple flexWrap"
                         title="click to see the clickable page urls from the above page"
                       >
                         To List: {decodeURIComponent(props.Url)}

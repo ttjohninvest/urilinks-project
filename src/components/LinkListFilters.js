@@ -190,7 +190,7 @@ function isMobile() {
                 </div>
               ) : (
                 <div className="text-size-1 textLeft">
-                  Thank you. Your sharable link is:
+                  <span className="hide">Thank you. Your sharable link is:</span>
                   <a
                     href="#"
                     ref={textAreaRef}
@@ -404,7 +404,9 @@ function isMobile() {
                     
                     //isToggled && 
                     
-                    props.signup === true && props.theplan.plan.replace(/"/g, "") !== "premium" && (
+                    props.signup === true &&
+                    
+                    props.theplan.plan.replace(/"/g, "") === "premium" && (
                       <div><span>(click to change plan)</span></div>
                     )}
                  {/* {props.signup === true ?<div className=""><span>You have stored {props.links.length} links</span><span> on the {props.theplan.plan.replace(/"/g, "")} plan.</span></div>:

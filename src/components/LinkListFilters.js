@@ -809,7 +809,7 @@ export class LinkListFilters extends React.Component {
     // let result = confirm("Are you sure you want to set the dropdown list?");
     // if (result) {    
       //alert("show dd")
-      this.setState({isToggled:!isToggled})
+      this.setState({isToggled:!this.state.isToggled})
       console.log("show dd")
     // } else {
     //  //alert("cancel show dd") 

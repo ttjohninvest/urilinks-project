@@ -698,7 +698,7 @@ const addIdToDelete=(id)=>{
                       }
                       <a
                         ref={myRef}
-                        className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"
+                        className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11 breakWord"
                         href={props.Url}
                         //target="_self"
                         target="_blank"

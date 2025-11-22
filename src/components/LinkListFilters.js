@@ -342,7 +342,7 @@ function isMobile() {
               //isToggled && 
               
               props.signup === true && (
-                <div title="current plan" className="margin-right-1 textLeft">
+                <div title="current plan" className="margin-right-1 textLeft hide">
                   plan: {props.plan.replace(/"/g, "")}
                 </div>
               )}
@@ -385,7 +385,11 @@ function isMobile() {
                     className="ib color-black text-size-5 general-font"
                     title="click for plan options"
                   >
-                    {isToggled && props.signup === true && props.theplan.plan.replace(/"/g, "") !== "premium" && (
+                    {
+                    
+                    //isToggled && 
+                    
+                    props.signup === true && props.theplan.plan.replace(/"/g, "") !== "premium" && (
                       <span>(click to change plan)</span>
                     )}
 
@@ -394,9 +398,12 @@ function isMobile() {
                   </span>
                 </Link>
       
-                 {props.signup === true ?<div><span>You have stored {props.links.length} links</span><span> on the {props.theplan.plan.replace(/"/g, "")} plan.</span></div>:
+                  
                  <div><span>{props.links.length} links of {maximum} is stored. Click on a hashtag or folder name to see links.</span></div>
-                 }
+                 
+                 {/* {props.signup === true ?<div className=""><span>You have stored {props.links.length} links</span><span> on the {props.theplan.plan.replace(/"/g, "")} plan.</span></div>:
+                 <div><span>{props.links.length} links of {maximum} is stored. Click on a hashtag or folder name to see links.</span></div>
+                 } */}
               </div>
             </div>
           </div>

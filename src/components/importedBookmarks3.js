@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import printerImage from "../assets/images/printer_image.png";
+import StorageSizes from "./StorageSizes";
  
 const ImportedBookmarks = (props) => {
   const [max, setMax] = useState(0)
@@ -12,16 +13,16 @@ const ImportedBookmarks = (props) => {
 
 
   const getPlanMax=()=>{
-    let max=250
+    let max=StorageSizes.free
     //props.settings.plan
     if(props.theplan.plan.replace(/"/g, "")==="free") {
-     max=250
+     max=StorageSizes.free
     } else if(props.theplan.plan.replace(/"/g, "")==="basic") {
-max=1500
+max=StorageSizes.basic
     } else if(props.theplan.plan.replace(/"/g, "")==="standard") {
-max=2500
+max=StorageSizes.standard
     } else { //premium
-max=5000
+max=StorageSizes.premium
     }
     return max
   }
@@ -63,7 +64,7 @@ max=5000
           </div>
         ) : (
           <div>
-            Did not import any bookmarks. The limit of 5000 has been exceeded.
+            Did not import any bookmarks. The limit of {StorageSizes.premium} has been exceeded.
             {/* Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is
             {max} bookmarks */}
           </div>

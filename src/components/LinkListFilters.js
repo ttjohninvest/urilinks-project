@@ -6,6 +6,7 @@ import { DateRangePicker } from "react-dates";
 
 import database from "../firebase/firebase";
 import * as firebase from "firebase";
+import StorageSizes from "./StorageSizes";
 
 import {
   setTextFilter,
@@ -276,22 +277,22 @@ function ExpandableArray(props) {
                 {isToggled && props.signup === true && (
                   <div className="margin-right-1">
                     {props.theplan.plan.replace(/"/g, "") === "free" ? (
-                      <span>(It stores upto 250 links)</span>
+                      <span>(It stores upto {StorageSizes.free} links)</span>
                     ) : (
                       <span></span>
                     )}
                     {props.theplan.plan.replace(/"/g, "") === "basic" ? (
-                      <span>(It stores upto 1500 links)</span>
+                      <span>(It stores upto {StorageSizes.basic} links)</span>
                     ) : (
                       <span></span>
                     )}
                     {props.theplan.plan.replace(/"/g, "") === "standard" ? (
-                      <span>(It stores upto 2500 links)</span>
+                      <span>(It stores upto {StorageSizes.standard} links)</span>
                     ) : (
                       <span></span>
                     )}
                     {props.theplan.plan.replace(/"/g, "") === "premium" ? (
-                      <span>(It stores upto 5000 links)</span>
+                      <span>(It stores upto {StorageSizes.premium} links)</span>
                     ) : (
                       <span></span>
                     )}

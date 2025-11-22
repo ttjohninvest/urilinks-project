@@ -11,6 +11,7 @@ import ImportedBookmarks2 from "./ImportedBookmarks2";
 import { storage } from "../firebase/firebase";
 import LoadingPage from "./LoadingPage";
 import TeirsPayment3 from "./TeirsPayment3";
+import StorageSizes from "./StorageSizes";
 
 const FetchBookmarks = (props) => {
   const [data, setData] = useState(null);
@@ -81,17 +82,17 @@ const FetchBookmarks = (props) => {
   };
 
   const getPlanMax = () => {
-    let max = 250;
+    let max = StorageSizes.free;
     //props.settings.plan
     if (props.theplan.plan.replace(/"/g, "") === "free") {
-      max = 250;
+      max = StorageSizes.free;
     } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
-      max = 1500;
+      max = StorageSizes.basic;
     } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
-      max = 2500;
+      max = StorageSizes.standard;
     } else {
       //premium
-      max = 5000;
+      max = StorageSizes.premium;
     }
     return max;
   };
@@ -3084,7 +3085,7 @@ const FetchBookmarks = (props) => {
                 } else {
                   //not logged in page, first example page
 
-                  max = 5000 - (rl + ll);
+                  max = StorageSizes.premium - (rl + ll);
                   console.log("in if, ll=" + ll);
                   console.log("in if, rl=" + rl);
                   console.log("in if, max=" + max);

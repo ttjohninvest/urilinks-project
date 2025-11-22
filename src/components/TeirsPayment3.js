@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as firebase from "firebase";
 //import { useHistory } from 'react-router-dom';
+import StorageSizes from "./StorageSizes";
 
 
 
@@ -80,39 +81,39 @@ const TeirsPayment3 = (props) => {
   return (
     <div className="body1 flexrow2w">
       {props.theplan.plan.replace(/"/g, "") === "free" &&
-      props.links.length <= 250  ? (
+      props.links.length <= StorageSizes.free  ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
            client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "basic" 
-      //&& props.links.length > 250 
+      
       &&
-        props.links.length <= 1500 ? (
+        props.links.length <= StorageSizes.basic ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
            client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "standard" 
-      //&& props.links.length > 1500 
+      
       &&
-        props.links.length <= 2500 ? (
+        props.links.length <= StorageSizes.standard ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
            client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "premium" 
-      //&& props.links.length > 2500 
+      
       &&
-        props.links.length <= 5000 ? (
+        props.links.length <= StorageSizes.premium ? (
         <div>Thank you. You are on the premium plan which is the highest plan.  
 
         </div>
       ) : props.theplan.plan.replace(/"/g, "") === "free" ? (<div>
-        <div className="margin-left-11">You are on the free plan. You may store up to 250 links, <span>You have stored {props.links.length} links.</span></div>
+        <div className="margin-left-11">You are on the free plan. You may store up to {StorageSizes.free} links, <span>You have stored {props.links.length} links.</span></div>
          <div>
             <button
               className="button-2 ib margin-left-11 cursor-pointer"
@@ -123,7 +124,7 @@ const TeirsPayment3 = (props) => {
           </div>
           </div>
       ) : props.theplan.plan.replace(/"/g, "") === "basic" ? (<div>
-        <div className="margin-left-11">You are on the basic plan. You may store up to 1500 links, <span>You have stored {props.links.length} links.</span></div>
+        <div className="margin-left-11">You are on the basic plan. You may store up to {StorageSizes.basic} links, <span>You have stored {props.links.length} links.</span></div>
          <div>
             <button
               className="button-2 ib margin-left-11 cursor-pointer"
@@ -134,7 +135,7 @@ const TeirsPayment3 = (props) => {
           </div>
           </div>
       ) : props.theplan.plan.replace(/"/g, "") === "standard" ? (<div>
-        <div className="margin-left-11">You are on the standard plan. You may store up to 2500 links, <span>You have stored {props.links.length} links.</span></div>
+        <div className="margin-left-11">You are on the standard plan. You may store up to {StorageSizes.standard} links, <span>You have stored {props.links.length} links.</span></div>
          <div>
             <button
               className="button-2 ib margin-left-11 cursor-pointer"
@@ -147,7 +148,7 @@ const TeirsPayment3 = (props) => {
       ) : props.theplan.plan.replace(/"/g, "") === "premium" ? (
         <div>
           <div className="margin-left-11">
-            You are on the premium plan. You may store up to 5000 links, <span>You have stored {props.links.length} links.</span>
+            You are on the premium plan. You may store up to {StorageSizes.premium} links, <span>You have stored {props.links.length} links.</span>
           </div>
           <div>
             <button

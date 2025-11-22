@@ -6,6 +6,7 @@ import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import TeirsPayment3 from "./TeirsPayment3";
+import StorageSizes from './StorageSizes'
 
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
@@ -15,17 +16,17 @@ export const AddLinkPage = (props) => {
   //const history = useHistory();
 
   const getPlanMax = () => {
-    let max = 250;
+    let max = StorageSizes.free;
     //props.settings.plan
     if (props.theplan.plan.replace(/"/g, "") === "free") {
-      max = 250;
+      max = StorageSizes.free;
     } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
-      max = 1500;
+      max = StorageSizes.basic;
     } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
-      max = 2500;
+      max = StorageSizes.standard;
     } else {
       //premium
-      max = 5000;
+      max = StorageSizes.premium;
     }
 
     console.log("AddLinkPage.js, bookmarks, max=" + max);

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import printerImage from "../assets/images/printer_image.png";
+import StorageSizes from "./StorageSizes";
 
 const ImportedBookmarks2 = (props) => {
   const goToHomePage = () => {
@@ -109,19 +110,19 @@ const ImportedBookmarks2 = (props) => {
                   <div>
                     You are currently on plan
                     {props.theplan === undefined ||
-                    (props.theplan === null && props.links.length <= 250) ? (
+                    (props.theplan === null && props.links.length <= StorageSizes.free) ? (
                       <span> free</span>
                     ) : props.theplan.plan.replace(/"/g, "") === "free" &&
-                      props.links.length <= 250 ? (
+                      props.links.length <= StorageSizes.free ? (
                       <span> free</span>
                     ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
-                      props.links.length <= 1500 ? (
+                      props.links.length <= StorageSizes.basic ? (
                       <span> basic</span>
                     ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
-                      props.links.length <= 2500 ? (
+                      props.links.length <= StorageSizes.standard ? (
                       <span> standard</span>
                     ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
-                      props.links.length <= 5000 ? (
+                      props.links.length <= StorageSizes.premium ? (
                       <span> premium, which is the highest plan</span>
                     ) : (
                       ""

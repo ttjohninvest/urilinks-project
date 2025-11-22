@@ -395,7 +395,7 @@ function isMobile() {
                 </Link>
       
                  {props.signup === true ?<div><span>You have stored {props.links.length} links</span><span> on the {props.theplan.plan.replace(/"/g, "")} plan.</span></div>:
-                 <div><span>{props.links.length} links of {props.maximum} stored</span></div>
+                 <div><span>{props.links.length} links of {maximum} stored</span></div>
                  }
               </div>
             </div>

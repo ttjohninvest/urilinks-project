@@ -184,8 +184,8 @@ function isMobile() {
 {/* {isMobile()?"yes":"no"} */}
               {props.signup === false ? (
                 <div className="text-size-1 textLeft flexrowz flexWrap">
-                  <span className="font-weight-bold- hide- breakWord-" title="To get one, you need to click (enter) and do google login.">
-                    You may have a sharable link to share anywhere a sharable link is accepted.
+                  <span className="font-weight-bold- hide- breakWord-" title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email">
+                    To get a sharable link to your links page, you need to click (enter) and do google login.
                   </span>
                 </div>
               ) : (

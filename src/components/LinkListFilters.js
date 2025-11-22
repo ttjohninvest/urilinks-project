@@ -114,11 +114,11 @@ function isMobile() {
               : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."}
           >
             <div className="text-size-5 padding-top-11">
-              <div className="text-size-1">{!!theuser && theuser.displayName}<span className="hide">, {!!theuser && theuser.email}</span></div>
+              <div className="text-size-1 textCenter"><span className="text-size-9">{!!theuser && theuser.displayName}</span><span className="hide">, {!!theuser && theuser.email}</span></div>
               <div className="text-size-1">Welcome {!theuser ? "to this example links page. What makes you smile?":", what makes you smile?"}</div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
  
-{isMobile()?"yes":"no"}
+{/* {isMobile()?"yes":"no"} */}
               {props.signup === false ? (
                 <div className="text-size-1">
                   <span className="font-weight-bold">

@@ -17,8 +17,8 @@ const MobileMenu = () => {
           <Link to="/">GOLOC.</Link>
         </div>
         <div className="universal-header-basket">
-          <button onClick={() => setShowSearch(true)}>Search</button>
-          <button onClick={() => setShowCart(true)}>Cart</button>
+          <button onClick={() => ()=>{}}>Search</button>
+          <button onClick={() => ()=>{}}>Cart</button>
           {cartCount && <span>{cartCount}</span>}
         </div>
       </div>

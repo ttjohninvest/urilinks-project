@@ -13,6 +13,7 @@ import { startAddPhotourl } from "../actions/photourl";
 import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
+import MobileMenu from "./MobileMenu"
 
 // const preStartLogout=()=>{
 //   setLinks([])
@@ -145,13 +146,15 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
 //   console.log("Desktop device detected");
 // }
 
+
+
   return (
     <div id="top">
       {!deleteAccountError ? (
         <header className="header">
           <div className="">
             <div className="flexrow2w">
-              
+              <MobileMenu />
               <div className="padding-leftright padding-top-11124">
                 <Link
                   className="nounderline ib"
@@ -231,6 +234,19 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   )}
                 </div>
               )}
+              <div>
+                <ul class="menu">
+    <li><a class="menuItem" href="#">Home</a></li>
+    <li><a class="menuItem" href="#">Profile</a></li>
+    <li><a class="menuItem" href="#">About</a></li>
+    <li><a class="menuItem" href="#">Contacts</a></li>
+  </ul>
+  <button class="hamburger">
+    
+    <i class="menuIcon material-icons">menu</i>
+    <i class="closeIcon material-icons">close</i>
+  </button>
+              </div>
               <div>
                 <Link className="header__title- nounderline" to="/use">
                   <span

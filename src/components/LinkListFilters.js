@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import * as firebase from "firebase";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -7,6 +8,7 @@ import { DateRangePicker } from "react-dates";
 import database from "../firebase/firebase";
 import * as firebase from "firebase";
 import StorageSizes from "./StorageSizes";
+import myprofile from "../assets/images/myprofile.png";
 
 import {
   setTextFilter,
@@ -27,6 +29,7 @@ function ExpandableArray(props) {
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
   const textAreaRef = useRef(null);
+  const [photoURL, setPhotoURL] = useState("");
 
   let x = false;
   if (window.localStorage.getItem("hideinformation") === null) {
@@ -46,6 +49,11 @@ function ExpandableArray(props) {
   };
 
   useEffect(() => {
+     const user = firebase.auth().currentUser;
+        if (user !== null && user !== undefined) {
+          setPhotoURL(user.photoURL);
+         
+        }
     if (props.signup === true) {
       const user = firebase.auth().currentUser;
       setUid(user.uid);
@@ -103,6 +111,8 @@ function isMobile() {
   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
   return regex.test(navigator.userAgent);
 }
+
+
   return (
     <div className="bg-white-1">
       {props.mappedDataShort.length > 0 ? (
@@ -113,7 +123,42 @@ function isMobile() {
               "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags you have entered in the note section of your link earlier to find your links that are grouped by hash tag."
               : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."}
           >
-            <div className="text-size-5 padding-top-11">
+            <div className="text-size-5 padding-top-11 textCenter">
+
+
+                {props.signup === true ? (
+                <div className="padding-top-1112">
+                  <img
+                    src={photoURL}
+                    width="32"
+                    height="32"
+                    style={{ borderRadius: "50%" }}
+                    className="ib- margin-bottom-11-"
+                  />
+                </div>
+              ) : (
+                <div className="padding-top-1112" title="welcome">
+                  {firebase.auth().currentUser !== null &&
+                  firebase.auth().currentUser !== undefined ? (
+                    <img
+                      src={photoURL}
+                      width="32"
+                      height="32"
+                      style={{ borderRadius: "50%" }}
+                      className="ib- margin-bottom-11-"
+                    />
+                  ) : (
+                    <img
+                      src={myprofile}
+                      width="32"
+                      height="32"
+                      style={{ borderRadius: "50%" }}
+                      className="ib- margin-bottom-11-"
+                    />
+                  )}
+                </div>
+              )}
+
               <div className="text-size-1 textCenter"><span className="text-size-9">{!!theuser && theuser.displayName}</span><span className="hide">, {!!theuser && theuser.email}</span></div>
               <div className="text-size-1">Welcome {!theuser ? "to this example links page. What makes you smile?":", what makes you smile?"}</div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}

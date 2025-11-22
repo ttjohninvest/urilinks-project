@@ -196,6 +196,9 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   urilinks (link to links tool)
                 </Link>
               </div>
+
+
+              
               {props.signup.signup === true ? (
                 <div className="padding-top-1112">
                   <img

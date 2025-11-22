@@ -126,34 +126,35 @@ function isMobile() {
 
 
                 {props.signup === true ? (
-                <div className="padding-top-1112">
+                <div className="padding-top-1112  textCenter">
                   <img
                     src={photoURL}
-                    width="32"
-                    height="32"
+                    width="64"
+                    height="64"
                     style={{ borderRadius: "50%" }}
                     className="ib- margin-bottom-11-"
                   />
                 </div>
               ) : (
-                <div className="padding-top-1112" title="welcome">
+                <div className="padding-top-1112  textCenter" title="welcome">
                   {firebase.auth().currentUser !== null &&
                   firebase.auth().currentUser !== undefined ? (
                     <img
                       src={photoURL}
-                      width="32"
-                      height="32"
+                      width="64"
+                      height="64"
                       style={{ borderRadius: "50%" }}
                       className="ib- margin-bottom-11-"
                     />
-                  ) : (
+                  ) : (<div className="textCenter">
                     <img
                       src={myprofile}
-                      width="32"
-                      height="32"
+                      width="64"
+                      height="64"
                       style={{ borderRadius: "50%" }}
                       className="ib- margin-bottom-11-"
                     />
+                    </div>
                   )}
                 </div>
               )}

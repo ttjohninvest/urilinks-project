@@ -99,7 +99,10 @@ function ExpandableArray(props) {
     e.target.focus();
     setCopySuccess("Copied " + text);
   };
-
+function isMobile() {
+  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(navigator.userAgent);
+}
   return (
     <div className="bg-white-1">
       {props.mappedDataShort.length > 0 ? (
@@ -114,7 +117,8 @@ function ExpandableArray(props) {
               <div className="text-size-1">{!!theuser && theuser.displayName}<span className="hide">, {!!theuser && theuser.email}</span></div>
               <div className="text-size-1">Welcome {!theuser ? "to this example links page. What makes you smile?":", what makes you smile?"}</div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
-
+ 
+{isMobile()?"yes":"no"}
               {props.signup === false ? (
                 <div className="text-size-1">
                   <span className="font-weight-bold">

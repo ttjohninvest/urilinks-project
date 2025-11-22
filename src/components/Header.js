@@ -138,11 +138,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
   
   };
 
-  function isMobile() {
-  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-  return regex.test(navigator.userAgent);
-}
-
+ 
 // if (isMobile()) {
 //   console.log("Mobile device detected");
 // } else {
@@ -155,7 +151,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
         <header className="header">
           <div className="">
             <div className="flexrow2w">
-              {isMobile()?"yes":"no"}
+              
               <div className="padding-leftright padding-top-11124">
                 <Link
                   className="nounderline ib"

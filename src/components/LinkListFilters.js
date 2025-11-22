@@ -183,8 +183,8 @@ function isMobile() {
  
 {/* {isMobile()?"yes":"no"} */}
               {props.signup === false ? (
-                <div className="text-size-1 textLeft">
-                  <span className="font-weight-bold hide-">
+                <div className="text-size-1 textLeft flexrowz flexWrap">
+                  <span className="font-weight-bold hide- breakWord-">
                     You may have a sharable link to your links page for your email, instagram profile, youtube comment or facebook or anywhere a sharable link is accepted.
                   </span>
                 </div>

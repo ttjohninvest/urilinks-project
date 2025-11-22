@@ -184,8 +184,8 @@ function isMobile() {
 {/* {isMobile()?"yes":"no"} */}
               {props.signup === false ? (
                 <div className="text-size-1 textLeft">
-                  <span className="font-weight-bold hide">
-                    You can get your sharable link to share your links page with everybody by logging in, adding links and copy and pasting your link anywhere a link is accepted like youtube comments, instagram profile, facebook.
+                  <span className="font-weight-bold hide-">
+                    You may have a sharable link for your email, instagram profile, youtube comment or facebook or anywhere a sharable link is accepted.
                   </span>
                 </div>
               ) : (

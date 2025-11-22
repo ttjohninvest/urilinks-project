@@ -220,7 +220,7 @@ function ExpandableArray(props) {
                       referrerpolicy="strict-origin-when-cross-origin"
                       allowfullscreen
                     >
-                      {" "}
+                      
                     </iframe>
                   </div>
                 )}
@@ -803,6 +803,15 @@ export class LinkListFilters extends React.Component {
     window.scrollTo(0, d);
   };
 
+  handleCheckboxShow = (event) => {
+    let result = confirm("Are you sure you want to set the dropdown list?");
+    if (result) {    
+      alert("show dd")
+    } else {
+     alert("cancel show dd") 
+    }
+  };
+
   render() {
     return (
       <div className="">
@@ -895,6 +904,21 @@ export class LinkListFilters extends React.Component {
                 Date
               </option>
             </select>
+          </div>
+          <div>
+             {props.signup.signup === true ?<div>
+ <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value={props.id} onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
+                   <label for="dbdropdownid" />
+                  </span>
+             </div>:
+             <div>
+ <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value={props.id} onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
+                   <label for="dbdropdownid" />
+                  </span>
+             </div>
+             }
           </div>
           <div className="cursor-pointer">
             <select

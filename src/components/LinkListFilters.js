@@ -929,11 +929,11 @@ export class LinkListFilters extends React.Component {
                    <label for="dbdropdownid" />
                   </span>
              </div>
-             } */}
-          </div>
+             } 
+          </div>*/}
           {
           //this.state.isToggled === true &&
-          true <div className="cursor-pointer">
+          true && <div className="cursor-pointer">
             <select
               className="select cursor-pointer"
               onChange={this.onFolderChange}

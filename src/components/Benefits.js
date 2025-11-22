@@ -2,7 +2,7 @@ import React from "react";
 import { addSettings } from "./../actions/settings";
 import FileUpload from "./FileUpload";
 import { combineReducers } from "redux";
-import StorageSizes from 'Storagesizes'
+import StorageSizes from 'StorageSizes'
 
 const Benefits = () => {
 return (<div>

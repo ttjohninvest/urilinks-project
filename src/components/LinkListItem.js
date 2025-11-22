@@ -660,14 +660,14 @@ const LinkListItem = (props) => {
         <div className="list-item__flex">
           <div className="">
             <div className="flexrow2 margin-5">
-              {/* <div>
+              <div>
                 <img
                   className="borderradius50 margin-top-1111"
                   width="16"
                   height="16"
                   src={props.faviconURL}
                 />
-              </div> */}
+              </div>
               <div className="padding-left-11 padding-bottom-11 borderRadius4">
                 <div className="flexcol3">
                   <div className="flexrow4">

@@ -185,7 +185,7 @@ function isMobile() {
               {props.signup === false ? (
                 <div className="text-size-1 textLeft">
                   <span className="font-weight-bold hide-">
-                    You may have a sharable link for your email, instagram profile, youtube comment or facebook or anywhere a sharable link is accepted.
+                    You may have a sharable link to your links page for your email, instagram profile, youtube comment or facebook or anywhere a sharable link is accepted.
                   </span>
                 </div>
               ) : (

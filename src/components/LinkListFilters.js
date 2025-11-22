@@ -399,7 +399,7 @@ function isMobile() {
                 </Link>
       
                   
-                 <div><span>{props.links.length} links of {maximum} is stored. Click on a hashtag or folder name to see links.</span></div>
+                 <div className="margin-left-minus-1"><span>{props.links.length} links of {maximum} is stored. Click on a hashtag or folder name to see links.</span></div>
                  {
                     
                     //isToggled && 

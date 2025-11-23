@@ -246,9 +246,9 @@ return (
       <header>
         <nav>
           <div>
-            <div className="flexrowz">
-            <div className="padding-leftright padding-top-11124">
-                            <Link
+            
+          <div className="logo">
+             <Link
                               className="nounderline ib"
                               to="/dashboard?signup=signup"
                               title="refresh"
@@ -261,9 +261,8 @@ return (
                                 alt="Logo"
                               />
                             </Link>
-                          </div>
-          </div>
-          <div className="logo">urilinks</div>
+            
+            urilinks</div>
           </div>
           <div className="hamburger-icon" onClick={toggleMenu}>
             {/* The icon can be a simple div or a library component */}

@@ -156,8 +156,8 @@ function isMobile() {
   return (
        <div>
     {
-    //isMobile() === false 
-    false ? <div id="top">
+    isMobile() === false 
+    ? <div id="top">
       
       {!deleteAccountError ? (
         <header className="header">

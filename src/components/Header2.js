@@ -261,7 +261,7 @@ return (
                                 alt="Logo"
                               />
                             </Link> */}
-            <span className="ib padding-leftright padding-top-11124"><img
+            <span className="ib padding-leftright padding-top-111241"><img
                                 className="rounded-full-1"
                                 src={logo}
                                 width="35"

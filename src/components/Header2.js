@@ -151,7 +151,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
 
 
   return (
-    <div>
+    <div id="top">
    
       
       {!deleteAccountError ? (

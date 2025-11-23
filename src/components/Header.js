@@ -13,7 +13,7 @@ import { startAddPhotourl } from "../actions/photourl";
 import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
-import MobileMenu from "./MobileMenu"
+import HamburgerMenu from './HamburgerMenu'
 
 // const preStartLogout=()=>{
 //   setLinks([])
@@ -154,7 +154,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
         <header className="header">
           <div className="">
             <div className="flexrow2w">
-              <MobileMenu />
+             
               <div className="padding-leftright padding-top-11124">
                 <Link
                   className="nounderline ib"
@@ -394,6 +394,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
               )}
             </div>
           </div>
+          <HamburgerMenu />
         </header>
       ) : (
         "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."

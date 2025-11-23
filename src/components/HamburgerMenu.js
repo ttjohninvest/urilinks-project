@@ -15,7 +15,7 @@ const HamburgerMenu = (props) => {
    const logoutit = () => {
       //sessionStorage.setItem('hasRefreshed', 'false');
       //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-      props.setHasrefreshed({ hasrefreshed: false });
+      //props.setHasrefreshed({ hasrefreshed: false });
       //props.setTheplan({subscriptionId:"",plan:"free",customerId:""})
       props.startLogout();
     };

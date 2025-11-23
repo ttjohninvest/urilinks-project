@@ -13,7 +13,7 @@ import { startAddPhotourl } from "../actions/photourl";
 import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
-
+import Header2 from './Header2'
 
 // const preStartLogout=()=>{
 //   setLinks([])
@@ -144,12 +144,23 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
 //   console.log("Mobile device detected");
 // } else {
 //   console.log("Desktop device detected");
+// }//
+
+// function isMobile() {
+//   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+//   return regex.test(navigator.userAgent);
 // }
 
-
+function isMobile() {
+    const minWidth = 768; // Minimum width for desktop devices
+    return window.innerWidth < minWidth;
+}
 
   return (
-    <div id="top">
+       <div>
+    {
+    isMobile() === true ? <div id="top">
+      
       {!deleteAccountError ? (
         <header className="header">
           <div className="">
@@ -184,9 +195,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   </Link>
                 </div>
               )}
-              {/* <div className="color-white-1">p:{props.theplan.plan}</div>
-              <div className="color-white-1">c_Id:{props.theplan.customerId}</div>
-              <div className="color-white-1">s_Id:{props.theplan.subscriptionId}</div> */}
+             
               <div
                 className="color-white-1"
                 title="Please use it for good. Bookmarks for internet pages, urls/links"
@@ -234,7 +243,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   )}
                 </div>
               )}
-            
+              
               <div>
                 <Link className="header__title- nounderline" to="/use">
                   <span
@@ -382,12 +391,19 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
               )}
             </div>
           </div>
-        
+         
         </header>
       ) : (
         "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."
       )}
+    
     </div>
+    :<div>
+<Header2 />
+
+    </div>}
+    </div>
+
   );
 };
 

@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 //import './HamburgerMenu.css'; // Import the CSS file
 
 const HamburgerMenu = (props) => {
+
+ const scrolldown = () => {
+    //this scrolls the results into view, the first and subsequent result is shown
+    document.querySelector("#before-before-link-summary-id").scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     // The 'open' class is conditionally applied for styling
     <div className={`menu-container ${props.isOpen ? 'open' : ''}`}>

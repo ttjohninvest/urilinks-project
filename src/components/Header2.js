@@ -14,6 +14,7 @@ import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
 import HamburgerMenu from "./HamburgerMenu";
+import logo from "../assets/images/logo9.png";
 
 
 
@@ -244,6 +245,23 @@ return (
     <div className="App">
       <header>
         <nav>
+          <div>
+            <div className="padding-leftright padding-top-11124">
+                            <Link
+                              className="nounderline ib"
+                              to="/dashboard?signup=signup"
+                              title="refresh"
+                            >
+                              <img
+                                className="rounded-full-1"
+                                src={logo}
+                                width="35"
+                                height="35"
+                                alt="Logo"
+                              />
+                            </Link>
+                          </div>
+          </div>
           <div className="logo">urilinks</div>
           <div className="hamburger-icon" onClick={toggleMenu}>
             {/* The icon can be a simple div or a library component */}

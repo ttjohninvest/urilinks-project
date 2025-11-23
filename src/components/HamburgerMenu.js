@@ -134,7 +134,7 @@ const HamburgerMenu = (props) => {
                   <li> {true && (
                         <span
                           id="scrolldownid"
-                          className="header__title- padding-top-11- cursor-pointer color-white-1- cursor-pointer nounderline"
+                          className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
                           onClick={scrolldown}
                           title="if the search and results section is not in view, click this to scroll search and results section into view."
                         >
@@ -218,7 +218,7 @@ const HamburgerMenu = (props) => {
                                 <li>{props.signup.signup === true ? (
                         
                           <button
-                            className="button-3 button--link ib cursor-pointer"
+                            className="button-3 button--link ib color-white-1 cursor-pointer"
                             onClick={logoutit}
                           >
                             (exit)
@@ -231,7 +231,7 @@ const HamburgerMenu = (props) => {
                         {props.signup.signup === true ? (
                         <div className="margin-top-1111a-">
                           <button
-                            className="button-3 button--link ib text-size-3- color-white-1- cursor-pointer"
+                            className="button-3 button--link ib text-size-3- color-white-1 cursor-pointer"
                             onClick={cancelsubscription}
                           >
                             (Delete Account)

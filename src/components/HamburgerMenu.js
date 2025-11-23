@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from "react-redux";
 //import './HamburgerMenu.css'; // Import the CSS file
 
-const HamburgerMenu = ({ isOpen, toggleMenu }) => {
+const HamburgerMenu = (props) => {
   return (
     // The 'open' class is conditionally applied for styling
-    <div className={`menu-container ${isOpen ? 'open' : ''}`}>
+    <div className={`menu-container ${props.isOpen ? 'open' : ''}`}>
       <ul className="menu-list">
         
                  
@@ -184,4 +185,31 @@ const HamburgerMenu = ({ isOpen, toggleMenu }) => {
   );
 };
 
-export default HamburgerMenu;
+//export default HamburgerMenu;
+
+const mapStateToProps = (state) => ({
+  settings: state.settings,
+  signup: state.signup,
+  email: state.email,
+  theplan: state.theplan,
+  subscriptionId: state.subscriptionId,
+  customerId: state.customerId
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  startLogout: () => {
+    dispatch(startLogout())
+      .then(() => console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSdispatch then"))
+      .catch((error) =>
+        console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error" + error)
+      );
+  },
+  setLinks: (links) => dispatch(setLinks(links)),
+  setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),
+  startAddPhotourl: (photourl) => dispatch(startAddPhotourl(photourl)),
+  startAddEmail: (email) => dispatch(startAddEmail(email)),
+  startDeleteAccount: (email) => dispatch(startDeleteAccount(email)),
+  setTheplan: (theplan) => dispatch(setTheplan(theplan)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HamburgerMenu);

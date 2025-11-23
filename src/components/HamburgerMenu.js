@@ -264,9 +264,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   startLogout: () => {
     dispatch(startLogout())
-      .then(() => console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSdispatch then"))
+      .then(() => console.log("startLogout"))
       .catch((error) =>
-        console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error" + error)
+        console.log("startLogout, error" + error)
       );
   },
   setLinks: (links) => dispatch(setLinks(links)),

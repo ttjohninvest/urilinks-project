@@ -166,7 +166,7 @@ function isMobile() {
                                           />
               <h3>urilinks</h3>
             </header> */}
-            <div className="flexrow2w-">
+            <div className="flexrow2w">
              
               <header className="solid">
                 

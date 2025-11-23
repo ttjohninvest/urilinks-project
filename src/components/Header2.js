@@ -246,6 +246,7 @@ return (
       <header>
         <nav>
           <div>
+            <div>
             <div className="padding-leftright padding-top-11124">
                             <Link
                               className="nounderline ib"
@@ -263,6 +264,7 @@ return (
                           </div>
           </div>
           <div className="logo">urilinks</div>
+          </div>
           <div className="hamburger-icon" onClick={toggleMenu}>
             {/* The icon can be a simple div or a library component */}
             <div className="line"></div>

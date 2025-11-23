@@ -261,14 +261,16 @@ return (
                                 alt="Logo"
                               />
                             </Link> */}
-            <span className="ib padding-leftright padding-top-111241"><img
+                            <span className="ib flexrowz3">
+            <span className="ib padding-leftright"><img
                                 className="rounded-full-1"
                                 src={logo}
                                 width="35"
                                 height="35"
                                 alt="Logo"
                               /></span>
-            <span className="ib margin-bottom-1">urilinks</span>
+            <span className="ib">urilinks</span>
+            </span>
             </div>
           </div>
           <div className="hamburger-icon" onClick={toggleMenu}>
@@ -280,10 +282,10 @@ return (
         </nav>
         <HamburgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
       </header>
-      <main>
+      {/* <main>
         <h1>Welcome to the site</h1>
         <p>Click the hamburger icon in the top corner to open the menu.</p>
-      </main>
+      </main> */}
     </div>
   )
 };

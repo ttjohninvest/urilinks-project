@@ -20,6 +20,53 @@ const HamburgerMenu = (props) => {
       props.startLogout();
     };
 
+    const cancelsubscription = () => {
+    //alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
+        try {
+    if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
+        //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
+        //if(true) {
+        if(props.theplan.plan.replace(/"/g, "")==="free") {
+            props.startDeleteAccount()
+                    logoutit()
+    
+            
+        } else {
+          //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
+        const theemail = { "email": props.email, customerId:props.theplan.customerId, subscriptionId:props.theplan.subscriptionId };
+       
+        fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(theemail),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            
+            console.log("Success:");
+            
+            props.startDeleteAccount()
+                    logoutit()
+    
+            
+          })
+          .catch((error) => {
+            console.log("cancel subscription error=" + error);
+          });
+        }
+        } else {
+          alert("Canceled the deletion of the account")
+          console.log("Canceled the Deletion of the Account");
+        }
+        } catch(error) {
+           alert("an error occurred: 10002222")
+           console.log("an error occurred: 10002222, error="+error)
+        }
+        //
+      
+      };
 
   return (
     // The 'open' class is conditionally applied for styling

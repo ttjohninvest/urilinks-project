@@ -56,7 +56,7 @@ export default () => {
       //customerid: customeridReducer,
       subscriptionid:subscriptionidReducer,
     }),
-    //composeEnhancers(applyMiddleware(thunk))
+    composeEnhancers(applyMiddleware(thunk))
   );
 
   return store;

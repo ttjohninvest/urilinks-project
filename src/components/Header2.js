@@ -261,16 +261,19 @@ return (
                                 alt="Logo"
                               />
                             </Link> */}
-                            <span className="ib- flexrowz3-">
-            {/* <span className="ib padding-leftright"><img
+                          
+            {/* <span>urilinks</span> */}
+            <header class="solid">
+   <img
                                 className="rounded-full-1"
                                 src={logo}
                                 width="35"
                                 height="35"
                                 alt="Logo"
-                              /></span> */}
-            <span className="ib-">urilinks</span>
-            </span>
+                              />
+  <h1>urilinks</h1>
+</header>
+            
             </div>
           </div>
           <div className="hamburger-icon" onClick={toggleMenu}>

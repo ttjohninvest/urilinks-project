@@ -15,10 +15,7 @@ import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
 import Header2 from './Header2'
 
-// const preStartLogout=()=>{
-//   setLinks([])
-//   startLogout()
-// }
+
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);

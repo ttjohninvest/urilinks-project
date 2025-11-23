@@ -14,7 +14,7 @@ import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
 import HamburgerMenu from "./HamburgerMenu";
-import logo from "../assets/images/logo9.png";
+
 
 
 

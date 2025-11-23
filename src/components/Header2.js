@@ -155,7 +155,10 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
    
       
       {!deleteAccountError ? (
-        <div className="flexrowz2">
+       <div className="flexrowz2">
+        <div>
+            <HamburgerMenu />
+        </div>
         <header className="header flexrowz2">
           <div className="">
             <div className="flexrow2w">
@@ -217,9 +220,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
           </div>
         
         </header>
-        <div>
-            <HamburgerMenu />
-        </div>
+       
         </div>
       ) : (
         "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."

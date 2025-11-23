@@ -23,15 +23,7 @@ export const Header = (props) => {
   const [inviewport, setInviewport] = useState(false);
   const ideas = () => {};
 
-  //   const isInViewport=()=>{//
-  //   const rect = document.getElementById("scrolldownid").getBoundingClientRect();
-  //   return (
-  //     rect.top >= 0 &&
-  //     rect.left >= 0 &&
-  //     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-  //     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  //   );
-  // }
+
 
   const setPhotoURLdb = (photoURL) => {
     console.log("setPhotoURLdb, Header.js, photoURL=" + photoURL);
@@ -162,7 +154,19 @@ function isMobile() {
       {!deleteAccountError ? (
         <header className="header">
           <div className="">
-            <div className="flexrow2w">
+             <header class="solid">
+            
+                         
+               <img
+                                            className="rounded-full-1"
+                                            src={logo}
+                                            width="35"
+                                            height="35"
+                                            alt="Logo"
+                                          />
+              <h3>urilinks</h3>
+            </header>
+            {/* <div className="flexrow2w">
              
               <div className="padding-leftright padding-top-11124">
                 <Link
@@ -178,7 +182,8 @@ function isMobile() {
                     alt="Logo"
                   />
                 </Link>
-              </div>
+                urilinks
+              </div> */}
               {props.signup.signup === false && (
                 <div
                   className="color-white-1"

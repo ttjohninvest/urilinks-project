@@ -273,7 +273,7 @@ return (
                                 height="35"
                                 alt="Logo"
                               />
-  <h3>urilinks</h3>
+  <h3 className="color-white-1">urilinks</h3>
 </header>
             
             </div>

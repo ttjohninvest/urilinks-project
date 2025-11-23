@@ -248,7 +248,7 @@ return (
           <div>
             
           <div className="logo">
-             <Link
+             {/* <Link
                               className="nounderline ib-"
                               to="/dashboard?signup=signup"
                               title="refresh"
@@ -260,9 +260,16 @@ return (
                                 height="35"
                                 alt="Logo"
                               />
-                            </Link>
-            
-            urilinks</div>
+                            </Link> */}
+            <span><img
+                                className="rounded-full-1"
+                                src={logo}
+                                width="35"
+                                height="35"
+                                alt="Logo"
+                              /></span>
+            <span>urilinks</span>
+            </div>
           </div>
           <div className="hamburger-icon" onClick={toggleMenu}>
             {/* The icon can be a simple div or a library component */}

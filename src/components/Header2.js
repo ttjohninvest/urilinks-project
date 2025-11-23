@@ -264,13 +264,27 @@ return (
                           
             {/* <span>urilinks</span> */}
             <header class="solid">
-   <img
+
+                <Link
+                              className="nounderline ib-"
+                              to="/dashboard?signup=signup"
+                              title="refresh"
+                            >
+                              <img
                                 className="rounded-full-1"
                                 src={logo}
                                 width="35"
                                 height="35"
                                 alt="Logo"
                               />
+                            </Link>
+   {/* <img
+                                className="rounded-full-1"
+                                src={logo}
+                                width="35"
+                                height="35"
+                                alt="Logo"
+                              /> */}
   <h3>urilinks</h3>
 </header>
             

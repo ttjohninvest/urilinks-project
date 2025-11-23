@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 //import './HamburgerMenu.css'; // Import the CSS file
+import { startDeleteAccount } from "../actions/email";
+import { startLogout } from "../actions/auth";
 
 const HamburgerMenu = (props) => {
 

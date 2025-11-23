@@ -247,7 +247,7 @@ return (
         <nav>
           <div>
             
-          <div className="logo padding-leftright padding-top-11124">
+          <div className="logo">
              {/* <Link
                               className="nounderline ib-"
                               to="/dashboard?signup=signup"
@@ -261,7 +261,7 @@ return (
                                 alt="Logo"
                               />
                             </Link> */}
-            <span><img
+            <span className="ib padding-leftright padding-top-11124"><img
                                 className="rounded-full-1"
                                 src={logo}
                                 width="35"

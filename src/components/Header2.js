@@ -15,12 +15,13 @@ import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
 
 
+
 // const preStartLogout=()=>{
 //   setLinks([])
 //   startLogout()
 // }
 
-export const Header = (props) => {
+export const Header2 = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
   const [inviewport, setInviewport] = useState(false);
@@ -149,9 +150,11 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
 
 
   return (
-    <div id="top">
+    <div>
+    {true ? <div id="top">
+      
       {!deleteAccountError ? (
-        <header className="header">
+        <header className="header flexrowz2">
           <div className="">
             <div className="flexrow2w">
              
@@ -170,35 +173,8 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   />
                 </Link>
               </div>
-              {props.signup.signup === false && (
-                <div
-                  className="color-white-1"
-                  title="Please use it for good. Bookmarks for internet pages, urls/links"
-                >
-                  <Link
-                    className="nounderline color-white-1 cursor-pointer"
-                    to="/signup"
-                    title=""
-                  >
-                    (enter)
-                  </Link>
-                </div>
-              )}
-              {/* <div className="color-white-1">p:{props.theplan.plan}</div>
-              <div className="color-white-1">c_Id:{props.theplan.customerId}</div>
-              <div className="color-white-1">s_Id:{props.theplan.subscriptionId}</div> */}
-              <div
-                className="color-white-1"
-                title="Please use it for good. Bookmarks for internet pages, urls/links"
-              >
-                <Link
-                  className="nounderline color-white-1 cursor-pointer"
-                  to="/dashboard"
-                  title="refresh"
-                >
-                  urilinks (link to links tool)
-                </Link>
-              </div>
+             
+            
 
 
 
@@ -234,152 +210,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   )}
                 </div>
               )}
-            
-              <div>
-                <Link className="header__title- nounderline" to="/use">
-                  <span
-                    className="margin-right-1-ib- color-white-1 cursor-pointer"
-                    title="How to use this website"
-                  >
-                    (How to use)
-                  </span>
-                </Link>
-              </div>
 
-              <div>
-                <Link
-                  className="header__title- nounderline"
-                  to="/termsandprivacy"
-                >
-                  <span
-                    className="ib- color-white-1 cursor-pointer"
-                    title="terms, conditions and privacy policy"
-                  >
-                    (legal)
-                  </span>
-                </Link>
-              </div>
-              {props.theplan.plan.replace(/"/g, "")!=="premium" && props.signup.signup === true && (
-                <div>
-                  <Link className="header__title" to="/teirspayment3">
-                    <span
-                      className="ib"
-                      title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
-                    >
-                      (plans ($))
-                    </span>
-                  </Link>
-                </div>
-              )}
-              {!inviewport && (
-                <div
-                  id="scrolldownid"
-                  className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
-                  onClick={scrolldown}
-                  title="if the search and results section is not in view, click this to scroll search and results section into view."
-                >
-                  (go to search section)
-                </div>
-              )}
-
-              <div>
-                <Link className="header__title- nounderline" to="/ideas">
-                  <span
-                    className="ib- color-white-1 cursor-pointer"
-                    title="some ideas for hash tags"
-                  >
-                    (Link Ideas)
-                  </span>
-                </Link>
-              </div>
-
-              {props.signup.signup === true ? (
-                <div className="hide-">
-                  <a
-                    className="header__title- nounderline pointereventsauto"
-                    href="https://urilinks-project-urls-to-tabs-html.vercel.app"
-                    target="_blank"
-                  >
-                    <span
-                      className="ib- color-white-1 cursor-pointer"
-                      title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader."
-                    >
-                      (get page urls for bookmarks file)
-                    </span>
-                  </a>
-                </div>
-              ) : (
-                <div className="hide-">
-                  <a
-                    className="header__title- nounderline pointereventsnone"
-                    href="https://urilinks-project-urls-to-tabs-html.vercel.app"
-                    target="_blank"
-                  >
-                    <span
-                      className="ib- color-white-1 cursor-pointer"
-                      title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader."
-                    >
-                      (get page urls for bookmarks file)
-                    </span>
-                  </a>
-                </div>
-              )}
-
-              {props.signup.signup === true ? (
-                <div className="pointereventsauto hide-">
-                  <Link
-                    className="header__title- nounderline pointereventsauto"
-                    to="/bookmarksmanager"
-                  >
-                    <span
-                      className="ib- color-white-1 cursor-pointer pointereventsauto"
-                      title="bookmarks get renamed to links"
-                    >
-                      (Bookmarks File Uploader)
-                    </span>
-                  </Link>
-                </div>
-              ) : (
-                <div className="pointereventsnone margin-right-1 hide-">
-                  <Link
-                    className="header__title- nounderline pointereventsnone"
-                    to="/bookmarksmanager"
-                  >
-                    <span
-                      className="ib- color-white-1 cursor-pointer pointereventsnone"
-                      title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
-                    >
-                      (Bookmarks File Uploader)
-                    </span>
-                  </Link>
-                </div>
-              )}
-
-              {props.signup.signup === true ? (
-                <div className="margin-top-1111a-">
-                  <button
-                    className="button button--link ib text-size-3- color-white-1 cursor-pointer"
-                    onClick={logoutit}
-                  >
-                    (exit)
-                  </button>
-                </div>
-              ) : (
-                ""
-              )}
-
-              {props.signup.signup === true ? (
-                <div className="margin-top-1111a-">
-                  <button
-                    className="button button--link ib text-size-3- color-white-1 cursor-pointer"
-                    onClick={cancelsubscription}
-                  >
-                    (Delete Account)
-                  </button>
-                </div>
-              ) : (
-                ""
-              )}
             </div>
           </div>
         
@@ -387,6 +218,12 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
       ) : (
         "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."
       )}
+    
+    </div>
+    :<div id="top">
+
+
+    </div>}
     </div>
   );
 };
@@ -416,4 +253,4 @@ const mapDispatchToProps = (dispatch) => ({
   setTheplan: (theplan) => dispatch(setTheplan(theplan)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header2);

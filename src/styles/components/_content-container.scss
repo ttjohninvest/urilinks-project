@@ -277,6 +277,10 @@ display:none;
   //grid-auto-columns: minmax(0, 1fr); /_ it will always stay within the width specification _/
 }
 
+.header4 {
+  background-color: purple;
+}
+
 .item-newspaper {
   min-width: 225px;
   background-color: purple; //#007744;

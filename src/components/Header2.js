@@ -247,7 +247,7 @@ return (
         <nav>
           <div>
             
-          <div className="logo">
+          <div className="logo padding-leftright padding-top-11124">
              {/* <Link
                               className="nounderline ib-"
                               to="/dashboard?signup=signup"

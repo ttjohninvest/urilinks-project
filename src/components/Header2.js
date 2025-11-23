@@ -268,7 +268,7 @@ return (
                                 height="35"
                                 alt="Logo"
                               /></span>
-            <span>urilinks</span>
+            <span className="ib margin-bottom-1">urilinks</span>
             </div>
           </div>
           <div className="hamburger-icon" onClick={toggleMenu}>

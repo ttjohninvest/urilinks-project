@@ -261,15 +261,15 @@ return (
                                 alt="Logo"
                               />
                             </Link> */}
-                            <span className="ib flexrowz3">
-            <span className="ib padding-leftright"><img
+                            <span className="ib- flexrowz3-">
+            {/* <span className="ib padding-leftright"><img
                                 className="rounded-full-1"
                                 src={logo}
                                 width="35"
                                 height="35"
                                 alt="Logo"
-                              /></span>
-            <span className="ib">urilinks</span>
+                              /></span> */}
+            <span className="ib-">urilinks</span>
             </span>
             </div>
           </div>

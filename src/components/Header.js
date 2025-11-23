@@ -154,18 +154,7 @@ function isMobile() {
       {!deleteAccountError ? (
         <header className="header">
           <div className="">
-             {/* <header class="solid">
             
-                         
-               <img
-                                            className="rounded-full-1"
-                                            src={logo}
-                                            width="35"
-                                            height="35"
-                                            alt="Logo"
-                                          />
-              <h3>urilinks</h3>
-            </header> */}
             <div className="flexrow2w">
              
               <header className="solid">
@@ -178,7 +167,7 @@ function isMobile() {
                     alt="Logo"
                   />
               
-              <h3>urilinks</h3>
+              <h3 className="color-white-1">urilinks</h3>
               </header>
               {props.signup.signup === false && (
                 <div

@@ -5,7 +5,7 @@ import Header2 from './Header2'
 //import './HamburgerMenu.css'; // Make sure to create this CSS file
 
 const HamburgerMenu = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);

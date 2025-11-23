@@ -146,15 +146,15 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
 //   console.log("Desktop device detected");
 // }//
 
-// function isMobile() {
-//   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-//   return regex.test(navigator.userAgent);
-// }
-
 function isMobile() {
-    const minWidth = 768; // Minimum width for desktop devices
-    return window.innerWidth < minWidth;
+  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(navigator.userAgent);
 }
+
+// function isMobile() {
+//     const minWidth = 768; // Minimum width for desktop devices
+//     return window.innerWidth < minWidth;
+// }
 
   return (
        <div>

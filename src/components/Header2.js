@@ -26,6 +26,15 @@ export const Header2 = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
   const [inviewport, setInviewport] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
+
+
+
   const ideas = () => {};
 
   //   const isInViewport=()=>{//
@@ -150,85 +159,106 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
 
 
 
-  return (
-    <div id="top">
+//   return (
+//     <div id="top">
    
       
-      {!deleteAccountError ? (
-       <div className="flexrowz2">
-        {/* <div>
-            <HamburgerMenu />
-        </div> */}
-        <header className="header flexrowz2">
-          <div className="">
-            <div className="flexrow2w">
+//       {!deleteAccountError ? (
+//        <div className="flexrowz2">
+//         <div>
+//             <HamburgerMenu />
+//         </div>
+//         <header className="header flexrowz2-">
+//           <div className="">
+//             <div className="flexrow2w">
              
-              <div className="padding-leftright padding-top-11124">
-                <Link
-                  className="nounderline ib"
-                  to="/dashboard?signup=signup"
-                  title="refresh"
-                >
-                  <img
-                    className="rounded-full-1"
-                    src={logo}
-                    width="35"
-                    height="35"
-                    alt="Logo"
-                  />
-                </Link>
-              </div>
+//               <div className="padding-leftright padding-top-11124">
+//                 <Link
+//                   className="nounderline ib"
+//                   to="/dashboard?signup=signup"
+//                   title="refresh"
+//                 >
+//                   <img
+//                     className="rounded-full-1"
+//                     src={logo}
+//                     width="35"
+//                     height="35"
+//                     alt="Logo"
+//                   />
+//                 </Link>
+//               </div>
              
             
 
 
 
-              {props.signup.signup === true ? (
-                <div className="padding-top-1112">
-                  <img
-                    src={photoURL}
-                    width="32"
-                    height="32"
-                    style={{ borderRadius: "50%" }}
-                    className="ib- margin-bottom-11-"
-                  />
-                </div>
-              ) : (
-                <div className="padding-top-1112" title="welcome">
-                  {firebase.auth().currentUser !== null &&
-                  firebase.auth().currentUser !== undefined ? (
-                    <img
-                      src={photoURL}
-                      width="32"
-                      height="32"
-                      style={{ borderRadius: "50%" }}
-                      className="ib- margin-bottom-11-"
-                    />
-                  ) : (
-                    <img
-                      src={myprofile}
-                      width="32"
-                      height="32"
-                      style={{ borderRadius: "50%" }}
-                      className="ib- margin-bottom-11-"
-                    />
-                  )}
-                </div>
-              )}
+//               {props.signup.signup === true ? (
+//                 <div className="padding-top-1112">
+//                   <img
+//                     src={photoURL}
+//                     width="32"
+//                     height="32"
+//                     style={{ borderRadius: "50%" }}
+//                     className="ib- margin-bottom-11-"
+//                   />
+//                 </div>
+//               ) : (
+//                 <div className="padding-top-1112" title="welcome">
+//                   {firebase.auth().currentUser !== null &&
+//                   firebase.auth().currentUser !== undefined ? (
+//                     <img
+//                       src={photoURL}
+//                       width="32"
+//                       height="32"
+//                       style={{ borderRadius: "50%" }}
+//                       className="ib- margin-bottom-11-"
+//                     />
+//                   ) : (
+//                     <img
+//                       src={myprofile}
+//                       width="32"
+//                       height="32"
+//                       style={{ borderRadius: "50%" }}
+//                       className="ib- margin-bottom-11-"
+//                     />
+//                   )}
+//                 </div>
+//               )}
 
-            </div>
-          </div>
+//             </div>
+//           </div>
         
-        </header>
+//         </header>
        
-        </div>
-      ) : (
-        "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."
-      )}
+//         </div>
+//       ) : (
+//         "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."
+//       )}
     
+//     </div>
+    
+//   );
+
+return (
+    <div className="App">
+      <header>
+        <nav>
+          <div className="logo">urilinks</div>
+          <div className="hamburger-icon" onClick={toggleMenu}>
+            {/* The icon can be a simple div or a library component */}
+            <div className="line"></div>
+            <div className="line"></div>
+            <div className="line"></div>
+          </div>
+        </nav>
+        <HamburgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      </header>
+      <main>
+        <h1>Welcome to the site</h1>
+        <p>Click the hamburger icon in the top corner to open the menu.</p>
+      </main>
     </div>
-    
-  );
+  )
 };
 
 const mapStateToProps = (state) => ({

@@ -156,9 +156,9 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
       
       {!deleteAccountError ? (
        <div className="flexrowz2">
-        <div>
+        {/* <div>
             <HamburgerMenu />
-        </div>
+        </div> */}
         <header className="header flexrowz2">
           <div className="">
             <div className="flexrow2w">

@@ -249,7 +249,7 @@ return (
             
           <div className="logo">
              <Link
-                              className="nounderline ib"
+                              className="nounderline ib-"
                               to="/dashboard?signup=signup"
                               title="refresh"
                             >

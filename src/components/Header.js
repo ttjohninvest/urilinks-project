@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
-import logo from "../assets/images/logo9.png";
+import logo from "../assets/images/purple-u-logo.png";
 import myprofile from "../assets/images/myprofile.png";
 //import { getAuth } from "firebase";
 import XShareButton from "./XShareButton";

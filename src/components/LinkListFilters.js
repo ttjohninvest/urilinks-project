@@ -1063,7 +1063,7 @@ export class LinkListFilters extends React.Component {
               ))}
             </select>
           </div>}
-          <div className="">
+          {/* <div className="">
             <DateRangePicker
               className="zindex"
               startDate={this.props.filters.startDate}
@@ -1075,7 +1075,7 @@ export class LinkListFilters extends React.Component {
               numberOfMonths={1}
               isOutsideRange={() => false}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     );

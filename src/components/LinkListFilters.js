@@ -979,7 +979,7 @@ export class LinkListFilters extends React.Component {
             />
           </div>
 
-          {isMobile() === false && 
+           
           
           <div
             className="cursor-pointer  margin-right-1"
@@ -988,7 +988,7 @@ export class LinkListFilters extends React.Component {
           >
             (up)
           </div>
-          }
+          
 
           <div className="">
             <select

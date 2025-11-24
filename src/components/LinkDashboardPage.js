@@ -3,10 +3,19 @@ import { connect } from "react-redux";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
 import setHasrefreshed from "../actions/hasrefreshed";
+import { startLogout } from "../actions/auth";
 
 import LinkListFileDate from "./LinkListFileDate";
 import LinkListFiltersFileDate from "./LinkListFiltersFileDate";
 import { useSelector } from 'react-redux';
+
+//  const logoutit = () => {
+//       //sessionStorage.setItem('hasRefreshed', 'false');
+//       //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
+//       //props.setHasrefreshed({ hasrefreshed: false });
+//       //props.setTheplan({subscriptionId:"",plan:"free",customerId:""})
+//       props.startLogout();
+//     };
 
 const LinkDashboardPage = (props) => {
   //const elementRef = useRef()
@@ -20,6 +29,22 @@ const LinkDashboardPage = (props) => {
    
 
   useEffect(() => {
+
+     
+    const handleTabClose = (event) => {
+      event.preventDefault();
+      // Optional: Set a custom message (though modern browsers may ignore it)
+      //logoutit()
+      props.startLogout();
+      //return (event.returnValue = 'Are you sure you want to leave?');
+    };
+
+    window.addEventListener('beforeunload', handleTabClose);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleTabClose);
+    };
+
     const handleScroll = () => {
       window.localStorage.setItem("scrollPosition", window.scrollY);
       //window.localStorage.setItem("scrollY",window.scrollY)
@@ -115,10 +140,23 @@ const mapStateToProps = (state) => ({
   hasrefreshed: state.hasrefreshed
 });
 
+// const mapDispatchToProps = (dispatch) => ({
+//   setHasrefreshed: (hasrefreshed)=>dispatch(setHasrefreshed(hasrefreshed))
+// });
+
+
+// export default connect(mapStateToProps, mapDispatchToProps)(LinkDashboardPage);
+//export default LinkDashboardPage;
+
 const mapDispatchToProps = (dispatch) => ({
-  setHasrefreshed: (hasrefreshed)=>dispatch(setHasrefreshed(hasrefreshed))
+  startLogout: () => {
+    dispatch(startLogout())
+      .then(() => console.log("startLogout"))
+      .catch((error) =>
+        console.log("startLogout, error" + error)
+      );
+  },
+ setHasrefreshed: (hasrefreshed)=>dispatch(setHasrefreshed(hasrefreshed))
 });
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(LinkDashboardPage);
-//export default LinkDashboardPage;

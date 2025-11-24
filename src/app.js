@@ -70,13 +70,13 @@ if (signup !== "signup") {
   console.log("2 signup=" + signup);
   console.log("2 id=" + id);
 
-  // if (id !== null) {
-  //   store.dispatch(login(id));
-  // } else {
-  //   store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
-  // }
+  if (id !== null) {
+    store.dispatch(login(id));
+  } else {
+    store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
+  }
 
-  store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
+  
 
   store
     .dispatch(startSetLinks())

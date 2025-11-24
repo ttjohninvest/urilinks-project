@@ -205,7 +205,7 @@ function isMobile() {
 
 
 
-              {props.signup.signup === true || signup === "signup" ? ( 
+              {props.signup.signup === true || signup === "0" ? ( 
                 <div className="padding-top-1112">
                   <img
                     src={photoURL}

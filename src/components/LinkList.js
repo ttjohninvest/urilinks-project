@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { startRemoveLink, removeLink } from "../actions/links";
 import { Link } from "react-router-dom";
 import numeral from "numeral";
-import selectLinks from "../selectors/links";
+
 import selectLinksTotal from "../selectors/links-total";
 import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";

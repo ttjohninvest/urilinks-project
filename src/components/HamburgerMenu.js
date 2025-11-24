@@ -225,7 +225,7 @@ const HamburgerMenu = (props) => {
                                 <li>{props.signup.signup === true ? (
                         
                           <button
-                            className="button-2 button--link ib color-white-1 cursor-pointer"
+                            className="button-2 button--link ib color-white-1 cursor-pointer font-weight-bold"
                             onClick={logoutit}
                           >
                             (exit)
@@ -238,7 +238,7 @@ const HamburgerMenu = (props) => {
                         {props.signup.signup === true ? (
                         <div className="margin-top-1111a-">
                           <button
-                            className="button-2 button--link ib text-size-3- color-white-1 cursor-pointer"
+                            className="button-2 button--link ib text-size-3- color-white-1 cursor-pointer font-weight-bold"
                             onClick={cancelsubscription}
                           >
                             (Delete Account)

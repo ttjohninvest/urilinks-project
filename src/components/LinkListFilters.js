@@ -979,13 +979,16 @@ export class LinkListFilters extends React.Component {
             />
           </div>
 
-          {isMobile() === false || true && <div
+          {/* {isMobile() === false || true &&  */}
+          
+          {/* <div
             className="cursor-pointer  margin-right-1"
             onClick={this.scrollUp}
             title="scroll to top"
           >
             (up)
-          </div>}
+          </div> */}
+          {/* } */}
 
           <div className="">
             <select

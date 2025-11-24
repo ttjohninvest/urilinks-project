@@ -238,7 +238,10 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
 //
 
 return (
-    <div  id="top" className="App">
+    <div  
+    //id="top" 
+    
+    className="App">
       <header>
         <nav>
           <div>

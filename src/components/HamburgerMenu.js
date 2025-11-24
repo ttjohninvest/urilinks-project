@@ -156,7 +156,7 @@ const HamburgerMenu = (props) => {
                                   </Link>
                                 </li>
                   
-                  <li>{props.signup.signup === true ? (
+                  {isMobile()=== false && <li>{props.signup.signup === true ? (
                         <span className="hide-">
                           <a
                             className="header__title- nounderline pointereventsauto"
@@ -186,8 +186,8 @@ const HamburgerMenu = (props) => {
                             </span>
                           </a>
                         </span>
-                      )}</li>
-                  <li> {props.signup.signup === true ? (
+                      )}</li>}
+                  {isMobile()=== false && <li> {props.signup.signup === true ? (
                                   <span className="pointereventsauto hide-">
                                     <Link
                                       className="header__title- nounderline pointereventsauto"
@@ -215,7 +215,7 @@ const HamburgerMenu = (props) => {
                                       </span>
                                     </Link>
                                   </span>
-                                )}</li>
+                                )}</li>}
                                  
                                 <li>{props.signup.signup === true ? (
                         

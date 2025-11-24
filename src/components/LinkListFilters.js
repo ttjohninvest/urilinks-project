@@ -30,6 +30,9 @@ function ExpandableArray(props) {
   const textAreaRef = useRef(null);
   const [photoURL, setPhotoURL] = useState("");
   const [maximum, setMaximum] = useState(0)
+
+   const params = new URLSearchParams(window.location.search);
+  const signup = params.get("signup")
   
 
   let x = false;
@@ -177,7 +180,7 @@ function isMobile() {
                 </div>
               )}
 
-              <div className="text-size-1 textCenter"><span className="text-size-9">{!!theuser && props.signup === true ? theuser.displayName: "John Doe"}</span><span className="hide">, {!!theuser && theuser.email}</span></div>
+              <div className="text-size-1 textCenter"><span className="text-size-9">{!!theuser && props.signup === true  || signup === "0" ? theuser.displayName: "John Doe"}</span><span className="hide">, {!!theuser && theuser.email}</span></div>
               <div className="text-size-1 textLeft hide">Welcome {!theuser ? "to this example links page. What makes you smile?":", what makes you smile?"}</div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
  

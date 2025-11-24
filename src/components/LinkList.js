@@ -103,7 +103,7 @@ export const LinkList = (props) => {
               }
             
         <div>
-          <label>
+          <label className="inline-block__flex">
             <input
               ref={myRef}
               className="the-inline-block zindex2"
@@ -118,7 +118,7 @@ export const LinkList = (props) => {
           </label>
         </div>
         <div>
-          <label>
+          <label className="inline-block__flex">
             <input
               ref={myRef}
               className="the-inline-block zindex2"

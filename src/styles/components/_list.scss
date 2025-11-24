@@ -225,6 +225,11 @@ input.cb1[type="checkbox"]:hover {
   padding-top: 1rem;
 }
 
+.padding-tb {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .padding-bottom-111 {
   padding-bottom: 1rem;
 }
@@ -564,11 +569,11 @@ padding-left-11111 {
 }
 
 .textCenter {
-  text-align:center;
+  text-align: center;
 }
 
 .textLeft {
-  text-align:left;
+  text-align: left;
 }
 
 .border-bottom-1 {
@@ -728,7 +733,7 @@ padding-left-11111 {
 }
 
 .padding-top-111241 {
-  padding-top: 0.70rem;
+  padding-top: 0.7rem;
 }
 
 .padding-top-55 {
@@ -846,7 +851,6 @@ padding-left-11111 {
   align-items: center;
 }
 
-
 .App {
   text-align: center;
 }
@@ -887,7 +891,7 @@ main {
 
 .menu-container {
   /* Hidden by default */
-  display: none; 
+  display: none;
   position: absolute;
   top: 50px; /* Adjust to sit below the header/nav */
   right: 0;
@@ -899,7 +903,7 @@ main {
 
 .menu-container.open {
   /* Shown when the 'open' class is applied */
-  display: block; 
+  display: block;
 }
 
 .menu-list {

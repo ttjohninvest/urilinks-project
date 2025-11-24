@@ -104,7 +104,7 @@ const HamburgerMenu = (props) => {
                                                </li> */}
                                   
                                   <li>
-                                  <Link className="header__title- nounderline" to="/use">
+                                  <Link className="nounderline" to="/use">
                                     <span
                                       className="margin-right-1-ib- color-white-1- cursor-pointer font-weight-bold"
                                       title="How to use this website"
@@ -138,22 +138,22 @@ const HamburgerMenu = (props) => {
                           </Link>
                         
                       )}</li>
-                  <li> {true && (
+                  <li> 
                         <span
                           id="scrolldownid"
-                          className=" font-weight-bold header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
+                          className="ib padding-tb font-weight-bold cursor-pointer color-white-1 nounderline"
                           onClick={scrolldown}
                           title="if the search and results section is not in view, click this to scroll search and results section into view."
                         >
                           (go to search section)
                         </span>
-                      )}</li>
+                      </li>
         
                   <li></li>
                   <li>
-                                  <Link className="header__title- nounderline" to="/ideas">
+                                  <Link className="nounderline" to="/ideas">
                                     <span
-                                      className="ib- color-white-1- cursor-pointer font-weight-bold"
+                                      className="font-weight-bold cursor-pointer color-white-1 nounderline"
                                       title="some ideas for hash tags"
                                     >
                                       (Link Ideas)

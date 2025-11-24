@@ -157,7 +157,7 @@ function isMobile() {
             
             <div className="flexrow2w">
              
-              <header className="solid">
+              <header className="margin-left-11 solid">
                 
                   <img
                     className="rounded-full-1"

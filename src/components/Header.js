@@ -198,32 +198,10 @@ function isMobile() {
               </div>
 
               
-{props.signup.signup === true ? ( 
-                <div className="padding-top-1112">
-                  <img
-                    src={photoURL}
-                    width="32"
-                    height="32"
-                    style={{ borderRadius: "50%" }}
-                    className="ib- margin-bottom-11-"
-                  />
-                </div>
-              ) : 
-                <div className="padding-top-1112" title="welcome">
-                 
-                    <img
-                      src={myprofile}
-                      width="32"
-                      height="32"
-                      style={{ borderRadius: "50%" }}
-                      className="ib- margin-bottom-11-"
-                    />
-                  
-                </div>
-              }
 
 
-              {/* {props.signup.signup === true ? ( 
+
+              {props.signup.signup === true ? ( 
                 <div className="padding-top-1112">
                   <img
                     src={photoURL}
@@ -236,7 +214,9 @@ function isMobile() {
               ) : (
                 <div className="padding-top-1112" title="welcome">
                   {firebase.auth().currentUser !== null &&
-                  firebase.auth().currentUser !== undefined ? (
+                  firebase.auth().currentUser !== undefined 
+                  //&& uid !== null
+                  ? (
                     <img
                       src={photoURL}
                       width="32"
@@ -254,7 +234,7 @@ function isMobile() {
                     />
                   )}
                 </div>
-              )} */}
+              )}
               
               <div>
                 <Link className="header__title- nounderline" to="/use">

@@ -30,7 +30,7 @@ import LoadingPage from "./components/LoadingPage";
 //     // Let's translate it!
 // });
 
-console.log = () => {};
+//console.log = () => {};
 
 let hasRendered = false;
 const renderApp = (store) => {
@@ -49,7 +49,9 @@ const renderApp = (store) => {
 //window.location.search = "?signup=signup"
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
-const id = params.get("id");
+//let id = "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
+
+const id=params.get("id");
 console.log("1 signup=" + signup);
 console.log("1 id=" + id);
 //console.log("store.getState().signup="+store.getState().signup)
@@ -67,8 +69,8 @@ if (signup !== "signup") {
   //store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
   //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
 
-  console.log("2 signup=" + signup);
-  console.log("2 id=" + id);
+  console.log("2 signup !== 'signup' signup=" + signup);
+  console.log("2 signup !== 'signup' id=" + id);
 
   if (id !== null) {
     store.dispatch(login(id));
@@ -79,7 +81,7 @@ if (signup !== "signup") {
   
 
   store
-    .dispatch(startSetLinks())
+    .dispatch(startSetLinks(id))
     .then(() => {
       return store
         .dispatch(getTheplan2())

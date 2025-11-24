@@ -156,11 +156,11 @@ export const setLinksAll = (links) => ({
   }
 
 //this puts the links array in the global redux store to be used to list the output
-export const startSetLinks = () => {
+export const startSetLinks = (uid) => {
   console.log("startSetLinks");
   return (dispatch, getState) => {
     //dispatch(setLinks([]));
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
     const hashtags = [];
     
 

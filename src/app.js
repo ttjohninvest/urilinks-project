@@ -23,7 +23,7 @@ import { firebase } from "./firebase/firebase";
 import LoadingPage from "./components/LoadingPage";
 
 // import translate from 'baidu-translate-api'
-// //
+// // //
 
 // translate("让我们来翻译吧!").then(res => {
 //     console.log(res.trans_result.dst);

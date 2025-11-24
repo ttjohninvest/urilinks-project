@@ -32,10 +32,10 @@ const LinkDashboardPage = (props) => {
 
      
     const handleTabClose = (event) => {
-      event.preventDefault();
+      //event.preventDefault();
       // Optional: Set a custom message (though modern browsers may ignore it)
       //logoutit()
-      props.startLogout();
+      //props.startLogout();
       //return (event.returnValue = 'Are you sure you want to leave?');
     };
 

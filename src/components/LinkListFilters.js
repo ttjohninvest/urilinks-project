@@ -197,7 +197,7 @@ function isMobile() {
                     className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
-                    https://urilinks.com/dashboard?signup=&id={props.uid}
+                    https://urilinks.com/dashboard?signup=signup&id={props.uid}
                   </a>
                   <button
                     className="button-2 ib margin-right-1"

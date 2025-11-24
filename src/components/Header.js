@@ -23,6 +23,9 @@ export const Header = (props) => {
   const [inviewport, setInviewport] = useState(false);
   const ideas = () => {};
 
+  const params = new URLSearchParams(window.location.search);
+  const signup = params.get("signup")
+
 
 
   const setPhotoURLdb = (photoURL) => {
@@ -40,6 +43,7 @@ export const Header = (props) => {
   };
 
   useEffect(() => {
+    
     console.log(
       "Header.js, useEffect, props.signup.signup=" + props.signup.signup
     );
@@ -201,7 +205,7 @@ function isMobile() {
 
 
 
-              {props.signup.signup === true ? ( 
+              {props.signup.signup === true || signup === "signup" ? ( 
                 <div className="padding-top-1112">
                   <img
                     src={photoURL}
@@ -213,9 +217,12 @@ function isMobile() {
                 </div>
               ) : (
                 <div className="padding-top-1112" title="welcome">
-                  {firebase.auth().currentUser !== null &&
-                  firebase.auth().currentUser !== undefined 
-                  && false// uid !== null
+                  {
+                  
+                  //firebase.auth().currentUser !== null &&
+                  //firebase.auth().currentUser !== undefined 
+                  //photourl==="" ||
+                  false// uid !== null
                   ? (
                     <img
                       src={photoURL}

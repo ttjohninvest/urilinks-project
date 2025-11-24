@@ -70,6 +70,11 @@ const HamburgerMenu = (props) => {
       
       };
 
+      function isMobile() {
+  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(navigator.userAgent);
+}
+
   return (
     // The 'open' class is conditionally applied for styling
     <div className={`menu-container ${props.isOpen ? 'open' : ''}`}>

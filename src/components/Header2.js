@@ -155,14 +155,6 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
  
 
 
- 
-// if (isMobile()) {
-//   console.log("Mobile device detected");
-// } else {
-//   console.log("Desktop device detected");
-// }
-
-
 
 //   return (
 //     <div id="top">

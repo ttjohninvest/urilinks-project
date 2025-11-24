@@ -177,7 +177,7 @@ function isMobile() {
                 </div>
               )}
 
-              <div className="text-size-1 textCenter"><span className="text-size-9">{!!theuser && props.signup === true && theuser.displayName}</span><span className="hide">, {!!theuser && theuser.email}</span></div>
+              <div className="text-size-1 textCenter"><span className="text-size-9">{!!theuser && props.signup === true ? theuser.displayName: "John Doe"}</span><span className="hide">, {!!theuser && theuser.email}</span></div>
               <div className="text-size-1 textLeft hide">Welcome {!theuser ? "to this example links page. What makes you smile?":", what makes you smile?"}</div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
  

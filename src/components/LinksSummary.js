@@ -12,7 +12,7 @@ export const LinksSummary = (props) => {
   return (
     <div>
  {props.signup.signup === true ? <div className="flexrow2">
-       <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11">Link(s) Found</span></div>
+       <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div>
         
           <Link className="button-2 ib text-size-5 bg-color-1 pointereventsauto" to="/create">
             Add Link

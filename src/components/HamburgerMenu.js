@@ -93,7 +93,7 @@ const HamburgerMenu = (props) => {
                                     )}
                                   </li>
                   
-                                  <li>
+                                  {/* <li>
                                                   <Link
                                                     className="nounderline color-white-1- cursor-pointer"
                                                     to="/dashboard"
@@ -101,7 +101,7 @@ const HamburgerMenu = (props) => {
                                                   >
                                                     urilinks (link to links tool)
                                                   </Link>
-                                               </li>
+                                               </li> */}
                                   
                                   <li>
                                   <Link className="header__title- nounderline" to="/use">

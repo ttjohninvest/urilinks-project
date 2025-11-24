@@ -83,7 +83,7 @@ const HamburgerMenu = (props) => {
                  
                   <li>
                                    {props.signup.signup === false && ( <Link
-                                      className="nounderline color-white-1 cursor-pointer"
+                                      className="nounderline color-white-1 cursor-pointer font-weight-bold"
                                       to="/signup"
                                       title=""
                                     >
@@ -106,7 +106,7 @@ const HamburgerMenu = (props) => {
                                   <li>
                                   <Link className="header__title- nounderline" to="/use">
                                     <span
-                                      className="margin-right-1-ib- color-white-1- cursor-pointer"
+                                      className="margin-right-1-ib- color-white-1- cursor-pointer font-weight-bold"
                                       title="How to use this website"
                                     >
                                       (How to use)
@@ -119,7 +119,7 @@ const HamburgerMenu = (props) => {
                                     to="/termsandprivacy"
                                   >
                                     <span
-                                      className="ib- color-white-1- cursor-pointer"
+                                      className="ib- color-white-1- cursor-pointer font-weight-bold"
                                       title="terms, conditions and privacy policy"
                                     >
                                       (legal)
@@ -130,7 +130,7 @@ const HamburgerMenu = (props) => {
                         
                           <Link className="header__title" to="/teirspayment3">
                             <span
-                              className="ib"
+                              className="ib  font-weight-bold"
                               title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
                             >
                               (plans ($))
@@ -141,7 +141,7 @@ const HamburgerMenu = (props) => {
                   <li> {true && (
                         <span
                           id="scrolldownid"
-                          className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
+                          className=" font-weight-bold header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
                           onClick={scrolldown}
                           title="if the search and results section is not in view, click this to scroll search and results section into view."
                         >
@@ -153,7 +153,7 @@ const HamburgerMenu = (props) => {
                   <li>
                                   <Link className="header__title- nounderline" to="/ideas">
                                     <span
-                                      className="ib- color-white-1- cursor-pointer"
+                                      className="ib- color-white-1- cursor-pointer font-weight-bold"
                                       title="some ideas for hash tags"
                                     >
                                       (Link Ideas)
@@ -169,7 +169,7 @@ const HamburgerMenu = (props) => {
                             target="_blank"
                           >
                             <span
-                              className="ib- color-white-1- cursor-pointer"
+                              className="ib- color-white-1- cursor-pointer  font-weight-bold"
                               title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader."
                             >
                               (get page urls for bookmarks file)
@@ -199,7 +199,7 @@ const HamburgerMenu = (props) => {
                                       to="/bookmarksmanager"
                                     >
                                       <span
-                                        className="ib- color-white-1- cursor-pointer pointereventsauto"
+                                        className="ib- color-white-1- cursor-pointer pointereventsauto  font-weight-bold"
                                         title="bookmarks get renamed to links"
                                       >
                                         (Bookmarks File Uploader)

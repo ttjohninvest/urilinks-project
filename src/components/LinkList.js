@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { startRemoveLink, removeLink } from "../actions/links";
-
+import { Link } from "react-router-dom";
+import numeral from "numeral";
+import selectLinks from "../selectors/links";
+import selectLinksTotal from "../selectors/links-total";
 import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
 import selectLinks from "../selectors/links";
@@ -14,6 +17,9 @@ import printerImage from "../assets/images/printer_image.png";
 export const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1");
   const [deleteData, setDeleteData] = useState([]);
+
+  const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
+    const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
 
   const myRef = useRef();
  
@@ -76,11 +82,28 @@ export const LinkList = (props) => {
   return (
     <div className="content-container- website-background-color margin-top-1a-">
       <div id="before-link-summary-id" className="flexrow2b margin-bottom-5a">
-        {/* <div className="show-for-desktop margin-left-11111"></div> */}
-        {/* <div className="list-header__flex"> */}
-        <LinksSummary />
-        <div className="margin-bottom5-">
-          <label className="inline-block__flex">
+       
+        {/* <LinksSummary /> */}
+         
+         {props.signup.signup === true ? <div>
+               {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div> */}
+                
+                  <Link className="button-2 ib text-size-5 bg-color-1 pointereventsauto" to="/create">
+                    Add Link
+                  </Link>
+                
+              </div>:<div>
+               {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
+                
+                  <Link className="button-2 ib text-size-5 bg-color-1 pointereventsnone" to="/create">
+                    Add Link
+                  </Link>
+                
+              </div>
+              }
+            
+        <div>
+          {/* <label className="inline-block__flex"> */}
             <input
               ref={myRef}
               className="the-inline-block zindex2"
@@ -89,16 +112,13 @@ export const LinkList = (props) => {
               checked={selectedOption === "option1"}
               onChange={handleOptionChange}
             />
-            <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)">
+            {/* <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)"> */}
               <span className="button-2 ib" title="links list with details">List Links</span>
-            </div>
-            {/* <div className="label-text label-text-right"  title="click to see the list of links with details">
-              <span className="button-2 ib cursor-pinter">links list with details</span>
-            </div> */}
-          </label>
+            {/* </div> */}
+          {/* </label> */}
         </div>
-        <div className="margin-left-1">
-          <label className="inline-block__flex">
+        <div>
+          {/* <label className="inline-block__flex"> */}
             <input
               ref={myRef}
               className="the-inline-block zindex2"
@@ -107,10 +127,10 @@ export const LinkList = (props) => {
               checked={selectedOption === "option2"}
               onChange={handleOptionChange}
             />
-            <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)">
+            {/* <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)"> */}
               <span className="button-2 ib" title="links list with out details">List Links</span>
-            </div>
-          </label>
+            {/* </div> */}
+          {/* </label> */}
         </div>
 
         
@@ -198,9 +218,20 @@ export const LinkList = (props) => {
 };
 
 const mapStateToProps = (state) => {
+  const visibleLinks = selectLinks(state.links, state.filters);
+
   return {
-    links: selectLinks(state.links, state.filters),
+    linkCount: visibleLinks.length,
+    linksTotal: selectLinksTotal(visibleLinks),
+    signup:state.signup,
+    links: selectLinks(state.links, state.filters)
   };
 };
+
+// const mapStateToProps = (state) => {
+//   return {
+//     links: selectLinks(state.links, state.filters),
+//   };
+// };
 
 export default connect(mapStateToProps)(LinkList);

@@ -146,7 +146,7 @@ function isMobile() {
             <div className="text-size-5 padding-top-11 textCenter">
 
 
-                {props.signup === true ? (
+                {props.signup === true || signup === "0" ? (
                 <div className="padding-top-1112  textCenter">
                   <img
                     src={photoURL}

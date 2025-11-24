@@ -1010,12 +1010,12 @@ export class LinkListFilters extends React.Component {
               <option value="notetext" title="search through the notes">
                 Note Text
               </option>
-              <option
+              {/* <option
                 value="date"
                 title="search through the uri/url link texts with a date range"
               >
                 Date
-              </option>
+              </option> */}
             </select>
           </div>
           <div>

@@ -197,9 +197,33 @@ function isMobile() {
                 </Link>
               </div>
 
+              
+{props.signup.signup === true ? ( 
+                <div className="padding-top-1112">
+                  <img
+                    src={photoURL}
+                    width="32"
+                    height="32"
+                    style={{ borderRadius: "50%" }}
+                    className="ib- margin-bottom-11-"
+                  />
+                </div>
+              ) : 
+                <div className="padding-top-1112" title="welcome">
+                 
+                    <img
+                      src={myprofile}
+                      width="32"
+                      height="32"
+                      style={{ borderRadius: "50%" }}
+                      className="ib- margin-bottom-11-"
+                    />
+                  
+                </div>
+              }
 
 
-              {props.signup.signup === true ? (
+              {/* {props.signup.signup === true ? ( 
                 <div className="padding-top-1112">
                   <img
                     src={photoURL}
@@ -230,7 +254,7 @@ function isMobile() {
                     />
                   )}
                 </div>
-              )}
+              )} */}
               
               <div>
                 <Link className="header__title- nounderline" to="/use">

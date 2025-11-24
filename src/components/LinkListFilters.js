@@ -156,7 +156,7 @@ function isMobile() {
               ) : (
                 <div className="padding-top-1112  textCenter" title="welcome">
                   {firebase.auth().currentUser !== null &&
-                  firebase.auth().currentUser !== undefined ? (
+                  firebase.auth().currentUser !== undefined && false ? (
                     <img
                       src={photoURL}
                       width="64"

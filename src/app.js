@@ -30,7 +30,7 @@ import LoadingPage from "./components/LoadingPage";
 //     // Let's translate it!
 // });
 //
-console.log = () => {};
+//console.log = () => {};
 
 let hasRendered = false;
 const renderApp = (store) => {
@@ -120,7 +120,7 @@ if (signup !== "signup") {
       //store.dispatch(getSubscriptionId(user.uid));//this should initialize the redux variable subscriptionId
 
       store
-        .dispatch(startSetLinks())
+        .dispatch(startSetLinks(user.uid))
         .then(() => {
           return store
             .dispatch(getTheplan())

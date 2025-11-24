@@ -127,10 +127,7 @@ function ExpandableArray(props) {
     e.target.focus();
     setCopySuccess("Copied " + text);
   };
-function isMobile() {
-  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-  return regex.test(navigator.userAgent);
-}
+
 
 
   return (
@@ -925,6 +922,12 @@ export class LinkListFilters extends React.Component {
     // }
   };
 
+  isMobile() {
+  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(navigator.userAgent);
+}
+
+
   render() {
     return (
       <div className="">
@@ -981,13 +984,13 @@ export class LinkListFilters extends React.Component {
 
            
           
-          <div
+          {this.isMobile()===false&&<div
             className="cursor-pointer  margin-right-1"
             onClick={this.scrollUp}
             title="scroll to top"
           >
             (up)
-          </div>
+          </div>}
           
 
           <div className="">

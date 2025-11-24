@@ -103,7 +103,7 @@ export const LinkList = (props) => {
               }
             
         <div>
-          <label className="inline-block__flex">
+          <label>
             <input
               ref={myRef}
               className="the-inline-block zindex2"
@@ -112,13 +112,13 @@ export const LinkList = (props) => {
               checked={selectedOption === "option1"}
               onChange={handleOptionChange}
             />
-            <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)">
+            {/* <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)"> */}
               <span className="button-2 ib" title="links list with details">List Links</span>
-            </div>
+            {/* </div> */}
           </label>
         </div>
         <div>
-          <label className="inline-block__flex">
+          <label>
             <input
               ref={myRef}
               className="the-inline-block zindex2"
@@ -127,9 +127,9 @@ export const LinkList = (props) => {
               checked={selectedOption === "option2"}
               onChange={handleOptionChange}
             />
-            <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)">
+            {/* <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)"> */}
               <span className="button-2 ib" title="links list with out details">List Links</span>
-            </div>
+            {/* </div> */}
           </label>
         </div>
 

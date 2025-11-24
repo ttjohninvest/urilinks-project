@@ -30,7 +30,7 @@ import LoadingPage from "./components/LoadingPage";
 //     // Let's translate it!
 // });
 //
-//console.log = () => {};
+console.log = () => {};
 
 let hasRendered = false;
 const renderApp = (store) => {
@@ -49,9 +49,9 @@ const renderApp = (store) => {
 //window.location.search = "?signup=signup"
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
-//let id = "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
 
-const id=params.get("id");
+
+let id=params.get("id");
 console.log("1 signup=" + signup);
 console.log("1 id=" + id);
 //console.log("store.getState().signup="+store.getState().signup)
@@ -75,6 +75,7 @@ if (signup !== "signup") {
   if (id !== null) {
     store.dispatch(login(id));
   } else {
+    id = "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
     store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
   }
 

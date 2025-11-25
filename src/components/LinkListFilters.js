@@ -45,6 +45,11 @@ function ExpandableArray(props) {
   //
   const [isToggled, setIsToggled] = useState(x);
 
+  const isMobile=()=>{
+  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(navigator.userAgent);
+}
+
 
   const handleChange = () => {
     //let isT = !isToggled
@@ -140,8 +145,44 @@ function ExpandableArray(props) {
               "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
               : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."}
           >
-            <div className="text-size-5 padding-top-11 textCenter-">
+            
+            
+            <div className="text-size-5 padding-top-11">
 
+              {isMobile() === false ?<div className="flexrow2j">
+                {props.signup === true || signup === "0" ? (
+                <div className="padding-top-1112  textCenter-">
+                  <img
+                    src={photoURL}
+                    width="64"
+                    height="64"
+                    style={{ borderRadius: "50%" }}
+                    className="ib- margin-bottom-11-"
+                  />
+                </div>
+              ) : (
+                <div className="padding-top-1112  textCenter-" title="welcome">
+                  {false ? (
+                    <img
+                      src={photoURL}
+                      width="64"
+                      height="64"
+                      style={{ borderRadius: "50%" }}
+                      className="ib- margin-bottom-11-"
+                    />
+                  ) : (<div className="textCenter-">
+                    <img
+                      src={myprofile}
+                      width="64"
+                      height="64"
+                      style={{ borderRadius: "50%" }}
+                      className="ib- margin-bottom-11-"
+                    />
+                    </div>
+                  )}
+                </div>
+              )}
+              </div>:
               <div className="flexrow2j margin-left-minus-2">
                 {props.signup === true || signup === "0" ? (
                 <div className="padding-top-1112  textCenter-">
@@ -176,6 +217,10 @@ function ExpandableArray(props) {
                 </div>
               )}
               </div>
+              }
+              
+              
+
               <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
                 {/* <div>a</div> */}
                  <div className="text-size-1"><div className="ib text-size-9">{!!theuser && props.signup === true  || signup === "0" ? theuser.displayName: "John Example"}</div>

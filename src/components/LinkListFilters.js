@@ -405,7 +405,7 @@ function ExpandableArray(props) {
                 </Link> */}
       
                   
-                 <div className="margin-left-minus-1"><span>{props.links.length} links of {maximum} is stored on {props.theplan.plan.replace(/"/g, "")} plan. Click on a hashtag or folder name to see links.</span></div>
+                 <div className="margin-left-minus-1"><span>{props.links.length} links of {maximum} links is stored on {props.theplan.plan.replace(/"/g, "")} plan. Click on a hashtag or folder name to see links.</span></div>
                  <Link className="header__title" to="/teirspayment3">
                   <span
                     className="ib color-black text-size-5 general-font margin-left-minus-1"

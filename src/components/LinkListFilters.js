@@ -1083,7 +1083,7 @@ export class LinkListFilters extends React.Component {
             />
           </div> */}
         </div>
-        <div>{this.props.links.length}</div>
+        {/* <div>{this.props.links.length}</div> */}
       </div>
     );
   }

@@ -140,11 +140,11 @@ function ExpandableArray(props) {
               "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
               : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."}
           >
-            <div className="text-size-5 padding-top-11 textCenter">
+            <div className="text-size-5 padding-top-11 textCenter-">
 
 
                 {props.signup === true || signup === "0" ? (
-                <div className="padding-top-1112  textCenter">
+                <div className="padding-top-1112  textCenter-">
                   <img
                     src={photoURL}
                     width="64"
@@ -154,7 +154,7 @@ function ExpandableArray(props) {
                   />
                 </div>
               ) : (
-                <div className="padding-top-1112  textCenter" title="welcome">
+                <div className="padding-top-1112  textCenter-" title="welcome">
                   {false ? (
                     <img
                       src={photoURL}
@@ -163,7 +163,7 @@ function ExpandableArray(props) {
                       style={{ borderRadius: "50%" }}
                       className="ib- margin-bottom-11-"
                     />
-                  ) : (<div className="textCenter">
+                  ) : (<div className="textCenter-">
                     <img
                       src={myprofile}
                       width="64"
@@ -176,7 +176,7 @@ function ExpandableArray(props) {
                 </div>
               )}
 
-              <div className="text-size-1 textCenter"><span className="text-size-9">{!!theuser && props.signup === true  || signup === "0" ? theuser.displayName: "John Example"}</span><span className="hide">, {!!theuser && theuser.email}</span></div>
+              <div className="text-size-1 textCenter-"><span className="text-size-9">{!!theuser && props.signup === true  || signup === "0" ? theuser.displayName: "John Example"}</span><span className="hide">, {!!theuser && theuser.email}</span></div>
               <div className="text-size-1 textLeft hide">Welcome {!theuser ? "to this example links page. What makes you smile?":", what makes you smile?"}</div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
  

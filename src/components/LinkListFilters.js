@@ -277,16 +277,6 @@ function ExpandableArray(props) {
                   </span>
                 ) : ""
                 
-                // (
-                //   <button
-                //     onClick={handleChange}
-                //     className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
-                //     aria-label="Toggle button"
-                //   >
-                //     {isToggled ? "hide information" : "show information"}
-                //   </button>
-                // )
-                
                 }
                 {/* <button
       onClick={handleChange}
@@ -424,32 +414,13 @@ function ExpandableArray(props) {
                     )}
                   </div>
                 )}
+                
                 {
-                
                 //isToggled && 
-                
                 props.signup === false && ""}
               </div>
-              <div className="margin-left-11">
-                {/* <Link className="header__title" to="/teirspayment3">
-                  <span
-                    className="ib color-black text-size-5 general-font"
-                    title="click for plan options"
-                  >
-                    {
-                    
-                    //isToggled && 
-                    
-                    props.signup === true && props.theplan.plan.replace(/"/g, "") !== "premium" && (
-                      <span>(click to change plan)</span>
-                    )}
-
-                    {isToggled && props.signup === false && <span></span>}
-                   
-                  </span>
-                </Link> */}
-      
-                  
+              <div className="margin-left-11-">
+ 
                  <div className="margin-left-minus-1"><span>{props.links.length} links of {maximum} links is stored on {props.theplan.plan.replace(/"/g, "")} plan. Click on a hashtag or folder name to see links for that category.</span></div>
                  <Link className="header__title" to="/teirspayment3">
                   <span
@@ -469,9 +440,7 @@ function ExpandableArray(props) {
                   </span>
                 </Link>
 
-                 {/* {props.signup === true ?<div className=""><span>You have stored {props.links.length} links</span><span> on the {props.theplan.plan.replace(/"/g, "")} plan.</span></div>:
-                 <div><span>{props.links.length} links of {maximum} is stored. Click on a hashtag or folder name to see links.</span></div>
-                 } */}
+                
               </div>
             </div>
           </div>

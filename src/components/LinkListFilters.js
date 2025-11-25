@@ -142,7 +142,7 @@ function ExpandableArray(props) {
           >
             <div className="text-size-5 padding-top-11 textCenter-">
 
-
+              <div className="flexrow2j">
                 {props.signup === true || signup === "0" ? (
                 <div className="padding-top-1112  textCenter-">
                   <img
@@ -175,6 +175,7 @@ function ExpandableArray(props) {
                   )}
                 </div>
               )}
+              </div>
 
               <div className="text-size-1 textCenter-"><span className="text-size-9">{!!theuser && props.signup === true  || signup === "0" ? theuser.displayName: "John Example"}</span><span className="hide">, {!!theuser && theuser.email}</span></div>
               <div className="text-size-1 textLeft hide">Welcome {!theuser ? "to this example links page. What makes you smile?":", what makes you smile?"}</div>

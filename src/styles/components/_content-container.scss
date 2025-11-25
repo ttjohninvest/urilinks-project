@@ -169,6 +169,12 @@ display:none;
   flex-direction: row;
   align-items: center;
 }
+.flexrow2j {
+  display: flex;
+  flex-direction: row;
+  // align-items: center;
+  justify-content: center;
+}
 
 .flexrow4 {
   display: flex;

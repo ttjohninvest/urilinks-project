@@ -136,7 +136,7 @@ export const LinkList = (props) => {
         
       </div>
       
-      <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div>
+      <div id="link-summary-id" className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div>
 
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">

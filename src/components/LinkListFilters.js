@@ -176,7 +176,7 @@ function ExpandableArray(props) {
                 </div>
               )}
               </div>
-              <div className="flexrow2j margin-left-minus-2">
+              <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
                 {/* <div>a</div> */}
                  <div className="text-size-1"><div className="ib text-size-9">{!!theuser && props.signup === true  || signup === "0" ? theuser.displayName: "John Example"}</div>
                  {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}

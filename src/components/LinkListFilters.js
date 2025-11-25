@@ -149,7 +149,7 @@ function ExpandableArray(props) {
             
             <div className="text-size-5 padding-top-11">
 
-              {isMobile() === false ?<div className="flexrow2j margin-left-11">
+              {isMobile() === false ?<div className="flexrow2j margin-left-minus-3">
                 {props.signup === true || signup === "0" ? (
                 <div className="padding-top-1112  textCenter-">
                   <img

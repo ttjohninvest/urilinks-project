@@ -52,7 +52,7 @@ export const AddLinkPage = (props) => {
             console.log("No user is currently logged in.");
           }
         } else {
-          setUserId("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
+          setUserId("Gj6I5M7qf8ODZCsFqC3zAuFTXgx2");
         }
 
         const db = firebase.database();
@@ -63,7 +63,7 @@ export const AddLinkPage = (props) => {
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
           snapshot = await db
-            .ref(`/users/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/links`)
+            .ref(`/users/Gj6I5M7qf8ODZCsFqC3zAuFTXgx2/links`)
             .once("value");
         }
 

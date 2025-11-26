@@ -75,8 +75,8 @@ if (signup !== "signup") {
   if (id !== null) {
     store.dispatch(login(id));
   } else {
-    id = "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
-    store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
+    id = "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2"
+    store.dispatch(login("Gj6I5M7qf8ODZCsFqC3zAuFTXgx2"));
   }
 
   

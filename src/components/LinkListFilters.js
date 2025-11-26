@@ -77,7 +77,7 @@ function ExpandableArray(props) {
       setUid(user.uid);
       setTheuser(user);
     } else {
-      setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
+      setUid("Gj6I5M7qf8ODZCsFqC3zAuFTXgx2");
     }
 
     const x = window.localStorage.getItem("hideinformation");
@@ -347,7 +347,7 @@ function ExpandableArray(props) {
               </div>
               <br />
               {props.signup === false &&
-                props.uid === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && (
+                props.uid === "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2" && (
                   <div className="textLeft hide">
                     <iframe
                       width="300"

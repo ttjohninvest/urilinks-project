@@ -115,8 +115,8 @@ user = firebase.auth().currentUser;
 uid=user.uid
 uploadTask = storage.ref(`files/${uid}/${file.name}`).put(file);
     } else {
-uploadTask = storage.ref(`files/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/${file.name}`).put(file);
-uid="W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
+uploadTask = storage.ref(`files/Gj6I5M7qf8ODZCsFqC3zAuFTXgx2/${file.name}`).put(file);
+uid="Gj6I5M7qf8ODZCsFqC3zAuFTXgx2"
     }
 
   

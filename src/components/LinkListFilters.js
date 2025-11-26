@@ -29,11 +29,10 @@ function ExpandableArray(props) {
   const [newspaper, setNewspaper] = useState(props.newspaper);
   const textAreaRef = useRef(null);
   const [photoURL, setPhotoURL] = useState("");
-  const [maximum, setMaximum] = useState(0)
+  const [maximum, setMaximum] = useState(0);
 
-   const params = new URLSearchParams(window.location.search);
-  const signup = params.get("signup")
-  
+  const params = new URLSearchParams(window.location.search);
+  const signup = params.get("signup");
 
   let x = false;
   if (window.localStorage.getItem("hideinformation") === null) {
@@ -45,11 +44,11 @@ function ExpandableArray(props) {
   //
   const [isToggled, setIsToggled] = useState(x);
 
-  const isMobile=()=>{
-  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-  return regex.test(navigator.userAgent);
-}
-
+  const isMobile = () => {
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  };
 
   const handleChange = () => {
     //let isT = !isToggled
@@ -59,30 +58,24 @@ function ExpandableArray(props) {
   };
 
   useEffect(() => {
+    if (props.theplan.plan.replace(/"/g, "") === "free") {
+      setMaximum(StorageSizes.free);
+    } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
+      setMaximum(StorageSizes.basic);
+    } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
+      setMaximum(StorageSizes.standard);
+    } else if (props.theplan.plan.replace(/"/g, "") === "premium") {
+      setMaximum(StorageSizes.premium);
+    }
 
-                   if(props.theplan.plan.replace(/"/g, "") === "free") {
-                       setMaximum(StorageSizes.free)
-                    } 
-                    else if(props.theplan.plan.replace(/"/g, "") === "basic") {
-                       setMaximum(StorageSizes.basic)
-                    }
-                    else if(props.theplan.plan.replace(/"/g, "") === "standard") {
-                       setMaximum(StorageSizes.standard)
-                    }
-                    else if (props.theplan.plan.replace(/"/g, "") === "premium") {
-                       setMaximum(StorageSizes.premium)
-                    }
-
-
-     const user = firebase.auth().currentUser;
-        if (user !== null && user !== undefined) {
-          setPhotoURL(user.photoURL);
-         
-        }
+    const user = firebase.auth().currentUser;
+    if (user !== null && user !== undefined) {
+      setPhotoURL(user.photoURL);
+    }
     if (props.signup === true) {
       const user = firebase.auth().currentUser;
       setUid(user.uid);
-      setTheuser(user)
+      setTheuser(user);
     } else {
       setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
     }
@@ -133,113 +126,134 @@ function ExpandableArray(props) {
     setCopySuccess("Copied " + text);
   };
 
-
-
   return (
     <div className="bg-white-1">
       {props.mappedDataShort.length > 0 ? (
         <div className="">
           <div
             className="flexrow2c padding-left-a borderRadius4"
-            title={props.signup === true ? 
-              "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
-              : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."}
+            title={
+              props.signup === true
+                ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
+                : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."
+            }
           >
-            
-            
             <div className="text-size-5 padding-top-11">
-
-              {isMobile() === false ?<div className="flexrow2j margin-left-minus-3">
-                {props.signup === true || signup === "0" ? (
-                <div className="padding-top-1112  textCenter-">
-                  <img
-                    src={photoURL}
-                    width="64"
-                    height="64"
-                    style={{ borderRadius: "50%" }}
-                    className="ib- margin-bottom-11-"
-                  />
+              {isMobile() === false ? (
+                <div className="flexrow2j margin-left-minus-3">
+                  {props.signup === true || signup === "0" ? (
+                    <div className="padding-top-1112  textCenter-">
+                      <img
+                        src={photoURL}
+                        width="64"
+                        height="64"
+                        style={{ borderRadius: "50%" }}
+                        className="ib- margin-bottom-11-"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="padding-top-1112  textCenter-"
+                      title="welcome"
+                    >
+                      {false ? (
+                        <img
+                          src={photoURL}
+                          width="64"
+                          height="64"
+                          style={{ borderRadius: "50%" }}
+                          className="ib- margin-bottom-11-"
+                        />
+                      ) : (
+                        <div className="textCenter-">
+                          <img
+                            src={myprofile}
+                            width="64"
+                            height="64"
+                            style={{ borderRadius: "50%" }}
+                            className="ib- margin-bottom-11-"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               ) : (
-                <div className="padding-top-1112  textCenter-" title="welcome">
-                  {false ? (
-                    <img
-                      src={photoURL}
-                      width="64"
-                      height="64"
-                      style={{ borderRadius: "50%" }}
-                      className="ib- margin-bottom-11-"
-                    />
-                  ) : (<div className="textCenter-">
-                    <img
-                      src={myprofile}
-                      width="64"
-                      height="64"
-                      style={{ borderRadius: "50%" }}
-                      className="ib- margin-bottom-11-"
-                    />
+                <div className="flexrow2j margin-left-minus-2">
+                  {props.signup === true || signup === "0" ? (
+                    <div className="padding-top-1112  textCenter-">
+                      <img
+                        src={photoURL}
+                        width="64"
+                        height="64"
+                        style={{ borderRadius: "50%" }}
+                        className="ib- margin-bottom-11-"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="padding-top-1112  textCenter-"
+                      title="welcome"
+                    >
+                      {false ? (
+                        <img
+                          src={photoURL}
+                          width="64"
+                          height="64"
+                          style={{ borderRadius: "50%" }}
+                          className="ib- margin-bottom-11-"
+                        />
+                      ) : (
+                        <div className="textCenter-">
+                          <img
+                            src={myprofile}
+                            width="64"
+                            height="64"
+                            style={{ borderRadius: "50%" }}
+                            className="ib- margin-bottom-11-"
+                          />
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
               )}
-              </div>:
-              <div className="flexrow2j margin-left-minus-2">
-                {props.signup === true || signup === "0" ? (
-                <div className="padding-top-1112  textCenter-">
-                  <img
-                    src={photoURL}
-                    width="64"
-                    height="64"
-                    style={{ borderRadius: "50%" }}
-                    className="ib- margin-bottom-11-"
-                  />
-                </div>
-              ) : (
-                <div className="padding-top-1112  textCenter-" title="welcome">
-                  {false ? (
-                    <img
-                      src={photoURL}
-                      width="64"
-                      height="64"
-                      style={{ borderRadius: "50%" }}
-                      className="ib- margin-bottom-11-"
-                    />
-                  ) : (<div className="textCenter-">
-                    <img
-                      src={myprofile}
-                      width="64"
-                      height="64"
-                      style={{ borderRadius: "50%" }}
-                      className="ib- margin-bottom-11-"
-                    />
-                    </div>
-                  )}
-                </div>
-              )}
-              </div>
-              }
-              
-              
 
               <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
                 {/* <div>a</div> */}
-                 <div className="text-size-1"><div className="ib text-size-9">{!!theuser && props.signup === true  || signup === "0" ? theuser.displayName: "John Example"}</div>
-                 {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
-                 </div>
+                <div className="text-size-1">
+                  <div className="ib text-size-9">
+                    {(!!theuser && props.signup === true) || signup === "0"
+                      ? theuser.displayName
+                      : "John Example"}
+                  </div>
+                  {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
+                </div>
               </div>
-              <div className="text-size-1 textLeft hide">Welcome {!theuser ? "to this example links page. What makes you smile?":", what makes you smile?"}</div>
+              <div className="text-size-1 textLeft hide">
+                Welcome{" "}
+                {!theuser
+                  ? "to this example links page. What makes you smile?"
+                  : ", what makes you smile?"}
+              </div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
- 
-{/* {isMobile()?"yes":"no"} */}
+
+              {/* {isMobile()?"yes":"no"} */}
               {props.signup === false && true ? (
                 <div className="text-size-1 textLeft flexrowz flexWrap">
-                  <span className="font-weight-bold- hide- breakWord-" title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email">
-                    Steps: 1. login, 2. enter links, 3. share the provided link in your instagram profile.
+                  <span
+                    className="font-weight-bold- hide- breakWord-"
+                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                  >
+                    Steps: 1. login, 2. enter links, 3. share the provided link
+                    in your instagram profile.
                   </span>
                 </div>
               ) : (
                 <div className="text-size-1 textLeft margin-top-1">
-                  <span className="hide">Thank you. Your sharable link is:</span>
+                  <span className="hide">
+                    Thank you. Your sharable link is:
+                  </span>
                   <a
                     href="#"
                     ref={textAreaRef}
@@ -251,7 +265,7 @@ function ExpandableArray(props) {
                   <button
                     className="button-2 ib margin-right-1"
                     onClick={copyToClipboard}
-                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
                     Copy sharable link
                   </button>
@@ -260,7 +274,8 @@ function ExpandableArray(props) {
               )}
 
               <div className="text-size-1 textLeft hide">
-                <span className="text-size-9">😃 </span>Your friendly link to links tool
+                <span className="text-size-9">😃 </span>Your friendly link to
+                links tool
                 {isToggled && props.signup === false ? (
                   <span>
                     , click
@@ -270,14 +285,13 @@ function ExpandableArray(props) {
                         to="/signup"
                         title=""
                       >
-                       
-                        (enter)
+                        (login)
                       </Link>
                     </span>
                   </span>
-                ) : ""
-                
-                }
+                ) : (
+                  ""
+                )}
                 {/* <button
       onClick={handleChange}
       className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
@@ -287,16 +301,16 @@ function ExpandableArray(props) {
     </button> */}
                 {isToggled && props.signup === false && (
                   <div className="text-size-1 textLeft hide">
-                    To go inside (click enter) for an account, you get an
-                    empty page to start adding your favorite links. <br />
+                    To go inside (click enter) for an account, you get an empty
+                    page to start adding your favorite links. <br />
                     You may add a note to each of your links.
                     <br />
                   </div>
                 )}
                 {isToggled && props.signup === true && (
                   <div className="text-size-1 textLeft hide">
-                    You may start adding your favorite links using the Add
-                    Link button below or Bookmarks File Uploader above.
+                    You may start adding your favorite links using the Add Link
+                    button below or Bookmarks File Uploader above.
                     <br />
                     The hashtags in purple rectangles and the folder names in
                     the dropdown list in the orange rectangle are added in
@@ -332,23 +346,25 @@ function ExpandableArray(props) {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerpolicy="strict-origin-when-cross-origin"
                       allowfullscreen
-                    >
-                      
-                    </iframe>
+                    ></iframe>
                   </div>
                 )}
               {isToggled && props.signup === false && (
-                <div className="textLeft hide">Click example hashtag to see links to webpages</div>
+                <div className="textLeft hide">
+                  Click example hashtag to see links to webpages
+                </div>
               )}
 
               {isToggled && props.signup === true && (
-                <div className="textLeft hide">Click hashtag to see links to webpages</div>
+                <div className="textLeft hide">
+                  Click hashtag to see links to webpages
+                </div>
               )}
 
               {isToggled && props.signup === false && (
                 <div className="textLeft hide">
-                  To see to see links to webpages, check out the search
-                  folder name dropdown list
+                  To see to see links to webpages, check out the search folder
+                  name dropdown list
                 </div>
               )}
 
@@ -360,7 +376,9 @@ function ExpandableArray(props) {
               )}
 
               {isToggled && props.signup === false && (
-                <div className="textLeft hide">Please give it try to see how it works.</div>
+                <div className="textLeft hide">
+                  Please give it try to see how it works.
+                </div>
               )}
               {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
               {/* <br />
@@ -379,14 +397,17 @@ function ExpandableArray(props) {
 
             <div className="flexrow2e">
               {
-              
-              //isToggled && 
-              
-              props.signup === true && (
-                <div title="current plan" className="margin-right-1 textLeft hide">
-                  plan: {props.plan.replace(/"/g, "")}
-                </div>
-              )}
+                //isToggled &&
+
+                props.signup === true && (
+                  <div
+                    title="current plan"
+                    className="margin-right-1 textLeft hide"
+                  >
+                    plan: {props.plan.replace(/"/g, "")}
+                  </div>
+                )
+              }
 
               {isToggled && props.signup === false && <div></div>}
               <div>
@@ -403,7 +424,9 @@ function ExpandableArray(props) {
                       <span></span>
                     )}
                     {props.theplan.plan.replace(/"/g, "") === "standard" ? (
-                      <span>(It stores upto {StorageSizes.standard} links)</span>
+                      <span>
+                        (It stores upto {StorageSizes.standard} links)
+                      </span>
                     ) : (
                       <span></span>
                     )}
@@ -414,33 +437,37 @@ function ExpandableArray(props) {
                     )}
                   </div>
                 )}
-                
+
                 {
-                //isToggled && 
-                props.signup === false && ""}
+                  //isToggled &&
+                  props.signup === false && ""
+                }
               </div>
               <div className="margin-left-11-">
- 
-                 <div className="margin-left-minus-1"><span>{props.links.length} links of {maximum} links is stored on {props.theplan.plan.replace(/"/g, "")} plan. Click on a hashtag or folder name to see links for that category.</span></div>
-                 <Link className="header__title" to="/teirspayment3">
+                <div className="margin-left-minus-1">
+                  <span>
+                    {props.links.length} links of {maximum} links is stored on{" "}
+                    {props.theplan.plan.replace(/"/g, "")} plan. Click on a
+                    hashtag or folder name to see links for that category.
+                  </span>
+                </div>
+                <Link className="header__title" to="/teirspayment3">
                   <span
                     className="ib color-black text-size-5 general-font margin-left-minus-1"
                     title="click for plan options"
                   >
                     {
-                    
-                    //isToggled && 
-                    
-                    props.signup === true && props.theplan.plan.replace(/"/g, "") !== "premium" && (
-                      <span>(click to change plan)</span>
-                    )}
+                      //isToggled &&
+
+                      props.signup === true &&
+                        props.theplan.plan.replace(/"/g, "") !== "premium" && (
+                          <span>(click to change plan)</span>
+                        )
+                    }
 
                     {isToggled && props.signup === false && <span></span>}
-                   
                   </span>
                 </Link>
-
-                
               </div>
             </div>
           </div>
@@ -452,8 +479,10 @@ function ExpandableArray(props) {
                 ? "grid-container5"
                 : "grid-container5-newspaper"
             } paddingparent margin-top-1 background-white-1 borderradius5`}
-            title={props.signup === true ?"Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag.":
-"Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags which were entered in the note section to find your links that are grouped by hashtag."
+            title={
+              props.signup === true
+                ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
+                : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags which were entered in the note section to find your links that are grouped by hashtag."
             }
           >
             {!expanded
@@ -595,9 +624,8 @@ export class LinkListFilters extends React.Component {
       // newspaper:
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
       foldernamesList: [],
-      isToggled:false
-    }
- 
+      isToggled: false,
+    };
 
     this.setit = this.setit.bind(this);
   }
@@ -931,21 +959,21 @@ export class LinkListFilters extends React.Component {
 
   handleCheckboxShow = (event) => {
     // let result = confirm("Are you sure you want to set the dropdown list?");
-    // if (result) {    
-      //alert("show dd")
-      this.setState({isToggled:!this.state.isToggled})
-      console.log("show dd")
+    // if (result) {
+    //alert("show dd")
+    this.setState({ isToggled: !this.state.isToggled });
+    console.log("show dd");
     // } else {
-    //  //alert("cancel show dd") 
+    //  //alert("cancel show dd")
     //  console.log("cancel show dd")
     // }
   };
 
   isMobile() {
-  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-  return regex.test(navigator.userAgent);
-}
-
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  }
 
   render() {
     return (
@@ -1001,16 +1029,15 @@ export class LinkListFilters extends React.Component {
             />
           </div>
 
-           
-          
-          {this.isMobile()===false&&<div
-            className="cursor-pointer  margin-right-1"
-            onClick={this.scrollUp}
-            title="scroll to top"
-          >
-            (up)
-          </div>}
-          
+          {this.isMobile() === false && (
+            <div
+              className="cursor-pointer  margin-right-1"
+              onClick={this.scrollUp}
+              title="scroll to top"
+            >
+              (up)
+            </div>
+          )}
 
           <div className="">
             <select
@@ -1044,13 +1071,13 @@ export class LinkListFilters extends React.Component {
             </select>
           </div>
           <div>
-             {/* <div>
+            {/* <div>
  <span className="">
                    <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
                    <label for="dbdropdownid" />
                   </span>
              </div> */}
-             {/* {this.props.signup.signup === true ?<div>
+            {/* {this.props.signup.signup === true ?<div>
  <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                    <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
                    <label for="dbdropdownid" />
@@ -1065,29 +1092,32 @@ export class LinkListFilters extends React.Component {
              } */}
           </div>
           {
-          //this.state.isToggled === true &&
-          true && <div className="cursor-pointer">
-            <select
-              className="select cursor-pointer"
-              onChange={this.onFolderChange}
-              title="pick a folder name in this list to search for its bookmarks"
-            >
-              <option key={""} value={""}>
-                folder name
-              </option>
-
-              {this.state.foldernamesList.map((option, i) => (
-                <option
-                  className="cursor-pointer"
-                  key={option.value}
-                  value={option.value}
-                  title={option.value}
+            //this.state.isToggled === true &&
+            true && (
+              <div className="cursor-pointer">
+                <select
+                  className="select cursor-pointer"
+                  onChange={this.onFolderChange}
+                  title="pick a folder name in this list to search for its bookmarks"
                 >
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>}
+                  <option key={""} value={""}>
+                    folder name
+                  </option>
+
+                  {this.state.foldernamesList.map((option, i) => (
+                    <option
+                      className="cursor-pointer"
+                      key={option.value}
+                      value={option.value}
+                      title={option.value}
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )
+          }
           {/* <div className="">
             <DateRangePicker
               className="zindex"

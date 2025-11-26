@@ -14,7 +14,6 @@ import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
 
-
 // const preStartLogout=()=>{
 //   setLinks([])
 //   startLogout()
@@ -74,8 +73,6 @@ export const Header = (props) => {
     // }
   }, []);
 
- 
-
   const scrolldown = () => {
     //this scrolls the results into view, the first and subsequent result is shown
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
@@ -92,61 +89,58 @@ export const Header = (props) => {
   };
 
   const cancelsubscription = () => {
-//alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
+    //alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
     try {
-if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
-    //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
-    //if(true) {
-    if(props.theplan.plan.replace(/"/g, "")==="free") {
-        props.startDeleteAccount()
-                logoutit()
+      if (
+        confirm("Press Cancel to cancel the deletion of your account.") == true
+      ) {
+        //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
+        //if(true) {
+        if (props.theplan.plan.replace(/"/g, "") === "free") {
+          props.startDeleteAccount();
+          logoutit();
+        } else {
+          //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
+          const theemail = {
+            email: props.email,
+            customerId: props.theplan.customerId,
+            subscriptionId: props.theplan.subscriptionId,
+          };
 
-        
-    } else {
-      //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
-    const theemail = { "email": props.email, customerId:props.theplan.customerId, subscriptionId:props.theplan.subscriptionId };
-   
-    fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(theemail),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        
-        console.log("Success:");
-        
-        props.startDeleteAccount()
-                logoutit()
+          fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(theemail),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:");
 
-        
-      })
-      .catch((error) => {
-        console.log("cancel subscription error=" + error);
-      });
-    }
-    } else {
-      alert("Canceled the deletion of the account")
-      console.log("Canceled the Deletion of the Account");
-    }
-    } catch(error) {
-       alert("an error occurred: 10002222")
-       console.log("an error occurred: 10002222, error="+error)
+              props.startDeleteAccount();
+              logoutit();
+            })
+            .catch((error) => {
+              console.log("cancel subscription error=" + error);
+            });
+        }
+      } else {
+        alert("Canceled the deletion of the account");
+        console.log("Canceled the Deletion of the Account");
+      }
+    } catch (error) {
+      alert("an error occurred: 10002222");
+      console.log("an error occurred: 10002222, error=" + error);
     }
     //
-  
   };
 
- 
-// if (isMobile()) {
-//   console.log("Mobile device detected");
-// } else {
-//   console.log("Desktop device detected");
-// }
-
-
+  // if (isMobile()) {
+  //   console.log("Mobile device detected");
+  // } else {
+  //   console.log("Desktop device detected");
+  // }
 
   return (
     <div id="top">
@@ -154,7 +148,6 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
         <header className="header">
           <div className="">
             <div className="flexrow2w">
-             
               <div className="padding-leftright padding-top-11124">
                 <Link
                   className="nounderline ib"
@@ -180,7 +173,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                     to="/signup"
                     title=""
                   >
-                    (enter)
+                    (login)
                   </Link>
                 </div>
               )}
@@ -199,8 +192,6 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   urilinks (link to links tool)
                 </Link>
               </div>
-
-
 
               {props.signup.signup === true ? (
                 <div className="padding-top-1112">
@@ -234,7 +225,7 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   )}
                 </div>
               )}
-            
+
               <div>
                 <Link className="header__title- nounderline" to="/use">
                   <span
@@ -259,18 +250,19 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
                   </span>
                 </Link>
               </div>
-              {props.theplan.plan.replace(/"/g, "")!=="premium" && props.signup.signup === true && (
-                <div>
-                  <Link className="header__title" to="/teirspayment3">
-                    <span
-                      className="ib"
-                      title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
-                    >
-                      (plans ($))
-                    </span>
-                  </Link>
-                </div>
-              )}
+              {props.theplan.plan.replace(/"/g, "") !== "premium" &&
+                props.signup.signup === true && (
+                  <div>
+                    <Link className="header__title" to="/teirspayment3">
+                      <span
+                        className="ib"
+                        title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
+                      >
+                        (plans ($))
+                      </span>
+                    </Link>
+                  </div>
+                )}
               {!inviewport && (
                 <div
                   id="scrolldownid"
@@ -382,7 +374,6 @@ if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
               )}
             </div>
           </div>
-        
         </header>
       ) : (
         "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."
@@ -397,7 +388,7 @@ const mapStateToProps = (state) => ({
   email: state.email,
   theplan: state.theplan,
   subscriptionId: state.subscriptionId,
-  customerId: state.customerId
+  customerId: state.customerId,
 });
 
 const mapDispatchToProps = (dispatch) => ({

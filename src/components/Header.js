@@ -13,9 +13,7 @@ import { startAddPhotourl } from "../actions/photourl";
 import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
-import Header2 from './Header2'
-
-
+import Header2 from "./Header2";
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
@@ -24,9 +22,7 @@ export const Header = (props) => {
   const ideas = () => {};
 
   const params = new URLSearchParams(window.location.search);
-  const signup = params.get("signup")
-
-
+  const signup = params.get("signup");
 
   const setPhotoURLdb = (photoURL) => {
     console.log("setPhotoURLdb, Header.js, photoURL=" + photoURL);
@@ -43,7 +39,6 @@ export const Header = (props) => {
   };
 
   useEffect(() => {
-    
     console.log(
       "Header.js, useEffect, props.signup.signup=" + props.signup.signup
     );
@@ -67,8 +62,6 @@ export const Header = (props) => {
     // }
   }, []);
 
- 
-
   const scrolldown = () => {
     //this scrolls the results into view, the first and subsequent result is shown
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
@@ -85,324 +78,313 @@ export const Header = (props) => {
   };
 
   const cancelsubscription = () => {
-//alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
+    //alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
     try {
-if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
-    //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
-    //if(true) {
-    if(props.theplan.plan.replace(/"/g, "")==="free") {
-        props.startDeleteAccount()
-                logoutit()
+      if (
+        confirm("Press Cancel to cancel the deletion of your account.") == true
+      ) {
+        //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
+        //if(true) {
+        if (props.theplan.plan.replace(/"/g, "") === "free") {
+          props.startDeleteAccount();
+          logoutit();
+        } else {
+          //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
+          const theemail = {
+            email: props.email,
+            customerId: props.theplan.customerId,
+            subscriptionId: props.theplan.subscriptionId,
+          };
 
-        
-    } else {
-      //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
-    const theemail = { "email": props.email, customerId:props.theplan.customerId, subscriptionId:props.theplan.subscriptionId };
-   
-    fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(theemail),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        
-        console.log("Success:");
-        
-        props.startDeleteAccount()
-                logoutit()
+          fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(theemail),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:");
 
-        
-      })
-      .catch((error) => {
-        console.log("cancel subscription error=" + error);
-      });
-    }
-    } else {
-      alert("Canceled the deletion of the account")
-      console.log("Canceled the Deletion of the Account");
-    }
-    } catch(error) {
-       alert("an error occurred: 10002222")
-       console.log("an error occurred: 10002222, error="+error)
+              props.startDeleteAccount();
+              logoutit();
+            })
+            .catch((error) => {
+              console.log("cancel subscription error=" + error);
+            });
+        }
+      } else {
+        alert("Canceled the deletion of the account");
+        console.log("Canceled the Deletion of the Account");
+      }
+    } catch (error) {
+      alert("an error occurred: 10002222");
+      console.log("an error occurred: 10002222, error=" + error);
     }
     //
-  
   };
 
- 
-// if (isMobile()) {
-//   console.log("Mobile device detected");
-// } else {
-//   console.log("Desktop device detected");
-// }//
+  // if (isMobile()) {
+  //   console.log("Mobile device detected");
+  // } else {
+  //   console.log("Desktop device detected");
+  // }//
 
-function isMobile() {
-  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-  return regex.test(navigator.userAgent);
-}
+  function isMobile() {
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  }
 
-// function isMobile() {
-//     const minWidth = 768; // Minimum width for desktop devices
-//     return window.innerWidth < minWidth;
-// }
+  // function isMobile() {
+  //     const minWidth = 768; // Minimum width for desktop devices
+  //     return window.innerWidth < minWidth;
+  // }
 
   return (
-       <div>
-    {
-    isMobile() === false 
-    ? <div id="top">
-      
-      {!deleteAccountError ? (
-        <header className="header">
-          <div className="">
-            
-            <div className="flexrow2w">
-             
-              <header className="margin-left-11 solid">
-                
-                  <img
-                    className="rounded-full-1"
-                    src={logo}
-                    width="35"
-                    height="35"
-                    alt="Logo"
-                  />
-              
-              <h3 className="color-white-1">urilinks</h3>
-              </header>
-              {props.signup.signup === false && (
-                <div
-                  className="color-white-1"
-                  title="Please use it for good. Bookmarks for internet pages, urls/links"
-                >
-                  <Link
-                    className="nounderline color-white-1 cursor-pointer"
-                    to="/signup"
-                    title=""
+    <div>
+      {isMobile() === false ? (
+        <div id="top">
+          {!deleteAccountError ? (
+            <header className="header">
+              <div className="">
+                <div className="flexrow2w">
+                  <header className="margin-left-11 solid">
+                    <img
+                      className="rounded-full-1"
+                      src={logo}
+                      width="35"
+                      height="35"
+                      alt="Logo"
+                    />
+
+                    <h3 className="color-white-1">urilinks</h3>
+                  </header>
+                  {props.signup.signup === false && (
+                    <div
+                      className="color-white-1"
+                      title="Please use it for good. Bookmarks for internet pages, urls/links"
+                    >
+                      <Link
+                        className="nounderline color-white-1 cursor-pointer"
+                        to="/signup"
+                        title=""
+                      >
+                        (login)
+                      </Link>
+                    </div>
+                  )}
+
+                  <div
+                    className="color-white-1"
+                    title="Please use it for good. Bookmarks for internet pages, urls/links"
                   >
-                    (enter)
-                  </Link>
-                </div>
-              )}
-             
-              <div
-                className="color-white-1"
-                title="Please use it for good. Bookmarks for internet pages, urls/links"
-              >
-                <Link
-                  className="nounderline color-white-1 cursor-pointer"
-                  to="/dashboard"
-                  title="refresh"
-                >
-                  urilinks (link to links tool)
-                </Link>
-              </div>
+                    <Link
+                      className="nounderline color-white-1 cursor-pointer"
+                      to="/dashboard"
+                      title="refresh"
+                    >
+                      urilinks (link to links tool)
+                    </Link>
+                  </div>
 
-              
-
-
-
-              {props.signup.signup === true || signup === "0" ? ( 
-                <div className="padding-top-1112">
-                  <img
-                    src={photoURL}
-                    width="32"
-                    height="32"
-                    style={{ borderRadius: "50%" }}
-                    className="ib- margin-bottom-11-"
-                  />
-                </div>
-              ) : (
-                <div className="padding-top-1112" title="welcome">
-                  {
-                  
-                  //firebase.auth().currentUser !== null &&
-                  //firebase.auth().currentUser !== undefined 
-                  //photourl==="" ||
-                  false// uid !== null
-                  ? (
-                    <img
-                      src={photoURL}
-                      width="32"
-                      height="32"
-                      style={{ borderRadius: "50%" }}
-                      className="ib- margin-bottom-11-"
-                    />
+                  {props.signup.signup === true || signup === "0" ? (
+                    <div className="padding-top-1112">
+                      <img
+                        src={photoURL}
+                        width="32"
+                        height="32"
+                        style={{ borderRadius: "50%" }}
+                        className="ib- margin-bottom-11-"
+                      />
+                    </div>
                   ) : (
-                    <img
-                      src={myprofile}
-                      width="32"
-                      height="32"
-                      style={{ borderRadius: "50%" }}
-                      className="ib- margin-bottom-11-"
-                    />
+                    <div className="padding-top-1112" title="welcome">
+                      {
+                        //firebase.auth().currentUser !== null &&
+                        //firebase.auth().currentUser !== undefined
+                        //photourl==="" ||
+                        false ? ( // uid !== null
+                          <img
+                            src={photoURL}
+                            width="32"
+                            height="32"
+                            style={{ borderRadius: "50%" }}
+                            className="ib- margin-bottom-11-"
+                          />
+                        ) : (
+                          <img
+                            src={myprofile}
+                            width="32"
+                            height="32"
+                            style={{ borderRadius: "50%" }}
+                            className="ib- margin-bottom-11-"
+                          />
+                        )
+                      }
+                    </div>
+                  )}
+
+                  <div>
+                    <Link className="header__title- nounderline" to="/use">
+                      <span
+                        className="margin-right-1-ib- color-white-1 cursor-pointer"
+                        title="How to use this website"
+                      >
+                        (How to use)
+                      </span>
+                    </Link>
+                  </div>
+
+                  <div>
+                    <Link
+                      className="header__title- nounderline"
+                      to="/termsandprivacy"
+                    >
+                      <span
+                        className="ib- color-white-1 cursor-pointer"
+                        title="terms, conditions and privacy policy"
+                      >
+                        (legal)
+                      </span>
+                    </Link>
+                  </div>
+                  {props.theplan.plan.replace(/"/g, "") !== "premium" &&
+                    props.signup.signup === true && (
+                      <div>
+                        <Link className="header__title" to="/teirspayment3">
+                          <span
+                            className="ib"
+                            title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
+                          >
+                            (plans ($))
+                          </span>
+                        </Link>
+                      </div>
+                    )}
+                  {!inviewport && (
+                    <div
+                      id="scrolldownid"
+                      className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
+                      onClick={scrolldown}
+                      title="if the search and results section is not in view, click this to scroll search and results section into view."
+                    >
+                      (go to search section)
+                    </div>
+                  )}
+
+                  <div>
+                    <Link className="header__title- nounderline" to="/ideas">
+                      <span
+                        className="ib- color-white-1 cursor-pointer"
+                        title="some ideas for hash tags"
+                      >
+                        (Link Ideas)
+                      </span>
+                    </Link>
+                  </div>
+
+                  {props.signup.signup === true ? (
+                    <div className="hide-">
+                      <a
+                        className="header__title- nounderline pointereventsauto"
+                        href="https://urilinks-project-urls-to-tabs-html.vercel.app"
+                        target="_blank"
+                      >
+                        <span
+                          className="ib- color-white-1 cursor-pointer"
+                          title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader."
+                        >
+                          (get page urls for bookmarks file)
+                        </span>
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="hide-">
+                      <a
+                        className="header__title- nounderline pointereventsnone"
+                        href="https://urilinks-project-urls-to-tabs-html.vercel.app"
+                        target="_blank"
+                      >
+                        <span
+                          className="ib- color-white-1 cursor-pointer"
+                          title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader."
+                        >
+                          (get page urls for bookmarks file)
+                        </span>
+                      </a>
+                    </div>
+                  )}
+
+                  {props.signup.signup === true ? (
+                    <div className="pointereventsauto hide-">
+                      <Link
+                        className="header__title- nounderline pointereventsauto"
+                        to="/bookmarksmanager"
+                      >
+                        <span
+                          className="ib- color-white-1 cursor-pointer pointereventsauto"
+                          title="bookmarks get renamed to links"
+                        >
+                          (Bookmarks File Uploader)
+                        </span>
+                      </Link>
+                    </div>
+                  ) : (
+                    <div className="pointereventsnone margin-right-1 hide-">
+                      <Link
+                        className="header__title- nounderline pointereventsnone"
+                        to="/bookmarksmanager"
+                      >
+                        <span
+                          className="ib- color-white-1 cursor-pointer pointereventsnone"
+                          title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
+                        >
+                          (Bookmarks File Uploader)
+                        </span>
+                      </Link>
+                    </div>
+                  )}
+
+                  {props.signup.signup === true ? (
+                    <div className="margin-top-1111a-">
+                      <button
+                        className="button button--link ib text-size-3- color-white-1 cursor-pointer"
+                        onClick={logoutit}
+                      >
+                        (logout)
+                      </button>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+
+                  {props.signup.signup === true ? (
+                    <div className="margin-top-1111a-">
+                      <button
+                        className="button button--link ib text-size-3- color-white-1 cursor-pointer"
+                        onClick={cancelsubscription}
+                      >
+                        (Delete Account)
+                      </button>
+                    </div>
+                  ) : (
+                    ""
                   )}
                 </div>
-              )}
-              
-              <div>
-                <Link className="header__title- nounderline" to="/use">
-                  <span
-                    className="margin-right-1-ib- color-white-1 cursor-pointer"
-                    title="How to use this website"
-                  >
-                    (How to use)
-                  </span>
-                </Link>
               </div>
-
-              <div>
-                <Link
-                  className="header__title- nounderline"
-                  to="/termsandprivacy"
-                >
-                  <span
-                    className="ib- color-white-1 cursor-pointer"
-                    title="terms, conditions and privacy policy"
-                  >
-                    (legal)
-                  </span>
-                </Link>
-              </div>
-              {props.theplan.plan.replace(/"/g, "")!=="premium" && props.signup.signup === true && (
-                <div>
-                  <Link className="header__title" to="/teirspayment3">
-                    <span
-                      className="ib"
-                      title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
-                    >
-                      (plans ($))
-                    </span>
-                  </Link>
-                </div>
-              )}
-              {!inviewport && (
-                <div
-                  id="scrolldownid"
-                  className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
-                  onClick={scrolldown}
-                  title="if the search and results section is not in view, click this to scroll search and results section into view."
-                >
-                  (go to search section)
-                </div>
-              )}
-
-              <div>
-                <Link className="header__title- nounderline" to="/ideas">
-                  <span
-                    className="ib- color-white-1 cursor-pointer"
-                    title="some ideas for hash tags"
-                  >
-                    (Link Ideas)
-                  </span>
-                </Link>
-              </div>
-
-              {props.signup.signup === true ? (
-                <div className="hide-">
-                  <a
-                    className="header__title- nounderline pointereventsauto"
-                    href="https://urilinks-project-urls-to-tabs-html.vercel.app"
-                    target="_blank"
-                  >
-                    <span
-                      className="ib- color-white-1 cursor-pointer"
-                      title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader."
-                    >
-                      (get page urls for bookmarks file)
-                    </span>
-                  </a>
-                </div>
-              ) : (
-                <div className="hide-">
-                  <a
-                    className="header__title- nounderline pointereventsnone"
-                    href="https://urilinks-project-urls-to-tabs-html.vercel.app"
-                    target="_blank"
-                  >
-                    <span
-                      className="ib- color-white-1 cursor-pointer"
-                      title="Retrieves a list of of urls from any given url. This list of urls may be converted into a bookmarks.html that gets written to the Downloads folder in this application for uploading into this application as bookmarks through the link bookmarks uploader."
-                    >
-                      (get page urls for bookmarks file)
-                    </span>
-                  </a>
-                </div>
-              )}
-
-              {props.signup.signup === true ? (
-                <div className="pointereventsauto hide-">
-                  <Link
-                    className="header__title- nounderline pointereventsauto"
-                    to="/bookmarksmanager"
-                  >
-                    <span
-                      className="ib- color-white-1 cursor-pointer pointereventsauto"
-                      title="bookmarks get renamed to links"
-                    >
-                      (Bookmarks File Uploader)
-                    </span>
-                  </Link>
-                </div>
-              ) : (
-                <div className="pointereventsnone margin-right-1 hide-">
-                  <Link
-                    className="header__title- nounderline pointereventsnone"
-                    to="/bookmarksmanager"
-                  >
-                    <span
-                      className="ib- color-white-1 cursor-pointer pointereventsnone"
-                      title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
-                    >
-                      (Bookmarks File Uploader)
-                    </span>
-                  </Link>
-                </div>
-              )}
-
-              {props.signup.signup === true ? (
-                <div className="margin-top-1111a-">
-                  <button
-                    className="button button--link ib text-size-3- color-white-1 cursor-pointer"
-                    onClick={logoutit}
-                  >
-                    (exit)
-                  </button>
-                </div>
-              ) : (
-                ""
-              )}
-
-              {props.signup.signup === true ? (
-                <div className="margin-top-1111a-">
-                  <button
-                    className="button button--link ib text-size-3- color-white-1 cursor-pointer"
-                    onClick={cancelsubscription}
-                  >
-                    (Delete Account)
-                  </button>
-                </div>
-              ) : (
-                ""
-              )}
-            </div>
-          </div>
-         
-        </header>
+            </header>
+          ) : (
+            "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."
+          )}
+        </div>
       ) : (
-        "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."
+        <div>
+          <Header2 />
+        </div>
       )}
-    
     </div>
-    :<div>
-<Header2 />
-
-    </div>}
-    </div>
-
   );
 };
 
@@ -412,7 +394,7 @@ const mapStateToProps = (state) => ({
   email: state.email,
   theplan: state.theplan,
   subscriptionId: state.subscriptionId,
-  customerId: state.customerId
+  customerId: state.customerId,
 });
 
 const mapDispatchToProps = (dispatch) => ({

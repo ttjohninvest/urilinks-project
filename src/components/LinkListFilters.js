@@ -240,7 +240,7 @@ function ExpandableArray(props) {
 
               {/* {isMobile()?"yes":"no"} */}
                {props.signup === false && true && (
-                <div className="text-size-1 textLeft flexrowz flexWrap">
+                <div className="margin-bottom-1 text-size-1 flexrowz flexWrap">
                   <span
                     className=""
                     title="link in bio page in your instagram profile"

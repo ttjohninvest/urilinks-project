@@ -231,7 +231,7 @@ function ExpandableArray(props) {
                 </div>
               </div>
               <div className="text-size-1 textLeft hide">
-                Welcome{" "}
+                Welcome
                 {!theuser
                   ? "to this example links page. What makes you smile?"
                   : ", what makes you smile?"}
@@ -239,10 +239,20 @@ function ExpandableArray(props) {
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
 
               {/* {isMobile()?"yes":"no"} */}
+               {props.signup === false && true && (
+                <div className="text-size-1 textLeft flexrowz flexWrap">
+                  <span
+                    className=""
+                    title="link in bio page in your instagram profile"
+                  >
+                   "link in bio page"
+                  </span>
+                </div>
+              ) }
               {props.signup === false && true ? (
                 <div className="text-size-1 textLeft flexrowz flexWrap">
                   <span
-                    className="font-weight-bold- hide- breakWord-"
+                    className=""
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
                     Steps: 1. login, 2. enter links, 3. share the provided link

@@ -239,35 +239,40 @@ function ExpandableArray(props) {
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
 
               {/* {isMobile()?"yes":"no"} */}
-               {props.signup === false && true && (
+              {props.signup === false && true && (
                 <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
                   <span
                     className=""
                     title="Please ignore this if you know already. Your bio page is the links page that this platform allows you to create through the add link button or bookmarks file uploader menu item in the header. I provide you a link you can share on your instagram profile"
                   >
-                   <span className="text-size-9 font-weight-bold">T</span>he link in bio page for  {(!!theuser && props.signup === true) || signup === "0"
+                    <span className="text-size-9 font-weight-bold">T</span>he
+                    link in bio page for{" "}
+                    {(!!theuser && props.signup === true) || signup === "0"
                       ? theuser.displayName
-                      : "John Example"}, click a hashtag or folder name to see the bio links in that category.
+                      : "John Example"}
+                    , click a hashtag or folder name to see the bio links in
+                    that category.
                   </span>
                 </div>
-              ) }
+              )}
               {props.signup === false && true && (
                 <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
-                  <span
-                    className=""
-                    title="better"
-                  >
-                   <span className="text-size-9 font-weight-bold">L</span>inktree's link in bio tool is good by mine is better.</span>
+                  <span className="" title="better">
+                    <span className="text-size-9 font-weight-bold">L</span>
+                    inktree's link in bio tool is good by mine is better.
+                  </span>
                 </div>
-              ) }
+              )}
               {props.signup === false && true ? (
                 <div className="text-size-1 textLeft flexrowz flexWrap">
                   <span
                     className=""
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
-                    <span className="text-size-9 font-weight-bold">S</span>teps to get your own account: 1. login, 2. enter links, 3. share the provided link
-                    in your instagram profile to get more engagement to your bio page today.
+                    <span className="text-size-9 font-weight-bold">S</span>teps
+                    to get your own account: 1. login, 2. enter links, 3. share
+                    the provided link in your instagram profile to get more
+                    engagement to your bio page today.
                   </span>
                 </div>
               ) : (
@@ -306,7 +311,7 @@ function ExpandableArray(props) {
                         to="/signup"
                         title=""
                       >
-                        (login)
+                        (login/enter)
                       </Link>
                     </span>
                   </span>

@@ -171,7 +171,7 @@ export const Header = (props) => {
                         to="/signup"
                         title=""
                       >
-                        (login)
+                        (login/enter)
                       </Link>
                     </div>
                   )}

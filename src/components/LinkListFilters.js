@@ -272,7 +272,7 @@ function ExpandableArray(props) {
                     <span className="text-size-9 font-weight-bold">S</span>teps
                     to get your own account: <div className="ib border5a borderRadius50">1</div> login, <div className="ib border5a borderRadius50">2</div> enter links, <div className="ib border5a borderRadius50">3</div> share
                     the provided link in your instagram profile to get more
-                    engagement to your bio page today.
+                    engagement to today.
                   </span>
                 </div>
               ) : (

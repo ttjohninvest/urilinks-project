@@ -94,8 +94,8 @@ export const AddLinkPage = (props) => {
     //)
     // ) {
     //if (count < getPlanMax() && (count < 5000 )) {
-    //if (count < getPlanMax()) {
-    if (count < 10) {
+    if (count < getPlanMax()) {
+    //if (count < 10) {
     //if (true) {
       link.foldername = link.description;
       const r = props.startAddLink(link);

@@ -147,7 +147,7 @@ export const AddLinkPage = (props) => {
           Notice: firebase realtime database has thrown an exception (memmory
           exceeded)
         </div>
-      ) : !maximumPage ? (
+      ) : maximumPage === false ? (
         <div>
           <div className="page-header">
             <div className="content-container">
@@ -161,7 +161,7 @@ export const AddLinkPage = (props) => {
           </div>
         </div>
       ) : (
-        <div>{/* <TeirsPayment3 /> */}</div>
+        <div> <TeirsPayment3 /></div>
       )}
     </div>
   );

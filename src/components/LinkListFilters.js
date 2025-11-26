@@ -259,7 +259,7 @@ function ExpandableArray(props) {
                 <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
                   <span className="" title="better">
                     <span className="text-size-9 font-weight-bold">L</span>
-                    inktree's link in bio tool is good by mine is better. Love John ❤️
+                    inktree's link in bio tool is good by mine is better. Agape Love John ❤️
                   </span>
                 </div>
               )}

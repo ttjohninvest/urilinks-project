@@ -257,7 +257,7 @@ function ExpandableArray(props) {
                     className=""
                     title="better"
                   >
-                   <span className="text-size-9 font-weight-bold">L</span>inktree is good by mine is better.</span>
+                   <span className="text-size-9 font-weight-bold">L</span>inktree's link in bio tool is good by mine is better.</span>
                 </div>
               ) }
               {props.signup === false && true ? (

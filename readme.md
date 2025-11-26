@@ -588,6 +588,13 @@ the node users can now be read
 }
 }
 
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+
 const dbRef = firebase.database().ref('users');
 dbRef.on('value', (snapshot) => {
 const data = snapshot.val();

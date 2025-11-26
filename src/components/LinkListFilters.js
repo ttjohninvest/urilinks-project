@@ -459,8 +459,7 @@ function ExpandableArray(props) {
                 <div className="margin-left-minus-1">
                   <span>
                     {props.links.length} links of {maximum} links is stored on{" "}
-                    {props.theplan.plan.replace(/"/g, "")} plan. Click on a
-                    hashtag or folder name to see links for that category.
+                    {props.theplan.plan.replace(/"/g, "")} plan.
                   </span>
                 </div>
                 <Link className="header__title" to="/teirspayment3">

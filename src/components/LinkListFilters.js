@@ -240,12 +240,12 @@ function ExpandableArray(props) {
 
               {/* {isMobile()?"yes":"no"} */}
                {props.signup === false && true && (
-                <div className="margin-bottom-1 text-size-1 flexrowz flexWrap">
+                <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
                   <span
-                    className="text-center"
+                    className=""
                     title="Please ignore this if you know already. Your bio page is the links page that this platform allows you to create through the add link button or bookmarks file uploader menu item in the header. I provide you a link you can share on your instagram profile"
                   >
-                   "link in bio page"
+                   link in bio page
                   </span>
                 </div>
               ) }

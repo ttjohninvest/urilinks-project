@@ -245,7 +245,9 @@ function ExpandableArray(props) {
                     className=""
                     title="Please ignore this if you know already. Your bio page is the links page that this platform allows you to create through the add link button or bookmarks file uploader menu item in the header. I provide you a link you can share on your instagram profile"
                   >
-                   link in bio page for  { signup === "0" && theuser.displayName }, click a hashtag or folder name to see links in that category.
+                   link in bio page for  {(!!theuser && props.signup === true) || signup === "0"
+                      ? theuser.displayName
+                      : "John Example"}, click a hashtag or folder name to see links in that category.
                   </span>
                 </div>
               ) }

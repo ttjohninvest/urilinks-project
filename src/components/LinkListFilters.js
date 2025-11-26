@@ -259,7 +259,7 @@ function ExpandableArray(props) {
                 <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
                   <span className="" title="better">
                     <span className="text-size-9 font-weight-bold">L</span>
-                    inktree's link in bio tool is good by mine is better because mine is is easier and faster to use than linktree's and I offer a feature that allows for the importing of bookmarks that get automatically converted into bio links. Much agape gape Love John ❤️
+                    inktree's link in bio tool is good but mine is better because mine is is easier and faster to use than linktree's and I offer a feature that allows for the importing of bookmarks that get automatically converted into bio links. Much agape gape Love John ❤️
                   </span>
                 </div>
               )}

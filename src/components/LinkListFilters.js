@@ -245,7 +245,7 @@ function ExpandableArray(props) {
                     className=""
                     title="Please ignore this if you know already. Your bio page is the links page that this platform allows you to create through the add link button or bookmarks file uploader menu item in the header. I provide you a link you can share on your instagram profile"
                   >
-                   The link in bio page for  {(!!theuser && props.signup === true) || signup === "0"
+                   <span className="text-size-9 font-weight-bold">T</span>he link in bio page for  {(!!theuser && props.signup === true) || signup === "0"
                       ? theuser.displayName
                       : "John Example"}, click a hashtag or folder name to see the bio links in that category.
                   </span>
@@ -257,7 +257,7 @@ function ExpandableArray(props) {
                     className=""
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
-                    Steps to get your own account: 1. login, 2. enter links, 3. share the provided link
+                    <span className="text-size-9 font-weight-bold">S</span>teps to get your own account: 1. login, 2. enter links, 3. share the provided link
                     in your instagram profile.
                   </span>
                 </div>

@@ -258,7 +258,7 @@ function ExpandableArray(props) {
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
                     <span className="text-size-9 font-weight-bold">S</span>teps to get your own account: 1. login, 2. enter links, 3. share the provided link
-                    in your instagram profile to get more engagement today.
+                    in your instagram profile to get more engagement to your bio page today.
                   </span>
                 </div>
               ) : (

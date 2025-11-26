@@ -251,6 +251,15 @@ function ExpandableArray(props) {
                   </span>
                 </div>
               ) }
+              {props.signup === false && true && (
+                <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
+                  <span
+                    className=""
+                    title="better"
+                  >
+                   <span className="text-size-9 font-weight-bold">L</span>inktree is good by mine is better.</span>
+                </div>
+              ) }
               {props.signup === false && true ? (
                 <div className="text-size-1 textLeft flexrowz flexWrap">
                   <span

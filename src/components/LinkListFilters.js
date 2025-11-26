@@ -234,10 +234,10 @@ function ExpandableArray(props) {
               {props.signup === false && true ? (
                 <div className="text-size-1 textLeft flexrowz flexWrap">
                   <span className="font-weight-bold- hide- breakWord-" title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email">
-                    To get a <span className="font-weight-bold">sharable link</span> to your links page like this example, you need to click (enter) and do google login, then enter the links you want to share on instagram on your profile page through this sharable link.
+                    To get a <span className="font-weight-bold">sharable link</span> to your links page like this example, you need to click (enter) and do google login.
                   </span>
                   <span  className="font-weight-bold- hide- breakWord-" title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email">
-                    then enter the links you want to share on instagram on your profile page through this sharable link.
+                    Then enter the links you want to share by clicking add link button or bookmarks file uploader. I will provide you a link you can share on your instagram profile.
                   </span>
                 </div>
               ) : (

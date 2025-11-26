@@ -31,19 +31,7 @@ const LinkDashboardPage = (props) => {
   useEffect(() => {
 
      
-    const handleTabClose = (event) => {
-      //event.preventDefault();
-      // Optional: Set a custom message (though modern browsers may ignore it)
-      //logoutit()
-      //props.startLogout();
-      //return (event.returnValue = 'Are you sure you want to leave?');
-    };
-
-    window.addEventListener('beforeunload', handleTabClose);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleTabClose);
-    };
+    
 
     const handleScroll = () => {
       window.localStorage.setItem("scrollPosition", window.scrollY);

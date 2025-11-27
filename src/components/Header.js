@@ -190,7 +190,7 @@ export const Header = (props) => {
                   </div> */}
 
                   {props.signup.signup === true || signup === "0" ? (
-                    <div className="padding-top-1112">
+                    <div className="padding-top-1112 margin-left-118">
                       <img
                         src={photoURL}
                         width="32"
@@ -200,7 +200,7 @@ export const Header = (props) => {
                       />
                     </div>
                   ) : (
-                    <div className="padding-top-1112" title="welcome">
+                    <div className="padding-top-1112 margin-left-118" title="welcome">
                       {
                         //firebase.auth().currentUser !== null &&
                         //firebase.auth().currentUser !== undefined
@@ -232,7 +232,7 @@ export const Header = (props) => {
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
                         title="How to use this website"
                       >
-                        (How to use)
+                        (usage)
                       </span>
                     </Link>
                   </div>
@@ -253,7 +253,7 @@ export const Header = (props) => {
                   {props.theplan.plan.replace(/"/g, "") !== "premium" &&
                     props.signup.signup === true && (
                       <div>
-                        <Link className="header__title" to="/teirspayment3">
+                        <Link className="header__title-" to="/teirspayment3">
                           <span
                             className="ib- text-size-1"
                             title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"

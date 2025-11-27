@@ -117,7 +117,7 @@ const HamburgerMenu = (props) => {
                   className="margin-right-1-ib- color-white-1- cursor-pointer"
                   title="How to use this website"
                 >
-                  (How to use)
+                  (usage)
                 </span>
               </Link>
             </li>

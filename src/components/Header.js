@@ -147,7 +147,7 @@ export const Header = (props) => {
       {isMobile() === false ? (
         <div id="top">
           {!deleteAccountError ? (
-            <header className="header relief">
+            <header className="header relief-">
               <div className="">
                 <div className="flexrow2w">
                   <header className="margin-left-11 solid">
@@ -159,7 +159,7 @@ export const Header = (props) => {
                       alt="Logo"
                     />
 
-                    <h3 className="color-white-1">urilinks</h3>
+                    <h3 className="color-white-1 relief">urilinks</h3>
                   </header>
                   {props.signup.signup === false && (
                     <div

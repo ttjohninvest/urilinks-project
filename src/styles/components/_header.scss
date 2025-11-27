@@ -1,5 +1,6 @@
 .header {
-  background: purple; // $dark-blue;
+  //background: purple; // $dark-blue;
+  background-color: rgba(219, 87, 5, 1);
 }
 
 .header__content {
@@ -7,12 +8,13 @@
   display: flex;
   justify-content: space-between;
   padding: $s-size 0;
+  //padding: $l-size 0;
 }
 
 .header__title {
   color: white;
   text-decoration: none;
-  font-size:1rem;
+  font-size:1.5rem;
   h1 {
     margin: 0;
   }

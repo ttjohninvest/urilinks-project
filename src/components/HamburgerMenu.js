@@ -126,7 +126,7 @@ const HamburgerMenu = (props) => {
             props.signup.signup === true && (
               <Link className="header__title" to="/teirspayment3">
                 <span
-                  className="ib  font-weight-bold text-size-1"
+                  className="ib-  font-weight-bold text-size-1"
                   title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
                 >
                   (plans ($))

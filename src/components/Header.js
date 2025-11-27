@@ -159,7 +159,7 @@ export const Header = (props) => {
                       alt="Logo"
                     />
 
-                    <h3 className="color-white-1">urilinks</h3>
+                    <h3 className="color-white-1">urilinks (link in bio)</h3>
                   </header>
                   {props.signup.signup === false && (
                     <div
@@ -176,7 +176,7 @@ export const Header = (props) => {
                     </div>
                   )}
 
-                  <div
+                  {/* <div
                     className="color-white-1"
                     title="Please use it for good. Bookmarks for internet pages, urls/links"
                   >
@@ -187,7 +187,7 @@ export const Header = (props) => {
                     >
                       urilinks (link to links tool)
                     </Link>
-                  </div>
+                  </div> */}
 
                   {props.signup.signup === true || signup === "0" ? (
                     <div className="padding-top-1112">

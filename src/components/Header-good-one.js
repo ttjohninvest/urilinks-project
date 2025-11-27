@@ -180,7 +180,7 @@ export const Header = (props) => {
               {/* <div className="color-white-1">p:{props.theplan.plan}</div>
               <div className="color-white-1">c_Id:{props.theplan.customerId}</div>
               <div className="color-white-1">s_Id:{props.theplan.subscriptionId}</div> */}
-              <div
+              {/* <div
                 className="color-white-1"
                 title="Please use it for good. Bookmarks for internet pages, urls/links"
               >
@@ -191,7 +191,7 @@ export const Header = (props) => {
                 >
                   urilinks (link to links tool)
                 </Link>
-              </div>
+              </div> */}
 
               {props.signup.signup === true ? (
                 <div className="padding-top-1112">

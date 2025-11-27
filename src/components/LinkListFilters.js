@@ -494,7 +494,7 @@ function ExpandableArray(props) {
 
                       props.signup === true &&
                         props.theplan.plan.replace(/"/g, "") !== "premium" && (
-                          <span>(click to change plan)</span>
+                          <span className="textCenter">(click to change plan)</span>
                         )
                     }
 

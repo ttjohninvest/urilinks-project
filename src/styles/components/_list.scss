@@ -214,7 +214,8 @@
 */
 
 .color-purple {
-  color: purple;
+  // color: purple;
+  color: rgba(219, 87, 5, 1);
 }
 
 input.cb1[type="checkbox"]:hover {
@@ -243,7 +244,8 @@ input.cb1[type="checkbox"]:hover {
 }
 
 .bg-color-1 {
-  background-color: purple;
+  //background-color: purple;
+  background-color: rgba(219, 87, 5, 1);
 }
 
 .bg-color-2 {
@@ -878,7 +880,8 @@ header nav {
   align-items: center;
   padding: 10px 20px;
   //background-color: #333;
-  background-color: purple;
+  //background-color: purple;
+  background-color: rgba(219, 87, 5, 1);
   color: white;
 }
 

@@ -484,9 +484,10 @@ function ExpandableArray(props) {
                     {props.theplan.plan.replace(/"/g, "")} plan.
                   </span>
                 </div>
+                <div className="flexrow3c">
                 <Link className="header__title" to="/teirspayment3">
                   <span
-                    className="ib color-black text-size-5 general-font margin-left-minus-1"
+                    className="ib  color-black text-size-5 general-font margin-left-minus-1"
                     title="click for plan options"
                   >
                     {
@@ -494,13 +495,14 @@ function ExpandableArray(props) {
 
                       props.signup === true &&
                         props.theplan.plan.replace(/"/g, "") !== "premium" && (
-                          <span className="textCenter">(click to change plan)</span>
+                          <span>(click to change plan)</span>
                         )
                     }
 
                     {isToggled && props.signup === false && <span></span>}
                   </span>
                 </Link>
+                </div>
               </div>
             </div>
           </div>

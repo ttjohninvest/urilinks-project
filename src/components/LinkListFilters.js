@@ -280,7 +280,7 @@ function ExpandableArray(props) {
                     className=""
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
-                    <span className="text-size-9- font-weight-bold-">l</span>ink in bio page to get more engagement to today. Click a hash tag.
+                    <span className="text-size-9- font-weight-bold-">l</span>ink in bio page to get more engagement today. Click a hash tag.
                   </span>
                 </div>
               ) : (

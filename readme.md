@@ -577,6 +577,8 @@ put a message in to contact johmcg64@gmail.com if one of the memory maximum case
 ===
 https://search.brave.com/search?q=how+do+i+read+all+of+the+users+data+from+firebase+realtime+database&summary=1&conversation=9776a7e8a0c23acdbc1eae
 the node users can now be read
+
+project-vercel-stripe-api does not work to write the db with these rules, these rules are secure, I want these ones
 {
 "rules": {
 "users": {
@@ -588,6 +590,43 @@ the node users can now be read
 }
 }
 
+-------------------------------------------------------------------------
+to get the firebase realtime database rules that are secure
+in powershell admin
+PS C:\users\admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project-vercel-stripe-api> .\Base64 x.json
+Base64 Encoder 0.1.5
+--------------------
+(c) West Wind Technologies, 2023-2025
+
+
+ewogICJ0eXBlIjogInNlcnZpY2VfYWNjb3VudCIsCiAgInByb2plY3RfaWQiOiAic2VlLW15LWluZGV4LXByb2plY3QtNyIsCiAgInByaXZhdGVfa2V5X2lkIjogIjUxN2ZmODYyZTUyM2FjNzcwMzYxOWRhZDA3N2ZlZjE5NzE5MWY2MTkiLAogICJwcml2YXRlX2tleSI6ICItLS0tLUJFR0lOIFBSSVZBVEUgS0VZLS0tLS1cbk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRQ2duTEhzbFpVOEx1R1pcbmMvR21nQUV3M0M1VmVXcFI2MVpMRnYyeUJWK2h0bGp0dnFTenhhZExrUXBjQzBrVjJrM3NDWTRyZmVBbW1uU0NcbjBLdlNoaG5iV0gvYUtXckExMmlZNTBlcFZzR256aTVZdTZsTmxiL0RrVGtuNGcvZGFvcDR2clJKMi9SK0ZpRDlcbjdvQlc5eHMzdndNRDdqOTJTS3VGdXZMTVA5U04yMFZ6a0dsWVI5dUlJY0FBUk02b1I4bjBnNjA5ODZ4K2RjV2JcbjZkYWV0dk1vazV5aDQ2SzdUd2l1bGxQVFlVNkg0RTJZZ2F1ZUE5djV0VXBtSjJOMEdkYWdCQWJPT1UvMit2VmlcblJQVjE5bC9FaDdIV25PMmNGRWFJRGQ4QXdOcFdrd2RQR2Y3b0tLcHg5NGZIakRmQTdKNzZtcEVOeVJ1TmlLOXZcbk04UklFRHhmQWdNQkFBRUNnZ0VBTlBvYWtnL3c3cTRFQ2VxOWpZN3hWWjE2eHdUS2RnVHJMTStEbE9IQzNvTllcbkordFhSbGp1eXJVbnRwNmVWOC92SGVrMDlOR0xTeEJ0Vit6ZWtBMWRvQVU3L3Nqa2hvRkc1aEI3aWJhdEg5MlpcbldmbGthY3Y0T2RqQUFwREZiT0pFbEhsSzNJWHB5bUVnTnNJaG9RM1c4M2RVMWtvU3NzQmJtenZEOUcwbGZqaU1cbmdDQUwzYXBIcTVERmwraDNneHUvZVJEaHpnd0lkWVI5a3QwZ1lady8zK00xUFBIWXRCWjdmTkdLbEhxN2lpWFhcbnE5cDVrYjhWUk9xQzF5dk94dEVwaXJZUmZaVUxGMDRlS0lBdDUzZmNia3dwelFMU2NQbG5UeTcvVHB1M0tMK0RcbjF4YXpUTVMyaFplc2NCWGp3T2hXdlN1cWN2UnBjcGpJN3g0bUpPOTdFUUtCZ1FEU01OdHQrTi9xTnkyM3JNMUJcbktOaUNGY2lyQ25qRVVoU0psNUI5R0svTXpwd1p2UzJIakF1cjZBam9FdFU3dExVelRTbEFDbVFVaWhmTzNMMGZcbkZaZU5tSE5GbG9iTUtOM3cyNUdoVGxWZGt2V0NJMlBrODVnTWRZcFJCZm9nZXN1aVp5QWJrQjJyMzBEVlNDMzRcblhYL29oRlg5dGVJUnlUZTFZSjl0b091M3R3S0JnUUREbmJMUW1kTFJTTFNqTitLUmxxZWg2VGdDRDFDZmcwMzZcbk56ZGIxZ0ZDSWVRMzVKRjROVjhtWnlrV0ZVREtVNGx4UlB2MTZCbmREM3JudnVsMzQzMUxtZE5Jb1JQalZhOG1cbkp0SENYWllYU0liVUExMmNLODhWN3czQVNwVTBDMVNjQUpjZzYyWS80WXdOVEF6elZvbjB4WGRISnl3UVFhZW9cbloySzNGZXdRbVFLQmdETUllYjV4dHF2L1NiSlcybDcvczlHaHlGNys0K09HcWtYZDdzN3d0MzVhaTd3VUdvSFdcbmx0N2VMNHRwUnl4LzY1N1JGVHJmU3YxUnFnWW53aU5SOHNJR1NiYVRuWmJrTlQ3TmtNWkJacWlaamRKVEZXWDVcblh1bG5nSFc3cGNkTkNUUWRKY2FMYnlqVHc4SUZER1JKRDAwOUZFUE5iVjQwSkxwOUF6aHk0Y2h4QW9HQkFMVjJcblJkbkN5RkZDaStkWlFVRmpLekJFZzZOTmg3SGhnV1dhOFN5dEVrL0IxczZPcHUrSE96UUp3SkJ1dU1LM3lha2Ncbm9Fc1d1MTlaSzk5dE4zRHl4RmxzWWhaZTdtOFdIanRiQ1h5dmlqc2hHWW4xY1ZJZFJhYUlNdzV0WVlsODlVa2Vcbk54UGZxdU9abkd6OVhvb2hmaXBsUCtmdWk2NnM2UldNaW9OaXY3RUpBb0dCQUs4dk1YNzQ2dXZQWkJ4ZldTc0tcbnIzcnBlRkJCRy9QcFJEQ0g5MUU1b2s2RHpQQytMbzgwNE5HYTVMSXRaNmx4T2ZZd0M2YW9iYVZNZ283ZU9HT1dcblNDSGFIN2lwOEUvS1BwSE50Uk9menBnSlZYak1rSy8veWF4cWphU1dkcmlaZmlzSzlVZ1RJNUpQUWdJeWZ4RGFcblBBMnl0TEwva1FsZnozT2pRNzF5TUxDZ1xuLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLVxuIiwKICAiY2xpZW50X2VtYWlsIjogImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQHNlZS1teS1pbmRleC1wcm9qZWN0LTcuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLAogICJjbGllbnRfaWQiOiAiMTA0MTkxNDI3MzEyMTAzMTY1OTk2IiwKICAiYXV0aF91cmkiOiAiaHR0cHM6Ly9hY2NvdW50cy5nb29nbGUuY29tL28vb2F1dGgyL2F1dGgiLAogICJ0b2tlbl91cmkiOiAiaHR0cHM6Ly9vYXV0aDIuZ29
+
+put the above string into versel environement variable GOOGLE_APPLICATION_...
+in urilinks-project-vercel-stripe-api put the new initialization code
+
+footnote: some lookup stuff:
+https://search.brave.com/search?q=example+of+how+to+initialize+firebase-admin+with+const+credentialsJson+%3D+Buffer.from%28process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON_BASE64%2C+%22base64%22%29.toString%28%22utf8%22%29%3B+const+credentials+%3D+JSON.parse%28credentialsJson%29%3B&summary=1&conversation=4496905d05bb3c2e13433e
+
+https://search.brave.com/search?q=example+of+how+to+download+the+base64+tool&summary=1&conversation=808181f7d0e3623564d4fa
+
+https://search.brave.com/search?q=example+using+vercel+env+add+to+base64+encode&summary=1&conversation=f072dca306f8c31c5b9167
+
+https://search.brave.com/search?q=where+do+i+store+the+serviceAccountKey.json+in+vercel&summary=1&conversation=7cab86fdcd82d7bbfa7e31
+
+https://search.brave.com/search?q=if+i+use+the+firebase-admin+SDK+how+does+it+access+my+firebase+realtime+database&summary=1&conversation=7a2b5a6f32cc252c3836d4
+
+https://search.brave.com/search?q=my+firebase+realtime+database+rules+use+auth+my+firebase+realtime+database+cloud+function+is+being+denied+access+to+the+firebase+realtime+database+because+it+thinks+the+user+id+is+not+authenticated&summary=1&conversation=ba2ad53766252f7747f34d
+
+https://search.brave.com/search?q=stripe+calls+my+express+clould+function+but+my+express+function+server+does+not+have+permission+to+access+my+database+unless+the+write+is+set+to+true+for+rules+in+the+firebase+realtime+database&summary=1&conversation=6ddf307d509db2f1d97f19
+
+https://console.cloud.google.com/iam-admin/serviceaccounts?authuser=0&hl=en-US&project=see-my-index-project-7
+
+https://console.firebase.google.com/u/0/project/see-my-index-project-7/settings/serviceaccounts/adminsdk
+
+https://www.google.com/search?q=firebase+realtime+database+cloud+function+does+not+have+access+to+my+database+unless+I+set+read+to+true
+-------------------------------------------------------------------------
+
+project-vercel-stripe-api needs the following rules to work
 {
   "rules": {
     ".read": true,

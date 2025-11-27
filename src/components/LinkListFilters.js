@@ -239,7 +239,7 @@ function ExpandableArray(props) {
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
 
               {/* {isMobile()?"yes":"no"} */}
-              {props.signup === false && true && (
+              {/* {props.signup === false && true && (
                 <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
                   <span
                     className=""
@@ -254,25 +254,33 @@ function ExpandableArray(props) {
                     that category.
                   </span>
                 </div>
-              )}
-              {props.signup === false && true && (
+              )} */}
+              {/* {props.signup === false && true && (
                 <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
                   <span className="" title="better">
                     <span className="text-size-9 font-weight-bold">L</span>
                     inktree's link in bio tool is good but mine is better because mine is is easier and faster to use than linktree's and I offer a feature that allows for the importing of bookmarks that get automatically converted into bio links. Much agape gape Love John ❤️
                   </span>
                 </div>
-              )}
+              )} */}
               {props.signup === false && true ? (
+                // <div className="text-size-1 textLeft flexrowz flexWrap">
+                //   <span
+                //     className=""
+                //     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                //   >
+                //     <span className="text-size-9 font-weight-bold">S</span>teps
+                //     to get your own account: <div className="ib border5a borderRadius50">1</div> login, <div className="ib border5a borderRadius50">2</div> enter links, <div className="ib border5a borderRadius50">3</div> share
+                //     the provided link in your instagram profile to get more
+                //     engagement to today.
+                //   </span>
+                // </div>
                 <div className="text-size-1 textLeft flexrowz flexWrap">
                   <span
                     className=""
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
-                    <span className="text-size-9 font-weight-bold">S</span>teps
-                    to get your own account: <div className="ib border5a borderRadius50">1</div> login, <div className="ib border5a borderRadius50">2</div> enter links, <div className="ib border5a borderRadius50">3</div> share
-                    the provided link in your instagram profile to get more
-                    engagement to today.
+                    <span className="text-size-9- font-weight-bold-">l</span>ink in bio page to get more engagement to today.
                   </span>
                 </div>
               ) : (

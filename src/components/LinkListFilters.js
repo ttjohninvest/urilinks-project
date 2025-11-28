@@ -275,10 +275,10 @@ function ExpandableArray(props) {
                     to bio links for you. Any user that clicks on your shared link will see the changes.
                   </div>
                   <div>
-                    To see bio links, click on a hash tag button below or in the menu bar below the hash tags 
+                    To see bio links, click on a hash tag button below or use the menu bar below the hash tags 
                   </div>
                    <div>
-                    buttons click on a folder name in the drop down list or use the search feature.
+                    buttons and click on a folder name in the drop down list or use the search feature.
                   </div>
                   <div>
                     You may find it easy to use. if you are satisfied with how it works for you, can you login?

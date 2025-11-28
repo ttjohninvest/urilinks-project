@@ -266,7 +266,7 @@ function ExpandableArray(props) {
               {props.signup === false && true ? (
               <div className="text-size-1 flexrowzc">
                   <div>
-                    This is a link-in-bio tool for platforms that accepts a bio link like instagram to get you more engagement. 
+                    An alternative to linktree. This is a link-in-bio tool for platforms that accepts a bio link like instagram to get you more engagement. 
                   </div>
                   <div>
                     You may add one link at a time to your bio page or you may upload browser bookmarks that get converted 

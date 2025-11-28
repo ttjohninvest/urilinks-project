@@ -280,7 +280,7 @@ function ExpandableArray(props) {
                     className=""
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
-                    <span className="text-size-9 font-weight-bold">T</span>his is a link in bio tool for platforms that accept links like instagram to get more engagement. Change your bio page and it changes everywhere your link has been pasted. Click a hash tag.
+                    <span className="text-size-9 font-weight-bold">T</span>his is a link in bio tool for platforms that accept links like instagram to get more engagement. Change your bio page and it changes everywhere your link has been pasted so the people see your updated content. Click a hash tag.
                   </span>
                 </div>
               ) : (

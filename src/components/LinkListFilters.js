@@ -264,29 +264,19 @@ function ExpandableArray(props) {
                 </div>
               )} */}
               {props.signup === false && true ? (
-                // <div className="text-size-1 textLeft flexrowz flexWrap">
-                //   <span
-                //     className=""
-                //     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                //   >
-                //     <span className="text-size-9 font-weight-bold">S</span>teps
-                //     to get your own account: <div className="ib border5a borderRadius50">1</div> login, <div className="ib border5a borderRadius50">2</div> enter links, <div className="ib border5a borderRadius50">3</div> share
-                //     the provided link in your instagram profile to get more
-                //     engagement to today.
-                //   </span>
-                // </div>
-                <div className="text-size-1 textLeft- flexrowzc flexWrap">
+              
+                <div className="text-size-1 textLeft- flexrowzc flexWrap-">
                   <div
                     className=""
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
-                    <span className="text-size-9 font-weight-bold">T</span>his is a link in bio tool for platforms that accept links like instagram to get more engagement. You may add one link at a time to your bio page or you may upload browser bookmarks that get converted to bio links for you. You may find it very easy to use. if you are satisfied with how it works for you, can you login?
+                    <span className="text-size-9 font-weight-bold">T</span>his is a link in bio tool for platforms that accept links like instagram to get more engagement. 
                   </div>
                   <div
                     className=""
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
-                    <span>You may add one link at a time to your bio page or you may upload browser bookmarks that get converted to bio links for you. You may find it very easy to use.</span>
+                    <span>You may add one link at a time to your bio page or you may upload browser bookmarks that get converted to bio links for you.</span>
                   </div>
                   {/* <div
                     className=""
@@ -299,7 +289,7 @@ function ExpandableArray(props) {
                     className=""
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >
-                    <span>if you are satisfied with how it works for you, can you login?</span>
+                    <span>You may find it easy to use. if you are satisfied with how it works for you, can you login?</span>
                   </div>
                 </div>
               ) : (

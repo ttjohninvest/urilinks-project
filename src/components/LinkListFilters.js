@@ -269,14 +269,12 @@ function ExpandableArray(props) {
                     This is a link in bio tool for platforms that accept links like instagram to get more engagement. 
                   </div>
                   <div>
-                    You may add one link at a time to your bio page or you may upload browser bookmarks that get converted 
+                    You may add one link at a time to your bio page or you may upload browser bookmarks that get converted to bio 
                   </div>
                   <div>
-                    to bio links for you. you may find it easy to use. if you are satisfied with how it works for you,
+                    bio links for you. You may find it easy to use. if you are satisfied with how it works for you, can you login?
                   </div>
-                   <div>
-                    can you login?
-                  </div>
+                   
                 </div>
                 // <div className="text-size-1 flexrowzc">
                 //   <div>

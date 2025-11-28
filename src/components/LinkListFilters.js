@@ -269,10 +269,10 @@ function ExpandableArray(props) {
                     This is a link in bio tool for platforms that accept links like instagram to get more engagement. 
                   </div>
                   <div>
-                    You may add one link at a time to your bio page or you may upload browser bookmarks that get converted to bio 
+                    You may add one link at a time to your bio page or you may upload browser bookmarks that get converted 
                   </div>
                   <div>
-                    bio links for you. Any user that clicks on your shared link will see the changes. You may find it
+                    to bio links for you. Any user that clicks on your shared link will see the changes. You may find it
                   </div>
                    <div>
                     easy to use. if you are satisfied with how it works for you, can you login?

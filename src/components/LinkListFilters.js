@@ -264,21 +264,34 @@ function ExpandableArray(props) {
                 </div>
               )} */}
               {props.signup === false && true ? (
-              
-                <div className="text-size-1 flexrowzc">
+              <div className="text-size-1 flexrowzc">
                   <div>
-                    <span className="text-size-9 font-weight-bold">T</span>his is a link in bio tool for platforms that accept links like instagram to get more engagement. 
+                    This is a link in bio tool for platforms that accept links like instagram to get more engagement. 
                   </div>
                   <div>
-                    <span className="text-size-9 font-weight-bold">Y</span>ou may add one link at a time to your bio page or you may upload browser bookmarks that get converted 
+                    You may add one link at a time to your bio page or you may upload browser bookmarks that get converted 
                   </div>
                   <div>
-                    <span className="text-size-9 font-weight-bold">T</span>o bio links for you. you may find it easy to use. if you are satisfied with how it works for you,
+                    to bio links for you. you may find it easy to use. if you are satisfied with how it works for you,
                   </div>
                    <div>
-                    <span className="text-size-9 font-weight-bold">C</span>an you login?
+                    can you login?
                   </div>
                 </div>
+                // <div className="text-size-1 flexrowzc">
+                //   <div>
+                //     <span className="text-size-9- font-weight-bold-">T</span>his is a link in bio tool for platforms that accept links like instagram to get more engagement. 
+                //   </div>
+                //   <div>
+                //     <span className="text-size-9- font-weight-bold-">Y</span>ou may add one link at a time to your bio page or you may upload browser bookmarks that get converted 
+                //   </div>
+                //   <div>
+                //     <span className="text-size-9- font-weight-bold-">T</span>o bio links for you. you may find it easy to use. if you are satisfied with how it works for you,
+                //   </div>
+                //    <div>
+                //     <span className="text-size-9- font-weight-bold-">C</span>an you login?
+                //   </div>
+                // </div>
               ) : (
                 <div className="text-size-1 textLeft margin-top-1">
                   <span className="hide">

@@ -272,10 +272,13 @@ function ExpandableArray(props) {
                     You may add one link at a time to your bio page or you may upload browser bookmarks that get converted 
                   </div>
                   <div>
-                    to bio links for you. Any user that clicks on your shared link will see the changes. You may find it
+                    to bio links for you. Any user that clicks on your shared link will see the changes.
+                  </div>
+                  <div>
+                    Click on a hash tag, folder name or use the search feature in the menu bar below.
                   </div>
                    <div>
-                    easy to use. if you are satisfied with how it works for you, can you login?
+                    You may find it easy to use. if you are satisfied with how it works for you, can you login?
                   </div>
                    
                 </div>

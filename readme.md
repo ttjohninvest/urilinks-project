@@ -1,11 +1,7 @@
 "affluent" Thank you Jesus Christ.
 "major part" when making mobile menu. Thank you Jesus Christ.
 
-
-
 Fetchbookmarks.js, put foldernames in
-
-
 
 =========================================================================================
 Always stay clothed outside.
@@ -89,7 +85,6 @@ ttjohnhappy
 
 # Git Commands
 
-
 urilinks.com user errors
 an error occurred: 10002222, this error means Delete Account did not work
 
@@ -97,14 +92,14 @@ an error occurred: 10002222, this error means Delete Account did not work
 todo to do
 donation for building projects: passionistnuns.org, website, it won't let me make a credit card donation, on email
 it transfers me to the paypal login, paypal won't take my credit card informationn to connect my debit card and it
-won't let me connect my bank account, the dialog opens after I try to login  to the bank but it does not connect.
+won't let me connect my bank account, the dialog opens after I try to login to the bank but it does not connect.
 contact or send it by money order.
 Passionist Nuns at Saint Joseph's Monastery
 8564 Crisp Rd, Whitesville, KY 42378
 in care of financial dept.
 
-if I only have space for 1 ad, then for it to ad the ad into urilinks.com db, you must 
-create the bookmark file and export the bookmark file with the ad in it, if two ads, then 2 ads in the 
+if I only have space for 1 ad, then for it to ad the ad into urilinks.com db, you must
+create the bookmark file and export the bookmark file with the ad in it, if two ads, then 2 ads in the
 bookmark file
 
 FB AD CREATION https://www.youtube.com/watch?v=zqHH39utmoI
@@ -114,43 +109,43 @@ make a fb page
 make a business account
 open up ads manager
 click create ad
- their are three levels in every fb ad campaign
- campaign engagement, lead gen, sales, budget are defined
-  ad sets tageting, bids, placement, schedule and sometimes budget as well
-   ads in each ad set copies, video or images you use
-    you can have copies of the same ads running at the same time for testing purposes
+their are three levels in every fb ad campaign
+campaign engagement, lead gen, sales, budget are defined
+ad sets tageting, bids, placement, schedule and sometimes budget as well
+ads in each ad set copies, video or images you use
+you can have copies of the same ads running at the same time for testing purposes
 
- to build a campaign
-  set objective
-  small budget, start with leads or sales
-  with large budget start with brand awareness or traffic and then retarget from there
-  next
-  choose campaign setup
-   small budget and don't have a lot too loose, trust meta with camplaign shopping campaign and use audiences
-  next
-   set your budget, 1x your product price everyday in order to get sufficient data, 2x, 3x is better
-    $3.00/day is the minimum, the more money you give, the better results and data it is going to give
-   set your target
-    if you don't have a lot of data on your buyers focus on only one interest/niche at a time
-     18-65+, all, caring, start broad and narrow things down as you go
-     broad targeting lets fb optimize your campaign with the best audiences
-     broad campaigns can be more cost effective
-     advantage+ helps you choose the best audience
-      if you know customer purchase behavior based on customer data that you have, go superniche and target this group
-  next
-   location, interest, age
-    you can a/b test and run two of the same campaigns for 1 to 2 weeks, one to a intest/niche audience and one to a broad audience,
-     when you have a winner, run with that one, run the winning ad for 3 to 4 weeks, if it works well and its evergreen kepp running it but make sure to keep you creatives fresh which means Keeping creatives fresh means regularly updating ad content to maintain audience engagement and prevent ad fatigue, which occurs when repeated exposure diminishes an ad's effectiveness.
-      FB NEEDS TO LEARN ABOUT WHAT WORKS, ADJUST IMPORTANT DETAILS ON CAMPAIGN UNTIL IT HAS FINISHED THE LEARNING PHASE
-                      IF DELIVERY SAYS LEARNING, FB IN LEARNING PHASE
-                      The Facebook Ads learning phase typically lasts until an ad set achieves approximately 50 optimization events within a 7-day period.
-                      This duration can vary significantly based on factors such as the ad budget, audience size, conversion rate, and the specific optimization goal.
-                      While the standard timeframe is around 7 days, the phase may conclude in a few hours if sufficient data is collected quickly, or it may extend beyond 7 days if the ad set fails to accumulate enough events.
-                      If the system cannot gather the required 50 events within the 7-day window, the ad set may enter a "Learning Limited" status, indicating insufficient data for optimization
+to build a campaign
+set objective
+small budget, start with leads or sales
+with large budget start with brand awareness or traffic and then retarget from there
+next
+choose campaign setup
+small budget and don't have a lot too loose, trust meta with camplaign shopping campaign and use audiences
+next
+set your budget, 1x your product price everyday in order to get sufficient data, 2x, 3x is better
+$3.00/day is the minimum, the more money you give, the better results and data it is going to give
+set your target
+if you don't have a lot of data on your buyers focus on only one interest/niche at a time
+18-65+, all, caring, start broad and narrow things down as you go
+broad targeting lets fb optimize your campaign with the best audiences
+broad campaigns can be more cost effective
+advantage+ helps you choose the best audience
+if you know customer purchase behavior based on customer data that you have, go superniche and target this group
+next
+location, interest, age
+you can a/b test and run two of the same campaigns for 1 to 2 weeks, one to a intest/niche audience and one to a broad audience,
+when you have a winner, run with that one, run the winning ad for 3 to 4 weeks, if it works well and its evergreen kepp running it but make sure to keep you creatives fresh which means Keeping creatives fresh means regularly updating ad content to maintain audience engagement and prevent ad fatigue, which occurs when repeated exposure diminishes an ad's effectiveness.
+FB NEEDS TO LEARN ABOUT WHAT WORKS, ADJUST IMPORTANT DETAILS ON CAMPAIGN UNTIL IT HAS FINISHED THE LEARNING PHASE
+IF DELIVERY SAYS LEARNING, FB IN LEARNING PHASE
+The Facebook Ads learning phase typically lasts until an ad set achieves approximately 50 optimization events within a 7-day period.
+This duration can vary significantly based on factors such as the ad budget, audience size, conversion rate, and the specific optimization goal.
+While the standard timeframe is around 7 days, the phase may conclude in a few hours if sufficient data is collected quickly, or it may extend beyond 7 days if the ad set fails to accumulate enough events.
+If the system cannot gather the required 50 events within the 7-day window, the ad set may enter a "Learning Limited" status, indicating insufficient data for optimization
 
                       META NEEDS CONVERSIONS TO LEARN WHAT WORKS
                        learning period timeframe is based on comversion volume, fb learns in 2 hours if you make 2000 sales per day, 5 sales per week it takes fb a month to learn if it is getting good results
-                  
+
 
       then evaluate the impressions https://www.facebook.com/business/help/675615482516035/
     (notice trying to run interest/niche campaigns without proper customer data won't work)
@@ -162,7 +157,7 @@ click create ad
       A Facebook ad creative refers to the visual and textual elements of an advertising campaign designed to engage and persuade a target audience.
       choice to boost content you already made
       or your own ad creatives
-    
+
       OPTIONS: videos, images, carasels or collections
 
       Ads should feel like a post from a friend, organic
@@ -176,10 +171,10 @@ click create ad
                   YOU CAN USE SOMEONE ELSES TESTING]
 
                   [ATTENTION GETTING: LIMITED DISCOUNTS, FREE SHIPPING, PRODUCT BUNDLING AND MORE]
-      next 
+      next
        CALL TO ACTION, people need to be told what they must do to get what they want, give a command
         you need to have these in your creative ad sets or your copy
-         click the link below to shop now, click the link here to get 10% off, 
+         click the link below to shop now, click the link here to get 10% off,
 
       next budgeting, bidding
        budget can be set on campaign level,  ad set level or ad level
@@ -188,15 +183,15 @@ click create ad
 
                  USE CAMPLAIGN BUDGETS FOR TESTING
                  USE Ad set budget once you  know what is working
-      
+
 
        SMALL BUDGET IS THE STARTING POINT UNTIL YOU KNOW YOUR CAMPAIGNS ARE PROFITABLE
        SMALL BUDGET COPY WHAT WORKS IN YOUR INDUSTRY ALREADY
 
-       next, 
-        bidding strategies, spend based bidding is spending your budget and getting the highest value possible 
+       next,
+        bidding strategies, spend based bidding is spending your budget and getting the highest value possible
          fb is going to try an optimize your entire budget
-        
+
         next, to keep costs low fb recommends this one
          goal based bidding, you set a cost or value you want to acheive, CPR Cost Per Result, or
           return on ad spend goal, ROAS goal
@@ -217,10 +212,10 @@ click create ad
        next analyze key metrics
         CTR Click Through Rate, your goal is 1-3% click through rate
         ROAS Return On Ad Spent this shows how much revenue your ad generates
-        CPA Cost Per Action, 
+        CPA Cost Per Action,
         Converstion Rate, % of users who took your desired action after interacting with your ad, ecommerce 2% to 5% is standard
         Frequency, % of people in target audience who saw your ad within a specific timeframe
-        CAC, Cost to Aquire a Customer, 
+        CAC, Cost to Aquire a Customer,
 
         Tips for SCALING and maximizing your Return on Investment ROI
          USE LOOK ALIKE AUDIENCES
@@ -232,11 +227,11 @@ click create ad
            increase your budget 20% to 30% every two to three days on ads and camplaigns that are working only
 
          SCALING STRATEGY #3
-          add new ad creatives every 2 to 3 weeks to keep things fresh while using the format that works best for your 
+          add new ad creatives every 2 to 3 weeks to keep things fresh while using the format that works best for your
            interest/niche. scale up and start using more of what is working, once you know what works, it is all
-           about volume, 
+           about volume,
 
-         SCALING STRATEGY #4, 
+         SCALING STRATEGY #4,
           very important: retarget users who have clicke on your ad but did not convert, research indicates
            that a person needs to see a product or service 7 TIMES before they buy. Once you have retargeted
            enough people will not be able to forget you.
@@ -263,16 +258,12 @@ urilinks tool benefits
 -plan may be upgraded at anytime, new plan supersedes old plan and pay cycle renews on day of renewal and old plan is canceled
 -easy account deletion, no refunds
 
-
 i need to save the state to local storage in case user clicks back button on stripe page
 
 cancel the subscription that user upgraded fron by getting the customerId and subscriptionId and
 calling cancel subscription, if you remove the customer then it automatically removes the subscription
 
 same email will overwrite in stripe. I don't want that because I want the earlier subscription to be in the list
-
-
-
 
 for batch bookmark uploading add payment page
 
@@ -288,8 +279,6 @@ it needs to store the already uploaded file to amazon s3 now see app.js
 s3 account established
 console.aws.amazon.com
 
-
-
 10:30am 11/3/2025, Maybe va loan, 100000 to move to yerington
 Dominique with Veterans United 573-876-2600 ex 3600
 credit score is 0, needs to be at least 620 to get the loan
@@ -301,8 +290,6 @@ vercel, try it instead of netlify.com
 
 yt-url-3, I sent a message to netlify support regarding @netlify/api module folder not found error
 on 11/7/2025 at about 5:32pm.
-
-
 
 urilinks, before calling TeirsPayment3, display information about the bookmarks that were not written because
 because plan maximum was exceeded and provide a button to go to the payment page TeirsPayment3.
@@ -378,36 +365,40 @@ git show HEAD~26:src/components/FetchBookmarks.js > FetchBookmarks-old.js
 
 tools to make urilinks.com:
 stripe.com (payment processor)
- ttjohninvest@gmail.com (google login)
- google based signin
+ttjohninvest@gmail.com (google login)
+google based signin
 vercel.com (stripe cloud functions)
- ttjohninvest@gmail.com (google login)
+ttjohninvest@gmail.com (google login)
 github.com (code repository)
- ttjohninvest@gmail.com
+ttjohninvest@gmail.com
 cloudflare.com (statistics)
- ttjohninvest@gmail.com
+ttjohninvest@gmail.com
 firebase.google.com (stores data)
 heroku.com (host for code)
- ttjohninvest@gmail.com
+ttjohninvest@gmail.com
 
 ---
+
 get the new key from stripe and put it into SK_LIVE environment variable in vercel for these three
 ... cancel subscription api in vercel
 ... vercel-stripe-api in vercel
 ... client secret api in vercel
+
 ---
+
 domain names
 struttinstuff.com expires 11/20/2026
 urilinks.com expires 04/26/2026
----
 
+---
 
 tools to put it into testing steps
 live to sandbox
 set mode to sandbox
 3 different tables each have pk value
-3 SK_... go into client secret and vercel stripe api and cancel subscription, redeploy each
+3 SK\_... go into client secret and vercel stripe api and cancel subscription, redeploy each
 in urilinks-project-vercel-stripe-api "whsec_aSLiT5bL5VXNiFBl1mVm4MU0hAPNM2M2" needs to be used, redeploy
+
 ---
 
 stripe secret key, stripe update time, see urilinks.com googledocuments for roll it or delete it time so I can keep accepting payments
@@ -530,7 +521,6 @@ github.com: ttjohninvest/urilinks-project-urls-to-tabs-html
 vsc project: urilinks-project-urls-to-tabs-html
 purpose: for list of urls input, and it writes the bookmarks.html file to be used by urilinks.com bookmarks uploader
 
-
 vercel.com: urilinks-project-vercel-stripe-cancel-subscription-api
 github.com: ttjohninvest/urilinks-project-vercel-stripe-cancel-subscription-api
 vsc project: urilinks-project-vercel-stripe-cancel-subscription-api
@@ -590,18 +580,20 @@ project-vercel-stripe-api does not work to write the db with these rules, these 
 }
 }
 
--------------------------------------------------------------------------
+---
+
 to get the firebase realtime database rules that are secure
 in powershell admin
 PS C:\users\admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project-vercel-stripe-api> .\Base64 x.json
 Base64 Encoder 0.1.5
---------------------
-(c) West Wind Technologies, 2023-2025
 
+---
+
+(c) West Wind Technologies, 2023-2025
 
 ewogICJ0eXBlIjogInNlcnZpY2VfYWNjb3VudCIsCiAgInByb2plY3RfaWQiOiAic2VlLW15LWluZGV4LXByb2plY3QtNyIsCiAgInByaXZhdGVfa2V5X2lkIjogIjUxN2ZmODYyZTUyM2FjNzcwMzYxOWRhZDA3N2ZlZjE5NzE5MWY2MTkiLAogICJwcml2YXRlX2tleSI6ICItLS0tLUJFR0lOIFBSSVZBVEUgS0VZLS0tLS1cbk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRQ2duTEhzbFpVOEx1R1pcbmMvR21nQUV3M0M1VmVXcFI2MVpMRnYyeUJWK2h0bGp0dnFTenhhZExrUXBjQzBrVjJrM3NDWTRyZmVBbW1uU0NcbjBLdlNoaG5iV0gvYUtXckExMmlZNTBlcFZzR256aTVZdTZsTmxiL0RrVGtuNGcvZGFvcDR2clJKMi9SK0ZpRDlcbjdvQlc5eHMzdndNRDdqOTJTS3VGdXZMTVA5U04yMFZ6a0dsWVI5dUlJY0FBUk02b1I4bjBnNjA5ODZ4K2RjV2JcbjZkYWV0dk1vazV5aDQ2SzdUd2l1bGxQVFlVNkg0RTJZZ2F1ZUE5djV0VXBtSjJOMEdkYWdCQWJPT1UvMit2VmlcblJQVjE5bC9FaDdIV25PMmNGRWFJRGQ4QXdOcFdrd2RQR2Y3b0tLcHg5NGZIakRmQTdKNzZtcEVOeVJ1TmlLOXZcbk04UklFRHhmQWdNQkFBRUNnZ0VBTlBvYWtnL3c3cTRFQ2VxOWpZN3hWWjE2eHdUS2RnVHJMTStEbE9IQzNvTllcbkordFhSbGp1eXJVbnRwNmVWOC92SGVrMDlOR0xTeEJ0Vit6ZWtBMWRvQVU3L3Nqa2hvRkc1aEI3aWJhdEg5MlpcbldmbGthY3Y0T2RqQUFwREZiT0pFbEhsSzNJWHB5bUVnTnNJaG9RM1c4M2RVMWtvU3NzQmJtenZEOUcwbGZqaU1cbmdDQUwzYXBIcTVERmwraDNneHUvZVJEaHpnd0lkWVI5a3QwZ1lady8zK00xUFBIWXRCWjdmTkdLbEhxN2lpWFhcbnE5cDVrYjhWUk9xQzF5dk94dEVwaXJZUmZaVUxGMDRlS0lBdDUzZmNia3dwelFMU2NQbG5UeTcvVHB1M0tMK0RcbjF4YXpUTVMyaFplc2NCWGp3T2hXdlN1cWN2UnBjcGpJN3g0bUpPOTdFUUtCZ1FEU01OdHQrTi9xTnkyM3JNMUJcbktOaUNGY2lyQ25qRVVoU0psNUI5R0svTXpwd1p2UzJIakF1cjZBam9FdFU3dExVelRTbEFDbVFVaWhmTzNMMGZcbkZaZU5tSE5GbG9iTUtOM3cyNUdoVGxWZGt2V0NJMlBrODVnTWRZcFJCZm9nZXN1aVp5QWJrQjJyMzBEVlNDMzRcblhYL29oRlg5dGVJUnlUZTFZSjl0b091M3R3S0JnUUREbmJMUW1kTFJTTFNqTitLUmxxZWg2VGdDRDFDZmcwMzZcbk56ZGIxZ0ZDSWVRMzVKRjROVjhtWnlrV0ZVREtVNGx4UlB2MTZCbmREM3JudnVsMzQzMUxtZE5Jb1JQalZhOG1cbkp0SENYWllYU0liVUExMmNLODhWN3czQVNwVTBDMVNjQUpjZzYyWS80WXdOVEF6elZvbjB4WGRISnl3UVFhZW9cbloySzNGZXdRbVFLQmdETUllYjV4dHF2L1NiSlcybDcvczlHaHlGNys0K09HcWtYZDdzN3d0MzVhaTd3VUdvSFdcbmx0N2VMNHRwUnl4LzY1N1JGVHJmU3YxUnFnWW53aU5SOHNJR1NiYVRuWmJrTlQ3TmtNWkJacWlaamRKVEZXWDVcblh1bG5nSFc3cGNkTkNUUWRKY2FMYnlqVHc4SUZER1JKRDAwOUZFUE5iVjQwSkxwOUF6aHk0Y2h4QW9HQkFMVjJcblJkbkN5RkZDaStkWlFVRmpLekJFZzZOTmg3SGhnV1dhOFN5dEVrL0IxczZPcHUrSE96UUp3SkJ1dU1LM3lha2Ncbm9Fc1d1MTlaSzk5dE4zRHl4RmxzWWhaZTdtOFdIanRiQ1h5dmlqc2hHWW4xY1ZJZFJhYUlNdzV0WVlsODlVa2Vcbk54UGZxdU9abkd6OVhvb2hmaXBsUCtmdWk2NnM2UldNaW9OaXY3RUpBb0dCQUs4dk1YNzQ2dXZQWkJ4ZldTc0tcbnIzcnBlRkJCRy9QcFJEQ0g5MUU1b2s2RHpQQytMbzgwNE5HYTVMSXRaNmx4T2ZZd0M2YW9iYVZNZ283ZU9HT1dcblNDSGFIN2lwOEUvS1BwSE50Uk9menBnSlZYak1rSy8veWF4cWphU1dkcmlaZmlzSzlVZ1RJNUpQUWdJeWZ4RGFcblBBMnl0TEwva1FsZnozT2pRNzF5TUxDZ1xuLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLVxuIiwKICAiY2xpZW50X2VtYWlsIjogImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQHNlZS1teS1pbmRleC1wcm9qZWN0LTcuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLAogICJjbGllbnRfaWQiOiAiMTA0MTkxNDI3MzEyMTAzMTY1OTk2IiwKICAiYXV0aF91cmkiOiAiaHR0cHM6Ly9hY2NvdW50cy5nb29nbGUuY29tL28vb2F1dGgyL2F1dGgiLAogICJ0b2tlbl91cmkiOiAiaHR0cHM6Ly9vYXV0aDIuZ29
 
-put the above string into versel environement variable GOOGLE_APPLICATION_...
+put the above string into versel environement variable GOOGLE*APPLICATION*...
 in urilinks-project-vercel-stripe-api put the new initialization code
 
 footnote: some lookup stuff:
@@ -623,15 +615,14 @@ https://console.cloud.google.com/iam-admin/serviceaccounts?authuser=0&hl=en-US&p
 
 https://console.firebase.google.com/u/0/project/see-my-index-project-7/settings/serviceaccounts/adminsdk
 
-https://www.google.com/search?q=firebase+realtime+database+cloud+function+does+not+have+access+to+my+database+unless+I+set+read+to+true
--------------------------------------------------------------------------
+## https://www.google.com/search?q=firebase+realtime+database+cloud+function+does+not+have+access+to+my+database+unless+I+set+read+to+true
 
 project-vercel-stripe-api needs the following rules to work
 {
-  "rules": {
-    ".read": true,
-    ".write": true
-  }
+"rules": {
+".read": true,
+".write": true
+}
 }
 
 const dbRef = firebase.database().ref('users');
@@ -760,7 +751,7 @@ socioviv.com
 urllinkup.com is available
 urlsocio.com is available
 urlsoc.com
-googlebytes.com, googlesize.com, 
+googlebytes.com, googlesize.com,
 whatmakesyousmile.site
 calluponjesus.org
 calluponchrist.org
@@ -861,7 +852,12 @@ should give me an email selection list to choose from which it skips.
 I asked my precious Jesus Christ to give me wisdom about denomination and non denominational churchs.
 Answer: "7th Heaven", "all of it"
 
-marketing
+# marketing
+
+=================================================================================================================
+how to get an order https://www.youtube.com/watch?v=Q496x77STfU
+=================================================================================================================
+=================================================================================================================
 I Contacted by phone and left a message about starting a new business in Tulsa Oaklahoma
 Oklahoma Small Business Development Center
 301 W University Blvd. Durant, OK 74701 (580) 745-2877 Email Us · Funded in part through a Cooperative Agreement with the U.S. Small Business Administration. All opinions, conclusions, and/or recommendations expressed herein are those of the author(s) and do not necessarily

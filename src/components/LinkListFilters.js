@@ -278,7 +278,7 @@ function ExpandableArray(props) {
                     To see bio links, click on a hash tag button below or in the menu bar below the hash tags 
                   </div>
                    <div>
-                      buttons click on a folder name in the drop down list or use the search feature in the menu bar below.
+                    buttons click on a folder name in the drop down list or use the search feature.
                   </div>
                   <div>
                     You may find it easy to use. if you are satisfied with how it works for you, can you login?

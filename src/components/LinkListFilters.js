@@ -318,7 +318,7 @@ function ExpandableArray(props) {
                         </div>
                         
                     <div>
-                     cancel at anytime)  and I give you a link that you can copy and paste that shares your content. 
+                     cancel at anytime, as is, no refunds)  and I give you a link that you can copy and paste that shares your content. 
                      
                     </div>
                  <div>

@@ -258,7 +258,7 @@ const TermsAndPrivacy = () => (
    urilinks.com gives you a place to store from 1 to 1000 links (Free plan: 1-250 free, Basic plan:
 store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year,
 Premium plan: store up to 1000 links at $14.99/year, all plans automattically billed yearly,
-cancel at anytime, no refunds)
+cancel at anytime, no refunds) If you cancel the subscription, all all of your data is removed from the database.
     <br />
     <br />
     No Warranties

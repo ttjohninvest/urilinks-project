@@ -305,7 +305,7 @@ function ExpandableArray(props) {
                     that shares your content. The display looks pretty good and all of the functionality is there. You may like to use it. Can you login?
                     </div>
                     <div>
-                    I look forward to serving you. If you have any questions, comments or concerns, please contact John at
+                    I look forward to serving you. If you have any questions, comments or concerns, please contact me, John, at
                     </div>
                     <div>
                     john@urilinks.com, 775 507 0098

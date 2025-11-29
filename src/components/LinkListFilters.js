@@ -265,7 +265,7 @@ function ExpandableArray(props) {
               )} */}
               {props.signup === false && true ? (
               <div className="text-size-1 flexrowzc">
-                  <div>
+                  {/* <div>
                     An alternative to linktree. This is a link-in-bio tool for platforms that accepts a bio link like instagram to get you more engagement. 
                   </div>
                   <div>
@@ -283,7 +283,27 @@ function ExpandableArray(props) {
                   <div>
                     You may find it easy to use. if you are satisfied with how it works for you, can you login?
                   </div>
-                   
+                    */}
+                     <div>
+                    I am marketing this to wiser people. The following needs to be said: Please always use it for
+                    
+                     </div>
+                     <div>
+                    good so you can have better results in life. This site is an  alternative to linktree. This is
+                    </div>
+                      <div>
+                    
+                    a link-in-bio tool for platforms that accepts a bio link like instagram to get you more engagement.
+                    </div>
+
+                    <div>
+                    
+                    It simply gives you a place to store from 1 to 1000 links and I give you a link that you can paste
+                    </div>
+
+                    <div>
+                    that shares your content. The display looks pretty good. You may like to use it. Can you login?
+                    </div>
                 </div>
                 // <div className="text-size-1 flexrowzc">
                 //   <div>

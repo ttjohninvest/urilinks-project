@@ -303,20 +303,25 @@ function ExpandableArray(props) {
                         
                        </div>
                        <div>
-                        It simply gives you a place to store from 1 to 1000 links and I give you a link that you can 
+                        It simply gives you a place to store from 1 to 1000 links (1-250 free, 251-500 $4.99/year, 
                        
                          
                         </div>
                         <div>
-                         copy and paste that shares your content. The display looks pretty good. You may like to use it. 
+                         501-750 $9.99/year, 750-1000 $14.99/year) and I give you a link that you can copy and paste
+                           
                          
                          
                          </div>
                     <div>
-                     Can you login? Please contact me, John, with any questions, comments or concerns at john@urilinks.com,
+                     that shares your content. The display looks pretty good. You may like to use it.
                     </div>
                  <div>
-                      775 507 0098
+                       Can you login? Please contact me, John, with any questions, comments or concerns at
+                    </div>
+                     
+                     <div>
+                       john@urilinks.com, 775 507 0098
                     </div>
                 </div>
                 // <div className="text-size-1 flexrowzc">

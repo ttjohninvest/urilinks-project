@@ -298,7 +298,7 @@ function ExpandableArray(props) {
 
                     <div>
                     
-                    It simply gives you a place to store from 1 to 1000 links and I give you a link that you can paste
+                    It simply gives you a place to store from 1 to 1000 links and I give you a link that you can copy and paste
                     </div>
 
                     <div>

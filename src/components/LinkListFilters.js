@@ -302,7 +302,7 @@ function ExpandableArray(props) {
                     </div>
 
                     <div>
-                    that shares your content. The display looks pretty good and all of the functionality is there. You may like to use it. Can you login?
+                    that shares your content. The display looks pretty good and all of the functionality works well. You may like to use it. Can you login?
                     </div>
                     <div>
                     I look forward to serving you. If you have any questions, comments or concerns, please contact me, John, at

@@ -956,7 +956,7 @@ it will help you money love health and happiness
 Share it with a librarian
 internetmarks.com bought on 5/25/25 at about 10:42am
 it takes 72 hours for full dns propagation, so 5/28/25 it should be done
-putting the blog with this domain it is at internetmarks0.blogspot.com, which is blogger.google.com
+putting the website with this domain it is at internetmarks0.websitespot.com, which is websiteger.google.com
 
 still having problem with ADD_DATE,
 it is being put into props.links, but it is not displaying because

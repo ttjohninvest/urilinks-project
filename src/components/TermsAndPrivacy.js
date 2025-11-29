@@ -2,10 +2,12 @@ import React from "react";
 
 const TermsAndPrivacy = () => (
   <div className="list-header__flex__center">
-    urilinks.com Terms of Use <br /><br />
+    urilinks.com Terms of Use <br />
+    <br />
     The following Terms of Use are entered into by and between You and Get
     urilinks.com ("service").
-    <br /><br />
+    <br />
+    <br />
     The following terms and conditions, together with any documents they
     expressly incorporate by reference (collectively, these “Terms of Use”),
     govern your access to and use of urilinks.com, including any content,
@@ -13,7 +15,7 @@ const TermsAndPrivacy = () => (
     “Website”), whether as a guest or a registered user.
     <br />
     <br />
-    Please read the Terms of Use carefully before you start to use the Website.
+    Please read the Terms of Use before you start to use the Website.
     By using the Website, you accept and agree to be bound and abide by these
     Terms of Use, our Privacy Policy, incorporated herein by reference, and our
     Disclaimer, incorporated herein by reference. If you do not want to agree to
@@ -28,8 +30,10 @@ const TermsAndPrivacy = () => (
     requirements, you must not access or use the Website.
     <br />
     <br />
-    A private user account in urilinks.com is able to store and manage 500 url links and 200 hash tags. A link is a url like https://urilinks.com. A hash tag looks like this #entertainment.
-     <br />
+    A private user account in urilinks.com is able to store and manage 500 url
+    links and 200 hash tags. A link is a url like https://urilinks.com. A hash
+    tag looks like this #entertainment.
+    <br />
     <br />
     Changes To the Terms Of Use
     <br />
@@ -184,11 +188,12 @@ const TermsAndPrivacy = () => (
     Email And Other Electronic Communications
     <br />
     <br />
-    Visiting the Website or sending emails to urilinks.com constitutes electronic
-    communications. You consent to receive electronic communications and you
-    agree that all agreements, notices, disclosures, and other communications
-    that we provide to you electronically, via email and on the Website, satisfy
-    any legal requirement that such communications be in writing.
+    Visiting the Website or sending emails to urilinks.com constitutes
+    electronic communications. You consent to receive electronic communications
+    and you agree that all agreements, notices, disclosures, and other
+    communications that we provide to you electronically, via email and on the
+    Website, satisfy any legal requirement that such communications be in
+    writing.
     <br />
     <br />
     We would be pleased to communicate with you by e-mail. Any such email or
@@ -244,16 +249,16 @@ const TermsAndPrivacy = () => (
     <br />
     urilinks.com may, from time to time, provide information from a third party
     in the form of a podcast guest interview, interview on other platform, guest
-    blog post, or other medium. The urilinks.com does not control the
+    website post, or other medium. The urilinks.com does not control the
     information provided by such third-party guests, is not responsible for
     investigating the truth of any information provided, and cannot guarantee
     the veracity of any statements made by such guests.
     <br />
     <br />
-    Individuals who agree to appear as guests on any podcast offered by the
-    urilinks.com agree to transfer all intellectual property rights they may
-    have in any such interviews to urilinks.com and further provide a license to
-    any rights they are unable to assign.
+   urilinks.com gives you a place to store from 1 to 1000 links (Free plan: 1-250 free, Basic plan:
+store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year,
+Premium plan: store up to 1000 links at $14.99/year, all plans automattically billed yearly,
+cancel at anytime, no refunds)
     <br />
     <br />
     No Warranties
@@ -434,7 +439,8 @@ const TermsAndPrivacy = () => (
     Email Address: ttjohninvest@gmail.com
     <br />
     <br />
-    Your use of the website, urilinks.com, constitutes your agreement with these terms.
+    Your use of the website, urilinks.com, constitutes your agreement with these
+    terms.
     <br />
     <br />
     Effective as of October 31st, 2025
@@ -447,16 +453,16 @@ const TermsAndPrivacy = () => (
     <br />
     This data privacy policy will help you understand how urilinks.com uses and
     protects the data you provide to us when you visit and use urilinks.com
-    ("service").
-    We reserve the right to change this policy at any given time, of which you
-    will be promptly updated. If you want to make sure that you are up to date
-    with the latest changes, we advise you to frequently visit this page.
+    ("service"). We reserve the right to change this policy at any given time,
+    of which you will be promptly updated. If you want to make sure that you are
+    up to date with the latest changes, we advise you to frequently visit this
+    page.
     <br />
     <br />
     What User Data We Collect
     <br />
     <br />
-    When you visit the blog, we may collect the following data:
+    When you visit the website, we may collect the following data:
     <br />
     <br />
     Data collected from google:
@@ -506,9 +512,9 @@ const TermsAndPrivacy = () => (
     <br />
     urilinks.com will contain your links that lead to other websites. If you
     click on these links, urilinks.com is not held responsible for your data and
-    privacy protection. Visiting those websites is not governed by this data privacy
-    policy agreement. You may read the privacy policy documentation of the
-    website you go to from urilinks.
+    privacy protection. Visiting those websites is not governed by this data
+    privacy policy agreement. You may read the privacy policy documentation of
+    the website you go to from urilinks.
     <br />
     <br />
     Restricting the Collection of your Personal data
@@ -518,7 +524,8 @@ const TermsAndPrivacy = () => (
     any third party.
     <br />
     <br />
-    Your use of the website, urilinks.com, constitutes your agreement with this data privacy policy.
+    Your use of the website, urilinks.com, constitutes your agreement with this
+    data privacy policy.
     <br />
     <br />
     Effective as of October 31s, 2025

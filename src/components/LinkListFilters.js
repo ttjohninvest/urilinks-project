@@ -307,22 +307,27 @@ function ExpandableArray(props) {
                          </div>
                          
                        <div>
-                        251-500 $4.99/year, Standard plan 501-750 $9.99/year, Premium plan: 751-1000 $14.99/year, 
+                        store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, 
+                        
+                         
                         </div>
                        <div>
-                        all plans automattically billed yearly, cancel at anytime)  and I give you a link that you 
+                        Premium plan: store up to 1000 links at $14.99/year, all plans automattically billed yearly, 
+                         
                          
                         </div>
                         
                     <div>
-                     can copy and paste that shares your content. The display looks pretty good. You may like to use it.
+                     cancel at anytime)  and I give you a link that you can copy and paste that shares your content. 
+                     
                     </div>
                  <div>
-                       Can you login? Please contact me, John, with any questions, comments or concerns at
+                       The display looks pretty good. You may like to use it. Can you login? Please contact me, 
+                      
                     </div>
                      
                      <div>
-                       john@urilinks.com, 775 507 0098
+                        John, with any questions, comments or concerns at john@urilinks.com, 775 507 0098
                     </div>
                 </div>
                 // <div className="text-size-1 flexrowzc">

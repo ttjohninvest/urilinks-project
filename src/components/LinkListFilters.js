@@ -284,29 +284,24 @@ function ExpandableArray(props) {
                     You may find it easy to use. if you are satisfied with how it works for you, can you login?
                   </div>
                     */}
-                     <div>
-                    I am marketing this to wiser people. The following needs to be said: Please always use it for
-                    
+                    <div>
+                    I am marketing this to wise/wiser people. The following needs to be said: Please always use it
+                    </div>
+                    <div>
+                     for good so you can have better results in life. This site is an alternative to linktree. This
                      </div>
                      <div>
-                    good so you can have better results in life. This site is an  alternative to linktree. This is
-                    </div>
+                      is a link-in-bio tool with the goal of giving you more user engagement to your content whwn a
+                      </div>
                       <div>
-                    
-                    a link-in-bio tool with the goal of giving you more user engagement to your content.
-                    </div>
-
-                    <div>
-                    
-                    It simply gives you a place to store from 1 to 1000 links and I give you a link that you can copy and paste
-                    </div>
-
-                    <div>
-                    that shares your content. The display looks pretty good and all of the functionality works well. You may like to use it. Can you login?
-                    </div>
-                    <div>
-                    I look forward to serving you. If you have any questions, comments or concerns, please contact me, John, at
-                    </div>
+                       user clicks on it. It simply gives you a place to store from 1 to 1000 links and I give you a
+                       </div>
+                       <div>
+                        link that you can paste that shares your content. The display looks pretty good. You may like
+                        </div>
+                        <div>
+                         to use it. Can you login? Please contact me with any questions, comments or concerns at
+                         </div>
                     <div>
                     john@urilinks.com, 775 507 0098
                     </div>

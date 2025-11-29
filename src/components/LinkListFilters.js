@@ -293,7 +293,7 @@ function ExpandableArray(props) {
                     </div>
                       <div>
                     
-                    a link-in-bio tool for platforms that accepts a bio link like instagram to get you more engagement.
+                    a link-in-bio tool with the goal of giving you more user engagement to your content.
                     </div>
 
                     <div>

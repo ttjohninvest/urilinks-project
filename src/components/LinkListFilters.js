@@ -310,7 +310,7 @@ function ExpandableArray(props) {
                         251-500 $4.99/year, Standard plan 501-750 $9.99/year, Premium plan: 751-1000 $14.99/year, 
                         </div>
                        <div>
-                        all plans automattically billing yearly, cancel at anytime)  and I give you a link that you 
+                        all plans automattically billed yearly, cancel at anytime)  and I give you a link that you 
                          
                         </div>
                         

@@ -284,26 +284,34 @@ function ExpandableArray(props) {
                     You may find it easy to use. if you are satisfied with how it works for you, can you login?
                   </div>
                     */}
+
+
+
+
                     <div>
-                    I am marketing this to wise/wiser people. The following needs to be said: Please always use it
+                    I am marketing this to wise/wiser people. The following needs to be said: You may use it
                     </div>
                     <div>
-                     for good so you can have better results in life. This site is an alternative to linktree. This
+                     for good or bad but I suggest you use it for good so you can have better results in life. 
                      </div>
                      <div>
-                      is a link-in-bio tool with the goal of giving you more user engagement to your content whwn a
+                      This site is an alternative to linktree. This is a link-in-bio tool with the goal of giving
+                       
                       </div>
                       <div>
-                       user clicks on it. It simply gives you a place to store from 1 to 1000 links and I give you a
+                       you more user engagement to your content when a user clicks on it. It simply gives you a place
+                        
                        </div>
                        <div>
-                        link that you can paste that shares your content. The display looks pretty good. You may like
+                        to store from 1 to 1000 links and I give you a link that you can paste that shares your content.
+                         
                         </div>
                         <div>
-                         to use it. Can you login? Please contact me with any questions, comments or concerns at
+                         The display looks pretty good. You may like to use it. Can you login? Please contact me with any
+                         
                          </div>
                     <div>
-                    john@urilinks.com, 775 507 0098
+                     questions, comments or concerns at john@urilinks.com, 775 507 0098
                     </div>
                 </div>
                 // <div className="text-size-1 flexrowzc">

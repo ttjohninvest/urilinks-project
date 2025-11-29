@@ -313,7 +313,10 @@ function ExpandableArray(props) {
                          
                          </div>
                     <div>
-                     Can you login? Please contact me with any questions, comments or concerns at john@urilinks.com, 775 507 0098
+                     Can you login? Please contact me, John, with any questions, comments or concerns at john@urilinks.com,
+                    </div>
+                 <div>
+                      775 507 0098
                     </div>
                 </div>
                 // <div className="text-size-1 flexrowzc">

@@ -308,7 +308,7 @@ function ExpandableArray(props) {
                          
                         </div>
                         <div>
-                         copy and paste that shares your content. The display looks pretty good. You may like to use it. 
+                         copy and paste that shares your content table. The display looks pretty good. You may like to use it. 
                          
                          
                          </div>

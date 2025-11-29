@@ -299,19 +299,21 @@ function ExpandableArray(props) {
                        
                       </div>
                       <div>
-                       you more user engagement to your content when a user clicks on it. It simply gives you a place
+                       you more user engagement to your consolidated content table, bio links, when a user clicks on it.
                         
                        </div>
                        <div>
-                        to store from 1 to 1000 links and I give you a link that you can paste that shares your content.
+                        It simply gives you a place to store from 1 to 1000 links and I give you a link that you can 
+                       
                          
                         </div>
                         <div>
-                         The display looks pretty good. You may like to use it. Can you login? Please contact me with any
+                         copy and paste that shares your content. The display looks pretty good. You may like to use it. 
+                         
                          
                          </div>
                     <div>
-                     questions, comments or concerns at john@urilinks.com, 775 507 0098
+                     Can you login? Please contact me with any questions, comments or concerns at john@urilinks.com, 775 507 0098
                     </div>
                 </div>
                 // <div className="text-size-1 flexrowzc">

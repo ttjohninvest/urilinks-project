@@ -312,13 +312,13 @@ function ExpandableArray(props) {
                          
                         </div>
                        <div>
-                        Premium plan: store up to 1000 links at $14.99/year, all plans automattically billed yearly, 
+                        Premium plan: store up to 1000 links at $14.99/year, all plans automatically billed yearly, 
                          
                          
                         </div>
                         
                     <div>
-                     cancel at anytime, as is, no refunds after the first year from a new plan activation date)
+                     delete account at anytime, as is, no refunds)
                
                      
                     </div>

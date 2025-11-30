@@ -30,9 +30,7 @@ const TermsAndPrivacy = () => (
     requirements, you must not access or use the Website.
     <br />
     <br />
-    A private user account in urilinks.com is able to store and manage 500 url
-    links and 200 hash tags. A link is a url like https://urilinks.com. A hash
-    tag looks like this #entertainment.
+    An account in urilinks.com is able to store up to 1000 bio links. A link is a url like https://urilinks.com. 
     <br />
     <br />
     Changes To the Terms Of Use

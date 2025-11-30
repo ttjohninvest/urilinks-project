@@ -90,6 +90,17 @@ an error occurred: 10002222, this error means Delete Account did not work
 
 //
 todo to do
+
+
+=================================================================================
+to do refunds,
+1. in urilinks-project-vercel-stripe-api, get object.payment_intent id
+2. store it in the database with the customer id
+3. in a new express server, get the payment intent id
+4. call stripe.subscriptions.create with payment_intent id
+5. call stripe.subscriptions.update with the refund id
+
+=================================================================================
 donation for building projects: passionistnuns.org, website, it won't let me make a credit card donation, on email
 it transfers me to the paypal login, paypal won't take my credit card informationn to connect my debit card and it
 won't let me connect my bank account, the dialog opens after I try to login to the bank but it does not connect.

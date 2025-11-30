@@ -318,29 +318,26 @@ function ExpandableArray(props) {
                         </div>
                         
                     <div>
-                     delete account at anytime, as is, no refunds)
+                     delete account at anytime, as is, no refunds) and I give you a link that you can copy and paste that shares
                
                      
                     </div>
                  <div>
-                       and I give you a link that you can copy and paste that shares your content. The display looks 
+                        your content. The display looks pretty good. You may like to use it. I cannot promise
                        
                       
                     </div>
                      
                      <div>
-                        pretty good. You may like to use it. I cannot promise that people will use your content though. 
+                        that people will use your content though. Can you freely login? Please contact me,
                         
                   
                     </div>
                     <div>
-                       Can you freely login? Please contact me, John, with any questions, comments or concerns at
+                        John, with any questions, comments or concerns at john@urilinks.com, 775 507 0098.
                         
                     </div>
-                     <div>
-                       
-                        john@urilinks.com, 775 507 0098.
-                    </div>
+                    
                 </div>
                 // <div className="text-size-1 flexrowzc">
                 //   <div>

@@ -318,7 +318,7 @@ function ExpandableArray(props) {
                         </div>
                         
                     <div>
-                     delete account at anytime, as is, no refunds after the first year from a new plan activation date)
+                     cancel at anytime, as is, no refunds after the first year from a new plan activation date)
                
                      
                     </div>

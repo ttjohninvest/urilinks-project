@@ -318,16 +318,22 @@ function ExpandableArray(props) {
                         </div>
                         
                     <div>
-                     cancel at anytime, as is, no refunds)  and I give you a link that you can copy and paste that shares your content. 
+                     delete account at anytime, as is, no refunds after the first year from a new plan activation date)
+               
                      
                     </div>
                  <div>
-                       The display looks pretty good. You may like to use it. Can you login? Please contact me, 
+                       and I give you a link that you can copy and paste that shares your content. The display looks 
+                       
                       
                     </div>
                      
                      <div>
-                        John, with any questions, comments or concerns at john@urilinks.com, 775 507 0098
+                        pretty good. You may like to use it. Can you login? Please contact me, John, with any questions,
+                  
+                    </div>
+                    <div>
+                       comments or concerns at john@urilinks.com, 775 507 0098.
                     </div>
                 </div>
                 // <div className="text-size-1 flexrowzc">

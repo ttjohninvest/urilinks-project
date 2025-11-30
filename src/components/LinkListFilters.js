@@ -329,7 +329,7 @@ function ExpandableArray(props) {
                     </div>
                      
                      <div>
-                        pretty good. You may like to use it. Can you login? Please contact me, John, with any questions,
+                        pretty good. You may like to use it. Can you freely login? Please contact me, John, with any questions,
                   
                     </div>
                     <div>

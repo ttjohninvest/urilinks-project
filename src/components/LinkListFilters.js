@@ -286,7 +286,9 @@ function ExpandableArray(props) {
                     */}
 
 
-
+<div>
+                    Market it as a study tool to students and professors.
+                    </div>
 
                     <div>
                     I am marketing this to wise/wiser people. The following needs to be said: You may use it

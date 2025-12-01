@@ -962,6 +962,9 @@ and it is linked to firebase database for urilinks.com
 firebase project is see-my-index-project-7 and the firebase storage project is linked to this one.
 
 marketing
+ads
+https://post.craigslist.org/k/2J7XB8bsJkSvUrWP4vzbrT ad good for 30days from 11/30/2025, cost $5.00, put to craigslist.org in small biz ads, posted in Reno NV 89503
+
 it will help you money love health and happiness
 
 Share it with a librarian

@@ -286,7 +286,7 @@ function ExpandableArray(props) {
                     */}
 
 
-<div>
+{/* <div>
                     I am marketing this site as a study tool for students and professors of colleges and universities.
                     </div>
 
@@ -359,7 +359,13 @@ function ExpandableArray(props) {
                         
                         any questions, comments or concerns at john@urilinks.com, 775 507 0098.
                         
+                    </div> */}
+                    <div>
+                    This site is for students of colleges and universities. It is original link-in-research tool<br />
+                    similar to link-in-bio tool like linktree; however, it is in a format suitable for learning<br /> 
+                    and research. Can you login?<br />
                     </div>
+                    
                     
                 </div>
                 // <div className="text-size-1 flexrowzc">

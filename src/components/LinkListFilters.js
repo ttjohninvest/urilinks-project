@@ -287,7 +287,7 @@ function ExpandableArray(props) {
 
 
 <div>
-                    Market it as a study tool to students and professors.
+                    Marketing it as a study tool to students and professors of colleges and universities.
                     </div>
 
                     <div>
@@ -297,55 +297,62 @@ function ExpandableArray(props) {
                      for good or bad but I suggest you use it for good so you can have better results in life. 
                      </div>
                      <div>
-                      This site is an alternative to linktree. This is a link-in-bio tool with the goal of giving
+                      This site is similar to linktree; however, it is dedicated to serving students and professors
                        
                       </div>
                       <div>
-                       you more user engagement to your consolidated content table, bio links, when a user clicks on it.
+                       This is a link-in-bio tool with the goal of giving you more user engagement to your consolidated 
+                       
                         
                        </div>
                        <div>
-                        It simply gives you a place to store from 1 to 1000 links (Free plan: 1-250 free, Basic plan: 
+                        content table, bio links, when a user clicks on it. It simply gives you a place to store from 1 to 1000
+                          
                          </div>
                          
                        <div>
-                        store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, 
+                        links (Free plan: 1-250 free, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750
+                         
                         
                          
                         </div>
                        <div>
-                        Premium plan: store up to 1000 links at $14.99/year, all plans automatically billed yearly, 
+                        links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans 
+                        
                          
                          
                         </div>
                         
                     <div>
-                     delete account at anytime and your subscription is automatically cancelled, as is, no refunds) 
+                     automatically billed yearly, delete account at anytime and your subscription is automatically 
                      
                
                      
                     </div>
                  <div>
-                        and I give you a link that you can copy and paste that shares your content. The display
+                        cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares 
+                        
                          
                        
                       
                     </div>
                      
                      <div>
-                        looks pretty good. You may like to use it. I cannot promise that people will use your 
+                        your content. The display looks pretty good. You may like to use it. I cannot promise that
+                          
                         
                         
                   
                     </div>
                     <div>
-                        content though. Can you freely login? Please contact me, John, with any questions, 
+                        people will use your content though. Can you freely login? Please contact me, John, with 
+                         
                        
                         
                     </div>
                     <div>
                         
-                        comments or concerns at john@urilinks.com, 775 507 0098.
+                        any questions, comments or concerns at john@urilinks.com, 775 507 0098.
                         
                     </div>
                     

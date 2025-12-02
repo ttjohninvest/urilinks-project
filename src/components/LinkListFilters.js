@@ -364,11 +364,13 @@ function ExpandableArray(props) {
                     {/* (Free plan: 1-250 free, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans automatically billed yearly, delete account at anytime and your subscription is automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares your content. */}
                    
                     <div>
-                    This site is for students of colleges and universities. It is original link-in-research tool<br />
+                    This site is for students of colleges and universities. It is the original link-in-research tool<br />
                     similar to link-in-bio tool like linktree; however, it is in a format suitable for learning<br /> 
-                    and research. It can store and organize alphabetically from 1-1000 research links.<br /> 
-                    It gives you a sharable link to your consolidated internet research content. You createContext<br />
-                    try your first 250 links for free. Can you login?<br />
+                    and research. It can store and organize links 1-1000 research links alphabetically.<br /> 
+                    It gives you a sharable link to your consolidated internet research content. You may<br />
+                    try your first 250 links for free or choose one of three yearly paid plans at $4.99,<br />
+                    (stores upto 500 links) $9.99 (stores upto 750 links) or $14.99 (stores upto 1000 links).<br /> 
+                    Can you login?<br />
                     </div>
                     
                     

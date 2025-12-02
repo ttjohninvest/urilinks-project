@@ -369,7 +369,7 @@ function ExpandableArray(props) {
                     and research. It can store and organize 1-1000 research links alphabetically.<br /> 
                     It gives you a sharable link to your consolidated internet research content. You may<br />
                     try your first 250 links for free or choose one of three yearly paid plans at $4.99,<br />
-                    (stores upto 500 links) $9.99 (stores upto 750 links) or $14.99 (stores upto 1000 links).<br /> 
+                    (stores up to 500 links) $9.99 (stores up to 750 links) or $14.99 (stores up to 1000 links).<br /> 
                     Please contact me, John, with any questions, comments or concerns at john@urilinks.com, 775 507 0098.<br />
                     Can you freely login?<br />
                     </div>

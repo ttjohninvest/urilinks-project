@@ -371,7 +371,7 @@ function ExpandableArray(props) {
                     try your first 250 links for free or choose one of three yearly paid plans at $4.99,<br />
                     (stores up to 500 links) $9.99 (stores up to 750 links) or $14.99 (stores up to 1000 links).<br /> 
                     I am a college graduate from UNR. Please contact me, John, with any questions, <br />
-                    comments or concerns at john@urilinks.com, 775 507 0098. Can you freely login?<br />
+                    comments or concerns at john@urilinks.com, 775 507 0098. Can you freely login/enter?<br />
                     </div>
                     
                     

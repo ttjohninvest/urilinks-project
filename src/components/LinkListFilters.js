@@ -287,7 +287,7 @@ function ExpandableArray(props) {
 
 
 <div>
-                    Marketing it as a study tool to students and professors of colleges and universities.
+                    I am marketing this site as a study tool for students and professors of colleges and universities.
                     </div>
 
                     <div>

@@ -301,40 +301,45 @@ function ExpandableArray(props) {
                        
                       </div>
                       <div>
-                       This is a link-in-bio tool with the goal of giving you more user engagement to your consolidated 
+                       This is similar to link-in-bio tool but I call it link-in-research tool with the goal of giving
+                        
                        
                         
                        </div>
                        <div>
-                        content table, bio links, when a user clicks on it. It simply gives you a place to store from 1 to 1000
+                         you more user engagement to your consolidated content table, bio links, when a user clicks on it. 
+                        
                           
                          </div>
                          
                        <div>
-                        links (Free plan: 1-250 free, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750
+                         It simply gives you a place to store from 1 to 1000 links (Free plan: 1-250 free, 
+                         
                          
                         
                          
                         </div>
                        <div>
-                        links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans 
+                        Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at
+                          
                         
                          
                          
                         </div>
                         
                     <div>
-                     automatically billed yearly, delete account at anytime and your subscription is automatically 
+                     $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans 
+                     
                      
                
                      
                     </div>
                  <div>
-                        cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares 
-                        
-                         
-                       
-                      
+                         automatically billed yearly, delete account at anytime and your subscription is
+
+                    </div>
+                    <div>
+                    automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares 
                     </div>
                      
                      <div>

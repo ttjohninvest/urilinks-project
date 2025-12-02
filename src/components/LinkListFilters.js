@@ -307,7 +307,7 @@ function ExpandableArray(props) {
                         
                        </div>
                        <div>
-                         you more user engagement to your consolidated content table, bio links, when a user clicks on it. 
+                         you more user engagement to your consolidated content table, research links, when a user clicks on it. 
                         
                           
                          </div>

@@ -6,7 +6,7 @@ import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import TeirsPayment3 from "./TeirsPayment3";
-import StorageSizes from './StorageSizes'
+import StorageSizes from "./StorageSizes";
 
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
@@ -52,7 +52,7 @@ export const AddLinkPage = (props) => {
             console.log("No user is currently logged in.");
           }
         } else {
-          setUserId("Gj6I5M7qf8ODZCsFqC3zAuFTXgx2");
+          setUserId("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
         }
 
         const db = firebase.database();
@@ -63,7 +63,7 @@ export const AddLinkPage = (props) => {
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
           snapshot = await db
-            .ref(`/users/Gj6I5M7qf8ODZCsFqC3zAuFTXgx2/links`)
+            .ref(`/users/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/links`)
             .once("value");
         }
 
@@ -95,8 +95,8 @@ export const AddLinkPage = (props) => {
     // ) {
     //if (count < getPlanMax() && (count < 5000 )) {
     if (count < getPlanMax()) {
-    //if (count < 10) {
-    //if (true) {
+      //if (count < 10) {
+      //if (true) {
       link.foldername = link.description;
       const r = props.startAddLink(link);
       if (r === false) {
@@ -161,7 +161,10 @@ export const AddLinkPage = (props) => {
           </div>
         </div>
       ) : (
-        <div> <TeirsPayment3 /></div>
+        <div>
+          {" "}
+          <TeirsPayment3 />
+        </div>
       )}
     </div>
   );

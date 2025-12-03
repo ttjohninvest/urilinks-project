@@ -14,8 +14,8 @@ import { getTheplan, getTheplan2 } from "./actions/theplan";
 import { login, logout } from "./actions/auth";
 import { setSettings } from "./actions/settings";
 //import getVisibleLinks from './selectors/links';
-import {getCustomerId} from './actions/customerid'
-import {getSubscriptionId} from './actions/subscriptionid'
+import { getCustomerId } from "./actions/customerid";
+import { getSubscriptionId } from "./actions/subscriptionid";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
@@ -50,8 +50,7 @@ const renderApp = (store) => {
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
 
-
-let id=params.get("id");
+let id = params.get("id");
 console.log("1 signup=" + signup);
 console.log("1 id=" + id);
 //console.log("store.getState().signup="+store.getState().signup)
@@ -75,11 +74,9 @@ if (signup !== "signup") {
   if (id !== null) {
     store.dispatch(login(id));
   } else {
-    id = "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2"
-    store.dispatch(login("Gj6I5M7qf8ODZCsFqC3zAuFTXgx2"));
+    id = "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1";
+    store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
   }
-
-  
 
   store
     .dispatch(startSetLinks(id))
@@ -135,20 +132,19 @@ if (signup !== "signup") {
 
               if (history.location.pathname === "/") {
                 //history.push("/dashboard?signup=signup");
-                console.log("first one")
+                console.log("first one");
                 window.location.href = "https://urilinks.com?signup=signup&x=2";
               } else if (
                 history.location.pathname === "/dashboard?signup=signup"
               ) {
-                console.log("second one")
+                console.log("second one");
                 window.location.href = "https://urilinks.com?signup=signup&x=3";
-
               } else if (history.location.pathname === "/dashboard") {
                 // sessionStorage.setItem('hasRefreshed', 'true');
                 //if (id!==null) {
                 // if(signup==="signup") {
                 //   console.log("third one")
-                   window.location.href = "https://urilinks.com/o?signup=signup";
+                window.location.href = "https://urilinks.com/o?signup=signup";
                 // }
 
                 //window.location.reload();

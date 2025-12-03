@@ -19,48 +19,45 @@ export const AddLinkPageFileDate = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if(props.signup.signup === true) {
- const user = firebase.auth().currentUser;
-        if (user) {
-          const uid = user.uid;
-          setUserId(uid);
-          console.log("User ID:", uid);
+        if (props.signup.signup === true) {
+          const user = firebase.auth().currentUser;
+          if (user) {
+            const uid = user.uid;
+            setUserId(uid);
+            console.log("User ID:", uid);
+          } else {
+            console.log("No user is currently logged in.");
+          }
+          const db = firebase.database();
+          const snapshot = await db
+            .ref(`/users/${user.uid}/linksfiledate`)
+            .once("value");
+          if (snapshot.exists()) {
+            const data = snapshot.val();
+            const count = Object.keys(data).length;
+            console.log("count=" + count);
+            setCount(count);
+          } else {
+            console.log("else part, count=" + 0);
+            setCount(0);
+          }
         } else {
-          console.log("No user is currently logged in.");
-        }
-        const db = firebase.database();
-        const snapshot = await db
-          .ref(`/users/${user.uid}/linksfiledate`)
-          .once("value");
-        if (snapshot.exists()) {
-          const data = snapshot.val();
-          const count = Object.keys(data).length;
-          console.log("count=" + count);
-          setCount(count);
-        } else {
-          console.log("else part, count=" + 0);
-          setCount(0);
-        }
-        } else {
- 
           setUserId("");
-          
-        
-        const db = firebase.database();
-        const snapshot = await db
-          .ref(`/users/Gj6I5M7qf8ODZCsFqC3zAuFTXgx2/linksfiledate`)
-          .once("value");
-        if (snapshot.exists()) {
-          const data = snapshot.val();
-          const count = Object.keys(data).length;
-          console.log("count=" + count);
-          setCount(count);
-        } else {
-          console.log("else part, count=" + 0);
-          setCount(0);
+
+          const db = firebase.database();
+          const snapshot = await db
+            .ref(`/users/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/linksfiledate`)
+            .once("value");
+          if (snapshot.exists()) {
+            const data = snapshot.val();
+            const count = Object.keys(data).length;
+            console.log("count=" + count);
+            setCount(count);
+          } else {
+            console.log("else part, count=" + 0);
+            setCount(0);
+          }
         }
-        }
-       
       } catch (error) {
         console.error("Error fetching data:", error);
         setCount(-1); // Indicate an error
@@ -80,7 +77,7 @@ export const AddLinkPageFileDate = (props) => {
       } else {
         props.history.push("/");
         //window.location.reload();
-        window.location.href="https://urilinks.com?signup=signup"
+        window.location.href = "https://urilinks.com?signup=signup";
       }
     } else {
       console.log("maximum links reached");

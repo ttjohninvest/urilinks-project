@@ -77,7 +77,7 @@ function ExpandableArray(props) {
       setUid(user.uid);
       setTheuser(user);
     } else {
-      setUid("Gj6I5M7qf8ODZCsFqC3zAuFTXgx2");
+      setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
     }
 
     const x = window.localStorage.getItem("hideinformation");
@@ -101,7 +101,7 @@ function ExpandableArray(props) {
   const moveIt = () => {
     window.scrollTo(0, props.elementRef.current.offsetHeight);
   };
-//jkjsakldfja;lkfj;aslkdfj;
+  //jkjsakldfja;lkfj;aslkdfj;
   const toggleExpanded = () => {
     setExpanded(!expanded);
     console.log("morehashtags");
@@ -264,7 +264,7 @@ function ExpandableArray(props) {
                 </div>
               )} */}
               {props.signup === false && true ? (
-              <div className="text-size-1 flexrowzc">
+                <div className="text-size-1 flexrowzc">
                   {/* <div>
                     An alternative to linktree. This is a link-in-bio tool for platforms that accepts a bio link like instagram to get you more engagement. 
                   </div>
@@ -285,8 +285,7 @@ function ExpandableArray(props) {
                   </div>
                     */}
 
-
-{/* <div>
+                  {/* <div>
                     I am marketing this site as a study tool for students and professors of colleges and universities.
                     </div>
 
@@ -361,27 +360,41 @@ function ExpandableArray(props) {
                         
                     </div> */}
 
-                    {/* (Free plan: 1-250 free, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans automatically billed yearly, delete account at anytime and your subscription is automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares your content. */}
-                   
-                    <div>
-                    This site is for students of colleges and universities. It is the original link-in-research tool<br />
-                    similar to link-in-bio tool like linktree; however, it is in a format suitable for learning<br /> 
-                    and research. It can store and organize 1-1000 research links alphabetically.<br /> 
-                    It gives you a sharable link to your consolidated internet research content. You may<br />
-                    try your first 250 links for free or choose one of three yearly paid plans at $4.99,<br />
-                    (stores up to 500 links) $9.99 (stores up to 750 links) or $14.99 (stores up to 1000 links).<br /> 
-                    I am a college graduate from UNR. Please contact me, John, with any questions, <br />
-                    comments or concerns at john@urilinks.com, 775 507 0098. Can you freely login/enter?<br />
-                    </div>
-                    
-                    
+                  {/* (Free plan: 1-250 free, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans automatically billed yearly, delete account at anytime and your subscription is automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares your content. */}
+
+                  <div>
+                    This site is for students of colleges and universities. It
+                    is the original link-in-research tool
+                    <br />
+                    similar to link-in-bio tool like linktree; however, it is in
+                    a format suitable for learning
+                    <br />
+                    and research. It can store and organize 1-1000 research
+                    links alphabetically.
+                    <br />
+                    It gives you a sharable link to your consolidated internet
+                    research content. You may
+                    <br />
+                    try your first 250 links for free or choose one of three
+                    yearly paid plans at $4.99,
+                    <br />
+                    (stores up to 500 links) $9.99 (stores up to 750 links) or
+                    $14.99 (stores up to 1000 links).
+                    <br />
+                    I am a college graduate from UNR. Please contact me, John,
+                    with any questions, <br />
+                    comments or concerns at john@urilinks.com, 775 507 0098. Can
+                    you freely login/enter?
+                    <br />
+                  </div>
                 </div>
+              ) : (
                 // <div className="text-size-1 flexrowzc">
                 //   <div>
-                //     <span className="text-size-9- font-weight-bold-">T</span>his is a link in bio tool for platforms that accept links like instagram to get more engagement. 
+                //     <span className="text-size-9- font-weight-bold-">T</span>his is a link in bio tool for platforms that accept links like instagram to get more engagement.
                 //   </div>
                 //   <div>
-                //     <span className="text-size-9- font-weight-bold-">Y</span>ou may add one link at a time to your bio page or you may upload browser bookmarks that get converted 
+                //     <span className="text-size-9- font-weight-bold-">Y</span>ou may add one link at a time to your bio page or you may upload browser bookmarks that get converted
                 //   </div>
                 //   <div>
                 //     <span className="text-size-9- font-weight-bold-">T</span>o bio links for you. you may find it easy to use. if you are satisfied with how it works for you,
@@ -390,7 +403,6 @@ function ExpandableArray(props) {
                 //     <span className="text-size-9- font-weight-bold-">C</span>an you login?
                 //   </div>
                 // </div>
-              ) : (
                 <div className="text-size-1 textLeft margin-top-1">
                   <span className="hide">
                     Thank you. Your sharable link is:
@@ -476,7 +488,7 @@ function ExpandableArray(props) {
               </div>
               <br />
               {props.signup === false &&
-                props.uid === "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2" && (
+                props.uid === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && (
                   <div className="textLeft hide">
                     <iframe
                       width="300"
@@ -592,24 +604,23 @@ function ExpandableArray(props) {
                   </span>
                 </div>
                 <div className="flexrow3c">
-                <Link className="header__title" to="/teirspayment3">
-                  <span
-                    className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
-                    title="click for plan options"
-                  >
-                    {
-                      //isToggled &&
+                  <Link className="header__title" to="/teirspayment3">
+                    <span
+                      className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
+                      title="click for plan options"
+                    >
+                      {
+                        //isToggled &&
 
-                      props.signup === true &&
-                        props.theplan.plan.replace(/"/g, "") !== "premium" && (
-                          <span>(click to change plan)</span>
-                        )
-                    }
+                        props.signup === true &&
+                          props.theplan.plan.replace(/"/g, "") !==
+                            "premium" && <span>(click to change plan)</span>
+                      }
 
-                    {isToggled && props.signup === false && <span></span>}
-                  </span>
-                </Link>
-               </div>
+                      {isToggled && props.signup === false && <span></span>}
+                    </span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

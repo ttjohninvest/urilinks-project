@@ -1173,7 +1173,7 @@ export class LinkListFilters extends React.Component {
 
           {this.isMobile() === false && (
             <div
-              className="cursor-pointer  margin-right-1"
+              className="cursor-pointer  margin-right-1 the-text-color"
               onClick={this.scrollUp}
               title="scroll to top"
             >

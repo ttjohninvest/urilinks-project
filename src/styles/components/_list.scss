@@ -983,9 +983,16 @@ header h3 {
   /*color: #e0eff2;*/
   text-shadow: -4px 3px 0 white, -14px 7px 0 white;
 }
-
+/*
+font-family: monospace;
+  width: 225px; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  color:white;
+*/
 .b1x {
-  position: relative;
+  //position: relative;
   color: rgba(255, 255, 255, 1);
   text-decoration: none;
   background-color: rgba(219, 87, 5, 1);
@@ -1004,13 +1011,18 @@ header h3 {
   /*margin: 10px auto;*/
    margin-bottom:1rem;
   // width: 160px;
-   min-width: 225px;
+   //min-width: 225px;
   text-align: center;
   -webkit-transition: all .1s ease;
   -moz-transition: all .1s ease;
   -ms-transition: all .1s ease;
   -o-transition: all .1s ease;
   transition: all .1s ease;
+
+   width: 225px;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
 }
 .b1x:active {
   -webkit-box-shadow: 0px 3px 0px rgba(219, 31, 5, 1), 0px 3px 6px rgba(0, 0, 0, .9);

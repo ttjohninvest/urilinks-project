@@ -91,9 +91,9 @@ an error occurred: 10002222, this error means Delete Account did not work
 //
 todo to do
 
-
 =================================================================================
 to do refunds,
+
 1. in urilinks-project-vercel-stripe-api, get object.payment_intent id
 2. store it in the database with the customer id
 3. in a new express server, get the payment intent id
@@ -1074,12 +1074,12 @@ gap: 5px;
 }
 
 .item-newspaper {
-min-width:225px;
+min-width:250px;
 //background-color:#007744;
 }
 
 #item1-newspaper {
-min-width:225px;
+min-width:250px;
 background-color:#ff0000;
 }
 

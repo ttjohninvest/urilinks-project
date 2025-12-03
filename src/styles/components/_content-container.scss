@@ -44,8 +44,8 @@
 }
 
 .padding-leftright {
-  padding-left:1rem;
-  padding-right:1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .scrollable-ul {
@@ -68,14 +68,14 @@
 .grid-container5 {
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 5px;
-  //grid-template-columns: repeat(3, minmax(225px, 1fr));
+  //grid-template-columns: repeat(3, minmax(250px, 1fr));
   // grid-auto-flow: column;
   // gap: 5px;
   // height:100vh;
   // grid-auto-flow: column;
-  // grid-auto-columns: minmax(225px, 1fr);
+  // grid-auto-columns: minmax(250px, 1fr);
 }
 
 // .grid-container5 {
@@ -90,15 +90,15 @@
   // word-break: break-all;
   // overflow-wrap: break-word;
   font-family: monospace;
-  width: 225px; /* Set a fixed width */
+  width: 250px; /* Set a fixed width */
   white-space: nowrap; /* Prevent text from wrapping */
   overflow: hidden; /* Hide any overflow */
   text-overflow: ellipsis; /* Add the ellipsis */
-  color:white;
+  color: white;
 }
 
 .breakWord {
-word-wrap:break-word;
+  word-wrap: break-word;
 }
 
 .flexrowtfw {
@@ -109,7 +109,7 @@ word-wrap:break-word;
 }
 
 .flexWrap {
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 
 .flexrow3 {
@@ -125,8 +125,6 @@ word-wrap:break-word;
   justify-content: center;
   flex-wrap: wrap;
 }
-
-
 
 .flexcol3 {
   display: flex;
@@ -149,7 +147,6 @@ word-wrap:break-word;
   align-content: center;
 }
 
-
 .flexrow1 {
   display: flex;
   flex-direction: row;
@@ -160,11 +157,11 @@ word-wrap:break-word;
 }
 
 .show {
-display:block;
+  display: block;
 }
 
 .hide {
-display:none;
+  display: none;
 }
 
 .margin-topt {
@@ -251,7 +248,7 @@ display:none;
 .flexrow2c {
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   //align-items: left;
   justify-content: center;
   flex-wrap: wrap;
@@ -280,8 +277,6 @@ display:none;
 .borderradius55 {
   border-radius: 5px;
 }
-
-
 
 .flexandwrap {
   display: flex;
@@ -316,15 +311,12 @@ display:none;
 }
 
 .item-newspaper {
-  min-width: 225px;
+  min-width: 250px;
   // background-color: purple; //#007744;
   background-color: rgba(219, 87, 5, 1);
   // padding-left: 1rem;
   // padding-top: 1rem;
   // padding-bottom: 1rem;
   // padding-right:1rem;
-  border-radius:5px;
+  border-radius: 5px;
 }
-
-
-

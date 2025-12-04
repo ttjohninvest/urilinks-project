@@ -863,7 +863,7 @@ should give me an email selection list to choose from which it skips.
 I asked my precious Jesus Christ to give me wisdom about denomination and non denominational churchs.
 Answer: "7th Heaven", "all of it"
 
-# marketing
+
 
 =================================================================================================================
 how to get an order https://www.youtube.com/watch?v=Q496x77STfU
@@ -961,9 +961,16 @@ see-my-index-project-4 is a billing account in google cloud
 and it is linked to firebase database for urilinks.com
 firebase project is see-my-index-project-7 and the firebase storage project is linked to this one.
 
+-----------------------------------------------------------------------------------------------------------
+
 marketing
 ads
 https://post.craigslist.org/k/2J7XB8bsJkSvUrWP4vzbrT ad good for 30days from 11/30/2025, cost $5.00, put to craigslist.org in small biz ads, posted in Reno NV 89503
+
+https://reno.craigslist.org/vol/d/reno-looking-for-student-volunteers-to/7900029273.html
+ expires 45 days from dec 3 2026
+
+---------------------------------------------------------------------------------------------------------
 
 it will help you money love health and happiness
 
@@ -976,7 +983,7 @@ still having problem with ADD_DATE,
 it is being put into props.links, but it is not displaying because
 because the way I convert the timestamp is wrong
 
-urilinks.com marketing
+urilinks.com
 urilinks-project-splitbm-vercel-api, splits the bookmarks.html file into multiple arrays so parse will run if the file is over 100k
 youtube.com uploaded video that I got from Sagar C. on 6/29/2025 at 9:13am, account: ttjohninvest@gmail.com.
 

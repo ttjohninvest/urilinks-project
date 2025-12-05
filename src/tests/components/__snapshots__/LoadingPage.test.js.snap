@@ -2,11 +2,11 @@
 
 exports[`should correctly render LoadingPage 1`] = `
 <div
-  className="loader1"
+  className="loader"
 >
   <img
     className="loader__image"
-    src="/images/loader1.gif"
+    src="/images/loader.gif"
   />
 </div>
 `;

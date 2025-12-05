@@ -224,7 +224,7 @@ function ExpandableArray(props) {
                 <div className="text-size-1">
                   <div className="ib text-size-9">
                     {(!!theuser && props.signup === true) || signup === "0"
-                      ? theuser.displayName
+                      ? theuser.displayName?theuser.displayName:"error getting display name"
                       : "John Example"}
                   </div>
                   {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}

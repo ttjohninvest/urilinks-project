@@ -40,6 +40,8 @@ export const LinkList = (props) => {
   // and
 
   useEffect(() => {
+    console.log("A,props.links="+props.links.count)
+    console.log("A,props.links2="+props.links2.count)
     window.onbeforeunload = null;
   }, []);
 

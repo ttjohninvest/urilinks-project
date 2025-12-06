@@ -210,7 +210,7 @@ export const LinkList = (props) => {
               })
             ):
             (
-              [].map((link) => {
+              props.links.map((link) => {
                 return <LinkListItem2 key={link.id} {...link} />;
               })
             )

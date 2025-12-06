@@ -61,7 +61,7 @@ export default () => {
       subscriptionid:subscriptionidReducer,
       links2:links2Reducer,
       hashtags2: hashtags2Reducer,
-      hashtags2withcount2: hashtags2withcountReducer2,
+      hashtags2withcount2: hashtags2withcount2Reducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

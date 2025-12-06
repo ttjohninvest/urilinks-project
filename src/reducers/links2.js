@@ -20,8 +20,8 @@ export default (state = links2ReducerDefaultState, action) => {
         }
       });
     case "SET_LINKS2":
-      return action.links;
-      //return [...state, action.links];
+      //return action.links;
+      return [...state, action.links];
     
     default:
       return state;

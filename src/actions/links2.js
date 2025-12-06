@@ -197,61 +197,9 @@ export const startSetLinks2 = () => {
           });
         });
         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
-        //dispatch(setLinks2(links2));
+        dispatch(setLinks2(links2));
 
-//          let hashtags = [];
-//          const longnamesnowhitespace = []
-//          const longnames = []
-
-//         //if(this.props.links.length>0) {
-//         links2.forEach((link) => {
-          
-//           let x1 = extractHashtags(link.note);
-//           hashtags.push(...x1);
-          
-
-          
-//         });
-// //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
-//         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
-//          hashTags2WithCount.sort((a, b) => {
-//           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
-//         });
-//         // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
-        
-
-//         let hashtags2 = removeDuplicates(hashtags);
-//         hashtags2.sort((a, b) => {
-//           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-//         });
-        
-//         let hashtags3withcount=[]
-//         let seenArray=[]
-
-//         hashtags2.forEach((ht1)=>{
-//           hashTags2WithCount.forEach((ht2)=>{
-//                  if(!seen(ht1,seenArray) && (ht1===ht2.hashtag)) {
-//                   seenArray.push(ht1)
-//                   console.log("ZZZZZZZZZZZZZZZZ, seenArray="+JSON.stringify(seenArray))
-//                   hashtags3withcount.push(ht2)
-//                  }
-//           })
-//         })
-
-//     dispatch(setHashTags(hashtags2));
-    
-//         dispatch(setHashTags2(hashtags3withcount));
-//         dispatch(setHashTags2WithCount2(hashTags2WithCount));
-      })
-      .catch((error) => console.log("error=" + error));
-
-   
-    
-    })
-    
-     dispatch(setLinks2(links2));
-
-       let hashtags = [];
+         let hashtags = [];
          const longnamesnowhitespace = []
          const longnames = []
 
@@ -289,9 +237,19 @@ export const startSetLinks2 = () => {
                  }
           })
         })
+
+    dispatch(setHashTags(hashtags2));
     
         dispatch(setHashTags2(hashtags3withcount));
         dispatch(setHashTags2WithCount2(hashTags2WithCount));
+      })
+      .catch((error) => console.log("error=" + error));
+
+   
+    
+    })
+
+    
       })
       .catch((error) => console.log("error=" + error));
 

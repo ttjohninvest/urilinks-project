@@ -40,8 +40,7 @@ export const LinkList = (props) => {
   // and
 
   useEffect(() => {
-    console.log("A,props.links="+props.links.count)
-    console.log("A,props.links2="+props.links2.count)
+    
     window.onbeforeunload = null;
   }, []);
 
@@ -51,6 +50,8 @@ export const LinkList = (props) => {
   }, []);
 
   useEffect(() => {
+    console.log("A,props.links="+props.links.count)
+    console.log("A,props.links2="+props.links2.count)
     const element = myRef.current;
 
     if (element) {
@@ -204,7 +205,7 @@ export const LinkList = (props) => {
                 <span>0 links found</span>
               </div>
             ) : false  ? (
-              props.links.splice(0,100).map((link) => {
+              props.links2.splice(0,100).map((link) => {
                 return <LinkListItem2 key={link.id} {...link} />;
               })
             ):

@@ -94,7 +94,7 @@ an error occurred: 10002222, this error means Delete Account did not work
 todo to do
 
 =================================================================================
-
+you will need to call urilinks-project-read-all-data to get the database data in actions/links2.js
 urilinks-project-read-all-data, return the data to program for display
 
 to do refunds,

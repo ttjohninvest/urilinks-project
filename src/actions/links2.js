@@ -157,6 +157,7 @@ export const setLinksAll2 = (links) => ({
   }
 
 //this puts the links array in the global redux store to be used to list the output
+//you will need to call urilinks-project-read-all-data to get the database data
 export const startSetLinks2 = () => {
   console.log("startSetLinks2");
   return (dispatch, getState) => {

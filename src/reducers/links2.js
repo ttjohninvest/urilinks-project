@@ -24,8 +24,8 @@ export default (state = links2ReducerDefaultState, action) => {
       //return [...state, action.links];
       return {
         ...state,
-        array: [...state.links, ...action.links]
-    }
+        links: [...state.links, ...action.links]
+      }
     
     default:
       return state;

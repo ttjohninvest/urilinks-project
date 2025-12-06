@@ -238,7 +238,7 @@ export const startSetLinks2 = () => {
     
         dispatch(setHashTags2(hashtags3withcount));
         dispatch(setHashTags2WithCount2(hashTags2WithCount));
-    links2=[]
+    //links2=[]
       })
       .catch((error) => console.log("error=" + error));
 

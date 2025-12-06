@@ -174,7 +174,7 @@ export const startSetLinks2 = () => {
     
     const userIds = Object.keys(users);
     console.log('All user IDs:', userIds);
-    const arr = ['D9LSg6elood8Yc5gd5oDMp3JNAQ2'] //,'Gj6I5M7qf8ODZCsFqC3zAuFTXgx2','RZOEMMu7Nwa5bQ51sf71FfDX3A93', 'W4XCM1PRqtZeAzCZ0ALlEFrIwaw1', 'WJGHkWycjKQxPK83Fi4zqx53bCl1', 'XLFFo8DQ7LZh8oR8CnvBGInpjsZ2', 'cvo17Ph52BcJ3gRMgSTL7gxrBUp1', 'm8f0YMF5bucp9uhblPZhM8CTjq12', 'tWKNG14PYYYY0hDPurLouWtYjtq1']
+    const arr = ['D9LSg6elood8Yc5gd5oDMp3JNAQ2','Gj6I5M7qf8ODZCsFqC3zAuFTXgx2']//,'RZOEMMu7Nwa5bQ51sf71FfDX3A93', 'W4XCM1PRqtZeAzCZ0ALlEFrIwaw1', 'WJGHkWycjKQxPK83Fi4zqx53bCl1', 'XLFFo8DQ7LZh8oR8CnvBGInpjsZ2', 'cvo17Ph52BcJ3gRMgSTL7gxrBUp1', 'm8f0YMF5bucp9uhblPZhM8CTjq12', 'tWKNG14PYYYY0hDPurLouWtYjtq1']
     arr.map((uid) =>{
 
         database
@@ -193,50 +193,51 @@ export const startSetLinks2 = () => {
         });
         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks2(links2));
+        links2=[]
 
-         let hashtags = [];
-         const longnamesnowhitespace = []
-         const longnames = []
+    //      let hashtags = [];
+    //      const longnamesnowhitespace = []
+    //      const longnames = []
 
-        //if(this.props.links.length>0) {
-        links2.forEach((link) => {
+    //     //if(this.props.links.length>0) {
+    //     links2.forEach((link) => {
           
-          let x1 = extractHashtags(link.note);
-          hashtags.push(...x1);
+    //       let x1 = extractHashtags(link.note);
+    //       hashtags.push(...x1);
           
 
           
-        });
-//console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
-        let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
-         hashTags2WithCount.sort((a, b) => {
-          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
-        });
-        // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+    //     });
+
+    //     let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
+    //      hashTags2WithCount.sort((a, b) => {
+    //       return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+    //     });
+    //     // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         
 
-        let hashtags2 = removeDuplicates(hashtags);
-        hashtags2.sort((a, b) => {
-          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-        });
+    //     let hashtags2 = removeDuplicates(hashtags);
+    //     hashtags2.sort((a, b) => {
+    //       return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+    //     });
         
-        let hashtags3withcount=[]
-        let seenArray=[]
+    //     let hashtags3withcount=[]
+    //     let seenArray=[]
 
-        hashtags2.forEach((ht1)=>{
-          hashTags2WithCount.forEach((ht2)=>{
-                 if(!seen(ht1,seenArray) && (ht1===ht2.hashtag)) {
-                  seenArray.push(ht1)
-                  console.log("ZZZZZZZZZZZZZZZZ, seenArray="+JSON.stringify(seenArray))
-                  hashtags3withcount.push(ht2)
-                 }
-          })
-        })
+    //     hashtags2.forEach((ht1)=>{
+    //       hashTags2WithCount.forEach((ht2)=>{
+    //              if(!seen(ht1,seenArray) && (ht1===ht2.hashtag)) {
+    //               seenArray.push(ht1)
+    //               console.log("ZZZZZZZZZZZZZZZZ, seenArray="+JSON.stringify(seenArray))
+    //               hashtags3withcount.push(ht2)
+    //              }
+    //       })
+    //     })
 
-    dispatch(setHashTags(hashtags2));
+    // dispatch(setHashTags(hashtags2));
     
-        dispatch(setHashTags2(hashtags3withcount));
-        dispatch(setHashTags2WithCount2(hashTags2WithCount));
+    //     dispatch(setHashTags2(hashtags3withcount));
+    //     dispatch(setHashTags2WithCount2(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));
 

@@ -161,7 +161,7 @@ export const setLinksAll2 = (links) => ({
 export const startSetLinks2 = () => {
   console.log("startSetLinks2");
   return (dispatch, getState) => {
-    const links2 = [];
+    let links2 = [];
     const hashtags = [];
     return database.ref(`users`).once('value').then((snapshot) => {
     const users = snapshot.val();

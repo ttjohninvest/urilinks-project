@@ -177,7 +177,7 @@ export const startSetLinks2 = () => {
 
     userIds.map((uid) =>{
 
-        database
+        return database
       .ref(`users/${uid}/links`)
       .once("value")
       .then((snapshot) => {

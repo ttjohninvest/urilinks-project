@@ -225,7 +225,7 @@ function ExpandableArray(props) {
                   <div className="ib text-size-9">
                     {(!!theuser && props.signup === true) || signup === "0"
                       ? theuser.displayName?theuser.displayName:"error getting display name"
-                      : "John Example"}
+                      : "John's Example Page (Your google email name would appear here)"}
                   </div>
                   {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
                 </div>
@@ -381,8 +381,10 @@ function ExpandableArray(props) {
                     (stores up to 500 links) $9.99 (stores up to 750 links) or
                     $14.99 (stores up to 1000 links).
                     <br />
-                    {/* friends are like flowers in the garden of life */}
-                    {/* https://www.youtube.com/watch?v=Dmla5mZ1fXU */}
+                    {/* A word fitly spoken is like apples of gold in pictures of silver., proverbs 25:11
+                    
+                    friends are like flowers in the garden of life 
+                     https://www.youtube.com/watch?v=Dmla5mZ1fXU */}
                     If you can't afford to pay and you need more storage space, please
                     let me know and I will give it to you for free.<br />
                     I am a college graduate from UNR. Please contact me, John,

@@ -163,7 +163,7 @@ export const startSetLinks2 = () => {
   return (dispatch, getState) => {
     
     const hashtags = [];
-    return database.ref(`users`).once('value').then((snapshot) => {
+    database.ref(`users`).once('value').then((snapshot) => {
     const users = snapshot.val();
 
     if (!users) {

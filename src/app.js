@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 import setSignup from "./actions/signup";
 import configureStore from "./store/configureStore";
-import { startSetLinks } from "./actions/links";
+import { startSetLinks, startSetLinks2 } from "./actions/links";
 import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
 import { getSettings } from "./actions/settings";
@@ -78,7 +78,10 @@ if (signup !== "signup") {
     store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
   }
 
-  store
+store
+    .dispatch(startSetLinks2())
+    .then(() => {
+       store
     .dispatch(startSetLinks(id))
     .then(() => {
       return store
@@ -92,15 +95,23 @@ if (signup !== "signup") {
           } else if (history.location.pathname === "/dashboard?signup=signup") {
             history.push("/dashboard?signup=signup&x=1");
           }
-          //});
+          
         })
         .catch((error) => {
           console.log("theplan, error", error);
-        });
-    })
+        })
+         })
     .catch((error) => {
       console.log("error", error);
+    })
+
+  })
+      .catch((error) => {
+      console.log("error", error);
     });
+
+
+ 
 } else {
   store.dispatch({
     type: "SET_SIGNUP",

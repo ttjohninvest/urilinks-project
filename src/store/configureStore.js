@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import linksReducer from '../reducers/links';
+import links2Reducer from '../reducers/links2';
 import linksReducerAll from '../reducers/linksall';
 import filtersReducer from '../reducers/filters';
 import linksfiledateReducer from '../reducers/linksfiledate';
@@ -11,6 +12,9 @@ import settingsReducer from '../reducers/settings';
 import hashtagsReducer from '../reducers/hashtags';
 
 import hashtags2withcountReducer from '../reducers/hashtags2withcount';
+import hashtags2Reducer from '../reducers/hashtags2';
+
+import hashtags2withcount2Reducer from '../reducers/hashtags2withcount2';
 import hashtagsfiledateReducer from '../reducers/hashtagsfiledate';
 import hashtags2withcountfiledateReducer from '../reducers/hashtags2withcountfiledate';
 import notetextReducer from '../reducers/notetext';
@@ -55,6 +59,9 @@ export default () => {
       email:emailReducer,
       //customerid: customeridReducer,
       subscriptionid:subscriptionidReducer,
+      links2:links2Reducer,
+      hashtags2: hashtags2Reducer,
+      hashtags2withcount2: hashtags2withcountReducer2,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

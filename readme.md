@@ -94,6 +94,9 @@ an error occurred: 10002222, this error means Delete Account did not work
 todo to do
 
 =================================================================================
+
+urilinks-project-read-all-data, return the data to program for display
+
 to do refunds,
 
 1. in urilinks-project-vercel-stripe-api, get object.payment_intent id
@@ -538,6 +541,11 @@ vercel.com: urilinks-project-vercel-stripe-cancel-subscription-api
 github.com: ttjohninvest/urilinks-project-vercel-stripe-cancel-subscription-api
 vsc project: urilinks-project-vercel-stripe-cancel-subscription-api
 purpose: when deleting account this cancels the subscription in stripe
+
+vercel.com: urilinks-project-read-all-data
+github.com: ttjohninvest/urilinks-project-read-all-data
+vsc project: urilinks-project-read-all-data
+purpose: reads all of the data from the firebase realtime database for readonly display only so people can see it and search through it
 
 C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project-vercel-stripe-cancel-subscription-api
 

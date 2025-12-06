@@ -1,15 +1,15 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
-import setHashTags from "./hashtags"
-import setHashTags2WithCount from "./hashtags2withcount"
+import setHashTags2 from "./hashtags2"
+import setHashTags2WithCount2 from "./hashtags2withcount2"
 
 // ADD_LINK
-export const addLink = (link) => ({
-  type: "ADD_LINK",
+export const addLink2 = (link) => ({
+  type: "ADD_LINK2",
   link,
 });
 
-export const startAddLink = (linkData = {}) => {
+export const startAddLink2 = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
@@ -51,12 +51,12 @@ export const startAddLink = (linkData = {}) => {
 
 
 // REMOVE_LINK
-export const removeLink = ({ id } = {}) => ({
-  type: "REMOVE_LINK",
+export const removeLink2 = ({ id } = {}) => ({
+  type: "REMOVE_LINK2",
   id,
 });
 
-export const startRemoveLink = ({ id } = {}) => {
+export const startRemoveLink2 = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
 
@@ -73,13 +73,13 @@ export const startRemoveLink = ({ id } = {}) => {
 };
 
 // EDIT_LINK
-export const editLink = (id, updates) => ({
-  type: "EDIT_LINK",
+export const editLink2 = (id, updates) => ({
+  type: "EDIT_LINK2",
   id,
   updates,
 });
 
-export const startEditLink = (id, updates) => {
+export const startEditLink2 = (id, updates) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
 
@@ -95,11 +95,7 @@ export const startEditLink = (id, updates) => {
   };
 };
 
-// SET_LINKS
-export const setLinks = (links) => ({
-  type: "SET_LINKS",
-  links,
-});
+
 
 export const setLinks2 = (links) => ({
   type: "SET_LINKS2",
@@ -108,8 +104,8 @@ export const setLinks2 = (links) => ({
 
 
 
-export const setLinksAll = (links) => ({
-  type: "SET_LINKS_ALL",
+export const setLinksAll2 = (links) => ({
+  type: "SET_LINKS_ALL2",
   links,
 });
 
@@ -161,37 +157,48 @@ export const setLinksAll = (links) => ({
   }
 
 //this puts the links array in the global redux store to be used to list the output
-export const startSetLinks = (uid) => {
-  console.log("startSetLinks");
+export const startSetLinks2 = () => {
+  console.log("startSetLinks2");
   return (dispatch, getState) => {
-    //dispatch(setLinks([]));
-    //const uid = getState().auth.uid;
-    const hashtags = [];
     
+    const hashtags = [];
+    return database.ref(`users`).once('value').then((snapshot) => {
+    const users = snapshot.val();
 
-    return database
+    if (!users) {
+      console.log('No users found.');
+      res.json({ message:"no user ids" });
+    }
+
+    
+    const userIds = Object.keys(users);
+    console.log('All user IDs:', userIds);
+
+    userIds.map((uid) =>{
+
+        return database
       .ref(`users/${uid}/links`)
       .once("value")
       .then((snapshot) => {
-        const links = [];
+        const links2 = [];
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
          
-          links.push({
+          links2.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),
           });
         });
         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
-        dispatch(setLinks(links));
+        dispatch(setLinks2(links2));
 
          let hashtags = [];
          const longnamesnowhitespace = []
          const longnames = []
 
         //if(this.props.links.length>0) {
-        links.forEach((link) => {
+        links2.forEach((link) => {
           
           let x1 = extractHashtags(link.note);
           hashtags.push(...x1);
@@ -227,15 +234,23 @@ export const startSetLinks = (uid) => {
 
     //dispatch(setHashTags(hashtags2));
     
-        dispatch(setHashTags(hashtags3withcount));
-        dispatch(setHashTags2WithCount(hashTags2WithCount));
+        dispatch(setHashTags2(hashtags3withcount));
+        dispatch(setHashTags2WithCount2(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));
+
+    
+    
+    })
+      })
+      .catch((error) => console.log("error=" + error));
+
   };
 };
 
 
-export const startSetLinksAll = () => {
+
+export const startSetLinksAll2 = () => {
   return (dispatch, getState) => {
     return database
       .ref(`users`)
@@ -257,7 +272,7 @@ export const startSetLinksAll = () => {
               console.log(
                 "startSetLinksAll, about to call dispatch(setLinksAll(links));"
               );
-              dispatch(setLinksAll(linksAll));
+              dispatch(setLinksAll2(linksAll));
             })
             .catch((error) => console.log("error=" + error));
         });

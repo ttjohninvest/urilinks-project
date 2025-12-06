@@ -163,7 +163,7 @@ export const startSetLinks2 = () => {
   return (dispatch, getState) => {
     
     const hashtags = [];
-    database.ref(`users`).once('value').then((snapshot) => {
+    return database.ref(`users`).once('value').then((snapshot) => {
     const users = snapshot.val();
 
     if (!users) {
@@ -177,7 +177,7 @@ export const startSetLinks2 = () => {
 
     userIds.map((uid) =>{
 
-        return database
+        database
       .ref(`users/${uid}/links`)
       .once("value")
       .then((snapshot) => {

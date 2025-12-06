@@ -207,7 +207,7 @@ export const LinkList = (props) => {
               })
             ):
             (
-              props.links.map((link) => {
+              props.links2.map((link) => {
                 return <LinkListItem2 key={link.id} {...link} />;
               })
             )
@@ -226,7 +226,8 @@ const mapStateToProps = (state) => {
     linkCount: visibleLinks.length,
     linksTotal: selectLinksTotal(visibleLinks),
     signup:state.signup,
-    links: selectLinks(state.links, state.filters)
+    links: selectLinks(state.links, state.filters),
+    links2: selectLinks(state.links2, state.filters)
   };
 };
 

@@ -60,7 +60,9 @@ let store = configureStore();
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
 console.log("theStore.theplan.plan=" + theStore.theplan.plan);
-store.subscribe(() => {});
+store.subscribe(() => {
+  console.log("A,theStore="+JSON.stringify(theStore))
+});
 
 //if(signup !== "signup") {
 

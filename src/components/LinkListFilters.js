@@ -381,6 +381,8 @@ function ExpandableArray(props) {
                     (stores up to 500 links) $9.99 (stores up to 750 links) or
                     $14.99 (stores up to 1000 links).
                     <br />
+                    If you can't afford to pay and your need more storage space, Please
+                    let me know and I will give it to you for free.<br />
                     I am a college graduate from UNR. Please contact me, John,
                     with any blessings, questions, <br />
                     comments or concerns at john@urilinks.com, 775 507 0098. Can

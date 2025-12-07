@@ -22,11 +22,7 @@ const LinkListItem3 = ({sp, id, description, Url, note, amount, createdAt, favic
       >
         {description}
       </a>:
-      <a
-       
-      >
-       
-      </a>
+      ""
       }
     </div>
   </div>

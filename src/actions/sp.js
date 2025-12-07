@@ -13,7 +13,7 @@ export const getShowPublic = () => {
       .then((snapshot) => {
         
        let sp
-        console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
+        console.log("action/getShowPublic from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         sp = snapshot.val()
 
          if(sp === undefined || sp === null)

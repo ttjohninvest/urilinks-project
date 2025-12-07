@@ -236,6 +236,7 @@ console.log(updatedArray);
     // console.log("b,links3.length="+links3.length)
     console.log("calling dispatch(setLinks2(links3));")
     dispatch(setLinks2(links3));
+    console.log("after calling dispatch(setLinks2(links3));")
     //console.log("links3="+JSON.stringify(links3,null,2));
 
   });   

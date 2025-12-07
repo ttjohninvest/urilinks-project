@@ -198,28 +198,22 @@ const userDataPromises = userIds.map(userId => {
 });
 
 let links3=[]
-let i=0
+//let i=0
 Promise.all(userDataPromises)
   .then(snapshot => {
     snapshot.forEach(childSnapshot => {
       if (childSnapshot.error) {
         console.log(childSnapshot.error);
       } else {
-        // console.log("11,childSnapshot="+JSON.stringify(childSnapshot))
-        //   console.log("11,childSnapshot.key="+JSON.stringify(childSnapshot.key))
-        //   console.log("11,childSnapshot.val()="+JSON.stringify(childSnapshot.val()))
-
-//  links3.push({
-//             id: childSnapshot.key,
-//             ...childSnapshot.val(),
-//         })
+        console.log("11,childSnapshot="+JSON.stringify(childSnapshot))
+      
 
         console.log(`User ${childSnapshot.userId}:`, childSnapshot.data);
         //const data = snapshot.val();
-    const arrayData = Object.values(childSnapshot.data);
+    let arrayData = Object.values(childSnapshot.data);
    //let updatedArray = arrayData.map(obj => ({ ...obj, id: i++ }));
     console.log("arrayData="+JSON.stringify(arrayData,null,2));
-         links3.push(arrayData);
+         //links3.push(arrayData);
          //console.log("updatedArray="+JSON.stringify(updatedArray,null,2));
          //links3.push(updatedArray);
 
@@ -240,7 +234,7 @@ console.log(updatedArray);
     });
     // console.log("b,links3="+JSON.stringify(links3,null,2))
     // console.log("b,links3.length="+links3.length)
-    dispatch(setLinks2(links3));
+    //dispatch(setLinks2(links3));
     //console.log("links3="+JSON.stringify(links3,null,2));
 
   });   

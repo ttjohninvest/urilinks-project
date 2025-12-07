@@ -286,7 +286,7 @@ const mapStateToProps = (state) => {
     signup:state.signup,
     links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),
-    sp: state.sp
+    
   };
 };
 

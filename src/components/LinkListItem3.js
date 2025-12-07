@@ -1,6 +1,6 @@
 import React,{useEffect} from "react";
 import { connect } from "react-redux";
-import { getShowPublic } from "../actions/sp";
+import { getShowPublic2 } from "../actions/sp";
 
 //const LinkListItem3 = ({id, description, Url, note, amount, createdAt, faviconURL }) => {
     const LinkListItem3 = (props) => {
@@ -10,7 +10,7 @@ import { getShowPublic } from "../actions/sp";
   }
   
  useEffect(() => {
-    getShowPublic()
+    //getShowPublic2(props.uid)
     console.log("LinkListItem3.js, props.sp="+JSON.stringify(props.sp))
     window.onbeforeunload = null;
   }, []);

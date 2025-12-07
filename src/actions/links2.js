@@ -207,7 +207,7 @@ export const startSetLinks2 = () => {
             .then((snapshot) => {
               const data = snapshot.val();
               
-              return { data };
+              return { userId, data };
             })
             .catch((error) => {
               console.error(`Error reading data for user ${userId}:`, error);
@@ -218,7 +218,7 @@ export const startSetLinks2 = () => {
         Promise.all(userDataPromises).then((snapshot) => {
           snapshot.forEach((childSnapshot) => {
               let arrayData = Object.values(childSnapshot.data);
-              let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4() }));
+              let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
               links3.push(...updatedArray);
           }); 
           dispatch(setLinks2(links3)); 

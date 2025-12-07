@@ -222,7 +222,7 @@ export const startSetLinks2 = () => {
               links3.push(...updatedArray);
           }); 
           dispatch(setLinks2(links3)); 
-          console.log("the links3="+links3)
+          console.log("the links3="+JSON.stringify(links3))
         });
         
       }).catch((error) => console.log("error=" + error));

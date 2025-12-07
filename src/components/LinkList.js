@@ -185,7 +185,7 @@ export const LinkList = (props) => {
         </div>
       ) : (
         <div className="list-body margin-top-11-">
-          {props.links.length > 0 && (
+          {props.links2.length > 0 && (
             <div
               onClick={printIt}
               className="margin-top-1111b cursor-pointer"
@@ -200,17 +200,17 @@ export const LinkList = (props) => {
             </div>
           )}
           <div id="listid">
-            {props.links.length === 0 ? (
+            {props.links2.length === 0 ? (
               <div className="list-item list-item--message">
                 <span>0 links found</span>
               </div>
             ) : false  ? (
-              props.links.splice(0,100).map((link) => {
+              props.links2.splice(0,100).map((link) => {
                 return <LinkListItem2 key={link.id} {...link} />;
               })
             ):
             (
-              props.links.map((link) => {
+              props.links2.map((link) => {
                 return <LinkListItem2 key={link.id} {...link} />;
               })
             )

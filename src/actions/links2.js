@@ -216,8 +216,20 @@ Promise.all(userDataPromises)
         console.log(`User ${childSnapshot.userId}:`, childSnapshot.data);
         //const data = snapshot.val();
     const arrayData = Object.values(childSnapshot.data);
+   const updatedArray = arrayData.map(obj => ({ ...obj, id: uuid() }));
     //console.log("arrayData="+JSON.stringify(arrayData,null,2));
-         links3.push(arrayData);
+         links3.push(updatedArray);
+
+         /*
+const array = [
+  { name: 'Alice', age: 30 },
+  { name: 'Bob', age: 25 }
+];
+
+const updatedArray = array.map(obj => ({ ...obj, id: obj.name.toLowerCase() }));
+
+console.log(updatedArray);
+         */
         
         
         //dispatch(setLinks2(result.data.links));
@@ -226,7 +238,7 @@ Promise.all(userDataPromises)
     // console.log("b,links3="+JSON.stringify(links3,null,2))
     // console.log("b,links3.length="+links3.length)
     dispatch(setLinks2(links3));
-    console.log("links3="+JSON.stringify(links3,null,2));
+    //console.log("links3="+JSON.stringify(links3,null,2));
 
   });   
 	

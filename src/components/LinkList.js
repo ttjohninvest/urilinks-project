@@ -43,7 +43,7 @@ export const LinkList = (props) => {
   // and
 
   useEffect(() => {
-    
+    console.log("LinkList.js, props.sp="+JSON.stringify(props.sp))
     window.onbeforeunload = null;
   }, []);
 

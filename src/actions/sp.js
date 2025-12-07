@@ -16,7 +16,7 @@ export const getShowPublic = () => {
         console.log("action/getShowPublic from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         sp = snapshot.val()
 
-         if(sp === undefined || sp === null)
+         if(sp.showpublic === undefined || sp.showpublic === null)
                     dispatch(setShowPublic({sp:""}));
                 else dispatch(setShowPublic(sp));
        

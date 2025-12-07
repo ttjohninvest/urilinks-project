@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 
 const LinkListItem3 = ({sp, id, description, Url, note, amount, createdAt, faviconURL }) => {
   const storeScrollPosition = () => {
@@ -6,7 +6,10 @@ const LinkListItem3 = ({sp, id, description, Url, note, amount, createdAt, favic
     // window.localStorage.setItem("scrollPosition",window.scrollY)
   }
   
-
+ useEffect(() => {
+    console.log("LinkListItem3.js, sp="+JSON.stringify(sp))
+    window.onbeforeunload = null;
+  }, []);
 
   return (
   <div>

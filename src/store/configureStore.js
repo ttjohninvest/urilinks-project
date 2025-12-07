@@ -29,6 +29,7 @@ import photourlReducer from '../reducers/photourl';
 import emailReducer from '../reducers/email';
 //import customeridReducer from '../reducers/customerid';
 import subscriptionidReducer from '../reducers/subscriptionid';
+import spReducer from '../reducers/sp';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -62,6 +63,7 @@ export default () => {
       links2:links2Reducer,
       hashtags2: hashtags2Reducer,
       hashtags2withcount2: hashtags2withcount2Reducer,
+      sp: spReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

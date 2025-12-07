@@ -81,9 +81,9 @@ if (signup !== "signup") {
     store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
   }
 
-// store
-//     .dispatch(startSetLinks2())
-//     .then(() => {
+store
+    .dispatch(startSetLinks2())
+    .then(() => {
        store
     .dispatch(startSetLinks(id))
     .then(() => {
@@ -108,10 +108,10 @@ if (signup !== "signup") {
       console.log("error", error);
     })
 
-  // })
-  //     .catch((error) => {
-  //     console.log("error", error);
-  //   });
+  })
+      .catch((error) => {
+      console.log("error", error);
+    });
 
 
  

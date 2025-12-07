@@ -164,7 +164,7 @@ export const setLinksAll2 = (links) => ({
 
 //   });
 
-async function fetchDataForIds(links2, userIds ,dispatch) {
+async function fetchDataForIds(userIds ,dispatch) {
 
   try {
     // const snapshot = await db.ref('users').once('value');
@@ -209,13 +209,13 @@ Promise.all(userDataPromises)
       
 
         console.log(`User ${childSnapshot.userId}:`, childSnapshot.data);
-        //const data = snapshot.val();
-    let arrayData = Object.values(childSnapshot.data);
-   //let updatedArray = arrayData.map(obj => ({ ...obj, id: i++ }));
-    console.log("arrayData="+JSON.stringify(arrayData,null,2));
+       
+     let arrayData = Object.values(childSnapshot.data);
+     let updatedArray = arrayData.map(obj => ({ ...obj, id: v4() }));
+  //   console.log("arrayData="+JSON.stringify(arrayData,null,2));
          //links3.push(arrayData);
-         //console.log("updatedArray="+JSON.stringify(updatedArray,null,2));
-         //links3.push(updatedArray);
+         console.log("updatedArray="+JSON.stringify(updatedArray,null,2));
+         links3.push(updatedArray);
 
          /*
 const array = [
@@ -234,7 +234,7 @@ console.log(updatedArray);
     });
     // console.log("b,links3="+JSON.stringify(links3,null,2))
     // console.log("b,links3.length="+links3.length)
-    //dispatch(setLinks2(links3));
+    dispatch(setLinks2(links3));
     //console.log("links3="+JSON.stringify(links3,null,2));
 
   });   
@@ -274,9 +274,8 @@ export const startSetLinks2 = () => {
 
 
 console.log("Call the function fetchDataForIds")
-fetchDataForIds(links2,ids,dispatch).then((r)=>{
-console.log("Call the function fetchDataForIds, r="+r)
-})
+fetchDataForIds(ids,dispatch)
+
 //console.log("after, Call the function fetchDataForIds, links2="+JSON.stringify(links2))
 //const links3 = fetchDataForIds(links2,ids);
 //console.log("after, Call the function fetchDataForIds, links3="+links3)

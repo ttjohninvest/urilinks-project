@@ -43,7 +43,7 @@ export const LinkList = (props) => {
   // and
 
   useEffect(() => {
-    console.log("LinkList.js, props.sp="+JSON.stringify(props.sp))
+    
     window.onbeforeunload = null;
   }, []);
 
@@ -265,7 +265,7 @@ export const LinkList = (props) => {
             ):
             (
               props.links2.map((link) => {
-                return <LinkListItem3 sp={props.sp} key={link.id} {...link} />;
+                return <LinkListItem3 key={link.id} {...link} />;
               })
             )
             }

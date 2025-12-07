@@ -50,8 +50,8 @@ export const LinkList = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log("A,props.links="+props.links.count)
-    console.log("A,props.links2="+props.links2.count)
+    // console.log("A,props.links="+props.links.count)
+    // console.log("A,props.links2="+props.links2.count)
     const element = myRef.current;
 
     if (element) {

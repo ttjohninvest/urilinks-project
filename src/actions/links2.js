@@ -156,6 +156,88 @@ export const setLinksAll2 = (links) => ({
     return boolvalue
   }
 
+
+//   async function fetchDataForIds(idArray,dispatch) {
+//     console.log("in fetchDataForIds")
+//     const promises = idArray.map(uid => {
+//          return database.ref(`users/${uid}`).once("value")
+
+//   });
+
+async function fetchDataForIds(links2, userIds ,dispatch) {
+
+  try {
+    // const snapshot = await db.ref('users').once('value');
+    // const users = snapshot.val();
+
+    // if (!users) {
+    //   console.log('No users found.');
+    //   return [];
+    // }
+
+    // // Extract user IDs (keys) from the users object
+    // const userIds = Object.keys(users);
+    // console.log('All user IDs:', userIds);
+    //return userIds;
+	
+	
+	
+	//const userIds = ['uid1', 'uid2', 'uid3']; // Your sequence of user IDs
+//ddjkdjfa;kldjf;alskd
+const userDataPromises = userIds.map(userId => {
+  return database.ref(`users/${userId}/links`).once('value')
+    .then(snapshot => {
+      const data = snapshot.val();
+      //return { userId, data }; // Return the user ID and their data
+      return { data }
+    })
+    .catch(error => {
+      console.error(`Error reading data for user ${userId}:`, error);
+      return { userId, error };
+    });
+});
+
+let links3=[]
+Promise.all(userDataPromises)
+  .then(snapshot => {
+    snapshot.forEach(childSnapshot => {
+      if (childSnapshot.error) {
+        console.log(childSnapshot.error);
+      } else {
+        // console.log("11,childSnapshot="+JSON.stringify(childSnapshot))
+        //   console.log("11,childSnapshot.key="+JSON.stringify(childSnapshot.key))
+        //   console.log("11,childSnapshot.val()="+JSON.stringify(childSnapshot.val()))
+
+//  links3.push({
+//             id: childSnapshot.key,
+//             ...childSnapshot.val(),
+//         })
+
+        console.log(`User ${childSnapshot.userId}:`, childSnapshot.data);
+        //const data = snapshot.val();
+    const arrayData = Object.values(childSnapshot.data);
+    //console.log("arrayData="+JSON.stringify(arrayData,null,2));
+         links3.push(arrayData);
+        
+        
+        //dispatch(setLinks2(result.data.links));
+      }
+    });
+    // console.log("b,links3="+JSON.stringify(links3,null,2))
+    // console.log("b,links3.length="+links3.length)
+    dispatch(setLinks2(links3));
+    console.log("links3="+JSON.stringify(links3,null,2));
+
+  });   
+	
+	
+	
+  } catch (error) {
+    console.error('Error retrieving user IDs:', error);
+    throw error;
+  }
+}
+
 //this puts the links array in the global redux store to be used to list the output
 //you will need to call urilinks-project-read-all-data to get the database data
 export const startSetLinks2 = () => {
@@ -174,77 +256,96 @@ export const startSetLinks2 = () => {
     
     const userIds = Object.keys(users);
     console.log('All user IDs:', userIds);
-    const arr = ['D9LSg6elood8Yc5gd5oDMp3JNAQ2','Gj6I5M7qf8ODZCsFqC3zAuFTXgx2']//,'RZOEMMu7Nwa5bQ51sf71FfDX3A93', 'W4XCM1PRqtZeAzCZ0ALlEFrIwaw1', 'WJGHkWycjKQxPK83Fi4zqx53bCl1', 'XLFFo8DQ7LZh8oR8CnvBGInpjsZ2', 'cvo17Ph52BcJ3gRMgSTL7gxrBUp1', 'm8f0YMF5bucp9uhblPZhM8CTjq12', 'tWKNG14PYYYY0hDPurLouWtYjtq1']
-    arr.map((uid) =>{
-
-        database
-      .ref(`users/${uid}/links`)
-      .once("value")
-      .then((snapshot) => {
-        //const links2 = [];
-
-        //console.log("snapshot=" + JSON.stringify(snapshot));
-        snapshot.forEach((childSnapshot) => {
-         
-          links2.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val(),
-          });
-        });
-        //console.log("startSetLinks, about to call dispatch(setLinks(links));");
-        dispatch(setLinks2(links2));
-        
-
-         let hashtags = [];
-         const longnamesnowhitespace = []
-         const longnames = []
-
-        //if(this.props.links.length>0) {
-        links2.forEach((link) => {
-          
-          let x1 = extractHashtags(link.note);
-          hashtags.push(...x1);
-          
-
-          
-        });
-
-        let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
-         hashTags2WithCount.sort((a, b) => {
-          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
-        });
-        // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
-        
-
-        let hashtags2 = removeDuplicates(hashtags);
-        hashtags2.sort((a, b) => {
-          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-        });
-        
-        let hashtags3withcount=[]
-        let seenArray=[]
-
-        hashtags2.forEach((ht1)=>{
-          hashTags2WithCount.forEach((ht2)=>{
-                 if(!seen(ht1,seenArray) && (ht1===ht2.hashtag)) {
-                  seenArray.push(ht1)
-                  console.log("ZZZZZZZZZZZZZZZZ, seenArray="+JSON.stringify(seenArray))
-                  hashtags3withcount.push(ht2)
-                 }
-          })
-        })
-
-    dispatch(setHashTags(hashtags2));
+    const ids = ['D9LSg6elood8Yc5gd5oDMp3JNAQ2','Gj6I5M7qf8ODZCsFqC3zAuFTXgx2','RZOEMMu7Nwa5bQ51sf71FfDX3A93', 'W4XCM1PRqtZeAzCZ0ALlEFrIwaw1', 'WJGHkWycjKQxPK83Fi4zqx53bCl1', 'XLFFo8DQ7LZh8oR8CnvBGInpjsZ2', 'cvo17Ph52BcJ3gRMgSTL7gxrBUp1', 'm8f0YMF5bucp9uhblPZhM8CTjq12', 'tWKNG14PYYYY0hDPurLouWtYjtq1']
     
-        dispatch(setHashTags2(hashtags3withcount));
-        dispatch(setHashTags2WithCount2(hashTags2WithCount));
-    //links2=[]
-      })
-      .catch((error) => console.log("error=" + error));
+    // Example array of IDs
+//const ids = ["id1", "id2", "id3"];
+
+
+
+
+console.log("Call the function fetchDataForIds")
+fetchDataForIds(links2,ids,dispatch).then((r)=>{
+console.log("Call the function fetchDataForIds, r="+r)
+})
+//console.log("after, Call the function fetchDataForIds, links2="+JSON.stringify(links2))
+//const links3 = fetchDataForIds(links2,ids);
+//console.log("after, Call the function fetchDataForIds, links3="+links3)
+    
+    
+    
+    
+    // arr.map((uid) =>{
+
+    //     database
+    //   .ref(`users/${uid}/links`)
+    //   .once("value")
+    //   .then((snapshot) => {
+    //     //const links2 = [];
+
+    //     //console.log("snapshot=" + JSON.stringify(snapshot));
+    //     snapshot.forEach((childSnapshot) => {
+         
+    //       links2.push({
+    //         id: childSnapshot.key,
+    //         ...childSnapshot.val(),
+
+    //       });
+    //     });
+    //     //console.log("startSetLinks, about to call dispatch(setLinks(links));");
+    //     dispatch(setLinks2(links2));
+        
+
+    //      let hashtags = [];
+    //      const longnamesnowhitespace = []
+    //      const longnames = []
+
+    //     //if(this.props.links.length>0) {
+    //     links2.forEach((link) => {
+          
+    //       let x1 = extractHashtags(link.note);
+    //       hashtags.push(...x1);
+          
+
+          
+    //     });
+
+    //     let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
+    //      hashTags2WithCount.sort((a, b) => {
+    //       return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+    //     });
+    //     // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        
+
+    //     let hashtags2 = removeDuplicates(hashtags);
+    //     hashtags2.sort((a, b) => {
+    //       return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+    //     });
+        
+    //     let hashtags3withcount=[]
+    //     let seenArray=[]
+
+    //     hashtags2.forEach((ht1)=>{
+    //       hashTags2WithCount.forEach((ht2)=>{
+    //              if(!seen(ht1,seenArray) && (ht1===ht2.hashtag)) {
+    //               seenArray.push(ht1)
+    //               console.log("ZZZZZZZZZZZZZZZZ, seenArray="+JSON.stringify(seenArray))
+    //               hashtags3withcount.push(ht2)
+    //              }
+    //       })
+    //     })
+
+    // dispatch(setHashTags(hashtags2));
+    
+    //     dispatch(setHashTags2(hashtags3withcount));
+    //     dispatch(setHashTags2WithCount2(hashTags2WithCount));
+    // //links2=[]
+    //   })
+    //   .catch((error) => console.log("error=" + error));
 
    
     
-    })
+    // })
 
     
       })

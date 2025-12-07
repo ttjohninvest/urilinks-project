@@ -198,6 +198,7 @@ const userDataPromises = userIds.map(userId => {
 });
 
 let links3=[]
+let i=0
 Promise.all(userDataPromises)
   .then(snapshot => {
     snapshot.forEach(childSnapshot => {
@@ -216,7 +217,7 @@ Promise.all(userDataPromises)
         console.log(`User ${childSnapshot.userId}:`, childSnapshot.data);
         //const data = snapshot.val();
     const arrayData = Object.values(childSnapshot.data);
-   const updatedArray = arrayData.map(obj => ({ ...obj, id: v4() }));
+   const updatedArray = arrayData.map(obj => ({ ...obj, id: i++ }));
     console.log("updatedArray="+JSON.stringify(updatedArray,null,2));
          links3.push(updatedArray);
 

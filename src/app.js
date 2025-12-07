@@ -7,7 +7,7 @@ import setSignup from "./actions/signup";
 import configureStore from "./store/configureStore";
 import { startSetLinks } from "./actions/links";
 import { startSetLinks2 } from "./actions/links2";
-import { getShowPublic } from "./actions/sp";
+
 import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
 import { getSettings } from "./actions/settings";

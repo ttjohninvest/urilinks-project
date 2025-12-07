@@ -31,6 +31,8 @@ export const LinkList = (props) => {
       window.localStorage.setItem("whichOption", "option1");
     else if (event.target.value === "option2")
       window.localStorage.setItem("whichOption", "option2");
+    else if (event.target.value === "option3")
+      window.localStorage.setItem("whichOption", "option3");
     else window.localStorage.setItem("whichOption", "option1");
   };
 
@@ -136,6 +138,22 @@ export const LinkList = (props) => {
           </label>
         </div>
 
+        <div>
+          <label className="inline-block__flex">
+            <input
+              ref={myRef}
+              className="the-inline-block zindex2 makehidden"
+              type="radio"
+              value="option3"
+              checked={selectedOption === "option3"}
+              onChange={handleOptionChange}
+            />
+            {/* <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)"> */}
+              <span className="button-2 ib cursor-pointer" title="links list with out details">List All Links</span>
+            {/* </div> */}
+          </label>
+        </div>
+
         
       </div>
       
@@ -183,7 +201,42 @@ export const LinkList = (props) => {
           
           }
         </div>
-      ) : (
+      ) : selectedOption === "option2" ? (
+        <div className="list-body margin-top-11-">
+          {props.links.length > 0 && (
+            <div
+              onClick={printIt}
+              className="margin-top-1111b cursor-pointer"
+              title="You may print this list to the printer."
+            >
+              <img
+                src={printerImage}
+                width="32"
+                height="32"
+                style={{ borderRadius: "50%" }}
+              />
+            </div>
+          )}
+          <div id="listid">
+            {props.links.length === 0 ? (
+              <div className="list-item list-item--message">
+                <span>0 links found</span>
+              </div>
+            ) : false  ? (
+              props.links.splice(0,100).map((link) => {
+                return <LinkListItem2 key={link.id} {...link} />;
+              })
+            ):
+            (
+              props.links.map((link) => {
+                return <LinkListItem2 key={link.id} {...link} />;
+              })
+            )
+            }
+          </div>
+        </div>
+      ):
+      (
         <div className="list-body margin-top-11-">
           {props.links2.length > 0 && (
             <div
@@ -217,7 +270,8 @@ export const LinkList = (props) => {
             }
           </div>
         </div>
-      )}
+      )
+      }
     </div>
   );
 };

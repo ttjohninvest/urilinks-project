@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid'
+import { v4 } from 'uuid'
 import database from "../firebase/firebase";
 import setHashTags2 from "./hashtags2"
 import setHashTags2WithCount2 from "./hashtags2withcount2"
@@ -216,7 +216,7 @@ Promise.all(userDataPromises)
         console.log(`User ${childSnapshot.userId}:`, childSnapshot.data);
         //const data = snapshot.val();
     const arrayData = Object.values(childSnapshot.data);
-   const updatedArray = arrayData.map(obj => ({ ...obj, id: uuidv4() }));
+   const updatedArray = arrayData.map(obj => ({ ...obj, id: v4() }));
     console.log("updatedArray="+JSON.stringify(updatedArray,null,2));
          links3.push(updatedArray);
 

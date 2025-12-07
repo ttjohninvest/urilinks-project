@@ -217,7 +217,7 @@ Promise.all(userDataPromises)
         console.log(`User ${childSnapshot.userId}:`, childSnapshot.data);
         //const data = snapshot.val();
     const arrayData = Object.values(childSnapshot.data);
-   const updatedArray = arrayData.map(obj => ({ ...obj, id: i++ }));
+   let updatedArray = arrayData.map(obj => ({ ...obj, id: i++ }));
     console.log("updatedArray="+JSON.stringify(updatedArray,null,2));
          links3.push(updatedArray);
 

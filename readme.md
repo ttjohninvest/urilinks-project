@@ -34,6 +34,7 @@ I invite you to begin your journey with Jesus Christ, please say "I call upon th
 
 I invite everybody to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you all.
 
+Just before I got to witness List All Links to work "These are the Days Cannon ball" came into me thoughts. Thank you Jesus Christ.
 I heard a really beautiful sounding voice say "wake up truth o mandolin the time has come"
 blessing story, she gavegenerosity and food that she made herself to the neighborhood: https://www.youtube.com/watch?v=Dmla5mZ1fXU
 Their is no such thing is evolution of life forms from one form to another. Precious Holy Father God created all life forms as have been seen or discovered through precious Holy Jesus Christ. I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest the one that serves.

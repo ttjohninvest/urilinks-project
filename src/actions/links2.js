@@ -239,9 +239,9 @@ console.log(updatedArray);
     //console.log("after calling dispatch(setLinks2(links3));")
     console.log("before Promise object returns, links3="+JSON.stringify(links3,null,2));
     //return new Promise(resolve => links3);
-    //return new Promise(resolve => ([1,2,3]));
+    return new Promise(resolve => ([1,2,3]));
     //console.log("links3="+JSON.stringify(links3,null,2));
-return links3
+//return links3
   });   
 	
 	

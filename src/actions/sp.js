@@ -26,7 +26,7 @@ export const getShowPublic = () => {
 
 
 export const addShowPublic = (sp) => ({
-  type: "ADD_SHOWPUBLIC",
+  type: "ADD_SP",
   sp,
 });
 
@@ -51,11 +51,11 @@ export const startAddShowPublic = (sp = {}) => {
 };
 
 export const removeShowPublic = () => ({
-  type: "REMOVE_SHOWPUBLIC",
+  type: "REMOVE_SP",
 });
 
 export const removeAccount = () => ({
-  type: "ADD_SHOWPUBLIC",
+  type: "ADD_SP",
 });
 
 export const startRemoveShowPublic = () => {
@@ -84,7 +84,7 @@ export const startDeleteAccount = () => {
 
 // EDIT_LINK
 export const editShowPublic = (updates) => ({
-  type: "EDIT_SHOWPUBLIC",
+  type: "EDIT_SP",
   updates,
 });
 
@@ -102,7 +102,7 @@ export const startEditShowPublic = (updates) => {
 
 // SET_SETTINGS
 export const setShowPublic = (sp) => ({
-  type: "SET_SHOWPUBLIC",
+  type: "SET_SP",
   sp,
 });
 

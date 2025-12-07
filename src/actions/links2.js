@@ -235,13 +235,13 @@ console.log(updatedArray);
     // console.log("b,links3="+JSON.stringify(links3,null,2))
     // console.log("b,links3.length="+links3.length)
     //console.log("calling dispatch(setLinks2(links3));")
-    //dispatch(setLinks2(links3));
+    dispatch(setLinks2(JSON.stringify(links3)));
     //console.log("after calling dispatch(setLinks2(links3));")
     console.log("before Promise object returns, links3="+JSON.stringify(links3,null,2));
-    //return new Promise(resolve => links3);
-    return new Promise(resolve => ([1,2,3]));
-    //console.log("links3="+JSON.stringify(links3,null,2));
-//return links3
+   
+    
+  
+
   });   
 	
 	
@@ -279,12 +279,7 @@ export const startSetLinks2 = () => {
 
 
 console.log("Call the function fetchDataForIds")
-fetchDataForIds(ids,dispatch).then((links3)=>{
-console.log("after, Call the function fetchDataForIds, links3="+JSON.stringify(links3))
-}).catch((e)=>{
-console.log("after, Call the function fetchDataForIds,error,  e="+e)
-})
-
+fetchDataForIds(ids,dispatch)
 //console.log("after, Call the function fetchDataForIds, links2="+JSON.stringify(links2))
 //const links3 = fetchDataForIds(links2,ids);
 //console.log("after, Call the function fetchDataForIds, links3="+links3)

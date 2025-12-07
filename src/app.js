@@ -91,9 +91,7 @@ store
 
 
 
-return store
-        .dispatch(getShowPublic())
-        .then(() => {
+
           return store
         .dispatch(getTheplan2())
         .then(() => {
@@ -110,15 +108,7 @@ return store
         .catch((error) => {
           console.log("theplan, error", error);
         })
-        })
-        .catch((error) => {
-          console.log("theplan, error", error);
-        })
-
-
-     
-      
-         })
+      })
     .catch((error) => {
       console.log("error", error);
     })
@@ -148,11 +138,7 @@ return store
       store
         .dispatch(startSetLinks(user.uid))
         .then(() => {
-
-return store
-            .dispatch(getShowPublic())
-            .then(() => {
-              return store
+        return store
             .dispatch(getTheplan())
             .then(() => {
               //return store.dispatch(getSettings()).then(() => {
@@ -187,14 +173,7 @@ return store
             .catch((error) => {
               console.log("theplan, error", error);
             });
-            })
-            .catch((error) => {
-              console.log("theplan, error", error);
-            });
 
-
-
-          
         })
         .catch((error) => {
           console.log("error", error);

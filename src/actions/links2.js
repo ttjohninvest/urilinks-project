@@ -205,7 +205,7 @@ const userDataPromises = userIds.map(userId => {
 
 //let i=0
 let links3 = []
-Promise.all(userDataPromises)
+const data3=Promise.all(userDataPromises)
   .then(snapshot => {
     snapshot.forEach(childSnapshot => {
       if (childSnapshot.error) {
@@ -223,9 +223,10 @@ Promise.all(userDataPromises)
          console.log("updatedArray="+JSON.stringify(updatedArray,null,2));
          links3.push(updatedArray);
 console.log("links3="+JSON.stringify(links3,null,2));
+return links3;
       }
     });
-    dispatch(setLinks2(links3));
+    
     // console.log("b,links3="+JSON.stringify(links3,null,2))
     // console.log("b,links3.length="+links3.length)
     //console.log("calling dispatch(setLinks2(links3));")
@@ -240,7 +241,7 @@ console.log("links3="+JSON.stringify(links3,null,2));
   });   
 /////////////////////////////////////////
 
-
+dispatch(setLinks2(data3));
     
       })
       .catch((error) => console.log("error=" + error));

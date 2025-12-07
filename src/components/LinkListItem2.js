@@ -1,6 +1,6 @@
 import React from "react";
 
-const LinkListItem2 = ({ id, description, Url, note, amount, createdAt, faviconURL }) => {
+const LinkListItem2 = ({sp, id, description, Url, note, amount, createdAt, faviconURL }) => {
   const storeScrollPosition = () => {
     // window.localStorage.setItem("scrollY",window.scrollY)
     // window.localStorage.setItem("scrollPosition",window.scrollY)

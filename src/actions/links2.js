@@ -1,7 +1,7 @@
-import { v4 } from 'uuid'
+import { v4 } from "uuid";
 import database from "../firebase/firebase";
-import setHashTags2 from "./hashtags2"
-import setHashTags2WithCount2 from "./hashtags2withcount2"
+import setHashTags2 from "./hashtags2";
+import setHashTags2WithCount2 from "./hashtags2withcount2";
 
 // ADD_LINK
 export const addLink2 = (link) => ({
@@ -13,7 +13,7 @@ export const startAddLink2 = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
-      longname="",
+      longname = "",
       description = "",
       Url = "",
       yturl = "",
@@ -23,12 +23,22 @@ export const startAddLink2 = (linkData = {}) => {
       createdAt = 0,
       faviconURL = "",
     } = linkData;
-    const link = {longname, description, Url, yturl, note, foldername, amount, createdAt, faviconURL };
-   
+    const link = {
+      longname,
+      description,
+      Url,
+      yturl,
+      note,
+      foldername,
+      amount,
+      createdAt,
+      faviconURL,
+    };
+
     //////
     //return false;
-    
-    console.log("startAddLink, link="+JSON.stringify(link))
+
+    console.log("startAddLink, link=" + JSON.stringify(link));
     return database
       .ref(`users/${uid}/links`)
       .push(link)
@@ -47,8 +57,6 @@ export const startAddLink2 = (linkData = {}) => {
       });
   };
 };
-
-
 
 // REMOVE_LINK
 export const removeLink2 = ({ id } = {}) => ({
@@ -95,67 +103,61 @@ export const startEditLink2 = (id, updates) => {
   };
 };
 
-
-
 export const setLinks2 = (links) => ({
   type: "SET_LINKS2",
   links,
 });
-
-
 
 export const setLinksAll2 = (links) => ({
   type: "SET_LINKS_ALL2",
   links,
 });
 
- const extractHashtags = (text) => {
-    console.log("extractHashTags, text=" + text);
-    const regex = /#([a-zA-Z0-9_]+)/g;
-    const hashtags = [];
-    let match;
+const extractHashtags = (text) => {
+  console.log("extractHashTags, text=" + text);
+  const regex = /#([a-zA-Z0-9_]+)/g;
+  const hashtags = [];
+  let match;
 
-    while ((match = regex.exec(text)) !== null) {
-      hashtags.push(match[0]);
-    }
-    console.log("hashtags=" + JSON.stringify(hashtags));
-    return hashtags;
-  };
-
-
-  const removeDuplicates = (stringArray) => {
-    const stringifiedArray = stringArray.join(" ");
-    const lcstring = stringifiedArray.toLowerCase();
-    const lcStringArray = lcstring.split(" ");
-    return [...new Set(lcStringArray)];
-  };
-
-  const countTimesEachHashTagIsUsed = (hashtags) => {
-     const length = hashtags.length
-     let newArray = []
-
-     hashtags.forEach((hashtag)=>{
-      let count=0
-       hashtags.forEach((hashtag2)=>{
-         if(hashtag===hashtag2) {
-          count = count + 1
-         }
-       })
-       newArray.push({hashtag:hashtag,count:count,longname:""})
-     })
-     return newArray
+  while ((match = regex.exec(text)) !== null) {
+    hashtags.push(match[0]);
   }
+  console.log("hashtags=" + JSON.stringify(hashtags));
+  return hashtags;
+};
 
-  const seen=(hashtag,theSeenArray) =>{
-    let boolvalue=false
-    theSeenArray.forEach((h1)=>{
-      if(hashtag===h1) {
-        boolvalue=true
+const removeDuplicates = (stringArray) => {
+  const stringifiedArray = stringArray.join(" ");
+  const lcstring = stringifiedArray.toLowerCase();
+  const lcStringArray = lcstring.split(" ");
+  return [...new Set(lcStringArray)];
+};
+
+const countTimesEachHashTagIsUsed = (hashtags) => {
+  const length = hashtags.length;
+  let newArray = [];
+
+  hashtags.forEach((hashtag) => {
+    let count = 0;
+    hashtags.forEach((hashtag2) => {
+      if (hashtag === hashtag2) {
+        count = count + 1;
       }
-    })
-    return boolvalue
-  }
+    });
+    newArray.push({ hashtag: hashtag, count: count, longname: "" });
+  });
+  return newArray;
+};
 
+const seen = (hashtag, theSeenArray) => {
+  let boolvalue = false;
+  theSeenArray.forEach((h1) => {
+    if (hashtag === h1) {
+      boolvalue = true;
+    }
+  });
+  return boolvalue;
+};
 
 //   async function fetchDataForIds(idArray,dispatch) {
 //     console.log("in fetchDataForIds")
@@ -164,94 +166,69 @@ export const setLinksAll2 = (links) => ({
 
 //   });
 
-
-
 //this puts the links array in the global redux store to be used to list the output
 //you will need to call urilinks-project-read-all-data to get the database data
 export const startSetLinks2 = () => {
   console.log("startSetLinks2");
   return (dispatch, getState) => {
-    let links2 = [];
+    
     const hashtags = [];
-    return database.ref(`users`).once('value').then((snapshot) => {
-    const users = snapshot.val();
+    return database
+      .ref(`users`)
+      .once("value")
+      .then((snapshot) => {
+        const users = snapshot.val();
 
-    if (!users) {
-      console.log('No users found.');
-      res.json({ message:"no user ids" });
-    }
+        if (!users) {
+          console.log("No users found.");
+          res.json({ message: "no user ids" });
+        }
 
-    
-    //const userIds = Object.keys(users);
-    console.log('All user IDs:', userIds);
-    const ids = ['D9LSg6elood8Yc5gd5oDMp3JNAQ2','Gj6I5M7qf8ODZCsFqC3zAuFTXgx2','RZOEMMu7Nwa5bQ51sf71FfDX3A93', 'W4XCM1PRqtZeAzCZ0ALlEFrIwaw1', 'WJGHkWycjKQxPK83Fi4zqx53bCl1', 'XLFFo8DQ7LZh8oR8CnvBGInpjsZ2', 'cvo17Ph52BcJ3gRMgSTL7gxrBUp1', 'm8f0YMF5bucp9uhblPZhM8CTjq12', 'tWKNG14PYYYY0hDPurLouWtYjtq1']
-    const userIds = ids
+        //const userIds = Object.keys(users);
+        console.log("All user IDs:", userIds);
+        const ids = [
+          "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
+          "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
+          "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
+          "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
+          "WJGHkWycjKQxPK83Fi4zqx53bCl1",
+          "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+          "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
+          "m8f0YMF5bucp9uhblPZhM8CTjq12",
+          "tWKNG14PYYYY0hDPurLouWtYjtq1",
+        ];
+        const userIds = ids;
 
-
-/////////////////////////////////////////
-const userDataPromises = userIds.map(userId => {
-  return database.ref(`users/${userId}/links`).once('value')
-    .then(snapshot => {
-      const data = snapshot.val();
-      //return { userId, data }; // Return the user ID and their data
-      return { data }
-    })
-    .catch(error => {
-      console.error(`Error reading data for user ${userId}:`, error);
-      return { userId, error };
-    });
-});
-
-
-//let i=0
-let links3 = []
-const data3=Promise.all(userDataPromises)
-  .then(snapshot => {
-    snapshot.forEach(childSnapshot => {
-      if (childSnapshot.error) {
-        console.log(childSnapshot.error);
-      } else {
-        console.log("11,childSnapshot="+JSON.stringify(childSnapshot))
+        /////////////////////////////////////////
+        const userDataPromises = userIds.map((userId) => {
+          return database
+            .ref(`users/${userId}/links`)
+            .once("value")
+            .then((snapshot) => {
+              const data = snapshot.val();
+              
+              return { data };
+            })
+            .catch((error) => {
+              console.error(`Error reading data for user ${userId}:`, error);
+              return { userId, error };
+            });
+        });
+        let links3 = [];
+        Promise.all(userDataPromises).then((snapshot) => {
+          snapshot.forEach((childSnapshot) => {
+              let arrayData = Object.values(childSnapshot.data);
+              let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4() }));
+              links3.push(...updatedArray);
+          }); 
+          dispatch(setLinks2(links3)); 
+          console.log("the links3="+links3)
+        });
+        
+      }).catch((error) => console.log("error=" + error));
       
-
-        console.log(`User ${childSnapshot.userId}:`, childSnapshot.data);
-       
-     let arrayData = Object.values(childSnapshot.data);
-     let updatedArray = arrayData.map(obj => ({ ...obj, id: v4() }));
-  //   console.log("arrayData="+JSON.stringify(arrayData,null,2));
-         //links3.push(arrayData);
-         console.log("updatedArray="+JSON.stringify(updatedArray,null,2));
-         links3.push(updatedArray);
-console.log("links3="+JSON.stringify(links3,null,2));
-return links3;
-      }
-    });
-    
-    // console.log("b,links3="+JSON.stringify(links3,null,2))
-    // console.log("b,links3.length="+links3.length)
-    //console.log("calling dispatch(setLinks2(links3));")
-    //dispatch(setLinks2(JSON.stringify(links3)));
-   
-    //console.log("after calling dispatch(setLinks2(links3));")
-    //console.log("before Promise object returns, links3="+JSON.stringify(links3,null,2));
-   
-    
-  
-
-  });   
-/////////////////////////////////////////
-
-dispatch(setLinks2(data3));
-    
-      })
-      .catch((error) => console.log("error=" + error));
-
-
-
   };
 };
-
-
 
 export const startSetLinksAll2 = () => {
   return (dispatch, getState) => {

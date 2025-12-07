@@ -7,6 +7,7 @@ import numeral from "numeral";
 import selectLinksTotal from "../selectors/links-total";
 import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
+import LinkListItem3 from "./LinkListItem3";
 import selectLinks from "../selectors/links";
 import LinksSummary from "./LinksSummary";
 import printerImage from "../assets/images/printer_image.png";
@@ -259,12 +260,12 @@ export const LinkList = (props) => {
               </div>
             ) : false  ? (
               props.links.splice(0,100).map((link) => {
-                return <LinkListItem2 key={link.id} {...link} />;
+                return <LinkListItem3 key={link.id} {...link} />;
               })
             ):
             (
               props.links2.map((link) => {
-                return <LinkListItem2 sp={props.sp.sp} key={link.id} {...link} />;
+                return <LinkListItem3 sp={props.sp} key={link.id} {...link} />;
               })
             )
             }

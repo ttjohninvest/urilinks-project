@@ -10,8 +10,10 @@ import { getShowPublic2 } from "../actions/sp";
   }
   
  useEffect(() => {
-    //getShowPublic2(props.uid)
-    console.log("LinkListItem3.js, props.sp="+JSON.stringify(props.sp))
+    console.log("LinkListItem3.js, props.uid="+JSON.stringify(props.uid))
+    console.log("LinkListItem3.js, props="+JSON.stringify(props))
+    // getShowPublic2(props.uid)
+    // console.log("LinkListItem3.js, props.sp="+JSON.stringify(props.sp))
     window.onbeforeunload = null;
   }, []);
 
@@ -39,14 +41,16 @@ import { getShowPublic2 } from "../actions/sp";
   </div>
   )
 };
-const mapStateToProps = (state) => {
+
+
+// const mapStateToProps = (state) => {
   
-  return {
+//   return {
    
-    sp: state.sp
-  };
-};
+//     sp: state.sp
+//   };
+// };
 
 
-export default connect(mapStateToProps)(LinkListItem3);
+export default connect(undefined)(LinkListItem3);
 

@@ -43,14 +43,14 @@ import { getShowPublic2 } from "../actions/sp";
 };
 
 
-// const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   
-//   return {
+  return {
    
-//     sp: state.sp
-//   };
-// };
+    sp: state.sp
+  };
+};
 
 
-export default connect(undefined)(LinkListItem3);
+export default connect(mapStateToProps)(LinkListItem3);
 

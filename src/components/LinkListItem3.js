@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from "react";
 import { connect } from "react-redux";
-import { getShowPublic2 } from "../actions/sp";
+
 
 //const LinkListItem3 = ({id, description, Url, note, amount, createdAt, faviconURL }) => {
     const LinkListItem3 = (props) => {
@@ -11,21 +11,21 @@ import { getShowPublic2 } from "../actions/sp";
   }
 
   useEffect(() => {
-  fetch('https://urilinks-project-read-showpublic.vercel.app', {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ userId: props.uid }),
-  })
-    .then(response => response.json())
-    .then(data => {
+//   fetch('https://urilinks-project-read-showpublic.vercel.app', {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({ userId: props.uid }),
+//   })
+//     .then(response => response.json())
+//     .then(data => {
 
-        console.log("LinkListItem3, fetch data="+JSON.stringify(data))
-        setData(data)
+//         console.log("LinkListItem3, fetch data="+JSON.stringify(data))
+//         setData(data)
     
-    })
-    .catch(error => console.error('Error fetching data, error=', error));
+//     })
+//     .catch(error => console.error('Error fetching data, error=', error));
 }, []);
   
  useEffect(() => {

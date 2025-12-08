@@ -549,6 +549,11 @@ github.com: ttjohninvest/urilinks-project-read-all-data
 vsc project: urilinks-project-read-all-data
 purpose: reads all of the data from the firebase realtime database for readonly display only so people can see it and search through it
 
+vercel.com: urilinks-project-read-showpublic
+github.com: ttjohninvest/urilinks-project-read-showpublic
+vsc project: urilinks-project-read-showpublic
+purpose: reads showpublic boolean value when given a userId
+
 C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project-vercel-stripe-cancel-subscription-api
 
 get the errors out if their are any

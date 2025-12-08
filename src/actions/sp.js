@@ -24,6 +24,29 @@ export const getShowPublic2 = (uid) => {
     }
 };
 
+// export const getShowPublic2 = (uid) => {
+//   console.log("actions/getShowPublic2")
+//   return (dispatch, getState) => {
+    
+//   console.log("actions/getShowPublic2, uid="+uid)
+//   let s
+//    return database
+//       .ref(`users/${uid}/showpublic`)
+//       .once("value")
+//       .then((snapshot) => {
+        
+//        let sp
+//         console.log("action/getShowPublic2 from db, snapshot.val()="+JSON.stringify(snapshot.val()))
+//         sp = snapshot.val()
+
+//          if(sp.showpublic === undefined || sp.showpublic === null)
+//                     dispatch(setShowPublic({sp:""}));
+//                 else dispatch(setShowPublic(sp));
+       
+//       })
+//     }
+// };
+
 export const getShowPublic = () => {
   console.log("actions/getShowPublic")
   return (dispatch, getState) => {

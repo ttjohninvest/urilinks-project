@@ -12,8 +12,8 @@ import { getShowPublic2 } from "../actions/sp";
  useEffect(() => {
     console.log("LinkListItem3.js, props.uid="+JSON.stringify(props.uid))
     console.log("LinkListItem3.js, props="+JSON.stringify(props))
-    // getShowPublic2(props.uid)
-    // console.log("LinkListItem3.js, props.sp="+JSON.stringify(props.sp))
+    getShowPublic2(props.uid)
+    console.log("LinkListItem3.js, props.sp="+JSON.stringify(props.sp))
     window.onbeforeunload = null;
   }, []);
 

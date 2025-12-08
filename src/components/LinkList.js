@@ -139,21 +139,20 @@ export const LinkList = (props) => {
           </label>
         </div>
 
-        <div>
+        {/* <div>
           <label className="inline-block__flex">
             <input
               ref={myRef}
-              className="the-inline-block zindex2 makehidden pointereventsnone"
+              className="the-inline-block zindex2 makehidden"
               type="radio"
               value="option3"
               checked={selectedOption === "option3"}
               onChange={handleOptionChange}
             />
-            {/* <div className="the-inline-block- label-text margin-bottom5- underline cursor-pointer color-purple" title="click to see the list of links (titles only)"> */}
               <span className="button-2 ib cursor-pointer" title="links list with out details">List All Links</span>
-            {/* </div> */}
+            
           </label>
-        </div>
+        </div> */}
 
         
       </div>

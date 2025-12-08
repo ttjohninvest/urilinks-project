@@ -94,6 +94,9 @@ an error occurred: 10002222, this error means Delete Account did not work
 //
 todo to do
 
+List All Links button works but the results need to be filter by showpublic, this
+field should be with each link, the database code in LiskLinkItem3 won't work
+
 =================================================================================
 you will need to call urilinks-project-read-all-data to get the database data in actions/links2.js
 urilinks-project-read-all-data, return the data to program for display

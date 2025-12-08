@@ -94,7 +94,7 @@ an error occurred: 10002222, this error means Delete Account did not work
 //
 todo to do
 
-List All Links button works but the results need to be filter by showpublic, this
+List All Links button is commented out but it works; however, the results need to be filter by showpublic, this
 field should be with each link, the database code in LiskLinkItem3 won't work
 
 =================================================================================

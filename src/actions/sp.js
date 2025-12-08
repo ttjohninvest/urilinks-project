@@ -2,10 +2,10 @@
 import database from "../firebase/firebase";
 
 export const getShowPublic2 = (uid) => {
-  console.log("actions/getShowPublic2")
+  console.log("in actions/getShowPublic2, uid="+uid)
   return (dispatch, getState) => {
     
-  console.log("actions/getShowPublic2, uid="+uid)
+  
   let s
    return database
       .ref(`users/${uid}/showpublic`)
@@ -13,7 +13,7 @@ export const getShowPublic2 = (uid) => {
       .then((snapshot) => {
         
        let sp
-        console.log("action/getShowPublic2 from db, snapshot.val()="+JSON.stringify(snapshot.val()))
+        console.log("in action/getShowPublic2 from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         sp = snapshot.val()
 
          if(sp.showpublic === undefined || sp.showpublic === null)

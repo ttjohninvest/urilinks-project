@@ -201,7 +201,8 @@
 .flexrow2t {
   display: flex;
   flex-direction: row;
-  align-items: left; //center;
+  justify-content: left;
+  align-items: center;
 }
 .flexrow2j {
   display: flex;

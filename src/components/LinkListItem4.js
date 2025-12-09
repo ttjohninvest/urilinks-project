@@ -681,7 +681,7 @@ const LinkListItem = (props) => {
                           //true
                           <a
                             ref={myRef}
-                            className="ib nounderline text-size-5 color-purple"
+                            className="ib nounderline text-size-5 color-purple margin-top-1"
                             href={props.Url}
                             //target="_self"
                             target="_blank"
@@ -700,7 +700,7 @@ const LinkListItem = (props) => {
                       <div>
                       <a
                         ref={myRef}
-                        className="ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 margin-top-tta"
+                        className="ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11"
                         href={props.Url}
                         //target="_self"
                         target="_blank"

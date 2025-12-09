@@ -253,7 +253,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           title="check to show the link to the public"
           //maxlength=""
         />
-        <label className="ib" for="showpublicid">show the public</label>
+        <label className="ib largerCheckbox" for="showpublicid">show the public</label>
         </div>
         <input
           type="text"

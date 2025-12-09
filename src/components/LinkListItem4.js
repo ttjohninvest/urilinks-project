@@ -661,16 +661,16 @@ const LinkListItem = (props) => {
       <div className="card-background-color">
         <div className="list-item__flex">
           <div className="">
-            <div className="flexrow2t margin-5-">
+            <div className="flexrow2t">
               <div>
                 <img
-                  className="borderradius50- margin-top-n-1111-"
+                  className=""
                   width="20"
                   height="20"
                   src={props.faviconURL}
                 />
               </div>
-              <div className="padding-left-11- padding-bottom-11- borderRadius4-">
+              <div className="">
                 <div className="flexcol3">
                   <div className="flexrow4">
                     <div>
@@ -680,7 +680,7 @@ const LinkListItem = (props) => {
                           //true
                           <a
                             ref={myRef}
-                            className="ib margin-right-114- nounderline text-size-5 text-color-db- margin-bottom-114- color-purple margin-left-11-"
+                            className="ib nounderline text-size-5 color-purple"
                             href={props.Url}
                             //target="_self"
                             target="_blank"
@@ -689,16 +689,17 @@ const LinkListItem = (props) => {
                           >
                             <img
                               className="borderRadius4 rem8- rem45-"
-                              // width="128" height="72"
-                              //src={`https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg`}
+                              
                               src={props.yturl}
                             />
                           </a>
                         )
                       }
+                      </div>
+                      <div>
                       <a
                         ref={myRef}
-                        className="ib nounderline text-size-5 text-color-db margin-bottom-114- color-purple margin-left-11- breakWord"
+                        className="ib nounderline text-size-5 text-color-db color-purple breakWord"
                         href={props.Url}
                         //target="_self"
                         target="_blank"

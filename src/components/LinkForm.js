@@ -21,7 +21,8 @@ class LinkForm extends React.Component {
   }
 
    onShowpublicChange = (e) => {
-    const showpublic = e.target.value;
+    const showpublic = e.target.checked;
+    console.log("onShowpublicChange, showpublic="+showpublic)
     this.setState(() => ({ showpublic }));
   };
 

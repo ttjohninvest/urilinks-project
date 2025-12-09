@@ -656,7 +656,8 @@ const LinkListItem = (props) => {
   //
   return (
     <div>
-    {props.showpublic === 
+    {
+    //props.showpublic === 
   true && <div className="margin-bottom-1">
       <div className="card-background-color">
         <div className="list-item__flex">
@@ -699,7 +700,7 @@ const LinkListItem = (props) => {
                       <div>
                       <a
                         ref={myRef}
-                        className="ib nounderline text-size-5 text-color-db color-purple breakWord"
+                        className="ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 margin-top-1"
                         href={props.Url}
                         //target="_self"
                         target="_blank"

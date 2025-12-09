@@ -249,7 +249,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           onChange={this.onShowpublicChange}
           title="show the link to the public"
           //maxlength=""
-        >show the public</input>
+        />
         <input
           type="text"
           ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"

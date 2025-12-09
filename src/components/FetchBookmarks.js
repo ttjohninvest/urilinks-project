@@ -309,6 +309,7 @@ const FetchBookmarks = (props) => {
                             console.log(1);
                             console.log("15 foldername:=" + foldername);
                             htmllinksarray.push({
+                              showpublic:false,
                               description: title,
                               Url: url, //, //href,
                               yturl: yturl,
@@ -372,6 +373,7 @@ const FetchBookmarks = (props) => {
                                 console.log(2);
                                 console.log("16 foldername:=" + foldername);
                                 htmllinksarray.push({
+                                  showpublic:false,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
@@ -434,6 +436,7 @@ const FetchBookmarks = (props) => {
                                     console.log(3);
                                     console.log("17 foldername:=" + foldername);
                                     htmllinksarray.push({
+                                      showpublic:false,
                                       description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
@@ -509,6 +512,7 @@ const FetchBookmarks = (props) => {
                                           "18 foldername:=" + foldername
                                         );
                                         htmllinksarray.push({
+                                          showpublic:false,
                                           description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
@@ -594,6 +598,7 @@ const FetchBookmarks = (props) => {
                                               "19 foldername:=" + foldername
                                             );
                                             htmllinksarray.push({
+                                              showpublic:false,
                                               description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
@@ -681,6 +686,7 @@ const FetchBookmarks = (props) => {
                                                   "20 foldername:=" + foldername
                                                 );
                                                 htmllinksarray.push({
+                                                  showpublic:false,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   yturl: yturl,
@@ -781,6 +787,7 @@ const FetchBookmarks = (props) => {
                                                         foldername
                                                     );
                                                     htmllinksarray.push({
+                                                      showpublic:false,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       yturl: yturl,
@@ -849,6 +856,7 @@ const FetchBookmarks = (props) => {
                             console.log(8);
                             console.log("22 foldername:=" + foldername);
                             htmllinksarray.push({
+                              showpublic:false,
                               description: title,
                               Url: url, //, //href,
                               yturl: yturl,
@@ -911,6 +919,7 @@ const FetchBookmarks = (props) => {
                                 console.log(9);
                                 console.log("23 foldername:=" + foldername);
                                 htmllinksarray.push({
+                                  showpublic:false,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
@@ -974,6 +983,7 @@ const FetchBookmarks = (props) => {
                                     console.log(10);
                                     console.log("24 foldername:=" + foldername);
                                     htmllinksarray.push({
+                                      showpublic:false,
                                       description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
@@ -1049,6 +1059,7 @@ const FetchBookmarks = (props) => {
                                           "25 foldername:=" + foldername
                                         );
                                         htmllinksarray.push({
+                                          showpublic:false,
                                           description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
@@ -1134,6 +1145,7 @@ const FetchBookmarks = (props) => {
                                               "26 foldername:=" + foldername
                                             );
                                             htmllinksarray.push({
+                                              showpublic:false,
                                               description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
@@ -1221,6 +1233,7 @@ const FetchBookmarks = (props) => {
                                                   "27 foldername:=" + foldername
                                                 );
                                                 htmllinksarray.push({
+                                                  showpublic:false,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   yturl: yturl,
@@ -1321,6 +1334,7 @@ const FetchBookmarks = (props) => {
                                                         foldername
                                                     );
                                                     htmllinksarray.push({
+                                                      showpublic:false,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       yturl: yturl,
@@ -1392,6 +1406,7 @@ const FetchBookmarks = (props) => {
                             console.log(15);
                             console.log("29 foldername:=" + foldername);
                             htmllinksarray.push({
+                              showpublic:false,
                               description: title,
                               Url: url, //, //href,
                               yturl: yturl,
@@ -1455,6 +1470,7 @@ const FetchBookmarks = (props) => {
                                 console.log(16);
                                 console.log("30 foldername:=" + foldername);
                                 htmllinksarray.push({
+                                  showpublic:false,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
@@ -1518,6 +1534,7 @@ const FetchBookmarks = (props) => {
                                     console.log(17);
                                     console.log("31 foldername:=" + foldername);
                                     htmllinksarray.push({
+                                      showpublic:false,
                                       description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
@@ -1593,6 +1610,7 @@ const FetchBookmarks = (props) => {
                                           "32 foldername:=" + foldername
                                         );
                                         htmllinksarray.push({
+                                          showpublic:false,
                                           description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
@@ -1678,6 +1696,7 @@ const FetchBookmarks = (props) => {
                                               "33 foldername:=" + foldername
                                             );
                                             htmllinksarray.push({
+                                              showpublic:false,
                                               description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
@@ -1765,6 +1784,7 @@ const FetchBookmarks = (props) => {
                                                   "34 foldername:=" + foldername
                                                 );
                                                 htmllinksarray.push({
+                                                  showpublic:false,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   yturl: yturl,
@@ -1865,6 +1885,7 @@ const FetchBookmarks = (props) => {
                                                         foldername
                                                     );
                                                     htmllinksarray.push({
+                                                      showpublic:false,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       yturl: yturl,
@@ -1944,6 +1965,7 @@ const FetchBookmarks = (props) => {
                             console.log("1 foldername:=" + foldername);
 
                             htmllinksarray.push({
+                              showpublic:false,
                               description: title,
                               Url: url, //, //href,
                               yturl: yturl,
@@ -2006,12 +2028,13 @@ const FetchBookmarks = (props) => {
                                 console.log("2 foldername:=" + foldername);
 
                                 htmllinksarray.push({
-                                  foldername: foldername,
+                                  showpublic:false,
+                                  //foldername: foldername,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
-
+                                  foldername: foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2070,6 +2093,7 @@ const FetchBookmarks = (props) => {
                                     console.log("3 foldername:=" + foldername);
 
                                     htmllinksarray.push({
+                                      showpublic:false,
                                       description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
@@ -2144,6 +2168,7 @@ const FetchBookmarks = (props) => {
                                           "4 foldername:=" + foldername
                                         );
                                         htmllinksarray.push({
+                                          showpublic:false,
                                           description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
@@ -2228,6 +2253,7 @@ const FetchBookmarks = (props) => {
                                               "5 foldername:=" + foldername
                                             );
                                             htmllinksarray.push({
+                                              showpublic:false,
                                               description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
@@ -2314,6 +2340,7 @@ const FetchBookmarks = (props) => {
                                                   "6 foldername:=" + foldername
                                                 );
                                                 htmllinksarray.push({
+                                                  showpublic:false,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   yturl: yturl,
@@ -2413,6 +2440,7 @@ const FetchBookmarks = (props) => {
                                                         foldername
                                                     );
                                                     htmllinksarray.push({
+                                                      showpublic:false,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       yturl: yturl,
@@ -2483,6 +2511,7 @@ const FetchBookmarks = (props) => {
                             console.log("pushing unto htmllinksarray");
                             console.log("8 foldername:=" + foldername);
                             htmllinksarray.push({
+                              showpublic:false,
                               description: title,
                               Url: url, //, //href,
                               yturl: yturl,
@@ -2545,6 +2574,7 @@ const FetchBookmarks = (props) => {
                                 console.log("pushing unto htmllinksarray");
                                 console.log("9 foldername:=" + foldername);
                                 htmllinksarray.push({
+                                  showpublic:false,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
@@ -2607,6 +2637,7 @@ const FetchBookmarks = (props) => {
                                     console.log("pushing unto htmllinksarray");
                                     console.log("10 foldername:=" + foldername);
                                     htmllinksarray.push({
+                                      showpublic:false,
                                       description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
@@ -2681,6 +2712,7 @@ const FetchBookmarks = (props) => {
                                           "11 foldername:=" + foldername
                                         );
                                         htmllinksarray.push({
+                                          showpublic:false,
                                           description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
@@ -2765,6 +2797,7 @@ const FetchBookmarks = (props) => {
                                               "12 foldername:=" + foldername
                                             );
                                             htmllinksarray.push({
+                                              showpublic:false,
                                               description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
@@ -2851,6 +2884,7 @@ const FetchBookmarks = (props) => {
                                                   "13 foldername:=" + foldername
                                                 );
                                                 htmllinksarray.push({
+                                                  showpublic:false,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   yturl: yturl,
@@ -2950,6 +2984,7 @@ const FetchBookmarks = (props) => {
                                                         foldername
                                                     );
                                                     htmllinksarray.push({
+                                                      showpublic:false,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       yturl: yturl,

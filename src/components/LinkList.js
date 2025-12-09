@@ -10,6 +10,7 @@ import LinkListItem2 from "./LinkListItem2";
 import LinkListItem3 from "./LinkListItem3";
 import LinkListItem4 from "./LinkListItem4";
 import selectLinks from "../selectors/links";
+import selectLinks2 from "../selectors/links";
 import LinksSummary from "./LinksSummary";
 import printerImage from "../assets/images/printer_image.png";
 
@@ -287,7 +288,7 @@ export const LinkList = (props) => {
 
 const mapStateToProps = (state) => {
   const visibleLinks = selectLinks(state.links, state.filters);
-  const visibleLinks2 = selectLinks(state.links2, state.filters);
+  const visibleLinks2 = selectLinks2(state.links2, state.filters);
 
   return {
     linkCount: visibleLinks.length,

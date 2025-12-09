@@ -813,8 +813,8 @@ const LinkListItem = (props) => {
           </div> */}
         </div>
 
-        <div className="list-item__sub-title- padding-left-1 text-size-2 color-purple margin-left-11p">
-          Entered: {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
+        <div className="italicText list-item__sub-title- padding-left-1 text-size-10 color-purple margin-left-11p">
+          link saved on: {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
         </div>
       </div>
       <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p">

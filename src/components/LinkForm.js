@@ -245,7 +245,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           checked={this.state.showpublic===true?"checked":""}
           autoFocus
           className="alignLeft"
-          value={this.state.showpublic}
+          value="show the public" //{this.state.showpublic}
           onChange={this.onShowpublicChange}
           title="show the link to the public"
           //maxlength=""

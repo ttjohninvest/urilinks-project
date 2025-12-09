@@ -93,15 +93,10 @@ an error occurred: 10002222, this error means Delete Account did not work
 
 //
 todo to do
-linkCount2: visibleLinks2.length, is wrong
- the last digit is right
- 
-List All Links button is commented out but it works; however, the results need to be filter by showpublic, this
-field should be with each link, the database code in LiskLinkItem3 won't work
-
+pagination in react
+https://search.brave.com/search?q=example+code+that+does+pagination+in+react+functional+component&summary=1&conversation=da1a5fc5a45400784d0b39
 =================================================================================
-you will need to call urilinks-project-read-all-data to get the database data in actions/links2.js
-urilinks-project-read-all-data, return the data to program for display
+
 
 to do refunds,
 

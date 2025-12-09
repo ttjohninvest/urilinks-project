@@ -247,8 +247,8 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           //placeholder=""
           checked={this.state.showpublic===true?"checked":""}
           autoFocus
-          className="ib"
-          style={"width: 20px; height: 20px;"}
+          className="ib largerCheckbox"
+          
           value="show the public" //{this.state.showpublic}
           onChange={this.onShowpublicChange}
           title="check to show the link to the public"

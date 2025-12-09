@@ -239,6 +239,8 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
       <form className="form" onSubmit={this.onSubmit}>
         {this.state.error && <p className="form__error flexrow2w">{this.state.error}</p>}
         <input
+          id="showpublicid"
+          //name="showpublicname"
           type="checkbox"
           ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
           //placeholder=""
@@ -247,9 +249,10 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           className="alignLeft"
           value="show the public" //{this.state.showpublic}
           onChange={this.onShowpublicChange}
-          title="show the link to the public"
+          title="check to show the link to the public"
           //maxlength=""
         />
+        <label for="showpublicid">show the public</label>
         <input
           type="text"
           ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"

@@ -30,10 +30,14 @@ export const LinkList = (props) => {
     console.log("handleOptionChange, event.target.value=" + event.target.value);
     setSelectedOption(event.target.value);
 
-    if (event.target.value === "option1")
+    if (event.target.value === "option1") {
       window.localStorage.setItem("whichOption", "option1");
-    else if (event.target.value === "option2")
+      setFirst(true)
+    }
+    else if (event.target.value === "option2") {
       window.localStorage.setItem("whichOption", "option2");
+      setFirst(true)
+    }
     else if (event.target.value === "option3") {
       window.localStorage.setItem("whichOption", "option3");
       setFirst(false)

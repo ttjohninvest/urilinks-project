@@ -193,11 +193,15 @@
 .borderRadius4 {
   border-radius: 10px;
 }
-
 .flexrow2 {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.flexrow2t {
+  display: flex;
+  flex-direction: row;
+  align-items: left; //center;
 }
 .flexrow2j {
   display: flex;

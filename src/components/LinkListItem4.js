@@ -661,7 +661,7 @@ const LinkListItem = (props) => {
       <div className="card-background-color">
         <div className="list-item__flex">
           <div className="">
-            <div className="flexrow2 margin-5 bg-color-grey">
+            <div className="flexrow2t margin-5">
               <div>
                 <img
                   className="borderradius50 margin-top-1111"

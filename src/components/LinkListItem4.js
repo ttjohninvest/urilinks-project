@@ -664,7 +664,7 @@ const LinkListItem = (props) => {
             <div className="flexrow2t margin-5">
               <div>
                 <img
-                  className="borderradius50 margin-top-1111"
+                  className="borderradius50 margin-top-n-1111"
                   width="20"
                   height="20"
                   src={props.faviconURL}

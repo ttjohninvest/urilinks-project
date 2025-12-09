@@ -59,7 +59,11 @@ export const LinkList = (props) => {
 
   useEffect(() => {
     const option = window.localStorage.getItem("whichOption");
-    if (option) setSelectedOption(option);
+    if (option) {
+      if(option==="option1" || option==="option2") setFirst(true)
+      else if(option==="option3") setFirst(false)
+      setSelectedOption(option);
+    }
   }, []);
 
   useEffect(() => {

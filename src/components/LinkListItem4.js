@@ -673,7 +673,7 @@ const LinkListItem = (props) => {
               </div>
               <div className="">
                 <div className="flexcol3">
-                  <div className="flexrow4">
+                  <div className={`flexrow4 ${!!props.yturl?"":"margin-top-1"}`}>
                     <div>
                       {
                         //isityt(props.Url)

@@ -139,7 +139,7 @@ export const LinkList = (props) => {
           </label>
         </div>
 
-        {/* <div>
+        <div>
           <label className="inline-block__flex">
             <input
               ref={myRef}
@@ -152,7 +152,7 @@ export const LinkList = (props) => {
               <span className="button-2 ib cursor-pointer" title="links list with out details">List All Links</span>
             
           </label>
-        </div> */}
+        </div>
 
         
       </div>
@@ -258,7 +258,7 @@ export const LinkList = (props) => {
                 <span>0 links found</span>
               </div>
             ) : false  ? (
-              props.links.splice(0,100).map((link) => {
+              props.links2.splice(0,100).map((link) => {
                 return <LinkListItem3 key={link.id} {...link} />;
               })
             ):

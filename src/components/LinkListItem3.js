@@ -22,7 +22,8 @@ import { connect } from "react-redux";
   return (
   <div>
   {
-  props.showpublic === true && <div className="list-item__flex">
+  //props.showpublic === 
+  true && <div className="list-item__flex">
 
     <div className="flexrow2 margin-5- margin-bottom-1 card-background-color padding-left-1111"><div className="card-background-color margin-left-11"><img className="borderradius50 margin-top-1111" width="16" height="16" src={props.faviconURL} /></div>
     <div className="card-background-color padding-1 margin-bottom-1 borderRadius4">

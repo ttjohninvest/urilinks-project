@@ -768,7 +768,7 @@ const LinkListItem = (props) => {
                     </div>
                   </div>
 
-                  <div>
+                  {/* <div>
                     <span
                       className="ib margin-left-114"
                       title="click the following link to see an index of clickable urls on the page."
@@ -781,10 +781,10 @@ const LinkListItem = (props) => {
                         title="click to see the clickable page urls from the above page"
                       >
                         Show List: {decodeURIComponent(props.Url)}
-                        {/*To list: {Url}*/}
+                        
                       </span>
                     </span>
-                  </div>
+                  </div>  */}
                 </div>
 
                 <ol id={"uldata" + props.id} start="0"></ol>

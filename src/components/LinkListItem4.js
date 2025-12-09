@@ -662,7 +662,7 @@ const LinkListItem = (props) => {
       <div className="card-background-color">
         <div className="list-item__flex">
           <div className="">
-            <div className="flexrow2t">
+            <div className="flexrow2t border-green">
               <div>
                 <img
                   className=""

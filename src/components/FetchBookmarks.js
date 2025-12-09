@@ -3077,6 +3077,7 @@ const FetchBookmarks = (props) => {
                       "1 result[" + i + "].foldername=" + result[i].foldername
                     );
                     r = props.startAddLink({
+                      showpublic:result[i].showpublic,
                       description: result[i].description,
                       Url: result[i].Url, //, //href,
                       yturl: result[i].yturl,
@@ -3134,6 +3135,7 @@ const FetchBookmarks = (props) => {
                       "1 result[" + i + "].foldername=" + result[i].foldername
                     );
                     r = props.startAddLink({
+                      showpublic:result[i].showpublic,
                       description: result[i].description,
                       Url: result[i].Url, //, //href,
                       yturl: result[i].yturl,

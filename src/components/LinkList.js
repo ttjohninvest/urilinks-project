@@ -291,7 +291,7 @@ const mapStateToProps = (state) => {
 
   return {
     linkCount: visibleLinks.length,
-    linkCount2: visibleLinks2.length,
+    linkCount2: 0, //visibleLinks2.length,
     linksTotal: selectLinksTotal(visibleLinks),
     linksTotal2: selectLinksTotal(visibleLinks2),
     signup:state.signup,

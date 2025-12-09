@@ -93,7 +93,9 @@ an error occurred: 10002222, this error means Delete Account did not work
 
 //
 todo to do
-
+linkCount2: visibleLinks2.length, is wrong
+ the last digit is right
+ 
 List All Links button is commented out but it works; however, the results need to be filter by showpublic, this
 field should be with each link, the database code in LiskLinkItem3 won't work
 

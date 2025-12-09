@@ -135,7 +135,11 @@ store
       //store.dispatch(getCustomerId(user.uid)); //this should initialize the redux variable customerId
       //store.dispatch(getSubscriptionId(user.uid));//this should initialize the redux variable subscriptionId
 
-      store
+
+ store
+        .dispatch(startSetLinks2())
+        .then(() => {
+        store
         .dispatch(startSetLinks(user.uid))
         .then(() => {
         return store
@@ -178,6 +182,13 @@ store
         .catch((error) => {
           console.log("error", error);
         });
+
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+
+
     } else {
       console.log("logout happened");
       store.dispatch(logout());

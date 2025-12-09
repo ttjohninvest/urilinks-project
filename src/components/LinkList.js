@@ -10,7 +10,7 @@ import LinkListItem2 from "./LinkListItem2";
 import LinkListItem3 from "./LinkListItem3";
 import LinkListItem4 from "./LinkListItem4";
 import selectLinks from "../selectors/links";
-import selectLinks2 from "../selectors/links";
+import selectLinks2 from "../selectors/links2";
 import LinksSummary from "./LinksSummary";
 import printerImage from "../assets/images/printer_image.png";
 
@@ -95,6 +95,10 @@ export const LinkList = (props) => {
   
   };
 
+  // const lcf = (c) => { //lcf stands for linkcount2 function
+  //     document.getElementById("linkcount2id").innerText=c
+  // }
+
   return (
     <div className="content-container- website-background-color margin-top-1a-">
       <div id="before-link-summary-id" className="flexrow2b margin-bottom-5a">
@@ -167,7 +171,7 @@ export const LinkList = (props) => {
         
       </div>
       
-      <div id="link-summary-id" className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{first===true?props.linkCount:props.linkCount2}</span> <span className="ib margin-left-11"> Link(s) Found</span></div>
+      <div id="link-summary-id" className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span id="linkcount2id" className="ib is-active">{first===true?props.linkCount:props.linkCount2}</span> <span className="ib margin-left-11"> Link(s) Found</span></div>
 
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
@@ -234,7 +238,7 @@ export const LinkList = (props) => {
               </div>
             ) : false  ? (
               props.links.splice(0,100).map((link) => {
-                return <LinkListItem2 key={link.id} {...link} />;
+                return <LinkListItem2 lcf={lcf} key={link.id} {...link} />;
               })
             ):
             (

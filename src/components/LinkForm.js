@@ -242,6 +242,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           type="checkbox"
           ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
           //placeholder=""
+          checked={this.state.showpublic===true?"checked":""}
           autoFocus
           className=""
           value={this.state.showpublic}

@@ -16,6 +16,7 @@ import printerImage from "../assets/images/printer_image.png";
 
 
 
+
 ////
 export const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1");
@@ -62,6 +63,7 @@ export const LinkList = (props) => {
     if (option) {
       if(option==="option1" || option==="option2") setFirst(true)
       else if(option==="option3") setFirst(false)
+      else setFirst(true)
       setSelectedOption(option);
     }
   }, []);

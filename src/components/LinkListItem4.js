@@ -663,7 +663,18 @@ const LinkListItem = (props) => {
         <div className="list-item__flex">
           <div className="">
             <div className="flexrow2t border-green">
-              <div>
+              {/* <div>
+                <img
+                  className=""
+                  width="20"
+                  height="20"
+                  src={props.faviconURL}
+                />
+              </div> */}
+              <div className={`${!!props.yturl?"":"margin-top-1-"}`}>
+                <div className="flexcol3">
+                  <div className={`flexrow4`}>
+                    <div>
                 <img
                   className=""
                   width="20"
@@ -671,9 +682,6 @@ const LinkListItem = (props) => {
                   src={props.faviconURL}
                 />
               </div>
-              <div className={`${!!props.yturl?"":"margin-top-1"}`}>
-                <div className="flexcol3">
-                  <div className={`flexrow4`}>
                     <div>
                       {
                         //isityt(props.Url)

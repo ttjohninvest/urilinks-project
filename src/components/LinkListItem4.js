@@ -712,30 +712,30 @@ const LinkListItem = (props) => {
                       <div className="flexrow4">
                         {props.signup.signup === true ? (
                           <div>
-                            <Link
+                            {/* <Link
                               className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
                               to={`/edit/${props.id}`}
                             >
                               <span className="padding-right-11 color-white-1 button-2">
                                 edit or remove
                               </span>
-                            </Link>
+                            </Link> */}
                           </div>
                         ) : (
                           <div>
-                            <Link
+                            {/* <Link
                               className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
                               to={`/edit/${props.id}`}
                             >
                               <span className="padding-right-11 color-white-1 button-2">
                                 edit or remove
                               </span>
-                            </Link>
+                            </Link> */}
                           </div>
                         )}
                         {props.signup.signup === true ? (
                           <div>
-                            <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                            {/* <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                               <input
                                 type="checkbox"
                                 id={"delete%" + props.id}
@@ -746,11 +746,11 @@ const LinkListItem = (props) => {
                                 className="cb1 cursor-pointer"
                               />
                               <label for={"delete%" + props.id} />
-                            </span>
+                            </span> */}
                           </div>
                         ) : (
                           <div>
-                            <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                            {/* <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                               <input
                                 type="checkbox"
                                 id={"delete%" + props.id}
@@ -761,7 +761,7 @@ const LinkListItem = (props) => {
                                 className="cb1 cursor-pointer"
                               />
                               <label for={"delete%" + props.id} />
-                            </span>
+                            </span> */}
                           </div>
                         )}
                       </div>

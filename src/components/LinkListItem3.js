@@ -11,6 +11,7 @@ import { connect } from "react-redux";
   }
 
   useEffect(() => {
+console.log("LinkListItem3.js, props.description="+props.description+", props.showpublic="+props.showpublic)
 
 }, []);
   

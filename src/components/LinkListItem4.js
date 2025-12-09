@@ -657,7 +657,7 @@ const LinkListItem = (props) => {
   return (
     <div>
     {
-    //props.showpublic === 
+    props.showpublic === 
   true && <div className="margin-bottom-1">
       <div className="card-background-color">
         <div className="list-item__flex">

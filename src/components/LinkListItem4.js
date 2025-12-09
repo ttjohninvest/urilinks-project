@@ -675,13 +675,13 @@ const LinkListItem = (props) => {
                 <div className="flexcol3">
                   <div className={`flexrow4 border-green`}>
                     <div className="margin-top-1q">
-                <img
-                  className=""
-                  width="20"
-                  height="20"
-                  src={props.faviconURL}
-                />
-              </div>
+                        <img
+                            className=""
+                            width="20"
+                            height="20"
+                            src={props.faviconURL}
+                        />
+                    </div>
                     <div>
                       {
                         //isityt(props.Url)

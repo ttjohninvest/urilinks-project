@@ -11,36 +11,18 @@ import { connect } from "react-redux";
   }
 
   useEffect(() => {
-//   fetch('https://urilinks-project-read-showpublic.vercel.app', {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-//   body: JSON.stringify({ userId: props.uid }),
-//   })
-//     .then(response => response.json())
-//     .then(data => {
 
-//         console.log("LinkListItem3, fetch data="+JSON.stringify(data))
-//         setData(data)
-    
-//     })
-//     .catch(error => console.error('Error fetching data, error=', error));
 }, []);
   
  useEffect(() => {
-    // console.log("LinkListItem3.js, props.uid="+JSON.stringify(props.uid))
-    // console.log("LinkListItem3.js, props="+JSON.stringify(props))
-    //getShowPublic2(props.uid)
-    //console.log("LinkListItem3.js, props.sp="+JSON.stringify(props.sp))
+   
     window.onbeforeunload = null;
   }, []);
 
   return (
   <div>
   {
-  //data.record.showpublic ===
-   true && <div className="list-item__flex">
+  props.showpublic === true && <div className="list-item__flex">
 
     <div className="flexrow2 margin-5- margin-bottom-1 card-background-color padding-left-1111"><div className="card-background-color margin-left-11"><img className="borderradius50 margin-top-1111" width="16" height="16" src={props.faviconURL} /></div>
     <div className="card-background-color padding-1 margin-bottom-1 borderRadius4">

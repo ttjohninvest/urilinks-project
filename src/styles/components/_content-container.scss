@@ -168,9 +168,9 @@
   margin-top: 0;
 }
 
-[type="checkbox"]:after {
-  content: attr(value);
-}
+// [type="checkbox"]:after {
+//   content: attr(value);
+// }
 
 .alignLeft {
   text-align: left;

@@ -248,12 +248,13 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           checked={this.state.showpublic===true?"checked":""}
           autoFocus
           className="ib"
+          style={"width: 20px; height: 20px;"}
           value="show the public" //{this.state.showpublic}
           onChange={this.onShowpublicChange}
           title="check to show the link to the public"
           //maxlength=""
         />
-        <label className="ib largerCheckbox" for="showpublicid">show the public</label>
+        <label className="ib" for="showpublicid"><span className="ib margin-left-11">show the public</span></label>
         </div>
         <input
           type="text"

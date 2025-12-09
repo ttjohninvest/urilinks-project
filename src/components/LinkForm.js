@@ -238,6 +238,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
     return (
       <form className="form" onSubmit={this.onSubmit}>
         {this.state.error && <p className="form__error flexrow2w">{this.state.error}</p>}
+        <div className="flexrowz9">
         <input
           id="showpublicid"
           //name="showpublicname"
@@ -246,13 +247,14 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           //placeholder=""
           checked={this.state.showpublic===true?"checked":""}
           autoFocus
-          className="alignLeft"
+          className="ib"
           value="show the public" //{this.state.showpublic}
           onChange={this.onShowpublicChange}
           title="check to show the link to the public"
           //maxlength=""
         />
-        <label for="showpublicid">show the public</label>
+        <label className="ib" for="showpublicid">show the public</label>
+        </div>
         <input
           type="text"
           ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"

@@ -19,6 +19,7 @@ import printerImage from "../assets/images/printer_image.png";
 export const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1");
   const [deleteData, setDeleteData] = useState([]);
+  const [first, setFirst] = useState(true);
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
     const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -33,8 +34,11 @@ export const LinkList = (props) => {
       window.localStorage.setItem("whichOption", "option1");
     else if (event.target.value === "option2")
       window.localStorage.setItem("whichOption", "option2");
-    else if (event.target.value === "option3")
+    else if (event.target.value === "option3") {
       window.localStorage.setItem("whichOption", "option3");
+      setFirst(false)
+    }
+      
     else window.localStorage.setItem("whichOption", "option1");
   };
 
@@ -158,7 +162,7 @@ export const LinkList = (props) => {
         
       </div>
       
-      <div id="link-summary-id" className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div>
+      <div id="link-summary-id" className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{first===true?props.linkCount:props.linkCount2}</span> <span className="ib margin-left-11"> Link(s) Found</span></div>
 
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
@@ -279,10 +283,13 @@ export const LinkList = (props) => {
 
 const mapStateToProps = (state) => {
   const visibleLinks = selectLinks(state.links, state.filters);
+  const visibleLinks2 = selectLinks(state.links2, state.filters);
 
   return {
     linkCount: visibleLinks.length,
+    linkCount2: visibleLinks2.length,
     linksTotal: selectLinksTotal(visibleLinks),
+    linksTotal2: selectLinksTotal(visibleLinks2),
     signup:state.signup,
     links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),

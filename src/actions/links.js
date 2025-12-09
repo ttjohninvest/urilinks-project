@@ -13,6 +13,7 @@ export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
+      showpublic=false,
       longname="",
       description = "",
       Url = "",
@@ -23,7 +24,7 @@ export const startAddLink = (linkData = {}) => {
       createdAt = 0,
       faviconURL = "",
     } = linkData;
-    const link = {longname, description, Url, yturl, note, foldername, amount, createdAt, faviconURL };
+    const link = {showpublic,longname, description, Url, yturl, note, foldername, amount, createdAt, faviconURL };
    
     //////
     //return false;

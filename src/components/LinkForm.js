@@ -8,6 +8,7 @@ class LinkForm extends React.Component {
     super(props);
 
     this.state = {
+      showpublic:props.link ? props.link.showpublic : false,
       description: props.link ? props.link.description : "",
       Url: props.link ? props.link.Url : "",
       note: props.link ? props.link.note : "",
@@ -18,6 +19,12 @@ class LinkForm extends React.Component {
       hashTags: [],
     };
   }
+
+   onShowpublicChange = (e) => {
+    const showpublic = e.target.value;
+    this.setState(() => ({ showpublic }));
+  };
+
   onDescriptionChange = (e) => {
     const description = e.target.value;
     this.setState(() => ({ description }));
@@ -216,6 +223,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
       this.setState(() => ({ error: "" }));
 
       this.props.onSubmit({
+        showpublic: this.state.showpublic,
         description: this.state.description,
         Url: str,
         amount: parseFloat(this.state.amount, 10) * 100,
@@ -229,6 +237,17 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
     return (
       <form className="form" onSubmit={this.onSubmit}>
         {this.state.error && <p className="form__error flexrow2w">{this.state.error}</p>}
+        <input
+          type="checkbox"
+          ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
+          //placeholder=""
+          autoFocus
+          className=""
+          value={this.state.showpublic}
+          onChange={this.onShowpublicChange}
+          title="show the link to the public"
+          //maxlength=""
+        />
         <input
           type="text"
           ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"

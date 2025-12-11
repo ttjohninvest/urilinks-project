@@ -1,10 +1,11 @@
 import React from 'react';
-
+import { connect } from "react-redux";
 import InfiniteScroll from 'react-infinite-scroll-component';
+import selectLinks2 from "../selectors/links2";
 
-const MyInfiniteScroll = ({links}) => {
+const MyInfiniteScroll = (props) => {
 
-  const data = links
+  const data = props.links
   const [items, setItems] = React.useState([]);
   const [hasMore, setHasMore] = React.useState(true);
   const itemsPerPage = 10;
@@ -56,4 +57,28 @@ const MyInfiniteScroll = ({links}) => {
   );
 };
 
-export default MyInfiniteScroll;   
+//export default MyInfiniteScroll;   
+
+const mapStateToProps = (state) => {
+  
+  const visibleLinks2 = selectLinks2(state.links2, state.filters);
+
+  return {
+    
+    linkCount2: visibleLinks2.length,
+   
+    linksTotal2: selectLinksTotal(visibleLinks2),
+    signup:state.signup,
+  
+    links2: selectLinks(state.links2, state.filters),
+    
+  };
+};
+
+// const mapStateToProps = (state) => {
+//   return {
+//     links: selectLinks(state.links, state.filters),
+//   };
+// };
+
+export default connect(mapStateToProps)(MyInfiniteScroll);

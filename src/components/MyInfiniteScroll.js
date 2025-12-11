@@ -14,7 +14,7 @@ const E = (props) => {
   //   'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'
   // ]);
 
-  const [data, setData] = useState(props.links2.splice(0,5));
+  const [data, setData] = useState(...props.links2.splice(0,5));
 
   const [hasMore, setHasMore] = useState(true);
 
@@ -24,8 +24,8 @@ const E = (props) => {
     setTimeout(() => {
       //const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
        const newItems = [
-  ...data,
-  ...props.links2.splice(5,10)
+  ...data//,
+  //...props.links2.splice(5,10)
 ];
       //const newItems = props.links2.splice(5,10)
       //setData(prev => [...prev, ...newItems]);
@@ -51,7 +51,7 @@ const E = (props) => {
       >
         {data.map((item, index) => (
           <div key={index} style={{ padding: '10px', border: '1px solid #eee', margin: '5px 0' }}>
-            {item}
+            {item.Url}
           </div>
         ))}
       </InfiniteScroll>

@@ -42,9 +42,9 @@ const E = (props) => {
 
   const [hasMore, setHasMore] = useState(true);
 
-   if (data.length <= 10) {
-        setHasMore(false);
-      }
+  //  if (data.length <= 10) {
+  //       setHasMore(false);
+  //     }
   // Function to load more items
   const fetchMoreData = () => {
     // Simulate API delay

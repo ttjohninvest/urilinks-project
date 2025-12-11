@@ -8,15 +8,14 @@ import LinkListItem4 from "./LinkListItem4"
 
 
 const E = (props) => {
-  // Define a locally stored array of strings
-  const [data, setData] = useState([
-    'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
-    'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'
-  ]);
+ 
+  // const [data, setData] = useState([
+  //   'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
+  //   'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'
+  // ]);
 
-  //const [data, setData] = useState(props.links2.splice(0,5));
+  const [data, setData] = useState(props.links2.splice(0,5));
 
-  // State to track if there are more items to load
   const [hasMore, setHasMore] = useState(true);
 
   // Function to load more items
@@ -25,7 +24,8 @@ const E = (props) => {
     setTimeout(() => {
       const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
       //const newItems = props.links2.splice(5,10)
-      setData(prev => [...prev, ...newItems]);
+      //setData(prev => [...prev, ...newItems]);
+      setData(prev => [...prev, ...props.links2.splice(5,10)]);
 
       // Stop loading more if we have enough items
       if (data.length >= 25) {

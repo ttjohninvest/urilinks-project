@@ -150,7 +150,7 @@ const MyInfiniteScroll = (props) => {
       loader={<h4>Loading...</h4>}
       endMessage={<p style={{ textAlign: 'center' }}><b>No more items to load.</b></p>}
       // You can customize the scrollable area by setting height and style
-      //height={600}
+      height={200}
       //style={{ overflow: 'hidden' }}
     >
       {items.map((link, index) => (

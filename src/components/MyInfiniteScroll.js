@@ -33,7 +33,7 @@ const E = (props) => {
   let j = 0
   const [si1, setSi1] = useState(0)
   const [si2, setSi2] = useState(10)
-  const [data2, setData2] = getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
+  const [data2, setData2] = props.links2.filter(link => link.showpublic === true) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
   console.log("data2="+JSON.stringify(data2))
   if(data2.length > 10) {
    j = 10

@@ -5,7 +5,7 @@ import selectLinks2 from "../selectors/links2";
 
 const MyInfiniteScroll = (props) => {
 
-  const data = props.links
+  const data = props.links2
   const [items, setItems] = React.useState([]);
   const [hasMore, setHasMore] = React.useState(true);
   const itemsPerPage = 10;

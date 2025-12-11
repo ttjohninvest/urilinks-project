@@ -7,166 +7,51 @@ import selectLinksTotal from "../selectors/links-total";
 import LinkListItem4 from "./LinkListItem4"
 
 
-const MyInfiniteScroll = (props) => {
+const E = () => {
+  // Define a locally stored array of strings
+  const [data, setData] = useState([
+    'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
+    'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'
+  ]);
 
-  //const data = props.links2
-  const data = [
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a'
-  ]
-  const [items, setItems] = React.useState([]);
-  const [hasMore, setHasMore] = React.useState(true);
-  const itemsPerPage = 10;
+  // State to track if there are more items to load
+  const [hasMore, setHasMore] = useState(true);
 
-  // Initialize the first batch of items
-  React.useEffect(() => {
-    const initialItems = data.slice(0, itemsPerPage);
-    setItems(initialItems);
-    if (data.length <= itemsPerPage) {
-      console.log("1 hasMore is false")
-      setHasMore(false);
-    }
-  }, [data]);
-
+  // Function to load more items
   const fetchMoreData = () => {
-    const startIndex = items.length;
-    const endIndex = startIndex + itemsPerPage;
+    // Simulate API delay
+    setTimeout(() => {
+      const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
+      setData(prev => [...prev, ...newItems]);
 
-    if (startIndex >= data.length) {
-      console.log("2 hasMore is false")
-      setHasMore(false);
-      return;
-    }
-
-    const newItems = data.slice(startIndex, endIndex);
-    setItems(prevItems => [...prevItems, ...newItems]);
-
-    if (endIndex >= data.length) {
-      console.log("3 hasMore is false")
-      setHasMore(false);
-    }
+      // Stop loading more if we have enough items
+      if (data.length >= 25) {
+        setHasMore(false);
+      }
+    }, 1000);
   };
 
   return (
-    <InfiniteScroll
-      dataLength={items.length}
-      next={fetchMoreData}
-      hasMore={hasMore}
-      loader={<h4>Loading...</h4>}
-      endMessage={<p style={{ textAlign: 'center' }}><b>No more items to load.</b></p>}
-      // You can customize the scrollable area by setting height and style
-      height={600}
-      //style={{ overflow: 'hidden' }}
-    >
-      {items.map((link, index) => (
-        // <div>a</div>
-        <div>{link}</div>
-        // <LinkListItem4 key={link.id} {...link} />
-        // <div key={index} style={{ padding: '10px', border: '1px solid #ccc', margin: '5px 0' }}>
-        //   {item} {/* Replace with actual item rendering */}
-        // </div>
-      ))}
-    </InfiniteScroll>
+    <div id="scrollableDiv" style={{ height: '300px', overflow: 'auto', border: '1px solid #ccc' }}>
+      <InfiniteScroll
+        dataLength={data.length}
+        next={fetchMoreData}
+        hasMore={hasMore}
+        loader={<h4>Loading...</h4>}
+        endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
+        scrollableTarget="scrollableDiv"
+      >
+        {data.map((item, index) => (
+          <div key={index} style={{ padding: '10px', border: '1px solid #eee', margin: '5px 0' }}>
+            {item}
+          </div>
+        ))}
+      </InfiniteScroll>
+    </div>
   );
 };
+
+//export default E;   
 
 //export default MyInfiniteScroll;   
 
@@ -192,4 +77,4 @@ const mapStateToProps = (state) => {
 //   };
 // };
 
-export default connect(mapStateToProps)(MyInfiniteScroll);
+export default connect(mapStateToProps)(E);

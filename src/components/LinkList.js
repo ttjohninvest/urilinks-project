@@ -284,7 +284,7 @@ export const LinkList = (props) => {
               })
             ):
 
-            <MyInfiniteList links={props.links2}/>
+            <MyInfiniteScroll links={props.links2} />
 
             // (
             //   props.links2.map((link) => {

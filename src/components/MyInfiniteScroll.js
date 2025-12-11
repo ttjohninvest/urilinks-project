@@ -2,7 +2,7 @@ import React from 'react';
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-const MyInfiniteList = ({links}) => {
+const MyInfiniteScroll = ({links}) => {
 
   const data = links
   const [items, setItems] = React.useState([]);
@@ -55,4 +55,4 @@ const MyInfiniteList = ({links}) => {
   );
 };
 
-export default MyInfiniteList;   
+export default MyInfiniteScroll;   

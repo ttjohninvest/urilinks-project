@@ -39,7 +39,7 @@ const E = (props) => {
 
   const [data2, setData2] = useState(arr2) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
   //console.log("data2="+JSON.stringify(data2))
-   const [data, setData] = useState(data2)
+  const [data, setData] = useState(arr2)
 
   const [hasMore, setHasMore] = useState(true);
 
@@ -49,26 +49,27 @@ const E = (props) => {
   // Function to load more items
   const fetchMoreData = () => {
     // Simulate API delay
-   // setTimeout(() => {
-    //  const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
-    //   setData(prev => [...prev, ...newItems]);
+    setTimeout(() => {
+   
 
-     if (data.length >= data2.length) {
-        setHasMore(false);
-      } else {
-        setSi1(si1+10)
+    //  if (data.length >= data2.length) {
+    //     setHasMore(false);
+    //   } else {
+    //     setSi1(si1+10)
+    //     setSi2(si2+10)
+    //     setData(prev => [...prev, ...data2.splice(si1,si2)]);
+    //   }
+      
+      setSi1(si1+10)
         setSi2(si2+10)
-        setData(prev => [...prev, ...data2.splice(si1,si2)]);
-      }
-      
-      
+         setData(prev => [...prev, ...data2.splice(si1,si2)]);
      
 
       // Stop loading more if we have enough items
-      // if (data.length >= data2.length) {
-      //   setHasMore(false);
-      // }
-    //}, 1000);
+      if (data.length >= data2.length) {
+        setHasMore(false);
+      }
+    }, 1000);
   };
 
   const storeScrollPosition = () => {

@@ -14,9 +14,9 @@ const E = (props) => {
   //   'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'
   // ]);
 
-  const [si1, setSi1] = useState(0)
-  const [si2, setSi2] = useState(5)
-  const [data, setData] = useState(props.links2.splice(si1,si2));
+  // const [si1, setSi1] = useState(0)
+  // const [si2, setSi2] = useState(5)
+  // const [data, setData] = useState(props.links2.splice(si1,si2));
 
   const [hasMore, setHasMore] = useState(true);
 
@@ -24,16 +24,13 @@ const E = (props) => {
   const fetchMoreData = () => {
     // Simulate API delay
     setTimeout(() => {
-      //const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
-//        const newItems = [
-//   ...data,
-//   ...props.links2.splice(si1+5,si2+5)
-// ];
-      //const newItems = props.links2.splice(5,10)
-      //setData(prev => [...prev, ...newItems]);
-      setData(prev => [...prev, ...props.links2.splice(si1+5,si2+5)]);
-      setSi1(si1+5)
-      setSi2(si2+5)
+     const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
+      setData(prev => [...prev, ...newItems]);
+      
+  
+      // setData(prev => [...prev, ...props.links2.splice(si1+5,si2+5)]);
+      // setSi1(si1+5)
+      // setSi2(si2+5)
      
 
       // Stop loading more if we have enough items
@@ -55,7 +52,7 @@ const E = (props) => {
       >
         {data.map((item, index) => (
           <div key={index} style={{ padding: '10px', border: '1px solid #eee', margin: '5px 0' }}>
-            {item.Url}
+            {item}
           </div>
         ))}
       </InfiniteScroll>

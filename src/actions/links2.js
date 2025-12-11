@@ -218,7 +218,14 @@ export const startSetLinks2 = () => {
         Promise.all(userDataPromises).then((snapshot) => {
           snapshot.forEach((childSnapshot) => {
               let arrayData = Object.values(childSnapshot.data);
-              let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
+
+              //let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
+              let updatedArray = arrayData.map((obj) => {
+                if(obj.showpublic === true)
+                 return { ...obj, id: v4(), uid:childSnapshot.userId }
+                });
+              
+
               links3.push(...updatedArray);
           }); 
           dispatch(setLinks2(links3)); 

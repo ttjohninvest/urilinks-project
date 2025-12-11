@@ -15,17 +15,23 @@ import LinkedInShareButton from "./LinkedInShareButton";
 import XShareButton from "./XShareButton";
 
 
+const getfilteredArray = (arr) => {
+const arr2 = arr.filter(link => link.showpublic === true)
+return arr2
+}
+
 const E = (props) => {
  
   // const [data, setData] = useState([
   //   'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
   //   'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'
   // ]);
+  
   const myRef = useRef(null);
 
   const [si1, setSi1] = useState(0)
   const [si2, setSi2] = useState(10)
-  const [data2, setData2] = useState(props.links2);
+  const [data2, setData2] = getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
   const [data, setData] = useState(data2.splice(si1,si2));
 
   const [hasMore, setHasMore] = useState(true);

@@ -27,10 +27,10 @@ const E = (props) => {
     //  const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
     //   setData(prev => [...prev, ...newItems]);
       
-  
-      setData(prev => [...prev, ...props.links2.splice(si1+5,si2+5)]);
       setSi1(si1+5)
       setSi2(si2+5)
+      setData(prev => [...prev, ...props.links2.splice(si1,si2)]);
+      
      
 
       // Stop loading more if we have enough items

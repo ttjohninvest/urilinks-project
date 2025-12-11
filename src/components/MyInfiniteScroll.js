@@ -39,7 +39,7 @@ const E = (props) => {
       <InfiniteScroll
         dataLength={data.length}
         next={fetchMoreData}
-        hasMore={hasMore}
+        hasMore={true}
         loader={<h4>Loading...</h4>}
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
         scrollableTarget="scrollableDiv"

@@ -69,7 +69,7 @@ const E = (props) => {
          {data.map((link, index) => (
           <div>
     {
-    //link.showpublic === 
+    link.showpublic === 
     true && 
   
   <div>

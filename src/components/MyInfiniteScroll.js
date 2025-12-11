@@ -60,7 +60,8 @@ const E = (props) => {
          {data.map((link, index) => (
           <div>
     {
-    link.showpublic === true && 
+    //link.showpublic === 
+    true && 
   
   <div>
     <div className="margin-bottom-1">

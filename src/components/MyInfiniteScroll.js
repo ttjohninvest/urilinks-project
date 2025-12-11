@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import selectLinks from "../selectors/links";
+import selectLinks2 from "../selectors/links2";
 import selectLinksTotal from "../selectors/links-total";
 
 const MyInfiniteScroll = (props) => {

@@ -32,14 +32,18 @@ const E = (props) => {
   const myRef = useRef(null);
 
   let j = 0
+  let arr3=[]
   const [si1, setSi1] = useState(0)
   const [si2, setSi2] = useState(10)
   const arr2 = props.links2.filter(link => link.showpublic === true)
-  console.log("arr2="+JSON.stringify(arr2))
+  if(arr2.length> 10)
+    arr3 = arr2.split(si1,si2)
+  else arr3 = arr2
+  console.log("arr2="+JSON.stringify(arr3))
 
-  const [data2, setData2] = useState(arr2) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
+  const [data2, setData2] = useState(arr3) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
   //console.log("data2="+JSON.stringify(data2))
-  const [data, setData] = useState(arr2)
+  const [data, setData] = useState(arr3)
 
   const [hasMore, setHasMore] = useState(true);
 

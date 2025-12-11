@@ -15,11 +15,11 @@ import LinkedInShareButton from "./LinkedInShareButton";
 import XShareButton from "./XShareButton";
 
 
-const getfilteredArray = (arr) => {
-const arr2 = arr.filter(link => link.showpublic === true)
-console.log("arr2="+JSON.stringify(arr2))
-return arr2
-}
+// const getfilteredArray = (arr) => {
+// const arr2 = arr.filter(link => link.showpublic === true)
+// console.log("arr2="+JSON.stringify(arr2))
+// return arr2
+// }
 
 const E = (props) => {
  
@@ -34,21 +34,10 @@ const E = (props) => {
   const [si1, setSi1] = useState(0)
   const [si2, setSi2] = useState(10)
   const arr2 = props.links2.filter(link => link.showpublic === true)
-    console.log("arr2="+JSON.stringify(arr2))
+  console.log("arr2="+JSON.stringify(arr2))
 
   const [data2, setData2] = useState(arr2) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
   //console.log("data2="+JSON.stringify(data2))
-  if(data2.length > 10) {
-   j = 10
-  }
-  else {
-   j = data2.length
-   setSi2(j)
-  }
-  const [data, setData] = useState([]);
-  if(data2.length <= 10)
-    setData(data2)
-  else setData(data2.splice(si1,si2))
 
   const [hasMore, setHasMore] = useState(true);
 

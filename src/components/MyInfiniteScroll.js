@@ -17,6 +17,7 @@ import XShareButton from "./XShareButton";
 
 const getfilteredArray = (arr) => {
 const arr2 = arr.filter(link => link.showpublic === true)
+console.log("arr2="+JSON.stringify(arr2))
 return arr2
 }
 

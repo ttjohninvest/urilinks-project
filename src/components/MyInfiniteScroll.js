@@ -138,7 +138,7 @@ const MyInfiniteScroll = (props) => {
     setItems(prevItems => [...prevItems, ...newItems]);
 
     if (endIndex >= data.length) {
-      setHasMore(false);
+      //setHasMore(false);
     }
   };
 

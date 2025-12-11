@@ -23,8 +23,8 @@ const E = (props) => {
   const fetchMoreData = () => {
     // Simulate API delay
     setTimeout(() => {
-      //const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
-      const newItems = props.links2.splice(5,10)
+      const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
+      //const newItems = props.links2.splice(5,10)
       setData(prev => [...prev, ...newItems]);
 
       // Stop loading more if we have enough items

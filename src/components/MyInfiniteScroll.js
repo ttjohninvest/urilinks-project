@@ -25,13 +25,13 @@ const E = (props) => {
     // Simulate API delay
     setTimeout(() => {
       //const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
-       const newItems = [
-  ...data,
-  ...props.links2.splice(si1+5,si2+5)
-];
+//        const newItems = [
+//   ...data,
+//   ...props.links2.splice(si1+5,si2+5)
+// ];
       //const newItems = props.links2.splice(5,10)
       //setData(prev => [...prev, ...newItems]);
-      setData(prev => [...prev, ...newItems]);
+      setData(prev => [...prev, ...props.links2.splice(si1+5,si2+5)]);
       setSi1(si1+5)
       setSi2(si2+5)
      
@@ -55,7 +55,7 @@ const E = (props) => {
       >
         {data.map((item, index) => (
           <div key={index} style={{ padding: '10px', border: '1px solid #eee', margin: '5px 0' }}>
-            {item.Description}
+            {item.Url}
           </div>
         ))}
       </InfiniteScroll>

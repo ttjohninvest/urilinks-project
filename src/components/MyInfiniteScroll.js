@@ -16,7 +16,8 @@ const E = (props) => {
 
   const [si1, setSi1] = useState(0)
   const [si2, setSi2] = useState(5)
-  const [data, setData] = useState([...props.links2.splice(si1,si2)]);
+  const [data2, setData2] = useState(props.links2);
+  const [data, setData] = useState(data2.splice(si1,si2));
 
   const [hasMore, setHasMore] = useState(true);
 
@@ -29,7 +30,7 @@ const E = (props) => {
       
       setSi1(si1+5)
       setSi2(si2+5)
-      setData(prev => [...prev, ...props.links2.splice(si1,si2)]);
+      setData(prev => [...prev, ...data2.splice(si1,si2)]);
       
      
 

@@ -658,7 +658,10 @@ const LinkListItem = (props) => {
     <div>
     {
     props.showpublic === 
-  true && <div className="margin-bottom-1">
+  true && 
+  
+  <div>
+    <div className="margin-bottom-1">
       <div className="card-background-color">
         <div className="list-item__flex">
           <div className="">
@@ -829,7 +832,12 @@ const LinkListItem = (props) => {
 
         <XShareButton url={props.Url} />
       </div>
-    </div>}
+    </div>
+
+   
+      </div>
+    
+    }
     </div>
   );
 };

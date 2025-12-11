@@ -5,6 +5,9 @@ import selectLinks from "../selectors/links";
 import selectLinks2 from "../selectors/links2";
 import selectLinksTotal from "../selectors/links-total";
 import LinkListItem4 from "./LinkListItem4"
+import { startRemoveLink, removeLink } from "../actions/links";
+import { Link } from "react-router-dom";
+import moment from "moment";
 
 
 const E = (props) => {
@@ -14,7 +17,7 @@ const E = (props) => {
   //   'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'
   // ]);
   const myRef = useRef(null);
-  
+
   const [si1, setSi1] = useState(0)
   const [si2, setSi2] = useState(10)
   const [data2, setData2] = useState(props.links2);

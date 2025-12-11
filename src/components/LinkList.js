@@ -284,7 +284,7 @@ export const LinkList = (props) => {
             ):
             (
               props.links2.map((link) => {
-                <LinkListItem4 key={link.id} {...link} />;
+                return <LinkListItem4 key={link.id} {...link} />;
               })
             )
             }

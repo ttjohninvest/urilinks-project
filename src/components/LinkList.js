@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
-import MyInfiniteList from '../InfiniteScroll'
+import MyInfiniteScroll from '../MyInfiniteScroll'
 import { startRemoveLink, removeLink } from "../actions/links";
 import { Link } from "react-router-dom";
 import numeral from "numeral";

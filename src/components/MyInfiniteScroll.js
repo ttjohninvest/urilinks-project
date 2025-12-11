@@ -121,7 +121,7 @@ const MyInfiniteScroll = (props) => {
     const initialItems = data.slice(0, itemsPerPage);
     setItems(initialItems);
     if (data.length <= itemsPerPage) {
-      setHasMore(false);
+      //setHasMore(false);
     }
   }, [data]);
 

@@ -7,7 +7,7 @@ import selectLinksTotal from "../selectors/links-total";
 import LinkListItem4 from "./LinkListItem4"
 
 
-const E = () => {
+const E = (props) => {
   // Define a locally stored array of strings
   // const [data, setData] = useState([
   //   'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',

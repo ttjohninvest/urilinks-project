@@ -121,6 +121,7 @@ const MyInfiniteScroll = (props) => {
     const initialItems = data.slice(0, itemsPerPage);
     setItems(initialItems);
     if (data.length <= itemsPerPage) {
+      console.log("1 hasMore is false")
       setHasMore(false);
     }
   }, [data]);
@@ -130,6 +131,7 @@ const MyInfiniteScroll = (props) => {
     const endIndex = startIndex + itemsPerPage;
 
     if (startIndex >= data.length) {
+      console.log("2 hasMore is false")
       setHasMore(false);
       return;
     }
@@ -138,6 +140,7 @@ const MyInfiniteScroll = (props) => {
     setItems(prevItems => [...prevItems, ...newItems]);
 
     if (endIndex >= data.length) {
+      console.log("3 hasMore is false")
       setHasMore(false);
     }
   };
@@ -150,7 +153,7 @@ const MyInfiniteScroll = (props) => {
       loader={<h4>Loading...</h4>}
       endMessage={<p style={{ textAlign: 'center' }}><b>No more items to load.</b></p>}
       // You can customize the scrollable area by setting height and style
-      height={200}
+      height={600}
       //style={{ overflow: 'hidden' }}
     >
       {items.map((link, index) => (

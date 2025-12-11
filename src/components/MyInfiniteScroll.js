@@ -13,6 +13,7 @@ import FBShareButton from "./FBShareButton";
 import MessengerButton from "./MessengerButton";
 import LinkedInShareButton from "./LinkedInShareButton";
 import XShareButton from "./XShareButton";
+import LoadingPage from "./LoadingPage"
 
 
 // const getfilteredArray = (arr) => {
@@ -82,7 +83,7 @@ const E = (props) => {
         dataLength={data.length}
         next={fetchMoreData}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={<LoadingPage />} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
         scrollableTarget="scrollableDiv"
       >

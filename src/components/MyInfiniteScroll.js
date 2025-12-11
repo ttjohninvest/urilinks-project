@@ -35,7 +35,7 @@ const E = (props) => {
      
 
       // Stop loading more if we have enough items
-      if (data.length >= 100) {
+      if (data.length >= data2.length) {
         setHasMore(false);
       }
     //}, 1000);
@@ -53,7 +53,7 @@ const E = (props) => {
       >
         {data.map((item, index) => (
           <div key={index} style={{ padding: '10px', border: '1px solid #eee', margin: '5px 0' }}>
-            {item.Url}
+            {JSON.stringify(item)}
           </div>
         ))}
       </InfiniteScroll>

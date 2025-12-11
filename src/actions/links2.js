@@ -219,11 +219,15 @@ export const startSetLinks2 = () => {
           snapshot.forEach((childSnapshot) => {
               let arrayData = Object.values(childSnapshot.data);
               console.log("1001,arrayData="+JSON.stringify(arrayData))
-              let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
-              // let updatedArray = arrayData.map((obj) => {
-              //   if(obj.showpublic === true)
-              //    return { ...obj, id: v4(), uid:childSnapshot.userId }
-              //   });
+              //let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
+
+              let updatedArray = arrayData.map((obj) => {
+                
+                  if(obj.showpublic === true) {
+                    return { ...obj, id: v4(), uid:childSnapshot.userId }
+                  }
+                 
+                });
               
 
               links3.push(...updatedArray);

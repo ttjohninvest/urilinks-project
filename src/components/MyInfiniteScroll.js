@@ -124,7 +124,7 @@ const MyInfiniteScroll = (props) => {
       console.log("1 hasMore is false")
       setHasMore(false);
     }
-  }, [items]);
+  }, [data]);
 
   const fetchMoreData = () => {
     const startIndex = items.length;

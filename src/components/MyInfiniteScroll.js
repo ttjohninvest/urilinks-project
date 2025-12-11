@@ -5,6 +5,7 @@ import selectLinks from "../selectors/links";
 import selectLinks2 from "../selectors/links2";
 import selectLinksTotal from "../selectors/links-total";
 
+
 const MyInfiniteScroll = (props) => {
 
   const data = props.links2
@@ -62,16 +63,16 @@ const MyInfiniteScroll = (props) => {
 //export default MyInfiniteScroll;   
 
 const mapStateToProps = (state) => {
-  
+  const visibleLinks = selectLinks(state.links, state.filters);
   const visibleLinks2 = selectLinks2(state.links2, state.filters);
 
   return {
-    
+    linkCount: visibleLinks.length,
     linkCount2: visibleLinks2.length,
-   
+    linksTotal: selectLinksTotal(visibleLinks),
     linksTotal2: selectLinksTotal(visibleLinks2),
     signup:state.signup,
-  
+    links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),
     
   };

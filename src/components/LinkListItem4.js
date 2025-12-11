@@ -657,8 +657,7 @@ const LinkListItem = (props) => {
   return (
     <div>
     {
-    props.showpublic === 
-  true && 
+    props.showpublic === true && 
   
   <div>
     <div className="margin-bottom-1">

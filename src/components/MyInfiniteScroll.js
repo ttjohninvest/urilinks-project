@@ -34,14 +34,17 @@ const E = (props) => {
   const [si1, setSi1] = useState(0)
   const [si2, setSi2] = useState(10)
   const [data2, setData2] = getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
-  if(data2.length >= 10) {
+  if(data2.length > 10) {
    j = 10
   }
   else {
    j = data2.length
    setSi2(j)
   }
-  const [data, setData] = useState(data2.splice(si1,j));
+  const [data, setData] = useState([]);
+  if(data2.length <= 10)
+    setData(data2)
+  else setData(data2.splice(si1,si2))
 
   const [hasMore, setHasMore] = useState(true);
 

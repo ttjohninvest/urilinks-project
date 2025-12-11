@@ -47,9 +47,10 @@ const MyInfiniteScroll = ({links}) => {
       style={{ overflow: 'hidden' }}
     >
       {items.map((item, index) => (
-        <div key={index} style={{ padding: '10px', border: '1px solid #ccc', margin: '5px 0' }}>
-          {item} {/* Replace with actual item rendering */}
-        </div>
+        <div>a</div>
+        // <div key={index} style={{ padding: '10px', border: '1px solid #ccc', margin: '5px 0' }}>
+        //   {item} {/* Replace with actual item rendering */}
+        // </div>
       ))}
     </InfiniteScroll>
   );

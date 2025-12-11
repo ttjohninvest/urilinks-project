@@ -8,6 +8,11 @@ import LinkListItem4 from "./LinkListItem4"
 import { startRemoveLink, removeLink } from "../actions/links";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import FBShareButton from "./FBShareButton";
+//import FBShareButton2 from "./FBShareButton2";
+import MessengerButton from "./MessengerButton";
+import LinkedInShareButton from "./LinkedInShareButton";
+import XShareButton from "./XShareButton";
 
 
 const E = (props) => {

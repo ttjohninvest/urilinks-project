@@ -4,6 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import selectLinks from "../selectors/links";
 import selectLinks2 from "../selectors/links2";
 import selectLinksTotal from "../selectors/links-total";
+import LinkListItem4 from "./LinkListItem4"
 
 
 const MyInfiniteScroll = (props) => {
@@ -149,11 +150,12 @@ const MyInfiniteScroll = (props) => {
       loader={<h4>Loading...</h4>}
       endMessage={<p style={{ textAlign: 'center' }}><b>No more items to load.</b></p>}
       // You can customize the scrollable area by setting height and style
-      //height={600}
+      height={1200}
       //style={{ overflow: 'hidden' }}
     >
-      {items.map((item, index) => (
-        <div>{item}</div>
+      {items.map((link, index) => (
+        <div>{link}</div>
+        // <LinkListItem4 key={link.id} {...link} />
         // <div key={index} style={{ padding: '10px', border: '1px solid #ccc', margin: '5px 0' }}>
         //   {item} {/* Replace with actual item rendering */}
         // </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { connect } from "react-redux";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import selectLinks from "../selectors/links";

@@ -46,7 +46,7 @@ const E = (props) => {
       >
         {data.map((item, index) => (
           <div key={index} style={{ padding: '10px', border: '1px solid #eee', margin: '5px 0' }}>
-            {item.Url}
+            {item}
           </div>
         ))}
       </InfiniteScroll>

@@ -14,7 +14,7 @@ const E = (props) => {
   //   'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'
   // ]);
 
-  const [data, setData] = useState(props.links2.split(0,5));
+  const [data, setData] = useState(props.links2.splice(0,5));
 
   // State to track if there are more items to load
   const [hasMore, setHasMore] = useState(true);
@@ -24,7 +24,7 @@ const E = (props) => {
     // Simulate API delay
     setTimeout(() => {
       //const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
-      const newItems = props.links2.split(5,10)
+      const newItems = props.links2.splice(5,10)
       setData(prev => [...prev, ...newItems]);
 
       // Stop loading more if we have enough items

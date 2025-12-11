@@ -52,23 +52,23 @@ const E = (props) => {
     setTimeout(() => {
    
 
-    //  if (data.length >= data2.length) {
-    //     setHasMore(false);
-    //   } else {
-    //     setSi1(si1+10)
-    //     setSi2(si2+10)
-    //     setData(prev => [...prev, ...data2.splice(si1,si2)]);
-    //   }
-      
-      setSi1(si1+10)
+     if (data.length >= data2.length) {
+        setHasMore(false);
+      } else {
+        setSi1(si1+10)
         setSi2(si2+10)
-         setData(prev => [...prev, ...data2.splice(si1,si2)]);
+        setData(prev => [...prev, ...data2.splice(si1,si2)]);
+      }
+      
+      // setSi1(si1+10)
+      //   setSi2(si2+10)
+      //    setData(prev => [...prev, ...data2.splice(si1,si2)]);
      
 
       // Stop loading more if we have enough items
-      if (data.length >= data2.length) {
-        setHasMore(false);
-      }
+      // if (data.length >= data2.length) {
+      //   setHasMore(false);
+      // }
     }, 1000);
   };
 

@@ -66,10 +66,11 @@ const E = (props) => {
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
         scrollableTarget="scrollableDiv"
       >
+         {/*change data to data3 where data3 is the filtered list */}
          {data.map((link, index) => (
           <div>
     {
-    link.showpublic === 
+    //link.showpublic === 
     true && 
   
   <div>

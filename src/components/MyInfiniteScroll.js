@@ -15,7 +15,7 @@ const E = (props) => {
   // ]);
 
   const [si1, setSi1] = useState(0)
-  const [si2, setSi2] = useState(5)
+  const [si2, setSi2] = useState(3000)
   const [data2, setData2] = useState(props.links2);
   const [data, setData] = useState(data2.splice(si1,si2));
 

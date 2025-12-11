@@ -37,7 +37,7 @@ const E = (props) => {
   const [si2, setSi2] = useState(10)
   const arr2 = props.links2.filter(link => link.showpublic === true)
   if(arr2.length> 10)
-    arr3 = arr2.split(si1,si2)
+    arr3 = arr2.splice(si1,si2)
   else arr3 = arr2
   console.log("arr2="+JSON.stringify(arr3))
 

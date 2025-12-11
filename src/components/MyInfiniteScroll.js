@@ -15,7 +15,7 @@ const E = (props) => {
   // ]);
 
   const [si1, setSi1] = useState(0)
-  const [si2, setSi2] = useState(3000)
+  const [si2, setSi2] = useState(10)
   const [data2, setData2] = useState(props.links2);
   const [data, setData] = useState(data2.splice(si1,si2));
 
@@ -24,12 +24,12 @@ const E = (props) => {
   // Function to load more items
   const fetchMoreData = () => {
     // Simulate API delay
-    setTimeout(() => {
+   // setTimeout(() => {
     //  const newItems = Array.from({ length: 5 }, (_, i) => `Item ${data.length + i + 1}`);
     //   setData(prev => [...prev, ...newItems]);
       
-      setSi1(si1+5)
-      setSi2(si2+5)
+      setSi1(si1+10)
+      setSi2(si2+10)
       setData(prev => [...prev, ...data2.splice(si1,si2)]);
       
      
@@ -38,7 +38,7 @@ const E = (props) => {
       if (data.length >= 100) {
         setHasMore(false);
       }
-    }, 1000);
+    //}, 1000);
   };
 
   return (

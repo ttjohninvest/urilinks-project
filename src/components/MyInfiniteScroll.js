@@ -38,7 +38,8 @@ const E = (props) => {
 
   const [data2, setData2] = useState(arr2) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
   //console.log("data2="+JSON.stringify(data2))
-
+   const [data, setData] = useState(data2)
+   
   const [hasMore, setHasMore] = useState(true);
 
   // Function to load more items

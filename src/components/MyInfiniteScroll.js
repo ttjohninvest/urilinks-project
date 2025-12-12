@@ -41,33 +41,6 @@ const E = (props) => {
 
   const myRef = useRef(null);
 
-  // let j = 0
-  // let arr3=[]
- 
-  // const [si1, setSi1] = useState(0)
-  // const [si2, setSi2] = useState(10)
-
-  //  const arr2 = props.links2.filter(link => link.showpublic === true)
-
-  //  if(arr2.length > 10) {
-     
-  //    arr3 = arr2.splice(si1,si2)
-  //  } else {
-    
-  //    arr3 = arr2
-  //  }
- 
-
-  // // const [data2, setData2] = useState(arr3) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
-
-  //  const [data2, setData2] = useState(arr2) //all of em
-  //  const [data, setData] = useState(arr3)
-
-  //const [data2, setData2] = useState(props.links2.filter(link => link.showpublic === true)) //all of em
-  //const [data, setData] = useState(props.links2.splice(si1,si2))
-
-  //const [hasMore, setHasMore] = useState(true);
-
   useEffect(()=>{
 const fetchData = async () => {
       
@@ -114,7 +87,7 @@ const fetchData = async () => {
         hasMore={nextIndex < localData.length}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
-        scrollableTarget="scrollableDiv"
+        //scrollableTarget="scrollableDiv"
       >
          {/*change data to data3 where data3 is the filtered list */}
          {data.map((link, index) => (

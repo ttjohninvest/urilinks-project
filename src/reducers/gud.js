@@ -2,7 +2,7 @@ const gudReducerDefaultState = {
   gud:{}
 };
 
-export default (state = photourlReducerDefaultState, action) => {
+export default (state = gudReducerDefaultState, action) => {
   switch (action.type) {
     case "SET_GOOGLEUSERDATA":
       return {

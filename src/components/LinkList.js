@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import MyInfiniteScroll from './MyInfiniteScroll'
+import MyInfiniteScroll2 from './MyInfiniteScroll2'
 import { startRemoveLink, removeLink } from "../actions/links";
 import { Link } from "react-router-dom";
 import numeral from "numeral";
@@ -22,7 +23,7 @@ import printerImage from "../assets/images/printer_image.png";
 export const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1");
   const [deleteData, setDeleteData] = useState([]);
-  const [first, setFirst] = useState(true);
+  const [first, setFirst] = useState(0);
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
     const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -35,15 +36,18 @@ export const LinkList = (props) => {
 
     if (event.target.value === "option1") {
       window.localStorage.setItem("whichOption", "option1");
-      setFirst(true)
+      setFirst(0)
     }
     else if (event.target.value === "option2") {
       window.localStorage.setItem("whichOption", "option2");
-      setFirst(true)
+      setFirst(0)
     }
     else if (event.target.value === "option3") {
       window.localStorage.setItem("whichOption", "option3");
-      setFirst(false)
+      setFirst(1)
+    } else if (event.target.value === "option4") {
+      window.localStorage.setItem("whichOption", "option4");
+      setFirst(2)
     }
       
     else window.localStorage.setItem("whichOption", "option1");
@@ -62,9 +66,10 @@ export const LinkList = (props) => {
   useEffect(() => {
     const option = window.localStorage.getItem("whichOption");
     if (option) {
-      if(option==="option1" || option==="option2") setFirst(true)
-      else if(option==="option3") setFirst(false)
-      else setFirst(true)
+      if(option==="option1" || option==="option2") setFirst(0)
+      else if(option==="option3") setFirst(1)
+      else if(option==="option4") setFirst(2) 
+      else setFirst(0)
       setSelectedOption(option);
     }
   }, []);
@@ -175,11 +180,28 @@ export const LinkList = (props) => {
           </label>
         </div>
 
+           <div>
+          <label className="inline-block__flex">
+            <input
+              ref={myRef}
+              className="the-inline-block zindex2 makehidden"
+              type="radio"
+              value="option3"
+              checked={selectedOption === "option3"}
+              onChange={handleOptionChange}
+            />
+              <span className="button-2 ib cursor-pointer" title="This will show all the links the public has shared.">People</span>
+            
+          </label>
+        </div>
+
         
       </div>
       
-      <div id="link-summary-id" className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span id="linkcount2id" className="ib is-active">{first===true?props.linkCount:props.linkCount2}</span> <span className="ib margin-left-11"> Link(s) Found</span></div>
+      <div id="link-summary-id" className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span id="linkcount2id" className="ib is-active">{first===0?props.linkCount:first===1?props.linkCount2:""}</span> <span className="ib margin-left-11">
+        {first===0 || first===1?" Link(s) Found":first===2?" People Found":""}</span></div>
       {selectedOption === "option3"?<div>All Filtered Links</div>:<div></div>}
+      {selectedOption === "option4"?<div>People</div>:<div></div>}
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
           {props.rl > 0 && (
@@ -256,7 +278,7 @@ export const LinkList = (props) => {
             }
           </div>
         </div>
-      ):
+      ): selectedOption === "option3" ? 
       (
         <div className="list-body margin-top-11-">
           {props.links2.length > 0 && (
@@ -296,7 +318,10 @@ export const LinkList = (props) => {
             }
           </div>
         </div>
-      )
+      ):
+      <div>
+        <MyInfiniteScroll2 />
+      </div>
       }
     </div>
   );

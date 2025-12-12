@@ -83,9 +83,9 @@ const E = (props) => {
      
 
       // // Stop loading more if we have enough items
-      // if (data.length >= data2.length) {
-      //   setHasMore(false);
-      // }
+      if (data.length >= data2.length) {
+        setHasMore(false);
+      }
 
 
 
@@ -116,6 +116,7 @@ const E = (props) => {
       <InfiniteScroll
         dataLength={data.length}
         next={fetchMoreData}
+        height={300}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}

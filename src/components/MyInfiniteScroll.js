@@ -45,8 +45,8 @@ const E = (props) => {
 
   // const [data, setData] = useState(arr3)
 
-  const [data2, setData2] = useState(props.links2) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
-
+  //const [data2, setData2] = useState(props.links2) 
+  const [data2, setData2] = useState(props.links2.filter(link => link.showpublic === true)) //all of em
   const [data, setData] = useState(props.links2.splice(si1,si2))
 
   const [hasMore, setHasMore] = useState(true);

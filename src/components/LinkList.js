@@ -186,8 +186,8 @@ export const LinkList = (props) => {
               ref={myRef}
               className="the-inline-block zindex2 makehidden"
               type="radio"
-              value="option3"
-              checked={selectedOption === "option3"}
+              value="option4"
+              checked={selectedOption === "option4"}
               onChange={handleOptionChange}
             />
               <span className="button-2 ib cursor-pointer" title="This will show all the links the public has shared.">People</span>

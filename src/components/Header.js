@@ -422,6 +422,7 @@ const mapDispatchToProps = (dispatch) => ({
   setLinks: (links) => dispatch(setLinks(links)),
   setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),
   startAddPhotourl: (photourl) => dispatch(startAddPhotourl(photourl)),
+  startAddDisplayname: (displayname) => dispatch(startAddDisplayname(displayname)),
   startAddEmail: (email) => dispatch(startAddEmail(email)),
   startDeleteAccount: (email) => dispatch(startDeleteAccount(email)),
   setTheplan: (theplan) => dispatch(setTheplan(theplan)),

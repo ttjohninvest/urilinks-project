@@ -92,6 +92,7 @@ const fetchPeople = async () => {
                   <div className={`flexrow4 border-green-`}>
                     
                     <img src={gud.photourl} className="borderradius50"/>
+                    <span>{gud.displayname}</span>
                   </div>
                 </div>
               </div>

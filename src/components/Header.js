@@ -10,6 +10,7 @@ import myprofile from "../assets/images/myprofile.png";
 import XShareButton from "./XShareButton";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startAddPhotourl } from "../actions/photourl";
+import { startAddDisplayname } from "../actions/displayname";
 import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
@@ -29,6 +30,13 @@ export const Header = (props) => {
     ////put the photoURL in the database
     props.startAddPhotourl({ photourl: photoURL });
     console.log("Header.js, done calling startAddPhotourl");
+  };
+
+    const setDisplayNamedb = (displayName) => {
+    console.log("setDisplayNamedb, Header.js, displayName=" + displayName);
+    ////put the photoURL in the database
+    props.startAddDisplayname({ displayname: displayName });
+    console.log("Header.js, done calling startAddDisplayname");
   };
 
   const setEmaildb = (email) => {
@@ -51,8 +59,10 @@ export const Header = (props) => {
       console.log("Header.js, user=" + JSON.stringify(user));
       console.log("Header, photoURL=" + user.photoURL);
       const purl = user.photoURL;
+      const dn = user.displayName;
       setPhotoURL(purl);
       setPhotoURLdb(purl);
+      setDisplayNamedb(dn)
       setEmaildb(user.email);
     }
 

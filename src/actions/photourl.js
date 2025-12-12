@@ -17,7 +17,7 @@ export const getPhotourl = () => {
         photourl = snapshot.val()
 
          if(photourl === undefined || photourl === null)
-                    dispatch(setPhotourl({photoURL:""}));
+                    dispatch(setPhotourl({photourl:""}));
                 else dispatch(setPhotourl(photourl));
        
       })

@@ -91,7 +91,7 @@ const fetchPeople = async () => {
                 <div className="flexcol3">
                   <div className={`flexrow4 border-green-`}>
                     
-                    <img src={person} />
+                    <img src={person} className="borderradius50"/>
                   </div>
                 </div>
               </div>

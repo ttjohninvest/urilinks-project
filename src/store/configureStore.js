@@ -31,6 +31,7 @@ import emailReducer from '../reducers/email';
 import subscriptionidReducer from '../reducers/subscriptionid';
 import spReducer from '../reducers/sp';
 import peopleReducer from '../reducers/people';
+import gudReducer from '../reducers/gud';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -66,6 +67,7 @@ export default () => {
       hashtags2withcount2: hashtags2withcount2Reducer,
       sp: spReducer,
       people: peopleReducer,
+      gud: gudReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

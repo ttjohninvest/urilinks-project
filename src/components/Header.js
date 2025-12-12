@@ -11,6 +11,7 @@ import XShareButton from "./XShareButton";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startAddPhotourl } from "../actions/photourl";
 import { startAddDisplayname } from "../actions/displayname";
+import { startAddGoogleUserData } from "../actions/googleuserdata";
 import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
@@ -39,6 +40,13 @@ export const Header = (props) => {
     console.log("Header.js, done calling startAddDisplayname");
   };
 
+   const setGoogleUserDatadb = (gud) => {
+    console.log("setGoogleUserDatadb, Header.js, gud=" + gud);
+    ////put the photoURL in the database
+    props.startAddGoogleUserData({gud:gud});
+    console.log("Header.js, done calling startGoogleUserData");
+  };
+
   const setEmaildb = (email) => {
     console.log("setEmaildb, Header.js, email=" + email);
     ////put the photoURL in the database
@@ -60,9 +68,15 @@ export const Header = (props) => {
       console.log("Header, photoURL=" + user.photoURL);
       const purl = user.photoURL;
       const dn = user.displayName;
+      const gud = {
+        photourl:purl,
+        displayname:dn,
+        email:user.email
+      }
       setPhotoURL(purl);
       setPhotoURLdb(purl);
       setDisplayNamedb(dn)
+      setGoogleUserDatadb(gud)
       setEmaildb(user.email);
     }
 
@@ -423,6 +437,7 @@ const mapDispatchToProps = (dispatch) => ({
   setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),
   startAddPhotourl: (photourl) => dispatch(startAddPhotourl(photourl)),
   startAddDisplayname: (displayname) => dispatch(startAddDisplayname(displayname)),
+  startAddGoogleUserData: (gud) => dispatch(startAddGoogleUserData(gud)),
   startAddEmail: (email) => dispatch(startAddEmail(email)),
   startDeleteAccount: (email) => dispatch(startDeleteAccount(email)),
   setTheplan: (theplan) => dispatch(setTheplan(theplan)),

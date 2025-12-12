@@ -89,10 +89,11 @@ const fetchPeople = async () => {
              
               <div className={`${false?"":"margin-top-1"}`}>
                 <div className="flexcol3">
-                  <div className={`flexrow4 border-green-`}>
+                  <div className={`flexrow4 border-green`}>
                     
-                    <img src={gud.photourl} className="borderradius50"/>
-                    <span>{gud.displayname}</span>
+                    <div><img src={gud.photourl} className="borderradius50"/></div>
+                    <div><span>{gud.displayname}</span></div>
+                    <div><span>{gud.email}</span></div>
                   </div>
                 </div>
               </div>

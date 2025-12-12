@@ -36,7 +36,9 @@ const E = (props) => {
  
   const [si1, setSi1] = useState(0)
   const [si2, setSi2] = useState(10)
+
    const arr2 = props.links2 //.filter(link => link.showpublic === true)
+
    if(arr2.length > 10) {
      
      arr3 = arr2.splice(si1,si2)
@@ -62,7 +64,7 @@ const E = (props) => {
   // Function to load more items
   const fetchMoreData = () => {
     // Simulate API delay
-    //setTimeout(() => {
+    setTimeout(() => {
 
 
       //  if (data.length >= data2.length) {
@@ -102,7 +104,7 @@ const E = (props) => {
     
       
     
-    //}, 1000);
+    }, 1000);
   };
 
   const storeScrollPosition = () => {
@@ -112,11 +114,11 @@ const E = (props) => {
   };
 
   return (
-    <div id="scrollableDiv" style={{ height: '300px', overflow: 'auto', border: '1px solid #ccc' }}>
+    <div id="scrollableDiv" style={{ height: '600px', overflow: 'auto', border: '1px solid #ccc' }}>
       <InfiniteScroll
         dataLength={data.length}
         next={fetchMoreData}
-        height={300}
+        height={600}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}

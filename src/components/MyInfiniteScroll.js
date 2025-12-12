@@ -23,6 +23,16 @@ import LoadingPage from "./LoadingPage"
 // }
 
 const E = (props) => {
+
+   // Store the full local data in state
+  const [localData, setLocalData] = useState([]);
+  // Store the data to be displayed
+  const [data, setData] = useState([]);
+  // Define the number of items to add per scroll
+  const itemsPerPage = 3;
+  // Use two indexes: one for tracking the current display index, another for the next batch
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [nextIndex, setNextIndex] = useState(itemsPerPage)
  
   // const [data, setData] = useState([
   //   'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
@@ -31,85 +41,62 @@ const E = (props) => {
 
   const myRef = useRef(null);
 
-  let j = 0
-  let arr3=[]
+  // let j = 0
+  // let arr3=[]
  
-  const [si1, setSi1] = useState(0)
-  const [si2, setSi2] = useState(10)
+  // const [si1, setSi1] = useState(0)
+  // const [si2, setSi2] = useState(10)
 
-   const arr2 = props.links2.filter(link => link.showpublic === true)
+  //  const arr2 = props.links2.filter(link => link.showpublic === true)
 
-   if(arr2.length > 10) {
+  //  if(arr2.length > 10) {
      
-     arr3 = arr2.splice(si1,si2)
-   } else {
+  //    arr3 = arr2.splice(si1,si2)
+  //  } else {
     
-     arr3 = arr2
-   }
+  //    arr3 = arr2
+  //  }
  
 
-  // const [data2, setData2] = useState(arr3) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
+  // // const [data2, setData2] = useState(arr3) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
 
-   const [data2, setData2] = useState(arr2) //all of em
-   const [data, setData] = useState(arr3)
+  //  const [data2, setData2] = useState(arr2) //all of em
+  //  const [data, setData] = useState(arr3)
 
   //const [data2, setData2] = useState(props.links2.filter(link => link.showpublic === true)) //all of em
   //const [data, setData] = useState(props.links2.splice(si1,si2))
 
-  const [hasMore, setHasMore] = useState(true);
+  //const [hasMore, setHasMore] = useState(true);
 
- 
-
-  //  if (data.length <= 10) {
-  //       setHasMore(false);
-  //     }
-  // Function to load more items
-  const fetchMoreData = () => {
-    // Simulate API delay
-    setTimeout(() => {
-
-
-      //  if (data.length >= data2.length) {
-      //   setHasMore(false);
-      //   setSi1(si1+10)
-      //   setSi2(si2+10)
-      //   setData(prev => [...prev, ...data2.splice(si1,si2)]);
-      // }
-      // else {
-      //   setSi1(si1+10)
-      //   setSi2(si2+10)
-      //   setData(prev => [...prev, ...data2.splice(si1,si2)]);
-      // }
- 
-    
-      setData(prev => [...prev, ...data2.splice(si1+10,si2+10)]);
-      setSi1(si1+10)
-      setSi2(si2+10)
-      // if (data.length >= data2.length) {
-      //   setHasMore(false);
-      // }
-
-      // // Stop loading more if we have enough items
-      // if (data.length >= data2.length) {
-      //   setHasMore(false);
-      // }
-
-
-
-      // setSi1(si1+10)
-      // setSi2(si2+10)
-      // setData(prev => [...prev, ...data2.splice(si1,si2)]);
-     
-
-      // // Stop loading more if we have enough items
-      // if (data.length >= data2.length) {
-      //   setHasMore(false);
-      // }
-
-    
+  useEffect(()=>{
+const fetchData = async () => {
       
-    
-    }, 1000);
+      setLocalData(props.links2);
+      // Initialize display data with the first batch
+      setData(props.links2.slice(0, itemsPerPage));
+    };
+    fetchData();
+  },[])
+
+ 
+  const fetchMoreData = () => {
+    // // Simulate API delay
+    //setTimeout(() => {
+
+    if (nextIndex >= localData.length) {
+      return; // No more data to load
+    }
+
+    // Splice the next batch of items from the local array
+    const newItems = localData.slice(currentIndex, nextIndex);
+    setData(prevData => [...prevData, ...newItems]);
+
+    // Update the indexes for the next batch
+    setCurrentIndex(nextIndex);
+    setNextIndex(nextIndex + itemsPerPage);
+
+  //},1000)
+  
   };
 
   const storeScrollPosition = () => {
@@ -124,7 +111,7 @@ const E = (props) => {
         dataLength={data.length}
         next={fetchMoreData}
         height={500}
-        hasMore={hasMore}
+        hasMore={nextIndex < localData.length}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
         scrollableTarget="scrollableDiv"

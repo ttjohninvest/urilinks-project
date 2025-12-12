@@ -87,7 +87,7 @@ const fetchData = async () => {
         hasMore={nextIndex < localData.length}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
-        //scrollableTarget="scrollableDiv"
+        scrollableTarget="scrollableDiv"
       >
          {/*change data to data3 where data3 is the filtered list */}
          {data.map((link, index) => (

@@ -51,10 +51,6 @@ const E = (props) => {
    const [data2, setData2] = useState(arr2) //all of em
    const [data, setData] = useState(arr3)
 
-   
- 
-
-  
   //const [data2, setData2] = useState(props.links2.filter(link => link.showpublic === true)) //all of em
   //const [data, setData] = useState(props.links2.splice(si1,si2))
 
@@ -132,7 +128,7 @@ const E = (props) => {
     //link.showpublic === 
     true && 
   
-  <div>
+  <div key={index}>
     <div className="margin-bottom-1">
       <div className="card-background-color">
         <div className="list-item__flex">

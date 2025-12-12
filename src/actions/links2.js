@@ -229,7 +229,6 @@ export const startSetLinks2 = () => {
                  
               //   });
               
-
               links3.push(...updatedArray);
           }); 
           dispatch(setLinks2(links3)); 

@@ -45,9 +45,9 @@ const E = (props) => {
 
   // const [data, setData] = useState(arr3)
 
-  const [data2, setData2] = useState(props.links2.splice(si1,si2)) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
+  const [data2, setData2] = useState(props.links2) //getfilteredArray(props.links2) //useState(props.links2); //data2 should be initialized to the filtered array
 
-  const [data, setData] = useState(data2)
+  const [data, setData] = useState(props.links2.splice(si1,si2))
 
   const [hasMore, setHasMore] = useState(true);
 
@@ -59,15 +59,27 @@ const E = (props) => {
     // Simulate API delay
     setTimeout(() => {
    
-if(data.length < 10) {
- if (data.length >= data2.length) {
-        setHasMore(false);
-      } else {
-        setSi1(si1+10)
-        setSi2(si2+10)
-        setData(prev => [...prev, ...data2.splice(si1,si2)]);
-      }
-} else {
+// if(data.length < 10) {
+//  if (data.length >= data2.length) {
+//         setHasMore(false);
+//       } else {
+//         setSi1(si1+10)
+//         setSi2(si2+10)
+//         setData(prev => [...prev, ...data2.splice(si1,si2)]);
+//       }
+// } else {
+//   setSi1(si1+10)
+//       setSi2(si2+10)
+//       setData(prev => [...prev, ...data2.splice(si1,si2)]);
+     
+
+//       // Stop loading more if we have enough items
+//       if (data.length >= data2.length) {
+//         setHasMore(false);
+//       }
+// }
+
+
   setSi1(si1+10)
       setSi2(si2+10)
       setData(prev => [...prev, ...data2.splice(si1,si2)]);
@@ -77,7 +89,7 @@ if(data.length < 10) {
       if (data.length >= data2.length) {
         setHasMore(false);
       }
-}
+
     
       
     

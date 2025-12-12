@@ -106,7 +106,8 @@ const fetchData = async () => {
               <div className={`${false?"":"margin-top-1"}`}>
                 <div className="flexcol3">
                   <div className={`flexrow4 border-green-`}>
-                <img src={props.photourl.photourl} />
+                    d
+                    {/* <img src={props.photourl.photourl} /> */}
                   </div>
                 </div>
               </div>

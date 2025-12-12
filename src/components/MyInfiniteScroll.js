@@ -66,7 +66,7 @@ const E = (props) => {
   // Function to load more items
   const fetchMoreData = () => {
     // Simulate API delay
-    setTimeout(() => {
+    //setTimeout(() => {
 
 
       //  if (data.length >= data2.length) {
@@ -106,7 +106,7 @@ const E = (props) => {
     
       
     
-    }, 1000);
+    //}, 1000);
   };
 
   const storeScrollPosition = () => {

@@ -71,7 +71,9 @@ const E = (props) => {
 
        if (data.length >= data2.length) {
         setHasMore(false);
-        setData([])
+        setSi1(si1+10)
+        setSi2(si2+10)
+        setData(prev => [...prev, ...data2.splice(si1,si2)]);
       }
       else {
         setSi1(si1+10)

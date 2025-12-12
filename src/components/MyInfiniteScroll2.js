@@ -4,30 +4,13 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import selectLinks from "../selectors/links";
 import selectLinks2 from "../selectors/links2";
 import selectLinksTotal from "../selectors/links-total";
-import LinkListItem4 from "./LinkListItem4"
-import { startRemoveLink, removeLink } from "../actions/links";
-import { Link } from "react-router-dom";
-import moment from "moment";
-import FBShareButton from "./FBShareButton";
-//import FBShareButton2 from "./FBShareButton2";
-import MessengerButton from "./MessengerButton";
-import LinkedInShareButton from "./LinkedInShareButton";
-import XShareButton from "./XShareButton";
-import LoadingPage from "./LoadingPage"
-
-
-// const getfilteredArray = (arr) => {
-// const arr2 = arr.filter(link => link.showpublic === true)
-// console.log("arr2="+JSON.stringify(arr2))
-// return arr2
-// }
 
 const E2 = (props) => {
 
    // Store the full local data in state
-  const [localData, setLocalData] = useState([]);
+  const [localPeople, setLocalPeople] = useState([]);
   // Store the data to be displayed
-  const [data, setData] = useState([]);
+  const [people, setPeople] = useState([]);
   // Define the number of items to add per scroll
   const itemsPerPage = 3;
   // Use two indexes: one for tracking the current display index, another for the next batch
@@ -42,27 +25,28 @@ const E2 = (props) => {
   const myRef = useRef(null);
 
   useEffect(()=>{
-const fetchData = async () => {
+const fetchPeople = async () => {
       
-      setLocalData(props.links2.filter(link => link.showpublic === true));
-      // Initialize display data with the first batch
-      setData(props.links2.slice(0, itemsPerPage));
+      //setLocalPeople(props.people.filter(person => person.showpublic === true));
+      setLocalPeople(props.people);
+      
+      setPeople(props.people.slice(0, itemsPerPage));
     };
-    fetchData();
+    fetchPeople();
   },[])
 
  
-  const fetchMoreData = () => {
+  const fetchMorePeople = () => {
     // // Simulate API delay
     //setTimeout(() => {
 
-    if (nextIndex >= localData.length) {
-      return; // No more data to load
+    if (nextIndex >= localPeople.length) {
+      return; // No more people to load
     }
 
     // Splice the next batch of items from the local array
-    const newItems = localData.slice(currentIndex, nextIndex);
-    setData(prevData => [...prevData, ...newItems]);
+    const newItems = localPeople.slice(currentIndex, nextIndex);
+    setPeople(prevPeople => [...prevPeople, ...newItems]);
 
     // Update the indexes for the next batch
     setCurrentIndex(nextIndex);
@@ -81,16 +65,16 @@ const fetchData = async () => {
   return (
     <div id="scrollableDiv" style={{ height: '500px', overflow: 'auto', border: '1px solid #ccc' }}>
       <InfiniteScroll
-        dataLength={data.length}
-        next={fetchMoreData}
+        peopleLength={people.length}
+        next={fetchMorePeople}
         height={500}
-        hasMore={nextIndex < localData.length}
+        hasMore={nextIndex < localPeople.length}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
         scrollableTarget="scrollableDiv"
       >
          {/*change data to data3 where data3 is the filtered list */}
-         {data.map((link, index) => (
+         {people.map((person, index) => (
           <div>
     {
     //link.showpublic === 
@@ -106,8 +90,8 @@ const fetchData = async () => {
               <div className={`${false?"":"margin-top-1"}`}>
                 <div className="flexcol3">
                   <div className={`flexrow4 border-green-`}>
-                    d
-                    {/* <img src={props.photourl.photourl} /> */}
+                    
+                    <img src={person.photourl.photourl} />
                   </div>
                 </div>
               </div>
@@ -141,9 +125,9 @@ const mapStateToProps = (state) => {
     linksTotal: selectLinksTotal(visibleLinks),
     linksTotal2: selectLinksTotal(visibleLinks2),
     signup:state.signup,
-    photourl:state.photourl,
     links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),
+    people: state.people
     
   };
 };

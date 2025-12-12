@@ -93,8 +93,8 @@ an error occurred: 10002222, this error means Delete Account did not work
 
 //
 todo to do
-pagination in react
-https://search.brave.com/search?q=example+code+that+does+pagination+in+react+functional+component&summary=1&conversation=da1a5fc5a45400784d0b39
+actions/links2.js has ids hardcoded still
+
 =================================================================================
 
 

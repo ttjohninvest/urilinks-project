@@ -7,6 +7,7 @@ import setSignup from "./actions/signup";
 import configureStore from "./store/configureStore";
 import { startSetLinks } from "./actions/links";
 import { startSetLinks2 } from "./actions/links2";
+import { startSetPeople } from "./actions/people";
 
 import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
@@ -83,6 +84,9 @@ if (signup !== "signup") {
   }
 
 store
+    .dispatch(startSetPeople())
+    .then(() => {
+store
     .dispatch(startSetLinks2())
     .then(() => {
        store
@@ -118,6 +122,11 @@ store
       console.log("error", error);
     });
 
+     })
+      .catch((error) => {
+      console.log("error", error);
+    });
+
 
  
 } else {
@@ -135,7 +144,9 @@ store
       //store.dispatch(getCustomerId(user.uid)); //this should initialize the redux variable customerId
       //store.dispatch(getSubscriptionId(user.uid));//this should initialize the redux variable subscriptionId
 
-
+store
+    .dispatch(startSetPeople())
+    .then(() => {
  store
         .dispatch(startSetLinks2())
         .then(() => {
@@ -188,6 +199,10 @@ store
           console.log("error", error);
         });
 
+         })
+        .catch((error) => {
+          console.log("error", error);
+        });
 
     } else {
       console.log("logout happened");

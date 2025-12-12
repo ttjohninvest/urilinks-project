@@ -71,7 +71,7 @@ const E = (props) => {
   useEffect(()=>{
 const fetchData = async () => {
       
-      setLocalData(props.links2);
+      setLocalData(props.links2.filter(link => link.showpublic === true));
       // Initialize display data with the first batch
       setData(props.links2.slice(0, itemsPerPage));
     };

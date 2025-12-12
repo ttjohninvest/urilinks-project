@@ -40,7 +40,7 @@ export const startAddGoogleUserData = (gud = {}) => {
       .ref(`users/${uid}/gud`)
       .update(gud)
       .then(() => {
-        console.log("actions/photourl.js, startAddGoogleUserData, just before the call to dispatch to add google user Data to redux, gud="+JSON.stringify(gud))
+        console.log("actions/gud.js, startAddGoogleUserData, just before the call to dispatch to add google user Data to redux, gud="+JSON.stringify(gud))
         dispatch(
           addGoogleUserData({
             ...gud,

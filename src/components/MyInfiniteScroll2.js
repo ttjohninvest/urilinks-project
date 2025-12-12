@@ -74,7 +74,7 @@ const fetchPeople = async () => {
         scrollableTarget="scrollableDiv"
       >
          {/*change data to data3 where data3 is the filtered list */}
-         {people.map((person, index) => (
+         {people.map((gud, index) => (
           <div>
     {
     //link.showpublic === 
@@ -91,7 +91,7 @@ const fetchPeople = async () => {
                 <div className="flexcol3">
                   <div className={`flexrow4 border-green-`}>
                     
-                    <img src={person} className="borderradius50"/>
+                    <img src={gud.photourl} className="borderradius50"/>
                   </div>
                 </div>
               </div>

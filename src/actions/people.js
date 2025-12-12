@@ -214,7 +214,7 @@ export const startSetPeople = () => {
           snapshot.forEach((childSnapshot) => {
               let personData = Object.values(childSnapshot.data);
               console.log("1001,personData="+JSON.stringify(personData))
-              let updatedPerson = personData //.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
+              let updatedPerson = personData[0] //.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
 
               // let updatedArray = arrayData.map((obj) => {
                 
@@ -224,7 +224,7 @@ export const startSetPeople = () => {
                  
               //   });
               
-              people.push(updatedPerson);
+              people.push(updatedPerson); //pushing strings
           }); 
           dispatch(setPeople(people)); 
           console.log("the people="+JSON.stringify(people,null,2))

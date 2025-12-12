@@ -36,7 +36,7 @@ const E = (props) => {
  
   const [si1, setSi1] = useState(0)
   const [si2, setSi2] = useState(10)
-   const arr2 = props.links2.filter(link => link.showpublic === true)
+   const arr2 = props.links2 //.filter(link => link.showpublic === true)
    if(arr2.length > 10) {
      
      arr3 = arr2.splice(si1,si2)

@@ -16,11 +16,7 @@ import XShareButton from "./XShareButton";
 import LoadingPage from "./LoadingPage"
 
 
-// const getfilteredArray = (arr) => {
-// const arr2 = arr.filter(link => link.showpublic === true)
-// console.log("arr2="+JSON.stringify(arr2))
-// return arr2
-// }
+
 
 const E = (props) => {
 

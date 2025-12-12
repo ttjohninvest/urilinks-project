@@ -114,11 +114,11 @@ const E = (props) => {
   };
 
   return (
-    <div id="scrollableDiv" style={{ height: '600px', overflow: 'auto', border: '1px solid #ccc' }}>
+    <div id="scrollableDiv" style={{ height: '500px', overflow: 'auto', border: '1px solid #ccc' }}>
       <InfiniteScroll
         dataLength={data.length}
         next={fetchMoreData}
-        height={600}
+        height={500}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}

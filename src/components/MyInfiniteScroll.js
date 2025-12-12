@@ -58,6 +58,13 @@ const E = (props) => {
 
   const [hasMore, setHasMore] = useState(true);
 
+  useEffect(()=>{
+    setData(prev => [...prev, ...data2.splice(si1,si2)]);
+     if (data.length >= data2.length) {
+        setHasMore(false);
+      }
+  },[si1,si2,data])
+
   //  if (data.length <= 10) {
   //       setHasMore(false);
   //     }
@@ -85,9 +92,9 @@ const E = (props) => {
      
 
       // // Stop loading more if we have enough items
-      if (data.length >= data2.length) {
-        setHasMore(false);
-      }
+      // if (data.length >= data2.length) {
+      //   setHasMore(false);
+      // }
 
 
 

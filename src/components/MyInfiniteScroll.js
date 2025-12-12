@@ -64,7 +64,7 @@ const E = (props) => {
      if (data.length >= data2.length) {
         setHasMore(false);
       }
-  },[si1,si2])
+  },[si1,si2,data])
 
   //  if (data.length <= 10) {
   //       setHasMore(false);

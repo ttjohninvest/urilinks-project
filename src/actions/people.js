@@ -179,20 +179,20 @@ export const startSetPeople = () => {
           res.json({ message: "no user ids" });
         }
 
-        const userIds = Object.keys(users);
+        //const userIds = Object.keys(users);
         console.log("All user IDs:", userIds);
-        // const ids = [
-        //   "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
-        //   "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
-        //   "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-        //   "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
-        //   "WJGHkWycjKQxPK83Fi4zqx53bCl1",
-        //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
-        //   "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
-        //   "m8f0YMF5bucp9uhblPZhM8CTjq12",
-        //   "tWKNG14PYYYY0hDPurLouWtYjtq1",
-        // ];
-        // const userIds = ids;
+        const ids = [
+          "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
+          "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
+          "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
+          "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
+          "WJGHkWycjKQxPK83Fi4zqx53bCl1",
+          "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+          "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
+          "m8f0YMF5bucp9uhblPZhM8CTjq12",
+          "tWKNG14PYYYY0hDPurLouWtYjtq1",
+        ];
+        const userIds = ids;
 
         /////////////////////////////////////////
         const userDataPromises = userIds.map((userId) => {
@@ -202,7 +202,7 @@ export const startSetPeople = () => {
             .then((snapshot) => {
               const data = snapshot.val();
               console.error(`the photourl for user ${userId}:`, JSON.stringify(data));
-              return { userId, data };
+              return { userId, data:!!data?data: {photourl:""}};
             })
             .catch((error) => {
               console.error(`Error reading data for user ${userId}:`, error);
@@ -213,7 +213,7 @@ export const startSetPeople = () => {
         Promise.all(userDataPromises).then((snapshot) => {
           snapshot.forEach((childSnapshot) => {
               let personData = Object.values(childSnapshot.data);
-              console.log("1001,personData="+JSON.stringify(personData))
+              console.log("1001,personData="+JSON.stringify(personData[0]))
             //   let updatedPerson = personData[0] //.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
             //   console.log("1001,personData[0]="+JSON.stringify(personData[0]))
               // let updatedArray = arrayData.map((obj) => {
@@ -224,7 +224,7 @@ export const startSetPeople = () => {
                  
               //   });
               
-              people.push(personData); //pushing strings
+              people.push(personData[0]); //pushing strings
           }); 
           console.log("thepeople="+JSON.stringify(people))
           dispatch(setPeople(people)); 

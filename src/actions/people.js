@@ -214,8 +214,8 @@ export const startSetPeople = () => {
           snapshot.forEach((childSnapshot) => {
               let personData = Object.values(childSnapshot.data);
               console.log("1001,personData="+JSON.stringify(personData))
-              let updatedPerson = personData[0] //.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
-              console.log("1001,personData[0]="+JSON.stringify(personData[0]))
+            //   let updatedPerson = personData[0] //.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
+            //   console.log("1001,personData[0]="+JSON.stringify(personData[0]))
               // let updatedArray = arrayData.map((obj) => {
                 
               //     if(obj.showpublic === true) {
@@ -224,9 +224,9 @@ export const startSetPeople = () => {
                  
               //   });
               
-              people.push(updatedPerson); //pushing strings
+              people.push(personData); //pushing strings
           }); 
-          console.log("the people="+JSON.stringify(people,null,2))
+          console.log("thepeople="+JSON.stringify(people))
           dispatch(setPeople(people)); 
        
         });

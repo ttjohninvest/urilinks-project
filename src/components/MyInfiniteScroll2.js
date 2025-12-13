@@ -72,15 +72,15 @@ const fetchPeople = async () => {
 
   return (
     <div id="scrollableDiv" style={{ 
-      //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`
-      height: "150px",
+      height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,
+      //height: "150px",
       overflow: 'auto', border: '1px solid #ccc' }}>
       <InfiniteScroll
         dataLength={people.length}
         next={fetchMorePeople}
         height={
-          //`${people.length===1?100:people.length===2?200:people.length===3?300:people.length>3?500:500}`
-          150
+          `${people.length===1?100:people.length===2?200:people.length===3?300:people.length>3?500:500}`
+          //150
         }
         hasMore={nextIndex < (localPeople.length+itemsPerPage)}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>

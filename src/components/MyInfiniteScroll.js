@@ -41,6 +41,7 @@ const E = (props) => {
 const fetchData = async () => {
       
       setLocalData(props.links2.filter(link => link.showpublic === true));
+      console.log("filtered length="+props.links2.filter(link => link.showpublic === true).length)
       // Initialize display data with the first batch
       setData(props.links2.slice(0, itemsPerPage));
 

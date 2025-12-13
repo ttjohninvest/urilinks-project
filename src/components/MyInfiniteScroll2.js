@@ -70,11 +70,11 @@ const fetchPeople = async () => {
   };
 
   return (
-    <div id="scrollableDiv" style={{ height: '300px', overflow: 'auto', border: '1px solid #ccc' }}>
+    <div id="scrollableDiv" style={{ height: '100px', overflow: 'auto', border: '1px solid #ccc' }}>
       <InfiniteScroll
         dataLength={people.length}
         next={fetchMorePeople}
-        height={300}
+        height={100}
         hasMore={nextIndex < (localPeople.length+itemsPerPage)}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}

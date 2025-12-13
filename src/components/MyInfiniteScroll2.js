@@ -29,6 +29,7 @@ const fetchPeople = async () => {
       
       //setLocalPeople(props.people.filter(person => person.showpublic === true));
       setLocalPeople(props.people);
+      console.log("MyInfiniteScroll 2, props.people.length="+props.people.length)
       
       setPeople(props.people.slice(0, itemsPerPage));
 

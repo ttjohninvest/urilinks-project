@@ -12,7 +12,7 @@ const E2 = (props) => {
   // Store the data to be displayed
   const [people, setPeople] = useState([]);
   // Define the number of items to add per scroll
-  const itemsPerPage = 2;
+  const itemsPerPage = 3;
   // Use two indexes: one for tracking the current display index, another for the next batch
   const [currentIndex, setCurrentIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(itemsPerPage)
@@ -63,11 +63,11 @@ const fetchPeople = async () => {
   };
 
   return (
-    <div id="scrollableDiv" style={{ height: '500px', overflow: 'auto', border: '1px solid #ccc' }}>
+    <div id="scrollableDiv" style={{ height: '100px', overflow: 'auto', border: '1px solid #ccc' }}>
       <InfiniteScroll
         dataLength={people.length}
         next={fetchMorePeople}
-        height={500}
+        height={100}
         hasMore={nextIndex < localPeople.length}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}

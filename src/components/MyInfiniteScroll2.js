@@ -110,7 +110,7 @@ const fetchPeople = async () => {
                     <div><img src={gud.photourl} className="borderradius50"/></div>
                     <div className="margin-left-11"><span>{gud.displayname}</span></div>
                     <div><a href={`https://mail.google.com/mail/?view=cm&from=johmcg64@gmail.com&to=ttjohninvest@gmail.com&su=Hello&body=Hi%20there!`}>from johmcg64@gmail.com to ttjohninvest@gmail.com</a>
-                    <div>
+                    </div>
                     
                     {/*<a href={`https://mail.google.com/mail/u/${gud.email}`} target="_blank" rel="noopener noreferrer">
   Open Gmail

@@ -45,7 +45,7 @@ const fetchPeople = async () => {
     // // Simulate API delay
     //setTimeout(() => {
 
-    if (nextIndex > (localPeople.length)) {
+    if (nextIndex >= (localPeople.length)) {
       return; // No more people to load
     }
 

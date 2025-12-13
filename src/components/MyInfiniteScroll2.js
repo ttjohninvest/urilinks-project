@@ -53,8 +53,11 @@ const fetchPeople = async () => {
     setPeople(prevPeople => [...prevPeople, ...newItems]);
 
     // Update the indexes for the next batch
-    setCurrentIndex(nextIndex);
-    setNextIndex(nextIndex + itemsPerPage);
+    if(people.length < localPeople.length) {
+      setCurrentIndex(nextIndex);
+      setNextIndex(nextIndex + itemsPerPage);
+    }
+
 
   //},1000)
   

@@ -12,7 +12,7 @@ const E2 = (props) => {
   // Store the data to be displayed
   const [people, setPeople] = useState([]);
   // Define the number of items to add per scroll
-  const itemsPerPage = 3;
+  const itemsPerPage = 5;
   // Use two indexes: one for tracking the current display index, another for the next batch
   const [currentIndex, setCurrentIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(itemsPerPage)
@@ -45,7 +45,7 @@ const fetchPeople = async () => {
     // // Simulate API delay
     //setTimeout(() => {
 
-    if (nextIndex >= (localPeople.length)) {
+    if (nextIndex >= localPeople.length) {
       return; // No more people to load
     }
 

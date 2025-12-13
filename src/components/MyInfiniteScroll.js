@@ -58,7 +58,7 @@ const fetchData = async () => {
     // // Simulate API delay
     //setTimeout(() => {
 
-    if (nextIndex > localData.length) {
+    if (nextIndex >= localData.length) {
       return; // No more data to load
     }
 

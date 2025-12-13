@@ -108,14 +108,11 @@ const fetchPeople = async () => {
                   <div className={`flexrow4 border-green-`}>
                     
                     <div><img src={gud.photourl} className="borderradius50"/></div>
+
                     <div className="margin-left-11"><span>{gud.displayname}</span></div>
-                    <div><a href={`https://mail.google.com/mail/?view=cm&from=johmcg64@gmail.com&to=ttjohninvest@gmail.com&su=Hello&body=Hi%20there!`}>from johmcg64@gmail.com to ttjohninvest@gmail.com</a>
+                    <div><a href={`https://mail.google.com/mail/?view=cm&from=${props.email.email}&to=${gud.email}&su=Hello&body=Hi%20there!`}>from johmcg64@gmail.com to ttjohninvest@gmail.com</a>
                     </div>
                     
-                    {/*<a href={`https://mail.google.com/mail/u/${gud.email}`} target="_blank" rel="noopener noreferrer">
-  Open Gmail
-</a></div> */} 
-                    {/* <div className="margin-left-11"><span>{gud.email}</span></div> */}
                   </div>
                 </div>
               </div>
@@ -149,6 +146,7 @@ const mapStateToProps = (state) => {
     linksTotal: selectLinksTotal(visibleLinks),
     linksTotal2: selectLinksTotal(visibleLinks2),
     signup:state.signup,
+    email:state.email,
     links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),
     people: state.people

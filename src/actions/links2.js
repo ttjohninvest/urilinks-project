@@ -193,9 +193,9 @@ export const startSetLinks2 = () => {
           "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
           "WJGHkWycjKQxPK83Fi4zqx53bCl1",
           "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
-          //"cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
-          "m8f0YMF5bucp9uhblPZhM8CTjq12"
-          //"tWKNG14PYYYY0hDPurLouWtYjtq1",
+          "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
+          "m8f0YMF5bucp9uhblPZhM8CTjq12",
+          "tWKNG14PYYYY0hDPurLouWtYjtq1"
         ];
         const userIds = ids;
 

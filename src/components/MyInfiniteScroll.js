@@ -23,7 +23,7 @@ const E = (props) => {
    // Store the full local data in state
   const [localData, setLocalData] = useState([]);
   // Store the data to be displayed
-  const [data, setData] = useState(props.links2.slice(0, itemsPerPage));
+  const [data, setData] = useState([]);
   // Define the number of items to add per scroll
   const itemsPerPage = 3;
   // Use two indexes: one for tracking the current display index, another for the next batch

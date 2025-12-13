@@ -201,8 +201,16 @@ export const startSetPeople = () => {
             .once("value")
             .then((snapshot) => {
               const data = snapshot.val();
+              const data2 = {gud:{}}
               console.error(`the photourl for user ${userId}:`, JSON.stringify(data));
-              return { userId, data:!!data?data: {gud:""}};
+              
+              if(!!data===false) {
+                //data={data:{}}
+                return { userId, data2};
+              } else {
+                return { userId, data:!!data?data: {gud:""}};
+              }
+              
             })
             .catch((error) => {
               console.error(`Error reading data for user ${userId}:`, error);

@@ -21,9 +21,9 @@ import LoadingPage from "./LoadingPage"
 const E = (props) => {
 
    // Store the full local data in state
-  const [localData, setLocalData] = useState([]);
+  const [localData, setLocalData] = useState(props.links2.filter(link => link.showpublic === true));
   // Store the data to be displayed
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(props.links2.slice(0, itemsPerPage));
   // Define the number of items to add per scroll
   const itemsPerPage = 3;
   // Use two indexes: one for tracking the current display index, another for the next batch
@@ -40,7 +40,7 @@ const E = (props) => {
   useEffect(()=>{
 const fetchData = async () => {
       
-      setLocalData(props.links2.filter(link => link.showpublic === true));
+      //setLocalData(props.links2.filter(link => link.showpublic === true));
       // Initialize display data with the first batch
       //setData(props.links2.slice(0, itemsPerPage));
 
@@ -66,10 +66,10 @@ const fetchData = async () => {
     setData(prevData => [...prevData, ...newItems]);
 
     // Update the indexes for the next batch
-    setCurrentIndex(nextIndex);
-    setNextIndex(nextIndex + itemsPerPage);
-    // setCurrentIndex(prev => prev + itemsPerPage);
-    // setNextIndex(prev => prev + itemsPerPage);
+    // setCurrentIndex(nextIndex);
+    // setNextIndex(nextIndex + itemsPerPage);
+    setCurrentIndex(prev => prev + itemsPerPage);
+    setNextIndex(prev => prev + itemsPerPage);
 
   //},1000)
   

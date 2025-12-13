@@ -32,9 +32,9 @@ const fetchPeople = async () => {
       
       setPeople(props.people.slice(0, itemsPerPage));
 
-      //setCurrentIndex(nextIndex);
+      setCurrentIndex(nextIndex);
 
-      //setNextIndex(nextIndex + itemsPerPage);
+      setNextIndex(nextIndex + itemsPerPage);
     };
     fetchPeople();
   },[])

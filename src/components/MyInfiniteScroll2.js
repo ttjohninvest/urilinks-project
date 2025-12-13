@@ -33,9 +33,9 @@ const fetchPeople = async () => {
       
       setPeople(props.people.slice(0, itemsPerPage));
 
-      setCurrentIndex(nextIndex);
+      // setCurrentIndex(nextIndex);
 
-      setNextIndex(nextIndex + itemsPerPage);
+      // setNextIndex(nextIndex + itemsPerPage);
     };
     fetchPeople();
   },[])
@@ -82,7 +82,7 @@ const fetchPeople = async () => {
           //`${people.length===1?100:people.length===2?200:people.length===3?300:people.length>3?500:500}`
           300
         }
-        hasMore={nextIndex < (localPeople.length+itemsPerPage)}
+        hasMore={nextIndex < localPeople.length}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
         scrollableTarget="scrollableDiv"

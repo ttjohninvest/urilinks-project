@@ -85,7 +85,7 @@ const fetchData = async () => {
         dataLength={data.length}
         next={fetchMoreData}
         height={500}
-        hasMore={nextIndex < (localData.length)}
+        hasMore={nextIndex < localData.length}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
         scrollableTarget="scrollableDiv"

@@ -208,7 +208,7 @@ export const startSetLinks2 = () => {
               let data = snapshot.val();
               console.log("ZZZ,userId="+userId)
               console.log("ZZZ,data="+JSON.stringify(data))
-              if(data===null) {
+              if(data===null) { //shis check removed the null error which caused the list qll linkw list to not display at all
                 data={}
                 return { userId, data  };
               } else {

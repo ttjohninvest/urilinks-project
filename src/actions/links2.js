@@ -205,11 +205,16 @@ export const startSetLinks2 = () => {
             .ref(`users/${userId}/links`)
             .once("value")
             .then((snapshot) => {
-              const data = snapshot.val();
+              let data = snapshot.val();
               console.log("ZZZ,userId="+userId)
               console.log("ZZZ,data="+JSON.stringify(data))
+              if(data===null) {
+                data={}
+                return { userId, data  };
+              } else {
+                return { userId, data };
+              }
               
-              return { userId, data };
             })
             .catch((error) => {
               console.error(`Error reading data for user ${userId}:`, error);

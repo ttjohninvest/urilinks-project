@@ -44,9 +44,9 @@ const fetchData = async () => {
       // Initialize display data with the first batch
       setData(props.links2.slice(0, itemsPerPage));
 
-      //setCurrentIndex(nextIndex);
+      setCurrentIndex(nextIndex);
 
-      //setNextIndex(nextIndex + itemsPerPage);
+      setNextIndex(nextIndex + itemsPerPage);
 
     };
     fetchData();
@@ -85,7 +85,7 @@ const fetchData = async () => {
         dataLength={data.length}
         next={fetchMoreData}
         height={500}
-        hasMore={nextIndex < localData.length}
+        hasMore={nextIndex < (localData.length+itemsPerPage)}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
         scrollableTarget="scrollableDiv"

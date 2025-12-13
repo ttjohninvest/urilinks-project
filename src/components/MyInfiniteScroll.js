@@ -66,10 +66,10 @@ const fetchData = async () => {
     setData(prevData => [...prevData, ...newItems]);
 
     // Update the indexes for the next batch
-    // setCurrentIndex(nextIndex);
-    // setNextIndex(nextIndex + itemsPerPage);
-    setCurrentIndex(prev => prev + itemsPerPage);
-    setNextIndex(prev => prev + itemsPerPage);
+    setCurrentIndex(nextIndex);
+    setNextIndex(nextIndex + itemsPerPage);
+    // setCurrentIndex(prev => prev + itemsPerPage);
+    // setNextIndex(prev => prev + itemsPerPage);
 
   //},1000)
   

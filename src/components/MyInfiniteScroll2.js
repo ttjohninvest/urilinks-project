@@ -12,7 +12,7 @@ const E2 = (props) => {
   // Store the data to be displayed
   const [people, setPeople] = useState([]);
   // Define the number of items to add per scroll
-  const itemsPerPage = 4;
+  const itemsPerPage = 3;
   // Use two indexes: one for tracking the current display index, another for the next batch
   const [currentIndex, setCurrentIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(itemsPerPage)
@@ -30,10 +30,11 @@ const fetchPeople = async () => {
       //setLocalPeople(props.people.filter(person => person.showpublic === true));
       setLocalPeople(props.people);
       
-      setPeople(props.people.slice(0, itemsPerPage));
+      //setPeople(props.people.slice(0, itemsPerPage));
 
-      setCurrentIndex(nextIndex);
-      setNextIndex(nextIndex + itemsPerPage);
+      //setCurrentIndex(nextIndex);
+
+      //setNextIndex(nextIndex + itemsPerPage);
     };
     fetchPeople();
   },[])
@@ -43,7 +44,7 @@ const fetchPeople = async () => {
     // // Simulate API delay
     //setTimeout(() => {
 
-    if (nextIndex >= (localPeople.length+1)) {
+    if (nextIndex >= (localPeople.length)) {
       return; // No more people to load
     }
 
@@ -71,7 +72,7 @@ const fetchPeople = async () => {
         dataLength={people.length}
         next={fetchMorePeople}
         height={300}
-        hasMore={nextIndex < (localPeople.length+1)}
+        hasMore={nextIndex < (localPeople.length)}
         loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
         endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
         scrollableTarget="scrollableDiv"

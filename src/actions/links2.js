@@ -217,6 +217,7 @@ export const startSetLinks2 = () => {
         let links3 = [];
         Promise.all(userDataPromises).then((snapshot) => {
           snapshot.forEach((childSnapshot) => {
+              if(!!childSnapshot) {
               let arrayData = Object.values(childSnapshot.data);
               console.log("1001,arrayData="+JSON.stringify(arrayData))
               let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
@@ -230,6 +231,7 @@ export const startSetLinks2 = () => {
               //   });
               
               links3.push(...updatedArray);
+}
           }); 
           dispatch(setLinks2(links3)); 
           console.log("the links3="+JSON.stringify(links3,null,2))

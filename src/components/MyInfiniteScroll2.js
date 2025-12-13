@@ -44,7 +44,7 @@ const fetchPeople = async () => {
     // // Simulate API delay
     //setTimeout(() => {
 
-    if (nextIndex >= (localPeople.length)) {
+    if (nextIndex > (localPeople.length)) {
       return; // No more people to load
     }
 
@@ -53,10 +53,10 @@ const fetchPeople = async () => {
     setPeople(prevPeople => [...prevPeople, ...newItems]);
 
     // Update the indexes for the next batch
-    if(people.length < localPeople.length) {
+    
       setCurrentIndex(nextIndex);
       setNextIndex(nextIndex + itemsPerPage);
-    }
+    
 
 
   //},1000)

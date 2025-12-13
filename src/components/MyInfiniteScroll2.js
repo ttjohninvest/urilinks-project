@@ -30,7 +30,7 @@ const fetchPeople = async () => {
       //setLocalPeople(props.people.filter(person => person.showpublic === true));
       setLocalPeople(props.people);
       
-      //setPeople(props.people.slice(0, itemsPerPage));
+      setPeople(props.people.slice(0, itemsPerPage));
 
       //setCurrentIndex(nextIndex);
 

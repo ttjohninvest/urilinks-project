@@ -206,6 +206,8 @@ export const startSetLinks2 = () => {
             .once("value")
             .then((snapshot) => {
               const data = snapshot.val();
+              console.log("ZZZ,userId="+userId)
+              console.log("ZZZ,data="+JSON.stringify(data))
               
               return { userId, data };
             })

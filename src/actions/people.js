@@ -204,12 +204,12 @@ export const startSetPeople = () => {
               const data2 = {gud:{}}
               console.error(`the photourl for user ${userId}:`, JSON.stringify(data));
               
-              if(!!data===false) {
-                //data={data:{}}
-                return { userId, data2};
-              } else {
+              // if(!!data===false) {
+              //   //data={data:{}}
+              //   return { userId, data2};
+              // } else {
                 return { userId, data:!!data?data: {gud:""}};
-              }
+              //}
               
             })
             .catch((error) => {

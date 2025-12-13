@@ -42,7 +42,7 @@ const fetchData = async () => {
       
       setLocalData(props.links2.filter(link => link.showpublic === true));
       // Initialize display data with the first batch
-      setData(props.links2.slice(0, itemsPerPage));
+      //setData(props.links2.slice(0, itemsPerPage));
 
       // setCurrentIndex(nextIndex);
 
@@ -66,8 +66,10 @@ const fetchData = async () => {
     setData(prevData => [...prevData, ...newItems]);
 
     // Update the indexes for the next batch
-    setCurrentIndex(nextIndex);
-    setNextIndex(nextIndex + itemsPerPage);
+    // setCurrentIndex(nextIndex);
+    // setNextIndex(nextIndex + itemsPerPage);
+    setCurrentIndex(prev => prev + itemsPerPage);
+    setNextIndex(prev => prev + itemsPerPage);
 
   //},1000)
   

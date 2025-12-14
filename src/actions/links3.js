@@ -173,7 +173,8 @@ export const startSetLinks3 = async () => {
   //return (dispatch, getState) => {
     console.log("inside")
     const hashtags = [];
-    return database
+    let links4 = []
+    database
       .ref(`users`)
       .once("value")
       .then((snapshot) => {
@@ -221,7 +222,7 @@ export const startSetLinks3 = async () => {
               return { userId, error };
             });
         });
-        let links4 = [];
+        //let links4 = [];
         Promise.all(userDataPromises).then((snapshot) => {
           !!snapshot=== true && snapshot.forEach((childSnapshot) => {
               //console.log("childSnapshot.data="+JSON.stringify(childSnapshot.data))
@@ -242,13 +243,13 @@ export const startSetLinks3 = async () => {
           }); 
           //dispatch(setLinks3(links4)); 
           console.log("the links4="+JSON.stringify(links4,null,2))
-          return links4;
+          
         });
         
        
         
       }).catch((error) => console.log("error=" + error));
-      
+      return links4;
   //};
   //return [1,2,3]
 };

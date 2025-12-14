@@ -27,6 +27,8 @@ const E2 = (props) => {
   // Use two indexes: one for tracking the current display index, another for the next batch
   const [currentIndex, setCurrentIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(itemsPerPage)
+
+  const [links3, setLinks3] = useState([])
  
   // const [data, setData] = useState([
   //   'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
@@ -83,13 +85,14 @@ const fetchPeople = async () => {
     //you need to call dispatch(setSetit(false)) here////
   };
   
-  const YZ = (event, param) => {
+  const YZ = (event, uid) => {
     console.log("in YZ")
   
-    startSetLinks3(param)
-    .then((links3) => {
-     console.log("YZ, param="+param)
+    startSetLinks3(uid)
+    .then((links3) => { //links3 contains all the links for the uid, userId. It is not stored in redux though because I don't have access to dispatch, useDispatch is returning something that is not a function
+     console.log("YZ, uid="+uid)
      console.log("YZ, links3="+JSON.stringify(links3))
+     setLinks3(links3)
        })
     .catch((error) => {
       console.log("error", error);
@@ -139,6 +142,9 @@ const fetchPeople = async () => {
                       {`display links made public ${gud.uid}`}
                       <button onClick={(event) => YZ(event, gud.uid)}>display links made public</button>
                       </div>
+                      <div>{links3.map((link)=>{
+                              {link.Url}
+                      })}</div>
                     </div>
                     :
                     <div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/u/0`} target="_blank">Send gmail</a>

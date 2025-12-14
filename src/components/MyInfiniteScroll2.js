@@ -91,7 +91,7 @@ const fetchPeople = async () => {
     startSetLinks3(uid)
     .then((links3) => { //links3 contains all the links for the uid, userId. It is not stored in redux though because I don't have access to dispatch, useDispatch is returning something that is not a function
      console.log("YZ, uid="+uid)
-     console.log("YZ, links3="+JSON.stringify(links3))
+     //console.log("YZ, links3="+JSON.stringify(links3))
      setLinks3(links3)
        })
     .catch((error) => {

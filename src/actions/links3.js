@@ -244,6 +244,7 @@ export const startSetLinks3 = async () => {
           //console.log("the links4="+JSON.stringify(links4,null,2))
           
         });
+        console.log("the links4="+JSON.stringify(links4,null,2))
         return links4;
         
       }).catch((error) => console.log("error=" + error));

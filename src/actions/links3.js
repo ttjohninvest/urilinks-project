@@ -242,10 +242,10 @@ export const startSetLinks3 = async () => {
 
           }); 
           //dispatch(setLinks3(links4)); 
-          console.log("the links4="+JSON.stringify(links4,null,2))
-          return links4;
+         
         });
-        
+         //console.log("the links4="+JSON.stringify(links4,null,2))
+        return [1,2,3] //links4;
        
         
       }).catch((error) => console.log("error=" + error));

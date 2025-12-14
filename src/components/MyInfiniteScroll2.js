@@ -91,7 +91,7 @@ const fetchPeople = async () => {
     startSetLinks3(uid)
     .then((links3) => { //links3 contains all the links for the uid, userId. It is not stored in redux though because I don't have access to dispatch, useDispatch is returning something that is not a function
      console.log("YZ, uid="+uid)
-     //console.log("YZ, links3="+JSON.stringify(links3))
+     console.log("YZ, links3="+JSON.stringify(links3))
      setLinks3(links3)
        })
     .catch((error) => {
@@ -100,9 +100,9 @@ const fetchPeople = async () => {
 }
 
   return (<div>
-     <div>{!!links3 === true && links3.map((link)=>{
+     {/* <div>{!!links3 === true && links3.map((link)=>{
                               {link.Url}
-                      })}</div>
+                      })}</div> */}
     <div id="scrollableDiv" style={{ 
       //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,
       height: "300px",

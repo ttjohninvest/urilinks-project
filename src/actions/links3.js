@@ -202,7 +202,7 @@ export const startSetLinks3 = async () => {
 
         /////////////////////////////////////////
         const userDataPromises = userIds.map((userId) => {
-          database
+          return database
             .ref(`users/${userId}/links`)
             .once("value")
             .then((snapshot) => {
@@ -249,7 +249,7 @@ export const startSetLinks3 = async () => {
        
         
       }).catch((error) => console.log("error=" + error));
-      return links4;
+      //return links4;
   //};
   return [1,2,3]
 };

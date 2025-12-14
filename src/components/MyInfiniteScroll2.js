@@ -142,9 +142,7 @@ const fetchPeople = async () => {
                       {`display links made public ${gud.uid}`}
                       <button onClick={(event) => YZ(event, gud.uid)}>display links made public</button>
                       </div>
-                      <div>{links3.map((link)=>{
-                              {link.Url}
-                      })}</div>
+                     
                     </div>
                     :
                     <div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/u/0`} target="_blank">Send gmail</a>
@@ -153,7 +151,9 @@ const fetchPeople = async () => {
                     
                     
                     }
-                    
+                     <div>{!!links3 === true && links3.map((link)=>{
+                              {link.Url}
+                      })}</div>
                   </div>
                 </div>
               </div>

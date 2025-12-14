@@ -97,7 +97,7 @@ const fetchPeople = async () => {
          {people.map((gud, index) => (
           <div>
     {
-    //link.showpublic === 
+    ////link.showpublic === 
     true && 
   
   <div key={index}>

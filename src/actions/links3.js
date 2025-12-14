@@ -211,8 +211,10 @@ export const startSetLinks3 = (uid) => {
               links3.push(...updatedArray);
 
           }); 
-          dispatch(setLinks2(links3)); 
-          console.log("the links3="+JSON.stringify(links3,null,2))
+          //dispatch(setLinks2(links3)); 
+          console.log("1 the links3="+JSON.stringify(links3,null,2))
+          return links3
+          
         });
         
      

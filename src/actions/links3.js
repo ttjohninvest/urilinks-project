@@ -168,47 +168,24 @@ const seen = (hashtag, theSeenArray) => {
 
 //this puts the links array in the global redux store to be used to list the output
 //you will need to call urilinks-project-read-all-data to get the database data
-export const startSetLinks3 = async () => {
+export const startSetLinks3 = (uid) => {
   console.log("startSetLinks3");
   //return (dispatch, getState) => {
-    console.log("inside")
+    
     const hashtags = [];
-    let links4 = []
-    await database
-      .ref(`users`)
-      .once("value")
-      .then((snapshot) => {
-        const users = snapshot.val();
+   
 
-        if (!users) {
-          console.log("No users found.");
-          res.json({ message: "no user ids" });
-        }
-
-        const userIds = Object.keys(users);
-        //console.log("All user IDs:", userIds);
-        // const ids = [
-        //   "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
-        //   "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
-        //   "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-        //   "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
-        //   "WJGHkWycjKQxPK83Fi4zqx53bCl1",
-        //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
-        //   "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
-        //   "m8f0YMF5bucp9uhblPZhM8CTjq12",
-        //   "tWKNG14PYYYY0hDPurLouWtYjtq1"
-        // ];
-        // const userIds = ids;
+        const userIds = [uid]
 
         /////////////////////////////////////////
         const userDataPromises = userIds.map(async (userId) => {
-          return database
+          await database
             .ref(`users/${userId}/links`)
             .once("value")
             .then((snapshot) => {
               let data = snapshot.val();
               console.log("ZZZ,userId="+userId)
-              //console.log("ZZZ,data="+JSON.stringify(data))
+              console.log("ZZZ,data="+JSON.stringify(data))
               if(data===null) { //shis check removed the null error which caused the list qll linkw list to not display at all
                 data={}
                 return { userId, data  };
@@ -222,29 +199,55 @@ export const startSetLinks3 = async () => {
               return { userId, error };
             });
         });
-        //let links4 = [];
-        
+        let links3 = [];
         Promise.all(userDataPromises).then((snapshot) => {
           !!snapshot=== true && snapshot.forEach((childSnapshot) => {
-              //console.log("childSnapshot.data="+JSON.stringify(childSnapshot.data))
+              console.log("childSnapshot.data="+JSON.stringify(childSnapshot.data))
               let arrayData = Object.values(childSnapshot.data);
-              //console.log("1001,arrayData="+JSON.stringify(arrayData))
+              console.log("1001,arrayData="+JSON.stringify(arrayData))
               let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
               
-              links4.push(...updatedArray);
+              links3.push(...updatedArray);
 
           }); 
-          console.log("runs second")
-          //dispatch(setLinks3(links4)); 
-          return links4;
-        }); //Promise.all
-         
-       console.log("runs first")
+          dispatch(setLinks2(links3)); 
+          console.log("the links3="+JSON.stringify(links3,null,2))
+        });
         
-      }).catch((error) => console.log("error=" + error));
-      //return links4;
+     
+      
   //};
-  //return [1,2,3] //works
+};
+
+export const startSetLinksAll2 = () => {
+  return (dispatch, getState) => {
+    return database
+      .ref(`users`)
+      .once("value")
+      .then((snapshot) => {
+        const linksAll = [];
+
+        snapshot.forEach((childSnapshot) => {
+          return database
+            .ref(`users/${childSnapshot.key}/links`)
+            .once("value")
+            .then((snapshot2) => {
+              snapshot2.forEach((childSnapshot2) => {
+                linksAll.push({
+                  id: childSnapshot2.key,
+                  ...childSnapshot2.val(),
+                });
+              });
+              console.log(
+                "startSetLinksAll, about to call dispatch(setLinksAll(links));"
+              );
+              dispatch(setLinksAll2(linksAll));
+            })
+            .catch((error) => console.log("error=" + error));
+        });
+      })
+      .catch((error) => console.log("error=" + error));
+  };
 };
 
 export const startSetLinksAll3 = () => {

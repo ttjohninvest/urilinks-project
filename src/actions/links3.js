@@ -174,7 +174,7 @@ export const startSetLinks3 = async () => {
     console.log("inside")
     const hashtags = [];
     let links4 = []
-    database
+    await database
       .ref(`users`)
       .once("value")
       .then((snapshot) => {

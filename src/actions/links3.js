@@ -179,9 +179,9 @@ export const startSetLinks3 = (uid) => {
         userIds[0] = uid
         console.log("userIds="+JSON.stringify(userIds))
         /////////////////////////////////////////
-        const userDataPromises = userIds.map(async (userId) => {
-          await database
-            .ref(`users/${uid}/links`)
+        const userDataPromises = userIds.map((userId) => {
+          return database
+            .ref(`users/${userId}/links`)
             .once("value")
             .then((snapshot) => {
               let data = snapshot.val();

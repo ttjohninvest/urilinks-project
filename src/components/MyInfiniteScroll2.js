@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {useStore} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import * as firebase from "firebase";
-import store from "../store"
+
 import { connect } from "react-redux";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import selectLinks from "../selectors/links";
@@ -81,10 +81,10 @@ const fetchPeople = async () => {
     // window.localStorage.setItem("scrollY",window.scrollY)
     //you need to call dispatch(setSetit(false)) here////
   };
-
+  const dispatch = useDispatch()
   const YZ = (event, param) => {
     console.log("in YZ")
-    //const dispatch=useDispatch()
+  
     store.dispatch(startSetLinks3(param))
     .then(() => {
      console.log("YZ, param="+param)

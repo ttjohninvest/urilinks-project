@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {useDispatch} from 'react-redux'
+import {useStore} from 'react-redux'
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
@@ -84,8 +84,8 @@ const fetchPeople = async () => {
 
   const YZ = (event, param) => {
     console.log("in YZ")
-    const dispatch=useDispatch()
-    dispatch(startSetLinks3(param))
+    //const dispatch=useDispatch()
+    useStore().dispatch(startSetLinks3(param))
     .then(() => {
      console.log("YZ, param="+param)
 

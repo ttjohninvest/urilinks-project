@@ -87,9 +87,9 @@ const fetchPeople = async () => {
     console.log("in YZ")
   
     startSetLinks3(param)
-    .then(() => {
+    .then((links3) => {
      console.log("YZ, param="+param)
-     console.log("YZ, links3="+JSON.stringify(props.links3))
+     console.log("YZ, links3="+JSON.stringify(links3))
        })
     .catch((error) => {
       console.log("error", error);

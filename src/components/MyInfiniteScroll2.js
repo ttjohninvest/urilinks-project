@@ -95,7 +95,7 @@ const fetchPeople = async () => {
      setLinks3(links3)
        })
     .catch((error) => {
-      console.log("error", error);
+      console.log("error="+error);
     })
 }
 

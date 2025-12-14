@@ -243,7 +243,7 @@ export const startSetLinks3 = async () => {
           }); 
           //dispatch(setLinks3(links4)); 
           console.log("the links4="+JSON.stringify(links4,null,2))
-          
+          return links4;
         });
         
        
@@ -251,7 +251,7 @@ export const startSetLinks3 = async () => {
       }).catch((error) => console.log("error=" + error));
       //return links4;
   //};
-  return [1,2,3]
+  //return [1,2,3]
 };
 
 export const startSetLinksAll3 = () => {

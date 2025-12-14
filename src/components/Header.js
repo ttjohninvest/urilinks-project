@@ -72,7 +72,8 @@ export const Header = (props) => {
       const gud = {
         photourl:purl,
         displayname:dn,
-        email:user.email
+        email:user.email,
+        uid:user.uid
       }
       setPhotoURL(purl);
       setPhotoURLdb(purl);

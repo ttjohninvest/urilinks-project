@@ -9,7 +9,7 @@ import selectLinksTotal from "../selectors/links-total";
 
 const E2 = (props) => {
 
-  const [email,setEmail] = useState(firebase.auth().currentUser.email)
+  const [email,setEmail] = useState(!!firebase.auth().currentUser===true?email:"examplesourceemail1@gmaill.com")
    // Store the full local data in state
   const [localPeople, setLocalPeople] = useState([]);
   // Store the data to be displayed
@@ -113,7 +113,7 @@ const fetchPeople = async () => {
                     <div><img src={gud.photourl} className="borderradius50"/></div>
 
                     <div className="margin-left-11"><span>{gud.displayname}</span></div>
-                    <div><a href={`https://mail.google.com/mail/?view=cm&from=${!!email===true?email:""}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">{`from: ${email} to: ${gud.email}`}</a>
+                    <div><a href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">{`from: ${email} to: ${email==="examplesourceemail@gmail.com"?"exampledestinationemail@gmail.com":gud.email}`}</a>
                     </div>
                     
                   </div>

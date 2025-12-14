@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 import setSignup from "./actions/signup";
-import configureStore from "./store/configureStore";
+//import configureStore from "./store/configureStore";
+import store from './store'
 import { startSetLinks } from "./actions/links";
 import { startSetLinks2 } from "./actions/links2";
 import { startSetPeople } from "./actions/people";
@@ -60,7 +61,7 @@ console.log("1 signup=" + signup);
 console.log("1 id=" + id);
 //console.log("store.getState().signup="+store.getState().signup)
 
-let store = configureStore();
+//let store = configureStore();
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
 console.log("theStore.theplan.plan=" + theStore.theplan.plan);

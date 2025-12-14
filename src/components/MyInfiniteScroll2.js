@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {useStore} from 'react-redux'
 import * as firebase from "firebase";
-
+import store from "../store"
 import { connect } from "react-redux";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import selectLinks from "../selectors/links";
@@ -85,7 +85,7 @@ const fetchPeople = async () => {
   const YZ = (event, param) => {
     console.log("in YZ")
     //const dispatch=useDispatch()
-    useStore().dispatch(startSetLinks3(param))
+    store.dispatch(startSetLinks3(param))
     .then(() => {
      console.log("YZ, param="+param)
 

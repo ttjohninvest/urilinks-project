@@ -89,7 +89,7 @@ const fetchPeople = async () => {
     startSetLinks3(param)
     .then(() => {
      console.log("YZ, param="+param)
-     console.log("YZ, links3="+props.links3)
+     console.log("YZ, links3="+JSON.stringify(props.links3))
        })
     .catch((error) => {
       console.log("error", error);

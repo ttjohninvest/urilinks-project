@@ -224,9 +224,9 @@ export const startSetLinks3 = async () => {
         let links4 = [];
         Promise.all(userDataPromises).then((snapshot) => {
           !!snapshot=== true && snapshot.forEach((childSnapshot) => {
-              console.log("childSnapshot.data="+JSON.stringify(childSnapshot.data))
+              //console.log("childSnapshot.data="+JSON.stringify(childSnapshot.data))
               let arrayData = Object.values(childSnapshot.data);
-              console.log("1001,arrayData="+JSON.stringify(arrayData))
+              //console.log("1001,arrayData="+JSON.stringify(arrayData))
               let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
 
               // let updatedArray = arrayData.map((obj) => {

@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import linksReducer from '../reducers/links';
 import links2Reducer from '../reducers/links2';
+import links3Reducer from '../reducers/links3';
 import linksReducerAll from '../reducers/linksall';
 import filtersReducer from '../reducers/filters';
 import linksfiledateReducer from '../reducers/linksfiledate';
@@ -67,7 +68,8 @@ export default () => {
       hashtags2withcount2: hashtags2withcount2Reducer,
       sp: spReducer,
       people: peopleReducer,
-      gud: gudReducer
+      gud: gudReducer,
+      links3:links3Reducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

@@ -4,12 +4,12 @@ import setHashTags2 from "./hashtags2";
 import setHashTags2WithCount2 from "./hashtags2withcount2";
 
 // ADD_LINK
-export const addLink2 = (link) => ({
-  type: "ADD_LINK2",
+export const addLink3 = (link) => ({
+  type: "ADD_LINK3",
   link,
 });
 
-export const startAddLink2 = (linkData = {}) => {
+export const startAddLink3 = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
@@ -44,7 +44,7 @@ export const startAddLink2 = (linkData = {}) => {
       .push(link)
       .then((ref) => {
         dispatch(
-          addLink2({
+          addLink3({
             id: ref.key,
             ...link,
           })
@@ -59,12 +59,12 @@ export const startAddLink2 = (linkData = {}) => {
 };
 
 // REMOVE_LINK
-export const removeLink2 = ({ id } = {}) => ({
-  type: "REMOVE_LINK2",
+export const removeLink3 = ({ id } = {}) => ({
+  type: "REMOVE_LINK3",
   id,
 });
 
-export const startRemoveLink2 = ({ id } = {}) => {
+export const startRemoveLink3 = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
 
@@ -72,7 +72,7 @@ export const startRemoveLink2 = ({ id } = {}) => {
       .ref(`users/${uid}/links/${id}`)
       .remove()
       .then(() => {
-        dispatch(removeLink2({ id }));
+        dispatch(removeLink3({ id }));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
@@ -81,13 +81,13 @@ export const startRemoveLink2 = ({ id } = {}) => {
 };
 
 // EDIT_LINK
-export const editLink2 = (id, updates) => ({
-  type: "EDIT_LINK2",
+export const editLink3 = (id, updates) => ({
+  type: "EDIT_LINK3",
   id,
   updates,
 });
 
-export const startEditLink2 = (id, updates) => {
+export const startEditLink3 = (id, updates) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
 
@@ -103,13 +103,13 @@ export const startEditLink2 = (id, updates) => {
   };
 };
 
-export const setLinks2 = (links) => ({
-  type: "SET_LINKS2",
+export const setLinks3 = (links) => ({
+  type: "SET_LINKS3",
   links,
 });
 
-export const setLinksAll2 = (links) => ({
-  type: "SET_LINKS_ALL2",
+export const setLinksAll3 = (links) => ({
+  type: "SET_LINKS_ALL3",
   links,
 });
 
@@ -168,8 +168,8 @@ const seen = (hashtag, theSeenArray) => {
 
 //this puts the links array in the global redux store to be used to list the output
 //you will need to call urilinks-project-read-all-data to get the database data
-export const startSetLinks2 = () => {
-  console.log("startSetLinks2");
+export const startSetLinks3 = () => {
+  console.log("startSetLinks3");
   return (dispatch, getState) => {
     
     const hashtags = [];
@@ -221,7 +221,7 @@ export const startSetLinks2 = () => {
               return { userId, error };
             });
         });
-        let links3 = [];
+        let links4 = [];
         Promise.all(userDataPromises).then((snapshot) => {
           !!snapshot=== true && snapshot.forEach((childSnapshot) => {
               console.log("childSnapshot.data="+JSON.stringify(childSnapshot.data))
@@ -237,10 +237,10 @@ export const startSetLinks2 = () => {
                  
               //   });
               
-              links3.push(...updatedArray);
+              links4.push(...updatedArray);
 
           }); 
-          dispatch(setLinks2(links3)); 
+          dispatch(setLinks3(links4)); 
           console.log("the links3="+JSON.stringify(links3,null,2))
         });
         
@@ -249,7 +249,7 @@ export const startSetLinks2 = () => {
   };
 };
 
-export const startSetLinksAll2 = () => {
+export const startSetLinksAll3 = () => {
   return (dispatch, getState) => {
     return database
       .ref(`users`)
@@ -271,7 +271,7 @@ export const startSetLinksAll2 = () => {
               console.log(
                 "startSetLinksAll, about to call dispatch(setLinksAll(links));"
               );
-              dispatch(setLinksAll2(linksAll));
+              dispatch(setLinksAll3(linksAll));
             })
             .catch((error) => console.log("error=" + error));
         });

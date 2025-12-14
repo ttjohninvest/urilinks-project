@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
+import {useDispatch} from 'react-redux'
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
@@ -6,6 +7,11 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import selectLinks from "../selectors/links";
 import selectLinks2 from "../selectors/links2";
 import selectLinksTotal from "../selectors/links-total";
+import { startSetLinks3 } from "./actions/links3";
+
+
+
+
 
 const E2 = (props) => {
   const user= firebase.auth().currentUser
@@ -76,6 +82,19 @@ const fetchPeople = async () => {
     //you need to call dispatch(setSetit(false)) here////
   };
 
+  const YZ = (event, param) => {
+    console.log("in YZ")
+    const dispatch=useDispatch()
+    dispatch(startSetLinks3(param))
+    .then(() => {
+     console.log("YZ, param="+param)
+
+       })
+    .catch((error) => {
+      console.log("error", error);
+    })
+}
+
   return (
     <div id="scrollableDiv" style={{ 
       //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,
@@ -117,6 +136,7 @@ const fetchPeople = async () => {
                     {props.signup.signup===true ? <div><div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Send gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}`}</a></div>
                     <div>
                       {`display links made public ${gud.uid}`}
+                      <button onClick={(event) => YZ(event, gud.uid)}>display links made public</button>
                       </div>
                     </div>
                     :

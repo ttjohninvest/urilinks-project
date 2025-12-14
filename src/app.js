@@ -91,14 +91,10 @@ store
 store
     .dispatch(startSetLinks2())
     .then(() => {
-       store
+store
     .dispatch(startSetLinks(id))
     .then(() => {
-
-
-
-
-          return store
+        return store
         .dispatch(getTheplan2())
         .then(() => {
           //return store.dispatch(getSettings()).then(() => {
@@ -149,10 +145,10 @@ store
 store
     .dispatch(startSetPeople())
     .then(() => {
- store
+store
         .dispatch(startSetLinks2())
         .then(() => {
-        store
+store
         .dispatch(startSetLinks(user.uid))
         .then(() => {
         return store

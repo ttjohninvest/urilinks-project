@@ -1,0 +1,34 @@
+// Links Reducer
+
+const links3ReducerDefaultState = [];
+
+export default (state = links3ReducerDefaultState, action) => {
+  switch (action.type) {
+    case "ADD_LINK3":
+      return [...state, action.link];
+    case "REMOVE_LINK3":
+      return state.filter(({ id }) => id !== action.id);
+    case "EDIT_LINK3":
+      return state.map((link) => {
+        if (link.id === action.id) {
+          return {
+            ...link,
+            ...action.updates,
+          };
+        } else {
+          return link;
+        }
+      });
+    case "SET_LINKS3":
+      return action.links;
+      //return { links: [...state.links2, action.links] }
+      //return [...state.links2, action.links] 
+    //   return {
+    //     ...state,
+    //     links2: [...state.links2, ...action.links]
+    //   }
+    
+    default:
+      return state;
+  }
+};

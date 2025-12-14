@@ -174,27 +174,27 @@ export const startSetLinks = (uid) => {
       .ref(`users/${uid}/links`)
       .once("value")
       .then((snapshot) => {
-        const links = [];
+        const links2 = [];
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
           console.log("tt,childSnapshot="+JSON.stringify(childSnapshot))
           console.log("tt,childSnapshot.key="+JSON.stringify(childSnapshot.key))
           console.log("tt,childSnapshot.val()="+JSON.stringify(childSnapshot.val()))
-          links.push({
+          links2.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),
           });
         });
         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
-        dispatch(setLinks(links));
+        dispatch(setLinks(links2));
 
          let hashtags = [];
          const longnamesnowhitespace = []
          const longnames = []
 
         //if(this.props.links.length>0) {
-        links.forEach((link) => {
+        links2.forEach((link) => {
           
           let x1 = extractHashtags(link.note);
           hashtags.push(...x1);

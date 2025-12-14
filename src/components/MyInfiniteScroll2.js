@@ -114,8 +114,8 @@ const fetchPeople = async () => {
                     <div><img src={gud.photourl} className="borderradius50"/></div>
 
                     <div className="margin-left-11"><span>{gud.displayname}</span></div>
-                    <div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Open gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}`}</a>
-                    </div>
+                    {props.signup.signup===true && <div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Open gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}`}</a>
+                    </div>}
                     
                   </div>
                 </div>

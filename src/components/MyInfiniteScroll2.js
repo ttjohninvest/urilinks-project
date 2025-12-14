@@ -100,7 +100,9 @@ const fetchPeople = async () => {
 }
 
   return (<div>
-     
+     <div>{!!links3 === true && links3.map((link)=>{
+                              {link.Url}
+                      })}</div>
     <div id="scrollableDiv" style={{ 
       //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,
       height: "300px",
@@ -169,9 +171,7 @@ const fetchPeople = async () => {
       
       </InfiniteScroll>
     </div>
-<div>{!!links3 === true && links3.map((link)=>{
-                              {link.Url}
-                      })}</div>
+
 </div>
 
   );

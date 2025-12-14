@@ -175,12 +175,13 @@ export const startSetLinks3 = (uid) => {
     const hashtags = [];
    
 
-        const userIds = [uid]
-
+        let userIds = []
+        userIds[0] = uid
+        console.log("userIds="+JSON.stringify(userIds))
         /////////////////////////////////////////
         const userDataPromises = userIds.map(async (userId) => {
           await database
-            .ref(`users/${userId}/links`)
+            .ref(`users/${uid}/links`)
             .once("value")
             .then((snapshot) => {
               let data = snapshot.val();

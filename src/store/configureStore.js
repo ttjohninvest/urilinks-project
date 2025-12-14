@@ -70,6 +70,7 @@ export default () => {
       people: peopleReducer,
       gud: gudReducer,
       links3:links3Reducer,
+    
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

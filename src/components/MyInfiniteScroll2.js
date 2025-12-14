@@ -14,6 +14,7 @@ import { startSetLinks3 } from "../actions/links3";
 
 
 const E2 = (props) => {
+  const dispatch = useDispatch() //it is saying the useDispatch is not a function
   const user= firebase.auth().currentUser
   console.log("MyInfiniteScroll2, user="+JSON.stringify(user))
   const [email,setEmail] = useState(!!user===true?user.email:"x@x.com")
@@ -81,11 +82,11 @@ const fetchPeople = async () => {
     // window.localStorage.setItem("scrollY",window.scrollY)
     //you need to call dispatch(setSetit(false)) here////
   };
-  const dispatch = useDispatch()
+  
   const YZ = (event, param) => {
     console.log("in YZ")
   
-    store.dispatch(startSetLinks3(param))
+    dispatch(startSetLinks3(param))
     .then(() => {
      console.log("YZ, param="+param)
 
@@ -134,10 +135,10 @@ const fetchPeople = async () => {
 
                     <div className="margin-left-11"><span>{gud.displayname}</span></div>
                     {props.signup.signup===true ? <div><div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Send gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}`}</a></div>
-                    <div>
+                    {/* <div>
                       {`display links made public ${gud.uid}`}
                       <button onClick={(event) => YZ(event, gud.uid)}>display links made public</button>
-                      </div>
+                      </div> */}
                     </div>
                     :
                     <div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/u/0`} target="_blank">Send gmail</a>

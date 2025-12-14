@@ -7,7 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import selectLinks from "../selectors/links";
 import selectLinks2 from "../selectors/links2";
 import selectLinksTotal from "../selectors/links-total";
-import { startSetLinks3 } from "./actions/links3";
+import { startSetLinks3 } from "../actions/links3";
 
 
 

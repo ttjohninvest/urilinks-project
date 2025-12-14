@@ -1,4 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
+import * as firebase from "firebase";
+
 import { connect } from "react-redux";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import selectLinks from "../selectors/links";
@@ -7,6 +9,7 @@ import selectLinksTotal from "../selectors/links-total";
 
 const E2 = (props) => {
 
+  const [email,setEmail] = useState(firebase.auth().currentUser.email)
    // Store the full local data in state
   const [localPeople, setLocalPeople] = useState([]);
   // Store the data to be displayed
@@ -110,7 +113,7 @@ const fetchPeople = async () => {
                     <div><img src={gud.photourl} className="borderradius50"/></div>
 
                     <div className="margin-left-11"><span>{gud.displayname}</span></div>
-                    <div><a href={`https://mail.google.com/mail/?view=cm&from=${props.email.email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">{`from: ${props.email.email} to: ${gud.email}`}</a>
+                    <div><a href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">{`from: ${email} to: ${gud.email}`}</a>
                     </div>
                     
                   </div>
@@ -146,7 +149,6 @@ const mapStateToProps = (state) => {
     linksTotal: selectLinksTotal(visibleLinks),
     linksTotal2: selectLinksTotal(visibleLinks2),
     signup:state.signup,
-    email:state.email,
     links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),
     people: state.people

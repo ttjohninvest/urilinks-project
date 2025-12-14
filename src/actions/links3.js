@@ -170,7 +170,7 @@ const seen = (hashtag, theSeenArray) => {
 //you will need to call urilinks-project-read-all-data to get the database data
 export const startSetLinks3 = async () => {
   console.log("startSetLinks3");
-  return (dispatch, getState) => {
+  (dispatch, getState) => {
     
     const hashtags = [];
     return database
@@ -248,6 +248,7 @@ export const startSetLinks3 = async () => {
       }).catch((error) => console.log("error=" + error));
       
   };
+  return [1,2,3]
 };
 
 export const startSetLinksAll3 = () => {

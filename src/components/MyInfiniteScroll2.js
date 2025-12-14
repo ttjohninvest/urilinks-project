@@ -89,7 +89,7 @@ const fetchPeople = async () => {
     startSetLinks3(param)
     .then(() => {
      console.log("YZ, param="+param)
-
+     console.log("YZ, links3="+props.links3)
        })
     .catch((error) => {
       console.log("error", error);
@@ -183,7 +183,8 @@ const mapStateToProps = (state) => {
     signup:state.signup,
     links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),
-    people: state.people
+    people: state.people,
+    links2:state.links3
     
   };
 };

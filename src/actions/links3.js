@@ -201,7 +201,7 @@ export const startSetLinks3 = async () => {
         // const userIds = ids;
 
         /////////////////////////////////////////
-        const userDataPromises = userIds.map((userId) => {
+        const userDataPromises = userIds.map(async (userId) => {
           return database
             .ref(`users/${userId}/links`)
             .once("value")
@@ -223,35 +223,28 @@ export const startSetLinks3 = async () => {
             });
         });
         //let links4 = [];
+        
         Promise.all(userDataPromises).then((snapshot) => {
           !!snapshot=== true && snapshot.forEach((childSnapshot) => {
               //console.log("childSnapshot.data="+JSON.stringify(childSnapshot.data))
               let arrayData = Object.values(childSnapshot.data);
               //console.log("1001,arrayData="+JSON.stringify(arrayData))
               let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
-
-              // let updatedArray = arrayData.map((obj) => {
-                
-              //     if(obj.showpublic === true) {
-              //       return { ...obj, id: v4(), uid:childSnapshot.userId }
-              //     }
-                 
-              //   });
               
               links4.push(...updatedArray);
 
           }); 
+          console.log("runs second")
           //dispatch(setLinks3(links4)); 
+          return links4;
+        }); //Promise.all
          
-        });
-         //console.log("the links4="+JSON.stringify(links4,null,2))
-        return [1,2,3] //links4;
-       
+       console.log("runs first")
         
       }).catch((error) => console.log("error=" + error));
       //return links4;
   //};
-  //return [1,2,3]
+  //return [1,2,3] //works
 };
 
 export const startSetLinksAll3 = () => {

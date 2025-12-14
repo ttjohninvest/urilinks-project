@@ -35,7 +35,7 @@ import LoadingPage from "./components/LoadingPage";
 //     // Let's translate it!
 // });
 
-console.log = () => {};
+//console.log = () => {};
 
 let hasRendered = false;
 const renderApp = (store) => {

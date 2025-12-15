@@ -117,8 +117,42 @@ const fetchPeople = async () => {
       
 }
 
+const printIt = () => {
+    
+    
+    
+    var printContent = document.getElementById("listid").innerHTML;
+    var newWin = window.open("", "", "width=1000,height=600");
+    
+    //newWin.title = "urilinks list of links";
+    newWin.document.write("<html><head><title>list-of-links-urilinks.com</title></head><body>");
+    newWin.document.write(printContent);
+    newWin.document.write("</body></html>");
+    newWin.document.close();
+    newWin.focus();
+    newWin.print();
+    newWin.close();
+  
+  };
+
 {/* {links3.length > 0 ?<div>{links3.map((link)=>(link.id))}</div> */}
-  return (<div>
+  return (
+  
+  <div>
+
+<div
+                  onClick={printIt}
+                  className="margin-top-1111b"
+                  title="You may print this list to the printer."
+                >
+                  <img
+                    src={printerImage}
+                    width="32"
+                    height="32"
+                    style={{ borderRadius: "50%" }}
+                  />
+                </div>
+
     {links3.length > 0 ?<div><MyInfiniteScroll3 links3 = {links3} photourl={photourl} displayName={displayName}/></div>
      
     :<div id="scrollableDiv" style={{ 

@@ -83,11 +83,43 @@ const fetchData = async () => {
     //you need to call dispatch(setSetit(false)) here////
   };
 
+  
+  const printIt = () => {
+    
+    
+    
+    var printContent = document.getElementById("listid").innerHTML;
+    var newWin = window.open("", "", "width=1000,height=600");
+    
+    //newWin.title = "urilinks list of links";
+    newWin.document.write("<html><head><title>list-of-links-urilinks.com</title></head><body>");
+    newWin.document.write(printContent);
+    newWin.document.write("</body></html>");
+    newWin.document.close();
+    newWin.focus();
+    newWin.print();
+    newWin.close();
+  
+  };
+
   return (
     <div>
     <div className="flexrowz9z widthx">
     <div><img src={props.photourl} className="borderradius50" /></div>
     <div className="margin-left-11">{props.displayName}</div>
+                <div
+                  onClick={printIt}
+                  className="margin-top-1111b"
+                  title="You may print this list to the printer."
+                >
+                  <img
+                    src={printerImage}
+                    width="32"
+                    height="32"
+                    style={{ borderRadius: "50%" }}
+                  />
+                </div>
+              
     </div>
     
     <div id="scrollableDiv" style={{ height: '500px', overflow: 'auto', border: '1px solid #ccc' }}>

@@ -91,8 +91,8 @@ const fetchPeople = async () => {
     startSetLinks3(uid)
     .then((links3) => { //links3 contains all the links for the uid, userId. It is not stored in redux though because I don't have access to dispatch, useDispatch is returning something that is not a function
      console.log("YZ, uid="+uid)
-    //  console.log("YZ, links3="+JSON.stringify(links3))
-    //  setLinks3(links3)
+     console.log("YZ, links3="+JSON.stringify(links3))
+     setLinks3(links3)
        })
     .catch((error) => {
       console.log("error="+error);
@@ -141,10 +141,10 @@ const fetchPeople = async () => {
 
                     <div className="margin-left-11"><span>{gud.displayname}</span></div>
                     {props.signup.signup===true ? <div><div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Send gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}`}</a></div>
-                    {/* <div>
+                    <div>
                       {`display links made public ${gud.uid}`}
                       <button onClick={(event) => YZ(event, gud.uid)}>display links made public</button>
-                      </div> */}
+                      </div>
                      
                     </div>
                     :

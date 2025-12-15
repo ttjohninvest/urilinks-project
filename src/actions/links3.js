@@ -189,15 +189,16 @@ export const startSetLinks3 = (uid) => {
               console.log("ZZZ,data="+JSON.stringify(data))
               if(data===null) { //shis check removed the null error which caused the list qll linkw list to not display at all
                 data={}
-                return { userId, data  };
+                //return { userId, data  };
+                return new Promise((resolve, reject) => { resolve({ userId, data  })})
               } else {
-                return { userId, data };
+                return new Promise((resolve, reject) => { resolve({ userId, data })});
               }
               
             })
             .catch((error) => {
               console.error(`Error reading data for user ${userId}:`, error);
-              return { userId, error };
+              return new Promise((resolve, reject) => { resolve({ userId, error })});
             });
         });
         let links3 = [];
@@ -216,7 +217,7 @@ export const startSetLinks3 = (uid) => {
           return links3
           
         });
-        
+        console.log("2 the links3="+JSON.stringify(links3,null,2))
      
       
   //};

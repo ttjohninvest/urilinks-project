@@ -168,19 +168,40 @@ const seen = (hashtag, theSeenArray) => {
 
 //this puts the links array in the global redux store to be used to list the output
 //you will need to call urilinks-project-read-all-data to get the database data
-export const startSetLinks3 = (uid) => {
-  console.log("startSetLinks3");
+export const startSetLinks3 = () => {
+  console.log("startSetLinks2");
   //return (dispatch, getState) => {
     
     const hashtags = [];
-   
+    return database
+      .ref(`users`)
+      .once("value")
+      .then((snapshot) => {
+        const users = snapshot.val();
 
-        let userIds = []
-        userIds[0] = uid
-        console.log("userIds="+JSON.stringify(userIds))
+        if (!users) {
+          console.log("No users found.");
+          res.json({ message: "no user ids" });
+        }
+
+        const userIds = Object.keys(users);
+        //console.log("All user IDs:", userIds);
+        // const ids = [
+        //   "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
+        //   "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
+        //   "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
+        //   "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
+        //   "WJGHkWycjKQxPK83Fi4zqx53bCl1",
+        //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+        //   "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
+        //   "m8f0YMF5bucp9uhblPZhM8CTjq12",
+        //   "tWKNG14PYYYY0hDPurLouWtYjtq1"
+        // ];
+        // const userIds = ids;
+
         /////////////////////////////////////////
         const userDataPromises = userIds.map((userId) => {
-          database
+          return database
             .ref(`users/${userId}/links`)
             .once("value")
             .then((snapshot) => {
@@ -190,15 +211,15 @@ export const startSetLinks3 = (uid) => {
               if(data===null) { //shis check removed the null error which caused the list qll linkw list to not display at all
                 data={}
                 //return { userId, data  };
-                return () => new Promise((resolve, reject) => { resolve({ userId, data  })})
               } else {
-                return () => new Promise((resolve, reject) => { resolve({ userId, data })});
+                //return { userId, data };
+                return new Promise((resolve, reject)=> { resolve("Hello, World!")})
               }
               
             })
             .catch((error) => {
               console.error(`Error reading data for user ${userId}:`, error);
-              return () => new Promise((resolve, reject) => { resolve({ userId, error })});
+              //return { userId, error };
             });
         });
         let links3 = [];
@@ -208,19 +229,25 @@ export const startSetLinks3 = (uid) => {
               let arrayData = Object.values(childSnapshot.data);
               console.log("1001,arrayData="+JSON.stringify(arrayData))
               let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
+
+              // let updatedArray = arrayData.map((obj) => {
+                
+              //     if(obj.showpublic === true) {
+              //       return { ...obj, id: v4(), uid:childSnapshot.userId }
+              //     }
+                 
+              //   });
               
               links3.push(...updatedArray);
 
           }); 
           //dispatch(setLinks2(links3)); 
           console.log("1 the links3="+JSON.stringify(links3,null,2))
-          return links3
-          
         });
-        console.log("2 the links3="+JSON.stringify(links3,null,2))
-     
+         console.log("2 the links3="+JSON.stringify(links3,null,2))
+      //}).catch((error) => console.log("error=" + error));
       
-  //};
+  };
 };
 
 export const startSetLinksAll2 = () => {

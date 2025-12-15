@@ -156,9 +156,17 @@ const printIt = () => {
                   />
                 </div>
 
-    {links3.length > 0 ?<div><MyInfiniteScroll3 links3 = {links3} photourl={photourl} displayName={displayName}/></div>
+    <div id="listid"></div>
+    {links3.length > 0 ?<div>
+      
+      <MyInfiniteScroll3 links3 = {links3} photourl={photourl} displayName={displayName}/>
+      
+      </div>
      
-    :<div id="scrollableDiv" style={{ 
+    :
+    <div>
+    
+    <div id="scrollableDiv" style={{ 
       //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,
       height: "300px",
       overflow: 'auto', border: '1px solid #ccc' }}>
@@ -225,7 +233,10 @@ const printIt = () => {
         ))}
       
       </InfiniteScroll>
-    </div>}
+      </div>
+    </div>
+    
+    }
 
 </div>
 

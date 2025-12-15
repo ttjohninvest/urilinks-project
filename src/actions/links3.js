@@ -201,8 +201,9 @@ export const startSetLinks3 = async (uid) => {
         const userIds = ids;
 
         /////////////////////////////////////////
-        const userDataPromises = userIds.map(async(userId) => {
-          if(userId===uid) {
+        //const userDataPromises = userIds.map(async(userId) => {
+          const userDataPromises = async (uid) => {
+          //if(userId===uid) {
           return await database
             .ref(`users/${uid}/links`)
             .once("value")
@@ -227,8 +228,8 @@ export const startSetLinks3 = async (uid) => {
               //return { userId, error };
               return { uid, error };
             });
-          }
-        });
+          //}
+        };
         
         let links3 = [];
         return Promise.all(userDataPromises).then((snapshot) => {

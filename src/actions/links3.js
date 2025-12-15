@@ -169,7 +169,7 @@ const seen = (hashtag, theSeenArray) => {
 //this puts the links array in the global redux store to be used to list the output
 //you will need to call urilinks-project-read-all-data to get the database data
 export const startSetLinks3 = async (uid) => {
-  console.log("startSetLinks2");
+  console.log("startSetLinks3");
   //return (dispatch, getState) => {
     
     const hashtags = [];

@@ -35,7 +35,7 @@ import LoadingPage from "./components/LoadingPage";
 //     console.log(res.trans_result.dst);
 //     // Let's translate it!
 // });
-
+//ggge
 //console.log = () => {};
 
 let hasRendered = false;

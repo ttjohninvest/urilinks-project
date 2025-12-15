@@ -223,7 +223,7 @@ export const startSetLinks3 = () => {
             });
         });
         let links3 = [];
-        Promise.all(userDataPromises).then((snapshot) => {
+        return Promise.all(userDataPromises).then((snapshot) => {
           !!snapshot=== true && snapshot.forEach((childSnapshot) => {
               console.log("childSnapshot.data="+JSON.stringify(childSnapshot.data))
               let arrayData = Object.values(childSnapshot.data);
@@ -243,8 +243,9 @@ export const startSetLinks3 = () => {
           }); 
           //dispatch(setLinks2(links3)); 
           console.log("1 the links3="+JSON.stringify(links3,null,2))
+          return links3;
         });
-         console.log("2 the links3="+JSON.stringify(links3,null,2))
+         //console.log("2 the links3="+JSON.stringify(links3,null,2))
       //}).catch((error) => console.log("error=" + error));
       
   });

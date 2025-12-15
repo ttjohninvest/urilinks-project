@@ -221,14 +221,15 @@ export const startSetLinks3 = (uid) => {
                 //return new Promise((resolve, reject)=> { resolve("Hello, World!")})
               }
               
-            })
-            .catch((error) => {
+            }).catch((error) => {
               //console.error(`Error reading data for user ${userId}:`, error);
               console.error(`Error reading data for user ${uid}:`, error);
               //return { userId, error };
               return { uid, error };
             });
+          }
         //});
+        
         let links3 = [];
         return Promise.all(userDataPromises).then((snapshot) => {
           !!snapshot=== true && snapshot.forEach((childSnapshot) => {
@@ -252,12 +253,12 @@ export const startSetLinks3 = (uid) => {
           console.log("1 the links3="+JSON.stringify(links3,null,2))
           return links3;
         });
-         //console.log("2 the links3="+JSON.stringify(links3,null,2))
-      //}).catch((error) => console.log("error=" + error));
-        }
+        
   });
-//}
-};
+
+});
+
+}
 
 export const startSetLinksAll2 = () => {
   return (dispatch, getState) => {

@@ -98,16 +98,20 @@ const fetchPeople = async () => {
   const YZ = async (event, uid) => {
     console.log("in YZ")
   
-    startSetLinks3(uid)
-    .then((links3) => { //links3 contains all the links for the uid, userId. It is not stored in redux though because I don't have access to dispatch, useDispatch is returning something that is not a function
-     console.log("YZ, uid="+uid)
-     console.log("YZ, links3="+JSON.stringify(links3))
-     //setLinks3(links3)
-     setLinks3([{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"}])
-       })
-    .catch((error) => {
-      console.log("error="+error);
-    })
+    // startSetLinks3(uid)
+    // .then((links3) => { //links3 contains all the links for the uid, userId. It is not stored in redux though because I don't have access to dispatch, useDispatch is returning something that is not a function
+    //  console.log("YZ, uid="+uid)
+    //  console.log("YZ, links3="+JSON.stringify(links3))
+    //  //setLinks3(links3)
+    //  setLinks3([{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"}])
+    //    })
+    // .catch((error) => {
+    //   console.log("error="+error);
+    // })
+    const links3 = await startSetLinks3(uid)
+    setLinks3(links3)
+    //setLinks3([{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"}])
+      
 }
 
   return (<div>

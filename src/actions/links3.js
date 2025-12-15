@@ -201,9 +201,10 @@ export const startSetLinks3 = (uid) => {
         const userIds = ids;
 
         /////////////////////////////////////////
-        const userDataPromises = userIds.map((userId) => {
-          return database
-            .ref(`users/${userId}/links`)
+        // const userDataPromises = userIds.map((userId) => {
+        //   return database
+        const userDataPromises = database
+            .ref(`users/${uid}/links`)
             .once("value")
             .then((snapshot) => {
               let data = snapshot.val();
@@ -222,7 +223,7 @@ export const startSetLinks3 = (uid) => {
               console.error(`Error reading data for user ${userId}:`, error);
               //return { userId, error };
             });
-        });
+        //});
         let links3 = [];
         return Promise.all(userDataPromises).then((snapshot) => {
           !!snapshot=== true && snapshot.forEach((childSnapshot) => {

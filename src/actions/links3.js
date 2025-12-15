@@ -187,9 +187,9 @@ export const startSetLinks3 = async (uid) => {
         //const userIds = Object.keys(users);
         //console.log("All user IDs:", userIds);
         const ids = [
-          "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
+          "D9LSg6elood8Yc5gd5oDMp3JNAQ2"//,
           //"Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
-          "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
+          //"7CzFYQjw2aUhHgCYjS2eDODrfVE2"
           // "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
           // "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
           // "WJGHkWycjKQxPK83Fi4zqx53bCl1",
@@ -201,9 +201,9 @@ export const startSetLinks3 = async (uid) => {
         const userIds = ids;
 
         /////////////////////////////////////////
-        //const userDataPromises = userIds.map(async(userId) => {
-          const userDataPromises = async (uid) => {
-          //if(userId===uid) {
+        const userDataPromises = userIds.map(async(userId) => {
+          //const userDataPromises = async (uid) => {
+          if(userId===uid) {
           return await database
             .ref(`users/${uid}/links`)
             .once("value")
@@ -228,8 +228,8 @@ export const startSetLinks3 = async (uid) => {
               //return { userId, error };
               return { uid, error };
             });
-          //}
-        };
+          }
+        });
         
         let links3 = [];
         return Promise.all(userDataPromises).then((snapshot) => {

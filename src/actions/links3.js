@@ -201,9 +201,9 @@ export const startSetLinks3 = (uid) => {
         const userIds = ids;
 
         /////////////////////////////////////////
-        const userDataPromises = userIds.map((userId) => {
+        const userDataPromises = userIds.map(async(userId) => {
           if(userId===uid) {
-          return database
+          return await database
             .ref(`users/${uid}/links`)
             .once("value")
             .then((snapshot) => {

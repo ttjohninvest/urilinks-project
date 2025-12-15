@@ -19,9 +19,13 @@ const E2 = (props) => {
   // console.log("MyInfiniteScroll2, user="+JSON.stringify(user))
   // const [email,setEmail] = useState(!!user===true?user.email:"x@x.com")
 
-  let user = firebase.auth().currentUser
-  console.log("MyInfiniteScroll2, user="+JSON.stringify(user))
-  const [email,setEmail] = useState(!!user===true?user.email:"x@x.com")
+  //let user = firebase.auth().currentUser
+  //console.log("MyInfiniteScroll2, user="+JSON.stringify(user))
+  const [email,setEmail] = useState(
+    
+    !!firebase.auth().currentUser===true?firebase.auth().currentUser.email:"x@x.com"
+  
+  )
 
 
    // Store the full local data in state

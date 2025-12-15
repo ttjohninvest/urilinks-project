@@ -212,8 +212,8 @@ export const startSetLinks3 = () => {
                 data={}
                 //return { userId, data  };
               } else {
-                //return { userId, data };
-                return new Promise((resolve, reject)=> { resolve("Hello, World!")})
+                return { userId, data };
+                //return new Promise((resolve, reject)=> { resolve("Hello, World!")})
               }
               
             })
@@ -247,7 +247,7 @@ export const startSetLinks3 = () => {
          console.log("2 the links3="+JSON.stringify(links3,null,2))
       //}).catch((error) => console.log("error=" + error));
       
-  };
+  });
 };
 
 export const startSetLinksAll2 = () => {

@@ -11,9 +11,6 @@ import { startSetLinks3 } from "../actions/links3";
 import MyInfiniteScroll3 from './MyInfiniteScroll3';
 
 
-
-
-
 const E2 = (props) => {
   //const dispatch = useDispatch() //it is saying the useDispatch is not a function
   // const user= firebase.auth().currentUser
@@ -40,6 +37,7 @@ const E2 = (props) => {
   const [nextIndex, setNextIndex] = useState(itemsPerPage)
 
   const [links3, setLinks3] = useState([])
+  const [displayName, setDisplayname] = useState("")
  
   // const [data, setData] = useState([
   //   'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
@@ -96,7 +94,7 @@ const fetchPeople = async () => {
     //you need to call dispatch(setSetit(false)) here////
   };
   
-  const YZ = async (event, uid) => {
+  const YZ = async (event, gud) => {
     console.log("in YZ")
   
     // startSetLinks3(uid)
@@ -109,7 +107,8 @@ const fetchPeople = async () => {
     // .catch((error) => {
     //   console.log("error="+error);
     // })
-    const links4 = await startSetLinks3(uid)
+    const links4 = await startSetLinks3(gud.uid)
+    setDisplayname(gud.displayname)
     setLinks3(links4)
     //setLinks3([{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"}])
       
@@ -117,7 +116,7 @@ const fetchPeople = async () => {
 
 {/* {links3.length > 0 ?<div>{links3.map((link)=>(link.id))}</div> */}
   return (<div>
-    {links3.length > 0 ?<div><MyInfiniteScroll3 links3 = {links3}/></div>
+    {links3.length > 0 ?<div><MyInfiniteScroll3 links3 = {links3} displayName={displayName}/></div>
      
     :<div id="scrollableDiv" style={{ 
       //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,
@@ -159,7 +158,7 @@ const fetchPeople = async () => {
                     {props.signup.signup===true ? <div><div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Send gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}`}</a></div>
                       <div>
                       {`display links made public ${gud.uid}`}
-                      <button onClick={(event) => YZ(event, gud.uid)}>display links made public</button>
+                      <button onClick={(event) => YZ(event, gud)}>display links made public</button>
                      </div> 
                       
                     </div>

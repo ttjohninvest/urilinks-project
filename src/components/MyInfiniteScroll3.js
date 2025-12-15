@@ -84,6 +84,9 @@ const fetchData = async () => {
   };
 
   return (
+    <div>
+    
+    <div>{props.displayName}</div>
     <div id="scrollableDiv" style={{ height: '500px', overflow: 'auto', border: '1px solid #ccc' }}>
       <InfiniteScroll
         dataLength={data.length}
@@ -288,7 +291,9 @@ const fetchData = async () => {
         ))} */}
       </InfiniteScroll>
     </div>
+    </div>
   );
+  
 };
 
 //export default E;   
@@ -296,17 +301,17 @@ const fetchData = async () => {
 //export default MyInfiniteScroll;   
 
 const mapStateToProps = (state) => {
-  const visibleLinks = selectLinks(state.links, state.filters);
-  const visibleLinks2 = selectLinks2(state.links2, state.filters);
+//   const visibleLinks = selectLinks(state.links, state.filters);
+//   const visibleLinks2 = selectLinks2(state.links2, state.filters);
 
   return {
-    linkCount: visibleLinks.length,
-    linkCount2: visibleLinks2.length,
-    linksTotal: selectLinksTotal(visibleLinks),
-    linksTotal2: selectLinksTotal(visibleLinks2),
+    // linkCount: visibleLinks.length,
+    // linkCount2: visibleLinks2.length,
+    // linksTotal: selectLinksTotal(visibleLinks),
+    // linksTotal2: selectLinksTotal(visibleLinks2),
     signup:state.signup,
-    links: selectLinks(state.links, state.filters),
-    links2: selectLinks(state.links2, state.filters),
+    // links: selectLinks(state.links, state.filters),
+    // links2: selectLinks(state.links2, state.filters),
     
   };
 };

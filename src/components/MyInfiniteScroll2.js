@@ -100,9 +100,9 @@ const fetchPeople = async () => {
 }
 
   return (<div>
-     <div>{!!links3 === true && links3.map((link)=>{
+     {/* <div>{!!links3 === true && links3.map((link)=>{
                               {link.Url}
-                      })}</div>
+                      })}</div> */}
     <div id="scrollableDiv" style={{ 
       //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,
       height: "300px",
@@ -141,10 +141,10 @@ const fetchPeople = async () => {
 
                     <div className="margin-left-11"><span>{gud.displayname}</span></div>
                     {props.signup.signup===true ? <div><div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Send gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}`}</a></div>
-                      <div>
+                      {/* <div>
                       {`display links made public ${gud.uid}`}
                       <button onClick={(event) => YZ(event, gud.uid)}>display links made public</button>
-                     </div> 
+                     </div>  */}
                       
                     </div>
                     :

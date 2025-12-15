@@ -9,6 +9,7 @@ import selectLinks2 from "../selectors/links2";
 import selectLinksTotal from "../selectors/links-total";
 import { startSetLinks3 } from "../actions/links3";
 import MyInfiniteScroll3 from './MyInfiniteScroll3';
+import printerImage from "../assets/images/printer_image.png";
 
 
 const E2 = (props) => {

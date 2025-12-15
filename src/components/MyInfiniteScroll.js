@@ -14,7 +14,7 @@ import MessengerButton from "./MessengerButton";
 import LinkedInShareButton from "./LinkedInShareButton";
 import XShareButton from "./XShareButton";
 import LoadingPage from "./LoadingPage"
-
+import printerImage from "../assets/images/printer_image.png";
 
 
 

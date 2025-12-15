@@ -180,7 +180,7 @@ export const startSetLinks3 = (uid) => {
         console.log("userIds="+JSON.stringify(userIds))
         /////////////////////////////////////////
         const userDataPromises = userIds.map((userId) => {
-          return database
+          database
             .ref(`users/${userId}/links`)
             .once("value")
             .then((snapshot) => {
@@ -190,15 +190,15 @@ export const startSetLinks3 = (uid) => {
               if(data===null) { //shis check removed the null error which caused the list qll linkw list to not display at all
                 data={}
                 //return { userId, data  };
-                return new Promise((resolve, reject) => { resolve({ userId, data  })})
+                return () => new Promise((resolve, reject) => { resolve({ userId, data  })})
               } else {
-                return new Promise((resolve, reject) => { resolve({ userId, data })});
+                return () => new Promise((resolve, reject) => { resolve({ userId, data })});
               }
               
             })
             .catch((error) => {
               console.error(`Error reading data for user ${userId}:`, error);
-              return new Promise((resolve, reject) => { resolve({ userId, error })});
+              return () => new Promise((resolve, reject) => { resolve({ userId, error })});
             });
         });
         let links3 = [];
@@ -245,7 +245,7 @@ export const startSetLinksAll2 = () => {
               console.log(
                 "startSetLinksAll, about to call dispatch(setLinksAll(links));"
               );
-              dispatch(setLinksAll2(linksAll));
+              dispatch(setLinksAll3(linksAll));
             })
             .catch((error) => console.log("error=" + error));
         });

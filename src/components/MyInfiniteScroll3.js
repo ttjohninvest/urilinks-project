@@ -85,7 +85,10 @@ const fetchData = async () => {
 
   return (
     <div>
-    
+    <div className="flexrowz">
+    <div><img src={props.photourl} className="borderradius50" /></div>
+    <div className="margin-left-11">{props.displayName}</div>
+    </div>
     <div>{props.displayName}</div>
     <div id="scrollableDiv" style={{ height: '500px', overflow: 'auto', border: '1px solid #ccc' }}>
       <InfiniteScroll

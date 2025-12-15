@@ -38,6 +38,8 @@ const E2 = (props) => {
 
   const [links3, setLinks3] = useState([])
   const [displayName, setDisplayname] = useState("")
+  //setPhotourl
+  const [photourl, setPhotourl] = useState("")
  
   // const [data, setData] = useState([
   //   'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
@@ -109,6 +111,7 @@ const fetchPeople = async () => {
     // })
     const links4 = await startSetLinks3(gud.uid)
     setDisplayname(gud.displayname)
+    setPhotourl(gud.photourl)
     setLinks3(links4)
     //setLinks3([{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"}])
       
@@ -116,7 +119,7 @@ const fetchPeople = async () => {
 
 {/* {links3.length > 0 ?<div>{links3.map((link)=>(link.id))}</div> */}
   return (<div>
-    {links3.length > 0 ?<div><MyInfiniteScroll3 links3 = {links3} displayName={displayName}/></div>
+    {links3.length > 0 ?<div><MyInfiniteScroll3 links3 = {links3} photourl={photourl} displayName={displayName}/></div>
      
     :<div id="scrollableDiv" style={{ 
       //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,

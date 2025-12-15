@@ -208,20 +208,25 @@ export const startSetLinks3 = (uid) => {
             .once("value")
             .then((snapshot) => {
               let data = snapshot.val();
-              console.log("ZZZ,userId="+userId)
+              //console.log("ZZZ,userId="+userId)
+              console.log("ZZZ,userId="+uid)
               console.log("ZZZ,data="+JSON.stringify(data))
               if(data===null) { //shis check removed the null error which caused the list qll linkw list to not display at all
                 data={}
                 //return { userId, data  };
+                return { uid, data  };
               } else {
-                return { userId, data };
+                //return { userId, data };
+                return { uid, data };
                 //return new Promise((resolve, reject)=> { resolve("Hello, World!")})
               }
               
             })
             .catch((error) => {
-              console.error(`Error reading data for user ${userId}:`, error);
+              //console.error(`Error reading data for user ${userId}:`, error);
+              console.error(`Error reading data for user ${uid}:`, error);
               //return { userId, error };
+              return { uid, error };
             });
         //});
         let links3 = [];

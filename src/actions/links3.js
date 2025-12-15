@@ -168,7 +168,7 @@ const seen = (hashtag, theSeenArray) => {
 
 //this puts the links array in the global redux store to be used to list the output
 //you will need to call urilinks-project-read-all-data to get the database data
-export const startSetLinks3 = () => {
+export const startSetLinks3 = (uid) => {
   console.log("startSetLinks2");
   //return (dispatch, getState) => {
     
@@ -187,8 +187,9 @@ export const startSetLinks3 = () => {
         //const userIds = Object.keys(users);
         //console.log("All user IDs:", userIds);
         const ids = [
-          "D9LSg6elood8Yc5gd5oDMp3JNAQ2"//,
-          // "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
+          "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
+          "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
+          "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
           // "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
           // "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
           // "WJGHkWycjKQxPK83Fi4zqx53bCl1",

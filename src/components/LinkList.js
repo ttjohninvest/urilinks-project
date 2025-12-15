@@ -198,10 +198,19 @@ export const LinkList = (props) => {
         
       </div>
       
-      <div id="link-summary-id" className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span id="linkcount2id" className="ib is-active">{first===0?props.linkCount:first===1?props.linkCount2:""}</span> <span className="ib margin-left-11">
-        {first===0 || first===1?" Link(s) Found":first===2?" People Found":""}</span></div>
+      <div 
+      id="link-summary-id" 
+      className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto">
+        <span id="linkcount2id" className="ib is-active">
+          {first===0?props.linkCount:first===1?props.linkCount2:""}
+        </span> 
+        <span className="ib margin-left-11">
+          {first===0 || first===1?" Link(s) Found":first===2?" Results":""}
+        </span>
+      </div>
+
       {selectedOption === "option3"?<div>All Filtered Links</div>:<div></div>}
-      {selectedOption === "option4"?<div>People</div>:<div></div>}
+      {/* {selectedOption === "option4"?<div>People</div>:<div></div>} */}
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
           {props.rl > 0 && (

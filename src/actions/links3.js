@@ -186,49 +186,51 @@ export const startSetLinks3 = async (uid) => {
 
         //const userIds = Object.keys(users);
         //console.log("All user IDs:", userIds);
-        const ids = [
-          "D9LSg6elood8Yc5gd5oDMp3JNAQ2"//,
-          //"Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
-          //"7CzFYQjw2aUhHgCYjS2eDODrfVE2"
-          // "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-          // "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
-          // "WJGHkWycjKQxPK83Fi4zqx53bCl1",
-          // "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
-          // "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
-          // "m8f0YMF5bucp9uhblPZhM8CTjq12",
-          // "tWKNG14PYYYY0hDPurLouWtYjtq1"
-        ];
-        const userIds = ids;
+        const userIds = []
+        userIds[0]=uid
+        // const ids = [
+        //   "D9LSg6elood8Yc5gd5oDMp3JNAQ2"//,
+        //   //"Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
+        //   //"7CzFYQjw2aUhHgCYjS2eDODrfVE2"
+        //   // "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
+        //   // "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
+        //   // "WJGHkWycjKQxPK83Fi4zqx53bCl1",
+        //   // "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+        //   // "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
+        //   // "m8f0YMF5bucp9uhblPZhM8CTjq12",
+        //   // "tWKNG14PYYYY0hDPurLouWtYjtq1"
+        // ];
+        // const userIds = ids;
 
         /////////////////////////////////////////
-        const userDataPromises = userIds.map(async(userId) => {
+        const userDataPromises = userIds.map(async(uid2) => {
           //const userDataPromises = async (uid) => {
-          if(userId===uid) {
+          //if(userId===uid) {
           return await database
-            .ref(`users/${uid}/links`)
+            .ref(`users/${uid2}/links`)
             .once("value")
             .then((snapshot) => {
               let data = snapshot.val();
               //console.log("ZZZ,userId="+userId)
-              console.log("ZZZ,userId="+uid)
+              console.log("ZZZ,userId="+uid2)
               console.log("ZZZ,data="+JSON.stringify(data))
               if(data===null) { //shis check removed the null error which caused the list qll linkw list to not display at all
                 data={}
                 //return { userId, data  };
-                return { uid, data  };
+                return { uid2, data  };
               } else {
                 //return { userId, data };
-                return { uid, data };
+                return { uid2, data };
                 //return new Promise((resolve, reject)=> { resolve("Hello, World!")})
               }
               
             }).catch((error) => {
               //console.error(`Error reading data for user ${userId}:`, error);
-              console.error(`Error reading data for user ${uid}:`, error);
+              console.error(`Error reading data for user ${uid2}:`, error);
               //return { userId, error };
-              return { uid, error };
+              return { uid2, error };
             });
-          }
+          //}
         });
         
         let links3 = [];

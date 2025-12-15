@@ -180,7 +180,7 @@ const fetchData = async () => {
                         )
                       }
                       </div>
-                      <div>showpublic: {link.showpublic}</div>
+                      <div>showpublic: {link.showpublic===true?"yes":"no"}</div>
                       <div>
                       <a
                         ref={myRef}

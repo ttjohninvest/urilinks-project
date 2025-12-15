@@ -201,9 +201,9 @@ export const startSetLinks3 = (uid) => {
         const userIds = ids;
 
         /////////////////////////////////////////
-        // const userDataPromises = userIds.map((userId) => {
-        //   return database
-        const userDataPromises = database
+        const userDataPromises = userIds.map((userId) => {
+          if(userId===uid) {
+          return database
             .ref(`users/${uid}/links`)
             .once("value")
             .then((snapshot) => {
@@ -254,7 +254,7 @@ export const startSetLinks3 = (uid) => {
         });
          //console.log("2 the links3="+JSON.stringify(links3,null,2))
       //}).catch((error) => console.log("error=" + error));
-      
+        }
   });
 //}
 };

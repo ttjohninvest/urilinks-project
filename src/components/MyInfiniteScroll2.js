@@ -15,9 +15,15 @@ import { startSetLinks3 } from "../actions/links3";
 
 const E2 = (props) => {
   //const dispatch = useDispatch() //it is saying the useDispatch is not a function
-  const user= firebase.auth().currentUser
+  // const user= firebase.auth().currentUser
+  // console.log("MyInfiniteScroll2, user="+JSON.stringify(user))
+  // const [email,setEmail] = useState(!!user===true?user.email:"x@x.com")
+
+  let user = firebase.auth().currentUser
   console.log("MyInfiniteScroll2, user="+JSON.stringify(user))
   const [email,setEmail] = useState(!!user===true?user.email:"x@x.com")
+
+
    // Store the full local data in state
   const [localPeople, setLocalPeople] = useState([]);
   // Store the data to be displayed

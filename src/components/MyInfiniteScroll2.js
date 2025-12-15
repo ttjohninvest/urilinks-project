@@ -95,7 +95,7 @@ const fetchPeople = async () => {
     //you need to call dispatch(setSetit(false)) here////
   };
   
-  const YZ = (event, uid) => {
+  const YZ = async (event, uid) => {
     console.log("in YZ")
   
     startSetLinks3(uid)
@@ -103,7 +103,7 @@ const fetchPeople = async () => {
      console.log("YZ, uid="+uid)
      console.log("YZ, links3="+JSON.stringify(links3))
      //setLinks3(links3)
-     setLinks3([{id:"1"}])
+     setLinks3([{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"},{id:"1"}])
        })
     .catch((error) => {
       console.log("error="+error);

@@ -117,7 +117,7 @@ const fetchPeople = async () => {
 
 {/* {links3.length > 0 ?<div>{links3.map((link)=>(link.id))}</div> */}
   return (<div>
-    {links3.length > 0 ?<div><MyInfiniteScroll3 links2 = {links3}/></div>
+    {links3.length > 0 ?<div><MyInfiniteScroll3 links3 = {links3}/></div>
      
     :<div id="scrollableDiv" style={{ 
       //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,

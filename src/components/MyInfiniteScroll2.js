@@ -42,6 +42,8 @@ const E2 = (props) => {
   const [displayName, setDisplayname] = useState("")
   //setPhotourl
   const [photourl, setPhotourl] = useState("")
+
+  const [firstone, setFirstone] = useState(props.firstone)
  
   // const [data, setData] = useState([
   //   'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
@@ -100,7 +102,7 @@ const fetchPeople = async () => {
   
   const YZ = async (event, gud) => {
     console.log("in YZ")
-  
+    setFirstone(false)
     // startSetLinks3(uid)
     // .then((links3) => { //links3 contains all the links for the uid, userId. It is not stored in redux though because I don't have access to dispatch, useDispatch is returning something that is not a function
     //  console.log("YZ, uid="+uid)
@@ -135,7 +137,7 @@ const fetchPeople = async () => {
 
 
     <div id="listid"></div>
-    {links3=== null || links3.length > 0 ?<div>
+    {(firstone===false && links3=== null) || (firstone===false && links3.length > 0) ?<div>
       
       <MyInfiniteScroll3 links3 = {links3} photourl={photourl} displayName={displayName}/>
       

@@ -198,7 +198,7 @@ export const LinkList = (props) => {
       
       
       {selectedOption === "option4"?
-      <MyInfiniteScroll2 links3={[]}/>
+      <MyInfiniteScroll2 firstone={true}/>
       :
       selectedOption === "option1" ? (
         <div className="list-body border-green-">

@@ -103,7 +103,7 @@ const fetchData = async () => {
 
   return (
     <div>
-      <div
+      {/* <div
                   onClick={printIt}
                   className="margin-top-1111b"
                   title="You may print this list to the printer."
@@ -115,7 +115,7 @@ const fetchData = async () => {
                     className="cursor-pointer"
                     style={{ borderRadius: "50%" }}
                   />
-                </div>
+                </div> */}
     <div id="listid"></div>
     <div id="scrollableDiv" style={{ height: '500px', overflow: 'auto', border: '1px solid #ccc' }}>
       <InfiniteScroll

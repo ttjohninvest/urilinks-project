@@ -143,7 +143,7 @@ const printIt = () => {
   
   <div>
 
-<div
+{/* <div
                   onClick={printIt}
                   className="margin-top-1111b"
                   title="You may print this list to the printer."
@@ -155,7 +155,7 @@ const printIt = () => {
                     className="cursor-pointer"
                     style={{ borderRadius: "50%" }}
                   />
-                </div>
+                </div> */}
 
     <div id="listid"></div>
     {links3.length > 0 ?<div>

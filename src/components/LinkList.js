@@ -213,7 +213,7 @@ export const LinkList = (props) => {
       {/* {selectedOption === "option4"?<div>People</div>:<div></div>} */}
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">
-          {props.rl > 0 && (
+          {/* {props.rl > 0 && (
             <div
               onClick={printIt}
               className="margin-top-1111b"
@@ -227,7 +227,7 @@ export const LinkList = (props) => {
                 style={{ borderRadius: "50%" }}
               />
             </div>
-          )}
+          )} */}
 
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
@@ -256,7 +256,7 @@ export const LinkList = (props) => {
         </div>
       ) : selectedOption === "option2" ? (
         <div className="list-body margin-top-11-">
-          {props.links.length > 0 && (
+          {/* {props.links.length > 0 && (
             <div
               onClick={printIt}
               className="margin-top-1111b cursor-pointer"
@@ -269,7 +269,7 @@ export const LinkList = (props) => {
                 style={{ borderRadius: "50%" }}
               />
             </div>
-          )}
+          )} */}
           <div id="listid">
             {props.links.length === 0 ? (
               <div className="list-item list-item--message">
@@ -291,7 +291,7 @@ export const LinkList = (props) => {
       ): selectedOption === "option3" ? 
       (
         <div className="list-body margin-top-11-">
-          {props.links2.length > 0 && (
+          {/* {props.links2.length > 0 && (
             <div
               onClick={printIt}
               className="margin-top-1111b cursor-pointer"
@@ -304,7 +304,7 @@ export const LinkList = (props) => {
                 style={{ borderRadius: "50%" }}
               />
             </div>
-          )}
+          )} */}
           <div id="listid">
             {props.links2.length === 0 ? (
               <div className="list-item list-item--message">

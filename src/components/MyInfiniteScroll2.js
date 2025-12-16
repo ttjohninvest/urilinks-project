@@ -206,8 +206,8 @@ const printIt = () => {
                     <div className="margin-left-11"><span>{gud.displayname}</span></div>
                     {props.signup.signup===true ? <div><div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Send gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}`}</a></div>
                       <div>
-                      {`display links made public ${gud.uid}`}
-                      <button onClick={(event) => YZ(event, gud)}>display links made public</button>
+                      {/* {`display links made public ${gud.uid}`} */}
+                      <button onClick={(event) => YZ(event, gud)}>{`display ${gud.displayName}'s public links.`}</button>
                      </div> 
                       
                     </div>

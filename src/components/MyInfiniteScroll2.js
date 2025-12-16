@@ -152,6 +152,7 @@ const printIt = () => {
                     src={printerImage}
                     width="32"
                     height="32"
+                    className="cursor-pointer"
                     style={{ borderRadius: "50%" }}
                   />
                 </div>

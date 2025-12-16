@@ -109,7 +109,7 @@ const fetchData = async () => {
         
     <div><img src={props.photourl} className="borderradius50" /></div>
     <div className="margin-left-11">{props.displayName}</div>
-                {/* <div
+                <div
                   onClick={printIt}
                   className="margin-top-1111b"
                   title="You may print this list to the printer."
@@ -118,9 +118,10 @@ const fetchData = async () => {
                     src={printerImage}
                     width="32"
                     height="32"
+                    className="cursor-pointer"
                     style={{ borderRadius: "50%" }}
                   />
-                </div> */}
+                </div>
               
     </div>
     

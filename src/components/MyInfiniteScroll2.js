@@ -188,7 +188,7 @@ const printIt = () => {
           <div>
     {
     ////link.showpublic === 
-    true && !!gud.displayname ===true && 
+    true && !!gud.id ===true && 
   
   <div key={index}>
     <div className="margin-bottom-1">

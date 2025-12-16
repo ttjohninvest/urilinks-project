@@ -210,7 +210,7 @@ const printIt = () => {
                       {/* {`display links made public ${gud.uid}`} */}
                       {/* <button onClick={(event) => YZ(event, gud)} className="ib button-1 margin-left-118">{`display ${!!gud.displayname?gud.displayname+"'s":""} public links.`}</button>
                       */}
-                       <button onClick={(event) => YZ(event, gud)} className="ib button-2 margin-left-118 borderradius55">{`display ${!!gud.displayname?gud.displayname+"'s":""} public links.`}</button>
+                       <button onClick={(event) => YZ(event, gud)} className="ib button-2 margin-left-118 borderradius55">{`Display ${!!gud.displayname?gud.displayname+"'s":""} public links.`}</button>
                       </div>
                       
                     </div>

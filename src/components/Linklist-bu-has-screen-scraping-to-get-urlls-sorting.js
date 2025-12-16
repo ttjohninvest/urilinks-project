@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import MyInfiniteScroll from './MyInfiniteScroll'
 import MyInfiniteScroll2 from './MyInfiniteScroll2'
-import MyInfiniteScroll4 from './MyInfiniteScroll4'
 import { startRemoveLink, removeLink } from "../actions/links";
 import { Link } from "react-router-dom";
 import numeral from "numeral";
@@ -242,17 +241,15 @@ export const LinkList = (props) => {
               )
             })
           ):
-
-          <MyInfiniteScroll4 />
-          // (
-          //   props.links.map((link) => {
-          //     return (
-          //       <div>
-          //         <LinkListItem key={link.id} {...link} />
-          //       </div>
-          //     )
-          //   })
-          // )
+          (
+            props.links.map((link) => {
+              return (
+                <div>
+                  <LinkListItem key={link.id} {...link} />
+                </div>
+              )
+            })
+          )
           
           }
         </div>

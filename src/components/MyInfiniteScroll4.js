@@ -99,6 +99,23 @@ const fetchData = async () => {
   
   };
 
+  const handleCheckboxDelete = (event) => {
+      console.log("bookmark id=" + event.target.value);
+      //addIdToDelete(event.target.value)
+      //console.log("bookmark ids="+localStorage.getItem('deleteData'))
+      let result = confirm("Are you sure you want to delete?");
+      if (result) {
+        // User clicked OK, perform the deletion
+        props.removeLink({ id: event.target.value });
+        props.startRemoveLink({ id: event.target.value });
+        //alert("Item deleted.");
+      } else {
+        // User clicked Cancel
+        document.getElementById("delete%" + event.target.value).checked = false;
+        alert("Deletion canceled.");
+      }
+    };
+
   return (
     <div>
       {/* <div
@@ -190,56 +207,56 @@ const fetchData = async () => {
                       <div className="flexrow4">
                         {props.signup.signup === true ? (
                           <div>
-                           {/* <Link
+                           <Link
                               className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
-                              to={`/edit/${props.id}`}
+                              to={`/edit/${link.id}`}
                             >
                               <span className="padding-right-11 color-white-1 button-2">
                                 edit or remove
                               </span>
-                            </Link> */}
+                            </Link>
                           </div>
                         ) : (
                           <div>
-                           {/* <Link
+                           <Link
                               className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
-                              to={`/edit/${props.id}`}
+                              to={`/edit/${link.id}`}
                             >
                               <span className="padding-right-11 color-white-1 button-2">
                                 edit or remove
                               </span>
-                            </Link> */}
+                            </Link>
                           </div>
                         )}
                         {props.signup.signup === true ? (
                           <div>
-                           {/* <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                           <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                               <input
                                 type="checkbox"
-                                id={"delete%" + props.id}
-                                name={"delete%" + props.id}
-                                value={props.id}
+                                id={"delete%" + link.id}
+                                name={"delete%" + link.id}
+                                value={link.id}
                                 onChange={handleCheckboxDelete}
                                 title="remove bookmark"
                                 className="cb1 cursor-pointer"
                               />
-                              <label for={"delete%" + props.id} />
-                            </span> */}
+                              <label for={"delete%" + link.id} />
+                            </span>
                           </div>
                         ) : (
                           <div>
-                             {/* <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                             <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                               <input
                                 type="checkbox"
-                                id={"delete%" + props.id}
-                                name={"delete%" + props.id}
-                                value={props.id}
+                                id={"delete%" + link.id}
+                                name={"delete%" + link.id}
+                                value={link.id}
                                 onChange={handleCheckboxDelete}
                                 title="remove bookmark"
                                 className="cb1 cursor-pointer"
                               />
-                              <label for={"delete%" + props.id} />
-                            </span> */}
+                              <label for={"delete%" + link.id} />
+                            </span>
                             
                           </div>
                         )}

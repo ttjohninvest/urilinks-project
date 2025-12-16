@@ -14,7 +14,7 @@ import { getShowPublic } from './../actions/sp';
 
 
 const E2 = (props) => {
-  console.log("E2")
+  console.log("E2E@E@")
   //const dispatch = useDispatch() //it is saying the useDispatch is not a function
   // const user= firebase.auth().currentUser
   // console.log("MyInfiniteScroll2, user="+JSON.stringify(user))

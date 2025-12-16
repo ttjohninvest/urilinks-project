@@ -205,7 +205,7 @@ const printIt = () => {
                     <div><img src={gud.photourl} className="borderradius50"/></div>
 
                     <div className="margin-left-11"><span>{gud.displayname}</span></div>
-                    {props.signup.signup===true ? <div><div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Send gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}`}</a></div>
+                    {props.signup.signup===true ? <div><div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Send gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}.`}</a></div>
                       <div>
                       {/* {`display links made public ${gud.uid}`} */}
                       {/* <button onClick={(event) => YZ(event, gud)} className="ib button-1 margin-left-118">{`display ${!!gud.displayname?gud.displayname+"'s":""} public links.`}</button>
@@ -215,7 +215,7 @@ const printIt = () => {
                       
                     </div>
                     :
-                    <div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/u/0`} target="_blank">Send gmail</a>
+                    <div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/u/0`} target="_blank">Send gmail.</a>
                     </div>
 
                     

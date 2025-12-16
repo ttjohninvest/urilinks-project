@@ -90,23 +90,7 @@ export const LinkList = (props) => {
     }
   }, []);
 
-  const printIt = () => {
-    
-    
-    
-    var printContent = document.getElementById("listid").innerHTML;
-    var newWin = window.open("", "", "width=1000,height=600");
-    
-    //newWin.title = "urilinks list of links";
-    newWin.document.write("<html><head><title>list-of-links-urilinks.com</title></head><body>");
-    newWin.document.write(printContent);
-    newWin.document.write("</body></html>");
-    newWin.document.close();
-    newWin.focus();
-    newWin.print();
-    newWin.close();
   
-  };
 
   // const lcf = (c) => { //lcf stands for linkcount2 function
   //     document.getElementById("linkcount2id").innerText=c
@@ -211,7 +195,12 @@ export const LinkList = (props) => {
 
       {selectedOption === "option3"?<div title="The user has given permission to show these links to the public.">Filtered by permission</div>:<div></div>}
       {/* {selectedOption === "option4"?<div>People</div>:<div></div>} */}
-      {selectedOption === "option1" ? (
+      
+      
+      {selectedOption === "option4"?
+      <MyInfiniteScroll2 links3={[]}/>
+      :
+      selectedOption === "option1" ? (
         <div className="list-body border-green-">
           {/* {props.rl > 0 && (
             <div

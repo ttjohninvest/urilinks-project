@@ -209,7 +209,7 @@ export const LinkList = (props) => {
         </span>
       </div>
 
-      {selectedOption === "option3"?<div title="The user has given permission to show these links to the public">Filtered by permission</div>:<div></div>}
+      {selectedOption === "option3"?<div title="The user has given permission to show these links to the public.">Filtered by permission</div>:<div></div>}
       {/* {selectedOption === "option4"?<div>People</div>:<div></div>} */}
       {selectedOption === "option1" ? (
         <div className="list-body border-green-">

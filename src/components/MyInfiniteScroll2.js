@@ -165,87 +165,87 @@ const printIt = () => {
       
       </div>
      
-    :
-    <div>
-    none
-    {/* <div id="scrollableDiv" style={{ 
-      //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,
-      height: "300px",
-      overflow: 'auto', border: '1px solid #ccc' }}>
-      <InfiniteScroll
-        dataLength={people.length}
-        next={fetchMorePeople}
-        height={
-          //`${people.length===1?100:people.length===2?200:people.length===3?300:people.length>3?500:500}`
-          300
-        }
-        hasMore={nextIndex < localPeople.length}
-        loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
-        endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
-        scrollableTarget="scrollableDiv"
-      >
-         {/*change data to data3 where data3 is the filtered list */}
-         {
-         //people.length > 0 ? 
+    :<div>none</div>
+  //   <div>
+    
+  //   <div id="scrollableDiv" style={{ 
+  //     //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,
+  //     height: "300px",
+  //     overflow: 'auto', border: '1px solid #ccc' }}>
+  //     <InfiniteScroll
+  //       dataLength={people.length}
+  //       next={fetchMorePeople}
+  //       height={
+  //         //`${people.length===1?100:people.length===2?200:people.length===3?300:people.length>3?500:500}`
+  //         300
+  //       }
+  //       hasMore={nextIndex < localPeople.length}
+  //       loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
+  //       endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
+  //       scrollableTarget="scrollableDiv"
+  //     >
+  //        {/*change data to data3 where data3 is the filtered list */}
+  //        {
+  //        //people.length > 0 ? 
          
-         people.map((gud, index) => (
-          <div>
-    {
-    ////link.showpublic === 
-    true && 
-    !!gud.displayname ===true && 
+  //        people.map((gud, index) => (
+  //         <div>
+  //   {
+  //   ////link.showpublic === 
+  //   true && 
+  //   !!gud.displayname ===true && 
   
-  <div key={index}>
-    <div className="margin-bottom-1">
-      <div className="card-background-color">
-        <div className="list-item__flex">
-          <div className="">
-            <div className="flexrow2t border-green-">
+  // <div key={index}>
+  //   <div className="margin-bottom-1">
+  //     <div className="card-background-color">
+  //       <div className="list-item__flex">
+  //         <div className="">
+  //           <div className="flexrow2t border-green-">
              
-              <div className={`${false?"":"margin-top-1"}`}>
-                <div className="flexcol3">
-                  <div className={`flexrow4 border-green-`}>
+  //             <div className={`${false?"":"margin-top-1"}`}>
+  //               <div className="flexcol3">
+  //                 <div className={`flexrow4 border-green-`}>
                     
-                    <div><img src={gud.photourl} className="borderradius50"/></div>
+  //                   <div><img src={gud.photourl} className="borderradius50"/></div>
 
-                    <div className="margin-left-11"><span>{gud.displayname}</span></div>
-                    {props.signup.signup===true ? <div><div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Send gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}.`}</a></div>
-                      <div>
-                      {/* {`display links made public ${gud.uid}`} */}
-                      {/* <button onClick={(event) => YZ(event, gud)} className="ib button-1 margin-left-118">{`display ${!!gud.displayname?gud.displayname+"'s":""} public links.`}</button>
-                      */}
-                       <button onClick={(event) => YZ(event, gud)} className="ib button-2 margin-left-118 borderradius55">{`Display ${!!gud.displayname?gud.displayname+"'s":""} public links.`}</button>
-                      </div>
+  //                   <div className="margin-left-11"><span>{gud.displayname}</span></div>
+  //                   {props.signup.signup===true ? <div><div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`} target="_blank">Send gmail {`FROM: ${email} TO: ${email==="x@x.com"?"x@x.com":gud.email}.`}</a></div>
+  //                     <div>
+  //                     {/* {`display links made public ${gud.uid}`} */}
+  //                     {/* <button onClick={(event) => YZ(event, gud)} className="ib button-1 margin-left-118">{`display ${!!gud.displayname?gud.displayname+"'s":""} public links.`}</button>
+  //                     */}
+  //                      <button onClick={(event) => YZ(event, gud)} className="ib button-2 margin-left-118 borderradius55">{`Display ${!!gud.displayname?gud.displayname+"'s":""} public links.`}</button>
+  //                     </div>
                       
-                    </div>
-                    :
-                    <div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/u/0`} target="_blank">Send gmail.</a>
-                    </div>
+  //                   </div>
+  //                   :
+  //                   <div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/u/0`} target="_blank">Send gmail.</a>
+  //                   </div>
 
-                    }
+  //                   }
                      
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  //                 </div>
+  //               </div>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
     
-    }
-    </div>
-        ) 
+  //   }
+  //   </div>
+  //       ) 
       
       
-      )//: "none"
+  //     )//: "none"
     
-    }
+  //   }
       
-      </InfiniteScroll>
-      </div> */}
-    </div>
+  //     </InfiniteScroll>
+  //     </div> 
+  //   </div>
     
     }
 

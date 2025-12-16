@@ -30,6 +30,8 @@ He layeth up sound wisdom for the righteous: he is a buckler to them that walk u
 
 Are their people sharing the wonderful news of the Gospel of Jesus Christ? Are people being invited to call on the name of Jesus Christ for salvation? Are the homeless being taken care of? Were are the churches? Are people in the community praying?
 
+Keep being friendly to everyone regardless of attitudes, body language and the words the person speaks.
+
 I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you.
 
 I invite everybody to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you all.

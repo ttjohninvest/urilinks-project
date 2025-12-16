@@ -184,7 +184,7 @@ const printIt = () => {
         scrollableTarget="scrollableDiv"
       >
          {/*change data to data3 where data3 is the filtered list */}
-         {people.map((gud, index) => (
+         {people.length > 0 ? people.map((gud, index) => (
           <div>
     {
     ////link.showpublic === 
@@ -234,7 +234,12 @@ const printIt = () => {
     
     }
     </div>
-        ))}
+        ) 
+      
+      
+      ): "none"
+    
+    }
       
       </InfiniteScroll>
       </div>

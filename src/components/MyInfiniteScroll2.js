@@ -112,6 +112,7 @@ const fetchPeople = async () => {
     //   console.log("error="+error);
     // })
     const links4 = await startSetLinks3(gud.uid)
+    //const count = getCount(links4)
     setDisplayname(gud.displayname)
     setPhotourl(gud.photourl)
     const filteredLinks = links4.filter((link) => (link.showpublic === true))
@@ -166,8 +167,8 @@ const printIt = () => {
      
     :
     <div>
-    
-    <div id="scrollableDiv" style={{ 
+    none
+    {/* <div id="scrollableDiv" style={{ 
       //height: `${people.length===1?"100px":people.length===2?"200px":people.length===3?"300px":people.length>3&&"500px"}`,
       height: "300px",
       overflow: 'auto', border: '1px solid #ccc' }}>
@@ -221,8 +222,6 @@ const printIt = () => {
                     <div className="margin-left-118"><a className="nounderline" href={`https://mail.google.com/mail/u/0`} target="_blank">Send gmail.</a>
                     </div>
 
-                    
-                    
                     }
                      
                   </div>
@@ -245,7 +244,7 @@ const printIt = () => {
     }
       
       </InfiniteScroll>
-      </div>
+      </div> */}
     </div>
     
     }

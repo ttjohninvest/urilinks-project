@@ -16,6 +16,7 @@ import selectLinks from "../selectors/links";
 import selectLinks2 from "../selectors/links2";
 import LinksSummary from "./LinksSummary";
 import printerImage from "../assets/images/printer_image.png";
+import { v4 } from "uuid";
 
 
 
@@ -198,7 +199,7 @@ export const LinkList = (props) => {
       
       
       {selectedOption === "option4"?
-      <MyInfiniteScroll2 firstone={true}/>
+      <MyInfiniteScroll2 firstone={true} an={v4()} />
       :
       selectedOption === "option1" ? (
         <div className="list-body border-green-">

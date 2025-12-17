@@ -115,6 +115,7 @@ const LinkDashboardPage = (props) => {
 
   
 const a = (c) => {
+  console.log("a=(c)=>, LinkDashboardPage.js, c="+c)
   bf(c)
 }
  

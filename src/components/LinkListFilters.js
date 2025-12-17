@@ -31,6 +31,7 @@ function ExpandableArray(props) {
   const [photoURL, setPhotoURL] = useState("");
   const [maximum, setMaximum] = useState(0);
 
+  /*
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
 
@@ -41,7 +42,7 @@ function ExpandableArray(props) {
     window.localStorage.setItem("hideinformation", true);
     x = window.localStorage.getItem("hideinformation");
   }
-  //
+  
   const [isToggled, setIsToggled] = useState(x);
 
   const isMobile = () => {
@@ -56,9 +57,10 @@ function ExpandableArray(props) {
 
     window.localStorage.setItem("hideinformation", isToggled);
   };
-
+*/
   useEffect(() => {
-    console.log("props.b="+props.b)
+    console.log("1 LinkListFilters.js, props.b="+props.b)
+  /*
     if (props.theplan.plan.replace(/"/g, "") === "free") {
       setMaximum(StorageSizes.free);
     } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
@@ -87,18 +89,10 @@ function ExpandableArray(props) {
     } else {
       setIsToggled(false);
     }
-
-    // const hasRefreshed = sessionStorage.getItem("hasRefreshed");
-    // console.log(
-    //   "LinkListFilters.js, should be false, hasRefreshed=" + hasRefreshed
-    // );
-    // if (!hasRefreshed) {
-    //   //sessionStorage.setItem('hasRefreshed', 'true');
-    //   console.log("LinkListFilters.js, window.location.reload()");
-    //   window.location.reload();
-    // }
+*/
   }, []);
 
+  /*
   const moveIt = () => {
     window.scrollTo(0, props.elementRef.current.offsetHeight);
   };
@@ -126,26 +120,19 @@ function ExpandableArray(props) {
     e.target.focus();
     setCopySuccess("Copied " + text);
   };
-
+*/
   return (
     <div className="bg-white-1">
       
 
           <div
-            ref={props.ref}
-            className={`${
-              newspaper === false
-                ? "grid-container5"
-                : "grid-container5-newspaper"
-            } paddingparent margin-top-1 background-white-1 borderradius5`}
-            title={
-              props.signup === true
-                ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
-                : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags which were entered in the note section to find your links that are grouped by hashtag."
-            }
+            //ref={props.ref}
+            className={`paddingparent margin-top-1 background-white-1 borderradius5`}
+            title={""}
           >
-            {!expanded
-              ? props.b === 1 && 
+            {
+            //!expanded
+             false  ? props.b === 1 && 
               props.mappedDataShort.map((s, index) => {
                   if (index < 50)
                     return (

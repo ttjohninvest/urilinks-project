@@ -27,7 +27,7 @@ const LinkDashboardPage = (props) => {
   const [theValue, setTheValue] = useState(false)
   const [avalue, setAvalue] = useState(0)
   const [bvalue, setBvalue] = useState(0)
-   const [b, bf] = useState(1)
+  const [b, bf] = useState(1)
 
   useEffect(() => {
 

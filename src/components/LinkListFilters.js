@@ -248,6 +248,7 @@ export class LinkListFilters extends React.Component {
     // let np = window.localStorage.getItem("newspaper");
     //console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
+      
       sortBy: "hashtag",
       items: [],
       calendarFocused: null,
@@ -439,8 +440,8 @@ export class LinkListFilters extends React.Component {
   }
 
   componentDidMount() {
-    console.log("an2="+this.props.an2)
-    console.log("this.props.b="+this.props.b)
+    console.log("LinkListFilters, an2="+this.props.an2)
+    console.log("LinkListFilters, this.props.b="+this.props.b)
     //props.history.push("/");
     //window.location.reload()
     //this.setState({ foldernamesList: [] });
@@ -622,12 +623,13 @@ export class LinkListFilters extends React.Component {
     return (
       <div className="">
         <div>
+          <span>this.props.b</span>{this.props.b}
           {((this.props.hashtags && this.props.hashtags.length > 0) ||
             (this.state.mappedDataLong &&
               this.state.mappedDataLong.length > 1)) && (
             <div>
-              {/* <div className="cursor-pointer" onClick={this.scrollDown}>scroll down past the hashtags</div> */}
-              <ExpandableArray
+               <span>this.props.b</span>{this.props.b}
+               <ExpandableArray
                 mappedDataShort={this.props.hashtags}
                 mappedDataLong={this.state.mappedDataLong}
                 maxLength={this.SHORT_HASHTAG_LENGTH}
@@ -642,14 +644,17 @@ export class LinkListFilters extends React.Component {
                 links={this.props.links}
                 b={this.props.b}
               />
+              <span>this.props.b</span>{this.props.b}
             </div>
           )}
+          <span>this.props.b</span>{this.props.b}
         </div>
 
         <div
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
+          <span>this.props.b</span>{this.props.b}
           <div className="">
             <input
               id="termid"

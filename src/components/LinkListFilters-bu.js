@@ -128,7 +128,508 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      
+      {props.mappedDataShort.length > 0 ? (
+        <div className="">
+          <div
+            className="flexrow2c padding-left-a borderRadius4"
+            title={
+              props.signup === true
+                ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
+                : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."
+            }
+          >
+            <div className="text-size-5 padding-top-11">
+              {isMobile() === false ? (
+                <div className="flexrow2j margin-left-minus-3">
+                  {props.signup === true || signup === "0" ? (
+                    <div className="padding-top-1112  textCenter-">
+                      <img
+                        src={photoURL}
+                        width="64"
+                        height="64"
+                        style={{ borderRadius: "50%" }}
+                        className="ib- margin-bottom-11-"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="padding-top-1112  textCenter-"
+                      title="welcome"
+                    >
+                      {false ? (
+                        <img
+                          src={photoURL}
+                          width="64"
+                          height="64"
+                          style={{ borderRadius: "50%" }}
+                          className="ib- margin-bottom-11-"
+                        />
+                      ) : (
+                        <div className="textCenter-">
+                          <img
+                            src={myprofile}
+                            width="64"
+                            height="64"
+                            style={{ borderRadius: "50%" }}
+                            className="ib- margin-bottom-11-"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="flexrow2j margin-left-minus-2">
+                  {props.signup === true || signup === "0" ? (
+                    <div className="padding-top-1112  textCenter-">
+                      <img
+                        src={photoURL}
+                        width="64"
+                        height="64"
+                        style={{ borderRadius: "50%" }}
+                        className="ib- margin-bottom-11-"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="padding-top-1112  textCenter-"
+                      title="welcome"
+                    >
+                      {false ? (
+                        <img
+                          src={photoURL}
+                          width="64"
+                          height="64"
+                          style={{ borderRadius: "50%" }}
+                          className="ib- margin-bottom-11-"
+                        />
+                      ) : (
+                        <div className="textCenter-">
+                          <img
+                            src={myprofile}
+                            width="64"
+                            height="64"
+                            style={{ borderRadius: "50%" }}
+                            className="ib- margin-bottom-11-"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
+                {/* <div>a</div> */}
+                <div className="text-size-1">
+                  <div className="ib text-size-9" title="This is an example page.">
+                    {(!!theuser && props.signup === true) || signup === "0"
+                      ? theuser.displayName?theuser.displayName:"error getting display name"
+                      : "(Your google email name)"}
+                  </div>
+                  {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
+                </div>
+              </div>
+              <div className="text-size-1 textLeft hide">
+                Welcome
+                {!theuser
+                  ? "to this example links page. What makes you smile?"
+                  : ", what makes you smile?"}
+              </div>
+              {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
+
+              {/* {isMobile()?"yes":"no"} */}
+              {/* {props.signup === false && true && (
+                <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
+                  <span
+                    className=""
+                    title="Please ignore this if you know already. Your bio page is the links page that this platform allows you to create through the add link button or bookmarks file uploader menu item in the header. I provide you a link you can share on your instagram profile"
+                  >
+                    <span className="text-size-9 font-weight-bold">T</span>he
+                    link in bio page for{" "}
+                    {(!!theuser && props.signup === true) || signup === "0"
+                      ? theuser.displayName
+                      : "John Example"}
+                    , click a hashtag or folder name to see the bio links in
+                    that category.
+                  </span>
+                </div>
+              )} */}
+              {/* {props.signup === false && true && (
+                <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
+                  <span className="" title="better">
+                    <span className="text-size-9 font-weight-bold">L</span>
+                    inktree's link in bio tool is good but mine is better because mine is is easier and faster to use than linktree's and I offer a feature that allows for the importing of bookmarks that get automatically converted into bio links. Much agape gape Love John ❤️
+                  </span>
+                </div>
+              )} */}
+              {props.signup === false && true ? (
+                <div className="text-size-1 flexrowzc">
+                  {/* <div>
+                    An alternative to linktree. This is a link-in-bio tool for platforms that accepts a bio link like instagram to get you more engagement. 
+                  </div>
+                  <div>
+                    You may add one link at a time to your bio page or you may upload browser bookmarks that get converted 
+                  </div>
+                  <div>
+                    to bio links for you. Any user that clicks on your shared link will see the changes.
+                  </div>
+                  <div>
+                    To see bio links, click on a hash tag button below or use the menu bar below the hash tags 
+                  </div>
+                   <div>
+                    buttons and click on a folder name in the drop down list or use the search feature.
+                  </div>
+                  <div>
+                    You may find it easy to use. if you are satisfied with how it works for you, can you login?
+                  </div>
+                    */}
+
+                  {/* <div>
+                    I am marketing this site as a study tool for students and professors of colleges and universities.
+                    </div>
+
+                    <div>
+                    I am marketing this to wise/wiser people. The following needs to be said: You may use it
+                    </div>
+                    <div>
+                     for good or bad but I suggest you use it for good so you can have better results in life. 
+                     </div>
+                     <div>
+                      This site is similar to linktree; however, it is dedicated to serving students and professors
+                       
+                      </div>
+                      <div>
+                       This is similar to link-in-bio tool but I call it link-in-research tool with the goal of giving
+                        
+                       
+                        
+                       </div>
+                       <div>
+                         you more user engagement to your consolidated content table, research links, when a user clicks on it. 
+                        
+                          
+                         </div>
+                         
+                       <div>
+                         It simply gives you a place to store from 1 to 1000 links (Free plan: 1-250 free, 
+                         
+                         
+                        
+                         
+                        </div>
+                       <div>
+                        Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at
+                          
+                        
+                         
+                         
+                        </div>
+                        
+                    <div>
+                     $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans 
+                     
+                     
+               
+                     
+                    </div>
+                 <div>
+                         automatically billed yearly, delete account at anytime and your subscription is
+
+                    </div>
+                    <div>
+                    automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares 
+                    </div>
+                     
+                     <div>
+                        your content. The display looks pretty good. You may like to use it. I cannot promise that
+                          
+                        
+                        
+                  
+                    </div>
+                    <div>
+                        people will use your content though. Can you freely login? Please contact me, John, with 
+                         
+                       
+                        
+                    </div>
+                    <div>
+                        
+                        any questions, comments or concerns at john@urilinks.com, 775 507 0098.
+                        
+                    </div> */}
+
+                  {/* (Free plan: 1-250 free, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans automatically billed yearly, delete account at anytime and your subscription is automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares your content. */}
+
+                  <div>
+                    This site is for students of colleges and universities. It
+                    is the original link-in-research tool
+                    <br />
+                    similar to link-in-bio tool like linktree; however, it is in
+                    a format suitable for learning
+                    <br />
+                    and research. It can store and organize 1-1000 research
+                    links alphabetically.
+                    <br />
+                    It gives you a sharable link to your consolidated internet
+                    research content. You may
+                    <br />
+                    try your first 250 links for free or choose one of three
+                    yearly paid plans at $4.99,
+                    <br />
+                    (stores up to 500 links) $9.99 (stores up to 750 links) or
+                    $14.99 (stores up to 1000 links).
+                    <br />
+                    {/* A word fitly spoken is like apples of gold in pictures of silver., proverbs 25:11
+                    
+                    friends are like flowers in the garden of life 
+                     https://www.youtube.com/watch?v=Dmla5mZ1fXU */}
+                    If you can't afford to pay and you need more storage space, please
+                    let me know and I will give it to you for free.<br />
+                    I am a college graduate from UNR. Please contact me, John,
+                    with any blessings, questions, <br />
+                    comments or concerns at john@urilinks.com, 775 507 0098. Can
+                    you freely login/enter?
+                    <br />
+                  </div>
+                </div>
+              ) : (
+                // <div className="text-size-1 flexrowzc">
+                //   <div>
+                //     <span className="text-size-9- font-weight-bold-">T</span>his is a link in bio tool for platforms that accept links like instagram to get more engagement.
+                //   </div>
+                //   <div>
+                //     <span className="text-size-9- font-weight-bold-">Y</span>ou may add one link at a time to your bio page or you may upload browser bookmarks that get converted
+                //   </div>
+                //   <div>
+                //     <span className="text-size-9- font-weight-bold-">T</span>o bio links for you. you may find it easy to use. if you are satisfied with how it works for you,
+                //   </div>
+                //    <div>
+                //     <span className="text-size-9- font-weight-bold-">C</span>an you login?
+                //   </div>
+                // </div>
+                <div className="text-size-1 textLeft margin-top-1">
+                  <span className="hide">
+                    Thank you. Your sharable link is:
+                  </span>
+                  <a
+                    href="#"
+                    ref={textAreaRef}
+                    className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                  >
+                    https://urilinks.com/dashboard?signup=0&id={props.uid}
+                  </a>
+                  <button
+                    className="button-2 ib margin-right-1"
+                    onClick={copyToClipboard}
+                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                  >
+                    Copy sharable link
+                  </button>
+                  {copySuccess}
+                </div>
+              )}
+
+              <div className="text-size-1 textLeft hide">
+                <span className="text-size-9">😃 </span>Your friendly link to
+                links tool
+                {isToggled && props.signup === false ? (
+                  <span>
+                    , click
+                    <span>
+                      <Link
+                        className="cursor-pointer nounderline"
+                        to="/signup"
+                        title=""
+                      >
+                        (login/enter)
+                      </Link>
+                    </span>
+                  </span>
+                ) : (
+                  ""
+                )}
+                {/* <button
+      onClick={handleChange}
+      className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
+      aria-label="Toggle button"
+    >
+      {isToggled ? 'hide information' : 'show information'}
+    </button> */}
+                {isToggled && props.signup === false && (
+                  <div className="text-size-1 textLeft hide">
+                    To go inside (click enter) for an account, you get an empty
+                    page to start adding your favorite links. <br />
+                    You may add a note to each of your links.
+                    <br />
+                  </div>
+                )}
+                {isToggled && props.signup === true && (
+                  <div className="text-size-1 textLeft hide">
+                    You may start adding your favorite links using the Add Link
+                    button below or Bookmarks File Uploader above.
+                    <br />
+                    The hashtags in purple rectangles and the folder names in
+                    the dropdown list in the orange rectangle are added in
+                    alphabetical order.
+                    <br />
+                    The hastags are the folder names read from the browser
+                    bookmarks file with spaces removed and lowercased. The
+                    folder names are copied in the drop down list.
+                    <br />
+                    You may add a note to each of your links.
+                    <br />
+                    You may share your links with linkedin, facebook, or
+                    twitter/x
+                    <br />
+                    You may immediately chat about a bookmark with a family or
+                    friend using facebook messenger, click the blue circle. You
+                    just check if he she is online using fb messenger
+                    <br />
+                    and if so, send the bookmark and then chat about it
+                  </div>
+                )}
+              </div>
+              <br />
+              {props.signup === false &&
+                props.uid === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && (
+                  <div className="textLeft hide">
+                    <iframe
+                      width="300"
+                      height="200"
+                      src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                )}
+              {isToggled && props.signup === false && (
+                <div className="textLeft hide">
+                  Click example hashtag to see links to webpages
+                </div>
+              )}
+
+              {isToggled && props.signup === true && (
+                <div className="textLeft hide">
+                  Click hashtag to see links to webpages
+                </div>
+              )}
+
+              {isToggled && props.signup === false && (
+                <div className="textLeft hide">
+                  To see to see links to webpages, check out the search folder
+                  name dropdown list
+                </div>
+              )}
+
+              {isToggled && props.signup === true && (
+                <div className="textLeft hide">
+                  Check out the search folder name dropdown list in the orange
+                  rectangle for folder names with links to webpages
+                </div>
+              )}
+
+              {isToggled && props.signup === false && (
+                <div className="textLeft hide">
+                  Please give it try to see how it works.
+                </div>
+              )}
+              {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
+              {/* <br />
+              I believe that Jesus is the Christ. I believe that Jesus Christ is
+              the Son of God.
+              <br />
+              Please go and sin no more, ok. Happy it. */}
+              {/* <br />
+              <button
+                className="button-m button--link color-black"
+                onClick={toggleNewspaper}
+              >
+                {newspaper ? "show other view" : "show other view"}
+              </button> */}
+            </div>
+
+            <div className="flexrow2e">
+              {
+                //isToggled &&
+
+                props.signup === true && (
+                  <div
+                    title="current plan"
+                    className="margin-right-1 textLeft hide"
+                  >
+                    plan: {props.plan.replace(/"/g, "")}
+                  </div>
+                )
+              }
+
+              {isToggled && props.signup === false && <div></div>}
+              <div>
+                {isToggled && props.signup === true && (
+                  <div className="margin-right-1">
+                    {props.theplan.plan.replace(/"/g, "") === "free" ? (
+                      <span>(It stores upto {StorageSizes.free} links)</span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {props.theplan.plan.replace(/"/g, "") === "basic" ? (
+                      <span>(It stores upto {StorageSizes.basic} links)</span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {props.theplan.plan.replace(/"/g, "") === "standard" ? (
+                      <span>
+                        (It stores upto {StorageSizes.standard} links)
+                      </span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {props.theplan.plan.replace(/"/g, "") === "premium" ? (
+                      <span>(It stores upto {StorageSizes.premium} links)</span>
+                    ) : (
+                      <span></span>
+                    )}
+                  </div>
+                )}
+
+                {
+                  //isToggled &&
+                  props.signup === false && ""
+                }
+              </div>
+              <div className="margin-left-11-">
+                <div className="margin-left-minus-1">
+                  <span>
+                    {props.links.length} links of {maximum} links is stored on{" "}
+                    {props.theplan.plan.replace(/"/g, "")} plan.
+                  </span>
+                </div>
+                <div className="flexrow3c">
+                  <Link className="header__title" to="/teirspayment3">
+                    <span
+                      className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
+                      title="click for plan options"
+                    >
+                      {
+                        //isToggled &&
+
+                        props.signup === true &&
+                          props.theplan.plan.replace(/"/g, "") !==
+                            "premium" && <span>(click to change plan)</span>
+                      }
+
+                      {isToggled && props.signup === false && <span></span>}
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div
             ref={props.ref}
@@ -144,7 +645,7 @@ function ExpandableArray(props) {
             }
           >
             {!expanded
-              ? props.b === 0 && 
+              ? //props.b === 0 && 
               props.mappedDataShort.map((s, index) => {
                   if (index < 50)
                     return (
@@ -170,7 +671,7 @@ function ExpandableArray(props) {
                   else return false;
                 })
               : 
-              props.b === 1 && 
+              //props.b === 1 && 
               props.mappedDataShort.map((s, index) => {
                   //have 3 map calls and display the first column then the second column and then the thrid column
                   return (
@@ -193,16 +694,26 @@ function ExpandableArray(props) {
                       </a>
                     </div>
                   );
-                })
-                
-                }
+                })}
 
-           </div>
+            {!expanded && <span className="text-size-5">...</span>}
+          </div>
+          <button
+            className="button-m button--link color-black"
+            onClick={toggleExpanded}
+          >
+            {expanded ? "Show Less Hashtags" : "Show More Hashtags"}
+          </button>
+        </div>
+      ) : (
+        <div></div>
+      )}
+      {/* <div className="border2black">
+       column b
+        </div> */}
     </div>
   );
 }
-
-
 /*
   //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
   const highlight = (v) => {

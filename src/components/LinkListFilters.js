@@ -645,7 +645,7 @@ function ExpandableArray(props) {
             }
           >
             {!expanded
-              ? props.mappedDataShort.map((s, index) => {
+              ? props.b === 0 && props.mappedDataShort.map((s, index) => {
                   if (index < 50)
                     return (
                       <div
@@ -669,7 +669,7 @@ function ExpandableArray(props) {
                     );
                   else return false;
                 })
-              : props.mappedDataShort.map((s, index) => {
+              : props.b === 0 && props.mappedDataShort.map((s, index) => {
                   //have 3 map calls and display the first column then the second column and then the thrid column
                   return (
                     <div

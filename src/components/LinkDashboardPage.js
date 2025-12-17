@@ -26,7 +26,7 @@ const LinkDashboardPage = (props) => {
   const [theValue, setTheValue] = useState(false)
   const [avalue, setAvalue] = useState(0)
   const [bvalue, setBvalue] = useState(0)
-   
+   const [b, bf] = useState(0)
 
   useEffect(() => {
 
@@ -113,7 +113,9 @@ const LinkDashboardPage = (props) => {
   }, [scrollPos]);
 
   
-
+const a = (c) => {
+  bf(c)
+}
  
 
   return (
@@ -123,8 +125,8 @@ const LinkDashboardPage = (props) => {
 left column
         </div> */}
         <div className="padding-tb-1">
-          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} />
-          <LinkList />
+          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} bf={b}/>
+          <LinkList a={a}/>
         </div>
         
         {/* <div className="border2black">

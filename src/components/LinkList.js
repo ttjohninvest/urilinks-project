@@ -26,6 +26,7 @@ export const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1");
   const [deleteData, setDeleteData] = useState([]);
   const [first, setFirst] = useState(0);
+  const [key, setKey] = useState(v4())
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
     const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -50,6 +51,7 @@ export const LinkList = (props) => {
     } else if (event.target.value === "option4") {
       window.localStorage.setItem("whichOption", "option4");
       setFirst(2)
+      setKey(v4())
     }
       
     else window.localStorage.setItem("whichOption", "option1");
@@ -199,26 +201,11 @@ export const LinkList = (props) => {
       
       
       {selectedOption === "option4"?
-      <MyInfiniteScroll2 firstone={true} an={v4()} />
+      <MyInfiniteScroll2 firstone={true} key={key} />
       :
       selectedOption === "option1" ? (
         <div className="list-body border-green-">
-          {/* {props.rl > 0 && (
-            <div
-              onClick={printIt}
-              className="margin-top-1111b"
-              title="You may print this list to the printer."
-            >
-              <img
-                src={printerImage}
-                width="32"
-                height="32"
-                className="cursor-pointer"
-                style={{ borderRadius: "50%" }}
-              />
-            </div>
-          )} */}
-
+         
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
               <span>0 links found</span>

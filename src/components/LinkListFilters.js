@@ -58,6 +58,7 @@ function ExpandableArray(props) {
   };
 
   useEffect(() => {
+    console.log("props.b="+props.b)
     if (props.theplan.plan.replace(/"/g, "") === "free") {
       setMaximum(StorageSizes.free);
     } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
@@ -650,6 +651,7 @@ export class LinkListFilters extends React.Component {
                 signup={this.props.signup.signup}
                 uid={this.props.auth.uid}
                 links={this.props.links}
+                b={this.props.b}
               />
             </div>
           )}

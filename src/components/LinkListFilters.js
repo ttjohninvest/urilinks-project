@@ -439,6 +439,8 @@ export class LinkListFilters extends React.Component {
   }
 
   componentDidMount() {
+    console.log("an2="+this.props.an2)
+    console.log("this.props.b="+this.props.b)
     //props.history.push("/");
     //window.location.reload()
     //this.setState({ foldernamesList: [] });

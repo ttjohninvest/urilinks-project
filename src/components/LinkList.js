@@ -40,6 +40,7 @@ export const LinkList = (props) => {
     if (event.target.value === "option1") {
       window.localStorage.setItem("whichOption", "option1");
       setFirst(0)
+
       props.a(1)
     }
     else if (event.target.value === "option2") {
@@ -49,6 +50,9 @@ export const LinkList = (props) => {
     else if (event.target.value === "option3") {
       window.localStorage.setItem("whichOption", "option3");
       setFirst(1)
+      console.log("1 LinkList, option3")
+      console.log("an1="+props.an1)
+    console.log("props.b="+props.b)
       props.a(0)
     } else if (event.target.value === "option4") {
       window.localStorage.setItem("whichOption", "option4");

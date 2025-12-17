@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import {v4} from "uuid"
 import { connect } from "react-redux";
 import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
@@ -125,8 +126,8 @@ const a = (c) => {
 left column
         </div> */}
         <div className="padding-tb-1">
-          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} b={b}/>
-          <LinkList 
+          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  an2={v4()} b={b}/>
+          <LinkList an1={v4()} b={b}
           a={a}
           />
         </div>

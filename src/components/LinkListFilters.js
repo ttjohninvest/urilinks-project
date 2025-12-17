@@ -268,7 +268,10 @@ export class LinkListFilters extends React.Component {
     };
 
     this.setit = this.setit.bind(this);
+    console.log("LinkListFilters, this.props.b="+this.props.b)
   }
+
+   
 
   scrollUp = () => {
     //window.scrollTo(0, 0);
@@ -628,7 +631,7 @@ export class LinkListFilters extends React.Component {
             (this.state.mappedDataLong &&
               this.state.mappedDataLong.length > 1)) && (
             <div>
-               <span>this.props.b</span>{this.props.b}
+               <span>this.props.b=</span>{this.props.b}
                <ExpandableArray
                 mappedDataShort={this.props.hashtags}
                 mappedDataLong={this.state.mappedDataLong}
@@ -644,17 +647,17 @@ export class LinkListFilters extends React.Component {
                 links={this.props.links}
                 b={this.props.b}
               />
-              <span>this.props.b</span>{this.props.b}
+              <span>this.props.b=</span>{this.props.b}
             </div>
           )}
-          <span>this.props.b</span>{this.props.b}
+          <span>this.props.b=</span>{this.props.b}
         </div>
 
         <div
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
-          <span>this.props.b</span>{this.props.b}
+          <span>this.props.b=</span>{this.props.b}
           <div className="">
             <input
               id="termid"

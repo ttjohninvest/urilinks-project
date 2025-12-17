@@ -670,7 +670,8 @@ function ExpandableArray(props) {
                     );
                   else return false;
                 })
-              : props.b === 1 && 
+              : 
+              //props.b === 1 && 
               props.mappedDataShort.map((s, index) => {
                   //have 3 map calls and display the first column then the second column and then the thrid column
                   return (

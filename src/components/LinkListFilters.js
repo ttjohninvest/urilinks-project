@@ -268,7 +268,7 @@ export class LinkListFilters extends React.Component {
     };
 
     this.setit = this.setit.bind(this);
-    console.log("LinkListFilters, this.props.b="+this.props.b)
+    console.log("1 LinkListFilters, this.props.b="+this.props.b)
   }
 
    

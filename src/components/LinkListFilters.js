@@ -626,7 +626,7 @@ export class LinkListFilters extends React.Component {
     return (
       <div className="">
         <div>
-          <span>this.props.b</span>{this.props.b}
+          <span>this.props.b=</span>{this.props.b}
           {((this.props.hashtags && this.props.hashtags.length > 0) ||
             (this.state.mappedDataLong &&
               this.state.mappedDataLong.length > 1)) && (

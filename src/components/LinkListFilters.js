@@ -651,7 +651,7 @@ export class LinkListFilters extends React.Component {
                 signup={this.props.signup.signup}
                 uid={this.props.auth.uid}
                 links={this.props.links}
-                b={this.props}
+                b={this.props.b}
               />
             </div>
           )}

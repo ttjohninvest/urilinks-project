@@ -249,7 +249,7 @@ export const LinkList = (props) => {
               />
             </div>
           )} */}
-          <div id="listid">
+          
             {props.links.length === 0 ? (
               <div className="list-item list-item--message">
                 <span>0 links found</span>
@@ -259,6 +259,7 @@ export const LinkList = (props) => {
                 return <LinkListItem2 lcf={lcf} key={link.id} {...link} />;
               })
             ):
+            
             (
               props.links.map((link) => {
                 return <LinkListItem2 key={link.id} {...link} />;
@@ -266,24 +267,11 @@ export const LinkList = (props) => {
             )
             }
           </div>
-        </div>
+        
       ): selectedOption === "option3" ? 
       (
         <div className="list-body margin-top-11-">
-          {/* {props.links2.length > 0 && (
-            <div
-              onClick={printIt}
-              className="margin-top-1111b cursor-pointer"
-              title="You may print this list to the printer."
-            >
-              <img
-                src={printerImage}
-                width="32"
-                height="32"
-                style={{ borderRadius: "50%" }}
-              />
-            </div>
-          )} */}
+         
           <div id="listid">
             {props.links2.length === 0 ? (
               <div className="list-item list-item--message">
@@ -295,13 +283,13 @@ export const LinkList = (props) => {
               })
             ):
 
-            <MyInfiniteScroll />
+            // <MyInfiniteScroll />
 
-            // (
-            //   props.links2.map((link) => {
-            //     return <LinkListItem4 key={link.id} {...link} />;
-            //   })
-            // )
+            (
+              props.links2.map((link) => {
+                return <LinkListItem4 key={link.id} {...link} />;
+              })
+            )
 
 
             }

@@ -114,7 +114,7 @@ const LinkDashboardPage = (props) => {
   }, [scrollPos]);
 
   useEffect(()=>{
-    bf(0)
+    bf(b)
   },[b])
   
 const av = (c) => {

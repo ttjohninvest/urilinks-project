@@ -113,10 +113,13 @@ const LinkDashboardPage = (props) => {
     };
   }, [scrollPos]);
 
+  useEffect(()=>{
+    bf(0)
+  },[b])
   
 const av = (c) => {
   console.log("a=(c)=>, LinkDashboardPage.js, c="+c)
-  bf(p => c+0)
+  bf(c)
 }
  
 

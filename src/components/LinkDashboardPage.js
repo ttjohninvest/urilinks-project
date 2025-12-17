@@ -127,7 +127,7 @@ left column
         <div className="padding-tb-1">
           <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight} b={b}/>
           <LinkList 
-          //a={a}
+          a={a}
           />
         </div>
         

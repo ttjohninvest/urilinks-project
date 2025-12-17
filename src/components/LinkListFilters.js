@@ -145,7 +145,7 @@ function ExpandableArray(props) {
             }
           >
             {!expanded
-              ? props.b === 0 && 
+              ? props.b === 1 && 
               props.mappedDataShort.map((s, index) => {
                   if (index < 50)
                     return (

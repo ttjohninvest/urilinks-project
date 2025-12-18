@@ -717,7 +717,26 @@ function ExpandableArray(props) {
   );
 }
 
+/*
+constructor(props) {
+    super(props);
+    this.state = { searchTerm: '' };
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
 
+  handleSearch() {
+    // Perform the search action here
+    console.log('Searching for:', this.state.searchTerm);
+    // Example: this.props.onSearch(this.state.searchTerm);
+  }
+
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.handleSearch();
+    }
+  }
+*/
 
 export class LinkListFilters extends React.Component {
   
@@ -747,9 +766,29 @@ export class LinkListFilters extends React.Component {
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
       foldernamesList: [],
       isToggled: false,
+      searchTerm: ''
     };
 
     this.setit = this.setit.bind(this);
+     
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+   handleSearch() {
+    // Perform the search action here
+    //console.log('Searching for:', this.state.searchTerm);
+    // Example: this.props.onSearch(this.state.searchTerm);
+  
+    const term = window.document.getElementById("termid").value
+    //alert (term)
+    this.props.setTextFilter(term);
+  }
+
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.handleSearch();
+    }
   }
 
   scrollUp = () => {
@@ -1153,7 +1192,13 @@ export class LinkListFilters extends React.Component {
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
-          <input id="termid" className="text-input outline-none padding-left-11" type="text" />
+          <input 
+          id="termid" 
+          className="text-input outline-none padding-left-11" 
+          type="text" 
+          onChange={(e) => this.setState({ searchTerm: e.target.value })}
+          onKeyDown={this.handleKeyPress}
+          />
           {/* <div className="">
             <input
               id="termid"

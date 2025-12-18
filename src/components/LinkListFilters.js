@@ -436,12 +436,12 @@ export class LinkListFilters extends React.Component {
   // Example usage:
   //console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return {
-      filenameList: [],
-    };
-  }
-
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   return {
+  //     filenameList: [],
+  //   };
+  // }
+  //kdjfakfj;d
   componentDidMount() {
     console.log("LinkListFilters, an2="+this.props.an2)
     console.log("LinkListFilters, this.props.b="+this.props.b)

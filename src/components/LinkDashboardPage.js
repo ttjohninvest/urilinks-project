@@ -130,9 +130,8 @@ const av = (c) => {
 left column
         </div> */}
         <div className="padding-tb-1">
-          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  an2={v4()} b={b}/>
-          <LinkList an1={v4()} b={b}
-          av={av}
+          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  b={b}/>
+          <LinkList av={av}
           />
         </div>
         

@@ -1153,7 +1153,8 @@ export class LinkListFilters extends React.Component {
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
-          <div className="">
+          <input type="text" />
+          {/* <div className="">
             <input
               id="termid"
               //ref={this.myRef}
@@ -1167,7 +1168,7 @@ export class LinkListFilters extends React.Component {
               //onChange={this.onTextChange2}
               title=""
             />
-          </div>
+          </div> */}
            <div>
             <button className="button-2" onClick={this.search} title="clear the search term field" >search</button>
           </div>

@@ -1194,7 +1194,7 @@ export class LinkListFilters extends React.Component {
         >
           <input 
           id="termid" 
-          className="text-input outline-none padding-left-11" 
+          className="button-3 text-input outline-none padding-left-11" 
           type="text" 
           onChange={(e) => this.setState({ searchTerm: e.target.value })}
           onKeyDown={this.handleKeyPress}

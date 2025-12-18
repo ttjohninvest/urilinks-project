@@ -655,7 +655,7 @@ const LinkListItem = (props) => {
   };
   //
   return (
-    <div key={props.link.id}>
+    <div key={props.index}>
     {
     //link.showpublic === 
     true && 

@@ -645,7 +645,9 @@ function ExpandableArray(props) {
             }
           >
             {!expanded
-              ? props.b === 1 && 
+              ? 
+              
+              //props.b === 1 && 
               props.mappedDataShort.map((s, index) => {
                   if (index < 50)
                     return (
@@ -654,7 +656,7 @@ function ExpandableArray(props) {
                         className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                       >
                         <a
-                          className="b1x nounderline color-white-1 button-link-4"
+                          className={`b1x nounderline color-white-1 button-link-4 ${props.b==true ?"pointereventsauto":"pointereventsnone bg-color-grey"}`}
                           href="#"
                           onClick={() => props.setit(s.hashtag, event)}
                           title={`${s.hashtag}, click to scroll to results`}
@@ -671,7 +673,7 @@ function ExpandableArray(props) {
                   else return false;
                 })
               : 
-              props.b === 1 && 
+              //props.b === 1 && 
               props.mappedDataShort.map((s, index) => {
                   //have 3 map calls and display the first column then the second column and then the thrid column
                   return (
@@ -680,7 +682,7 @@ function ExpandableArray(props) {
                       className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                     >
                       <a
-                        className="b1x  nounderline color-white-1 button-link-4"
+                        className={`b1x nounderline color-white-1 button-link-4 ${props.b==true ?"pointereventsauto":"pointereventsnone bg-color-grey"}`}
                         href="#"
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${s.hashtag}, click to scroll to results`}

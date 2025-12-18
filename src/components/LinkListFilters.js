@@ -1140,6 +1140,16 @@ export class LinkListFilters extends React.Component {
     return regex.test(navigator.userAgent);
   }
 
+  clear () {
+    
+    if(this.props.filters.sortBy==="hashtag") {
+      windows.document.getElementById("termid").value="#"
+    } else {
+      windows.document.getElementById.value=""
+    }
+   
+  }
+
   render() {
     return (
       <div className="">
@@ -1193,6 +1203,9 @@ export class LinkListFilters extends React.Component {
                   : "Search for Link(s) (Please enter Hash Tag to find)"
               }
             />
+          </div>
+           <div>
+            <button className="button-2" onClick={clear} title="clear the search term field" >clear</button>
           </div>
 
           {this.isMobile() === false && (

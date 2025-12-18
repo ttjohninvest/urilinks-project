@@ -1187,14 +1187,14 @@ export class LinkListFilters extends React.Component {
             </div>
           )}
         </div>
-<div className="flexrowz">
+        <div className="flexrowz">
         <div
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
           <input 
           id="termid" 
-          className="button-3 text-input outline-none padding-left-11" 
+          className="text-input outline-none padding-left-11" 
           type="text" 
           onChange={(e) => this.setState({ searchTerm: e.target.value })}
           onKeyDown={this.handleKeyPress}
@@ -1202,7 +1202,7 @@ export class LinkListFilters extends React.Component {
          
            <div>
             <button 
-            className="button-3 button--link ib text-size-3- color-white-1 cursor-pointer font-weight-bold"
+            className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold"
             
             onClick={this.search} 
             title="clear the search term field" >search</button>

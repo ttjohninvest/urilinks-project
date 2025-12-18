@@ -204,7 +204,7 @@ const E2 = (props) => {
                                             <span>{gud.displayname}</span>
                                           </div>
                                           {props.signup.signup === true ? (
-                                            <div>
+                                            <div className="padding-bottom-117">
                                               <div className="margin-left-118">
                                                 <a
                                                   className="nounderline"
@@ -220,9 +220,7 @@ const E2 = (props) => {
                                                 </a>
                                               </div>
                                               <div>
-                                                {/* {`display links made public ${gud.uid}`} */}
-                                                {/* <button onClick={(event) => YZ(event, gud)} className="ib button-1 margin-left-118">{`display ${!!gud.displayname?gud.displayname+"'s":""} public links.`}</button>
-                                                 */}
+                                               
                                                 <button
                                                   onClick={(event) =>
                                                     YZ(event, gud)

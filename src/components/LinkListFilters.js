@@ -775,9 +775,7 @@ export class LinkListFilters extends React.Component {
     this.setState(() => ({ calendarFocused }));
   };
 
-  onTextChange2=()=>{
 
-  }
 
   onTextChange = (e) => {
     console.log("e.target.value=" + e.target.value);
@@ -1115,10 +1113,10 @@ export class LinkListFilters extends React.Component {
    
   // }
 
-  search() {
+  search=()=>{
+    console.log("search")
     const term = window.document.getElementById("termid").value
     alert (term)
-    console.log("search")
     this.props.setTextFilter(term);
    
   }

@@ -169,11 +169,28 @@ export const LinkList = (props) => {
           </label>
         </div>
 
-        <div>
+        {props.signup.signup === true ? <div>
           <label className="inline-block__flex">
             <input
               ref={myRef}
-              className="the-inline-block zindex2 makehidden"
+              className="pointereventsauto the-inline-block zindex2 makehidden"
+              type="radio"
+              value="option4"
+              checked={selectedOption === "option4"}
+              onChange={handleOptionChange}
+            />
+            <span
+              className="button-2 ib cursor-pointer"
+              title="This will show all the links the public has shared."
+            >
+              People
+            </span>
+          </label>
+        </div>:<div>
+          <label className="inline-block__flex">
+            <input
+              ref={myRef}
+              className="pointereventsnone the-inline-block zindex2 makehidden"
               type="radio"
               value="option4"
               checked={selectedOption === "option4"}
@@ -187,6 +204,8 @@ export const LinkList = (props) => {
             </span>
           </label>
         </div>
+        
+        }
       </div>
 
       <div

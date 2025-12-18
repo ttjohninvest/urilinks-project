@@ -23,7 +23,7 @@ export const LinkList = (props) => {
   const [deleteData, setDeleteData] = useState([]);
   const [first, setFirst] = useState(0);
   const [key, setKey] = useState(v4());
-  const [bgcolor1, setBgcolor1] = useState("#db5705"); //rgba(219, 87, 5, 1)
+  const [bgcolor1, setBgcolor1] = useState("#b87333"); //rgba(219, 87, 5, 1)
   const [bgcolor2, setBgcolor2] = useState("#db5705"); //rgba(219, 87, 5, 1)
   const [bgcolor3, setBgcolor3] = useState("#db5705"); //rgba(219, 87, 5, 1)
 

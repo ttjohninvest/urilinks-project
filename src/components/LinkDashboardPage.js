@@ -144,7 +144,7 @@ useUnload((e) => {
     window.localStorage.setItem("searchLinks3", "");
     window.localStorage.setItem("searchLinks4", "");
     // Example: Use navigator.sendBeacon to send data asynchronously
-    navigator.sendBeacon('/api/log', JSON.stringify({ action: 'page-unload' }));
+    //navigator.sendBeacon('/api/log', JSON.stringify({ action: 'page-unload' }));
   });
  
 

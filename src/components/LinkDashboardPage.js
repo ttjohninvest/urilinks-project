@@ -137,8 +137,8 @@ const useUnload = (fn) => {
 useUnload((e) => {
     // Perform cleanup or send data before the page unloads
     console.log('Page is unloading');
-    window.localStorage.setItem("sortBy", "");
-    window.localStorage.setItem("whichOption", "");
+    window.localStorage.setItem("sortBy", "description");
+    window.localStorage.setItem("whichOption", "option1"); //option1 (your links button), option3 (all public links button), option4 (people)
     window.localStorage.setItem("searchLinks1", "");
     window.localStorage.setItem("searchLinks2", "");
     window.localStorage.setItem("searchLinks3", "");

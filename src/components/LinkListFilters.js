@@ -1116,7 +1116,7 @@ export class LinkListFilters extends React.Component {
   // }
 
   search() {
-    const term = winodow.document.getElementById("termid").value
+    const term = windows.document.getElementById("termid").value
     alert (term)
     console.log("search")
    

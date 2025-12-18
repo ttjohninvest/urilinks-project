@@ -1115,6 +1115,12 @@ export class LinkListFilters extends React.Component {
    
   // }
 
+  search() {
+
+    console.log("search")
+   
+  }
+
   render() {
     return (
       <div className="">
@@ -1162,9 +1168,9 @@ export class LinkListFilters extends React.Component {
               title=""
             />
           </div>
-           {/* <div>
-            <button className="button-2" onClick={this.clear} title="clear the search term field" >clear</button>
-          </div> */}
+           <div>
+            <button className="button-2" onClick={this.search} title="clear the search term field" >search</button>
+          </div>
 
           {this.isMobile() === false && (
             <div

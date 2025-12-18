@@ -23,6 +23,9 @@ export const LinkList = (props) => {
   const [deleteData, setDeleteData] = useState([]);
   const [first, setFirst] = useState(0);
   const [key, setKey] = useState(v4());
+  const [bgcolor1, setBgcolor1] = useState("#db5705"); //rgba(219, 87, 5, 1)
+  const [bgcolor2, setBgcolor2] = useState("#db5705"); //rgba(219, 87, 5, 1)
+  const [bgcolor3, setBgcolor3] = useState("#db5705"); //rgba(219, 87, 5, 1)
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -66,22 +69,31 @@ export const LinkList = (props) => {
     if (event.target.value === "option1") {
       window.localStorage.setItem("whichOption", "option1");
       setFirst(0);
+      setBgcolor1("#b87333")
+      setBgcolor2("#db5705")
+      setBgcolor3("#db5705")
 
       props.av(1);
     } else if (event.target.value === "option2") {
       window.localStorage.setItem("whichOption", "option2");
       setFirst(0);
+      
     } else if (event.target.value === "option3") {
       window.localStorage.setItem("whichOption", "option3");
       setFirst(1);
       console.log("1 LinkList, option3");
       console.log("an1=" + props.an1);
       console.log("props.b=" + props.b);
-
+      setBgcolor1("#db5705")
+      setBgcolor2("#b87333")
+      setBgcolor3("#db5705")
       props.av(0);
     } else if (event.target.value === "option4") {
       window.localStorage.setItem("whichOption", "option4");
       setFirst(2);
+      setBgcolor1("#db5705")
+      setBgcolor2("#db5705")
+      setBgcolor3("#b87333")
       setKey(v4());
     } else window.localStorage.setItem("whichOption", "option1");
   };
@@ -120,6 +132,7 @@ export const LinkList = (props) => {
             <input
               ref={myRef}
               className="the-inline-block zindex2 makehidden"
+           
               type="radio"
               value="option1"
               checked={selectedOption === "option1"}
@@ -127,6 +140,8 @@ export const LinkList = (props) => {
             />
             <span
               className="button-2 ib cursor-pointer"
+              
+              style={{backgroundColor:bgcolor1}}
               title="links list with details"
             >
               List Links
@@ -154,6 +169,7 @@ export const LinkList = (props) => {
             <input
               ref={myRef}
               className="the-inline-block zindex2 makehidden"
+             
               type="radio"
               value="option3"
               checked={selectedOption === "option3"}
@@ -161,6 +177,7 @@ export const LinkList = (props) => {
             />
             <span
               className="button-2a ib cursor-pointer"
+              style={{backgroundColor:bgcolor2}}
               title="The users have given permission to show these links to the public."
             >
               List All Links
@@ -174,6 +191,7 @@ export const LinkList = (props) => {
               <input
                 ref={myRef}
                 className="pointereventsauto the-inline-block zindex2 makehidden"
+                
                 type="radio"
                 value="option4"
                 checked={selectedOption === "option4"}
@@ -181,6 +199,7 @@ export const LinkList = (props) => {
               />
               <span
                 className="button-2 ib cursor-pointer"
+                style={{backgroundColor:bgcolor3}}
                 title="This will show all the links the public has shared."
               >
                 People
@@ -200,6 +219,8 @@ export const LinkList = (props) => {
               />
               <span
                 className="button-2 ib cursor-pointer"
+                style={{backgroundColor:bgcolor3}}
+
                 title="This will show all the links the public has shared."
               >
                 People

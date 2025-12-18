@@ -1187,7 +1187,7 @@ export class LinkListFilters extends React.Component {
             </div>
           )}
         </div>
-
+<div className="flexrowz">
         <div
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
@@ -1199,27 +1199,14 @@ export class LinkListFilters extends React.Component {
           onChange={(e) => this.setState({ searchTerm: e.target.value })}
           onKeyDown={this.handleKeyPress}
           />
-          {/* <div className="">
-            <input
-              id="termid"
-              //ref={this.myRef}
-              type="text"
-              className="text-input outline-none padding-left-11"
-              placeholder=""
-              value=""
-              //value={this.props.filters.text}
-              //value={this.props.filters.sortBy==="hashtag"?"#":""}
-              //onChange={this.onTextChange}
-              //onChange={this.onTextChange2}
-              title=""
-            />
-          </div> */}
+         
            <div>
             <button 
             className="button-3 button--link ib text-size-3- color-white-1 cursor-pointer font-weight-bold"
             
             onClick={this.search} 
             title="clear the search term field" >search</button>
+          </div>
           </div>
 
           {this.isMobile() === false && (

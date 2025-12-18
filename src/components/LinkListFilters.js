@@ -1108,18 +1108,18 @@ export class LinkListFilters extends React.Component {
   // clear () {
 
   //   if(this.props.filters.sortBy==="hashtag") {
-  //     windows.document.getElementById("termid").value="#"
+  //     window.document.getElementById("termid").value="#"
   //   } else {
-  //     windows.document.getElementById.value=""
+  //     window.document.getElementById.value=""
   //   }
    
   // }
 
   search() {
-    const term = windows.document.getElementById("termid").value
+    const term = window.document.getElementById("termid").value
     alert (term)
     console.log("search")
-     this.props.setTextFilter(term);
+    this.props.setTextFilter(term);
    
   }
 

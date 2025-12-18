@@ -1116,7 +1116,7 @@ export class LinkListFilters extends React.Component {
   search=()=>{
     console.log("search")
     const term = window.document.getElementById("termid").value
-    alert (term)
+    //alert (term)
     this.props.setTextFilter(term);
    
   }
@@ -1153,7 +1153,7 @@ export class LinkListFilters extends React.Component {
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
-          <input id="termid" className="outline-none" type="text" />
+          <input id="termid" className="text-input outline-none padding-left-11" type="text" />
           {/* <div className="">
             <input
               id="termid"

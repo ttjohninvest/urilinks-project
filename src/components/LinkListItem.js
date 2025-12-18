@@ -706,7 +706,7 @@ const LinkListItem = (props) => {
                       <div>
                       <a
                         ref={myRef}
-                        className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 ${!!link.yturl?"":"padding-top-n-hh"}`}
+                        className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 ${!!props.yturl?"":"padding-top-n-hh"}`}
                         href={props.Url}
                         //target="_self"
                         target="_blank"

@@ -235,13 +235,14 @@ const E2 = (props) => {
                                             </div>
                                           ) : (
                                             <div className="margin-left-118">
-                                              <a
+                                              {/* <a
                                                 className="nounderline"
                                                 href={`https://mail.google.com/mail/u/0`}
                                                 target="_blank"
                                               >
                                                 Send gmail.
-                                              </a>
+                                              </a> */}
+                                              <span title="You are able to send gmail from your account.">Send gmail.</span>
                                             </div>
                                           )}
                                         </div>

@@ -137,6 +137,12 @@ const useUnload = (fn) => {
 useUnload((e) => {
     // Perform cleanup or send data before the page unloads
     console.log('Page is unloading');
+    window.localStorage.setItem("sortBy", "");
+    window.localStorage.setItem("whichOption", "");
+    window.localStorage.setItem("searchLinks1", "");
+    window.localStorage.setItem("searchLinks2", "");
+    window.localStorage.setItem("searchLinks3", "");
+    window.localStorage.setItem("searchLinks4", "");
     // Example: Use navigator.sendBeacon to send data asynchronously
     navigator.sendBeacon('/api/log', JSON.stringify({ action: 'page-unload' }));
   });

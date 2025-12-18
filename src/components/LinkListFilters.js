@@ -1141,7 +1141,7 @@ export class LinkListFilters extends React.Component {
   }
 
   clear () {
-    
+
     if(this.props.filters.sortBy==="hashtag") {
       windows.document.getElementById("termid").value="#"
     } else {
@@ -1205,7 +1205,7 @@ export class LinkListFilters extends React.Component {
             />
           </div>
            <div>
-            <button className="button-2" onClick={clear} title="clear the search term field" >clear</button>
+            <button className="button-2" onClick={this.clear} title="clear the search term field" >clear</button>
           </div>
 
           {this.isMobile() === false && (

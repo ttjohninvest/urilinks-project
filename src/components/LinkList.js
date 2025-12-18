@@ -160,7 +160,7 @@ export const LinkList = (props) => {
               onChange={handleOptionChange}
             />
             <span
-              className="button-2 ib cursor-pointer"
+              className="button-2a ib cursor-pointer"
               title="The users have given permission to show these links to the public."
             >
               List All Links

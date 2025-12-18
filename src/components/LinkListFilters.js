@@ -1150,25 +1150,16 @@ export class LinkListFilters extends React.Component {
           <div className="">
             <input
               id="termid"
-              ref={this.myRef}
+              //ref={this.myRef}
               type="text"
               className="text-input outline-none padding-left-11"
-              placeholder={
-                this.props.filters.sortBy === "date"
-                  ? "Search for Link(s)"
-                  : "Search for Link(s)"
-              }
-              value={this.props.filters.text}
+              placeholder=""
+              value=""
+              //value={this.props.filters.text}
               //value={this.props.filters.sortBy==="hashtag"?"#":""}
               //onChange={this.onTextChange}
               //onChange={this.onTextChange2}
-              title={
-                this.props.filters.sortBy === "date"
-                  ? ""
-                  : this.props.filters.sortBy === "description"
-                  ? "Search for Link(s) (Please enter link description to find)"
-                  : "Search for Link(s) (Please enter Hash Tag to find)"
-              }
+              title=""
             />
           </div>
            {/* <div>

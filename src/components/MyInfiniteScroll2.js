@@ -204,7 +204,7 @@ const E2 = (props) => {
                                             <span>{gud.displayname}</span>
                                           </div>
                                           {props.signup.signup === true ? (
-                                            <div className="padding-bottom-117">
+                                            <div className="padding-bottom-116">
                                               <div className="margin-left-118">
                                                 <a
                                                   className="nounderline"

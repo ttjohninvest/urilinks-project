@@ -1207,7 +1207,7 @@ export class LinkListFilters extends React.Component {
            <div className="margin-left-11">
             <button 
             //className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold"
-            className="b1x nounderline color-white-1 button-link-4"
+            className="b1x nounderline color-white-1 button-link-4 outline-none"
             
             onClick={this.search} 
             title="clear the search term field" >search</button>

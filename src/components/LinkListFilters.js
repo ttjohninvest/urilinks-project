@@ -1155,7 +1155,7 @@ export class LinkListFilters extends React.Component {
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
-          <input className="outline-none" type="text" />
+          <input id="termid" className="outline-none" type="text" />
           {/* <div className="">
             <input
               id="termid"

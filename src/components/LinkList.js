@@ -79,7 +79,6 @@ export const LinkList = (props) => {
       console.log("props.b=" + props.b);
 
       props.av(0);
-      
     } else if (event.target.value === "option4") {
       window.localStorage.setItem("whichOption", "option4");
       setFirst(2);
@@ -162,50 +161,52 @@ export const LinkList = (props) => {
             />
             <span
               className="button-2 ib cursor-pointer"
-              title="This will show all the links the public has shared."
+              title="The users have given permission to show these links to the public."
             >
               List All Links
             </span>
           </label>
         </div>
 
-        {props.signup.signup === true ? <div>
-          <label className="inline-block__flex">
-            <input
-              ref={myRef}
-              className="pointereventsauto the-inline-block zindex2 makehidden"
-              type="radio"
-              value="option4"
-              checked={selectedOption === "option4"}
-              onChange={handleOptionChange}
-            />
-            <span
-              className="button-2 ib cursor-pointer"
-              title="This will show all the links the public has shared."
-            >
-              People
-            </span>
-          </label>
-        </div>:<div>
-          <label className="inline-block__flex">
-            <input
-              ref={myRef}
-              className="pointereventsnone the-inline-block zindex2 makehidden"
-              type="radio"
-              value="option4"
-              checked={selectedOption === "option4"}
-              onChange={handleOptionChange}
-            />
-            <span
-              className="button-2 ib cursor-pointer"
-              title="This will show all the links the public has shared."
-            >
-              People
-            </span>
-          </label>
-        </div>
-        
-        }
+        {props.signup.signup === true ? (
+          <div>
+            <label className="inline-block__flex">
+              <input
+                ref={myRef}
+                className="pointereventsauto the-inline-block zindex2 makehidden"
+                type="radio"
+                value="option4"
+                checked={selectedOption === "option4"}
+                onChange={handleOptionChange}
+              />
+              <span
+                className="button-2 ib cursor-pointer"
+                title="This will show all the links the public has shared."
+              >
+                People
+              </span>
+            </label>
+          </div>
+        ) : (
+          <div>
+            <label className="inline-block__flex">
+              <input
+                ref={myRef}
+                className="pointereventsnone the-inline-block zindex2 makehidden"
+                type="radio"
+                value="option4"
+                checked={selectedOption === "option4"}
+                onChange={handleOptionChange}
+              />
+              <span
+                className="button-2 ib cursor-pointer"
+                title="This will show all the links the public has shared."
+              >
+                People
+              </span>
+            </label>
+          </div>
+        )}
       </div>
 
       <div
@@ -251,13 +252,13 @@ export const LinkList = (props) => {
             })
           ) : (
             // <MyInfiniteScroll4 />
-            
+
             props.links.map((link, index) => {
               return (
                 <div>
                   <LinkListItem key={link.id} {...link} index={index} />
                 </div>
-              )
+              );
             })
             ///////
 
@@ -312,7 +313,6 @@ export const LinkList = (props) => {
               props.links2.map((link) => {
                 return <LinkListItem4 key={link.id} {...link} />;
               })
-
             )}
           </div>
         </div>

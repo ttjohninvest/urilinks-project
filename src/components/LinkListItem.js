@@ -669,7 +669,7 @@ const LinkListItem = (props) => {
           <div className="">
             <div className="flexrow2t border-green-">
              
-              <div className={`${!!props.link.yturl?"":"margin-top-1"}`}>
+              <div className={`${!!props.link && !!props.link.yturl?"":"margin-top-1"}`}>
                 <div className="flexcol3">
                   <div className={`flexrow4 border-green-`}>
                     <div className="margin-top-1q">
@@ -683,15 +683,15 @@ const LinkListItem = (props) => {
                     <div>
                       {
                         //isityt(props.Url)
-                        !!props.link.yturl && (
+                         !!props.link && !!props.link.yturl && (
                           //true
                           <a
                             ref={myRef}
                             className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1"
-                            href={props.link.Url}
+                            href={!!props.link && props.link.Url}
                             //target="_self"
                             target="_blank"
-                            title={"click to open the webpage: " + props.link.Url}
+                            title={"click to open the webpage: " + !!props.link && props.link.Url}
                             onClick={storeScrollPosition}
                           >
                             <img

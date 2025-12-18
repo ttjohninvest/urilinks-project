@@ -144,7 +144,7 @@ export const LinkList = (props) => {
               style={{backgroundColor:bgcolor1}}
               title="links list with details"
             >
-              List Links
+              List Your Links
             </span>
           </label>
         </div>
@@ -180,7 +180,7 @@ export const LinkList = (props) => {
               style={{backgroundColor:bgcolor2}}
               title="The users have given permission to show these links to the public."
             >
-              List Public Links
+              List All Public Links
             </span>
           </label>
         </div>

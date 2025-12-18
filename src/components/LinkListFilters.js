@@ -656,7 +656,7 @@ function ExpandableArray(props) {
                         className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                       >
                         <a
-                          className={`b1x nounderline color-white-1 button-link-4 ${props.b==true ?"pointereventsauto":"pointereventsnone bg-color-grey"}`}
+                          className={`b1x nounderline color-white-1 button-link-4 ${props.b==true ?"pointereventsauto":"pointereventsnone"}`}
                           href="#"
                           onClick={() => props.setit(s.hashtag, event)}
                           title={`${s.hashtag}, click to scroll to results`}
@@ -682,7 +682,7 @@ function ExpandableArray(props) {
                       className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                     >
                       <a
-                        className={`b1x nounderline color-white-1 button-link-4 ${props.b==true ?"pointereventsauto":"pointereventsnone bg-color-grey"}`}
+                        className={`b1x nounderline color-white-1 button-link-4 ${props.b==true ?"pointereventsauto":"pointereventsnone"}`}
                         href="#"
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${s.hashtag}, click to scroll to results`}

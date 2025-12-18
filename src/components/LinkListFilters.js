@@ -716,53 +716,11 @@ function ExpandableArray(props) {
     </div>
   );
 }
-/*
-  //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
-  const highlight = (v) => {
-    return "color-white-1";
 
-    //v is the first letter after #
-    let cn = "";
-    // v='a'
 
-    if (v === "a") cn = "colorfora";
-    else if (v === "b") cn = "colorforv";
-    else if (v === "c") cn = "colorforc";
-    else if (v === "d") cn = "colorford";
-    else if (v === "e") cn = "colorfore";
-    else if (v === "f") cn = "colorforf";
-    else if (v === "g") cn = "colorforg";
-    else if (v === "h") cn = "colorforh";
-    else if (v === "i") cn = "colorfori";
-    else if (v === "j") cn = "colorforj";
-    else if (v === "k") cn = "colorfork";
-    else if (v === "l") cn = "colorforl";
-    else if (v === "m") cn = "colorform";
-    else if (v === "n") cn = "colorforn";
-    else if (v === "o") cn = "colorforo";
-    else if (v === "p") cn = "colorforp";
-    else if (v === "q") cn = "colorforq";
-    else if (v === "r") cn = "colorforr";
-    else if (v === "s") cn = "colorfors";
-    else if (v === "t") cn = "colorfort";
-    else if (v === "u") cn = "colorforu";
-    else if (v === "v") cn = "colorforv";
-    else if (v === "w") cn = "colorforw";
-    else if (v === "x") cn = "colorforx";
-    else if (v === "y") cn = "colorfory";
-    else if (v === "z") cn = "colorforz";
-    else cn = "color-white-1";
 
-    return cn;
-  };
-*/
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export class LinkListFilters extends React.Component {
-  // morehashtags = window.localStorage.getItem("morehashtags");
-  // np = window.localStorage.getItem("newspaper");
-
+  
   constructor(props) {
     super(props);
     this.SHORT_HASHTAG_LENGTH = 30;
@@ -816,6 +774,11 @@ export class LinkListFilters extends React.Component {
   onFocusChange = (calendarFocused) => {
     this.setState(() => ({ calendarFocused }));
   };
+
+  onTextChange2=()=>{
+
+  }
+
   onTextChange = (e) => {
     console.log("e.target.value=" + e.target.value);
 
@@ -1197,7 +1160,8 @@ export class LinkListFilters extends React.Component {
               }
               value={this.props.filters.text}
               //value={this.props.filters.sortBy==="hashtag"?"#":""}
-              onChange={this.onTextChange}
+              //onChange={this.onTextChange}
+              onChange={this.onTextChange2}
               title={
                 this.props.filters.sortBy === "date"
                   ? ""

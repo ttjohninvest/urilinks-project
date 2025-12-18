@@ -1238,6 +1238,7 @@ export class LinkListFilters extends React.Component {
               </option>
 
               <option
+                selected
                 value="description"
                 title="search through the uri/url link texts"
               >

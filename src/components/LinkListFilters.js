@@ -698,12 +698,12 @@ function ExpandableArray(props) {
 
             {!expanded && <span className="text-size-5">...</span>}
           </div>
-          <button
+          {props.b === 1 && <button
             className="button-m button--link color-black"
             onClick={toggleExpanded}
           >
             {expanded ? "Show Less Hashtags" : "Show More Hashtags"}
-          </button>
+          </button>}
         </div>
       ) : (
         <div></div>

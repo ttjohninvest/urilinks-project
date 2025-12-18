@@ -1170,7 +1170,11 @@ export class LinkListFilters extends React.Component {
             />
           </div> */}
            <div>
-            <button className="button-2" onClick={this.search} title="clear the search term field" >search</button>
+            <button 
+            className="button-2 button--link ib text-size-3- color-white-1 cursor-pointer font-weight-bold"
+            
+            onClick={this.search} 
+            title="clear the search term field" >search</button>
           </div>
 
           {this.isMobile() === false && (

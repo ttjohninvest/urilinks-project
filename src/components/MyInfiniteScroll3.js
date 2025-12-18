@@ -99,7 +99,7 @@ const E3 = (props) => {
       <div id="listid"></div>
       <div className="flexrowz9z widthx">
         <div>
-          <img src={props.photourl} className="borderradius50" />
+          <img src={props.photourl} width="50" height="50" className="borderradius50" />
         </div>
         <div className="margin-left-11">{props.displayName}</div>
       </div>

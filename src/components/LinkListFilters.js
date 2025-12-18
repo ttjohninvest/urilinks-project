@@ -1193,8 +1193,8 @@ export class LinkListFilters extends React.Component {
                   ? "Search for Link(s)"
                   : "Search for Link(s)"
               }
-              //value={this.props.filters.text}
-              value={this.props.filters.sortBy==="hashtag"?"#":""}
+              value={this.props.filters.text}
+              //value={this.props.filters.sortBy==="hashtag"?"#":""}
               onChange={this.onTextChange}
               title={
                 this.props.filters.sortBy === "date"

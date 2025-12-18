@@ -1187,18 +1187,22 @@ export class LinkListFilters extends React.Component {
             </div>
           )}
         </div>
-        <div className="flexrowz">
+        
         <div
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
-          <input 
+          <div className="flexrowz">
+            <div>
+<input 
           id="termid" 
           className="text-input outline-none padding-left-11" 
           type="text" 
           onChange={(e) => this.setState({ searchTerm: e.target.value })}
           onKeyDown={this.handleKeyPress}
           />
+            </div>
+          
          
            <div>
             <button 

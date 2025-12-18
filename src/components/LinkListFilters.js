@@ -1116,7 +1116,8 @@ export class LinkListFilters extends React.Component {
   // }
 
   search() {
-
+    const term = winodow.document.getElementById("termid").value
+    alert (term)
     console.log("search")
    
   }
@@ -1153,7 +1154,7 @@ export class LinkListFilters extends React.Component {
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
-          <input type="text" />
+          <input className="outline-none" type="text" />
           {/* <div className="">
             <input
               id="termid"

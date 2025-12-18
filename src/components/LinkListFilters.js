@@ -1140,15 +1140,15 @@ export class LinkListFilters extends React.Component {
     return regex.test(navigator.userAgent);
   }
 
-  clear () {
+  // clear () {
 
-    if(this.props.filters.sortBy==="hashtag") {
-      windows.document.getElementById("termid").value="#"
-    } else {
-      windows.document.getElementById.value=""
-    }
+  //   if(this.props.filters.sortBy==="hashtag") {
+  //     windows.document.getElementById("termid").value="#"
+  //   } else {
+  //     windows.document.getElementById.value=""
+  //   }
    
-  }
+  // }
 
   render() {
     return (
@@ -1193,7 +1193,8 @@ export class LinkListFilters extends React.Component {
                   ? "Search for Link(s)"
                   : "Search for Link(s)"
               }
-              value={this.props.filters.text}
+              //value={this.props.filters.text}
+              value={this.props.filters.sortBy==="hashtag"?"#":""}
               onChange={this.onTextChange}
               title={
                 this.props.filters.sortBy === "date"
@@ -1204,9 +1205,9 @@ export class LinkListFilters extends React.Component {
               }
             />
           </div>
-           <div>
+           {/* <div>
             <button className="button-2" onClick={this.clear} title="clear the search term field" >clear</button>
-          </div>
+          </div> */}
 
           {this.isMobile() === false && (
             <div

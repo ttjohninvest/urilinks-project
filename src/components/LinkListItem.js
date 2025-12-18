@@ -677,7 +677,7 @@ const LinkListItem = (props) => {
                             className=""
                             width="20"
                             height="20"
-                            src={props.link.faviconURL}
+                            src={props.faviconURL}
                         />
                     </div>
                     <div>

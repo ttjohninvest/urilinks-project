@@ -655,64 +655,72 @@ const LinkListItem = (props) => {
   };
   //
   return (
+    <div>
+    {
+    //link.showpublic === 
+    true && 
+  
+  <div key={index}>
     <div className="margin-bottom-1">
       <div className="card-background-color">
         <div className="list-item__flex">
           <div className="">
-            <div className="flexrow2 margin-5">
-              <div>
-                <img
-                  className="borderradius50 margin-top-1111"
-                  width="20"
-                  height="20"
-                  src={props.faviconURL}
-                />
-              </div>
-              <div className="padding-left-11 padding-bottom-11 borderRadius4">
+            <div className="flexrow2t border-green-">
+             
+              <div className={`${!!link.yturl?"":"margin-top-1"}`}>
                 <div className="flexcol3">
-                  <div className="flexrow4">
+                  <div className={`flexrow4 border-green-`}>
+                    <div className="margin-top-1q">
+                        <img
+                            className=""
+                            width="20"
+                            height="20"
+                            src={link.faviconURL}
+                        />
+                    </div>
                     <div>
                       {
                         //isityt(props.Url)
-                        !!props.yturl && (
+                        !!link.yturl && (
                           //true
                           <a
                             ref={myRef}
-                            className="ib  margin-right-114 nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11"
-                            href={props.Url}
+                            className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1"
+                            href={link.Url}
                             //target="_self"
                             target="_blank"
-                            title={"click to open the webpage: " + props.Url}
+                            title={"click to open the webpage: " + link.Url}
                             onClick={storeScrollPosition}
                           >
                             <img
-                              className="borderRadius4 rem8 rem45"
-                              // width="128" height="72"
-                              //src={`https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg`}
-                              src={props.yturl}
+                              className="borderRadius4 rem8- rem45-"
+                              
+                              src={link.yturl}
                             />
                           </a>
                         )
                       }
+                      </div>
+                      <div>
                       <a
                         ref={myRef}
-                        className="ib nounderline text-size-5 text-color-db margin-bottom-114 color-purple margin-left=11 breakWord"
-                        href={props.Url}
+                        className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 ${!!link.yturl?"":"padding-top-n-hh"}`}
+                        href={link.Url}
                         //target="_self"
                         target="_blank"
-                        title={"click to open the webpage: " + props.Url}
+                        title={"click to open the webpage: " + link.Url}
                         onClick={storeScrollPosition}
                       >
-                        Show Page: {decodeURIComponent(props.description)}
+                        Show Page: {decodeURIComponent(link.description)}
                       </a>
                     </div>
                     <div className="margin-bottom-1141">
                       <div className="flexrow4">
                         {props.signup.signup === true ? (
                           <div>
-                            <Link
+                           <Link
                               className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
-                              to={`/edit/${props.id}`}
+                              to={`/edit/${link.id}`}
                             >
                               <span className="padding-right-11 color-white-1 button-2">
                                 edit or remove
@@ -721,9 +729,9 @@ const LinkListItem = (props) => {
                           </div>
                         ) : (
                           <div>
-                            <Link
+                           <Link
                               className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
-                              to={`/edit/${props.id}`}
+                              to={`/edit/${link.id}`}
                             >
                               <span className="padding-right-11 color-white-1 button-2">
                                 edit or remove
@@ -733,40 +741,41 @@ const LinkListItem = (props) => {
                         )}
                         {props.signup.signup === true ? (
                           <div>
-                            <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                           <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                               <input
                                 type="checkbox"
-                                id={"delete%" + props.id}
-                                name={"delete%" + props.id}
-                                value={props.id}
+                                id={"delete%" + link.id}
+                                name={"delete%" + link.id}
+                                value={link.id}
                                 onChange={handleCheckboxDelete}
                                 title="remove bookmark"
                                 className="cb1 cursor-pointer"
                               />
-                              <label for={"delete%" + props.id} />
+                              <label for={"delete%" + link.id} />
                             </span>
                           </div>
                         ) : (
                           <div>
-                            <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                             <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                               <input
                                 type="checkbox"
-                                id={"delete%" + props.id}
-                                name={"delete%" + props.id}
-                                value={props.id}
+                                id={"delete%" + link.id}
+                                name={"delete%" + link.id}
+                                value={link.id}
                                 onChange={handleCheckboxDelete}
                                 title="remove bookmark"
                                 className="cb1 cursor-pointer"
                               />
-                              <label for={"delete%" + props.id} />
+                              <label for={"delete%" + link.id} />
                             </span>
+                            
                           </div>
                         )}
                       </div>
                     </div>
                   </div>
-                  {/*do not delete the following commented out code, Show List*/}
-                  {/* <div>
+
+                   {/* <div>
                     <span
                       className="ib margin-left-114"
                       title="click the following link to see an index of clickable urls on the page."
@@ -779,13 +788,13 @@ const LinkListItem = (props) => {
                         title="click to see the clickable page urls from the above page"
                       >
                         Show List: {decodeURIComponent(props.Url)}
-                       
+                        
                       </span>
                     </span>
-                  </div> */}
+                  </div>  */}
                 </div>
 
-                <ol id={"uldata" + props.id} start="0"></ol>
+                <ol id={"uldata" + link.id} start="0"></ol>
               </div>
             </div>
           </div>
@@ -807,22 +816,30 @@ const LinkListItem = (props) => {
           </div> */}
         </div>
 
-        <div className="italicText list-item__sub-title- padding-left-1 text-size-10 color-purple">
-          Link saved on: {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
+        <div className="italicText list-item__sub-title- padding-left-1 text-size-10 color-purple margin-left-11p">
+          Link saved on: {moment(link.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
         </div>
       </div>
-      <div className="list-item__data-  text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2">
-        {props.note}
+      <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p-">
+        {link.note}
       </div>
       <div className="flexrow2w">
-        <FBShareButton url={props.Url} />
+        <FBShareButton url={link.Url} />
 
         <MessengerButton />
-        <LinkedInShareButton url={props.Url} />
+        <LinkedInShareButton url={link.Url} />
         {/* <AddToAny /> */}
 
-        <XShareButton url={props.Url} />
+        <XShareButton url={link.Url} />
       </div>
+    </div>
+
+   
+      </div>
+    
+    }
+
+
     </div>
   );
 };

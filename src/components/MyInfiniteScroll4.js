@@ -327,13 +327,11 @@ const fetchData = async () => {
       </div>
     
     }
+
+
     </div>
         ))}
-        {/* {data.map((item, index) => (
-          <div key={index} style={{ padding: '10px', border: '1px solid #eee', margin: '5px 0' }}>
-            {JSON.stringify(item)}
-          </div>
-        ))} */}
+       
       </InfiniteScroll>
     </div>
      </div>

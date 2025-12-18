@@ -655,13 +655,13 @@ const LinkListItem = (props) => {
   };
   //
   return (
-    <div key={props.index}>
+    <div>
     {
     //link.showpublic === 
     true && 
   
   <div 
-  //key={index}
+  key={props.index}
   >
     <div className="margin-bottom-1">
       <div className="card-background-color">

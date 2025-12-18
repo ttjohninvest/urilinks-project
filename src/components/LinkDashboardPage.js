@@ -121,6 +121,25 @@ const av = (c) => {
   console.log("a=(c)=>, LinkDashboardPage.js, c="+c)
   bf(c)
 }
+
+const useUnload = (fn) => {
+  useEffect(() => {
+    const callback = fn;
+    window.addEventListener('beforeunload', callback);
+    window.addEventListener('unload', callback);
+    return () => {
+      window.removeEventListener('beforeunload', callback);
+      window.removeEventListener('unload', callback);
+    };
+  }, [fn]);
+};
+
+useUnload((e) => {
+    // Perform cleanup or send data before the page unloads
+    console.log('Page is unloading');
+    // Example: Use navigator.sendBeacon to send data asynchronously
+    navigator.sendBeacon('/api/log', JSON.stringify({ action: 'page-unload' }));
+  });
  
 
   return (

@@ -193,6 +193,8 @@ const E2 = (props) => {
                                         >
                                           <div>
                                             <img
+                                              width="50"
+                                              height="50"
                                               src={gud.photourl}
                                               className="borderradius50"
                                             />

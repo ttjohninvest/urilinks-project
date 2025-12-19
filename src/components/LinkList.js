@@ -94,7 +94,7 @@ export const LinkList = (props) => {
       setBgcolor1("#db5705")
       setBgcolor2("#db5705")
       setBgcolor3("#b87333")
-      setKey(v4());
+      setKey(v4()); //this causes a refresh if the People button is pressed again
       props.av(0);
     } else window.localStorage.setItem("whichOption", "option1");
   };

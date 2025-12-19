@@ -780,11 +780,14 @@ export class LinkListFilters extends React.Component {
     // Perform the search action here
     //console.log('Searching for:', this.state.searchTerm);
     // Example: this.props.onSearch(this.state.searchTerm);
+
+    var select = document.getElementById('mode');
+    var selectedValue = select.options[select.selectedIndex].value;
   
     let term = window.document.getElementById("termid").value
     let str = term.trim()
     term = str
-    if (this.props.filters.sortBy === "hashtag") {
+    if (selectedValue === "hashtag") {
 
     const words = term.split(/\s+/); // Split by one or more whitespace characters
     
@@ -1167,10 +1170,12 @@ export class LinkListFilters extends React.Component {
 
   search=()=>{
     console.log("search")
+     var select = document.getElementById('mode');
+    var selectedValue = select.options[select.selectedIndex].value;
     let term = window.document.getElementById("termid").value
     let str = term.trim()
     term = str
-    if (this.props.filters.sortBy === "hashtag") {
+    if (selectedValue === "hashtag") {
 
     const words = term.split(/\s+/); // Split by one or more whitespace characters
     
@@ -1251,6 +1256,7 @@ export class LinkListFilters extends React.Component {
 
           <div className="">
             <select
+              id="mode"
               className="select outline-none"
               value={this.state.sortBy}
               //value={this.props.filters.sortBy}

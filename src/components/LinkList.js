@@ -165,7 +165,10 @@ export const LinkList = (props) => {
           </label>
         </div> */}
 
-        <div className={`${window.innerWidth < 400?"margin-left-n-11p margin-top-11z" :""}`}>
+        <div 
+        //className={`${window.innerWidth < 400?"margin-left-n-11p margin-top-11z" :""}`}
+        className={`margin-left-n-11p margin-top-11z`}
+        >
           <label className="inline-block__flex">
             <input
               ref={myRef}
@@ -187,7 +190,11 @@ export const LinkList = (props) => {
         </div>
 
         {props.signup.signup === true ? (
-          <div className={`${window.innerWidth < 400?"margin-top-11z" :""}`}>
+          <div 
+          //className={`${window.innerWidth < 400?"margin-top-11z" :""}`}
+          className={`margin-top-11z`}
+          
+          >
             <label className="inline-block__flex">
               <input
                 ref={myRef}

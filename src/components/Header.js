@@ -298,9 +298,9 @@ export const Header = (props) => {
                       id="scrolldownid"
                       className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
                       onClick={scrolldown}
-                      title="if the search and results section is not in view, click this to scroll search and results section into view."
+                      title="scrolls down to search section"
                     >
-                      (go to search section)
+                      (search section)
                     </div>
                   )}
 
@@ -315,7 +315,7 @@ export const Header = (props) => {
                     </Link>
                   </div>
 
-                  {props.signup.signup === true ? (
+                  {/* {props.signup.signup === true ? (
                     <div className="hide-">
                       <a
                         className="header__title- nounderline pointereventsauto"
@@ -345,7 +345,7 @@ export const Header = (props) => {
                         </span>
                       </a>
                     </div>
-                  )}
+                  )} */}
 
                   {props.signup.signup === true ? (
                     <div className="pointereventsauto hide-">
@@ -355,9 +355,9 @@ export const Header = (props) => {
                       >
                         <span
                           className="ib- color-white-1 cursor-pointer pointereventsauto"
-                          title="bookmarks get renamed to links"
+                          title="uploads bookmarks using downloaded browser bookmarks file"
                         >
-                          (Bookmarks File Uploader)
+                          (Upload)
                         </span>
                       </Link>
                     </div>
@@ -369,9 +369,9 @@ export const Header = (props) => {
                       >
                         <span
                           className="ib- color-white-1 cursor-pointer pointereventsnone"
-                          title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
+                          title="uploads bookmarks using downloaded browser bookmarks file"
                         >
-                          (Bookmarks File Uploader)
+                          (Upload)
                         </span>
                       </Link>
                     </div>

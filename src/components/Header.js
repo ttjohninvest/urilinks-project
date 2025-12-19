@@ -308,9 +308,9 @@ export const Header = (props) => {
                     <Link className="header__title- nounderline" to="/ideas">
                       <span
                         className="ib- color-white-1 cursor-pointer"
-                        title="some ideas for hash tags"
+                        title="educational ideas"
                       >
-                        (Link Ideas)
+                        (curriculums)
                       </span>
                     </Link>
                   </div>

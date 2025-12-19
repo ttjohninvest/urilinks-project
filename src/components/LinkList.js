@@ -99,6 +99,12 @@ export const LinkList = (props) => {
     } else window.localStorage.setItem("whichOption", "option1");
   };
 
+  function isMobile() {
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  }
+
   return (
     <div className="content-container- website-background-color margin-top-1a-">
       <div id="before-link-summary-id" className="flexrow2b margin-bottom-5a">
@@ -166,7 +172,7 @@ export const LinkList = (props) => {
         </div> */}
 
         <div 
-        className={`${window.innerWidth < 400?"margin-left-n-11p margin-top-11z1" :""}`}
+        className={`${isMobile()?"margin-left-n-11p margin-top-11z1" :""}`}
         //className={`margin-left-n-11p margin-top-11z`}
         >
           <label className="inline-block__flex">
@@ -191,7 +197,7 @@ export const LinkList = (props) => {
 
         {props.signup.signup === true ? (
           <div 
-          className={`${window.innerWidth < 400?"margin-top-11z2" :""}`}
+          className={`${isMobile()?"margin-top-11z2" :""}`}
           //className={`margin-top-11z`}
           
           >

@@ -1278,7 +1278,7 @@ export class LinkListFilters extends React.Component {
               //value={this.props.filters.sortBy}
 
               onChange={this.onSortChange}
-              title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
+              title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
             >
               <option value="hashtag" title="search by hash tag">
                 Hash Tag

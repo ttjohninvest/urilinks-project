@@ -165,7 +165,7 @@ export const LinkList = (props) => {
           </label>
         </div> */}
 
-        <div>
+        <div className={`${window.innerWidth < 400?"margin-left-n-11p margin-top-11z" :""}`}>
           <label className="inline-block__flex">
             <input
               ref={myRef}
@@ -177,7 +177,7 @@ export const LinkList = (props) => {
               onChange={handleOptionChange}
             />
             <span
-              className="button-2a ib cursor-pointer"
+              className="button-2 ib cursor-pointer"
               style={{backgroundColor:bgcolor2}}
               title="The users have given permission to show these links to the public."
             >
@@ -187,7 +187,7 @@ export const LinkList = (props) => {
         </div>
 
         {props.signup.signup === true ? (
-          <div>
+          <div className={`${window.innerWidth < 400?"margin-top-11z" :""}`}>
             <label className="inline-block__flex">
               <input
                 ref={myRef}

@@ -142,7 +142,7 @@ export const LinkList = (props) => {
               className="button-2 ib cursor-pointer"
               
               style={{backgroundColor:bgcolor1}}
-              title="links list with details"
+              title="lists your links"
             >
               List Your Links
             </span>
@@ -200,7 +200,7 @@ export const LinkList = (props) => {
               <span
                 className="button-2 ib cursor-pointer"
                 style={{backgroundColor:bgcolor3}}
-                title="This will show all the links the public has shared."
+                title="This will show all the links the public has shared on a per user basis."
               >
                 People
               </span>
@@ -221,7 +221,7 @@ export const LinkList = (props) => {
                 className="button-2 ib cursor-pointer"
                 style={{backgroundColor:bgcolor3}}
 
-                title="This will show all the links the public has shared."
+                title="This will show all the links the public has shared on a per user basis."
               >
                 People
               </span>

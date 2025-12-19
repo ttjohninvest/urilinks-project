@@ -640,7 +640,7 @@ function ExpandableArray(props) {
             } paddingparent margin-top-1 background-white-1 borderradius5`}
             title={
               props.signup === true
-                ? "1"
+                ? "The buttons are disabled because the List All Public Links button is activated."
                 : "2 Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags which were entered in the note section to find your links that are grouped by hashtag."
             }
           >

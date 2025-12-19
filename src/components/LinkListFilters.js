@@ -222,10 +222,10 @@ function ExpandableArray(props) {
               <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
                 {/* <div>a</div> */}
                 <div className="text-size-1">
-                  <div className="ib text-size-9" title="This is an example page.">
+                  <div className="ib text-size-9" title="location for your gmail name">
                     {(!!theuser && props.signup === true) || signup === "0"
                       ? theuser.displayName?theuser.displayName:"error getting display name"
-                      : "(Your google email name)"}
+                      : "(gmail name)"}
                   </div>
                   {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
                 </div>

@@ -641,7 +641,7 @@ function ExpandableArray(props) {
             title={
               props.signup === true
                 ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
-                : "2 Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags which were entered in the note section to find your links that are grouped by hashtag."
+                : "The buttons are disabled because the List All Public Links button is activated."
             }
           >
             {!expanded

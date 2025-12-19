@@ -1172,11 +1172,11 @@ export class LinkListFilters extends React.Component {
     console.log("search")
      var select = document.getElementById('mode');
     var selectedValue = select.options[select.selectedIndex].value;
-    console.log("search, selectedValue="+selectedValue)
+    console.log("search = () => {, selectedValue="+selectedValue)
     let term = window.document.getElementById("termid").value
     let str = term.trim()
     term = str
-    if (selectedValue === "hashtag") {
+    if (selectedValue == "hashtag") {
 
     const words = term.split(/\s+/); // Split by one or more whitespace characters
     

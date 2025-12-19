@@ -95,6 +95,10 @@ an error occurred: 10002222, this error means Delete Account did not work
 
 //
 todo to do
+put in you are able to send email permission for the people button people
+should not be able to send email to anybody in their only if the receiving gmail has granted permission
+do the same this as the showpublic flag
+
 actions/links2.js has ids hardcoded still
 
 =================================================================================

@@ -660,6 +660,7 @@ function ExpandableArray(props) {
                           href="#"
                           onClick={() => props.setit(s.hashtag, event)}
                           title={`${s.hashtag}, click to scroll to results`}
+                          //title={props.signup === true?${s.hashtag}, click to scroll to results: 
                         >
                           {s.hashtag}
                           {/* {"#"}
@@ -780,7 +781,19 @@ export class LinkListFilters extends React.Component {
     //console.log('Searching for:', this.state.searchTerm);
     // Example: this.props.onSearch(this.state.searchTerm);
   
-    const term = window.document.getElementById("termid").value
+    let term = window.document.getElementById("termid").value
+    let str = term.trim()
+    term = str
+    if (this.props.filters.sortBy === "hashtag") {
+
+    const words = term.split(/\s+/); // Split by one or more whitespace characters
+    
+      if (words.length !== 1 && term.charAt(0) !== '#') {
+        alert("The search term needs to be a hashtag and one term.")
+        return
+      }
+
+    }
     //alert (term)
     this.props.setTextFilter(term);
   }
@@ -1154,7 +1167,19 @@ export class LinkListFilters extends React.Component {
 
   search=()=>{
     console.log("search")
-    const term = window.document.getElementById("termid").value
+    let term = window.document.getElementById("termid").value
+    let str = term.trim()
+    term = str
+    if (this.props.filters.sortBy === "hashtag") {
+
+    const words = term.split(/\s+/); // Split by one or more whitespace characters
+    
+      if (words.length !== 1 && term.charAt(0) !== '#') {
+        alert("The search term needs to be a hashtag and one term.")
+        return
+      }
+
+    }
     //alert (term)
     this.props.setTextFilter(term);
    

@@ -134,7 +134,9 @@ export const LinkList = (props) => {
           </div>
         )}
 
-        <div>
+        <div
+        className={`${isMobile()?"margin-bottom-1z1" :""}`}
+        >
           <label className="inline-block__flex">
             <input
               ref={myRef}

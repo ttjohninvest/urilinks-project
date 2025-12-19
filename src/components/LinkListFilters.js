@@ -134,8 +134,8 @@ function ExpandableArray(props) {
             className="flexrow2c padding-left-a borderRadius4"
             title={
               props.signup === true
-                ? "3Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
-                : "4Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."
+                ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
+                : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."
             }
           >
             <div className="text-size-5 padding-top-11">

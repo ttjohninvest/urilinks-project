@@ -1176,8 +1176,8 @@ export class LinkListFilters extends React.Component {
     let term = window.document.getElementById("termid").value
     let str = term.trim()
     term = str
-    if (selectedValue == "hashtag") {
-
+    if (selectedValue === "hashtag") {
+      console.log("then search = () => {, selectedValue="+selectedValue)
     const words = term.split(/\s+/); // Split by one or more whitespace characters
     
       if (words.length !== 1 && term.charAt(0) !== '#') {
@@ -1185,6 +1185,8 @@ export class LinkListFilters extends React.Component {
         return
       }
 
+    } else {
+      console.log("else search = () => {, selectedValue="+selectedValue)
     }
     //alert (term)
     this.props.setTextFilter(term);

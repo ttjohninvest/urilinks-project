@@ -95,6 +95,7 @@ export const LinkList = (props) => {
       setBgcolor2("#db5705")
       setBgcolor3("#b87333")
       setKey(v4());
+      props.av(0);
     } else window.localStorage.setItem("whichOption", "option1");
   };
 

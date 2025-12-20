@@ -410,13 +410,13 @@ function ExpandableArray(props) {
 
                   <span>What do you want to achieve with this website?</span>
                   <input id="gmailid" placeholder="Put your gmail here to send me a message and then press click and then click Send gmail." type="text" />
-                  <button type="button" onClick={getGmail}>Please click to send me your answer.</button>
+                  <button type="button" className="button-2" onClick={getGmail}>Please click to send me your answer.</button>
 
                    <div className="padding-bottom-116">
                      <div className="margin-left-118">
                                                 <a
                                                   id="sendgmailid"
-                                                  className="button-2 nounderline displaynone"
+                                                  className="nounderline hide"
                                                   href={`https://mail.google.com/mail/?view=cm&from=${gmail}&to=${"john@urilinks.com"}&su=Hello&body=Hi%20there!`}
                                                   target="_blank"
                                                 >

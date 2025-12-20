@@ -109,9 +109,7 @@ export const LinkList = (props) => {
     <div className="content-container- website-background-color margin-top-1a-">
       <div id="before-link-summary-id" className="flexrow2b margin-bottom-5a">
         {/* <LinksSummary /> */}
- <div
-       className={`${isMobile()?"margin-top-11a1" :""}`}
-       >
+ 
 
         {props.signup.signup === true ? (
           <div>
@@ -141,7 +139,7 @@ export const LinkList = (props) => {
 
       
         <div
-        //className={`${isMobile()?"margin-bottom-1 margin-top-11a1" :""}`}
+        className={`${isMobile()?"margin-bottom-1 margin-top-11a1-" :""}`}
         >
           <label className="inline-block__flex">
             <input
@@ -178,15 +176,12 @@ export const LinkList = (props) => {
             
           </label>
         </div> */}
-</div>
 
-<div 
-        className={`${isMobile()?"margin-left-n-11p margin-top-11z1" :""}`}
-        //className={`margin-left-n-11p margin-top-11z`}
-        >
+
+
         <div 
-        //className={`${isMobile()?"margin-left-n-11p margin-top-11z1" :""}`}
-        //className={`margin-left-n-11p margin-top-11z`}
+        className={`${isMobile()?"margin-left-n-11p margin-top-11z1" :""}`}
+        
         >
           <label className="inline-block__flex">
             <input
@@ -211,8 +206,6 @@ export const LinkList = (props) => {
         {props.signup.signup === true ? (
           <div 
           className={`${isMobile()?"margin-top-11z2" :""}`}
-          //className={`margin-top-11z`}
-          
           >
             <label className="inline-block__flex">
               <input
@@ -256,7 +249,7 @@ export const LinkList = (props) => {
           </div>
         )}
       </div>
-</div>
+
       <div
         id="link-summary-id"
         className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"

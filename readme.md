@@ -95,6 +95,7 @@ an error occurred: 10002222, this error means Delete Account did not work
 
 //
 todo to do
+make an email entry so students can give me feedback answering the question: what would you like to achieve with this website?
 
 Ocar De La Renta:
 https://www.youtube.com/watch?v=aH-2CIsPo-k interview

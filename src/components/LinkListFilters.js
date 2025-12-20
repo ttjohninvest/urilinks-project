@@ -393,6 +393,19 @@ function ExpandableArray(props) {
                     you freely login/enter?
                     <br />
                   </div>
+                   <div className="padding-bottom-116">
+                     <div className="margin-left-118">
+                                                <a
+                                                  className="nounderline"
+                                                  href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`}
+                                                  target="_blank"
+                                                >
+                                                  Send gmail{" "}
+                                                  {`FROM: ${"johmcg64@gmail.com"} TO: ${"john@urilinks.com"}.`}
+                                                </a>
+                                              </div>
+                                             
+                                              </div>
                 </div>
               ) : (
                 // <div className="text-size-1 flexrowzc">

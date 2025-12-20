@@ -30,7 +30,7 @@ function ExpandableArray(props) {
   const textAreaRef = useRef(null);
   const [photoURL, setPhotoURL] = useState("");
   const [maximum, setMaximum] = useState(0);
-  const [gmail, setGmail] = useState("johmcg64@gmail.com");
+  const [gmail, setGmail] = useState("");
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -126,6 +126,11 @@ function ExpandableArray(props) {
     e.target.focus();
     setCopySuccess("Copied " + text);
   };
+
+  useEffect(()=>{
+   if(gmail !== "")
+    window.document.getElementById('sendgmailid').click()
+  },[gmail])
 
   const getGmail = () => {
   console.log("getGmail")
@@ -402,6 +407,7 @@ function ExpandableArray(props) {
                     <br />
                     <br />
                   </div>
+
                   <span>What do you want to achieve with this website?</span>
                   <input id="gmailid" placeholder="Put your gmail here to send me a message and then press click and then click Send gmail." type="text" />
                   <button type="button" onClick={getGmail}>click</button>
@@ -409,6 +415,7 @@ function ExpandableArray(props) {
                    <div className="padding-bottom-116">
                      <div className="margin-left-118">
                                                 <a
+                                                  id="sendgmailid"
                                                   className="nounderline"
                                                   href={`https://mail.google.com/mail/?view=cm&from=${gmail}&to=${"john@urilinks.com"}&su=Hello&body=Hi%20there!`}
                                                   target="_blank"

@@ -300,7 +300,7 @@ export const Header = (props) => {
                       onClick={scrolldown}
                       title="scrolls down to search section"
                     >
-                      (search section)
+                      (search)
                     </div>
                   )}
 

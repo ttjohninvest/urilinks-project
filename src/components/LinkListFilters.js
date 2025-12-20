@@ -128,8 +128,9 @@ function ExpandableArray(props) {
   };
 
   const getGmail = () => {
-    console.log("getGmail")
+  console.log("getGmail")
   const ugmail = window.document.getElementById('gmailid').value
+  console.log("ugmail="+ugmail)
   setGmail(ugmail)
   }
 

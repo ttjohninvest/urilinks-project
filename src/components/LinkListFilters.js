@@ -128,6 +128,7 @@ function ExpandableArray(props) {
   };
 
   const getGmail = () => {
+    console.log("getGmail")
   const ugmail = window.document.getElementById('gmailid').value
   setGmail(ugmail)
   }
@@ -400,7 +401,7 @@ function ExpandableArray(props) {
                     <br />
                     <br />
                   </div>
-                  <input id="gmailid" type="text" onClick={getGmail} />
+                  <input id="gmailid" type="text" />
                   <button type="button" onClick={getGmail}>click</button>
 
                    <div className="padding-bottom-116">

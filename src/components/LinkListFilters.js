@@ -465,6 +465,24 @@ function ExpandableArray(props) {
                   {copySuccess}
                 </div>
               )}
+                <span>What do you want to achieve with this website?</span>
+                  {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}
+                  <button type="button" className="button-2" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>
+
+                   <div className="padding-bottom-116">
+                   <div className="margin-left-118">
+                                                <a
+                                                  id="sendgmailid"
+                                                  className="nounderline hide"
+                                                  href={`https://mail.google.com/mail/?view=cm&from=${gmail}&to=${"johmcg64@gmail.com"}&su=urilinks user sent me an answer.&body=Hi%20there!`}
+                                                  target="_blank"
+                                                >
+                                                  Send gmail{" "}
+                                                  {`FROM: ${gmail} TO: ${"john@urilinks.com"}.`}
+                                                </a>
+                                              </div>
+                                             
+                                              </div>
 
               <div className="text-size-1 textLeft hide">
                 <span className="text-size-9">😃 </span>Your friendly link to

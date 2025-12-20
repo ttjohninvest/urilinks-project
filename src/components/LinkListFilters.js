@@ -1206,6 +1206,8 @@ export class LinkListFilters extends React.Component {
    
   }
 
+ 
+
   render() {
     return (
       <div className="">
@@ -1270,7 +1272,7 @@ export class LinkListFilters extends React.Component {
             </div>
           )}
 
-          <div className={`${isMobile()?"margin-top-11z1" :""}`}>
+          <div className={`${this.isMobile()?"margin-top-11z1" :""}`}>
              
             <select
               id="mode"
@@ -1330,7 +1332,7 @@ export class LinkListFilters extends React.Component {
             //this.state.isToggled === true &&
             true && (
                
-              <div className={`cursor-pointer ${isMobile()?"margin-top-11z1" :""}`}>
+              <div className={`cursor-pointer ${this.isMobile()?"margin-top-11z1" :""}`}>
              
                 <select
                   className="select cursor-pointer"

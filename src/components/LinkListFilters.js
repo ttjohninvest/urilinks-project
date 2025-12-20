@@ -413,7 +413,7 @@ function ExpandableArray(props) {
                                                   target="_blank"
                                                 >
                                                   Send gmail{" "}
-                                                  {`FROM: ${"johmcg64@gmail.com"} TO: ${"john@urilinks.com"}.`}
+                                                  {`FROM: ${gmail} TO: ${"john@urilinks.com"}.`}
                                                 </a>
                                               </div>
                                              

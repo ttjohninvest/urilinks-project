@@ -371,7 +371,7 @@ export const Header = (props) => {
                           className="ib- color-white-1 cursor-pointer pointereventsnone"
                           title="uploads bookmarks using downloaded browser bookmarks file"
                         >
-                          Upload
+                          upload
                         </span>
                       </Link>
                     </div>

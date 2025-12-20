@@ -101,7 +101,7 @@ const HamburgerMenu = (props) => {
                                                   </Link>
                                                </li> */}
         <li>
-          <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer font-weight-bold" target="_blank">(see colleges)</a>
+          <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer font-weight-bold" target="_blank">(colleges)</a>
         </li>                                       
 
         <li>
@@ -144,7 +144,7 @@ const HamburgerMenu = (props) => {
             onClick={scrolldown}
             title="if the search and results section is not in view, click this to scroll search and results section into view."
           >
-            (go to search section)
+            (search)
           </span>
         </li>
 
@@ -155,7 +155,7 @@ const HamburgerMenu = (props) => {
               className="font-weight-bold cursor-pointer color-white-1 nounderline"
               title="some ideas for hash tags"
             >
-              (Link Ideas)
+              (Curriculums)
             </span>
           </Link>
         </li>

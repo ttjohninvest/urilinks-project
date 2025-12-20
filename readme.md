@@ -95,6 +95,31 @@ an error occurred: 10002222, this error means Delete Account did not work
 
 //
 todo to do
+
+Ocar De La Renta:
+https://www.youtube.com/watch?v=aH-2CIsPo-k interview
+He produced clean and elegant cloths that is why he is so popular.
+He was invited to start an ophange in the Dominican Republic and he did. He said he fell in love with it.
+He said cat walk yourself.
+He said his only ambition for Moses his adopted son is that he be a good hearted man and he is.
+He cares about women and enjoyed seeing them wear his cloths and looking clean and great, nothing is tight fitting, all elegant.
+He said to understand that movement, the power of a woman today.
+
+
+--------------------------------------------------------------------------------------------------------------------
+                                                        ***
+[The role of the designer is to do the very best I can for the woman, Oscar De La Renta. He produces very nice cloths.]
+                                                        ***
+Goal: My goal for my website is to do the very best that I can for the student.
+Question to Student: What would you like to achieve with this website?
+
+CONCLUSION: Oscar De La Renta never made cloths for the money. He did it because he wanted to do the very best he could for the woman. Money was just something they gave him.
+
+What would you like to acheive with this particular dress? To be able to walk into a room and be told wow, you look great.
+
+---------------------------------------------------------------------------------------------------------------------
+
+
 put in you are able to send email permission for the people button people
 should not be able to send email to anybody in their only if the receiving gmail has granted permission
 do the same this as the showpublic flag

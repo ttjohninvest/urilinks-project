@@ -400,7 +400,8 @@ function ExpandableArray(props) {
                     <br />
                     <br />
                   </div>
-                  <input id="gmailid" type="text" onClick={getGmail} value="click" />
+                  <input id="gmailid" type="text" onClick={getGmail} />
+                  <button type="button" onClick={getGmail}>click</button>
 
                    <div className="padding-bottom-116">
                      <div className="margin-left-118">

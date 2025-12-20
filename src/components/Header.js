@@ -197,7 +197,7 @@ export const Header = (props) => {
                         to="/signup"
                         title=""
                       >
-                        (login/enter)
+                        login/enter
                       </Link>
                     </div>
                   )}
@@ -262,7 +262,7 @@ export const Header = (props) => {
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
                         title="How to use this website"
                       >
-                        (usage)
+                        usage
                       </span>
                     </Link>
                   </div>
@@ -276,7 +276,7 @@ export const Header = (props) => {
                         className="ib- color-white-1 cursor-pointer"
                         title="terms, conditions and privacy policy"
                       >
-                        (legal)
+                        legal
                       </span>
                     </Link>
                   </div>
@@ -288,7 +288,7 @@ export const Header = (props) => {
                             className="ib text-size-1 color-white-1 color-blue-1-"
                             title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
                           >
-                            (plans ($))
+                            plans
                           </span>
                         </Link>
                       </div>
@@ -300,7 +300,7 @@ export const Header = (props) => {
                       onClick={scrolldown}
                       title="scrolls down to search section"
                     >
-                      (search)
+                      search
                     </div>
                   )}
 
@@ -310,7 +310,7 @@ export const Header = (props) => {
                         className="ib- color-white-1 cursor-pointer"
                         title="educational ideas"
                       >
-                        (curriculums)
+                        curriculums
                       </span>
                     </Link>
                   </div>
@@ -357,7 +357,7 @@ export const Header = (props) => {
                           className="ib- color-white-1 cursor-pointer pointereventsauto"
                           title="uploads bookmarks using downloaded browser bookmarks file"
                         >
-                          (Upload)
+                          Upload
                         </span>
                       </Link>
                     </div>
@@ -371,7 +371,7 @@ export const Header = (props) => {
                           className="ib- color-white-1 cursor-pointer pointereventsnone"
                           title="uploads bookmarks using downloaded browser bookmarks file"
                         >
-                          (Upload)
+                          Upload
                         </span>
                       </Link>
                     </div>
@@ -383,7 +383,7 @@ export const Header = (props) => {
                         className="button button--link ib text-size-3- color-white-1 cursor-pointer"
                         onClick={logoutit}
                       >
-                        (logout)
+                        logout
                       </button>
                     </div>
                   ) : (
@@ -393,10 +393,11 @@ export const Header = (props) => {
                   {props.signup.signup === true ? (
                     <div className="margin-top-1111a-">
                       <button
+                        title="delete account"
                         className="button button--link ib text-size-3- color-white-1 cursor-pointer"
                         onClick={cancelsubscription}
                       >
-                        (Delete Account)
+                        delete
                       </button>
                     </div>
                   ) : (

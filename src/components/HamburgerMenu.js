@@ -86,7 +86,7 @@ const HamburgerMenu = (props) => {
               to="/signup"
               title=""
             >
-              (login/enter)
+              login/enter
             </Link>
           )}
         </li>
@@ -110,7 +110,7 @@ const HamburgerMenu = (props) => {
               className="margin-right-1-ib- color-white-1- cursor-pointer font-weight-bold"
               title="How to use this website"
             >
-              (usage)
+              usage
             </span>
           </Link>
         </li>
@@ -120,7 +120,7 @@ const HamburgerMenu = (props) => {
               className="ib- color-white-1- cursor-pointer font-weight-bold"
               title="terms, conditions and privacy policy"
             >
-              (legal)
+              legal
             </span>
           </Link>
         </li>
@@ -132,7 +132,7 @@ const HamburgerMenu = (props) => {
                   className="ib-  font-weight-bold text-size-1"
                   title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
                 >
-                  (plans ($))
+                  plans
                 </span>
               </Link>
             )}
@@ -142,9 +142,9 @@ const HamburgerMenu = (props) => {
             id="scrolldownid"
             className="ib padding-tb font-weight-bold cursor-pointer color-white-1 nounderline"
             onClick={scrolldown}
-            title="if the search and results section is not in view, click this to scroll search and results section into view."
+            title="scrolls to search section"
           >
-            (search)
+            search
           </span>
         </li>
 
@@ -155,12 +155,12 @@ const HamburgerMenu = (props) => {
               className="font-weight-bold cursor-pointer color-white-1 nounderline"
               title="some ideas for hash tags"
             >
-              (Curriculums)
+              curriculums
             </span>
           </Link>
         </li>
 
-        {isMobile() === false && (
+        {/* {isMobile() === false && (
           <li>
             {props.signup.signup === true ? (
               <span className="hide-">
@@ -194,8 +194,8 @@ const HamburgerMenu = (props) => {
               </span>
             )}
           </li>
-        )}
-        {isMobile() === false && (
+        )} */}
+        {/* {isMobile() === false && (
           <li>
             {" "}
             {props.signup.signup === true ? (
@@ -208,7 +208,7 @@ const HamburgerMenu = (props) => {
                     className="ib- color-white-1- cursor-pointer pointereventsauto  font-weight-bold"
                     title="bookmarks get renamed to links"
                   >
-                    (Bookmarks File Uploader)
+                    upload
                   </span>
                 </Link>
               </span>
@@ -222,13 +222,13 @@ const HamburgerMenu = (props) => {
                     className="ib- color-white-1- cursor-pointer pointereventsnone"
                     title="tool to upload bookmarks.html from chrome, opera, firefox, or brave browser or the boomarks.html file generated through the use of the link get page urls for bookmarks file."
                   >
-                    (Bookmarks File Uploader)
+                    upload
                   </span>
                 </Link>
               </span>
             )}
           </li>
-        )}
+        )} */}
 
         <li>
           {props.signup.signup === true ? (
@@ -236,7 +236,7 @@ const HamburgerMenu = (props) => {
               className="button-2 button--link ib color-white-1 cursor-pointer font-weight-bold"
               onClick={logoutit}
             >
-              (logout)
+              logout
             </button>
           ) : (
             ""
@@ -246,10 +246,11 @@ const HamburgerMenu = (props) => {
           {props.signup.signup === true ? (
             <div className="margin-top-1111a-">
               <button
+              title="delete account"
                 className="button-2 button--link ib text-size-3- color-white-1 cursor-pointer font-weight-bold"
                 onClick={cancelsubscription}
               >
-                (Delete Account)
+                delete
               </button>
             </div>
           ) : (

@@ -96,7 +96,7 @@ const HamburgerMenu = (props) => {
                   to="/signup"
                   title=""
                 >
-                  (login/enter)
+                  login/enter
                 </Link>
               )}
             </li>
@@ -117,7 +117,7 @@ const HamburgerMenu = (props) => {
                   className="margin-right-1-ib- color-white-1- cursor-pointer"
                   title="How to use this website"
                 >
-                  (usage)
+                  usage
                 </span>
               </Link>
             </li>
@@ -130,7 +130,7 @@ const HamburgerMenu = (props) => {
                   className="ib- color-white-1- cursor-pointer"
                   title="terms, conditions and privacy policy"
                 >
-                  (legal)
+                  legal
                 </span>
               </Link>
             </li>
@@ -142,7 +142,7 @@ const HamburgerMenu = (props) => {
                       className="ib- text-size-1"
                       title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
                     >
-                      (plans ($))
+                      plans
                     </span>
                   </Link>
                 )}
@@ -154,9 +154,9 @@ const HamburgerMenu = (props) => {
                   id="scrolldownid"
                   className="header__title- padding-top-11- cursor-pointer color-white-1- cursor-pointer nounderline"
                   onClick={scrolldown}
-                  title="if the search and results section is not in view, click this to scroll search and results section into view."
+                  title="scroll to search section"
                 >
-                  (go to search section)
+                  search
                 </span>
               )}
             </li>
@@ -168,12 +168,12 @@ const HamburgerMenu = (props) => {
                   className="ib- color-white-1- cursor-pointer"
                   title="some ideas for hash tags"
                 >
-                  (Link Ideas)
+                  curriculums
                 </span>
               </Link>
             </li>
 
-            <li>
+            {/* <li>
               {props.signup.signup === true ? (
                 <span className="hide-">
                   <a
@@ -237,7 +237,7 @@ const HamburgerMenu = (props) => {
                   </Link>
                 </span>
               )}
-            </li>
+            </li> */}
 
             <li>
               {props.signup.signup === true ? (
@@ -245,7 +245,7 @@ const HamburgerMenu = (props) => {
                   className="button-3 button--link ib cursor-pointer"
                   onClick={logoutit}
                 >
-                  (exit)
+                  exit
                 </button>
               ) : (
                 ""
@@ -255,10 +255,11 @@ const HamburgerMenu = (props) => {
               {props.signup.signup === true ? (
                 <div className="margin-top-1111a-">
                   <button
+                    title = "delete account"
                     className="button-3 button--link ib text-size-3- color-white-1- cursor-pointer"
                     onClick={cancelsubscription}
                   >
-                    (Delete Account)
+                    delete
                   </button>
                 </div>
               ) : (

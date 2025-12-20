@@ -397,7 +397,7 @@ function ExpandableArray(props) {
                      <div className="margin-left-118">
                                                 <a
                                                   className="nounderline"
-                                                  href={`https://mail.google.com/mail/?view=cm&from=${email}&to=${gud.email}&su=Hello&body=Hi%20there!`}
+                                                  href={`https://mail.google.com/mail/?view=cm&from=${"johmcg64@gmail.com"}&to=${"john@urilinks.com"}&su=Hello&body=Hi%20there!`}
                                                   target="_blank"
                                                 >
                                                   Send gmail{" "}

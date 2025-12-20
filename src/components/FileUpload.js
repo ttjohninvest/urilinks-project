@@ -168,10 +168,10 @@ class MyComponent extends React.Component {
           {/* <span 
         ref={this.element3} 
         id="custom-text">no file chosen yet</span> */}
-          <button type="submit">Upload</button>
+          <button type="submit">upload</button>
         </form>
         <hr />
-        <h2>Uploading done {this.state.progress}%</h2>
+        <h2>uploading done {this.state.progress}%</h2>
       </div>
     );
   }

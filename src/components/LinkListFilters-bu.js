@@ -366,7 +366,7 @@ function ExpandableArray(props) {
                     This site is for students of colleges and universities. It
                     is the original link-in-research tool
                     <br />
-                    similar to link-in-bio tool like linktree; however, is is for the
+                    similar to link-in-bio tool like linktree; however, urilinks is for the
                     <br />
                     purpose of learning and research. It can store and organize 1-1000
                     research links alphabetically.

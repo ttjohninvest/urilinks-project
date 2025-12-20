@@ -30,6 +30,7 @@ function ExpandableArray(props) {
   const textAreaRef = useRef(null);
   const [photoURL, setPhotoURL] = useState("");
   const [maximum, setMaximum] = useState(0);
+  const [gmail, setGmail] = useState("johmcg64@gmail.com");
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -125,6 +126,11 @@ function ExpandableArray(props) {
     e.target.focus();
     setCopySuccess("Copied " + text);
   };
+
+  const getGmail = () => {
+  const ugmail = window.document.getElementById('gmailid').value
+  setGmail(ugmail)
+  }
 
   return (
     <div className="bg-white-1">
@@ -392,12 +398,15 @@ function ExpandableArray(props) {
                     comments or concerns at john@urilinks.com, 775 507 0098. Can
                     you freely login/enter?
                     <br />
+                    <br />
                   </div>
+                  <input id="gmailid" type="text" onClick={getGmail} />
+
                    <div className="padding-bottom-116">
                      <div className="margin-left-118">
                                                 <a
                                                   className="nounderline"
-                                                  href={`https://mail.google.com/mail/?view=cm&from=${"johmcg64@gmail.com"}&to=${"john@urilinks.com"}&su=Hello&body=Hi%20there!`}
+                                                  href={`https://mail.google.com/mail/?view=cm&from=${gmail}&to=${"john@urilinks.com"}&su=Hello&body=Hi%20there!`}
                                                   target="_blank"
                                                 >
                                                   Send gmail{" "}

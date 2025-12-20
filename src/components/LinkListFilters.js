@@ -1270,7 +1270,8 @@ export class LinkListFilters extends React.Component {
             </div>
           )}
 
-          <div className="">
+          <div className={`${isMobile()?"margin-top-11z1" :""}`}>
+             
             <select
               id="mode"
               className="select outline-none"
@@ -1303,6 +1304,7 @@ export class LinkListFilters extends React.Component {
               </option> */}
             </select>
           </div>
+          
           <div>
             {/* <div>
  <span className="">
@@ -1327,7 +1329,9 @@ export class LinkListFilters extends React.Component {
           {
             //this.state.isToggled === true &&
             true && (
-              <div className="cursor-pointer">
+               
+              <div className={`cursor-pointer ${isMobile()?"margin-top-11z1" :""}`}>
+             
                 <select
                   className="select cursor-pointer"
                   onChange={this.onFolderChange}

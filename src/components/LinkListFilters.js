@@ -402,7 +402,8 @@ function ExpandableArray(props) {
                     <br />
                     <br />
                   </div>
-                  <input id="gmailid" placeholder="put your gmail here to send me a message" type="text" />
+                  <span>What do you want to achieve with this website?</span>
+                  <input id="gmailid" placeholder="put your gmail here to send me a message and then press click" type="text" />
                   <button type="button" onClick={getGmail}>click</button>
 
                    <div className="padding-bottom-116">

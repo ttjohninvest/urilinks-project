@@ -366,11 +366,10 @@ function ExpandableArray(props) {
                     This site is for students of colleges and universities. It
                     is the original link-in-research tool
                     <br />
-                    similar to link-in-bio tool like linktree; however, it is in
-                    a format suitable for learning
+                    similar to link-in-bio tool like linktree; however, is is for the
                     <br />
-                    and research. It can store and organize 1-1000 research
-                    links alphabetically.
+                    purpose of learning and research. It can store and organize 1-1000
+                    research links alphabetically.
                     <br />
                     It gives you a sharable link to your consolidated internet
                     research content. You may

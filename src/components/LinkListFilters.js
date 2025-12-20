@@ -133,10 +133,11 @@ function ExpandableArray(props) {
   },[gmail])
 
   const getGmail = () => {
-  console.log("getGmail")
-  const ugmail = window.document.getElementById('gmailid').value
-  console.log("ugmail="+ugmail)
-  setGmail(ugmail)
+  //console.log("getGmail")
+  //const ugmail = window.document.getElementById('gmailid').value
+  //console.log("ugmail="+ugmail)
+  //setGmail(ugmail)
+  setGmail("jmjohnmcgovern707@gmail.com")
   }
 
   return (
@@ -409,7 +410,7 @@ function ExpandableArray(props) {
                   </div>
 
                   <span>What do you want to achieve with this website?</span>
-                  <input id="gmailid" placeholder="Put your gmail here." type="text" />
+                  {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}
                   <button type="button" className="button-2" onClick={getGmail}>Please click to send me your answer.</button>
 
                    <div className="padding-bottom-116">

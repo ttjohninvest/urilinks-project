@@ -35,7 +35,7 @@ export class EditLinkPage extends React.Component {
           </div>
         </div>
         <div className="content-container">
-          <LinkForm link={this.props.link} onSubmit={this.onSubmit} />
+          <LinkForm link={this.props.link} onSubmit={this.onSubmit}  makereadonly={true} />
            <button className="button- button--secondary- button-2" onClick={this.onRemove}>
             Remove Link
           </button>

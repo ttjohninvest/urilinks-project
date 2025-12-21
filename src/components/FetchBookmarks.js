@@ -314,6 +314,7 @@ const FetchBookmarks = (props) => {
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
+                              //note2: oo === "usefoldernames"?data.message[i].title:"",
                               foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -378,6 +379,7 @@ const FetchBookmarks = (props) => {
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
+                                  //note2: oo === "usefoldernames"?data.message[i].children[j].title:"",
                                   foldername: foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -441,6 +443,7 @@ const FetchBookmarks = (props) => {
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
+                                      //note2: oo === "usefoldernames"?data.message[i].children[j].children[k].title:"",
                                       foldername: foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -517,6 +520,7 @@ const FetchBookmarks = (props) => {
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
+                                          //note2: oo === "usefoldernames"?data.message[i].children[j].children[k].children[l].title:"",
                                           foldername: foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -603,6 +607,7 @@ const FetchBookmarks = (props) => {
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
+                                              //note2: oo === "usefoldernames"?data.message[i].children[j].children[k].children[l].children[m].title:"",
                                               foldername: foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -691,6 +696,9 @@ const FetchBookmarks = (props) => {
                                                   Url: url, //, //href,
                                                   yturl: yturl,
                                                   note: hashtagv6,
+                                                  //note2: oo === "usefoldernames"?data.message[i].children[j]
+                                                //.children[k].children[l]
+                                                //.children[m].children[n].title:"",
                                                   foldername: foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -792,6 +800,10 @@ const FetchBookmarks = (props) => {
                                                       Url: url, //, //href,
                                                       yturl: yturl,
                                                       note: hashtagv7,
+                                                      //note2: oo === "usefoldernames"?data.message[i].children[j]
+                                                    //.children[k].children[l]
+                                                    //.children[m].children[n]
+                                                    //.children[o].title:"",
                                                       foldername: foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -861,6 +873,7 @@ const FetchBookmarks = (props) => {
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
+                              //note2: oo === "usefoldernames"?data.message[i].title:"",
                               foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -924,6 +937,7 @@ const FetchBookmarks = (props) => {
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
+                                  //note2: oo === "usefoldernames"?data.message[i].children[j].title:"",
                                   foldername: foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -988,6 +1002,7 @@ const FetchBookmarks = (props) => {
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
+                                      //note2: oo === "usefoldernames"?data.message[i].children[j].children[k].title:"",
                                       foldername: foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1064,6 +1079,8 @@ const FetchBookmarks = (props) => {
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
+                                          //note2: oo === "usefoldernames"?data.message[i].children[j].children[k]
+                                        //.children[l].title:"",
                                           foldername: foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1150,6 +1167,9 @@ const FetchBookmarks = (props) => {
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
+                                              //note2: oo === "usefoldernames"?data.message[i].children[j].children[
+                                            //k
+                                          //].children[l].children[m].title:"",
                                               foldername: foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1238,6 +1258,9 @@ const FetchBookmarks = (props) => {
                                                   Url: url, //, //href,
                                                   yturl: yturl,
                                                   note: hashtagv6,
+                                                  //note2: oo === "usefoldernames"?data.message[i].children[j]
+                                                //.children[k].children[l]
+                                                //.children[m].children[n].title:"",
                                                   foldername: foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1339,6 +1362,10 @@ const FetchBookmarks = (props) => {
                                                       Url: url, //, //href,
                                                       yturl: yturl,
                                                       note: hashtagv7,
+                                                      //note2: oo === "usefoldernames"?data.message[i].children[j]
+                                                    //.children[k].children[l]
+                                                    //.children[m].children[n]
+                                                    //.children[o].title:"",
                                                       foldername: foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1411,6 +1438,7 @@ const FetchBookmarks = (props) => {
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
+                              //note2: oo === "usefoldernames"?data.message[i].title:"",
                               foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1475,6 +1503,7 @@ const FetchBookmarks = (props) => {
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
+                                  //note2: oo === "usefoldernames"?data.message[i].children[j].title:"",
                                   foldername: foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1539,6 +1568,7 @@ const FetchBookmarks = (props) => {
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
+                                      //note2: oo === "usefoldernames"?data.message[i].children[j].children[k].title:"",
                                       foldername: foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1615,6 +1645,8 @@ const FetchBookmarks = (props) => {
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
+                                          //note2: oo === "usefoldernames"?data.message[i].children[j].children[k]
+                                        //.children[l].title:"",
                                           foldername: foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1701,6 +1733,7 @@ const FetchBookmarks = (props) => {
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
+                                              //note2: oo === "usefoldernames"?:"",
                                               foldername: foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1789,6 +1822,7 @@ const FetchBookmarks = (props) => {
                                                   Url: url, //, //href,
                                                   yturl: yturl,
                                                   note: hashtagv6,
+                                                  //note2: oo === "usefoldernames"?:"",
                                                   foldername: foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1890,6 +1924,7 @@ const FetchBookmarks = (props) => {
                                                       Url: url, //, //href,
                                                       yturl: yturl,
                                                       note: hashtagv7,
+                                                      //note2: oo === "usefoldernames"?:"",
                                                       foldername: foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1970,6 +2005,7 @@ const FetchBookmarks = (props) => {
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
+                              //note2: oo === "usefoldernames"?:"",
                               foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2034,6 +2070,7 @@ const FetchBookmarks = (props) => {
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
+                                  //note2: oo === "usefoldernames"?:"",
                                   foldername: foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2098,6 +2135,7 @@ const FetchBookmarks = (props) => {
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
+                                      //note2: oo === "usefoldernames"?:"",
                                       foldername: foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2173,6 +2211,7 @@ const FetchBookmarks = (props) => {
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
+                                          //note2: oo === "usefoldernames"?:"",
                                           foldername: foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2258,6 +2297,7 @@ const FetchBookmarks = (props) => {
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
+                                              //note2: oo === "usefoldernames"?:"",
                                               foldername: foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2345,6 +2385,7 @@ const FetchBookmarks = (props) => {
                                                   Url: url, //, //href,
                                                   yturl: yturl,
                                                   note: hashtagv6,
+                                                  //note2: oo === "usefoldernames"?:"",
                                                   foldername: foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2445,6 +2486,7 @@ const FetchBookmarks = (props) => {
                                                       Url: url, //, //href,
                                                       yturl: yturl,
                                                       note: hashtagv7,
+                                                      //note2: oo === "usefoldernames"?:"",
                                                       foldername: foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2516,6 +2558,7 @@ const FetchBookmarks = (props) => {
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
+                              //note2: oo === "usefoldernames"?:"",
                               foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2579,6 +2622,7 @@ const FetchBookmarks = (props) => {
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
+                                  //note2: oo === "usefoldernames"?:"",
                                   foldername: foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2642,6 +2686,7 @@ const FetchBookmarks = (props) => {
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
+                                      //note2: oo === "usefoldernames"?:"",
                                       foldername: foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2717,6 +2762,7 @@ const FetchBookmarks = (props) => {
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
+                                          //note2: oo === "usefoldernames"?:"",
                                           foldername: foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2802,6 +2848,7 @@ const FetchBookmarks = (props) => {
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
+                                              //note2: oo === "usefoldernames"?:"",
                                               foldername: foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2889,6 +2936,7 @@ const FetchBookmarks = (props) => {
                                                   Url: url, //, //href,
                                                   yturl: yturl,
                                                   note: hashtagv6,
+                                                  //note2: oo === "usefoldernames"?:"",
                                                   foldername: foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2989,6 +3037,7 @@ const FetchBookmarks = (props) => {
                                                       Url: url, //, //href,
                                                       yturl: yturl,
                                                       note: hashtagv7,
+                                                      //note2: oo === "usefoldernames"?:"",
                                                       foldername: foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work

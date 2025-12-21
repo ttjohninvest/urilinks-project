@@ -720,7 +720,7 @@ function ExpandableArray(props) {
                           title={`${s.hashtag}, click to scroll to results`}
                           //title={props.signup === true?${s.hashtag}, click to scroll to results: 
                         >
-                          {s.hashtag}
+                          {s.hashtag}{s.foldername}
                           {/* {"#"}
                           <span className={`{${highlight(s.hashtag[1])}}`}>
                             {s.hashtag[1]}

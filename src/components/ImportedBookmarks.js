@@ -105,7 +105,7 @@ max=StorageSizes.premium
             <ul className="scrollable-ul">
            
               {props.result.map((r, i) => (
-                <li>{r.description}, <span className="font-weight-1" title="You may use this hashtag in hashtag search to find it.">{r.note.toLowerCase()}:{r.longname}</span></li>
+                <li>{r.description}, <span className="font-weight-1" title="You may use this hashtag in hashtag search to find it.">{r.note}:{r.longname}</span></li>
               ))}
              </ul>
           </div>}

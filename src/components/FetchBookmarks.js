@@ -149,7 +149,8 @@ const FetchBookmarks = (props) => {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-    const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
+    //const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
+    const cleaned = str2.replace(/[^a-zA-Z]/g, "");
 
     
     // let stringWithoutTabs = str.replace(/\t/g, "");

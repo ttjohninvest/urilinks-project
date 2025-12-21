@@ -130,7 +130,7 @@ export const setLinksAll = (links) => ({
 
   const removeDuplicates = (stringArray) => {
     const stringifiedArray = stringArray.join(" ");
-    const lcstring = stringifiedArray.toLowerCase();
+    const lcstring = stringifiedArray //.toLowerCase();
     const lcStringArray = lcstring.split(" ");
     return [...new Set(lcStringArray)];
   };
@@ -205,14 +205,16 @@ export const startSetLinks = (uid) => {
 //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
          hashTags2WithCount.sort((a, b) => {
-          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+          //return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+          return a.hashtag > b.hashtag ? 1 : -1;
         });
         // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         
 
         let hashtags2 = removeDuplicates(hashtags);
         hashtags2.sort((a, b) => {
-          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+          //return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+          return a > b ? 1 : -1;
         });
         
         let hashtags3withcount=[]

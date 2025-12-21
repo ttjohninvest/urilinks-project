@@ -733,7 +733,7 @@ return sentence
                           className={`b1x nounderline color-white-1 button-link-4 ${props.b==1 ?"pointereventsauto":"pointereventsnone"}`}
                           href="#"
                           onClick={() => props.setit(s.hashtag, event)}
-                          title={`${s.hashtag},${sep(s.hashtag)}, click to scroll to results`}
+                          title={`${s.hashtag}, click to scroll to results`}
                           //title={props.signup === true?${s.hashtag}, click to scroll to results: 
                         >
                           {sep(s.hashtag)}
@@ -760,7 +760,7 @@ return sentence
                         className={`b1x nounderline color-white-1 button-link-4 ${props.b==1 ?"pointereventsauto":"pointereventsnone"}`}
                         href="#"
                         onClick={() => props.setit(s.hashtag, event)}
-                        title={`${s.hashtag},${sep(s.hashtag)}, click to scroll to results`}
+                        title={`${s.hashtag}, click to scroll to results`}
                       >
                         {sep(s.hashtag)}
                         {/* {"#"}

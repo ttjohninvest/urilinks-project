@@ -144,11 +144,12 @@ const FetchBookmarks = (props) => {
   const getHashtag = (str) => {
     console.log("getHashtag");
     
-    const str2 = str.replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
+    const str2 = str.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
+                 
 
-    //const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
+    const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
     //const cleaned = str2.replace(/[^a-zA-Z]/g, "");
-    const cleaned = str2.replace(/[^\s]/g, "");
+    //const cleaned = str2.replace(/[^\s]/g, "");
 
     const lc = cleaned
     //prepend "#"

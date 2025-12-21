@@ -143,13 +143,13 @@ const FetchBookmarks = (props) => {
 
   const getHashtag = (str) => {
     console.log("getHashtag");
-    //const cleaned = str.replace(/[^a-zA-Z0-9/s]/g, '')
+    
     const str2 = str.toLowerCase()
     .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-    const cleaned = str2.replace(/[^a-zA-Z]/g, "");
+    const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
 
     
     // let stringWithoutTabs = str.replace(/\t/g, "");

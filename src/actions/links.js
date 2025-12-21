@@ -213,8 +213,8 @@ export const startSetLinks = (uid) => {
 
         let hashtags2 = removeDuplicates(hashtags);
         hashtags2.sort((a, b) => {
-          //return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
-          return a > b ? 1 : -1;
+          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+          //return a > b ? 1 : -1;
         });
         
         let hashtags3withcount=[]

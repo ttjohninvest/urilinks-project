@@ -733,10 +733,10 @@ return sentence
                           className={`b1x nounderline color-white-1 button-link-4 ${props.b==1 ?"pointereventsauto":"pointereventsnone"}`}
                           href="#"
                           onClick={() => props.setit(s.hashtag, event)}
-                          title={`${s.hashtag},${sep(s.hashtag)} click to scroll to results`}
+                          title={`${s.hashtag},${sep(s.hashtag)}, click to scroll to results`}
                           //title={props.signup === true?${s.hashtag}, click to scroll to results: 
                         >
-                          {s.hashtag},{sep(s.hashtag)}
+                          {sep(s.hashtag)}
                           {/* {"#"}
                           <span className={`{${highlight(s.hashtag[1])}}`}>
                             {s.hashtag[1]}
@@ -760,9 +760,9 @@ return sentence
                         className={`b1x nounderline color-white-1 button-link-4 ${props.b==1 ?"pointereventsauto":"pointereventsnone"}`}
                         href="#"
                         onClick={() => props.setit(s.hashtag, event)}
-                        title={`${s.hashtag},${sep(s.hashtag)} click to scroll to results`}
+                        title={`${s.hashtag},${sep(s.hashtag)}, click to scroll to results`}
                       >
-                        {s.hashtag},{sep(s.hashtag)}
+                        {sep(s.hashtag)}
                         {/* {"#"}
                         <span className={highlight(s.hashtag[1])}>
                           {s.hashtag[1]}

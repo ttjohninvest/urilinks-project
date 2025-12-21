@@ -205,8 +205,8 @@ export const startSetLinks = (uid) => {
 //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
          hashTags2WithCount.sort((a, b) => {
-          //return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
-          return a.hashtag > b.hashtag ? 1 : -1;
+          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+          //return a.hashtag > b.hashtag ? 1 : -1;
         });
         // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         

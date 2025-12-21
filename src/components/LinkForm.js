@@ -260,7 +260,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           type="text"
           ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
           placeholder="text"
-          readonly={this.props.makereadonly===true?"readonly":""}
+          readOnly={this.props.makereadonly===true?true:false}
           autoFocus
           className="text-input"
           value={this.state.description}

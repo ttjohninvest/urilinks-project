@@ -147,7 +147,7 @@ const FetchBookmarks = (props) => {
     const str2 = str.toLowerCase()
     .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+    .join(' '); //they still have spaces
 
     //const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
     const cleaned = str2.replace(/[^a-zA-Z]/g, "");

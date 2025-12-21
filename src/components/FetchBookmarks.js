@@ -141,17 +141,35 @@ const FetchBookmarks = (props) => {
     return hashtag;
   };
 
-  const getHashtag = (str) => {
-    console.log("getHashtag");
+  // const getHashtag = (str) => {
+  //   console.log("getHashtag");
     
-    const str2 = str.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
+  //   const str2 = str.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
                  
 
-    const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
-    //const cleaned = str2.replace(/[^a-zA-Z]/g, "");
-    //const cleaned = str2.replace(/[^\s]/g, "");
+  //   const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
+  //   //const cleaned = str2.replace(/[^a-zA-Z]/g, "");
+  //   //const cleaned = str2.replace(/[^\s]/g, "");
 
-    const lc = cleaned
+  //   const lc = cleaned
+  //   //prepend "#"
+  //   const hashtag = "#" + lc;
+  //   //return the hashtag
+  //   console.log("TTTTTTTTTTTTTTTTTTTTTTT, str=" + str);
+  //   console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag=" + hashtag);
+  //   return hashtag;
+  // };
+
+  const getHashtag = (str) => {
+    console.log("getHashtag");
+    //const cleaned = str.replace(/[^a-zA-Z0-9/s]/g, '')
+    const cleaned = str.replace(/[^a-zA-Z0-9]/g, "");
+    // let stringWithoutTabs = str.replace(/\t/g, "");
+    // let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
+    // let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
+    // let noperiodseither = notabsorspacesordashes.replace(/\./g, "");
+    // //lowercase
+    const lc = cleaned.toLowerCase();
     //prepend "#"
     const hashtag = "#" + lc;
     //return the hashtag
@@ -310,12 +328,10 @@ const FetchBookmarks = (props) => {
                             console.log(1);
                             console.log("15 foldername:=" + foldername);
                             htmllinksarray.push({
-                              showpublic:false,
                               description: title,
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
-                              //note2: oo === "usefoldernames"?data.message[i].title:"",
                               foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -375,12 +391,10 @@ const FetchBookmarks = (props) => {
                                 console.log(2);
                                 console.log("16 foldername:=" + foldername);
                                 htmllinksarray.push({
-                                  showpublic:false,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
-                                  //note2: oo === "usefoldernames"?data.message[i].children[j].title:"",
                                   foldername: foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -439,12 +453,10 @@ const FetchBookmarks = (props) => {
                                     console.log(3);
                                     console.log("17 foldername:=" + foldername);
                                     htmllinksarray.push({
-                                      showpublic:false,
                                       description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
-                                      //note2: oo === "usefoldernames"?data.message[i].children[j].children[k].title:"",
                                       foldername: foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -516,12 +528,10 @@ const FetchBookmarks = (props) => {
                                           "18 foldername:=" + foldername
                                         );
                                         htmllinksarray.push({
-                                          showpublic:false,
                                           description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
-                                          //note2: oo === "usefoldernames"?data.message[i].children[j].children[k].children[l].title:"",
                                           foldername: foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -603,12 +613,10 @@ const FetchBookmarks = (props) => {
                                               "19 foldername:=" + foldername
                                             );
                                             htmllinksarray.push({
-                                              showpublic:false,
                                               description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
-                                              //note2: oo === "usefoldernames"?data.message[i].children[j].children[k].children[l].children[m].title:"",
                                               foldername: foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -692,14 +700,10 @@ const FetchBookmarks = (props) => {
                                                   "20 foldername:=" + foldername
                                                 );
                                                 htmllinksarray.push({
-                                                  showpublic:false,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   yturl: yturl,
                                                   note: hashtagv6,
-                                                  //note2: oo === "usefoldernames"?data.message[i].children[j]
-                                                //.children[k].children[l]
-                                                //.children[m].children[n].title:"",
                                                   foldername: foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -796,15 +800,10 @@ const FetchBookmarks = (props) => {
                                                         foldername
                                                     );
                                                     htmllinksarray.push({
-                                                      showpublic:false,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       yturl: yturl,
                                                       note: hashtagv7,
-                                                      //note2: oo === "usefoldernames"?data.message[i].children[j]
-                                                    //.children[k].children[l]
-                                                    //.children[m].children[n]
-                                                    //.children[o].title:"",
                                                       foldername: foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -869,12 +868,10 @@ const FetchBookmarks = (props) => {
                             console.log(8);
                             console.log("22 foldername:=" + foldername);
                             htmllinksarray.push({
-                              showpublic:false,
                               description: title,
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
-                              //note2: oo === "usefoldernames"?data.message[i].title:"",
                               foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -933,12 +930,10 @@ const FetchBookmarks = (props) => {
                                 console.log(9);
                                 console.log("23 foldername:=" + foldername);
                                 htmllinksarray.push({
-                                  showpublic:false,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
-                                  //note2: oo === "usefoldernames"?data.message[i].children[j].title:"",
                                   foldername: foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -998,12 +993,10 @@ const FetchBookmarks = (props) => {
                                     console.log(10);
                                     console.log("24 foldername:=" + foldername);
                                     htmllinksarray.push({
-                                      showpublic:false,
                                       description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
-                                      //note2: oo === "usefoldernames"?data.message[i].children[j].children[k].title:"",
                                       foldername: foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1075,13 +1068,10 @@ const FetchBookmarks = (props) => {
                                           "25 foldername:=" + foldername
                                         );
                                         htmllinksarray.push({
-                                          showpublic:false,
                                           description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
-                                          //note2: oo === "usefoldernames"?data.message[i].children[j].children[k]
-                                        //.children[l].title:"",
                                           foldername: foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1163,14 +1153,10 @@ const FetchBookmarks = (props) => {
                                               "26 foldername:=" + foldername
                                             );
                                             htmllinksarray.push({
-                                              showpublic:false,
                                               description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
-                                              //note2: oo === "usefoldernames"?data.message[i].children[j].children[
-                                            //k
-                                          //].children[l].children[m].title:"",
                                               foldername: foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1254,14 +1240,10 @@ const FetchBookmarks = (props) => {
                                                   "27 foldername:=" + foldername
                                                 );
                                                 htmllinksarray.push({
-                                                  showpublic:false,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   yturl: yturl,
                                                   note: hashtagv6,
-                                                  //note2: oo === "usefoldernames"?data.message[i].children[j]
-                                                //.children[k].children[l]
-                                                //.children[m].children[n].title:"",
                                                   foldername: foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1358,15 +1340,10 @@ const FetchBookmarks = (props) => {
                                                         foldername
                                                     );
                                                     htmllinksarray.push({
-                                                      showpublic:false,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       yturl: yturl,
                                                       note: hashtagv7,
-                                                      //note2: oo === "usefoldernames"?data.message[i].children[j]
-                                                    //.children[k].children[l]
-                                                    //.children[m].children[n]
-                                                    //.children[o].title:"",
                                                       foldername: foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1434,12 +1411,10 @@ const FetchBookmarks = (props) => {
                             console.log(15);
                             console.log("29 foldername:=" + foldername);
                             htmllinksarray.push({
-                              showpublic:false,
                               description: title,
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
-                              //note2: oo === "usefoldernames"?data.message[i].title:"",
                               foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1499,12 +1474,10 @@ const FetchBookmarks = (props) => {
                                 console.log(16);
                                 console.log("30 foldername:=" + foldername);
                                 htmllinksarray.push({
-                                  showpublic:false,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
-                                  //note2: oo === "usefoldernames"?data.message[i].children[j].title:"",
                                   foldername: foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1564,12 +1537,10 @@ const FetchBookmarks = (props) => {
                                     console.log(17);
                                     console.log("31 foldername:=" + foldername);
                                     htmllinksarray.push({
-                                      showpublic:false,
                                       description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
-                                      //note2: oo === "usefoldernames"?data.message[i].children[j].children[k].title:"",
                                       foldername: foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1641,13 +1612,10 @@ const FetchBookmarks = (props) => {
                                           "32 foldername:=" + foldername
                                         );
                                         htmllinksarray.push({
-                                          showpublic:false,
                                           description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
-                                          //note2: oo === "usefoldernames"?data.message[i].children[j].children[k]
-                                        //.children[l].title:"",
                                           foldername: foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1729,12 +1697,10 @@ const FetchBookmarks = (props) => {
                                               "33 foldername:=" + foldername
                                             );
                                             htmllinksarray.push({
-                                              showpublic:false,
                                               description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
-                                              //note2: oo === "usefoldernames"?:"",
                                               foldername: foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1818,12 +1784,10 @@ const FetchBookmarks = (props) => {
                                                   "34 foldername:=" + foldername
                                                 );
                                                 htmllinksarray.push({
-                                                  showpublic:false,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   yturl: yturl,
                                                   note: hashtagv6,
-                                                  //note2: oo === "usefoldernames"?:"",
                                                   foldername: foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -1920,12 +1884,10 @@ const FetchBookmarks = (props) => {
                                                         foldername
                                                     );
                                                     htmllinksarray.push({
-                                                      showpublic:false,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       yturl: yturl,
                                                       note: hashtagv7,
-                                                      //note2: oo === "usefoldernames"?:"",
                                                       foldername: foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2001,12 +1963,10 @@ const FetchBookmarks = (props) => {
                             console.log("1 foldername:=" + foldername);
 
                             htmllinksarray.push({
-                              showpublic:false,
                               description: title,
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
-                              //note2: oo === "usefoldernames"?:"",
                               foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2065,14 +2025,12 @@ const FetchBookmarks = (props) => {
                                 console.log("2 foldername:=" + foldername);
 
                                 htmllinksarray.push({
-                                  showpublic:false,
-                                  //foldername: foldername,
+                                  foldername: foldername,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
-                                  //note2: oo === "usefoldernames"?:"",
-                                  foldername: foldername,
+
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                                   faviconURL: icon, //"https://google.com/favicon.ico" //icon
@@ -2131,12 +2089,10 @@ const FetchBookmarks = (props) => {
                                     console.log("3 foldername:=" + foldername);
 
                                     htmllinksarray.push({
-                                      showpublic:false,
                                       description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
-                                      //note2: oo === "usefoldernames"?:"",
                                       foldername: foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2207,12 +2163,10 @@ const FetchBookmarks = (props) => {
                                           "4 foldername:=" + foldername
                                         );
                                         htmllinksarray.push({
-                                          showpublic:false,
                                           description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
-                                          //note2: oo === "usefoldernames"?:"",
                                           foldername: foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2293,12 +2247,10 @@ const FetchBookmarks = (props) => {
                                               "5 foldername:=" + foldername
                                             );
                                             htmllinksarray.push({
-                                              showpublic:false,
                                               description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
-                                              //note2: oo === "usefoldernames"?:"",
                                               foldername: foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2381,12 +2333,10 @@ const FetchBookmarks = (props) => {
                                                   "6 foldername:=" + foldername
                                                 );
                                                 htmllinksarray.push({
-                                                  showpublic:false,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   yturl: yturl,
                                                   note: hashtagv6,
-                                                  //note2: oo === "usefoldernames"?:"",
                                                   foldername: foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2482,12 +2432,10 @@ const FetchBookmarks = (props) => {
                                                         foldername
                                                     );
                                                     htmllinksarray.push({
-                                                      showpublic:false,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       yturl: yturl,
                                                       note: hashtagv7,
-                                                      //note2: oo === "usefoldernames"?:"",
                                                       foldername: foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2554,12 +2502,10 @@ const FetchBookmarks = (props) => {
                             console.log("pushing unto htmllinksarray");
                             console.log("8 foldername:=" + foldername);
                             htmllinksarray.push({
-                              showpublic:false,
                               description: title,
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
-                              //note2: oo === "usefoldernames"?:"",
                               foldername: foldername,
                               amount: 0,
                               createdAt: add_date, //ts,//now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2618,12 +2564,10 @@ const FetchBookmarks = (props) => {
                                 console.log("pushing unto htmllinksarray");
                                 console.log("9 foldername:=" + foldername);
                                 htmllinksarray.push({
-                                  showpublic:false,
                                   description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
-                                  //note2: oo === "usefoldernames"?:"",
                                   foldername: foldername,
                                   amount: 0,
                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2682,12 +2626,10 @@ const FetchBookmarks = (props) => {
                                     console.log("pushing unto htmllinksarray");
                                     console.log("10 foldername:=" + foldername);
                                     htmllinksarray.push({
-                                      showpublic:false,
                                       description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
-                                      //note2: oo === "usefoldernames"?:"",
                                       foldername: foldername,
                                       amount: 0,
                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2758,12 +2700,10 @@ const FetchBookmarks = (props) => {
                                           "11 foldername:=" + foldername
                                         );
                                         htmllinksarray.push({
-                                          showpublic:false,
                                           description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
-                                          //note2: oo === "usefoldernames"?:"",
                                           foldername: foldername,
                                           amount: 0,
                                           createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2844,12 +2784,10 @@ const FetchBookmarks = (props) => {
                                               "12 foldername:=" + foldername
                                             );
                                             htmllinksarray.push({
-                                              showpublic:false,
                                               description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
-                                              //note2: oo === "usefoldernames"?:"",
                                               foldername: foldername,
                                               amount: 0,
                                               createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -2932,12 +2870,10 @@ const FetchBookmarks = (props) => {
                                                   "13 foldername:=" + foldername
                                                 );
                                                 htmllinksarray.push({
-                                                  showpublic:false,
                                                   description: title,
                                                   Url: url, //, //href,
                                                   yturl: yturl,
                                                   note: hashtagv6,
-                                                  //note2: oo === "usefoldernames"?:"",
                                                   foldername: foldername,
                                                   amount: 0,
                                                   createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -3033,12 +2969,10 @@ const FetchBookmarks = (props) => {
                                                         foldername
                                                     );
                                                     htmllinksarray.push({
-                                                      showpublic:false,
                                                       description: title,
                                                       Url: url, //, //href,
                                                       yturl: yturl,
                                                       note: hashtagv7,
-                                                      //note2: oo === "usefoldernames"?:"",
                                                       foldername: foldername,
                                                       amount: 0,
                                                       createdAt: now.getTime(), //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
@@ -3127,7 +3061,6 @@ const FetchBookmarks = (props) => {
                       "1 result[" + i + "].foldername=" + result[i].foldername
                     );
                     r = props.startAddLink({
-                      showpublic:result[i].showpublic,
                       description: result[i].description,
                       Url: result[i].Url, //, //href,
                       yturl: result[i].yturl,
@@ -3185,7 +3118,6 @@ const FetchBookmarks = (props) => {
                       "1 result[" + i + "].foldername=" + result[i].foldername
                     );
                     r = props.startAddLink({
-                      showpublic:result[i].showpublic,
                       description: result[i].description,
                       Url: result[i].Url, //, //href,
                       yturl: result[i].yturl,

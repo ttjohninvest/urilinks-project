@@ -184,7 +184,7 @@ const ImportedBookmarks2 = (props) => {
                       className="font-weight-1"
                       title="You may use this hashtag in hashtag search to find it."
                     >
-                      {r.note}:{r.longname}
+                      {r.note.toLowerCase()}:{r.longname}
                     </span>
                   </li>
                 ))}

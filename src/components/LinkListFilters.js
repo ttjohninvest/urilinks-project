@@ -746,7 +746,7 @@ function ExpandableArray(props) {
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${s.hashtag}, click to scroll to results`}
                       >
-                        {s.hashtag}
+                        {s.hashtag}{s.foldername}
                         {/* {"#"}
                         <span className={highlight(s.hashtag[1])}>
                           {s.hashtag[1]}

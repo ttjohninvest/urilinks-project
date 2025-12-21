@@ -144,21 +144,12 @@ const FetchBookmarks = (props) => {
   const getHashtag = (str) => {
     console.log("getHashtag");
     
-    const str2 = str.toLowerCase()
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' '); //they still have spaces
+    const str2 = str.replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
 
     //const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
     const cleaned = str2.replace(/[^a-zA-Z]/g, "");
 
-    
-    // let stringWithoutTabs = str.replace(/\t/g, "");
-    // let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
-    // let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
-    // let noperiodseither = notabsorspacesordashes.replace(/\./g, "");
-    // //lowercase
-    const lc = cleaned //.toLowerCase();
+    const lc = cleaned
     //prepend "#"
     const hashtag = "#" + lc;
     //return the hashtag

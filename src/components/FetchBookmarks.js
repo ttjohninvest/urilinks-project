@@ -150,7 +150,7 @@ const FetchBookmarks = (props) => {
     // let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
     // let noperiodseither = notabsorspacesordashes.replace(/\./g, "");
     // //lowercase
-    const lc = cleaned.toLowerCase();
+    const lc = cleaned //.toLowerCase();
     //prepend "#"
     const hashtag = "#" + lc;
     //return the hashtag

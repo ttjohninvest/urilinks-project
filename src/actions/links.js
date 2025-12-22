@@ -169,27 +169,19 @@ export const startSetLinks = (uid) => {
     //const uid = getState().auth.uid;
     const hashtags = [];
     
-
-    return database
-      .ref(`users/${uid}/links`)
-      .once("value")
-      .then((snapshot) => {
-        const links2 = [];
-
-        //console.log("snapshot=" + JSON.stringify(snapshot));
-        snapshot.forEach((childSnapshot) => {
-          console.log("tt,childSnapshot="+JSON.stringify(childSnapshot))
-          console.log("tt,childSnapshot.key="+JSON.stringify(childSnapshot.key))
-          console.log("tt,childSnapshot.val()="+JSON.stringify(childSnapshot.val()))
-          links2.push({
+     database().ref(`users/${uid}/links`).on('value', (snapshot) => {
+      const links2 = []
+  snapshot.forEach((childSnapshot) => {
+    // Push the child's value directly into your array
+    //globalReduxArray.push(childSnapshot.val());
+      links2.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),
           });
-        });
-        //console.log("startSetLinks, about to call dispatch(setLinks(links));");
-        dispatch(setLinks(links2));
+  });
+dispatch(setLinks(links2));
 
-         let hashtags = [];
+let hashtags = [];
          const longnamesnowhitespace = []
          const longnames = []
 
@@ -229,13 +221,78 @@ export const startSetLinks = (uid) => {
                  }
           })
         })
+        dispatch(setHashTags(hashtags3withcount));
+        dispatch(setHashTags2WithCount(hashTags2WithCount));
+}).catch((error) => console.log("error=" + error));
+
+    // return database
+    //   .ref(`users/${uid}/links`)
+    //   .once("value")
+    //   .then((snapshot) => {
+    //     const links2 = [];
+
+       
+
+    //     //console.log("snapshot=" + JSON.stringify(snapshot));
+    //     snapshot.forEach((childSnapshot) => {
+    //       console.log("tt,childSnapshot="+JSON.stringify(childSnapshot))
+    //       console.log("tt,childSnapshot.key="+JSON.stringify(childSnapshot.key))
+    //       console.log("tt,childSnapshot.val()="+JSON.stringify(childSnapshot.val()))
+    //       links2.push({
+    //         id: childSnapshot.key,
+    //         ...childSnapshot.val(),
+    //       });
+    //     });
+    //     //console.log("startSetLinks, about to call dispatch(setLinks(links));");
+    //     dispatch(setLinks(links2));
+
+//          let hashtags = [];
+//          const longnamesnowhitespace = []
+//          const longnames = []
+
+//         //if(this.props.links.length>0) {
+//         links2.forEach((link) => {
+          
+//           let x1 = extractHashtags(link.note);
+//           hashtags.push(...x1);
+          
+
+          
+//         });
+// //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
+//         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
+//          hashTags2WithCount.sort((a, b) => {
+//           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+//           //return a.hashtag > b.hashtag ? 1 : -1;
+//         });
+//         // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        
+
+//         let hashtags2 = removeDuplicates(hashtags);
+//         hashtags2.sort((a, b) => {
+//           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+//           //return a > b ? 1 : -1;
+//         });
+        
+//         let hashtags3withcount=[]
+//         let seenArray=[]
+
+//         hashtags2.forEach((ht1)=>{
+//           hashTags2WithCount.forEach((ht2)=>{
+//                  if(!seen(ht1,seenArray) && (ht1===ht2.hashtag)) {
+//                   seenArray.push(ht1)
+//                   console.log("ZZZZZZZZZZZZZZZZ, seenArray="+JSON.stringify(seenArray))
+//                   hashtags3withcount.push(ht2)
+//                  }
+//           })
+//         })
 
     //dispatch(setHashTags(hashtags2));
     
-        dispatch(setHashTags(hashtags3withcount));
-        dispatch(setHashTags2WithCount(hashTags2WithCount));
-      })
-      .catch((error) => console.log("error=" + error));
+        // dispatch(setHashTags(hashtags3withcount));
+        // dispatch(setHashTags2WithCount(hashTags2WithCount));
+      // })
+      // .catch((error) => console.log("error=" + error));
   };
 };
 

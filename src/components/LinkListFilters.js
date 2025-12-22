@@ -427,7 +427,7 @@ return sentence
 
                   <span>What do you want to achieve with this website?</span>
                   {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}
-                  <button type="button" className="button-2" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>
+                  <button type="button" className="button-2" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me, Admin, your answer.</button>
 
                    <div className="padding-bottom-116">
                    <div className="margin-left-118">
@@ -485,7 +485,7 @@ return sentence
                 <div className="flexrowsb margin-right-1">
                   <span className="ib">What do you want to achieve with this website?</span>
                   {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}
-                  <button type="button" className="button-2 ib margin-left-11-" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>
+                  <button type="button" className="button-2 ib margin-left-11-" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me, Admin, your answer.</button>
 
                 </div>
                  

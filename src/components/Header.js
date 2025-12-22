@@ -170,11 +170,11 @@ export const Header = (props) => {
   // }
 
   const setToggledUsea = () => {
-    setToggleUse(true)
+    setToggledUse(true)
   }
 
   const setToggledUseb = () => {
-    setToggleUse(false)
+    setToggledUse(false)
   }
 
   return (

@@ -181,7 +181,7 @@ export const LinkList = (props) => {
 
 
 
-        {LIST_ALL_PUBLIC_LINKS = true && <div 
+        {LIST_ALL_PUBLIC_LINKS === true && <div 
         className={`${isMobile()?"margin-left-n-11p margin-top-11z1" :""}`}
         
         >

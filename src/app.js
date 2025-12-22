@@ -173,7 +173,7 @@ store
                 console.log("first one");
                 window.location.href = "https://urilinks.com?signup=signup&x=2";
               } else if (
-                history.location.pathname === "/dashboard?signup=signup"
+                //history.location.pathname === "/dashboard?signup=signup"
               ) {
                 console.log("second one");
                 //window.location.href = "https://urilinks.com?signup=signup&x=3";

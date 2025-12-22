@@ -163,7 +163,7 @@ store
               //return store.dispatch(getSettings()).then(() => {
               renderApp(store, signup);
               
-
+              console.log("111 history.location.pathname="+history.location.pathname)
               if (history.location.pathname === "/") {
                 //history.push("/dashboard?signup=signup");
                 console.log("first one");
@@ -174,6 +174,7 @@ store
                 console.log("second one");
                 window.location.href = "https://urilinks.com?signup=signup&x=3";
               } else if (history.location.pathname === "/dashboard") {
+                console.log("third one");
                 // DON'T DELETE THE FOLLOWING LINE*********************************************** 
                 window.location.href = "https://urilinks.com/o?signup=signup"; //this one was needed to have the folder name drop down list TO WORK IN in LinkListFilters.js
                 // DON'T DELETE THE ABOVE LINE*********************************************** 

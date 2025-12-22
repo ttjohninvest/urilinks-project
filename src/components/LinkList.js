@@ -206,7 +206,8 @@ export const LinkList = (props) => {
         </div>}
        
         {props.signup.signup === true ? (
-          <div 
+          <div>
+          {LIST_ALL_PUBLIC_LINKS === true && <div 
           className={`${isMobile()?"margin-top-11z2" :""}`}
           >
             <label className="inline-block__flex">
@@ -227,6 +228,7 @@ export const LinkList = (props) => {
                 People
               </span>
             </label>
+          </div>}
           </div>
         ) : (
           <div>

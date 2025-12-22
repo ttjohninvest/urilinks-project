@@ -61,12 +61,13 @@ const AppRouter = (props) => (
           signup={props.signup}
           component={TermsAndPrivacy}
         />
-        <PrivateRoute path="/use" render={(props) => <Benefits {...props} key={Date.now()} />} />   
-        {/* <PrivateRoute
+       
+        <PrivateRoute
           path="/use"
           signup={props.signup}
           component={Benefits}
-        /> */}
+         
+        />
         {/* <PrivateRoute path="/settings" component={LinkSettingsPage} /> */}
         <PrivateRoute
           path="/create"

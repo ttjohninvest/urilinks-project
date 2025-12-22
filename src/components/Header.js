@@ -269,26 +269,17 @@ export const Header = (props) => {
                   </div>
 
                    <div>
-                    <Link className="header__title- nounderline" to="/use" replace>
+                    <Link className="header__title- nounderline" to="/use" >
                       <span
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
-                        title="How to use this website"
+                        title="Click to see how to use this website."
                       >
                         usage
                       </span>
                     </Link>
                   </div>
 
-               {/* <div>
-                    <Link className="header__title- nounderline" onClick={setToggledUsea} to={`${toggledUse===false?"/use":"/dashboard"}`}>
-                      <span
-                        className="margin-right-1-ib- color-white-1 cursor-pointer"
-                        title="How to use this website"
-                      >
-                        usage
-                      </span>
-                    </Link>
-                  </div> */}
+              
 
 
                   <div>
@@ -298,7 +289,7 @@ export const Header = (props) => {
                     >
                       <span
                         className="ib- color-white-1 cursor-pointer"
-                        title="terms, conditions and privacy policy"
+                        title="Click to see terms ane privacy"
                       >
                         legal
                       </span>
@@ -310,7 +301,7 @@ export const Header = (props) => {
                         <Link className="header__title-" to="/teirspayment3">
                           <span
                             className="ib text-size-1 color-white-1 color-blue-1-"
-                            title="please select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
+                            title="Click to select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
                           >
                             plans
                           </span>
@@ -322,7 +313,7 @@ export const Header = (props) => {
                       id="scrolldownid"
                       className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
                       onClick={scrolldown}
-                      title="scrolls down to search section"
+                      title="Click to scroll down to the search section"
                     >
                       search
                     </div>
@@ -332,7 +323,7 @@ export const Header = (props) => {
                     <Link className="header__title- nounderline" to="/ideas">
                       <span
                         className="ib- color-white-1 cursor-pointer"
-                        title="educational ideas"
+                        title="Click to see a list of educational ideas."
                       >
                         curriculums
                       </span>

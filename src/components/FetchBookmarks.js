@@ -141,35 +141,17 @@ const FetchBookmarks = (props) => {
     return hashtag;
   };
 
-  // const getHashtag = (str) => {
-  //   console.log("getHashtag");
-    
-  //   const str2 = str.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
-                 
-
-  //   const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
-  //   //const cleaned = str2.replace(/[^a-zA-Z]/g, "");
-  //   //const cleaned = str2.replace(/[^\s]/g, "");
-
-  //   const lc = cleaned
-  //   //prepend "#"
-  //   const hashtag = "#" + lc;
-  //   //return the hashtag
-  //   console.log("TTTTTTTTTTTTTTTTTTTTTTT, str=" + str);
-  //   console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag=" + hashtag);
-  //   return hashtag;
-  // };
-
   const getHashtag = (str) => {
     console.log("getHashtag");
-    //const cleaned = str.replace(/[^a-zA-Z0-9/s]/g, '')
-    const cleaned = str.replace(/[^a-zA-Z0-9]/g, "");
-    // let stringWithoutTabs = str.replace(/\t/g, "");
-    // let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
-    // let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
-    // let noperiodseither = notabsorspacesordashes.replace(/\./g, "");
-    // //lowercase
-    const lc = cleaned.toLowerCase();
+    
+    const str2 = str.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
+                 
+
+    //const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
+    const cleaned = str2.replace(/[^a-zA-Z]/g, "");
+    //const cleaned = str2.replace(/[^\s]/g, "");
+
+    const lc = cleaned
     //prepend "#"
     const hashtag = "#" + lc;
     //return the hashtag
@@ -177,6 +159,24 @@ const FetchBookmarks = (props) => {
     console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag=" + hashtag);
     return hashtag;
   };
+
+  // const getHashtag = (str) => {
+  //   console.log("getHashtag");
+  //   //const cleaned = str.replace(/[^a-zA-Z0-9/s]/g, '')
+  //   const cleaned = str.replace(/[^a-zA-Z0-9]/g, "");
+  //   // let stringWithoutTabs = str.replace(/\t/g, "");
+  //   // let notabsorspaces = stringWithoutTabs.replace(/\s/g, "");
+  //   // let notabsorspacesordashes = notabsorspaces.replace(/\-/g, "");
+  //   // let noperiodseither = notabsorspacesordashes.replace(/\./g, "");
+  //   // //lowercase
+  //   const lc = cleaned.toLowerCase();
+  //   //prepend "#"
+  //   const hashtag = "#" + lc;
+  //   //return the hashtag
+  //   console.log("TTTTTTTTTTTTTTTTTTTTTTT, str=" + str);
+  //   console.log("TTTTTTTTTTTTTTTTTTTTTTT, hashtag=" + hashtag);
+  //   return hashtag;
+  // };
 
   const getHashtag2 = (url) => {
     return getHashNameUsingDomainName(url);

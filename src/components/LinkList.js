@@ -232,6 +232,7 @@ export const LinkList = (props) => {
           </div>
         ) : (
           <div>
+          {LIST_ALL_PUBLIC_LINKS === true && <div>
             <label className="inline-block__flex">
               <input
                 ref={myRef}
@@ -250,6 +251,7 @@ export const LinkList = (props) => {
                 People
               </span>
             </label>
+          </div>}
           </div>
         )}
       </div>

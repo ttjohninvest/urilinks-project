@@ -164,24 +164,26 @@ store
               renderApp(store, signup);
               //history.push("/dashboard");
 
-              // props.history.push("/");
-              //   //window.location.reload();
-              //   window.location.href="https://urilinks.com?signup=signup"
+              props.history.push("/");
+                //window.location.reload();
+                window.location.href="https://urilinks.com?signup=signup"
 
-              if (history.location.pathname === "/") {
-                //history.push("/dashboard?signup=signup");
-                console.log("first one");
-                window.location.href = "https://urilinks.com?signup=signup&x=2";
-              } else if (
-                history.location.pathname === "/dashboard?signup=signup"
-              ) {
-                console.log("second one");
-                window.location.href = "https://urilinks.com?signup=signup&x=3";
-              } else if (history.location.pathname === "/dashboard") {
-                // DON'T DELETE THE FOLLOWING ONE*********************************************** 
-                //window.location.href = "https://urilinks.com/o?signup=signup"; //this one was needed to have the folder name drop down list TO WORK IN in LinkListFilters.js
-                // DON'T DELETE THE ABOVE ONE*********************************************** 
-              }
+              // if (history.location.pathname === "/") {
+              //   //history.push("/dashboard?signup=signup");
+              //   console.log("first one");
+              //   window.location.href = "https://urilinks.com?signup=signup&x=2";
+              // } else if (
+              //   history.location.pathname === "/dashboard?signup=signup"
+              // ) {
+              //   console.log("second one");
+              //   window.location.href = "https://urilinks.com?signup=signup&x=3";
+              // } else if (history.location.pathname === "/dashboard") {
+              //   // DON'T DELETE THE FOLLOWING ONE*********************************************** 
+              //   //window.location.href = "https://urilinks.com/o?signup=signup"; //this one was needed to have the folder name drop down list TO WORK IN in LinkListFilters.js
+              //   // DON'T DELETE THE ABOVE ONE*********************************************** 
+              // }
+
+
               //});
             })
             .catch((error) => {

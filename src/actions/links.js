@@ -168,20 +168,29 @@ export const startSetLinks = (uid) => {
     //dispatch(setLinks([]));
     //const uid = getState().auth.uid;
     const hashtags = [];
-    
-     database().ref(`users/${uid}/links`).on('value', (snapshot) => {
-      const links2 = []
-  snapshot.forEach((childSnapshot) => {
-    // Push the child's value directly into your array
-    //globalReduxArray.push(childSnapshot.val());
-      links2.push({
+
+      return database
+      .ref(`users/${uid}/links`)
+      .once("value")
+      .then((snapshot) => {
+        const links2 = [];
+
+       
+
+        //console.log("snapshot=" + JSON.stringify(snapshot));
+        snapshot.forEach((childSnapshot) => {
+          console.log("tt,childSnapshot="+JSON.stringify(childSnapshot))
+          console.log("tt,childSnapshot.key="+JSON.stringify(childSnapshot.key))
+          console.log("tt,childSnapshot.val()="+JSON.stringify(childSnapshot.val()))
+          links2.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),
           });
-  });
-dispatch(setLinks(links2));
+        });
+        //console.log("startSetLinks, about to call dispatch(setLinks(links));");
+        dispatch(setLinks(links2));
 
-let hashtags = [];
+         let hashtags = [];
          const longnamesnowhitespace = []
          const longnames = []
 
@@ -221,32 +230,28 @@ let hashtags = [];
                  }
           })
         })
+
+    dispatch(setHashTags(hashtags2));
+    
         dispatch(setHashTags(hashtags3withcount));
         dispatch(setHashTags2WithCount(hashTags2WithCount));
-}).catch((error) => console.log("error=" + error));
+      })
+      .catch((error) => console.log("error=" + error));
 
-    // return database
-    //   .ref(`users/${uid}/links`)
-    //   .once("value")
-    //   .then((snapshot) => {
-    //     const links2 = [];
+//the following is another way and it said it is faster but it does not work
+//      database().ref(`users/${uid}/links`).on('value', (snapshot) => {
+//       const links2 = []
+//   snapshot.forEach((childSnapshot) => {
+//     // Push the child's value directly into your array
+//     //globalReduxArray.push(childSnapshot.val());
+//       links2.push({
+//             id: childSnapshot.key,
+//             ...childSnapshot.val(),
+//           });
+//   });
+// dispatch(setLinks(links2));
 
-       
-
-    //     //console.log("snapshot=" + JSON.stringify(snapshot));
-    //     snapshot.forEach((childSnapshot) => {
-    //       console.log("tt,childSnapshot="+JSON.stringify(childSnapshot))
-    //       console.log("tt,childSnapshot.key="+JSON.stringify(childSnapshot.key))
-    //       console.log("tt,childSnapshot.val()="+JSON.stringify(childSnapshot.val()))
-    //       links2.push({
-    //         id: childSnapshot.key,
-    //         ...childSnapshot.val(),
-    //       });
-    //     });
-    //     //console.log("startSetLinks, about to call dispatch(setLinks(links));");
-    //     dispatch(setLinks(links2));
-
-//          let hashtags = [];
+// let hashtags = [];
 //          const longnamesnowhitespace = []
 //          const longnames = []
 
@@ -286,13 +291,11 @@ let hashtags = [];
 //                  }
 //           })
 //         })
+//         dispatch(setHashTags(hashtags3withcount));
+//         dispatch(setHashTags2WithCount(hashTags2WithCount));
+// }).catch((error) => console.log("error=" + error));
 
-    //dispatch(setHashTags(hashtags2));
-    
-        // dispatch(setHashTags(hashtags3withcount));
-        // dispatch(setHashTags2WithCount(hashTags2WithCount));
-      // })
-      // .catch((error) => console.log("error=" + error));
+  
   };
 };
 

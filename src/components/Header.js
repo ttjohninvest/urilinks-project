@@ -269,7 +269,7 @@ export const Header = (props) => {
                   </div>
 
                    <div>
-                    <Link className="header__title- nounderline" to="/use">
+                    <Link className="header__title- nounderline" to="/use" replace>
                       <span
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
                         title="How to use this website"

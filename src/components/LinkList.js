@@ -1,4 +1,5 @@
 const LIST_ALL_PUBLIC_LINKS = false
+const LIST_ALL_PUBLIC_LINKS_PEOPLE = false
 
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
@@ -207,7 +208,7 @@ export const LinkList = (props) => {
        
         {props.signup.signup === true ? (
           <div>
-          {LIST_ALL_PUBLIC_LINKS === true && <div 
+          {LIST_ALL_PUBLIC_LINKS_PEOPLE === true && <div 
           className={`${isMobile()?"margin-top-11z2" :""}`}
           >
             <label className="inline-block__flex">
@@ -232,7 +233,7 @@ export const LinkList = (props) => {
           </div>
         ) : (
           <div>
-          {LIST_ALL_PUBLIC_LINKS === true && <div>
+          {LIST_ALL_PUBLIC_LINKS_PEOPLE === true && <div>
             <label className="inline-block__flex">
               <input
                 ref={myRef}

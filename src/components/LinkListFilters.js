@@ -399,7 +399,7 @@ return sentence
                     similar to link-in-bio tool like linktree; however, it is 
                     structured for learning
                     <br />
-                    and research (It can constribute to making you use of the 
+                    and research (It can constribute to making your use of the 
                     internet more organized,
                     <br />
                     interesting, professional and fun). It can store and organize 1-1000

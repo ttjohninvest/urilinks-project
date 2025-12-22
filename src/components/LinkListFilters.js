@@ -396,8 +396,8 @@ return sentence
                     This site is for students of colleges and universities. It
                     is the original link-in-research tool
                     <br />
-                    similar to link-in-bio tool like linktree; however, it is in
-                    a format suitable for learning
+                    similar to link-in-bio tool like linktree; however, it is 
+                    structured for learning
                     <br />
                     and research. It can store and organize 1-1000 research
                     links alphabetically.

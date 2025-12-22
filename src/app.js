@@ -168,11 +168,17 @@ store
               //   //window.location.reload();
               //   window.location.href="https://urilinks.com?signup=signup"
 
-              if (history.location.pathname === "/") {
-                //history.push("/dashboard?signup=signup");
-                console.log("first one");
-                window.location.href = "https://urilinks.com?signup=signup&x=2";
-              }
+               if (history.location.pathname === "/") {
+            history.push("/dashboard?signup=signup&x=0");
+          } else if (history.location.pathname === "/dashboard?signup=signup") {
+            history.push("/dashboard?signup=signup&x=1");
+          }
+
+              // if (history.location.pathname === "/") {
+              //   //history.push("/dashboard?signup=signup");
+              //   console.log("first one");
+              //   window.location.href = "https://urilinks.com?signup=signup&x=2";
+              // }
               // } else if (
               //   //history.location.pathname === "/dashboard?signup=signup"
               // ) {

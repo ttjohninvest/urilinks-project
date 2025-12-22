@@ -162,11 +162,7 @@ store
             .then(() => {
               //return store.dispatch(getSettings()).then(() => {
               renderApp(store, signup);
-              //history.push("/dashboard");
-
-              props.history.push("/");
-                //window.location.reload();
-                window.location.href="https://urilinks.com?signup=signup"
+              history.push("/dashboard");
 
               // if (history.location.pathname === "/") {
               //   //history.push("/dashboard?signup=signup");

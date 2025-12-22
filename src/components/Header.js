@@ -22,6 +22,7 @@ export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
   const [inviewport, setInviewport] = useState(false);
+  const [toggledUse, setToggledUse] = useState(false)
   const ideas = () => {};
 
   const params = new URLSearchParams(window.location.search);
@@ -168,6 +169,14 @@ export const Header = (props) => {
   //     return window.innerWidth < minWidth;
   // }
 
+  const setToggledUsea = () => {
+    setToggleUse(true)
+  }
+
+  const setToggledUseb = () => {
+    setToggleUse(false)
+  }
+
   return (
     <div>
       {isMobile() === false ? (
@@ -263,8 +272,8 @@ export const Header = (props) => {
                   <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="shows list of colleges">colleges</a>
                   </div>
 
-                  <div>
-                    <Link className="header__title- nounderline" to="/use">
+                 {toggledUse===false? <div>
+                    <Link className="header__title- nounderline" onClick={()=>setToggledUsea(true)} to="/use">
                       <span
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
                         title="How to use this website"
@@ -273,6 +282,17 @@ export const Header = (props) => {
                       </span>
                     </Link>
                   </div>
+:
+                   <div>
+                    <Link className="header__title- nounderline"  onClick={()=>setToggledUseb(false)} to="/">
+                      <span
+                        className="margin-right-1-ib- color-white-1 cursor-pointer"
+                        title="How to use this website"
+                      >
+                        usage
+                      </span>
+                    </Link>
+                  </div>}
 
                   <div>
                     <Link

@@ -1,7 +1,11 @@
+const LIST_ALL_PUBLIC_LINKS = false
+
 import React from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
+
+
 
 class LinkForm extends React.Component {
   constructor(props) {
@@ -238,7 +242,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
     return (
       <form className="form" onSubmit={this.onSubmit}>
         {this.state.error && <p className="form__error flexrow2w">{this.state.error}</p>}
-        <div className="flexrowz9">
+        {LIST_ALL_PUBLIC_LINKS === true && <div className="flexrowz9">
         <input
           id="showpublicid"
           //name="showpublicname"
@@ -255,7 +259,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           //maxlength=""
         />
         <label className="ib" for="showpublicid"><span className="ib margin-left-11">show the public</span></label>
-        </div>
+        </div> }
         <input
           type="text"
           placeholder="text"

@@ -1,3 +1,5 @@
+const LIST_ALL_PUBLIC_LINKS = false
+
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import MyInfiniteScroll from "./MyInfiniteScroll";
@@ -179,7 +181,7 @@ export const LinkList = (props) => {
 
 
 
-        <div 
+        {LIST_ALL_PUBLIC_LINKS = true && <div 
         className={`${isMobile()?"margin-left-n-11p margin-top-11z1" :""}`}
         
         >
@@ -201,7 +203,7 @@ export const LinkList = (props) => {
               List All Public Links
             </span>
           </label>
-        </div>
+        </div>}
        
         {props.signup.signup === true ? (
           <div 

@@ -1016,6 +1016,8 @@ firebase project is see-my-index-project-7 and the firebase storage project is l
 -----------------------------------------------------------------------------------------------------------
 
 marketing
+const LIST_ALL_PUBLIC_LINKS = false //put this true in ListForm.js and LinkList.js if it does not take too long to build the list, also it can be limited to 10 ad links per person to make it smaller. I need a faster way to build the list.
+
 ads
 https://post.craigslist.org/k/2J7XB8bsJkSvUrWP4vzbrT ad good for 30days from 11/30/2025, cost $5.00, put to craigslist.org in small biz ads, posted in Reno NV 89503
 

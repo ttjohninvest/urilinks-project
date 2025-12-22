@@ -170,11 +170,7 @@ export const Header = (props) => {
   // }
 
   const setToggledUsea = () => {
-    setToggledUse(true)
-  }
-
-  const setToggledUseb = () => {
-    setToggledUse(false)
+    setToggledUse(!toggleUse)
   }
 
   return (
@@ -273,7 +269,7 @@ export const Header = (props) => {
                   </div>
 
                <div>
-                    <Link className="header__title- nounderline" onClick={()=>setToggledUsea(true)} to={`${toggledUse===false?"/use":"/dashboard"}`}>
+                    <Link className="header__title- nounderline" onClick={setToggledUsea} to={`${toggledUse===false?"/use":"/dashboard"}`}>
                       <span
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
                         title="How to use this website"

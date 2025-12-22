@@ -90,7 +90,7 @@ export const Header = (props) => {
 
   const scrolldown = () => {
     //this scrolls the results into view, the first and subsequent result is shown
-    document.querySelector("#before-before-link-summary-id").scrollIntoView({
+    !!document.querySelector("#before-before-link-summary-id") && document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "smooth",
     });
   };
@@ -176,7 +176,12 @@ export const Header = (props) => {
             <header className="header relief-">
               <div className="">
                 <div className="flexrow2w">
-                  <header className="margin-left-11 solid">
+                    <Link
+                        className="nounderline color-white-1 cursor-pointer"
+                        to="/dashboard"
+                        title=""
+                      >
+                         <header className="margin-left-11 solid">
                     <img
                       className="rounded-full-1"
                       src={logo}
@@ -187,6 +192,8 @@ export const Header = (props) => {
 
                     <h3 className="color-white-1">urilinks</h3>
                   </header>
+                      </Link>
+                 
                   {props.signup.signup === false && (
                     <div
                       className="color-white-1"

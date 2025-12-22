@@ -897,7 +897,7 @@ export class LinkListFilters extends React.Component {
 
   scrollUp = () => {
     //window.scrollTo(0, 0);
-    document.querySelector("#top").scrollIntoView({
+        !!document.querySelector("#top") && document.querySelector("#top").scrollIntoView({
       behavior: "smooth",
     });
   };
@@ -1215,7 +1215,7 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("searchLinks3", value);
 
     //this scrolls the results into view, the first and subsequent result is shown
-    document.querySelector("#before-before-link-summary-id").scrollIntoView({
+    !!document.querySelector("#before-before-link-summary-id") && document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "smooth",
     });
 

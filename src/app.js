@@ -179,7 +179,7 @@ store
                 //window.location.href = "https://urilinks.com?signup=signup&x=3";
               } else if (history.location.pathname === "/dashboard") {
                 // DON'T DELETE THE FOLLOWING ONE*********************************************** 
-                //window.location.href = "https://urilinks.com/o?signup=signup"; //this one was needed to have the folder name drop down list TO WORK IN in LinkListFilters.js
+                window.location.href = "https://urilinks.com/o?signup=signup"; //this one was needed to have the folder name drop down list TO WORK IN in LinkListFilters.js
                 // DON'T DELETE THE ABOVE ONE*********************************************** 
               }
               //});

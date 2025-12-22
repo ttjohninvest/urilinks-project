@@ -178,14 +178,9 @@ store
                 console.log("second one");
                 window.location.href = "https://urilinks.com?signup=signup&x=3";
               } else if (history.location.pathname === "/dashboard") {
-                // sessionStorage.setItem('hasRefreshed', 'true');
-                //if (id!==null) {
-                // if(signup==="signup") {
-                //   console.log("third one")
-                window.location.href = "https://urilinks.com/o?signup=signup";
-                // }
-
-                //window.location.reload();
+              
+                //window.location.href = "https://urilinks.com/o?signup=signup";
+                
               }
               //});
             })

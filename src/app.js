@@ -174,9 +174,9 @@ store
                 console.log("second one");
                 window.location.href = "https://urilinks.com?signup=signup&x=3";
               } else if (history.location.pathname === "/dashboard") {
-                // DON'T DELETE THE FOLLOWING ONE*********************************************** 
+                // DON'T DELETE THE FOLLOWING LINE*********************************************** 
                 window.location.href = "https://urilinks.com/o?signup=signup"; //this one was needed to have the folder name drop down list TO WORK IN in LinkListFilters.js
-                // DON'T DELETE THE ABOVE ONE*********************************************** 
+                // DON'T DELETE THE ABOVE LINE*********************************************** 
               }
 
 

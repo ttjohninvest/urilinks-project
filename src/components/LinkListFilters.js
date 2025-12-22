@@ -144,7 +144,10 @@ const sep=(hashtag)=> {
  
 //const hashtag = "#IReallyLoveGSAP";
 //const hashtag = "#IReallyLoveGsap";
-const words = hashtag
+
+let words
+if(!!hashtag===true) {
+words = hashtag
   .replace(/#/, '') // Remove the leading '#'
   .replace(/([a-z])([A-Z])/g, '$1 $2') // Insert space before uppercase letters following lowercase
   .split(' '); // Split into an array of words
@@ -154,6 +157,8 @@ console.log(words); // Output: ['I', 'Really', 'Love', 'GSAP']
 const sentence = words.join(' ');
 console.log(sentence);
 return sentence
+}
+return ""
 }
 
   return (

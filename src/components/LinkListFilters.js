@@ -399,8 +399,10 @@ return sentence
                     similar to link-in-bio tool like linktree; however, it is 
                     structured for learning
                     <br />
-                    and research. It can store and organize 1-1000 research
-                    links alphabetically.
+                    and research (It can make you use of the internet more organized,
+                    interesting, professional and fun). 
+                    <br />
+                    It can store and organize 1-1000 research links alphabetically.
                     <br />
                     It gives you a sharable link to your consolidated internet
                     research content. You may

@@ -106,11 +106,11 @@ store
           //return store.dispatch(getSettings()).then(() => {
           renderApp(store, signup);
 
-          if (history.location.pathname === "/") {
-            history.push("/dashboard?signup=signup&x=0");
-          } else if (history.location.pathname === "/dashboard?signup=signup") {
-            history.push("/dashboard?signup=signup&x=1");
-          }
+          // if (history.location.pathname === "/") {
+          //   history.push("/dashboard?signup=signup&x=0");
+          // } else if (history.location.pathname === "/dashboard?signup=signup") {
+          //   history.push("/dashboard?signup=signup&x=1");
+          // }
           
         })
         .catch((error) => {

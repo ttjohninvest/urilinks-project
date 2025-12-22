@@ -91,12 +91,12 @@ if (signup !== "signup") {
     store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
   }
 
-store
-    .dispatch(startSetPeople())
-    .then(() => {
-store
-    .dispatch(startSetLinks2())
-    .then(() => {
+// store //for People menu item
+//     .dispatch(startSetPeople())
+//     .then(() => {
+// store //for list all public links menu item
+//     .dispatch(startSetLinks2())
+//     .then(() => {
 store
     .dispatch(startSetLinks(id))
     .then(() => {
@@ -121,15 +121,15 @@ store
       console.log("error", error);
     })
 
-  })
-      .catch((error) => {
-      console.log("error", error);
-    });
+  //})
+    //   .catch((error) => {
+    //   console.log("error", error);
+    // });
 
-     })
-      .catch((error) => {
-      console.log("error", error);
-    });
+    //  })
+    //   .catch((error) => {
+    //   console.log("error", error);
+    // });
 
 
  
@@ -148,12 +148,12 @@ store
       //store.dispatch(getCustomerId(user.uid)); //this should initialize the redux variable customerId
       //store.dispatch(getSubscriptionId(user.uid));//this should initialize the redux variable subscriptionId
 
-store
-    .dispatch(startSetPeople())
-    .then(() => {
-store
-        .dispatch(startSetLinks2())
-        .then(() => {
+// store //for People menu item
+//     .dispatch(startSetPeople())
+//     .then(() => {
+// store //for list all public links menu item
+//         .dispatch(startSetLinks2())
+//         .then(() => {
 store
         .dispatch(startSetLinks(user.uid))
         .then(() => {
@@ -168,27 +168,20 @@ store
               //   //window.location.reload();
               //   window.location.href="https://urilinks.com?signup=signup"
 
-               if (history.location.pathname === "/") {
-            history.push("/dashboard?signup=signup&x=0");
-          } else if (history.location.pathname === "/dashboard?signup=signup") {
-            history.push("/dashboard?signup=signup&x=1");
-          }
-
-              // if (history.location.pathname === "/") {
-              //   //history.push("/dashboard?signup=signup");
-              //   console.log("first one");
-              //   window.location.href = "https://urilinks.com?signup=signup&x=2";
-              // }
-              // } else if (
-              //   //history.location.pathname === "/dashboard?signup=signup"
-              // ) {
-              //   console.log("second one");
-              //   //window.location.href = "https://urilinks.com?signup=signup&x=3";
-              // } else if (history.location.pathname === "/dashboard") {
-              //   // DON'T DELETE THE FOLLOWING ONE*********************************************** 
-              //   window.location.href = "https://urilinks.com/o?signup=signup"; //this one was needed to have the folder name drop down list TO WORK IN in LinkListFilters.js
-              //   // DON'T DELETE THE ABOVE ONE*********************************************** 
-              // }
+              if (history.location.pathname === "/") {
+                //history.push("/dashboard?signup=signup");
+                console.log("first one");
+                window.location.href = "https://urilinks.com?signup=signup&x=2";
+              } else if (
+                history.location.pathname === "/dashboard?signup=signup"
+              ) {
+                console.log("second one");
+                window.location.href = "https://urilinks.com?signup=signup&x=3";
+              } else if (history.location.pathname === "/dashboard") {
+                // DON'T DELETE THE FOLLOWING ONE*********************************************** 
+                //window.location.href = "https://urilinks.com/o?signup=signup"; //this one was needed to have the folder name drop down list TO WORK IN in LinkListFilters.js
+                // DON'T DELETE THE ABOVE ONE*********************************************** 
+              }
               //});
             })
             .catch((error) => {
@@ -200,15 +193,15 @@ store
           console.log("error", error);
         });
 
-        })
-        .catch((error) => {
-          console.log("error", error);
-        });
+        // })
+        // .catch((error) => {
+        //   console.log("error", error);
+        // });
 
-         })
-        .catch((error) => {
-          console.log("error", error);
-        });
+        //  })
+        // .catch((error) => {
+        //   console.log("error", error);
+        // });
 
     } else {
       console.log("logout happened");

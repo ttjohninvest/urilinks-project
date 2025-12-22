@@ -272,27 +272,17 @@ export const Header = (props) => {
                   <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="shows list of colleges">colleges</a>
                   </div>
 
-                 {toggledUse===false? <div>
-                    <Link className="header__title- nounderline" onClick={()=>setToggledUsea(true)} to="/use">
+               <div>
+                    <Link className="header__title- nounderline" onClick={()=>setToggledUsea(true)} to={`${toggledUse===false?"/use":"/dashboard"}`}>
                       <span
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
                         title="How to use this website"
                       >
-                        usage1
+                        usage
                       </span>
                     </Link>
                   </div>
-:
-                   <div>
-                    <Link className="header__title- nounderline"  onClick={()=>setToggledUseb(false)} to="/dashboard">
-                      <span
-                        className="margin-right-1-ib- color-white-1 cursor-pointer"
-                        title="How to use this website"
-                      >
-                        usage2
-                      </span>
-                    </Link>
-                  </div>}
+
 
                   <div>
                     <Link

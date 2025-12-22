@@ -278,18 +278,18 @@ export const Header = (props) => {
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
                         title="How to use this website"
                       >
-                        usage
+                        usage1
                       </span>
                     </Link>
                   </div>
 :
                    <div>
-                    <Link className="header__title- nounderline"  onClick={()=>setToggledUseb(false)} to="/">
+                    <Link className="header__title- nounderline"  onClick={()=>setToggledUseb(false)} to="/dashboard">
                       <span
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
                         title="How to use this website"
                       >
-                        usage
+                        usage2
                       </span>
                     </Link>
                   </div>}

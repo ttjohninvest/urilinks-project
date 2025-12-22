@@ -391,7 +391,7 @@ return sentence
                     </div> */}
 
                   {/* (Free plan: 1-250 free, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans automatically billed yearly, delete account at anytime and your subscription is automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares your content. */}
-
+{/* gsdg */}
                   <div>
                     This site is for students of colleges and universities. It
                     is the original link-in-research tool
@@ -403,7 +403,7 @@ return sentence
                     internet more organized,
                     <br />
                     interesting, professional and fun). It can store and organize 1-1000
-                    research links alphabetically.
+                    links alphabetically.
                     <br />
                     It gives you a sharable link to your consolidated internet
                     research content. You may

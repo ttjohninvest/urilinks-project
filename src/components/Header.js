@@ -191,8 +191,8 @@ export const Header = (props) => {
                     <img
                       className="rounded-full-1 thumbnail"
                       src={logo}
-                      width="52"
-                      height="52"
+                      width="35"
+                      height="35"
                       alt="Logo"
                     />
 

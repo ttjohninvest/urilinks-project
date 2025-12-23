@@ -41,7 +41,7 @@ import LoadingPage2 from "./components/LoadingPage2";
 
 
 
-//console.log = () => {};
+console.log = () => {};
 
 
 

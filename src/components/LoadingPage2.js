@@ -16,7 +16,7 @@ const LoadingPage2 = () => {
     <div>
   {isLoading===true?<div className="loader">
     {/* <img className="loader__image" src="/images/loader.gif" /> */}
-    <img className="loader__image-" height="700" src="/images/urilinks-loading.png" />
+    <img className="loader__image- borderRadius4" height="700" src="/images/urilinks-loading.png" />
   </div>
   :<div>
   </div>}

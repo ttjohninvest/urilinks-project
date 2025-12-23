@@ -692,7 +692,7 @@ return ""
               <div className="margin-left-11-">
                 <div className="margin-left-minus-1">
                   <span>
-                    {props.links.length} links of {maximum} links is stored on{" "}
+                    {props.links.length} links of {maximum} links is stored on the{" "}
                     {props.theplan.plan.replace(/"/g, "")} plan.
                   </span>
                 </div>

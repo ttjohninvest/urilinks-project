@@ -91,9 +91,9 @@ const LinkDashboardPage = (props) => {
       setBvalue(!bvalue)
 
       // Simulate loading time (e.g., fetching data)
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000); // Hide splash screen after 3 seconds
+    // setTimeout(() => {
+    //   setIsLoading(false);
+    // }, 3000); // Hide splash screen after 3 seconds
 
   }, []);
 

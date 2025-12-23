@@ -293,9 +293,9 @@ basic is 500, standard is 750, premium is 1000
 If you are able to change the sizes, you just need to change these numbers
 
 urilinks tool benefits
--for instagram profile or other, a copy and paste-able link provided to your links bio page
+-for instagram profile or other, a copy and paste-able link provided to your research links page
 -links are not limited to commercial purposes
--up to 5000 links storage capacity on links bio page
+-up to 5000 links storage capacity on research links page
 -search by link title, hashtag, notes or date range
 -easy grouping or regrouping of links by hashtag
 -clickable hashtags to see grouped links are in in alphabetical order

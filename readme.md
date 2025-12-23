@@ -106,11 +106,12 @@ He said his only ambition for Moses his adopted son is that he be a good hearted
 He cares about women and enjoyed seeing them wear his cloths and looking clean and great, nothing is tight fitting, all elegant.
 He said to understand that movement, the power of a woman today.
 
+---
 
---------------------------------------------------------------------------------------------------------------------
                                                         ***
+
 [The role of the designer is to do the very best I can for the woman, Oscar De La Renta. He produces very nice cloths.]
-                                                        ***
+\*\*\*
 Goal: My goal for my website is to do the very best that I can for the student.
 Question to Student: What would you like to achieve with this website?
 
@@ -118,8 +119,7 @@ CONCLUSION: Oscar De La Renta never made cloths for the money. He did it because
 
 What would you like to acheive with this particular dress? To be able to walk into a room and be told wow, you look great.
 
----------------------------------------------------------------------------------------------------------------------
-
+---
 
 put in you are able to send email permission for the people button people
 should not be able to send email to anybody in their only if the receiving gmail has granted permission
@@ -128,7 +128,6 @@ do the same this as the showpublic flag
 actions/links2.js has ids hardcoded still
 
 =================================================================================
-
 
 to do refunds,
 
@@ -426,7 +425,7 @@ cloudflare.com (statistics)
 ttjohninvest@gmail.com
 firebase.google.com (stores data)
 account: johmcg64@gmail.com
-Payments profile name:	see-my-index for urilink.com's firebase realtime database
+Payments profile name: see-my-index for urilink.com's firebase realtime database
 Firebase project name: see-my-index-project-7
 plan: I am on the blaze plan, pay as you go it is called
 heroku.com (host for code)
@@ -917,17 +916,12 @@ should give me an email selection list to choose from which it skips.
 1 gb cost for 1gb of data from google: $5.00.
 
 I asked my precious Jesus Christ to give me wisdom about denomination and non denominational churchs.
-Answer: "7th Heaven", "all of it"
-
-
+Answer: "7th Heaven", "all of it","urilinks, first of its kind"
 
 =================================================================================================================
 how to get an order https://www.youtube.com/watch?v=Q496x77STfU
 =================================================================================================================
 =================================================================================================================
-I Contacted by phone and left a message about starting a new business in Tulsa Oaklahoma
-Oklahoma Small Business Development Center
-301 W University Blvd. Durant, OK 74701 (580) 745-2877 Email Us · Funded in part through a Cooperative Agreement with the U.S. Small Business Administration. All opinions, conclusions, and/or recommendations expressed herein are those of the author(s) and do not necessarily
 
 <a href="https://search.brave.com/search?q=how+can+internet+bookmarks+be+used+to+help+a+person+organize+content&summary=1&conversation=2f44b07dcd08552e79c776" target="_blank">how to organize internet bookmarks</a>
 <a href="https://search.brave.com/search?q=what+new+things+do+people+want+the+internet+to+do&summary=1&conversation=dd5502c25aaba566496b06" target="_blank">the future use of the internet</a>
@@ -1017,7 +1011,7 @@ see-my-index-project-4 is a billing account in google cloud
 and it is linked to firebase database for urilinks.com
 firebase project is see-my-index-project-7 and the firebase storage project is linked to this one.
 
------------------------------------------------------------------------------------------------------------
+---
 
 marketing
 const LIST_ALL_PUBLIC_LINKS = false //put this true in ListForm.js and LinkList.js if it does not take too long to build the list, also it can be limited to 10 ad links per person to make it smaller. I need a faster way to build the list.
@@ -1026,9 +1020,9 @@ ads
 https://post.craigslist.org/k/2J7XB8bsJkSvUrWP4vzbrT ad good for 30days from 11/30/2025, cost $5.00, put to craigslist.org in small biz ads, posted in Reno NV 89503
 
 https://reno.craigslist.org/vol/d/reno-looking-for-student-volunteers-to/7900029273.html
- expires 45 days from dec 3 2026
+expires 45 days from dec 3 2026
 
----------------------------------------------------------------------------------------------------------
+---
 
 it will help you money love health and happiness
 

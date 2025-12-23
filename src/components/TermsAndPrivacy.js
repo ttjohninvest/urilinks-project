@@ -434,7 +434,7 @@ delete your account at anytime, no refunds) If you delete your account the subsc
     urilinks.com welcomes your questions or comments regarding the Terms:
     <br />
     <br />
-    Email Address: ttjohninvest@gmail.com
+    Email Address: john@urilinks.com
     <br />
     <br />
     Your use of the website, urilinks.com, constitutes your agreement with these
@@ -472,10 +472,6 @@ delete your account at anytime, no refunds) If you delete your account the subsc
     phone number
     <br />
     display name
-    <br />
-    <br />
-    The website does not use this google login data unless permission is given
-    by you to do so
     <br />
     <br />
     Data collected from you:
@@ -526,10 +522,10 @@ delete your account at anytime, no refunds) If you delete your account the subsc
     data privacy policy.
     <br />
     <br />
-    Effective as of October 31s, 2025
+    Effective as of December 23rd, 2025
     <br />
     <br />
-    ttjohninvest@gmail.com, 775 507-0098, John
+    john@urilinks.com, 775 507-0098, John
     <br />
     <br />
     urilinks.com

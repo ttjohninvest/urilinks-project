@@ -212,4 +212,4 @@ store
   });
 }
 
-ReactDOM.render(<LoadingPage />, document.getElementById("app"));
+ReactDOM.render(<LoadingPage2 />, document.getElementById("app"));

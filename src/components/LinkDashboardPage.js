@@ -187,19 +187,21 @@ return (
    <div>
       {isLoading ? (
         // Splash screen content
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100vh',
-          backgroundColor: '#f0f0f0',
-        }}>
-          <h1>Loading...</h1>
-          <div style={{ marginTop: '20px' }}>
+        // <div style={{
+        //   display: 'flex',
+        //   flexDirection: 'column',
+        //   alignItems: 'center',
+        //   justifyContent: 'center',
+        //   height: '100vh',
+        //   backgroundColor: '#f0f0f0',
+        // }}>
+        //   <h1>Loading...</h1>
+        <div>
+        <img className="loader__image-" src="/images/splash.png" />
+          {/* <div style={{ marginTop: '20px' }}>
             
             <div className="spinner" style={{ border: '4px solid #f3f3f3', borderTop: '4px solid #3498db', borderRadius: '50%', width: '40px', height: '40px', animation: 'spin 1s linear infinite' }} />
-          </div>
+          </div> */}
         </div>
       ) : (
         // Main app content

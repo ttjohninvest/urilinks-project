@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
 //import logo from "../assets/images/logo-l.png";
-import logo from "../assets/images/logo-orange-urilinks.png";
+//import logo from "../assets/images/logo-orange-urilinks.png";
+import logo from "../assets/images/logo-orange-u.png";
 import myprofile from "../assets/images/myprofile.png";
 //import { getAuth } from "firebase";
 import XShareButton from "./XShareButton";
@@ -189,7 +190,7 @@ export const Header = (props) => {
                       >
                          <header className="margin-left-11 solid">
                     <img
-                      className="rounded-full-1 thumbnail"
+                      className="rounded-full-1 thumbnail-"
                       src={logo}
                       width="35"
                       height="35"

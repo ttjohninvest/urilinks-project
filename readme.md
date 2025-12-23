@@ -425,6 +425,10 @@ ttjohninvest@gmail.com
 cloudflare.com (statistics)
 ttjohninvest@gmail.com
 firebase.google.com (stores data)
+account: johmcg64@gmail.com
+Payments profile name:	see-my-index for urilink.com's firebase realtime database
+Firebase project name: see-my-index-project-7
+plan: I am on the blaze plan, pay as you go it is called
 heroku.com (host for code)
 ttjohninvest@gmail.com
 

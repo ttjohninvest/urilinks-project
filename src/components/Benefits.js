@@ -15,6 +15,7 @@ return (<div>
 -hashtags need to be entered in pascal case for example #TheCatIsFriendly.<br /> 
 -for readability; they appear in buttons on the displayed in the index matrix;<br />
 -the # hash is removed and spaces are added and presented in alphabetical order<br />
+-when a button in the index matrix is clicked, results will appear below the matrix<br />
 -when saving links in your bookmark file using the browser, the first character<br />
 -of each word in the phrase will be capitalized for readability when they appear on the index matrix buttons<br />
 -clicking on the upload menu item, starts the process of uploading a browser bookmarks file;<br />

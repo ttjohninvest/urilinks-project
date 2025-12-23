@@ -265,7 +265,7 @@ export const Header = (props) => {
                   )}
 
                   <div>
-                  <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="shows list of colleges">colleges</a>
+                  <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="Click to see a  list of colleges and universities">colleges</a>
                   </div>
 
                    <div>
@@ -301,7 +301,7 @@ export const Header = (props) => {
                         <Link className="header__title-" to="/teirspayment3">
                           <span
                             className="ib text-size-1 color-white-1 color-blue-1-"
-                            title="Click to select a plan, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
+                            title="Click to see plans, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
                           >
                             plans
                           </span>

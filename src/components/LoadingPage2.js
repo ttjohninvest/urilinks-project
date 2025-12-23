@@ -8,7 +8,7 @@ const LoadingPage2 = () => {
     
        setTimeout(() => {
           setIsLoading(false);
-        }, 3000); // Hide splash screen after 3 seconds
+        }, 10000); // Hide splash screen after 3 seconds
     //setIsLoading(false);
       }, []);
 

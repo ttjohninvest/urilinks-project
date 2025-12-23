@@ -28,6 +28,7 @@ const LinkDashboardPage = (props) => {
   const [avalue, setAvalue] = useState(0)
   const [bvalue, setBvalue] = useState(0)
   const [b, bf] = useState(1)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
 
@@ -67,6 +68,10 @@ const LinkDashboardPage = (props) => {
   };
 
   useEffect(() => {
+
+
+
+
     const sp = parseInt(window.localStorage.getItem("scrollPosition"));
     console.log("LinkDashboardPage.js, sp=" + sp);
     window.scrollTo(0, sp);
@@ -84,6 +89,12 @@ const LinkDashboardPage = (props) => {
       );
       setTheValue(props.theValue)
       setBvalue(!bvalue)
+
+      // Simulate loading time (e.g., fetching data)
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Hide splash screen after 3 seconds
+
   }, []);
 
  
@@ -148,8 +159,50 @@ useUnload((e) => {
   });
  
 
-  return (
-    <div>
+//   return (
+//     <div>
+//       <div id="very-top-id" className="website-background-color">
+//           {/* <div className="border2black">
+// left column
+//         </div> */}
+//         <div className="padding-tb-1">
+//           <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  b={b}/>
+//           <LinkList av={av}
+//           />
+//         </div>
+        
+//         {/* <div className="border2black">
+// right column
+//         </div> */}
+//       </div>
+//     </div>
+//   );
+
+return (
+   <div>
+      {isLoading ? (
+        // Splash screen content
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+          backgroundColor: '#f0f0f0',
+        }}>
+          <h1>Loading...</h1>
+          <div style={{ marginTop: '20px' }}>
+            
+            <div className="spinner" style={{ border: '4px solid #f3f3f3', borderTop: '4px solid #3498db', borderRadius: '50%', width: '40px', height: '40px', animation: 'spin 1s linear infinite' }} />
+          </div>
+        </div>
+      ) : (
+        // Main app content
+        // <div>
+        //   <h1>Welcome to My React App</h1>
+        //   <p>This is the main content after splash screen.</p>
+        // </div>
+         <div>
       <div id="very-top-id" className="website-background-color">
           {/* <div className="border2black">
 left column
@@ -165,7 +218,11 @@ right column
         </div> */}
       </div>
     </div>
-  );
+      )}
+    </div>
+)
+
+
   };
 
 const mapStateToProps = (state) => ({
@@ -193,3 +250,48 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkDashboardPage);
+
+/*
+import React, { useState, useEffect } from 'react';
+
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time (e.g., fetching data)
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Hide splash screen after 3 seconds
+  }, []);
+
+  return (
+    <div>
+      {isLoading ? (
+        // Splash screen content
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+          backgroundColor: '#f0f0f0',
+        }}>
+          <h1>Loading...</h1>
+          <div style={{ marginTop: '20px' }}>
+            
+            <div className="spinner" style={{ border: '4px solid #f3f3f3', borderTop: '4px solid #3498db', borderRadius: '50%', width: '40px', height: '40px', animation: 'spin 1s linear infinite' }} />
+          </div>
+        </div>
+      ) : (
+        // Main app content
+        <div>
+          <h1>Welcome to My React App</h1>
+          <p>This is the main content after splash screen.</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
+*/

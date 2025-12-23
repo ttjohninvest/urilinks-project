@@ -198,14 +198,14 @@ export const Header = (props) => {
                       alt="Logo"
                     />
 
-                    {/* <h3 className="color-white-1">urilinks</h3> */}
-                     <img
+                    <h3 className="color-white-1">urilinks</h3>
+                     {/* <img
                       className=""
                       src={logo2}
                       width="60"
                       height="35"
                       alt="urilinks logo"
-                    />
+                    /> */}
                   </header>
                       </Link>
                  

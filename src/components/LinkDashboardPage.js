@@ -90,12 +90,9 @@ const LinkDashboardPage = (props) => {
       setTheValue(props.theValue)
       setBvalue(!bvalue)
 
-      // Simulate loading time (e.g., fetching data)
-    // setTimeout(() => {
-    //   setIsLoading(false);
-    // }, 3000); // Hide splash screen after 3 seconds
-
   }, []);
+
+
 
  
 //useEffect(()=>{
@@ -157,6 +154,14 @@ useUnload((e) => {
     // Example: Use navigator.sendBeacon to send data asynchronously
     //navigator.sendBeacon('/api/log', JSON.stringify({ action: 'page-unload' }));
   });
+
+    useEffect(()=>{
+
+  //  setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 3000); // Hide splash screen after 3 seconds
+setIsLoading(false);
+  }, []);
  
 
 //   return (

@@ -28,7 +28,7 @@ const LinkDashboardPage = (props) => {
   const [avalue, setAvalue] = useState(0)
   const [bvalue, setBvalue] = useState(0)
   const [b, bf] = useState(1)
-  const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
 
@@ -155,61 +155,11 @@ useUnload((e) => {
     //navigator.sendBeacon('/api/log', JSON.stringify({ action: 'page-unload' }));
   });
 
-    useEffect(()=>{
-
-  //  setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 3000); // Hide splash screen after 3 seconds
-setIsLoading(false);
-  }, []);
+  
  
 
-//   return (
-//     <div>
-//       <div id="very-top-id" className="website-background-color">
-//           {/* <div className="border2black">
-// left column
-//         </div> */}
-//         <div className="padding-tb-1">
-//           <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  b={b}/>
-//           <LinkList av={av}
-//           />
-//         </div>
-        
-//         {/* <div className="border2black">
-// right column
-//         </div> */}
-//       </div>
-//     </div>
-//   );
-
-return (
-   <div>
-      {isLoading ? (
-        // Splash screen content
-        // <div style={{
-        //   display: 'flex',
-        //   flexDirection: 'column',
-        //   alignItems: 'center',
-        //   justifyContent: 'center',
-        //   height: '100vh',
-        //   backgroundColor: '#f0f0f0',
-        // }}>
-        //   <h1>Loading...</h1>
-        <div>
-        <img className="loader__image-" src="/images/splash.png" />
-          {/* <div style={{ marginTop: '20px' }}>
-            
-            <div className="spinner" style={{ border: '4px solid #f3f3f3', borderTop: '4px solid #3498db', borderRadius: '50%', width: '40px', height: '40px', animation: 'spin 1s linear infinite' }} />
-          </div> */}
-        </div>
-      ) : (
-        // Main app content
-        // <div>
-        //   <h1>Welcome to My React App</h1>
-        //   <p>This is the main content after splash screen.</p>
-        // </div>
-         <div>
+  return (
+    <div>
       <div id="very-top-id" className="website-background-color">
           {/* <div className="border2black">
 left column
@@ -225,9 +175,9 @@ right column
         </div> */}
       </div>
     </div>
-      )}
-    </div>
-)
+  );
+
+
 
 
   };

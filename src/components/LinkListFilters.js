@@ -421,8 +421,8 @@ return ""
                     try your first 250 links for free or choose one of three
                     yearly paid plans at $4.99,
                     <br />
-                    (stores up to 500 links) $9.99 (stores up to 750 links) or
-                    $14.99 (stores up to 1000 links).
+                    (stores up to 1,250 links) $9.99 (stores up to 2,500 links) or
+                    $14.99 (stores up to 5000 links).
                     <br />
                     {/* A word fitly spoken is like apples of gold in pictures of silver., proverbs 25:11
                     

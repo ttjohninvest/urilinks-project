@@ -301,7 +301,7 @@ export const Header = (props) => {
                         <Link className="header__title-" to="/teirspayment3">
                           <span
                             className="ib text-size-1 color-white-1 color-blue-1-"
-                            title="Click to see plans, basic ($4.99/year), standard ($9.99/year) or premium ($14.99/year)"
+                            title="Click to see plans, basic ($4.99/year stores up to 1,250 links), standard ($9.99/year stores up to 2,500 links) or premium ($14.99/year stores up to 5,000 links)"
                           >
                             plans
                           </span>

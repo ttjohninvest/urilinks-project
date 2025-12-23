@@ -368,7 +368,7 @@ function ExpandableArray(props) {
                     <br />
                     similar to link-in-bio tool like linktree; however, urilinks is for the
                     <br />
-                    purpose of learning and research. It can store and organize 1-1000
+                    purpose of learning and research. It can store and organize 1-5000
                     links alphabetically.
                     <br />
                     It gives you a sharable link to your consolidated internet

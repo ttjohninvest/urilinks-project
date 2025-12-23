@@ -412,7 +412,7 @@ return ""
                     and research (It can constribute to making your use of the 
                     internet more organized,
                     <br />
-                    interesting, professional and fun). It can store and organize 1-1000
+                    interesting, professional and fun). It can store and organize 1-5000
                     links alphabetically.
                     <br />
                     It gives you a sharable link to your consolidated internet

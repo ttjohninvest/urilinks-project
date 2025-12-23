@@ -189,7 +189,7 @@ export const Header = (props) => {
                       >
                          <header className="margin-left-11 solid">
                     <img
-                      className="rounded-full-1"
+                      className="rounded-full-1 thumbnail"
                       src={logo}
                       width="35"
                       height="35"

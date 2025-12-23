@@ -1164,3 +1164,11 @@ font-family: monospace;
 .b1x1:hover {
   transform: scale(1.05);
 }
+
+.thumbnail {
+  transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.5);
+}

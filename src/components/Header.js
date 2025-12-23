@@ -8,6 +8,7 @@ import { setLinks } from "../actions/links";
 //import logo from "../assets/images/logo-l.png";
 //import logo from "../assets/images/logo-orange-urilinks.png";
 import logo from "../assets/images/logo-orange-u.png";
+import logo2 from "../assets/images/logo-urilinks.png";
 import myprofile from "../assets/images/myprofile.png";
 //import { getAuth } from "firebase";
 import XShareButton from "./XShareButton";
@@ -197,7 +198,14 @@ export const Header = (props) => {
                       alt="Logo"
                     />
 
-                    <h3 className="color-white-1">urilinks</h3>
+                    {/* <h3 className="color-white-1">urilinks</h3> */}
+                     <img
+                      className=""
+                      src={logo2}
+                      width="60"
+                      height="35"
+                      alt="urilinks logo"
+                    />
                   </header>
                       </Link>
                  

@@ -21,7 +21,10 @@ User Accounts
 To use certain features of the Service, you may be required to create an account. You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your account credentials.
 
 Content
-The Service allows you to upload, submit, and share content. You retain ownership of your content, but you grant urilinks.com a license to use, reproduce, and distribute your content through the sharable link that I give you to your content.
+The Service allows you to upload, submit, and share content. You retain ownership of your content, but you grant urilinks.com a license to use, reproduce, and distribute your content.
+
+Sharable link Provided:
+So that others may see your content, you have the option to share a sharable link to your content  that I provided you on your home page and it may be pasted anywhere links are accepted like gmail or social media, ect...
 
 Service Storage Capacity per account:
 website stores up to 5000 links

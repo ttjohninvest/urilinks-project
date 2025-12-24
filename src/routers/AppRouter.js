@@ -9,7 +9,9 @@ import AddLinkPage from "../components/AddlinkPage";
 
 import EditLinkPage from "../components/EditLinkPage";
 import Signup from "../components/Signup";
-import TermsAndPrivacy from "../components/TermsAndPrivacy";
+//import TermsAndPrivacy from "../components/TermsAndPrivacy";
+import TermsAndPrivacyPolicy from "../components/TermsAndPrivacyPolicy";
+
 import Benefits from "../components/Benefits";
 //import LinkSettingsPage from "../components/LinkSettingsPage";
 import NotFoundPage from "../components/NotFoundPage";
@@ -59,7 +61,7 @@ const AppRouter = (props) => (
         <PrivateRoute
           path="/termsandprivacy"
           signup={props.signup}
-          component={TermsAndPrivacy}
+          component={TermsAndPrivacyPolicy}
         />
        
         <PrivateRoute

@@ -1056,6 +1056,8 @@ ribbon code, it needs to be converted to css
              </div>
 			 
 tools
+xai generated the contents of TermsOfService.js, terms of service
+meta.ai generated the contents of PrivacyPolicy.js, Privacy Policy
 
 https://atkinsio.com/bookmarks-html-generator/
 

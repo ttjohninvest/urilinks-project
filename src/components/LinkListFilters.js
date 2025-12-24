@@ -1408,7 +1408,7 @@ export class LinkListFilters extends React.Component {
           </div>
           </div>
 
-          {this.isMobile() === false && (
+          {/* {this.isMobile() === false && (
             <div
               className="cursor-pointer  margin-right-1 the-text-color"
               onClick={this.scrollUp}
@@ -1416,7 +1416,7 @@ export class LinkListFilters extends React.Component {
             >
               (up)
             </div>
-          )}
+          )} */}
 
           <div className={`${this.isMobile()?"margin-top-11z1" :""}`}>
              

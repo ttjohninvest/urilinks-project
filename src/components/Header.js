@@ -209,7 +209,7 @@ export const Header = (props) => {
                   </header>
                       </Link>
                  
-                  {props.signup.signup === false && (
+                  {/* {props.signup.signup === false && (
                     <div
                       className="color-white-1"
                       title="Please use it for good. Bookmarks for internet pages, urls/links"
@@ -222,7 +222,7 @@ export const Header = (props) => {
                         login/enter
                       </Link>
                     </div>
-                  )}
+                  )} */}
 
                   {/* <div
                     className="color-white-1"
@@ -398,6 +398,21 @@ export const Header = (props) => {
                         >
                           upload
                         </span>
+                      </Link>
+                    </div>
+                  )}
+
+                   {props.signup.signup === false && (
+                    <div
+                      className="color-white-1 margin-right-1"
+                      title="Please use it for good. Bookmarks for internet pages, urls/links"
+                    >
+                      <Link
+                        className="nounderline color-white-1 cursor-pointer"
+                        to="/signup"
+                        title=""
+                      >
+                        login/enter
                       </Link>
                     </div>
                   )}

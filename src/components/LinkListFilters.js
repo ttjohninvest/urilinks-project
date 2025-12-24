@@ -404,11 +404,9 @@ return ""
 {/* gsdg */}
 
   {isMobile() === true ?<div className="padding-right-11 padding-bottom-118">
-                    You may use this website if you satisfy the terms of service (please see legal menu item).
+                    You must be 13 years old or older to use this site (click legal menu item). This website may contribute to making your use of the internet for church, school or entertainment more organized,
                    
-                    It may contribute to making your use of the internet for church, school or entertainment more organized,
-                   
-                    interesting, professional, enteraining and fun. It can store up to 5,000
+                    interesting, professional, enteraining, fun and collaborative. It can store up to 5,000
                     links alphabetically.
                     
                     It gives you a sharable link to your links list of internet urls. You may
@@ -423,17 +421,17 @@ return ""
                     let me know and I will give it to you for free.
                     I am a college graduate from UNR. Please contact me, John,
                     with any blessings, questions, 
-                    comments or concerns at john@urilinks.com, 775 507 0098. Can
-                    you freely login/enter?
+                    comments or concerns at john@urilinks.com, 775 507 0098. I invite
+                    you to freely login/enter?
                     
                   </div>
                 :
                 <div>
-                    You may use this website if you satisfy the terms of service (please see legal menu item).
+                    You must be 13 years old or older to use this site (click legal menu item). This website
                     <br />
-                    It may contribute to making your use of the internet church, school or entertainment more organized,
+                    may contribute to making your use of the internet church, school or entertainment more organized,
                     <br />
-                    interesting, professional, enteraining and fun. It can store and organize up to 5,000
+                    interesting, professional, enteraining, fun and collaborative. It can store and organize up to 5,000
                     links alphabetically.
                     <br />
                     It gives you a sharable link to your links list of internet urls. You may
@@ -448,8 +446,8 @@ return ""
                     let me know and I will give it to you for free.<br />
                     I am a college graduate from UNR. Please contact me, John,
                     with any blessings, questions, <br />
-                    comments or concerns at john@urilinks.com, 775 507 0098. Can
-                    you freely login/enter?
+                    comments or concerns at john@urilinks.com, 775 507 0098. I invite
+                    you to freely login/enter?
                     <br />
                     <br />
                   </div>  

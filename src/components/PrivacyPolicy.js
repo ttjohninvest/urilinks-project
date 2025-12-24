@@ -7,10 +7,13 @@ return (<pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: 
 {`COPPA-Compliant Website Privacy Policy
 Effective Date: [Insert Date]
 Last Updated: [Insert Date]
+
 Introduction
-[Your Company Name] ("we", "us", or "our") is committed to protecting the privacy of children who use our website, [Your Website URL] ("Website"). This Privacy Policy explains how we collect, use, and disclose personal information from children under the age of 13, in compliance with the Children’s Online Privacy Protection Act (COPPA).
+[urilinks.com] ("I") am committed to protecting the privacy of children who use my website, [urilinks.com] ("Website"). This Privacy Policy explains how we collect, use, and disclose personal information from children under the age of 13, in compliance with the Children’s Online Privacy Protection Act (COPPA).
+
 Scope
 This Privacy Policy applies to all users of our Website, including children under the age of 13.
+
 Information We Collect
 We collect the following types of personal information from children:
 Personal Information: Name, email address, phone number, address, and other contact information.

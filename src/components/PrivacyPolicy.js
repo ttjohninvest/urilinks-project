@@ -5,7 +5,7 @@ const PrivacyPolicy = () => {
 
 return (<pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: '#f8f8f8', border: '1px solid #ddd' }}>
 {`
-PRIVACY POLICY FOR urilinks.com
+<span className=${"font-weight-bold"}>PRIVACY POLICY FOR urilinks.com</span>
 Effective Date: December 23rd 2025
 Last Updated: December 23rd 2025
 At urilinks.com, I prioritize your privacy. This policy explains how I collect, use, and protect your information.

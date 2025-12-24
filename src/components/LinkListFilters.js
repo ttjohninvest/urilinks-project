@@ -1387,6 +1387,9 @@ export class LinkListFilters extends React.Component {
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
           <div className="flexrowz">
+            
+            
+            <div>
             <div className="margin-left-11">
 <input 
           id="termid" 
@@ -1419,7 +1422,7 @@ export class LinkListFilters extends React.Component {
           )} */}
 
           <div className={`${this.isMobile()?"margin-top-11z1" :""}`}>
-             
+             <span>Search through:</span>
             <select
               id="mode"
               className="select outline-none"
@@ -1452,7 +1455,7 @@ export class LinkListFilters extends React.Component {
               </option> */}
             </select>
           </div>
-          
+          </div>
           <div>
             {/* <div>
  <span className="">

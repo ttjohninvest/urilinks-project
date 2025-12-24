@@ -13,11 +13,11 @@ At urilinks.com, I prioritize your privacy. This policy explains how I collect, 
 1. SCOPE AND APPLICABILITY
 My website is for users 13 years old and above. I don't collect personal info from kids under 13. If you're a parent or guardian and think your child under 13 gave me info, contact me at john@urilinks.com.
 
-2. INFORMATION WE COLLECT
-We collect:
+2. INFORMATION I COLLECT
+I collect:
 Personal info: name, email, open ended information that the user types into the note section of link, link titles and link urls
 
-3. HOW WE USE YOUR INFO
+3. HOW I USE YOUR INFO
 I use it to:
 Provide and improve services
 Respond to inquiries and requests

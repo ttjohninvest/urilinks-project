@@ -3,8 +3,8 @@ import React from "react"
 
 const TermsOfService = () => {
 
-return (<pre>
-Website Terms of Service
+return (<pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: '#f8f8f8', border: '1px solid #ddd' }}>
+{`Website Terms of Service
 Effective Date: December 23, 2025
 These Terms of Service ("Terms") govern your access to and use of [Website Name] (the "Website"), including any content, functionality, and services offered on or through the Website (collectively, the "Services"). The Website is operated by [Company Name], a [legal entity type] organized under the laws of [jurisdiction] ("we," "us," or "our").
 By accessing or using the Services, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use the Services.
@@ -74,7 +74,7 @@ If any provision of these Terms is held by a court or other tribunal of competen
 The Terms and our Privacy Policy constitute the sole and entire agreement between you and us regarding the Services and supersede all prior and contemporaneous understandings, agreements, representations, and warranties, both written and oral, regarding the Services.
 16. Your Comments and Concerns
 All feedback, comments, requests for technical support, and other communications relating to the Services should be directed to: [contact email].
-Thank you for visiting our Website.
+Thank you for visiting our Website.`}
 </pre>)
 }
 

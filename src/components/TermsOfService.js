@@ -4,7 +4,7 @@ import React from "react"
 const TermsOfService = () => {
 
 return (
-<div>
+<div className="margin-top-118">
     <span className="font-weight-bold">urilinks.com Terms of Service</span>
 <pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: '#f8f8f8', border: '1px solid #ddd' }}>
 {`

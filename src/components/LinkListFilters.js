@@ -1422,7 +1422,7 @@ export class LinkListFilters extends React.Component {
           )} */}
 
           <div className={`${this.isMobile()?"margin-top-11z1" :""}`}>
-             <span className="color-white-1 margin-right-1 ib" title="pick an entry from the following drop down list.">Search through:</span>
+             <span className="color-white-1 margin-right-1 ib" title="pick an entry from the following drop down list to search through">Search through:</span>
             <select
               id="mode"
               className="select outline-none"

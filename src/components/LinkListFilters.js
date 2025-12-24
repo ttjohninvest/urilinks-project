@@ -402,7 +402,61 @@ return ""
 
                   {/* (Free plan: 1-250 free, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans automatically billed yearly, delete account at anytime and your subscription is automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares your content. */}
 {/* gsdg */}
-                  <div>
+
+  {isMobile() === true ?<div>
+                    You may use this website if you satisfy the terms of service (please see legal menu item).
+                   
+                    It may constribute to making your use of the  internet more organized,
+                   
+                    interesting, professional, enteraining and fun. It can store and organize 1-5000
+                    links alphabetically.
+                    
+                    It gives you a sharable link to your links list of internet urls. You may
+                    
+                    try your first 250 links for free or choose one of three
+                    yearly paid plans at $4.99,
+                    
+                    (stores up to 1,250 links) $9.99 (stores up to 2,500 links) or
+                    $14.99 (stores up to 5000 links).
+                    
+                    If you can't afford to pay and you need more storage space, please
+                    let me know and I will give it to you for free.
+                    I am a college graduate from UNR. Please contact me, John,
+                    with any blessings, questions, 
+                    comments or concerns at john@urilinks.com, 775 507 0098. Can
+                    you freely login/enter?
+                    
+                  </div>
+                :
+                <div>
+                    You may use this website if you satisfy the terms of service (please see legal menu item).
+                    <br />
+                    It may constribute to making your use of the  internet more organized,
+                    <br />
+                    interesting, professional, enteraining and fun. It can store and organize 1-5000
+                    links alphabetically.
+                    <br />
+                    It gives you a sharable link to your links list of internet urls. You may
+                    <br />
+                    try your first 250 links for free or choose one of three
+                    yearly paid plans at $4.99,
+                    <br />
+                    (stores up to 1,250 links) $9.99 (stores up to 2,500 links) or
+                    $14.99 (stores up to 5000 links).
+                    <br />
+                    If you can't afford to pay and you need more storage space, please
+                    let me know and I will give it to you for free.<br />
+                    I am a college graduate from UNR. Please contact me, John,
+                    with any blessings, questions, <br />
+                    comments or concerns at john@urilinks.com, 775 507 0098. Can
+                    you freely login/enter?
+                    <br />
+                    <br />
+                  </div>  
+                }
+
+
+                  {/* <div>
                     This site is for students of colleges and universities. It
                     is the original link-in-research tool
                     <br />
@@ -424,10 +478,7 @@ return ""
                     (stores up to 1,250 links) $9.99 (stores up to 2,500 links) or
                     $14.99 (stores up to 5000 links).
                     <br />
-                    {/* A word fitly spoken is like apples of gold in pictures of silver., proverbs 25:11
-                    
-                    friends are like flowers in the garden of life 
-                     https://www.youtube.com/watch?v=Dmla5mZ1fXU */}
+                   
                     If you can't afford to pay and you need more storage space, please
                     let me know and I will give it to you for free.<br />
                     I am a college graduate from UNR. Please contact me, John,
@@ -436,7 +487,7 @@ return ""
                     you freely login/enter?
                     <br />
                     <br />
-                  </div>
+                  </div> */}
 
                   <span>What do you want to achieve with this website?</span>
                   {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}

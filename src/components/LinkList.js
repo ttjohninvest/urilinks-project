@@ -182,7 +182,7 @@ export const LinkList = (props) => {
 
 
 
-        {LIST_ALL_PUBLIC_LINKS === true && <div 
+        {/* {LIST_ALL_PUBLIC_LINKS === true && <div 
         className={`${isMobile()?"margin-left-n-11p margin-top-11z1" :""}`}
         
         >
@@ -252,9 +252,9 @@ export const LinkList = (props) => {
                 People
               </span>
             </label>
-          </div>}
+          </div>} 
           </div>
-        )}
+        )}*/}
       </div>
 
       <div

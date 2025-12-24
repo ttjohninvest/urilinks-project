@@ -38,6 +38,7 @@ You can:
 Review and update your info
 Do account deletion
 Opt-out of promotional emails
+Use the sharable link I give you to your content to share anywhere links are accepted, like gmail or social media, ect...
 
 7. COPPA COMPLIANCE
 I comply with COPPA and don't knowingly collect info from kids under 13. If I find out, we'll delete it and terminate the account.

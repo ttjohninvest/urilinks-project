@@ -8,7 +8,7 @@ return (<pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: 
 PRIVACY POLICY FOR urilinks.com
 Effective Date: December 23rd 2025
 Last Updated: December 23rd 2025
-At [urilinks.com], I prioritize your privacy. This policy explains how I collect, use, and protect your information.
+At urilinks.com, I prioritize your privacy. This policy explains how I collect, use, and protect your information.
 
 1. SCOPE AND APPLICABILITY
 My website is for users 13 years old and above. I don't collect personal info from kids under 13. If you're a parent or guardian and think your child under 13 gave me info, contact me at john@urilinks.com.

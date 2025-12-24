@@ -415,7 +415,7 @@ return ""
                     
                     try your first 250 links for free or choose one of three
                     paid plans: for $4.99/year it stores up to 1,250 links,
-                    <br />
+                    
                     for $9.99/year it stores up to 2,500 links or
                     for $14.99/year it stores up to 5,000 links.
                     

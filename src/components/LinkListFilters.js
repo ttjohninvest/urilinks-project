@@ -403,7 +403,7 @@ return ""
                   {/* (Free plan: 1-250 free, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans automatically billed yearly, delete account at anytime and your subscription is automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares your content. */}
 {/* gsdg */}
 
-  {isMobile() === true ?<div>
+  {isMobile() === true ?<div className="padding-right-11 padding-bottom-118">
                     You may use this website if you satisfy the terms of service (please see legal menu item).
                    
                     It may constribute to making your use of the  internet more organized,

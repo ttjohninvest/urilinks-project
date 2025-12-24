@@ -4,7 +4,100 @@ import React from "react"
 const TermsOfService = () => {
 
 return (<pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: '#f8f8f8', border: '1px solid #ddd' }}>
-{`Website Terms of Service
+{`
+urilinks.com Terms of Service
+Effective Date: December 23rd 2025
+
+Introduction
+Welcome to urilinks.com! These Terms of Service ("Terms") govern your use of my website, urilinks.com, and my services (collectively, the "Service"). By using the Service, you agree to be bound by these Terms.
+
+Eligibility
+The Service is intended for individuals 13 years of age or older. If you are under 13, you may not use the Service. If you are between 13 and 18, you must have parental consent to use the Service.
+
+COPPA Compliance
+urilinks.com is committed to complying with the Children's Online Privacy Protection Act (COPPA). I do not knowingly collect personal information from children under 13. If I become aware that the website has collected personal information from a child under 13, we will delete that information.
+
+User Accounts
+To use certain features of the Service, you may be required to create an account. You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your account credentials.
+
+Content
+The Service allows you to upload, submit, and share content. You retain ownership of your content, but you grant urilinks.com a license to use, reproduce, and distribute your content.
+
+Service Storage Capacity per account:
+website stores up to 5000 links
+
+Free plan: The free plan stores up to 250 links
+
+Paid plans:  
+The basic plan stores up to 1,250 links at $4.99/year
+The standard plan stores up to 2,500 links at $9.99/year
+The premium plan stores up to 5000 links at $14.99/year
+
+All plans automattically billed yearly, you may delete account at any time, no refunds.
+
+Prohibited Conduct
+You may not:
+Use the Service for any unlawful purpose
+Upload or share content that is obscene, defamatory, or harassing
+Interfere with the Service or attempt to gain unauthorized access
+Use automated means to access or use the Service
+Intellectual property, the Service and its content are protected by intellectual property laws. You may not copy, reproduce, or distribute any part of the Service without permission.
+
+Disclaimer of Warranties
+The Service is provided "as is" and "as available." urilinks.com disclaims all warranties, express or implied.
+
+Limitation of Liability
+urilinks.com is not liable for any damages arising from your use of the Service.
+
+Governing Law
+These Terms are governed by the laws of Nevada/United States.
+
+Changes to Terms
+I may modify these Terms at any time. Your continued use of the Service constitutes your acceptance of any changes.
+
+Contact Us
+If you have questions or concerns, contact me, John, at john@urilinks.com.
+`}
+</pre>)
+}
+
+export default TermsOfService;
+
+/*
+Website Terms of Service
+Effective Date: [Insert Date]
+Introduction
+Welcome to [Website Name]! These Terms of Service ("Terms") govern your use of our website, website.com, and our services (collectively, the "Service"). By using the Service, you agree to be bound by these Terms.
+Eligibility
+The Service is intended for individuals 13 years of age or older. If you are under 13, you may not use the Service. If you are between 13 and 18, you must have parental consent to use the Service.
+COPPA Compliance
+[Website Name] is committed to complying with the Children's Online Privacy Protection Act (COPPA). We do not knowingly collect personal information from children under 13. If we become aware that we have collected personal information from a child under 13, we will delete that information.
+User Accounts
+To use certain features of the Service, you may be required to create an account. You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your account credentials.
+Content
+The Service allows you to upload, submit, and share content. You retain ownership of your content, but you grant [Website Name] a license to use, reproduce, and distribute your content.
+Prohibited Conduct
+You may not:
+Use the Service for any unlawful purpose
+Upload or share content that is obscene, defamatory, or harassing
+Interfere with the Service or attempt to gain unauthorized access
+Use automated means to access or use the Service
+Intellectual Property
+The Service and its content are protected by intellectual property laws. You may not copy, reproduce, or distribute any part of the Service without permission.
+Disclaimer of Warranties
+The Service is provided "as is" and "as available." [Website Name] disclaims all warranties, express or implied.
+Limitation of Liability
+[Website Name] is not liable for any damages arising from your use of the Service.
+Governing Law
+These Terms are governed by the laws of [State/Country].
+Changes to Terms
+We may modify these Terms at any time. Your continued use of the Service constitutes your acceptance of any changes.
+Contact Us
+If you have questions or concerns, contact us at support@website.com.
+*/
+
+/*
+`Website Terms of Service
 Effective Date: December 23, 2025
 These Terms of Service ("Terms") govern your access to and use of [Website Name] (the "Website"), including any content, functionality, and services offered on or through the Website (collectively, the "Services"). The Website is operated by [Company Name], a [legal entity type] organized under the laws of [jurisdiction] ("we," "us," or "our").
 By accessing or using the Services, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use the Services.
@@ -74,8 +167,8 @@ If any provision of these Terms is held by a court or other tribunal of competen
 The Terms and our Privacy Policy constitute the sole and entire agreement between you and us regarding the Services and supersede all prior and contemporaneous understandings, agreements, representations, and warranties, both written and oral, regarding the Services.
 16. Your Comments and Concerns
 All feedback, comments, requests for technical support, and other communications relating to the Services should be directed to: [contact email].
-Thank you for visiting our Website.`}
-</pre>)
-}
+Thank you for visiting our Website.`
+*/
 
-export default TermsOfService;
+
+

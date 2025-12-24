@@ -4,87 +4,92 @@ import React from "react"
 const PrivacyPolicy = () => {
 
 return (<pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: '#f8f8f8', border: '1px solid #ddd' }}>
-{`COPPA-Compliant Website Privacy Policy
-Effective Date: [Insert Date]
-Last Updated: [Insert Date]
+{`
+PRIVACY POLICY FOR urilinks.com
+Effective Date: December 23rd 2025
+Last Updated: December 23rd 2025
+At [urilinks.com], I prioritize your privacy. This policy explains how I collect, use, and protect your information.
 
-Introduction
-[urilinks.com] ("I") am committed to protecting the privacy of children who use my website, [urilinks.com] ("Website"). This Privacy Policy explains how we collect, use, and disclose personal information from children under the age of 13, in compliance with the Children’s Online Privacy Protection Act (COPPA).
+1. SCOPE AND APPLICABILITY
+My website is for users 13 years old and above. I don't collect personal info from kids under 13. If you're a parent or guardian and think your child under 13 gave me info, contact me at john@urilinks.com.
 
-Scope
-This Privacy Policy applies to all users of our Website, including children under the age of 13.
+2. INFORMATION WE COLLECT
+We collect:
+Personal info: name, email, open ended information that the user types into the note section of link, link titles and link urls
 
-Information We Collect
-We collect the following types of personal information from children:
-Personal Information: Name, email address, phone number, address, and other contact information.
-Device Information: IP address, browser type, operating system, and device identifiers.
-Usage Information: Website usage data, including pages visited and actions taken.
-How We Collect Information
-We collect information from children through:
-Registration Forms: When a child creates an account or registers for a service.
-Cookies and Tracking Technologies: We use cookies and other tracking technologies to collect device and usage information.
-Use of Information
-We use the collected information to:
-Provide Services: To provide access to our Website and services.
-Communicate with Users: To respond to inquiries and provide support.
-Improve Website: To improve the Website and services.
-Disclosure of Information
-We do not disclose personal information from children to third parties, except:
-Service Providers: We share information with service providers that help us operate the Website.
-Law Enforcement: We disclose information when required by law or to protect our rights.
-Parental Consent
-We obtain parental consent before collecting personal information from children. Parents can:
-Review Information: Review the personal information collected from their child.
-Request Deletion: Request deletion of their child's personal information.
-Opt-Out: Opt-out of future collection of personal information.
-Data Security
-We implement reasonable security measures to protect personal information from unauthorized access.
-Changes to Privacy Policy
-We may update this Privacy Policy. We will notify parents of significant changes.
-Contact Us
-If you have questions or concerns, contact us at [Your Contact Email or Address].
-</pre>`}
-</pre>)
+3. HOW WE USE YOUR INFO
+I use it to:
+Provide and improve services
+Respond to inquiries and requests
+Send newsletters and promotions (with consent)
+Analyze website usage and trends
+
+4. DISCLOSURE OF INFO
+I don't share your info with third parties, except:
+With your consent
+To comply with laws or law enforcement
+To protect my rights and interests
+
+5. DATA SECURITY
+I use reasonable security measures to protect your info.
+
+6. YOUR RIGHTS
+You can:
+Review and update your info
+Do account deletion
+Opt-out of promotional emails
+
+7. COPPA COMPLIANCE
+I comply with COPPA and don't knowingly collect info from kids under 13. If I find out, we'll delete it and terminate the account.
+
+8. CHANGES TO THIS POLICY
+I may update this policy. I'll notify you of significant changes on my website.
+
+9. CONTACT ME
+Questions or concerns? Contact me at john@urilinks.com.
+By using my website, you agree to this policy.
+`}</pre>
+)
 }
 
 export default PrivacyPolicy;
 
 /*
-`COPPA-Compliant Website Privacy Policy
+`PRIVACY POLICY FOR [WEBSITE NAME]
 Effective Date: [Insert Date]
 Last Updated: [Insert Date]
-Introduction
-[Your Company Name] ("we", "us", or "our") is committed to protecting the privacy of children who use our website, [Your Website URL] ("Website"). This Privacy Policy explains how we collect, use, and disclose personal information from children under the age of 13, in compliance with the Children’s Online Privacy Protection Act (COPPA).
-Scope
-This Privacy Policy applies to all users of our Website, including children under the age of 13.
-Information We Collect
-We collect the following types of personal information from children:
-Personal Information: Name, email address, phone number, address, and other contact information.
-Device Information: IP address, browser type, operating system, and device identifiers.
-Usage Information: Website usage data, including pages visited and actions taken.
-How We Collect Information
-We collect information from children through:
-Registration Forms: When a child creates an account or registers for a service.
-Cookies and Tracking Technologies: We use cookies and other tracking technologies to collect device and usage information.
-Use of Information
-We use the collected information to:
-Provide Services: To provide access to our Website and services.
-Communicate with Users: To respond to inquiries and provide support.
-Improve Website: To improve the Website and services.
-Disclosure of Information
-We do not disclose personal information from children to third parties, except:
-Service Providers: We share information with service providers that help us operate the Website.
-Law Enforcement: We disclose information when required by law or to protect our rights.
-Parental Consent
-We obtain parental consent before collecting personal information from children. Parents can:
-Review Information: Review the personal information collected from their child.
-Request Deletion: Request deletion of their child's personal information.
-Opt-Out: Opt-out of future collection of personal information.
-Data Security
-We implement reasonable security measures to protect personal information from unauthorized access.
-Changes to Privacy Policy
-We may update this Privacy Policy. We will notify parents of significant changes.
-Contact Us
-If you have questions or concerns, contact us at [Your Contact Email or Address].
-</pre>`
+At [Website Name], we prioritize your privacy. This policy explains how we collect, use, and protect your information.
+1. SCOPE AND APPLICABILITY
+Our website is for users 13 years old and above. We don't collect personal info from kids under 13. If you're a parent or guardian and think your child under 13 gave us info, contact us at [insert contact email].
+2. INFORMATION WE COLLECT
+We collect:
+Personal info: name, email, age, contact info
+Usage info: browsing history, search queries, website usage
+Device info: IP address, browser type, OS, device type
+3. HOW WE USE YOUR INFO
+We use it to:
+Provide and improve services
+Respond to inquiries and requests
+Send newsletters and promotions (with consent)
+Analyze website usage and trends
+4. DISCLOSURE OF INFO
+We don't share your info with third parties, except:
+With your consent
+To comply with laws or law enforcement
+To protect our rights and interests
+5. DATA SECURITY
+We use reasonable security measures to protect your info.
+6. YOUR RIGHTS
+You can:
+Review and update your info
+Request account deletion
+Opt-out of promotional emails
+7. COPPA COMPLIANCE
+We comply with COPPA and don't knowingly collect info from kids under 13. If we find out, we'll delete it and terminate the account.
+8. CHANGES TO THIS POLICY
+We may update this policy. We'll notify you of significant changes on our website.
+9. CONTACT US
+Questions or concerns? Contact us at [insert contact email or address].
+By using our website, you agree to this policy.
+`
 */

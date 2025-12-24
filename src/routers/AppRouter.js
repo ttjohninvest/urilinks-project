@@ -61,7 +61,8 @@ const AppRouter = (props) => (
         <PrivateRoute
           path="/termsandprivacy"
           signup={props.signup}
-          component={TermsAndPrivacy}
+          //component={TermsAndPrivacy}
+          component={TermsAndPrivacyPolicy}
         />
        
         <PrivateRoute

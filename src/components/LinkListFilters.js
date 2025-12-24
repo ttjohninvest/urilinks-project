@@ -406,7 +406,7 @@ return ""
   {isMobile() === true ?<div className="padding-right-11 padding-bottom-118">
                     You may use this website if you satisfy the terms of service (please see legal menu item).
                    
-                    It may contribute to making your use of the  internet more organized,
+                    It may contribute to making your use of the internet more organized,
                    
                     interesting, professional, enteraining and fun. It can store and organize 1-5000
                     links alphabetically.
@@ -431,7 +431,7 @@ return ""
                 <div>
                     You may use this website if you satisfy the terms of service (please see legal menu item).
                     <br />
-                    It may contribute to making your use of the  internet more organized,
+                    It may contribute to making your use of the internet more organized,
                     <br />
                     interesting, professional, enteraining and fun. It can store and organize 1-5000
                     links alphabetically.

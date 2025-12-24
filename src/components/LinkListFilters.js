@@ -430,10 +430,9 @@ return ""
                   </div>
                 :
                 <div>
-                    You must be 13 years old or older to use this site (click legal menu item). 
+                    You must be 13 years old or older to use this site (click legal menu item). <br />
                     Parental permission is not reqired if you are 18 years of age or older.<br />
-                   
-                    <br />
+
                      This website may contribute to making your use of the internet more organized,
                     <br />
                     interesting, professional, enteraining, fun and collaborative. It can store and organize up to 5,000

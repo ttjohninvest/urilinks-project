@@ -4,11 +4,11 @@ import React from "react"
 const PrivacyPolicy = () => {
 
 return (
-<div className="margin-top-118">
-    <span className="font-weight-bold">urilinks.com Privacy Policy</span>
+<div className="margin-top-118-">
+    {/* <span className="font-weight-bold">urilinks.com Privacy Policy</span> */}
 <pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: '#f8f8f8', border: '1px solid #ddd' }}>
 {`
-
+urilinks.com Privacy Policy
 Effective Date: December 23rd 2025
 Last Updated: December 23rd 2025
 At urilinks.com, I prioritize your privacy. This policy explains how I collect, use, and protect your information.

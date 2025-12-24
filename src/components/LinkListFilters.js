@@ -491,7 +491,9 @@ return ""
 
                   <span>What do you want to achieve with this website?</span>
                   {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}
-                  <button type="button" className="button-2" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>
+                  {isMobile() === true ?<button type="button" className="button-2 margin-right-114" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>
+                  : <button type="button" className="button-2" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>
+}
 
                    <div className="padding-bottom-116">
                    <div className="margin-left-118">

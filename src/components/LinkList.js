@@ -300,7 +300,9 @@ export const LinkList = (props) => {
             })
           ) : (
             // <MyInfiniteScroll4 />
-
+<div>
+  <LoadingPage />
+  {
             props.links.map((link, index) => {
               return (
                 <div>
@@ -311,6 +313,8 @@ export const LinkList = (props) => {
             ///////
 
             ///////
+          }
+            </div>
           )}
         </div>
       ) : selectedOption === "option2" ? (

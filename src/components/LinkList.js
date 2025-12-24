@@ -142,7 +142,7 @@ export const LinkList = (props) => {
 
       
         {props.links.length > 0 && <div
-        className={`${isMobile()?"margin-bottom-1 margin-top-11a1-" :""}`}
+        className={`${isMobile()?"margin-bottom-1 margin-top-11a1" :""}`}
         >
           <label className="inline-block__flex">
             <input

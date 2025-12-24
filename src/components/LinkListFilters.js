@@ -408,16 +408,16 @@ return ""
                    
                     It may contribute to making your use of the internet for church, school or entertainment more organized,
                    
-                    interesting, professional, enteraining and fun. It can store and organize 1-5000
+                    interesting, professional, enteraining and fun. It can store up to 5,000
                     links alphabetically.
                     
                     It gives you a sharable link to your links list of internet urls. You may
                     
                     try your first 250 links for free or choose one of three
-                    yearly paid plans at $4.99,
-                    
-                    (stores up to 1,250 links) $9.99 (stores up to 2,500 links) or
-                    $14.99 (stores up to 5000 links).
+                    paid plans: for $4.99/year it stores up to 1,250 links,
+                    <br />
+                    for $9.99/year it stores up to 2,500 links or
+                    for $14.99/year it stores up to 5,000 links.
                     
                     If you can't afford to pay and you need more storage space, please
                     let me know and I will give it to you for free.
@@ -431,18 +431,18 @@ return ""
                 <div>
                     You may use this website if you satisfy the terms of service (please see legal menu item).
                     <br />
-                    It may contribute to making your use of the internet  church, school or entertainment more organized,
+                    It may contribute to making your use of the internet church, school or entertainment more organized,
                     <br />
-                    interesting, professional, enteraining and fun. It can store and organize 1-5000
+                    interesting, professional, enteraining and fun. It can store and organize up to 5,000
                     links alphabetically.
                     <br />
                     It gives you a sharable link to your links list of internet urls. You may
                     <br />
                     try your first 250 links for free or choose one of three
-                    yearly paid plans at $4.99,
+                    paid plans: for $4.99/year it stores up to 1,250 links,
                     <br />
-                    (stores up to 1,250 links) $9.99 (stores up to 2,500 links) or
-                    $14.99 (stores up to 5000 links).
+                    for $9.99/year it stores up to 2,500 links or
+                    for $14.99/year it stores up to 5,000 links.
                     <br />
                     If you can't afford to pay and you need more storage space, please
                     let me know and I will give it to you for free.<br />

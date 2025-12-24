@@ -33,6 +33,7 @@ export const LinkList = (props) => {
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
+  const [loading, setLoading] = useState(true)
 
   const myRef = useRef();
 
@@ -107,6 +108,10 @@ export const LinkList = (props) => {
     const regex =
       /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
     return regex.test(navigator.userAgent);
+  }
+
+  if(selectedOption === "option1" && loading===true) {
+    return <LoadingPage />
   }
 
   return (
@@ -301,9 +306,7 @@ export const LinkList = (props) => {
             })
           ) : (
             // <MyInfiniteScroll4 />
-<div>
-  {/* <LoadingPage /> */}
-  {
+
             props.links.map((link, index) => {
               return (
                 <div>
@@ -314,8 +317,7 @@ export const LinkList = (props) => {
             ///////
 
             ///////
-          }
-            </div>
+        
           )}
         </div>
       ) : selectedOption === "option2" ? (

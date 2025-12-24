@@ -404,7 +404,10 @@ return ""
 {/* gsdg */}
 
   {isMobile() === true ?<div className="padding-right-11 padding-bottom-118">
-                    You must be 13 years old or older to use this site (click legal menu item). This website may contribute to making your use of the internet for church, school or entertainment more organized,
+                    You must be 13 years old or older to use this site (click legal menu item). 
+                    Parental permission is not reqired if you are 18 years of age or older.
+                    
+                    This website may contribute to making your use of the internet more organized,
                    
                     interesting, professional, enteraining, fun and collaborative. It can store up to 5,000
                     links alphabetically.
@@ -427,9 +430,11 @@ return ""
                   </div>
                 :
                 <div>
-                    You must be 13 years old or older to use this site (click legal menu item). This website
+                    You must be 13 years old or older to use this site (click legal menu item). 
+                    Parental permission is not reqired if you are 18 years of age or older.<br />
+                   
                     <br />
-                    may contribute to making your use of the internet church, school or entertainment more organized,
+                     This website may contribute to making your use of the internet more organized,
                     <br />
                     interesting, professional, enteraining, fun and collaborative. It can store and organize up to 5,000
                     links alphabetically.

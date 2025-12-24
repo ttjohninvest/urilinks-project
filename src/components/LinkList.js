@@ -302,7 +302,7 @@ export const LinkList = (props) => {
           ) : (
             // <MyInfiniteScroll4 />
 <div>
-  <LoadingPage />
+  {/* <LoadingPage /> */}
   {
             props.links.map((link, index) => {
               return (

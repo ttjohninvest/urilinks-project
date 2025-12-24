@@ -1389,7 +1389,7 @@ export class LinkListFilters extends React.Component {
           <div className="flexrowz">
             
             
-            <div>
+            
             <div className="margin-left-11">
 <input 
           id="termid" 
@@ -1455,7 +1455,7 @@ export class LinkListFilters extends React.Component {
               </option> */}
             </select>
           </div>
-          </div>
+          
           <div>
             {/* <div>
  <span className="">

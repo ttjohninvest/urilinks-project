@@ -3,9 +3,12 @@ import React from "react"
 
 const TermsOfService = () => {
 
-return (<pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: '#f8f8f8', border: '1px solid #ddd' }}>
+return (
+<div>
+    <span className="font-weight-bold">urilinks.com Terms of Service</span>
+<pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: '#f8f8f8', border: '1px solid #ddd' }}>
 {`
-<span className=${"font-weight-bold"}>urilinks.com Terms of Service</span>
+
 Effective Date: December 23rd 2025
 
 Introduction
@@ -61,7 +64,9 @@ I may modify these Terms at any time. Your continued use of the Service constitu
 Contact Us
 If you have questions or concerns, contact me, John, at john@urilinks.com.
 `}
-</pre>)
+</pre>
+</div>
+)
 }
 
 export default TermsOfService;

@@ -1,5 +1,5 @@
-const LIST_ALL_PUBLIC_LINKS = false
-const LIST_ALL_PUBLIC_LINKS_PEOPLE = false
+const LIST_ALL_PUBLIC_LINKS = false //I commented the code out to fix the space between alignment
+const LIST_ALL_PUBLIC_LINKS_PEOPLE = false //I commented the code out to fix the space between alignment
 
 import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";

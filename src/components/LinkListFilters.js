@@ -1407,7 +1407,9 @@ export class LinkListFilters extends React.Component {
             //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
             
             onClick={this.search} 
-            title="Searches to find entered term through the previously selected list which will appear in copper color." >search</button>
+            //title="Searches to find entered term through the previously selected list which will appear in copper color." 
+            title="Searches to find entered term"
+            >search</button>
           </div>
           </div>
 

@@ -20,6 +20,7 @@ import selectLinks2 from "../selectors/links2";
 import LinksSummary from "./LinksSummary";
 import printerImage from "../assets/images/printer_image.png";
 import { v4 } from "uuid";
+import LoadingPage from 'LoadingPage'
 
 export const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1");

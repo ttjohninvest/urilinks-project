@@ -2,7 +2,7 @@ const LIST_ALL_PUBLIC_LINKS = false //I commented the code out to fix the space 
 const LIST_ALL_PUBLIC_LINKS_PEOPLE = false //I commented the code out to fix the space between alignment
 
 import React, { useState, useEffect, useRef } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import MyInfiniteScroll from "./MyInfiniteScroll";
 import MyInfiniteScroll2 from "./MyInfiniteScroll2";
 import MyInfiniteScroll4 from "./MyInfiniteScroll4";
@@ -74,6 +74,7 @@ export const LinkList = (props) => {
   // }, [items]);
 
   useEffect(() => {
+    const links = useSelector(state => state.links);
     const option = window.localStorage.getItem("whichOption");
     if (option) {
       if (option === "option1" || option === "option2") setFirst(0);

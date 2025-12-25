@@ -33,31 +33,31 @@ export const LinkList = (props) => {
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
-  const [loading, setLoading] = useState(true)
-  const [mappedData, setMappedData] = useState([])
-  const [items, setItems] = useState(props.links)
+  // const [loading, setLoading] = useState(true)
+  // const [mappedData, setMappedData] = useState([])
+  // const [items, setItems] = useState(props.links)
 
   const myRef = useRef();
 
-  useEffect(() => {
-    // Simulate a delay to mimic processing time (e.g., array transformation)
-    const processArray = () => {
+  // useEffect(() => {
+  //   // Simulate a delay to mimic processing time (e.g., array transformation)
+  //   const processArray = () => {
       
-      // Simulate processing time (e.g., filtering, mapping, etc.)
-      const processedData = items.map((item,index) => ({
-        id:item.id,
-        link:item.link,
-        index:index
-      }));
+  //     // Simulate processing time (e.g., filtering, mapping, etc.)
+  //     const processedData = items.map((item,index) => ({
+  //       id:item.id,
+  //       link:item.link,
+  //       index:index
+  //     }));
 
-      // Set the processed data and turn off loading
-      setMappedData(processedData);
-      setLoading(false);
-    };
+  //     // Set the processed data and turn off loading
+  //     setMappedData(processedData);
+  //     setLoading(false);
+  //   };
 
-    // Start processing after component mounts
-    processArray();
-  }, [items]); // Empty dependency array ensures this runs once
+  //   // Start processing after component mounts
+  //   processArray();
+  // }, [items]); // Empty dependency array ensures this runs once
 
   // useEffect(() => {
   //   window.onbeforeunload = null;
@@ -132,9 +132,9 @@ export const LinkList = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  if(selectedOption === "option1" && loading===true) {
-    return <LoadingPage />
-  }
+  // if(selectedOption === "option1" && loading===true) {
+  //   return <LoadingPage />
+  // }
 
   return (
     <div className="content-container- website-background-color margin-top-1a-">
@@ -329,20 +329,20 @@ export const LinkList = (props) => {
           ) : (
             // <MyInfiniteScroll4 />
 
-            mappedData.map((link, index) => {
-              return (
-                <div>
-                  <LinkListItem key={link.id} {...link.link} index={link.index} />
-                </div>
-              );
-            })
-            //  props.links.map((link, index) => {
+            // mappedData.map((link, index) => {
             //   return (
             //     <div>
-            //       <LinkListItem key={link.id} {...link} index={index} />
+            //       <LinkListItem key={link.id} {...link.link} index={link.index} />
             //     </div>
             //   );
             // })
+             props.links.map((link, index) => {
+              return (
+                <div>
+                  <LinkListItem key={link.id} {...link} index={index} />
+                </div>
+              );
+            })
             ///////
 
             ///////

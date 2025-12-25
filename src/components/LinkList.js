@@ -132,9 +132,9 @@ export const LinkList = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  if(selectedOption === "option1" && loading===true) {
-    return <LoadingPage />
-  }
+  // if(selectedOption === "option1" && loading===true) {
+  //   return <LoadingPage />
+  // }
 
   return (
     <div className="content-container- website-background-color margin-top-1a-">

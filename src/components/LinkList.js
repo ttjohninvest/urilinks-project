@@ -38,12 +38,8 @@ export const LinkList = (props) => {
 
   const myRef = useRef();
 
-  useEffect(() => {
-    // Simulate a delay to mimic processing time (e.g., array transformation)
-    const processArray = () => {
-      
-      // Simulate processing time (e.g., filtering, mapping, etc.)
-      const processedData = props.links.map((item,index) => ({
+   const onNavigate = useEffectEvent((links) => {
+     const processedData = links.map((item,index) => ({
         id:item.id,
         link:item.link,
         index:index
@@ -53,10 +49,15 @@ export const LinkList = (props) => {
       setMappedData(processedData);
       //setMappedData((prevState)=>([...prevState, ...processedData]));
       setLoading(false);
-    };
+  });
 
-    // Start processing after component mounts
-    processArray();
+  useEffect(() => {
+    // Simulate a delay to mimic processing time (e.g., array transformation)
+   
+      onNavigate(props.links)
+      // Simulate processing time (e.g., filtering, mapping, etc.)
+     
+   
   }, [props.links]); // Empty dependency array ensures this runs once
 
   // useEffect(() => {

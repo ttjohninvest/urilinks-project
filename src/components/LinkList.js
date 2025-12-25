@@ -329,10 +329,17 @@ export const LinkList = (props) => {
           ) : (
             // <MyInfiniteScroll4 />
 
-            mappedData.map((link, index) => {
+            // mappedData.map((link, index) => {
+            //   return (
+            //     <div>
+            //       <LinkListItem key={link.id} {...link.link} index={link.index} />
+            //     </div>
+            //   );
+            // })
+             props.links.map((link, index) => {
               return (
                 <div>
-                  <LinkListItem key={link.id} {...link.link} index={link.index} />
+                  <LinkListItem key={link.id} {...link} index={index} />
                 </div>
               );
             })

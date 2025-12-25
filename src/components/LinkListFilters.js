@@ -549,6 +549,7 @@ return ""
                   {copySuccess}
                 </div>
               )}
+              <div className="text-size-11 text-color-green font-weigth-bold padding-all">Merry Christmas</div>
               {props.signup === true && <div className="margin-top-118">
                 <div className="flexrowsb margin-right-1">
                   <span className="ib">What do you want to achieve with this website?</span>

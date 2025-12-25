@@ -33,27 +33,13 @@ export const LinkList = (props) => {
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
-  const [loading, setLoading] = useState(true)
-  const [mappedData, setMappedData] = useState([])
+//  const [loading, setLoading] = useState(true)
+//  const [mappedData, setMappedData] = useState([])
 
   const myRef = useRef();
 
-//   const useEventCallback=(fn)=>{
-//   const ref = useRef(fn);
-
-//   // Update the ref with the latest version of the function on every render
 //   useEffect(() => {
-//     ref.current = fn;
-//   }, [fn]);
-
-//   // Return a stable callback that always calls the latest version
-//   return useCallback((...args) => {
-//     return ref.current?.(...args);
-//   }, []);
-// }
-
-// const useEventCallback((links) => {
-//      const processedData = links.map((item,index) => ({
+//      const processedData = props.links.map((item,index) => ({
 //         id:item.id,
 //         link:item.link,
 //         index:index
@@ -61,12 +47,8 @@ export const LinkList = (props) => {
 
 //       // Set the processed data and turn off loading
 //       setMappedData(processedData);
-//       //setMappedData((prevState)=>([...prevState, ...processedData]));
 //       setLoading(false);
-//   });
 
-//   useEffect(() => {
-//       useEventCallback(props.links)
 //   }, [props.links]); // Empty dependency array ensures this runs once
 
   // useEffect(() => {
@@ -74,7 +56,7 @@ export const LinkList = (props) => {
   // }, [items]);
 
   useEffect(() => {
-    const links = useSelector(state => state.links);
+    
     const option = window.localStorage.getItem("whichOption");
     if (option) {
       if (option === "option1" || option === "option2") setFirst(0);

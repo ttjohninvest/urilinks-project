@@ -34,8 +34,30 @@ export const LinkList = (props) => {
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
   const [loading, setLoading] = useState(true)
+  const [mappedData, setMappedData] = useState([])
+  const [items, setItems] = useState(props.links)
 
   const myRef = useRef();
+
+  useEffect(() => {
+    // Simulate a delay to mimic processing time (e.g., array transformation)
+    const processArray = () => {
+      
+      // Simulate processing time (e.g., filtering, mapping, etc.)
+      const processedData = items.map((link,index) => ({
+        id:link.id,
+        link:link.link,
+        index:index
+      }));
+
+      // Set the processed data and turn off loading
+      setMappedData(processedData);
+      setLoading(false);
+    };
+
+    // Start processing after component mounts
+    processArray();
+  }, [items]); // Empty dependency array ensures this runs once
 
   useEffect(() => {
     window.onbeforeunload = null;
@@ -307,10 +329,10 @@ export const LinkList = (props) => {
           ) : (
             // <MyInfiniteScroll4 />
 
-            props.links.map((link, index) => {
+            mappedData.map((link, index) => {
               return (
                 <div>
-                  <LinkListItem key={link.id} {...link} index={index} />
+                  <LinkListItem key={link.id} {...link.link} index={link.index} />
                 </div>
               );
             })

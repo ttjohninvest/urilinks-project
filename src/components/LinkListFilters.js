@@ -163,6 +163,7 @@ return ""
 
   return (
     <div className="bg-white-1">
+      <div className="text-size-11 text-color-green font-weigth-bold padding-all text-center">Merry Christmas</div>
       {props.mappedDataShort.length > 0 ? (
         <div className="">
           <div
@@ -549,7 +550,7 @@ return ""
                   {copySuccess}
                 </div>
               )}
-              <div className="text-size-11 text-color-green font-weigth-bold padding-all">Merry Christmas</div>
+              
               {props.signup === true && <div className="margin-top-118">
                 <div className="flexrowsb margin-right-1">
                   <span className="ib">What do you want to achieve with this website?</span>

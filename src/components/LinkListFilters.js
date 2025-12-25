@@ -163,7 +163,7 @@ return ""
 
   return (
     <div className="bg-white-1">
-      <div className="text-size-11 text-color-green font-weigth-bold padding-all text-center">Merry Christmas</div>
+      <div className="flexrowzc text-size-11 text-color-green font-weigth-bold padding-all text-center">Merry Christmas</div>
       {props.mappedDataShort.length > 0 ? (
         <div className="">
           <div

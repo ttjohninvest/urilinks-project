@@ -1,7 +1,7 @@
 const LIST_ALL_PUBLIC_LINKS = false //I commented the code out to fix the space between alignment
 const LIST_ALL_PUBLIC_LINKS_PEOPLE = false //I commented the code out to fix the space between alignment
 
-import React, { useState, useEffect, useRef,useEffectEvent } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import MyInfiniteScroll from "./MyInfiniteScroll";
 import MyInfiniteScroll2 from "./MyInfiniteScroll2";
@@ -38,27 +38,36 @@ export const LinkList = (props) => {
 
   const myRef = useRef();
 
-   const onNavigate = useEffectEvent((links) => {
-     const processedData = links.map((item,index) => ({
-        id:item.id,
-        link:item.link,
-        index:index
-      }));
+//   const useEventCallback=(fn)=>{
+//   const ref = useRef(fn);
 
-      // Set the processed data and turn off loading
-      setMappedData(processedData);
-      //setMappedData((prevState)=>([...prevState, ...processedData]));
-      setLoading(false);
-  });
+//   // Update the ref with the latest version of the function on every render
+//   useEffect(() => {
+//     ref.current = fn;
+//   }, [fn]);
 
-  useEffect(() => {
-    // Simulate a delay to mimic processing time (e.g., array transformation)
-   
-      onNavigate(props.links)
-      // Simulate processing time (e.g., filtering, mapping, etc.)
-     
-   
-  }, [props.links]); // Empty dependency array ensures this runs once
+//   // Return a stable callback that always calls the latest version
+//   return useCallback((...args) => {
+//     return ref.current?.(...args);
+//   }, []);
+// }
+
+// const useEventCallback((links) => {
+//      const processedData = links.map((item,index) => ({
+//         id:item.id,
+//         link:item.link,
+//         index:index
+//       }));
+
+//       // Set the processed data and turn off loading
+//       setMappedData(processedData);
+//       //setMappedData((prevState)=>([...prevState, ...processedData]));
+//       setLoading(false);
+//   });
+
+//   useEffect(() => {
+//       useEventCallback(props.links)
+//   }, [props.links]); // Empty dependency array ensures this runs once
 
   // useEffect(() => {
   //   window.onbeforeunload = null;
@@ -133,9 +142,9 @@ export const LinkList = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  if(selectedOption === "option1" && loading===true) {
-    return <LoadingPage />
-  }
+  // if(selectedOption === "option1" && loading===true) {
+  //   return <LoadingPage />
+  // }
 
   return (
     <div className="content-container- website-background-color margin-top-1a-">
@@ -330,20 +339,20 @@ export const LinkList = (props) => {
           ) : (
             // <MyInfiniteScroll4 />
 
-            mappedData.map((link, index) => {
-              return (
-                <div>
-                  <LinkListItem key={link.id} {...link.link} index={link.index} />
-                </div>
-              );
-            })
-            //  props.links.map((link, index) => {
+            // mappedData.map((link, index) => {
             //   return (
             //     <div>
-            //       <LinkListItem key={link.id} {...link} index={index} />
+            //       <LinkListItem key={link.id} {...link.link} index={link.index} />
             //     </div>
             //   );
             // })
+             props.links.map((link, index) => {
+              return (
+                <div>
+                  <LinkListItem key={link.id} {...link} index={index} />
+                </div>
+              );
+            })
             ///////
 
             ///////

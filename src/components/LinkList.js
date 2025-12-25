@@ -50,8 +50,8 @@ export const LinkList = (props) => {
       }));
 
       // Set the processed data and turn off loading
-      //setMappedData(processedData);
-      setMappedData((prevState)=>([...prevState, ...processedData]));
+      setMappedData(processedData);
+      //setMappedData((prevState)=>([...prevState, ...processedData]));
       setLoading(false);
     };
 

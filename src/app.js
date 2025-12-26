@@ -162,9 +162,9 @@ store
       longname:"",
       description : "",
       Url : "",
-      yturl : "",
+      yturl : ""
       //note : "#Banks#Libraries#StoresFurniture#StoresThrift#StoresDepartment#School#Books#Ebooks#Doctors#Dentists#Vetinarians#HospitalsAddresses#FireDepartments#PoliceStations#Easter#Christmas#Thanksgiving#Entertainment#Church#ChurchMusic#ChurchHolyBible#ChurchHolyFatherGod#ChurchJesusChrist#PoliticsRepublican#PoliticsDemocrat#PoliticsVoting#ChurchNuns#ChurchWorship#ChurchPicnics#ChurchFamily#ChurchBibleStudy#ChurchPrayer#ChurchSocialMedia#ChurchChat#Music#Movies#DeliveryDoorDash#DeliveryGrubhub#DeliveryPostmates#DeliveryInstacart#DeliveryCaviar#DeliverySeamless#DeliveryChowNow##StoresGrocery#StoresGroceryDeliveryServices#LodgingHotels#LodgingMotels#Vacations#AutoClubs#PublicTransportationRentACar#Maps#Directions#PublicTransportationLyft#PublicTransportationBusGreyhound#PublicTransportationBusLocal#LaundryFacilities#PublicTransportationTaxi#Theater#Mechanic#Vehicle#InsuranceVehicle#InsuranceProperty#InsuranceOther#VehiclesRecreational#VehiclesDepartmentOfMotor#TravelArraigements",
-      note : "#Banks#Libraries#Stores#Books#Ebooks#Doctors#Dentists#Vetinarians#Hospitals#Fire#Police#Easter#Christmas#Thanksgiving#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanic#Vehicles#Insurance#Travel",
+      note : "#Banks#Libraries#Stores#Prayer#Books#Ebooks#Doctors#Dentists#Vetinarians#Hospitals#Fire#Police#Easter#Christmas#Thanksgiving#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanic#Vehicles#Insurance#Travel",
       foldername : "",
       amount : 0,
       createdAt : 0,

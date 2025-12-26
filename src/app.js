@@ -163,7 +163,7 @@ store
       description : "",
       Url : "",
       yturl : "",
-      note : "#0hasttag1#0hasttag2",
+      note : "#work#entertainment#church#music#movies#laundry#grocery#grocerydelivery#lyft#taxi#theater#mechanic#vehicle#vehicleinsurance#propertyinsurance#vehiclesrecreational",
       foldername : "",
       amount : 0,
       createdAt : 0,

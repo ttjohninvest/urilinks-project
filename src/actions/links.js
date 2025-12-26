@@ -200,7 +200,7 @@ export const startSetLinks = (uid) => {
          let x1 = extractHashtags(ht);
          hashtags.push(...x1);
 
-        links2.forEach((link) => {
+         links2.forEach((link) => {
           
           x1 = extractHashtags(link.note);
           hashtags.push(...x1);
@@ -208,6 +208,23 @@ export const startSetLinks = (uid) => {
 
           
         });
+
+        let hashtags3 = []
+
+        hashtags.forEach((hashtag)=>{
+           
+          hashtags3.push(hashtag.trim().substring(1))
+           
+        })
+
+        let hashtags4 = []
+
+         hashtags3.forEach((hashtag)=>{
+           let str2 = hashtag.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
+
+           hashtags4.push('#'+str2)
+           
+        })
 
         //after the hash 
        // let str2 
@@ -228,10 +245,11 @@ export const startSetLinks = (uid) => {
 
 
 
-
+hashtags=hashtags4
 
 
 //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
+
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
          hashTags2WithCount.sort((a, b) => {
           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;

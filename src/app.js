@@ -163,7 +163,7 @@ store
       description : "",
       Url : "",
       yturl : "",
-      note : "#work#entertainment#church#music#movies#laundry#grocery#grocerydelivery#lyft#taxi#theater#mechanic#vehicle#vehicleinsurance#propertyinsurance#vehiclesrecreational",
+      note : "#Work#Entertainment#Church#Music#Movies#Laundry#Grocery#GroceryDelivery#Hotels#Motels#Vacations#AutoClubs#RentACar#Maps#Directions#Lyft#BusGreyhound#BusLocal#LaundryFacilities#Taxi#Theater#Mechanic#Vehicle#Vehicleinsurance#PropertyInsurance#VehiclesRecreationalDepartmentOfMotorVehicles#TravelArraigements",
       foldername : "",
       amount : 0,
       createdAt : 0,

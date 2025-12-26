@@ -164,7 +164,7 @@ return ""
 
   return (
     <div className="bg-white-1">
-      <div className="flexrowzc text-size-11 text-color-green font-weigth-bold padding-all text-center">Happy New Year</div>
+      <div className="flexrowzc text-size-11 text-color-green font-weigth-bold padding-all text-center">I hopy you have a happy new year.</div>
       {props.mappedDataShort.length > 0 ? (
         <div className="">
           <div

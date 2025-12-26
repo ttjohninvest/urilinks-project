@@ -7,7 +7,7 @@ import setSignup from "./actions/signup";
 
 //import configureStore from "./store/configureStore";
 import store from './store'
-import { startSetLinks, startAddLink } from "./actions/links";
+import { startSetLinks, startAddLink2, } from "./actions/links";
 import { startSetLinks2 } from "./actions/links2";
 import { startSetPeople } from "./actions/people";
 //startSetGoogleUserData
@@ -157,7 +157,7 @@ store
 // store //for list all public links menu item
 //         .dispatch(startSetLinks2())
 //         .then(() => {
-  store.dispatch(startAddLink({
+  store.dispatch(startAddLink2({ //only do this on the first one
       showpublic:false,
       longname:"",
       description : "",

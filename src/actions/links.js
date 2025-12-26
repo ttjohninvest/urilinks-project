@@ -1,4 +1,4 @@
-import uuid from "uuid";
+import { v4 } from "uuid";
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags"
 import setHashTags2WithCount from "./hashtags2withcount"
@@ -46,6 +46,36 @@ export const startAddLink = (linkData = {}) => {
         console.log("error adding link data in firebase, error=" + error);
         return false;
       });
+  };
+};
+
+export const startAddLink2 = (linkData = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    const {
+      showpublic=false,
+      longname="",
+      description = "",
+      Url = "",
+      yturl = "",
+      note = "",
+      foldername = "",
+      amount = 0,
+      createdAt = 0,
+      faviconURL = "",
+    } = linkData;
+    const link = {showpublic,longname, description, Url, yturl, note, foldername, amount, createdAt, faviconURL };
+   
+    //////
+    //return false;
+    
+    console.log("startAddLink, link="+JSON.stringify(link))
+     dispatch(
+          addLink({
+            id: v4(),
+            ...link,
+          })
+        );
   };
 };
 

@@ -210,9 +210,9 @@ export const Header = (props) => {
                   </header>
                       </Link>
 
-                  <div>
+                  
                     <img src={signature} />
-                  </div>
+                  
                  
                   {/* {props.signup.signup === false && (
                     <div

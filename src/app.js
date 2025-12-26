@@ -4,9 +4,10 @@ import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 import setSignup from "./actions/signup";
+
 //import configureStore from "./store/configureStore";
 import store from './store'
-import { startSetLinks } from "./actions/links";
+import { startSetLinks, startAddLink } from "./actions/links";
 import { startSetLinks2 } from "./actions/links2";
 import { startSetPeople } from "./actions/people";
 //startSetGoogleUserData
@@ -156,6 +157,19 @@ store
 // store //for list all public links menu item
 //         .dispatch(startSetLinks2())
 //         .then(() => {
+  store.dispatch(startAddLink({
+      showpublic:false,
+      longname:"",
+      description : "",
+      Url : "",
+      yturl : "",
+      note : "#0hasttag1#0hasttag2",
+      foldername : "",
+      amount : 0,
+      createdAt : 0,
+      faviconURL : "",
+    })).
+  then(()=>{
 store
         .dispatch(startSetLinks(user.uid))
         .then(() => {
@@ -188,6 +202,11 @@ store
             .catch((error) => {
               console.log("theplan, error", error);
             });
+
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
 
         })
         .catch((error) => {

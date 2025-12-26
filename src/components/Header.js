@@ -211,7 +211,7 @@ export const Header = (props) => {
                   </header>
                       </Link>
 
-                  <div className="margin-left-118">
+                  <div className="margin-left-118 margin-top-1">
                     <img src={signature} className="minwidth" />
                   </div>
                     

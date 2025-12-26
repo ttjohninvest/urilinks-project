@@ -155,7 +155,7 @@ const HamburgerMenu = (props) => {
               className="font-weight-bold cursor-pointer color-white-1 nounderline"
               title="some ideas for hash tags"
             >
-              curriculums
+              ideas
             </span>
           </Link>
         </li>

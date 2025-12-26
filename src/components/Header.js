@@ -335,7 +335,7 @@ export const Header = (props) => {
                         className="ib- color-white-1 cursor-pointer"
                         title="Click to see a list of educational ideas."
                       >
-                        curriculums
+                        ideas
                       </span>
                     </Link>
                   </div>

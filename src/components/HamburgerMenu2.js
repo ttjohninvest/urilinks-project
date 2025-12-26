@@ -168,7 +168,7 @@ const HamburgerMenu = (props) => {
                   className="ib- color-white-1- cursor-pointer"
                   title="some ideas for hash tags"
                 >
-                  curriculums
+                  ideas
                 </span>
               </Link>
             </li>

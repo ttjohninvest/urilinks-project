@@ -163,7 +163,7 @@ store
       description : "",
       Url : "",
       yturl : "",
-      note : "#Work#Entertainment#Church#Music#Movies#DeliveryDoorDash#DeliveryGrubhub#DeliveryPostmates#DeliveryInstacart#DeliveryCaviar#DeliverySeamless#DeliveryChowNow##GroceryStores#DeliveryGroceryStores#LodgingHotels#LodgingMotels#Vacations#AutoClubs#RentACar#Maps#Directions#Lyft#BusGreyhound#BusLocal#LaundryFacilities#Taxi#Theater#Mechanic#Vehicle#InsuranceVehicle#InsuranceProperty#InsuranceOther#VehiclesRecreational#MotorVehiclesDepartmentOfMotor#TravelArraigements",
+      note : "#Work#Entertainment#Church#ChurchMusic#ChurchHolyBible#ChurchHolyFatherGod#ChurchJesusChrist#ChurchNuns#ChurchWorship#ChurchPicnics#ChurchFamily#ChurchBibleStudy#ChurchPrayer#ChurchSocialMedia#ChurchChat#Music#Movies#DeliveryDoorDash#DeliveryGrubhub#DeliveryPostmates#DeliveryInstacart#DeliveryCaviar#DeliverySeamless#DeliveryChowNow##GroceryStores#DeliveryGroceryStores#LodgingHotels#LodgingMotels#Vacations#AutoClubs#RentACar#Maps#Directions#Lyft#BusGreyhound#BusLocal#LaundryFacilities#Taxi#Theater#Mechanic#Vehicle#InsuranceVehicle#InsuranceProperty#InsuranceOther#VehiclesRecreational#MotorVehiclesDepartmentOfMotor#TravelArraigements",
       foldername : "",
       amount : 0,
       createdAt : 0,

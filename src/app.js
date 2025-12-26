@@ -163,7 +163,7 @@ store
       description : "",
       Url : "",
       yturl : "",
-      note : "#School#Books#Eboo#Easter#Christmas#Thanksgiving#Entertainment#Church#ChurchMusic#ChurchHolyBible#ChurchHolyFatherGod#ChurchJesusChrist#PoliticsDemocratic#PoliticsRepublican#PoliticsDemocrat#PoliticsVoting#ChurchNuns#ChurchWorship#ChurchPicnics#ChurchFamily#ChurchBibleStudy#ChurchPrayer#ChurchSocialMedia#ChurchChat#Music#Movies#DeliveryDoorDash#DeliveryGrubhub#DeliveryPostmates#DeliveryInstacart#DeliveryCaviar#DeliverySeamless#DeliveryChowNow##GroceryStores#DeliveryGroceryStores#LodgingHotels#LodgingMotels#Vacations#AutoClubs#RentACar#Maps#Directions#Lyft#BusGreyhound#BusLocal#LaundryFacilities#Taxi#Theater#Mechanic#Vehicle#InsuranceVehicle#InsuranceProperty#InsuranceOther#VehiclesRecreational#MotorVehiclesDepartmentOfMotor#TravelArraigements",
+      note : "#School#Books#Ebooks#Doctors#Dentists#Vetinarians#HospitalsAddresses#FireDepartments#PoliceStattions#Easter#Christmas#Thanksgiving#Entertainment#Church#ChurchMusic#ChurchHolyBible#ChurchHolyFatherGod#ChurchJesusChrist#PoliticsDemocratic#PoliticsRepublican#PoliticsDemocrat#PoliticsVoting#ChurchNuns#ChurchWorship#ChurchPicnics#ChurchFamily#ChurchBibleStudy#ChurchPrayer#ChurchSocialMedia#ChurchChat#Music#Movies#DeliveryDoorDash#DeliveryGrubhub#DeliveryPostmates#DeliveryInstacart#DeliveryCaviar#DeliverySeamless#DeliveryChowNow##GroceryStores#DeliveryGroceryStores#LodgingHotels#LodgingMotels#Vacations#AutoClubs#RentACar#Maps#Directions#Lyft#BusGreyhound#BusLocal#LaundryFacilities#Taxi#Theater#Mechanic#Vehicle#InsuranceVehicle#InsuranceProperty#InsuranceOther#VehiclesRecreational#MotorVehiclesDepartmentOfMotor#TravelArraigements",
       foldername : "",
       amount : 0,
       createdAt : 0,

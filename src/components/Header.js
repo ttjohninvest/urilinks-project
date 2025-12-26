@@ -209,6 +209,10 @@ export const Header = (props) => {
                     /> */}
                   </header>
                       </Link>
+
+                  <div>
+                    <img src={signature} />
+                  </div>
                  
                   {/* {props.signup.signup === false && (
                     <div
@@ -274,9 +278,7 @@ export const Header = (props) => {
                       }
                     </div>
                   )}
-                  <div>
-                    <img src={signature} width="100" height="40" />
-                  </div>
+                  
                   <div>
                   <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="Click to see a  list of colleges and universities">colleges</a>
                   </div>

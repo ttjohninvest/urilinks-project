@@ -49,35 +49,7 @@ export const startAddLink = (linkData = {}) => {
   };
 };
 
-export const startAddLink2 = (linkData = {}) => {
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    const {
-      showpublic=false,
-      longname="",
-      description = "",
-      Url = "",
-      yturl = "",
-      note = "",
-      foldername = "",
-      amount = 0,
-      createdAt = 0,
-      faviconURL = "",
-    } = linkData;
-    const link = {showpublic,longname, description, Url, yturl, note, foldername, amount, createdAt, faviconURL };
-   
-    //////
-    //return false;
-    
-    console.log("startAddLink, link="+JSON.stringify(link))
-     dispatch(
-          addLink({
-            id: v4(),
-            ...link,
-          })
-        );
-  };
-};
+
 
 
 

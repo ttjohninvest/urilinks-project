@@ -185,6 +185,7 @@ export const Header = (props) => {
             <header className="header relief-">
               <div className="">
                 <div className="flexrow2w">
+                  <div className="flexrowzl1">
                     <Link
                         className="nounderline color-white-1 cursor-pointer"
                         to="/dashboard"
@@ -212,7 +213,7 @@ export const Header = (props) => {
 
                   
                     <img src={signature} className="minwidth" />
-                  
+                  </div>
                  
                   {/* {props.signup.signup === false && (
                     <div

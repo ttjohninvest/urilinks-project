@@ -8,6 +8,7 @@ import database from "../firebase/firebase";
 import * as firebase from "firebase";
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
+import Firework from "./Fireworks"
 
 import {
   setTextFilter,
@@ -59,6 +60,7 @@ function ExpandableArray(props) {
   };
 
   useEffect(() => {
+    
     console.log("AB props.links.length="+props.links.length)
     if (props.theplan.plan.replace(/"/g, "") === "free") {
       setMaximum(StorageSizes.free);
@@ -164,6 +166,7 @@ return ""
 
   return (
     <div className="bg-white-1">
+      <Firework />
       <div className="flexrowzc text-size-11 text-color-green font-weigth-bold padding-all text-center">Happy New Year</div>
       {props.mappedDataShort.length > 0 ? (
         <div className="">

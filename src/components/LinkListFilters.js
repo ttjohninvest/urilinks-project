@@ -59,6 +59,7 @@ function ExpandableArray(props) {
   };
 
   useEffect(() => {
+    console.log("AB props.links.length="+props.links.length)
     if (props.theplan.plan.replace(/"/g, "") === "free") {
       setMaximum(StorageSizes.free);
     } else if (props.theplan.plan.replace(/"/g, "") === "basic") {

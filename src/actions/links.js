@@ -220,9 +220,10 @@ export const startSetLinks = (uid) => {
         let hashtags4 = []
 
          hashtags3.forEach((hashtag)=>{
-          //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great 
+
+           //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great 
            let str2 = hashtag.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
-           let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //the removes the space so The Cat Is Great becomes TheCatIsGreat
+           let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //this removes the space so The Cat Is Great becomes TheCatIsGreat
            let hashtagresult = '#'+cleaned //This produces #TheCatIsGreat
            hashtags4.push(hashtagresult)
            

@@ -196,10 +196,13 @@ export const startSetLinks = (uid) => {
          const longnamesnowhitespace = []
          const longnames = []
 
-        //if(this.props.links.length>0) {
+         const ht="#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanic#Vehicles#Insurance#Travel"
+         let x1 = extractHashtags(ht);
+         hashtags.push(...x1);
+
         links2.forEach((link) => {
           
-          let x1 = extractHashtags(link.note);
+          x1 = extractHashtags(link.note);
           hashtags.push(...x1);
           
 

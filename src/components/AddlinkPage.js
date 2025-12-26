@@ -128,7 +128,8 @@ export const AddLinkPage = (props) => {
       //if (count < 10) {
       //if (true) {
       link.foldername = link.description;
-      link.yturl = isityt(link.url)
+      link.yturl = isityt(link.Url)
+      console.log("A link.yturl="+link.yturl)
       const r = props.startAddLink(link);
       if (r === false) {
         setErrorDialog(true);

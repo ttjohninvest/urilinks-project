@@ -208,6 +208,29 @@ export const startSetLinks = (uid) => {
 
           
         });
+
+        //after the hash 
+       // let str2 
+
+    
+    // const cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //leave the showing characters in
+   
+
+    // const lc = cleaned
+   
+    // const hashtag = "#" + lc;
+
+    //     hashtags.forEach((hashtag)=>{
+    //        str2=hashtag.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
+           
+    //     })
+
+
+
+
+
+
+
 //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
          hashTags2WithCount.sort((a, b) => {

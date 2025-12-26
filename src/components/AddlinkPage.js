@@ -85,6 +85,36 @@ export const AddLinkPage = (props) => {
     fetchData();
   }, []);
 
+  const isityt = (url) => {
+    if (!!url === true && url.includes("youtube")) {
+      //https://www.youtube.com/watch?v=L9ervwr0qq0&list=RDL9ervwr0qq0&start_radio=1
+      //   //get the id
+      let ytid;
+      if (!!url === true && url.includes("shorts")) {
+        let a = url.split("/");
+        let i = a.length - 1;
+        ytid = a[i];
+      } else {
+        if (!!url === true) {
+          let a = url.split("v=");
+          if (!!a[1] === true && a[1].includes("&")) {
+            let b = a[1].split("&");
+            ytid = b[0];
+          } else {
+            ytid = a[1];
+          }
+        }
+      }
+
+      console.log("ytid=" + ytid);
+      return "https://img.youtube.com/vi/" + ytid + "/mqdefault.jpg";
+      // //setVisityt(ytid)
+      //return "https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" //yturl
+    }
+
+    return "";
+  };
+
   const onSubmit = (link) => {
     console.log("in onSubmit");
     //if(props.signup.signup === true) {
@@ -98,6 +128,7 @@ export const AddLinkPage = (props) => {
       //if (count < 10) {
       //if (true) {
       link.foldername = link.description;
+      link.yturl = isityt(link.url)
       const r = props.startAddLink(link);
       if (r === false) {
         setErrorDialog(true);

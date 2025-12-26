@@ -211,7 +211,7 @@ export const Header = (props) => {
                       </Link>
 
                   
-                    <img src={signature} />
+                    <img src={signature} className="minwidth" />
                   
                  
                   {/* {props.signup.signup === false && (

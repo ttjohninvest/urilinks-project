@@ -520,8 +520,22 @@ return ""
                   <span> I hope the website is helpful to you. May you please give me your feedback regarding this website? </span>
                   {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}
                   {isMobile() === true ?<button type="button" className="button-2 margin-right-114" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>
-                  : <button type="button" className="button-2" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>
-}
+                  : <button type="button" className="button-2" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>}
+
+                  {props.signup === false && (
+                                  <div
+                                    className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
+                                    title="Please use it for good. Bookmarks for internet pages, urls/links"
+                                  >
+                                    <Link
+                                      className="nounderline color-white-1 cursor-pointer"
+                                      to="/signup"
+                                      title=""
+                                    >
+                                      login/enter
+                                    </Link>
+                                  </div>
+                                )}
 
                    <div className="padding-bottom-116">
                    <div className="margin-left-118">

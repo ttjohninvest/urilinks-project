@@ -1454,7 +1454,7 @@ export class LinkListFilters extends React.Component {
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w- flexrowzv padding-top-111 padding-bottom-111"
         >
-          {/* <div className="flexrowzv"> */}
+          <div className="flexrowzv">
             
             
             
@@ -1479,7 +1479,7 @@ export class LinkListFilters extends React.Component {
             title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
             >search</button>
           </div>
-
+          </div>
           
           {/*3 see the code below at address 3 if you need to copy it here again */}
           

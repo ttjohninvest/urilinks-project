@@ -500,7 +500,7 @@ return ""
                   </div> */}
 
                   {/* <span>What do you want to achieve with this website?</span> */}
-                  <span> I hope the website is helpful to you. May you please give me your give me your feedback regarding this website? </span>
+                  <span> I hope the website is helpful to you. May you please give me your feedback regarding this website? </span>
                   {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}
                   {isMobile() === true ?<button type="button" className="button-2 margin-right-114" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>
                   : <button type="button" className="button-2" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>
@@ -561,7 +561,7 @@ return ""
               
               {props.signup === true && <div className="margin-top-118">
                 <div className="flexrowsb margin-right-1 ib">
-                  <span> I hope the website is helpful to you. May you please give me your give me your feedback regarding this website? </span>
+                  <span> I hope the website is helpful to you. May you please give me your feedback regarding this website? </span>
                   {/* <span className="ib">What do you want to achieve with this website?</span> */}
                   {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}
                   <button type="button" className="button-2 ib margin-left-11" title="Your answser will be sent to me by gmail.com. Thank you in advance." onClick={getGmail}>Please click to send me your answer.</button>

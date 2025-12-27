@@ -148,6 +148,17 @@ const HamburgerMenu = (props) => {
           </span>
         </li>
 
+         <li>
+          <span
+            id="scrolldownid2"
+            className="ib padding-tb font-weight-bold cursor-pointer color-white-1 nounderline"
+            onClick={scrolldown}
+            title="scrolls to Add Link button"
+          >
+            add link
+          </span>
+        </li>
+
         <li></li>
         <li>
           <Link className="nounderline" to="/ideas">

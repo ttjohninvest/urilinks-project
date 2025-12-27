@@ -342,7 +342,7 @@ export const Header = (props) => {
                       id="scrolldownid2"
                       className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
                       onClick={scrolldown}
-                      title="Click to scroll down to the search section"
+                      title="Click to scroll down to the Add Link button"
                     >
                       add link
                     </div>

@@ -176,7 +176,7 @@ return ""
                                     title="Please use it for good. Bookmarks for internet pages, urls/links"
                                   >
                                     <Link
-                                      className="nounderline color-white-1 cursor-pointer"
+                                      className="nounderline cursor-pointer"
                                       to="/signup"
                                       title=""
                                     >
@@ -528,7 +528,7 @@ return ""
                                     title="Please use it for good. Bookmarks for internet pages, urls/links"
                                   >
                                     <Link
-                                      className="nounderline color-white-1 cursor-pointer"
+                                      className="nounderline cursor-pointer"
                                       to="/signup"
                                       title=""
                                     >

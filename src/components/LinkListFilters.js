@@ -1452,7 +1452,7 @@ export class LinkListFilters extends React.Component {
         
         <div
           id="before-before-link-summary-id"
-          className="bg-color-2 borderRadius4- flexrow2w- flexrowzv padding-top-111 padding-bottom-111"
+          className="bg-color-2 borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
         >
           <div className="flexrowzv">
             

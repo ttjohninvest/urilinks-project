@@ -170,6 +170,21 @@ return ""
     
                         {/* <img src={signature} /> */}
       {props.signup === false && <div className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center">Welcome to Example Page</div>}               
+      {props.signup === false && (
+                                  <div
+                                    className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
+                                    title="Please use it for good. Bookmarks for internet pages, urls/links"
+                                  >
+                                    <Link
+                                      className="nounderline color-white-1 cursor-pointer"
+                                      to="/signup"
+                                      title=""
+                                    >
+                                      login/enter
+                                    </Link>
+                                  </div>
+                                )}
+      
       <div className="flexrowzc2 text-size-11 text-color-green font-weigth-bold padding-all text-center">Happy New Year</div>
       {props.mappedDataShort.length > 0 ? (
         <div className="">
@@ -267,20 +282,7 @@ return ""
                 </div>
               )}
 
-               {props.signup.signup === false && (
-                                  <div
-                                    className="color-white-1 margin-right-1"
-                                    title="Please use it for good. Bookmarks for internet pages, urls/links"
-                                  >
-                                    <Link
-                                      className="nounderline color-white-1 cursor-pointer"
-                                      to="/signup"
-                                      title=""
-                                    >
-                                      login/enter
-                                    </Link>
-                                  </div>
-                                )}
+               
 
               <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
                 {/* <div>a</div> */}

@@ -441,7 +441,18 @@ get the new key from stripe and put it into SK_LIVE environment variable in verc
 ---
 
 domain names
+urllynks.com
 
+urllynk.com
+bought on cheapnames.com for 12.99 on 12/26/2025
+email: ttjohninvest@gmail.com
+username: ttjohninvest@gmail.com
+123.Y..2%..$%
+Well done! Time for the fun part.
+Confirmation #: 3978998350
+email from them: https://mail.google.com/mail/u/0/#inbox/FMfcgzQdzwChRJsjjhkwPtRbPkZmqjvf
+
+urlynks.com
 urltreat.com available
 struttinstuff.com expires 11/20/2026
 urilinks.com expires 04/26/2026
@@ -533,6 +544,20 @@ user pw: BU6mccOyhauoXaaq
 
 express server api to convert the bookmarks.html file into json so that I can process it
 in FetchBookmarks.js and convert all of the folder names into hashtags
+
+expenses for urilinks.com:
+cheapnames.com $12.99/year for urllynk.com due on 12/24/2026
+vercel.com
+heroku.com $7.00/month
+google.com firebase realtime database on blaze plan pay as I go, $5.00/month for 5gb
+cloudflare.com on free plan
+stripe.com.com they take commission
+github.com free
+visual studio code free
+100webspace.com $15/month for urilinks.com
+
+other expenses:
+struttinstuff.com $15/month due before November 21st 2026, not currently using
 
 vercel.com log, ttjohninvest@gmail.com
 on chrome select github.com, github.com account is ttjohninvest@gmail.com

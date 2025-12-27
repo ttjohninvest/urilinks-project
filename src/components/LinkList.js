@@ -162,7 +162,7 @@ export const LinkList = (props) => {
       
 
       
-        {props.links.length > 0 && <div
+        {/* {props.links.length > 0 && <div
         className={`${isMobile()?"margin-bottom-1 margin-top-11a1" :""}`}
         >
           <label className="inline-block__flex">
@@ -184,7 +184,7 @@ export const LinkList = (props) => {
               List Your Links
             </span>
           </label>
-        </div>}
+        </div>} */}
         {/*do not delete the following commented out code, List Links*/}
         {/* <div>
           <label className="inline-block__flex">

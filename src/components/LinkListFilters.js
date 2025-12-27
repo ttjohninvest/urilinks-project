@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 
 import database from "../firebase/firebase";
+import redarrow from "../assets/images/red-arrow.jpg";
 import * as firebase from "firebase";
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
@@ -180,7 +181,13 @@ return ""
                                       to="/signup"
                                       title=""
                                     >
-                                      login/enter
+                                        <img
+                                                            className=""
+                                                            src={redarrow}
+                                                            width="35"
+                                                            height="35"
+                                                            alt="Logo"
+                                                          /> login/enter
                                     </Link>
                                   </div>
                                 )}
@@ -532,7 +539,13 @@ return ""
                                       to="/signup"
                                       title=""
                                     >
-                                      login/enter
+                                       <img
+                                                            className=""
+                                                            src={redarrow}
+                                                            width="35"
+                                                            height="35"
+                                                            alt="Logo"
+                                                          /> login/enter
                                     </Link>
                                   </div>
                                 )}

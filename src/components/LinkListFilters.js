@@ -1452,9 +1452,9 @@ export class LinkListFilters extends React.Component {
         
         <div
           id="before-before-link-summary-id"
-          className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
+          className="bg-color-2 borderRadius4- flexrow2w- flexrowzv padding-top-111 padding-bottom-111"
         >
-          <div className="flexrowzv">
+          {/* <div className="flexrowzv"> */}
             
             
             
@@ -1484,7 +1484,7 @@ export class LinkListFilters extends React.Component {
           {/*3 see the code below at address 3 if you need to copy it here again */}
           
 
-          <div className={`${this.isMobile()?"margin-top-11z1" :""}`}>
+          <div className={`${this.isMobile()?"margin-top-11z1-" :""}`}>
              {/* <span className="color-white-1 margin-right-1 ib" title="pick an entry from the following drop down list to search through">Search through:</span> */}
             <select
               id="mode"
@@ -1520,12 +1520,12 @@ export class LinkListFilters extends React.Component {
             </select>
           </div>
           
-          <div>
+        
            {/*1 see the code below at address 1 if you need to paste it in again */}
-          </div>
+          
           {/*2 see the code below at address 2 if you need to paste it in again*/}
         </div>
-        </div>
+        {/* </div> */}
       </div>
     );
   }
@@ -1558,6 +1558,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);
 
 
 /* 1
+<div>
   <div>
  <span className="">
                    <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
@@ -1576,7 +1577,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);
                    <label for="dbdropdownid" />
                   </span>
              </div>
-             } 
+             }
+             </div> 
 */
 
 /* 2

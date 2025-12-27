@@ -541,15 +541,19 @@ return ""
                                       to="/signup"
                                       title=""
                                     >
-                                      <span className="ib flexrowz">
-                                        <img
+                                      <div className="flexrowz">
+                                        <div>
+ <img
                                                             className="ib"
                                                             src={redarrow}
                                                             width="100"
                                                             height="50"
                                                             alt="Logo"
-                                                          /> <span className="margin-top-n-z4- ib">login/enter</span>
-                                                          </span>
+                                                          />
+                                        </div>
+                                        
+                                                          <div className="margin-top-n-z4- ib">login/enter</div>
+                                                          </div>
                                     </Link>
                                   </div>
                                 )}

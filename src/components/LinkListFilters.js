@@ -1460,7 +1460,7 @@ export class LinkListFilters extends React.Component {
             
            <div className="margin-left-11">
              <input 
-               title="Please type in what you want to find."
+               title="Please type or paste in what you want to find. You may enter it full or partially like this le for let and it will find everything that starts with le."
                placeholder="type/paste what to find?"
                autofocus
                id="termid" 

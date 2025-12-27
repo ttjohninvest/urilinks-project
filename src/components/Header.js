@@ -98,6 +98,15 @@ export const Header = (props) => {
     !!document.querySelector("#before-before-link-summary-id") && document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "smooth",
     });
+     window.document.getElementById("termid").focus()
+  };
+
+   const scrolldown2 = () => {
+    //this scrolls the results into view, the first and subsequent result is shown
+    !!document.querySelector("#before-before-link-summary-id") && document.querySelector("#before-before-link-summary-id").scrollIntoView({
+      behavior: "smooth",
+    });
+    window.document.getElementById("addlinkid").focus()
   };
 
   const logoutit = () => {
@@ -341,7 +350,7 @@ export const Header = (props) => {
                     <div
                       id="scrolldownid2"
                       className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
-                      onClick={scrolldown}
+                      onClick={scrolldown2}
                       title="Click to scroll down to the Add Link button"
                     >
                       add link

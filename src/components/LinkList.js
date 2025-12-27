@@ -140,6 +140,7 @@ export const LinkList = (props) => {
             {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div> */}
 
             <Link
+              id="adlinkid"
               className="button-2 ib text-size-5 bg-color-1 pointereventsauto"
               to="/create"
             >

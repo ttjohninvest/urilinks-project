@@ -6,11 +6,21 @@ import { startDeleteAccount } from "../actions/email";
 import { startLogout } from "../actions/auth";
 
 const HamburgerMenu = (props) => {
+
   const scrolldown = () => {
     //this scrolls the results into view, the first and subsequent result is shown
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "smooth",
     });
+     window.document.getElementById("termid").focus()
+  };
+
+   const scrolldown2 = () => {
+    //this scrolls the results into view, the first and subsequent result is shown
+    document.querySelector("#before-before-link-summary-id").scrollIntoView({
+      behavior: "smooth",
+    });
+    window.document.getElementById("addlinkid").focus()
   };
 
   const logoutit = () => {
@@ -152,7 +162,7 @@ const HamburgerMenu = (props) => {
           <span
             id="scrolldownid2"
             className="ib padding-tb font-weight-bold cursor-pointer color-white-1 nounderline"
-            onClick={scrolldown}
+            onClick={scrolldown2}
             title="scrolls to Add Link button"
           >
             add link

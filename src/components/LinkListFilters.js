@@ -1490,7 +1490,7 @@ export class LinkListFilters extends React.Component {
           )} */}
 
           <div className={`${this.isMobile()?"margin-top-11z1" :""}`}>
-             <span className="color-white-1 margin-right-1 ib" title="pick an entry from the following drop down list to search through">Search through:</span>
+             {/* <span className="color-white-1 margin-right-1 ib" title="pick an entry from the following drop down list to search through">Search through:</span> */}
             <select
               id="mode"
               className="select outline-none"
@@ -1501,7 +1501,7 @@ export class LinkListFilters extends React.Component {
               title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
             >
               <option value="hashtag" title="search by hash tag">
-                Hash Tag
+                Click to Search through Hash Tags
               </option>
 
               <option
@@ -1509,11 +1509,11 @@ export class LinkListFilters extends React.Component {
                 value="description"
                 title="search through the uri/url link texts"
               >
-                Link Text
+                Click to Search through Link Texts
               </option>
 
               <option value="notetext" title="search through the notes">
-                Note Text
+                Click to Search through Note Texts
               </option>
               {/* <option
                 value="date"

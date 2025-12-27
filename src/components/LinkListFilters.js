@@ -181,13 +181,15 @@ return ""
                                       to="/signup"
                                       title=""
                                     >
+                                      <span className="ib flexrowz">
                                         <img
-                                                            className=""
+                                                            className="ib"
                                                             src={redarrow}
                                                             width="100"
                                                             height="50"
                                                             alt="Logo"
-                                                          /> <span className="margin-top-n-z4">login/enter</span>
+                                                          /> <span className="margin-top-n-z4- ib">login/enter</span>
+                                                          </span>
                                     </Link>
                                   </div>
                                 )}
@@ -539,13 +541,15 @@ return ""
                                       to="/signup"
                                       title=""
                                     >
-                                       <img
-                                                            className=""
+                                      <span className="ib flexrowz">
+                                        <img
+                                                            className="ib"
                                                             src={redarrow}
                                                             width="100"
                                                             height="50"
                                                             alt="Logo"
-                                                          /> <span className="margin-top-n-z4">login/enter</span>
+                                                          /> <span className="margin-top-n-z4- ib">login/enter</span>
+                                                          </span>
                                     </Link>
                                   </div>
                                 )}

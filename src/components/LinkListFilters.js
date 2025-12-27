@@ -1454,19 +1454,19 @@ export class LinkListFilters extends React.Component {
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
-          <div className="flexrowz">
+          <div className="flexrowzv">
             
             
             
-            <div className="margin-left-11">
-<input 
-          id="termid" 
-          className="text-input outline-none padding-left-11 borderRadius55" 
-          type="text" 
-          onChange={(e) => this.setState({ searchTerm: e.target.value })}
-          onKeyDown={this.handleKeyPress}
-          />
-            </div>
+           <div className="margin-left-11">
+             <input 
+               id="termid" 
+               className="text-input outline-none padding-left-11 borderRadius55" 
+               type="text" 
+               onChange={(e) => this.setState({ searchTerm: e.target.value })}
+               onKeyDown={this.handleKeyPress}
+             />
+           </div>
           
          
            <div className="margin-left-11">
@@ -1479,17 +1479,10 @@ export class LinkListFilters extends React.Component {
             title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
             >search</button>
           </div>
-          </div>
 
-          {/* {this.isMobile() === false && (
-            <div
-              className="cursor-pointer  margin-right-1 the-text-color"
-              onClick={this.scrollUp}
-              title="scroll to top"
-            >
-              (up)
-            </div>
-          )} */}
+          
+          {/*3 see the code below at address 3 if you need to copy it here again */}
+          
 
           <div className={`${this.isMobile()?"margin-top-11z1" :""}`}>
              {/* <span className="color-white-1 margin-right-1 ib" title="pick an entry from the following drop down list to search through">Search through:</span> */}
@@ -1503,7 +1496,9 @@ export class LinkListFilters extends React.Component {
               title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
             >
               
-              <option  selected value="none" title="establish mode then enter search term (partial is ok) then click Search">
+              <option  
+              //selected 
+                value="none" title="establish mode then enter search term (partial is ok) then click Search">
                 Click one of the following to Establish the Search Mode
               </option>
               <option value="hashtag" title="search by hash tag">
@@ -1511,6 +1506,7 @@ export class LinkListFilters extends React.Component {
               </option>
 
               <option
+                //selected
                 value="description"
                 title="search through the uri/url link texts"
               >
@@ -1520,78 +1516,15 @@ export class LinkListFilters extends React.Component {
               <option value="notetext" title="search through the notes">
                 Click to Search through Note Texts
               </option>
-              {/* <option
-                value="date"
-                title="search through the uri/url link texts with a date range"
-              >
-                Date
-              </option> */}
+              {/*4*/}
             </select>
           </div>
           
           <div>
-            {/* <div>
- <span className="">
-                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
-                   <label for="dbdropdownid" />
-                  </span>
-             </div> */}
-            {/* {this.props.signup.signup === true ?<div>
- <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
-                   <label for="dbdropdownid" />
-                  </span>
-             </div>:
-             <div>
- <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
-                   <label for="dbdropdownid" />
-                  </span>
-             </div>
-             } */}
+           {/*1 see the code below at address 1 if you need to paste it in again */}
           </div>
-          {/* {
-            //this.state.isToggled === true &&
-            true && (
-               
-              <div className={`cursor-pointer ${this.isMobile()?"margin-top-11z1" :""}`}>
-             
-                <select
-                  className="select cursor-pointer"
-                  onChange={this.onFolderChange}
-                  title="pick a folder name in this list to search for its bookmarks"
-                >
-                  <option key={""} value={""}>
-                    folder name
-                  </option>
-
-                  {this.state.foldernamesList.map((option, i) => (
-                    <option
-                      className="cursor-pointer"
-                      key={option.value}
-                      value={option.value}
-                      title={option.value}
-                    >
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )
-          } */}
-          {/* <div className="">
-            <DateRangePicker
-              className="zindex"
-              startDate={this.props.filters.startDate}
-              endDate={this.props.filters.endDate}
-              onDatesChange={this.onDatesChange}
-              focusedInput={this.state.calendarFocused}
-              onFocusChange={this.onFocusChange}
-              showClearDates={true}
-              numberOfMonths={1}
-              isOutsideRange={() => false}
-            />
-          </div> */}
+          {/*2 see the code below at address 2 if you need to paste it in again*/}
+        </div>
         </div>
       </div>
     );
@@ -1622,3 +1555,92 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);
+
+
+/* 1
+  <div>
+ <span className="">
+                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
+                   <label for="dbdropdownid" />
+                  </span>
+             </div> 
+             {this.props.signup.signup === true ?<div>
+ <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
+                   <label for="dbdropdownid" />
+                  </span>
+             </div>:
+             <div>
+ <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
+                   <label for="dbdropdownid" />
+                  </span>
+             </div>
+             } 
+*/
+
+/* 2
+ {
+            //this.state.isToggled === true &&
+            true && (
+               
+              <div className={`cursor-pointer ${this.isMobile()?"margin-top-11z1" :""}`}>
+             
+                <select
+                  className="select cursor-pointer"
+                  onChange={this.onFolderChange}
+                  title="pick a folder name in this list to search for its bookmarks"
+                >
+                  <option key={""} value={""}>
+                    folder name
+                  </option>
+
+                  {this.state.foldernamesList.map((option, i) => (
+                    <option
+                      className="cursor-pointer"
+                      key={option.value}
+                      value={option.value}
+                      title={option.value}
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )
+          } 
+           <div className="">
+            <DateRangePicker
+              className="zindex"
+              startDate={this.props.filters.startDate}
+              endDate={this.props.filters.endDate}
+              onDatesChange={this.onDatesChange}
+              focusedInput={this.state.calendarFocused}
+              onFocusChange={this.onFocusChange}
+              showClearDates={true}
+              numberOfMonths={1}
+              isOutsideRange={() => false}
+            />
+          </div> 
+*/
+
+/* 3
+ {this.isMobile() === false && (
+            <div
+              className="cursor-pointer  margin-right-1 the-text-color"
+              onClick={this.scrollUp}
+              title="scroll to top"
+            >
+              (up)
+            </div>
+          )}
+*/
+
+/* 4
+<option
+                value="date"
+                title="search through the uri/url link texts with a date range"
+              >
+                Date
+              </option>
+*/

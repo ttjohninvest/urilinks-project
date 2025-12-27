@@ -267,6 +267,21 @@ return ""
                 </div>
               )}
 
+               {props.signup.signup === false && (
+                                  <div
+                                    className="color-white-1 margin-right-1"
+                                    title="Please use it for good. Bookmarks for internet pages, urls/links"
+                                  >
+                                    <Link
+                                      className="nounderline color-white-1 cursor-pointer"
+                                      to="/signup"
+                                      title=""
+                                    >
+                                      login/enter
+                                    </Link>
+                                  </div>
+                                )}
+
               <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
                 {/* <div>a</div> */}
                 <div className="text-size-1">

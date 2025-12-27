@@ -1479,12 +1479,12 @@ export class LinkListFilters extends React.Component {
             title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
             >search</button>
           </div>
-          </div>
+          
           
           {/*3 see the code below at address 3 if you need to copy it here again */}
           
 
-          <div className={`${this.isMobile()?"margin-top-11z1-" :""}`}>
+          <div className={`${this.isMobile()?"margin-top-11z1" :"margin-left-11"}`}>
              {/* <span className="color-white-1 margin-right-1 ib" title="pick an entry from the following drop down list to search through">Search through:</span> */}
             <select
               id="mode"
@@ -1495,8 +1495,29 @@ export class LinkListFilters extends React.Component {
               onChange={this.onSortChange}
               title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
             >
+
+               <option  
+              //selected 
+                value="none" title="establish mode then enter search term (partial is ok) then click Search">
+                Search Modes
+              </option>
+              <option value="hashtag" title="search by hash tag">
+                Hash Tag
+              </option>
+
+              <option
+                //selected
+                value="description"
+                title="search through the uri/url link texts"
+              >
+                Link Text
+              </option>
+
+              <option value="notetext" title="search through the notes">
+                Note Text
+              </option>
               
-              <option  
+              {/* <option  
               //selected 
                 value="none" title="establish mode then enter search term (partial is ok) then click Search">
                 Click one of the following to Establish the Search Mode
@@ -1515,11 +1536,11 @@ export class LinkListFilters extends React.Component {
 
               <option value="notetext" title="search through the notes">
                 Click to Search through Note Texts
-              </option>
+              </option> */}
               {/*4*/}
             </select>
           </div>
-          
+          </div>
         
            {/*1 see the code below at address 1 if you need to paste it in again */}
           

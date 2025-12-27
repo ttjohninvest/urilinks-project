@@ -552,7 +552,7 @@ return ""
                                                           />
                                         </div>
                                         
-                                                          <div className="margin-top-1 ib">login/enter</div>
+                                                          <div className="margin-top-1c ib">login/enter</div>
                                                           </div>
                                     </Link>
                                   </div>

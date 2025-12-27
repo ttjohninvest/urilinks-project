@@ -282,9 +282,9 @@ export const Header = (props) => {
                     </div>
                   )}
                   
-                  <div>
+                  {/* <div>
                   <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="Click to see a  list of colleges and universities">colleges</a>
-                  </div>
+                  </div> */}
 
                    <div>
                     <Link className="header__title- nounderline" to="/use" >

@@ -196,7 +196,7 @@ export const startSetLinks = (uid) => {
          const longnamesnowhitespace = []
          const longnames = []
 
-         const ht="#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
+         const ht="#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
          let x1 = extractHashtags(ht);
          hashtags.push(...x1);
 

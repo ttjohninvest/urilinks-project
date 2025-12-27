@@ -337,6 +337,17 @@ export const Header = (props) => {
                     </div>
                   )}
 
+                   {!inviewport && (
+                    <div
+                      id="scrolldownid2"
+                      className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
+                      onClick={scrolldown}
+                      title="Click to scroll down to the search section"
+                    >
+                      add link
+                    </div>
+                  )}
+
                   <div>
                     <Link className="header__title- nounderline" to="/ideas">
                       <span

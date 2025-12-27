@@ -1454,7 +1454,7 @@ export class LinkListFilters extends React.Component {
           id="before-before-link-summary-id"
           className="bg-color-2 borderRadius4- flexrow2w- flexrowzv padding-top-111 padding-bottom-111"
         >
-          <div className="flexrowzv">
+          {/* <div className="flexrowzv"> */}
             
             
             
@@ -1469,7 +1469,7 @@ export class LinkListFilters extends React.Component {
            </div>
           
          
-           <div className="margin-left-11">
+           {/* <div className="margin-left-11">
             <button 
             className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
             //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
@@ -1481,12 +1481,11 @@ export class LinkListFilters extends React.Component {
           </div>
           
           
-          {/*3 see the code below at address 3 if you need to copy it here again */}
+         
           
 
           <div className={`${this.isMobile()?"margin-top-11z1" :"margin-left-11"}`}>
-             {/* <span className="color-white-1 margin-right-1 ib" title="pick an entry from the following drop down list to search through">Search through:</span> */}
-            <select
+               <select
               id="mode"
               className="select outline-none"
               value={this.state.sortBy}
@@ -1496,11 +1495,7 @@ export class LinkListFilters extends React.Component {
               title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
             >
 
-               {/* <option  
-              //selected 
-                value="none" title="establish mode then enter search term (partial is ok) then click Search">
-                Search Modes
-              </option> */}
+              
               <option value="hashtag" title="search by hash tag">
                 Hash Tag
               </option>
@@ -1517,36 +1512,14 @@ export class LinkListFilters extends React.Component {
                 Note Text
               </option>
               
-              {/* <option  
-              //selected 
-                value="none" title="establish mode then enter search term (partial is ok) then click Search">
-                Click one of the following to Establish the Search Mode
-              </option>
-              <option value="hashtag" title="search by hash tag">
-                Click to Search through Hash Tags
-              </option>
-
-              <option
-                //selected
-                value="description"
-                title="search through the uri/url link texts"
-              >
-                Click to Search through Link Texts
-              </option>
-
-              <option value="notetext" title="search through the notes">
-                Click to Search through Note Texts
-              </option> */}
-              {/*4*/}
+              
             </select>
-          </div>
-          </div>
+          </div> */}
+          {/* </div> */}
         
-           {/*1 see the code below at address 1 if you need to paste it in again */}
           
-          {/*2 see the code below at address 2 if you need to paste it in again*/}
         </div>
-        {/* </div> */}
+        
       </div>
     );
   }

@@ -1489,18 +1489,18 @@ export class LinkListFilters extends React.Component {
             <select
               id="mode"
               className="select outline-none"
-              //value={this.state.sortBy}
+              value={this.state.sortBy}
               //value={this.props.filters.sortBy}
 
               onChange={this.onSortChange}
               title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
             >
 
-               <option  
+               {/* <option  
               //selected 
                 value="none" title="establish mode then enter search term (partial is ok) then click Search">
                 Search Modes
-              </option>
+              </option> */}
               <option value="hashtag" title="search by hash tag">
                 Hash Tag
               </option>

@@ -1461,7 +1461,7 @@ export class LinkListFilters extends React.Component {
            <div className="margin-left-11">
              <input 
                title="Please type in what you want to find."
-               placeholder="term to find?"
+               placeholder="type what to find?"
                autofocus
                id="termid" 
                className="text-input responsive-input outline-none padding-left-11 borderRadius55" 

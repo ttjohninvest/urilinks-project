@@ -1496,7 +1496,7 @@ export class LinkListFilters extends React.Component {
             <select
               id="mode"
               className="select outline-none"
-              value={this.state.sortBy}
+              //value={this.state.sortBy}
               //value={this.props.filters.sortBy}
 
               onChange={this.onSortChange}

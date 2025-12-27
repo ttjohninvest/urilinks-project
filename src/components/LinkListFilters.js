@@ -184,10 +184,10 @@ return ""
                                         <img
                                                             className=""
                                                             src={redarrow}
-                                                            width="35"
-                                                            height="35"
+                                                            width="100"
+                                                            height="50"
                                                             alt="Logo"
-                                                          /> login/enter
+                                                          /> <span className="margin-top-n-z4">login/enter</span>
                                     </Link>
                                   </div>
                                 )}
@@ -542,10 +542,10 @@ return ""
                                        <img
                                                             className=""
                                                             src={redarrow}
-                                                            width="35"
-                                                            height="35"
+                                                            width="100"
+                                                            height="50"
                                                             alt="Logo"
-                                                          /> login/enter
+                                                          /> <span className="margin-top-n-z4">login/enter</span>
                                     </Link>
                                   </div>
                                 )}

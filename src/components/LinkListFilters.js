@@ -1123,7 +1123,7 @@ export class LinkListFilters extends React.Component {
 
   onSortChange = (e) => {
     if(e.target.value === "none") return
-    
+
     console.log("onSortChange=(), e.target.value=" + e.target.value);
     if (e.target.value === "date") {
       this.props.setTextFilter("");
@@ -1503,7 +1503,7 @@ export class LinkListFilters extends React.Component {
               title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
             >
               
-              <option value="none" title="establish mode then enter search term (partial is ok) then click Search">
+              <option  selected value="none" title="establish mode then enter search term (partial is ok) then click Search">
                 Click one of the following to Establish the Search Mode
               </option>
               <option value="hashtag" title="search by hash tag">
@@ -1511,7 +1511,6 @@ export class LinkListFilters extends React.Component {
               </option>
 
               <option
-                selected
                 value="description"
                 title="search through the uri/url link texts"
               >

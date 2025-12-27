@@ -549,7 +549,7 @@ return ""
                     https://urilinks.com/dashboard?signup=0&id={props.uid}
                   </a>
                   <button
-                    className="button-2 ib margin-right-1"
+                    className="button-2 ib margin-right-1 margin-left-11"
                     onClick={copyToClipboard}
                     title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                   >

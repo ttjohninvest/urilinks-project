@@ -192,7 +192,7 @@ return ""
                                                           />
                                         </div>
                                         
-                                                          <div className="margin-top-1c ib">login/enter</div>
+                                                          <div className="margin-top-1c ib">click this login/enter</div>
                                                           </div>
                                     </Link>
                                   </div>
@@ -556,7 +556,7 @@ return ""
                                                           />
                                         </div>
                                         
-                                                          <div className="margin-top-1c ib">login/enter</div>
+                                                          <div className="margin-top-1c ib">click this login/enter</div>
                                                           </div>
                                     </Link>
                                   </div>

@@ -27,7 +27,27 @@ export const Header = (props) => {
   const [photoURL, setPhotoURL] = useState("");
   const [inviewport, setInviewport] = useState(false);
   const [toggledUse, setToggledUse] = useState(false)
+  const [uid,setUid] = useState("")
   const ideas = () => {};
+
+  const isInMeArray = (uid) =>{
+    const mearray=["D9LSg6elood8Yc5gd5oDMp3JNAQ2",
+"WJGHkWycjKQxPK83Fi4zqx53bCl1",
+"W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
+"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+"RZOEMMu7Nwa5bQ51sf71FfDX3A93",
+"Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
+"7CzFYQjw2aUhHgCYjS2eDODrfVE2"]
+let val = false
+mearray.forEach((id)=>{
+if(uid===id)
+  val=true
+})
+
+return val
+
+
+  }
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -85,6 +105,7 @@ export const Header = (props) => {
       setDisplayNamedb(dn)
       setGoogleUserDatadb(gud)
       setEmaildb(user.email);
+      setUid(gud.uid)
     }
 
     // }
@@ -407,7 +428,7 @@ export const Header = (props) => {
                         to="/bookmarksmanager"
                       >
                         <span
-                          className="ib- color-white-1 cursor-pointer pointereventsauto"
+                          className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
                           title="uploads bookmarks using downloaded browser bookmarks file"
                         >
                           upload
@@ -421,7 +442,8 @@ export const Header = (props) => {
                         to="/bookmarksmanager"
                       >
                         <span
-                          className="ib- color-white-1 cursor-pointer pointereventsnone"
+                          //className="ib- color-white-1 cursor-pointer pointereventsnone"
+                          className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
                           title="uploads bookmarks using downloaded browser bookmarks file"
                         >
                           upload

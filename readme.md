@@ -93,8 +93,28 @@ ttjohnhappy
 urilinks.com user errors
 an error occurred: 10002222, this error means Delete Account did not work
 
-//
+========================
+firebase billing plan, expenses to use firebase storage (bookmark files upload expense) using the upload menu item, the bookmark file gets uploaded from firebase storage, no upload bookmarks file, no charge.
+     charges and they are separate:
+       firebase storage: to save and upload bookmark files, on spark plan storage does not work, on blaze plan works
+       realtime database: to store users and individual links per user, this works in spark plan
+
+current plan: spark plan, it does not let me upload bookmark files, so it does not allow filebase storage
+              blaze plan lets me upload bookmark files
+		          blaze plan when not turn off if the monthly budget is reached, charges will keep adding when bookmark files are uploaded so if a lot of people are uploading bookmark files, it will cost a lot of money.
+		          stop charges on blaze plan, give the class pointereventsnone to upload menu item or comment it out this is where the upload data charges are comming from.
+		   
+========================
 todo to do
+---
+allow only me to upload bookmark files, others cannot so i can be on the blaze plan, others may only include one link at a time without using firebase storage
+---
+change the code so I can use the upload link to control costs when I upload bookmarks files
+---
+separate charge needs to be included for the upload bookmarks menu item
+---
+
+
 make an email entry so students can give me feedback answering the question: what would you like to achieve with this website?
 
 Ocar De La Renta:

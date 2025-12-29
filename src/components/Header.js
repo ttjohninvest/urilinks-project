@@ -422,14 +422,15 @@ return val
                     </div>
                   )} */}
 
-                  {props.signup.signup === true ? (
+                  {props.signup.signup === true && isInMeArray(uid)===true ? (
                     <div className="pointereventsauto hide-">
                       <Link
                         className="header__title- nounderline pointereventsauto"
                         to="/bookmarksmanager"
                       >
                         <span
-                          className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
+                          className="ib- color-white-1 cursor-pointer pointereventsauto"
+                          //className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
                           title="uploads bookmarks using downloaded browser bookmarks file"
                         >
                           upload
@@ -443,8 +444,8 @@ return val
                         to="/bookmarksmanager"
                       >
                         <span
-                          //className="ib- color-white-1 cursor-pointer pointereventsnone"
-                          className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
+                          className="ib- color-white-1 cursor-pointer pointereventsnone"
+                          //className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
                           title="uploads bookmarks using downloaded browser bookmarks file"
                         >
                           upload

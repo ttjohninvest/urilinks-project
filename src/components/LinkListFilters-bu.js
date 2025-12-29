@@ -701,7 +701,7 @@ function ExpandableArray(props) {
             className="button-m button--link color-black"
             onClick={toggleExpanded}
           >
-            {expanded ? "Show Less Hashtags" : "Show More Hashtags"}
+            {expanded ? "Show Less" : "Show More"}
           </button>
         </div>
       ) : (

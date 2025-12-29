@@ -28,7 +28,8 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 //prompt: "select_account"
 googleAuthProvider.setCustomParameters({ //this fixed the google email selection dialog from not coming up
   //prompt: "consent"
-  prompt: "select_account"
+  prompt: "select_account",
+  continueUrl: 'https://urilinks.com'
 });
 export { storage, firebase, googleAuthProvider, database as default };
 

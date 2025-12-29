@@ -36,8 +36,9 @@ export const Header = (props) => {
 "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
 "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
 "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-"Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
-"7CzFYQjw2aUhHgCYjS2eDODrfVE2"]
+"Gj6I5M7qf8ODZCsFqC3zAuFTXgx2"//,
+//"7CzFYQjw2aUhHgCYjS2eDODrfVE2" //jmjohnmcgovern707@gmail.com
+]
 let val = false
 mearray.forEach((id)=>{
 if(uid===id)

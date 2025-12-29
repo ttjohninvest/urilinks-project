@@ -440,7 +440,7 @@ export const Header = (props) => {
                         to="/signup"
                         title=""
                       >
-                        click this login/enter
+                        click this login/enter to have your own free page
                       </Link>
                     </div>
                   )}

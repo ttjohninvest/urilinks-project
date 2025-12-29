@@ -438,6 +438,7 @@ return val
                       </Link>
                     </div>
                   ) : (
+                  // <div></div>
                     <div className="pointereventsnone margin-right-1 hide-">
                       <Link
                         className="header__title- nounderline pointereventsnone"

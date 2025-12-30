@@ -1133,8 +1133,10 @@ export class LinkListFilters extends React.Component {
     //   this.props.sortByDate();
     // } else 
       const val = window.document.getElementById("termid").value
+      
       if (e.target.value === "description") {
       //this.props.setTextFilter("");
+      window.localStorage.setItem("termid", val);
       this.props.setTextFilter(val);
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sortBy", "description");
@@ -1149,8 +1151,9 @@ export class LinkListFilters extends React.Component {
       if (val.trim() === "") {
        window.document.getElementById("termid").value = "#"
        this.props.setTextFilter("#");
-       //window.localStorage.setItem("termid", "#");
+       window.localStorage.setItem("termid", "#");
       } else {
+        window.localStorage.setItem("termid", val);
          this.props.setTextFilter(val);
       }
       if (this.myRef.current) this.myRef.current.focus();

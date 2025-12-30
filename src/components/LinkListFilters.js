@@ -1125,30 +1125,32 @@ export class LinkListFilters extends React.Component {
     if(e.target.value === "none") return
 
     console.log("onSortChange=(), e.target.value=" + e.target.value);
-    if (e.target.value === "date") {
-      this.props.setTextFilter("");
-      if (this.myRef.current) this.myRef.current.focus();
-      window.localStorage.setItem("sortBy", "date");
-      this.setState({ sortBy: "date" });
-      this.props.sortByDate();
-    } else if (e.target.value === "description") {
+    // if (e.target.value === "date") {
+    //   this.props.setTextFilter("");
+    //   if (this.myRef.current) this.myRef.current.focus();
+    //   window.localStorage.setItem("sortBy", "date");
+    //   this.setState({ sortBy: "date" });
+    //   this.props.sortByDate();
+    // } else 
+      
+      if (e.target.value === "description") {
       this.props.setTextFilter("");
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sortBy", "description");
       this.setState({ sortBy: "description" });
-      this.props.sortByDescription();
+      //this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
       if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("#");
       window.localStorage.setItem("sortBy", "hashtag");
       this.setState({ sortBy: "hashtag" });
-      this.props.sortByHashTag();
+      //this.props.sortByHashTag();
     } else if (e.target.value === "notetext") {
       if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("");
       window.localStorage.setItem("sortBy", "notetext");
       this.setState({ sortBy: "notetext" });
-      this.props.sortByNoteText();
+      //this.props.sortByNoteText();
     }
   };
   //

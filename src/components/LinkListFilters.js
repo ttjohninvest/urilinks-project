@@ -1146,9 +1146,16 @@ export class LinkListFilters extends React.Component {
         alert("The search term needs to be a hashtag.")
         return
       }
+      if (val.trim() === "") {
+       window.document.getElementById("termid").value = "#"
+       this.props.setTextFilter("#");
+       //window.localStorage.setItem("termid", "#");
+      } else {
+         this.props.setTextFilter(val);
+      }
       if (this.myRef.current) this.myRef.current.focus();
       //this.props.setTextFilter("#");
-      this.props.setTextFilter(val);
+      
       window.localStorage.setItem("sortBy", "hashtag");
       this.setState({ sortBy: "hashtag" });
       this.props.sortByHashTag();

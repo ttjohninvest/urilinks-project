@@ -1143,7 +1143,7 @@ export class LinkListFilters extends React.Component {
       this.setState({ sortBy: "description" });
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
-      if (val.trim().charAt(0) !== '#') {
+      if (val.trim() !== "" && val.trim().charAt(0) !== '#') {
 
         alert("The search term needs to be a hashtag.")
         return

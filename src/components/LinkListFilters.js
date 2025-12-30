@@ -1148,6 +1148,7 @@ export class LinkListFilters extends React.Component {
         alert("The search term needs to be a hashtag.")
         return
       }
+      
       if (val.trim() === "") {
        window.document.getElementById("termid").value = "#"
        this.props.setTextFilter("#");
@@ -1417,26 +1418,57 @@ export class LinkListFilters extends React.Component {
     let str = term.trim()
     term = str
     if (selectedValue === "hashtag") {
-      console.log("then search = () => {, selectedValue="+selectedValue)
-    const words = term.split(/\s+/); // Split by one or more whitespace characters
-     console.log("then search = () => {, words.length="+words.length)
-     console.log("then search = () => {, term.charAt(0) !== '#'="+term.charAt(0) !== '#')
-      if (term.charAt(0) !== '#') {
+
+   
+
+
+
+    //   console.log("then search = () => {, selectedValue="+selectedValue)
+    // const words = term.split(/\s+/); // Split by one or more whitespace characters
+    //  console.log("then search = () => {, words.length="+words.length)
+    //  console.log("then search = () => {, term.charAt(0) !== '#'="+term.charAt(0) !== '#')
+
+
+
+
+      // if (term.charAt(0) !== '#') {
+
+      //   alert("The search term needs to be a hashtag.")
+      //   return
+      // }
+
+      //  if (words.length !== 1) {
+
+      //   alert("The search term needs to be one word.")
+      //   return
+      // }
+
+      if (term !== "" && term.charAt(0) !== '#') {
 
         alert("The search term needs to be a hashtag.")
         return
       }
-      if (words.length !== 1) {
 
-        alert("The search term needs to be one word.")
-        return
+      if (term === "") {
+       window.document.getElementById("termid").value = "#"
+       this.props.setTextFilter("#");
+       window.localStorage.setItem("termid", "#");
+      } 
+      
+      else {
+        window.localStorage.setItem("termid", term);
+         this.props.setTextFilter(term);
       }
+
+
+     
+      
 
     } else {
       console.log("else search = () => {, selectedValue="+selectedValue)
     }
     //alert (term)
-    this.props.setTextFilter(term);
+    //this.props.setTextFilter(term);
    
   }
 

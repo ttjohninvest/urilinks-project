@@ -1138,19 +1138,19 @@ export class LinkListFilters extends React.Component {
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sortBy", "description");
       this.setState({ sortBy: "description" });
-      //this.props.sortByDescription();
+      this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
       if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("#");
       window.localStorage.setItem("sortBy", "hashtag");
       this.setState({ sortBy: "hashtag" });
-      //this.props.sortByHashTag();
+      this.props.sortByHashTag();
     } else if (e.target.value === "notetext") {
       if (this.myRef.current) this.myRef.current.focus();
       this.props.setTextFilter("");
       window.localStorage.setItem("sortBy", "notetext");
       this.setState({ sortBy: "notetext" });
-      //this.props.sortByNoteText();
+      this.props.sortByNoteText();
     }
   };
   //

@@ -137,6 +137,7 @@ store
 
  
 } else {
+  
   store.dispatch({
     type: "SET_SIGNUP",
     signup: { signup: true },

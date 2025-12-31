@@ -20,6 +20,7 @@ const config = {
 //   messagingSenderId: "754943560663",
 // };
 
+console.log("A ABOUT TO CALL firebase.initializeApp")
 const app = firebase.initializeApp(config);
 const storage = firebase.storage()
 

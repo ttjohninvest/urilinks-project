@@ -114,6 +114,55 @@ current plan: blaze plan, it does not let me upload bookmark files, so it does n
 		   
 ========================
 todo to do
+
+if possible on the signInWithPopup when I click to continue to urilinks-2f721.firebaseapp.com the user
+should see only john@urilinks.com
+---
+firebase storage bucket problems: 
+
+1) fix for access and fix for cors problem
+cors problem instructions: https://www.google.com/search?q=steps+to+fix+access+to+firebase+storage+bucket+has+been+blocked+by+cors+policy
+
+2) fix for access problem:
+firebase project urilinks-ft721 default storage bucket rules
+rules_version = '2';
+
+// Craft rules based on data in your Firestore database
+// allow write: if firestore.get(
+//    /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
+firebase project urilinks-f2721 storage bucket rules changed to the same as see-my-index-project-7
+rules_version = '2';
+
+// Craft rules based on data in your Firestore database
+// allow write: if firestore.get(
+//    /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+
+firebase project urilinks-ft721 storage buckets rule that givea all users access to the storage bucket
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write;
+    }
+  }
+}   
+---
+
 ---
 do the steps Konstantin gave me to get custom domain assigned to authDomain to appear after to continue to in signInWithPopup dialog
 ---
@@ -1223,3 +1272,23 @@ give me a list of travel planning ideas
 give me a list of places to travel to for a vacation
 price comparison to find lowest price and were
 compare mens underwear prices betwen macy's and nordstrom's
+
+=========================================================================================================
+urilinks-2f721 google cloud console setup links, next step custom domain
+https://console.cloud.google.com/auth/branding?project=urilinks-482605, currently showing on signInWithPopup urilinks-f2721, want to show just urilinks.com
+
+
+
+==========================================================================================================
+google cloud console email addresses
+john@urilinks.com (owner of urilinks.com) this role has been assigned in google cloud console
+johmcg64@gmail.com (owner of urilinks.com) this role has been assigned in google cloud console
+ttjohninvest@gmail.com
+
+================================================================================================================
+custom domain on signInWithPopup:, I followed these steps to get urilinks-f2721 on it
+//firebase project settings has the values to initial firebase 
+    //1) has see-my-index-project-7.firebaseapp.com/__/auth/handler which is assigned in google cloud console identity platform client 2.0, the second one that has the __/auth/handler 
+    //2) firebase.google.com has authorized domains list and one of the them is see-my-index-project-7.firebaseapp.com
+    //3) heroku.com has config env variable values to initialize firebase which includes authDomain that is set to see-my-index-project-7.firebaseapp.com and this is used in call to firebase.initializeApp(config) in firebase.js to initialize firebase with the config set the see-my-index-project-7 project then setlect gear icon and scroll to the bottom of the page for the config structure
+==================================================================================================================

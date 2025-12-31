@@ -3,7 +3,6 @@ import * as firebase from "firebase";
 import "firebase/storage"
 
 const config = {
-  appId: process.env.FIREBASE_APP_ID,
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.FIREBASE_DATABASE_URL,

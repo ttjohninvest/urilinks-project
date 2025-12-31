@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { startLogin } from "../actions/auth";
 //import penguinSayingHello from "../assets/gifs/penguin-saying-hello.gif";
 
-
 const LoginPage = ({ startLogin }) => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   //const [count, setCount] = useState(0);

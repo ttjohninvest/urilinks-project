@@ -32,7 +32,7 @@ export const Header = (props) => {
 
   const isInMeArray = (uid) =>{ //these email address are allowed to upload bookmark files
     const mearray=[
-      "zIK65gVpE9RPpHFZprjblMGJ2KB3",
+      "zIK65gVpE9RPpHFZprjblMGJ2KB3", 
       "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
 "WJGHkWycjKQxPK83Fi4zqx53bCl1",
 "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
@@ -424,7 +424,11 @@ return val
                     </div>
                   )} */}
 
-                  {props.signup.signup === true && isInMeArray(uid)===true ? (
+                  {props.signup.signup === true 
+                  
+                  //&& isInMeArray(uid)===true 
+                  
+                  ? (
                     <div className="pointereventsauto hide-">
                       <Link
                         className="header__title- nounderline pointereventsauto"

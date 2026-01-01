@@ -1419,29 +1419,6 @@ export class LinkListFilters extends React.Component {
     term = str
     if (selectedValue === "hashtag") {
 
-   
-
-
-
-    //   console.log("then search = () => {, selectedValue="+selectedValue)
-    // const words = term.split(/\s+/); // Split by one or more whitespace characters
-    //  console.log("then search = () => {, words.length="+words.length)
-    //  console.log("then search = () => {, term.charAt(0) !== '#'="+term.charAt(0) !== '#')
-
-
-
-
-      // if (term.charAt(0) !== '#') {
-
-      //   alert("The search term needs to be a hashtag.")
-      //   return
-      // }
-
-      //  if (words.length !== 1) {
-
-      //   alert("The search term needs to be one word.")
-      //   return
-      // }
 
       if (term !== "" && term.charAt(0) !== '#') {
 
@@ -1466,6 +1443,7 @@ export class LinkListFilters extends React.Component {
 
     } else {
       console.log("else search = () => {, selectedValue="+selectedValue)
+       this.props.setTextFilter(term);
     }
     //alert (term)
     //this.props.setTextFilter(term);

@@ -115,6 +115,10 @@ current plan: blaze plan, it does not let me upload bookmark files, so it does n
 ========================
 todo to do
 
+put in an oktouploadbookmarks variable in redux and also store the value in the database per user because
+ I have to limit costs with firebase storage because they are charging me for the number of bytes uploaded
+ from their storage database. I have to charge for this link eventually.
+
 if possible on the signInWithPopup when I click to continue to urilinks-2f721.firebaseapp.com the user
 should see only john@urilinks.com
 ---

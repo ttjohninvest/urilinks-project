@@ -426,7 +426,7 @@ return val
 
                   {props.signup.signup === true 
                   
-                  //&& isInMeArray(uid)===true 
+                  && isInMeArray(uid)===true 
                   
                   ? (
                     <div className="pointereventsauto hide-">

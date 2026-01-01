@@ -115,15 +115,15 @@ return val
       }
       setPhotoURL(purl);
       setPhotoURLdb(purl);
-       const ttbmok=true
       
-    
+      const ttbmok=true
       if(bmok===undefined)
-      setBmok(ttbmok);
-       else setBmok(bmok);
+        setBmok(ttbmok);
+      else setBmok(bmok);
       if(bmok===undefined)
-      setBmokdb(ttbmok);
+        setBmokdb(ttbmok);
       else setBmokdb(bmok);
+
       setDisplayNamedb(dn)
       setGoogleUserDatadb(gud)
       setEmaildb(user.email);
@@ -446,7 +446,7 @@ return val
                   {props.signup.signup === true 
                   
                   //&& isInMeArray(uid)===true 
-                  //&& bmok === true || bmok === undefined
+                  && bmok === true //if bmok is true the menu item upload will be active and able to upload bookmarks files
                   
                   ? (
                     <div className="pointereventsauto hide-">

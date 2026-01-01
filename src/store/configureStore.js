@@ -33,6 +33,7 @@ import subscriptionidReducer from '../reducers/subscriptionid';
 import spReducer from '../reducers/sp';
 import peopleReducer from '../reducers/people';
 import gudReducer from '../reducers/gud';
+import bmokReducer from '../reducers/bmok';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -70,6 +71,7 @@ export default () => {
       people: peopleReducer,
       gud: gudReducer,
       links3:links3Reducer,
+      bmok:bmokReducer,
     
     }),
     composeEnhancers(applyMiddleware(thunk))

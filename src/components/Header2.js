@@ -16,9 +16,6 @@ import { startDeleteAccount } from "../actions/email";
 import { setTheplan } from "../actions/theplan";
 import HamburgerMenu from "./HamburgerMenu";
 
-
-
-
 // const preStartLogout=()=>{
 //   setLinks([])
 //   startLogout()
@@ -32,11 +29,7 @@ export const Header2 = (props) => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  }
-
-
-
-
+  };
 
   const ideas = () => {};
 
@@ -88,8 +81,6 @@ export const Header2 = (props) => {
     // }
   }, []);
 
- 
-
   const scrolldown = () => {
     //this scrolls the results into view, the first and subsequent result is shown
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
@@ -106,64 +97,64 @@ export const Header2 = (props) => {
   };
 
   const cancelsubscription = () => {
-//alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
+    //alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
     try {
-if (confirm("Press Cancel to cancel the deletion of your account.") == true) {
-    //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
-    //if(true) {
-    if(props.theplan.plan.replace(/"/g, "")==="free") {
-        props.startDeleteAccount()
-                logoutit()
+      if (
+        confirm("Press Cancel to cancel the deletion of your account.") == true
+      ) {
+        //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
+        //if(true) {
+        if (props.theplan.plan.replace(/"/g, "") === "free") {
+          props.startDeleteAccount();
+          logoutit();
+        } else {
+          //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
+          const theemail = {
+            email: props.email,
+            customerId: props.theplan.customerId,
+            subscriptionId: props.theplan.subscriptionId,
+          };
 
-        
-    } else {
-      //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
-    const theemail = { "email": props.email, customerId:props.theplan.customerId, subscriptionId:props.theplan.subscriptionId };
-   
-    fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(theemail),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        
-        console.log("Success:");
-        
-        props.startDeleteAccount()
-                logoutit()
+          fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(theemail),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:");
 
-        
-      })
-      .catch((error) => {
-        console.log("cancel subscription error=" + error);
-      });
-    }
-    } else {
-      alert("Canceled the deletion of the account")
-      console.log("Canceled the Deletion of the Account");
-    }
-    } catch(error) {
-       alert("an error occurred: 10002222")
-       console.log("an error occurred: 10002222, error="+error)
+              props.startDeleteAccount();
+              logoutit();
+            })
+            .catch((error) => {
+              console.log("cancel subscription error=" + error);
+            });
+        }
+      } else {
+        alert("Canceled the deletion of the account");
+        console.log("Canceled the Deletion of the Account");
+      }
+    } catch (error) {
+      alert("an error occurred: 10002222");
+      console.log("an error occurred: 10002222, error=" + error);
     }
     //
-  
   };
 
-return (
-    <div  
-    //id="top" 
-    
-    className="App">
+  return (
+    <div
+      //id="top"
+
+      className="App"
+    >
       <header>
         <nav>
           <div>
-            
-          <div className="logo">
-             {/* <Link
+            <div className="logo">
+              {/* <Link
                               className="nounderline ib-"
                               to="/dashboard?signup=signup"
                               title="refresh"
@@ -176,21 +167,18 @@ return (
                                 alt="Logo"
                               />
                             </Link> */}
-                          
-            {/* <span>urilinks</span> */}
-            <header class="solid">
 
-             
-   <img
-                                className="rounded-full-1"
-                                src={logo}
-                                width="35"
-                                height="35"
-                                alt="Logo"
-                              />
-  <h3 className="color-white-1">urilinks</h3>
-</header>
-            
+              {/* <span>urilinks</span> */}
+              <header class="solid">
+                <img
+                  className="rounded-full-1"
+                  src={logo}
+                  width="35"
+                  height="35"
+                  alt="Logo"
+                />
+                <h3 className="color-white-1">urilinks</h3>
+              </header>
             </div>
           </div>
           <div className="hamburger-icon" onClick={toggleMenu}>
@@ -207,7 +195,7 @@ return (
         <p>Click the hamburger icon in the top corner to open the menu.</p>
       </main> */}
     </div>
-  )
+  );
 };
 
 const mapStateToProps = (state) => ({
@@ -216,7 +204,7 @@ const mapStateToProps = (state) => ({
   email: state.email,
   theplan: state.theplan,
   subscriptionId: state.subscriptionId,
-  customerId: state.customerId
+  customerId: state.customerId,
 });
 
 const mapDispatchToProps = (dispatch) => ({

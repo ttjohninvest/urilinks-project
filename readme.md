@@ -124,7 +124,7 @@ firebase storage bucket problems:
 cors problem instructions: https://www.google.com/search?q=steps+to+fix+access+to+firebase+storage+bucket+has+been+blocked+by+cors+policy
 
 2) fix for access problem:
-firebase project urilinks-ft721 default storage bucket rules
+firebase project urilinks-2f721 default storage bucket rules
 rules_version = '2';
 
 // Craft rules based on data in your Firestore database
@@ -1286,9 +1286,17 @@ johmcg64@gmail.com (owner of urilinks.com) this role has been assigned in google
 ttjohninvest@gmail.com
 
 ================================================================================================================
-custom domain on signInWithPopup:, I followed these steps to get urilinks-f2721 on it
+custom domain, getting it on signInWithPopup:, I followed these steps to get urilinks-f2721 on it, as one of the steps I had to choose web application, that gave me the two fields I needed, the second one was the one with /__/auth/handler in the uri which is the one that goes to the top of signInWithPopup.
+
 //firebase project settings has the values to initial firebase 
     //1) has see-my-index-project-7.firebaseapp.com/__/auth/handler which is assigned in google cloud console identity platform client 2.0, the second one that has the __/auth/handler 
     //2) firebase.google.com has authorized domains list and one of the them is see-my-index-project-7.firebaseapp.com
     //3) heroku.com has config env variable values to initialize firebase which includes authDomain that is set to see-my-index-project-7.firebaseapp.com and this is used in call to firebase.initializeApp(config) in firebase.js to initialize firebase with the config set the see-my-index-project-7 project then setlect gear icon and scroll to the bottom of the page for the config structure
+
+Do I need to prove to firebase that I own a domain name?
+ Yes, you need to prove to Firebase that you own a domain name when connecting a custom domain to Firebase Hosting.
+ This is done by adding a TXT record to your domain's DNS settings, which serves as proof of ownership.
+ The TXT record contains a unique verification value provided by Firebase, and it must be kept in your DNS settings to authorize Firebase to assign and renew SSL certificates for your site.
+ This verification step is mandatory, especially if you are using a domain registrar other than Google Domains.
+ Once the TXT record is added and propagated, you can verify ownership in the Firebase console.
 ==================================================================================================================

@@ -1,5 +1,5 @@
 const bmokReducerDefaultState = {
-  bmok:""
+  bmok:true
 };
 
 export default (state = bmokReducerDefaultState, action) => {

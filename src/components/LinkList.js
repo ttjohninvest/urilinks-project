@@ -413,7 +413,7 @@ const mapStateToProps = (state) => {
     linksTotal: selectLinksTotal(visibleLinks),
     linksTotal2: selectLinksTotal(visibleLinks2),
     signup: state.signup,
-    links: state.links, //selectLinks(state.links, state.filters),
+    links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),
   };
 };

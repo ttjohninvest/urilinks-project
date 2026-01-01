@@ -1124,7 +1124,7 @@ export class LinkListFilters extends React.Component {
   onSortChange = (e) => {
     if(e.target.value === "none") return
 
-    console.log("onSortChange=(), e.target.value=" + e.target.value);
+    console.log("onSortChange=(), sortBy=, e.target.value=" + e.target.value);
     // if (e.target.value === "date") {
     //   this.props.setTextFilter("");
     //   if (this.myRef.current) this.myRef.current.focus();
@@ -1132,11 +1132,11 @@ export class LinkListFilters extends React.Component {
     //   this.setState({ sortBy: "date" });
     //   this.props.sortByDate();
     // } else 
-      const val = window.document.getElementById("termid").value
-      
+      const val = window.document.getElementById("termid").value.trim()
+      console.log("onSortChange=(), search term=, val=" + val);
       if (e.target.value === "description") {
       //this.props.setTextFilter("");
-      window.localStorage.setItem("termid", val);
+      //window.localStorage.setItem("termid", val);
       this.props.setTextFilter(val);
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sortBy", "description");
@@ -1150,11 +1150,11 @@ export class LinkListFilters extends React.Component {
       }
       
       if (val.trim() === "") {
-       window.document.getElementById("termid").value = "#"
+       //window.document.getElementById("termid").value = "#"
        this.props.setTextFilter("#");
-       window.localStorage.setItem("termid", "#");
+       //window.localStorage.setItem("termid", "#");
       } else {
-        window.localStorage.setItem("termid", val);
+        //window.localStorage.setItem("termid", val);
          this.props.setTextFilter(val);
       }
       if (this.myRef.current) this.myRef.current.focus();

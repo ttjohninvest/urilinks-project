@@ -402,7 +402,7 @@ export const LinkList = (props) => {
     </div>
   );
 };
-//kjkfjaksl;fj
+//
 const mapStateToProps = (state) => {
   const visibleLinks = selectLinks(state.links, state.filters);
   const visibleLinks2 = selectLinks2(state.links2, state.filters);

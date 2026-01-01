@@ -12,7 +12,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   //console.log("links="+JSON.stringify(links))
   console.log("getFilteredLinksArray, text="+text)
   console.log("getFilteredLinksArray, TTTTTTTTTTTTTTTTTTTTTTTTTTTTTt, sortBy="+sortBy)
-  
+
+  sortBy="description"
 
   if(!!links===false) return []
   else

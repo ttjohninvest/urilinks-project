@@ -15,6 +15,7 @@ import signature from "../assets/images/signature.png";
 import XShareButton from "./XShareButton";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startAddPhotourl } from "../actions/photourl";
+import { startAddBmok } from "../actions/bmok";
 import { startAddDisplayname } from "../actions/displayname";
 import { startAddGoogleUserData } from "../actions/googleuserdata";
 import { startAddEmail } from "../actions/email";
@@ -28,6 +29,7 @@ export const Header = (props) => {
   const [inviewport, setInviewport] = useState(false);
   const [toggledUse, setToggledUse] = useState(false)
   const [uid,setUid] = useState("")
+  const [bmok,setBmok] = useState(false)
   const ideas = () => {};
 
   const isInMeArray = (uid) =>{ //these email address are allowed to upload bookmark files
@@ -60,6 +62,13 @@ return val
     ////put the photoURL in the database
     props.startAddPhotourl({ photourl: photoURL });
     console.log("Header.js, done calling startAddPhotourl");
+  };
+
+  const setBmokdb = (bmok) => {
+    console.log("setBmokdb, Header.js, bmok=" + bmok);
+    ////put the photoURL in the database
+    props.startAddBmok({ bmok: bmok });
+    console.log("Header.js, done calling startAddBmok");
   };
 
     const setDisplayNamedb = (displayName) => {
@@ -96,6 +105,7 @@ return val
       console.log("Header.js, user=" + JSON.stringify(user));
       console.log("Header, photoURL=" + user.photoURL);
       const purl = user.photoURL;
+      const bmok = user.bmok;
       const dn = user.displayName;
       const gud = {
         photourl:purl,
@@ -105,6 +115,8 @@ return val
       }
       setPhotoURL(purl);
       setPhotoURLdb(purl);
+      setBmok(bmok);
+      setBmokdb(bmok);
       setDisplayNamedb(dn)
       setGoogleUserDatadb(gud)
       setEmaildb(user.email);
@@ -426,7 +438,8 @@ return val
 
                   {props.signup.signup === true 
                   
-                  && isInMeArray(uid)===true 
+                  //&& isInMeArray(uid)===true 
+                  && bmok === true || bmok === undefined
                   
                   ? (
                     <div className="pointereventsauto hide-">
@@ -539,6 +552,7 @@ const mapDispatchToProps = (dispatch) => ({
   setLinks: (links) => dispatch(setLinks(links)),
   setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),
   startAddPhotourl: (photourl) => dispatch(startAddPhotourl(photourl)),
+  startAddBmok: (bmok) => dispatch(startAddBmok(bmok)),
   startAddDisplayname: (displayname) => dispatch(startAddDisplayname(displayname)),
   startAddGoogleUserData: (gud) => dispatch(startAddGoogleUserData(gud)),
   startAddEmail: (email) => dispatch(startAddEmail(email)),

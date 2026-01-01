@@ -439,7 +439,7 @@ return val
                   {props.signup.signup === true 
                   
                   //&& isInMeArray(uid)===true 
-                  && bmok === true || bmok === undefined
+                  //&& bmok === true || bmok === undefined
                   
                   ? (
                     <div className="pointereventsauto hide-">

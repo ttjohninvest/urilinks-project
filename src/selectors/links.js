@@ -20,7 +20,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   return links.filter((link) => {
 
    
-      text=''
+      //text=''
 
        let isTextInDescription, isTextInNote;
        let isTextInFoldername

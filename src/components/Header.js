@@ -67,7 +67,7 @@ return val
   const setBmokdb = (bmok) => {
     console.log("setBmokdb, Header.js, bmok=" + bmok);
     ////put the photoURL in the database
-    props.startAddBmok({ bmok: bmok });
+    //props.startAddBmok({ bmok: bmok });
     console.log("Header.js, done calling startAddBmok");
   };
 

@@ -446,7 +446,7 @@ return val
                   {props.signup.signup === true 
                   
                   //&& isInMeArray(uid)===true 
-                  && bmok === true //if bmok is true the menu item upload will be active and able to upload bookmarks files
+                  && bmok === true || bmok === undefined//if bmok is true the menu item upload will be active and able to upload bookmarks files
                   
                   ? (
                     <div className="pointereventsauto hide-">

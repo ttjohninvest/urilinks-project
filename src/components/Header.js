@@ -115,9 +115,9 @@ return val
       }
       setPhotoURL(purl);
       setPhotoURLdb(purl);
-       const ttbmok={
-      bmok:true
-    }
+       const ttbmok=true
+      
+    
       if(bmok===undefined)
       setBmok(ttbmok);
        else setBmok(bmok);

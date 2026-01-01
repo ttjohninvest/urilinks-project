@@ -302,7 +302,7 @@ export const LinkList = (props) => {
       ) : (
         <div></div>
       )}
-      {/* {selectedOption === "option4"?<div>People</div>:<div></div>} */}
+      {/**  {selectedOption === "option4"?<div>People</div>:<div></div>} */}
 
       {selectedOption === "option4" ? (
         <MyInfiniteScroll2 firstone={true} key={key} />

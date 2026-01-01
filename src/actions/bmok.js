@@ -121,7 +121,7 @@ export const startSetBmok = () => {
           bmok=snapshot.val();
         }
        
-        dispatch(setPhotourl(bmok))
+        dispatch(setBmok(bmok))
       
       }).catch(error=>console.log("error="+error));
   };

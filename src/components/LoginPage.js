@@ -90,7 +90,7 @@ const LoginPage = ({ startLogin }) => {
             </div>} */}
 
             <button
-              className="button"
+              className="ib button margin-left-11"
               onClick={startLogin}
             >
               enter button

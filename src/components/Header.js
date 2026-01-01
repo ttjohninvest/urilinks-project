@@ -67,11 +67,9 @@ return val
   const setBmokdb = (bmok) => {
     console.log("setBmokdb, Header.js, bmok=" + bmok);
     ////put the photoURL in the database
-    let ttbmok={
-      bmok:true
-    }
-    if(bmok===undefined)
-    props.startAddBmok({ bmok: ttbmok });
+  
+    
+    
     else props.startAddBmok({ bmok: bmok });
     console.log("Header.js, done calling startAddBmok");
   };
@@ -120,8 +118,15 @@ return val
       }
       setPhotoURL(purl);
       setPhotoURLdb(purl);
-      setBmok(bmok);
-      setBmokdb(bmok);
+       let ttbmok={
+      bmok:true
+    }
+      if(bmok===undefined)
+      setBmok(ttbmok);
+       else setBmok(bmok);
+      if(bmok===undefined)
+      setBmokdb(ttbmok);
+      else setBmokdb(bmok);
       setDisplayNamedb(dn)
       setGoogleUserDatadb(gud)
       setEmaildb(user.email);

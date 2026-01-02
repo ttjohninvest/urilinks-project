@@ -50,7 +50,10 @@ Use automated means to access or use the Service
 Intellectual property, the Service and its content are protected by intellectual property laws. You may not copy, reproduce, or distribute any part of the Service without permission.
 
 Disclaimer of Warranties
-The Service is provided "as is" and "as available." urilinks.com disclaims all warranties, express or implied.
+THIS CODE IS PROVIDED ON AN *AS IS* AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
 
 Limitation of Liability
 urilinks.com is not liable for any damages arising from your use of the Service.

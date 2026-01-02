@@ -818,8 +818,8 @@ return ""
                     {props.theplan.plan.replace(/"/g, "")} plan.
                   </span>
                 </div>
-                 <div className="margin-left-minus-1">
-                  <span>
+                 <div className="margin-left-minus-1 margin-top-18">
+                  <span className="font-weight-bold alignCenter">
                     index (click a button and see results)
                   </span>
                 </div>

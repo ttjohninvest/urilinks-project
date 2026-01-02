@@ -818,6 +818,11 @@ return ""
                     {props.theplan.plan.replace(/"/g, "")} plan.
                   </span>
                 </div>
+                 <div className="margin-left-minus-1">
+                  <span>
+                    index (click a button and see results)
+                  </span>
+                </div>
                 <div className="flexrow3c">
                   <Link className="header__title" to="/teirspayment3">
                     <span

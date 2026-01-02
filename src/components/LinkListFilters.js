@@ -819,8 +819,8 @@ return ""
                   </span>
                 </div>
                  <div className="margin-left-minus-1 margin-top-1 margin-left-11111">
-                  <span className="font-weight-bold uppercase">
-                    index (click a button and see results)
+                  <span className="font-weight-bold uppercase-">
+                    INDEX (click a button and see results)
                   </span>
                 </div>
                 <div className="flexrow3c">

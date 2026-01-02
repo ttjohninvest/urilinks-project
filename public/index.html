@@ -1,7 +1,44 @@
 <!DOCTYPE html>
 <html style="font-size: 16px">
   <head>
-    <!-- Google tag (gtag.js) -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/12.7.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/12.7.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/12.7.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+
+ <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-6R48XS6K6N"
@@ -20,54 +57,13 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <meta
-      name="description"
-      content="An easier way to do internet bookmarks with hash tags for nice results."
-    /> -->
-    <!-- <meta
-      name="description"
-      content="Free easy to use private internet urls organization tool for personal or business use; stores upto 500 urls and 200 hash tags in easy to read lists; You may get search results by hash tag, link text description, note text."
-    /> -->
+
+
     <meta
       name="keywords"
       content="wise people, wiser people, wise, good results, happy results, what makes you smile, organization, link in bio, link in bio tool,Google Keyword Planner Tool, SEMRush Keyword Magic Tool, affiliate niche, affiliate marketer niche, affiliate marketing niche, how to become an affiliate marketer,Flipkart affiliate, affiliate Flipkart, affiliate of Amazon, Amazon affiliate,Amazon affiliate program,affiliate, affiliate marketing, url affiliate market, link affiliate market, hashtag affiliate market, sales affiliate market,url affiliate marketer, link affiliate marketer, hashtag affiliate marketer, sales affiliate marketer, url organizer tool, grouped by hashtag, student, school, university, college, high school, internet bookmarks, bookmark, url organizer, url organization, link organizer, link organization, url hashtags, hashtag, hashtags, hash tags, hash tag, group by hashtag, group urls by hashtags, organize urls by hashtag category"
     />
-    <!-- <meta
-      name="description"
-      content="Safe, private, stores upto 500 urls and 200 hash tags, search results in link clickable lists. internet url organization tool"
-
-    /> -->
-
-    <!-- <meta
-      name="description"
-      content="It is like a cd case for urls, webpages. You may import your browser bookmarks. Bookmark folder names are converted in hashtags for easy finding during search. The capacity is set at 250 urls per privste account."
-    /> -->
-
-    <!-- <meta
-      name="description"
-      content="Build a web page with the links that you want on it. Web pages are catigorized by hashtag or foldername."
-    /> -->
-
-    
-
-
-    <!-- <meta
-      name="description"
-      content="I am marketing this to wiser/wiser people. The following needs to be said: You may use it for good or bad but I suggest you use it for good so you can have better results in life. This site is an alternative to linktree. This is a link-in-bio tool with the goal of giving you more user engagement to your consolidated content when a user clicks on it. It simply gives you a place to store from 1 to 1000 links (Free plan: 1-250, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans automattically billed yearly, delete account at anytime and your subscription is immediately cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares your content. The display looks pretty good. You may like to use it. I cannot promise that people will use your content though. Can you freely login?"
-    /> -->
-
-
-    <!-- <meta
-      name="description"
-      content="I am marketing this link-in-research tool as a study tool for students and professors of colleges and universities. Can you login? It is similar to a link-in-bio tool like linktree but this one is for  sharing and storing internet research."
-        /> -->
-
-         <!-- <meta
-      name="description"
-      content="Doing the very best that I can for the student. I share this site with students of colleges and universities. It is the original link-in-research tool similar to link-in-bio tool like linktree; however, it is in a format suitable for learning and research. It can store and organize 1-5000 links alphabetically. It gives you a sharable link to your consolidated internet research content. You may try your first 250 links for free or choose one of three yearly paid plans at $4.99, (stores up to 500 links) $9.99 (stores up to 750 links) or $14.99 (stores up to 1000 links). If you can't afford to pay and you need more storage space, Please let me know and I will give it to you for free. I am a college graduate from UNR. Please contact me, John, with any blessings, questions, comments or concerns at john@urilinks.com, 775 507 0098. Can you freely login/enter?"
-        /> -->
-
-         <meta
+      <meta
       name="description"
       content="You must be 13 years old or older to use this site (click legal menu item). Parental permission is not reqired if you are 18 years of age or older. This website may constribute to making your use of the internet more organized, interesting, professional, enteraining, fun and collaborative. It can store and organize up to 5,000 links alphabetically.It gives you a sharable link to your links list of internet urls. You may try your first 250 links for free or choose one of three paid plans: for $4.99/year it stores up to 1,250 links, for $9.99/year it stores up to 2,500 links or for $14.99 it stores up to 5,000 links.If you can't afford to pay and you need more storage space, please let me know and I will give it to you for free.I am a college graduate from UNR. Please contact me, John, with any blessings, questions, comments or concerns at john@urilinks.com, 775 507 0098. Can you freely login/enter?"
         />
@@ -81,9 +77,16 @@
       rel="stylesheet"
     />
   </head>
-
   <body>
-    <div id="app"></div>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
+
+ <div id="app"></div>
     <script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script>
 
     <script src="/dist/bundle.js"></script>
@@ -92,5 +95,46 @@
       <p>JavaScript is disabled. Please enable it to use the website.</p>
     </noscript>
     <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
   </body>
 </html>

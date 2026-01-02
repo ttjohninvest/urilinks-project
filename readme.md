@@ -122,6 +122,8 @@ put in an oktouploadbookmarks variable in redux and also store the value in the 
 if possible on the signInWithPopup when I click to continue to urilinks-2f721.firebaseapp.com the user
 should see only john@urilinks.com
 ---
+cors fix
+gcloud storage buckets update gs://urilinks-2f721.firebasestorage.app --cors-file=cors.json
 firebase storage bucket problems: 
 
 1) fix for access and fix for cors problem

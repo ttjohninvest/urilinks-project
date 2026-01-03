@@ -913,7 +913,7 @@ return ""
                   );
                 })}
 
-            {!expanded && <span className="text-size-5">...</span>}
+            {props.mappedDataShort.length > 50 && !expanded && <span className="text-size-5">...</span>}
           </div>
           {props.b === 1 && <button
             className="button-m button--link color-black"

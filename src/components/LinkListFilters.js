@@ -1138,6 +1138,7 @@ export class LinkListFilters extends React.Component {
     //   this.props.sortByDate();
     // } else 
       const val = window.document.getElementById("termid").value.trim()
+      window.localStorage.setItem("termid", val);
       console.log("onSortChange=(), search term=, val=" + val);
       if (e.target.value === "description") {
       //this.props.setTextFilter("");

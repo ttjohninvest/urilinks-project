@@ -407,12 +407,12 @@ function ExpandableArray(props) {
                   )}
 
                   {/* <span>What do you want to achieve with this website?</span> */}
-                  <span>
+                  {/* <span>
                     {" "}
                     I hope the website is helpful to you. May you please give me
                     your feedback regarding this website?{" "}
                   </span>
-                  {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}
+                
                   {isMobile() === true ? (
                     <button
                       type="button"
@@ -431,38 +431,38 @@ function ExpandableArray(props) {
                     >
                       Please click to send me your answer.
                     </button>
+                  )} */}
+
+                  {props.signup === false && (<div></div>
+                    // <div
+                    //   className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
+                    //   title=""
+                    // >
+                    //   <Link
+                    //     className="nounderline cursor-pointer"
+                    //     to="/signup"
+                    //     title=""
+                    //   >
+                    //     <div className="flexrowz">
+                    //       <div>
+                    //         <img
+                    //           className="ib"
+                    //           src={redarrow}
+                    //           width="100"
+                    //           height="50"
+                    //           alt="Logo"
+                    //         />
+                    //       </div>
+
+                    //       <div className="margin-top-1c ib">
+                    //         click this login/enter to have your own free page
+                    //       </div>
+                    //     </div>
+                    //   </Link>
+                    // </div>
                   )}
 
-                  {props.signup === false && (
-                    <div
-                      className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
-                      title="Please use it for good. Bookmarks for internet pages, urls/links"
-                    >
-                      <Link
-                        className="nounderline cursor-pointer"
-                        to="/signup"
-                        title=""
-                      >
-                        <div className="flexrowz">
-                          <div>
-                            <img
-                              className="ib"
-                              src={redarrow}
-                              width="100"
-                              height="50"
-                              alt="Logo"
-                            />
-                          </div>
-
-                          <div className="margin-top-1c ib">
-                            click this login/enter to have your own free page
-                          </div>
-                        </div>
-                      </Link>
-                    </div>
-                  )}
-
-                  <div className="padding-bottom-116">
+                  {/* <div className="padding-bottom-116">
                     <div className="margin-left-118">
                       <a
                         id="sendgmailid"
@@ -474,7 +474,7 @@ function ExpandableArray(props) {
                         {`FROM: ${gmail} TO: ${"john@urilinks.com"}.`}
                       </a>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               ) : (
                 
@@ -501,7 +501,7 @@ function ExpandableArray(props) {
                 </div>
               )}
 
-              {props.signup === true && (
+              {/* {props.signup === true && (
                 <div className="margin-top-118">
                   <div className="flexrowsb margin-right-1 ib">
                     <span>
@@ -509,9 +509,7 @@ function ExpandableArray(props) {
                       I hope the website is helpful to you. May you please give
                       me your feedback regarding this website?{" "}
                     </span>
-                    {/* <span className="ib">What do you want to achieve with this website?</span> */}
-                    {/* <input id="gmailid" placeholder="Put your gmail here." type="text" /> */}
-                    <button
+                     <button
                       type="button"
                       className="button-2 ib margin-left-11"
                       title="Your answser will be sent to me by gmail.com. Thank you in advance."
@@ -535,7 +533,7 @@ function ExpandableArray(props) {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
 
               <div className="text-size-1 textLeft hide">
                 <span className="text-size-9">😃 </span>Your friendly link to

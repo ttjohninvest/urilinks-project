@@ -172,11 +172,34 @@ function ExpandableArray(props) {
         </div>
       )}
       <div
-        className="flexrowzc2 text-size-12- text-size-13 text-color-green font-weigth-bold padding-all text-center uppercase"
+        className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase"
         title="This link is used in email or other places on the internet when a sharable link is accepted and when a person clicks on it he or she will see your links."
       >
-        sharable link will be provided on your page
+        a sharable link that shares your content will like this one will be provided on your page
       </div>
+
+ {props.signup === false &&  <div className="text-size-1 textLeft margin-top-1">
+                  <span className="hide">
+                    Thank you. Your sharable link is:
+                  </span>
+                  <a
+                    href="#"
+                    ref={textAreaRef}
+                    className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                  >
+                    https://urilinks.com/dashboard?signup=0&id={props.uid}
+                  </a>
+                  <button
+                    className="button-2 ib margin-right-1 margin-left-11"
+                    onClick={copyToClipboard}
+                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                  >
+                    Copy sharable link
+                  </button>
+                  {copySuccess}
+                </div>}
+
       {props.signup === false && (
         <div
           className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
@@ -319,27 +342,7 @@ function ExpandableArray(props) {
               </div>
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
 
-              {props.signup === false &&  <div className="text-size-1 textLeft margin-top-1">
-                  <span className="hide">
-                    Thank you. Your sharable link is:
-                  </span>
-                  <a
-                    href="#"
-                    ref={textAreaRef}
-                    className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                  >
-                    https://urilinks.com/dashboard?signup=0&id={props.uid}
-                  </a>
-                  <button
-                    className="button-2 ib margin-right-1 margin-left-11"
-                    onClick={copyToClipboard}
-                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                  >
-                    Copy sharable link
-                  </button>
-                  {copySuccess}
-                </div>}
+             
 
               {props.signup === false && true ? (
                 <div className="text-size-1 flexrowzc">

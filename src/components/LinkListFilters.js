@@ -171,6 +171,7 @@ return ""
     
                         {/* <img src={signature} /> */}
       {props.signup === false && <div className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center uppercase">Welcome to this example page which demonstates a virtual filing cabinet of internet pages</div>}               
+      <div className="flexrowzc2 text-size-12- text-size-13 text-color-green font-weigth-bold padding-all text-center uppercase" title="This link is used in email or other places on the internet when a sharable link is accepted and when a person clicks on it he or she will see your links.">sharable link will be provided on your page</div>
       {props.signup === false && (
                                   <div
                                     className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
@@ -198,7 +199,7 @@ return ""
                                   </div>
                                 )}
       
-      <div className="flexrowzc2 text-size-12- text-size-13 text-color-green font-weigth-bold padding-all text-center">Happy New Year</div>
+      {/* <div className="flexrowzc2 text-size-12- text-size-13 text-color-green font-weigth-bold padding-all text-center">Happy New Year</div> */}
       {props.mappedDataShort.length > 0 ? (
         <div className="">
           <div

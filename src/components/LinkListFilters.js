@@ -1357,14 +1357,14 @@ export class LinkListFilters extends React.Component {
       if ((this.props.filters.sortBy === "hashtag" || this.state.sortBy==="hashtag" ) && (term !== "" && term.charAt(0) === '#')) {
         window.document.getElementById("buttonid").click()
       }
-      else if (((this.props.filters.sortBy === "description" 
-        || this.state.sortBy === "description") 
-        || (this.props.filters.sortBy === "notetext" 
-        || this.state.sortBy === "notetext") ) 
-        && (term === "" || term.charAt(0) !== '#')) {
-          window.document.getElementById("buttonid").click()
-      }
-      
+      // else if (((this.props.filters.sortBy === "description" 
+      //   || this.state.sortBy === "description") 
+      //   || (this.props.filters.sortBy === "notetext" 
+      //   || this.state.sortBy === "notetext") ) 
+      //   && (term === "" || term.charAt(0) !== '#')) {
+      //     window.document.getElementById("buttonid").click()
+      // }
+      else window.document.getElementById("buttonid").click()
     }
   }
 

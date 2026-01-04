@@ -1364,7 +1364,9 @@ export class LinkListFilters extends React.Component {
       //   && (term === "" || term.charAt(0) !== '#')) {
       //     window.document.getElementById("buttonid").click()
       // }
-      else window.document.getElementById("buttonid").click()
+      else {
+        //window.document.getElementById("buttonid").click()
+      }
     }
   }
 

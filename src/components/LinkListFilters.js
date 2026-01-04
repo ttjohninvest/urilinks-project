@@ -175,10 +175,10 @@ function ExpandableArray(props) {
         className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase"
         title="This link is used in email or other places on the internet when a sharable link is accepted and when a person clicks on it he or she will see your links."
       >
-        a sharable link that shares your content will like this one will be provided on your page
+        a sharable link that shares your content like this one will be provided on your page
       </div>
 
- {props.signup === false &&  <div className="text-size-1 textLeft margin-top-1">
+ {props.signup === false &&  <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
                   <span className="hide">
                     Thank you. Your sharable link is:
                   </span>

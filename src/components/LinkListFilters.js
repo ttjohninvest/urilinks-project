@@ -1353,7 +1353,7 @@ export class LinkListFilters extends React.Component {
     if(term!=="")
     {
       window.document.getElementById("termid").value = term
-      //const sortBy = window.localStorage.getItem("sortBy");
+      const sortBy2 = window.localStorage.getItem("sortBy");
       if ((this.props.filters.sortBy === "hashtag" || this.state.sortBy==="hashtag" ) && (term !== "" && term.charAt(0) === '#')) {
         window.document.getElementById("buttonid").click()
       }
@@ -1365,7 +1365,18 @@ export class LinkListFilters extends React.Component {
       //     window.document.getElementById("buttonid").click()
       // }
       else {
-        //window.document.getElementById("buttonid").click()
+        if(sortBy2==="hashtag") {
+
+        } 
+        else if(sortBy2==="description" || sortBy2==="notetext") {
+const selectElement = document.getElementById('mode');
+const optionToClick = selectElement.querySelector('option[value="description"]');
+
+if (optionToClick) {
+    optionToClick.click();
+}
+        }
+        window.document.getElementById("buttonid").click()
       }
     }
   }

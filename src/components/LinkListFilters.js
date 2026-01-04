@@ -1007,7 +1007,7 @@ export class LinkListFilters extends React.Component {
     
       if (term.charAt(0) !== '#') {
 
-        alert("The search term needs to be a hashtag.")
+        alert("2 The search term needs to be a hashtag.")
         return
       }
       if (words.length !== 1) {
@@ -1284,6 +1284,7 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
 
     const sortBy = window.localStorage.getItem("sortBy");
+   
     console.log("componentDidMount, sortBy=" + sortBy);
 
     if (this.props.filters.sortBy === "date" || sortBy === "date") {
@@ -1351,7 +1352,14 @@ export class LinkListFilters extends React.Component {
     if(term!=="")
     {
       window.document.getElementById("termid").value = term
-      window.document.getElementById("buttonid").click()
+      //const sortBy = window.localStorage.getItem("sortBy");
+      if (this.props.filters.sortBy === "hashtag" && (term !== "" && term.charAt(0) === '#')) {
+        window.document.getElementById("buttonid").click()
+      }
+      else if ((this.props.filters.sortBy === "description" || this.props.filters.sortBy === "notetext" ) && (term === "" && term.charAt(0) !== '#')) {
+          window.document.getElementById("buttonid").click()
+      }
+      
     }
   }
 
@@ -1437,7 +1445,7 @@ export class LinkListFilters extends React.Component {
 
       if (term !== "" && term.charAt(0) !== '#') {
 
-        alert("The search term needs to be a hashtag.")
+        alert("1 The search term needs to be a hashtag.")
         return
       }
 

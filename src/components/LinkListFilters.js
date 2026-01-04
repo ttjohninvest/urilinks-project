@@ -1353,10 +1353,14 @@ export class LinkListFilters extends React.Component {
     {
       window.document.getElementById("termid").value = term
       //const sortBy = window.localStorage.getItem("sortBy");
-      if (this.props.filters.sortBy === "hashtag" && (term !== "" && term.charAt(0) === '#')) {
+      if ((this.props.filters.sortBy === "hashtag" || this.state.sortBy==="hashtag" ) && (term !== "" && term.charAt(0) === '#')) {
         window.document.getElementById("buttonid").click()
       }
-      else if ((this.props.filters.sortBy === "description" || this.props.filters.sortBy === "notetext" ) && (term === "" && term.charAt(0) !== '#')) {
+      else if (((this.props.filters.sortBy === "description" 
+        || this.state.sortBy === "description") 
+        || (this.props.filters.sortBy === "notetext" 
+        || this.state.sortBy === "notetext") ) 
+        && (term === "" && term.charAt(0) !== '#')) {
           window.document.getElementById("buttonid").click()
       }
       
@@ -1457,7 +1461,7 @@ export class LinkListFilters extends React.Component {
       
       else {
         window.localStorage.setItem("termid", term);
-         this.props.setTextFilter(term);
+        this.props.setTextFilter(term);
       }
 
 
@@ -1465,8 +1469,8 @@ export class LinkListFilters extends React.Component {
       
 
     } else {
-      window.localStorage.setItem("termid", term);
-      console.log("else search = () => {, selectedValue="+selectedValue)
+       window.localStorage.setItem("termid", term);
+       console.log("else search = () => {, selectedValue="+selectedValue)
        this.props.setTextFilter(term);
     }
     //alert (term)

@@ -721,13 +721,13 @@ function ExpandableArray(props) {
                     INDEX (click a button and see results)
                   </span>
                 </div>
-                {/* <div className="flexrow3c">
+                <div className="flexrow3c">
                   <Link className="header__title" to="/teirspayment3">
                     <span
                       className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
                       title="click for plan options"
                     >
-                      {
+                      {/* {
                         //isToggled &&
 
                         props.signup === true &&
@@ -735,10 +735,10 @@ function ExpandableArray(props) {
                             "premium" && <div className="margin-bottom-1">(click to change plan)</div>
                       }
 
-                      {isToggled && props.signup === false && <span></span>}
+                      {isToggled && props.signup === false && <span></span>} */}
                     </span>
                   </Link>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>

@@ -83,7 +83,7 @@ if (signup !== "signup") {
   //D9LSg6elood8Yc5gd5oDMp3JNAQ2
   //store.dispatch(login("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"));
   //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
-
+  window.localStorage.setItem("notloggedin","1");
   console.log("2 signup !== 'signup' signup=" + signup);
   console.log("2 signup !== 'signup' id=" + id);
 
@@ -151,7 +151,7 @@ store
       //and available to Delete Account if they are needed
       //store.dispatch(getCustomerId(user.uid)); //this should initialize the redux variable customerId
       //store.dispatch(getSubscriptionId(user.uid));//this should initialize the redux variable subscriptionId
-
+      window.localStorage.setItem("notloggedin","0");
 // store //for People menu item
 //     .dispatch(startSetPeople())
 //     .then(() => {

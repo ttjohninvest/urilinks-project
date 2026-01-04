@@ -1226,6 +1226,10 @@ export class LinkListFilters extends React.Component {
   // }
 
   componentDidMount() {
+    const notloggedin = window.localStorage.getItem("notloggedin");
+    if(notloggedin==="1") { //1 means true
+      window.document.getElementById("termid").value=""
+    }
     //props.history.push("/");
     //window.location.reload()
     //this.setState({ foldernamesList: [] });

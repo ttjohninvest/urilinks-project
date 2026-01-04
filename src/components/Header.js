@@ -485,29 +485,52 @@ return val
                     </div>
                   )}
 
-                   {props.signup.signup === false && (<div className="flexrowz">
-                   <div>
-                 <img
-                   className="ib"
-                   src={redarrow}
-                   width="100"
-                  height="50"
-                   alt="Logo"
-                 />
-               </div>
-                <div
-                      className="color-white-1 margin-right-1"
-                      title="Please use it for good. Bookmarks for internet pages, urls/links"
-                    >
-                      <Link
-                        className="nounderline color-white-1 cursor-pointer"
-                        to="/signup"
-                        title=""
-                      >
-                        click this login/enter to have your own free page
-                      </Link>
-                    </div>
-                   </div>
+                   {props.signup.signup === false && (
+                     <div
+                              className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
+                              title="Please use it for good. Bookmarks for internet pages, urls/links"
+                            >
+                              <Link className="nounderline cursor-pointer" to="/signup" title="">
+                                <div className="flexrowz">
+                                  <div>
+                                    <img
+                                      className="ib"
+                                      src={redarrow}
+                                      width="100"
+                                      height="50"
+                                      alt="Logo"
+                                    />
+                                  </div>
+                    
+                                  <div className="margin-top-1c ib">
+                                    click this login/enter to have your own free page
+                                  </div>
+                                </div>
+                              </Link>
+                            </div>
+              //       <div className="flexrowz">
+              //      <div>
+              //    <img
+              //      className="ib"
+              //      src={redarrow}
+              //      width="100"
+              //     height="50"
+              //      alt="Logo"
+              //    />
+              //  </div>
+              //   <div
+              //         className="color-white-1 margin-right-1"
+              //         title="Please use it for good. Bookmarks for internet pages, urls/links"
+              //       >
+              //         <Link
+              //           className="nounderline color-white-1 cursor-pointer"
+              //           to="/signup"
+              //           title=""
+              //         >
+              //           click this login/enter to have your own free page
+              //         </Link>
+              //       </div>
+              //      </div>
                    
                   )}
 

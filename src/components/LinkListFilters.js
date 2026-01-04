@@ -716,12 +716,12 @@ function ExpandableArray(props) {
                     {props.theplan.plan.replace(/"/g, "")} plan.
                   </span>
                 </div>
-                <div className="margin-left-minus-1 margin-top-18 margin-left-11111- margin-bottom--n-11111">
+                <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">
                   <span className="font-weight-bold uppercase-">
                     INDEX (click a button and see results)
                   </span>
                 </div>
-                <div className="flexrow3c">
+                {/* <div className="flexrow3c">
                   <Link className="header__title" to="/teirspayment3">
                     <span
                       className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
@@ -738,7 +738,7 @@ function ExpandableArray(props) {
                       {isToggled && props.signup === false && <span></span>}
                     </span>
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

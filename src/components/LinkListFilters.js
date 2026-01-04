@@ -1151,8 +1151,11 @@ export class LinkListFilters extends React.Component {
     } else if (e.target.value === "hashtag") {
       if (val.trim() !== "" && val.trim().charAt(0) !== '#') {
 
-        alert("The search term needs to be a hashtag.")
-        return
+        // alert("The search term needs to be a hashtag.")
+        // return
+         window.document.getElementById("termid").value = "#"
+       this.props.setTextFilter("#");
+       window.localStorage.setItem("termid", "#");
       }
       
       if (val.trim() === "") {
@@ -1462,11 +1465,14 @@ export class LinkListFilters extends React.Component {
     if (selectedValue === "hashtag") {
 
 
-      // if (term !== "" && term.charAt(0) !== '#') {
+      if (term !== "" && term.charAt(0) !== '#') {
 
-      //   alert("1 The search term needs to be a hashtag.")
-      //   return
-      // }
+        //alert("1 The search term needs to be a hashtag.")
+        //return
+       window.document.getElementById("termid").value = "#"
+       this.props.setTextFilter("#");
+       window.localStorage.setItem("termid", "#");
+      }
 
       if (term === "") {
        window.document.getElementById("termid").value = "#"

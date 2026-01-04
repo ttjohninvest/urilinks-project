@@ -981,8 +981,8 @@ export class LinkListFilters extends React.Component {
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
       foldernamesList: [],
       isToggled: false,
-      searchTerm: '',
-      dv:window.localStorage.getItem("notloggedin")==="1"?"":window.localStorage.getItem("termid")
+      searchTerm: ''//,
+      //dv:window.localStorage.getItem("notloggedin")==="1"?"":window.localStorage.getItem("termid")
     };
 
     this.setit = this.setit.bind(this);
@@ -1227,11 +1227,11 @@ export class LinkListFilters extends React.Component {
   // }
 
   componentDidMount() {
-    const notloggedin = window.localStorage.getItem("notloggedin");
-    if(notloggedin==="1") { //1 means true
-      window.document.getElementById("termid").value=""
-      this.setState({ dv: "" })
-    }
+    // const notloggedin = window.localStorage.getItem("notloggedin");
+    // if(notloggedin==="1") { //1 means true
+    //   window.document.getElementById("termid").value=""
+    //   this.setState({ dv: "" })
+    // }
     //props.history.push("/");
     //window.location.reload()
     //this.setState({ foldernamesList: [] });
@@ -1541,7 +1541,7 @@ export class LinkListFilters extends React.Component {
                id="termid" 
                className="text-input responsive-input outline-none padding-left-11 borderRadius55" 
                type="text" 
-               value={this.state.dv}
+               //value={this.state.dv}
                onChange={(e) => this.setState({ searchTerm: e.target.value })}
                onKeyDown={this.handleKeyPress}
              />

@@ -982,7 +982,7 @@ export class LinkListFilters extends React.Component {
       foldernamesList: [],
       isToggled: false,
       searchTerm: '',
-      dv:window.document.localStorage.getItem("notloggedin")==="1"?"":window.localStorage.getItem("termid")
+      dv:window.localStorage.getItem("notloggedin")==="1"?"":window.localStorage.getItem("termid")
     };
 
     this.setit = this.setit.bind(this);

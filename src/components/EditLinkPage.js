@@ -8,8 +8,8 @@ export class EditLinkPage extends React.Component {
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
     
-    this.props.history.push("/");
-    //window.location.reload()
+    //this.props.history.push("/");
+ 
     window.location.href="https://urilinks.com?signup=signup"
   };
   //onRemove = (value,event) => {

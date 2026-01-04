@@ -54,7 +54,8 @@
     "style-loader": "0.18.2",
     "uuid": "3.1.0",
     "validator": "8.0.0",
-    "webpack": "3.1.0"
+    "webpack": "3.1.0",
+    "webpack-terser-plugin":"5.3.16"
   },
   "devDependencies": {
     "cross-env": "5.0.5",

@@ -1361,10 +1361,14 @@ export class LinkListFilters extends React.Component {
       if ((this.props.filters.sortBy === "hashtag" || this.state.sortBy==="hashtag" ) && (term !== "" && term.charAt(0) === '#')) {
         window.document.getElementById("buttonid").click()
       }
-      else if (((this.props.filters.sortBy === "description" 
-        || this.state.sortBy === "description") 
-        || (this.props.filters.sortBy === "notetext" 
-        || this.state.sortBy === "notetext") ) 
+      // else if (((this.props.filters.sortBy === "description" 
+      //   || this.state.sortBy === "description") 
+      //   || (this.props.filters.sortBy === "notetext" 
+      //   || this.state.sortBy === "notetext") ) 
+      //   || (term === "" || term.charAt(0) !== '#')) {
+      //     window.document.getElementById("buttonid").click()
+      // }
+       else if ( (sortBy === "description" || sortBy === "notetext") 
         || (term === "" || term.charAt(0) !== '#')) {
           window.document.getElementById("buttonid").click()
       }
@@ -1442,14 +1446,15 @@ export class LinkListFilters extends React.Component {
 
   search = () => {
     console.log("search")
+    const sortBy = window.localStorage.getItem("sortBy");
      var select = document.getElementById('mode');
     var selectedValue = select.options[select.selectedIndex].value;
     console.log("search = () => {, selectedValue="+selectedValue)
     let term = window.document.getElementById("termid").value
     let str = term.trim()
-
+    
     term = str
-    if (selectedValue === "hashtag") {
+    if (selectedValue === "hashtag" && sortBy === "hashtag") {
 
 
       if (term !== "" && term.charAt(0) !== '#') {

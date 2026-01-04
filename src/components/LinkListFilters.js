@@ -348,7 +348,7 @@ function ExpandableArray(props) {
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
                     <div className="padding-right-11 padding-bottom-118">
-                      You may add and find links on your own virtual filing cabinet page. Will you freely login/enter?
+                      You may add, find and share your own links in your virtual filing cabinet page. Will you freely login/enter?
                       {/* You must be 13 years old or older to use this site (click
                       legal menu item). Parental permission is not reqired if
                       you are 18 years of age or older. This website may

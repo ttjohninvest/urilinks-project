@@ -1465,6 +1465,7 @@ export class LinkListFilters extends React.Component {
       
 
     } else {
+      window.localStorage.setItem("termid", term);
       console.log("else search = () => {, selectedValue="+selectedValue)
        this.props.setTextFilter(term);
     }

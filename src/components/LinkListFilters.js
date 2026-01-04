@@ -1346,14 +1346,16 @@ export class LinkListFilters extends React.Component {
     // this.setState({
     //   newspaper: !!this.state.newspaper === "true" ? true : false,
     // });
-  }
 
-  componentWillUnmount() {
     const term = window.localStorage.getItem("termid")
     if(term!=="")
     {
       window.document.getElementById("termid").value = term
     }
+  }
+
+  componentWillUnmount() {
+    
   }
 
   componentDidUpdate(prevProps) {}

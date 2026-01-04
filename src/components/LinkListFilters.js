@@ -171,12 +171,12 @@ function ExpandableArray(props) {
           cabinet of internet pages
         </div>
       )}
-      <div
+      {props.signup === false && <div
         className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase"
         title="This link is used in email or other places on the internet where a sharable link is accepted and when a person clicks on it he or she will see your links."
       >
         also, a sharable link that shares your content like this one will be provided on your page
-      </div>
+      </div>}
 
  {props.signup === false &&  <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
                   <span className="hide">
@@ -334,17 +334,17 @@ function ExpandableArray(props) {
                   {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
                 </div>
               </div>
-              <div className="text-size-1 textLeft hide">
+              {/* <div className="text-size-1 textLeft hide">
                 Welcome
                 {!theuser
                   ? "to this example links page. What makes you smile?"
                   : ", what makes you smile?"}
-              </div>
+              </div> */}
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
 
              
 
-              {props.signup === false && true ? (
+              {props.signup === false ? (
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
                     <div className="padding-right-11 padding-bottom-118">
@@ -477,7 +477,7 @@ function ExpandableArray(props) {
                   </div> */}
                 </div>
               ) : (
-                
+                <div>
                 <div className="text-size-1 textLeft margin-top-1">
                   <span className="hide">
                     Thank you. Your sharable link is:
@@ -498,6 +498,10 @@ function ExpandableArray(props) {
                     Copy sharable link
                   </button>
                   {copySuccess}
+                </div>
+ <div>
+                      You may add, find and share links on your own virtual filing cabinet page. Will you freely login/enter?
+                    </div>
                 </div>
               )}
 

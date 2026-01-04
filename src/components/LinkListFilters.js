@@ -369,7 +369,7 @@ function ExpandableArray(props) {
                     </div>
                   ) : (
                     <div>
-                      You may add and find links on your own virtual filing cabinet page. Will you freely login/enter?
+                      You may add, find and share links on your own virtual filing cabinet page. Will you freely login/enter?
                     </div>
                     // <div>
                     //   You must be 13 years old or older to use this site (click

@@ -1348,7 +1348,13 @@ export class LinkListFilters extends React.Component {
     // });
   }
 
-  componentWillUnmount() {}
+  componentWillUnmount() {
+    const term = window.localStorage.getItem("termid")
+    if(term!=="")
+    {
+      window.document.getElementById("termid").value = term
+    }
+  }
 
   componentDidUpdate(prevProps) {}
 
@@ -1421,6 +1427,7 @@ export class LinkListFilters extends React.Component {
     console.log("search = () => {, selectedValue="+selectedValue)
     let term = window.document.getElementById("termid").value
     let str = term.trim()
+
     term = str
     if (selectedValue === "hashtag") {
 

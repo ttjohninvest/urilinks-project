@@ -1349,10 +1349,10 @@ export class LinkListFilters extends React.Component {
     // this.setState({
     //   newspaper: !!this.state.newspaper === "true" ? true : false,
     // });
-    
+
     // console.log("AAAA window.localStorage.getItem('sortBy')="+window.localStorage.getItem("sortBy"))
-    // console.log("BBBB this.props.filters.sortBy="+this.props.filters.sortBy)
-    console.log("CCCC this.state.sortBy="+this.state.sortBy)
+    console.log("BBBB this.props.filters.sortBy="+this.props.filters.sortBy)
+    //console.log("CCCC this.state.sortBy="+this.state.sortBy)
     const term = window.localStorage.getItem("termid")
     if(term!=="")
     {

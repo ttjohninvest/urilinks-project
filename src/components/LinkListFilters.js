@@ -1361,7 +1361,7 @@ export class LinkListFilters extends React.Component {
         || this.state.sortBy === "description") 
         || (this.props.filters.sortBy === "notetext" 
         || this.state.sortBy === "notetext") ) 
-        && (term === "" && term.charAt(0) !== '#')) {
+        && (term === "" || term.charAt(0) !== '#')) {
           window.document.getElementById("buttonid").click()
       }
       

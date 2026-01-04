@@ -200,29 +200,29 @@ function ExpandableArray(props) {
                   {copySuccess}
                 </div>}
 
-      {props.signup === false && (
-        <div
-          className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
-          title="Please use it for good. Bookmarks for internet pages, urls/links"
-        >
-          <Link className="nounderline cursor-pointer" to="/signup" title="">
-            <div className="flexrowz">
-              <div>
-                <img
-                  className="ib"
-                  src={redarrow}
-                  width="100"
-                  height="50"
-                  alt="Logo"
-                />
-              </div>
+      {props.signup === false && (<div></div>
+        // <div
+        //   className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
+        //   title="Please use it for good. Bookmarks for internet pages, urls/links"
+        // >
+        //   <Link className="nounderline cursor-pointer" to="/signup" title="">
+        //     <div className="flexrowz">
+        //       <div>
+        //         <img
+        //           className="ib"
+        //           src={redarrow}
+        //           width="100"
+        //           height="50"
+        //           alt="Logo"
+        //         />
+        //       </div>
 
-              <div className="margin-top-1c ib">
-                click this login/enter to have your own free page
-              </div>
-            </div>
-          </Link>
-        </div>
+        //       <div className="margin-top-1c ib">
+        //         click this login/enter to have your own free page
+        //       </div>
+        //     </div>
+        //   </Link>
+        // </div>
       )}
 
       {/* <div className="flexrowzc2 text-size-12- text-size-13 text-color-green font-weigth-bold padding-all text-center">Happy New Year</div> */}

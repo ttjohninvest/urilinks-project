@@ -173,7 +173,7 @@ function ExpandableArray(props) {
       )}
       <div
         className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase"
-        title="This link is used in email or other places on the internet when a sharable link is accepted and when a person clicks on it he or she will see your links."
+        title="This link is used in email or other places on the internet where a sharable link is accepted and when a person clicks on it he or she will see your links."
       >
         a sharable link that shares your content like this one will be provided on your page
       </div>
@@ -348,7 +348,8 @@ function ExpandableArray(props) {
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
                     <div className="padding-right-11 padding-bottom-118">
-                      You must be 13 years old or older to use this site (click
+                      You may add and find links on your own virtual filing cabinet page. Will you freely login/enter?
+                      {/* You must be 13 years old or older to use this site (click
                       legal menu item). Parental permission is not reqired if
                       you are 18 years of age or older. This website may
                       contribute to making your use of the internet more
@@ -364,42 +365,45 @@ function ExpandableArray(props) {
                       you for free. I am a college graduate from UNR. Please
                       contact me, John, with any blessings, questions, comments
                       or concerns at john@urilinks.com, 775 507 0098. I invite
-                      you to freely login/enter?
+                      you to freely login/enter? */}
                     </div>
                   ) : (
                     <div>
-                      You must be 13 years old or older to use this site (click
-                      legal menu item). <br />
-                      Parental permission is not reqired if you are 18 years of
-                      age or older.
-                      <br />
-                      This website may contribute to making your use of the
-                      internet more organized,
-                      <br />
-                      interesting, professional, enteraining, fun and
-                      collaborative. It can store and organize up to 5,000 links
-                      alphabetically.
-                      <br />
-                      It gives you a sharable link to your links list of
-                      internet urls. You may
-                      <br />
-                      try your first 250 links for free or choose one of three
-                      paid plans: for $4.99/year it stores up to 1,250 links,
-                      <br />
-                      for $9.99/year it stores up to 2,500 links or for
-                      $14.99/year it stores up to 5,000 links.
-                      <br />
-                      If you can't afford to pay and you need more storage
-                      space, please let me know and I will give it to you for
-                      free.
-                      <br />
-                      I am a college graduate from UNR. Please contact me, John,
-                      with any blessings, questions, <br />
-                      comments or concerns at john@urilinks.com, 775 507 0098. I
-                      invite you to freely login/enter?
-                      <br />
-                      <br />
+                      You may add and find links on your own virtual filing cabinet page. Will you freely login/enter?
                     </div>
+                    // <div>
+                    //   You must be 13 years old or older to use this site (click
+                    //   legal menu item). <br />
+                    //   Parental permission is not reqired if you are 18 years of
+                    //   age or older.
+                    //   <br />
+                    //   This website may contribute to making your use of the
+                    //   internet more organized,
+                    //   <br />
+                    //   interesting, professional, enteraining, fun and
+                    //   collaborative. It can store and organize up to 5,000 links
+                    //   alphabetically.
+                    //   <br />
+                    //   It gives you a sharable link to your links list of
+                    //   internet urls. You may
+                    //   <br />
+                    //   try your first 250 links for free or choose one of three
+                    //   paid plans: for $4.99/year it stores up to 1,250 links,
+                    //   <br />
+                    //   for $9.99/year it stores up to 2,500 links or for
+                    //   $14.99/year it stores up to 5,000 links.
+                    //   <br />
+                    //   If you can't afford to pay and you need more storage
+                    //   space, please let me know and I will give it to you for
+                    //   free.
+                    //   <br />
+                    //   I am a college graduate from UNR. Please contact me, John,
+                    //   with any blessings, questions, <br />
+                    //   comments or concerns at john@urilinks.com, 775 507 0098. I
+                    //   invite you to freely login/enter?
+                    //   <br />
+                    //   <br />
+                    // </div>
                   )}
 
                   {/* <span>What do you want to achieve with this website?</span> */}

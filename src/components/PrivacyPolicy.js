@@ -46,12 +46,14 @@ Use the sharable link I give you to your content to share anywhere links are acc
 7. COPPA COMPLIANCE
 I comply with COPPA and don't knowingly collect info from kids under 13. If I find out, we'll delete it and terminate the account.
 
-8. CHANGES TO THIS POLICY
+8. CHANGES TO THIS PRIVACY POLICY
 I may update this policy. I'll notify you of significant changes on my website.
 
+9. AGREEMENT TO THIS PRIVACY POLICY
+Creating an account on this website means you agree to this privacy policy.
+
 9. CONTACT ME
-Questions or concerns? Contact me at john@urilinks.com.
-By using my website, you agree to this policy.
+Questions or concerns? Contact me, John, at john@urilinks.com.
 `}</pre>
 </div>
 )

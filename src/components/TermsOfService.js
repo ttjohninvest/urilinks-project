@@ -64,6 +64,9 @@ These Terms are governed by the laws of Nevada/United States.
 Changes to Terms
 I may modify these Terms at any time. Your continued use of the Service constitutes your acceptance of any changes.
 
+Agreement to Terms
+Creating an account on this website means you agree to these terms of service.
+
 Contact Us
 If you have questions or concerns, contact me, John, at john@urilinks.com.
 `}

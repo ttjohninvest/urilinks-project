@@ -1007,7 +1007,7 @@ export class LinkListFilters extends React.Component {
     
       if (term.charAt(0) !== '#') {
 
-        alert("2 The search term needs to be a hashtag.")
+        alert("The search term needs to be a hashtag.")
         return
       }
       if (words.length !== 1) {
@@ -1151,11 +1151,9 @@ export class LinkListFilters extends React.Component {
     } else if (e.target.value === "hashtag") {
       if (val.trim() !== "" && val.trim().charAt(0) !== '#') {
 
-        // alert("The search term needs to be a hashtag.")
-        // return
-         window.document.getElementById("termid").value = "#"
-       this.props.setTextFilter("#");
-       window.localStorage.setItem("termid", "#");
+        alert("The search term needs to be a hashtag.")
+        return
+        
       }
       
       if (val.trim() === "") {
@@ -1360,28 +1358,14 @@ export class LinkListFilters extends React.Component {
       if ((this.props.filters.sortBy === "hashtag" || this.state.sortBy==="hashtag" ) && (term !== "" && term.charAt(0) === '#')) {
         window.document.getElementById("buttonid").click()
       }
-      // else if (((this.props.filters.sortBy === "description" 
-      //   || this.state.sortBy === "description") 
-      //   || (this.props.filters.sortBy === "notetext" 
-      //   || this.state.sortBy === "notetext") ) 
-      //   && (term === "" || term.charAt(0) !== '#')) {
-      //     window.document.getElementById("buttonid").click()
-      // }
-      else window.document.getElementById("buttonid").click()
-//       else {
-//         if(sortBy2==="hashtag") {
-
-//         } 
-//         else if(sortBy2==="description" || sortBy2==="notetext") {
-// const selectElement = document.getElementById('mode');
-// const optionToClick = selectElement.querySelector('option[value="description"]');
-
-// if (optionToClick) {
-//     optionToClick.click();
-// }
-//         }
-//         window.document.getElementById("buttonid").click()
-//       }
+      else if (((this.props.filters.sortBy === "description" 
+        || this.state.sortBy === "description") 
+        || (this.props.filters.sortBy === "notetext" 
+        || this.state.sortBy === "notetext") ) 
+        && (term === "" || term.charAt(0) !== '#')) {
+          window.document.getElementById("buttonid").click()
+      }
+      
     }
   }
 
@@ -1467,11 +1451,9 @@ export class LinkListFilters extends React.Component {
 
       if (term !== "" && term.charAt(0) !== '#') {
 
-        //alert("1 The search term needs to be a hashtag.")
-        //return
-       window.document.getElementById("termid").value = "#"
-       this.props.setTextFilter("#");
-       window.localStorage.setItem("termid", "#");
+        alert("The search term needs to be a hashtag.")
+        return
+       
       }
 
       if (term === "") {

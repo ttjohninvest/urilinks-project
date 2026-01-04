@@ -1350,8 +1350,8 @@ export class LinkListFilters extends React.Component {
     //   newspaper: !!this.state.newspaper === "true" ? true : false,
     // });
 
-    // console.log("AAAA window.localStorage.getItem('sortBy')="+window.localStorage.getItem("sortBy"))
-    console.log("BBBB this.props.filters.sortBy="+this.props.filters.sortBy)
+     console.log("AAAA window.localStorage.getItem('sortBy')="+window.localStorage.getItem("sortBy"))
+    //console.log("BBBB this.props.filters.sortBy="+this.props.filters.sortBy)
     //console.log("CCCC this.state.sortBy="+this.state.sortBy)
     const term = window.localStorage.getItem("termid")
     if(term!=="")
@@ -1365,7 +1365,7 @@ export class LinkListFilters extends React.Component {
         || this.state.sortBy === "description") 
         || (this.props.filters.sortBy === "notetext" 
         || this.state.sortBy === "notetext") ) 
-        && (term === "" || term.charAt(0) !== '#')) {
+        || (term === "" || term.charAt(0) !== '#')) {
           window.document.getElementById("buttonid").click()
       }
       

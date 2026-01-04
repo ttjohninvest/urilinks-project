@@ -1351,6 +1351,7 @@ export class LinkListFilters extends React.Component {
     if(term!=="")
     {
       window.document.getElementById("termid").value = term
+      window.document.getElementById("buttonid").click()
     }
   }
 
@@ -1521,7 +1522,7 @@ export class LinkListFilters extends React.Component {
            className={`${this.isMobile()?"margin-right-1" :"margin-left-11"}`}
            >
             <button 
-            
+            id="buttonid"
             className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
             //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
             

@@ -732,7 +732,7 @@ function ExpandableArray(props) {
 
                         props.signup === true &&
                           props.theplan.plan.replace(/"/g, "") !==
-                            "premium" && <span className="ib margin-bottom-1">(click to change plan)</span>
+                            "premium" && <div className="margin-bottom-1">(click to change plan)</div>
                       }
 
                       {isToggled && props.signup === false && <span></span>}

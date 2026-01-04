@@ -1364,20 +1364,21 @@ export class LinkListFilters extends React.Component {
       //   && (term === "" || term.charAt(0) !== '#')) {
       //     window.document.getElementById("buttonid").click()
       // }
-      else {
-        if(sortBy2==="hashtag") {
+      else window.document.getElementById("buttonid").click()
+//       else {
+//         if(sortBy2==="hashtag") {
 
-        } 
-        else if(sortBy2==="description" || sortBy2==="notetext") {
-const selectElement = document.getElementById('mode');
-const optionToClick = selectElement.querySelector('option[value="description"]');
+//         } 
+//         else if(sortBy2==="description" || sortBy2==="notetext") {
+// const selectElement = document.getElementById('mode');
+// const optionToClick = selectElement.querySelector('option[value="description"]');
 
-if (optionToClick) {
-    optionToClick.click();
-}
-        }
-        window.document.getElementById("buttonid").click()
-      }
+// if (optionToClick) {
+//     optionToClick.click();
+// }
+//         }
+//         window.document.getElementById("buttonid").click()
+//       }
     }
   }
 
@@ -1461,11 +1462,11 @@ if (optionToClick) {
     if (selectedValue === "hashtag") {
 
 
-      if (term !== "" && term.charAt(0) !== '#') {
+      // if (term !== "" && term.charAt(0) !== '#') {
 
-        alert("1 The search term needs to be a hashtag.")
-        return
-      }
+      //   alert("1 The search term needs to be a hashtag.")
+      //   return
+      // }
 
       if (term === "") {
        window.document.getElementById("termid").value = "#"

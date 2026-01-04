@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
+import redarrow from "../assets/images/red-arrow.jpg";
+ 
 //import logo from "../assets/images/logo-l.png";
 //import logo from "../assets/images/logo-orange-urilinks.png";
 import logo from "../assets/images/logo-orange-u.png";
@@ -483,8 +485,17 @@ return val
                     </div>
                   )}
 
-                   {props.signup.signup === false && (
-                    <div
+                   {props.signup.signup === false && (<div className="flexrowz">
+                   <div>
+                 <img
+                   className="ib"
+                   src={redarrow}
+                   width="100"
+                  height="50"
+                   alt="Logo"
+                 />
+               </div>
+                <div
                       className="color-white-1 margin-right-1"
                       title="Please use it for good. Bookmarks for internet pages, urls/links"
                     >
@@ -496,6 +507,8 @@ return val
                         click this login/enter to have your own free page
                       </Link>
                     </div>
+                   </div>
+                   
                   )}
 
                   {props.signup.signup === true ? (

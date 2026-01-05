@@ -1211,10 +1211,12 @@ export class LinkListFilters extends React.Component {
 const term = window.localStorage.getItem("termid");
     if (term !== "") {
       window.document.getElementById("termid").value = term;
-      const sortBy2 = window.localStorage.getItem("sortBy");
+      const sortBy2 = "" //window.localStorage.getItem("sortBy");
       if (
-        (this.props.filters.sortBy === "hashtag" ||
-          this.state.sortBy === "hashtag") &&
+        (1
+          //this.props.filters.sortBy === "hashtag" ||
+          //this.state.sortBy === "hashtag"
+          ) &&
         term !== "" &&
         term.charAt(0) === "#"
       ) {
@@ -1222,11 +1224,11 @@ const term = window.localStorage.getItem("termid");
          //!!window.document.querySelector("#buttonid")===true && window.document.querySelector("#buttonid").click();
       }
      
-      else if (
-        sortBy === "description" ||
-        sortBy === "notetext" ||
-        term === "" ||
-        term.charAt(0) !== "#"
+      else if (0
+        //sortBy === "description" ||
+        //sortBy === "notetext" ||
+        //term === "" ||
+        //term.charAt(0) !== "#"
       ) {
          //window.document.getElementById("buttonid").click();
         //!!window.document.querySelector("#buttonid")===true && window.document.querySelector("#buttonid").click();

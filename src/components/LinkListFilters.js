@@ -1115,6 +1115,12 @@ export class LinkListFilters extends React.Component {
     });
   }
 
+   isMobile() {
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  }
+
   
 
   componentDidMount() {
@@ -1201,28 +1207,31 @@ export class LinkListFilters extends React.Component {
         window.localStorage.getItem("sortBy")
     );
    
-    // const term = window.localStorage.getItem("termid");
-    // if (term !== "") {
-    //   window.document.getElementById("termid").value = term;
-    //   const sortBy2 = window.localStorage.getItem("sortBy");
-    //   if (
-    //     (this.props.filters.sortBy === "hashtag" ||
-    //       this.state.sortBy === "hashtag") &&
-    //     term !== "" &&
-    //     term.charAt(0) === "#"
-    //   ) {
-    //     window.document.getElementById("buttonid").click();
-    //   }
+    if(this.isMobile() === false) {
+const term = window.localStorage.getItem("termid");
+    if (term !== "") {
+      window.document.getElementById("termid").value = term;
+      const sortBy2 = window.localStorage.getItem("sortBy");
+      if (
+        (this.props.filters.sortBy === "hashtag" ||
+          this.state.sortBy === "hashtag") &&
+        term !== "" &&
+        term.charAt(0) === "#"
+      ) {
+        window.document.getElementById("buttonid").click();
+      }
      
-    //   else if (
-    //     sortBy === "description" ||
-    //     sortBy === "notetext" ||
-    //     term === "" ||
-    //     term.charAt(0) !== "#"
-    //   ) {
-    //     window.document.getElementById("buttonid").click();
-    //   }
-    //}
+      else if (
+        sortBy === "description" ||
+        sortBy === "notetext" ||
+        term === "" ||
+        term.charAt(0) !== "#"
+      ) {
+        window.document.getElementById("buttonid").click();
+      }
+    }
+    }
+    
   }
 
   componentWillUnmount() {}
@@ -1269,11 +1278,7 @@ export class LinkListFilters extends React.Component {
    
   };
 
-  isMobile() {
-    const regex =
-      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-    return regex.test(navigator.userAgent);
-  }
+ 
 
  
 
@@ -1319,7 +1324,7 @@ export class LinkListFilters extends React.Component {
               this.state.mappedDataLong.length > 1)) && (
             <div>
               {/* <div className="cursor-pointer" onClick={this.scrollDown}>scroll down past the hashtags</div> */}
-              {/* <ExpandableArray
+              <ExpandableArray
                 mappedDataShort={this.props.hashtags}
                 mappedDataLong={this.state.mappedDataLong}
                 maxLength={this.SHORT_HASHTAG_LENGTH}
@@ -1333,7 +1338,7 @@ export class LinkListFilters extends React.Component {
                 uid={this.props.auth.uid}
                 links={this.props.links}
                 b={this.props.b}
-              /> */}
+              />
             </div>
           )}
         </div>

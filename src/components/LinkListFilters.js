@@ -171,7 +171,7 @@ function ExpandableArray(props) {
           cabinet of internet pages
         </div>
       )}
-      {props.signup === false && (
+      {/* {props.signup === false && (
         <div
           className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase- lowercase margin-left-1"
           title="This link is used in email or other places on the internet where a sharable link is accepted and when a person clicks on it he or she will see your links."
@@ -179,7 +179,7 @@ function ExpandableArray(props) {
           also, a sharable link that shares your content like this one will be
           provided on your page
         </div>
-      )}
+      )} */}
 
       {props.signup === false && (
         <div className="flexrowzc2 text-size-1 textLeft margin-top-1">

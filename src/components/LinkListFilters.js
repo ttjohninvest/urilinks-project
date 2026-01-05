@@ -350,7 +350,7 @@ function ExpandableArray(props) {
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
                     <div className="padding-right-11 padding-bottom-118 lowercase">
-                      clear values: Each link has note for data entry; link notes, link texts
+                      clear values: Each link you save has note for data entry; link notes, link texts
                       and hastags are all searchable; each link is sharable to facebook.com,
                       linkedin.com and x.com; facebook.com messenger is available for realtime communication;
                       each link in the results is clickable for direct access to web page. freely login.
@@ -374,7 +374,7 @@ function ExpandableArray(props) {
                     </div>
                   ) : (
                     <div>
-                      clear values: Each link has note for data entry; link notes, link texts<br />
+                      clear values: Each link you save has note for data entry; link notes, link texts<br />
                       and hastags are all searchable; each link is sharable to facebook.com,<br />
                       linkedin.com and x.com; facebook.com messenger is available for realtime communication<br />;
                       each link in the results is clickable for direct access to web page. freely login.<br /><br />

@@ -357,7 +357,7 @@ function ExpandableArray(props) {
               </div> */}
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
               {props.signup=== true && 
-              <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center">
+              <div className="flexro2c  padding-all text-center">
                       Clear values: Each link you save has note for data entry; link notes, link texts
                       and hastags are all searchable; a sharable link for pasting to instagram profile
                       or other platorm for others is provided; also, each link is sharable to facebook.com,

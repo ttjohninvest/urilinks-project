@@ -337,7 +337,7 @@ function ExpandableArray(props) {
                       ? theuser.displayName
                         ? theuser.displayName
                         : "error getting display name"
-                      : theuser.displayName}
+                      : !!theuser.displayName===true?theuser.displayName:"(gmail name)"}
                   </div>
                   {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
                 </div>

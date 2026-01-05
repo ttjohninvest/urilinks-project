@@ -5,11 +5,9 @@ import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 
 import database from "../firebase/firebase";
-import redarrow from "../assets/images/red-arrow.jpg";
 import * as firebase from "firebase";
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
-import signature from "../assets/images/sig-3.png";
 
 import {
   setTextFilter,
@@ -32,7 +30,6 @@ function ExpandableArray(props) {
   const textAreaRef = useRef(null);
   const [photoURL, setPhotoURL] = useState("");
   const [maximum, setMaximum] = useState(0);
-  const [gmail, setGmail] = useState("");
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -61,7 +58,6 @@ function ExpandableArray(props) {
   };
 
   useEffect(() => {
-    console.log("AB props.links.length=" + props.links.length);
     if (props.theplan.plan.replace(/"/g, "") === "free") {
       setMaximum(StorageSizes.free);
     } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
@@ -105,7 +101,7 @@ function ExpandableArray(props) {
   const moveIt = () => {
     window.scrollTo(0, props.elementRef.current.offsetHeight);
   };
-  //jkjsakldfja;lkfj;aslkdfj;jslkjfkdf;ja
+  //jkjsakldfja;lkfj;aslkdfj;
   const toggleExpanded = () => {
     setExpanded(!expanded);
     console.log("morehashtags");
@@ -130,65 +126,521 @@ function ExpandableArray(props) {
     setCopySuccess("Copied " + text);
   };
 
-  useEffect(() => {
-    if (gmail !== "") window.document.getElementById("sendgmailid").click();
-  }, [gmail]);
-
-  const getGmail = () => {
-    //console.log("getGmail")
-    //const ugmail = window.document.getElementById('gmailid').value
-    //console.log("ugmail="+ugmail)
-    //setGmail(ugmail)
-    setGmail("jmjohnmcgovern707@gmail.com");
-  };
-
-  const sep = (hashtag) => {
-  
-    let words;
-    if (!!hashtag === true) {
-      words = hashtag
-        .replace(/#/, "") // Remove the leading '#'
-        .replace(/([a-z])([A-Z])/g, "$1 $2") // Insert space before uppercase letters following lowercase
-        .split(" "); // Split into an array of words
-
-      console.log(words); // Output: ['I', 'Really', 'Love', 'GSAP']
-
-      const sentence = words.join(" ");
-      console.log(sentence);
-      return sentence;
-    }
-    return "";
-  };
-
   return (
     <div className="bg-white-1">
+      {props.mappedDataShort.length > 0 ? (
+        <div className="">
+          <div
+            className="flexrow2c padding-left-a borderRadius4"
+            title={
+              props.signup === true
+                ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
+                : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."
+            }
+          >
+            <div className="text-size-5 padding-top-11">
+             
+             
+             
+             
+             
+              {isMobile() === false ? (
+                <div className="flexrow2j margin-left-minus-3">
+                  {props.signup === true || signup === "0" ? (
+                    <div className="padding-top-1112  textCenter-">
+                      <img
+                        src={photoURL}
+                        width="64"
+                        height="64"
+                        style={{ borderRadius: "50%" }}
+                        className="ib- margin-bottom-11-"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="padding-top-1112  textCenter-"
+                      title="welcome"
+                    >
+                      {false ? (
+                        <img
+                          src={photoURL}
+                          width="64"
+                          height="64"
+                          style={{ borderRadius: "50%" }}
+                          className="ib- margin-bottom-11-"
+                        />
+                      ) : (
+                        <div className="textCenter-">
+                          <img
+                            src={myprofile}
+                            width="64"
+                            height="64"
+                            style={{ borderRadius: "50%" }}
+                            className="ib- margin-bottom-11-"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="flexrow2j margin-left-minus-2">
+                  {props.signup === true || signup === "0" ? (
+                    <div className="padding-top-1112  textCenter-">
+                      <img
+                        src={photoURL}
+                        width="64"
+                        height="64"
+                        style={{ borderRadius: "50%" }}
+                        className="ib- margin-bottom-11-"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="padding-top-1112  textCenter-"
+                      title="welcome"
+                    >
+                      {false ? (
+                        <img
+                          src={photoURL}
+                          width="64"
+                          height="64"
+                          style={{ borderRadius: "50%" }}
+                          className="ib- margin-bottom-11-"
+                        />
+                      ) : (
+                        <div className="textCenter-">
+                          <img
+                            src={myprofile}
+                            width="64"
+                            height="64"
+                            style={{ borderRadius: "50%" }}
+                            className="ib- margin-bottom-11-"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
 
+
+
+
+
+
+              {/* <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
+                <div className="text-size-1">
+                  <div className="ib text-size-9" title="This is an example page.">
+                    {(!!theuser && props.signup === true) || signup === "0"
+                      ? theuser.displayName?theuser.displayName:"error getting display name"
+                      : "(Your google email name)"}
+                  </div>
+                 
+                </div>
+              </div> */}
+
+
+
+
+              
+              {/* <div className="text-size-1 textLeft hide">
+                Welcome
+                {!theuser
+                  ? "to this example links page. What makes you smile?"
+                  : ", what makes you smile?"}
+              </div> */}
+
+
+
+
+           
+              {props.signup === false && true ? (
+                <div className="text-size-1 flexrowzc">
+                 
+
+
+                  {/* <div>
+                    This site is for students of colleges and universities. It
+                    is the original link-in-research tool
+                    <br />
+                    similar to link-in-bio tool like linktree; however, urilinks is for the
+                    <br />
+                    purpose of learning and research. It can store and organize 1-5000
+                    links alphabetically.
+                    <br />
+                    It gives you a sharable link to your consolidated internet
+                    research content. You may
+                    <br />
+                    try your first 250 links for free or choose one of three
+                    yearly paid plans at $4.99,
+                    <br />
+                    (stores up to 500 links) $9.99 (stores up to 750 links) or
+                    $14.99 (stores up to 1000 links).
+                    <br />
+                    
+                    If you can't afford to pay and you need more storage space, please
+                    let me know and I will give it to you for free.<br />
+                    I am a college graduate from UNR. Please contact me, John,
+                    with any blessings, questions, <br />
+                    comments or concerns at john@urilinks.com, 775 507 0098. Can
+                    you freely login/enter?
+                    <br />
+                  </div> */}
+                </div>
+              ) : (
+               
+                <div className="text-size-1 textLeft margin-top-1">
+                  <span className="hide">
+                    Thank you. Your sharable link is:
+                  </span>
+                  <a
+                    href="#"
+                    ref={textAreaRef}
+                    className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                  >
+                    https://urilinks.com/dashboard?signup=0&id={props.uid}
+                  </a>
+                  <button
+                    className="button-2 ib margin-right-1"
+                    onClick={copyToClipboard}
+                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                  >
+                    Copy sharable link
+                  </button>
+                  {copySuccess}
+                </div>
+              )}
+
+
+
+{/*below works*/}
+
+
+              <div className="text-size-1 textLeft hide">
+                <span className="text-size-9">😃 </span>Your friendly link to
+                links tool
+                {isToggled && props.signup === false ? (
+                  <span>
+                    , click
+                    <span>
+                      <Link
+                        className="cursor-pointer nounderline"
+                        to="/signup"
+                        title=""
+                      >
+                        (login/enter)
+                      </Link>
+                    </span>
+                  </span>
+                ) : (
+                  ""
+                )}
+                {isToggled && props.signup === false && (
+                  <div className="text-size-1 textLeft hide">
+                    To go inside (click enter) for an account, you get an empty
+                    page to start adding your favorite links. <br />
+                    You may add a note to each of your links.
+                    <br />
+                  </div>
+                )}
+                {isToggled && props.signup === true && (
+                  <div className="text-size-1 textLeft hide">
+                    You may start adding your favorite links using the Add Link
+                    button below or Bookmarks File Uploader above.
+                    <br />
+                    The hashtags in purple rectangles and the folder names in
+                    the dropdown list in the orange rectangle are added in
+                    alphabetical order.
+                    <br />
+                    The hastags are the folder names read from the browser
+                    bookmarks file with spaces removed and lowercased. The
+                    folder names are copied in the drop down list.
+                    <br />
+                    You may add a note to each of your links.
+                    <br />
+                    You may share your links with linkedin, facebook, or
+                    twitter/x
+                    <br />
+                    You may immediately chat about a bookmark with a family or
+                    friend using facebook messenger, click the blue circle. You
+                    just check if he she is online using fb messenger
+                    <br />
+                    and if so, send the bookmark and then chat about it
+                  </div>
+                )}
+              </div>
+
+
+
+
+
+              <br />
+
+
+
+
+
+
+               {props.signup === false &&
+                props.uid === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && (
+                  <div className="textLeft hide">
+                    <iframe
+                      width="300"
+                      height="200"
+                      src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                )}
+
+
+              {isToggled && props.signup === false && (
+                <div className="textLeft hide">
+                  Click example hashtag to see links to webpages
+                </div>
+              )}
+
+              {isToggled && props.signup === true && (
+                <div className="textLeft hide">
+                  Click hashtag to see links to webpages
+                </div>
+              )}
+
+              {isToggled && props.signup === false && (
+                <div className="textLeft hide">
+                  To see to see links to webpages, check out the search folder
+                  name dropdown list
+                </div>
+              )}
+
+              {isToggled && props.signup === true && (
+                <div className="textLeft hide">
+                  Check out the search folder name dropdown list in the orange
+                  rectangle for folder names with links to webpages
+                </div>
+              )}
+
+              {isToggled && props.signup === false && (
+                <div className="textLeft hide">
+                  Please give it try to see how it works.
+                </div>
+              )}
+              
+            </div>
+
+            <div className="flexrow2e">
+              {
+                //isToggled &&
+
+                props.signup === true && (
+                  <div
+                    title="current plan"
+                    className="margin-right-1 textLeft hide"
+                  >
+                    plan: {props.plan.replace(/"/g, "")}
+                  </div>
+                )
+              }
+
+              {isToggled && props.signup === false && <div></div>}
+              <div>
+                {isToggled && props.signup === true && (
+                  <div className="margin-right-1">
+                    {props.theplan.plan.replace(/"/g, "") === "free" ? (
+                      <span>(It stores upto {StorageSizes.free} links)</span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {props.theplan.plan.replace(/"/g, "") === "basic" ? (
+                      <span>(It stores upto {StorageSizes.basic} links)</span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {props.theplan.plan.replace(/"/g, "") === "standard" ? (
+                      <span>
+                        (It stores upto {StorageSizes.standard} links)
+                      </span>
+                    ) : (
+                      <span></span>
+                    )}
+                    {props.theplan.plan.replace(/"/g, "") === "premium" ? (
+                      <span>(It stores upto {StorageSizes.premium} links)</span>
+                    ) : (
+                      <span></span>
+                    )}
+                  </div>
+                )}
+
+                {
+                  //isToggled &&
+                  props.signup === false && ""
+                }
+              </div>
+              <div className="margin-left-11-">
+                <div className="margin-left-minus-1">
+                  <span>
+                    {props.links.length} links of {maximum} links is stored on the{" "}
+                    {props.theplan.plan.replace(/"/g, "")} plan.
+                  </span>
+                </div>
+                <div className="flexrow3c">
+                  <Link className="header__title" to="/teirspayment3">
+                    <span
+                      className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
+                      title="click for plan options"
+                    >
+                      {
+                        //isToggled &&
+
+                        props.signup === true &&
+                          props.theplan.plan.replace(/"/g, "") !==
+                            "premium" && <span>(click to change plan)</span>
+                      }
+
+                      {isToggled && props.signup === false && <span></span>}
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            ref={props.ref}
+            className={`${
+              newspaper === false
+                ? "grid-container5"
+                : "grid-container5-newspaper"
+            } paddingparent margin-top-1 background-white-1 borderradius5`}
+            title={
+              props.signup === true
+                ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
+                : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags which were entered in the note section to find your links that are grouped by hashtag."
+            }
+          >
+            {!expanded
+              ? //props.b === 0 && 
+              props.mappedDataShort.map((s, index) => {
+                  if (index < 50)
+                    return (
+                      <div
+                        key={index}
+                        className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                      >
+                        <a
+                          className="b1x nounderline color-white-1 button-link-4"
+                          href="#"
+                          onClick={() => props.setit(s.hashtag, event)}
+                          title={`${s.hashtag}, click to scroll to results`}
+                        >
+                          {s.hashtag}
+                          {/* {"#"}
+                          <span className={`{${highlight(s.hashtag[1])}}`}>
+                            {s.hashtag[1]}
+                          </span>
+                          {s.hashtag.substring(2)} */}
+                        </a>
+                      </div>
+                    );
+                  else return false;
+                })
+              : 
+              //props.b === 1 && 
+              props.mappedDataShort.map((s, index) => {
+                  //have 3 map calls and display the first column then the second column and then the thrid column
+                  return (
+                    <div
+                      key={index}
+                      className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                    >
+                      <a
+                        className="b1x  nounderline color-white-1 button-link-4"
+                        href="#"
+                        onClick={() => props.setit(s.hashtag, event)}
+                        title={`${s.hashtag}, click to scroll to results`}
+                      >
+                        {s.hashtag}
+                        {/* {"#"}
+                        <span className={highlight(s.hashtag[1])}>
+                          {s.hashtag[1]}
+                        </span>
+                        {s.hashtag.substring(2)} */}
+                      </a>
+                    </div>
+                  );
+                })}
+
+            {!expanded && <span className="text-size-5">...</span>}
+          </div>
+          <button
+            className="button-m button--link color-black"
+            onClick={toggleExpanded}
+          >
+            {expanded ? "Show Less" : "Show More"}
+          </button>
+        </div>
+      ) : (
+        <div></div>
+      )}
+      {/* <div className="border2black">
+       column b
+        </div> */}
     </div>
   );
 }
-
 /*
-constructor(props) {
-    super(props);
-    this.state = { searchTerm: '' };
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-  }
+  //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
+  const highlight = (v) => {
+    return "color-white-1";
 
-  handleSearch() {
-    // Perform the search action here
-    console.log('Searching for:', this.state.searchTerm);
-    // Example: this.props.onSearch(this.state.searchTerm);
-  }
+    //v is the first letter after #
+    let cn = "";
+    // v='a'
 
-  handleKeyPress(e) {
-    if (e.key === 'Enter') {
-      this.handleSearch();
-    }
-  }
+    if (v === "a") cn = "colorfora";
+    else if (v === "b") cn = "colorforv";
+    else if (v === "c") cn = "colorforc";
+    else if (v === "d") cn = "colorford";
+    else if (v === "e") cn = "colorfore";
+    else if (v === "f") cn = "colorforf";
+    else if (v === "g") cn = "colorforg";
+    else if (v === "h") cn = "colorforh";
+    else if (v === "i") cn = "colorfori";
+    else if (v === "j") cn = "colorforj";
+    else if (v === "k") cn = "colorfork";
+    else if (v === "l") cn = "colorforl";
+    else if (v === "m") cn = "colorform";
+    else if (v === "n") cn = "colorforn";
+    else if (v === "o") cn = "colorforo";
+    else if (v === "p") cn = "colorforp";
+    else if (v === "q") cn = "colorforq";
+    else if (v === "r") cn = "colorforr";
+    else if (v === "s") cn = "colorfors";
+    else if (v === "t") cn = "colorfort";
+    else if (v === "u") cn = "colorforu";
+    else if (v === "v") cn = "colorforv";
+    else if (v === "w") cn = "colorforw";
+    else if (v === "x") cn = "colorforx";
+    else if (v === "y") cn = "colorfory";
+    else if (v === "z") cn = "colorforz";
+    else cn = "color-white-1";
+
+    return cn;
+  };
 */
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 export class LinkListFilters extends React.Component {
+  // morehashtags = window.localStorage.getItem("morehashtags");
+  // np = window.localStorage.getItem("newspaper");
+
   constructor(props) {
     super(props);
     this.SHORT_HASHTAG_LENGTH = 30;
@@ -215,55 +667,16 @@ export class LinkListFilters extends React.Component {
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
       foldernamesList: [],
       isToggled: false,
-      searchTerm: "", //,
-      //dv:window.localStorage.getItem("notloggedin")==="1"?"":window.localStorage.getItem("termid")
     };
 
     this.setit = this.setit.bind(this);
-
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-  }
-
-  handleSearch() {
-    // Perform the search action here
-    //console.log('Searching for:', this.state.searchTerm);
-    // Example: this.props.onSearch(this.state.searchTerm);
-
-    var select = document.getElementById("mode");
-    var selectedValue = select.options[select.selectedIndex].value;
-    console.log("handleSearch search, selectedValue=" + selectedValue);
-    let term = window.document.getElementById("termid").value;
-    let str = term.trim();
-    term = str;
-    if (selectedValue === "hashtag") {
-      const words = term.split(/\s+/); // Split by one or more whitespace characters
-
-      if (term.charAt(0) !== "#") {
-        alert("The search term needs to be a hashtag.");
-        return;
-      }
-      if (words.length !== 1) {
-        alert("The search term needs to be one word.");
-        return;
-      }
-    }
-    //alert (term)
-    this.props.setTextFilter(term);
-  }
-
-  handleKeyPress(e) {
-    if (e.key === "Enter") {
-      this.handleSearch();
-    }
   }
 
   scrollUp = () => {
     //window.scrollTo(0, 0);
-    !!document.querySelector("#top") &&
-      document.querySelector("#top").scrollIntoView({
-        behavior: "smooth",
-      });
+    document.querySelector("#top").scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   deleteHashtagLinks = () => {
@@ -281,7 +694,6 @@ export class LinkListFilters extends React.Component {
   onFocusChange = (calendarFocused) => {
     this.setState(() => ({ calendarFocused }));
   };
-
   onTextChange = (e) => {
     console.log("e.target.value=" + e.target.value);
 
@@ -357,51 +769,28 @@ export class LinkListFilters extends React.Component {
   };
 
   onSortChange = (e) => {
-    if (e.target.value === "none") return;
-
-    console.log("onSortChange=(), sortBy=, e.target.value=" + e.target.value);
-    // if (e.target.value === "date") {
-    //   this.props.setTextFilter("");
-    //   if (this.myRef.current) this.myRef.current.focus();
-    //   window.localStorage.setItem("sortBy", "date");
-    //   this.setState({ sortBy: "date" });
-    //   this.props.sortByDate();
-    // } else
-    const val = window.document.getElementById("termid").value.trim();
-    window.localStorage.setItem("termid", val);
-    console.log("onSortChange=(), search term=, val=" + val);
-    if (e.target.value === "description") {
-      //this.props.setTextFilter("");
-      //window.localStorage.setItem("termid", val);
-      this.props.setTextFilter(val);
+    console.log("onSortChange=(), e.target.value=" + e.target.value);
+    if (e.target.value === "date") {
+      this.props.setTextFilter("");
+      if (this.myRef.current) this.myRef.current.focus();
+      window.localStorage.setItem("sortBy", "date");
+      this.setState({ sortBy: "date" });
+      this.props.sortByDate();
+    } else if (e.target.value === "description") {
+      this.props.setTextFilter("");
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sortBy", "description");
       this.setState({ sortBy: "description" });
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
-      if (val.trim() !== "" && val.trim().charAt(0) !== "#") {
-        alert("The search term needs to be a hashtag.");
-        return;
-      }
-
-      if (val.trim() === "") {
-        //window.document.getElementById("termid").value = "#"
-        this.props.setTextFilter("#");
-        //window.localStorage.setItem("termid", "#");
-      } else {
-        //window.localStorage.setItem("termid", val);
-        this.props.setTextFilter(val);
-      }
       if (this.myRef.current) this.myRef.current.focus();
-      //this.props.setTextFilter("#");
-
+      this.props.setTextFilter("#");
       window.localStorage.setItem("sortBy", "hashtag");
       this.setState({ sortBy: "hashtag" });
       this.props.sortByHashTag();
     } else if (e.target.value === "notetext") {
       if (this.myRef.current) this.myRef.current.focus();
-      //this.props.setTextFilter("");
-      this.props.setTextFilter(val);
+      this.props.setTextFilter("");
       window.localStorage.setItem("sortBy", "notetext");
       this.setState({ sortBy: "notetext" });
       this.props.sortByNoteText();
@@ -446,48 +835,41 @@ export class LinkListFilters extends React.Component {
   // Example usage:
   //console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."
 
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   return null
-  //   // return {
-  //   //   filenameList: [],
-  //   // };
-  // }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      filenameList: [],
+    };
+  }
 
   componentDidMount() {
-    // const notloggedin = window.localStorage.getItem("notloggedin");
-    // if(notloggedin==="1") { //1 means true
-    //   window.document.getElementById("termid").value=""
-    //   this.setState({ dv: "" })
-    // }
     //props.history.push("/");
     //window.location.reload()
     //this.setState({ foldernamesList: [] });
     //const array1 = ['a','b']
-    // let tl = [];
+    let tl = [];
 
-    // this.props.links.forEach(function (element) {
-    //   if (!!element.foldername === true) {
-    //     let str2 =
-    //       element.foldername.length > 40
-    //         ? element.foldername.slice(0, 40 - 3) + "..."
-    //         : element.foldername;
-    //     tl.push({ label: str2, value: element.foldername });
-    //   }
-    // });
+    this.props.links.forEach(function (element) {
+      if (!!element.foldername === true) {
+        let str2 =
+          element.foldername.length > 40
+            ? element.foldername.slice(0, 40 - 3) + "..."
+            : element.foldername;
+        tl.push({ label: str2, value: element.foldername });
+      }
+    });
 
-    // tl.sort((a, b) => {
-    //   return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
-    // });
+    tl.sort((a, b) => {
+      return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
+    });
 
-    // let tl2 = this.removeDuplicatesByKey(tl, (item) => item.value);
+    let tl2 = this.removeDuplicatesByKey(tl, (item) => item.value);
 
-    // this.setState({ foldernamesList: tl2 });
-    // //get the plan from settings so I know how many links a person can have
-    // console.log(
-    //   "In LinkListFilters.js, this.props.settings=" +
-    //     JSON.stringify(this.props.settings)
-    // );
-
+    this.setState({ foldernamesList: tl2 });
+    //get the plan from settings so I know how many links a person can have
+    console.log(
+      "In LinkListFilters.js, this.props.settings=" +
+        JSON.stringify(this.props.settings)
+    );
     //if(this.props.settings.plan===undefined)
     // const user = firebase.auth().currentUser;
     // database
@@ -517,7 +899,6 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
 
     const sortBy = window.localStorage.getItem("sortBy");
-
     console.log("componentDidMount, sortBy=" + sortBy);
 
     if (this.props.filters.sortBy === "date" || sortBy === "date") {
@@ -580,41 +961,6 @@ export class LinkListFilters extends React.Component {
     // this.setState({
     //   newspaper: !!this.state.newspaper === "true" ? true : false,
     // });
-
-    console.log(
-      "AAAA window.localStorage.getItem('sortBy')=" +
-        window.localStorage.getItem("sortBy")
-    );
-    //console.log("BBBB this.props.filters.sortBy="+this.props.filters.sortBy)
-    //console.log("CCCC this.state.sortBy="+this.state.sortBy)
-    const term = window.localStorage.getItem("termid");
-    if (term !== "") {
-      window.document.getElementById("termid").value = term;
-      const sortBy2 = window.localStorage.getItem("sortBy");
-      if (
-        (this.props.filters.sortBy === "hashtag" ||
-          this.state.sortBy === "hashtag") &&
-        term !== "" &&
-        term.charAt(0) === "#"
-      ) {
-        window.document.getElementById("buttonid").click();
-      }
-      // else if (((this.props.filters.sortBy === "description"
-      //   || this.state.sortBy === "description")
-      //   || (this.props.filters.sortBy === "notetext"
-      //   || this.state.sortBy === "notetext") )
-      //   || (term === "" || term.charAt(0) !== '#')) {
-      //     window.document.getElementById("buttonid").click()
-      // }
-      else if (
-        sortBy === "description" ||
-        sortBy === "notetext" ||
-        term === "" ||
-        term.charAt(0) !== "#"
-      ) {
-        window.document.getElementById("buttonid").click();
-      }
-    }
   }
 
   componentWillUnmount() {}
@@ -628,6 +974,7 @@ export class LinkListFilters extends React.Component {
   };
 
   setit = (value, event) => {
+    
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
 
@@ -638,10 +985,10 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("searchLinks3", value);
 
     //this scrolls the results into view, the first and subsequent result is shown
-    !!document.querySelector("#before-before-link-summary-id") &&
-      document.querySelector("#before-before-link-summary-id").scrollIntoView({
-        behavior: "smooth",
-      });
+    document.querySelector("#before-before-link-summary-id").scrollIntoView({
+      behavior: "smooth",
+    });
+
   };
 
   refreshIt = () => {
@@ -672,49 +1019,6 @@ export class LinkListFilters extends React.Component {
     return regex.test(navigator.userAgent);
   }
 
-  // clear () {
-
-  //   if(this.props.filters.sortBy==="hashtag") {
-  //     window.document.getElementById("termid").value="#"
-  //   } else {
-  //     window.document.getElementById.value=""
-  //   }
-
-  // }
-
-  search = () => {
-    console.log("search");
-    const sortBy = window.localStorage.getItem("sortBy");
-    var select = document.getElementById("mode");
-    var selectedValue = select.options[select.selectedIndex].value;
-    console.log("search = () => {, selectedValue=" + selectedValue);
-    let term = window.document.getElementById("termid").value;
-    let str = term.trim();
-
-    term = str;
-    if (selectedValue === "hashtag" && sortBy === "hashtag") {
-      if (term !== "" && term.charAt(0) !== "#") {
-        alert("The search term needs to be a hashtag.");
-        return;
-      }
-
-      if (term === "") {
-        window.document.getElementById("termid").value = "#";
-        this.props.setTextFilter("#");
-        window.localStorage.setItem("termid", "#");
-      } else {
-        window.localStorage.setItem("termid", term);
-        this.props.setTextFilter(term);
-      }
-    } else {
-      window.localStorage.setItem("termid", term);
-      console.log("else search = () => {, selectedValue=" + selectedValue);
-      this.props.setTextFilter(term);
-    }
-    //alert (term)
-    //this.props.setTextFilter(term);
-  };
-
   render() {
     return (
       <div className="">
@@ -737,7 +1041,6 @@ export class LinkListFilters extends React.Component {
                 signup={this.props.signup.signup}
                 uid={this.props.auth.uid}
                 links={this.props.links}
-                b={this.props.b}
               />
             </div>
           )}
@@ -745,76 +1048,133 @@ export class LinkListFilters extends React.Component {
 
         <div
           id="before-before-link-summary-id"
-          className="bg-color-2 borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
+          className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
         >
-          <div className="flexrowzv">
-            <div className="margin-left-11">
-              <input
-                title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                placeholder="type/paste what to find?"
-                autofocus
-                id="termid"
-                className="text-input responsive-input outline-none padding-left-11 borderRadius55"
-                type="text"
-                //value={this.state.dv}
-                onChange={(e) => this.setState({ searchTerm: e.target.value })}
-                onKeyDown={this.handleKeyPress}
-              />
-            </div>
-
-            <div
-              //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
-              className={`${
-                this.isMobile() ? "margin-right-1" : "margin-left-11"
-              }`}
-            >
-              <button
-                id="buttonid"
-                className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
-                //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
-
-                onClick={this.search}
-                //title="Searches to find entered term through the previously selected list which will appear in copper color."
-                title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
-              >
-                search
-              </button>
-            </div>
-
-            <div
-              className={`${
-                this.isMobile()
-                  ? "margin-top-11z1 margin-left-11"
-                  : "margin-left-11"
-              }`}
-            >
-              <select
-                id="mode"
-                className="select outline-none"
-                value={this.state.sortBy}
-                //value={this.props.filters.sortBy}
-
-                onChange={this.onSortChange}
-                title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
-              >
-                <option value="hashtag" title="search by hash tag">
-                  Hash Tag
-                </option>
-
-                <option
-                  //selected
-                  value="description"
-                  title="search through the uri/url link texts"
-                >
-                  Link Text
-                </option>
-
-                <option value="notetext" title="search through the notes">
-                  Note Text
-                </option>
-              </select>
-            </div>
+          <div className="">
+            <input
+              id="termid"
+              ref={this.myRef}
+              type="text"
+              className="text-input outline-none padding-left-11"
+              placeholder={
+                this.props.filters.sortBy === "date"
+                  ? "Search for Link(s)"
+                  : "Search for Link(s)"
+              }
+              value={this.props.filters.text}
+              onChange={this.onTextChange}
+              title={
+                this.props.filters.sortBy === "date"
+                  ? ""
+                  : this.props.filters.sortBy === "description"
+                  ? "Search for Link(s) (Please enter link description to find)"
+                  : "Search for Link(s) (Please enter Hash Tag to find)"
+              }
+            />
           </div>
+
+          {this.isMobile() === false && (
+            <div
+              className="cursor-pointer  margin-right-1 the-text-color"
+              onClick={this.scrollUp}
+              title="scroll to top"
+            >
+              (up)
+            </div>
+          )}
+
+          <div className="">
+            <select
+              className="select outline-none"
+              value={this.state.sortBy}
+              //value={this.props.filters.sortBy}
+
+              onChange={this.onSortChange}
+              title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
+            >
+              <option value="hashtag" title="search by hash tag">
+                Hash Tag
+              </option>
+
+              <option
+                value="description"
+                title="search through the uri/url link texts"
+              >
+                Link Text
+              </option>
+
+              <option value="notetext" title="search through the notes">
+                Note Text
+              </option>
+              {/* <option
+                value="date"
+                title="search through the uri/url link texts with a date range"
+              >
+                Date
+              </option> */}
+            </select>
+          </div>
+          <div>
+            {/* <div>
+ <span className="">
+                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
+                   <label for="dbdropdownid" />
+                  </span>
+             </div> */}
+            {/* {this.props.signup.signup === true ?<div>
+ <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
+                   <label for="dbdropdownid" />
+                  </span>
+             </div>:
+             <div>
+ <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
+                   <label for="dbdropdownid" />
+                  </span>
+             </div>
+             } */}
+          </div>
+          {
+            //this.state.isToggled === true &&
+            true && (
+              <div className="cursor-pointer">
+                <select
+                  className="select cursor-pointer"
+                  onChange={this.onFolderChange}
+                  title="pick a folder name in this list to search for its bookmarks"
+                >
+                  <option key={""} value={""}>
+                    folder name
+                  </option>
+
+                  {this.state.foldernamesList.map((option, i) => (
+                    <option
+                      className="cursor-pointer"
+                      key={option.value}
+                      value={option.value}
+                      title={option.value}
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )
+          }
+          {/* <div className="">
+            <DateRangePicker
+              className="zindex"
+              startDate={this.props.filters.startDate}
+              endDate={this.props.filters.endDate}
+              onDatesChange={this.onDatesChange}
+              focusedInput={this.state.calendarFocused}
+              onFocusChange={this.onFocusChange}
+              showClearDates={true}
+              numberOfMonths={1}
+              isOutsideRange={() => false}
+            />
+          </div> */}
         </div>
       </div>
     );

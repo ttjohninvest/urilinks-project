@@ -350,8 +350,9 @@ function ExpandableArray(props) {
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
                     <div className="padding-right-11 padding-bottom-118 lowercase">
-                      clear values: Each link you save has note for data entry; link notes, link texts
-                      and hastags are all searchable; each link is sharable to facebook.com,
+                      Clear values: Each link you save has note for data entry; link notes, link texts
+                      and hastags are all searchable; a sharable link for pasting to instagram profile
+                      or other platorm for others is provided; also, each link is sharable to facebook.com,
                       linkedin.com and x.com; facebook.com messenger is available for communication;
                       each link in the results is clickable for direct access to web page. Freely login.
                       {/* You must be 13 years old or older to use this site (click
@@ -374,10 +375,11 @@ function ExpandableArray(props) {
                     </div>
                   ) : (
                     <div>
-                      clear values: Each link you save has note for data entry; link notes, link texts<br />
-                      and hastags are all searchable; each link is sharable to facebook.com,<br />
-                      linkedin.com and x.com; facebook.com messenger is available for communication<br />;
-                      each link in the results is clickable for direct access to web page. Freely login.<br /><br />
+                      Clear values: Each link you save has note for data entry; link notes, link texts<br />
+                      and hastags are all searchable; a sharable link for pasting to instagram profile<br />
+                      or other platorm for others is provided; also, each link is sharable to facebook.com,<br />
+                      linkedin.com and x.com; facebook.com messenger is available for communication;<br />
+                      each link in the results is clickable for direct access to web page. Freely login.<br />
                     </div>
                     // <div>
                     //   You must be 13 years old or older to use this site (click

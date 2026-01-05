@@ -353,7 +353,7 @@ function ExpandableArray(props) {
                       clear values: Each link you save has note for data entry; link notes, link texts
                       and hastags are all searchable; each link is sharable to facebook.com,
                       linkedin.com and x.com; facebook.com messenger is available for communication;
-                      each link in the results is clickable for direct access to web page. freely login.
+                      each link in the results is clickable for direct access to web page. Freely login.
                       {/* You must be 13 years old or older to use this site (click
                       legal menu item). Parental permission is not reqired if
                       you are 18 years of age or older. This website may
@@ -377,7 +377,7 @@ function ExpandableArray(props) {
                       clear values: Each link you save has note for data entry; link notes, link texts<br />
                       and hastags are all searchable; each link is sharable to facebook.com,<br />
                       linkedin.com and x.com; facebook.com messenger is available for communication<br />;
-                      each link in the results is clickable for direct access to web page. freely login.<br /><br />
+                      each link in the results is clickable for direct access to web page. Freely login.<br /><br />
                     </div>
                     // <div>
                     //   You must be 13 years old or older to use this site (click
@@ -508,10 +508,10 @@ function ExpandableArray(props) {
                     </button>
                     {copySuccess}
                   </div>
-                  <div>
+                  {/* <div>
                     you may add, find and share links on your own virtual filing
                     cabinet page. freely login.
-                  </div>
+                  </div> */}
                 </div>
               )}
 

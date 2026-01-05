@@ -1207,7 +1207,7 @@ export class LinkListFilters extends React.Component {
         window.localStorage.getItem("sortBy")
     );
    
-    //if(this.isMobile() === false) {
+    if(this.isMobile() === false) {
 const term = window.localStorage.getItem("termid");
     if (term !== "") {
       window.document.getElementById("termid").value = term;
@@ -1218,8 +1218,9 @@ const term = window.localStorage.getItem("termid");
         term !== "" &&
         term.charAt(0) === "#"
       ) {
-         window.document.getElementById("buttonid").click();
-         //!!window.document.querySelector("#buttonid")===true && window.document.querySelector("#buttonid").click();
+         //window.document.getElementById("buttonid").click();
+         //!!window.document.querySelector("#buttonid")===true && 
+         window.document.querySelector("#buttonid").click();
       }
      
       else if (
@@ -1228,11 +1229,12 @@ const term = window.localStorage.getItem("termid");
         term === "" ||
         term.charAt(0) !== "#"
       ) {
-         window.document.getElementById("buttonid").click();
-        //!!window.document.querySelector("#buttonid")===true && window.document.querySelector("#buttonid").click();
+         //window.document.getElementById("buttonid").click();
+        //!!window.document.querySelector("#buttonid")===true && 
+        window.document.querySelector("#buttonid").click();
       }
     }
-    //}
+    }
     
   }
 

@@ -110,9 +110,9 @@ const HamburgerMenu = (props) => {
                                                     urilinks (link to links tool)
                                                   </Link>
                                                </li> */}
-        <li>
+        {/* <li>
           <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer font-weight-bold" target="_blank">colleges</a>
-        </li>                                       
+        </li>                                        */}
 
         <li>
           <Link className="nounderline" to="/use">

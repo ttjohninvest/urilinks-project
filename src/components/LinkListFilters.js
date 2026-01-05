@@ -372,7 +372,7 @@ function ExpandableArray(props) {
                     </div>
                   ) : (
                     <div>
-                      You may add, find and share links on your own virtual
+                      you may add, find and share links on your own virtual
                       filing cabinet page. Will you freely login/enter?
                     </div>
                     // <div>

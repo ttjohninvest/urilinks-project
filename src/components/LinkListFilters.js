@@ -522,7 +522,7 @@ function ExpandableArray(props) {
                     </button>
                     {copySuccess}
                   </div>
-                  <div>
+                  <div className="flexrowzc">
                       Clear values: Each link you save has note for data entry; link notes, link texts
                       and hastags are all searchable; a sharable link for pasting to instagram profile
                       or other platorm for others is provided; also, each link is sharable to facebook.com,

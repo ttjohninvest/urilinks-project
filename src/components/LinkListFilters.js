@@ -166,14 +166,14 @@ function ExpandableArray(props) {
     <div className="bg-white-1">
       {/* <img src={signature} /> */}
       {props.signup === false && (
-        <div className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center uppercase">
+        <div className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center uppercase- lowercase">
           Welcome to this example page which demonstates a virtual filing
           cabinet of internet pages
         </div>
       )}
       {props.signup === false && (
         <div
-          className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase margin-left-1"
+          className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase- lowercase margin-left-1"
           title="This link is used in email or other places on the internet where a sharable link is accepted and when a person clicks on it he or she will see your links."
         >
           also, a sharable link that shares your content like this one will be

@@ -166,10 +166,10 @@ function ExpandableArray(props) {
     <div className="bg-white-1">
       {/* <img src={signature} /> */}
       {props.signup === false && (<div>
-        <div className="flexrowzc2 text-size-9  font-weigth-bold padding-all text-center uppercase">
+        <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
           Welcome to urilinks.com
         </div>
-        <div className="flexrowzc2 text-size-9  font-weigth-bold padding-all text-center uppercase">
+        <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
           This example page demonstates a virtual filing
           cabinet of internet pages
         </div>

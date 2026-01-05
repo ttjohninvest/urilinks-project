@@ -96,7 +96,7 @@ const HamburgerMenu = (props) => {
                   to="/signup"
                   title=""
                 >
-                  click this login/enter to have your own free page
+                  login (for free page)
                 </Link>
               )}
             </li>

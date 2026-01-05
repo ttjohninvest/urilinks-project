@@ -350,8 +350,8 @@ function ExpandableArray(props) {
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
                     <div className="padding-right-11 padding-bottom-118 lowercase">
-                      <span className="uppercase">Y</span>ou may add, find and share your own links in your virtual
-                      filing cabinet page. Freely login/enter?
+                      you may add, find and share your own links in your virtual
+                      filing cabinet page. freely login?
                       {/* You must be 13 years old or older to use this site (click
                       legal menu item). Parental permission is not reqired if
                       you are 18 years of age or older. This website may
@@ -373,7 +373,7 @@ function ExpandableArray(props) {
                   ) : (
                     <div>
                       you may add, find and share links on your own virtual
-                      filing cabinet page. Will you freely login/enter?
+                      filing cabinet page. freely login.
                     </div>
                     // <div>
                     //   You must be 13 years old or older to use this site (click
@@ -500,13 +500,13 @@ function ExpandableArray(props) {
                       onClick={copyToClipboard}
                       title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                     >
-                      Copy sharable link
+                      copy sharable link
                     </button>
                     {copySuccess}
                   </div>
                   <div>
-                    You may add, find and share links on your own virtual filing
-                    cabinet page. Freely login/enter?
+                    you may add, find and share links on your own virtual filing
+                    cabinet page. freely login.
                   </div>
                 </div>
               )}
@@ -557,7 +557,7 @@ function ExpandableArray(props) {
                         to="/signup"
                         title=""
                       >
-                        (login/enter)
+                        login
                       </Link>
                     </span>
                   </span>

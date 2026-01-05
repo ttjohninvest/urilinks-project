@@ -1210,7 +1210,7 @@ export class LinkListFilters extends React.Component {
     if(this.isMobile() === false) {
 const term = window.localStorage.getItem("termid");
     if (term !== "") {
-      //window.document.getElementById("termid").value = term;
+      window.document.getElementById("termid").value = term;
       const sortBy2 = window.localStorage.getItem("sortBy");
       if (
         (this.props.filters.sortBy === "hashtag" ||

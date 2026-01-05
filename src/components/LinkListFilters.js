@@ -352,7 +352,7 @@ function ExpandableArray(props) {
                     <div className="padding-right-11 padding-bottom-118 lowercase">
                       clear values: Each link you save has note for data entry; link notes, link texts
                       and hastags are all searchable; each link is sharable to facebook.com,
-                      linkedin.com and x.com; facebook.com messenger is available for realtime communication;
+                      linkedin.com and x.com; facebook.com messenger is available for communication;
                       each link in the results is clickable for direct access to web page. freely login.
                       {/* You must be 13 years old or older to use this site (click
                       legal menu item). Parental permission is not reqired if
@@ -376,7 +376,7 @@ function ExpandableArray(props) {
                     <div>
                       clear values: Each link you save has note for data entry; link notes, link texts<br />
                       and hastags are all searchable; each link is sharable to facebook.com,<br />
-                      linkedin.com and x.com; facebook.com messenger is available for realtime communication<br />;
+                      linkedin.com and x.com; facebook.com messenger is available for communication<br />;
                       each link in the results is clickable for direct access to web page. freely login.<br /><br />
                     </div>
                     // <div>

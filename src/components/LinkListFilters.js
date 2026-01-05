@@ -350,6 +350,7 @@ function ExpandableArray(props) {
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
                     <div className="padding-right-11 padding-bottom-118 lowercase">
+                      clear value: it provides space for a note for each link.<br />
                       you may add, find and share your own links in your virtual
                       filing cabinet page. freely login?
                       {/* You must be 13 years old or older to use this site (click

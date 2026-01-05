@@ -175,6 +175,16 @@ function ExpandableArray(props) {
         </div>
         </div>
       )}
+      {props.signup === true && (<div>
+        <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
+          Welcome to urilinks.com
+        </div>
+        <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
+          This example page demonstates a virtual filing
+          cabinet of internet pages
+        </div>
+        </div>
+      )}
       {/* {props.signup === false && (
         <div
           className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase- lowercase margin-left-1"

@@ -500,11 +500,11 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div>
-                  <div>
+                  <div className="flexrow2c">
                   <div className="text-size-1 textLeft margin-top-1">
-                    <span className="hide">
+                    {/* <span className="hide">
                       Thank you. Your sharable link is:
-                    </span>
+                    </span> */}
                     <a
                       href="#"
                       ref={textAreaRef}

@@ -163,11 +163,11 @@ function ExpandableArray(props) {
   };
 
   return (
-    <div className="bg-white-1">
+    <div className="bg-white-1 text-size-9 margin-top-1">
       {/* <img src={signature} /> */}
       {props.signup === false && (
         <div className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center uppercase- lowercase">
-          welcome to this example page which demonstates a virtual filing
+          Welcome to this example page which demonstates a virtual filing
           cabinet of internet pages
         </div>
       )}
@@ -326,14 +326,14 @@ function ExpandableArray(props) {
                 {/* <div>a</div> */}
                 <div className="text-size-1">
                   <div
-                    className="ib text-size-9"
+                    className="ib text-size-1"
                     title="location for your gmail name"
                   >
                     {(!!theuser && props.signup === true) || signup === "0"
                       ? theuser.displayName
                         ? theuser.displayName
                         : "error getting display name"
-                      : "(gmail name)"}
+                      : theuser.displayName}
                   </div>
                   {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
                 </div>

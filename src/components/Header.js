@@ -504,9 +504,9 @@ return val
                       <Link
                         className="nounderline color-white-1 cursor-pointer"
                         to="/signup"
-                        title=""
+                        title="The first 250 saved links are free. plan $4.99 stores up to 1500; plan $9.99 stores up to 2500;plan $14.99 stores up to 5000"
                       >
-                        login (for free page)
+                        login
                       </Link>
                     </div>
                    </div>

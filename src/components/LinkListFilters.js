@@ -350,9 +350,10 @@ function ExpandableArray(props) {
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
                     <div className="padding-right-11 padding-bottom-118 lowercase">
-                      clear value: it provides space for a note for data entry for each<br />
-                      link you save. you may add, find and share your own links in your virtual
-                      filing cabinet page. freely login?
+                      clear values: Each link has note for data entry; link notes, link texts
+                      and hastags are all searchable; each link is sharable to facebook.com,
+                      linkedin.com and x.com; facebook.com messenger is available for realtime communication;
+                      each link in the results is clickable for direct access to web page. freely login.
                       {/* You must be 13 years old or older to use this site (click
                       legal menu item). Parental permission is not reqired if
                       you are 18 years of age or older. This website may
@@ -373,9 +374,10 @@ function ExpandableArray(props) {
                     </div>
                   ) : (
                     <div>
-                      clear value: it provides space for a note for data entry for each<br />
-                      link you save. you may add, find and share your own links in your virtual
-                      filing cabinet page. freely login?
+                      clear values: Each link has note for data entry; link notes, link texts<br />
+                      and hastags are all searchable; each link is sharable to facebook.com,<br />
+                      linkedin.com and x.com; facebook.com messenger is available for realtime communication<br />;
+                      each link in the results is clickable for direct access to web page. freely login.<br /><br />
                     </div>
                     // <div>
                     //   You must be 13 years old or older to use this site (click

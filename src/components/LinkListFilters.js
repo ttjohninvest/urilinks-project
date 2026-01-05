@@ -522,11 +522,12 @@ function ExpandableArray(props) {
                     {copySuccess}
                   </div>
                   <div>
-                      Clear values: Each link you save has note for data entry; link notes, link texts
+                      {/* Clear values: Each link you save has note for data entry; link notes, link texts
                       and hastags are all searchable; a sharable link for pasting to instagram profile
                       or other platorm for others is provided; also, each link is sharable to facebook.com,
                       linkedin.com and x.com; facebook.com messenger is available for communication;
-                      each link in the results is clickable for direct access to web page. Freely login.
+                      each link in the results is clickable for direct access to web page. 
+                      Thank you for logging in. */}
                   </div>
                 </div>
               )}

@@ -1209,7 +1209,7 @@ export class LinkListFilters extends React.Component {
    
     try {
 //if(this.isMobile() === false) {
-const term = "" //window.localStorage.getItem("termid");
+const term = window.localStorage.getItem("termid");
     if (term !== "") {
       window.document.getElementById("termid").value = term;
       const sortBy2 = "" //window.localStorage.getItem("sortBy");

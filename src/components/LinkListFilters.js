@@ -1103,12 +1103,7 @@ export class LinkListFilters extends React.Component {
     return hashtags;
   };
 
-  // removeDuplicates = (stringArray) => {
-  //   const stringifiedArray = stringArray.join(" ");
-  //   const lcstring = stringifiedArray.toLowerCase();
-  //   const lcStringArray = lcstring.split(" ");
-  //   return [...new Set(lcStringArray)];
-  // };//
+ 
 
   removeDuplicatesByKey(array, keyFunction) {
     const seen = new Set();
@@ -1120,70 +1115,10 @@ export class LinkListFilters extends React.Component {
     });
   }
 
-  // truncate(str, maxLength) {
-  //     const ellipsis = '...';
-  //     return str.length > maxLength ? str.slice(0, maxLength - ellipsis.length) + ellipsis : str;
-  // }
-
-  // Example usage:
-  //console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."
-
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   return null
-  //   // return {
-  //   //   filenameList: [],
-  //   // };
-  // }
+  
 
   componentDidMount() {
-    // const notloggedin = window.localStorage.getItem("notloggedin");
-    // if(notloggedin==="1") { //1 means true
-    //   window.document.getElementById("termid").value=""
-    //   this.setState({ dv: "" })
-    // }
-    //props.history.push("/");
-    //window.location.reload()
-    //this.setState({ foldernamesList: [] });
-    //const array1 = ['a','b']
-    // let tl = [];
-
-    // this.props.links.forEach(function (element) {
-    //   if (!!element.foldername === true) {
-    //     let str2 =
-    //       element.foldername.length > 40
-    //         ? element.foldername.slice(0, 40 - 3) + "..."
-    //         : element.foldername;
-    //     tl.push({ label: str2, value: element.foldername });
-    //   }
-    // });
-
-    // tl.sort((a, b) => {
-    //   return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
-    // });
-
-    // let tl2 = this.removeDuplicatesByKey(tl, (item) => item.value);
-
-    // this.setState({ foldernamesList: tl2 });
-    // //get the plan from settings so I know how many links a person can have
-    // console.log(
-    //   "In LinkListFilters.js, this.props.settings=" +
-    //     JSON.stringify(this.props.settings)
-    // );
-
-    //if(this.props.settings.plan===undefined)
-    // const user = firebase.auth().currentUser;
-    // database
-    //   .ref(`users/${user.uid}/settings`)
-    //   .once("value")
-    //   .then((snapshot) => {
-
-    //     console.log("componentDidMount, ...snapshot")
-    //     console.log("componentDidMount, ...snapshot="+JSON.stringify(snapshot.val()))
-    //     //console.log("componentDidMount, snapshot.selectedOption1="+snapshot.selectedOption1)
-
-    //    //dispatch(setSettings({...snapshot}));
-
-    //   })
+   
 
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
@@ -1226,7 +1161,7 @@ export class LinkListFilters extends React.Component {
       this.props.filters.sortBy === "hashtag" ||
       sortBy === "hashtag"
     ) {
-      //this.setState({ sortBy: "hashtag" });
+      
       this.props.sortByHashTag();
       if (
         this.props.filters.text === "" ||
@@ -1259,43 +1194,34 @@ export class LinkListFilters extends React.Component {
       morehashtags: morehashtags === "true" ? true : false,
     });
 
-    // this.setState({
-    //   newspaper: !!this.state.newspaper === "true" ? true : false,
-    // });
+   
 
     console.log(
       "AAAA window.localStorage.getItem('sortBy')=" +
         window.localStorage.getItem("sortBy")
     );
-    //console.log("BBBB this.props.filters.sortBy="+this.props.filters.sortBy)
-    //console.log("CCCC this.state.sortBy="+this.state.sortBy)
-    const term = window.localStorage.getItem("termid");
-    if (term !== "") {
-      window.document.getElementById("termid").value = term;
-      const sortBy2 = window.localStorage.getItem("sortBy");
-      if (
-        (this.props.filters.sortBy === "hashtag" ||
-          this.state.sortBy === "hashtag") &&
-        term !== "" &&
-        term.charAt(0) === "#"
-      ) {
-        window.document.getElementById("buttonid").click();
-      }
-      // else if (((this.props.filters.sortBy === "description"
-      //   || this.state.sortBy === "description")
-      //   || (this.props.filters.sortBy === "notetext"
-      //   || this.state.sortBy === "notetext") )
-      //   || (term === "" || term.charAt(0) !== '#')) {
-      //     window.document.getElementById("buttonid").click()
-      // }
-      else if (
-        sortBy === "description" ||
-        sortBy === "notetext" ||
-        term === "" ||
-        term.charAt(0) !== "#"
-      ) {
-        window.document.getElementById("buttonid").click();
-      }
+   
+    // const term = window.localStorage.getItem("termid");
+    // if (term !== "") {
+    //   window.document.getElementById("termid").value = term;
+    //   const sortBy2 = window.localStorage.getItem("sortBy");
+    //   if (
+    //     (this.props.filters.sortBy === "hashtag" ||
+    //       this.state.sortBy === "hashtag") &&
+    //     term !== "" &&
+    //     term.charAt(0) === "#"
+    //   ) {
+    //     window.document.getElementById("buttonid").click();
+    //   }
+     
+    //   else if (
+    //     sortBy === "description" ||
+    //     sortBy === "notetext" ||
+    //     term === "" ||
+    //     term.charAt(0) !== "#"
+    //   ) {
+    //     window.document.getElementById("buttonid").click();
+    //   }
     }
   }
 
@@ -1337,15 +1263,10 @@ export class LinkListFilters extends React.Component {
   };
 
   handleCheckboxShow = (event) => {
-    // let result = confirm("Are you sure you want to set the dropdown list?");
-    // if (result) {
-    //alert("show dd")
+   
     this.setState({ isToggled: !this.state.isToggled });
     console.log("show dd");
-    // } else {
-    //  //alert("cancel show dd")
-    //  console.log("cancel show dd")
-    // }
+   
   };
 
   isMobile() {
@@ -1354,15 +1275,7 @@ export class LinkListFilters extends React.Component {
     return regex.test(navigator.userAgent);
   }
 
-  // clear () {
-
-  //   if(this.props.filters.sortBy==="hashtag") {
-  //     window.document.getElementById("termid").value="#"
-  //   } else {
-  //     window.document.getElementById.value=""
-  //   }
-
-  // }
+ 
 
   search = () => {
     console.log("search");

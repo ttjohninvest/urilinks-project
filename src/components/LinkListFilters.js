@@ -1222,7 +1222,7 @@ export class LinkListFilters extends React.Component {
     //   ) {
     //     window.document.getElementById("buttonid").click();
     //   }
-    }
+    //}
   }
 
   componentWillUnmount() {}

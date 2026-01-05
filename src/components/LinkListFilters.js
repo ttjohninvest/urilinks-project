@@ -1218,7 +1218,7 @@ const term = window.localStorage.getItem("termid");
         term !== "" &&
         term.charAt(0) === "#"
       ) {
-        //window.document.getElementById("buttonid").click();
+         !!window.document.getElementById("buttonid")===true && window.document.getElementById("buttonid").click();
       }
      
       else if (
@@ -1227,7 +1227,7 @@ const term = window.localStorage.getItem("termid");
         term === "" ||
         term.charAt(0) !== "#"
       ) {
-        //window.document.getElementById("buttonid").click();
+        !!window.document.getElementById("buttonid")===true && window.document.getElementById("buttonid").click();
       }
     }
     }

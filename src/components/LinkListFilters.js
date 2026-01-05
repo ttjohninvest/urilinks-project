@@ -167,7 +167,7 @@ function ExpandableArray(props) {
       {/* <img src={signature} /> */}
       {props.signup === false && (
         <div className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center uppercase- lowercase">
-          Welcome to this example page which demonstates a virtual filing
+          <span className="uppercase">w</span>elcome to this example page which demonstates a virtual filing
           cabinet of internet pages
         </div>
       )}
@@ -176,7 +176,7 @@ function ExpandableArray(props) {
           className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase- lowercase margin-left-1"
           title="This link is used in email or other places on the internet where a sharable link is accepted and when a person clicks on it he or she will see your links."
         >
-          also, a sharable link that shares your content like this one will be
+          <span className="uppercase">a</span>lso, a sharable link that shares your content like this one will be
           provided on your page
         </div>
       )}
@@ -349,9 +349,9 @@ function ExpandableArray(props) {
               {props.signup === false ? (
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
-                    <div className="padding-right-11 padding-bottom-118">
-                      You may add, find and share your own links in your virtual
-                      filing cabinet page. Will you freely login/enter?
+                    <div className="padding-right-11 padding-bottom-118 lowercase">
+                      <span className="uppercase">Y</span>ou may add, find and share your own links in your virtual
+                      filing cabinet page. Freely login/enter?
                       {/* You must be 13 years old or older to use this site (click
                       legal menu item). Parental permission is not reqired if
                       you are 18 years of age or older. This website may

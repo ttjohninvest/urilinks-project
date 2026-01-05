@@ -1241,7 +1241,7 @@ let term = window.localStorage.getItem("termid");
     }
     //}
     } catch(e) {
-       alert("e="+e)
+       alert("Error 1000, e="+e)
     }
    
     

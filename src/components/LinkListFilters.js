@@ -164,7 +164,7 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      {/* <img src={signature} /> */}
+{/*       
       {props.signup === false && (
         <div className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center uppercase">
           Welcome to this example page which demonstates a virtual filing
@@ -205,32 +205,10 @@ function ExpandableArray(props) {
 
       {props.signup === false && (
         <div></div>
-        // <div
-        //   className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
-        //   title="Please use it for good. Bookmarks for internet pages, urls/links"
-        // >
-        //   <Link className="nounderline cursor-pointer" to="/signup" title="">
-        //     <div className="flexrowz">
-        //       <div>
-        //         <img
-        //           className="ib"
-        //           src={redarrow}
-        //           width="100"
-        //           height="50"
-        //           alt="Logo"
-        //         />
-        //       </div>
-
-        //       <div className="margin-top-1c ib">
-        //         click this login/enter to have your own free page
-        //       </div>
-        //     </div>
-        //   </Link>
-        // </div>
+        
       )}
 
-      {/* <div className="flexrowzc2 text-size-12- text-size-13 text-color-green font-weigth-bold padding-all text-center">Happy New Year</div> */}
-      {props.mappedDataShort.length > 0 ? (
+       {props.mappedDataShort.length > 0 ? (
         <div className="">
           <div
             className="flexrow2c padding-left-a borderRadius4"
@@ -323,7 +301,7 @@ function ExpandableArray(props) {
               )}
 
               <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
-                {/* <div>a</div> */}
+               
                 <div className="text-size-1">
                   <div
                     className="ib text-size-9"
@@ -335,16 +313,10 @@ function ExpandableArray(props) {
                         : "error getting display name"
                       : "(gmail name)"}
                   </div>
-                  {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
+                  
                 </div>
               </div>
-              {/* <div className="text-size-1 textLeft hide">
-                Welcome
-                {!theuser
-                  ? "to this example links page. What makes you smile?"
-                  : ", what makes you smile?"}
-              </div> */}
-              {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
+             
 
               {props.signup === false ? (
                 <div className="text-size-1 flexrowzc">
@@ -352,134 +324,24 @@ function ExpandableArray(props) {
                     <div className="padding-right-11 padding-bottom-118">
                       You may add, find and share your own links in your virtual
                       filing cabinet page. Will you freely login/enter?
-                      {/* You must be 13 years old or older to use this site (click
-                      legal menu item). Parental permission is not reqired if
-                      you are 18 years of age or older. This website may
-                      contribute to making your use of the internet more
-                      organized, interesting, professional, enteraining, fun and
-                      collaborative. It can store up to 5,000 links
-                      alphabetically. It gives you a sharable link to your links
-                      list of internet urls. You may try your first 250 links
-                      for free or choose one of three paid plans: for $4.99/year
-                      it stores up to 1,250 links, for $9.99/year it stores up
-                      to 2,500 links or for $14.99/year it stores up to 5,000
-                      links. If you can't afford to pay and you need more
-                      storage space, please let me know and I will give it to
-                      you for free. I am a college graduate from UNR. Please
-                      contact me, John, with any blessings, questions, comments
-                      or concerns at john@urilinks.com, 775 507 0098. I invite
-                      you to freely login/enter? */}
+                      
                     </div>
                   ) : (
                     <div>
                       You may add, find and share links on your own virtual
                       filing cabinet page. Will you freely login/enter?
                     </div>
-                    // <div>
-                    //   You must be 13 years old or older to use this site (click
-                    //   legal menu item). <br />
-                    //   Parental permission is not reqired if you are 18 years of
-                    //   age or older.
-                    //   <br />
-                    //   This website may contribute to making your use of the
-                    //   internet more organized,
-                    //   <br />
-                    //   interesting, professional, enteraining, fun and
-                    //   collaborative. It can store and organize up to 5,000 links
-                    //   alphabetically.
-                    //   <br />
-                    //   It gives you a sharable link to your links list of
-                    //   internet urls. You may
-                    //   <br />
-                    //   try your first 250 links for free or choose one of three
-                    //   paid plans: for $4.99/year it stores up to 1,250 links,
-                    //   <br />
-                    //   for $9.99/year it stores up to 2,500 links or for
-                    //   $14.99/year it stores up to 5,000 links.
-                    //   <br />
-                    //   If you can't afford to pay and you need more storage
-                    //   space, please let me know and I will give it to you for
-                    //   free.
-                    //   <br />
-                    //   I am a college graduate from UNR. Please contact me, John,
-                    //   with any blessings, questions, <br />
-                    //   comments or concerns at john@urilinks.com, 775 507 0098. I
-                    //   invite you to freely login/enter?
-                    //   <br />
-                    //   <br />
-                    // </div>
+                   
                   )}
 
-                  {/* <span>What do you want to achieve with this website?</span> */}
-                  {/* <span>
-                    {" "}
-                    I hope the website is helpful to you. May you please give me
-                    your feedback regarding this website?{" "}
-                  </span>
-                
-                  {isMobile() === true ? (
-                    <button
-                      type="button"
-                      className="button-2 margin-right-114"
-                      title="Your answser will be sent to me by gmail.com. Thank you in advance."
-                      onClick={getGmail}
-                    >
-                      Please click to send me your answer.
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      className="button-2"
-                      title="Your answser will be sent to me by gmail.com. Thank you in advance."
-                      onClick={getGmail}
-                    >
-                      Please click to send me your answer.
-                    </button>
-                  )} */}
+                 
 
                   {props.signup === false && (
                     <div></div>
-                    // <div
-                    //   className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
-                    //   title=""
-                    // >
-                    //   <Link
-                    //     className="nounderline cursor-pointer"
-                    //     to="/signup"
-                    //     title=""
-                    //   >
-                    //     <div className="flexrowz">
-                    //       <div>
-                    //         <img
-                    //           className="ib"
-                    //           src={redarrow}
-                    //           width="100"
-                    //           height="50"
-                    //           alt="Logo"
-                    //         />
-                    //       </div>
-
-                    //       <div className="margin-top-1c ib">
-                    //         click this login/enter to have your own free page
-                    //       </div>
-                    //     </div>
-                    //   </Link>
-                    // </div>
+                    
                   )}
 
-                  {/* <div className="padding-bottom-116">
-                    <div className="margin-left-118">
-                      <a
-                        id="sendgmailid"
-                        className="nounderline hide"
-                        href={`https://mail.google.com/mail/?view=cm&from=${gmail}&to=${"johmcg64@gmail.com"}&su=urilinks user sent me an answer.&body=Hi%20there!`}
-                        target="_blank"
-                      >
-                        Send gmail{" "}
-                        {`FROM: ${gmail} TO: ${"john@urilinks.com"}.`}
-                      </a>
-                    </div>
-                  </div> */}
+                
                 </div>
               ) : (
                 <div>
@@ -506,44 +368,12 @@ function ExpandableArray(props) {
                   </div>
                   <div>
                     You may add, find and share links on your own virtual filing
-                    cabinet page. Will you freely login/enter?
+                    cabinet page. Freely login/enter?
                   </div>
                 </div>
               )}
 
-              {/* {props.signup === true && (
-                <div className="margin-top-118">
-                  <div className="flexrowsb margin-right-1 ib">
-                    <span>
-                      {" "}
-                      I hope the website is helpful to you. May you please give
-                      me your feedback regarding this website?{" "}
-                    </span>
-                     <button
-                      type="button"
-                      className="button-2 ib margin-left-11"
-                      title="Your answser will be sent to me by gmail.com. Thank you in advance."
-                      onClick={getGmail}
-                    >
-                      Please click to send me your answer.
-                    </button>
-                  </div>
-
-                  <div className="padding-bottom-116-">
-                    <div className="margin-left-118">
-                      <a
-                        id="sendgmailid"
-                        className="nounderline hide"
-                        href={`https://mail.google.com/mail/?view=cm&from=${gmail}&to=${"johmcg64@gmail.com"}&su=urilinks user sent me an answer.&body=Hi%20there!`}
-                        target="_blank"
-                      >
-                        Send gmail{" "}
-                        {`FROM: ${gmail} TO: ${"john@urilinks.com"}.`}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              )} */}
+             
 
               <div className="text-size-1 textLeft hide">
                 <span className="text-size-9">😃 </span>Your friendly link to
@@ -564,13 +394,7 @@ function ExpandableArray(props) {
                 ) : (
                   ""
                 )}
-                {/* <button
-      onClick={handleChange}
-      className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
-      aria-label="Toggle button"
-    >
-      {isToggled ? 'hide information' : 'show information'}
-    </button> */}
+               
                 {isToggled && props.signup === false && (
                   <div className="text-size-1 textLeft hide">
                     To go inside (click enter) for an account, you get an empty
@@ -652,24 +476,13 @@ function ExpandableArray(props) {
                   Please give it try to see how it works.
                 </div>
               )}
-              {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
-              {/* <br />
-              I believe that Jesus is the Christ. I believe that Jesus Christ is
-              the Son of God.
-              <br />
-              Please go and sin no more, ok. Happy it. */}
-              {/* <br />
-              <button
-                className="button-m button--link color-black"
-                onClick={toggleNewspaper}
-              >
-                {newspaper ? "show other view" : "show other view"}
-              </button> */}
+             
+             
             </div>
 
             <div className="flexrow2e">
               {
-                //isToggled &&
+               
 
                 props.signup === true && (
                   <div
@@ -711,7 +524,7 @@ function ExpandableArray(props) {
                 )}
 
                 {
-                  //isToggled &&
+                 
                   props.signup === false && ""
                 }
               </div>
@@ -733,15 +546,7 @@ function ExpandableArray(props) {
                       className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
                       title="click for plan options"
                     >
-                      {/* {
-                        //isToggled &&
-
-                        props.signup === true &&
-                          props.theplan.plan.replace(/"/g, "") !==
-                            "premium" && <div className="margin-bottom-1">(click to change plan)</div>
-                      }
-
-                      {isToggled && props.signup === false && <span></span>} */}
+                     
                     </span>
                   </Link>
                 </div>
@@ -763,7 +568,7 @@ function ExpandableArray(props) {
             }
           >
             {!expanded
-              ? //props.b === 1 &&
+              ? 
                 props.mappedDataShort.map((s, index) => {
                   if (index < 50)
                     return (
@@ -785,19 +590,14 @@ function ExpandableArray(props) {
                           //title={props.signup === true?${s.hashtag}, click to scroll to results:
                         >
                           {sep(s.hashtag)}
-                          {/* {"#"}
-                          <span className={`{${highlight(s.hashtag[1])}}`}>
-                            {s.hashtag[1]}
-                          </span>
-                          {s.hashtag.substring(2)} */}
+                         
                         </a>
                       </div>
                     );
                   else return false;
                 })
-              : //props.b === 1 &&
+              : 
                 props.mappedDataShort.map((s, index) => {
-                  //have 3 map calls and display the first column then the second column and then the thrid column
                   return (
                     <div
                       key={index}
@@ -816,11 +616,7 @@ function ExpandableArray(props) {
                         }, click to scroll to results`}
                       >
                         {sep(s.hashtag)}
-                        {/* {"#"}
-                        <span className={highlight(s.hashtag[1])}>
-                          {s.hashtag[1]}
-                        </span>
-                        {s.hashtag.substring(2)} */}
+                       
                       </a>
                     </div>
                   );
@@ -841,7 +637,9 @@ function ExpandableArray(props) {
         </div>
       ) : (
         <div></div>
-      )}
+      )} */}
+
+
       {/* <div className="border2black">
        column b
         </div> */}

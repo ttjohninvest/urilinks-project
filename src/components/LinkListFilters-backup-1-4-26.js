@@ -5,9 +5,11 @@ import { connect } from "react-redux";
 import { DateRangePicker } from "react-dates";
 
 import database from "../firebase/firebase";
+import redarrow from "../assets/images/red-arrow.jpg";
 import * as firebase from "firebase";
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
+import signature from "../assets/images/sig-3.png";
 
 import {
   setTextFilter,
@@ -30,6 +32,7 @@ function ExpandableArray(props) {
   const textAreaRef = useRef(null);
   const [photoURL, setPhotoURL] = useState("");
   const [maximum, setMaximum] = useState(0);
+  const [gmail, setGmail] = useState("");
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -58,6 +61,7 @@ function ExpandableArray(props) {
   };
 
   useEffect(() => {
+    console.log("AB props.links.length=" + props.links.length);
     if (props.theplan.plan.replace(/"/g, "") === "free") {
       setMaximum(StorageSizes.free);
     } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
@@ -101,7 +105,7 @@ function ExpandableArray(props) {
   const moveIt = () => {
     window.scrollTo(0, props.elementRef.current.offsetHeight);
   };
-  //jkjsakldfja;lkfj;aslkdfj;
+  //jkjsakldfja;lkfj;aslkdfj;jslkjfkdf;ja
   const toggleExpanded = () => {
     setExpanded(!expanded);
     console.log("morehashtags");
@@ -126,17 +130,116 @@ function ExpandableArray(props) {
     setCopySuccess("Copied " + text);
   };
 
+  useEffect(() => {
+    if (gmail !== "") window.document.getElementById("sendgmailid").click();
+  }, [gmail]);
+
+  const getGmail = () => {
+    //console.log("getGmail")
+    //const ugmail = window.document.getElementById('gmailid').value
+    //console.log("ugmail="+ugmail)
+    //setGmail(ugmail)
+    setGmail("jmjohnmcgovern707@gmail.com");
+  };
+
+  const sep = (hashtag) => {
+    //const hashtag = "#IReallyLoveGSAP";
+    //const hashtag = "#IReallyLoveGsap";
+
+    let words;
+    if (!!hashtag === true) {
+      words = hashtag
+        .replace(/#/, "") // Remove the leading '#'
+        .replace(/([a-z])([A-Z])/g, "$1 $2") // Insert space before uppercase letters following lowercase
+        .split(" "); // Split into an array of words
+
+      console.log(words); // Output: ['I', 'Really', 'Love', 'GSAP']
+
+      const sentence = words.join(" ");
+      console.log(sentence);
+      return sentence;
+    }
+    return "";
+  };
+
   return (
     <div className="bg-white-1">
+      {/* <img src={signature} /> */}
+      {props.signup === false && (
+        <div className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center uppercase">
+          Welcome to this example page which demonstates a virtual filing
+          cabinet of internet pages
+        </div>
+      )}
+      {props.signup === false && (
+        <div
+          className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase"
+          title="This link is used in email or other places on the internet where a sharable link is accepted and when a person clicks on it he or she will see your links."
+        >
+          also, a sharable link that shares your content like this one will be
+          provided on your page
+        </div>
+      )}
+
+      {props.signup === false && (
+        <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
+          <span className="hide">Thank you. Your sharable link is:</span>
+          <a
+            href="#"
+            ref={textAreaRef}
+            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+          >
+            https://urilinks.com/dashboard?signup=0&id={props.uid}
+          </a>
+          <button
+            className="button-2 ib margin-right-1 margin-left-11"
+            onClick={copyToClipboard}
+            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+          >
+            Copy sharable link
+          </button>
+          {copySuccess}
+        </div>
+      )}
+
+      {props.signup === false && (
+        <div></div>
+        // <div
+        //   className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
+        //   title="Please use it for good. Bookmarks for internet pages, urls/links"
+        // >
+        //   <Link className="nounderline cursor-pointer" to="/signup" title="">
+        //     <div className="flexrowz">
+        //       <div>
+        //         <img
+        //           className="ib"
+        //           src={redarrow}
+        //           width="100"
+        //           height="50"
+        //           alt="Logo"
+        //         />
+        //       </div>
+
+        //       <div className="margin-top-1c ib">
+        //         click this login/enter to have your own free page
+        //       </div>
+        //     </div>
+        //   </Link>
+        // </div>
+      )}
+
+      {/* <div className="flexrowzc2 text-size-12- text-size-13 text-color-green font-weigth-bold padding-all text-center">Happy New Year</div> */}
       {props.mappedDataShort.length > 0 ? (
         <div className="">
           <div
             className="flexrow2c padding-left-a borderRadius4"
-            title={
-              props.signup === true
-                ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
-                : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."
-            }
+            // title={
+            //   props.signup === true
+            //     ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
+            //     : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."
+            // }
+            title={props.signup === true ? "" : ""}
           >
             <div className="text-size-5 padding-top-11">
               {isMobile() === false ? (
@@ -222,214 +325,225 @@ function ExpandableArray(props) {
               <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
                 {/* <div>a</div> */}
                 <div className="text-size-1">
-                  <div className="ib text-size-9" title="This is an example page.">
+                  <div
+                    className="ib text-size-9"
+                    title="location for your gmail name"
+                  >
                     {(!!theuser && props.signup === true) || signup === "0"
-                      ? theuser.displayName?theuser.displayName:"error getting display name"
-                      : "(Your google email name)"}
+                      ? theuser.displayName
+                        ? theuser.displayName
+                        : "error getting display name"
+                      : "(gmail name)"}
                   </div>
                   {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
                 </div>
               </div>
-              <div className="text-size-1 textLeft hide">
+              {/* <div className="text-size-1 textLeft hide">
                 Welcome
                 {!theuser
                   ? "to this example links page. What makes you smile?"
                   : ", what makes you smile?"}
-              </div>
+              </div> */}
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
 
-              {/* {isMobile()?"yes":"no"} */}
-              {/* {props.signup === false && true && (
-                <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
-                  <span
-                    className=""
-                    title="Please ignore this if you know already. Your bio page is the links page that this platform allows you to create through the add link button or bookmarks file uploader menu item in the header. I provide you a link you can share on your instagram profile"
-                  >
-                    <span className="text-size-9 font-weight-bold">T</span>he
-                    link in bio page for{" "}
-                    {(!!theuser && props.signup === true) || signup === "0"
-                      ? theuser.displayName
-                      : "John Example"}
-                    , click a hashtag or folder name to see the bio links in
-                    that category.
-                  </span>
-                </div>
-              )} */}
-              {/* {props.signup === false && true && (
-                <div className="margin-bottom-1 text-size-1 flexrowz3 flexWrap">
-                  <span className="" title="better">
-                    <span className="text-size-9 font-weight-bold">L</span>
-                    inktree's link in bio tool is good but mine is better because mine is is easier and faster to use than linktree's and I offer a feature that allows for the importing of bookmarks that get automatically converted into bio links. Much agape gape Love John ❤️
-                  </span>
-                </div>
-              )} */}
-              {props.signup === false && true ? (
+              {props.signup === false ? (
                 <div className="text-size-1 flexrowzc">
-                  {/* <div>
-                    An alternative to linktree. This is a link-in-bio tool for platforms that accepts a bio link like instagram to get you more engagement. 
-                  </div>
-                  <div>
-                    You may add one link at a time to your bio page or you may upload browser bookmarks that get converted 
-                  </div>
-                  <div>
-                    to bio links for you. Any user that clicks on your shared link will see the changes.
-                  </div>
-                  <div>
-                    To see bio links, click on a hash tag button below or use the menu bar below the hash tags 
-                  </div>
-                   <div>
-                    buttons and click on a folder name in the drop down list or use the search feature.
-                  </div>
-                  <div>
-                    You may find it easy to use. if you are satisfied with how it works for you, can you login?
-                  </div>
-                    */}
+                  {isMobile() === true ? (
+                    <div className="padding-right-11 padding-bottom-118">
+                      You may add, find and share your own links in your virtual
+                      filing cabinet page. Will you freely login/enter?
+                      {/* You must be 13 years old or older to use this site (click
+                      legal menu item). Parental permission is not reqired if
+                      you are 18 years of age or older. This website may
+                      contribute to making your use of the internet more
+                      organized, interesting, professional, enteraining, fun and
+                      collaborative. It can store up to 5,000 links
+                      alphabetically. It gives you a sharable link to your links
+                      list of internet urls. You may try your first 250 links
+                      for free or choose one of three paid plans: for $4.99/year
+                      it stores up to 1,250 links, for $9.99/year it stores up
+                      to 2,500 links or for $14.99/year it stores up to 5,000
+                      links. If you can't afford to pay and you need more
+                      storage space, please let me know and I will give it to
+                      you for free. I am a college graduate from UNR. Please
+                      contact me, John, with any blessings, questions, comments
+                      or concerns at john@urilinks.com, 775 507 0098. I invite
+                      you to freely login/enter? */}
+                    </div>
+                  ) : (
+                    <div>
+                      You may add, find and share links on your own virtual
+                      filing cabinet page. Will you freely login/enter?
+                    </div>
+                    // <div>
+                    //   You must be 13 years old or older to use this site (click
+                    //   legal menu item). <br />
+                    //   Parental permission is not reqired if you are 18 years of
+                    //   age or older.
+                    //   <br />
+                    //   This website may contribute to making your use of the
+                    //   internet more organized,
+                    //   <br />
+                    //   interesting, professional, enteraining, fun and
+                    //   collaborative. It can store and organize up to 5,000 links
+                    //   alphabetically.
+                    //   <br />
+                    //   It gives you a sharable link to your links list of
+                    //   internet urls. You may
+                    //   <br />
+                    //   try your first 250 links for free or choose one of three
+                    //   paid plans: for $4.99/year it stores up to 1,250 links,
+                    //   <br />
+                    //   for $9.99/year it stores up to 2,500 links or for
+                    //   $14.99/year it stores up to 5,000 links.
+                    //   <br />
+                    //   If you can't afford to pay and you need more storage
+                    //   space, please let me know and I will give it to you for
+                    //   free.
+                    //   <br />
+                    //   I am a college graduate from UNR. Please contact me, John,
+                    //   with any blessings, questions, <br />
+                    //   comments or concerns at john@urilinks.com, 775 507 0098. I
+                    //   invite you to freely login/enter?
+                    //   <br />
+                    //   <br />
+                    // </div>
+                  )}
 
-                  {/* <div>
-                    I am marketing this site as a study tool for students and professors of colleges and universities.
-                    </div>
+                  {/* <span>What do you want to achieve with this website?</span> */}
+                  {/* <span>
+                    {" "}
+                    I hope the website is helpful to you. May you please give me
+                    your feedback regarding this website?{" "}
+                  </span>
+                
+                  {isMobile() === true ? (
+                    <button
+                      type="button"
+                      className="button-2 margin-right-114"
+                      title="Your answser will be sent to me by gmail.com. Thank you in advance."
+                      onClick={getGmail}
+                    >
+                      Please click to send me your answer.
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="button-2"
+                      title="Your answser will be sent to me by gmail.com. Thank you in advance."
+                      onClick={getGmail}
+                    >
+                      Please click to send me your answer.
+                    </button>
+                  )} */}
 
-                    <div>
-                    I am marketing this to wise/wiser people. The following needs to be said: You may use it
-                    </div>
-                    <div>
-                     for good or bad but I suggest you use it for good so you can have better results in life. 
-                     </div>
-                     <div>
-                      This site is similar to linktree; however, it is dedicated to serving students and professors
-                       
-                      </div>
-                      <div>
-                       This is similar to link-in-bio tool but I call it link-in-research tool with the goal of giving
-                        
-                       
-                        
-                       </div>
-                       <div>
-                         you more user engagement to your consolidated content table, research links, when a user clicks on it. 
-                        
-                          
-                         </div>
-                         
-                       <div>
-                         It simply gives you a place to store from 1 to 1000 links (Free plan: 1-250 free, 
-                         
-                         
-                        
-                         
-                        </div>
-                       <div>
-                        Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at
-                          
-                        
-                         
-                         
-                        </div>
-                        
-                    <div>
-                     $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans 
-                     
-                     
-               
-                     
-                    </div>
-                 <div>
-                         automatically billed yearly, delete account at anytime and your subscription is
+                  {props.signup === false && (
+                    <div></div>
+                    // <div
+                    //   className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
+                    //   title=""
+                    // >
+                    //   <Link
+                    //     className="nounderline cursor-pointer"
+                    //     to="/signup"
+                    //     title=""
+                    //   >
+                    //     <div className="flexrowz">
+                    //       <div>
+                    //         <img
+                    //           className="ib"
+                    //           src={redarrow}
+                    //           width="100"
+                    //           height="50"
+                    //           alt="Logo"
+                    //         />
+                    //       </div>
 
-                    </div>
-                    <div>
-                    automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares 
-                    </div>
-                     
-                     <div>
-                        your content. The display looks pretty good. You may like to use it. I cannot promise that
-                          
-                        
-                        
-                  
-                    </div>
-                    <div>
-                        people will use your content though. Can you freely login? Please contact me, John, with 
-                         
-                       
-                        
-                    </div>
-                    <div>
-                        
-                        any questions, comments or concerns at john@urilinks.com, 775 507 0098.
-                        
-                    </div> */}
+                    //       <div className="margin-top-1c ib">
+                    //         click this login/enter to have your own free page
+                    //       </div>
+                    //     </div>
+                    //   </Link>
+                    // </div>
+                  )}
 
-                  {/* (Free plan: 1-250 free, Basic plan: store up to 500 links at $4.99/year, Standard plan store up to 750 links at $9.99/year, Premium plan: store up to 1000 links at $14.99/year, all plans automatically billed yearly, delete account at anytime and your subscription is automatically cancelled, as is, no refunds) and I give you a link that you can copy and paste that shares your content. */}
-
-                  <div>
-                    This site is for students of colleges and universities. It
-                    is the original link-in-research tool
-                    <br />
-                    similar to link-in-bio tool like linktree; however, urilinks is for the
-                    <br />
-                    purpose of learning and research. It can store and organize 1-5000
-                    links alphabetically.
-                    <br />
-                    It gives you a sharable link to your consolidated internet
-                    research content. You may
-                    <br />
-                    try your first 250 links for free or choose one of three
-                    yearly paid plans at $4.99,
-                    <br />
-                    (stores up to 500 links) $9.99 (stores up to 750 links) or
-                    $14.99 (stores up to 1000 links).
-                    <br />
-                    {/* A word fitly spoken is like apples of gold in pictures of silver., proverbs 25:11
-                    
-                    friends are like flowers in the garden of life 
-                     https://www.youtube.com/watch?v=Dmla5mZ1fXU */}
-                    If you can't afford to pay and you need more storage space, please
-                    let me know and I will give it to you for free.<br />
-                    I am a college graduate from UNR. Please contact me, John,
-                    with any blessings, questions, <br />
-                    comments or concerns at john@urilinks.com, 775 507 0098. Can
-                    you freely login/enter?
-                    <br />
-                  </div>
+                  {/* <div className="padding-bottom-116">
+                    <div className="margin-left-118">
+                      <a
+                        id="sendgmailid"
+                        className="nounderline hide"
+                        href={`https://mail.google.com/mail/?view=cm&from=${gmail}&to=${"johmcg64@gmail.com"}&su=urilinks user sent me an answer.&body=Hi%20there!`}
+                        target="_blank"
+                      >
+                        Send gmail{" "}
+                        {`FROM: ${gmail} TO: ${"john@urilinks.com"}.`}
+                      </a>
+                    </div>
+                  </div> */}
                 </div>
               ) : (
-                // <div className="text-size-1 flexrowzc">
-                //   <div>
-                //     <span className="text-size-9- font-weight-bold-">T</span>his is a link in bio tool for platforms that accept links like instagram to get more engagement.
-                //   </div>
-                //   <div>
-                //     <span className="text-size-9- font-weight-bold-">Y</span>ou may add one link at a time to your bio page or you may upload browser bookmarks that get converted
-                //   </div>
-                //   <div>
-                //     <span className="text-size-9- font-weight-bold-">T</span>o bio links for you. you may find it easy to use. if you are satisfied with how it works for you,
-                //   </div>
-                //    <div>
-                //     <span className="text-size-9- font-weight-bold-">C</span>an you login?
-                //   </div>
-                // </div>
-                <div className="text-size-1 textLeft margin-top-1">
-                  <span className="hide">
-                    Thank you. Your sharable link is:
-                  </span>
-                  <a
-                    href="#"
-                    ref={textAreaRef}
-                    className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                  >
-                    https://urilinks.com/dashboard?signup=0&id={props.uid}
-                  </a>
-                  <button
-                    className="button-2 ib margin-right-1"
-                    onClick={copyToClipboard}
-                    title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                  >
-                    Copy sharable link
-                  </button>
-                  {copySuccess}
+                <div>
+                  <div className="text-size-1 textLeft margin-top-1">
+                    <span className="hide">
+                      Thank you. Your sharable link is:
+                    </span>
+                    <a
+                      href="#"
+                      ref={textAreaRef}
+                      className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                      title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                    >
+                      https://urilinks.com/dashboard?signup=0&id={props.uid}
+                    </a>
+                    <button
+                      className="button-2 ib margin-right-1 margin-left-11"
+                      onClick={copyToClipboard}
+                      title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                    >
+                      Copy sharable link
+                    </button>
+                    {copySuccess}
+                  </div>
+                  <div>
+                    You may add, find and share links on your own virtual filing
+                    cabinet page. Freely login/enter?
+                  </div>
                 </div>
               )}
+
+              {/* {props.signup === true && (
+                <div className="margin-top-118">
+                  <div className="flexrowsb margin-right-1 ib">
+                    <span>
+                      {" "}
+                      I hope the website is helpful to you. May you please give
+                      me your feedback regarding this website?{" "}
+                    </span>
+                     <button
+                      type="button"
+                      className="button-2 ib margin-left-11"
+                      title="Your answser will be sent to me by gmail.com. Thank you in advance."
+                      onClick={getGmail}
+                    >
+                      Please click to send me your answer.
+                    </button>
+                  </div>
+
+                  <div className="padding-bottom-116-">
+                    <div className="margin-left-118">
+                      <a
+                        id="sendgmailid"
+                        className="nounderline hide"
+                        href={`https://mail.google.com/mail/?view=cm&from=${gmail}&to=${"johmcg64@gmail.com"}&su=urilinks user sent me an answer.&body=Hi%20there!`}
+                        target="_blank"
+                      >
+                        Send gmail{" "}
+                        {`FROM: ${gmail} TO: ${"john@urilinks.com"}.`}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )} */}
 
               <div className="text-size-1 textLeft hide">
                 <span className="text-size-9">😃 </span>Your friendly link to
@@ -604,8 +718,13 @@ function ExpandableArray(props) {
               <div className="margin-left-11-">
                 <div className="margin-left-minus-1">
                   <span>
-                    {props.links.length} links of {maximum} links is stored on the{" "}
+                    {props.links.length} of {maximum} links is stored on the{" "}
                     {props.theplan.plan.replace(/"/g, "")} plan.
+                  </span>
+                </div>
+                <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">
+                  <span className="font-weight-bold uppercase-">
+                    INDEX (click a button and see results)
                   </span>
                 </div>
                 <div className="flexrow3c">
@@ -614,15 +733,15 @@ function ExpandableArray(props) {
                       className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
                       title="click for plan options"
                     >
-                      {
+                      {/* {
                         //isToggled &&
 
                         props.signup === true &&
                           props.theplan.plan.replace(/"/g, "") !==
-                            "premium" && <span>(click to change plan)</span>
+                            "premium" && <div className="margin-bottom-1">(click to change plan)</div>
                       }
 
-                      {isToggled && props.signup === false && <span></span>}
+                      {isToggled && props.signup === false && <span></span>} */}
                     </span>
                   </Link>
                 </div>
@@ -639,13 +758,13 @@ function ExpandableArray(props) {
             } paddingparent margin-top-1 background-white-1 borderradius5`}
             title={
               props.signup === true
-                ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
-                : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags which were entered in the note section to find your links that are grouped by hashtag."
+                ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
+                : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
             }
           >
             {!expanded
-              ? //props.b === 0 && 
-              props.mappedDataShort.map((s, index) => {
+              ? //props.b === 1 &&
+                props.mappedDataShort.map((s, index) => {
                   if (index < 50)
                     return (
                       <div
@@ -653,12 +772,19 @@ function ExpandableArray(props) {
                         className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                       >
                         <a
-                          className="b1x nounderline color-white-1 button-link-4"
+                          className={`b1x nounderline color-white-1 button-link-4 ${
+                            props.b == 1
+                              ? "pointereventsauto"
+                              : "pointereventsnone"
+                          }`}
                           href="#"
                           onClick={() => props.setit(s.hashtag, event)}
-                          title={`${s.hashtag}, click to scroll to results`}
+                          title={`${sep(s.hashtag)}, hashtag: ${
+                            !!s.hashtag && s.hashtag
+                          }, click to scroll to results`}
+                          //title={props.signup === true?${s.hashtag}, click to scroll to results:
                         >
-                          {s.hashtag}
+                          {sep(s.hashtag)}
                           {/* {"#"}
                           <span className={`{${highlight(s.hashtag[1])}}`}>
                             {s.hashtag[1]}
@@ -669,9 +795,8 @@ function ExpandableArray(props) {
                     );
                   else return false;
                 })
-              : 
-              //props.b === 1 && 
-              props.mappedDataShort.map((s, index) => {
+              : //props.b === 1 &&
+                props.mappedDataShort.map((s, index) => {
                   //have 3 map calls and display the first column then the second column and then the thrid column
                   return (
                     <div
@@ -679,12 +804,18 @@ function ExpandableArray(props) {
                       className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                     >
                       <a
-                        className="b1x  nounderline color-white-1 button-link-4"
+                        className={`b1x nounderline color-white-1 button-link-4 ${
+                          props.b == 1
+                            ? "pointereventsauto"
+                            : "pointereventsnone"
+                        }`}
                         href="#"
                         onClick={() => props.setit(s.hashtag, event)}
-                        title={`${s.hashtag}, click to scroll to results`}
+                        title={`${sep(s.hashtag)}, hashtag: ${
+                          !!s.hashtag && s.hashtag
+                        }, click to scroll to results`}
                       >
-                        {s.hashtag}
+                        {sep(s.hashtag)}
                         {/* {"#"}
                         <span className={highlight(s.hashtag[1])}>
                           {s.hashtag[1]}
@@ -695,14 +826,18 @@ function ExpandableArray(props) {
                   );
                 })}
 
-            {!expanded && <span className="text-size-5">...</span>}
+            {props.mappedDataShort.length > 50 && !expanded && (
+              <span className="text-size-5">...</span>
+            )}
           </div>
-          <button
-            className="button-m button--link color-black"
-            onClick={toggleExpanded}
-          >
-            {expanded ? "Show Less" : "Show More"}
-          </button>
+          {props.b === 1 && (
+            <button
+              className="button-m button--link color-black"
+              onClick={toggleExpanded}
+            >
+              {expanded ? "Show Less" : "Show More"}
+            </button>
+          )}
         </div>
       ) : (
         <div></div>
@@ -713,53 +848,29 @@ function ExpandableArray(props) {
     </div>
   );
 }
+
 /*
-  //purpose: highlight the first letter of a hashtag to make it easier to see the alphabetical order
-  const highlight = (v) => {
-    return "color-white-1";
+constructor(props) {
+    super(props);
+    this.state = { searchTerm: '' };
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
 
-    //v is the first letter after #
-    let cn = "";
-    // v='a'
+  handleSearch() {
+    // Perform the search action here
+    console.log('Searching for:', this.state.searchTerm);
+    // Example: this.props.onSearch(this.state.searchTerm);
+  }
 
-    if (v === "a") cn = "colorfora";
-    else if (v === "b") cn = "colorforv";
-    else if (v === "c") cn = "colorforc";
-    else if (v === "d") cn = "colorford";
-    else if (v === "e") cn = "colorfore";
-    else if (v === "f") cn = "colorforf";
-    else if (v === "g") cn = "colorforg";
-    else if (v === "h") cn = "colorforh";
-    else if (v === "i") cn = "colorfori";
-    else if (v === "j") cn = "colorforj";
-    else if (v === "k") cn = "colorfork";
-    else if (v === "l") cn = "colorforl";
-    else if (v === "m") cn = "colorform";
-    else if (v === "n") cn = "colorforn";
-    else if (v === "o") cn = "colorforo";
-    else if (v === "p") cn = "colorforp";
-    else if (v === "q") cn = "colorforq";
-    else if (v === "r") cn = "colorforr";
-    else if (v === "s") cn = "colorfors";
-    else if (v === "t") cn = "colorfort";
-    else if (v === "u") cn = "colorforu";
-    else if (v === "v") cn = "colorforv";
-    else if (v === "w") cn = "colorforw";
-    else if (v === "x") cn = "colorforx";
-    else if (v === "y") cn = "colorfory";
-    else if (v === "z") cn = "colorforz";
-    else cn = "color-white-1";
-
-    return cn;
-  };
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.handleSearch();
+    }
+  }
 */
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-export class LinkListFilters extends React.Component {
-  // morehashtags = window.localStorage.getItem("morehashtags");
-  // np = window.localStorage.getItem("newspaper");
 
+export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
     this.SHORT_HASHTAG_LENGTH = 30;
@@ -786,16 +897,55 @@ export class LinkListFilters extends React.Component {
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
       foldernamesList: [],
       isToggled: false,
+      searchTerm: "", //,
+      //dv:window.localStorage.getItem("notloggedin")==="1"?"":window.localStorage.getItem("termid")
     };
 
     this.setit = this.setit.bind(this);
+
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  handleSearch() {
+    // Perform the search action here
+    //console.log('Searching for:', this.state.searchTerm);
+    // Example: this.props.onSearch(this.state.searchTerm);
+
+    var select = document.getElementById("mode");
+    var selectedValue = select.options[select.selectedIndex].value;
+    console.log("handleSearch search, selectedValue=" + selectedValue);
+    let term = window.document.getElementById("termid").value;
+    let str = term.trim();
+    term = str;
+    if (selectedValue === "hashtag") {
+      const words = term.split(/\s+/); // Split by one or more whitespace characters
+
+      if (term.charAt(0) !== "#") {
+        alert("The search term needs to be a hashtag.");
+        return;
+      }
+      if (words.length !== 1) {
+        alert("The search term needs to be one word.");
+        return;
+      }
+    }
+    //alert (term)
+    this.props.setTextFilter(term);
+  }
+
+  handleKeyPress(e) {
+    if (e.key === "Enter") {
+      this.handleSearch();
+    }
   }
 
   scrollUp = () => {
     //window.scrollTo(0, 0);
-    document.querySelector("#top").scrollIntoView({
-      behavior: "smooth",
-    });
+    !!document.querySelector("#top") &&
+      document.querySelector("#top").scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
   deleteHashtagLinks = () => {
@@ -813,6 +963,7 @@ export class LinkListFilters extends React.Component {
   onFocusChange = (calendarFocused) => {
     this.setState(() => ({ calendarFocused }));
   };
+
   onTextChange = (e) => {
     console.log("e.target.value=" + e.target.value);
 
@@ -888,28 +1039,51 @@ export class LinkListFilters extends React.Component {
   };
 
   onSortChange = (e) => {
-    console.log("onSortChange=(), e.target.value=" + e.target.value);
-    if (e.target.value === "date") {
-      this.props.setTextFilter("");
-      if (this.myRef.current) this.myRef.current.focus();
-      window.localStorage.setItem("sortBy", "date");
-      this.setState({ sortBy: "date" });
-      this.props.sortByDate();
-    } else if (e.target.value === "description") {
-      this.props.setTextFilter("");
+    if (e.target.value === "none") return;
+
+    console.log("onSortChange=(), sortBy=, e.target.value=" + e.target.value);
+    // if (e.target.value === "date") {
+    //   this.props.setTextFilter("");
+    //   if (this.myRef.current) this.myRef.current.focus();
+    //   window.localStorage.setItem("sortBy", "date");
+    //   this.setState({ sortBy: "date" });
+    //   this.props.sortByDate();
+    // } else
+    const val = window.document.getElementById("termid").value.trim();
+    window.localStorage.setItem("termid", val);
+    console.log("onSortChange=(), search term=, val=" + val);
+    if (e.target.value === "description") {
+      //this.props.setTextFilter("");
+      //window.localStorage.setItem("termid", val);
+      this.props.setTextFilter(val);
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sortBy", "description");
       this.setState({ sortBy: "description" });
       this.props.sortByDescription();
     } else if (e.target.value === "hashtag") {
+      if (val.trim() !== "" && val.trim().charAt(0) !== "#") {
+        alert("The search term needs to be a hashtag.");
+        return;
+      }
+
+      if (val.trim() === "") {
+        //window.document.getElementById("termid").value = "#"
+        this.props.setTextFilter("#");
+        //window.localStorage.setItem("termid", "#");
+      } else {
+        //window.localStorage.setItem("termid", val);
+        this.props.setTextFilter(val);
+      }
       if (this.myRef.current) this.myRef.current.focus();
-      this.props.setTextFilter("#");
+      //this.props.setTextFilter("#");
+
       window.localStorage.setItem("sortBy", "hashtag");
       this.setState({ sortBy: "hashtag" });
       this.props.sortByHashTag();
     } else if (e.target.value === "notetext") {
       if (this.myRef.current) this.myRef.current.focus();
-      this.props.setTextFilter("");
+      //this.props.setTextFilter("");
+      this.props.setTextFilter(val);
       window.localStorage.setItem("sortBy", "notetext");
       this.setState({ sortBy: "notetext" });
       this.props.sortByNoteText();
@@ -954,41 +1128,48 @@ export class LinkListFilters extends React.Component {
   // Example usage:
   //console.log(truncate("This is a very long string", 15)); // Output: "This is a very ..."
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return {
-      filenameList: [],
-    };
-  }
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   return null
+  //   // return {
+  //   //   filenameList: [],
+  //   // };
+  // }
 
   componentDidMount() {
+    // const notloggedin = window.localStorage.getItem("notloggedin");
+    // if(notloggedin==="1") { //1 means true
+    //   window.document.getElementById("termid").value=""
+    //   this.setState({ dv: "" })
+    // }
     //props.history.push("/");
     //window.location.reload()
     //this.setState({ foldernamesList: [] });
     //const array1 = ['a','b']
-    let tl = [];
+    // let tl = [];
 
-    this.props.links.forEach(function (element) {
-      if (!!element.foldername === true) {
-        let str2 =
-          element.foldername.length > 40
-            ? element.foldername.slice(0, 40 - 3) + "..."
-            : element.foldername;
-        tl.push({ label: str2, value: element.foldername });
-      }
-    });
+    // this.props.links.forEach(function (element) {
+    //   if (!!element.foldername === true) {
+    //     let str2 =
+    //       element.foldername.length > 40
+    //         ? element.foldername.slice(0, 40 - 3) + "..."
+    //         : element.foldername;
+    //     tl.push({ label: str2, value: element.foldername });
+    //   }
+    // });
 
-    tl.sort((a, b) => {
-      return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
-    });
+    // tl.sort((a, b) => {
+    //   return a.label.toLowerCase() > b.label.toLowerCase() ? 1 : -1;
+    // });
 
-    let tl2 = this.removeDuplicatesByKey(tl, (item) => item.value);
+    // let tl2 = this.removeDuplicatesByKey(tl, (item) => item.value);
 
-    this.setState({ foldernamesList: tl2 });
-    //get the plan from settings so I know how many links a person can have
-    console.log(
-      "In LinkListFilters.js, this.props.settings=" +
-        JSON.stringify(this.props.settings)
-    );
+    // this.setState({ foldernamesList: tl2 });
+    // //get the plan from settings so I know how many links a person can have
+    // console.log(
+    //   "In LinkListFilters.js, this.props.settings=" +
+    //     JSON.stringify(this.props.settings)
+    // );
+
     //if(this.props.settings.plan===undefined)
     // const user = firebase.auth().currentUser;
     // database
@@ -1018,6 +1199,7 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
 
     const sortBy = window.localStorage.getItem("sortBy");
+
     console.log("componentDidMount, sortBy=" + sortBy);
 
     if (this.props.filters.sortBy === "date" || sortBy === "date") {
@@ -1080,6 +1262,41 @@ export class LinkListFilters extends React.Component {
     // this.setState({
     //   newspaper: !!this.state.newspaper === "true" ? true : false,
     // });
+
+    console.log(
+      "AAAA window.localStorage.getItem('sortBy')=" +
+        window.localStorage.getItem("sortBy")
+    );
+    //console.log("BBBB this.props.filters.sortBy="+this.props.filters.sortBy)
+    //console.log("CCCC this.state.sortBy="+this.state.sortBy)
+    const term = window.localStorage.getItem("termid");
+    if (term !== "") {
+      window.document.getElementById("termid").value = term;
+      const sortBy2 = window.localStorage.getItem("sortBy");
+      if (
+        (this.props.filters.sortBy === "hashtag" ||
+          this.state.sortBy === "hashtag") &&
+        term !== "" &&
+        term.charAt(0) === "#"
+      ) {
+        window.document.getElementById("buttonid").click();
+      }
+      // else if (((this.props.filters.sortBy === "description"
+      //   || this.state.sortBy === "description")
+      //   || (this.props.filters.sortBy === "notetext"
+      //   || this.state.sortBy === "notetext") )
+      //   || (term === "" || term.charAt(0) !== '#')) {
+      //     window.document.getElementById("buttonid").click()
+      // }
+      else if (
+        sortBy === "description" ||
+        sortBy === "notetext" ||
+        term === "" ||
+        term.charAt(0) !== "#"
+      ) {
+        window.document.getElementById("buttonid").click();
+      }
+    }
   }
 
   componentWillUnmount() {}
@@ -1093,7 +1310,6 @@ export class LinkListFilters extends React.Component {
   };
 
   setit = (value, event) => {
-    
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
 
@@ -1104,10 +1320,10 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("searchLinks3", value);
 
     //this scrolls the results into view, the first and subsequent result is shown
-    document.querySelector("#before-before-link-summary-id").scrollIntoView({
-      behavior: "smooth",
-    });
-
+    !!document.querySelector("#before-before-link-summary-id") &&
+      document.querySelector("#before-before-link-summary-id").scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
   refreshIt = () => {
@@ -1138,6 +1354,49 @@ export class LinkListFilters extends React.Component {
     return regex.test(navigator.userAgent);
   }
 
+  // clear () {
+
+  //   if(this.props.filters.sortBy==="hashtag") {
+  //     window.document.getElementById("termid").value="#"
+  //   } else {
+  //     window.document.getElementById.value=""
+  //   }
+
+  // }
+
+  search = () => {
+    console.log("search");
+    const sortBy = window.localStorage.getItem("sortBy");
+    var select = document.getElementById("mode");
+    var selectedValue = select.options[select.selectedIndex].value;
+    console.log("search = () => {, selectedValue=" + selectedValue);
+    let term = window.document.getElementById("termid").value;
+    let str = term.trim();
+
+    term = str;
+    if (selectedValue === "hashtag" && sortBy === "hashtag") {
+      if (term !== "" && term.charAt(0) !== "#") {
+        alert("The search term needs to be a hashtag.");
+        return;
+      }
+
+      if (term === "") {
+        window.document.getElementById("termid").value = "#";
+        this.props.setTextFilter("#");
+        window.localStorage.setItem("termid", "#");
+      } else {
+        window.localStorage.setItem("termid", term);
+        this.props.setTextFilter(term);
+      }
+    } else {
+      window.localStorage.setItem("termid", term);
+      console.log("else search = () => {, selectedValue=" + selectedValue);
+      this.props.setTextFilter(term);
+    }
+    //alert (term)
+    //this.props.setTextFilter(term);
+  };
+
   render() {
     return (
       <div className="">
@@ -1160,6 +1419,7 @@ export class LinkListFilters extends React.Component {
                 signup={this.props.signup.signup}
                 uid={this.props.auth.uid}
                 links={this.props.links}
+                b={this.props.b}
               />
             </div>
           )}
@@ -1167,80 +1427,116 @@ export class LinkListFilters extends React.Component {
 
         <div
           id="before-before-link-summary-id"
-          className="bg-color-2 borderRadius4- flexrow2w padding-top-111 padding-bottom-111"
+          className="bg-color-2 borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
         >
-          <div className="">
-            <input
-              id="termid"
-              ref={this.myRef}
-              type="text"
-              className="text-input outline-none padding-left-11"
-              placeholder={
-                this.props.filters.sortBy === "date"
-                  ? "Search for Link(s)"
-                  : "Search for Link(s)"
-              }
-              value={this.props.filters.text}
-              onChange={this.onTextChange}
-              title={
-                this.props.filters.sortBy === "date"
-                  ? ""
-                  : this.props.filters.sortBy === "description"
-                  ? "Search for Link(s) (Please enter link description to find)"
-                  : "Search for Link(s) (Please enter Hash Tag to find)"
-              }
-            />
-          </div>
-
-          {this.isMobile() === false && (
-            <div
-              className="cursor-pointer  margin-right-1 the-text-color"
-              onClick={this.scrollUp}
-              title="scroll to top"
-            >
-              (up)
+          <div className="flexrowzv">
+            <div className="margin-left-11">
+              <input
+                title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
+                placeholder="type/paste what to find?"
+                autofocus
+                id="termid"
+                className="text-input responsive-input outline-none padding-left-11 borderRadius55"
+                type="text"
+                //value={this.state.dv}
+                onChange={(e) => this.setState({ searchTerm: e.target.value })}
+                onKeyDown={this.handleKeyPress}
+              />
             </div>
-          )}
 
-          <div className="">
-            <select
-              className="select outline-none"
-              value={this.state.sortBy}
-              //value={this.props.filters.sortBy}
-
-              onChange={this.onSortChange}
-              title="Date: Sorts into descending order (latest entered first), Link Text: Search By Uri/Url Link Text, or Hash Tag: Search By Hash Tag"
+            <div
+              //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
+              className={`${
+                this.isMobile() ? "margin-right-1" : "margin-left-11"
+              }`}
             >
-              <option value="hashtag" title="search by hash tag">
-                Hash Tag
-              </option>
+              <button
+                id="buttonid"
+                className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
+                //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
-              <option
-                value="description"
-                title="search through the uri/url link texts"
+                onClick={this.search}
+                //title="Searches to find entered term through the previously selected list which will appear in copper color."
+                title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
               >
-                Link Text
-              </option>
+                search
+              </button>
+            </div>
 
-              <option value="notetext" title="search through the notes">
-                Note Text
-              </option>
-              {/* <option
-                value="date"
-                title="search through the uri/url link texts with a date range"
+            <div
+              className={`${
+                this.isMobile()
+                  ? "margin-top-11z1 margin-left-11"
+                  : "margin-left-11"
+              }`}
+            >
+              <select
+                id="mode"
+                className="select outline-none"
+                value={this.state.sortBy}
+                //value={this.props.filters.sortBy}
+
+                onChange={this.onSortChange}
+                title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
               >
-                Date
-              </option> */}
-            </select>
+                <option value="hashtag" title="search by hash tag">
+                  Hash Tag
+                </option>
+
+                <option
+                  //selected
+                  value="description"
+                  title="search through the uri/url link texts"
+                >
+                  Link Text
+                </option>
+
+                <option value="notetext" title="search through the notes">
+                  Note Text
+                </option>
+              </select>
+            </div>
           </div>
-          <div>
-            {/* <div>
+        </div>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => ({
+  filters: state.filters,
+  links: state.links,
+  hashtags: state.hashtags,
+  setit: state.setit,
+  settings: state.settings,
+  theplan: state.theplan,
+  signup: state.signup,
+  theplan: state.theplan,
+  auth: state.auth,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setTextFilter: (text) => dispatch(setTextFilter(text)),
+  sortByDate: () => dispatch(sortByDate()),
+  sortByDescription: () => dispatch(sortByDescription()),
+  sortByHashTag: () => dispatch(sortByHashTag()),
+  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
+  setEndDate: (endDate) => dispatch(setEndDate(endDate)),
+  sortByNoteText: () => dispatch(sortByNoteText()),
+  sortByFolder: () => dispatch(sortByFolder()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);
+
+/* 1
+<div>
+  <div>
  <span className="">
                    <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
                    <label for="dbdropdownid" />
                   </span>
-             </div> */}
-            {/* {this.props.signup.signup === true ?<div>
+             </div> 
+             {this.props.signup.signup === true ?<div>
  <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                    <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
                    <label for="dbdropdownid" />
@@ -1252,12 +1548,17 @@ export class LinkListFilters extends React.Component {
                    <label for="dbdropdownid" />
                   </span>
              </div>
-             } */}
-          </div>
-          {
+             }
+             </div> 
+*/
+
+/* 2
+ {
             //this.state.isToggled === true &&
             true && (
-              <div className="cursor-pointer">
+               
+              <div className={`cursor-pointer ${this.isMobile()?"margin-top-11z1" :""}`}>
+             
                 <select
                   className="select cursor-pointer"
                   onChange={this.onFolderChange}
@@ -1280,8 +1581,8 @@ export class LinkListFilters extends React.Component {
                 </select>
               </div>
             )
-          }
-          {/* <div className="">
+          } 
+           <div className="">
             <DateRangePicker
               className="zindex"
               startDate={this.props.filters.startDate}
@@ -1293,34 +1594,26 @@ export class LinkListFilters extends React.Component {
               numberOfMonths={1}
               isOutsideRange={() => false}
             />
-          </div> */}
-        </div>
-      </div>
-    );
-  }
-}
+          </div> 
+*/
 
-const mapStateToProps = (state) => ({
-  filters: state.filters,
-  links: state.links,
-  hashtags: state.hashtags,
-  setit: state.setit,
-  settings: state.settings,
-  theplan: state.theplan,
-  signup: state.signup,
-  theplan: state.theplan,
-  auth: state.auth,
-});
+/* 3
+ {this.isMobile() === false && (
+            <div
+              className="cursor-pointer  margin-right-1 the-text-color"
+              onClick={this.scrollUp}
+              title="scroll to top"
+            >
+              (up)
+            </div>
+          )}
+*/
 
-const mapDispatchToProps = (dispatch) => ({
-  setTextFilter: (text) => dispatch(setTextFilter(text)),
-  sortByDate: () => ispatch(sortByDate()),
-  sortByDescription: () => dispatch(sortByDescription()),
-  sortByHashTag: () => dispatch(sortByHashTag()),
-  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
-  setEndDate: (endDate) => dispatch(setEndDate(endDate)),
-  sortByNoteText: () => dispatch(sortByNoteText()),
-  sortByFolder: () => dispatch(sortByFolder()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);
+/* 4
+<option
+                value="date"
+                title="search through the uri/url link texts with a date range"
+              >
+                Date
+              </option>
+*/

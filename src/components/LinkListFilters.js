@@ -350,7 +350,7 @@ function ExpandableArray(props) {
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
                     <div className="padding-right-11 padding-bottom-118 lowercase">
-                      clear value: it provides space for a note or data entry for each<br />
+                      clear value: it provides space for a note for data entry for each<br />
                       link you save. you may add, find and share your own links in your virtual
                       filing cabinet page. freely login?
                       {/* You must be 13 years old or older to use this site (click
@@ -373,8 +373,9 @@ function ExpandableArray(props) {
                     </div>
                   ) : (
                     <div>
-                      you may add, find and share links on your own virtual
-                      filing cabinet page. freely login.
+                      clear value: it provides space for a note for data entry for each<br />
+                      link you save. you may add, find and share your own links in your virtual
+                      filing cabinet page. freely login?
                     </div>
                     // <div>
                     //   You must be 13 years old or older to use this site (click

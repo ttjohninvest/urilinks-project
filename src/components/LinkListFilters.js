@@ -1207,7 +1207,8 @@ export class LinkListFilters extends React.Component {
         window.localStorage.getItem("sortBy")
     );
    
-    //if(this.isMobile() === false) {
+    try {
+//if(this.isMobile() === false) {
 const term = "" //window.localStorage.getItem("termid");
     if (term !== "") {
       window.document.getElementById("termid").value = term;
@@ -1237,6 +1238,10 @@ const term = "" //window.localStorage.getItem("termid");
       }
     }
     //}
+    } catch(e) {
+       alert("e="+e)
+    }
+   
     
   }
 

@@ -334,10 +334,10 @@ function ExpandableArray(props) {
                     title="location for your gmail name"
                   >
                     {(!!theuser && props.signup === true) || signup === "0"
-                      ? theuser.displayName
-                        ? theuser.displayName
+                      ? theuser?.displayName
+                        ? theuser?.displayName
                         : "error getting display name"
-                      : !!theuser.displayName===true?theuser.displayName:"(gmail name)"}
+                      : !!theuser===true?theuser?.displayName:"(gmail name)"}
                   </div>
                   {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
                 </div>

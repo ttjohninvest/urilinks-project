@@ -487,16 +487,16 @@ return val
 
                    {props.signup.signup === false && (
                     
-                    <div className="flexrowz">
-                   <div>
-                 <img
-                   className="ib minWidth"
-                   src={redarrow}
-                   width="100"
-                  height="50"
-                   alt="Logo"
-                 />
-               </div>
+              //       <div className="flexrowz">
+              //      <div>
+              //    <img
+              //      className="ib minWidth"
+              //      src={redarrow}
+              //      width="100"
+              //     height="50"
+              //      alt="Logo"
+              //    />
+              //  </div>
                 <div
                       className="color-white-1 margin-right-1"
                       title="Please use it for good. Bookmarks for internet pages, urls/links"
@@ -509,7 +509,7 @@ return val
                         login
                       </Link>
                     </div>
-                   </div>
+                  //  </div>
                    
                   )}
 

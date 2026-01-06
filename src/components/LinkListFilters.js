@@ -1000,7 +1000,7 @@ export class LinkListFilters extends React.Component {
   };
 
   onFolderChange = (e) => {
-    console.log("onSortChange2, e.target.value=" + e.target.value);
+    console.log("onFolderChange, e.target.value=" + e.target.value);
     //alert( "e.target.value="+e.target.value)
     this.props.setTextFilter(e.target.value);
 
@@ -1023,32 +1023,24 @@ export class LinkListFilters extends React.Component {
   onSortChange = (e) => {
     if (e.target.value === "none") return;
 
-    console.log("onSortChange=(), sortBy=, e.target.value=" + e.target.value);
-    // if (e.target.value === "date") {
-    //   this.props.setTextFilter("");
-    //   if (this.myRef.current) this.myRef.current.focus();
-    //   window.localStorage.setItem("sortBy", "date");
-    //   this.setState({ sortBy: "date" });
-    //   this.props.sortByDate();
-    // } else
     const val = window.document.getElementById("termid").value.trim();
-    window.localStorage.setItem("termid", val);
+    //window.localStorage.setItem("termid", val);
     console.log("onSortChange=(), search term=, val=" + val);
     if (e.target.value === "description") {
-      window.localStorage.setItem("sortBy", "description");
+      //window.localStorage.setItem("sortBy", "description");
       this.props.setTextFilter(val);
       if (this.myRef.current) this.myRef.current.focus();
-      this.setState({ sortBy: "description" });
+      //this.setState({ sortBy: "description" });
       this.props.sortByDescription();
       //this.setState({ sortBy: "description" });
     } else if (e.target.value === "hashtag") {
-window.localStorage.setItem("sortBy", "hashtag");
-      if (val.trim() !== "" && val.trim().charAt(0) !== "#") {
+//window.localStorage.setItem("sortBy", "hashtag");
+      if (val !== "" && val.charAt(0) !== "#") {
         alert("The search term needs to be a hashtag.");
         return;
       }
 
-      if (val.trim() === "") {
+      if (val === "") {
         //window.document.getElementById("termid").value = "#"
         this.props.setTextFilter("#");
         //window.localStorage.setItem("termid", "#");
@@ -1060,16 +1052,16 @@ window.localStorage.setItem("sortBy", "hashtag");
       //this.props.setTextFilter("#");
 
       //window.localStorage.setItem("sortBy", "hashtag");
-      this.setState({ sortBy: "hashtag" });
+      //this.setState({ sortBy: "hashtag" });
       this.props.sortByHashTag();
       //this.setState({ sortBy: "hashtag" });
     } else if (e.target.value === "notetext") {
-      window.localStorage.setItem("sortBy", "notetext");
+      //window.localStorage.setItem("sortBy", "notetext");
       if (this.myRef.current) this.myRef.current.focus();
       //this.props.setTextFilter("");
       this.props.setTextFilter(val);
       //window.localStorage.setItem("sortBy", "notetext");
-      this.setState({ sortBy: "notetext" });
+      //this.setState({ sortBy: "notetext" });
       this.props.sortByNoteText();
       //this.setState({ sortBy: "notetext" });
     }
@@ -1190,34 +1182,35 @@ window.localStorage.setItem("sortBy", "hashtag");
     );
 
     try {
-    const term = this.props.filters.text //window.localStorage.getItem("termid");
-    //if (term !== "") {
-      window.document.getElementById("termid").value = this.props.filters.text //term;
-      //const sortBy2 = window.localStorage.getItem("sortBy");
-      if (
-        (this.props.filters.sortBy === "hashtag" 
-          //||
-          //this.state.sortBy === "hashtag"
-        ) 
+       window.document.querySelector("#buttonid").click();
+    // const term = this.props.filters.text //window.localStorage.getItem("termid");
+    // //if (term !== "") {
+    //   window.document.getElementById("termid").value = this.props.filters.text //term;
+    //   //const sortBy2 = window.localStorage.getItem("sortBy");
+    //   if (
+    //     (this.props.filters.sortBy === "hashtag" 
+    //       //||
+    //       //this.state.sortBy === "hashtag"
+    //     ) 
           
-          &&
-        term !== "" &&
-        term.charAt(0) === "#"
-      ) {
-        //window.document.getElementById("buttonid").click();
-        window.document.querySelector("#buttonid").click();
-      }
+    //       &&
+    //     term !== "" &&
+    //     term.charAt(0) === "#"
+    //   ) {
+    //     //window.document.getElementById("buttonid").click();
+    //     window.document.querySelector("#buttonid").click();
+    //   }
      
-      else if (
-        // sortBy === "description" ||
-        // sortBy === "notetext" ||
-        this.props.filters.sortBy === "description" ||
-        this.props.filters.sortBy === "notetext" ||
-        term === "" ||
-        term.charAt(0) !== "#"
-      ) {
-        window.document.querySelector("#buttonid").click();
-      }
+    //   else if (
+    //     // sortBy === "description" ||
+    //     // sortBy === "notetext" ||
+    //     this.props.filters.sortBy === "description" ||
+    //     this.props.filters.sortBy === "notetext" ||
+    //     term === "" ||
+    //     term.charAt(0) !== "#"
+    //   ) {
+    //     window.document.querySelector("#buttonid").click();
+    //   }
 
       
     //}

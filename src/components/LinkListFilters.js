@@ -1182,6 +1182,7 @@ export class LinkListFilters extends React.Component {
     );
 
     try {
+       window.document.getElementById("termid").value = window.localStorage.getItem("termid")
        window.document.querySelector("#buttonid").click();
     // const term = this.props.filters.text //window.localStorage.getItem("termid");
     // //if (term !== "") {

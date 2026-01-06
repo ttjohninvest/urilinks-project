@@ -1183,31 +1183,31 @@ export class LinkListFilters extends React.Component {
         window.localStorage.getItem("sortBy")
     );
 
-    const term = window.localStorage.getItem("termid");
+    // const term = window.localStorage.getItem("termid");
     
-      window.document.getElementById("termid").value = this.props.filters.text //term;
+    //   window.document.getElementById("termid").value = this.props.filters.text //term;
     
-      if (
-          sortBy === "hashtag"
-          && term !== "" 
-          && term.charAt(0) === "#"
-        )
-       {
-        //window.document.getElementById("buttonid").click();
-        window.document.querySelector("#buttonid").click();
-      }
+    //   if (
+    //       sortBy === "hashtag"
+    //       && term !== "" 
+    //       && term.charAt(0) === "#"
+    //     )
+    //    {
+    //     //window.document.getElementById("buttonid").click();
+    //     window.document.querySelector("#buttonid").click();
+    //   }
      
-      else if (
-        sortBy === "description" ||
-        sortBy === "notetext" ||
-        term === "" ||
-        term.charAt(0) !== "#"
-      ) {
-        window.document.querySelector("#buttonid").click();
-      }
+    //   else if (
+    //     sortBy === "description" ||
+    //     sortBy === "notetext" ||
+    //     term === "" ||
+    //     term.charAt(0) !== "#"
+    //   ) {
+    //     window.document.querySelector("#buttonid").click();
+    //   }
 
       
-    }
+    // }
 
      
  

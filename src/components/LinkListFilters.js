@@ -1209,10 +1209,14 @@ export class LinkListFilters extends React.Component {
       ) {
         window.document.getElementById("buttonid").click();
       }
+
+      
     }
-  }catch () {
+
+     }catch (e) {
     alert("Error 1000,from LinkListilters.js, componentDidMount, e="+e)
   }
+ 
   }
 
   componentWillUnmount() {}

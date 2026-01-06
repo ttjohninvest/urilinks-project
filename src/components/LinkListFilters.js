@@ -1182,7 +1182,8 @@ export class LinkListFilters extends React.Component {
     );
 
     try {
-       //window.document.getElementById("termid").value = window.localStorage.getItem("termid")
+       window.document.getElementById("termid").value = window.localStorage.getItem("termid")
+       this.setState("sortBy", window.document.localStorage.getItem("sortBy"))
        window.document.querySelector("#buttonid").click();
     // const term = this.props.filters.text //window.localStorage.getItem("termid");
     // //if (term !== "") {
@@ -1376,9 +1377,9 @@ export class LinkListFilters extends React.Component {
               <select
                 id="mode"
                 className="select outline-none"
-                //value={this.state.sortBy}
+                value={this.state.sortBy}
                 //value={this.props.filters.sortBy}
-                value={window.localStorage.getItem("sortBy")}
+                //value={window.localStorage.getItem("sortBy")}
 
                 onChange={this.onSortChange}
                 title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"

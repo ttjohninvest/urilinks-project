@@ -880,7 +880,7 @@ export class LinkListFilters extends React.Component {
       foldernamesList: [],
       isToggled: false,
       searchTerm: "", //,
-      //dv:window.localStorage.getItem("notloggedin")==="1"?"":window.localStorage.getItem("termid")
+      
     };
 
     this.setit = this.setit.bind(this);
@@ -1036,11 +1036,8 @@ export class LinkListFilters extends React.Component {
     console.log("onSortChange=(), search term=, val=" + val);
     if (e.target.value === "description") {
       window.localStorage.setItem("sortBy", "description");
-      //this.props.setTextFilter("");
-      //window.localStorage.setItem("termid", val);
       this.props.setTextFilter(val);
       if (this.myRef.current) this.myRef.current.focus();
-      //window.localStorage.setItem("sortBy", "description");
       this.setState({ sortBy: "description" });
       this.props.sortByDescription();
       //this.setState({ sortBy: "description" });
@@ -1193,9 +1190,9 @@ window.localStorage.setItem("sortBy", "hashtag");
     );
 
     try {
-    const term = window.localStorage.getItem("termid");
+    const term = this.props.filters.text //window.localStorage.getItem("termid");
     //if (term !== "") {
-      window.document.getElementById("termid").value = term;
+      window.document.getElementById("termid").value = this.props.filters.text //term;
       //const sortBy2 = window.localStorage.getItem("sortBy");
       if (
         (this.props.filters.sortBy === "hashtag" 

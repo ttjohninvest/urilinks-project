@@ -1034,7 +1034,7 @@ export class LinkListFilters extends React.Component {
       this.props.sortByDescription();
       //this.setState({ sortBy: "description" });
     } else if (e.target.value === "hashtag") {
-window.localStorage.setItem("sortBy", "hashtag");
+      window.localStorage.setItem("sortBy", "hashtag");
       if (val !== "" && val.charAt(0) !== "#") {
         alert("The search term needs to be a hashtag.");
         return;
@@ -1268,7 +1268,12 @@ window.localStorage.setItem("sortBy", "hashtag");
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
-    var selectedValue = select.options[select.selectedIndex].value;
+
+    //var selectedValue = select.options[select.selectedIndex].value;
+    var selectedValue
+    if(window.localStorage.getItem("sortBy") !== "")
+    selectedValue = window.localStorage.getItem("sortBy")
+    else selectedValue = select.options[select.selectedIndex].value;
     console.log("search = () => {, selectedValue=" + selectedValue);
     let term = window.document.getElementById("termid").value.trim();
     window.localStorage.setItem("termid", term);

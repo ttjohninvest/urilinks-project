@@ -1265,15 +1265,19 @@ export class LinkListFilters extends React.Component {
 
   search = () => {
     console.log("search");
-    const sortBy = window.localStorage.getItem("sortBy");
+    //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
     var selectedValue = select.options[select.selectedIndex].value;
     console.log("search = () => {, selectedValue=" + selectedValue);
-    let term = window.document.getElementById("termid").value;
-    let str = term.trim();
-
-    term = str;
-    if (selectedValue === "hashtag" && sortBy === "hashtag") {
+    let term = window.document.getElementById("termid").value.trim();
+    window.localStorage.setItem("termid", term);
+    this.props.setTextFilter(term);
+    
+    if (selectedValue === "hashtag"
+      
+     // && sortBy === "hashtag"
+    && this.props.filters.sortBy === "hashtag"
+    ) {
       if (term !== "" && term.charAt(0) !== "#") {
         alert("The search term needs to be a hashtag.");
         return;
@@ -1281,19 +1285,13 @@ export class LinkListFilters extends React.Component {
 
       if (term === "") {
         window.document.getElementById("termid").value = "#";
-        this.props.setTextFilter("#");
         window.localStorage.setItem("termid", "#");
+        this.props.setTextFilter("#");
       } else {
         window.localStorage.setItem("termid", term);
         this.props.setTextFilter(term);
       }
-    } else {
-      window.localStorage.setItem("termid", term);
-      console.log("else search = () => {, selectedValue=" + selectedValue);
-      this.props.setTextFilter(term);
     }
-    //alert (term)
-    //this.props.setTextFilter(term);
   };
 
   render() {

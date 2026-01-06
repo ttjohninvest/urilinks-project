@@ -1186,7 +1186,7 @@ export class LinkListFilters extends React.Component {
     );
 
     try {
-       window.document.getElementById("termid").value = window.localStorage.getItem("termid")
+       //window.document.getElementById("termid").value = window.localStorage.getItem("termid")
         //const sortBy = window.localStorage.getItem("sortBy")
         //if(typeof sortBy === 'string') {
           // console.log("componentDidMount, sortBy="+sortBy)

@@ -1027,14 +1027,14 @@ export class LinkListFilters extends React.Component {
     //window.localStorage.setItem("termid", val);
     console.log("onSortChange=(), search term=, val=" + val);
     if (e.target.value === "description") {
-      //window.localStorage.setItem("sortBy", "description");
+      window.localStorage.setItem("sortBy", "description");
       this.props.setTextFilter(val);
       if (this.myRef.current) this.myRef.current.focus();
       //this.setState({ sortBy: "description" });
       this.props.sortByDescription();
       //this.setState({ sortBy: "description" });
     } else if (e.target.value === "hashtag") {
-//window.localStorage.setItem("sortBy", "hashtag");
+window.localStorage.setItem("sortBy", "hashtag");
       if (val !== "" && val.charAt(0) !== "#") {
         alert("The search term needs to be a hashtag.");
         return;
@@ -1056,7 +1056,7 @@ export class LinkListFilters extends React.Component {
       this.props.sortByHashTag();
       //this.setState({ sortBy: "hashtag" });
     } else if (e.target.value === "notetext") {
-      //window.localStorage.setItem("sortBy", "notetext");
+      window.localStorage.setItem("sortBy", "notetext");
       if (this.myRef.current) this.myRef.current.focus();
       //this.props.setTextFilter("");
       this.props.setTextFilter(val);
@@ -1372,7 +1372,8 @@ export class LinkListFilters extends React.Component {
                 id="mode"
                 className="select outline-none"
                 //value={this.state.sortBy}
-                value={this.props.filters.sortBy}
+                //value={this.props.filters.sortBy}
+                value={window.localStorage.getItem("sortBy")}
 
                 onChange={this.onSortChange}
                 title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"

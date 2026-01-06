@@ -1035,15 +1035,17 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("termid", val);
     console.log("onSortChange=(), search term=, val=" + val);
     if (e.target.value === "description") {
+      window.localStorage.setItem("sortBy", "description");
       //this.props.setTextFilter("");
       //window.localStorage.setItem("termid", val);
       this.props.setTextFilter(val);
       if (this.myRef.current) this.myRef.current.focus();
-      window.localStorage.setItem("sortBy", "description");
-      //this.setState({ sortBy: "description" });
-      this.props.sortByDescription();
+      //window.localStorage.setItem("sortBy", "description");
       this.setState({ sortBy: "description" });
+      this.props.sortByDescription();
+      //this.setState({ sortBy: "description" });
     } else if (e.target.value === "hashtag") {
+window.localStorage.setItem("sortBy", "hashtag");
       if (val.trim() !== "" && val.trim().charAt(0) !== "#") {
         alert("The search term needs to be a hashtag.");
         return;
@@ -1060,18 +1062,19 @@ export class LinkListFilters extends React.Component {
       if (this.myRef.current) this.myRef.current.focus();
       //this.props.setTextFilter("#");
 
-      window.localStorage.setItem("sortBy", "hashtag");
-      //this.setState({ sortBy: "hashtag" });
-      this.props.sortByHashTag();
+      //window.localStorage.setItem("sortBy", "hashtag");
       this.setState({ sortBy: "hashtag" });
+      this.props.sortByHashTag();
+      //this.setState({ sortBy: "hashtag" });
     } else if (e.target.value === "notetext") {
+      window.localStorage.setItem("sortBy", "notetext");
       if (this.myRef.current) this.myRef.current.focus();
       //this.props.setTextFilter("");
       this.props.setTextFilter(val);
-      window.localStorage.setItem("sortBy", "notetext");
-      //this.setState({ sortBy: "notetext" });
-      this.props.sortByNoteText();
+      //window.localStorage.setItem("sortBy", "notetext");
       this.setState({ sortBy: "notetext" });
+      this.props.sortByNoteText();
+      //this.setState({ sortBy: "notetext" });
     }
   };
   //

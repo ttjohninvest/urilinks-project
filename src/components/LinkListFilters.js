@@ -1040,8 +1040,9 @@ export class LinkListFilters extends React.Component {
       this.props.setTextFilter(val);
       if (this.myRef.current) this.myRef.current.focus();
       window.localStorage.setItem("sortBy", "description");
-      this.setState({ sortBy: "description" });
+      //this.setState({ sortBy: "description" });
       this.props.sortByDescription();
+      this.setState({ sortBy: "description" });
     } else if (e.target.value === "hashtag") {
       if (val.trim() !== "" && val.trim().charAt(0) !== "#") {
         alert("The search term needs to be a hashtag.");
@@ -1060,15 +1061,17 @@ export class LinkListFilters extends React.Component {
       //this.props.setTextFilter("#");
 
       window.localStorage.setItem("sortBy", "hashtag");
-      this.setState({ sortBy: "hashtag" });
+      //this.setState({ sortBy: "hashtag" });
       this.props.sortByHashTag();
+      this.setState({ sortBy: "hashtag" });
     } else if (e.target.value === "notetext") {
       if (this.myRef.current) this.myRef.current.focus();
       //this.props.setTextFilter("");
       this.props.setTextFilter(val);
       window.localStorage.setItem("sortBy", "notetext");
-      this.setState({ sortBy: "notetext" });
+      //this.setState({ sortBy: "notetext" });
       this.props.sortByNoteText();
+      this.setState({ sortBy: "notetext" });
     }
   };
   //
@@ -1355,8 +1358,8 @@ export class LinkListFilters extends React.Component {
               <select
                 id="mode"
                 className="select outline-none"
-                value={this.state.sortBy}
-                //value={this.props.filters.sortBy}
+                //value={this.state.sortBy}
+                value={this.props.filters.sortBy}
 
                 onChange={this.onSortChange}
                 title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"

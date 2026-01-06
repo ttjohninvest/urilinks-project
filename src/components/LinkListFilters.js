@@ -1186,7 +1186,7 @@ export class LinkListFilters extends React.Component {
       if (term === null || term === undefined) term = "";
       if (term !== "") {
         window.document.getElementById("termid").value = term;
-        const sortBy2 = ""; //window.localStorage.getItem("sortBy");
+        const sortBy2 = window.localStorage.getItem("sortBy");
         if (
           (this.props.filters.sortBy === "hashtag" ||
             this.state.sortBy === "hashtag") &&

@@ -863,7 +863,7 @@ export class LinkListFilters extends React.Component {
     // let np = window.localStorage.getItem("newspaper");
     //console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
     this.state = {
-      sortBy: "hashtag",
+      sortBy: "description",
       items: [],
       calendarFocused: null,
       mappedDataShort: [],

@@ -1201,7 +1201,8 @@ window.localStorage.setItem("sortBy", "hashtag");
         term !== "" &&
         term.charAt(0) === "#"
       ) {
-        window.document.getElementById("buttonid").click();
+        //window.document.getElementById("buttonid").click();
+        window.document.querySelector("#buttonid").click();
       }
      
       else if (
@@ -1210,7 +1211,7 @@ window.localStorage.setItem("sortBy", "hashtag");
         term === "" ||
         term.charAt(0) !== "#"
       ) {
-        window.document.getElementById("buttonid").click();
+        window.document.querySelector("#buttonid").click();
       }
 
       

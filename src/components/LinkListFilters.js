@@ -1180,36 +1180,27 @@ export class LinkListFilters extends React.Component {
         window.localStorage.getItem("sortBy")
     );
 
-    try {
-      //if(this.isMobile() === false) {
-      let term = window.localStorage.getItem("termid");
-      if (term === null || term === undefined) term = "";
-      if (term !== "") {
-        window.document.getElementById("termid").value = term;
-        const sortBy2 = window.localStorage.getItem("sortBy");
-        if (
-          (this.props.filters.sortBy === "hashtag" ||
-            this.state.sortBy === "hashtag") &&
-          term !== "" &&
-          term.charAt(0) === "#"
-        ) {
-          //window.document.getElementById("buttonid").click();
-          //!!window.document.querySelector("#buttonid")===true &&
-          window.document.querySelector("#buttonid").click();
-        } else if (
-          sortBy === "description" ||
-          sortBy === "notetext" ||
-          term === "" ||
-          term.charAt(0) !== "#"
-        ) {
-          //window.document.getElementById("buttonid").click();
-          //!!window.document.querySelector("#buttonid")===true &&
-          window.document.querySelector("#buttonid").click();
-        }
+    const term = window.localStorage.getItem("termid");
+    if (term !== "") {
+      window.document.getElementById("termid").value = term;
+      const sortBy2 = window.localStorage.getItem("sortBy");
+      if (
+        (this.props.filters.sortBy === "hashtag" ||
+          this.state.sortBy === "hashtag") &&
+        term !== "" &&
+        term.charAt(0) === "#"
+      ) {
+        window.document.getElementById("buttonid").click();
       }
-      //}
-    } catch (e) {
-      alert("Error 1000, e=" + e);
+     
+      else if (
+        sortBy === "description" ||
+        sortBy === "notetext" ||
+        term === "" ||
+        term.charAt(0) !== "#"
+      ) {
+        window.document.getElementById("buttonid").click();
+      }
     }
   }
 

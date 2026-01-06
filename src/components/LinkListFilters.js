@@ -1110,9 +1110,9 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks3=" + searchLinks3);
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
 
-    const sortBy = window.localStorage.getItem("sortBy");
+    //const sortBy = window.localStorage.getItem("sortBy");
 
-    console.log("componentDidMount, sortBy=" + sortBy);
+    //console.log("componentDidMount, sortBy=" + sortBy);
 
     // if (this.props.filters.sortBy === "date" || sortBy === "date") {
     //   this.props.setTextFilter(searchLinks1);

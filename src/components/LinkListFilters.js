@@ -1110,9 +1110,9 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks3=" + searchLinks3);
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
 
-    //const sortBy = window.localStorage.getItem("sortBy");
+    const sortBy = window.localStorage.getItem("sortBy");
 
-    //console.log("componentDidMount, sortBy=" + sortBy);
+    console.log("componentDidMount, sortBy=" + sortBy);
 
     // if (this.props.filters.sortBy === "date" || sortBy === "date") {
     //   this.props.setTextFilter(searchLinks1);
@@ -1123,8 +1123,8 @@ export class LinkListFilters extends React.Component {
       
       if (
       this.props.filters.sortBy === "description" 
-      //||
-      //sortBy === "description"
+      ||
+      sortBy === "description"
     ) {
       this.props.setTextFilter(searchLinks2);
 
@@ -1132,16 +1132,16 @@ export class LinkListFilters extends React.Component {
       //this.setState({ sortBy: "description" });
     } else if (
       this.props.filters.sortBy === "notetext" 
-      //||
-      //sortBy === "notetext"
+      ||
+      sortBy === "notetext"
     ) {
       this.props.setTextFilter(searchLinks4);
       this.props.sortByNoteText();
       this.setState({ sortBy: "notetext" });
     } else if (
       this.props.filters.sortBy === "hashtag" 
-      //||
-      //sortBy === "hashtag"
+      ||
+      sortBy === "hashtag"
     ) {
       
       if (
@@ -1183,13 +1183,13 @@ export class LinkListFilters extends React.Component {
 
     try {
        window.document.getElementById("termid").value = window.localStorage.getItem("termid")
-        const sortBy = window.localStorage.getItem("sortBy")
-        if(typeof sortBy === 'string') {
+        //const sortBy = window.localStorage.getItem("sortBy")
+        //if(typeof sortBy === 'string') {
           console.log("componentDidMount, sortBy="+sortBy)
           if(sortBy===undefined)
           this.setState("sortBy", "description")
           else this.setState("sortBy", sortBy)
-        }
+        //}
         
        window.document.querySelector("#buttonid").click();
     // const term = this.props.filters.text //window.localStorage.getItem("termid");

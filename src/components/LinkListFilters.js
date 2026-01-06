@@ -1183,13 +1183,18 @@ export class LinkListFilters extends React.Component {
         window.localStorage.getItem("sortBy")
     );
 
+    try {
     const term = window.localStorage.getItem("termid");
     if (term !== "") {
       window.document.getElementById("termid").value = term;
       const sortBy2 = window.localStorage.getItem("sortBy");
       if (
-        (this.props.filters.sortBy === "hashtag" ||
-          this.state.sortBy === "hashtag") &&
+        (this.props.filters.sortBy === "hashtag" 
+          ||
+          this.state.sortBy === "hashtag"
+        ) 
+          
+          &&
         term !== "" &&
         term.charAt(0) === "#"
       ) {
@@ -1205,6 +1210,9 @@ export class LinkListFilters extends React.Component {
         window.document.getElementById("buttonid").click();
       }
     }
+  }catch () {
+    alert("Error 1000,from LinkListilters.js, componentDidMount, e="+e)
+  }
   }
 
   componentWillUnmount() {}
@@ -1358,8 +1366,8 @@ export class LinkListFilters extends React.Component {
               <select
                 id="mode"
                 className="select outline-none"
-                //value={this.state.sortBy}
-                value={this.props.filters.sortBy}
+                value={this.state.sortBy}
+                //value={this.props.filters.sortBy}
 
                 onChange={this.onSortChange}
                 title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"

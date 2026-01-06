@@ -1188,7 +1188,7 @@ window.localStorage.setItem("sortBy", "hashtag");
 
     try {
     const term = window.localStorage.getItem("termid");
-    if (term !== "") {
+    //if (term !== "") {
       window.document.getElementById("termid").value = term;
       const sortBy2 = window.localStorage.getItem("sortBy");
       if (
@@ -1215,7 +1215,7 @@ window.localStorage.setItem("sortBy", "hashtag");
       }
 
       
-    }
+    //}
 
      }catch (e) {
     alert("Error 1000,from LinkListilters.js, componentDidMount, e="+e)

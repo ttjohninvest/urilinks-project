@@ -1129,7 +1129,7 @@ export class LinkListFilters extends React.Component {
       this.props.setTextFilter(searchLinks2);
 
       this.props.sortByDescription();
-      //this.setState({ sortBy: "description" });
+      this.setState({ sortBy: "description" });
     } else if (
       this.props.filters.sortBy === "notetext" 
       ||
@@ -1163,7 +1163,7 @@ export class LinkListFilters extends React.Component {
         this.props.setTextFilter(searchLinks3);
       }
       this.props.sortByHashTag();
-      //this.setState({ sortBy: "hashtag" });
+      this.setState({ sortBy: "hashtag" });
     }
 
     if (this.myRef.current) this.myRef.current.focus();
@@ -1185,10 +1185,10 @@ export class LinkListFilters extends React.Component {
        window.document.getElementById("termid").value = window.localStorage.getItem("termid")
         //const sortBy = window.localStorage.getItem("sortBy")
         //if(typeof sortBy === 'string') {
-          console.log("componentDidMount, sortBy="+sortBy)
-          if(sortBy===undefined)
-          this.setState("sortBy", "description")
-          else this.setState("sortBy", sortBy)
+          // console.log("componentDidMount, sortBy="+sortBy)
+          // if(sortBy===undefined)
+          // this.setState("sortBy", "description")
+          // else this.setState("sortBy", sortBy)
         //}
         
        window.document.querySelector("#buttonid").click();

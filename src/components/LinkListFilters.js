@@ -1183,9 +1183,9 @@ export class LinkListFilters extends React.Component {
 
     try {
        window.document.getElementById("termid").value = window.localStorage.getItem("termid")
-       if(window.document.localStorage.getItem("sortBy")===undefined)
+       if(window.localStorage.getItem("sortBy")===undefined)
         this.setState("sortBy", "description")
-       else this.setState("sortBy", window.document.localStorage.getItem("sortBy"))
+       else this.setState("sortBy", window.localStorage.getItem("sortBy"))
        window.document.querySelector("#buttonid").click();
     // const term = this.props.filters.text //window.localStorage.getItem("termid");
     // //if (term !== "") {

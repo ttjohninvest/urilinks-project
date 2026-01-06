@@ -1126,8 +1126,7 @@ export class LinkListFilters extends React.Component {
     // } else 
       
       if (
-      this.props.filters.sortBy === "description" 
-      ||
+      
       sortBy === "description"
     ) {
       this.props.setTextFilter(searchLinks2);
@@ -1135,16 +1134,15 @@ export class LinkListFilters extends React.Component {
       this.props.sortByDescription();
       this.setState({ sortBy: "description" });
     } else if (
-      this.props.filters.sortBy === "notetext" 
-      ||
+      
       sortBy === "notetext"
     ) {
       this.props.setTextFilter(searchLinks4);
       this.props.sortByNoteText();
       this.setState({ sortBy: "notetext" });
     } else if (
-      this.props.filters.sortBy === "hashtag" 
-      ||
+     // this.props.filters.sortBy === "hashtag" 
+      //||
       sortBy === "hashtag"
     ) {
       
@@ -1185,52 +1183,35 @@ export class LinkListFilters extends React.Component {
         window.localStorage.getItem("sortBy")
     );
 
-    try {
-       //window.document.getElementById("termid").value = window.localStorage.getItem("termid")
-        //const sortBy = window.localStorage.getItem("sortBy")
-        //if(typeof sortBy === 'string') {
-          // console.log("componentDidMount, sortBy="+sortBy)
-          // if(sortBy===undefined)
-          // this.setState("sortBy", "description")
-          // else this.setState("sortBy", sortBy)
-        //}
-        
-       window.document.querySelector("#buttonid").click();
-    // const term = this.props.filters.text //window.localStorage.getItem("termid");
-    // //if (term !== "") {
-    //   window.document.getElementById("termid").value = this.props.filters.text //term;
-    //   //const sortBy2 = window.localStorage.getItem("sortBy");
-    //   if (
-    //     (this.props.filters.sortBy === "hashtag" 
-    //       //||
-    //       //this.state.sortBy === "hashtag"
-    //     ) 
-          
-    //       &&
-    //     term !== "" &&
-    //     term.charAt(0) === "#"
-    //   ) {
-    //     //window.document.getElementById("buttonid").click();
-    //     window.document.querySelector("#buttonid").click();
-    //   }
+    const term = window.localStorage.getItem("termid");
+    //if (term !== "") {
+      window.document.getElementById("termid").value = this.props.filters.text //term;
+      //const sortBy2 = window.localStorage.getItem("sortBy");
+      if (
+        (this.props.filters.sortBy === "hashtag" ||
+          //this.state.sortBy === "hashtag"
+          sortBy === "hashtag"
+        ) &&
+        term !== "" &&
+        term.charAt(0) === "#"
+      ) {
+        //window.document.getElementById("buttonid").click();
+        window.document.querySelector("#buttonid").click();
+      }
      
-    //   else if (
-    //     // sortBy === "description" ||
-    //     // sortBy === "notetext" ||
-    //     this.props.filters.sortBy === "description" ||
-    //     this.props.filters.sortBy === "notetext" ||
-    //     term === "" ||
-    //     term.charAt(0) !== "#"
-    //   ) {
-    //     window.document.querySelector("#buttonid").click();
-    //   }
+      else if (
+        sortBy === "description" ||
+        sortBy === "notetext" ||
+        term === "" ||
+        term.charAt(0) !== "#"
+      ) {
+        window.document.querySelector("#buttonid").click();
+      }
 
       
-    //}
+    }
 
-     }catch (e) {
-    alert("Error 1000,from LinkListilters.js, componentDidMount, e="+e)
-  }
+     
  
   }
 

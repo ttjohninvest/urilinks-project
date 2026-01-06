@@ -165,21 +165,22 @@ function ExpandableArray(props) {
   return (
     <div className="bg-white-1">
       {/* <img src={signature} /> */}
-      {props.signup === false && (<div>
-        <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
-          Welcome to urilinks.com
-        </div>
-        <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
-          This example page demonstates a virtual filing
-          cabinet of internet pages
-        </div>
+      {props.signup === false && (
+        <div>
+          <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
+            Welcome to urilinks.com
+          </div>
+          <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
+            This example page demonstates a virtual filing cabinet of internet
+            pages
+          </div>
         </div>
       )}
-      {props.signup === true && (<div>
-        <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
-          Welcome to urilinks.com
-        </div>
-       
+      {props.signup === true && (
+        <div>
+          <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
+            Welcome to urilinks.com
+          </div>
         </div>
       )}
       {/* {props.signup === false && (
@@ -341,10 +342,12 @@ function ExpandableArray(props) {
                     title="location for your gmail name"
                   >
                     {(!!theuser && props.signup === true) || signup === "0"
-                      ? !!theuser.displayName===true
+                      ? !!theuser.displayName === true
                         ? theuser.displayName
                         : "error getting display name"
-                      : !!theuser===true?theuser.displayName:"(gmail name)"}
+                      : !!theuser === true
+                      ? theuser.displayName
+                      : "(gmail name)"}
                   </div>
                   {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
                 </div>
@@ -356,21 +359,22 @@ function ExpandableArray(props) {
                   : ", what makes you smile?"}
               </div> */}
               {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
-              
+
               {
-              
-              //props.signup === false 
-              true
-              ? (
-                <div className="text-size-1 flexrowzc">
-                  {isMobile() === true ? (
-                    <div className="padding-right-11 padding-bottom-118 lowercase">
-                      Clear values: Each link you save has note for data entry; link notes, link texts
-                      and hastags are all searchable; a sharable link for pasting to instagram profile
-                      or other platorm for others is provided; also, each link is sharable to facebook.com,
-                      linkedin.com and x.com; facebook.com messenger is available for communication;
-                      each link in the results is clickable for direct access to web page. Freely login.
-                      {/* You must be 13 years old or older to use this site (click
+                //props.signup === false
+                true ? (
+                  <div className="text-size-1 flexrowzc">
+                    {isMobile() === true ? (
+                      <div className="padding-right-11 padding-bottom-118 lowercase">
+                        Clear values: Each link you save has note for data
+                        entry; link notes, link texts and hastags are all
+                        searchable; a sharable link for pasting to instagram
+                        profile or other platorm for others is provided; also,
+                        each link is sharable to facebook.com, linkedin.com and
+                        x.com; facebook.com messenger is available for
+                        communication; each link in the results is clickable for
+                        direct access to web page. Freely login.
+                        {/* You must be 13 years old or older to use this site (click
                       legal menu item). Parental permission is not reqired if
                       you are 18 years of age or older. This website may
                       contribute to making your use of the internet more
@@ -387,52 +391,62 @@ function ExpandableArray(props) {
                       contact me, John, with any blessings, questions, comments
                       or concerns at john@urilinks.com, 775 507 0098. I invite
                       you to freely login/enter? */}
-                    </div>
-                  ) : (
-                    <div>
-                      Clear values: Each link you save has note for data entry; link notes, link texts<br />
-                      and hastags are all searchable; a sharable link for pasting to instagram profile<br />
-                      or other platorm for others is provided; also, each link is sharable to facebook.com,<br />
-                      linkedin.com and x.com; facebook.com messenger is available for communication;<br />
-                      each link in the results is clickable for direct access to web page. Freely login.<br />
-                    </div>
-                    // <div>
-                    //   You must be 13 years old or older to use this site (click
-                    //   legal menu item). <br />
-                    //   Parental permission is not reqired if you are 18 years of
-                    //   age or older.
-                    //   <br />
-                    //   This website may contribute to making your use of the
-                    //   internet more organized,
-                    //   <br />
-                    //   interesting, professional, enteraining, fun and
-                    //   collaborative. It can store and organize up to 5,000 links
-                    //   alphabetically.
-                    //   <br />
-                    //   It gives you a sharable link to your links list of
-                    //   internet urls. You may
-                    //   <br />
-                    //   try your first 250 links for free or choose one of three
-                    //   paid plans: for $4.99/year it stores up to 1,250 links,
-                    //   <br />
-                    //   for $9.99/year it stores up to 2,500 links or for
-                    //   $14.99/year it stores up to 5,000 links.
-                    //   <br />
-                    //   If you can't afford to pay and you need more storage
-                    //   space, please let me know and I will give it to you for
-                    //   free.
-                    //   <br />
-                    //   I am a college graduate from UNR. Please contact me, John,
-                    //   with any blessings, questions, <br />
-                    //   comments or concerns at john@urilinks.com, 775 507 0098. I
-                    //   invite you to freely login/enter?
-                    //   <br />
-                    //   <br />
-                    // </div>
-                  )}
+                      </div>
+                    ) : (
+                      <div>
+                        Clear values: Each link you save has note for data
+                        entry; link notes, link texts
+                        <br />
+                        and hastags are all searchable; a sharable link for
+                        pasting to instagram profile
+                        <br />
+                        or other platorm for others is provided; also, each link
+                        is sharable to facebook.com,
+                        <br />
+                        linkedin.com and x.com; facebook.com messenger is
+                        available for communication;
+                        <br />
+                        each link in the results is clickable for direct access
+                        to web page. Freely login.
+                        <br />
+                      </div>
+                      // <div>
+                      //   You must be 13 years old or older to use this site (click
+                      //   legal menu item). <br />
+                      //   Parental permission is not reqired if you are 18 years of
+                      //   age or older.
+                      //   <br />
+                      //   This website may contribute to making your use of the
+                      //   internet more organized,
+                      //   <br />
+                      //   interesting, professional, enteraining, fun and
+                      //   collaborative. It can store and organize up to 5,000 links
+                      //   alphabetically.
+                      //   <br />
+                      //   It gives you a sharable link to your links list of
+                      //   internet urls. You may
+                      //   <br />
+                      //   try your first 250 links for free or choose one of three
+                      //   paid plans: for $4.99/year it stores up to 1,250 links,
+                      //   <br />
+                      //   for $9.99/year it stores up to 2,500 links or for
+                      //   $14.99/year it stores up to 5,000 links.
+                      //   <br />
+                      //   If you can't afford to pay and you need more storage
+                      //   space, please let me know and I will give it to you for
+                      //   free.
+                      //   <br />
+                      //   I am a college graduate from UNR. Please contact me, John,
+                      //   with any blessings, questions, <br />
+                      //   comments or concerns at john@urilinks.com, 775 507 0098. I
+                      //   invite you to freely login/enter?
+                      //   <br />
+                      //   <br />
+                      // </div>
+                    )}
 
-                  {/* <span>What do you want to achieve with this website?</span> */}
-                  {/* <span>
+                    {/* <span>What do you want to achieve with this website?</span> */}
+                    {/* <span>
                     {" "}
                     I hope the website is helpful to you. May you please give me
                     your feedback regarding this website?{" "}
@@ -458,37 +472,37 @@ function ExpandableArray(props) {
                     </button>
                   )} */}
 
-                  {props.signup === false && (
-                    <div></div>
-                    // <div
-                    //   className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
-                    //   title=""
-                    // >
-                    //   <Link
-                    //     className="nounderline cursor-pointer"
-                    //     to="/signup"
-                    //     title=""
-                    //   >
-                    //     <div className="flexrowz">
-                    //       <div>
-                    //         <img
-                    //           className="ib"
-                    //           src={redarrow}
-                    //           width="100"
-                    //           height="50"
-                    //           alt="Logo"
-                    //         />
-                    //       </div>
+                    {props.signup === false && (
+                      <div></div>
+                      // <div
+                      //   className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
+                      //   title=""
+                      // >
+                      //   <Link
+                      //     className="nounderline cursor-pointer"
+                      //     to="/signup"
+                      //     title=""
+                      //   >
+                      //     <div className="flexrowz">
+                      //       <div>
+                      //         <img
+                      //           className="ib"
+                      //           src={redarrow}
+                      //           width="100"
+                      //           height="50"
+                      //           alt="Logo"
+                      //         />
+                      //       </div>
 
-                    //       <div className="margin-top-1c ib">
-                    //         click this login/enter to have your own free page
-                    //       </div>
-                    //     </div>
-                    //   </Link>
-                    // </div>
-                  )}
+                      //       <div className="margin-top-1c ib">
+                      //         click this login/enter to have your own free page
+                      //       </div>
+                      //     </div>
+                      //   </Link>
+                      // </div>
+                    )}
 
-                  {/* <div className="padding-bottom-116">
+                    {/* <div className="padding-bottom-116">
                     <div className="margin-left-118">
                       <a
                         id="sendgmailid"
@@ -501,32 +515,32 @@ function ExpandableArray(props) {
                       </a>
                     </div>
                   </div> */}
-                </div>
-              ) : (
-                <div>
-                  <div className="flexrow2c">
-                  <div className="text-size-1 textLeft margin-top-1">
-                    {/* <span className="hide">
+                  </div>
+                ) : (
+                  <div>
+                    <div className="flexrow2c">
+                      <div className="text-size-1 textLeft margin-top-1">
+                        {/* <span className="hide">
                       Thank you. Your sharable link is:
                     </span> */}
-                    <a
-                      href="#"
-                      ref={textAreaRef}
-                      className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                      title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                    >
-                      https://urilinks.com/dashboard?signup=0&id={props.uid}
-                    </a>
-                    <button
-                      className="button-2 ib margin-right-1 margin-left-11"
-                      onClick={copyToClipboard}
-                      title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                    >
-                      copy sharable link
-                    </button>
-                    {copySuccess}
-                  </div>
-                  {/* <div className="flexrowzc">
+                        <a
+                          href="#"
+                          ref={textAreaRef}
+                          className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                          title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                        >
+                          https://urilinks.com/dashboard?signup=0&id={props.uid}
+                        </a>
+                        <button
+                          className="button-2 ib margin-right-1 margin-left-11"
+                          onClick={copyToClipboard}
+                          title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                        >
+                          copy sharable link
+                        </button>
+                        {copySuccess}
+                      </div>
+                      {/* <div className="flexrowzc">
                       Clear values: Each link you save has note for data entry; link notes, link texts
                       and hastags are all searchable; a sharable link for pasting to instagram profile
                       or other platorm for others is provided; also, each link is sharable to facebook.com,
@@ -534,9 +548,10 @@ function ExpandableArray(props) {
                       each link in the results is clickable for direct access to web page. 
                       Thank you for logging in.
                   </div> */}
+                    </div>
                   </div>
-                </div>
-              )}
+                )
+              }
 
               {/* {props.signup === true && (
                 <div className="margin-top-118">
@@ -572,7 +587,6 @@ function ExpandableArray(props) {
                 </div>
               )} */}
 
-             
               <br />
               {/* {props.signup === false &&
                 props.uid === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && (
@@ -1071,8 +1085,6 @@ export class LinkListFilters extends React.Component {
     return hashtags;
   };
 
- 
-
   removeDuplicatesByKey(array, keyFunction) {
     const seen = new Set();
     return array.filter((item) => {
@@ -1083,17 +1095,13 @@ export class LinkListFilters extends React.Component {
     });
   }
 
-   isMobile() {
+  isMobile() {
     const regex =
       /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
     return regex.test(navigator.userAgent);
   }
 
-  
-
   componentDidMount() {
-   
-
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
@@ -1135,7 +1143,6 @@ export class LinkListFilters extends React.Component {
       this.props.filters.sortBy === "hashtag" ||
       sortBy === "hashtag"
     ) {
-      
       this.props.sortByHashTag();
       if (
         this.props.filters.text === "" ||
@@ -1168,51 +1175,42 @@ export class LinkListFilters extends React.Component {
       morehashtags: morehashtags === "true" ? true : false,
     });
 
-   
-
     console.log(
       "AAAA window.localStorage.getItem('sortBy')=" +
         window.localStorage.getItem("sortBy")
     );
-   
+
     try {
-//if(this.isMobile() === false) {
-let term = window.localStorage.getItem("termid");
-    if(term===null || term===undefined)
-     term = ""
-    if (term !== "") {
-      window.document.getElementById("termid").value = term;
-      const sortBy2 = "" //window.localStorage.getItem("sortBy");
-      if (
-        (
-          this.props.filters.sortBy === "hashtag" ||
-          this.state.sortBy === "hashtag"
-          ) &&
-        term !== "" &&
-        term.charAt(0) === "#"
-      ) {
-         //window.document.getElementById("buttonid").click();
-         //!!window.document.querySelector("#buttonid")===true && 
-         window.document.querySelector("#buttonid").click();
+      //if(this.isMobile() === false) {
+      let term = window.localStorage.getItem("termid");
+      if (term === null || term === undefined) term = "";
+      if (term !== "") {
+        window.document.getElementById("termid").value = term;
+        const sortBy2 = ""; //window.localStorage.getItem("sortBy");
+        if (
+          (this.props.filters.sortBy === "hashtag" ||
+            this.state.sortBy === "hashtag") &&
+          term !== "" &&
+          term.charAt(0) === "#"
+        ) {
+          //window.document.getElementById("buttonid").click();
+          //!!window.document.querySelector("#buttonid")===true &&
+          window.document.querySelector("#buttonid").click();
+        } else if (
+          sortBy === "description" ||
+          sortBy === "notetext" ||
+          term === "" ||
+          term.charAt(0) !== "#"
+        ) {
+          //window.document.getElementById("buttonid").click();
+          //!!window.document.querySelector("#buttonid")===true &&
+          window.document.querySelector("#buttonid").click();
+        }
       }
-     
-      else if (
-        sortBy === "description" ||
-        sortBy === "notetext" ||
-        term === "" ||
-        term.charAt(0) !== "#"
-      ) {
-         //window.document.getElementById("buttonid").click();
-        //!!window.document.querySelector("#buttonid")===true && 
-        window.document.querySelector("#buttonid").click();
-      }
+      //}
+    } catch (e) {
+      alert("Error 1000, e=" + e);
     }
-    //}
-    } catch(e) {
-       alert("Error 1000, e="+e)
-    }
-   
-    
   }
 
   componentWillUnmount() {}
@@ -1253,15 +1251,9 @@ let term = window.localStorage.getItem("termid");
   };
 
   handleCheckboxShow = (event) => {
-   
     this.setState({ isToggled: !this.state.isToggled });
     console.log("show dd");
-   
   };
-
- 
-
- 
 
   search = () => {
     console.log("search");

@@ -366,8 +366,19 @@ function ExpandableArray(props) {
                       Thank you for logging in.
                   </div>
 
+
+
+
+
+
+
+
               }
-              {props.signup === false ? (
+              {
+              
+              //props.signup === false 
+              true
+              ? (
                 <div className="text-size-1 flexrowzc">
                   {isMobile() === true ? (
                     <div className="padding-right-11 padding-bottom-118 lowercase">
@@ -578,70 +589,11 @@ function ExpandableArray(props) {
                 </div>
               )} */}
 
-              <div className="text-size-1 textLeft hide">
-                <span className="text-size-9">😃 </span>Your friendly link to
-                links tool
-                {isToggled && props.signup === false ? (
-                  <span>
-                    , click
-                    <span>
-                      <Link
-                        className="cursor-pointer nounderline"
-                        to="/signup"
-                        title=""
-                      >
-                        login
-                      </Link>
-                    </span>
-                  </span>
-                ) : (
-                  ""
-                )}
-                {/* <button
-      onClick={handleChange}
-      className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
-      aria-label="Toggle button"
-    >
-      {isToggled ? 'hide information' : 'show information'}
-    </button> */}
-                {isToggled && props.signup === false && (
-                  <div className="text-size-1 textLeft hide">
-                    To go inside (click enter) for an account, you get an empty
-                    page to start adding your favorite links. <br />
-                    You may add a note to each of your links.
-                    <br />
-                  </div>
-                )}
-                {isToggled && props.signup === true && (
-                  <div className="text-size-1 textLeft hide">
-                    You may start adding your favorite links using the Add Link
-                    button below or Bookmarks File Uploader above.
-                    <br />
-                    The hashtags in purple rectangles and the folder names in
-                    the dropdown list in the orange rectangle are added in
-                    alphabetical order.
-                    <br />
-                    The hastags are the folder names read from the browser
-                    bookmarks file with spaces removed and lowercased. The
-                    folder names are copied in the drop down list.
-                    <br />
-                    You may add a note to each of your links.
-                    <br />
-                    You may share your links with linkedin, facebook, or
-                    twitter/x
-                    <br />
-                    You may immediately chat about a bookmark with a family or
-                    friend using facebook messenger, click the blue circle. You
-                    just check if he she is online using fb messenger
-                    <br />
-                    and if so, send the bookmark and then chat about it
-                  </div>
-                )}
-              </div>
+             
               <br />
-              {props.signup === false &&
+              {/* {props.signup === false &&
                 props.uid === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && (
-                  <div className="textLeft hide">
+                  <div className="textLeft">
                     <iframe
                       width="300"
                       height="200"
@@ -653,8 +605,8 @@ function ExpandableArray(props) {
                       allowfullscreen
                     ></iframe>
                   </div>
-                )}
-              {isToggled && props.signup === false && (
+                )} */}
+              {/* {isToggled && props.signup === false && (
                 <div className="textLeft hide">
                   Click example hashtag to see links to webpages
                 </div>
@@ -684,7 +636,7 @@ function ExpandableArray(props) {
                 <div className="textLeft hide">
                   Please give it try to see how it works.
                 </div>
-              )}
+              )} */}
               {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
               {/* <br />
               I believe that Jesus is the Christ. I believe that Jesus Christ is

@@ -1125,31 +1125,36 @@ window.localStorage.setItem("sortBy", "hashtag");
 
     console.log("componentDidMount, sortBy=" + sortBy);
 
-    if (this.props.filters.sortBy === "date" || sortBy === "date") {
-      this.props.setTextFilter(searchLinks1);
+    // if (this.props.filters.sortBy === "date" || sortBy === "date") {
+    //   this.props.setTextFilter(searchLinks1);
 
-      this.props.sortByDate();
-      this.setState({ sortBy: "date" });
-    } else if (
-      this.props.filters.sortBy === "description" ||
-      sortBy === "description"
+    //   this.props.sortByDate();
+    //   this.setState({ sortBy: "date" });
+    // } else 
+      
+      if (
+      this.props.filters.sortBy === "description" 
+      //||
+      //sortBy === "description"
     ) {
       this.props.setTextFilter(searchLinks2);
 
       this.props.sortByDescription();
-      this.setState({ sortBy: "description" });
+      //this.setState({ sortBy: "description" });
     } else if (
-      this.props.filters.sortBy === "notetext" ||
-      sortBy === "notetext"
+      this.props.filters.sortBy === "notetext" 
+      //||
+      //sortBy === "notetext"
     ) {
       this.props.setTextFilter(searchLinks4);
       this.props.sortByNoteText();
       this.setState({ sortBy: "notetext" });
     } else if (
-      this.props.filters.sortBy === "hashtag" ||
-      sortBy === "hashtag"
+      this.props.filters.sortBy === "hashtag" 
+      //||
+      //sortBy === "hashtag"
     ) {
-      this.props.sortByHashTag();
+      
       if (
         this.props.filters.text === "" ||
         searchLinks3 === "" ||
@@ -1168,7 +1173,8 @@ window.localStorage.setItem("sortBy", "hashtag");
       } else {
         this.props.setTextFilter(searchLinks3);
       }
-      this.setState({ sortBy: "hashtag" });
+      this.props.sortByHashTag();
+      //this.setState({ sortBy: "hashtag" });
     }
 
     if (this.myRef.current) this.myRef.current.focus();
@@ -1190,11 +1196,11 @@ window.localStorage.setItem("sortBy", "hashtag");
     const term = window.localStorage.getItem("termid");
     //if (term !== "") {
       window.document.getElementById("termid").value = term;
-      const sortBy2 = window.localStorage.getItem("sortBy");
+      //const sortBy2 = window.localStorage.getItem("sortBy");
       if (
         (this.props.filters.sortBy === "hashtag" 
-          ||
-          this.state.sortBy === "hashtag"
+          //||
+          //this.state.sortBy === "hashtag"
         ) 
           
           &&
@@ -1206,8 +1212,10 @@ window.localStorage.setItem("sortBy", "hashtag");
       }
      
       else if (
-        sortBy === "description" ||
-        sortBy === "notetext" ||
+        // sortBy === "description" ||
+        // sortBy === "notetext" ||
+        this.props.filters.sortBy === "description" ||
+        this.props.filters.sortBy === "notetext" ||
         term === "" ||
         term.charAt(0) !== "#"
       ) {
@@ -1374,8 +1382,8 @@ window.localStorage.setItem("sortBy", "hashtag");
               <select
                 id="mode"
                 className="select outline-none"
-                value={this.state.sortBy}
-                //value={this.props.filters.sortBy}
+                //value={this.state.sortBy}
+                value={this.props.filters.sortBy}
 
                 onChange={this.onSortChange}
                 title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"

@@ -1147,7 +1147,7 @@ export class LinkListFilters extends React.Component {
     ) {
       
       if (
-        this.props.filters.text === "" ||
+        //this.props.filters.text === "" ||
         searchLinks3 === "" ||
         searchLinks3 === undefined ||
         searchLinks3 === null
@@ -1184,17 +1184,15 @@ export class LinkListFilters extends React.Component {
     );
 
     const term = window.localStorage.getItem("termid");
-    //if (term !== "") {
+    
       window.document.getElementById("termid").value = this.props.filters.text //term;
-      //const sortBy2 = window.localStorage.getItem("sortBy");
+    
       if (
-        (this.props.filters.sortBy === "hashtag" ||
-          //this.state.sortBy === "hashtag"
           sortBy === "hashtag"
-        ) &&
-        term !== "" &&
-        term.charAt(0) === "#"
-      ) {
+          && term !== "" 
+          && term.charAt(0) === "#"
+        )
+       {
         //window.document.getElementById("buttonid").click();
         window.document.querySelector("#buttonid").click();
       }

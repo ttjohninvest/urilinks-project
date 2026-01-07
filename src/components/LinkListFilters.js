@@ -1207,7 +1207,7 @@ const term = window.localStorage.getItem("termid");
         window.document.querySelector("#buttonid").click();
       }
     }catch(e) {
-      alert("componentDidMount,e="+e)
+      //alert("componentDidMount,e="+e)
     }
      
  

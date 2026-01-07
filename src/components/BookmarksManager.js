@@ -110,7 +110,7 @@ class BookmarksManager extends React.Component {
                   {/*use this option to convert a browser exported boomarks.html file*/}
                 </li>
 
-                <li className="">
+                {/* <li className="">
                   <input
                     type="radio"
                     id="option2"
@@ -126,8 +126,8 @@ class BookmarksManager extends React.Component {
                     {" "}
                     convert domain names to hashtags
                   </label>{" "}
-                  {/*use this option to convert a boomarks.html file that was generated with */}
-                </li>
+                  
+                </li> */}
               </div>
             ) : (
               ""

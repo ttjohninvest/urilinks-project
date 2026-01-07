@@ -9,6 +9,10 @@ import FBShareButton from "./FBShareButton";
 import MessengerButton from "./MessengerButton";
 import LinkedInShareButton from "./LinkedInShareButton";
 import XShareButton from "./XShareButton";
+import MayDoInGoogleDocument from "./MayDoInGoogleDocument"
+import MapQuestButton from "./MapQuestButton"
+import GoogleMapsButton from "./GoogleMapsButton"
+import GoogleEarthButton from "./GoogleEarthButton"
 //import AddToAny from './AddToAny';
 
 //import XShareButton from "./XShareButton"
@@ -826,6 +830,7 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
       <div className="flexrow2w">
+        <MayDoInGoogleDocument />
         <FBShareButton url={props.Url} />
 
         <MessengerButton />
@@ -833,6 +838,9 @@ const LinkListItem = (props) => {
         {/* <AddToAny /> */}
 
         <XShareButton url={props.Url} />
+        <MapQuestButton />
+        <GoogleMapsButton />
+        <GoogleEarthButton />
       </div>
     </div>
 

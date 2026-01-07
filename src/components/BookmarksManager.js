@@ -78,20 +78,11 @@ class BookmarksManager extends React.Component {
             <li>
               <FileUpload setCheckDidUpload={this.setCheckDidUpload} />
             </li>
-            {/* {this.state.didUpload?<li><input
-          title=" The defaults hash tags are #chromebookmarks, #firefoxbookmarks,#safaribookmarks,#edgebookmarks,#operabookmarks, #bravebookmarks depending on the browser that you are using"
-          type="text"
-          placeholder="hashtag to group these bookmarks under"
-          autoFocus
-          className="text-input"
-          value={this.state.hashtag}
-          onChange={this.onHashtagChange}
-          maxlength="2048"
-          /></li>:''} */}
-
+          
             {this.state.didUpload ? (
               <div>
-                <li className="">
+                 
+                <li className="ib margin-left-11">
                   <input
                     type="radio"
                     id="option1"
@@ -107,7 +98,7 @@ class BookmarksManager extends React.Component {
                     {" "}
                     convert folder names to hashtags
                   </label>{" "}
-                  {/*use this option to convert a browser exported boomarks.html file*/}
+                  
                 </li>
 
                 {/* <li className="">

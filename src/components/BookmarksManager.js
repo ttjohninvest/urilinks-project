@@ -132,7 +132,7 @@ class BookmarksManager extends React.Component {
               {this.state.didUpload ? (
                 <div>
                   <li>
-                    <span className="ib color-black text-size-8">
+                    <span className="ib color-black text-size-8 margin-left-11">
                       click to convert
                       {/* import bookmarks */}
                     </span>

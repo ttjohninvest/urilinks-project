@@ -12,8 +12,8 @@ class MayDoInGoogleDocument extends React.Component {
   render() {
     let encodedURL = encodeURI(this.state.url);
     return (
-      <div className="margin-top-115 margin-right-115">
-        <a className="nounderline ib margin-left-11" href="https://docs.google.com/document/u/0/?pli=1" target="_blank">
+      <div className="margin-left-11 margin-top-115 margin-right-115">
+        <a className="nounderline text-size-15" href="https://docs.google.com/document/u/0/?pli=1" target="_blank">
           may do list
           {/* <img className="x__image" src="/images/googledocumentlogo.png" alt="may do list" title="may be used to keep track of a may do list" target="_blank" /> */}
         </a>

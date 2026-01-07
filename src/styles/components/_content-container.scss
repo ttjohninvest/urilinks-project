@@ -213,6 +213,12 @@ width:300px;
   display: none;
 }
 
+input#option1[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .margin-topt {
   margin-top: 0;
 }

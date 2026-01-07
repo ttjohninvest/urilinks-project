@@ -82,7 +82,7 @@ class BookmarksManager extends React.Component {
             {this.state.didUpload ? (
               <div>
                  
-                <li className="ib margin-left-11">
+                <li  className="ib margin-left-11">
                   <input
                     type="radio"
                     id="option1"

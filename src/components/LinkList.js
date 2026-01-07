@@ -289,7 +289,7 @@ export const LinkList = (props) => {
         </span>
         <span className="ib margin-left-11">
           {first === 0 || first === 1
-            ? " Link(s) Found"
+            ? " Link(s) Displayed"
             : first === 2
             ? " Results"
             : ""}

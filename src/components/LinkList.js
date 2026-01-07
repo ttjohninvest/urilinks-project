@@ -285,7 +285,7 @@ export const LinkList = (props) => {
       >
         <span id="linkcount2id" className="ib is-active">
           {/* {first === 0 ? props.linkCount : first === 1 ? props.linkCount2 : ""} */}
-          {first === 0 ? props.linkCount: first === 1 ? props.linkCount2 : ""}
+          {first === 0 ? props.linkCount>100?100:props.linkCount: first === 1 ? props.linkCount2 : ""}
         </span>
         <span className="ib margin-left-11">
           {first === 0 || first === 1

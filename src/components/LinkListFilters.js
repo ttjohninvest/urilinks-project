@@ -170,7 +170,7 @@ function ExpandableArray(props) {
           <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
             Welcome to urilinks.com
           </div>
-          <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
+          <div className="margin-left-11 flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase-">
             This example page demonstates a virtual filing cabinet of internet
             pages
           </div>

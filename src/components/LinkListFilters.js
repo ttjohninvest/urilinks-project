@@ -1024,7 +1024,7 @@ export class LinkListFilters extends React.Component {
     */
   };
 
-  onSortChange = (e) => {
+   onSortChange = (e) => {
     if (e.target.value === "none") return;
 
     const val = window.document.getElementById("termid").value.trim();
@@ -1183,32 +1183,32 @@ export class LinkListFilters extends React.Component {
         window.localStorage.getItem("sortBy")
     );
 
-    // const term = window.localStorage.getItem("termid");
+    try {
+const term = window.localStorage.getItem("termid");
     
-    //   window.document.getElementById("termid").value = this.props.filters.text //term;
+      window.document.getElementById("termid").value = term;
     
-    //   if (
-    //       sortBy === "hashtag"
-    //       && term !== "" 
-    //       && term.charAt(0) === "#"
-    //     )
-    //    {
-    //     //window.document.getElementById("buttonid").click();
-    //     window.document.querySelector("#buttonid").click();
-    //   }
+      if (
+          sortBy === "hashtag"
+          && term !== "" 
+          && term.charAt(0) === "#"
+        )
+       {
+        //window.document.getElementById("buttonid").click();
+        window.document.querySelector("#buttonid").click();
+      }
      
-    //   else if (
-    //     sortBy === "description" ||
-    //     sortBy === "notetext" ||
-    //     term === "" ||
-    //     term.charAt(0) !== "#"
-    //   ) {
-    //     window.document.querySelector("#buttonid").click();
-    //   }
-
-      
-    // }
-
+      else if (
+        sortBy === "description" ||
+        sortBy === "notetext" ||
+        term === "" ||
+        term.charAt(0) !== "#"
+      ) {
+        window.document.querySelector("#buttonid").click();
+      }
+    }catch(e) {
+      alert("componentDidMount,e="+e)
+    }
      
  
   }
@@ -1255,7 +1255,7 @@ export class LinkListFilters extends React.Component {
     console.log("show dd");
   };
 
-  search = () => {
+   search = () => {
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");

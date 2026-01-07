@@ -14,7 +14,7 @@ class MayDoInGoogleDocument extends React.Component{
     return(
       <div className="margin-top-115 margin-right-115">
        <a href="https://docs.google.com/document/u/0/?pli=1" target="_blank" >
-       <img className="x__image" src="/images/googledocumentlogo.png" title="share on x.com was twitter.com" />
+       <img className="x__image" src="/images/googledocumentlogo.png" alt="may do list" title="share on x.com was twitter.com" />
        </a>
          </div>
     )

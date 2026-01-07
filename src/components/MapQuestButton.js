@@ -14,7 +14,7 @@ class MapQuestButton extends React.Component{
     return(
       <div className="margin-top-115 margin-right-115">
        <a href="https://www.mapquest.com/directions?scheduleType=leave-now" target="_blank" >
-       <img className="x__image" src="/images/mapquestlogo.png" title="share on x.com was twitter.com" />
+       <img className="x__image" src="/images/mapquestlogo.png" alt="map quest for directions" title="share on x.com was twitter.com" />
        </a>
          </div>
     )

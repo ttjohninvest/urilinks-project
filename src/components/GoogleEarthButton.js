@@ -14,7 +14,7 @@ class GoogleEarthButton extends React.Component{
     return(
       <div className="margin-top-115 margin-right-115">
        <a href="https://earth.google.com/web/" target="_blank" >
-       <img className="x__image" src="/images/xlogo.png" title="share on x.com was twitter.com" />
+       <img className="x__image" src="/images/xlogo.png" alt="google earth" title="share on x.com was twitter.com" />
        </a>
          </div>
     )

@@ -14,7 +14,7 @@ class GoogleMapsButton extends React.Component{
     return(
       <div className="margin-top-115 margin-right-115">
        <a href="https://www.google.com/maps/" target="_blank" >
-       <img className="x__image" src="/images/googlemapslogo.png" title="share on x.com was twitter.com" />
+       <img className="x__image" src="/images/googlemapslogo.png" alt="google maps" title="share on x.com was twitter.com" />
        </a>
          </div>
     )

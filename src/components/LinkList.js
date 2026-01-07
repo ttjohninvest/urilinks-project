@@ -1,6 +1,6 @@
 const LIST_ALL_PUBLIC_LINKS = false //I commented the code out to fix the space between alignment
 const LIST_ALL_PUBLIC_LINKS_PEOPLE = false //I commented the code out to fix the space between alignment
-
+const DISPLAY_THIS_MANY_LINKS = 100
 import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
 import MyInfiniteScroll from "./MyInfiniteScroll";
@@ -313,7 +313,7 @@ export const LinkList = (props) => {
               <span>0 links found1</span>
             </div>
           ) : false ? (
-            props.links.slice(0, 100).map((link) => {
+            props.links.slice(0, DISPLAY_THIS_MANY_LINKS).map((link) => {
               return (
                 <div>
                   <LinkListItem key={link.id} {...link} />

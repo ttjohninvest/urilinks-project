@@ -82,7 +82,7 @@ class BookmarksManager extends React.Component {
             {this.state.didUpload ? (
               <div>
                  
-                <li  className="ib margin-left-11">
+                <li  className="">
                   <input
                     type="radio"
                     id="option1"
@@ -133,7 +133,8 @@ class BookmarksManager extends React.Component {
                 <div>
                   <li>
                     <span className="ib color-black text-size-8">
-                      import bookmarks
+                      click to convert
+                      {/* import bookmarks */}
                     </span>
                   </li>
                 </div>

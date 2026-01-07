@@ -330,7 +330,7 @@ export const LinkList = (props) => {
             //     </div>
             //   );
             // })
-             props.links.map((link, index) => {
+             props.links.splice(0,100).map((link, index) => {
               return (
                 <div>
                   <LinkListItem key={link.id} {...link} index={index} />

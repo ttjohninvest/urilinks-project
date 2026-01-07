@@ -13,6 +13,7 @@ import MayDoInGoogleDocument from "./MayDoInGoogleDocument"
 import MapQuestButton from "./MapQuestButton"
 import GoogleMapsButton from "./GoogleMapsButton"
 import GoogleEarthButton from "./GoogleEarthButton"
+import AlarmClockButton from "./AlarmClockButton"
 //import AddToAny from './AddToAny';
 
 //import XShareButton from "./XShareButton"
@@ -839,6 +840,7 @@ const LinkListItem = (props) => {
 
         <XShareButton url={props.Url} />
         <MapQuestButton />
+        <AlarmClockButton />
         <GoogleMapsButton />
         <GoogleEarthButton />
       </div>

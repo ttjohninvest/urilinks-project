@@ -1,6 +1,6 @@
 import React from 'react'
 
-class GoogleEarthButton extends React.Component{
+class AlarmClockButton extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -14,11 +14,11 @@ class GoogleEarthButton extends React.Component{
     return(
       <div className="margin-top-115 margin-right-115">
        <a href="https://earth.google.com/web/" target="_blank" >
-       <img className="x__image" src="/images/googleearthlogo.png" alt="google earth" title="opens google earth" target="_blank" />
+       <img className="x__image" src="/images/alarm-clock.png" alt="alarm clock" title="opens alarm clock" target="_blank" />
        </a>
          </div>
     )
   }
 }
 
-export default GoogleEarthButton;
+export default AlarmClockButton;

@@ -516,6 +516,8 @@ ttjohninvest@gmail.com
 
 ---
 
+source of alarm clock image: https://clipart-library.com/free/alarm-clock-transparent-background.html
+
 get the new key from stripe and put it into SK_LIVE environment variable in vercel for these three
 ... cancel subscription api in vercel
 ... vercel-stripe-api in vercel

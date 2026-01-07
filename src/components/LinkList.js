@@ -284,7 +284,8 @@ export const LinkList = (props) => {
         className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"
       >
         <span id="linkcount2id" className="ib is-active">
-          {first === 0 ? props.linkCount : first === 1 ? props.linkCount2 : ""}
+          {/* {first === 0 ? props.linkCount : first === 1 ? props.linkCount2 : ""} */}
+          {first === 0 ? props.linkCount>100?DISPLAY_THIS_MANY_LINKS:props.linkCount : first === 1 ? props.linkCount2 : ""}
         </span>
         <span className="ib margin-left-11">
           {first === 0 || first === 1
@@ -310,7 +311,7 @@ export const LinkList = (props) => {
         <div className="list-body border-green-">
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
-              <span>0 links found1</span>
+              <span>0 links found</span>
             </div>
           ) : false ? (
             props.links.slice(0, DISPLAY_THIS_MANY_LINKS).map((link) => {
@@ -362,7 +363,7 @@ export const LinkList = (props) => {
 
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
-              <span>0 links found2</span>
+              <span>0 links found</span>
             </div>
           ) : false ? (
             props.links.splice(0, 100).map((link) => {
@@ -379,7 +380,7 @@ export const LinkList = (props) => {
           <div id="listid">
             {props.links2.length === 0 ? (
               <div className="list-item list-item--message">
-                <span>0 links found3</span>
+                <span>0 links found</span>
               </div>
             ) : false ? (
               props.links2.splice(0, 100).map((link) => {

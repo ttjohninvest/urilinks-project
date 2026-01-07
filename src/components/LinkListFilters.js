@@ -701,7 +701,7 @@ function ExpandableArray(props) {
                 <div className="margin-left-minus-1">
                   <span>
                     {props.links.length} of {maximum} links is stored on the{" "}
-                    {props.theplan.plan.replace(/"/g, "")} plan.
+                    {props.theplan.plan.replace(/"/g, "") `plan. The first ${props.links.length>100?DISPLAY_THIS_MANY_LINKS:props.links.length} is displayed.`}
                   </span>
                 </div>
                 <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">

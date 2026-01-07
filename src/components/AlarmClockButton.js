@@ -13,7 +13,7 @@ class AlarmClockButton extends React.Component{
     let encodedURL = encodeURI(this.state.url);
     return(
       <div className="margin-top-115 margin-right-115">
-       <a href="https://earth.google.com/web/" target="_blank" >
+       <a href="https://kukuklok.com/" target="_blank" >
        <img className="x__image" src="/images/alarm-clock.png" alt="alarm clock" title="opens alarm clock" target="_blank" />
        </a>
          </div>

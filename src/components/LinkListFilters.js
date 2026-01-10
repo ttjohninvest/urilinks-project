@@ -1117,6 +1117,7 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
 
     const sortBy = window.localStorage.getItem("sortBy");
+    
 
     console.log("componentDidMount, sortBy=" + sortBy);
 

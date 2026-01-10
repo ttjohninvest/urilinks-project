@@ -81,6 +81,7 @@ const LinkDashboardPage = (props) => {
     );
     // Save scroll position before leaving
     window.addEventListener("beforeunload", () => {
+      window.localStorage.setItem("sortBy","description")
       sessionStorage.setItem("scrollPosition", window.scrollY);
       console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
       console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");

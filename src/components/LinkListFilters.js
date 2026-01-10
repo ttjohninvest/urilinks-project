@@ -189,7 +189,7 @@ function ExpandableArray(props) {
       )}
       {props.signup === true && (
         <div>
-          <div className="flexrowzc2 text-size-14  font-weigth-bold padding-all text-center uppercase">
+          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
             Welcome to urilinks.com
           </div>
         </div>

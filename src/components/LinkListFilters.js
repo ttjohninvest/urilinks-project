@@ -169,7 +169,7 @@ function ExpandableArray(props) {
       {/* <img src={signature} /> */}
       {props.signup === false && (
         <div>
-          <div className="flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase">
+          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
             <img
                   className="ib minWidth"
                   src={redarrow}
@@ -178,7 +178,7 @@ function ExpandableArray(props) {
                   alt="Logo"
                 />Wonderful message: The Holy Bible says in Acts 2:21 and Romans 10:13 for whosoever shall call upon the name of Jesus Christ shall be saved.
           </div>
-          <div className="flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase">
+          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
             Welcome to urilinks.com
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">

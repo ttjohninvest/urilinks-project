@@ -170,7 +170,7 @@ function ExpandableArray(props) {
       {props.signup === false && (
         <div>
           <div className="flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase">
-            Wonderful message: The Holy Bible says in Acts 2:21 and Romans 10:13 to call upon the name of Jesus Christ to be saved.
+            Wonderful message: The Holy Bible says in Acts 2:21 and Romans 10:13 for whosoever shall call upon the name of Jesus Christ shall be saved.
           </div>
           <div className="flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase">
             Welcome to urilinks.com

@@ -341,7 +341,7 @@ return val
                   </div> */}
 
                    <div>
-                    <Link className="header__title- nounderline" to="/use" >
+                    <Link className="header__title- nounderline" to="/use" target="_blank" >
                       <span
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
                         title="Click to see how to use this website."
@@ -357,7 +357,7 @@ return val
                   <div>
                     <Link
                       className="header__title- nounderline"
-                      to="/termsandprivacy"
+                      to="/termsandprivacy" target="_blank"
                     >
                       <span
                         className="ib- color-white-1 cursor-pointer"
@@ -403,7 +403,7 @@ return val
                   )}
 
                   <div>
-                    <Link className="header__title- nounderline" to="/ideas">
+                    <Link className="header__title- nounderline" to="/ideas" target="_blank">
                       <span
                         className="ib- color-white-1 cursor-pointer"
                         title="Click to see a list of educational ideas."

@@ -2,33 +2,33 @@ import * as firebase from "firebase";
 
 import "firebase/storage";
 
-let config = {};
+// let config = {};
 
-fetch("http://urilinks-project-env-vars.vercel.app") //cloud function that stores the environment variables
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    config = {
-      apiKey: data.FIREBASE_API_KEY,
-      authDomain: data.FIREBASE_AUTH_DOMAIN,
-      databaseURL: data.FIREBASE_DATABASE_URL,
-      projectId: data.FIREBASE_PROJECT_ID,
-      storageBucket: data.FIREBASE_STORAGE_BUCKET,
-      messagingSenderId: data.FIREBASE_MESSAGING_SENDER_ID,
-    };
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
+// fetch("http://urilinks-project-env-vars.vercel.app") //cloud function that stores the environment variables
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data);
+//     config = {
+//       apiKey: data.FIREBASE_API_KEY,
+//       authDomain: data.FIREBASE_AUTH_DOMAIN,
+//       databaseURL: data.FIREBASE_DATABASE_URL,
+//       projectId: data.FIREBASE_PROJECT_ID,
+//       storageBucket: data.FIREBASE_STORAGE_BUCKET,
+//       messagingSenderId: data.FIREBASE_MESSAGING_SENDER_ID,
+//     };
+//   })
+//   .catch((error) => {
+//     console.error("Error:", error);
+//   });
 
-// const config = {
-//   apiKey: process.env.FIREBASE_API_KEY,
-//   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-//   databaseURL: process.env.FIREBASE_DATABASE_URL,
-//   projectId: process.env.FIREBASE_PROJECT_ID,
-//   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-//   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
-// };
+const config = {
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
+};
 
 // const config = {
 //   apiKey: "AIzaSyDV2yr2TVpIIMgcwLonAIdPgc3epMipvxs",

@@ -1,6 +1,25 @@
 import * as firebase from "firebase";
 
-import "firebase/storage"
+import "firebase/storage";
+
+// let config = {};
+
+// fetch("http://urilinks-project-env-vars.vercel.app") //cloud function that stores the environment variables
+//   .then((response) => response.json())
+//   .then((data) => {
+//     console.log(data);
+//     config = {
+//       apiKey: data.FIREBASE_API_KEY,
+//       authDomain: data.FIREBASE_AUTH_DOMAIN,
+//       databaseURL: data.FIREBASE_DATABASE_URL,
+//       projectId: data.FIREBASE_PROJECT_ID,
+//       storageBucket: data.FIREBASE_STORAGE_BUCKET,
+//       messagingSenderId: data.FIREBASE_MESSAGING_SENDER_ID,
+//     };
+//   })
+//   .catch((error) => {
+//     console.error("Error:", error);
+//   });
 
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -20,16 +39,17 @@ const config = {
 //   messagingSenderId: "754943560663",
 // };
 
-console.log("A ABOUT TO CALL firebase.initializeApp")
+console.log("A ABOUT TO CALL firebase.initializeApp");
 const app = firebase.initializeApp(config);
-const storage = firebase.storage()
+const storage = firebase.storage();
 
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 //prompt: "select_account"
-googleAuthProvider.setCustomParameters({ //this fixed the google email selection dialog from not coming up
+googleAuthProvider.setCustomParameters({
+  //this fixed the google email selection dialog from not coming up
   //prompt: "consent"
-  prompt: "select_account"
+  prompt: "select_account",
 });
 export { storage, firebase, googleAuthProvider, database as default };
 

@@ -742,6 +742,7 @@ function ExpandableArray(props) {
             </div>
           </div>
 
+          <div className="containerhs">
           <div
             ref={props.ref}
             className={`${
@@ -822,6 +823,7 @@ function ExpandableArray(props) {
             {props.mappedDataShort.length > 50 && !expanded && (
               <span className="text-size-5">...</span>
             )}
+          </div>
           </div>
           {props.b === 1 && (
             <button

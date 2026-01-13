@@ -219,6 +219,13 @@ input#option1[type="radio"] {
   appearance: none;
 }
 
+.containerhs {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
 .margin-topt {
   margin-top: 0;
 }

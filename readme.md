@@ -32,7 +32,7 @@ Are their people sharing the wonderful news of the Gospel of Jesus Christ? Are p
 
 Keep being friendly to everyone regardless of attitudes, body language and the words the person speaks.
 
-I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you.
+ The most important thing you can do today is to call upon the name of Jesus Christ to save you; therefore, I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me. Please see God's Word, Acts 2;21, Romans 10:13." Be baptized, do good works.  Pray, talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you.
 
 I invite everybody to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you all.
 

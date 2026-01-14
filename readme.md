@@ -118,7 +118,7 @@ todo to do
 ============
 firebase hosting, got to build locally but getting an error
 I left a message for Andrew Mead on udemy.com
-when trying to build the expensify app locally with npm run build:prod I get error
+when trying to build the budget-app locally with npm run build:prod I get error
 
 Error: Cannot find module 'node:path'
 ============

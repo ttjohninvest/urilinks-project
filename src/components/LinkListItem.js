@@ -758,7 +758,7 @@ const LinkListItem = (props) => {
                                 title="remove bookmark"
                                 className="cb1 cursor-pointer"
                               />
-                              <label for={"delete%" + props.id} />
+                              <label htmlFor={"delete%" + props.id} />
                             </span>
                           </div>
                         ) : (
@@ -773,7 +773,7 @@ const LinkListItem = (props) => {
                                 title="remove bookmark"
                                 className="cb1 cursor-pointer"
                               />
-                              <label for={"delete%" + props.id} />
+                              <label htmlFor={"delete%" + props.id} />
                             </span>
                             
                           </div>

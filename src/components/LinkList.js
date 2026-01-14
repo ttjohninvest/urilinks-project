@@ -335,8 +335,8 @@ export const LinkList = (props) => {
               return (
                 <div>
                   <LinkListItem 
-                  //key={link.id} 
-                  key={index}
+                  key={link.id} 
+                  //key={index}
                   {...link} 
                   index={index} 
                   />

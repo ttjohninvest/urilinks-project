@@ -115,6 +115,13 @@ current plan: blaze plan, it does not let me upload bookmark files, so it does n
 ========================
 todo to do
 
+============
+firebase hosting, got to build locally but getting an error
+I left a message for Andrew Mead on udemy.com
+when trying to build the expensify app locally with npm run build:prod I get error
+
+Error: Cannot find module 'node:path'
+============
 put in an oktouploadbookmarks variable in redux and also store the value in the database per user because
  I have to limit costs with firebase storage because they are charging me for the number of bytes uploaded
  from their storage database. I have to charge for this link eventually.

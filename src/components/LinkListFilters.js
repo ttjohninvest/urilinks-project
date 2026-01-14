@@ -744,7 +744,7 @@ function ExpandableArray(props) {
 
           <div className="containerhs">
           <div
-            ref={props.ref}
+            ref={props.ref1}
             className={`${
               newspaper === false
                 ? "grid-container5"
@@ -1318,7 +1318,7 @@ const term = window.localStorage.getItem("termid");
                 mappedDataShort={this.props.hashtags}
                 mappedDataLong={this.state.mappedDataLong}
                 maxLength={this.SHORT_HASHTAG_LENGTH}
-                ref={this.elementRef}
+                ref1={this.elementRef}
                 morehashtags={this.state.morehashtags}
                 setit={this.setit}
                 theplan={this.props.theplan}

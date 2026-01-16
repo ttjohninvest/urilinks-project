@@ -182,18 +182,17 @@ function ExpandableArray(props) {
             saved.
           </div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
-            Welcome to urilinks.com
+            Welcome to Saint John's urilinks.com for church
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
-            This example page demonstates a virtual filing cabinet of internet
-            pages
+            This example page demonstates this tool for storage and retrieval of church prayer, sermons, saints, nuns, priests, catholic masses
           </div>
         </div>
       )}
       {props.signup === true && (
         <div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
-            Welcome to urilinks.com
+             Welcome to Saint John's urilinks.com for church
           </div>
         </div>
       )}

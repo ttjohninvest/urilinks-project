@@ -197,7 +197,8 @@ export const startSetLinks = (uid) => {
          const longnames = []
          const htc="#prayer#sermons#healing#churches#cathedrals#homilies#israel#nuns#priests#saints"
          //const ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
-         let x1 = extractHashtags(ht);
+         //let x1 = extractHashtags(ht);
+         let x1 = extractHashtags(htc);
          hashtags.push(...x1);
 
          links2.forEach((link) => {

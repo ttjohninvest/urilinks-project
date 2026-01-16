@@ -171,7 +171,6 @@ const seen = (hashtag, theSeenArray) => {
 export const startSetLinks2 = () => {
   console.log("startSetLinks2");
   return (dispatch, getState) => {
-    
     const hashtags = [];
     return database
       .ref(`users`)
@@ -190,7 +189,7 @@ export const startSetLinks2 = () => {
         //   "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
         //   "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
         //   "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-        //   "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
+        //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
         //   "WJGHkWycjKQxPK83Fi4zqx53bCl1",
         //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
         //   "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
@@ -206,15 +205,15 @@ export const startSetLinks2 = () => {
             .once("value")
             .then((snapshot) => {
               let data = snapshot.val();
-              console.log("ZZZ,userId="+userId)
-              console.log("ZZZ,data="+JSON.stringify(data))
-              if(data===null) { //shis check removed the null error which caused the list qll linkw list to not display at all
-                data={}
-                return { userId, data  };
+              console.log("ZZZ,userId=" + userId);
+              console.log("ZZZ,data=" + JSON.stringify(data));
+              if (data === null) {
+                //shis check removed the null error which caused the list qll linkw list to not display at all
+                data = {};
+                return { userId, data };
               } else {
                 return { userId, data };
               }
-              
             })
             .catch((error) => {
               console.error(`Error reading data for user ${userId}:`, error);
@@ -223,29 +222,34 @@ export const startSetLinks2 = () => {
         });
         let links3 = [];
         Promise.all(userDataPromises).then((snapshot) => {
-          !!snapshot=== true && snapshot.forEach((childSnapshot) => {
-              console.log("childSnapshot.data="+JSON.stringify(childSnapshot.data))
+          !!snapshot === true &&
+            snapshot.forEach((childSnapshot) => {
+              console.log(
+                "childSnapshot.data=" + JSON.stringify(childSnapshot.data)
+              );
               let arrayData = Object.values(childSnapshot.data);
-              console.log("1001,arrayData="+JSON.stringify(arrayData))
-              let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
+              console.log("1001,arrayData=" + JSON.stringify(arrayData));
+              let updatedArray = arrayData.map((obj) => ({
+                ...obj,
+                id: v4(),
+                uid: childSnapshot.userId,
+              }));
 
               // let updatedArray = arrayData.map((obj) => {
-                
+
               //     if(obj.showpublic === true) {
               //       return { ...obj, id: v4(), uid:childSnapshot.userId }
               //     }
-                 
-              //   });
-              
-              links3.push(...updatedArray);
 
-          }); 
-          dispatch(setLinks2(links3)); 
-          console.log("the links3="+JSON.stringify(links3,null,2))
+              //   });
+
+              links3.push(...updatedArray);
+            });
+          dispatch(setLinks2(links3));
+          console.log("the links3=" + JSON.stringify(links3, null, 2));
         });
-        
-      }).catch((error) => console.log("error=" + error));
-      
+      })
+      .catch((error) => console.log("error=" + error));
   };
 };
 

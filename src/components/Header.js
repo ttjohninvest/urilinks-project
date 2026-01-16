@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
 import redarrow from "../assets/images/red-arrow.jpg";
- 
+
 //import logo from "../assets/images/logo-l.png";
 //import logo from "../assets/images/logo-orange-urilinks.png";
 import logo from "../assets/images/logo-orange-u.png";
@@ -29,32 +29,30 @@ export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
   const [inviewport, setInviewport] = useState(false);
-  const [toggledUse, setToggledUse] = useState(false)
-  const [uid,setUid] = useState("")
-  const [bmok,setBmok] = useState(false)
+  const [toggledUse, setToggledUse] = useState(false);
+  const [uid, setUid] = useState("");
+  const [bmok, setBmok] = useState(false);
   const ideas = () => {};
 
-  const isInMeArray = (uid) =>{ //these email address are allowed to upload bookmark files
-    const mearray=[
-      "zIK65gVpE9RPpHFZprjblMGJ2KB3", 
+  const isInMeArray = (uid) => {
+    //these email address are allowed to upload bookmark files
+    const mearray = [
+      "zIK65gVpE9RPpHFZprjblMGJ2KB3",
       "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
-"WJGHkWycjKQxPK83Fi4zqx53bCl1",
-"W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
-"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
-"RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-"Gj6I5M7qf8ODZCsFqC3zAuFTXgx2"//,
-//"7CzFYQjw2aUhHgCYjS2eDODrfVE2" //jmjohnmcgovern707@gmail.com
-]
-let val = false
-mearray.forEach((id)=>{
-if(uid===id)
-  val=true
-})
+      "WJGHkWycjKQxPK83Fi4zqx53bCl1",
+      "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
+      "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+      "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
+      "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2", //,
+      //"7CzFYQjw2aUhHgCYjS2eDODrfVE2" //jmjohnmcgovern707@gmail.com
+    ];
+    let val = false;
+    mearray.forEach((id) => {
+      if (uid === id) val = true;
+    });
 
-return val
-
-
-  }
+    return val;
+  };
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -73,17 +71,17 @@ return val
     console.log("Header.js, done calling startAddBmok");
   };
 
-    const setDisplayNamedb = (displayName) => {
+  const setDisplayNamedb = (displayName) => {
     console.log("setDisplayNamedb, Header.js, displayName=" + displayName);
     ////put the photoURL in the database
     props.startAddDisplayname({ displayname: displayName });
     console.log("Header.js, done calling startAddDisplayname");
   };
 
-   const setGoogleUserDatadb = (gud) => {
+  const setGoogleUserDatadb = (gud) => {
     console.log("setGoogleUserDatadb, Header.js, gud=" + gud);
     ////put the photoURL in the database
-    props.startAddGoogleUserData({gud:gud});
+    props.startAddGoogleUserData({ gud: gud });
     console.log("Header.js, done calling startGoogleUserData");
   };
 
@@ -110,26 +108,24 @@ return val
       const bmok = user.bmok;
       const dn = user.displayName;
       const gud = {
-        photourl:purl,
-        displayname:dn,
-        email:user.email,
-        uid:user.uid
-      }
+        photourl: purl,
+        displayname: dn,
+        email: user.email,
+        uid: user.uid,
+      };
       setPhotoURL(purl);
       setPhotoURLdb(purl);
-      
-      const ttbmok=true
-      if(bmok===undefined)
-        setBmok(ttbmok);
+
+      const ttbmok = true;
+      if (bmok === undefined) setBmok(ttbmok);
       else setBmok(bmok);
-      if(bmok===undefined)
-        setBmokdb(ttbmok);
+      if (bmok === undefined) setBmokdb(ttbmok);
       else setBmokdb(bmok);
 
-      setDisplayNamedb(dn)
-      setGoogleUserDatadb(gud)
+      setDisplayNamedb(dn);
+      setGoogleUserDatadb(gud);
       setEmaildb(user.email);
-      setUid(gud.uid)
+      setUid(gud.uid);
     }
 
     // }
@@ -140,18 +136,20 @@ return val
 
   const scrolldown = () => {
     //this scrolls the results into view, the first and subsequent result is shown
-    !!document.querySelector("#before-before-link-summary-id") && document.querySelector("#before-before-link-summary-id").scrollIntoView({
-      behavior: "smooth",
-    });
-     window.document.getElementById("termid").focus()
+    !!document.querySelector("#before-before-link-summary-id") &&
+      document.querySelector("#before-before-link-summary-id").scrollIntoView({
+        behavior: "smooth",
+      });
+    window.document.getElementById("termid").focus();
   };
 
-   const scrolldown2 = () => {
+  const scrolldown2 = () => {
     //this scrolls the results into view, the first and subsequent result is shown
-    !!document.querySelector("#before-before-link-summary-id") && document.querySelector("#before-before-link-summary-id").scrollIntoView({
-      behavior: "smooth",
-    });
-    window.document.getElementById("addlinkid").focus()
+    !!document.querySelector("#before-before-link-summary-id") &&
+      document.querySelector("#before-before-link-summary-id").scrollIntoView({
+        behavior: "smooth",
+      });
+    window.document.getElementById("addlinkid").focus();
   };
 
   const logoutit = () => {
@@ -228,8 +226,8 @@ return val
   // }
 
   const setToggledUsea = () => {
-    setToggledUse(!toggleUse)
-  }
+    setToggledUse(!toggleUse);
+  };
 
   return (
     <div>
@@ -241,36 +239,35 @@ return val
                 <div className="flexrow2w">
                   <div className="flexrowzl1">
                     <Link
-                        className="nounderline color-white-1 cursor-pointer"
-                        to="/dashboard"
-                        title=""
-                      >
-                         <header className="margin-left-11 solid">
-                    <img
-                      className="rounded-full-1 thumbnail-"
-                      src={logo}
-                      width="35"
-                      height="35"
-                      alt="Logo"
-                    />
+                      className="nounderline color-white-1 cursor-pointer"
+                      to="/dashboard"
+                      title=""
+                    >
+                      <header className="margin-left-11 solid">
+                        <img
+                          className="rounded-full-1 thumbnail-"
+                          src={logo}
+                          width="35"
+                          height="35"
+                          alt="Logo"
+                        />
 
-                    <h3 className="color-white-1">urilinks</h3>
-                     {/* <img
+                        <h3 className="color-white-1">urilinks</h3>
+                        {/* <img
                       className=""
                       src={logo2}
                       width="60"
                       height="35"
                       alt="urilinks logo"
                     /> */}
-                  </header>
-                      </Link>
+                      </header>
+                    </Link>
 
-                  <div className="margin-left-118 margin-top-1">
-                    <img src={signature} className="minwidth" />
+                    <div className="margin-left-118 margin-top-1">
+                      <img src={signature} className="minwidth" />
+                    </div>
                   </div>
-                    
-                  </div>
-                 
+
                   {/* {props.signup.signup === false && (
                     <div
                       className="color-white-1"
@@ -310,7 +307,10 @@ return val
                       />
                     </div>
                   ) : (
-                    <div className="padding-top-1112 margin-left-118-" title="welcome">
+                    <div
+                      className="padding-top-1112 margin-left-118-"
+                      title="welcome"
+                    >
                       {
                         //firebase.auth().currentUser !== null &&
                         //firebase.auth().currentUser !== undefined
@@ -335,13 +335,17 @@ return val
                       }
                     </div>
                   )}
-                  
+
                   {/* <div>
                   <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="Click to see a  list of colleges and universities">colleges</a>
                   </div> */}
 
-                   <div>
-                    <Link className="header__title- nounderline" to="/use" target="_blank" >
+                  <div>
+                    <Link
+                      className="header__title- nounderline"
+                      to="/use"
+                      target="_blank"
+                    >
                       <span
                         className="margin-right-1-ib- color-white-1 cursor-pointer"
                         title="Click to see how to use this website."
@@ -351,13 +355,11 @@ return val
                     </Link>
                   </div>
 
-              
-
-
                   <div>
                     <Link
                       className="header__title- nounderline"
-                      to="/termsandprivacy" target="_blank"
+                      to="/termsandprivacy"
+                      target="_blank"
                     >
                       <span
                         className="ib- color-white-1 cursor-pointer"
@@ -391,7 +393,7 @@ return val
                     </div>
                   )}
 
-                   {!inviewport && (
+                  {!inviewport && (
                     <div
                       id="scrolldownid2"
                       className="header__title- padding-top-11- cursor-pointer color-white-1 cursor-pointer nounderline"
@@ -403,7 +405,11 @@ return val
                   )}
 
                   <div>
-                    <Link className="header__title- nounderline" to="/ideas" target="_blank">
+                    <Link
+                      className="header__title- nounderline"
+                      to="/ideas"
+                      target="_blank"
+                    >
                       <span
                         className="ib- color-white-1 cursor-pointer"
                         title="Click to see a list of educational ideas."
@@ -445,13 +451,11 @@ return val
                     </div>
                   )} */}
 
-                  {props.signup.signup === true 
-                  
-                  //&& isInMeArray(uid)===true 
-                  && bmok === true 
-                  //|| bmok === undefined//if bmok is true the menu item upload will be active and able to upload bookmarks files
-                  
-                  ? (
+                  {props.signup.signup === true &&
+                  //&& isInMeArray(uid)===true
+                  bmok === true ? (
+                    //|| bmok === undefined//if bmok is true the menu item upload will be active and able to upload bookmarks files
+
                     <div className="pointereventsauto hide-">
                       <Link
                         className="header__title- nounderline pointereventsauto"
@@ -467,7 +471,7 @@ return val
                       </Link>
                     </div>
                   ) : (
-                  // <div></div>
+                    // <div></div>
                     <div className="pointereventsnone margin-right-1 hide-">
                       <Link
                         className="header__title- nounderline pointereventsnone"
@@ -485,19 +489,18 @@ return val
                     </div>
                   )}
 
-                   {props.signup.signup === false && (
-                    
-              //       <div className="flexrowz">
-              //      <div>
-              //    <img
-              //      className="ib minWidth"
-              //      src={redarrow}
-              //      width="100"
-              //     height="50"
-              //      alt="Logo"
-              //    />
-              //  </div>
-                <div
+                  {props.signup.signup === false && (
+                    //       <div className="flexrowz">
+                    //      <div>
+                    //    <img
+                    //      className="ib minWidth"
+                    //      src={redarrow}
+                    //      width="100"
+                    //     height="50"
+                    //      alt="Logo"
+                    //    />
+                    //  </div>
+                    <div
                       className="color-white-1 margin-right-1"
                       title="Please use it for good. Bookmarks for internet pages, urls/links"
                     >
@@ -509,8 +512,7 @@ return val
                         signup/login
                       </Link>
                     </div>
-                  //  </div>
-                   
+                    //  </div>
                   )}
 
                   {props.signup.signup === true ? (
@@ -576,7 +578,8 @@ const mapDispatchToProps = (dispatch) => ({
   setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),
   startAddPhotourl: (photourl) => dispatch(startAddPhotourl(photourl)),
   startAddBmok: (bmok) => dispatch(startAddBmok(bmok)),
-  startAddDisplayname: (displayname) => dispatch(startAddDisplayname(displayname)),
+  startAddDisplayname: (displayname) =>
+    dispatch(startAddDisplayname(displayname)),
   startAddGoogleUserData: (gud) => dispatch(startAddGoogleUserData(gud)),
   startAddEmail: (email) => dispatch(startAddEmail(email)),
   startDeleteAccount: (email) => dispatch(startDeleteAccount(email)),

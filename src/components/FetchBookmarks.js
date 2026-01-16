@@ -143,15 +143,19 @@ const FetchBookmarks = (props) => {
 
   const getHashtag = (str) => {
     console.log("getHashtag");
-    
-    const str2 = str.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
-                 
+
+    const str2 = str
+      .trim()
+      .replace(
+        /(^|[^a-zA-Z0-9])([a-zA-Z])/g,
+        (match, p1, p2) => p1 + p2.toUpperCase()
+      );
 
     //const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
     const cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //leave the showing characters in
     //const cleaned = str2.replace(/[^\s]/g, "");
 
-    const lc = cleaned
+    const lc = cleaned;
     //prepend "#"
     const hashtag = "#" + lc;
     //return the hashtag
@@ -3039,7 +3043,7 @@ const FetchBookmarks = (props) => {
 
                 let max = 0;
                 let loopmax2 = rl;
-                //W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+                //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
                 if (props.signup.signup === true) {
                   const user = firebase.auth().currentUser;
                   let skip = 0;

@@ -171,97 +171,102 @@ const seen = (hashtag, theSeenArray) => {
 export const startSetLinks3 = async (uid) => {
   console.log("startSetLinks3");
   //return (dispatch, getState) => {
-    
-    const hashtags = [];
-    return await database
-      .ref(`users`)
-      .once("value")
-      .then((snapshot) => {
-        const users = snapshot.val();
 
-        if (!users) {
-          console.log("No users found.");
-          res.json({ message: "no user ids" });
-        }
+  const hashtags = [];
+  return await database
+    .ref(`users`)
+    .once("value")
+    .then((snapshot) => {
+      const users = snapshot.val();
 
-        //const userIds = Object.keys(users);
-        //console.log("All user IDs:", userIds);
-        const userIds = []
-        userIds[0]=uid
-        // const ids = [
-        //   "D9LSg6elood8Yc5gd5oDMp3JNAQ2"//,
-        //   //"Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
-        //   //"7CzFYQjw2aUhHgCYjS2eDODrfVE2"
-        //   // "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-        //   // "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
-        //   // "WJGHkWycjKQxPK83Fi4zqx53bCl1",
-        //   // "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
-        //   // "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
-        //   // "m8f0YMF5bucp9uhblPZhM8CTjq12",
-        //   // "tWKNG14PYYYY0hDPurLouWtYjtq1"
-        // ];
-        // const userIds = ids;
+      if (!users) {
+        console.log("No users found.");
+        res.json({ message: "no user ids" });
+      }
 
-        /////////////////////////////////////////
-        const userDataPromises = userIds.map(async(uid2) => {
-          //const userDataPromises = async (uid) => {
-          //if(userId===uid) {
-          return await database
-            .ref(`users/${uid2}/links`)
-            .once("value")
-            .then((snapshot) => {
-              let data = snapshot.val();
-              //console.log("ZZZ,userId="+userId)
-              console.log("ZZZ,userId="+uid2)
-              console.log("ZZZ,data="+JSON.stringify(data))
-              if(data===null) { //shis check removed the null error which caused the list qll linkw list to not display at all
-                data={}
-                //return { userId, data  };
-                return { uid2, data  };
-              } else {
-                //return { userId, data };
-                return { uid2, data };
-                //return new Promise((resolve, reject)=> { resolve("Hello, World!")})
-              }
-              
-            }).catch((error) => {
-              //console.error(`Error reading data for user ${userId}:`, error);
-              console.error(`Error reading data for user ${uid2}:`, error);
-              //return { userId, error };
-              return { uid2, error };
-            });
-          //}
-        });
-        
-        let links3 = [];
-        return Promise.all(userDataPromises).then((snapshot) => {
-          !!snapshot=== true && snapshot.forEach((childSnapshot) => {
-              console.log("childSnapshot.data="+JSON.stringify(childSnapshot.data))
-              let arrayData = Object.values(childSnapshot.data);
-              console.log("1001,arrayData="+JSON.stringify(arrayData))
-              let updatedArray = arrayData.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
+      //const userIds = Object.keys(users);
+      //console.log("All user IDs:", userIds);
+      const userIds = [];
+      userIds[0] = uid;
+      // const ids = [
+      //   "D9LSg6elood8Yc5gd5oDMp3JNAQ2"//,
+      //   //"Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
+      //   //"7CzFYQjw2aUhHgCYjS2eDODrfVE2"
+      //   // "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
+      //   // "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+      //   // "WJGHkWycjKQxPK83Fi4zqx53bCl1",
+      //   // "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+      //   // "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
+      //   // "m8f0YMF5bucp9uhblPZhM8CTjq12",
+      //   // "tWKNG14PYYYY0hDPurLouWtYjtq1"
+      // ];
+      // const userIds = ids;
 
-              // let updatedArray = arrayData.map((obj) => {
-                
-              //     if(obj.showpublic === true) {
-              //       return { ...obj, id: v4(), uid:childSnapshot.userId }
-              //     }
-                 
-              //   });
-              
-              links3.push(...updatedArray);
+      /////////////////////////////////////////
+      const userDataPromises = userIds.map(async (uid2) => {
+        //const userDataPromises = async (uid) => {
+        //if(userId===uid) {
+        return await database
+          .ref(`users/${uid2}/links`)
+          .once("value")
+          .then((snapshot) => {
+            let data = snapshot.val();
+            //console.log("ZZZ,userId="+userId)
+            console.log("ZZZ,userId=" + uid2);
+            console.log("ZZZ,data=" + JSON.stringify(data));
+            if (data === null) {
+              //shis check removed the null error which caused the list qll linkw list to not display at all
+              data = {};
+              //return { userId, data  };
+              return { uid2, data };
+            } else {
+              //return { userId, data };
+              return { uid2, data };
+              //return new Promise((resolve, reject)=> { resolve("Hello, World!")})
+            }
+          })
+          .catch((error) => {
+            //console.error(`Error reading data for user ${userId}:`, error);
+            console.error(`Error reading data for user ${uid2}:`, error);
+            //return { userId, error };
+            return { uid2, error };
+          });
+        //}
+      });
 
-          }); 
-          //dispatch(setLinks2(links3)); 
-          console.log("1 the links3="+JSON.stringify(links3,null,2))
-          return links3;
-        });
-        
-  });
+      let links3 = [];
+      return Promise.all(userDataPromises).then((snapshot) => {
+        !!snapshot === true &&
+          snapshot.forEach((childSnapshot) => {
+            console.log(
+              "childSnapshot.data=" + JSON.stringify(childSnapshot.data)
+            );
+            let arrayData = Object.values(childSnapshot.data);
+            console.log("1001,arrayData=" + JSON.stringify(arrayData));
+            let updatedArray = arrayData.map((obj) => ({
+              ...obj,
+              id: v4(),
+              uid: childSnapshot.userId,
+            }));
 
-//});
+            // let updatedArray = arrayData.map((obj) => {
 
-}
+            //     if(obj.showpublic === true) {
+            //       return { ...obj, id: v4(), uid:childSnapshot.userId }
+            //     }
+
+            //   });
+
+            links3.push(...updatedArray);
+          });
+        //dispatch(setLinks2(links3));
+        console.log("1 the links3=" + JSON.stringify(links3, null, 2));
+        return links3;
+      });
+    });
+
+  //});
+};
 
 export const startSetLinksAll2 = () => {
   return (dispatch, getState) => {

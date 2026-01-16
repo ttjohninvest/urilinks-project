@@ -1,4 +1,4 @@
-const DISPLAY_THIS_MANY_LINKS = 100
+const DISPLAY_THIS_MANY_LINKS = 100;
 
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -83,7 +83,7 @@ function ExpandableArray(props) {
       setUid(user.uid);
       setTheuser(user);
     } else {
-      setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
+      setUid("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
     }
 
     const x = window.localStorage.getItem("hideinformation");
@@ -171,12 +171,15 @@ function ExpandableArray(props) {
         <div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
             <img
-                  className="ib minWidth"
-                  src={redarrow}
-                  width="100"
-                  height="50"
-                  alt="Logo"
-                />Wonderful message: The Holy Bible says in Acts 2:21 and Romans 10:13 for whosoever shall call upon the name of Jesus Christ shall be saved.
+              className="ib minWidth"
+              src={redarrow}
+              width="100"
+              height="50"
+              alt="Logo"
+            />
+            Wonderful message: The Holy Bible says in Acts 2:21 and Romans 10:13
+            for whosoever shall call upon the name of Jesus Christ shall be
+            saved.
           </div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
             Welcome to urilinks.com
@@ -600,7 +603,7 @@ function ExpandableArray(props) {
 
               <br />
               {/* {props.signup === false &&
-                props.uid === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && (
+                props.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" && (
                   <div className="textLeft">
                     <iframe
                       width="300"
@@ -711,8 +714,11 @@ function ExpandableArray(props) {
               <div className="margin-left-11-">
                 <div className="margin-left-minus-1">
                   <span>
-                  {props.links.length} of {maximum} links is stored on the{" "}
-                    {props.theplan.plan.replace(/"/g, "")} {`plan. ${props.links.length>100?100:props.links.length} are displayed.`}
+                    {props.links.length} of {maximum} links is stored on the{" "}
+                    {props.theplan.plan.replace(/"/g, "")}{" "}
+                    {`plan. ${
+                      props.links.length > 100 ? 100 : props.links.length
+                    } are displayed.`}
                   </span>
                 </div>
                 <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">
@@ -743,23 +749,55 @@ function ExpandableArray(props) {
           </div>
 
           <div className="containerhs">
-          <div
-            ref={props.ref1}
-            className={`${
-              newspaper === false
-                ? "grid-container5"
-                : "grid-container5-newspaper"
-            } paddingparent margin-top-1 background-white-1 borderradius5`}
-            title={
-              props.signup === true
-                ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
-                : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
-            }
-          >
-            {!expanded
-              ? //props.b === 1 &&
-                props.mappedDataShort.map((s, index) => {
-                  if (index < 50)
+            <div
+              ref={props.ref1}
+              className={`${
+                newspaper === false
+                  ? "grid-container5"
+                  : "grid-container5-newspaper"
+              } paddingparent margin-top-1 background-white-1 borderradius5`}
+              title={
+                props.signup === true
+                  ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
+                  : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
+              }
+            >
+              {!expanded
+                ? //props.b === 1 &&
+                  props.mappedDataShort.map((s, index) => {
+                    if (index < 50)
+                      return (
+                        <div
+                          key={index}
+                          className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                        >
+                          <a
+                            className={`b1x nounderline color-white-1 button-link-4 ${
+                              props.b == 1
+                                ? "pointereventsauto"
+                                : "pointereventsnone"
+                            }`}
+                            href="#"
+                            onClick={() => props.setit(s.hashtag, event)}
+                            title={`${sep(s.hashtag)}, hashtag: ${
+                              !!s.hashtag && s.hashtag
+                            }, click to scroll to results`}
+                            //title={props.signup === true?${s.hashtag}, click to scroll to results:
+                          >
+                            {sep(s.hashtag)}
+                            {/* {"#"}
+                          <span className={`{${highlight(s.hashtag[1])}}`}>
+                            {s.hashtag[1]}
+                          </span>
+                          {s.hashtag.substring(2)} */}
+                          </a>
+                        </div>
+                      );
+                    else return false;
+                  })
+                : //props.b === 1 &&
+                  props.mappedDataShort.map((s, index) => {
+                    //have 3 map calls and display the first column then the second column and then the thrid column
                     return (
                       <div
                         key={index}
@@ -776,54 +814,22 @@ function ExpandableArray(props) {
                           title={`${sep(s.hashtag)}, hashtag: ${
                             !!s.hashtag && s.hashtag
                           }, click to scroll to results`}
-                          //title={props.signup === true?${s.hashtag}, click to scroll to results:
                         >
                           {sep(s.hashtag)}
                           {/* {"#"}
-                          <span className={`{${highlight(s.hashtag[1])}}`}>
-                            {s.hashtag[1]}
-                          </span>
-                          {s.hashtag.substring(2)} */}
-                        </a>
-                      </div>
-                    );
-                  else return false;
-                })
-              : //props.b === 1 &&
-                props.mappedDataShort.map((s, index) => {
-                  //have 3 map calls and display the first column then the second column and then the thrid column
-                  return (
-                    <div
-                      key={index}
-                      className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                    >
-                      <a
-                        className={`b1x nounderline color-white-1 button-link-4 ${
-                          props.b == 1
-                            ? "pointereventsauto"
-                            : "pointereventsnone"
-                        }`}
-                        href="#"
-                        onClick={() => props.setit(s.hashtag, event)}
-                        title={`${sep(s.hashtag)}, hashtag: ${
-                          !!s.hashtag && s.hashtag
-                        }, click to scroll to results`}
-                      >
-                        {sep(s.hashtag)}
-                        {/* {"#"}
                         <span className={highlight(s.hashtag[1])}>
                           {s.hashtag[1]}
                         </span>
                         {s.hashtag.substring(2)} */}
-                      </a>
-                    </div>
-                  );
-                })}
+                        </a>
+                      </div>
+                    );
+                  })}
 
-            {props.mappedDataShort.length > 50 && !expanded && (
-              <span className="text-size-5">...</span>
-            )}
-          </div>
+              {props.mappedDataShort.length > 50 && !expanded && (
+                <span className="text-size-5">...</span>
+              )}
+            </div>
           </div>
           {props.b === 1 && (
             <button
@@ -865,6 +871,15 @@ constructor(props) {
   }
 */
 
+//chrome extension
+//// Listen you CRX event
+// document.addEventListener('csEvent', function (event) {
+//     var data = event.detail; //data will contain tab url from extension, link text and note text
+
+//     call startaddlink with the data so it will do the same process that occors when Save Link is pressed on the LinkForm.js
+//     this way links can be added from the extension with the push of a button in the extension
+// });
+
 export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
@@ -875,7 +890,7 @@ export class LinkListFilters extends React.Component {
     // let morehashtags = window.localStorage.getItem("morehashtags");
     // let np = window.localStorage.getItem("newspaper");
     //console.log("constructor, LinkListFilter, morehashtags=" + morehashtags);
-    let sb=""
+    let sb = "";
     //  if(window.localStorage.getItem("sortBy")===undefined)
     //   sb="description"
     // else sb = window.localStorage.getItem("sortBy")
@@ -897,7 +912,6 @@ export class LinkListFilters extends React.Component {
       foldernamesList: [],
       isToggled: false,
       searchTerm: "", //,
-      
     };
 
     this.setit = this.setit.bind(this);
@@ -1037,7 +1051,7 @@ export class LinkListFilters extends React.Component {
     */
   };
 
-   onSortChange = (e) => {
+  onSortChange = (e) => {
     if (e.target.value === "none") return;
 
     const val = window.document.getElementById("termid").value.trim();
@@ -1128,7 +1142,6 @@ export class LinkListFilters extends React.Component {
     console.log("componentDidMount, searchLinks4=" + searchLinks4);
 
     const sortBy = window.localStorage.getItem("sortBy");
-    
 
     console.log("componentDidMount, sortBy=" + sortBy);
 
@@ -1137,29 +1150,22 @@ export class LinkListFilters extends React.Component {
 
     //   this.props.sortByDate();
     //   this.setState({ sortBy: "date" });
-    // } else 
-      
-      if (
-      
-      sortBy === "description"
-    ) {
+    // } else
+
+    if (sortBy === "description") {
       this.props.setTextFilter(searchLinks2);
 
       this.props.sortByDescription();
       this.setState({ sortBy: "description" });
-    } else if (
-      
-      sortBy === "notetext"
-    ) {
+    } else if (sortBy === "notetext") {
       this.props.setTextFilter(searchLinks4);
       this.props.sortByNoteText();
       this.setState({ sortBy: "notetext" });
     } else if (
-     // this.props.filters.sortBy === "hashtag" 
+      // this.props.filters.sortBy === "hashtag"
       //||
       sortBy === "hashtag"
     ) {
-      
       if (
         //this.props.filters.text === "" ||
         searchLinks3 === "" ||
@@ -1198,21 +1204,14 @@ export class LinkListFilters extends React.Component {
     );
 
     try {
-const term = window.localStorage.getItem("termid");
-    
+      const term = window.localStorage.getItem("termid");
+
       window.document.getElementById("termid").value = term;
-    
-      if (
-          sortBy === "hashtag"
-          && term !== "" 
-          && term.charAt(0) === "#"
-        )
-       {
+
+      if (sortBy === "hashtag" && term !== "" && term.charAt(0) === "#") {
         //window.document.getElementById("buttonid").click();
         window.document.querySelector("#buttonid").click();
-      }
-     
-      else if (
+      } else if (
         sortBy === "description" ||
         sortBy === "notetext" ||
         term === "" ||
@@ -1220,11 +1219,9 @@ const term = window.localStorage.getItem("termid");
       ) {
         window.document.querySelector("#buttonid").click();
       }
-    }catch(e) {
+    } catch (e) {
       //alert("componentDidMount,e="+e)
     }
-     
- 
   }
 
   componentWillUnmount() {}
@@ -1269,25 +1266,25 @@ const term = window.localStorage.getItem("termid");
     console.log("show dd");
   };
 
-   search = () => {
+  search = () => {
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
 
     //var selectedValue = select.options[select.selectedIndex].value;
-    var selectedValue
-    if(window.localStorage.getItem("sortBy") !== "")
-    selectedValue = window.localStorage.getItem("sortBy")
+    var selectedValue;
+    if (window.localStorage.getItem("sortBy") !== "")
+      selectedValue = window.localStorage.getItem("sortBy");
     else selectedValue = select.options[select.selectedIndex].value;
     console.log("search = () => {, selectedValue=" + selectedValue);
     let term = window.document.getElementById("termid").value.trim();
     window.localStorage.setItem("termid", term);
     this.props.setTextFilter(term);
-    
-    if (selectedValue === "hashtag"
-      
-     // && sortBy === "hashtag"
-    && this.props.filters.sortBy === "hashtag"
+
+    if (
+      selectedValue === "hashtag" &&
+      // && sortBy === "hashtag"
+      this.props.filters.sortBy === "hashtag"
     ) {
       if (term !== "" && term.charAt(0) !== "#") {
         alert("The search term needs to be a hashtag.");

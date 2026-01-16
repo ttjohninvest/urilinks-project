@@ -18,11 +18,9 @@ class FileUpload extends React.Component {
     // this.handleEvent3 = this.handleEvent3.bind(this);
   }
 
-  
-
   formHandler = (e) => {
     e.preventDefault();
-    console.log("in formHandler")
+    console.log("in formHandler");
     const file = e.target[0].files[0];
     console.log("file.type=" + file.type);
     if (file.type !== "text/html") return false;
@@ -42,7 +40,7 @@ class FileUpload extends React.Component {
   };
 
   uploadFiles = (file) => {
-    //"W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
+    //"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
     let user;
     let uid;
     let uploadTask;
@@ -52,9 +50,9 @@ class FileUpload extends React.Component {
       uploadTask = storage.ref(`files/${uid}/${file.name}`).put(file);
     } else {
       uploadTask = storage
-        .ref(`files/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/${file.name}`)
+        .ref(`files/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/${file.name}`)
         .put(file);
-      uid = "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1";
+      uid = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
     }
 
     uploadTask.on(
@@ -121,4 +119,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FileUpload);
-

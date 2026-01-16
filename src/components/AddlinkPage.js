@@ -41,7 +41,7 @@ export const AddLinkPage = (props) => {
     console.log("getPlanMax()=" + getPlanMax());
     const fetchData = async () => {
       try {
-        //W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           if (user) {
@@ -52,18 +52,18 @@ export const AddLinkPage = (props) => {
             console.log("No user is currently logged in.");
           }
         } else {
-          setUserId("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
+          setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
         }
 
         const db = firebase.database();
-        //try {//W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+        //try {//XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         let snapshot;
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
           snapshot = await db
-            .ref(`/users/W4XCM1PRqtZeAzCZ0ALlEFrIwaw1/links`)
+            .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
             .once("value");
         }
 
@@ -128,8 +128,8 @@ export const AddLinkPage = (props) => {
       //if (count < 10) {
       //if (true) {
       link.foldername = link.description;
-      link.yturl = isityt(link.Url)
-      console.log("A link.yturl="+link.yturl)
+      link.yturl = isityt(link.Url);
+      console.log("A link.yturl=" + link.yturl);
       const r = props.startAddLink(link);
       if (r === false) {
         setErrorDialog(true);
@@ -151,7 +151,7 @@ export const AddLinkPage = (props) => {
     // // ) {
     // if (count < getPlanMax()
     //   || (count < 5000 && (
-    //   "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1"
+    //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
     //  ))
     // ) {
     //   link.foldername=link.description

@@ -195,8 +195,8 @@ export const startSetLinks = (uid) => {
          let hashtags = [];
          const longnamesnowhitespace = []
          const longnames = []
-
-         const ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
+         const htc="#prayer#sermons#healing#churches#cathedrals#homilies#israel#nuns#priests#saints"
+         //const ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
          let x1 = extractHashtags(ht);
          hashtags.push(...x1);
 

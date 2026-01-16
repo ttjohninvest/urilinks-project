@@ -159,14 +159,11 @@ export const setPeople = (people) => ({
 //   return boolvalue;
 // };
 
-
-
 //this puts the links array in the global redux store to be used to list the output
 //you will need to call urilinks-project-read-all-data to get the database data
 export const startSetPeople = () => {
   console.log("startSetPeople");
   return (dispatch, getState) => {
-    
     const hashtags = [];
     return database
       .ref(`users`)
@@ -185,7 +182,7 @@ export const startSetPeople = () => {
         //   "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
         //   "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
         //   "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-        //   "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
+        //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
         //   "WJGHkWycjKQxPK83Fi4zqx53bCl1",
         //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
         //   "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
@@ -201,16 +198,18 @@ export const startSetPeople = () => {
             .once("value")
             .then((snapshot) => {
               const data = snapshot.val();
-              const data2 = {gud:{}}
-              console.error(`the photourl for user ${userId}:`, JSON.stringify(data));
-              
+              const data2 = { gud: {} };
+              console.error(
+                `the photourl for user ${userId}:`,
+                JSON.stringify(data)
+              );
+
               // if(!!data===false) {
               //   //data={data:{}}
               //   return { userId, data2};
               // } else {
-                return { userId, data:!!data?data: {gud:""}};
+              return { userId, data: !!data ? data : { gud: "" } };
               //}
-              
             })
             .catch((error) => {
               console.error(`Error reading data for user ${userId}:`, error);
@@ -220,27 +219,25 @@ export const startSetPeople = () => {
         let people = [];
         Promise.all(userDataPromises).then((snapshot) => {
           snapshot.forEach((childSnapshot) => {
-              let gudData = Object.values(childSnapshot.data);
-              console.log("1001,gudData="+JSON.stringify(gudData[0])) //gudData[0]
+            let gudData = Object.values(childSnapshot.data);
+            console.log("1001,gudData=" + JSON.stringify(gudData[0])); //gudData[0]
             //   let updatedPerson = personData[0] //.map((obj) => ({ ...obj, id: v4(), uid:childSnapshot.userId }));
             //   console.log("1001,personData[0]="+JSON.stringify(personData[0]))
-              // let updatedArray = arrayData.map((obj) => {
-                
-              //     if(obj.showpublic === true) {
-              //       return { ...obj, id: v4(), uid:childSnapshot.userId }
-              //     }
-                 
-              //   });
-              
-              people.push(gudData[0]); //pushing strings
-          }); 
-          console.log("thepeople="+JSON.stringify(people))
-          dispatch(setPeople(people)); 
-       
+            // let updatedArray = arrayData.map((obj) => {
+
+            //     if(obj.showpublic === true) {
+            //       return { ...obj, id: v4(), uid:childSnapshot.userId }
+            //     }
+
+            //   });
+
+            people.push(gudData[0]); //pushing strings
+          });
+          console.log("thepeople=" + JSON.stringify(people));
+          dispatch(setPeople(people));
         });
-        
-      }).catch((error) => console.log("error=" + error));
-      
+      })
+      .catch((error) => console.log("error=" + error));
   };
 };
 

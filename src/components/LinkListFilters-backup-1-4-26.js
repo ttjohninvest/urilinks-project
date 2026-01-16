@@ -81,7 +81,7 @@ function ExpandableArray(props) {
       setUid(user.uid);
       setTheuser(user);
     } else {
-      setUid("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1");
+      setUid("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
     }
 
     const x = window.localStorage.getItem("hideinformation");
@@ -607,7 +607,7 @@ function ExpandableArray(props) {
               </div>
               <br />
               {props.signup === false &&
-                props.uid === "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1" && (
+                props.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" && (
                   <div className="textLeft hide">
                     <iframe
                       width="300"
@@ -1280,9 +1280,7 @@ export class LinkListFilters extends React.Component {
         term.charAt(0) === "#"
       ) {
         window.document.getElementById("buttonid").click();
-      }
-     
-      else if (
+      } else if (
         sortBy === "description" ||
         sortBy === "notetext" ||
         term === "" ||

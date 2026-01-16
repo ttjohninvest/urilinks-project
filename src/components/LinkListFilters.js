@@ -185,14 +185,14 @@ function ExpandableArray(props) {
             Welcome to Saint John's urilinks.com for church
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
-            This example page demonstates this tool for storage and retrieval of church prayer, sermons, saints, nuns, priests, catholic masses and other user defined categories
+            This example page demonstates this tool for storage and retrieval of holy faith, church prayer, sermons, saints, nuns, priests, catholic masses, music and other user defined categories
           </div>
         </div>
       )}
       {props.signup === true && (
         <div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
-             Welcome to Saint John's urilinks.com for church
+             Welcome to Saint John's urilinks.com for holy church
           </div>
         </div>
       )}

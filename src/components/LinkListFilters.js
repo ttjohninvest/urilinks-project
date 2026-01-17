@@ -210,6 +210,34 @@ function ExpandableArray(props) {
         </div>
       )} */}
 
+
+
+      {props.signup === true && (
+        <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
+          <span className="hide">Thank you. Your sharable link is:</span>
+          <a
+            href="#"
+            ref={textAreaRef}
+            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+          >
+            https://urilinks.com/dashboard?signup=0&id={props.uid}
+          </a>
+          <button
+            className="button-2w ib margin-right-1 margin-left-11 border5"
+            onClick={copyToClipboard}
+            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+          >
+            Copy sharable link
+          </button>
+          {copySuccess}
+        </div>
+      )}
+
+
+
+
+
       {props.signup === false && (
         <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
           <span className="hide">Thank you. Your sharable link is:</span>
@@ -719,42 +747,7 @@ function ExpandableArray(props) {
                   props.signup === false && ""
                 }
               </div>
-              {props.signup===true &&
-              <div>
-                    <div className="flexrow2c">
-                      <div className="text-size-1 textLeft margin-top-1">
-                        {/* <span className="hide">
-                      Thank you. Your sharable link is:
-                    </span> */}
-                        <a
-                          href="#"
-                          ref={textAreaRef}
-                          className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                          title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                        >
-                          https://urilinks.com/dashboard?signup=0&id={props.uid}
-                        </a>
-                        <button
-                          className="button-2w ib margin-right-1 margin-left-11 border5"
-                          onClick={copyToClipboard}
-                          title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                        >
-                          copy sharable link
-                        </button>
-                        {copySuccess}
-                      </div>
-                      {/* <div className="flexrowzc">
-                      Clear values: Each link you save has note for data entry; link notes, link texts
-                      and hastags are all searchable; a sharable link for pasting to instagram profile
-                      or other platorm for others is provided; also, each link is sharable to facebook.com,
-                      linkedin.com and x.com; facebook.com messenger is available for communication;
-                      each link in the results is clickable for direct access to web page. 
-                      Thank you for logging in.
-                  </div> */}
-                    </div>
-                  </div>
-
-              }
+             {/*here here */}
               <div className="margin-left-11-">
                 <div className="margin-left-minus-1">
                   <span>

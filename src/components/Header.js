@@ -31,6 +31,7 @@ export const Header = (props) => {
   const [inviewport, setInviewport] = useState(false);
   const [toggledUse, setToggledUse] = useState(false);
   const [uid, setUid] = useState("");
+  const [name, setName] = useState("")
   const [bmok, setBmok] = useState(false);
   const ideas = () => {};
 
@@ -126,6 +127,7 @@ export const Header = (props) => {
       setGoogleUserDatadb(gud);
       setEmaildb(user.email);
       setUid(gud.uid);
+      setName(gud.displayname)
     }
 
     // }
@@ -304,6 +306,7 @@ export const Header = (props) => {
                         height="32"
                         style={{ borderRadius: "50%" }}
                         className="ib- margin-bottom-11-"
+                        title={name}
                       />
                     </div>
                   ) : (
@@ -330,6 +333,7 @@ export const Header = (props) => {
                             height="32"
                             style={{ borderRadius: "50%" }}
                             className="ib- margin-bottom-11-"
+                            title={name}
                           />
                         )
                       }

@@ -164,16 +164,9 @@ export const setLinksAll = (links) => ({
   }
 
   const isInOkArray = (uid) => {
-    //these email address are allowed to upload bookmark files
+    
     const okarray = [
-      "QqGHfiTgZzW4OygT7i6tpPMbNS93",
-      "zIK65gVpE9RPpHFZprjblMGJ2KB3",
-      "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
       "tWKNG14PYYYY0hDPurLouWtYjtq1",
-      "pWLbXtHNzbM2AoHlawJ07e4GRCw1",
-      "LaqXskhA15TNXZLaLIasa2sz2vG3",
-      "PbvoaUyJcAOLQFXpcDoJTlKxfXS2",
-      "OhWklA8UAIW8Z8DOBTtVRVNO5xx2"
     ];
     let val = false;
     okarray.forEach((id) => {
@@ -218,7 +211,8 @@ export const startSetLinks = (uid) => {
          let ht=""
          let htc=""
 let x1=""
-         if(isInOkArray(uid)===true)
+         //if(isInOkArray(uid)===true)
+         if(false)
          {
  ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
    x1 = extractHashtags(ht);

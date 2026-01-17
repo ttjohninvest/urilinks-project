@@ -299,7 +299,7 @@ export const Header = (props) => {
                   </div> */}
 
                   {props.signup.signup === true || signup === "0" ? (
-                    <div className="padding-top-1112 margin-left-118">
+                    <div className="padding-top-1112 margin-left-118 hide">
                       <img
                         src={photoURL}
                         width="32"

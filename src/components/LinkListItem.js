@@ -690,7 +690,7 @@ const LinkListItem = (props) => {
                                   //true
                                   <a
                                     ref={myRef}
-                                    className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1"
+                                    className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1 color-black-2"
                                     href={props.Url}
                                     //target="_self"
                                     target="_blank"
@@ -710,7 +710,7 @@ const LinkListItem = (props) => {
                             <div>
                               <a
                                 ref={myRef}
-                                className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 ${
+                                className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 color-black-2 ${
                                   !!props.yturl ? "" : "padding-top-n-hh"
                                 }`}
                                 href={props.Url}

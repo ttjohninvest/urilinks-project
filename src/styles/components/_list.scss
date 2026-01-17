@@ -219,7 +219,8 @@
 
 .color-purple {
   // color: purple;
-  color: hsl(23, 96%, 44%);
+  //color: hsl(23, 96%, 44%);
+  color:white;
 }
 
 input.cb1[type="checkbox"]:hover {
@@ -281,6 +282,10 @@ input.cb1[type="checkbox"]:hover {
 .color-black {
   color: black;
   font-weight: lighter;
+}
+
+.color-black-2 {
+  color: black;
 }
 
 .ws-bg {

@@ -302,7 +302,7 @@ function ExpandableArray(props) {
               {isMobile() === false ? (
                 <div className="flexrow2j margin-left-minus-3">
                   {props.signup === true || signup === "0" ? (
-                    <div className="padding-top-1112  textCenter-">
+                    <div className="padding-top-1112  textCenter- hide">
                       <img
                         src={photoURL}
                         width="64"
@@ -341,7 +341,7 @@ function ExpandableArray(props) {
               ) : (
                 <div className="flexrow2j margin-left-minus-2">
                   {props.signup === true || signup === "0" ? (
-                    <div className="padding-top-1112  textCenter-">
+                    <div className="padding-top-1112  textCenter- hide">
                       <img
                         src={photoURL}
                         width="64"
@@ -352,7 +352,7 @@ function ExpandableArray(props) {
                     </div>
                   ) : (
                     <div
-                      className="padding-top-1112  textCenter-"
+                      className="padding-top-1112 textCenter-"
                       title="welcome"
                     >
                       {false ? (
@@ -364,7 +364,7 @@ function ExpandableArray(props) {
                           className="ib- margin-bottom-11-"
                         />
                       ) : (
-                        <div className="textCenter-">
+                        <div className="textCenter- hide">
                           <img
                             src={myprofile}
                             width="64"
@@ -380,8 +380,8 @@ function ExpandableArray(props) {
               )}
 
      
-              <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
-                {/* <div>a</div> */}
+              {isMobile() === true && <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
+              
                 <div className="text-size-1">
                   <div
                     className="ib text-size-1"
@@ -395,9 +395,9 @@ function ExpandableArray(props) {
                       ? theuser.displayName
                       : "(gmail name)"}
                   </div>
-                  {/* <div className="ib hide">, {!!theuser && theuser.email}</div> */}
+                  
                 </div>
-              </div>
+              </div>}
               {/* <div className="text-size-1 textLeft hide">
                 Welcome
                 {!theuser

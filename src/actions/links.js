@@ -167,6 +167,7 @@ export const setLinksAll = (links) => ({
     
     const okarray = [
       "tWKNG14PYYYY0hDPurLouWtYjtq1",
+      "D9LSg6elood8Yc5gd5oDMp3JNAQ2"
     ];
     let val = false;
     okarray.forEach((id) => {
@@ -211,8 +212,8 @@ export const startSetLinks = (uid) => {
          let ht=""
          let htc=""
 let x1=""
-         //if(isInOkArray(uid)===true)
-         if(false)
+         if(isInOkArray(uid)===true)
+         //if(false)
          {
  ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
    x1 = extractHashtags(ht);

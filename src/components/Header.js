@@ -518,7 +518,7 @@ export const Header = (props) => {
                   {props.signup.signup === true ? (
                     <div className="margin-top-1111a-">
                       <button
-                        className="button button--link ib text-size-3- color-white-1 cursor-pointer"
+                        className="button button--link ib text-size-3- color-white-1- color-black-2 cursor-pointer"
                         onClick={logoutit}
                       >
                         logout
@@ -532,7 +532,7 @@ export const Header = (props) => {
                     <div className="margin-top-1111a-">
                       <button
                         title="delete account"
-                        className="button button--link ib text-size-3- color-white-1 cursor-pointer"
+                        className="button button--link ib text-size-3- color-white-1- color-black-2 cursor-pointer"
                         onClick={cancelsubscription}
                       >
                         delete

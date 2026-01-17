@@ -222,7 +222,7 @@ function ExpandableArray(props) {
             https://urilinks.com/dashboard?signup=0&id={props.uid}
           </a>
           <button
-            className="button-2w ib margin-right-1 margin-left-11"
+            className="button-2w ib margin-right-1 margin-left-11 border5"
             onClick={copyToClipboard}
             title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
           >
@@ -549,7 +549,7 @@ function ExpandableArray(props) {
                           https://urilinks.com/dashboard?signup=0&id={props.uid}
                         </a>
                         <button
-                          className="button-2w ib margin-right-1 margin-left-11"
+                          className="button-2w ib margin-right-1 margin-left-11 border5"
                           onClick={copyToClipboard}
                           title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >

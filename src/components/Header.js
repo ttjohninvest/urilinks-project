@@ -236,7 +236,7 @@ export const Header = (props) => {
       {isMobile() === false ? (
         <div id="top">
           {!deleteAccountError ? (
-            <header className="header relief- bg-color-1g-">
+            <header className="header relief- bg-color-1g">
               <div className="">
                 <div className="flexrow2w">
                   <div className="flexrowzl1">
@@ -265,9 +265,9 @@ export const Header = (props) => {
                       </header>
                     </Link>
 
-                    <div className="margin-left-118 margin-top-1">
+                    {/* <div className="margin-left-118 margin-top-1">
                       <img src={signature} className="minwidth" />
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* {props.signup.signup === false && (

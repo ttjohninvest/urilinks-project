@@ -193,7 +193,7 @@ function ExpandableArray(props) {
             https://urilinks.com/dashboard?signup=0&id={props.uid}
           </a>
           <button
-            className="button-2 ib margin-right-1 margin-left-11"
+            className="button-2w ib margin-right-1 margin-left-11"
             onClick={copyToClipboard}
             title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
           >
@@ -420,7 +420,7 @@ function ExpandableArray(props) {
                   {isMobile() === true ? (
                     <button
                       type="button"
-                      className="button-2 margin-right-114"
+                      className="button-2w margin-right-114"
                       title="Your answser will be sent to me by gmail.com. Thank you in advance."
                       onClick={getGmail}
                     >
@@ -429,7 +429,7 @@ function ExpandableArray(props) {
                   ) : (
                     <button
                       type="button"
-                      className="button-2"
+                      className="button-2w"
                       title="Your answser will be sent to me by gmail.com. Thank you in advance."
                       onClick={getGmail}
                     >
@@ -496,7 +496,7 @@ function ExpandableArray(props) {
                       https://urilinks.com/dashboard?signup=0&id={props.uid}
                     </a>
                     <button
-                      className="button-2 ib margin-right-1 margin-left-11"
+                      className="button-2w ib margin-right-1 margin-left-11"
                       onClick={copyToClipboard}
                       title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                     >
@@ -521,7 +521,7 @@ function ExpandableArray(props) {
                     </span>
                      <button
                       type="button"
-                      className="button-2 ib margin-left-11"
+                      className="button-2w ib margin-left-11"
                       title="Your answser will be sent to me by gmail.com. Thank you in advance."
                       onClick={getGmail}
                     >
@@ -566,7 +566,7 @@ function ExpandableArray(props) {
                 )}
                 {/* <button
       onClick={handleChange}
-      className="margin-left-117 ib button-2 ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
+      className="margin-left-117 ib button-2w ib text-size-5 bg-color-1 borderradius55" //{`toggle-button ${isToggled ? 'on' : 'off'}`}
       aria-label="Toggle button"
     >
       {isToggled ? 'hide information' : 'show information'}

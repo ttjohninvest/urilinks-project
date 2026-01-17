@@ -1,10 +1,10 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
-import InfiniteScroll from 'react-infinite-scroll-component';
+import InfiniteScroll from "react-infinite-scroll-component";
 import selectLinks from "../selectors/links";
 import selectLinks2 from "../selectors/links2";
 import selectLinksTotal from "../selectors/links-total";
-import LinkListItem4 from "./LinkListItem4"
+import LinkListItem4 from "./LinkListItem4";
 import { startRemoveLink, removeLink } from "../actions/links";
 import { Link } from "react-router-dom";
 import moment from "moment";
@@ -13,14 +13,11 @@ import FBShareButton from "./FBShareButton";
 import MessengerButton from "./MessengerButton";
 import LinkedInShareButton from "./LinkedInShareButton";
 import XShareButton from "./XShareButton";
-import LoadingPage from "./LoadingPage"
+import LoadingPage from "./LoadingPage";
 import printerImage from "../assets/images/printer_image.png";
 
-
-
 const E = (props) => {
-
-   // Store the full local data in state
+  // Store the full local data in state
   const [localData, setLocalData] = useState([]);
   // Store the data to be displayed
   const [data, setData] = useState([]);
@@ -28,8 +25,8 @@ const E = (props) => {
   const itemsPerPage = 3;
   // Use two indexes: one for tracking the current display index, another for the next batch
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [nextIndex, setNextIndex] = useState(itemsPerPage)
- 
+  const [nextIndex, setNextIndex] = useState(itemsPerPage);
+
   // const [data, setData] = useState([
   //   'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
   //   'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10'
@@ -37,22 +34,18 @@ const E = (props) => {
 
   const myRef = useRef(null);
 
-  useEffect(()=>{
-const fetchData = async () => {
-      
+  useEffect(() => {
+    const fetchData = async () => {
       setLocalData(props.links);
       setData(props.links.slice(0, itemsPerPage));
 
       setCurrentIndex(nextIndex);
 
       setNextIndex(nextIndex + itemsPerPage);
-      
-
     };
     fetchData();
-  },[])
+  }, []);
 
- 
   const fetchMoreData = () => {
     // // Simulate API delay
     //setTimeout(() => {
@@ -63,16 +56,15 @@ const fetchData = async () => {
 
     // Splice the next batch of items from the local array
     const newItems = localData.slice(currentIndex, nextIndex);
-    setData(prevData => [...prevData, ...newItems]);
+    setData((prevData) => [...prevData, ...newItems]);
 
     // Update the indexes for the next batch
     // setCurrentIndex(nextIndex);
     // setNextIndex(nextIndex + itemsPerPage);
-    setCurrentIndex(prev => prev + itemsPerPage);
-    setNextIndex(prev => prev + itemsPerPage);
+    setCurrentIndex((prev) => prev + itemsPerPage);
+    setNextIndex((prev) => prev + itemsPerPage);
 
-  //},1000)
-  
+    //},1000)
   };
 
   const storeScrollPosition = () => {
@@ -82,39 +74,37 @@ const fetchData = async () => {
   };
 
   const printIt = () => {
-    
-    
-    
     var printContent = document.getElementById("listid").innerHTML;
     var newWin = window.open("", "", "width=1000,height=600");
-    
+
     //newWin.title = "urilinks list of links";
-    newWin.document.write("<html><head><title>list-of-links-urilinks.com</title></head><body>");
+    newWin.document.write(
+      "<html><head><title>list-of-links-urilinks.com</title></head><body>"
+    );
     newWin.document.write(printContent);
     newWin.document.write("</body></html>");
     newWin.document.close();
     newWin.focus();
     newWin.print();
     newWin.close();
-  
   };
 
   const handleCheckboxDelete = (event) => {
-      console.log("bookmark id=" + event.target.value);
-      //addIdToDelete(event.target.value)
-      //console.log("bookmark ids="+localStorage.getItem('deleteData'))
-      let result = confirm("Are you sure you want to delete?");
-      if (result) {
-        // User clicked OK, perform the deletion
-        props.removeLink({ id: event.target.value });
-        props.startRemoveLink({ id: event.target.value });
-        //alert("Item deleted.");
-      } else {
-        // User clicked Cancel
-        document.getElementById("delete%" + event.target.value).checked = false;
-        alert("Deletion canceled.");
-      }
-    };
+    console.log("bookmark id=" + event.target.value);
+    //addIdToDelete(event.target.value)
+    //console.log("bookmark ids="+localStorage.getItem('deleteData'))
+    let result = confirm("Are you sure you want to delete?");
+    if (result) {
+      // User clicked OK, perform the deletion
+      props.removeLink({ id: event.target.value });
+      props.startRemoveLink({ id: event.target.value });
+      //alert("Item deleted.");
+    } else {
+      // User clicked Cancel
+      document.getElementById("delete%" + event.target.value).checked = false;
+      alert("Deletion canceled.");
+    }
+  };
 
   return (
     <div>
@@ -131,140 +121,160 @@ const fetchData = async () => {
                     style={{ borderRadius: "50%" }}
                   />
                 </div> */}
-    <div id="listid"></div>
-    <div id="scrollableDiv" style={{ height: '500px', overflow: 'auto', border: '1px solid #ccc' }}>
-      <InfiniteScroll
-        dataLength={data.length}
-        next={fetchMoreData}
-        height={500}
-        hasMore={nextIndex < localData.length}
-        loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
-        endMessage={<p style={{ textAlign: 'center' }}><b>end of list</b></p>}
-        scrollableTarget="scrollableDiv"
+      <div id="listid"></div>
+      <div
+        id="scrollableDiv"
+        style={{ height: "500px", overflow: "auto", border: "1px solid #ccc" }}
       >
-         {/*change data to data3 where data3 is the filtered list */}
-         {data.map((link, index) => (
-          <div>
-    {
-    //link.showpublic === 
-    true && 
-  
-  <div key={index}>
-    <div className="margin-bottom-1">
-      <div className="card-background-color">
-        <div className="list-item__flex">
-          <div className="">
-            <div className="flexrow2t border-green-">
-             
-              <div className={`${!!link.yturl?"":"margin-top-1"}`}>
-                <div className="flexcol3">
-                  <div className={`flexrow4 border-green-`}>
-                    <div className="margin-top-1q">
-                        <img
-                            className=""
-                            width="20"
-                            height="20"
-                            src={link.faviconURL}
-                        />
-                    </div>
-                    <div>
-                      {
-                        //isityt(props.Url)
-                        !!link.yturl && (
-                          //true
-                          <a
-                            ref={myRef}
-                            className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1"
-                            href={link.Url}
-                            //target="_self"
-                            target="_blank"
-                            title={"click to open the webpage: " + link.Url}
-                            onClick={storeScrollPosition}
-                          >
-                            <img
-                              className="borderRadius4 rem8- rem45-"
-                              
-                              src={link.yturl}
-                            />
-                          </a>
-                        )
-                      }
-                      </div>
-                      <div>
-                      <a
-                        ref={myRef}
-                        className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 ${!!link.yturl?"":"padding-top-n-hh"}`}
-                        href={link.Url}
-                        //target="_self"
-                        target="_blank"
-                        title={"click to open the webpage: " + link.Url}
-                        onClick={storeScrollPosition}
-                      >
-                        Show Page: {decodeURIComponent(link.description)}
-                      </a>
-                    </div>
-                    <div className="margin-bottom-1141">
-                      <div className="flexrow4">
-                        {props.signup.signup === true ? (
-                          <div>
-                           <Link
-                              className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
-                              to={`/edit/${link.id}`}
-                            >
-                              <span className="padding-right-11 color-white-1 button-2">
-                                edit or remove
-                              </span>
-                            </Link>
-                          </div>
-                        ) : (
-                          <div>
-                           <Link
-                              className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
-                              to={`/edit/${link.id}`}
-                            >
-                              <span className="padding-right-11 color-white-1 button-2">
-                                edit or remove
-                              </span>
-                            </Link>
-                          </div>
-                        )}
-                        {props.signup.signup === true ? (
-                          <div>
-                           <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                              <input
-                                type="checkbox"
-                                id={"delete%" + link.id}
-                                name={"delete%" + link.id}
-                                value={link.id}
-                                onChange={handleCheckboxDelete}
-                                title="remove bookmark"
-                                className="cb1 cursor-pointer"
-                              />
-                              <label for={"delete%" + link.id} />
-                            </span>
-                          </div>
-                        ) : (
-                          <div>
-                             <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                              <input
-                                type="checkbox"
-                                id={"delete%" + link.id}
-                                name={"delete%" + link.id}
-                                value={link.id}
-                                onChange={handleCheckboxDelete}
-                                title="remove bookmark"
-                                className="cb1 cursor-pointer"
-                              />
-                              <label for={"delete%" + link.id} />
-                            </span>
-                            
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+        <InfiniteScroll
+          dataLength={data.length}
+          next={fetchMoreData}
+          height={500}
+          hasMore={nextIndex < localData.length}
+          loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
+          endMessage={
+            <p style={{ textAlign: "center" }}>
+              <b>end of list</b>
+            </p>
+          }
+          scrollableTarget="scrollableDiv"
+        >
+          {/*change data to data3 where data3 is the filtered list */}
+          {data.map((link, index) => (
+            <div>
+              {
+                //link.showpublic ===
+                true && (
+                  <div key={index}>
+                    <div className="margin-bottom-1">
+                      <div className="card-background-color">
+                        <div className="list-item__flex">
+                          <div className="">
+                            <div className="flexrow2t border-green-">
+                              <div
+                                className={`${
+                                  !!link.yturl ? "" : "margin-top-1"
+                                }`}
+                              >
+                                <div className="flexcol3">
+                                  <div className={`flexrow4 border-green-`}>
+                                    <div className="margin-top-1q">
+                                      <img
+                                        className=""
+                                        width="20"
+                                        height="20"
+                                        src={link.faviconURL}
+                                      />
+                                    </div>
+                                    <div>
+                                      {
+                                        //isityt(props.Url)
+                                        !!link.yturl && (
+                                          //true
+                                          <a
+                                            ref={myRef}
+                                            className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1"
+                                            href={link.Url}
+                                            //target="_self"
+                                            target="_blank"
+                                            title={
+                                              "click to open the webpage: " +
+                                              link.Url
+                                            }
+                                            onClick={storeScrollPosition}
+                                          >
+                                            <img
+                                              className="borderRadius4 rem8- rem45-"
+                                              src={link.yturl}
+                                            />
+                                          </a>
+                                        )
+                                      }
+                                    </div>
+                                    <div>
+                                      <a
+                                        ref={myRef}
+                                        className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 ${
+                                          !!link.yturl ? "" : "padding-top-n-hh"
+                                        }`}
+                                        href={link.Url}
+                                        //target="_self"
+                                        target="_blank"
+                                        title={
+                                          "click to open the webpage: " +
+                                          link.Url
+                                        }
+                                        onClick={storeScrollPosition}
+                                      >
+                                        Show Page:{" "}
+                                        {decodeURIComponent(link.description)}
+                                      </a>
+                                    </div>
+                                    <div className="margin-bottom-1141">
+                                      <div className="flexrow4">
+                                        {props.signup.signup === true ? (
+                                          <div>
+                                            <Link
+                                              className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
+                                              to={`/edit/${link.id}`}
+                                            >
+                                              <span className="padding-right-11 color-white-1 button-2w">
+                                                edit or remove
+                                              </span>
+                                            </Link>
+                                          </div>
+                                        ) : (
+                                          <div>
+                                            <Link
+                                              className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
+                                              to={`/edit/${link.id}`}
+                                            >
+                                              <span className="padding-right-11 color-white-1 button-2w">
+                                                edit or remove
+                                              </span>
+                                            </Link>
+                                          </div>
+                                        )}
+                                        {props.signup.signup === true ? (
+                                          <div>
+                                            <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                                              <input
+                                                type="checkbox"
+                                                id={"delete%" + link.id}
+                                                name={"delete%" + link.id}
+                                                value={link.id}
+                                                onChange={handleCheckboxDelete}
+                                                title="remove bookmark"
+                                                className="cb1 cursor-pointer"
+                                              />
+                                              <label
+                                                for={"delete%" + link.id}
+                                              />
+                                            </span>
+                                          </div>
+                                        ) : (
+                                          <div>
+                                            <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                                              <input
+                                                type="checkbox"
+                                                id={"delete%" + link.id}
+                                                name={"delete%" + link.id}
+                                                value={link.id}
+                                                onChange={handleCheckboxDelete}
+                                                title="remove bookmark"
+                                                className="cb1 cursor-pointer"
+                                              />
+                                              <label
+                                                for={"delete%" + link.id}
+                                              />
+                                            </span>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </div>
 
-                   {/* <div>
+                                  {/* <div>
                     <span
                       className="ib margin-left-114"
                       title="click the following link to see an index of clickable urls on the page."
@@ -281,17 +291,17 @@ const fetchData = async () => {
                       </span>
                     </span>
                   </div>  */}
-                </div>
+                                </div>
 
-                <ol id={"uldata" + link.id} start="0"></ol>
-              </div>
-            </div>
-          </div>
-          {/* <div className="">
+                                <ol id={"uldata" + link.id} start="0"></ol>
+                              </div>
+                            </div>
+                          </div>
+                          {/* <div className="">
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${props.id}`}>
                
-                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2">
+                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2w">
                     edit or remove
                   </span>
                   
@@ -303,44 +313,42 @@ const fetchData = async () => {
                   </span>
             </h3>
           </div> */}
-        </div>
+                        </div>
 
-        <div className="italicText list-item__sub-title- padding-left-1 text-size-10 color-purple margin-left-11p">
-          Link saved on: {moment(link.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
-        </div>
-      </div>
-      <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p-">
-        {link.note}
-      </div>
-      <div className="flexrow2w">
-        <FBShareButton url={link.Url} />
+                        <div className="italicText list-item__sub-title- padding-left-1 text-size-10 color-purple margin-left-11p">
+                          Link saved on:{" "}
+                          {moment(link.createdAt).format(
+                            "MMMM Do, YYYY, h:mm:ss a"
+                          )}
+                        </div>
+                      </div>
+                      <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p-">
+                        {link.note}
+                      </div>
+                      <div className="flexrow2w">
+                        <FBShareButton url={link.Url} />
 
-        <MessengerButton />
-        <LinkedInShareButton url={link.Url} />
-        {/* <AddToAny /> */}
+                        <MessengerButton />
+                        <LinkedInShareButton url={link.Url} />
+                        {/* <AddToAny /> */}
 
-        <XShareButton url={link.Url} />
+                        <XShareButton url={link.Url} />
+                      </div>
+                    </div>
+                  </div>
+                )
+              }
+            </div>
+          ))}
+        </InfiniteScroll>
       </div>
     </div>
-
-   
-      </div>
-    
-    }
-
-
-    </div>
-        ))}
-       
-      </InfiniteScroll>
-    </div>
-     </div>
   );
 };
 
-//export default E;   
+//export default E;
 
-//export default MyInfiniteScroll;   
+//export default MyInfiniteScroll;
 
 const mapStateToProps = (state) => {
   const visibleLinks = selectLinks(state.links, state.filters);
@@ -351,10 +359,9 @@ const mapStateToProps = (state) => {
     linkCount2: visibleLinks2.length,
     linksTotal: selectLinksTotal(visibleLinks),
     linksTotal2: selectLinksTotal(visibleLinks2),
-    signup:state.signup,
+    signup: state.signup,
     links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),
-    
   };
 };
 

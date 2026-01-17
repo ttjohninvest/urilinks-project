@@ -185,14 +185,18 @@ function ExpandableArray(props) {
             Welcome to Saint John's urilinks.com for church
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
-            I built this example page that describes this tool. You may build one with your own links for yourself. It supports storage and retrieval of holy faith, church prayer, sermons, saints, nuns, priests, catholic masses, music links (urls (uniform resource locators)) and other user defined categories
+            I built this example page that describes this tool. You may build
+            one with your own links for yourself. It supports storage and
+            retrieval of holy faith, church prayer, sermons, saints, nuns,
+            priests, catholic masses, music links (urls (uniform resource
+            locators)) and other user defined categories
           </div>
         </div>
       )}
       {props.signup === true && (
         <div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
-             Welcome to Saint John's urilinks.com for holy church
+            Welcome to Saint John's urilinks.com for holy church
           </div>
         </div>
       )}
@@ -218,7 +222,7 @@ function ExpandableArray(props) {
             https://urilinks.com/dashboard?signup=0&id={props.uid}
           </a>
           <button
-            className="button-2 ib margin-right-1 margin-left-11"
+            className="button-2w ib margin-right-1 margin-left-11"
             onClick={copyToClipboard}
             title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
           >
@@ -468,7 +472,7 @@ function ExpandableArray(props) {
                   {isMobile() === true ? (
                     <button
                       type="button"
-                      className="button-2 margin-right-114"
+                      className="button-2w margin-right-114"
                       title="Your answser will be sent to me by gmail.com. Thank you in advance."
                       onClick={getGmail}
                     >
@@ -477,7 +481,7 @@ function ExpandableArray(props) {
                   ) : (
                     <button
                       type="button"
-                      className="button-2"
+                      className="button-2w"
                       title="Your answser will be sent to me by gmail.com. Thank you in advance."
                       onClick={getGmail}
                     >
@@ -545,7 +549,7 @@ function ExpandableArray(props) {
                           https://urilinks.com/dashboard?signup=0&id={props.uid}
                         </a>
                         <button
-                          className="button-2 ib margin-right-1 margin-left-11"
+                          className="button-2w ib margin-right-1 margin-left-11"
                           onClick={copyToClipboard}
                           title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >
@@ -576,7 +580,7 @@ function ExpandableArray(props) {
                     </span>
                      <button
                       type="button"
-                      className="button-2 ib margin-left-11"
+                      className="button-2w ib margin-left-11"
                       title="Your answser will be sent to me by gmail.com. Thank you in advance."
                       onClick={getGmail}
                     >
@@ -803,7 +807,9 @@ function ExpandableArray(props) {
                         className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                       >
                         <a
-                          className={`b1x- b1xw nounderline color-white-1 button-link-4 ${false && 'border6'} ${
+                          className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
+                            false && "border6"
+                          } ${
                             props.b == 1
                               ? "pointereventsauto"
                               : "pointereventsnone"
@@ -1331,7 +1337,7 @@ export class LinkListFilters extends React.Component {
 
         <div
           id="before-before-link-summary-id"
-          className="bg-color-2 borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
+          className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
         >
           <div className="flexrowzv">
             <div className="margin-left-11">

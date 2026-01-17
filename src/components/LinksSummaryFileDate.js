@@ -10,21 +10,23 @@ export const LinksSummaryFileDate = ({ linkCount, linksTotal }) => {
   const formattedLinksTotal = numeral(linksTotal / 100).format("$0,0.00");
 
   return (
-    
-      <div className="flexrow2">
-       <div id="link-summary-id" className="text-size-5 margin-right-1"><span className="is-active">{linkCount}</span> Uri/Url Link's Found</div>
-        
-          <Link className="button-2 ib text-size-5" to="/createfiledate">
-            Add Link FileDate 
-          </Link>
-        
+    <div className="flexrow2">
+      <div id="link-summary-id" className="text-size-5 margin-right-1">
+        <span className="is-active">{linkCount}</span> Uri/Url Link's Found
       </div>
-    
+
+      <Link className="button-2w ib text-size-5" to="/createfiledate">
+        Add Link FileDate
+      </Link>
+    </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  const visibleLinks = selectLinksFileDate(state.linksfiledate, state.filtersfiledate);
+  const visibleLinks = selectLinksFileDate(
+    state.linksfiledate,
+    state.filtersfiledate
+  );
 
   return {
     linkCount: visibleLinks.length,

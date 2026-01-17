@@ -99,7 +99,12 @@ const E3 = (props) => {
       <div id="listid"></div>
       <div className="flexrowz9z widthx">
         <div>
-          <img src={props.photourl} width="50" height="50" className="borderradius50" />
+          <img
+            src={props.photourl}
+            width="50"
+            height="50"
+            className="borderradius50"
+          />
         </div>
         <div className="margin-left-11">{props.displayName}</div>
       </div>
@@ -108,119 +113,124 @@ const E3 = (props) => {
         id="scrollableDiv"
         style={{ height: "500px", overflow: "auto", border: "1px solid #ccc" }}
       >
-        {props.links3===null?"none":<InfiniteScroll
-          dataLength={data.length}
-          next={fetchMoreData}
-          height={500}
-          hasMore={nextIndex < localData.length}
-          loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
-          endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>end of list</b>
-            </p>
-          }
-          scrollableTarget="scrollableDiv"
-        >
-          {/*change data to data3 where data3 is the filtered list */}
-          {data.map((link, index) => (
-            <div>
-              {
-                //link.showpublic ===
-                true && (
-                  <div key={index}>
-                    <div className="margin-bottom-1">
-                      <div className="card-background-color">
-                        <div className="list-item__flex">
-                          <div className="">
-                            <div className="flexrow2t border-green-">
-                              <div
-                                className={`${
-                                  !!link.yturl ? "" : "margin-top-1"
-                                }`}
-                              >
-                                <div className="flexcol3">
-                                  <div className={`flexrow4 border-green-`}>
-                                    <div className="margin-top-1q">
-                                      <img
-                                        className=""
-                                        width="20"
-                                        height="20"
-                                        src={link.faviconURL}
-                                      />
-                                    </div>
-                                    <div>
-                                      {
-                                        //isityt(props.Url)
-                                        !!link.yturl && (
-                                          //true
-                                          <a
-                                            ref={myRef}
-                                            className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1"
-                                            href={link.Url}
-                                            //target="_self"
-                                            target="_blank"
-                                            title={
-                                              "click to open the webpage: " +
-                                              link.Url
-                                            }
-                                            onClick={storeScrollPosition}
-                                          >
-                                            <img
-                                              className="borderRadius4 rem8- rem45-"
-                                              src={link.yturl}
-                                            />
-                                          </a>
-                                        )
-                                      }
-                                    </div>
-                                    {/* <div>showpublic: {link.showpublic===true?"yes":"no"}</div> */}
-                                    <div>
-                                      <a
-                                        ref={myRef}
-                                        className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 ${
-                                          !!link.yturl ? "" : "padding-top-n-hh"
-                                        }`}
-                                        href={link.Url}
-                                        //target="_self"
-                                        target="_blank"
-                                        title={
-                                          "click to open the webpage: " +
-                                          link.Url
+        {props.links3 === null ? (
+          "none"
+        ) : (
+          <InfiniteScroll
+            dataLength={data.length}
+            next={fetchMoreData}
+            height={500}
+            hasMore={nextIndex < localData.length}
+            loader={<h4>Loading...</h4>} //<h4>Loading...</h4>
+            endMessage={
+              <p style={{ textAlign: "center" }}>
+                <b>end of list</b>
+              </p>
+            }
+            scrollableTarget="scrollableDiv"
+          >
+            {/*change data to data3 where data3 is the filtered list */}
+            {data.map((link, index) => (
+              <div>
+                {
+                  //link.showpublic ===
+                  true && (
+                    <div key={index}>
+                      <div className="margin-bottom-1">
+                        <div className="card-background-color">
+                          <div className="list-item__flex">
+                            <div className="">
+                              <div className="flexrow2t border-green-">
+                                <div
+                                  className={`${
+                                    !!link.yturl ? "" : "margin-top-1"
+                                  }`}
+                                >
+                                  <div className="flexcol3">
+                                    <div className={`flexrow4 border-green-`}>
+                                      <div className="margin-top-1q">
+                                        <img
+                                          className=""
+                                          width="20"
+                                          height="20"
+                                          src={link.faviconURL}
+                                        />
+                                      </div>
+                                      <div>
+                                        {
+                                          //isityt(props.Url)
+                                          !!link.yturl && (
+                                            //true
+                                            <a
+                                              ref={myRef}
+                                              className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1"
+                                              href={link.Url}
+                                              //target="_self"
+                                              target="_blank"
+                                              title={
+                                                "click to open the webpage: " +
+                                                link.Url
+                                              }
+                                              onClick={storeScrollPosition}
+                                            >
+                                              <img
+                                                className="borderRadius4 rem8- rem45-"
+                                                src={link.yturl}
+                                              />
+                                            </a>
+                                          )
                                         }
-                                        onClick={storeScrollPosition}
-                                      >
-                                        Show Page:{" "}
-                                        {decodeURIComponent(link.description)}
-                                      </a>
-                                    </div>
-                                    <div className="margin-bottom-1141">
-                                      <div className="flexrow4">
-                                        {props.signup.signup === true ? (
-                                          <div>
-                                            {/* <Link
+                                      </div>
+                                      {/* <div>showpublic: {link.showpublic===true?"yes":"no"}</div> */}
+                                      <div>
+                                        <a
+                                          ref={myRef}
+                                          className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 ${
+                                            !!link.yturl
+                                              ? ""
+                                              : "padding-top-n-hh"
+                                          }`}
+                                          href={link.Url}
+                                          //target="_self"
+                                          target="_blank"
+                                          title={
+                                            "click to open the webpage: " +
+                                            link.Url
+                                          }
+                                          onClick={storeScrollPosition}
+                                        >
+                                          Show Page:{" "}
+                                          {decodeURIComponent(link.description)}
+                                        </a>
+                                      </div>
+                                      <div className="margin-bottom-1141">
+                                        <div className="flexrow4">
+                                          {props.signup.signup === true ? (
+                                            <div>
+                                              {/* <Link
                               className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
                               to={`/edit/${props.id}`}
                             >
-                              <span className="padding-right-11 color-white-1 button-2">
+                              <span className="padding-right-11 color-white-1 button-2w">
                                 edit or remove
                               </span>
                             </Link> */}
-                                          </div>
-                                        ) : (
-                                          <div>
-                                            {/* <Link
+                                            </div>
+                                          ) : (
+                                            <div>
+                                              {/* <Link
                               className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
                               to={`/edit/${props.id}`}
                             >
-                              <span className="padding-right-11 color-white-1 button-2">
+                              <span className="padding-right-11 color-white-1 button-2w">
                                 edit or remove
                               </span>
                             </Link> */}
-                                          </div>
-                                        )}
-                                        {props.signup.signup === true ? (
-                                          <div>
-                                            {/* <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                                            </div>
+                                          )}
+                                          {props.signup.signup === true ? (
+                                            <div>
+                                              {/* <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                               <input
                                 type="checkbox"
                                 id={"delete%" + props.id}
@@ -232,10 +242,10 @@ const E3 = (props) => {
                               />
                               <label for={"delete%" + props.id} />
                             </span> */}
-                                          </div>
-                                        ) : (
-                                          <div>
-                                            {/* <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                                            </div>
+                                          ) : (
+                                            <div>
+                                              {/* <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                               <input
                                 type="checkbox"
                                 id={"delete%" + props.id}
@@ -247,13 +257,13 @@ const E3 = (props) => {
                               />
                               <label for={"delete%" + props.id} />
                             </span> */}
-                                          </div>
-                                        )}
+                                            </div>
+                                          )}
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
 
-                                  {/* <div>
+                                    {/* <div>
                     <span
                       className="ib margin-left-114"
                       title="click the following link to see an index of clickable urls on the page."
@@ -270,17 +280,17 @@ const E3 = (props) => {
                       </span>
                     </span>
                   </div>  */}
-                                </div>
+                                  </div>
 
-                                <ol id={"uldata" + link.id} start="0"></ol>
+                                  <ol id={"uldata" + link.id} start="0"></ol>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          {/* <div className="">
+                            {/* <div className="">
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${props.id}`}>
                
-                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2">
+                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2w">
                     edit or remove
                   </span>
                   
@@ -292,39 +302,40 @@ const E3 = (props) => {
                   </span>
             </h3>
           </div> */}
+                          </div>
+
+                          <div className="italicText list-item__sub-title- padding-left-1 text-size-10 color-purple margin-left-11p">
+                            Link saved on:{" "}
+                            {moment(link.createdAt).format(
+                              "MMMM Do, YYYY, h:mm:ss a"
+                            )}
+                          </div>
                         </div>
-
-                        <div className="italicText list-item__sub-title- padding-left-1 text-size-10 color-purple margin-left-11p">
-                          Link saved on:{" "}
-                          {moment(link.createdAt).format(
-                            "MMMM Do, YYYY, h:mm:ss a"
-                          )}
+                        <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p-">
+                          {link.note}
                         </div>
-                      </div>
-                      <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p-">
-                        {link.note}
-                      </div>
-                      <div className="flexrow2w">
-                        <FBShareButton url={link.Url} />
+                        <div className="flexrow2w">
+                          <FBShareButton url={link.Url} />
 
-                        <MessengerButton />
-                        <LinkedInShareButton url={link.Url} />
-                        {/* <AddToAny /> */}
+                          <MessengerButton />
+                          <LinkedInShareButton url={link.Url} />
+                          {/* <AddToAny /> */}
 
-                        <XShareButton url={link.Url} />
+                          <XShareButton url={link.Url} />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )
-              }
-            </div>
-          ))}
-          {/* {data.map((item, index) => (
+                  )
+                }
+              </div>
+            ))}
+            {/* {data.map((item, index) => (
           <div key={index} style={{ padding: '10px', border: '1px solid #eee', margin: '5px 0' }}>
             {JSON.stringify(item)}
           </div>
         ))} */}
-        </InfiniteScroll>}
+          </InfiniteScroll>
+        )}
       </div>
     </div>
   );

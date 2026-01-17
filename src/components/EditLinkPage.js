@@ -3,26 +3,25 @@ import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startEditLink, startRemoveLink, removeLink } from "../actions/links";
 
-
 export class EditLinkPage extends React.Component {
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
-    
+
     //this.props.history.push("/");
- 
-    window.location.href="https://urilinks.com?signup=signup"
+
+    window.location.href = "https://urilinks.com?signup=signup";
   };
   //onRemove = (value,event) => {
-    onRemove = () => {
+  onRemove = () => {
     //remove the links hash tags from the array of hashtags only if each hash tag is only used once
     //event.preventDefault()
     //this.props.hashtags
     //console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, value="+value)
-    this.props.removeLink({ id: this.props.link.id })
+    this.props.removeLink({ id: this.props.link.id });
     this.props.startRemoveLink({ id: this.props.link.id });
     this.props.history.push("/");
     //window.location.reload()
-    window.location.href="https://urilinks.com?signup=signup"
+    window.location.href = "https://urilinks.com?signup=signup";
   };
   render() {
     return (
@@ -31,12 +30,19 @@ export class EditLinkPage extends React.Component {
           <div className="content-container">
             <h1 className="page-header__title">
               <span className="color-purple">Edit Link</span>
-              </h1>
+            </h1>
           </div>
         </div>
         <div className="content-container">
-          <LinkForm link={this.props.link} onSubmit={this.onSubmit}  makereadonly={true} />
-           <button className="button- button--secondary- button-2" onClick={this.onRemove}>
+          <LinkForm
+            link={this.props.link}
+            onSubmit={this.onSubmit}
+            makereadonly={true}
+          />
+          <button
+            className="button- button--secondary- button-2w"
+            onClick={this.onRemove}
+          >
             Remove Link
           </button>
           {/* <button className="button button--secondary" onClick={()=>this.onRemove(this.props.filters.text, event)}>
@@ -51,7 +57,7 @@ export class EditLinkPage extends React.Component {
 const mapStateToProps = (state, props) => ({
   filters: state.filters,
   link: state.links.find((link) => link.id === props.match.params.id),
-  hashtags:state.hashtags,
+  hashtags: state.hashtags,
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
@@ -61,4 +67,3 @@ const mapDispatchToProps = (dispatch, props) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditLinkPage);
-

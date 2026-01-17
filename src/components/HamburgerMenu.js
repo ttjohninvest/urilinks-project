@@ -6,21 +6,20 @@ import { startDeleteAccount } from "../actions/email";
 import { startLogout } from "../actions/auth";
 
 const HamburgerMenu = (props) => {
-
   const scrolldown = () => {
     //this scrolls the results into view, the first and subsequent result is shown
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "smooth",
     });
-     window.document.getElementById("termid").focus()
+    window.document.getElementById("termid").focus();
   };
 
-   const scrolldown2 = () => {
+  const scrolldown2 = () => {
     //this scrolls the results into view, the first and subsequent result is shown
     document.querySelector("#before-before-link-summary-id").scrollIntoView({
       behavior: "smooth",
     });
-    window.document.getElementById("addlinkid").focus()
+    window.document.getElementById("addlinkid").focus();
   };
 
   const logoutit = () => {
@@ -158,7 +157,7 @@ const HamburgerMenu = (props) => {
           </span>
         </li>
 
-         <li>
+        <li>
           <span
             id="scrolldownid2"
             className="ib padding-tb font-weight-bold cursor-pointer color-white-1 nounderline"
@@ -254,7 +253,7 @@ const HamburgerMenu = (props) => {
         <li>
           {props.signup.signup === true ? (
             <button
-              className="button-2 button--link ib color-white-1 cursor-pointer font-weight-bold"
+              className="button-2w button--link ib color-white-1 cursor-pointer font-weight-bold"
               onClick={logoutit}
             >
               logout
@@ -267,8 +266,8 @@ const HamburgerMenu = (props) => {
           {props.signup.signup === true ? (
             <div className="margin-top-1111a-">
               <button
-              title="delete account"
-                className="button-2 button--link ib text-size-3- color-white-1 cursor-pointer font-weight-bold"
+                title="delete account"
+                className="button-2w button--link ib text-size-3- color-white-1 cursor-pointer font-weight-bold"
                 onClick={cancelsubscription}
               >
                 delete

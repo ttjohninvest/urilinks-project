@@ -1,18 +1,16 @@
-const LIST_ALL_PUBLIC_LINKS = false
+const LIST_ALL_PUBLIC_LINKS = false;
 
 import React from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 
-
-
 class LinkForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showpublic:props.link ? props.link.showpublic : false,
+      showpublic: props.link ? props.link.showpublic : false,
       description: props.link ? props.link.description : "",
       Url: props.link ? props.link.Url : "",
       note: props.link ? props.link.note : "",
@@ -24,9 +22,9 @@ class LinkForm extends React.Component {
     };
   }
 
-   onShowpublicChange = (e) => {
+  onShowpublicChange = (e) => {
     const showpublic = e.target.checked;
-    console.log("onShowpublicChange, showpublic="+showpublic)
+    console.log("onShowpublicChange, showpublic=" + showpublic);
     this.setState(() => ({ showpublic }));
   };
 
@@ -72,69 +70,67 @@ class LinkForm extends React.Component {
     return hashtags;
   };
 
-    getUsableDomain=(d)=>{
+  getUsableDomain = (d) => {
     //www and three dots
     //not www and three dots
-    console.log("d="+d)
-    let s1=d
-    const d1=d.split(".")
-    const dotsCount = s1.split(".").length - 1
-    console.log("d1="+JSON.stringify(d1))
-    console.log("dotsCount="+dotsCount)
+    console.log("d=" + d);
+    let s1 = d;
+    const d1 = d.split(".");
+    const dotsCount = s1.split(".").length - 1;
+    console.log("d1=" + JSON.stringify(d1));
+    console.log("dotsCount=" + dotsCount);
     console.log(d1[0]);
     console.log(d1[1]);
     console.log(d1[2]);
-    console.log(d1[1]+d1[2])
-    console.log(d1[1]+"."+d1[2])
+    console.log(d1[1] + d1[2]);
+    console.log(d1[1] + "." + d1[2]);
     ////
     //s1=d1[1]+"."+d1[2]
     //console.log("d1[1].d1[2]="+s1)
-    if (s1.substring(0, 4) === 'www') {
-       console.log(1)
-    } else if(dotsCount===1) {
-      console.log(2)
-    } else if(dotsCount===2) {
-      console.log(3)
-      s1=d1[1]+"."+d1[2]
-    } else if(dotsCount===3) {
-      console.log(4)
-      s1=d1[2]+"."+d1[3]
-    } else if(dotsCount===4) {
-      console.log(5)
-          s1=d1[3]+"."+d1[4]
+    if (s1.substring(0, 4) === "www") {
+      console.log(1);
+    } else if (dotsCount === 1) {
+      console.log(2);
+    } else if (dotsCount === 2) {
+      console.log(3);
+      s1 = d1[1] + "." + d1[2];
+    } else if (dotsCount === 3) {
+      console.log(4);
+      s1 = d1[2] + "." + d1[3];
+    } else if (dotsCount === 4) {
+      console.log(5);
+      s1 = d1[3] + "." + d1[4];
+    } else if (dotsCount === 4) {
+      console.log(6);
+      s1 = d1[4] + "." + d1[5];
+    } else if (dotsCount === 5) {
+      console.log(7);
+      s1 = d1[5] + "." + d1[6];
+    } else if (dotsCount === 6) {
+      console.log(8);
+      s1 = d1[6] + "." + d1[7];
+    } else if (dotsCount === 7) {
+      console.log(9);
+      s1 = d1[7] + "." + d1[8];
+    } else if (dotsCount === 8) {
+      console.log(10);
+      s1 = d1[8] + "." + d1[9];
     }
-    else if(dotsCount===4) {
-      console.log(6)
-          s1=d1[4]+"."+d1[5]
-    }
-    else if(dotsCount===5) {
-      console.log(7)
-          s1=d1[5]+"."+d1[6]
-    }
-    else if(dotsCount===6) {
-      console.log(8)
-          s1=d1[6]+"."+d1[7]
-    }
-    else if(dotsCount===7) {
-      console.log(9)
-          s1=d1[7]+"."+d1[8]
-    }
-    else if(dotsCount===8) {
-      console.log(10)
-          s1=d1[8]+"."+d1[9]
-    }
-    console.log(11)
-    console.log("s1="+s1)
-    return s1
-  }
+    console.log(11);
+    console.log("s1=" + s1);
+    return s1;
+  };
 
   extractDomain(url) {
     try {
       const urlObject = new URL(url);
-      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>, urlObject.hostname="+urlObject.hostname)
-      const usableDomain = this.getUsableDomain(urlObject.hostname)
-      console.log("usableDomain="+usableDomain)
-      return "https://" + usableDomain
+      console.log(
+        ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>, urlObject.hostname=" +
+          urlObject.hostname
+      );
+      const usableDomain = this.getUsableDomain(urlObject.hostname);
+      console.log("usableDomain=" + usableDomain);
+      return "https://" + usableDomain;
       //return "https://" + urlObject.hostname;
     } catch (error) {
       // Handles cases where the URL is invalid
@@ -155,24 +151,18 @@ class LinkForm extends React.Component {
     return new URL("/favicon.ico", url).href;
   }
 
-
-
   onSubmit = (e) => {
-   
     e.preventDefault();
     console.log("onSubmit");
-    let faviconURL 
-    
-    let str=this.state.Url.trim()
-      if (str.substring(0, 7) === 'http://')
-       {}
+    let faviconURL;
 
-      else if (str.substring(0, 8) === 'https://')
-      {}
-      else str = 'https://' + str;
-      const newDomain = this.extractDomain(str)
-      console.log("newDomain="+newDomain)
-      //return
+    let str = this.state.Url.trim();
+    if (str.substring(0, 7) === "http://") {
+    } else if (str.substring(0, 8) === "https://") {
+    } else str = "https://" + str;
+    const newDomain = this.extractDomain(str);
+    console.log("newDomain=" + newDomain);
+    //return
     //faviconURL = this.extractDomain(str) + "/favicon.ico";
     faviconURL = newDomain + "/favicon.ico";
     //return
@@ -190,7 +180,8 @@ class LinkForm extends React.Component {
     if (!this.state.description || !this.state.Url) {
       // || !this.state.amount) {
       this.setState(() => ({
-        error: "Please provide link text and uri/url link. The note with hash tags (i.e. #church, #mountains) is optional.",
+        error:
+          "Please provide link text and uri/url link. The note with hash tags (i.e. #church, #mountains) is optional.",
       }));
     } else {
       if (this.state.note.trim()) {
@@ -222,8 +213,7 @@ class LinkForm extends React.Component {
       // {}
       // else str = 'https://' + str;
 
-console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
-
+      console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str=" + str);
 
       this.setState(() => ({ error: "" }));
 
@@ -241,25 +231,30 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
   render() {
     return (
       <form className="form" onSubmit={this.onSubmit}>
-        {this.state.error && <p className="form__error flexrow2w">{this.state.error}</p>}
-        {LIST_ALL_PUBLIC_LINKS === true && <div className="flexrowz9">
-        <input
-          id="showpublicid"
-          //name="showpublicname"
-          type="checkbox"
-          ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
-          //placeholder=""
-          checked={this.state.showpublic===true?"checked":""}
-          autoFocus
-          className="ib largerCheckbox"
-          
-          value="show the public" //{this.state.showpublic}
-          onChange={this.onShowpublicChange}
-          title="check to show the link to the public"
-          //maxlength=""
-        />
-        <label className="ib" for="showpublicid"><span className="ib margin-left-11">show the public</span></label>
-        </div> }
+        {this.state.error && (
+          <p className="form__error flexrow2w">{this.state.error}</p>
+        )}
+        {LIST_ALL_PUBLIC_LINKS === true && (
+          <div className="flexrowz9">
+            <input
+              id="showpublicid"
+              //name="showpublicname"
+              type="checkbox"
+              ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
+              //placeholder=""
+              checked={this.state.showpublic === true ? "checked" : ""}
+              autoFocus
+              className="ib largerCheckbox"
+              value="show the public" //{this.state.showpublic}
+              onChange={this.onShowpublicChange}
+              title="check to show the link to the public"
+              //maxlength=""
+            />
+            <label className="ib" for="showpublicid">
+              <span className="ib margin-left-11">show the public</span>
+            </label>
+          </div>
+        )}
         <input
           type="text"
           placeholder="text"
@@ -300,10 +295,12 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}
-          maxlength={this.props.theplan.plan.replace(/"/g, "")==="free"?1048:2300}//"2300"
+          maxlength={
+            this.props.theplan.plan.replace(/"/g, "") === "free" ? 1048 : 2300
+          } //"2300"
         ></textarea>
         <div>
-          <button className="button-2">Save Link</button>
+          <button className="button-2w">Save Link</button>
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>
@@ -312,7 +309,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
 }
 
 const mapStateToProps = (state) => ({
-  theplan: state.theplan
+  theplan: state.theplan,
 });
 
 export default connect(mapStateToProps, undefined)(LinkForm);

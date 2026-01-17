@@ -13,9 +13,9 @@ const TeirsPayment3 = (props) => {
   const [isStandard, setIsStandard] = useState(false);
   const [isPremium, setIsPremium] = useState(false);
 
-   const goToHomePage = () => {
-              props.history.push("/"); // Navigates back one step in the history
-            };
+  const goToHomePage = () => {
+    props.history.push("/"); // Navigates back one step in the history
+  };
 
   useEffect(() => {
     console.log("4 TeirsPayment3, props.links.length=" + props.links.length);
@@ -57,25 +57,26 @@ const TeirsPayment3 = (props) => {
       .catch((error) =>
         console.error("There was a problem with the fetch operation:", error)
       );
-
   }, []);
 
   return (
     <div className="body1 flexrow2w">
- 
-      {props.theplan.plan.replace(/"/g, "") === "free" && props.links.length <= 250 || props.links.length > 250 ? (
+      {(props.theplan.plan.replace(/"/g, "") === "free" &&
+        props.links.length <= 250) ||
+      props.links.length > 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : isBasic && props.links.length <= 250  || props.links.length > 250 ? (
+      ) : (isBasic && props.links.length <= 250) || props.links.length > 250 ? (
         //show the almost free, standard and premium table
-       <stripe-pricing-table pricing-table-id="prctbl_1RugCoK6yDYe5WAx5x4SZEPL"
-       client-reference-id={theUserId}
-publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
-</stripe-pricing-table>
-    ): props.theplan.plan.replace(/"/g, "") === "basic" &&
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RugCoK6yDYe5WAx5x4SZEPL"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
+      ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
         (props.links.length >= 251 && props.links.length) <= 1500 ? (
         //show standard and premium table
         <stripe-pricing-table
@@ -92,12 +93,15 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" && props.links.length <= 250  || props.links.length > 250 ? (
+      ) : (props.theplan.plan.replace(/"/g, "") === "premium" &&
+          props.links.length <= 250) ||
+        props.links.length > 250 ? (
         //show almost free, basic and standard table
-        <stripe-pricing-table pricing-table-id="prctbl_1RugHTK6yDYe5WAxm2AZhNUT"
-        client-reference-id={theUserId}
-publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
-</stripe-pricing-table>
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RugHTK6yDYe5WAxm2AZhNUT"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length >= 251 &&
         props.links.length <= 1500 ? (
@@ -119,27 +123,27 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
       ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length >= 2501 &&
         props.links.length <= 5000 ? (
-          <div>
- <div>
-          Hi, you will need to remove some bookmarks to choose a cheaper plan
-        </div>
         <div>
-            <button
-                            className="button-2 ib margin-left-11 cursor-pointer"
-                            onClick={goToHomePage}
-                          >
-                            goto the home page
-                          </button>
-                          
-        </div>
+          <div>
+            Hi, you will need to remove some bookmarks to choose a cheaper plan
           </div>
-       
-      ) : props.theplan.plan.replace(/"/g, "") === "standard" && props.links.length <= 250 ? (
+          <div>
+            <button
+              className="button-2w ib margin-left-11 cursor-pointer"
+              onClick={goToHomePage}
+            >
+              goto the home page
+            </button>
+          </div>
+        </div>
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
+        props.links.length <= 250 ? (
         //show almost free basic and premium
-        <stripe-pricing-table pricing-table-id="prctbl_1RugLIK6yDYe5WAxJ3KDXCV9"
-        client-reference-id={theUserId}
-publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR">
-</stripe-pricing-table>
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RugLIK6yDYe5WAxJ3KDXCV9"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length >= 251 &&
         props.links.length <= 1500 ? (
@@ -158,11 +162,9 @@ publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRK
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      )  : (
+      ) : (
         <div></div>
       )}
-
-    
     </div>
   );
 };

@@ -4,7 +4,7 @@
   border: none;
   color: white;
   display: inline-block;
-  /* font-size: $font-size-large; */ 
+  /* font-size: $font-size-large; */
   font-weight: 300;
   line-height: 1;
   padding: $s-size;
@@ -12,7 +12,7 @@
 }
 
 .width100 {
-  width:100%;
+  width: 100%;
 }
 
 .button-2 {
@@ -27,13 +27,23 @@
   line-height: 1;
   padding: $s-size;
   text-decoration: none;
-  border-radius:5px;
+  border-radius: 5px;
 }
 
-
-
-
-
+.button-2w {
+  /*background: $blue;*/
+  //background-color: purple;
+  background-color: white;
+  border: none;
+  color: black;
+  display: inline-block;
+  font-size: $font-size-large;
+  font-weight: 300;
+  line-height: 1;
+  padding: $s-size;
+  text-decoration: none;
+  border-radius: 5px;
+}
 
 .button-3 {
   background-color: #b87333;
@@ -45,7 +55,7 @@
   line-height: 1;
   padding: $s-size;
   text-decoration: none;
-  border-radius:5px;
+  border-radius: 5px;
 }
 
 .button-m {
@@ -86,7 +96,7 @@ a {
   // color: white;
   // text-decoration: none;
   // border-radius: 4px;
-   cursor: pointer;
+  cursor: pointer;
 }
 
 .button--secondary {
@@ -104,11 +114,6 @@ a {
   font-size: 1rem;
 }
 
-
-
 input[type="radio"] {
   accent-color: $dark-blue; /* Replace with your desired color */
 }
-
-
-

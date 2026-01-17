@@ -1,53 +1,48 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 //import { history } from "../routers/AppRouter";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import printerImage from "../assets/images/printer_image.png";
 import StorageSizes from "./StorageSizes";
- 
+
 const ImportedBookmarks = (props) => {
-  const [max, setMax] = useState(0)
+  const [max, setMax] = useState(0);
   const goToHomePage = () => {
     props.history.push("/"); // Navigates back one step in the history
   };
 
-
-  const getPlanMax=()=>{
-    let max=StorageSizes.free
+  const getPlanMax = () => {
+    let max = StorageSizes.free;
     //props.settings.plan
-    if(props.theplan.plan.replace(/"/g, "")==="free") {
-     max=StorageSizes.free
-    } else if(props.theplan.plan.replace(/"/g, "")==="basic") {
-max=StorageSizes.basic
-    } else if(props.theplan.plan.replace(/"/g, "")==="standard") {
-max=StorageSizes.standard
-    } else { //premium
-max=StorageSizes.premium
+    if (props.theplan.plan.replace(/"/g, "") === "free") {
+      max = StorageSizes.free;
+    } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
+      max = StorageSizes.basic;
+    } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
+      max = StorageSizes.standard;
+    } else {
+      //premium
+      max = StorageSizes.premium;
     }
-    return max
-  }
+    return max;
+  };
 
-  useEffect(()=>{
-    setMax(getPlanMax())
-  },[])
+  useEffect(() => {
+    setMax(getPlanMax());
+  }, []);
 
   const returnAndRefresh = () => {
     props.history.push("/");
     //window.location.reload();
-    window.location.href="https://urilinks.com?signup=signup"
+    window.location.href = "https://urilinks.com?signup=signup";
   };
 
-  const printIt=()=>{
-    const oldTitle = document.title
+  const printIt = () => {
+    const oldTitle = document.title;
     document.title = "urilinks new links";
-    window.print()
-    document.title=oldTitle
-
-
-
-
-  }
-          
+    window.print();
+    document.title = oldTitle;
+  };
 
   return (
     <div className="container2 positionit">
@@ -73,47 +68,61 @@ max=StorageSizes.premium
         {/* {props.max===props.rl?<div>Successfully imported all of the bookmarks. {`${props.rl} of ${props.max}`}</div>
 : <div>Imported {`${props.rl} of ${props.max}`}` bookmarks. The limit is 500 bookmarks</div>} */}
         <div className="flexrowtfw">
-         
+          {props.max === props.rl ? (
+            <div className="rectangle-1">
+              <div className="margin-top-2">
+                <button
+                  className="button-style-1- button-2w"
+                  onClick={returnAndRefresh}
+                >
+                  Return and Refresh
+                </button>
+              </div>
 
-          {props.max === props.rl ? <div className="rectangle-1">
+              <div className="margin-top-2">
+                <button
+                  className="button-style-1- button-2w"
+                  onClick={goToHomePage}
+                >
+                  Return
+                </button>
+              </div>
+            </div>
+          ) : (
             <div className="margin-top-2">
               <button
-                className="button-style-1- button-2"
-                onClick={returnAndRefresh}
+                className="button-style-1- button-2w"
+                onClick={goToHomePage}
               >
-                Return and Refresh
-              </button>
-            </div>
-
-            <div className="margin-top-2">
-              <button className="button-style-1- button-2" onClick={goToHomePage}>
                 Return
               </button>
             </div>
-          </div>:
-          <div className="margin-top-2">
-              <button className="button-style-1- button-2" onClick={goToHomePage}>
-                Return
-              </button>
+          )}
+
+          {props.max === props.rl && (
+            <div className="rectangle-2 margin-top-1111b">
+              {/* {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b cursor-pointer" title="You may print this list to the printer."><img src={printerImage} width="32" height="32" style={{borderRadius:'50%'}}/></div>} */}
+              {props.rl > 0 && (
+                <div className="margin-top-1111b">
+                  These are the bookmarks that were added:
+                </div>
+              )}
+              <ul className="scrollable-ul">
+                {props.result.map((r, i) => (
+                  <li>
+                    {r.description},{" "}
+                    <span
+                      className="font-weight-1"
+                      title="You may use this hashtag in hashtag search to find it."
+                    >
+                      {r.note}:{r.longname}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
-}
-
-
-           { props.max === props.rl && <div className="rectangle-2 margin-top-1111b">
-            {/* {(props.rl>0) &&<div onClick={printIt} className="margin-top-1111b cursor-pointer" title="You may print this list to the printer."><img src={printerImage} width="32" height="32" style={{borderRadius:'50%'}}/></div>} */}
-            {(props.rl>0) &&<div className="margin-top-1111b">These are the bookmarks that were added:</div>}
-            <ul className="scrollable-ul">
-           
-              {props.result.map((r, i) => (
-                <li>{r.description}, <span className="font-weight-1" title="You may use this hashtag in hashtag search to find it.">{r.note}:{r.longname}</span></li>
-              ))}
-             </ul>
-          </div>}
+          )}
         </div>
-
-
-
-        
       </div>
     </div>
   );
@@ -123,4 +132,6 @@ const mapStateToProps = (state) => ({
   theplan: state.theplan,
 });
 
-export default withRouter(connect(mapStateToProps, undefined)(ImportedBookmarks));
+export default withRouter(
+  connect(mapStateToProps, undefined)(ImportedBookmarks)
+);

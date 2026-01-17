@@ -9,11 +9,11 @@ import FBShareButton from "./FBShareButton";
 import MessengerButton from "./MessengerButton";
 import LinkedInShareButton from "./LinkedInShareButton";
 import XShareButton from "./XShareButton";
-import MayDoInGoogleDocument from "./MayDoInGoogleDocument"
-import MapQuestButton from "./MapQuestButton"
-import GoogleMapsButton from "./GoogleMapsButton"
-import GoogleEarthButton from "./GoogleEarthButton"
-import AlarmClockButton from "./AlarmClockButton"
+import MayDoInGoogleDocument from "./MayDoInGoogleDocument";
+import MapQuestButton from "./MapQuestButton";
+import GoogleMapsButton from "./GoogleMapsButton";
+import GoogleEarthButton from "./GoogleEarthButton";
+import AlarmClockButton from "./AlarmClockButton";
 //import AddToAny from './AddToAny';
 
 //import XShareButton from "./XShareButton"
@@ -661,128 +661,131 @@ const LinkListItem = (props) => {
   //
   return (
     <div key={props.index}>
-    {
-    //link.showpublic === 
-    true && 
-  
-  <div 
-  //key={props.index}
-  >
-    <div className="margin-bottom-1">
-      <div className="card-background-color">
-        <div className="list-item__flex">
-          <div className="">
-            <div className="flexrow2t border-green-">
-             
-              <div className={`${!!props.yturl?"":"margin-top-1"}`}>
-                <div className="flexcol3">
-                  <div className={`flexrow4 border-green-`}>
-                    <div className="margin-top-1q">
-                        <img
-                            className=""
-                            width="20"
-                            height="20"
-                            src={props.faviconURL}
-                        />
-                    </div>
-                    <div>
-                      {
-                        //isityt(props.Url)
-                         !!props.yturl && (
-                          //true
-                          <a
-                            ref={myRef}
-                            className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1"
-                            href={props.Url}
-                            //target="_self"
-                            target="_blank"
-                            title={"click to open the webpage: " + props.Url}
-                            onClick={storeScrollPosition}
-                          >
-                            <img
-                              className="borderRadius4 rem8- rem45-"
-                              
-                              src={props.yturl}
-                            />
-                          </a>
-                        )
-                      }
-                      </div>
-                      <div>
-                      <a
-                        ref={myRef}
-                        className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 ${!!props.yturl?"":"padding-top-n-hh"}`}
-                        href={props.Url}
-                        //target="_self"
-                        target="_blank"
-                        title={"click to open the webpage: " + props.Url}
-                        onClick={storeScrollPosition}
-                      >
-                        Show Page: {decodeURIComponent(props.description)}
-                      </a>
-                    </div>
-                    <div className="margin-bottom-1141">
-                      <div className="flexrow4">
-                        {props.signup.signup === true ? (
-                          <div>
-                           <Link
-                              className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
-                              to={`/edit/${props.id}`}
-                            >
-                              <span className="padding-right-11 color-white-1 button-2">
-                                edit or remove
-                              </span>
-                            </Link>
-                          </div>
-                        ) : (
-                          <div>
-                           <Link
-                              className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
-                              to={`/edit/${props.id}`}
-                            >
-                              <span className="padding-right-11 color-white-1 button-2">
-                                edit or remove
-                              </span>
-                            </Link>
-                          </div>
-                        )}
-                        {props.signup.signup === true ? (
-                          <div>
-                           <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                              <input
-                                type="checkbox"
-                                id={"delete%" + props.id}
-                                name={"delete%" + props.id}
-                                value={props.id}
-                                onChange={handleCheckboxDelete}
-                                title="remove bookmark"
-                                className="cb1 cursor-pointer"
+      {
+        //link.showpublic ===
+        true && (
+          <div
+          //key={props.index}
+          >
+            <div className="margin-bottom-1">
+              <div className="card-background-color">
+                <div className="list-item__flex">
+                  <div className="">
+                    <div className="flexrow2t border-green-">
+                      <div className={`${!!props.yturl ? "" : "margin-top-1"}`}>
+                        <div className="flexcol3">
+                          <div className={`flexrow4 border-green-`}>
+                            <div className="margin-top-1q">
+                              <img
+                                className=""
+                                width="20"
+                                height="20"
+                                src={props.faviconURL}
                               />
-                              <label htmlFor={"delete%" + props.id} />
-                            </span>
+                            </div>
+                            <div>
+                              {
+                                //isityt(props.Url)
+                                !!props.yturl && (
+                                  //true
+                                  <a
+                                    ref={myRef}
+                                    className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1"
+                                    href={props.Url}
+                                    //target="_self"
+                                    target="_blank"
+                                    title={
+                                      "click to open the webpage: " + props.Url
+                                    }
+                                    onClick={storeScrollPosition}
+                                  >
+                                    <img
+                                      className="borderRadius4 rem8- rem45-"
+                                      src={props.yturl}
+                                    />
+                                  </a>
+                                )
+                              }
+                            </div>
+                            <div>
+                              <a
+                                ref={myRef}
+                                className={`ib nounderline text-size-5 text-color-db color-purple breakWord margin-left-11 ${
+                                  !!props.yturl ? "" : "padding-top-n-hh"
+                                }`}
+                                href={props.Url}
+                                //target="_self"
+                                target="_blank"
+                                title={
+                                  "click to open the webpage: " + props.Url
+                                }
+                                onClick={storeScrollPosition}
+                              >
+                                Show Page:{" "}
+                                {decodeURIComponent(props.description)}
+                              </a>
+                            </div>
+                            <div className="margin-bottom-1141">
+                              <div className="flexrow4">
+                                {props.signup.signup === true ? (
+                                  <div>
+                                    <Link
+                                      className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
+                                      to={`/edit/${props.id}`}
+                                    >
+                                      <span className="padding-right-11 color-white-1 button-2w">
+                                        edit or remove
+                                      </span>
+                                    </Link>
+                                  </div>
+                                ) : (
+                                  <div>
+                                    <Link
+                                      className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
+                                      to={`/edit/${props.id}`}
+                                    >
+                                      <span className="padding-right-11 color-white-1 button-2w">
+                                        edit or remove
+                                      </span>
+                                    </Link>
+                                  </div>
+                                )}
+                                {props.signup.signup === true ? (
+                                  <div>
+                                    <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                                      <input
+                                        type="checkbox"
+                                        id={"delete%" + props.id}
+                                        name={"delete%" + props.id}
+                                        value={props.id}
+                                        onChange={handleCheckboxDelete}
+                                        title="remove bookmark"
+                                        className="cb1 cursor-pointer"
+                                      />
+                                      <label htmlFor={"delete%" + props.id} />
+                                    </span>
+                                  </div>
+                                ) : (
+                                  <div>
+                                    <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                                      <input
+                                        type="checkbox"
+                                        id={"delete%" + props.id}
+                                        name={"delete%" + props.id}
+                                        value={props.id}
+                                        onChange={handleCheckboxDelete}
+                                        title="remove bookmark"
+                                        className="cb1 cursor-pointer"
+                                      />
+                                      <label htmlFor={"delete%" + props.id} />
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
                           </div>
-                        ) : (
-                          <div>
-                             <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                              <input
-                                type="checkbox"
-                                id={"delete%" + props.id}
-                                name={"delete%" + props.id}
-                                value={props.id}
-                                onChange={handleCheckboxDelete}
-                                title="remove bookmark"
-                                className="cb1 cursor-pointer"
-                              />
-                              <label htmlFor={"delete%" + props.id} />
-                            </span>
-                            
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
 
-                   {/* <div>
+                          {/* <div>
                     <span
                       className="ib margin-left-114"
                       title="click the following link to see an index of clickable urls on the page."
@@ -799,17 +802,17 @@ const LinkListItem = (props) => {
                       </span>
                     </span>
                   </div>  */}
-                </div>
+                        </div>
 
-                <ol id={"uldata" + props.id} start="0"></ol>
-              </div>
-            </div>
-          </div>
-          {/* <div className="">
+                        <ol id={"uldata" + props.id} start="0"></ol>
+                      </div>
+                    </div>
+                  </div>
+                  {/* <div className="">
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${props.id}`}>
                
-                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2">
+                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2w">
                     edit or remove
                   </span>
                   
@@ -821,37 +824,34 @@ const LinkListItem = (props) => {
                   </span>
             </h3>
           </div> */}
-        </div>
+                </div>
 
-        <div className="italicText list-item__sub-title- padding-left-1 text-size-10 color-purple margin-left-11p">
-          Link saved on: {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
-        </div>
-      </div>
-      <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p-">
-        {props.note}
-      </div>
-      <div className="flexrow2w">
-        <MayDoInGoogleDocument />
-        <FBShareButton url={props.Url} />
+                <div className="italicText list-item__sub-title- padding-left-1 text-size-10 color-purple margin-left-11p">
+                  Link saved on:{" "}
+                  {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
+                </div>
+              </div>
+              <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p-">
+                {props.note}
+              </div>
+              <div className="flexrow2w">
+                <MayDoInGoogleDocument />
+                <FBShareButton url={props.Url} />
 
-        <MessengerButton />
-        <LinkedInShareButton url={props.Url} />
-        {/* <AddToAny /> */}
+                <MessengerButton />
+                <LinkedInShareButton url={props.Url} />
+                {/* <AddToAny /> */}
 
-        <XShareButton url={props.Url} />
-        <MapQuestButton />
-        <AlarmClockButton />
-        <GoogleMapsButton />
-        <GoogleEarthButton />
-      </div>
-    </div>
-
-   
-      </div>
-    
-    }
-
-
+                <XShareButton url={props.Url} />
+                <MapQuestButton />
+                <AlarmClockButton />
+                <GoogleMapsButton />
+                <GoogleEarthButton />
+              </div>
+            </div>
+          </div>
+        )
+      }
     </div>
   );
 };

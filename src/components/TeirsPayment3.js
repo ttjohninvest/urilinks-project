@@ -5,12 +5,12 @@ import * as firebase from "firebase";
 //import { useHistory } from 'react-router-dom';
 import StorageSizes from "./StorageSizes";
 
-
-
 const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
-  const [theUserId, setTheUserId] = useState(firebase.auth().currentUser.uid+props.theplan.customerId);
+  const [theUserId, setTheUserId] = useState(
+    firebase.auth().currentUser.uid + props.theplan.customerId
+  );
   //const [theUserId, setTheUserId] = useState(firebase.auth().currentUser.uid);
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
@@ -21,29 +21,28 @@ const TeirsPayment3 = (props) => {
     props.history.push("/"); // Navigates back one step in the history
   };
 
-
-
- 
   useEffect(() => {
     // Check if the navigation action is 'POP'
-    if (props.history.action === 'POP') {
-      console.log('Navigated using back or forward button');
+    if (props.history.action === "POP") {
+      console.log("Navigated using back or forward button");
       // Perform actions based on back/forward navigation
-      props.history.push("/")
+      props.history.push("/");
     }
-  }, [props.history.action]); 
-   
-
-  useEffect(()=>{
-     
-    console.log("3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId);
-    //setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
-  },[])
+  }, [props.history.action]);
 
   useEffect(() => {
-    console.log("4 theUserId="+theUserId)
-    console.log("4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId);
-    
+    console.log(
+      "3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
+    );
+    //setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
+  }, []);
+
+  useEffect(() => {
+    console.log("4 theUserId=" + theUserId);
+    console.log(
+      "4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
+    );
+
     fetch("https://urilinks-project-client-secret-api.vercel.app", {
       method: "POST",
       headers: {
@@ -70,103 +69,114 @@ const TeirsPayment3 = (props) => {
     // Perform checks or setup here
 
     initializedRef.current = true;
-    if (props.history.action === 'POP') {
-      console.log('Navigated using back or forward button');
+    if (props.history.action === "POP") {
+      console.log("Navigated using back or forward button");
       // Perform actions based on back/forward navigation
-      
-      props.history.push("/")
+
+      props.history.push("/");
     }
   }
 
   return (
     <div className="body1 flexrow2w">
       {props.theplan.plan.replace(/"/g, "") === "free" &&
-      props.links.length <= StorageSizes.free  ? (
+      props.links.length <= StorageSizes.free ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
-           client-reference-id={theUserId}
+          client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "basic" 
-      
-      &&
+      ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
         props.links.length <= StorageSizes.basic ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
-           client-reference-id={theUserId}
+          client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "standard" 
-      
-      &&
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length <= StorageSizes.standard ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
-           client-reference-id={theUserId}
+          client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" 
-      
-      &&
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length <= StorageSizes.premium ? (
-        <div>Thank you. You are on the premium plan which is the highest plan.  
-
+        <div>
+          Thank you. You are on the premium plan which is the highest plan.
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "free" ? (<div>
-        <div className="margin-left-11">You are on the free plan. You may store up to {StorageSizes.free} links, <span>You have stored {props.links.length} links.</span></div>
-         <div>
-            <button
-              className="button-2 ib margin-left-11 cursor-pointer"
-              onClick={goToHomePage}
-            >
-              goto the home page
-            </button>
-          </div>
-          </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "basic" ? (<div>
-        <div className="margin-left-11">You are on the basic plan. You may store up to {StorageSizes.basic} links, <span>You have stored {props.links.length} links.</span></div>
-         <div>
-            <button
-              className="button-2 ib margin-left-11 cursor-pointer"
-              onClick={goToHomePage}
-            >
-              goto the home page
-            </button>
-          </div>
-          </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "standard" ? (<div>
-        <div className="margin-left-11">You are on the standard plan. You may store up to {StorageSizes.standard} links, <span>You have stored {props.links.length} links.</span></div>
-         <div>
-            <button
-              className="button-2 ib margin-left-11 cursor-pointer"
-              onClick={goToHomePage}
-            >
-              goto the home page
-            </button>
-          </div>
-          </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" ? (
+      ) : props.theplan.plan.replace(/"/g, "") === "free" ? (
         <div>
           <div className="margin-left-11">
-            You are on the premium plan. You may store up to {StorageSizes.premium} links, <span>You have stored {props.links.length} links.</span>
+            You are on the free plan. You may store up to {StorageSizes.free}{" "}
+            links, <span>You have stored {props.links.length} links.</span>
           </div>
           <div>
             <button
-              className="button-2 ib margin-left-11 cursor-pointer"
+              className="button-2w ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
             </button>
           </div>
         </div>
-      ) : <div>
-        <button
-              className="button-2 ib margin-left-11 cursor-pointer"
+      ) : props.theplan.plan.replace(/"/g, "") === "basic" ? (
+        <div>
+          <div className="margin-left-11">
+            You are on the basic plan. You may store up to {StorageSizes.basic}{" "}
+            links, <span>You have stored {props.links.length} links.</span>
+          </div>
+          <div>
+            <button
+              className="button-2w ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
             </button>
-        </div>}
+          </div>
+        </div>
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" ? (
+        <div>
+          <div className="margin-left-11">
+            You are on the standard plan. You may store up to{" "}
+            {StorageSizes.standard} links,{" "}
+            <span>You have stored {props.links.length} links.</span>
+          </div>
+          <div>
+            <button
+              className="button-2w ib margin-left-11 cursor-pointer"
+              onClick={goToHomePage}
+            >
+              goto the home page
+            </button>
+          </div>
+        </div>
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" ? (
+        <div>
+          <div className="margin-left-11">
+            You are on the premium plan. You may store up to{" "}
+            {StorageSizes.premium} links,{" "}
+            <span>You have stored {props.links.length} links.</span>
+          </div>
+          <div>
+            <button
+              className="button-2w ib margin-left-11 cursor-pointer"
+              onClick={goToHomePage}
+            >
+              goto the home page
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <button
+            className="button-2w ib margin-left-11 cursor-pointer"
+            onClick={goToHomePage}
+          >
+            goto the home page
+          </button>
+        </div>
+      )}
     </div>
   );
 };

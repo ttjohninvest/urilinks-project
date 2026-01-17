@@ -1,6 +1,6 @@
-const LIST_ALL_PUBLIC_LINKS = false //I commented the code out to fix the space between alignment
-const LIST_ALL_PUBLIC_LINKS_PEOPLE = false //I commented the code out to fix the space between alignment
-const DISPLAY_THIS_MANY_LINKS = 100
+const LIST_ALL_PUBLIC_LINKS = false; //I commented the code out to fix the space between alignment
+const LIST_ALL_PUBLIC_LINKS_PEOPLE = false; //I commented the code out to fix the space between alignment
+const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
 import MyInfiniteScroll from "./MyInfiniteScroll";
@@ -20,7 +20,7 @@ import selectLinks2 from "../selectors/links2";
 import LinksSummary from "./LinksSummary";
 import printerImage from "../assets/images/printer_image.png";
 import { v4 } from "uuid";
-import LoadingPage from './LoadingPage'
+import LoadingPage from "./LoadingPage";
 
 export const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1");
@@ -33,30 +33,29 @@ export const LinkList = (props) => {
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
-//  const [loading, setLoading] = useState(true)
-//  const [mappedData, setMappedData] = useState([])
+  //  const [loading, setLoading] = useState(true)
+  //  const [mappedData, setMappedData] = useState([])
 
   const myRef = useRef();
 
-//   useEffect(() => {
-//      const processedData = props.links.map((item,index) => ({
-//         id:item.id,
-//         link:item.link,
-//         index:index
-//       }));
+  //   useEffect(() => {
+  //      const processedData = props.links.map((item,index) => ({
+  //         id:item.id,
+  //         link:item.link,
+  //         index:index
+  //       }));
 
-//       // Set the processed data and turn off loading
-//       setMappedData(processedData);
-//       setLoading(false);
+  //       // Set the processed data and turn off loading
+  //       setMappedData(processedData);
+  //       setLoading(false);
 
-//   }, [props.links]); // Empty dependency array ensures this runs once
+  //   }, [props.links]); // Empty dependency array ensures this runs once
 
   // useEffect(() => {
   //   window.onbeforeunload = null;
   // }, [items]);
 
   useEffect(() => {
-    
     const option = window.localStorage.getItem("whichOption");
     if (option) {
       if (option === "option1" || option === "option2") setFirst(0);
@@ -89,31 +88,30 @@ export const LinkList = (props) => {
     if (event.target.value === "option1") {
       window.localStorage.setItem("whichOption", "option1");
       setFirst(0);
-      setBgcolor1("#b87333")
-      setBgcolor2("#db5705")
-      setBgcolor3("#db5705")
+      setBgcolor1("#b87333");
+      setBgcolor2("#db5705");
+      setBgcolor3("#db5705");
 
       props.av(1);
     } else if (event.target.value === "option2") {
       window.localStorage.setItem("whichOption", "option2");
       setFirst(0);
-      
     } else if (event.target.value === "option3") {
       window.localStorage.setItem("whichOption", "option3");
       setFirst(1);
       console.log("1 LinkList, option3");
       console.log("an1=" + props.an1);
       console.log("props.b=" + props.b);
-      setBgcolor1("#db5705")
-      setBgcolor2("#b87333")
-      setBgcolor3("#db5705")
+      setBgcolor1("#db5705");
+      setBgcolor2("#b87333");
+      setBgcolor3("#db5705");
       props.av(0);
     } else if (event.target.value === "option4") {
       window.localStorage.setItem("whichOption", "option4");
       setFirst(2);
-      setBgcolor1("#db5705")
-      setBgcolor2("#db5705")
-      setBgcolor3("#b87333")
+      setBgcolor1("#db5705");
+      setBgcolor2("#db5705");
+      setBgcolor3("#b87333");
       setKey(v4()); //this causes a refresh if the People button is pressed again
       props.av(0);
     } else window.localStorage.setItem("whichOption", "option1");
@@ -133,7 +131,6 @@ export const LinkList = (props) => {
     <div className="content-container- website-background-color margin-top-1a-">
       <div id="before-link-summary-id" className="flexrow2b margin-bottom-5a">
         {/* <LinksSummary /> */}
- 
 
         {props.signup.signup === true ? (
           <div>
@@ -141,7 +138,7 @@ export const LinkList = (props) => {
 
             <Link
               id="adlinkid"
-              className="button-2 ib text-size-5 bg-color-1 pointereventsauto width100"
+              className="button-2w ib text-size-5 bg-color-1- bg-color-1w pointereventsauto width100"
               to="/create"
             >
               Add Link
@@ -152,7 +149,7 @@ export const LinkList = (props) => {
             {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
 
             <Link
-              className="button-2 ib text-size-5 bg-color-1 pointereventsnone width100"
+              className="button-2w ib text-size-5 bg-color-1 pointereventsnone width100"
               to="/create"
             >
               Add Link
@@ -160,9 +157,6 @@ export const LinkList = (props) => {
           </div>
         )}
 
-      
-
-      
         {/* {props.links.length > 0 && <div
         className={`${isMobile()?"margin-bottom-1 margin-top-11a1" :""}`}
         >
@@ -177,7 +171,7 @@ export const LinkList = (props) => {
               onChange={handleOptionChange}
             />
             <span
-              className="button-2 ib cursor-pointer"
+              className="button-2w ib cursor-pointer"
               
               style={{backgroundColor:bgcolor1}}
               title="lists your links"
@@ -197,12 +191,10 @@ export const LinkList = (props) => {
               checked={selectedOption === "option2"}
               onChange={handleOptionChange}
             />
-              <span className="button-2 ib cursor-pointer" title="links list with out details">List Links</span>
+              <span className="button-2w ib cursor-pointer" title="links list with out details">List Links</span>
             
           </label>
         </div> */}
-
-
 
         {/* {LIST_ALL_PUBLIC_LINKS === true && <div 
         className={`${isMobile()?"margin-left-n-11p margin-top-11z1" :""}`}
@@ -219,7 +211,7 @@ export const LinkList = (props) => {
               onChange={handleOptionChange}
             />
             <span
-              className="button-2 ib cursor-pointer"
+              className="button-2w ib cursor-pointer"
               style={{backgroundColor:bgcolor2}}
               title="The users have given permission to show these links to the public."
             >
@@ -244,7 +236,7 @@ export const LinkList = (props) => {
                 onChange={handleOptionChange}
               />
               <span
-                className="button-2 ib cursor-pointer"
+                className="button-2w ib cursor-pointer"
                 style={{backgroundColor:bgcolor3}}
                 title="This will show all the links the public has shared on a per user basis."
               >
@@ -266,7 +258,7 @@ export const LinkList = (props) => {
                 onChange={handleOptionChange}
               />
               <span
-                className="button-2 ib cursor-pointer"
+                className="button-2w ib cursor-pointer"
                 style={{backgroundColor:bgcolor3}}
 
                 title="This will show all the links the public has shared on a per user basis."
@@ -285,7 +277,13 @@ export const LinkList = (props) => {
       >
         <span id="linkcount2id" className="ib is-active">
           {/* {first === 0 ? props.linkCount : first === 1 ? props.linkCount2 : ""} */}
-          {first === 0 ? props.linkCount>100?100:props.linkCount: first === 1 ? props.linkCount2 : ""}
+          {first === 0
+            ? props.linkCount > 100
+              ? 100
+              : props.linkCount
+            : first === 1
+            ? props.linkCount2
+            : ""}
         </span>
         <span className="ib margin-left-11">
           {first === 0 || first === 1
@@ -331,14 +329,14 @@ export const LinkList = (props) => {
             //     </div>
             //   );
             // })
-             props.links.splice(0,100).map((link, index) => {
+            props.links.splice(0, 100).map((link, index) => {
               return (
                 <div>
-                  <LinkListItem 
-                  key={link.id} 
-                  //key={index}
-                  {...link} 
-                  index={index} 
+                  <LinkListItem
+                    key={link.id}
+                    //key={index}
+                    {...link}
+                    index={index}
                   />
                 </div>
               );
@@ -346,7 +344,6 @@ export const LinkList = (props) => {
             ///////
 
             ///////
-        
           )}
         </div>
       ) : selectedOption === "option2" ? (

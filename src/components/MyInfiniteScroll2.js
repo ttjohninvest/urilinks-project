@@ -13,7 +13,7 @@ import printerImage from "../assets/images/printer_image.png";
 import { getShowPublic } from "./../actions/sp";
 
 const E2 = (props) => {
-  console.log("E2E@E@, an="+props.an);
+  console.log("E2E@E@, an=" + props.an);
   //const dispatch = useDispatch() //it is saying the useDispatch is not a function
   // const user= firebase.auth().currentUser
   // console.log("MyInfiniteScroll2, user="+JSON.stringify(user))
@@ -44,7 +44,7 @@ const E2 = (props) => {
 
   const [firstone, setFirstone] = useState(props.firstone);
 
-  const [key, setKey] = useState(props.key)
+  const [key, setKey] = useState(props.key);
 
   // const [data, setData] = useState([
   //   'Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5',
@@ -220,12 +220,11 @@ const E2 = (props) => {
                                                 </a>
                                               </div>
                                               <div>
-                                               
                                                 <button
                                                   onClick={(event) =>
                                                     YZ(event, gud)
                                                   }
-                                                  className="ib button-2 margin-left-118 borderradius55"
+                                                  className="ib button-2w margin-left-118 borderradius55"
                                                 >{`Display ${
                                                   !!gud.displayname
                                                     ? gud.displayname + "'s"
@@ -242,7 +241,9 @@ const E2 = (props) => {
                                               >
                                                 Send gmail.
                                               </a> */}
-                                              <span title="You are able to send gmail from your account.">Send gmail.</span>
+                                              <span title="You are able to send gmail from your account.">
+                                                Send gmail.
+                                              </span>
                                             </div>
                                           )}
                                         </div>

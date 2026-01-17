@@ -46,7 +46,7 @@ const ImportedBookmarks2 = (props) => {
               <div className="rectangle-1">
                 <div className="margin-top-2">
                   <button
-                    className="button-style-1- button-2"
+                    className="button-style-1- button-2w"
                     onClick={openPaymentPage}
                   >
                     go to payment page
@@ -55,7 +55,7 @@ const ImportedBookmarks2 = (props) => {
               </div>
               <div className="margin-top-2">
                 <button
-                  className="button-style-1- button-2"
+                  className="button-style-1- button-2w"
                   onClick={closeThisPage}
                 >
                   Close and Return
@@ -110,7 +110,8 @@ const ImportedBookmarks2 = (props) => {
                   <div>
                     You are currently on plan
                     {props.theplan === undefined ||
-                    (props.theplan === null && props.links.length <= StorageSizes.free) ? (
+                    (props.theplan === null &&
+                      props.links.length <= StorageSizes.free) ? (
                       <span> free</span>
                     ) : props.theplan.plan.replace(/"/g, "") === "free" &&
                       props.links.length <= StorageSizes.free ? (
@@ -128,25 +129,26 @@ const ImportedBookmarks2 = (props) => {
                       ""
                     )}
                   </div>
-                  {props.links !== undefined && props.links !== null && <div>You have stored {props.links.length} links.</div>}
+                  {props.links !== undefined && props.links !== null && (
+                    <div>You have stored {props.links.length} links.</div>
+                  )}
                 </div>
-                {
-                
-                props.theplan === undefined ||
-                    props.theplan === null || props.theplan.plan.replace(/"/g, "") !== "premium" && (
-                  <div className="margin-top-2">
-                    <button
-                      className="button-style-1- button-2"
-                      onClick={openPaymentPage}
-                    >
-                      go to plans page
-                    </button>
-                  </div>
-                )}
+                {props.theplan === undefined ||
+                  props.theplan === null ||
+                  (props.theplan.plan.replace(/"/g, "") !== "premium" && (
+                    <div className="margin-top-2">
+                      <button
+                        className="button-style-1- button-2w"
+                        onClick={openPaymentPage}
+                      >
+                        go to plans page
+                      </button>
+                    </div>
+                  ))}
               </div>
               <div className="margin-top-2">
                 <button
-                  className="button-style-1- button-2"
+                  className="button-style-1- button-2w"
                   onClick={closeThisPage}
                 >
                   Close and Return
@@ -203,5 +205,7 @@ const mapStateToProps = (state) => ({
 });
 
 //export default withRouter(connect(mapStateToProps, undefined)(ImportedBookmarks2));
-export default withRouter(connect(mapStateToProps, undefined)(ImportedBookmarks2));
+export default withRouter(
+  connect(mapStateToProps, undefined)(ImportedBookmarks2)
+);
 //export default connect(mapStateToProps, undefined)(ImportedBookmarks2);

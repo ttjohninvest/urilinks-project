@@ -238,17 +238,17 @@ function ExpandableArray(props) {
 
 
 {/*{props.uid}*/}
-      {props.signup === false && (
+      {/* {props.signup === false && (
         <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
           <span className="hide">Thank you. Your sharable link is:</span>
           <a
-            readOnly
+            
             href="#"
             ref={textAreaRef}
             className="ib nounderline border5 padding-all2 borderradius55"
             title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
           >
-            https://urilinks.com/dashboard?signup=0&id=78hgfDFgtr78hgfDFgtr78hgfDFg 
+            https://urilinks.com/dashboard?signup=0&id={props.uid}
           </a>
           <button
             className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
@@ -259,7 +259,7 @@ function ExpandableArray(props) {
           </button>
           {copySuccess}
         </div>
-      )}
+      )} */}
 
       {props.signup === false && (
         <div></div>

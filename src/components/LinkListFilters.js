@@ -325,7 +325,7 @@ function ExpandableArray(props) {
                           className="ib- margin-bottom-11-"
                         />
                       ) : (
-                        <div className="textCenter-">
+                        <div className="textCenter- hide">
                           <img
                             src={myprofile}
                             width="64"

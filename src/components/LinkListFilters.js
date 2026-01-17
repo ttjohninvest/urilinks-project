@@ -238,7 +238,7 @@ function ExpandableArray(props) {
 
 
 {/*{props.uid}*/}
-      {/* {props.signup === false && (
+      {props.signup === false && (
         <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
           <span className="hide">Thank you. Your sharable link is:</span>
           <a
@@ -259,7 +259,7 @@ function ExpandableArray(props) {
           </button>
           {copySuccess}
         </div>
-      )} */}
+      )}
 
       {props.signup === false && (
         <div></div>

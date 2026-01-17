@@ -236,7 +236,7 @@ export const Header = (props) => {
       {isMobile() === false ? (
         <div id="top">
           {!deleteAccountError ? (
-            <header className="header relief- bg-color-1g">
+            <header className="header relief- bg-color-1g-">
               <div className="">
                 <div className="flexrow2w">
                   <div className="flexrowzl1">

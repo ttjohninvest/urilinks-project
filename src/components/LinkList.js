@@ -141,7 +141,7 @@ export const LinkList = (props) => {
 
             <Link
               id="adlinkid"
-              className="button-2 ib text-size-5 bg-color-1 pointereventsauto"
+              className="button-2 ib text-size-5 bg-color-1 pointereventsauto width100"
               to="/create"
             >
               Add Link
@@ -152,7 +152,7 @@ export const LinkList = (props) => {
             {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
 
             <Link
-              className="button-2 ib text-size-5 bg-color-1 pointereventsnone"
+              className="button-2 ib text-size-5 bg-color-1 pointereventsnone width100"
               to="/create"
             >
               Add Link

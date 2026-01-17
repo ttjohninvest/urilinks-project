@@ -307,6 +307,7 @@ export const Header = (props) => {
                         style={{ borderRadius: "50%" }}
                         className="ib- margin-bottom-11-"
                         title={name}
+                        alt="example"
                       />
                     </div>
                   ) : (
@@ -334,6 +335,7 @@ export const Header = (props) => {
                             style={{ borderRadius: "50%" }}
                             className="ib- margin-bottom-11-"
                             title={name}
+                            alt="example"
                           />
                         )
                       }

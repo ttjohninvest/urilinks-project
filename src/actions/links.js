@@ -163,6 +163,26 @@ export const setLinksAll = (links) => ({
     return boolvalue
   }
 
+  const isInOkArray = (uid) => {
+    //these email address are allowed to upload bookmark files
+    const okarray = [
+      "QqGHfiTgZzW4OygT7i6tpPMbNS93",
+      "zIK65gVpE9RPpHFZprjblMGJ2KB3",
+      "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
+      "tWKNG14PYYYY0hDPurLouWtYjtq1",
+      "pWLbXtHNzbM2AoHlawJ07e4GRCw1",
+      "LaqXskhA15TNXZLaLIasa2sz2vG3",
+      "PbvoaUyJcAOLQFXpcDoJTlKxfXS2",
+      "OhWklA8UAIW8Z8DOBTtVRVNO5xx2"
+    ];
+    let val = false;
+    okarray.forEach((id) => {
+      if (uid === id) val = true;
+    });
+
+    return val;
+  };
+
 //this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = (uid) => {
   console.log("startSetLinks");
@@ -195,10 +215,21 @@ export const startSetLinks = (uid) => {
          let hashtags = [];
          const longnamesnowhitespace = []
          const longnames = []
-         const htc="#christ#prayer#sermons#healings#churches#cathedrals#homilies#israel#nuns#priests#saints#angels#music#pictures#videos#movies#testimonies#pastors#deacons#christmas#easter#bible#salvation#maps#directions#convents#vatican#popes#god#father#donations#forgiveness#humility#services#disciples#mary#flowers#cardinals#blessings"
-         //const ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
-         //let x1 = extractHashtags(ht);
-         let x1 = extractHashtags(htc);
+         let ht=""
+         let htc=""
+let x1=""
+         if(isInOkArray(uid)===true)
+         {
+ ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
+   x1 = extractHashtags(ht);
+         }
+               else {
+htc="#christ#prayer#sermons#healings#churches#cathedrals#homilies#israel#nuns#priests#saints#angels#music#pictures#videos#movies#testimonies#pastors#deacons#christmas#easter#bible#salvation#maps#directions#convents#vatican#popes#god#father#donations#forgiveness#humility#services#disciples#mary#flowers#cardinals#blessings"
+        
+x1 = extractHashtags(htc);
+               }
+          //let x1 = extractHashtags(ht);
+       
          hashtags.push(...x1);
 
          links2.forEach((link) => {

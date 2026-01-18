@@ -721,7 +721,7 @@ const LinkListItem = (props) => {
                                 }
                                 onClick={storeScrollPosition}
                               >
-                                Show Page:{" "}
+                                Click to show page:{" "}
                                 {decodeURIComponent(props.description)}
                               </a>
                             </div>

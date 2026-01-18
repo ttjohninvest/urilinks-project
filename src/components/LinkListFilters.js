@@ -182,12 +182,12 @@ function ExpandableArray(props) {
             saved.
           </div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
-            Welcome to Saint John's urilinks.com for church and organizing your links
+            Welcome to Saint John's urilinks.com for church, state and links organization
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
             Lovingly, for people interested in Salvation, Jesus Christ and his Holy Church. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
             I added links to this page to demo it to you. You may add your own links in your account.  You may save and retrieve holy faith, church prayer, sermons, saints, nuns,
-            priests, catholic masses, music links (urls (uniform resource locators)) and other user defined categories.
+            priests, catholic masses, music links (urls (uniform resource locators)) and other user defined state categories.
           </div>
         </div>
       )}

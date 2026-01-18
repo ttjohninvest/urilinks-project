@@ -211,24 +211,24 @@ export const startSetLinks = (uid) => {
          const longnames = []
          let x1=""
          
-        //  let ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
-        //  let htc = "#christ#prayer#sermons#healings#churches#cathedrals#homilies#israel#nuns#priests#saints#angels#music#pictures#videos#movies#testimonies#pastors#deacons#christmas#easter#bible#salvation#maps#directions#convents#vatican#popes#god#father#donations#forgiveness#humility#services#disciples#mary#flowers#cardinals#blessings"
-        //  let h = ht+htc
-        //  x1 = extractHashtags(h);
+         let ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
+         let htc = "#christ#prayer#sermons#healings#churches#cathedrals#homilies#israel#nuns#priests#saints#angels#music#pictures#videos#movies#testimonies#pastors#deacons#christmas#easter#bible#salvation#maps#directions#convents#vatican#popes#god#father#donations#forgiveness#humility#services#disciples#mary#flowers#cardinals#blessings"
+         let h = ht+htc
+         x1 = extractHashtags(h);
 
-         let ht=""
-         let htc=""
-                  if(isInOkArray(uid)===true)
-                  //if(false)
-                  {
-          ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
-            x1 = extractHashtags(ht);
-                  }
-                        else {
-         htc="#christ#prayer#sermons#healings#churches#cathedrals#homilies#israel#nuns#priests#saints#angels#music#pictures#videos#movies#testimonies#pastors#deacons#christmas#easter#bible#salvation#maps#directions#convents#vatican#popes#god#father#donations#forgiveness#humility#services#disciples#mary#flowers#cardinals#blessings"
+        //  let ht=""
+        //  let htc=""
+        //           if(isInOkArray(uid)===true)
+        //           //if(false)
+        //           {
+        //   ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
+        //     x1 = extractHashtags(ht);
+        //           }
+        //                 else {
+        //  htc="#christ#prayer#sermons#healings#churches#cathedrals#homilies#israel#nuns#priests#saints#angels#music#pictures#videos#movies#testimonies#pastors#deacons#christmas#easter#bible#salvation#maps#directions#convents#vatican#popes#god#father#donations#forgiveness#humility#services#disciples#mary#flowers#cardinals#blessings"
                   
-         x1 = extractHashtags(htc);
-                        }
+        //  x1 = extractHashtags(htc);
+        //                 }
           
        
          hashtags.push(...x1);

@@ -315,7 +315,7 @@ export const LinkList = (props) => {
             props.links.slice(0, DISPLAY_THIS_MANY_LINKS).map((link) => {
               return (
                 <div>
-                  <LinkListItem key={link.id} {...link} />
+                  <LinkListItem key={link.id} {...link} signup={props.signup.signup} />
                 </div>
               );
             })
@@ -337,6 +337,7 @@ export const LinkList = (props) => {
                     //key={index}
                     {...link}
                     index={index}
+                    signup={props.signup.signup}
                   />
                 </div>
               );

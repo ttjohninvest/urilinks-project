@@ -834,7 +834,7 @@ const LinkListItem = (props) => {
               <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p- color-black-2">
                 {props.note}
               </div>
-              <div className="flexrow2w">
+              {props.signup.signup===true && <div className="flexrow2w">
                 <MayDoInGoogleDocument />
                 <FBShareButton url={props.Url} />
 
@@ -847,7 +847,7 @@ const LinkListItem = (props) => {
                 <AlarmClockButton />
                 <GoogleMapsButton />
                 <GoogleEarthButton />
-              </div>
+              </div>}
             </div>
           </div>
         )

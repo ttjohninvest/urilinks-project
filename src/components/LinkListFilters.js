@@ -182,7 +182,7 @@ function ExpandableArray(props) {
             saved.
           </div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
-            Welcome to Saint John's urilinks.com for church
+            Welcome to Saint John's urilinks.com for church and organizing your links
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
             I built this example page that describes this tool. You may build

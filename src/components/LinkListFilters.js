@@ -185,8 +185,7 @@ function ExpandableArray(props) {
             Welcome to Saint John's urilinks.com for church and organizing your links
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
-            I built this example page that describes this tool. You may build
-            one with your own links for yourself. It supports storage and
+            I added links to this page to demo it to you. You may add your own links in your account. It supports storage and
             retrieval of holy faith, church prayer, sermons, saints, nuns,
             priests, catholic masses, music links (urls (uniform resource
             locators)) and other user defined categories
@@ -196,7 +195,7 @@ function ExpandableArray(props) {
       {props.signup === true && (
         <div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
-            Welcome to Saint John's urilinks.com for holy church
+            Welcome to Saint John's urilinks.com for holy church and organizing your links
           </div>
         </div>
       )}

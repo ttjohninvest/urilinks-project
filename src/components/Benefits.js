@@ -6,6 +6,9 @@ import StorageSizes from './StorageSizes'
 
 const Benefits = () => {
 return (<div>
+  <Helmet>
+        <meta name="robots" content="noindex" />
+  </Helmet>
   <div className="list-header__flex__center">
     urilinks tool use:<br />
 -after you add link/s to your page, a sharable link is provided so that you may share your content with others<br />

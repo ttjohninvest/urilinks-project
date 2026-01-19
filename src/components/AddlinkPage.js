@@ -174,6 +174,9 @@ export const AddLinkPage = (props) => {
 
   return (
     <div>
+      <Helmet>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       {errorDialog ? (
         <div>
           Notice: firebase realtime database has thrown an exception (memmory

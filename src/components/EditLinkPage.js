@@ -29,7 +29,7 @@ export class EditLinkPage extends React.Component {
         <div className="page-header">
           <div className="content-container">
             <h1 className="page-header__title">
-              <span className="color-purple">Edit Link</span>
+              <span className="ib color-purple border5">Edit Link</span>
             </h1>
           </div>
         </div>
@@ -40,7 +40,7 @@ export class EditLinkPage extends React.Component {
             makereadonly={true}
           />
           <button
-            className="button- button--secondary- button-2w"
+            className="button- button--secondary- button-2w  border5"
             onClick={this.onRemove}
           >
             Remove Link

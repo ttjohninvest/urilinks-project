@@ -1166,96 +1166,121 @@ export class LinkListFilters extends React.Component {
     return regex.test(navigator.userAgent);
   }
 
+  // componentDidMount() {
+  //   this.props.setTheHashTagDivHeight(this.state.height);
+  //   const morehashtags = window.localStorage.getItem("morehashtags");
+
+  //   const searchLinks1 = window.localStorage.getItem("searchLinks1");
+  //   const searchLinks2 = window.localStorage.getItem("searchLinks2");
+  //   const searchLinks3 = window.localStorage.getItem("searchLinks3");
+  //   const searchLinks4 = window.localStorage.getItem("searchLinks4");
+
+  //   console.log("componentDidMount, searchLinks1=" + searchLinks1);
+  //   console.log("componentDidMount, searchLinks2=" + searchLinks2);
+  //   console.log("componentDidMount, searchLinks3=" + searchLinks3);
+  //   console.log("componentDidMount, searchLinks4=" + searchLinks4);
+
+  //   const sortBy = window.localStorage.getItem("sortBy");
+
+  //   console.log("componentDidMount, sortBy=" + sortBy);
+
+  //   // if (this.props.filters.sortBy === "date" || sortBy === "date") {
+  //   //   this.props.setTextFilter(searchLinks1);
+
+  //   //   this.props.sortByDate();
+  //   //   this.setState({ sortBy: "date" });
+  //   // } else
+
+  //   if (sortBy === "description") {
+  //     this.props.setTextFilter(searchLinks2);
+
+  //     this.props.sortByDescription();
+  //     this.setState({ sortBy: "description" });
+  //   } else if (sortBy === "notetext") {
+  //     this.props.setTextFilter(searchLinks4);
+  //     this.props.sortByNoteText();
+  //     this.setState({ sortBy: "notetext" });
+  //   } else if (
+  //     // this.props.filters.sortBy === "hashtag"
+  //     //||
+  //     sortBy === "hashtag"
+  //   ) {
+  //     if (
+  //       //this.props.filters.text === "" ||
+  //       searchLinks3 === "" ||
+  //       searchLinks3 === undefined ||
+  //       searchLinks3 === null
+  //     ) {
+  //       if (
+  //         searchLinks3 === "" ||
+  //         searchLinks3 === undefined ||
+  //         searchLinks3 === null
+  //       ) {
+  //         this.props.setTextFilter("#");
+  //       } else {
+  //         this.props.setTextFilter(searchLinks3);
+  //       }
+  //     } else {
+  //       this.props.setTextFilter(searchLinks3);
+  //     }
+  //     this.props.sortByHashTag();
+  //     this.setState({ sortBy: "hashtag" });
+  //   }
+
+  //   if (this.myRef.current) this.myRef.current.focus();
+
+  //   console.log(
+  //     "VVVVVVVVVVVVVVVVVVVV, this.props.hashtags=" + this.props.hashtags
+  //   );
+
+  //   this.setState({
+  //     morehashtags: morehashtags === "true" ? true : false,
+  //   });
+
+  //   console.log(
+  //     "AAAA window.localStorage.getItem('sortBy')=" +
+  //       window.localStorage.getItem("sortBy")
+  //   );
+
+  //   try {
+  //     const term = window.localStorage.getItem("termid");
+
+  //     window.document.getElementById("termid").value = term;
+
+  //     if (sortBy === "hashtag" && term !== "" && term.charAt(0) === "#") {
+  //       //window.document.getElementById("buttonid").click();
+  //       window.document.querySelector("#buttonid").click();
+  //     } else if (
+  //       sortBy === "description" ||
+  //       sortBy === "notetext" ||
+  //       term === "" ||
+  //       term.charAt(0) !== "#"
+  //     ) {
+  //       window.document.querySelector("#buttonid").click();
+  //     }
+  //   } catch (e) {
+  //     //alert("componentDidMount,e="+e)
+  //   }
+  // }
+
   componentDidMount() {
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
-    const searchLinks1 = window.localStorage.getItem("searchLinks1");
-    const searchLinks2 = window.localStorage.getItem("searchLinks2");
-    const searchLinks3 = window.localStorage.getItem("searchLinks3");
-    const searchLinks4 = window.localStorage.getItem("searchLinks4");
-
-    console.log("componentDidMount, searchLinks1=" + searchLinks1);
-    console.log("componentDidMount, searchLinks2=" + searchLinks2);
-    console.log("componentDidMount, searchLinks3=" + searchLinks3);
-    console.log("componentDidMount, searchLinks4=" + searchLinks4);
-
-    const sortBy = window.localStorage.getItem("sortBy");
-
-    console.log("componentDidMount, sortBy=" + sortBy);
-
-    // if (this.props.filters.sortBy === "date" || sortBy === "date") {
-    //   this.props.setTextFilter(searchLinks1);
-
-    //   this.props.sortByDate();
-    //   this.setState({ sortBy: "date" });
-    // } else
-
-    if (sortBy === "description") {
-      this.props.setTextFilter(searchLinks2);
-
-      this.props.sortByDescription();
-      this.setState({ sortBy: "description" });
-    } else if (sortBy === "notetext") {
-      this.props.setTextFilter(searchLinks4);
-      this.props.sortByNoteText();
-      this.setState({ sortBy: "notetext" });
-    } else if (
-      // this.props.filters.sortBy === "hashtag"
-      //||
-      sortBy === "hashtag"
-    ) {
-      if (
-        //this.props.filters.text === "" ||
-        searchLinks3 === "" ||
-        searchLinks3 === undefined ||
-        searchLinks3 === null
-      ) {
-        if (
-          searchLinks3 === "" ||
-          searchLinks3 === undefined ||
-          searchLinks3 === null
-        ) {
-          this.props.setTextFilter("#");
-        } else {
-          this.props.setTextFilter(searchLinks3);
-        }
-      } else {
-        this.props.setTextFilter(searchLinks3);
-      }
-      this.props.sortByHashTag();
-      this.setState({ sortBy: "hashtag" });
-    }
-
-    if (this.myRef.current) this.myRef.current.focus();
-
-    console.log(
-      "VVVVVVVVVVVVVVVVVVVV, this.props.hashtags=" + this.props.hashtags
-    );
-
-    this.setState({
-      morehashtags: morehashtags === "true" ? true : false,
-    });
-
-    console.log(
-      "AAAA window.localStorage.getItem('sortBy')=" +
-        window.localStorage.getItem("sortBy")
-    );
+    
 
     try {
-      const term = window.localStorage.getItem("termid");
-
-      window.document.getElementById("termid").value = term;
-
-      if (sortBy === "hashtag" && term !== "" && term.charAt(0) === "#") {
-        //window.document.getElementById("buttonid").click();
+      const term = window.document.getElementById("termid").value.trim()
+      //const term = window.localStorage.getItem("termid");
+      if (term !== "" && term.charAt(0) === "#") {
+        this.setState({'sortBy':"hashtag"})
         window.document.querySelector("#buttonid").click();
       } else if (
-        sortBy === "description" ||
-        sortBy === "notetext" ||
+       
         term === "" ||
         term.charAt(0) !== "#"
       ) {
+        this.setState({'sortBy':"description"})
         window.document.querySelector("#buttonid").click();
       }
     } catch (e) {

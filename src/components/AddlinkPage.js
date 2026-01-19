@@ -185,7 +185,7 @@ export const AddLinkPage = (props) => {
           <div className="page-header">
             <div className="content-container">
               <h1 className="page-header__title">
-                <span className="color-purple">Add Link</span>
+                <span className="color-purple color-black-2">Add Link</span>
               </h1>
             </div>
           </div>

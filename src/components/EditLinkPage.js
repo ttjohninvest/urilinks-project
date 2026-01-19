@@ -29,7 +29,7 @@ export class EditLinkPage extends React.Component {
         <div className="page-header">
           <div className="content-container">
             <h1 className="page-header__title">
-              <span className="ib color-purple border5">Edit Link</span>
+              <span className="ib color-purple- color-black-2">Edit Link</span>
             </h1>
           </div>
         </div>

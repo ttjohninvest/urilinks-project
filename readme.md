@@ -114,7 +114,7 @@ current plan: blaze plan, it does not let me upload bookmark files, so it does n
 		   
 ========================
 todo to do
-
+for-church find it in netlify and put it in urilinks.com
 ============
 firebase hosting, got to build locally but getting an error
 I left a message for Andrew Mead on udemy.com

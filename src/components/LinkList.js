@@ -133,7 +133,7 @@ export const LinkList = (props) => {
         {/* <LinksSummary /> */}
 
         {props.signup.signup === true ? (
-          <div>
+          <div className="minWidth">
             {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div> */}
 
             <Link
@@ -145,7 +145,7 @@ export const LinkList = (props) => {
             </Link>
           </div>
         ) : (
-          <div>
+          <div className="minWidth">
             {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
 
             <Link

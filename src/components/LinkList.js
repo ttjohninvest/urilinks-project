@@ -128,8 +128,8 @@ export const LinkList = (props) => {
   // }
 
   return (
-    <div className="content-container- website-background-color margin-top-1a-">
-      <div id="before-link-summary-id" className="flexrow2b margin-bottom-5a">
+    <div className="website-background-color">
+      <div id="before-link-summary-id" className="flexrow2b- margin-bottom-5a">
         {/* <LinksSummary /> */}
 
         {props.signup.signup === true ? (
@@ -141,7 +141,7 @@ export const LinkList = (props) => {
               className="minWidth button-2w ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5"
               to="/create"
             >
-              Add Link
+              Add Link1
             </Link>
           </div>
         ) : (
@@ -152,7 +152,7 @@ export const LinkList = (props) => {
               className="minWidth button-2w ib text-size-5 bg-color-1- bg-color-1w pointereventsnone width100 color-black-2 border5"
               to="/create"
             >
-              Add Link
+              Add Link2
             </Link>
           </div>
         )}

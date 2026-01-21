@@ -1101,7 +1101,7 @@ export class LinkListFilters extends React.Component {
       this.props.setTextFilter(val);
       if (this.myRef.current) this.myRef.current.focus();
       this.setState({ sortBy: "description" });
-      this.props.sortByDescription();
+      //this.props.sortByDescription();
       //this.setState({ sortBy: "description" });
     } else if (e.target.value === "hashtag") {
       window.localStorage.setItem("sortBy", "hashtag");
@@ -1123,7 +1123,7 @@ export class LinkListFilters extends React.Component {
 
       //window.localStorage.setItem("sortBy", "hashtag");
       this.setState({ sortBy: "hashtag" });
-      this.props.sortByHashTag();
+      //this.props.sortByHashTag();
       //this.setState({ sortBy: "hashtag" });
     } else if (e.target.value === "notetext") {
       window.localStorage.setItem("sortBy", "notetext");
@@ -1132,7 +1132,7 @@ export class LinkListFilters extends React.Component {
       this.props.setTextFilter(val);
       //window.localStorage.setItem("sortBy", "notetext");
       this.setState({ sortBy: "notetext" });
-      this.props.sortByNoteText();
+      //this.props.sortByNoteText();
       //this.setState({ sortBy: "notetext" });
     }
   };

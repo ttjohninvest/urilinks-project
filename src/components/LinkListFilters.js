@@ -411,6 +411,7 @@ function ExpandableArray(props) {
                   <div className="text-size-1 flexrowzc">
                     {isMobile() === true ? (
                       <div className="padding-right-11 padding-bottom-118 lowercase">
+                        Mission: To alphabetically save links for revisitation and to provide one link for sharing your links with others<br/><br/>
                         Clear values: Each link you save has note for data
                         entry; link notes, link texts and hastags are all
                         searchable; a sharable link for pasting to instagram

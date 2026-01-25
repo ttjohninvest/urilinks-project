@@ -141,7 +141,7 @@ export const LinkList = (props) => {
               className="bg-color-4 aw minWidth- alignCenter button-2w ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5"
               to="/create"
             >
-              Add Link
+              Add Link1
             </Link>
           </div>
         ) : (
@@ -152,7 +152,7 @@ export const LinkList = (props) => {
               className="bg-color-4 aw minWidth- alignCenter button-2w ib text-size-5 bg-color-1- bg-color-1w pointereventsnone width100 color-black-2 border5"
               to="/create"
             >
-              Add Link
+              Add Link2
             </Link>
           </div>
         )}

@@ -236,7 +236,7 @@ export const Header = (props) => {
       {isMobile() === false ? (
         <div id="top">
           {!deleteAccountError ? (
-            <header className="header relief- bg-color-1g">
+            <header className="header relief- bg-color-1g- bg-color-1">
               <div className="">
                 <div className="flexrow2w">
                   <div className="flexrowzl1">
@@ -265,9 +265,9 @@ export const Header = (props) => {
                       </header>
                     </Link>
 
-                    {/* <div className="margin-left-118 margin-top-1">
+                    <div className="margin-left-118 margin-top-1">
                       <img src={signature} className="minwidth" />
-                    </div> */}
+                    </div>
                   </div>
 
                   {/* {props.signup.signup === false && (
@@ -353,7 +353,7 @@ export const Header = (props) => {
                       target="_blank"
                     >
                       <span
-                        className="margin-right-1-ib- color-white-1- color-black-2 cursor-pointer"
+                        className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer"
                         title="Click to see how to use this website."
                       >
                         usage
@@ -368,7 +368,7 @@ export const Header = (props) => {
                       target="_blank"
                     >
                       <span
-                        className="ib- color-white-1- color-black-2 cursor-pointer"
+                        className="ib- color-white-1 color-black-2- cursor-pointer"
                         title="Click to see terms ane privacy"
                       >
                         legal
@@ -380,7 +380,7 @@ export const Header = (props) => {
                       <div>
                         <Link className="header__title-" to="/teirspayment3">
                           <span
-                            className="ib text-size-1 color-white-1- color-black-2 color-blue-1-"
+                            className="ib text-size-1 color-white-1 color-black-2- color-blue-1-"
                             title="Click to see plans, basic ($4.99/year stores up to 1,250 links), standard ($9.99/year stores up to 2,500 links) or premium ($14.99/year stores up to 5,000 links)"
                           >
                             plans
@@ -391,7 +391,7 @@ export const Header = (props) => {
                   {!inviewport && (
                     <div
                       id="scrolldownid"
-                      className="header__title- padding-top-11- cursor-pointer color-white-1- color-black-2 cursor-pointer nounderline"
+                      className="header__title- padding-top-11- cursor-pointer color-white-1 color-black-2- cursor-pointer nounderline"
                       onClick={scrolldown}
                       title="Click to scroll down to the search section"
                     >
@@ -402,7 +402,7 @@ export const Header = (props) => {
                   {!inviewport && (
                     <div
                       id="scrolldownid2"
-                      className="header__title- padding-top-11- cursor-pointer color-white-1- color-black-2 cursor-pointer nounderline"
+                      className="header__title- padding-top-11- cursor-pointer color-white-1 color-black-2- cursor-pointer nounderline"
                       onClick={scrolldown2}
                       title="Click to scroll down to the Add Link button"
                     >
@@ -417,7 +417,7 @@ export const Header = (props) => {
                       target="_blank"
                     >
                       <span
-                        className="ib- color-white-1- color-black-2 cursor-pointer"
+                        className="ib- color-white-1 color-black-2- cursor-pointer"
                         title="Click to see a list of educational ideas."
                       >
                         ideas
@@ -468,7 +468,7 @@ export const Header = (props) => {
                         to="/bookmarksmanager"
                       >
                         <span
-                          className="ib- color-white-1- color-black-2 cursor-pointer pointereventsauto"
+                          className="ib- color-white-1 color-black-2- cursor-pointer pointereventsauto"
                           ////className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
                           title="uploads bookmarks using downloaded browser bookmarks file"
                         >
@@ -484,7 +484,7 @@ export const Header = (props) => {
                         to="/bookmarksmanager"
                       >
                         <span
-                          className="ib- color-white-1- color-black-2 cursor-pointer pointereventsnone"
+                          className="ib- color-white-1 color-black-2- cursor-pointer pointereventsnone"
                           //className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
                           //title="uploads bookmarks using downloaded browser bookmarks file"
                           title="currently unavailable, please use Add Link."
@@ -507,7 +507,7 @@ export const Header = (props) => {
                     //    />
                     //  </div>
                     <div
-                      className="color-white-1- color-black-2 margin-right-1"
+                      className="color-white-1 color-black-2- margin-right-1"
                       title="Please use it for good. Bookmarks for internet pages, urls/links"
                     >
                       <Link
@@ -524,7 +524,7 @@ export const Header = (props) => {
                   {props.signup.signup === true ? (
                     <div className="margin-top-1111a-">
                       <button
-                        className="button button--link ib text-size-3- color-white-1- color-black-2 cursor-pointer"
+                        className="button button--link ib text-size-3- color-white-1 color-black-2- cursor-pointer"
                         onClick={logoutit}
                       >
                         logout
@@ -538,7 +538,7 @@ export const Header = (props) => {
                     <div className="margin-top-1111a-">
                       <button
                         title="delete account"
-                        className="button button--link ib text-size-3- color-white-1- color-black-2 cursor-pointer"
+                        className="button button--link ib text-size-3- color-white-1 color-black-2- cursor-pointer"
                         onClick={cancelsubscription}
                       >
                         delete

@@ -32,7 +32,7 @@ Are their people sharing the wonderful news of the Gospel of Jesus Christ? Are p
 
 Keep being friendly to everyone regardless of attitudes, body language and the words the person speaks.
 
- The most important thing you can do today is to call upon the name of Jesus Christ to save you; therefore, I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me. Please see God's Word, Acts 2;21, Romans 10:13." Be baptized, do good works.  Pray, talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you.
+The most important thing you can do today is to call upon the name of Jesus Christ to save you; therefore, I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me. Please see God's Word, Acts 2;21, Romans 10:13." Be baptized, do good works. Pray, talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you.
 
 I invite everybody to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you all.
 
@@ -96,59 +96,59 @@ an error occurred: 10002222, this error means Delete Account did not work
 ========================
 google cloud console billing account has username ttjohninvest@gmail.com, my firebase account has username johmcg64@gmail.com
 
-
-
-
 ========================
 firebase billing plan, expenses to use firebase storage (bookmark files upload expense) using the upload menu item, the bookmark file gets uploaded from firebase storage, no upload bookmarks file, no charge.
-     charges and they are separate:
-       firebase storage: to save and upload bookmark files, on spark plan storage does not work, on blaze plan works
-       realtime database: to store users and individual links per user, this works in spark plan
-       users per month: 3000 maximum before charges start
+charges and they are separate:
+firebase storage: to save and upload bookmark files, on spark plan storage does not work, on blaze plan works
+realtime database: to store users and individual links per user, this works in spark plan
+users per month: 3000 maximum before charges start
 
 prior plan: spark plan: it does not let me upload bookmarks files
 current plan: blaze plan, it does not let me upload bookmark files, so it does not allow filebase storage
-              blaze plan lets me upload bookmark files
-		          blaze plan when not turn off if the monthly budget is reached, charges will keep adding when bookmark files are uploaded so if a lot of people are uploading bookmark files, it will cost a lot of money.
-		          stop charges on blaze plan, give the class pointereventsnone to upload menu item or comment it out this is where the upload data charges are comming from.
-		   
+blaze plan lets me upload bookmark files
+blaze plan when not turn off if the monthly budget is reached, charges will keep adding when bookmark files are uploaded so if a lot of people are uploading bookmark files, it will cost a lot of money.
+stop charges on blaze plan, give the class pointereventsnone to upload menu item or comment it out this is where the upload data charges are comming from.
+  
 ========================
 todo to do
-for-church find it in netlify and put it in urilinks.com
-============
+
+# for-church find it in netlify and put it in urilinks.com
+
 firebase hosting, got to build locally but getting an error
 I left a message for Andrew Mead on udemy.com
 when trying to build the budget-app locally with npm run build:prod I get error
 
-Error: Cannot find module 'node:path'
-============
+# Error: Cannot find module 'node:path'
+
 put in an oktouploadbookmarks variable in redux and also store the value in the database per user because
- I have to limit costs with firebase storage because they are charging me for the number of bytes uploaded
- from their storage database. I have to charge for this link eventually.
+I have to limit costs with firebase storage because they are charging me for the number of bytes uploaded
+from their storage database. I have to charge for this link eventually.
 
 if possible on the signInWithPopup when I click to continue to urilinks-2f721.firebaseapp.com the user
 should see only john@urilinks.com
+
 ---
+
 cors fix
 gcloud storage buckets update gs://urilinks-2f721.firebasestorage.app --cors-file=cors.json
-firebase storage bucket problems: 
+firebase storage bucket problems:
 
-1) fix for access and fix for cors problem
-cors problem instructions: https://www.google.com/search?q=steps+to+fix+access+to+firebase+storage+bucket+has+been+blocked+by+cors+policy
+1. fix for access and fix for cors problem
+   cors problem instructions: https://www.google.com/search?q=steps+to+fix+access+to+firebase+storage+bucket+has+been+blocked+by+cors+policy
 
-2) fix for access problem:
-firebase project urilinks-2f721 default storage bucket rules
-rules_version = '2';
+2. fix for access problem:
+   firebase project urilinks-2f721 default storage bucket rules
+   rules_version = '2';
 
 // Craft rules based on data in your Firestore database
 // allow write: if firestore.get(
-//    /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
+// /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
 service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if false;
-    }
-  }
+match /b/{bucket}/o {
+match /{allPaths=\*\*} {
+allow read, write: if false;
+}
+}
 }
 
 firebase project urilinks-f2721 storage bucket rules changed to the same as see-my-index-project-7
@@ -156,34 +156,34 @@ rules_version = '2';
 
 // Craft rules based on data in your Firestore database
 // allow write: if firestore.get(
-//    /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
+// /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
 service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
+match /b/{bucket}/o {
+match /{allPaths=\*\*} {
+allow read, write: if request.auth != null;
+}
+}
 }
 
 firebase project urilinks-ft721 storage buckets rule that givea all users access to the storage bucket
 rules_version = '2';
 service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write;
-    }
-  }
-}   
+match /b/{bucket}/o {
+match /{allPaths=\*\*} {
+allow read, write;
+}
+}
+}
+
 ---
 
 ---
-do the steps Konstantin gave me to get custom domain assigned to authDomain to appear after to continue to in signInWithPopup dialog
----
-done, allow only me to upload bookmark files, others cannot so i can be on the blaze plan, others may only include one link at a time without using firebase storage
----
-separate charge needs to be included for the upload bookmarks menu item
----
 
+## do the steps Konstantin gave me to get custom domain assigned to authDomain to appear after to continue to in signInWithPopup dialog
+
+## done, allow only me to upload bookmark files, others cannot so i can be on the blaze plan, others may only include one link at a time without using firebase storage
+
+## separate charge needs to be included for the upload bookmarks menu item
 
 make an email entry so students can give me feedback answering the question: what would you like to achieve with this website?
 
@@ -1292,8 +1292,6 @@ compare mens underwear prices betwen macy's and nordstrom's
 urilinks-2f721 google cloud console setup links, next step custom domain
 https://console.cloud.google.com/auth/branding?project=urilinks-482605, currently showing on signInWithPopup urilinks-f2721, want to show just urilinks.com
 
-
-
 ==========================================================================================================
 google cloud console email addresses
 john@urilinks.com (owner of urilinks.com) this role has been assigned in google cloud console
@@ -1301,17 +1299,17 @@ johmcg64@gmail.com (owner of urilinks.com) this role has been assigned in google
 ttjohninvest@gmail.com
 
 ================================================================================================================
-custom domain, getting it on signInWithPopup:, I followed these steps to get urilinks-f2721 on it, as one of the steps I had to choose web application, that gave me the two fields I needed, the second one was the one with /__/auth/handler in the uri which is the one that goes to the top of signInWithPopup.
+custom domain, getting it on signInWithPopup:, I followed these steps to get urilinks-f2721 on it, as one of the steps I had to choose web application, that gave me the two fields I needed, the second one was the one with /\_\_/auth/handler in the uri which is the one that goes to the top of signInWithPopup.
 
-//firebase project settings has the values to initial firebase 
-    //1) has see-my-index-project-7.firebaseapp.com/__/auth/handler which is assigned in google cloud console identity platform client 2.0, the second one that has the __/auth/handler 
-    //2) firebase.google.com has authorized domains list and one of the them is see-my-index-project-7.firebaseapp.com
-    //3) heroku.com has config env variable values to initialize firebase which includes authDomain that is set to see-my-index-project-7.firebaseapp.com and this is used in call to firebase.initializeApp(config) in firebase.js to initialize firebase with the config set the see-my-index-project-7 project then setlect gear icon and scroll to the bottom of the page for the config structure
+//firebase project settings has the values to initial firebase
+//1) has see-my-index-project-7.firebaseapp.com/**/auth/handler which is assigned in google cloud console identity platform client 2.0, the second one that has the **/auth/handler
+//2) firebase.google.com has authorized domains list and one of the them is see-my-index-project-7.firebaseapp.com
+//3) heroku.com has config env variable values to initialize firebase which includes authDomain that is set to see-my-index-project-7.firebaseapp.com and this is used in call to firebase.initializeApp(config) in firebase.js to initialize firebase with the config set the see-my-index-project-7 project then setlect gear icon and scroll to the bottom of the page for the config structure
 
 Do I need to prove to firebase that I own a domain name?
- Yes, you need to prove to Firebase that you own a domain name when connecting a custom domain to Firebase Hosting.
- This is done by adding a TXT record to your domain's DNS settings, which serves as proof of ownership.
- The TXT record contains a unique verification value provided by Firebase, and it must be kept in your DNS settings to authorize Firebase to assign and renew SSL certificates for your site.
- This verification step is mandatory, especially if you are using a domain registrar other than Google Domains.
- Once the TXT record is added and propagated, you can verify ownership in the Firebase console.
+Yes, you need to prove to Firebase that you own a domain name when connecting a custom domain to Firebase Hosting.
+This is done by adding a TXT record to your domain's DNS settings, which serves as proof of ownership.
+The TXT record contains a unique verification value provided by Firebase, and it must be kept in your DNS settings to authorize Firebase to assign and renew SSL certificates for your site.
+This verification step is mandatory, especially if you are using a domain registrar other than Google Domains.
+Once the TXT record is added and propagated, you can verify ownership in the Firebase console.
 ==================================================================================================================

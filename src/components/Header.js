@@ -511,7 +511,7 @@ export const Header = (props) => {
                       title="Please use it for good. Bookmarks for internet pages, urls/links"
                     >
                       <Link
-                        className="nounderline color-white-1- color-black-2 cursor-pointer"
+                        className="nounderline color-white-1 color-black-2- cursor-pointer"
                         to="/signup"
                         title="The first 250 saved links are free. plan $4.99 stores up to 1500; plan $9.99 stores up to 2500;plan $14.99 stores up to 5000"
                       >

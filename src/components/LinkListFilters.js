@@ -440,7 +440,7 @@ function ExpandableArray(props) {
                       </div>
                     ) : (
                       <div>
-                        {props.signup === false && <span dangerouslySetInnerHTML={{ __html: `Mission: To lovingly invite you to Jesus Christ. Also, to provide this friendly platform to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different platforms of your choice.<br/><br/>`}}></span>}
+                        {props.signup === false && <span dangerouslySetInnerHTML={{ __html: `Mission: To lovingly invite you to Jesus Christ. Also, to provide this friendly platform<br /> to alphabetically save your links for revisitation and to provide one link for sharing your links<br /> with others on different platforms of your choice.<br/><br/>`}}></span>}
                         Clear values: Each link you save has note for data
                         entry; link notes, link texts
                         <br />

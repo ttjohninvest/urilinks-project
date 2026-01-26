@@ -381,6 +381,210 @@ hashtags=hashtags4
   };
 };
 
+export const startSetLinksNew = (uid) => {
+  console.log("startSetLinks");
+  return (dispatch, getState) => {
+    //dispatch(setLinks([]));
+    //const uid = getState().auth.uid;
+    const hashtags = [];
+
+      return database
+      .ref(`users/${uid}/links`)
+      .once("value")
+      .then((snapshot) => {
+        const links2 = [];
+
+       
+
+        //console.log("snapshot=" + JSON.stringify(snapshot));
+        snapshot.forEach((childSnapshot) => {
+          console.log("tt,childSnapshot="+JSON.stringify(childSnapshot))
+          console.log("tt,childSnapshot.key="+JSON.stringify(childSnapshot.key))
+          console.log("tt,childSnapshot.val()="+JSON.stringify(childSnapshot.val()))
+          links2.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val(),
+          });
+        });
+        //console.log("startSetLinks, about to call dispatch(setLinks(links));");
+        dispatch(setLinks(links2));
+
+         let hashtags = [];
+         const longnamesnowhitespace = []
+         const longnames = []
+         let x1=""
+         
+        //  let ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
+        //  let htc = "#christ#prayer#sermons#healings#churches#cathedrals#homilies#israel#nuns#priests#saints#angels#music#pictures#videos#movies#testimonies#pastors#deacons#christmas#easter#bible#salvation#maps#directions#convents#vatican#popes#god#father#donations#forgiveness#humility#services#disciples#mary#flowers#cardinals#blessings"
+        //  let h = ht+htc
+        let h = "#general"
+         x1 = extractHashtags(h);
+
+        //  let ht=""
+        //  let htc=""
+        //           if(isInOkArray(uid)===true)
+        //           //if(false)
+        //           {
+        //   ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
+        //     x1 = extractHashtags(ht);
+        //           }
+        //                 else {
+        //  htc="#christ#prayer#sermons#healings#churches#cathedrals#homilies#israel#nuns#priests#saints#angels#music#pictures#videos#movies#testimonies#pastors#deacons#christmas#easter#bible#salvation#maps#directions#convents#vatican#popes#god#father#donations#forgiveness#humility#services#disciples#mary#flowers#cardinals#blessings"
+                  
+        //  x1 = extractHashtags(htc);
+        //                 }
+          
+       
+         hashtags.push(...x1);
+
+         links2.forEach((link) => {
+          
+          x1 = extractHashtags(link.note);
+          hashtags.push(...x1);
+          
+
+          
+        });
+
+        let hashtags3 = []
+
+        hashtags.forEach((hashtag)=>{
+           
+          hashtags3.push(hashtag.trim().substring(1))
+           
+        })
+
+        let hashtags4 = []
+
+         hashtags3.forEach((hashtag)=>{
+
+           //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great 
+           let str2 = hashtag.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
+           let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //this removes the space so The Cat Is Great becomes TheCatIsGreat
+           let hashtagresult = '#'+cleaned //This produces #TheCatIsGreat
+           hashtags4.push(hashtagresult)
+           
+        })
+
+        //after the hash 
+       // let str2 
+
+    
+    // const cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //leave the showing characters in
+   
+
+    // const lc = cleaned
+   
+    // const hashtag = "#" + lc;
+
+    //     hashtags.forEach((hashtag)=>{
+    //        str2=hashtag.trim().replace(/(^|[^a-zA-Z0-9])([a-zA-Z])/g, (match, p1, p2) => p1 + p2.toUpperCase());
+           
+    //     })
+
+
+
+
+hashtags=hashtags4
+
+
+//console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
+
+        let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
+         hashTags2WithCount.sort((a, b) => {
+          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+          //return a.hashtag > b.hashtag ? 1 : -1;
+        });
+        // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        
+
+        let hashtags2 = removeDuplicates(hashtags);
+        hashtags2.sort((a, b) => {
+          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+          //return a > b ? 1 : -1;
+        });
+        
+        let hashtags3withcount=[]
+        let seenArray=[]
+
+        hashtags2.forEach((ht1)=>{
+          hashTags2WithCount.forEach((ht2)=>{
+                 if(!seen(ht1,seenArray) && (ht1===ht2.hashtag)) {
+                  seenArray.push(ht1)
+                  console.log("ZZZZZZZZZZZZZZZZ, seenArray="+JSON.stringify(seenArray))
+                  hashtags3withcount.push(ht2)
+                 }
+          })
+        })
+
+    dispatch(setHashTags(hashtags2));
+    
+        dispatch(setHashTags(hashtags3withcount));
+        dispatch(setHashTags2WithCount(hashTags2WithCount));
+      })
+      .catch((error) => console.log("error=" + error));
+
+//the following is another way and it said it is faster but it does not work
+//      database().ref(`users/${uid}/links`).on('value', (snapshot) => {
+//       const links2 = []
+//   snapshot.forEach((childSnapshot) => {
+//     // Push the child's value directly into your array
+//     //globalReduxArray.push(childSnapshot.val());
+//       links2.push({
+//             id: childSnapshot.key,
+//             ...childSnapshot.val(),
+//           });
+//   });
+// dispatch(setLinks(links2));
+
+// let hashtags = [];
+//          const longnamesnowhitespace = []
+//          const longnames = []
+
+//         //if(this.props.links.length>0) {
+//         links2.forEach((link) => {
+          
+//           let x1 = extractHashtags(link.note);
+//           hashtags.push(...x1);
+          
+
+          
+//         });
+// //console.log("PPPPPPPPPPPPPPPPPPPPPPPPPPPP, hashtags="+JSON.stringify(hashtags))
+//         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags)
+//          hashTags2WithCount.sort((a, b) => {
+//           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+//           //return a.hashtag > b.hashtag ? 1 : -1;
+//         });
+//         // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        
+
+//         let hashtags2 = removeDuplicates(hashtags);
+//         hashtags2.sort((a, b) => {
+//           return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+//           //return a > b ? 1 : -1;
+//         });
+        
+//         let hashtags3withcount=[]
+//         let seenArray=[]
+
+//         hashtags2.forEach((ht1)=>{
+//           hashTags2WithCount.forEach((ht2)=>{
+//                  if(!seen(ht1,seenArray) && (ht1===ht2.hashtag)) {
+//                   seenArray.push(ht1)
+//                   console.log("ZZZZZZZZZZZZZZZZ, seenArray="+JSON.stringify(seenArray))
+//                   hashtags3withcount.push(ht2)
+//                  }
+//           })
+//         })
+//         dispatch(setHashTags(hashtags3withcount));
+//         dispatch(setHashTags2WithCount(hashTags2WithCount));
+// }).catch((error) => console.log("error=" + error));
+
+  
+  };
+};
+
 
 export const startSetLinksAll = () => {
   return (dispatch, getState) => {

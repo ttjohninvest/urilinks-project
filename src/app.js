@@ -7,7 +7,7 @@ import setSignup from "./actions/signup";
 
 //import configureStore from "./store/configureStore";
 import store from "./store";
-import { startSetLinks, startAddLink } from "./actions/links";
+import { startSetLinks, startSetLinksNew, startAddLink } from "./actions/links";
 import { startSetLinks2 } from "./actions/links2";
 import { startSetPeople } from "./actions/people";
 //startSetGoogleUserData
@@ -163,7 +163,7 @@ if (signup !== "signup") {
       //   })).
       // then(()=>{
       store
-        .dispatch(startSetLinks(user.uid))
+        .dispatch(startSetLinksNew(user.uid))
         .then(() => {
           return store
             .dispatch(getTheplan())

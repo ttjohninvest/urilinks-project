@@ -185,7 +185,7 @@ function ExpandableArray(props) {
             Welcome to Saint John's urilinks.com for church, homeless, state, economic, entertainment links and their storage and retrieval
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
-            Lovingly, for people interested in Salvation, Jesus Christ and his Holy Church. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
+            Lovingly, for people interested in Salvation, Jesus Christ, Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
             I added links to this page to demo it to you. You may add your own links in your account.  You may save and retrieve holy faith, church prayer, sermons, saints, nuns,
             priests, catholic masses, music links (urls (uniform resource locators)) and other user defined state, economic or entertainment categories.
           </div>

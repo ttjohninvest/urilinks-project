@@ -186,7 +186,7 @@ function ExpandableArray(props) {
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
             Lovingly, for people interested in Salvation, Jesus Christ, His Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
-            I added links to this page to demo it to you. You may add your own links in your account.  You may save and retrieve holy faith, church prayer, sermons, saints, nuns,
+            I added links to this page to show it to you. Please feel free to browse and use any of the links. You may add your own links in your account.  You may save and retrieve holy faith, church prayer, sermons, saints, nuns,
             priests, catholic masses, music links (urls (uniform resource locators)) and other user defined state, economic or entertainment categories.
           </div>
         </div>
@@ -413,7 +413,7 @@ function ExpandableArray(props) {
                     {isMobile() === true ? (
                       <div className="padding-right-11 padding-bottom-118 lowercase">
                          {props.signup === false && <span dangerouslySetInnerHTML={{ __html: `Mission: To lovingly invite you to Jesus Christ. Also, to provide this friendly platform to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different platforms of your choice.<br/><br/>`}}></span>}
-                        Clear values: Each link you save has note for data
+                        Clear values: Each link you save has note space for data
                         entry; link notes, link texts and hastags are all
                         searchable; a sharable link for pasting to instagram
                         profile or other platorm for others is provided; also,

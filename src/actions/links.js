@@ -211,9 +211,10 @@ export const startSetLinks = (uid) => {
          const longnames = []
          let x1=""
          
+         let homelesslist = "#HomelessInAlaska#HomelessInAlabama#HomelessInArkansas#HomelessInAmericanSamoa#HomelessInArizona#HomelessInCalifornia#HomelessInColorado#HomelessInConnecticut#HomelessInDistrict of Columbia#HomelessInDelaware#HomelessInFlorida#HomelessInGeorgia#HomelessInGuam#HomelessInHawaii#HomelessInIowa#HomelessInIdaho#HomelessInIllinois#HomelessInIndiana#HomelessInKansas#HomelessInKentucky#HomelessInLouisiana#HomelessInMassachusetts#HomelessInMaryland#HomelessInMaine#HomelessInMichigan#HomelessInMinnesota#HomelessInMissouri#HomelessInMississippi#HomelessInMontana#HomelessInNorthCarolina#HomelessInNorthDakota#HomelessInNebraska#HomelessInNewHampshire#HomelessInNewJersey#HomelessInNewMexico#HomelessInNevada#HomelessInNewYork#HomelessInOhio#HomelessInOklahoma#HomelessInOregon#HomelessInPennsylvania#HomelessInPuerto Rico#HomelessInRhodeIsland#HomelessInSouthCarolina#HomelessInSouthDakota#HomelessInTennessee#HomelessInTexas#NorthernMarianaIslands#HomelessInUtah#HomelessInVirginia#HomelessInVirginIslands#HomelessInVermont#HomelessInWashington#HomelessInWisconsin#HomelessInWestVirginia#HomelessInWyoming"
          let ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
          let htc = "#christ#prayer#sermons#healings#churches#cathedrals#homilies#israel#nuns#priests#saints#angels#music#pictures#videos#movies#testimonies#pastors#deacons#christmas#easter#bible#salvation#maps#directions#convents#vatican#popes#god#father#donations#forgiveness#humility#services#disciples#mary#flowers#cardinals#blessings"
-         let h = ht+htc
+         let h = homelesslist+ht+htc
          x1 = extractHashtags(h);
 
         //  let ht=""

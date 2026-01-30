@@ -182,7 +182,7 @@ function ExpandableArray(props) {
             saved.
           </div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
-            Welcome to Saint John's urilinks.com for church, state, economic, entertainment links and their storage and retrieval
+            Welcome to Saint John's urilinks.com for church, homeless, state, economic, entertainment links and their storage and retrieval
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
             Lovingly, for people interested in Salvation, Jesus Christ and his Holy Church. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.

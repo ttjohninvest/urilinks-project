@@ -183,10 +183,10 @@ function ExpandableArray(props) {
             for whosoever shall call upon the name of Jesus Christ shall be
             saved. */}
             <ReadMore 
-            text = {`Wonderful message: The Holy Bible says in Acts 2:21 and Romans 10:13
+            text = {`Salvation: The Holy Bible says in Acts 2:21 and Romans 10:13
             for whosoever shall call upon the name of Jesus Christ shall be
             saved.`}
-            maxChars={19}
+            maxChars={11}
             />
           </div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">

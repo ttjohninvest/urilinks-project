@@ -5,7 +5,7 @@ const ReadMore = ({ text, maxChars = 150, readMoreText = 'Read More', readLessTe
   const hasReadMore = text.length > maxChars;
 
   return (
-    <>
+    <div>
       {isExpanded || !hasReadMore ? (
         <span>{text}</span>
       ) : (
@@ -19,7 +19,7 @@ const ReadMore = ({ text, maxChars = 150, readMoreText = 'Read More', readLessTe
           {isExpanded ? readLessText : readMoreText}
         </button>
       )}
-    </>
+    </div>
   );
 };
 

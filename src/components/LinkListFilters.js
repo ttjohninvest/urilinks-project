@@ -458,7 +458,7 @@ function ExpandableArray(props) {
                     ) : (
                       <div>
                         {props.signup === false && <span dangerouslySetInnerHTML={{ __html: `Mission: To lovingly invite you to Jesus Christ. Also, to provide this friendly platform<br /> to alphabetically save your links for revisitation and to provide one link for sharing your links<br /> with others on different platforms of your choice.<br/><br/>`}}></span>}
-                        Clear values: Each link you save has note for data
+                        {/* Clear values: Each link you save has note for data
                         entry; link notes, link texts
                         <br />
                         and hastags are all searchable; a sharable link for
@@ -472,7 +472,26 @@ function ExpandableArray(props) {
                         <br />
                         each link in the results is clickable for direct access
                         to web page. Freely login.
+                        <br /> */}
+                        <ReadMore text={`
+                          Clear values: Each link you save has note for data
+                        entry; link notes, link texts
+                        
+                        and hastags are all searchable; a sharable link for
+                        pasting to instagram profile
+                        
+                        or other platorm for others is provided; also, each link
+                        is sharable to facebook.com,
+                        
+                        linkedin.com and x.com; facebook.com messenger is
+                        available for communication;
                         <br />
+                        each link in the results is clickable for direct access
+                        to web page. Freely login.
+                        
+                          `} 
+                          maxChars={65}
+                          />
                       </div>
                       // <div>
                       //   You must be 13 years old or older to use this site (click

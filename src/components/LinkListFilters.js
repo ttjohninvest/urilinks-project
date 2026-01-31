@@ -185,16 +185,21 @@ function ExpandableArray(props) {
             text = {`Wonderful message: The Holy Bible says in Acts 2:21 and Romans 10:13
             for whosoever shall call upon the name of Jesus Christ shall be
             saved.`}
-            maxChars={50}
+            maxChars={19}
             />
           </div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
             Welcome to Saint John's urilinks.com for church, homeless, state, economic, entertainment links and their storage and retrieval
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
-            Lovingly, for people interested in Salvation, Jesus Christ, His Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
+            {/* Lovingly, for people interested in Salvation, Jesus Christ, His Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
             I added links to this page to show it to you. Please feel free to browse and use any of the links. You may add your own links in your account.  You may save and retrieve holy faith, church prayer, sermons, saints, nuns,
-            priests, catholic masses, music links (urls (uniform resource locators)) and other user defined state, economic or entertainment categories.
+            priests, catholic masses, music links (urls (uniform resource locators)) and other user defined state, economic or entertainment categories. */}
+            <ReadMore text={`Lovingly Invitation: for people interested in Salvation, Jesus Christ, His Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
+            I added links to this page to show it to you. Please feel free to browse and use any of the links. You may add your own links in your account.  You may save and retrieve holy faith, church prayer, sermons, saints, nuns,
+            priests, catholic masses, music links (urls (uniform resource locators)) and other user defined state, economic or entertainment categories.`}
+            maxChars={21}
+            />
           </div>
         </div>
       )}

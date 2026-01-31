@@ -189,7 +189,7 @@ function ExpandableArray(props) {
             maxChars={28}
             />
           </div>
-          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase underline">
+          <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase underline">
             Welcome to Saint John's urilinks.com for church, homeless, state, economic, entertainment links and their storage and retrieval
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase-">
@@ -206,7 +206,7 @@ function ExpandableArray(props) {
       )}
       {props.signup === true && (
         <div>
-          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
+          <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase">
             Welcome to Saint John's urilinks.com for church, 
             homeless, state, economic, entertainment links and their storage and retrieval
           </div>

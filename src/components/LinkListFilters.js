@@ -196,7 +196,7 @@ function ExpandableArray(props) {
             {/* Lovingly, for people interested in Salvation, Jesus Christ, His Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
             I added links to this page to show it to you. Please feel free to browse and use any of the links. You may add your own links in your account.  You may save and retrieve holy faith, church prayer, sermons, saints, nuns,
             priests, catholic masses, music links (urls (uniform resource locators)) and other user defined state, economic or entertainment categories. */}
-            <ReadMore text={`Lovingly Invitation: for people interested in Salvation, Jesus Christ, His Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
+            <ReadMore text={`Friendly Invitation: for people interested in Salvation, Jesus Christ, His Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
             I added links to this page to show it to you. Please feel free to browse and use any of the links. You may add your own links in your account.  You may save and retrieve holy faith, church prayer, sermons, saints, nuns,
             priests, catholic masses, music links (urls (uniform resource locators)) and other user defined state, economic or entertainment categories.`}
             maxChars={21}

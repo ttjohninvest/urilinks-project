@@ -427,15 +427,8 @@ function ExpandableArray(props) {
                       <div className="padding-right-11 padding-bottom-118 lowercase">
                          {props.signup === false && <span dangerouslySetInnerHTML={{ __html: `Mission: To lovingly invite you to Jesus Christ. Also, to provide this friendly platform to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different platforms of your choice, promoting worry free, and organized internet use.<br/><br/>`}}></span>}
                         
-                       <ReadMore text={`Clear values: Each link you save has note space for data
-                        entry; link notes, link texts and hastags are all
-                        searchable; a sharable link for pasting to instagram
-                        profile or other platorm for others is provided; also,
-                        each link is sharable to facebook.com, linkedin.com and
-                        x.com; facebook.com messenger is available for
-                        communication; each link in the results is clickable for
-                        direct access to web page. Freely login.`}
-                        maxChars={65}
+                       <ReadMore text={`Clear values: Each link you save has note space for data entry; link notes, link texts and hastags are all searchable; a sharable link for pasting to instagram profile or other platorm for others is provided; also, each link is sharable to facebook.com, linkedin.com and x.com; facebook.com messenger is available for communication; each link in the results is clickable for direct access to web page. Freely login.`}
+                        maxChars={64}
                         />
 
                         {/* You must be 13 years old or older to use this site (click

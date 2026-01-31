@@ -412,7 +412,7 @@ function ExpandableArray(props) {
                   <div className="text-size-1 flexrowzc">
                     {isMobile() === true ? (
                       <div className="padding-right-11 padding-bottom-118 lowercase">
-                         {props.signup === false && <span dangerouslySetInnerHTML={{ __html: `Mission: To lovingly invite you to Jesus Christ. Also, to provide this friendly platform to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different platforms of your choice.<br/><br/>`}}></span>}
+                         {props.signup === false && <span dangerouslySetInnerHTML={{ __html: `Mission: To lovingly invite you to Jesus Christ. Also, to provide this friendly platform to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different platforms of your choice, promoting worry free, and organized internet use.<br/><br/>`}}></span>}
                         Clear values: Each link you save has note space for data
                         entry; link notes, link texts and hastags are all
                         searchable; a sharable link for pasting to instagram

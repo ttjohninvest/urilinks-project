@@ -1,6 +1,7 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 
 import React, { useState, useRef, useEffect } from "react";
+import ReadMore from "./ReadMore"
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -177,9 +178,15 @@ function ExpandableArray(props) {
               height="50"
               alt="Logo"
             />
-            Wonderful message: The Holy Bible says in Acts 2:21 and Romans 10:13
+            {/* Wonderful message: The Holy Bible says in Acts 2:21 and Romans 10:13
             for whosoever shall call upon the name of Jesus Christ shall be
-            saved.
+            saved. */}
+            <ReadMore 
+            text = {`Wonderful message: The Holy Bible says in Acts 2:21 and Romans 10:13
+            for whosoever shall call upon the name of Jesus Christ shall be
+            saved.`}
+            maxChars={50}
+            />
           </div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
             Welcome to Saint John's urilinks.com for church, homeless, state, economic, entertainment links and their storage and retrieval

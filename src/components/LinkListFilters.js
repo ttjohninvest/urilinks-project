@@ -434,9 +434,9 @@ function ExpandableArray(props) {
                         x.com; facebook.com messenger is available for
                         communication; each link in the results is clickable for
                         direct access to web page. Freely login.`}
-                        maxChars={14}
+                        maxChars={65}
                         />
-                        
+
                         {/* You must be 13 years old or older to use this site (click
                       legal menu item). Parental permission is not reqired if
                       you are 18 years of age or older. This website may

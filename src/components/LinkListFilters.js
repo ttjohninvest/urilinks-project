@@ -192,7 +192,7 @@ function ExpandableArray(props) {
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
             Welcome to Saint John's urilinks.com for church, homeless, state, economic, entertainment links and their storage and retrieval
           </div>
-          <div className="margin-left-11 flexrowzc2 text-size-15  font-weigth-bold padding-all text-center uppercase-">
+          <div className="margin-left-11 flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase-">
             {/* Lovingly, for people interested in Salvation, Jesus Christ, His Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
             I added links to this page to show it to you. Please feel free to browse and use any of the links. You may add your own links in your account.  You may save and retrieve holy faith, church prayer, sermons, saints, nuns,
             priests, catholic masses, music links (urls (uniform resource locators)) and other user defined state, economic or entertainment categories. */}
@@ -479,7 +479,7 @@ function ExpandableArray(props) {
                         each link in the results is clickable for direct access
                         to web page. Freely login.
                           `} 
-                          maxChars={65}
+                          maxChars={64}
                           />
                       </div>
                       // <div>

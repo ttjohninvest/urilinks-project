@@ -168,8 +168,7 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      <iframe src="https://scribehow.com/embed/How_to_find_a_link_to_revisit_on_urilinkscom__UHzX95iiSEiYzvWWR4_qOA" width="800" height="679" allow="fullscreen" style="aspect-ratio: 1 / 1; border: 0; min-height: 480px"></iframe>
-      {/* <img src={signature} /> */}
+        {/* <img src={signature} /> */}
       {props.signup === false && (
         <div>
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">

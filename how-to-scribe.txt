@@ -1,0 +1,24 @@
+scribe.com is where these are stored
+usage: https://scribehow.com/viewer/How_to_use_urilinkscom__BbsiS-LxTRmNU9R65NwQ3g
+usage: <iframe src="https://scribehow.com/embed/How_to_use_urilinkscom__BbsiS-LxTRmNU9R65NwQ3g" width="800" height="679" allow="fullscreen" style="aspect-ratio: 1 / 1; border: 0; min-height: 480px"></iframe>
+
+legal: https://scribehow.com/viewer/Access_Urilinks_Terms_of_Service__Oz3yBRhlSTqv1hxAJN2Phg
+legal: 
+
+Search: https://scribehow.com/viewer/How_to_Search_for_Links_that_have_the_Music_Hashtag_Music_on_UriLinkscom__x1ZJTPXlSWyQm1IR8xBBEg
+Search: <iframe src="https://scribehow.com/embed/How_to_Search_for_Links_that_have_the_Music_Hashtag_Music_on_UriLinkscom__x1ZJTPXlSWyQm1IR8xBBEg?as=video" width="100%" height="800" allow="fullscreen" style="aspect-ratio: 16 / 12; border: 0; min-height: 480px"></iframe>
+
+Add Link: https://scribehow.com/viewer/How_to_Create_and_Save_a_Link_to_Urilinkscom__bdwSzGUHRaqeFIH40Yj0Rg
+Add Link: <iframe src="https://scribehow.com/embed/How_to_Create_and_Save_a_Link_to_Urilinkscom__bdwSzGUHRaqeFIH40Yj0Rg?as=video" width="100%" height="800" allow="fullscreen" style="aspect-ratio: 16 / 12; border: 0; min-height: 480px"></iframe>
+
+Ideas: https://scribehow.com/viewer/How_to_see_subjects_for_link_ideas_by_clicking_the_ideas_menu_item__MRbw8sXLSciJ-Jsr0myp3g
+Ideas: <iframe src="https://scribehow.com/embed/How_to_see_subjects_for_link_ideas_by_clicking_the_ideas_menu_item__MRbw8sXLSciJ-Jsr0myp3g?as=video" width="100%" height="800" allow="fullscreen" style="aspect-ratio: 16 / 12; border: 0; min-height: 480px"></iframe>
+
+Upload: https://scribehow.com/viewer/How_to_Export_your_Bookmarkhtml_file_and_Upload_it_to_urilinkscom__4aoB2jY0S9eqA-1AA_kRgg
+Upload: <iframe src="https://scribehow.com/embed/How_to_Export_your_Bookmarkhtml_file_and_Upload_it_to_urilinkscom__4aoB2jY0S9eqA-1AA_kRgg?as=video" width="100%" height="800" allow="fullscreen" style="aspect-ratio: 16 / 12; border: 0; min-height: 480px"></iframe>
+
+Logout: https://scribehow.com/viewer/How_to_Log_Out_of_UriLinks__fxxnKIziQoKaLwx2OC_31g
+Logout:
+
+Delete: https://scribehow.com/viewer/Delete_Links_on_UriLinks_Dashboard__TvgRvgzfS_KE1eFzOru52w
+Delete: 

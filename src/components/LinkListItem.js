@@ -837,12 +837,13 @@ const LinkListItem = (props) => {
               </div>
               {props.signup.signup===true && <div className="flexrow2w">
                 <MayDoInGoogleDocument />
+                <CalendarGoogle />
                 <FBShareButton url={props.Url} />
 
                 <MessengerButton />
                 <LinkedInShareButton url={props.Url} />
                 {/* <AddToAny /> */}
-                <CalendarGoogle />
+                
                 <XShareButton url={props.Url} />
                 <MapQuestButton />
                 <AlarmClockButton />

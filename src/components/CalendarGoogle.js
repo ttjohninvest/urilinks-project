@@ -14,7 +14,7 @@ class CalendarGoogle extends React.Component{
     return(
       <div className="margin-top-115 margin-right-115">
        <a href="https://calendar.google.com/calendar/u/0/r" target="_blank" >
-       <img className="x__image" src="/images/calendar-google.png" alt="google calendar" title="opens google calendar" target="_blank" />
+       <img className="x__image-gc" src="/images/calendar-google.png" alt="google calendar" title="opens google calendar" target="_blank" />
        </a>
          </div>
     )

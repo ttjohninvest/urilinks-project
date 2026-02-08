@@ -187,7 +187,7 @@ function ExpandableArray(props) {
             text = {`Hope for Eternal Life, Salvation In No Other Name: The Holy Bible says in Acts 2:21 and Romans 10:13
             for whosoever shall call upon the name of Jesus Christ shall be
             saved.`}
-            maxChars={34}
+            maxChars={51}
             />
           </div>
           <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase underline">

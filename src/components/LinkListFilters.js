@@ -184,7 +184,7 @@ function ExpandableArray(props) {
             for whosoever shall call upon the name of Jesus Christ shall be
             saved. */}
             <ReadMore 
-            text = {`Hope, Salvation In No Other Name: The Holy Bible says in Acts 2:21 and Romans 10:13
+            text = {`Hope for Eternal Life, Salvation In No Other Name: The Holy Bible says in Acts 2:21 and Romans 10:13
             for whosoever shall call upon the name of Jesus Christ shall be
             saved.`}
             maxChars={34}

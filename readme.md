@@ -41,7 +41,7 @@ Holy God alone is enough
 
 The most important thing you can do today is to call upon the name of Jesus Christ to save you; therefore, I invite you to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me. Please see God's Word, Acts 2;21, Romans 10:13." Be baptized, do good works. Pray, talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you.
 
-I invite everybody to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you all.
+I invite everybody to begin your journey with Jesus Christ, please say "I call upon the name of Jesus Christ to save me." Be baptized, do good works. Talk to Jesus about your life. Forgive everybody. Ask for forgiveness. Live the Gospel of Jesus Christ. The goal is to approach people with humility. The greatest is the one that serves. I love you all.
 
 Just before I got to witness List All Links to work "These are the Days Cannon ball" came into me thoughts. Thank you Jesus Christ.
 I heard a really beautiful sounding voice say "wake up truth o mandolin the time has come"

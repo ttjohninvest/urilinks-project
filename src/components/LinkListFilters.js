@@ -40,6 +40,7 @@ function ExpandableArray(props) {
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
+  const id = params.get("id");
 
   let x = false;
   if (window.localStorage.getItem("hideinformation") === null) {
@@ -427,7 +428,8 @@ function ExpandableArray(props) {
                       <div className="padding-right-11 padding-bottom-118 lowercase">
                          {
                          //props.signup === false && 
-                         props.signup !== 0 && <span dangerouslySetInnerHTML={{ __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different websites like email of your choice, promoting worry free, and organized internet use.<br/><br/>`}}></span>}
+                         //props.signup !== 0 
+                         id !== undefined && <span dangerouslySetInnerHTML={{ __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different websites like email of your choice, promoting worry free, and organized internet use.<br/><br/>`}}></span>}
                         
                        <ReadMore text={`Clear values: Each link you save has note space for data entry; link notes, link texts and hastags are all searchable; a sharable link for pasting to instagram profile or other platorm for others is provided; also, each link is sharable to facebook.com, linkedin.com and x.com; facebook.com messenger is available for communication; each link in the results is clickable for direct access to web page. Freely login.`}
                         maxChars={64}
@@ -456,7 +458,8 @@ function ExpandableArray(props) {
                         {//props.signup === false  
                         
                         //&& 
-                        props.signup !== 0 && <span dangerouslySetInnerHTML={{ __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save<br /> your links for revisitation and to provide one link for sharing your links<br /> with others on different websites like email of your choice.<br/><br/>`}}></span>}
+                        //props.signup !== 0 
+                        id !== undefined && <span dangerouslySetInnerHTML={{ __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save<br /> your links for revisitation and to provide one link for sharing your links<br /> with others on different websites like email of your choice.<br/><br/>`}}></span>}
                         {/* Clear values: Each link you save has note for data
                         entry; link notes, link texts
                         <br />

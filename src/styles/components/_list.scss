@@ -1347,3 +1347,20 @@ font-family: monospace;
 .thumbnail:hover {
   transform: scale(2.0);
 }
+
+ .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+  }
+
+  .active {
+    background: #e5e5e5;
+ }
+
+ .material-icons {
+    color: rgb(100, 100, 100);
+    padding: 0 7px;
+    cursor: pointer;
+  }
+

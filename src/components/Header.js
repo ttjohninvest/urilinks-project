@@ -253,7 +253,10 @@ export const Header = (props) => {
                           height="35"
                           alt="Logo"
                         />
-
+                        <a class="nav-link active">
+      <i class="material-icons">home</i>
+      <span>Home</span>
+   </a>
                         <h3 className="color-white-1">urilinks</h3>
                         {/* <img
                       className=""

@@ -191,7 +191,7 @@ function ExpandableArray(props) {
             />
           </div>
           <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase underline">
-            Welcome to Saint John's urilinks.com for church, homeless, state, economic, entertainment links and their storage and retrieval
+            Welcome to Saint John's urilinks.com to help people, for church, homeless, state, economic, entertainment links and their storage and retrieval
           </div>
           <div className="margin-left-11 flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase-">
             {/* Lovingly, for people interested in Salvation, Jesus Christ, His Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
@@ -208,7 +208,7 @@ function ExpandableArray(props) {
       {props.signup === true && (
         <div>
           <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase">
-            Welcome to Saint John's urilinks.com for church, 
+            Welcome to Saint John's urilinks.com to help people, for church, 
             homeless, state, economic, entertainment links and their storage and retrieval
           </div>
         </div>

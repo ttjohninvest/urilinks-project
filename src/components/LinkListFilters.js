@@ -205,6 +205,33 @@ function ExpandableArray(props) {
           
            <div className="border2black sticky-div">
        {/* column b */}
+
+         <div className="margin-left-11-">
+                <div className="margin-left-minus-1">
+                  <span>
+                    {props.links.length} of {maximum} links is stored on the{" "}
+                    {props.theplan.plan.replace(/"/g, "")}{" "}
+                    {`plan. ${
+                      props.links.length > 100 ? 100 : props.links.length
+                    } are displayed.`}
+                  </span>
+                </div>
+                <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">
+                  <span className="font-weight-bold uppercase-">
+                    ALPHABETICAL INDEX (click a button and see results)
+                  </span>
+                </div>
+                <div className="flexrow3c">
+                  <Link className="header__title" to="/teirspayment3">
+                    <span
+                      className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
+                      title="click for plan options"
+                    >
+                     
+                    </span>
+                  </Link>
+                </div>
+              </div>
        
        <div className="containerhs-">
             <div
@@ -853,8 +880,8 @@ function ExpandableArray(props) {
                   props.signup === false && ""
                 }
               </div>
-             {/*here here */}
-              <div className="margin-left-11-">
+             
+              {/* <div className="margin-left-11-">
                 <div className="margin-left-minus-1">
                   <span>
                     {props.links.length} of {maximum} links is stored on the{" "}
@@ -875,19 +902,11 @@ function ExpandableArray(props) {
                       className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
                       title="click for plan options"
                     >
-                      {/* {
-                        //isToggled &&
-
-                        props.signup === true &&
-                          props.theplan.plan.replace(/"/g, "") !==
-                            "premium" && <div className="margin-bottom-1">(click to change plan)</div>
-                      }
-
-                      {isToggled && props.signup === false && <span></span>} */}
+                     
                     </span>
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

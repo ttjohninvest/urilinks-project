@@ -1512,7 +1512,7 @@ export class LinkListFilters extends React.Component {
         behavior: "smooth",
       });
 
-      this.props.rerender()
+      this.props.rerenderit()
   };
 
   refreshIt = () => {

@@ -957,14 +957,14 @@ function ExpandableArray(props) {
               </span>
             </div> */}
 
-            <div className="flexrow3c">
+            {/* <div className="flexrow3c">
               <Link className="header__title" to="/teirspayment3">
                 <span
                   className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
                   title="click for plan options"
                 ></span>
               </Link>
-            </div>
+            </div> */}
           </div>
           <div>
             <LinkList av={props.av} />

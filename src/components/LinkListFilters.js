@@ -38,6 +38,7 @@ function ExpandableArray(props) {
   const [photoURL, setPhotoURL] = useState("");
   const [maximum, setMaximum] = useState(0);
   const [gmail, setGmail] = useState("");
+  const [searchTerm, setSearchTerm] = useState("")
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -166,6 +167,77 @@ function ExpandableArray(props) {
       return sentence;
     }
     return "";
+  };
+
+   const handleSearch=()=>{
+    // Perform the search action here
+    //console.log('Searching for:', this.state.searchTerm);
+    // Example: this.props.onSearch(this.state.searchTerm);
+
+    var select = document.getElementById("mode");
+    var selectedValue = select.options[select.selectedIndex].value;
+    console.log("handleSearch search, selectedValue=" + selectedValue);
+    let term = window.document.getElementById("termid").value;
+    let str = term.trim();
+    term = str;
+    if (selectedValue === "hashtag") {
+      const words = term.split(/\s+/); // Split by one or more whitespace characters
+
+      if (term.charAt(0) !== "#") {
+        alert("The search term needs to be a hashtag.");
+        return;
+      }
+      if (words.length !== 1) {
+        alert("The search term needs to be one word.");
+        return;
+      }
+    }
+    //alert (term)
+    props.setTextFilter(term);
+  }
+
+    const handleKeyPress = (event) => {
+    
+     if (e.key === "Enter") {
+      handleSearch();
+    }
+  }
+
+  const search = () => {
+    console.log("search");
+    //const sortBy = window.localStorage.getItem("sortBy");
+    var select = document.getElementById("mode");
+
+    //var selectedValue = select.options[select.selectedIndex].value;
+    var selectedValue;
+    if (window.localStorage.getItem("sortBy") !== "")
+      selectedValue = window.localStorage.getItem("sortBy");
+    else selectedValue = select.options[select.selectedIndex].value;
+    console.log("search = () => {, selectedValue=" + selectedValue);
+    let term = window.document.getElementById("termid").value.trim();
+    window.localStorage.setItem("termid", term);
+    props.setTextFilter(term);
+
+    if (
+      selectedValue === "hashtag" &&
+      // && sortBy === "hashtag"
+      //props.filters.sortBy === "hashtag"
+      sortBy === "hashtag"
+    ) {
+      if (term !== "" && term.charAt(0) !== "#") {
+        alert("The search term needs to be a hashtag.");
+        return;
+      }
+
+      if (term === "") {
+        window.document.getElementById("termid").value = "#";
+        window.localStorage.setItem("termid", "#");
+        props.setTextFilter("#");
+      } else {
+        window.localStorage.setItem("termid", term);
+        props.setTextFilter(term);
+      }
+    }
   };
 
   return (
@@ -668,8 +740,9 @@ function ExpandableArray(props) {
                 className="text-input responsive-input outline-none padding-left-11 borderRadius55"
                 type="text"
                 //value={this.state.dv}
-                onChange={(e) => this.setState({ searchTerm: e.target.value })}
-                onKeyDown={this.handleKeyPress}
+                //onChange={(e) => this.setState({ searchTerm: e.target.value })}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={handleKeyPress}
               />
             </div>
 
@@ -684,7 +757,8 @@ function ExpandableArray(props) {
                 className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
                 //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
-                onClick={this.search}
+                //onClick={this.search}
+                onClick={search}
                 //title="Searches to find entered term through the previously selected list which will appear in copper color."
                 title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
               >
@@ -1225,6 +1299,8 @@ export class LinkListFilters extends React.Component {
                 uid={this.props.auth.uid}
                 links={this.props.links}
                 b={this.props.b}
+                setTextFilter={this.props.setTextFilter}
+                sortBy={this.props.filters.sortBy}
               />
             </div>
           )}

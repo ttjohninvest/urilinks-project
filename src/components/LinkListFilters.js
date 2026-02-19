@@ -310,7 +310,7 @@ function ExpandableArray(props) {
                 </div> */}
 
                 <div className="width30p theHeight flexrowzc2">
-                  categories
+                  category buttons
                 </div>
 
             <div className="border2black sticky-div-">
@@ -951,11 +951,11 @@ function ExpandableArray(props) {
           </div>
         </div>
 
- <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">
+            {/* <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111- margin-bottom-5">
               <span className="font-weight-bold uppercase-">
-                ALPHABETICAL INDEX (click a button and see results)
+                ALPHABETICAL LIST
               </span>
-            </div>
+            </div> */}
 
             <div className="flexrow3c">
               <Link className="header__title" to="/teirspayment3">

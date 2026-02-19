@@ -784,6 +784,95 @@ function ExpandableArray(props) {
               </span>
             </div>
 
+             {/* <div
+          id="before-before-link-summary-id"
+          className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
+        >
+          <div className="flexrowzv">
+            <div className="margin-left-11">
+              <input
+                title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
+                placeholder="type/paste what to find?"
+                autoFocus
+                id="termid"
+                className="text-input responsive-input outline-none padding-left-11 borderRadius55"
+                type="text"
+                //value={this.state.dv}
+                //onChange={(e) => this.setState({ searchTerm: e.target.value })}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={handleKeyPress}
+              />
+            </div>
+
+            <div
+              //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
+              className={`${
+                isMobile() ? "margin-right-1" : "margin-left-11"
+              }`}
+            >
+              <button
+                id="buttonid"
+                className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
+                //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
+
+                //onClick={this.search}
+                onClick={search}
+                //title="Searches to find entered term through the previously selected list which will appear in copper color."
+                title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
+              >
+                search
+              </button>
+            </div>
+
+            <div
+              className={`${
+                isMobile()
+                  ? "margin-top-11z1 margin-left-11"
+                  : "margin-left-11"
+              }`}
+            >
+              <select
+                id="mode"
+                className="select outline-none"
+                //value={this.state.sortBy}
+                value={sortBy}
+                //value={this.props.filters.sortBy}
+                //value={window.localStorage.getItem("sortBy")}
+
+                onChange={onSortChange}
+                title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
+              >
+                <option value="hashtag" title="search by hash tag">
+                  Hash Tag
+                </option>
+
+                <option
+                  //selected
+                  value="description"
+                  title="search through the uri/url link texts"
+                >
+                  Link Text
+                </option>
+
+                <option value="notetext" title="search through the notes">
+                  Note Text
+                </option>
+              </select>
+            </div>
+          </div>
+        </div> */}
+
+            <div>
+              {props.b === 1 && (
+                <button
+                  className="button-mq button-2- button--link color-black"
+                  onClick={toggleExpanded}
+                >
+                  {expanded ? "Show Less" : "Show More"}
+                </button>
+              )}
+            </div>
+
              <div
           id="before-before-link-summary-id"
           className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
@@ -861,17 +950,6 @@ function ExpandableArray(props) {
             </div>
           </div>
         </div>
-
-            <div>
-              {props.b === 1 && (
-                <button
-                  className="button-mq button-2- button--link color-black"
-                  onClick={toggleExpanded}
-                >
-                  {expanded ? "Show Less" : "Show More"}
-                </button>
-              )}
-            </div>
 
             <div className="flexrow3c">
               <Link className="header__title" to="/teirspayment3">

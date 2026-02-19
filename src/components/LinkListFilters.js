@@ -174,7 +174,7 @@ function ExpandableArray(props) {
         {/* <img src={signature} /> */}
       {props.signup === false && (
         <div className="">
-          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
+          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
             {/* <img
               className="ib minWidth"
               src={redarrow}
@@ -208,7 +208,7 @@ function ExpandableArray(props) {
 
          
        
-       <div className="containerhs- scrollable-divq">
+       <div className="containerhs-">
             <div
               ref={props.ref1}
               className={`${

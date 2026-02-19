@@ -179,8 +179,8 @@ function ExpandableArray(props) {
            
                 </div> */}
 
-                <div className="width30p theHeight">
-           
+                <div className="width30p theHeight flexrowzc2">
+                  categories
                 </div>
 
             <div className="border2black sticky-div-">

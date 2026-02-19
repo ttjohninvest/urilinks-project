@@ -309,6 +309,7 @@ function ExpandableArray(props) {
            
                 </div> */}
 
+<div className="border-right-5">
                 <div className="website-background-color width30p theHeight flexrowzc2 border-b-5 margin-left-n-19" title="click a button">
                   categories
                 </div>
@@ -322,6 +323,7 @@ function ExpandableArray(props) {
                   {expanded ? "Show Less" : "Show More"}
                 </button>
               )}
+            </div>
             </div>
 
             <div className="border2black- border-right-5 sticky-div-">

@@ -236,6 +236,11 @@ input#option1[type="radio"] {
   margin-top: 0;
 }
 
+.scrollable-container {
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
 .minwidth {
   min-width: 100px;
 }

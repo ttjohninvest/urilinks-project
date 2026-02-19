@@ -211,7 +211,7 @@ function ExpandableArray(props) {
            <div className="border2black">
        {/* column b */}
        
-       <div className="containerhs-">
+       <div className="containerhs- scrollable-container">
             <div
               ref={props.ref1}
               className={`${

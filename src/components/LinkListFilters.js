@@ -176,7 +176,7 @@ function ExpandableArray(props) {
       //props.signup === false &&
       
       (
-        <div className="width30p-  scrollable-div">
+        <div className="width30p  scrollable-div">
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
           </div>

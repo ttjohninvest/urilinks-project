@@ -282,7 +282,8 @@ input#option1[type="radio"] {
 }
 
 .width30p {
-  width:30%;
+  //width:30%;
+  min-width:300px;
 }
 .width70p {
   width:60%;

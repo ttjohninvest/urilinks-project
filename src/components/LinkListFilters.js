@@ -208,7 +208,7 @@ function ExpandableArray(props) {
 
          
        
-       <div className="containerhs-">
+       <div className="containerhs- scrollable-divq">
             <div
               ref={props.ref1}
               className={`${

@@ -815,7 +815,7 @@ function ExpandableArray(props) {
             </div>
           </div>
 
-          <div className="containerhs">
+          {/* <div className="containerhs">
             <div
               ref={props.ref1}
               className={`${
@@ -852,11 +852,7 @@ function ExpandableArray(props) {
                             //title={props.signup === true?${s.hashtag}, click to scroll to results:
                           >
                             {sep(s.hashtag)}
-                            {/* {"#"}
-                          <span className={`{${highlight(s.hashtag[1])}}`}>
-                            {s.hashtag[1]}
-                          </span>
-                          {s.hashtag.substring(2)} */}
+                          
                           </a>
                         </div>
                       );
@@ -885,11 +881,7 @@ function ExpandableArray(props) {
                           }, click to scroll to results`}
                         >
                           {sep(s.hashtag)}
-                          {/* {"#"}
-                        <span className={highlight(s.hashtag[1])}>
-                          {s.hashtag[1]}
-                        </span>
-                        {s.hashtag.substring(2)} */}
+                          
                         </a>
                       </div>
                     );
@@ -899,7 +891,7 @@ function ExpandableArray(props) {
                 <span className="text-size-5">...</span>
               )}
             </div>
-          </div>
+          </div> */}
           {props.b === 1 && (
             <button
               className="button-m button--link color-black"
@@ -912,9 +904,86 @@ function ExpandableArray(props) {
       ) : (
         <div></div>
       )}
-      {/* <div className="border2black">
-       column b
-        </div> */}
+      <div className="border2black">
+       {/* column b */}
+       <div className="containerhs">
+            <div
+              ref={props.ref1}
+              className={`${
+                newspaper === false
+                  ? "grid-container5"
+                  : "grid-container5-newspaper"
+              } paddingparent margin-top-1 background-white-1 borderradius5`}
+              title={
+                props.signup === true
+                  ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
+                  : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
+              }
+            >
+              {!expanded
+                ? //props.b === 1 &&
+                  props.mappedDataShort.map((s, index) => {
+                    if (index < 50)
+                      return (
+                        <div
+                          key={index}
+                          className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                        >
+                          <a
+                            className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
+                              props.b == 1
+                                ? "pointereventsauto"
+                                : "pointereventsnone"
+                            }`}
+                            href="#"
+                            onClick={() => props.setit(s.hashtag, event)}
+                            title={`${sep(s.hashtag)}, hashtag: ${
+                              !!s.hashtag && s.hashtag
+                            }, click to scroll to results`}
+                            //title={props.signup === true?${s.hashtag}, click to scroll to results:
+                          >
+                            {sep(s.hashtag)}
+                          
+                          </a>
+                        </div>
+                      );
+                    else return false;
+                  })
+                : //props.b === 1 &&
+                  props.mappedDataShort.map((s, index) => {
+                    //have 3 map calls and display the first column then the second column and then the thrid column
+                    return (
+                      <div
+                        key={index}
+                        className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                      >
+                        <a
+                          className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
+                            false && "border6"
+                          } ${
+                            props.b == 1
+                              ? "pointereventsauto"
+                              : "pointereventsnone"
+                          }`}
+                          href="#"
+                          onClick={() => props.setit(s.hashtag, event)}
+                          title={`${sep(s.hashtag)}, hashtag: ${
+                            !!s.hashtag && s.hashtag
+                          }, click to scroll to results`}
+                        >
+                          {sep(s.hashtag)}
+                          
+                        </a>
+                      </div>
+                    );
+                  })}
+
+              {props.mappedDataShort.length > 50 && !expanded && (
+                <span className="text-size-5">...</span>
+              )}
+            </div>
+          </div>
+        </div>
     </div>
   );
 }

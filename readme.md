@@ -119,6 +119,7 @@ stop charges on blaze plan, give the class pointereventsnone to upload menu item
 ========================
 todo to do
 set it from 11 to 1500 4.99 per year
+do this update: https://mail.google.com/mail/u/1/#inbox/FMfcgzQfBsmNsrWgdxPbHphtPSshJqSD
 
 # for-church find it in netlify and put it in urilinks.com
 

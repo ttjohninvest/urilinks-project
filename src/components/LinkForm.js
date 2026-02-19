@@ -273,6 +273,7 @@ class LinkForm extends React.Component {
           className="text-input"
           value={this.state.Url}
           onChange={this.onUrlChange}
+          maxlength="2048"
         />
         {/* <input
           type="text"
@@ -296,7 +297,7 @@ class LinkForm extends React.Component {
           value={this.state.note}
           onChange={this.onNoteChange}
           maxlength={
-            this.props.theplan.plan.replace(/"/g, "") === "free" ? 1048 : 2300
+            this.props.theplan.plan.replace(/"/g, "") === "free" ? 2048 : 2048
           } //"2300"
         ></textarea>
         <div>

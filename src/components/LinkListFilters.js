@@ -198,7 +198,7 @@ function ExpandableArray(props) {
 
     const handleKeyPress = (event) => {
     
-     if (e.key === "Enter") {
+     if (event.key === "Enter") {
       handleSearch();
     }
   }
@@ -237,6 +237,57 @@ function ExpandableArray(props) {
         window.localStorage.setItem("termid", term);
         props.setTextFilter(term);
       }
+    }
+  };
+
+   const onSortChange = (e) => {
+    if (e.target.value === "none") return;
+
+    const val = window.document.getElementById("termid").value.trim();
+    //window.localStorage.setItem("termid", val);
+    console.log("onSortChange=(), search term=, val=" + val);
+    if (e.target.value === "description") {
+      window.localStorage.setItem("sortBy", "description");
+      props.setTextFilter(val);
+      if (this.myRef.current) this.myRef.current.focus();
+      //this.setState({ sortBy: "description" });
+      setSortBy("description")
+      props.sortByDescription();
+      //this.setState({ sortBy: "description" });
+    } else if (e.target.value === "hashtag") {
+      window.localStorage.setItem("sortBy", "hashtag");
+      if (val !== "" && val.charAt(0) !== "#") {
+        alert("The search term needs to be a hashtag.");
+        return;
+      }
+
+      if (val === "") {
+        //window.document.getElementById("termid").value = "#"
+        props.setTextFilter("#");
+        //window.localStorage.setItem("termid", "#");
+      } else {
+        //window.localStorage.setItem("termid", val);
+        props.setTextFilter(val);
+      }
+      if (this.myRef.current) this.myRef.current.focus();
+      //this.props.setTextFilter("#");
+
+      //window.localStorage.setItem("sortBy", "hashtag");
+      //this.setState({ sortBy: "hashtag" });
+      setSortBy("hashtag")
+      
+      props.sortByHashTag();
+      //this.setState({ sortBy: "hashtag" });
+    } else if (e.target.value === "notetext") {
+      window.localStorage.setItem("sortBy", "notetext");
+      if (this.myRef.current) this.myRef.current.focus();
+      //this.props.setTextFilter("");
+      props.setTextFilter(val);
+      //window.localStorage.setItem("sortBy", "notetext");
+      //this.setState({ sortBy: "notetext" });
+      setSortBy("notetext")
+      props.sortByNoteText();
+      //this.setState({ sortBy: "notetext" });
     }
   };
 
@@ -776,11 +827,12 @@ function ExpandableArray(props) {
               <select
                 id="mode"
                 className="select outline-none"
+                //value={this.state.sortBy}
                 value={this.state.sortBy}
                 //value={this.props.filters.sortBy}
                 //value={window.localStorage.getItem("sortBy")}
 
-                onChange={this.onSortChange}
+                onChange={onSortChange}
                 title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
               >
                 <option value="hashtag" title="search by hash tag">
@@ -1300,6 +1352,9 @@ export class LinkListFilters extends React.Component {
                 links={this.props.links}
                 b={this.props.b}
                 setTextFilter={this.props.setTextFilter}
+                sortByDescription={this.props.sortByDescription}
+                sortByHashTag={this.props.sortByHashTag}
+                sortByNoteText={this.props.sortByNoteText}
                 sortBy={this.props.filters.sortBy}
               />
             </div>

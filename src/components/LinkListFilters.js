@@ -204,7 +204,7 @@ function ExpandableArray(props) {
                       return (
                         <div
                           key={index}
-                          className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                          className="b1x- item-newspaper- padding-all- text-size-5 element5- scrollable-div"
                         >
                           <a
                             className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
@@ -232,7 +232,7 @@ function ExpandableArray(props) {
                     return (
                       <div
                         key={index}
-                        className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                        className="b1x- item-newspaper- padding-all- text-size-5 element5-  scrollable-div"
                       >
                         <a
                           className={`b1x- b1xw nounderline color-white-1 button-link-4 ${

@@ -979,7 +979,7 @@ function ExpandableArray(props) {
               </Link>
             </div> */}
           </div>
-          <div className="margin-top-29">
+          <div className="margin-top-18">
             <LinkList av={props.av} />
           </div>
         </div>

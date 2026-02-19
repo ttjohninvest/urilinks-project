@@ -203,7 +203,7 @@ function ExpandableArray(props) {
             
           </div> */}
           
-           <div className="border2black sticky-div">
+           <div className="border2black sticky-div-">
        {/* column b */}
 
          

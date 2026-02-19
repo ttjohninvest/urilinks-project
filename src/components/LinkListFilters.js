@@ -313,6 +313,17 @@ function ExpandableArray(props) {
                   category buttons
                 </div>
 
+                 <div>
+              {props.b === 1 && (
+                <button
+                  className="button-mq button-2- button--link color-black margin-left-n-1"
+                  onClick={toggleExpanded}
+                >
+                  {expanded ? "Show Less" : "Show More"}
+                </button>
+              )}
+            </div>
+
             <div className="border2black sticky-div-">
               <div className="containerhs-">
                 <div
@@ -862,7 +873,7 @@ function ExpandableArray(props) {
           </div>
         </div> */}
 
-            <div>
+            {/* <div>
               {props.b === 1 && (
                 <button
                   className="button-mq button-2- button--link color-black margin-left-n-1"
@@ -871,7 +882,7 @@ function ExpandableArray(props) {
                   {expanded ? "Show Less" : "Show More"}
                 </button>
               )}
-            </div>
+            </div> */}
 
              <div
           id="before-before-link-summary-id"

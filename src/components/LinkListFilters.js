@@ -170,10 +170,10 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      <div className="flexrowzui- containerui">
+      <div className="flexrowztt containerui-">
         
       {props.signup === false && (
-        <div className="">
+        <div className="width30p">
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
           </div>
@@ -322,7 +322,7 @@ function ExpandableArray(props) {
       )} */}
 
       {props.mappedDataShort.length > 0 ? (
-        <div className="">
+        <div className="width70p">
           <div
             className="flexrow2c padding-left-a borderRadius4"
            

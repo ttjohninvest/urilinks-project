@@ -164,10 +164,9 @@
   flex-direction: row;
 }
 
-.flexrowzui {
+.flexrowztt {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
 }
 
 .flexrowzv {
@@ -280,6 +279,13 @@ input#option1[type="radio"] {
 
 .width100 {
   width:100%;
+}
+
+.width30p {
+  width:30%;
+}
+.width70p {
+  width:60%;
 }
 
 .aw {

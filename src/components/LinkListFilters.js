@@ -906,13 +906,13 @@ function ExpandableArray(props) {
       )}
       <div className="border2black">
        {/* column b */}
-       <div className="containerhs">
+       <div className="containerhs-">
             <div
               ref={props.ref1}
               className={`${
                 newspaper === false
                   ? "grid-container5"
-                  : "grid-container5-newspaper"
+                  : "grid-container5-newspaper-"
               } paddingparent margin-top-1 background-white-1 borderradius5`}
               title={
                 props.signup === true

@@ -314,7 +314,7 @@ function ExpandableArray(props) {
                   categories
                 </div>
 
-                 <div>
+                 <div className="width1001 border-right-5">
               {props.b === 1 && (
                 <button
                   className="button-mq button-2- button--link color-black margin-left-n-1"

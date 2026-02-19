@@ -159,7 +159,11 @@ useUnload((e) => {
 
   const rerenderit = () => {
     setV1(!v1)
-    window.scrollTo(0,0)
+    //window.scrollTo(0,0)
+    window.scrollTo({
+  top: 0,
+  behavior: 'smooth'
+});
   }
 
     //this.setit = this.setit.bind(this);

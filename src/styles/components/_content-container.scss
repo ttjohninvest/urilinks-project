@@ -236,6 +236,11 @@ input#option1[type="radio"] {
   margin-top: 0;
 }
 
+.sticky-div {
+  position: sticky;
+  top: 0;
+}
+
 .scrollable-container {
   overflow: auto;
   overscroll-behavior: contain;

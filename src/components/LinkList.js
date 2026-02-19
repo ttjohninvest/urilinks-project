@@ -128,7 +128,7 @@ export const LinkList = (props) => {
   // }
 
   return (
-    <div className="website-background-color">
+    <div className="website-background-color width100">
       <div id="before-link-summary-id" className="flexrow2b- margin-bottom-5a">
         {/* <LinksSummary /> */}
 

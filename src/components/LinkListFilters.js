@@ -987,6 +987,9 @@ function ExpandableArray(props) {
       ) : (
         <div></div>
       )}
+      <div>
+        <LinkList av={props.av}/>
+      </div>
       </div>
       {/* <div className="border2black">
        //column b

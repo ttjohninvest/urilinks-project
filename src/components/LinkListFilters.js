@@ -1,9 +1,9 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 
 import React, { useState, useRef, useEffect } from "react";
-import ReadMore from "./ReadMore"
+import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-import ReadMoreSpan from "./ReadMoreSpan"
+import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -171,103 +171,94 @@ function ExpandableArray(props) {
   return (
     <div className="bg-white-1">
       <div className="flexrowztt containerui-">
-        
-      {
-      //props.signup === false &&
-      
-      (
-        <div className="width30p  scrollable-div">
-          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
+        {
+          //props.signup === false &&
+
+          <div className="width30p  scrollable-div">
+            {/* <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
-          </div>
-       
-          
-           <div className="border2black sticky-div-  scrollable-div-">
-       <div className="containerhs-">
-            <div
-              ref={props.ref1}
-              className={`${
-                newspaper === false
-                  ? "grid-container5-"
-                  : "grid-container5-newspaper-"
-              } paddingparent margin-top-1 background-white-1 borderradius5`}
-              title={
-                props.signup === true
-                  ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
-                  : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
-              }
-            >
-              {!expanded
-                ? //props.b === 1 &&
-                  props.mappedDataShort.map((s, index) => {
-                    if (index < 50)
-                      return (
-                        <div
-                          key={index}
-                          className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                        >
-                          <a
-                            className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
-                              props.b == 1
-                                ? "pointereventsauto"
-                                : "pointereventsnone"
-                            }`}
-                            href="#"
-                            onClick={() => props.setit(s.hashtag, event)}
-                            title={`${sep(s.hashtag)}, hashtag: ${
-                              !!s.hashtag && s.hashtag
-                            }, click to scroll to results`}
-                            //title={props.signup === true?${s.hashtag}, click to scroll to results:
+                </div> */}
+
+            <div className="border2black sticky-div-">
+              <div className="containerhs-">
+                <div
+                  ref={props.ref1}
+                  className={`${
+                    newspaper === false
+                      ? "grid-container5-"
+                      : "grid-container5-newspaper-"
+                  } paddingparent margin-top-1 background-white-1 borderradius5`}
+                  title={
+                    props.signup === true
+                      ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
+                      : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
+                  }
+                >
+                  {!expanded
+                    ? //props.b === 1 &&
+                      props.mappedDataShort.map((s, index) => {
+                        if (index < 50)
+                          return (
+                            <div
+                              key={index}
+                              className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                            >
+                              <a
+                                className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
+                                  props.b == 1
+                                    ? "pointereventsauto"
+                                    : "pointereventsnone"
+                                }`}
+                                href="#"
+                                onClick={() => props.setit(s.hashtag, event)}
+                                title={`${sep(s.hashtag)}, hashtag: ${
+                                  !!s.hashtag && s.hashtag
+                                }, click to scroll to results`}
+                                //title={props.signup === true?${s.hashtag}, click to scroll to results:
+                              >
+                                {sep(s.hashtag)}
+                              </a>
+                            </div>
+                          );
+                        else return false;
+                      })
+                    : //props.b === 1 &&
+                      props.mappedDataShort.map((s, index) => {
+                        //have 3 map calls and display the first column then the second column and then the thrid column
+                        return (
+                          <div
+                            key={index}
+                            className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                           >
-                            {sep(s.hashtag)}
-                          
-                          </a>
-                        </div>
-                      );
-                    else return false;
-                  })
-                : //props.b === 1 &&
-                  props.mappedDataShort.map((s, index) => {
-                    //have 3 map calls and display the first column then the second column and then the thrid column
-                    return (
-                      <div
-                        key={index}
-                        className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                      >
-                        <a
-                          className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
-                            false && "border6"
-                          } ${
-                            props.b == 1
-                              ? "pointereventsauto"
-                              : "pointereventsnone"
-                          }`}
-                          href="#"
-                          onClick={() => props.setit(s.hashtag, event)}
-                          title={`${sep(s.hashtag)}, hashtag: ${
-                            !!s.hashtag && s.hashtag
-                          }, click to scroll to results`}
-                        >
-                          {sep(s.hashtag)}
-                          
-                        </a>
-                      </div>
-                    );
-                  })}
+                            <a
+                              className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
+                                false && "border6"
+                              } ${
+                                props.b == 1
+                                  ? "pointereventsauto"
+                                  : "pointereventsnone"
+                              }`}
+                              href="#"
+                              onClick={() => props.setit(s.hashtag, event)}
+                              title={`${sep(s.hashtag)}, hashtag: ${
+                                !!s.hashtag && s.hashtag
+                              }, click to scroll to results`}
+                            >
+                              {sep(s.hashtag)}
+                            </a>
+                          </div>
+                        );
+                      })}
 
-              
-
-              {props.mappedDataShort.length > 50 && !expanded && (
-                <span className="text-size-5">...</span>
-              )}
+                  {props.mappedDataShort.length > 50 && !expanded && (
+                    <span className="text-size-5">...</span>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
-          </div>
-
-
-        </div>
-      )}
-      {/* {props.signup === true && (
+        }
+        {/* {props.signup === true && (
         <div className="width30p-">
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
@@ -359,8 +350,8 @@ function ExpandableArray(props) {
 
         </div>
       )} */}
-      {/*this part was causing the gap in the middle*/}
-      {/* {props.signup === true && (
+        {/*this part was causing the gap in the middle*/}
+        {/* {props.signup === true && (
         <div>
           <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase">
             Welcome to Saint John's urilinks.com to help people, for church, 
@@ -368,7 +359,7 @@ function ExpandableArray(props) {
           </div>
         </div>
       )} */}
-      {/* {props.signup === true && (
+        {/* {props.signup === true && (
         <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
           <span className="hide">Thank you. Your sharable link is:</span>
           <a
@@ -390,7 +381,7 @@ function ExpandableArray(props) {
         </div>
       )} */}
 
-      {/* {props.signup === false && (
+        {/* {props.signup === false && (
         <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
           <span className="hide">Thank you. Your sharable link is:</span>
           <a
@@ -413,37 +404,22 @@ function ExpandableArray(props) {
         </div>
       )} */}
 
-      {/* {props.signup === false && (
+        {/* {props.signup === false && (
         <div></div>
       
       )} */}
 
-      {props.mappedDataShort.length > 0 ? (
-        <div className="width70p-">
-          <div
-            className="flexrow2c padding-left-a borderRadius4"
-           
-            title={props.signup === true ? "" : ""}
-          >
-            <div className="text-size-5 padding-top-11">
-              {isMobile() === false ? (
-                <div className="flexrow2j margin-left-minus-3">
-                  {props.signup === true || signup === "0" ? (
-                    <div className="padding-top-1112  textCenter- hide">
-                      <img
-                        src={photoURL}
-                        width="64"
-                        height="64"
-                        style={{ borderRadius: "50%" }}
-                        className="ib- margin-bottom-11-"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      className="padding-top-1112  textCenter-"
-                      title="welcome"
-                    >
-                      {false ? (
+        {props.mappedDataShort.length > 0 ? (
+          <div className="width70p-">
+            <div
+              className="flexrow2c padding-left-a borderRadius4"
+              title={props.signup === true ? "" : ""}
+            >
+              <div className="text-size-5 padding-top-11">
+                {isMobile() === false ? (
+                  <div className="flexrow2j margin-left-minus-3">
+                    {props.signup === true || signup === "0" ? (
+                      <div className="padding-top-1112  textCenter- hide">
                         <img
                           src={photoURL}
                           width="64"
@@ -451,268 +427,257 @@ function ExpandableArray(props) {
                           style={{ borderRadius: "50%" }}
                           className="ib- margin-bottom-11-"
                         />
-                      ) : (
-                        <div className="textCenter- hide">
-                          <img
-                            src={myprofile}
-                            width="64"
-                            height="64"
-                            style={{ borderRadius: "50%" }}
-                            className="ib- margin-bottom-11-"
-                          />
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <div className="flexrow2j margin-left-minus-2">
-                  {props.signup === true || signup === "0" ? (
-                    <div className="padding-top-1112  textCenter- hide">
-                      <img
-                        src={photoURL}
-                        width="64"
-                        height="64"
-                        style={{ borderRadius: "50%" }}
-                        className="ib- margin-bottom-11-"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      className="padding-top-1112 textCenter-"
-                      title="welcome"
-                    >
-                      {false ? (
-                        <img
-                          src={photoURL}
-                          width="64"
-                          height="64"
-                          style={{ borderRadius: "50%" }}
-                          className="ib- margin-bottom-11-"
-                        />
-                      ) : (
-                        <div className="textCenter- hide">
-                          <img
-                            src={myprofile}
-                            width="64"
-                            height="64"
-                            style={{ borderRadius: "50%" }}
-                            className="ib- margin-bottom-11-"
-                          />
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              )}
-
-     
-              {isMobile() === true && <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
-              
-                <div className="text-size-1">
-                  <div
-                    className="ib text-size-1"
-                    title="location for your gmail name"
-                  >
-                    {(!!theuser && props.signup === true) || signup === "0"
-                      ? !!theuser.displayName === true
-                        ? theuser.displayName
-                        : "error getting display name"
-                      : !!theuser === true
-                      ? theuser.displayName
-                      : "(gmail name)"}
-                  </div>
-                  
-                </div>
-              </div>}
-             
-
-              {
-                //props.signup === false
-                true ? (
-                  <div className="text-size-1 flexrowzc">
-                    {isMobile() === true ? (
-                      <div className="padding-right-11 padding-bottom-118 lowercase">
-                         {
-                         props.signup === false && 
-                         //props.signup !== 0 
-                         //signup !== 0 
-                         <span dangerouslySetInnerHTML={{ __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different websites like email of your choice, promoting worry free, and organized internet use.<br/><br/>`}}></span>}
-                        
-                       <ReadMore text={`Clear values: Each link you save has note space for data entry; link notes, link texts and hastags are all searchable; a sharable link for pasting to instagram profile or other platorm for others is provided; also, each link is sharable to facebook.com, linkedin.com and x.com; facebook.com messenger is available for communication; each link in the results is clickable for direct access to web page. Freely login.`}
-                        maxChars={64}
-                        />
-
-                       
                       </div>
                     ) : (
-                      <div>
-                        {props.signup === false  
-                        
-                        && 
-                        //props.signup !== 0 
-                        //signup !== 0  && 
-                        <span 
-                        //dangerouslySetInnerHTML={{ __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save<br /> your links for revisitation and to provide one link for sharing your links<br /> with others on different websites like email of your choice.<br/><br/>`}}
-                        >
-                          
-                          </span>}
-                        
-                      
+                      <div
+                        className="padding-top-1112  textCenter-"
+                        title="welcome"
+                      >
+                        {false ? (
+                          <img
+                            src={photoURL}
+                            width="64"
+                            height="64"
+                            style={{ borderRadius: "50%" }}
+                            className="ib- margin-bottom-11-"
+                          />
+                        ) : (
+                          <div className="textCenter- hide">
+                            <img
+                              src={myprofile}
+                              width="64"
+                              height="64"
+                              style={{ borderRadius: "50%" }}
+                              className="ib- margin-bottom-11-"
+                            />
+                          </div>
+                        )}
                       </div>
-                   
                     )}
-
-                 
-                    {props.signup === false && (
-                      <div></div>
-                     
-                    )}
-
                   </div>
                 ) : (
-                  <div>
-                    <div className="flexrow2c">
-                      <div className="text-size-1 textLeft margin-top-1">
-                        
-                        <a
-                          href="#"
-                          ref={textAreaRef}
-                          className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                          title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                        >
-                          https://urilinks.com/dashboard?signup=0&id={props.uid}
-                        </a>
-                        <button
-                          className="button-2w ib margin-right-1 margin-left-11 border5"
-                          onClick={copyToClipboard}
-                          title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                        >
-                          copy sharable link
-                        </button>
-                        {copySuccess}
+                  <div className="flexrow2j margin-left-minus-2">
+                    {props.signup === true || signup === "0" ? (
+                      <div className="padding-top-1112  textCenter- hide">
+                        <img
+                          src={photoURL}
+                          width="64"
+                          height="64"
+                          style={{ borderRadius: "50%" }}
+                          className="ib- margin-bottom-11-"
+                        />
                       </div>
-                     
-                    </div>
-                  </div>
-                )
-              }
-
-              <br />
-         
-            </div>
-
-            <div className="flexrow2e">
-              {
-                //isToggled &&
-
-                props.signup === true && (
-                  <div
-                    title="current plan"
-                    className="margin-right-1 textLeft hide"
-                  >
-                    plan: {props.plan.replace(/"/g, "")}
-                  </div>
-                )
-              }
-
-              {isToggled && props.signup === false && <div></div>}
-              <div>
-                {isToggled && props.signup === true && (
-                  <div className="margin-right-1">
-                    {props.theplan.plan.replace(/"/g, "") === "free" ? (
-                      <span>(It stores upto {StorageSizes.free} links)</span>
                     ) : (
-                      <span></span>
-                    )}
-                    {props.theplan.plan.replace(/"/g, "") === "basic" ? (
-                      <span>(It stores upto {StorageSizes.basic} links)</span>
-                    ) : (
-                      <span></span>
-                    )}
-                    {props.theplan.plan.replace(/"/g, "") === "standard" ? (
-                      <span>
-                        (It stores upto {StorageSizes.standard} links)
-                      </span>
-                    ) : (
-                      <span></span>
-                    )}
-                    {props.theplan.plan.replace(/"/g, "") === "premium" ? (
-                      <span>(It stores upto {StorageSizes.premium} links)</span>
-                    ) : (
-                      <span></span>
+                      <div
+                        className="padding-top-1112 textCenter-"
+                        title="welcome"
+                      >
+                        {false ? (
+                          <img
+                            src={photoURL}
+                            width="64"
+                            height="64"
+                            style={{ borderRadius: "50%" }}
+                            className="ib- margin-bottom-11-"
+                          />
+                        ) : (
+                          <div className="textCenter- hide">
+                            <img
+                              src={myprofile}
+                              width="64"
+                              height="64"
+                              style={{ borderRadius: "50%" }}
+                              className="ib- margin-bottom-11-"
+                            />
+                          </div>
+                        )}
+                      </div>
                     )}
                   </div>
                 )}
 
-           
+                {isMobile() === true && (
+                  <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
+                    <div className="text-size-1">
+                      <div
+                        className="ib text-size-1"
+                        title="location for your gmail name"
+                      >
+                        {(!!theuser && props.signup === true) || signup === "0"
+                          ? !!theuser.displayName === true
+                            ? theuser.displayName
+                            : "error getting display name"
+                          : !!theuser === true
+                            ? theuser.displayName
+                            : "(gmail name)"}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {
+                  //props.signup === false
+                  true ? (
+                    <div className="text-size-1 flexrowzc">
+                      {isMobile() === true ? (
+                        <div className="padding-right-11 padding-bottom-118 lowercase">
+                          {props.signup === false && (
+                            //props.signup !== 0
+                            //signup !== 0
+                            <span
+                              dangerouslySetInnerHTML={{
+                                __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different websites like email of your choice, promoting worry free, and organized internet use.<br/><br/>`,
+                              }}
+                            ></span>
+                          )}
+
+                          <ReadMore
+                            text={`Clear values: Each link you save has note space for data entry; link notes, link texts and hastags are all searchable; a sharable link for pasting to instagram profile or other platorm for others is provided; also, each link is sharable to facebook.com, linkedin.com and x.com; facebook.com messenger is available for communication; each link in the results is clickable for direct access to web page. Freely login.`}
+                            maxChars={64}
+                          />
+                        </div>
+                      ) : (
+                        <div>
+                          {props.signup === false && (
+                            //props.signup !== 0
+                            //signup !== 0  &&
+                            <span
+                            //dangerouslySetInnerHTML={{ __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save<br /> your links for revisitation and to provide one link for sharing your links<br /> with others on different websites like email of your choice.<br/><br/>`}}
+                            ></span>
+                          )}
+                        </div>
+                      )}
+
+                      {props.signup === false && <div></div>}
+                    </div>
+                  ) : (
+                    <div>
+                      <div className="flexrow2c">
+                        <div className="text-size-1 textLeft margin-top-1">
+                          <a
+                            href="#"
+                            ref={textAreaRef}
+                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          >
+                            https://urilinks.com/dashboard?signup=0&id=
+                            {props.uid}
+                          </a>
+                          <button
+                            className="button-2w ib margin-right-1 margin-left-11 border5"
+                            onClick={copyToClipboard}
+                            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          >
+                            copy sharable link
+                          </button>
+                          {copySuccess}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                }
+
+                <br />
               </div>
-             
-           
+
+              <div className="flexrow2e">
+                {
+                  //isToggled &&
+
+                  props.signup === true && (
+                    <div
+                      title="current plan"
+                      className="margin-right-1 textLeft hide"
+                    >
+                      plan: {props.plan.replace(/"/g, "")}
+                    </div>
+                  )
+                }
+
+                {isToggled && props.signup === false && <div></div>}
+                <div>
+                  {isToggled && props.signup === true && (
+                    <div className="margin-right-1">
+                      {props.theplan.plan.replace(/"/g, "") === "free" ? (
+                        <span>(It stores upto {StorageSizes.free} links)</span>
+                      ) : (
+                        <span></span>
+                      )}
+                      {props.theplan.plan.replace(/"/g, "") === "basic" ? (
+                        <span>(It stores upto {StorageSizes.basic} links)</span>
+                      ) : (
+                        <span></span>
+                      )}
+                      {props.theplan.plan.replace(/"/g, "") === "standard" ? (
+                        <span>
+                          (It stores upto {StorageSizes.standard} links)
+                        </span>
+                      ) : (
+                        <span></span>
+                      )}
+                      {props.theplan.plan.replace(/"/g, "") === "premium" ? (
+                        <span>
+                          (It stores upto {StorageSizes.premium} links)
+                        </span>
+                      ) : (
+                        <span></span>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
+        ) : (
+          <div></div>
+        )}
 
-         
-        </div>
-      ) : (
-        <div></div>
-      )}
-      
-      <div>
         <div>
+          <div>
+            <div className="margin-left-minus-1">
+              <span>
+                {props.links.length} of {maximum} links is stored on the{" "}
+                {props.theplan.plan.replace(/"/g, "")}{" "}
+                {`plan. ${
+                  props.links.length > 100 ? 100 : props.links.length
+                } are displayed.`}
+              </span>
+            </div>
 
-                <div className="margin-left-minus-1">
-                  <span>
-                    {props.links.length} of {maximum} links is stored on the{" "}
-                    {props.theplan.plan.replace(/"/g, "")}{" "}
-                    {`plan. ${
-                      props.links.length > 100 ? 100 : props.links.length
-                    } are displayed.`}
-                  </span>
-                </div>
+            <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">
+              <span className="font-weight-bold uppercase-">
+                ALPHABETICAL INDEX (click a button and see results)
+              </span>
+            </div>
 
-                <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">
-                  <span className="font-weight-bold uppercase-">
-                    ALPHABETICAL INDEX (click a button and see results)
-                  </span>
-                </div>
+            <div>
+              {props.b === 1 && (
+                <button
+                  className="button-mq button-2- button--link color-black"
+                  onClick={toggleExpanded}
+                >
+                  {expanded ? "Show Less" : "Show More"}
+                </button>
+              )}
+            </div>
 
-                <div>
-                 {props.b === 1 && (
-            <button
-              className="button-mq button-2- button--link color-black"
-              onClick={toggleExpanded}
-            >
-              {expanded ? "Show Less" : "Show More"}
-            </button>
-          )}
-                </div>
-
-                <div className="flexrow3c">
-                  <Link className="header__title" to="/teirspayment3">
-                    <span
-                      className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
-                      title="click for plan options"
-                    >
-                     
-                    </span>
-                  </Link>
-                </div>
-
-              </div>
-              <div>
-              <LinkList av={props.av}/>
-              </div>
-        
+            <div className="flexrow3c">
+              <Link className="header__title" to="/teirspayment3">
+                <span
+                  className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
+                  title="click for plan options"
+                ></span>
+              </Link>
+            </div>
           </div>
-
+          <div>
+            <LinkList av={props.av} />
+          </div>
+        </div>
       </div>
-    
     </div>
   );
 }
-
-
 
 export class LinkListFilters extends React.Component {
   constructor(props) {
@@ -1062,20 +1027,14 @@ export class LinkListFilters extends React.Component {
     this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
-    
-
     try {
-      const term = window.document.getElementById("termid").value.trim()
+      const term = window.document.getElementById("termid").value.trim();
       //const term = window.localStorage.getItem("termid");
       if (term !== "" && term.charAt(0) === "#") {
-        this.setState({'sortBy':"hashtag"})
+        this.setState({ sortBy: "hashtag" });
         window.document.querySelector("#buttonid").click();
-      } else if (
-       
-        term === "" ||
-        term.charAt(0) !== "#"
-      ) {
-        this.setState({'sortBy':"description"})
+      } else if (term === "" || term.charAt(0) !== "#") {
+        this.setState({ sortBy: "description" });
         window.document.querySelector("#buttonid").click();
       }
     } catch (e) {
@@ -1093,7 +1052,6 @@ export class LinkListFilters extends React.Component {
     this.setState({ height });
   };
 
-  
   setit = (value, event) => {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
@@ -1110,8 +1068,8 @@ export class LinkListFilters extends React.Component {
     //     behavior: "smooth",
     //   });
 
-      this.props.rerenderit()
-      //window.scrollTo(0,0)
+    this.props.rerenderit();
+    //window.scrollTo(0,0)
   };
 
   refreshIt = () => {

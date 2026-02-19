@@ -962,14 +962,14 @@ function ExpandableArray(props) {
               )}
             </div>
           </div> */}
-          {props.b === 1 && (
+          {/* {props.b === 1 && (
             <button
               className="button-m button--link color-black"
               onClick={toggleExpanded}
             >
               {expanded ? "Show Less" : "Show More"}
             </button>
-          )}
+          )} */}
         </div>
       ) : (
         <div></div>
@@ -990,6 +990,16 @@ function ExpandableArray(props) {
                   <span className="font-weight-bold uppercase-">
                     ALPHABETICAL INDEX (click a button and see results)
                   </span>
+                </div>
+                <div>
+                 {props.b === 1 && (
+            <button
+              className="button-m button--link color-black"
+              onClick={toggleExpanded}
+            >
+              {expanded ? "Show Less" : "Show More"}
+            </button>
+          )}
                 </div>
                 <div className="flexrow3c">
                   <Link className="header__title" to="/teirspayment3">

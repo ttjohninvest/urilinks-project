@@ -334,7 +334,7 @@ function ExpandableArray(props) {
                     newspaper === false
                       ? "grid-container5-"
                       : "grid-container5-newspaper-"
-                  } paddingparent margin-top-1 background-white-1 borderradius5`}
+                  } paddingparent- margin-top-1- background-white-1 borderradius5`}
                   title={
                     props.signup === true
                       ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"

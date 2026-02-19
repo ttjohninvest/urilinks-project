@@ -1581,7 +1581,7 @@ export class LinkListFilters extends React.Component {
                 maxLength={this.SHORT_HASHTAG_LENGTH}
                 ref1={this.elementRef}
                 morehashtags={this.state.morehashtags}
-                setit={this.props.setit}
+                setit={this.setit}
                 theplan={this.props.theplan}
                 plan={this.props.theplan.plan}
                 newspaper={this.state.newspaper}

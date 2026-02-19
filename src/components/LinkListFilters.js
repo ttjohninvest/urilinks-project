@@ -38,8 +38,8 @@ function ExpandableArray(props) {
   const [photoURL, setPhotoURL] = useState("");
   const [maximum, setMaximum] = useState(0);
   const [gmail, setGmail] = useState("");
-  const [searchTerm, setSearchTerm] = useState("")
-  const [sortBy, setSortBy] = useState("description")
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("description");
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -170,7 +170,7 @@ function ExpandableArray(props) {
     return "";
   };
 
-   const handleSearch=()=>{
+  const handleSearch = () => {
     // Perform the search action here
     //console.log('Searching for:', this.state.searchTerm);
     // Example: this.props.onSearch(this.state.searchTerm);
@@ -195,14 +195,13 @@ function ExpandableArray(props) {
     }
     //alert (term)
     props.setTextFilter(term);
-  }
+  };
 
-    const handleKeyPress = (event) => {
-    
-     if (event.key === "Enter") {
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
       handleSearch();
     }
-  }
+  };
 
   const search = () => {
     console.log("search");
@@ -223,7 +222,6 @@ function ExpandableArray(props) {
       selectedValue === "hashtag" &&
       // && sortBy === "hashtag"
       props.filters.sortBy === "hashtag"
-      
     ) {
       if (term !== "" && term.charAt(0) !== "#") {
         alert("The search term needs to be a hashtag.");
@@ -241,7 +239,7 @@ function ExpandableArray(props) {
     }
   };
 
-   const onSortChange = (e) => {
+  const onSortChange = (e) => {
     if (e.target.value === "none") return;
 
     const val = window.document.getElementById("termid").value.trim();
@@ -252,7 +250,7 @@ function ExpandableArray(props) {
       props.setTextFilter(val);
       if (this.myRef.current) this.myRef.current.focus();
       //this.setState({ sortBy: "description" });
-      setSortBy("description")
+      setSortBy("description");
       props.sortByDescription();
       //this.setState({ sortBy: "description" });
     } else if (e.target.value === "hashtag") {
@@ -275,8 +273,8 @@ function ExpandableArray(props) {
 
       //window.localStorage.setItem("sortBy", "hashtag");
       //this.setState({ sortBy: "hashtag" });
-      setSortBy("hashtag")
-      
+      setSortBy("hashtag");
+
       props.sortByHashTag();
       //this.setState({ sortBy: "hashtag" });
     } else if (e.target.value === "notetext") {
@@ -286,7 +284,7 @@ function ExpandableArray(props) {
       props.setTextFilter(val);
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
-      setSortBy("notetext")
+      setSortBy("notetext");
       props.sortByNoteText();
       //this.setState({ sortBy: "notetext" });
     }
@@ -309,24 +307,27 @@ function ExpandableArray(props) {
            
                 </div> */}
 
-<div className="border-right-5">
-                <div className="website-background-color width30p theHeight flexrowzc2 border-b-5 margin-left-n-19" title="click a button">
-                  categories
-                </div>
+            <div className="border-right-5">
+              <div
+                className="website-background-color width30p theHeight flexrowzc2 border-b-5 margin-left-n-19"
+                title="click a button"
+              >
+                categories
+              </div>
 
-                 <div className="width1001 border-right-5">
-              {props.b === 1 && (
-                <button
-                  className="button-mq button-2- button--link color-black margin-left-n-1"
-                  onClick={toggleExpanded}
-                >
-                  {expanded ? "Show Less" : "Show More"}
-                </button>
-              )}
-            </div>
+              <div className="width30p width1001- border-right-5">
+                {props.b === 1 && (
+                  <button
+                    className="button-mq button-2- button--link color-black margin-left-n-1"
+                    onClick={toggleExpanded}
+                  >
+                    {expanded ? "Show Less" : "Show More"}
+                  </button>
+                )}
+              </div>
             </div>
 
-            <div className="border2black- border-right-5 sticky-div-">
+            <div className="width30p border2black- border-right-5 sticky-div-">
               <div className="containerhs-">
                 <div
                   ref={props.ref1}
@@ -334,7 +335,7 @@ function ExpandableArray(props) {
                     newspaper === false
                       ? "grid-container5-"
                       : "grid-container5-newspaper-"
-                  } paddingparent- margin-top-1- background-white-1 borderradius5`}
+                  } background-white-1 borderradius5`}
                   title={
                     props.signup === true
                       ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
@@ -797,7 +798,7 @@ function ExpandableArray(props) {
               </span>
             </div> */}
 
-             {/* <div
+            {/* <div
           id="before-before-link-summary-id"
           className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
         >
@@ -886,98 +887,83 @@ function ExpandableArray(props) {
               )}
             </div> */}
 
-             <div
-          id="before-before-link-summary-id"
-          className="padding-top-20 bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111- padding-bottom-111- margin-bottom5"
-        >
-          <div className="flexrowzv">
-            <div className="margin-left-11-">
-              <input
-                title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                placeholder="type/paste what to find?"
-                autoFocus
-                id="termid"
-                className="text-input responsive-input outline-none padding-left-11 borderRadius55"
-                type="text"
-                //value={this.state.dv}
-                //onChange={(e) => this.setState({ searchTerm: e.target.value })}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={handleKeyPress}
-              />
-            </div>
-
             <div
-              //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
-              className={`${
-                isMobile() ? "margin-right-1" : "margin-left-11"
-              }`}
+              id="before-before-link-summary-id"
+              className="padding-top-20 bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111- padding-bottom-111- margin-bottom5"
             >
-              <button
-                id="buttonid"
-                className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
-                //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
+              <div className="flexrowzv">
+                <div className="margin-left-11-">
+                  <input
+                    title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
+                    placeholder="type/paste what to find?"
+                    autoFocus
+                    id="termid"
+                    className="text-input responsive-input outline-none padding-left-11 borderRadius55"
+                    type="text"
+                    //value={this.state.dv}
+                    //onChange={(e) => this.setState({ searchTerm: e.target.value })}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyDown={handleKeyPress}
+                  />
+                </div>
 
-                //onClick={this.search}
-                onClick={search}
-                //title="Searches to find entered term through the previously selected list which will appear in copper color."
-                title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
-              >
-                search
-              </button>
-            </div>
-
-            <div
-              className={`${
-                isMobile()
-                  ? "margin-top-11z1 margin-left-11"
-                  : "margin-left-11"
-              }`}
-            >
-              <select
-                id="mode"
-                className="select outline-none"
-                //value={this.state.sortBy}
-                value={sortBy}
-                //value={this.props.filters.sortBy}
-                //value={window.localStorage.getItem("sortBy")}
-
-                onChange={onSortChange}
-                title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
-              >
-                <option value="hashtag" title="search by hash tag">
-                  Hash Tag
-                </option>
-
-                <option
-                  //selected
-                  value="description"
-                  title="search through the uri/url link texts"
+                <div
+                  //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
+                  className={`${
+                    isMobile() ? "margin-right-1" : "margin-left-11"
+                  }`}
                 >
-                  Link Text
-                </option>
+                  <button
+                    id="buttonid"
+                    className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
+                    //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
-                <option value="notetext" title="search through the notes">
-                  Note Text
-                </option>
-              </select>
+                    //onClick={this.search}
+                    onClick={search}
+                    //title="Searches to find entered term through the previously selected list which will appear in copper color."
+                    title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
+                  >
+                    search
+                  </button>
+                </div>
+
+                <div
+                  className={`${
+                    isMobile()
+                      ? "margin-top-11z1 margin-left-11"
+                      : "margin-left-11"
+                  }`}
+                >
+                  <select
+                    id="mode"
+                    className="select outline-none"
+                    //value={this.state.sortBy}
+                    value={sortBy}
+                    //value={this.props.filters.sortBy}
+                    //value={window.localStorage.getItem("sortBy")}
+
+                    onChange={onSortChange}
+                    title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
+                  >
+                    <option value="hashtag" title="search by hash tag">
+                      Hash Tag
+                    </option>
+
+                    <option
+                      //selected
+                      value="description"
+                      title="search through the uri/url link texts"
+                    >
+                      Link Text
+                    </option>
+
+                    <option value="notetext" title="search through the notes">
+                      Note Text
+                    </option>
+                  </select>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-            {/* <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111- margin-bottom-5">
-              <span className="font-weight-bold uppercase-">
-                ALPHABETICAL LIST
-              </span>
-            </div> */}
-
-            {/* <div className="flexrow3c">
-              <Link className="header__title" to="/teirspayment3">
-                <span
-                  className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
-                  title="click for plan options"
-                ></span>
-              </Link>
-            </div> */}
           </div>
           <div className="margin-top-18">
             <LinkList av={props.av} />

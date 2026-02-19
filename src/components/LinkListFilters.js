@@ -171,43 +171,15 @@ function ExpandableArray(props) {
   return (
     <div className="bg-white-1">
       <div className="flexrowz">
-        {/* <img src={signature} /> */}
-      {props.signup === false && (
+        
+      {/* {props.signup === false && (
         <div className="">
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
-            {/* <img
-              className="ib minWidth"
-              src={redarrow}
-              width="100"
-              height="50"
-              alt="Logo"
-            /> */}
            
-            {/* <ReadMore 
-            text = {`Hope for Eternal Life, Salvation In No Other Name: The Holy Bible says in Acts 2:21 and Romans 10:13
-            for whosoever shall call upon the name of Jesus Christ shall be
-            saved.`}
-            maxChars={51}
-            /> */}
           </div>
-          {/* <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase underline">
-            Welcome to Saint John's urilinks.com to help people, for church, homeless, state, economic, entertainment links and their storage and retrieval
-          </div>
-          <div className="margin-left-11 flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase-">
-            <ReadMore text={`Friendly Invitation: for people interested in Salvation, Jesus Christ, His Holy Church and if possible helping the homeless in your area. This tool is a links content storage and retrieval system for links organization and sharing with a copy and pastable link I provide to you.
-            I added links to this page to show it to you. Please feel free to browse and use any of the links. You may add your own links in your account.  You may save and retrieve holy faith, church prayer, sermons, saints, nuns,
-            priests, catholic masses, music links (urls (uniform resource locators)) and other user defined state, economic or entertainment categories.`}
-            maxChars={21}
-            />
-
-            
-          </div> */}
+       
           
            <div className="border2black sticky-div-">
-       {/* column b */}
-
-         
-       
        <div className="containerhs-">
             <div
               ref={props.ref1}
@@ -289,28 +261,16 @@ function ExpandableArray(props) {
 
 
         </div>
-      )}
-      {props.signup === true && (
+      )} */}
+      {/* {props.signup === true && (
         <div>
           <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase">
             Welcome to Saint John's urilinks.com to help people, for church, 
             homeless, state, economic, entertainment links and their storage and retrieval
           </div>
         </div>
-      )}
-      {/* {props.signup === false && (
-        <div
-          className="flexrowzc2 text-size-12- text-size-1 font-weigth-bold padding-all- margin-bottom-1 text-center uppercase- lowercase margin-left-1"
-          title="This link is used in email or other places on the internet where a sharable link is accepted and when a person clicks on it he or she will see your links."
-        >
-          also, a sharable link that shares your content like this one will be
-          provided on your page
-        </div>
       )} */}
-
-
-
-      {props.signup === true && (
+      {/* {props.signup === true && (
         <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
           <span className="hide">Thank you. Your sharable link is:</span>
           <a
@@ -330,13 +290,9 @@ function ExpandableArray(props) {
           </button>
           {copySuccess}
         </div>
-      )}
+      )} */}
 
-
-
-
-{/*{props.uid}*/}
-      {props.signup === false && (
+      {/* {props.signup === false && (
         <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
           <span className="hide">Thank you. Your sharable link is:</span>
           <a
@@ -357,47 +313,18 @@ function ExpandableArray(props) {
           </button>
           {copySuccess}
         </div>
-      )}
+      )} */}
 
-      {props.signup === false && (
+      {/* {props.signup === false && (
         <div></div>
-        // <div
-        //   className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
-        //   title="Please use it for good. Bookmarks for internet pages, urls/links"
-        // >
-        //   <Link className="nounderline cursor-pointer" to="/signup" title="">
-        //     <div className="flexrowz">
-        //       <div>
-        //         <img
-        //           className="ib"
-        //           src={redarrow}
-        //           width="100"
-        //           height="50"
-        //           alt="Logo"
-        //         />
-        //       </div>
-
-        //       <div className="margin-top-1c ib">
-        //         click this login/enter to have your own free page
-        //       </div>
-        //     </div>
-        //   </Link>
-        // </div>
-      )}
-
-      {/* <div className="flexrowz"> */}
-        
-        
       
-      {props.mappedDataShort.length > 0 ? (
+      )} */}
+
+      {/* {props.mappedDataShort.length > 0 ? (
         <div className="">
           <div
             className="flexrow2c padding-left-a borderRadius4"
-            // title={
-            //   props.signup === true
-            //     ? "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags that have been entered in the note section of your link earlier to find your links that are grouped by hash tag."
-            //     : "Hastags are in alphabetical order, top to bottom, you may click on any of these hash tags to see links that are grouped by this hash tag."
-            // }
+           
             title={props.signup === true ? "" : ""}
           >
             <div className="text-size-5 padding-top-11">
@@ -500,13 +427,7 @@ function ExpandableArray(props) {
                   
                 </div>
               </div>}
-              {/* <div className="text-size-1 textLeft hide">
-                Welcome
-                {!theuser
-                  ? "to this example links page. What makes you smile?"
-                  : ", what makes you smile?"}
-              </div> */}
-              {/* <div className="text-size-1">WELCOME, WHAT MAKES YOU SMILE?</div> */}
+             
 
               {
                 //props.signup === false
@@ -524,23 +445,7 @@ function ExpandableArray(props) {
                         maxChars={64}
                         />
 
-                        {/* You must be 13 years old or older to use this site (click
-                      legal menu item). Parental permission is not reqired if
-                      you are 18 years of age or older. This website may
-                      contribute to making your use of the internet more
-                      organized, interesting, professional, enteraining, fun and
-                      collaborative. It can store up to 5,000 links
-                      alphabetically. It gives you a sharable link to your links
-                      list of internet urls. You may try your first 250 links
-                      for free or choose one of three paid plans: for $4.99/year
-                      it stores up to 1,250 links, for $9.99/year it stores up
-                      to 2,500 links or for $14.99/year it stores up to 5,000
-                      links. If you can't afford to pay and you need more
-                      storage space, please let me know and I will give it to
-                      you for free. I am a college graduate from UNR. Please
-                      contact me, John, with any blessings, questions, comments
-                      or concerns at john@urilinks.com, 775 507 0098. I invite
-                      you to freely login/enter? */}
+                       
                       </div>
                     ) : (
                       <div>
@@ -555,137 +460,23 @@ function ExpandableArray(props) {
                           
                           </span>}
                         
-                        {/* <ReadMoreSpan text={`
-                          Clear values: Each link you save has note for data
-                        entry; link notes, link texts
-                        and hastags are all searchable; a sharable link for
-                        pasting to instagram profile
-                        or other platorm for others is provided; also, each link
-                        is sharable to facebook.com,
-                        linkedin.com and x.com; facebook.com messenger is
-                        available for communication;
-                        each link in the results is clickable for direct access
-                        to web page. Freely login.
-                          `} 
-                          maxChars={64}
-                          /> */}
+                      
                       </div>
-                      // <div>
-                      //   You must be 13 years old or older to use this site (click
-                      //   legal menu item). <br />
-                      //   Parental permission is not reqired if you are 18 years of
-                      //   age or older.
-                      //   <br />
-                      //   This website may contribute to making your use of the
-                      //   internet more organized,
-                      //   <br />
-                      //   interesting, professional, enteraining, fun and
-                      //   collaborative. It can store and organize up to 5,000 links
-                      //   alphabetically.
-                      //   <br />
-                      //   It gives you a sharable link to your links list of
-                      //   internet urls. You may
-                      //   <br />
-                      //   try your first 250 links for free or choose one of three
-                      //   paid plans: for $4.99/year it stores up to 1,250 links,
-                      //   <br />
-                      //   for $9.99/year it stores up to 2,500 links or for
-                      //   $14.99/year it stores up to 5,000 links.
-                      //   <br />
-                      //   If you can't afford to pay and you need more storage
-                      //   space, please let me know and I will give it to you for
-                      //   free.
-                      //   <br />
-                      //   I am a college graduate from UNR. Please contact me, John,
-                      //   with any blessings, questions, <br />
-                      //   comments or concerns at john@urilinks.com, 775 507 0098. I
-                      //   invite you to freely login/enter?
-                      //   <br />
-                      //   <br />
-                      // </div>
+                   
                     )}
 
-                    {/* <span>What do you want to achieve with this website?</span> */}
-                    {/* <span>
-                    {" "}
-                    I hope the website is helpful to you. May you please give me
-                    your feedback regarding this website?{" "}
-                  </span>
-                
-                  {isMobile() === true ? (
-                    <button
-                      type="button"
-                      className="button-2w margin-right-114"
-                      title="Your answser will be sent to me by gmail.com. Thank you in advance."
-                      onClick={getGmail}
-                    >
-                      Please click to send me your answer.
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      className="button-2w"
-                      title="Your answser will be sent to me by gmail.com. Thank you in advance."
-                      onClick={getGmail}
-                    >
-                      Please click to send me your answer.
-                    </button>
-                  )} */}
-
+                 
                     {props.signup === false && (
                       <div></div>
-                      // <div
-                      //   className="flexrowzc2 text-size-1 font-weigth-bold padding-all text-center"
-                      //   title=""
-                      // >
-                      //   <Link
-                      //     className="nounderline cursor-pointer"
-                      //     to="/signup"
-                      //     title=""
-                      //   >
-                      //     <div className="flexrowz">
-                      //       <div>
-                      //         <img
-                      //           className="ib"
-                      //           src={redarrow}
-                      //           width="100"
-                      //           height="50"
-                      //           alt="Logo"
-                      //         />
-                      //       </div>
-
-                      //       <div className="margin-top-1c ib">
-                      //         click this login/enter to have your own free page
-                      //       </div>
-                      //     </div>
-                      //   </Link>
-                      // </div>
+                     
                     )}
 
-                    {/* <div className="padding-bottom-116">
-                    <div className="margin-left-118">
-                      <a
-                        id="sendgmailid"
-                        className="nounderline hide"
-                        href={`https://mail.google.com/mail/?view=cm&from=${gmail}&to=${"johmcg64@gmail.com"}&su=urilinks user sent me an answer.&body=Hi%20there!`}
-                        target="_blank"
-                      >
-                        Send gmail{" "}
-                        {`FROM: ${gmail} TO: ${"john@urilinks.com"}.`}
-                      </a>
-                    </div>
-                  </div> */}
-
-
-                  
                   </div>
                 ) : (
                   <div>
                     <div className="flexrow2c">
                       <div className="text-size-1 textLeft margin-top-1">
-                        {/* <span className="hide">
-                      Thank you. Your sharable link is:
-                    </span> */}
+                        
                         <a
                           href="#"
                           ref={textAreaRef}
@@ -709,102 +500,8 @@ function ExpandableArray(props) {
                 )
               }
 
-              {/* {props.signup === true && (
-                <div className="margin-top-118">
-                  <div className="flexrowsb margin-right-1 ib">
-                    <span>
-                      {" "}
-                      I hope the website is helpful to you. May you please give
-                      me your feedback regarding this website?{" "}
-                    </span>
-                     <button
-                      type="button"
-                      className="button-2w ib margin-left-11"
-                      title="Your answser will be sent to me by gmail.com. Thank you in advance."
-                      onClick={getGmail}
-                    >
-                      Please click to send me your answer.
-                    </button>
-                  </div>
-
-                  <div className="padding-bottom-116-">
-                    <div className="margin-left-118">
-                      <a
-                        id="sendgmailid"
-                        className="nounderline hide"
-                        href={`https://mail.google.com/mail/?view=cm&from=${gmail}&to=${"johmcg64@gmail.com"}&su=urilinks user sent me an answer.&body=Hi%20there!`}
-                        target="_blank"
-                      >
-                        Send gmail{" "}
-                        {`FROM: ${gmail} TO: ${"john@urilinks.com"}.`}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              )} */}
-
-              
-
               <br />
-              {/* {props.signup === false &&
-                props.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" && (
-                  <div className="textLeft">
-                    <iframe
-                      width="300"
-                      height="200"
-                      src="https://www.youtube.com/embed/RA8Lrtei90o?si=GOsCUPsODmw32y6p"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                )} */}
-              {/* {isToggled && props.signup === false && (
-                <div className="textLeft hide">
-                  Click example hashtag to see links to webpages
-                </div>
-              )}
-
-              {isToggled && props.signup === true && (
-                <div className="textLeft hide">
-                  Click hashtag to see links to webpages
-                </div>
-              )}
-
-              {isToggled && props.signup === false && (
-                <div className="textLeft hide">
-                  To see to see links to webpages, check out the search folder
-                  name dropdown list
-                </div>
-              )}
-
-              {isToggled && props.signup === true && (
-                <div className="textLeft hide">
-                  Check out the search folder name dropdown list in the orange
-                  rectangle for folder names with links to webpages
-                </div>
-              )}
-
-              {isToggled && props.signup === false && (
-                <div className="textLeft hide">
-                  Please give it try to see how it works.
-                </div>
-              )} */}
-              {/* {props.signup.signup === false && <div>Check out the search folder name dropdown list for example bookmarks in a folder</div>} */}
-              {/* <br />
-              I believe that Jesus is the Christ. I believe that Jesus Christ is
-              the Son of God.
-              <br />
-              Please go and sin no more, ok. Happy it. */}
-              {/* <br />
-              <button
-                className="button-m button--link color-black"
-                onClick={toggleNewspaper}
-              >
-                {newspaper ? "show other view" : "show other view"}
-              </button> */}
+         
             </div>
 
             <div className="flexrow2e">
@@ -850,133 +547,22 @@ function ExpandableArray(props) {
                   </div>
                 )}
 
-                {
-                  //isToggled &&
-                  props.signup === false && ""
-                }
+           
               </div>
              
-              {/* <div className="margin-left-11-">
-                <div className="margin-left-minus-1">
-                  <span>
-                    {props.links.length} of {maximum} links is stored on the{" "}
-                    {props.theplan.plan.replace(/"/g, "")}{" "}
-                    {`plan. ${
-                      props.links.length > 100 ? 100 : props.links.length
-                    } are displayed.`}
-                  </span>
-                </div>
-                <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">
-                  <span className="font-weight-bold uppercase-">
-                    ALPHABETICAL INDEX (click a button and see results)
-                  </span>
-                </div>
-                <div className="flexrow3c">
-                  <Link className="header__title" to="/teirspayment3">
-                    <span
-                      className="ib  flexrow3c- color-black text-size-5 general-font margin-left-minus-1"
-                      title="click for plan options"
-                    >
-                     
-                    </span>
-                  </Link>
-                </div>
-              </div> */}
+           
             </div>
           </div>
 
-          {/* <div className="containerhs">
-            <div
-              ref={props.ref1}
-              className={`${
-                newspaper === false
-                  ? "grid-container5"
-                  : "grid-container5-newspaper"
-              } paddingparent margin-top-1 background-white-1 borderradius5`}
-              title={
-                props.signup === true
-                  ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
-                  : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
-              }
-            >
-              {!expanded
-                ? //props.b === 1 &&
-                  props.mappedDataShort.map((s, index) => {
-                    if (index < 50)
-                      return (
-                        <div
-                          key={index}
-                          className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                        >
-                          <a
-                            className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
-                              props.b == 1
-                                ? "pointereventsauto"
-                                : "pointereventsnone"
-                            }`}
-                            href="#"
-                            onClick={() => props.setit(s.hashtag, event)}
-                            title={`${sep(s.hashtag)}, hashtag: ${
-                              !!s.hashtag && s.hashtag
-                            }, click to scroll to results`}
-                            //title={props.signup === true?${s.hashtag}, click to scroll to results:
-                          >
-                            {sep(s.hashtag)}
-                          
-                          </a>
-                        </div>
-                      );
-                    else return false;
-                  })
-                : //props.b === 1 &&
-                  props.mappedDataShort.map((s, index) => {
-                    //have 3 map calls and display the first column then the second column and then the thrid column
-                    return (
-                      <div
-                        key={index}
-                        className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                      >
-                        <a
-                          className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
-                            false && "border6"
-                          } ${
-                            props.b == 1
-                              ? "pointereventsauto"
-                              : "pointereventsnone"
-                          }`}
-                          href="#"
-                          onClick={() => props.setit(s.hashtag, event)}
-                          title={`${sep(s.hashtag)}, hashtag: ${
-                            !!s.hashtag && s.hashtag
-                          }, click to scroll to results`}
-                        >
-                          {sep(s.hashtag)}
-                          
-                        </a>
-                      </div>
-                    );
-                  })}
-
-              {props.mappedDataShort.length > 50 && !expanded && (
-                <span className="text-size-5">...</span>
-              )}
-            </div>
-          </div> */}
-          {/* {props.b === 1 && (
-            <button
-              className="button-m button--link color-black"
-              onClick={toggleExpanded}
-            >
-              {expanded ? "Show Less" : "Show More"}
-            </button>
-          )} */}
+         
         </div>
       ) : (
         <div></div>
-      )}
+      )} */}
       
       <div>
-        <div className="margin-left-11-">
+        <div>
+
                 <div className="margin-left-minus-1">
                   <span>
                     {props.links.length} of {maximum} links is stored on the{" "}
@@ -986,11 +572,13 @@ function ExpandableArray(props) {
                     } are displayed.`}
                   </span>
                 </div>
+
                 <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">
                   <span className="font-weight-bold uppercase-">
                     ALPHABETICAL INDEX (click a button and see results)
                   </span>
                 </div>
+
                 <div>
                  {props.b === 1 && (
             <button
@@ -1001,6 +589,7 @@ function ExpandableArray(props) {
             </button>
           )}
                 </div>
+
                 <div className="flexrow3c">
                   <Link className="header__title" to="/teirspayment3">
                     <span
@@ -1011,126 +600,21 @@ function ExpandableArray(props) {
                     </span>
                   </Link>
                 </div>
+
               </div>
-        <LinkList av={props.av}/>
+              <div>
+              <LinkList av={props.av}/>
+              </div>
+        
+          </div>
+
       </div>
-      </div>
-      {/* <div className="border2black">
-       //column b
-
-       <div className="containerhs-">
-            <div
-              ref={props.ref1}
-              className={`${
-                newspaper === false
-                  ? "grid-container5-"
-                  : "grid-container5-newspaper-"
-              } paddingparent margin-top-1 background-white-1 borderradius5`}
-              title={
-                props.signup === true
-                  ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
-                  : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
-              }
-            >
-              {!expanded
-                ? //props.b === 1 &&
-                  props.mappedDataShort.map((s, index) => {
-                    if (index < 50)
-                      return (
-                        <div
-                          key={index}
-                          className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                        >
-                          <a
-                            className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
-                              props.b == 1
-                                ? "pointereventsauto"
-                                : "pointereventsnone"
-                            }`}
-                            href="#"
-                            onClick={() => props.setit(s.hashtag, event)}
-                            title={`${sep(s.hashtag)}, hashtag: ${
-                              !!s.hashtag && s.hashtag
-                            }, click to scroll to results`}
-                            //title={props.signup === true?${s.hashtag}, click to scroll to results:
-                          >
-                            {sep(s.hashtag)}
-                          
-                          </a>
-                        </div>
-                      );
-                    else return false;
-                  })
-                : //props.b === 1 &&
-                  props.mappedDataShort.map((s, index) => {
-                    //have 3 map calls and display the first column then the second column and then the thrid column
-                    return (
-                      <div
-                        key={index}
-                        className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                      >
-                        <a
-                          className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
-                            false && "border6"
-                          } ${
-                            props.b == 1
-                              ? "pointereventsauto"
-                              : "pointereventsnone"
-                          }`}
-                          href="#"
-                          onClick={() => props.setit(s.hashtag, event)}
-                          title={`${sep(s.hashtag)}, hashtag: ${
-                            !!s.hashtag && s.hashtag
-                          }, click to scroll to results`}
-                        >
-                          {sep(s.hashtag)}
-                          
-                        </a>
-                      </div>
-                    );
-                  })}
-
-              {props.mappedDataShort.length > 50 && !expanded && (
-                <span className="text-size-5">...</span>
-              )}
-            </div>
-          </div> 
-
-
-        </div>*/}
+    
     </div>
   );
 }
 
-/*
-constructor(props) {
-    super(props);
-    this.state = { searchTerm: '' };
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-  }
 
-  handleSearch() {
-    // Perform the search action here
-    console.log('Searching for:', this.state.searchTerm);
-    // Example: this.props.onSearch(this.state.searchTerm);
-  }
-
-  handleKeyPress(e) {
-    if (e.key === 'Enter') {
-      this.handleSearch();
-    }
-  }
-*/
-
-//chrome extension
-//// Listen you CRX event
-// document.addEventListener('csEvent', function (event) {
-//     var data = event.detail; //data will contain tab url from extension, link text and note text
-
-//     call startaddlink with the data so it will do the same process that occors when Save Link is pressed on the LinkForm.js
-//     this way links can be added from the extension with the push of a button in the extension
-// });
 
 export class LinkListFilters extends React.Component {
   constructor(props) {
@@ -1613,9 +1097,9 @@ export class LinkListFilters extends React.Component {
 
         <div
           id="before-before-link-summary-id"
-          className="bg-color-2- bg-color2w borderRadius4- flexrow2w- flexrowzv- padding-top-111 padding-bottom-111"
+          className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
         >
-          <div className="flexrowzv-">
+          <div className="flexrowzv">
             <div className="margin-left-11">
               <input
                 title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."

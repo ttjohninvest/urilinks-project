@@ -1150,7 +1150,7 @@ export class LinkListFilters extends React.Component {
       searchTerm: "", //,
     };
 
-    this.setit = this.setit.bind(this);
+    //this.setit = this.setit.bind(this);
 
     this.handleSearch = this.handleSearch.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -1495,22 +1495,23 @@ export class LinkListFilters extends React.Component {
     this.setState({ height });
   };
 
-  setit = (value, event) => {
-    event.preventDefault();
-    console.log("setIt, 3333333333333333333333333 value=" + value);
+  
+  // setit = (value, event) => {
+  //   event.preventDefault();
+  //   console.log("setIt, 3333333333333333333333333 value=" + value);
 
-    this.props.sortByHashTag();
-    this.props.setTextFilter(value);
+  //   this.props.sortByHashTag();
+  //   this.props.setTextFilter(value);
 
-    window.localStorage.setItem("sortBy", "hashtag");
-    window.localStorage.setItem("searchLinks3", value);
+  //   window.localStorage.setItem("sortBy", "hashtag");
+  //   window.localStorage.setItem("searchLinks3", value);
 
-    //this scrolls the results into view, the first and subsequent result is shown
-    !!document.querySelector("#before-before-link-summary-id") &&
-      document.querySelector("#before-before-link-summary-id").scrollIntoView({
-        behavior: "smooth",
-      });
-  };
+  //   //this scrolls the results into view, the first and subsequent result is shown
+  //   !!document.querySelector("#before-before-link-summary-id") &&
+  //     document.querySelector("#before-before-link-summary-id").scrollIntoView({
+  //       behavior: "smooth",
+  //     });
+  // };
 
   refreshIt = () => {
     //window.location.reload();
@@ -1578,7 +1579,7 @@ export class LinkListFilters extends React.Component {
                 maxLength={this.SHORT_HASHTAG_LENGTH}
                 ref1={this.elementRef}
                 morehashtags={this.state.morehashtags}
-                setit={this.setit}
+                setit={this.props.setit}
                 theplan={this.props.theplan}
                 plan={this.props.theplan.plan}
                 newspaper={this.state.newspaper}

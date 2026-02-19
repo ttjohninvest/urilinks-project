@@ -156,6 +156,24 @@ useUnload((e) => {
     //navigator.sendBeacon('/api/log', JSON.stringify({ action: 'page-unload' }));
   });
 
+    //this.setit = this.setit.bind(this);
+    const setit = (value, event) => {
+      event.preventDefault();
+      console.log("setIt, 3333333333333333333333333 value=" + value);
+  
+      this.props.sortByHashTag();
+      this.props.setTextFilter(value);
+  
+      window.localStorage.setItem("sortBy", "hashtag");
+      window.localStorage.setItem("searchLinks3", value);
+  
+      //this scrolls the results into view, the first and subsequent result is shown
+      !!document.querySelector("#before-before-link-summary-id") &&
+        document.querySelector("#before-before-link-summary-id").scrollIntoView({
+          behavior: "smooth",
+        });
+    };
+
   
  
 
@@ -166,7 +184,7 @@ useUnload((e) => {
 left column
         </div> */}
         <div className="padding-tb-1">
-          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  b={b} av={av}/>
+          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  b={b} av={av} setit={setit}/>
           {/* <LinkList av={av}  /> */}
          
         </div>

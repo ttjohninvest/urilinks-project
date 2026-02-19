@@ -306,7 +306,7 @@ export const LinkList = (props) => {
       {selectedOption === "option4" ? (
         <MyInfiniteScroll2 firstone={true} key={key} />
       ) : selectedOption === "option1" ? (
-        <div className="list-body border-green-">
+        <div className="list-body border-green- scrollable-div">
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
               {/* <span>0 links found</span> */}

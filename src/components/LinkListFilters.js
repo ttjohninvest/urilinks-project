@@ -172,7 +172,10 @@ function ExpandableArray(props) {
     <div className="bg-white-1">
       <div className="flexrowztt containerui-">
         
-      {props.signup === false && (
+      {
+      //props.signup === false &&
+      
+      (
         <div className="width30p-">
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
@@ -264,7 +267,7 @@ function ExpandableArray(props) {
 
         </div>
       )}
-      {props.signup === true && (
+      {/* {props.signup === true && (
         <div className="width30p-">
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
@@ -355,7 +358,7 @@ function ExpandableArray(props) {
 
 
         </div>
-      )}
+      )} */}
       {/*this part was causing the gap in the middle*/}
       {/* {props.signup === true && (
         <div>

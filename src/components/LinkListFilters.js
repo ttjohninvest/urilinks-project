@@ -875,7 +875,7 @@ function ExpandableArray(props) {
 
              <div
           id="before-before-link-summary-id"
-          className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
+          className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111- padding-bottom-111-"
         >
           <div className="flexrowzv">
             <div className="margin-left-11-">

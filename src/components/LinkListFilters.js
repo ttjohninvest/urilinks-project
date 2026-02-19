@@ -309,7 +309,7 @@ function ExpandableArray(props) {
            
                 </div> */}
 
-                <div className="width30p theHeight flexrowzc2">
+                <div className="width30p theHeight flexrowzc2 border5">
                   category buttons
                 </div>
 
@@ -886,7 +886,7 @@ function ExpandableArray(props) {
 
              <div
           id="before-before-link-summary-id"
-          className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111- padding-bottom-111-"
+          className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111- padding-bottom-111- margin-bottom5"
         >
           <div className="flexrowzv">
             <div className="margin-left-11-">

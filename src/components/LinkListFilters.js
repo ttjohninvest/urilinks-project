@@ -320,7 +320,7 @@ function ExpandableArray(props) {
       
       )} */}
 
-      {/* {props.mappedDataShort.length > 0 ? (
+      {props.mappedDataShort.length > 0 ? (
         <div className="">
           <div
             className="flexrow2c padding-left-a borderRadius4"
@@ -558,7 +558,7 @@ function ExpandableArray(props) {
         </div>
       ) : (
         <div></div>
-      )} */}
+      )}
       
       <div>
         <div>

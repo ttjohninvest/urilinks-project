@@ -172,7 +172,7 @@ function ExpandableArray(props) {
     <div className="bg-white-1">
       <div className="flexrowz">
         
-      {/* {props.signup === false && (
+      {props.signup === false && (
         <div className="">
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
@@ -261,7 +261,7 @@ function ExpandableArray(props) {
 
 
         </div>
-      )} */}
+      )}
       {/* {props.signup === true && (
         <div>
           <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase">

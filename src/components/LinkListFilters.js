@@ -911,8 +911,8 @@ function ExpandableArray(props) {
               ref={props.ref1}
               className={`${
                 newspaper === false
-                  ? "grid-container5"
-                  : "grid-container5-newspaper-"
+                  ? "grid-container5-"
+                  : "grid-container5-newspaper- width300"
               } paddingparent margin-top-1 background-white-1 borderradius5`}
               title={
                 props.signup === true

@@ -157,6 +157,12 @@
   flex-direction: row;
 }
 
+.flexrowzui {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .flexrowzv {
   display: flex;
   flex-direction: row;

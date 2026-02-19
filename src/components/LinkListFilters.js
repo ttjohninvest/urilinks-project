@@ -170,7 +170,7 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      <div className="flexrowz">
+      <div className="flexrowzui">
         
       {props.signup === false && (
         <div className="">
@@ -262,6 +262,7 @@ function ExpandableArray(props) {
 
         </div>
       )}
+      {/*this part was causing the gap in the middle*/}
       {/* {props.signup === true && (
         <div>
           <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase">

@@ -39,6 +39,7 @@ function ExpandableArray(props) {
   const [maximum, setMaximum] = useState(0);
   const [gmail, setGmail] = useState("");
   const [searchTerm, setSearchTerm] = useState("")
+  const [sortBy, setSortBy] = useState("description")
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -221,8 +222,8 @@ function ExpandableArray(props) {
     if (
       selectedValue === "hashtag" &&
       // && sortBy === "hashtag"
-      //props.filters.sortBy === "hashtag"
-      sortBy === "hashtag"
+      props.filters.sortBy === "hashtag"
+      
     ) {
       if (term !== "" && term.charAt(0) !== "#") {
         alert("The search term needs to be a hashtag.");
@@ -834,7 +835,7 @@ function ExpandableArray(props) {
                 id="mode"
                 className="select outline-none"
                 //value={this.state.sortBy}
-                value={this.state.sortBy}
+                value={sortBy}
                 //value={this.props.filters.sortBy}
                 //value={window.localStorage.getItem("sortBy")}
 
@@ -1361,7 +1362,7 @@ export class LinkListFilters extends React.Component {
                 sortByDescription={this.props.sortByDescription}
                 sortByHashTag={this.props.sortByHashTag}
                 sortByNoteText={this.props.sortByNoteText}
-                sortBy={this.props.filters.sortBy}
+                filters={this.props.filters}
               />
             </div>
           )}

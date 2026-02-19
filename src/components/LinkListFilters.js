@@ -1615,7 +1615,7 @@ export class LinkListFilters extends React.Component {
           id="before-before-link-summary-id"
           className="bg-color-2- bg-color2w borderRadius4- flexrow2w- flexrowzv- padding-top-111 padding-bottom-111"
         >
-          <div className="flexrowzv">
+          <div className="flexrowzv-">
             <div className="margin-left-11">
               <input
                 title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."

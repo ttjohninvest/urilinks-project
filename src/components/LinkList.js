@@ -128,12 +128,12 @@ export const LinkList = (props) => {
   // }
 
   return (
-    <div className="website-background-color width1001 border5">
+    <div className="website-background-color width1001- border5">
       <div id="before-link-summary-id" className="flexrow2b- margin-bottom-5a">
         {/* <LinksSummary /> */}
 
         {props.signup.signup === true ? (
-          <div className="minWidth bg-color-4">
+          <div className="minWidth- bg-color-4">
             {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div> */}
 
             <Link
@@ -145,7 +145,7 @@ export const LinkList = (props) => {
             </Link>
           </div>
         ) : (
-          <div className="minWidth bg-color-4">
+          <div className="minWidth- bg-color-4">
             {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
 
             {/* <Link

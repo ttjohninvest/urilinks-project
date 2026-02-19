@@ -170,7 +170,7 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      <div className="flexrowzui">
+      <div className="flexrowzui- containerui">
         
       {props.signup === false && (
         <div className="">

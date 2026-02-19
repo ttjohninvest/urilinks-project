@@ -152,6 +152,13 @@
   flex-direction: column;
 }
 
+.containerui {
+ 
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+
+}
+
 .flexrowz {
   display: flex;
   flex-direction: row;

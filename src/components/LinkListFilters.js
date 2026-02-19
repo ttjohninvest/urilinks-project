@@ -1519,6 +1519,7 @@ export class LinkListFilters extends React.Component {
     //   });
 
       this.props.rerenderit()
+      window.scrollTo(0,0)
   };
 
   refreshIt = () => {

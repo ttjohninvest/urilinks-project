@@ -170,6 +170,7 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
+      <div className="flexrowz">
         {/* <img src={signature} /> */}
       {props.signup === false && (
         <div>
@@ -301,8 +302,7 @@ function ExpandableArray(props) {
         // </div>
       )}
 
-      {/* <div className="flexrowzc2 text-size-12- text-size-13 text-color-green font-weigth-bold padding-all text-center">Happy New Year</div> */}
-      <div className="flexrowz">
+      {/* <div className="flexrowz"> */}
         
          <div className="border2black">
        {/* column b */}

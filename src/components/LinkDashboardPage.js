@@ -159,6 +159,7 @@ useUnload((e) => {
     //this.setit = this.setit.bind(this);
     const setit = (value, event) => {
       event.preventDefault();
+      value="Animals"
       console.log("setIt, 3333333333333333333333333 value=" + value);
   
       this.props.sortByHashTag();

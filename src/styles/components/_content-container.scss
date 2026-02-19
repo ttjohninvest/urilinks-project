@@ -88,7 +88,7 @@
 }
 
 .floatLeft {
-  float:left;
+  float: left;
 }
 
 .grid-container5 {
@@ -158,10 +158,8 @@
 }
 
 .containerui {
- 
   display: grid;
   grid-template-columns: 4fr 8fr;
-
 }
 
 .flexrowz {
@@ -178,17 +176,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items:center;
-  flex-wrap:wrap;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
 
 .flexrowzc2 {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 .flexrowzl1 {
   display: flex;
@@ -215,12 +212,12 @@
   display: flex;
   flex-direction: row;
   justify-content: left;
-  align-items:center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
 .widthx {
-width:300px;
+  width: 300px;
 }
 
 .flexrowzc {
@@ -287,15 +284,15 @@ input#option1[type="radio"] {
 }
 
 .width100 {
-  width:100%;
+  width: 100%;
 }
 
 .width30p {
   //width:30%;
-  min-width:545px;
+  min-width: 550px;
 }
 .width70p {
-  width:60%;
+  width: 60%;
 }
 
 .aw {
@@ -465,8 +462,8 @@ input#option1[type="radio"] {
 }
 
 .width300 {
-  width:300px;
-  overflow:hidden;
+  width: 300px;
+  overflow: hidden;
 }
 
 .header4 {

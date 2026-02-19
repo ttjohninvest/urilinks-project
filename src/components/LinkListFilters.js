@@ -865,7 +865,7 @@ function ExpandableArray(props) {
             <div>
               {props.b === 1 && (
                 <button
-                  className="button-mq button-2- button--link color-black"
+                  className="button-mq button-2- button--link color-black margin-left-n-1"
                   onClick={toggleExpanded}
                 >
                   {expanded ? "Show Less" : "Show More"}

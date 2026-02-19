@@ -291,6 +291,12 @@ function ExpandableArray(props) {
     }
   };
 
+  //  const isMobile=()=>{
+  //   const regex =
+  //     /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  //   return regex.test(navigator.userAgent);
+  // }
+
   return (
     <div className="bg-white-1">
       <div className="flexrowztt containerui-">
@@ -800,7 +806,7 @@ function ExpandableArray(props) {
             <div
               //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
               className={`${
-                this.isMobile() ? "margin-right-1" : "margin-left-11"
+                isMobile() ? "margin-right-1" : "margin-left-11"
               }`}
             >
               <button
@@ -819,7 +825,7 @@ function ExpandableArray(props) {
 
             <div
               className={`${
-                this.isMobile()
+                isMobile()
                   ? "margin-top-11z1 margin-left-11"
                   : "margin-left-11"
               }`}

@@ -173,7 +173,7 @@ function ExpandableArray(props) {
       <div className="flexrowztt containerui-">
         
       {props.signup === false && (
-        <div className="width30p">
+        <div className="width30p-">
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
           </div>

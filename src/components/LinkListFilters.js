@@ -175,13 +175,13 @@ function ExpandableArray(props) {
       {props.signup === false && (
         <div className="">
           <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
-            <img
+            {/* <img
               className="ib minWidth"
               src={redarrow}
               width="100"
               height="50"
               alt="Logo"
-            />
+            /> */}
            
             {/* <ReadMore 
             text = {`Hope for Eternal Life, Salvation In No Other Name: The Holy Bible says in Acts 2:21 and Romans 10:13

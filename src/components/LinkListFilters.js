@@ -324,7 +324,7 @@ function ExpandableArray(props) {
               )}
             </div>
 
-            <div className="border2black- sticky-div-">
+            <div className="border2black- border-right-5 sticky-div-">
               <div className="containerhs-">
                 <div
                   ref={props.ref1}

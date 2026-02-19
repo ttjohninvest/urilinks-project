@@ -205,7 +205,9 @@ function ExpandableArray(props) {
             maxChars={21}
             />
 
-             <div className="border2black">
+            
+          </div>
+           <div className="border2black">
        {/* column b */}
        
        <div className="containerhs-">
@@ -286,6 +288,8 @@ function ExpandableArray(props) {
             </div>
           </div>
           </div>
+
+
         </div>
       )}
       {props.signup === true && (

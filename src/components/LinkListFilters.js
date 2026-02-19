@@ -309,8 +309,8 @@ function ExpandableArray(props) {
            
                 </div> */}
 
-                <div className="width30p theHeight flexrowzc2 border-b-5">
-                  category buttons
+                <div className="width30p theHeight flexrowzc2 border-b-5" title="click a button">
+                  categories
                 </div>
 
                  <div>

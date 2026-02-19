@@ -173,8 +173,8 @@ function ExpandableArray(props) {
       <div className="flexrowz">
         {/* <img src={signature} /> */}
       {props.signup === false && (
-        <div className="sticky-div">
-          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase">
+        <div className="">
+          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase sticky-div">
             <img
               className="ib minWidth"
               src={redarrow}

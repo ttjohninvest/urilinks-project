@@ -27,6 +27,7 @@ export const LinkList = (props) => {
   const [deleteData, setDeleteData] = useState([]);
   const [first, setFirst] = useState(0);
   const [key, setKey] = useState(v4());
+  const [showComponent, setShowComponent] = useState(false);
   const [bgcolor1, setBgcolor1] = useState("#b87333"); //rgba(219, 87, 5, 1)
   const [bgcolor2, setBgcolor2] = useState("#db5705"); //rgba(219, 87, 5, 1)
   const [bgcolor3, setBgcolor3] = useState("#db5705"); //rgba(219, 87, 5, 1)
@@ -54,6 +55,10 @@ export const LinkList = (props) => {
   // useEffect(() => {
   //   window.onbeforeunload = null;
   // }, [items]);
+
+  const handleClick = () => {
+    setShowComponent(true);
+  };
 
   useEffect(() => {
     const option = window.localStorage.getItem("whichOption");
@@ -134,15 +139,20 @@ export const LinkList = (props) => {
 
         {props.signup.signup === true ? (
           <div className="minWidth- bg-color-4">
-            {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div> */}
 
-            <Link
+            {/* <Link
               id="adlinkid"
               className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
               to="/create"
             >
               Add Link
-            </Link>
+            </Link> */}
+
+            
+      <button onClick={handleClick}>Add Link</button>
+      {showComponent && <AddLinkPage/>}
+    
+
           </div>
         ) : (
           <div className="minWidth- bg-color-4">

@@ -143,33 +143,7 @@ export const AddLinkPage = (props) => {
       console.log("maximum links reached");
       setMaximumPage(true);
     }
-    // } else {
-
-    // // if (count < 250 || (count < 10000 && (
-    // //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2"
-    // //)
-    // // ) {
-    // if (count < getPlanMax()
-    //   || (count < 5000 && (
-    //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-    //  ))
-    // ) {
-    //   link.foldername=link.description
-    //   const r = props.startAddLink(link);
-    //   if (r === false) {
-    //     setErrorDialog(true);
-    //     console.log("VVVVVVVVVVVVV returned false");
-    //   } else {
-
-    //     props.history.push("/");
-    //     //window.location.reload()
-    //     window.location.href="https://urilinks.com?signup=signup"
-    //   }
-    // } else {
-    //   console.log("maximum links reached");
-    //   setMaximumPage(true);
-    // }
-    // }
+   
   };
 
   return (

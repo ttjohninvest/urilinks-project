@@ -674,9 +674,9 @@ function ExpandableArray(props) {
                             //props.signup !== 0
                             //signup !== 0
                             <span
-                              dangerouslySetInnerHTML={{
-                                __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different websites like email of your choice, promoting worry free, and organized internet use.<br/><br/>`,
-                              }}
+                              // dangerouslySetInnerHTML={{
+                              //   __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different websites like email of your choice, promoting worry free, and organized internet use.<br/><br/>`,
+                              // }}
                             ></span>
                           )}
 

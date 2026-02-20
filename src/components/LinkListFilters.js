@@ -305,7 +305,7 @@ function ExpandableArray(props) {
         {
           //props.signup === false &&
 
-          <div className="width30p  scrollable-div1">
+          <div className={`${useButtons===true?'width30p':'width30pt'}  scrollable-div`}>
             {/* <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
                 </div> */}
@@ -320,7 +320,7 @@ function ExpandableArray(props) {
                 categories
               </div>
 
-              <div className="width30p width1001- border-right-5">
+              <div className={`${useButtons===true?' width30p':' width30pt'} width1001- border-right-5`}>
                 {props.b === 1 && (
                   <button
                     className="button-mq button-2- button--link color-black margin-left-n-1"
@@ -332,7 +332,7 @@ function ExpandableArray(props) {
               </div>
             </div>
 
-            <div className="width30p border2black- border-right-5 sticky-div-">
+            <div className={`${useButtons===true?'width30p':'width30pt'} border2black- border-right-5 sticky-div-`}>
               <div className="containerhs-">
                 <div
                   ref={props.ref1}

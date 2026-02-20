@@ -200,6 +200,15 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
+.flexrowzc22 {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .flexrowzl1 {
   display: flex;
   flex-direction: row;
@@ -304,6 +313,13 @@ input#option1[type="radio"] {
   //width:30%;
   min-width: 550px;
 }
+
+.width30pt {
+  //width:30%;
+  min-width: 300px;
+}
+
+
 .width70p {
   width: 60%;
 }

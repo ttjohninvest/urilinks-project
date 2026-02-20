@@ -44,6 +44,7 @@ function ExpandableArray(props) {
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
   const id = params.get("id");
+  const myRef = useRef(null);
 
   let x = false;
   if (window.localStorage.getItem("hideinformation") === null) {
@@ -248,7 +249,7 @@ function ExpandableArray(props) {
     if (e.target.value === "description") {
       window.localStorage.setItem("sortBy", "description");
       props.setTextFilter(val);
-      if (this.myRef.current) this.myRef.current.focus();
+      if (myRef.current) myRef.current.focus();
       //this.setState({ sortBy: "description" });
       setSortBy("description");
       props.sortByDescription();
@@ -268,7 +269,7 @@ function ExpandableArray(props) {
         //window.localStorage.setItem("termid", val);
         props.setTextFilter(val);
       }
-      if (this.myRef.current) this.myRef.current.focus();
+      if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("#");
 
       //window.localStorage.setItem("sortBy", "hashtag");
@@ -279,7 +280,7 @@ function ExpandableArray(props) {
       //this.setState({ sortBy: "hashtag" });
     } else if (e.target.value === "notetext") {
       window.localStorage.setItem("sortBy", "notetext");
-      if (this.myRef.current) this.myRef.current.focus();
+      if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
       props.setTextFilter(val);
       //window.localStorage.setItem("sortBy", "notetext");

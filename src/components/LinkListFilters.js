@@ -313,8 +313,8 @@ function ExpandableArray(props) {
             <div className="border-right-5">
               <div
                 className={`website-background-color ${
-                  //useButtons===true
-                  false?'width30p':'width30pt'} theHeight flexrowzc2 border-b-5 margin-left-n-19`}
+                  useButtons===true
+                  ?'width30p':'width30pt'} theHeight flexrowzc2 border-b-5 margin-left-n-19`}
                 title="click a button"
               >
                 categories
@@ -358,14 +358,14 @@ function ExpandableArray(props) {
                             >
                               <a
                                 className={`${
-                                  //useButtons===true
-                                  false?'b1xw':'ib width30pt flexrowzc22 margin-left-11 margin-top-1'} ${
-                                    //useButtons===true
-                                    false?'b1xw':''} nounderline ${
-                                      //useButtons===true
-                                      false?'color-white-1':''} ${
-                                        //useButtons===true
-                                        false?'button-link-4':''} ${
+                                  useButtons===true
+                                  ?'b1xw':'ib width30pt flexrowzc22 margin-left-11 margin-top-1'} ${
+                                    useButtons===true
+                                    ?'b1xw':''} nounderline ${
+                                      useButtons===true
+                                      ?'color-white-1':''} ${
+                                        useButtons===true
+                                        ?'button-link-4':''} ${
                                   props.b == 1
                                     ? "pointereventsauto"
                                     : "pointereventsnone"
@@ -393,14 +393,14 @@ function ExpandableArray(props) {
                           >
                             <a
                               className={`${
-                                //useButtons===true
-                                false?'b1xw':'ib width30pt flexrowzc22 margin-left-11 margin-top-1'} ${
-                                  //useButtons===true
-                                  false?'b1xw':''} nounderline ${
-                                    //useButtons===true
-                                    false?'color-white-1':''} ${
-                                      //useButtons===true
-                                      false?'button-link-4':''} ${
+                                useButtons===true
+                                ?'b1xw':'ib width30pt flexrowzc22 margin-left-11 margin-top-1'} ${
+                                  useButtons===true
+                                  ?'b1xw':''} nounderline ${
+                                    useButtons===true
+                                    ?'color-white-1':''} ${
+                                      useButtons===true
+                                      ?'button-link-4':''} ${
                                 false && "border6"
                               } ${
                                 props.b == 1

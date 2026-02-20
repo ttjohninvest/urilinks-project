@@ -355,7 +355,7 @@ function ExpandableArray(props) {
                               className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                             >
                               <a
-                                className={`${useButtons===true?'b1xw':''} nounderline ${useButtons===true?'color-white-1':''} ${useButtons===true?'button-link-4':''} ${
+                                className={`${useButtons===true?'b1xw':'textWrap'} ${useButtons===true?'b1xw':''} nounderline ${useButtons===true?'color-white-1':''} ${useButtons===true?'button-link-4':''} ${
                                   props.b == 1
                                     ? "pointereventsauto"
                                     : "pointereventsnone"
@@ -382,7 +382,7 @@ function ExpandableArray(props) {
                             className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                           >
                             <a
-                              className={`${useButtons===true?'b1xw':''} nounderline ${useButtons===true?'color-white-1':''} ${useButtons===true?'button-link-4':''} ${
+                              className={`${useButtons===true?'b1xw':'textWrap'} ${useButtons===true?'b1xw':''} nounderline ${useButtons===true?'color-white-1':''} ${useButtons===true?'button-link-4':''} ${
                                 false && "border6"
                               } ${
                                 props.b == 1

@@ -359,7 +359,7 @@ function ExpandableArray(props) {
                               <a
                                 className={`${
                                   //useButtons===true
-                                  false?'b1xw':'ib width30pt flexrowzc22'} ${
+                                  false?'b1xw':'ib width30pt flexrowzc22 margin-left-11 margin-top-1'} ${
                                     //useButtons===true
                                     false?'b1xw':''} nounderline ${
                                       //useButtons===true
@@ -394,7 +394,7 @@ function ExpandableArray(props) {
                             <a
                               className={`${
                                 //useButtons===true
-                                false?'b1xw':'ib width30pt flexrowzc22'} ${
+                                false?'b1xw':'ib width30pt flexrowzc22 margin-left-11 margin-top-1'} ${
                                   //useButtons===true
                                   false?'b1xw':''} nounderline ${
                                     //useButtons===true

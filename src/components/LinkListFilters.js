@@ -645,23 +645,23 @@ function ExpandableArray(props) {
                   </div>
                 )}
 
-                {isMobile() === true && (
-                  <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
-                    <div className="text-size-1">
-                      <div
-                        className="ib text-size-1"
-                        title="location for your gmail name"
-                      >
-                        {(!!theuser && props.signup === true) || signup === "0"
-                          ? !!theuser.displayName === true
-                            ? theuser.displayName
-                            : "error getting display name"
-                          : !!theuser === true
-                            ? theuser.displayName
-                            : "(gmail name)"}
-                      </div>
-                    </div>
-                  </div>
+                {isMobile() === true && (<div></div>
+                  // <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
+                  //   <div className="text-size-1">
+                  //     <div
+                  //       className="ib text-size-1"
+                  //       title="location for your gmail name"
+                  //     >
+                  //       {(!!theuser && props.signup === true) || signup === "0"
+                  //         ? !!theuser.displayName === true
+                  //           ? theuser.displayName
+                  //           : "error getting display name"
+                  //         : !!theuser === true
+                  //           ? theuser.displayName
+                  //           : "(gmail name)"}
+                  //     </div>
+                  //   </div>
+                  // </div>
                 )}
 
                 {

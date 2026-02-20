@@ -1,6 +1,6 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 
-const useButtons = false; //use buttons in display
+const useButtons = true; //use buttons in display
 
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";

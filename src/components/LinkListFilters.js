@@ -1,6 +1,6 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 
-const useButtons = true; //use buttons in display
+const useButtons = false; //use buttons in display
 
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
@@ -305,7 +305,7 @@ function ExpandableArray(props) {
         {
           //props.signup === false &&
 
-          <div className={`${useButtons===true?'width30p':'width30pt'}  scrollable-div`}>
+          <div className={`${useButtons===true?'width30p':'width30pt'}  scrollable-div1`}>
             {/* <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
                 </div> */}

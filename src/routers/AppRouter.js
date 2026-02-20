@@ -5,7 +5,7 @@ import LinkDashboardPage from "../components/LinkDashboardPage";
 import LinkSettingsPage from "../components/LinkSettingsPage";
 import AddSettingsPage from "../components/AddSettingsPage";
 //import AddLinkPage from "../components/AddLinkPage";
-import AddLinkPage from "../components/AddLinkPage";
+import AddLinkPage from "../components/AddlinkPage";
 
 import EditLinkPage from "../components/EditLinkPage";
 import Signup from "../components/Signup";
@@ -64,13 +64,8 @@ const AppRouter = (props) => (
           //component={TermsAndPrivacy}
           component={TermsAndPrivacyPolicy}
         />
-       
-        <PrivateRoute
-          path="/use"
-          signup={props.signup}
-          component={Benefits}
-         
-        />
+
+        <PrivateRoute path="/use" signup={props.signup} component={Benefits} />
         {/* <PrivateRoute path="/settings" component={LinkSettingsPage} /> */}
         <PrivateRoute
           path="/create"

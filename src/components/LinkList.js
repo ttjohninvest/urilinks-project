@@ -18,7 +18,7 @@ import LinkListItem4 from "./LinkListItem4";
 import selectLinks from "../selectors/links";
 import selectLinks2 from "../selectors/links2";
 import LinksSummary from "./LinksSummary";
-import AddLinkPage from "./AddLinkPage";
+import AddLinkPage from "./AddlinkPage";
 import printerImage from "../assets/images/printer_image.png";
 import { v4 } from "uuid";
 import LoadingPage from "./LoadingPage";
@@ -140,7 +140,6 @@ export const LinkList = (props) => {
 
         {props.signup.signup === true ? (
           <div className="minWidth- bg-color-4">
-
             {/* <Link
               id="adlinkid"
               className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
@@ -149,11 +148,8 @@ export const LinkList = (props) => {
               Add Link
             </Link> */}
 
-            
-      <button onClick={handleClick}>Add Link</button>
-      {showComponent && <AddLinkPage/>}
-    
-
+            <button onClick={handleClick}>Add Link</button>
+            {showComponent && <AddLinkPage />}
           </div>
         ) : (
           <div className="minWidth- bg-color-4">
@@ -293,15 +289,15 @@ export const LinkList = (props) => {
               ? 100
               : props.linkCount
             : first === 1
-            ? props.linkCount2
-            : ""}
+              ? props.linkCount2
+              : ""}
         </span>
         <span className="ib margin-left-11">
           {first === 0 || first === 1
             ? " Link(s) Displayed"
             : first === 2
-            ? " Results"
-            : ""}
+              ? " Results"
+              : ""}
         </span>
       </div>
 
@@ -326,7 +322,11 @@ export const LinkList = (props) => {
             props.links.slice(0, DISPLAY_THIS_MANY_LINKS).map((link) => {
               return (
                 <div>
-                  <LinkListItem key={link.id} {...link} signup={props.signup.signup} />
+                  <LinkListItem
+                    key={link.id}
+                    {...link}
+                    signup={props.signup.signup}
+                  />
                 </div>
               );
             })

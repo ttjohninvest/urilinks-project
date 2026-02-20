@@ -353,7 +353,7 @@ function ExpandableArray(props) {
                               className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                             >
                               <a
-                                className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
+                                className={`b1xw- nounderline color-white-1- button-link-4- ${
                                   props.b == 1
                                     ? "pointereventsauto"
                                     : "pointereventsnone"

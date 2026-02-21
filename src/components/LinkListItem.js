@@ -684,7 +684,7 @@ const LinkListItem = (props) => {
                                 src={props.faviconURL}
                               />
                             </div>
-                            <div className="border-blue">
+                            <div className="border-blue-">
                               {
                                 //isityt(props.Url)
                                 !!props.yturl && (
@@ -786,48 +786,16 @@ const LinkListItem = (props) => {
                             </div>
                           </div>
 
-                          {/* <div>
-                    <span
-                      className="ib margin-left-114"
-                      title="click the following link to see an index of clickable urls on the page."
-                    >
-                      PAGE URLS SOURCE:
-                      <br />
-                      <span
-                        onClick={() => getUrlsList(props.Url, props.id)}
-                        className="ib cursor-pointer margin-left-114 color1-  color-purple"
-                        title="click to see the clickable page urls from the above page"
-                      >
-                        Show List: {decodeURIComponent(props.Url)}
-                        
-                      </span>
-                    </span>
-                  </div>  */}
                         </div>
 
                         <ol id={"uldata" + props.id} start="0"></ol>
                       </div>
                     </div>
                   </div>
-                  {/* <div className="">
-            <h3 className="">
-              <Link className="nounderline  text-size-1" to={`/edit/${props.id}`}>
-               
-                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2w">
-                    edit or remove
-                  </span>
                   
-               
-              </Link>
-              <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
-                   <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
-                   <label for={"delete%"+props.id} />
-                  </span>
-            </h3>
-          </div> */}
                 </div>
 
-                <div className="italicText list-item__sub-title- margin-left-1181- border-green text-size-10 color-purple margin-left-11p1 color-black-2">
+                <div className="italicText list-item__sub-title- margin-left-1181- border-green- text-size-10 color-purple margin-left-11p1 color-black-2">
                   <span className="ib padding-left-1122 margin-top-n-15a">Link saved on:{" "}{moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}</span>
                 </div>
               </div>

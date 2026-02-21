@@ -684,7 +684,7 @@ const LinkListItem = (props) => {
                                 src={props.faviconURL}
                               />
                             </div>
-                            <div>
+                            <div className="border-blue">
                               {
                                 //isityt(props.Url)
                                 !!props.yturl && (

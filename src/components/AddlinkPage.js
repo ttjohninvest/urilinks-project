@@ -135,7 +135,7 @@ export const AddLinkPage = (props) => {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
       } else {
-        //props.history.push("/");
+        props.history.push("/");
         
         //window.location.href = "https://urilinks.com?signup=signup";
       }

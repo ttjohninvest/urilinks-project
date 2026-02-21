@@ -148,7 +148,11 @@ export const LinkList = (props) => {
               Add Link
             </Link> */}
 
-            <button onClick={handleClick}>Add Link</button>
+            <a 
+            id="adlinkid"
+            href="#"
+            className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+            onClick={handleClick}>Add Link</a>
             {showComponent && <AddLinkPage />}
           </div>
         ) : (

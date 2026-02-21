@@ -1,6 +1,6 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 
-const useButtons = false; //use buttons in display
+
 
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
@@ -47,6 +47,8 @@ function ExpandableArray(props) {
   const signup = params.get("signup");
   const id = params.get("id");
   const myRef = useRef(null);
+
+  const useButtons = false; //use buttons in display of categories
 
   let x = false;
   if (window.localStorage.getItem("hideinformation") === null) {
@@ -374,7 +376,7 @@ function ExpandableArray(props) {
                                 onClick={() => props.setit(s.hashtag, event)}
                                 title={`${sep(s.hashtag)}, hashtag: ${
                                   !!s.hashtag && s.hashtag
-                                }, click to scroll to results`}
+                                }, click to see results`}
                                 //title={props.signup === true?${s.hashtag}, click to scroll to results:
                               >
                                 {sep(s.hashtag)}
@@ -411,7 +413,7 @@ function ExpandableArray(props) {
                               onClick={() => props.setit(s.hashtag, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${
                                 !!s.hashtag && s.hashtag
-                              }, click to scroll to results`}
+                              }, click to see results`}
                             >
                               {sep(s.hashtag)}
                             </a>

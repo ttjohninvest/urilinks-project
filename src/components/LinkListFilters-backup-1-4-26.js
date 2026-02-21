@@ -813,7 +813,7 @@ function ExpandableArray(props) {
                         onClick={() => props.setit(s.hashtag, event)}
                         title={`${sep(s.hashtag)}, hashtag: ${
                           !!s.hashtag && s.hashtag
-                        }, click to scroll to results`}
+                        }, click to see results`}
                       >
                         {sep(s.hashtag)}
                         {/* {"#"}

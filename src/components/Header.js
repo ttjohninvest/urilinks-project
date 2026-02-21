@@ -391,7 +391,7 @@ export const Header = (props) => {
                         </Link>
                       </div>
                     )}
-                  {!inviewport && (
+                  {/* {!inviewport && (
                     <div
                       id="scrolldownid"
                       className="header__title- padding-top-11- cursor-pointer color-white-1 color-black-2- cursor-pointer nounderline"
@@ -400,9 +400,9 @@ export const Header = (props) => {
                     >
                       search
                     </div>
-                  )}
+                  )} */}
 
-                  {!inviewport && (
+                  {/* {!inviewport && (
                     <div
                       id="scrolldownid2"
                       className="header__title- padding-top-11- cursor-pointer color-white-1 color-black-2- cursor-pointer nounderline"
@@ -411,7 +411,7 @@ export const Header = (props) => {
                     >
                       add link
                     </div>
-                  )}
+                  )} */}
 
                   <div>
                     <Link

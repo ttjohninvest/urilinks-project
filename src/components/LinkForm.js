@@ -230,7 +230,7 @@ class LinkForm extends React.Component {
   };
   render() {
     return (
-      <form className="form" onSubmit={this.onSubmit}>
+      <form className="form form-bg" onSubmit={this.onSubmit}>
         {this.state.error && (
           <p className="form__error flexrow2w">{this.state.error}</p>
         )}

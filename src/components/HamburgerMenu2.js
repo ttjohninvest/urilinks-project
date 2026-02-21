@@ -147,7 +147,7 @@ const HamburgerMenu = (props) => {
                   </Link>
                 )}
             </li>
-            <li>
+            {/* <li>
               {" "}
               {true && (
                 <span
@@ -159,7 +159,7 @@ const HamburgerMenu = (props) => {
                   search
                 </span>
               )}
-            </li>
+            </li> */}
 
             <li></li>
             <li>

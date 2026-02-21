@@ -146,7 +146,7 @@ const HamburgerMenu = (props) => {
               </Link>
             )}
         </li>
-        <li>
+        {/* <li>
           <span
             id="scrolldownid"
             className="ib padding-tb font-weight-bold cursor-pointer color-white-1 nounderline"
@@ -155,9 +155,9 @@ const HamburgerMenu = (props) => {
           >
             search
           </span>
-        </li>
+        </li> */}
 
-        <li>
+        {/* <li>
           <span
             id="scrolldownid2"
             className="ib padding-tb font-weight-bold cursor-pointer color-white-1 nounderline"
@@ -166,7 +166,7 @@ const HamburgerMenu = (props) => {
           >
             add link
           </span>
-        </li>
+        </li> */}
 
         <li></li>
         <li>

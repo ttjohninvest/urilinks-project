@@ -57,9 +57,10 @@ export const LinkList = (props) => {
   //   window.onbeforeunload = null;
   // }, [items]);
 
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.preventDefault()
     //adlinkid
-    document.getElementById('adlinkid').classList.add('hide');
+    document.getElementById('adlinkid').classList.add('pointereventsnone');
     setShowComponent(true);
   };
 
@@ -150,10 +151,11 @@ export const LinkList = (props) => {
               Add Link
             </Link> */}
 
-            <button 
+            <a 
             id="adlinkid"
-            className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
-            onClick={handleClick}>Add Link</button>
+            href="#"
+            className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+            onClick={handleClick}>Add Link</a>
 
             {showComponent && <AddLinkPage />}
           </div>

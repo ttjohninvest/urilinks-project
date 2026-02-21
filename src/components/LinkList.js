@@ -58,6 +58,8 @@ export const LinkList = (props) => {
   // }, [items]);
 
   const handleClick = () => {
+    //adlinkid
+    document.getElementById('adlinkid').classList.add('hide');
     setShowComponent(true);
   };
 
@@ -152,6 +154,7 @@ export const LinkList = (props) => {
             id="adlinkid"
             className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
             onClick={handleClick}>Add Link</button>
+
             {showComponent && <AddLinkPage />}
           </div>
         ) : (

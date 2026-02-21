@@ -815,8 +815,8 @@ function ExpandableArray(props) {
           <div>
             <div className="margin-left-minus-1">
               <span><ReadMore
-        text={`Salvation call; please call upon the name of Jesus Christ to save you. Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13.`}
-        maxChars={28}
+        text={`Eternal Salvation Invitation; please say "I call upon the name of Jesus Christ to save me." Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13.`}
+        maxChars={46}
       /></span>
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}

@@ -367,7 +367,7 @@ function ExpandableArray(props) {
                                 className={`${
                                   useButtons === true
                                     ? "b1xw"
-                                    : "ib width30pt flexrowzc22 margin-left-11 margin-top-1"
+                                    : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
                                 } ${
                                   useButtons === true ? "b1xw" : ""
                                 } nounderline ${
@@ -404,7 +404,7 @@ function ExpandableArray(props) {
                               className={`${
                                 useButtons === true
                                   ? "b1xw"
-                                  : "ib width30pt flexrowzc22 margin-left-11 margin-top-1"
+                                  : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
                               } ${
                                 useButtons === true ? "b1xw" : ""
                               } nounderline ${

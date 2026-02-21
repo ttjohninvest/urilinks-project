@@ -254,8 +254,7 @@ export const Header = (props) => {
                           alt="Logo"
                         />
                         <span className="nav-link active">
-      <i className="material-icons">home</i>
-      <i className="material-icons">cross</i>
+      <i className="material-icons">crucifix</i>
       <h3 className="color-white-1">urilinks</h3>
    </span>
                         {/* <h3 className="color-white-1">urilinks</h3> */}

@@ -814,8 +814,8 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div className="margin-left-minus-1">
-              <span>😇 Welcome to the grace of Jesus Christ: </span>
-              <span>✞ <ReadMore
+              <span>😇 Welcome to Saint John McGovern's urilinks.com for the organizing of your favorite links for optional revisitation: </span>
+              <span><span>✞😇 Welcome to the grace of Jesus Christ: </span><ReadMore
         text={`Eternal Salvation Invitation; please say "I call upon the name of Jesus Christ to save me." Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13.`}
         maxChars={40}
       /></span>

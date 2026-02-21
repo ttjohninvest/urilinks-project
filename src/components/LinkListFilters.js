@@ -1,7 +1,5 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 
-
-
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
@@ -303,11 +301,17 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
+      <ReadMore
+        text={`Please call upo the name of Jesus Christ.`}
+        maxChars={12}
+      />
       <div className="flexrowztt containerui-">
         {
           //props.signup === false &&
 
-          <div className={`${useButtons===true?'width30p':'width30pt'}  scrollable-div1`}>
+          <div
+            className={`${useButtons === true ? "width30p" : "width30pt"}  scrollable-div1`}
+          >
             {/* <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
                 </div> */}
@@ -315,14 +319,16 @@ function ExpandableArray(props) {
             <div className="border-right-5">
               <div
                 className={`website-background-color ${
-                  useButtons===true
-                  ?'width30p':'width30pt'} theHeight flexrowzc2 border-b-5 margin-left-n-19`}
+                  useButtons === true ? "width30p" : "width30pt"
+                } theHeight flexrowzc2 border-b-5 margin-left-n-19`}
                 title="click a button"
               >
                 categories
               </div>
 
-              <div className={`${useButtons===true?' width30p':' width30pt'} width1001- border-right-5`}>
+              <div
+                className={`${useButtons === true ? " width30p" : " width30pt"} width1001- border-right-5`}
+              >
                 {props.b === 1 && (
                   <button
                     className="button-mq button-2- button--link color-black margin-left-n-1"
@@ -334,7 +340,9 @@ function ExpandableArray(props) {
               </div>
             </div>
 
-            <div className={`${useButtons===true?'width30p':'width30pt'} border2black- border-right-5 sticky-div-`}>
+            <div
+              className={`${useButtons === true ? "width30p" : "width30pt"} border2black- border-right-5 sticky-div-`}
+            >
               <div className="containerhs-">
                 <div
                   ref={props.ref1}
@@ -360,14 +368,16 @@ function ExpandableArray(props) {
                             >
                               <a
                                 className={`${
-                                  useButtons===true
-                                  ?'b1xw':'ib width30pt flexrowzc22 margin-left-11 margin-top-1'} ${
-                                    useButtons===true
-                                    ?'b1xw':''} nounderline ${
-                                      useButtons===true
-                                      ?'color-white-1':''} ${
-                                        useButtons===true
-                                        ?'button-link-4':''} ${
+                                  useButtons === true
+                                    ? "b1xw"
+                                    : "ib width30pt flexrowzc22 margin-left-11 margin-top-1"
+                                } ${
+                                  useButtons === true ? "b1xw" : ""
+                                } nounderline ${
+                                  useButtons === true ? "color-white-1" : ""
+                                } ${
+                                  useButtons === true ? "button-link-4" : ""
+                                } ${
                                   props.b == 1
                                     ? "pointereventsauto"
                                     : "pointereventsnone"
@@ -395,14 +405,14 @@ function ExpandableArray(props) {
                           >
                             <a
                               className={`${
-                                useButtons===true
-                                ?'b1xw':'ib width30pt flexrowzc22 margin-left-11 margin-top-1'} ${
-                                  useButtons===true
-                                  ?'b1xw':''} nounderline ${
-                                    useButtons===true
-                                    ?'color-white-1':''} ${
-                                      useButtons===true
-                                      ?'button-link-4':''} ${
+                                useButtons === true
+                                  ? "b1xw"
+                                  : "ib width30pt flexrowzc22 margin-left-11 margin-top-1"
+                              } ${
+                                useButtons === true ? "b1xw" : ""
+                              } nounderline ${
+                                useButtons === true ? "color-white-1" : ""
+                              } ${useButtons === true ? "button-link-4" : ""} ${
                                 false && "border6"
                               } ${
                                 props.b == 1
@@ -667,7 +677,8 @@ function ExpandableArray(props) {
                   </div>
                 )}
 
-                {isMobile() === true && (<div></div>
+                {isMobile() === true && (
+                  <div></div>
                   // <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
                   //   <div className="text-size-1">
                   //     <div
@@ -696,9 +707,9 @@ function ExpandableArray(props) {
                             //props.signup !== 0
                             //signup !== 0
                             <span
-                              // dangerouslySetInnerHTML={{
-                              //   __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different websites like email of your choice, promoting worry free, and organized internet use.<br/><br/>`,
-                              // }}
+                            // dangerouslySetInnerHTML={{
+                            //   __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different websites like email of your choice, promoting worry free, and organized internet use.<br/><br/>`,
+                            // }}
                             ></span>
                           )}
 

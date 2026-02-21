@@ -301,10 +301,7 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      <ReadMore
-        text={`Please call upo the name of Jesus Christ.`}
-        maxChars={12}
-      />
+      
       <div className="flexrowztt containerui-">
         {
           //props.signup === false &&
@@ -817,6 +814,10 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div className="margin-left-minus-1">
+              <span><ReadMore
+        text={`Salvation call; please call upon the name of Jesus Christ. Please see KJV Holy Bible Romans chapter 10, verse 13.`}
+        maxChars={28}
+      /></span>
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}
                 {props.theplan.plan.replace(/"/g, "")}{" "}

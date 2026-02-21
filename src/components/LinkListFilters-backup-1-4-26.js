@@ -1425,7 +1425,7 @@ export class LinkListFilters extends React.Component {
             <div className="margin-left-11">
               <input
                 title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                placeholder="type/paste what to find?"
+                placeholder="enter what to find?"
                 autofocus
                 id="termid"
                 className="text-input responsive-input outline-none padding-left-11 borderRadius55"

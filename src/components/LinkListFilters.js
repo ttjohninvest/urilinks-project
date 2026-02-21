@@ -815,7 +815,7 @@ function ExpandableArray(props) {
           <div>
             <div className="margin-left-minus-1">
               <span><ReadMore
-        text={`Salvation call; please call upon the name of Jesus Christ. Please see KJV Holy Bible Romans chapter 10, verse 13.`}
+        text={`Salvation call; please call upon the name of Jesus Christ to save you. Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13.`}
         maxChars={28}
       /></span>
               <span>

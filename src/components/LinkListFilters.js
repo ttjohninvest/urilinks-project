@@ -695,8 +695,8 @@ function ExpandableArray(props) {
                 )}
 
                 {
-                  props.signup === false
-                  //true
+                  //props.signup === false
+                  true
                    ? (
                     <div className="text-size-1 flexrowzc">
                       {isMobile() === true ? (
@@ -730,30 +730,30 @@ function ExpandableArray(props) {
 
                       {props.signup === false && <div></div>}
                     </div>
-                  ) : (
-                    <div>
-                      <div className="flexrow2c">
-                        <div className="text-size-1 textLeft margin-top-1">
-                          <a
-                            href="#"
-                            ref={textAreaRef}
-                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                          >
-                            https://urilinks.com/dashboard?signup=0&id=
-                            {props.uid}
-                          </a>
-                          <button
-                            className="button-2w ib margin-right-1 margin-left-11 border5"
-                            onClick={copyToClipboard}
-                            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                          >
-                            copy sharable link
-                          </button>
-                          {copySuccess}
-                        </div>
-                      </div>
-                    </div>
+                  ) : (<div></div>
+                    // <div>
+                    //   <div className="flexrow2c">
+                    //     <div className="text-size-1 textLeft margin-top-1">
+                    //       <a
+                    //         href="#"
+                    //         ref={textAreaRef}
+                    //         className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                    //         title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                    //       >
+                    //         https://urilinks.com/dashboard?signup=0&id=
+                    //         {props.uid}
+                    //       </a>
+                    //       <button
+                    //         className="button-2w ib margin-right-1 margin-left-11 border5"
+                    //         onClick={copyToClipboard}
+                    //         title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                    //       >
+                    //         copy sharable link
+                    //       </button>
+                    //       {copySuccess}
+                    //     </div>
+                    //   </div>
+                    // </div>
                   )
                 }
 
@@ -820,6 +820,29 @@ function ExpandableArray(props) {
         text={`Eternal Salvation Invitation; please say "I call upon the name of Jesus Christ to save me." Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13. ✞😇 Welcome to the grace of Jesus Christ.`}
         maxChars={41}
       /></span>
+              {props.signup && <div>
+                      <div className="flexrow2c">
+                        <div className="text-size-1 textLeft margin-top-1">
+                          <a
+                            href="#"
+                            ref={textAreaRef}
+                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          >
+                            https://urilinks.com/dashboard?signup=0&id=
+                            {props.uid}
+                          </a>
+                          <button
+                            className="button-2w ib margin-right-1 margin-left-11 border5"
+                            onClick={copyToClipboard}
+                            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          >
+                            copy sharable link
+                          </button>
+                          {copySuccess}
+                        </div>
+                      </div>
+                    </div>}
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}
                 {props.theplan.plan.replace(/"/g, "")}{" "}

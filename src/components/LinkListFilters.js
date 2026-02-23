@@ -821,12 +821,12 @@ function ExpandableArray(props) {
         maxChars={41}
       /></span>
               {props.signup && <span><div>
-                      <div className="flexrow2c">
-                        <div className="text-size-1 textLeft margin-top-1-">
+                      <div className="flexrow2cv2">
+                        <div className="text-size-1 textLeft- margin-top-1-">
                           <a
                             href="#"
                             ref={textAreaRef}
-                            className="ib nounderline pointereventsnone border5 padding-all2- borderradius55"
+                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
                             title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >
                             https://urilinks.com/dashboard?signup=0&id=

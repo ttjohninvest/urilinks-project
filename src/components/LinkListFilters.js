@@ -695,8 +695,9 @@ function ExpandableArray(props) {
                 )}
 
                 {
-                  //props.signup === false
-                  true ? (
+                  props.signup === false
+                  //true
+                   ? (
                     <div className="text-size-1 flexrowzc">
                       {isMobile() === true ? (
                         <div className="padding-right-11 padding-bottom-118 lowercase">

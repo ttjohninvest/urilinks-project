@@ -138,7 +138,7 @@ function ExpandableArray(props) {
     // This is just personal preference.
     // I prefer to not show the whole text area selected.
     e.target.focus();
-    setCopySuccess("Copied " + text);
+    setCopySuccess("Copied ")// + text);
   };
 
   useEffect(() => {
@@ -820,9 +820,9 @@ function ExpandableArray(props) {
         text={`Eternal Salvation Invitation; please say "I call upon the name of Jesus Christ to save me." Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13. ✞😇 Welcome to the grace of Jesus Christ.`}
         maxChars={41}
       /></span>
-              {props.signup && <div>
+              {props.signup && <span><div>
                       <div className="flexrow2c">
-                        <div className="text-size-1 textLeft margin-top-1">
+                        <div className="text-size-1 textLeft margin-top-1-">
                           <a
                             href="#"
                             ref={textAreaRef}
@@ -842,7 +842,7 @@ function ExpandableArray(props) {
                           {copySuccess}
                         </div>
                       </div>
-                    </div>}
+                    </div></span>}
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}
                 {props.theplan.plan.replace(/"/g, "")}{" "}

@@ -827,7 +827,7 @@ function ExpandableArray(props) {
                             href="#"
                             ref={textAreaRef}
                             className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >
                             https://urilinks.com/dashboard?signup=0&id=
                             {props.uid}
@@ -835,7 +835,7 @@ function ExpandableArray(props) {
                           <button
                             className="button-2w ib margin-right-1 margin-left-11 border5"
                             onClick={copyToClipboard}
-                            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >
                             copy sharable link
                           </button>

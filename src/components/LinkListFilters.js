@@ -826,7 +826,7 @@ function ExpandableArray(props) {
                           <a
                             href="#"
                             ref={textAreaRef}
-                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                            className="ib nounderline pointereventsnone border5 padding-all2- borderradius55"
                             title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >
                             https://urilinks.com/dashboard?signup=0&id=

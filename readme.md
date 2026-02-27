@@ -185,8 +185,27 @@ allow read, write;
 }
 
 ---
-
+{
+"rules": {
+"users": {
+".read": true,
+"$uid": {
+        ".write": "$uid === auth.uid"
+}
+}
+}
+}
 ---
+
+{
+"rules": {
+"users": {
+".read": true,
+".write": true
+}
+}
+}
+
 
 ## do the steps Konstantin gave me to get custom domain assigned to authDomain to appear after to continue to in signInWithPopup dialog
 

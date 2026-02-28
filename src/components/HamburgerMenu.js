@@ -133,7 +133,7 @@ const HamburgerMenu = (props) => {
             </span>
           </Link>
         </li>
-        {/* <li>
+        <li>
           {props.theplan.plan.replace(/"/g, "") !== "premium" &&
             props.signup.signup === true && (
               <Link className="header__title" to="/teirspayment3">
@@ -145,7 +145,7 @@ const HamburgerMenu = (props) => {
                 </span>
               </Link>
             )}
-        </li> */}
+        </li>
         {/* <li>
           <span
             id="scrolldownid"

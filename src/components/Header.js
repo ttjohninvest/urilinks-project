@@ -35,16 +35,17 @@ export const Header = (props) => {
   const [bmok, setBmok] = useState(false);
   const ideas = () => {};
 
-  const isInMeArray = (uid) => {
+  const isInMeArray = () => {
     //these email address are allowed to upload bookmark files
     const mearray = [
+      "m8f0YMF5bucp9uhblPZhM8CTjq12",
       "zIK65gVpE9RPpHFZprjblMGJ2KB3",
       "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
       "WJGHkWycjKQxPK83Fi4zqx53bCl1",
       "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
       "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
       "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-      "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2", //,
+      "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2" //,
       //"7CzFYQjw2aUhHgCYjS2eDODrfVE2" //jmjohnmcgovern707@gmail.com
     ];
     let val = false;
@@ -231,6 +232,10 @@ export const Header = (props) => {
     setToggledUse(!toggleUse);
   };
 
+  const okToShow = () => {
+
+  }
+
   return (
     <div>
       {isMobile() === false ? (
@@ -379,7 +384,7 @@ export const Header = (props) => {
                     </Link>
                   </div>
                   {props.theplan.plan.replace(/"/g, "") !== "premium" &&
-                    props.signup.signup === true && (
+                    props.signup.signup === true && isInMeArray()===true && (
                       <div>
                         <Link className="header__title-" to="/teirspayment3">
                           <span

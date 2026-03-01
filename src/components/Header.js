@@ -38,7 +38,7 @@ export const Header = (props) => {
   const isInMeArray = () => {
     //these email address are allowed to upload bookmark files
     const mearray = [
-      "m8f0YMF5bucp9uhblPZhM8CTjq12",
+      //"m8f0YMF5bucp9uhblPZhM8CTjq12",
       "zIK65gVpE9RPpHFZprjblMGJ2KB3",
       "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
       "WJGHkWycjKQxPK83Fi4zqx53bCl1",

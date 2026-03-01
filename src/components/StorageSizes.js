@@ -1,6 +1,6 @@
 // constants.js
 const StorageSizes = {
-  free: 0,
+  free: 10,
   basic:100,
   standard:200,
   premium:400

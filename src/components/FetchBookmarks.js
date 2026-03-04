@@ -152,7 +152,7 @@ const FetchBookmarks = (props) => {
       );
 
     //const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
-    const cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //leave the showing characters in
+    const cleaned = str2.replace(/[^a-zA-Z0-9_]/g, ""); //leave the showing characters in
     //const cleaned = str2.replace(/[^\s]/g, "");
 
     const lc = cleaned;

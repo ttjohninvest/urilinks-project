@@ -815,11 +815,11 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div className="margin-left-minus-1">
-              <span>😇 Welcome to DASHBOARD of Saint John's urilinks.com for the organizing of your favorite links (church, school, economic, business, entertainment, general) for optional revisitation: </span>
-              <span><ReadMore
+              <span className="weight-bold-1 underline">😇 EXAMPLE WEBSITE COLLECTIONS CURATOR'S DASHBOARD </span>
+              {/* <span><ReadMore
         text={`Eternal Salvation Invitation; please say "I call upon the name of Jesus Christ to save me." Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13. ✞😇 Welcome to the grace of Jesus Christ.`}
         maxChars={41}
-      /></span>
+      /></span> */}
               {props.signup && <span><div className="margin-bottom-123">
                       <div className="flexrow2cv2">
                         <div className="text-size-1 textLeft- margin-top-1-">

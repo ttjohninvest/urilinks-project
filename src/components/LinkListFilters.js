@@ -815,7 +815,7 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div className="margin-left-minus-1">
-              <span className="weight-bold-1 underline">😇 EXAMPLE WEBSITE COLLECTIONS CURATOR'S DASHBOARD </span>
+              <div className="weight-bold-1 underline">😇 EXAMPLE WEBSITE COLLECTIONS CURATOR'S DASHBOARD </div>
               {/* <span><ReadMore
         text={`Eternal Salvation Invitation; please say "I call upon the name of Jesus Christ to save me." Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13. ✞😇 Welcome to the grace of Jesus Christ.`}
         maxChars={41}
@@ -834,6 +834,29 @@ function ExpandableArray(props) {
                           </a>
                           <button
                             className="button-2w ib margin-right-1 margin-left-11 border5"
+                            onClick={copyToClipboard}
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          >
+                            copy sharable link
+                          </button>
+                          {copySuccess}
+                        </div>
+                      </div>
+                    </div></span>}
+                      {props.signup ===false && <span><div className="margin-bottom-123">
+                      <div className="flexrow2cv2">
+                        <div className="text-size-1 textLeft- margin-top-1-">
+                          <a
+                            href="#"
+                            ref={textAreaRef}
+                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          >
+                            https://urilinks.com/dashboard?signup=0&id=
+                            {props.uid}
+                          </a>
+                          <button
+                            className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
                             onClick={copyToClipboard}
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >

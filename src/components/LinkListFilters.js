@@ -378,7 +378,7 @@ function ExpandableArray(props) {
                                   props.b == 1
                                     ? "pointereventsauto"
                                     : "pointereventsnone"
-                                }`}
+                                } underline`}
                                 href="#"
                                 onClick={() => props.setit(s.hashtag, event)}
                                 title={`${sep(s.hashtag)}, hashtag: ${
@@ -415,7 +415,7 @@ function ExpandableArray(props) {
                                 props.b == 1
                                   ? "pointereventsauto"
                                   : "pointereventsnone"
-                              }`}
+                              } underline`}
                               href="#"
                               onClick={() => props.setit(s.hashtag, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${

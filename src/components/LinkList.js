@@ -1,6 +1,6 @@
 const LIST_ALL_PUBLIC_LINKS = false; //I commented the code out to fix the space between alignment
 const LIST_ALL_PUBLIC_LINKS_PEOPLE = false; //I commented the code out to fix the space between alignment
-const DISPLAY_THIS_MANY_LINKS = 100;
+const DISPLAY_THIS_MANY_LINKS = 400;
 import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
 import MyInfiniteScroll from "./MyInfiniteScroll";

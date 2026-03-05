@@ -871,7 +871,8 @@ function ExpandableArray(props) {
                 {props.links.length} of {maximum} links is stored on the{" "}
                 {props.theplan.plan.replace(/"/g, "")}{" "}
                 {`plan. ${
-                  props.links.length > 100 ? 100 : props.links.length
+                  //props.links.length > 100 ? 100 : props.links.length
+                  props.links.length
                 } are displayed.`}
               </span>
             </div>

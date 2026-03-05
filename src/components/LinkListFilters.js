@@ -161,7 +161,7 @@ function ExpandableArray(props) {
     if (!!hashtag === true) {
       words = hashtag
         .replace(/#/, "") // Remove the leading '#'
-        .replace(/([a-z])([A-Z])/g, "$1 $2") // Insert space before uppercase letters following lowercase
+        .replace(/([a-z_])([A-Z_])/g, "$1 $2") // Insert space before uppercase letters following lowercase
         .split(" "); // Split into an array of words
 
       console.log(words); // Output: ['I', 'Really', 'Love', 'GSAP']

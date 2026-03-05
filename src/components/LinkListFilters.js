@@ -829,7 +829,7 @@ function ExpandableArray(props) {
                             ref={textAreaRef}
                             className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                            style={{ textDecoration: 'none', color:'white' }}
+                            style={{ textDecoration: 'none', color:'black' }}
                           >
                             https://urilinks.com/dashboard?signup=0&id=
                             {props.uid}
@@ -853,6 +853,7 @@ function ExpandableArray(props) {
                             ref={textAreaRef}
                             className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                            style={{ textDecoration: 'none', color:'black' }}
                           >
                             https://urilinks.com/dashboard?signup=0&id=
                             {props.uid}
@@ -861,7 +862,7 @@ function ExpandableArray(props) {
                             className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
                             onClick={copyToClipboard}
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                            style={{ textDecoration: 'none', color:'white' }}
+                           
                           >
                             copy sharable link
                           </button>

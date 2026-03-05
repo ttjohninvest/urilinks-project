@@ -816,7 +816,7 @@ function ExpandableArray(props) {
           <div>
             <div className="margin-left-minus-1">
               <div className="weight-bold-1 underline">EXAMPLE WEBSITE COLLECTIONS CURATOR'S DASHBOARD </div>
-              <div className="weight-bold-1 underline-">BE YOUR OWN WEBSITES CURATOR AND SHARE IT WITH OTHERS THROUGH THE PROVIDED LINK. SIGNUP/LOGIN TODAY.</div>
+              <div className="weight-bold-1 underline-">BE YOUR OWN WEBSITE COLLECTIONS CURATOR AND SHARE IT WITH OTHERS THROUGH THE PROVIDED LINK. SIGNUP/LOGIN TODAY.</div>
               {/* <span><ReadMore
         text={`Eternal Salvation Invitation; please say "I call upon the name of Jesus Christ to save me." Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13. ✞😇 Welcome to the grace of Jesus Christ.`}
         maxChars={41}

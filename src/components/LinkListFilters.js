@@ -370,15 +370,15 @@ function ExpandableArray(props) {
                                     : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
                                 } ${
                                   useButtons === true ? "b1xw" : ""
-                                } nounderline ${
+                                } nounderline- ${
                                   useButtons === true ? "color-white-1" : ""
                                 } ${
                                   useButtons === true ? "button-link-4" : ""
                                 } ${
                                   props.b == 1
-                                    ? "pointereventsauto"
+                                    ? "pointereventsauto underline"
                                     : "pointereventsnone"
-                                } underline`}
+                                }`}
                                 href="#"
                                 onClick={() => props.setit(s.hashtag, event)}
                                 title={`${sep(s.hashtag)}, hashtag: ${
@@ -407,15 +407,15 @@ function ExpandableArray(props) {
                                   : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
                               } ${
                                 useButtons === true ? "b1xw" : ""
-                              } nounderline ${
+                              } nounderline- ${
                                 useButtons === true ? "color-white-1" : ""
                               } ${useButtons === true ? "button-link-4" : ""} ${
                                 false && "border6"
                               } ${
                                 props.b == 1
-                                  ? "pointereventsauto"
+                                  ? "pointereventsauto underline"
                                   : "pointereventsnone"
-                              } underline`}
+                              }`}
                               href="#"
                               onClick={() => props.setit(s.hashtag, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${

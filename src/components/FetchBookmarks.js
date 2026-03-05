@@ -147,7 +147,7 @@ const FetchBookmarks = (props) => {
     const str2 = str
       .trim()
       .replace(
-        /(^|[^a-zA-Z0-9])([a-zA-Z_])/g,
+        /(^|[^a-zA-Z0-9_])([a-zA-Z_])/g,
         (match, p1, p2) => p1 + p2.toUpperCase()
       );
 

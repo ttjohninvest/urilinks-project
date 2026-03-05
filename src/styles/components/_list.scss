@@ -416,6 +416,11 @@ input.cb1[type="checkbox"]:hover {
 text-decoration-thickness: 3px; 
 }
 
+:link { color: #0000EE; }
+:visited { color: #551A8B; }
+:link:active, :visited:active { color: #FF0000; }
+   
+
 .margin-top-n-hh {
   margin-top: -0.2rem;
 }

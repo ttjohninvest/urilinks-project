@@ -411,6 +411,11 @@ input.cb1[type="checkbox"]:hover {
   text-decoration: underline;
 }
 
+.underlinethicker {
+  text-decoration: underline;
+text-decoration-thickness: 3px; 
+}
+
 .margin-top-n-hh {
   margin-top: -0.2rem;
 }

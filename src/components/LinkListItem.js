@@ -722,7 +722,7 @@ const LinkListItem = (props) => {
                                 }
                                 onClick={storeScrollPosition}
                               >
-                                <span className="hide">Click to show page:{" "}</span> 
+                                <span className="hide underline">Click to show page:{" "}</span> 
                                 {props.description}
                                 {/* {decodeURIComponent(props.description)} */}
                               </a>

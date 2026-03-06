@@ -293,8 +293,8 @@ export const LinkList = (props) => {
         <span id="linkcount2id" className="ib is-active">
           {/* {first === 0 ? props.linkCount : first === 1 ? props.linkCount2 : ""} */}
           {first === 0
-            ? props.linkCount > 100
-              ? 100
+            ? props.linkCount >= 0
+              ? props.linkCount
               : props.linkCount
             : first === 1
               ? props.linkCount2
@@ -388,7 +388,7 @@ export const LinkList = (props) => {
               {/* <span>0 links found</span> */}
             </div>
           ) : false ? (
-            props.links.splice(0, 100).map((link) => {
+            props.links.map((link) => {
               return <LinkListItem2 lcf={lcf} key={link.id} {...link} />;
             })
           ) : (

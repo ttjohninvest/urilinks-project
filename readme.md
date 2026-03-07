@@ -118,6 +118,10 @@ stop charges on blaze plan, give the class pointereventsnone to upload menu item
   
 ========================
 todo to do
+"This is not unfortunate" "this is real" All of the glory to Jesus Christ.
+walking tour first 10 free, rest box office ticket for $1.00
+shared link has the same feature, 1st 10 free, the rest $1.00 so people that use it can make money
+
 set it from 11 to 1500 4.99 per year
 do this update: https://mail.google.com/mail/u/1/#inbox/FMfcgzQfBsmNsrWgdxPbHphtPSshJqSD
 

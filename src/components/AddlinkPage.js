@@ -41,7 +41,7 @@ export const AddLinkPage = (props) => {
     console.log("getPlanMax()=" + getPlanMax());
     const fetchData = async () => {
       try {
-        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+        //7CzFYQjw2aUhHgCYjS2eDODrfVE2
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           if (user) {
@@ -52,18 +52,18 @@ export const AddLinkPage = (props) => {
             console.log("No user is currently logged in.");
           }
         } else {
-          setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
+          setUserId("7CzFYQjw2aUhHgCYjS2eDODrfVE2");
         }
 
         const db = firebase.database();
-        //try {//XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+        //try {//7CzFYQjw2aUhHgCYjS2eDODrfVE2
         let snapshot;
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
           snapshot = await db
-            .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
+            .ref(`/users/7CzFYQjw2aUhHgCYjS2eDODrfVE2/links`)
             .once("value");
         }
 
@@ -136,20 +136,18 @@ export const AddLinkPage = (props) => {
         console.log("VVVVVVVVVVVVV returned false");
       } else {
         props.history.push("/");
-        window.scrollTo(0,0)
-        
+        window.scrollTo(0, 0);
+
         //window.location.href = "https://urilinks.com?signup=signup";
       }
     } else {
       console.log("maximum links reached");
       setMaximumPage(true);
     }
-   
   };
 
   return (
     <div>
-      
       {errorDialog ? (
         <div>
           Notice: firebase realtime database has thrown an exception (memmory
@@ -188,5 +186,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(AddLinkPage)
+  connect(mapStateToProps, mapDispatchToProps)(AddLinkPage),
 );

@@ -31,7 +31,7 @@ class FileUpload extends React.Component {
       alert(
         "The bookmarks file," +
           file.name +
-          ", is too big. A bookmark file needs to be under 100kb."
+          ", is too big. A bookmark file needs to be under 100kb.",
       );
       //this.value = "";
       return;
@@ -40,7 +40,7 @@ class FileUpload extends React.Component {
   };
 
   uploadFiles = (file) => {
-    //"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+    //"7CzFYQjw2aUhHgCYjS2eDODrfVE2"
     let user;
     let uid;
     let uploadTask;
@@ -50,9 +50,9 @@ class FileUpload extends React.Component {
       uploadTask = storage.ref(`files/${uid}/${file.name}`).put(file);
     } else {
       uploadTask = storage
-        .ref(`files/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/${file.name}`)
+        .ref(`files/7CzFYQjw2aUhHgCYjS2eDODrfVE2/${file.name}`)
         .put(file);
-      uid = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
+      uid = "7CzFYQjw2aUhHgCYjS2eDODrfVE2";
     }
 
     uploadTask.on(
@@ -60,7 +60,7 @@ class FileUpload extends React.Component {
       (snapshot) => {
         //
         const prog = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
         );
         //setProgress(prog);
         this.setState({ progress: prog });
@@ -79,7 +79,7 @@ class FileUpload extends React.Component {
             console.log("html is file successfully uploaded");
             this.props.setCheckDidUpload();
           });
-      }
+      },
     );
   };
 

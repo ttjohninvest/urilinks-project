@@ -47,7 +47,7 @@ export const startAddLink2 = (linkData = {}) => {
           addLink2({
             id: ref.key,
             ...link,
-          })
+          }),
         );
         return true;
       })
@@ -189,9 +189,9 @@ export const startSetLinks2 = () => {
         //   "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
         //   "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
         //   "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-        //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+        //   "7CzFYQjw2aUhHgCYjS2eDODrfVE2",
         //   "WJGHkWycjKQxPK83Fi4zqx53bCl1",
-        //   "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+        //   "7CzFYQjw2aUhHgCYjS2eDODrfVE2",
         //   "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
         //   "m8f0YMF5bucp9uhblPZhM8CTjq12",
         //   "tWKNG14PYYYY0hDPurLouWtYjtq1"
@@ -225,7 +225,7 @@ export const startSetLinks2 = () => {
           !!snapshot === true &&
             snapshot.forEach((childSnapshot) => {
               console.log(
-                "childSnapshot.data=" + JSON.stringify(childSnapshot.data)
+                "childSnapshot.data=" + JSON.stringify(childSnapshot.data),
               );
               let arrayData = Object.values(childSnapshot.data);
               console.log("1001,arrayData=" + JSON.stringify(arrayData));
@@ -273,7 +273,7 @@ export const startSetLinksAll2 = () => {
                 });
               });
               console.log(
-                "startSetLinksAll, about to call dispatch(setLinksAll(links));"
+                "startSetLinksAll, about to call dispatch(setLinksAll(links));",
               );
               dispatch(setLinksAll2(linksAll));
             })

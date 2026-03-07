@@ -92,7 +92,7 @@ function ExpandableArray(props) {
       setUid(user.uid);
       setTheuser(user);
     } else {
-      setUid("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
+      setUid("7CzFYQjw2aUhHgCYjS2eDODrfVE2");
     }
 
     const x = window.localStorage.getItem("hideinformation");
@@ -138,7 +138,7 @@ function ExpandableArray(props) {
     // This is just personal preference.
     // I prefer to not show the whole text area selected.
     e.target.focus();
-    setCopySuccess("Copied ")// + text);
+    setCopySuccess("Copied "); // + text);
   };
 
   useEffect(() => {
@@ -301,7 +301,6 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      
       <div className="flexrowztt containerui-">
         {
           //props.signup === false &&
@@ -320,7 +319,9 @@ function ExpandableArray(props) {
                 } theHeight flexrowzc2 border-b-5 margin-left-n-19`}
                 title="click a button"
               >
-                {uid==="7CzFYQjw2aUhHgCYjS2eDODrfVE2"?"Cities":"Categories"}
+                {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
+                  ? "Cities"
+                  : "Categories"}
                 {/* categories */}
               </div>
 
@@ -697,8 +698,7 @@ function ExpandableArray(props) {
 
                 {
                   //props.signup === false
-                  true
-                   ? (
+                  true ? (
                     <div className="text-size-1 flexrowzc">
                       {isMobile() === true ? (
                         <div className="padding-right-11 padding-bottom-118 lowercase">
@@ -731,7 +731,8 @@ function ExpandableArray(props) {
 
                       {props.signup === false && <div></div>}
                     </div>
-                  ) : (<div></div>
+                  ) : (
+                    <div></div>
                     // <div>
                     //   <div className="flexrow2c">
                     //     <div className="text-size-1 textLeft margin-top-1">
@@ -816,61 +817,73 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div className="margin-left-minus-1">
-              <div className="weight-bold-1 underlinethicker">EXAMPLE WEBSITE COLLECTIONS CURATOR'S DASHBOARD </div>
-              <div className="weight-bold-1 underlinethicker">BE YOUR OWN WEBSITE COLLECTIONS CURATOR AND SHARE IT WITH OTHERS THROUGH THE PROVIDED LINK. SIGNUP/LOGIN TODAY.</div>
+              <div className="weight-bold-1 underlinethicker">
+                EXAMPLE WEBSITE COLLECTIONS CURATOR'S DASHBOARD{" "}
+              </div>
+              <div className="weight-bold-1 underlinethicker">
+                BE YOUR OWN WEBSITE COLLECTIONS CURATOR AND SHARE IT WITH OTHERS
+                THROUGH THE PROVIDED LINK. SIGNUP/LOGIN TODAY.
+              </div>
               {/* <span><ReadMore
         text={`Eternal Salvation Invitation; please say "I call upon the name of Jesus Christ to save me." Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13. ✞😇 Welcome to the grace of Jesus Christ.`}
         maxChars={41}
       /></span> */}
-              {props.signup && <span><div className="margin-bottom-123">
-                      <div className="flexrow2cv2">
-                        <div className="text-size-1 textLeft- margin-top-1-">
-                          <a
-                            href="#"
-                            ref={textAreaRef}
-                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                            style={{ textDecoration: 'none', color:'black' }}
-                          >
-                            https://urilinks.com/dashboard?signup=0&id=
-                            {props.uid}
-                          </a>
-                          <button
-                            className="button-2w ib margin-right-1 margin-left-11 border5"
-                            onClick={copyToClipboard}
-                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                          >
-                            copy sharable link
-                          </button>
-                          {copySuccess}
-                        </div>
+              {props.signup && (
+                <span>
+                  <div className="margin-bottom-123">
+                    <div className="flexrow2cv2">
+                      <div className="text-size-1 textLeft- margin-top-1-">
+                        <a
+                          href="#"
+                          ref={textAreaRef}
+                          className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                          title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          style={{ textDecoration: "none", color: "black" }}
+                        >
+                          https://urilinks.com/dashboard?signup=0&id=
+                          {props.uid}
+                        </a>
+                        <button
+                          className="button-2w ib margin-right-1 margin-left-11 border5"
+                          onClick={copyToClipboard}
+                          title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                        >
+                          copy sharable link
+                        </button>
+                        {copySuccess}
                       </div>
-                    </div></span>}
-                      {props.signup ===false && <span><div className="margin-bottom-123">
-                      <div className="flexrow2cv2">
-                        <div className="text-size-1 textLeft- margin-top-1-">
-                          <a
-                            href="#"
-                            ref={textAreaRef}
-                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                            style={{ textDecoration: 'none', color:'black' }}
-                          >
-                            https://urilinks.com/dashboard?signup=0&id=
-                            {props.uid}
-                          </a>
-                          <button
-                            className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
-                            onClick={copyToClipboard}
-                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                           
-                          >
-                            copy sharable link
-                          </button>
-                          {copySuccess}
-                        </div>
+                    </div>
+                  </div>
+                </span>
+              )}
+              {props.signup === false && (
+                <span>
+                  <div className="margin-bottom-123">
+                    <div className="flexrow2cv2">
+                      <div className="text-size-1 textLeft- margin-top-1-">
+                        <a
+                          href="#"
+                          ref={textAreaRef}
+                          className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                          title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          style={{ textDecoration: "none", color: "black" }}
+                        >
+                          https://urilinks.com/dashboard?signup=0&id=
+                          {props.uid}
+                        </a>
+                        <button
+                          className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
+                          onClick={copyToClipboard}
+                          title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                        >
+                          copy sharable link
+                        </button>
+                        {copySuccess}
                       </div>
-                    </div></span>}
+                    </div>
+                  </div>
+                </span>
+              )}
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}
                 {props.theplan.plan.replace(/"/g, "")}{" "}

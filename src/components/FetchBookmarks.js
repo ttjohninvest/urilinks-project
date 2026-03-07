@@ -148,7 +148,7 @@ const FetchBookmarks = (props) => {
       .trim()
       .replace(
         /(^|[^a-zA-Z0-9])([a-zA-Z])/g,
-        (match, p1, p2) => p1 + p2.toUpperCase()
+        (match, p1, p2) => p1 + p2.toUpperCase(),
       );
 
     //const cleaned = str2.replace(/[^a-zA-Z0-9]/g, "");
@@ -266,7 +266,7 @@ const FetchBookmarks = (props) => {
                 if (data.error) {
                   console.log(data.error);
                   alert(
-                    "An error occurred when loading the bookmarks file. Please make sure their are bookmarks."
+                    "An error occurred when loading the bookmarks file. Please make sure their are bookmarks.",
                   );
                   return;
                 }
@@ -347,15 +347,15 @@ const FetchBookmarks = (props) => {
                           console.log(
                             "data.message[i].children[j].children=" +
                               JSON.stringify(
-                                data.message[i].children[j].children
-                              )
+                                data.message[i].children[j].children,
+                              ),
                           );
 
                           let hashtagv2;
 
                           if (oo === "usefoldernames") {
                             hashtagv2 = getHashtag(
-                              data.message[i].children[j].title
+                              data.message[i].children[j].title,
                             );
                             foldername = data.message[i].children[j].title;
                           }
@@ -410,7 +410,7 @@ const FetchBookmarks = (props) => {
                               let hashtagv3;
                               if (oo === "usefoldernames") {
                                 hashtagv3 = getHashtag(
-                                  data.message[i].children[j].children[k].title
+                                  data.message[i].children[j].children[k].title,
                                 );
                                 foldername =
                                   data.message[i].children[j].children[k].title;
@@ -469,7 +469,7 @@ const FetchBookmarks = (props) => {
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing into htmllinksarray"
+                                      "NOT pushing into htmllinksarray",
                                     );
                                   }
                                 } else {
@@ -478,7 +478,7 @@ const FetchBookmarks = (props) => {
                                   if (oo === "usefoldernames") {
                                     hashtagv4 = getHashtag(
                                       data.message[i].children[j].children[k]
-                                        .children[l].title
+                                        .children[l].title,
                                     );
                                     foldername =
                                       data.message[i].children[j].children[k]
@@ -526,11 +526,11 @@ const FetchBookmarks = (props) => {
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing into htmllinksarray"
+                                          "pushing into htmllinksarray",
                                         );
                                         console.log(4);
                                         console.log(
-                                          "18 foldername:=" + foldername
+                                          "18 foldername:=" + foldername,
                                         );
                                         htmllinksarray.push({
                                           description: title,
@@ -544,7 +544,7 @@ const FetchBookmarks = (props) => {
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing into htmllinksarray"
+                                          "NOT pushing into htmllinksarray",
                                         );
                                       }
                                     } else {
@@ -553,7 +553,7 @@ const FetchBookmarks = (props) => {
                                         hashtagv5 = getHashtag(
                                           data.message[i].children[j].children[
                                             k
-                                          ].children[l].children[m].title
+                                          ].children[l].children[m].title,
                                         );
                                         foldername =
                                           data.message[i].children[j].children[
@@ -611,11 +611,11 @@ const FetchBookmarks = (props) => {
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing into htmllinksarray"
+                                              "pushing into htmllinksarray",
                                             );
                                             console.log(5);
                                             console.log(
-                                              "19 foldername:=" + foldername
+                                              "19 foldername:=" + foldername,
                                             );
                                             htmllinksarray.push({
                                               description: title,
@@ -629,7 +629,7 @@ const FetchBookmarks = (props) => {
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing into htmllinksarray"
+                                              "NOT pushing into htmllinksarray",
                                             );
                                           }
                                         } else {
@@ -638,7 +638,7 @@ const FetchBookmarks = (props) => {
                                             hashtagv6 = getHashtag(
                                               data.message[i].children[j]
                                                 .children[k].children[l]
-                                                .children[m].children[n].title
+                                                .children[m].children[n].title,
                                             );
                                             foldername =
                                               data.message[i].children[j]
@@ -698,11 +698,12 @@ const FetchBookmarks = (props) => {
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing into htmllinksarray"
+                                                  "pushing into htmllinksarray",
                                                 );
                                                 console.log(6);
                                                 console.log(
-                                                  "20 foldername:=" + foldername
+                                                  "20 foldername:=" +
+                                                    foldername,
                                                 );
                                                 htmllinksarray.push({
                                                   description: title,
@@ -716,7 +717,7 @@ const FetchBookmarks = (props) => {
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing into htmllinksarray"
+                                                  "NOT pushing into htmllinksarray",
                                                 );
                                               }
                                             } else {
@@ -726,7 +727,7 @@ const FetchBookmarks = (props) => {
                                                   data.message[i].children[j]
                                                     .children[k].children[l]
                                                     .children[m].children[n]
-                                                    .children[o].title
+                                                    .children[o].title,
                                                 );
                                                 foldername =
                                                   data.message[i].children[j]
@@ -791,18 +792,18 @@ const FetchBookmarks = (props) => {
 
                                                   if (
                                                     !hasControlCharacters(
-                                                      title
+                                                      title,
                                                     ) &&
                                                     title.length > 0
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing into htmllinksarray"
+                                                      "pushing into htmllinksarray",
                                                     );
                                                     console.log(7);
                                                     console.log(
                                                       "21 foldername:=" +
-                                                        foldername
+                                                        foldername,
                                                     );
                                                     htmllinksarray.push({
                                                       description: title,
@@ -816,7 +817,7 @@ const FetchBookmarks = (props) => {
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing into htmllinksarray"
+                                                      "NOT pushing into htmllinksarray",
                                                     );
                                                   }
                                                 }
@@ -887,14 +888,14 @@ const FetchBookmarks = (props) => {
                           console.log(
                             "data.message[i].children[j].children=" +
                               JSON.stringify(
-                                data.message[i].children[j].children
-                              )
+                                data.message[i].children[j].children,
+                              ),
                           );
 
                           let hashtagv2;
                           if (oo === "usefoldernames") {
                             hashtagv2 = getHashtag(
-                              data.message[i].children[j].title
+                              data.message[i].children[j].title,
                             );
                             foldername = data.message[i].children[j].title;
                           }
@@ -949,7 +950,7 @@ const FetchBookmarks = (props) => {
                               let hashtagv3;
                               if (oo === "usefoldernames") {
                                 hashtagv3 = getHashtag(
-                                  data.message[i].children[j].children[k].title
+                                  data.message[i].children[j].children[k].title,
                                 );
                                 foldername =
                                   data.message[i].children[j].children[k].title;
@@ -1009,7 +1010,7 @@ const FetchBookmarks = (props) => {
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing into htmllinksarray"
+                                      "NOT pushing into htmllinksarray",
                                     );
                                   }
                                 } else {
@@ -1018,7 +1019,7 @@ const FetchBookmarks = (props) => {
                                   if (oo === "usefoldernames") {
                                     hashtagv4 = getHashtag(
                                       data.message[i].children[j].children[k]
-                                        .children[l].title
+                                        .children[l].title,
                                     );
                                     foldername =
                                       data.message[i].children[j].children[k]
@@ -1066,11 +1067,11 @@ const FetchBookmarks = (props) => {
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing into htmllinksarray"
+                                          "pushing into htmllinksarray",
                                         );
                                         console.log(11);
                                         console.log(
-                                          "25 foldername:=" + foldername
+                                          "25 foldername:=" + foldername,
                                         );
                                         htmllinksarray.push({
                                           description: title,
@@ -1084,7 +1085,7 @@ const FetchBookmarks = (props) => {
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing into htmllinksarray"
+                                          "NOT pushing into htmllinksarray",
                                         );
                                       }
                                     } else {
@@ -1093,7 +1094,7 @@ const FetchBookmarks = (props) => {
                                         hashtagv5 = getHashtag(
                                           data.message[i].children[j].children[
                                             k
-                                          ].children[l].children[m].title
+                                          ].children[l].children[m].title,
                                         );
                                         foldername =
                                           data.message[i].children[j].children[
@@ -1151,11 +1152,11 @@ const FetchBookmarks = (props) => {
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing into htmllinksarray"
+                                              "pushing into htmllinksarray",
                                             );
                                             console.log(12);
                                             console.log(
-                                              "26 foldername:=" + foldername
+                                              "26 foldername:=" + foldername,
                                             );
                                             htmllinksarray.push({
                                               description: title,
@@ -1169,7 +1170,7 @@ const FetchBookmarks = (props) => {
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing into htmllinksarray"
+                                              "NOT pushing into htmllinksarray",
                                             );
                                           }
                                         } else {
@@ -1178,7 +1179,7 @@ const FetchBookmarks = (props) => {
                                             hashtagv6 = getHashtag(
                                               data.message[i].children[j]
                                                 .children[k].children[l]
-                                                .children[m].children[n].title
+                                                .children[m].children[n].title,
                                             );
                                             foldername =
                                               data.message[i].children[j]
@@ -1238,11 +1239,12 @@ const FetchBookmarks = (props) => {
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing into htmllinksarray"
+                                                  "pushing into htmllinksarray",
                                                 );
                                                 console.log(13);
                                                 console.log(
-                                                  "27 foldername:=" + foldername
+                                                  "27 foldername:=" +
+                                                    foldername,
                                                 );
                                                 htmllinksarray.push({
                                                   description: title,
@@ -1256,7 +1258,7 @@ const FetchBookmarks = (props) => {
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing into htmllinksarray"
+                                                  "NOT pushing into htmllinksarray",
                                                 );
                                               }
                                             } else {
@@ -1266,7 +1268,7 @@ const FetchBookmarks = (props) => {
                                                   data.message[i].children[j]
                                                     .children[k].children[l]
                                                     .children[m].children[n]
-                                                    .children[o].title
+                                                    .children[o].title,
                                                 );
                                                 foldername =
                                                   data.message[i].children[j]
@@ -1331,18 +1333,18 @@ const FetchBookmarks = (props) => {
 
                                                   if (
                                                     !hasControlCharacters(
-                                                      title
+                                                      title,
                                                     ) &&
                                                     title.length > 0
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing into htmllinksarray"
+                                                      "pushing into htmllinksarray",
                                                     );
                                                     console.log(14);
                                                     console.log(
                                                       "28 foldername:=" +
-                                                        foldername
+                                                        foldername,
                                                     );
                                                     htmllinksarray.push({
                                                       description: title,
@@ -1356,7 +1358,7 @@ const FetchBookmarks = (props) => {
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing into htmllinksarray"
+                                                      "NOT pushing into htmllinksarray",
                                                     );
                                                   }
                                                 }
@@ -1431,14 +1433,14 @@ const FetchBookmarks = (props) => {
                           console.log(
                             "data.message[i].children[j].children=" +
                               JSON.stringify(
-                                data.message[i].children[j].children
-                              )
+                                data.message[i].children[j].children,
+                              ),
                           );
 
                           let hashtagv2;
                           if (oo === "usefoldernames") {
                             hashtagv2 = getHashtag(
-                              data.message[i].children[j].title
+                              data.message[i].children[j].title,
                             );
                             foldername = data.message[i].children[j].title;
                           }
@@ -1493,7 +1495,7 @@ const FetchBookmarks = (props) => {
                               let hashtagv3;
                               if (oo === "usefoldernames") {
                                 hashtagv3 = getHashtag(
-                                  data.message[i].children[j].children[k].title
+                                  data.message[i].children[j].children[k].title,
                                 );
                                 foldername =
                                   data.message[i].children[j].children[k].title;
@@ -1553,7 +1555,7 @@ const FetchBookmarks = (props) => {
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing into htmllinksarray"
+                                      "NOT pushing into htmllinksarray",
                                     );
                                   }
                                 } else {
@@ -1562,7 +1564,7 @@ const FetchBookmarks = (props) => {
                                   if (oo === "usefoldernames") {
                                     hashtagv4 = getHashtag(
                                       data.message[i].children[j].children[k]
-                                        .children[l].title
+                                        .children[l].title,
                                     );
                                     foldername =
                                       data.message[i].children[j].children[k]
@@ -1610,11 +1612,11 @@ const FetchBookmarks = (props) => {
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing into htmllinksarray"
+                                          "pushing into htmllinksarray",
                                         );
                                         console.log(18);
                                         console.log(
-                                          "32 foldername:=" + foldername
+                                          "32 foldername:=" + foldername,
                                         );
                                         htmllinksarray.push({
                                           description: title,
@@ -1628,7 +1630,7 @@ const FetchBookmarks = (props) => {
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing into htmllinksarray"
+                                          "NOT pushing into htmllinksarray",
                                         );
                                       }
                                     } else {
@@ -1637,7 +1639,7 @@ const FetchBookmarks = (props) => {
                                         hashtagv5 = getHashtag(
                                           data.message[i].children[j].children[
                                             k
-                                          ].children[l].children[m].title
+                                          ].children[l].children[m].title,
                                         );
                                         foldername =
                                           data.message[i].children[j].children[
@@ -1695,11 +1697,11 @@ const FetchBookmarks = (props) => {
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing into htmllinksarray"
+                                              "pushing into htmllinksarray",
                                             );
                                             console.log(19);
                                             console.log(
-                                              "33 foldername:=" + foldername
+                                              "33 foldername:=" + foldername,
                                             );
                                             htmllinksarray.push({
                                               description: title,
@@ -1713,7 +1715,7 @@ const FetchBookmarks = (props) => {
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing into htmllinksarray"
+                                              "NOT pushing into htmllinksarray",
                                             );
                                           }
                                         } else {
@@ -1722,7 +1724,7 @@ const FetchBookmarks = (props) => {
                                             hashtagv6 = getHashtag(
                                               data.message[i].children[j]
                                                 .children[k].children[l]
-                                                .children[m].children[n].title
+                                                .children[m].children[n].title,
                                             );
                                             foldername =
                                               data.message[i].children[j]
@@ -1782,11 +1784,12 @@ const FetchBookmarks = (props) => {
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing into htmllinksarray"
+                                                  "pushing into htmllinksarray",
                                                 );
                                                 console.log(20);
                                                 console.log(
-                                                  "34 foldername:=" + foldername
+                                                  "34 foldername:=" +
+                                                    foldername,
                                                 );
                                                 htmllinksarray.push({
                                                   description: title,
@@ -1800,7 +1803,7 @@ const FetchBookmarks = (props) => {
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing into htmllinksarray"
+                                                  "NOT pushing into htmllinksarray",
                                                 );
                                               }
                                             } else {
@@ -1810,7 +1813,7 @@ const FetchBookmarks = (props) => {
                                                   data.message[i].children[j]
                                                     .children[k].children[l]
                                                     .children[m].children[n]
-                                                    .children[o].title
+                                                    .children[o].title,
                                                 );
                                                 foldername =
                                                   data.message[i].children[j]
@@ -1875,18 +1878,18 @@ const FetchBookmarks = (props) => {
 
                                                   if (
                                                     !hasControlCharacters(
-                                                      title
+                                                      title,
                                                     ) &&
                                                     title.length > 0
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing into htmllinksarray"
+                                                      "pushing into htmllinksarray",
                                                     );
                                                     console.log(21);
                                                     console.log(
                                                       "35 foldername:=" +
-                                                        foldername
+                                                        foldername,
                                                     );
                                                     htmllinksarray.push({
                                                       description: title,
@@ -1900,7 +1903,7 @@ const FetchBookmarks = (props) => {
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing into htmllinksarray"
+                                                      "NOT pushing into htmllinksarray",
                                                     );
                                                   }
                                                 }
@@ -1982,14 +1985,14 @@ const FetchBookmarks = (props) => {
                           console.log(
                             "data.message[i].children[j].children=" +
                               JSON.stringify(
-                                data.message[i].children[j].children
-                              )
+                                data.message[i].children[j].children,
+                              ),
                           );
 
                           let hashtagv2;
                           if (oo === "usefoldernames") {
                             hashtagv2 = getHashtag(
-                              data.message[i].children[j].title
+                              data.message[i].children[j].title,
                             );
                             foldername = data.message[i].children[j].title;
                           }
@@ -2045,7 +2048,7 @@ const FetchBookmarks = (props) => {
                               let hashtagv3;
                               if (oo === "usefoldernames") {
                                 hashtagv3 = getHashtag(
-                                  data.message[i].children[j].children[k].title
+                                  data.message[i].children[j].children[k].title,
                                 );
                                 foldername =
                                   data.message[i].children[j].children[k].title;
@@ -2105,7 +2108,7 @@ const FetchBookmarks = (props) => {
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing unto htmllinksarray"
+                                      "NOT pushing unto htmllinksarray",
                                     );
                                   }
                                 } else {
@@ -2114,7 +2117,7 @@ const FetchBookmarks = (props) => {
                                   if (oo === "usefoldernames") {
                                     hashtagv4 = getHashtag(
                                       data.message[i].children[j].children[k]
-                                        .children[l].title
+                                        .children[l].title,
                                     );
                                     foldername =
                                       data.message[i].children[j].children[k]
@@ -2162,10 +2165,10 @@ const FetchBookmarks = (props) => {
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing unto htmllinksarray"
+                                          "pushing unto htmllinksarray",
                                         );
                                         console.log(
-                                          "4 foldername:=" + foldername
+                                          "4 foldername:=" + foldername,
                                         );
                                         htmllinksarray.push({
                                           description: title,
@@ -2179,7 +2182,7 @@ const FetchBookmarks = (props) => {
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing unto htmllinksarray"
+                                          "NOT pushing unto htmllinksarray",
                                         );
                                       }
                                     } else {
@@ -2188,7 +2191,7 @@ const FetchBookmarks = (props) => {
                                         hashtagv5 = getHashtag(
                                           data.message[i].children[j].children[
                                             k
-                                          ].children[l].children[m].title
+                                          ].children[l].children[m].title,
                                         );
                                         foldername =
                                           data.message[i].children[j].children[
@@ -2246,10 +2249,10 @@ const FetchBookmarks = (props) => {
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing unto htmllinksarray"
+                                              "pushing unto htmllinksarray",
                                             );
                                             console.log(
-                                              "5 foldername:=" + foldername
+                                              "5 foldername:=" + foldername,
                                             );
                                             htmllinksarray.push({
                                               description: title,
@@ -2263,7 +2266,7 @@ const FetchBookmarks = (props) => {
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing unto htmllinksarray"
+                                              "NOT pushing unto htmllinksarray",
                                             );
                                           }
                                         } else {
@@ -2272,7 +2275,7 @@ const FetchBookmarks = (props) => {
                                             hashtagv6 = getHashtag(
                                               data.message[i].children[j]
                                                 .children[k].children[l]
-                                                .children[m].children[n].title
+                                                .children[m].children[n].title,
                                             );
                                             foldername =
                                               data.message[i].children[j]
@@ -2332,10 +2335,10 @@ const FetchBookmarks = (props) => {
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing unto htmllinksarray"
+                                                  "pushing unto htmllinksarray",
                                                 );
                                                 console.log(
-                                                  "6 foldername:=" + foldername
+                                                  "6 foldername:=" + foldername,
                                                 );
                                                 htmllinksarray.push({
                                                   description: title,
@@ -2349,7 +2352,7 @@ const FetchBookmarks = (props) => {
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing unto htmllinksarray"
+                                                  "NOT pushing unto htmllinksarray",
                                                 );
                                               }
                                             } else {
@@ -2359,7 +2362,7 @@ const FetchBookmarks = (props) => {
                                                   data.message[i].children[j]
                                                     .children[k].children[l]
                                                     .children[m].children[n]
-                                                    .children[o].title
+                                                    .children[o].title,
                                                 );
                                                 foldername =
                                                   data.message[i].children[j]
@@ -2424,17 +2427,17 @@ const FetchBookmarks = (props) => {
 
                                                   if (
                                                     !hasControlCharacters(
-                                                      title
+                                                      title,
                                                     ) &&
                                                     title.length > 0
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing unto htmllinksarray"
+                                                      "pushing unto htmllinksarray",
                                                     );
                                                     console.log(
                                                       "7 foldername:=" +
-                                                        foldername
+                                                        foldername,
                                                     );
                                                     htmllinksarray.push({
                                                       description: title,
@@ -2448,7 +2451,7 @@ const FetchBookmarks = (props) => {
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing unto htmllinksarray"
+                                                      "NOT pushing unto htmllinksarray",
                                                     );
                                                   }
                                                 }
@@ -2522,14 +2525,14 @@ const FetchBookmarks = (props) => {
                           console.log(
                             "data.message[i].children[j].children=" +
                               JSON.stringify(
-                                data.message[i].children[j].children
-                              )
+                                data.message[i].children[j].children,
+                              ),
                           );
 
                           let hashtagv2;
                           if (oo === "usefoldernames") {
                             hashtagv2 = getHashtag(
-                              data.message[i].children[j].title
+                              data.message[i].children[j].title,
                             );
                             foldername = data.message[i].children[j].title;
                           }
@@ -2583,7 +2586,7 @@ const FetchBookmarks = (props) => {
                               let hashtagv3;
                               if (oo === "usefoldernames") {
                                 hashtagv3 = getHashtag(
-                                  data.message[i].children[j].children[k].title
+                                  data.message[i].children[j].children[k].title,
                                 );
                                 foldername =
                                   data.message[i].children[j].children[k].title;
@@ -2642,7 +2645,7 @@ const FetchBookmarks = (props) => {
                                     });
                                   } else {
                                     console.log(
-                                      "NOT pushing unto htmllinksarray"
+                                      "NOT pushing unto htmllinksarray",
                                     );
                                   }
                                 } else {
@@ -2651,7 +2654,7 @@ const FetchBookmarks = (props) => {
                                   if (oo === "usefoldernames") {
                                     hashtagv4 = getHashtag(
                                       data.message[i].children[j].children[k]
-                                        .children[l].title
+                                        .children[l].title,
                                     );
                                     foldername =
                                       data.message[i].children[j].children[k]
@@ -2699,10 +2702,10 @@ const FetchBookmarks = (props) => {
                                       ) {
                                         //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                         console.log(
-                                          "pushing unto htmllinksarray"
+                                          "pushing unto htmllinksarray",
                                         );
                                         console.log(
-                                          "11 foldername:=" + foldername
+                                          "11 foldername:=" + foldername,
                                         );
                                         htmllinksarray.push({
                                           description: title,
@@ -2716,7 +2719,7 @@ const FetchBookmarks = (props) => {
                                         });
                                       } else {
                                         console.log(
-                                          "NOT pushing unto htmllinksarray"
+                                          "NOT pushing unto htmllinksarray",
                                         );
                                       }
                                     } else {
@@ -2725,7 +2728,7 @@ const FetchBookmarks = (props) => {
                                         hashtagv5 = getHashtag(
                                           data.message[i].children[j].children[
                                             k
-                                          ].children[l].children[m].title
+                                          ].children[l].children[m].title,
                                         );
                                         foldername =
                                           data.message[i].children[j].children[
@@ -2783,10 +2786,10 @@ const FetchBookmarks = (props) => {
                                           ) {
                                             //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                             console.log(
-                                              "pushing unto htmllinksarray"
+                                              "pushing unto htmllinksarray",
                                             );
                                             console.log(
-                                              "12 foldername:=" + foldername
+                                              "12 foldername:=" + foldername,
                                             );
                                             htmllinksarray.push({
                                               description: title,
@@ -2800,7 +2803,7 @@ const FetchBookmarks = (props) => {
                                             });
                                           } else {
                                             console.log(
-                                              "NOT pushing unto htmllinksarray"
+                                              "NOT pushing unto htmllinksarray",
                                             );
                                           }
                                         } else {
@@ -2809,7 +2812,7 @@ const FetchBookmarks = (props) => {
                                             hashtagv6 = getHashtag(
                                               data.message[i].children[j]
                                                 .children[k].children[l]
-                                                .children[m].children[n].title
+                                                .children[m].children[n].title,
                                             );
                                             foldername =
                                               data.message[i].children[j]
@@ -2869,10 +2872,11 @@ const FetchBookmarks = (props) => {
                                               ) {
                                                 //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                 console.log(
-                                                  "pushing unto htmllinksarray"
+                                                  "pushing unto htmllinksarray",
                                                 );
                                                 console.log(
-                                                  "13 foldername:=" + foldername
+                                                  "13 foldername:=" +
+                                                    foldername,
                                                 );
                                                 htmllinksarray.push({
                                                   description: title,
@@ -2886,7 +2890,7 @@ const FetchBookmarks = (props) => {
                                                 });
                                               } else {
                                                 console.log(
-                                                  "NOT pushing unto htmllinksarray"
+                                                  "NOT pushing unto htmllinksarray",
                                                 );
                                               }
                                             } else {
@@ -2896,7 +2900,7 @@ const FetchBookmarks = (props) => {
                                                   data.message[i].children[j]
                                                     .children[k].children[l]
                                                     .children[m].children[n]
-                                                    .children[o].title
+                                                    .children[o].title,
                                                 );
                                                 foldername =
                                                   data.message[i].children[j]
@@ -2961,17 +2965,17 @@ const FetchBookmarks = (props) => {
 
                                                   if (
                                                     !hasControlCharacters(
-                                                      title
+                                                      title,
                                                     ) &&
                                                     title.length > 0
                                                   ) {
                                                     //let ts = parseInt(links.item(i).getAttribute("ADD_DATE"))//
                                                     console.log(
-                                                      "pushing unto htmllinksarray"
+                                                      "pushing unto htmllinksarray",
                                                     );
                                                     console.log(
                                                       "14 foldername:=" +
-                                                        foldername
+                                                        foldername,
                                                     );
                                                     htmllinksarray.push({
                                                       description: title,
@@ -2985,7 +2989,7 @@ const FetchBookmarks = (props) => {
                                                     });
                                                   } else {
                                                     console.log(
-                                                      "NOT pushing unto htmllinksarray"
+                                                      "NOT pushing unto htmllinksarray",
                                                     );
                                                   }
                                                 }
@@ -3021,7 +3025,7 @@ const FetchBookmarks = (props) => {
                 console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
                 console.log(
                   "JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ, htmllinksarray=" +
-                    JSON.stringify(htmllinksarray)
+                    JSON.stringify(htmllinksarray),
                 );
                 console.log("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
 
@@ -3033,7 +3037,7 @@ const FetchBookmarks = (props) => {
                 let A = props.links;
                 let B = htmllinksarray;
                 let result = B.filter(
-                  (b) => !A.some((a) => a.description === b.description)
+                  (b) => !A.some((a) => a.description === b.description),
                 );
 
                 console.log("result.length=" + result.length);
@@ -3044,7 +3048,7 @@ const FetchBookmarks = (props) => {
 
                 let max = 0;
                 let loopmax2 = rl;
-                //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+                //7CzFYQjw2aUhHgCYjS2eDODrfVE2
                 if (props.signup.signup === true) {
                   const user = firebase.auth().currentUser;
                   let skip = 0;
@@ -3063,7 +3067,7 @@ const FetchBookmarks = (props) => {
                   for (let i = 0; i < loopmax2; i++) {
                     //for (let i = 0; i < 1; i++) {
                     console.log(
-                      "1 result[" + i + "].foldername=" + result[i].foldername
+                      "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
                     r = props.startAddLink({
                       description: result[i].description,
@@ -3120,7 +3124,7 @@ const FetchBookmarks = (props) => {
                   for (let i = 0; i < loopmax2; i++) {
                     //for (let i = 0; i < 1; i++) {
                     console.log(
-                      "1 result[" + i + "].foldername=" + result[i].foldername
+                      "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
                     r = props.startAddLink({
                       description: result[i].description,
@@ -3242,5 +3246,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks)
+  connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks),
 );

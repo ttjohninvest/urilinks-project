@@ -48,7 +48,7 @@ const renderApp = (store) => {
     <Provider store={store}>
       <AppRouter />
     </Provider>,
-    document.getElementById("app")
+    document.getElementById("app"),
   );
   //hasRendered = true;
   //}
@@ -75,7 +75,7 @@ store.subscribe(() => {
 
 if (signup !== "signup") {
   //D9LSg6elood8Yc5gd5oDMp3JNAQ2
-  //store.dispatch(login("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"));
+  //store.dispatch(login("7CzFYQjw2aUhHgCYjS2eDODrfVE2"));
   //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
   window.localStorage.setItem("notloggedin", "1");
   console.log("2 signup !== 'signup' signup=" + signup);
@@ -84,8 +84,8 @@ if (signup !== "signup") {
   if (id !== null) {
     store.dispatch(login(id));
   } else {
-    id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
-    store.dispatch(login("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"));
+    id = "7CzFYQjw2aUhHgCYjS2eDODrfVE2";
+    store.dispatch(login("7CzFYQjw2aUhHgCYjS2eDODrfVE2"));
   }
 
   // store //for People menu item

@@ -31,7 +31,7 @@ export const Header = (props) => {
   const [inviewport, setInviewport] = useState(false);
   const [toggledUse, setToggledUse] = useState(false);
   const [uid, setUid] = useState("");
-  const [name, setName] = useState("")
+  const [name, setName] = useState("");
   const [bmok, setBmok] = useState(false);
   const ideas = () => {};
 
@@ -43,9 +43,9 @@ export const Header = (props) => {
       "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
       "WJGHkWycjKQxPK83Fi4zqx53bCl1",
       "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
-      "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+      "7CzFYQjw2aUhHgCYjS2eDODrfVE2",
       "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-      "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2" //,
+      "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2", //,
       //"7CzFYQjw2aUhHgCYjS2eDODrfVE2" //jmjohnmcgovern707@gmail.com
     ];
     let val = false;
@@ -96,7 +96,7 @@ export const Header = (props) => {
 
   useEffect(() => {
     console.log(
-      "Header.js, useEffect, props.signup.signup=" + props.signup.signup
+      "Header.js, useEffect, props.signup.signup=" + props.signup.signup,
     );
     // const user = firebase.auth().currentUser;
     // console.log("Header.js, useEffect, user.uid=" + user.uid);
@@ -128,7 +128,7 @@ export const Header = (props) => {
       setGoogleUserDatadb(gud);
       setEmaildb(user.email);
       setUid(gud.uid);
-      setName(gud.displayname)
+      setName(gud.displayname);
     }
 
     // }
@@ -232,9 +232,7 @@ export const Header = (props) => {
     setToggledUse(!toggleUse);
   };
 
-  const okToShow = () => {
-
-  }
+  const okToShow = () => {};
 
   return (
     <div>
@@ -259,9 +257,9 @@ export const Header = (props) => {
                           alt="Logo"
                         />
                         <span className="nav-link active">
-      <i className="material-icons">home</i>
-      <h3 className="color-white-1">urilinks</h3>
-   </span>
+                          <i className="material-icons">home</i>
+                          <h3 className="color-white-1">urilinks</h3>
+                        </span>
                         {/* <h3 className="color-white-1">urilinks</h3> */}
                         {/* <img
                       className=""
@@ -384,7 +382,8 @@ export const Header = (props) => {
                     </Link>
                   </div>
                   {props.theplan.plan.replace(/"/g, "") !== "premium" &&
-                    props.signup.signup === true && isInMeArray()===true && (
+                    props.signup.signup === true &&
+                    isInMeArray() === true && (
                       <div>
                         <Link className="header__title-" to="/teirspayment3">
                           <span
@@ -522,7 +521,7 @@ export const Header = (props) => {
                         className="nounderline color-white-1 color-black-2- cursor-pointer"
                         to="/signup"
                         title="The first 250 saved links are free. plan $4.99 stores up to 1500; plan $9.99 stores up to 2500;plan $14.99 stores up to 5000"
-                        style={{ textDecoration: 'none', color:'white' }}
+                        style={{ textDecoration: "none", color: "white" }}
                       >
                         signup/login
                       </Link>
@@ -586,7 +585,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(startLogout())
       .then(() => console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSdispatch then"))
       .catch((error) =>
-        console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error" + error)
+        console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error" + error),
       );
   },
   setLinks: (links) => dispatch(setLinks(links)),

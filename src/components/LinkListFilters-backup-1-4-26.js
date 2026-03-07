@@ -81,7 +81,7 @@ function ExpandableArray(props) {
       setUid(user.uid);
       setTheuser(user);
     } else {
-      setUid("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
+      setUid("7CzFYQjw2aUhHgCYjS2eDODrfVE2");
     }
 
     const x = window.localStorage.getItem("hideinformation");
@@ -607,7 +607,7 @@ function ExpandableArray(props) {
               </div>
               <br />
               {props.signup === false &&
-                props.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" && (
+                props.uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (
                   <div className="textLeft hide">
                     <iframe
                       width="300"
@@ -1252,7 +1252,7 @@ export class LinkListFilters extends React.Component {
     if (this.myRef.current) this.myRef.current.focus();
 
     console.log(
-      "VVVVVVVVVVVVVVVVVVVV, this.props.hashtags=" + this.props.hashtags
+      "VVVVVVVVVVVVVVVVVVVV, this.props.hashtags=" + this.props.hashtags,
     );
 
     this.setState({
@@ -1265,7 +1265,7 @@ export class LinkListFilters extends React.Component {
 
     console.log(
       "AAAA window.localStorage.getItem('sortBy')=" +
-        window.localStorage.getItem("sortBy")
+        window.localStorage.getItem("sortBy"),
     );
     //console.log("BBBB this.props.filters.sortBy="+this.props.filters.sortBy)
     //console.log("CCCC this.state.sortBy="+this.state.sortBy)

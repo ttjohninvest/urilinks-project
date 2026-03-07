@@ -320,7 +320,8 @@ function ExpandableArray(props) {
                 } theHeight flexrowzc2 border-b-5 margin-left-n-19`}
                 title="click a button"
               >
-                categories
+                Cities
+                {/* categories */}
               </div>
 
               <div

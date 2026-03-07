@@ -317,10 +317,10 @@ function ExpandableArray(props) {
                 className={`website-background-color ${
                   useButtons === true ? "width30p" : "width30pt"
                 } theHeight flexrowzc2 border-b-5 margin-left-n-19`}
-                title="click a button"
+                title="click a walk."
               >
                 {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
-                  ? "Cities"
+                  ? "City Walks"
                   : "Categories"}
                 {/* categories */}
               </div>

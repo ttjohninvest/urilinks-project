@@ -325,7 +325,7 @@ function ExpandableArray(props) {
                 {/* categories */}
               </div>
 
-              <div
+              {/* <div because i used the false below to turn off less than 50 i commented this out
                 className={`${useButtons === true ? " width30p" : " width30pt"} width1001- border-right-5`}
               >
                 {props.b === 1 && (
@@ -336,7 +336,7 @@ function ExpandableArray(props) {
                     {expanded ? "Show Less" : "Show More"}
                   </button>
                 )}
-              </div>
+              </div> */}
             </div>
 
             <div
@@ -356,7 +356,8 @@ function ExpandableArray(props) {
                       : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
                   }
                 >
-                  {!expanded
+                  {/* it works, i just used the false to turn it off*/}
+                  {!expanded && false 
                     ? //props.b === 1 &&
                       props.mappedDataShort.map((s, index) => {
                         if (index < 50)
@@ -430,9 +431,10 @@ function ExpandableArray(props) {
                         );
                       })}
 
-                  {props.mappedDataShort.length > 50 && !expanded && (
+                  {/* { because I used the false above to turn less than 50 off I commented this out
+                  props.mappedDataShort.length > 50 && !expanded && (
                     <span className="text-size-5">...</span>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>
@@ -1466,7 +1468,8 @@ export class LinkListFilters extends React.Component {
     //   });
 
     this.props.rerenderit();
-    //window.scrollTo(0,0)
+    if(this.isMobile() === true)
+    window.scrollTo(0,300)
   };
 
   refreshIt = () => {

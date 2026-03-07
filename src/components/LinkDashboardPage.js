@@ -29,6 +29,12 @@ const LinkDashboardPage = (props) => {
   const [bvalue, setBvalue] = useState(0)
   const [b, bf] = useState(1)
   const [v1, setV1] = useState(false)
+
+  const isMobile = () => {
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  };
   
 
   useEffect(() => {
@@ -164,6 +170,9 @@ useUnload((e) => {
   top: 0,
   behavior: 'smooth'
 });
+
+if(isMobile() === true)
+    window.scrollTo(0,300)
   }
 
     //this.setit = this.setit.bind(this);

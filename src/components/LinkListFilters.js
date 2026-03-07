@@ -1467,8 +1467,7 @@ export class LinkListFilters extends React.Component {
     //     behavior: "smooth",
     //   });
 
-    if(this.isMobile() === true)
-    window.scrollTo(0,300)
+  
 
     this.props.rerenderit();
     

@@ -173,7 +173,7 @@ useUnload((e) => {
 
 if(isMobile() === true)
      window.scrollTo({
-  right: 0,
+  right: 200,
   behavior: 'smooth'
 });
   }

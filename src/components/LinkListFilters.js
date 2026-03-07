@@ -320,7 +320,7 @@ function ExpandableArray(props) {
                 } theHeight flexrowzc2 border-b-5 margin-left-n-19`}
                 title="click a button"
               >
-                Cities
+                {uid==="7CzFYQjw2aUhHgCYjS2eDODrfVE2"?"Cities":"Categories"}
                 {/* categories */}
               </div>
 

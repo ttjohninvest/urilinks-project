@@ -225,7 +225,15 @@ export const startSetLinks = (uid) => {
           "#PrisonersInAlaska#PrisonersInAlabama#PrisonersInArkansas#PrisonersInAmericanSamoa#PrisonersInArizona#PrisonersInCalifornia#PrisonersInColorado#PrisonersInConnecticut#PrisonersInDistrictOfColumbia#PrisonersInDelaware#PrisonersInFlorida#PrisonersInGeorgia#PrisonersInGuam#PrisonersInHawaii#PrisonersInIowa#PrisonersInIdaho#PrisonersInIllinois#PrisonersInIndiana#PrisonersInKansas#PrisonersInKentucky#PrisonersInLouisiana#PrisonersInMassachusetts#PrisonersInMaryland#PrisonersInMaine#PrisonersInMichigan#PrisonersInMinnesota#PrisonersInMissouri#PrisonersInMississippi#PrisonersInMontana#PrisonersInNorthCarolina#PrisonersInNorthDakota#PrisonersInNebraska#PrisonersInNewHampshire#PrisonersInNewJersey#PrisonersInNewMexico#PrisonersInNevada#PrisonersInNewYork#PrisonersInOhio#PrisonersInOklahoma#PrisonersInOregon#PrisonersInPennsylvania#PrisonersInPuertoRico#PrisonersInRhodeIsland#PrisonersInSouthCarolina#PrisonersInSouthDakota#PrisonersInTennessee#PrisonersInTexas#NorthernMarianaIslands#PrisonersInUtah#PrisonersInVirginia#PrisonersInVirginIslands#PrisonersInVermont#PrisonersInWashington#PrisonersInWisconsin#PrisonersInWestVirginia#PrisonersInWyoming";
         let htc =
           "#JesusChrist#SalvationOfJesusChrist#LifeOfJesusChrist#GraceOfJesusChrist#FaithOfJesusChrist#AudioHolyBible#Fellowship#Kindness#Devine#Love#MysteryOfJesusChrist#FaithOfJesusChrist#LivingWaters#DeathOfChrist#ResurrectionOfChrist#Prayers#Sermons#Healings#CatholicChurches#Happy#Joy#Cathedrals#Homilies#Israel#Nuns#Priests#Saints#Angels#Music#Pictures#Videos#Movies#Testimonies#Pastors#Deacons#Christmas#ChristmasTrees#Easter#HolyBibles#Maps#Directions#Convents#Vatican#Popes#HolyGodTheFather#Donations#Forgiveness#Humility#Services#Disciples#BlessedMary#Flowers#Cardinals#Blessings#CatholicPriests";
-        let h2 = homelesslist + prisonerslist + ht + htc;
+        
+             
+        
+          let h2 = homelesslist + prisonerslist + ht + htc;
+
+          if (uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2") 
+        x1=""
+          else if(uid==="XLFFo8DQ7LZh8oR8CnvBGInpjsZ2") 
+          //x1 = extractHashtags(h2);
 
         x1 = extractHashtags(h2);
 

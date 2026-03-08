@@ -173,6 +173,27 @@ function ExpandableArray(props) {
     return "";
   };
 
+  const vsep = (hashtag) => {
+    //const hashtag = "#IReallyLoveGSAP";
+    //const hashtag = "#IReallyLoveGsap";
+
+    let words;
+    if (!!hashtag === true) {
+      words = hashtag
+        .replace(/#/, "") // Remove the leading '#'
+        .replace(/([a-z])([A-Z])/g, "$1 $2") // Insert space before uppercase letters following lowercase
+        .split(" "); // Split into an array of words
+
+      console.log(words); // Output: ['I', 'Really', 'Love', 'GSAP']
+
+      const sentence = words.join(" ");
+      const sentence2 = sentence.substring(14,)
+      console.log(sentence2);
+      return sentence2;
+    }
+    return "";
+  };
+
   const handleSearch = () => {
     // Perform the search action here
     //console.log('Searching for:', this.state.searchTerm);

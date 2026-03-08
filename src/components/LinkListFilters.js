@@ -300,8 +300,9 @@ function ExpandableArray(props) {
   // }
 
   const genVacation = () => {
-    //alert("genVacation")
-    window.open('', '_blank');   
+    const vacationdays = window.document.getElementById("vacationdays").value
+    alert("genVacation,vacationdays="+vacationdays)
+    window.open('https://for-church.netlify.app', '_blank');   
   }
 
   return (
@@ -431,7 +432,9 @@ function ExpandableArray(props) {
                               }, click to see results`}
                             >
                               {sep(s.hashtag)}
-                            </a><span><input type="checkbox" /></span><a href="#" onClick={genVacation}>vacation</a>
+                            </a><span><label for="vacationdays">Number of vaction days (1-90):</label>
+
+<input type="number" id="vacationdays" name="vacationdays" min="1" max="90" /></span><a href="#" onClick={genVacation}>vacation</a>
                           </div>
                         );
                       })}

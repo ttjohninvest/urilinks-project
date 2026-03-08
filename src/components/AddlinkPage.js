@@ -56,7 +56,7 @@ export const AddLinkPage = (props) => {
         }
 
         const db = firebase.database();
-        //try {//7CzFYQjw2aUhHgCYjS2eDODrfVE2
+        ////try {//7CzFYQjw2aUhHgCYjS2eDODrfVE2
         let snapshot;
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;

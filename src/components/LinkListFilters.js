@@ -300,7 +300,8 @@ function ExpandableArray(props) {
   // }
 
   const genVacation = () => {
-    alert("genVacation")
+    //alert("genVacation")
+    window.open('', '_blank');   
   }
 
   return (

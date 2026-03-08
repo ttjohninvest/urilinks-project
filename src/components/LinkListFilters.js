@@ -455,7 +455,7 @@ function ExpandableArray(props) {
                               {sep(s.hashtag)}
                             </a><span><label for="vacationdays">Number of vaction days (1-90):</label>
 
-<input type="number" id="vacationdays" name="vacationdays" min="1" max="90" /></span><a href="#" onClick={()=>genVacation(sep(s.hashtag))}>vacation</a>
+<input type="number" id="vacationdays" name="vacationdays" min="1" max="90" /></span><a href="#" onClick={()=>genVacation(vsep(s.hashtag))}>vacation</a>
                           </div>
                         );
                       })}

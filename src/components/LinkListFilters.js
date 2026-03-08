@@ -299,6 +299,10 @@ function ExpandableArray(props) {
   //   return regex.test(navigator.userAgent);
   // }
 
+  const genVacation = () => {
+    alert("genVacation")
+  }
+
   return (
     <div className="bg-white-1">
       <div className="flexrowztt containerui-">
@@ -426,7 +430,7 @@ function ExpandableArray(props) {
                               }, click to see results`}
                             >
                               {sep(s.hashtag)}
-                            </a>
+                            </a><span><input type="checkbox" /></span><a href="#" onClick={genVacation}>vacation</a>
                           </div>
                         );
                       })}

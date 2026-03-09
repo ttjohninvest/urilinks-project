@@ -329,8 +329,8 @@ function ExpandableArray(props) {
   // }
 
   const genVacation = (place) => {
-    const vacationdays = window.document.getElementById("vacationdays").value
-    alert("genVacation,vacationdays="+vacationdays+", place="+place)
+    //const vacationdays = window.document.getElementById("vacationdays").value
+    //alert("genVacation,vacationdays="+vacationdays+", place="+place)
     window.open('https://www.rutugo.com/', '_blank');   
   }
 

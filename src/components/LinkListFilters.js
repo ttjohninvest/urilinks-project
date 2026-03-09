@@ -470,7 +470,7 @@ function ExpandableArray(props) {
                               {/* <br /> */}
                               {/* <label for="vacationdays">Number of vaction days (1-90):</label>
                               <input type="number" id="vacationdays" name="vacationdays" min="1" max="90" /> */}
-                              <a href="#" onClick={()=>genVacation(vsep(s.hashtag))}><span className="ib margin-left-11"></span>vacation option</a></span>}
+                              <a href="#" onClick={()=>genVacation(vsep(s.hashtag))}><br /><span className="ib margin-left-11"></span>vacation option</a></span>}
                           </div>
                         );
                       })}

@@ -118,6 +118,7 @@ stop charges on blaze plan, give the class pointereventsnone to upload menu item
   
 ========================
 todo to do
+using currently node@11.11.0, changing it to the latest version
 "This is not unfortunate" "this is real" All of the glory to Jesus Christ.
 walking tour first 10 free, rest box office ticket for $1.00
 shared link has the same feature, 1st 10 free, the rest $1.00 so people that use it can make money

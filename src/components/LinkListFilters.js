@@ -171,7 +171,15 @@ function ExpandableArray(props) {
       return sentence;
     }
     return "";
+
+
   };
+
+  const isCorrectAccount = () => {
+    if(uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2")
+      return true
+    return false
+  }
 
   const vsep = (hashtag) => {
     //const hashtag = "#IReallyLoveGSAP";
@@ -453,9 +461,14 @@ function ExpandableArray(props) {
                               }, click to see results`}
                             >
                               {sep(s.hashtag)}
-                            </a><span><label for="vacationdays">Number of vaction days (1-90):</label>
-
-<input type="number" id="vacationdays" name="vacationdays" min="1" max="90" /></span><a href="#" onClick={()=>genVacation(vsep(s.hashtag))}>vacation</a>
+                            </a>
+                            {
+                            isCorrectAccount() === 
+                            true && 
+                            <span>
+                              <label for="vacationdays">Number of vaction days (1-90):</label>
+                              <input type="number" id="vacationdays" name="vacationdays" min="1" max="90" />
+                              <a href="#" onClick={()=>genVacation(vsep(s.hashtag))}>vacation</a></span>}
                           </div>
                         );
                       })}

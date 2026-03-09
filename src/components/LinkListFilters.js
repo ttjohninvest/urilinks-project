@@ -466,8 +466,9 @@ function ExpandableArray(props) {
                             isCorrectAccount() === 
                             true && 
                             <span>
-                              <br /><label for="vacationdays">Number of vaction days (1-90):</label>
-                              <input type="number" id="vacationdays" name="vacationdays" min="1" max="90" />
+                              {/* <br /> */}
+                              {/* <label for="vacationdays">Number of vaction days (1-90):</label>
+                              <input type="number" id="vacationdays" name="vacationdays" min="1" max="90" /> */}
                               <a href="#" onClick={()=>genVacation(vsep(s.hashtag))}>vacation</a></span>}
                           </div>
                         );

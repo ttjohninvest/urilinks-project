@@ -577,14 +577,7 @@ function ExpandableArray(props) {
         </div>
       )} */}
         {/*this part was causing the gap in the middle*/}
-        {/* {props.signup === true && (
-        <div>
-          <div className="flexrowzc2 text-size-1  font-weight-bold padding-all text-center uppercase">
-            Welcome to Saint John's urilinks.com to help people, for church, 
-            homeless, state, economic, entertainment links and their storage and retrieval
-          </div>
-        </div>
-      )} */}
+       
         {/* {props.signup === true && (
         <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
           <span className="hide">Thank you. Your sharable link is:</span>

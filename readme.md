@@ -1346,3 +1346,9 @@ The TXT record contains a unique verification value provided by Firebase, and it
 This verification step is mandatory, especially if you are using a domain registrar other than Google Domains.
 Once the TXT record is added and propagated, you can verify ownership in the Firebase console.
 ==================================================================================================================
+
+urilinks index.html i remove the following comment from index.html because the text is showing up in the search results
+   <!-- <meta commented it out on 3/5/2026
+      name="description"
+      content="Welcome to Saint John's urilinks.com for church, state, economic, entertainment links and their storage and retrieval. So that others can see you content, I provide a sharing link to you."
+      > -->

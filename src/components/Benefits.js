@@ -14,13 +14,9 @@ return (<div>
 -search throuh link titles, hashtags or notes<br />
 -easy grouping or regrouping of links by hashtag by adding or removing hashtags from the note sections<br />
 -hashtags need to be entered in pascal case for example #TheCatIsFriendly.<br /> 
--for readability; they appear in buttons on the displayed in the index matrix;<br />
+-for readability; they appear in the left side bar.<br />
 -the # hash is removed and spaces are added and presented in alphabetical order<br />
--when a button in the index matrix is clicked, results will appear below the matrix<br />
-{/* -when saving links in your bookmark file using the browser, the first character<br />
--of each word in the phrase will be capitalized for readability when they appear on the index matrix buttons<br />
--clicking on the upload menu item, starts the process of uploading a browser bookmarks file;<br />
--the link/s in the uploaded bookmark file will appear in the index matrix and in results<br /> */}
+-when a link in the left sidebar is clicked, results will appear to the adjacent content area.<br />
 -a link may be added one at a time through the "Add Link" button and appear in results<br />
 -your google name and profile picture will appear at the top of your page<br />
 -plans: [the free plan stores up to {StorageSizes.free} links], [The basic plan stores up to {StorageSizes.basic} links<br />

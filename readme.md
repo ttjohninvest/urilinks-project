@@ -679,7 +679,8 @@ cloudflare.com on free plan
 stripe.com.com they take commission
 github.com free
 visual studio code free
-100webspace.com $15/month for urilinks.com
+100webspace.com $15/year for urilinks.com
+openai.com $5 one time
 
 other expenses:
 struttinstuff.com $15/month due before November 21st 2026, not currently using

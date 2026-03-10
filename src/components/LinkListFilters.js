@@ -332,7 +332,9 @@ function ExpandableArray(props) {
   const genVacation = (place) => {
     //const vacationdays = window.document.getElementById("vacationdays").value
     //alert("genVacation,vacationdays="+vacationdays+", place="+place)
-    window.open('https://www.rutugo.com/', '_blank');   
+    //window.open('https://www.rutugo.com/', '_blank');
+    // https://travel-planner-main-2-481e769d0baf.herokuapp.com/   
+    window.open('https://travel-planner-main-2-481e769d0baf.herokuapp.com', '_blank');
   }
 
   return (

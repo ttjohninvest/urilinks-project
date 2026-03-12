@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
-import LinkForm from "./LinkForm";
+import EmailSharableLinkForm from "./EmailSharableLinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import TeirsPayment3 from "./TeirsPayment3";
 import StorageSizes from "./StorageSizes";
 //uiuhff
-export const EmailSharableLinkPage = (props) => {
+export const AddLinkPage2 = (props) => {
   const [count, setCount] = useState(0);
   const [userId, setUserId] = useState("");
   const [maximumPage, setMaximumPage] = useState(false);
@@ -163,7 +163,7 @@ export const EmailSharableLinkPage = (props) => {
             </div>
           </div>
           <div className="content-container">
-            <LinkForm onSubmit={onSubmit} makereadonly={false} />
+            <EmailSharableLinkForm onSubmit={onSubmit} makereadonly={false} />
           </div>
         </div>
       ) : (
@@ -186,5 +186,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(EmailSharableLinkPage),
+  connect(mapStateToProps, mapDispatchToProps)(AddLinkPage2),
 );

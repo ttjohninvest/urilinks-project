@@ -3,7 +3,7 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-import EmailSharableLinkPage from './EmailSharablelinkPage'
+import AddLinkPage2 from './AddlinkPage2'
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -952,7 +952,7 @@ function ExpandableArray(props) {
                            className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
                            onClick={handleClick}>Email Sharable Link</a>
                
-                           {showComponent && <EmailSharableLinkPage />}
+                           {showComponent && <AddLinkPage2 />}
                          </div>
                        ) : (
                          <div className="minWidth- bg-color-4">
@@ -983,7 +983,7 @@ function ExpandableArray(props) {
                            className="pointereventsnone aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
                            onClick={handleClick}>Email Sharable Link</a>
                
-                           {showComponent && <EmailSharableLinkPage />}
+                           {showComponent && <AddLinkPage2 />}
                          </div>
                        ) : (
                          <div className="minWidth- bg-color-4">

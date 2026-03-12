@@ -301,7 +301,7 @@ class LinkForm extends React.Component {
           } //"2300"
         ></textarea>
         <div>
-          <button className="button-2w border5">Save Link</button>
+          <button className="button-2w border5">Email Link</button>
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>

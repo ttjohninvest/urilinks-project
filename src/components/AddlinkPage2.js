@@ -165,7 +165,7 @@ export const AddLinkPage2 = (props) => {
           Notice: firebase realtime database has thrown an exception (memmory
           exceeded)
         </div>
-      ) : maximumPage === false ? (
+      ) : true && (
         <div>
           <div className="page-header">
             <div className="content-container">
@@ -177,11 +177,6 @@ export const AddLinkPage2 = (props) => {
           <div className="content-container">
             <EmailSharableLinkForm onSubmit={onSubmit} makereadonly={false} />
           </div>
-        </div>
-      ) : (
-        <div>
-          {" "}
-          <TeirsPayment3 />
         </div>
       )}
     </div>

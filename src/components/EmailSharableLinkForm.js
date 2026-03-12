@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 
-class LinkForm extends React.Component {
+class EmailSharableLinkForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -313,4 +313,4 @@ const mapStateToProps = (state) => ({
   theplan: state.theplan,
 });
 
-export default connect(mapStateToProps, undefined)(LinkForm);
+export default connect(mapStateToProps, undefined)(EmailSharableLinkForm);

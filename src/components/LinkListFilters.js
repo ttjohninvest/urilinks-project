@@ -3,6 +3,7 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
+import AddLinkPage from './AddlinkPage'
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -40,6 +41,7 @@ function ExpandableArray(props) {
   const [gmail, setGmail] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("description");
+  const [showComponent, setShowComponent] = useState(false)
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -336,6 +338,14 @@ function ExpandableArray(props) {
     // https://travel-planner-main-2-481e769d0baf.herokuapp.com/   
     window.open('https://travel-planner-main-2-481e769d0baf.herokuapp.com', '_blank');
   }
+
+  const handleClick = (event) => {
+    event.preventDefault()
+    //adlinkid
+    document.getElementById('adlinkid').classList.add('pointereventsnone');
+    setShowComponent(true);
+  };
+
 
   return (
     <div className="bg-white-1">
@@ -925,18 +935,68 @@ function ExpandableArray(props) {
                   </div>
                 </span>
               )}
-
-              {props.signup && (
-                <span>
-                 email sharable link
-                </span>
-              )}
-
-               {props.signup === false && (
-                <span>
-                 email sharable link
-                </span>
-              )}
+              
+                {props.signup === true ? (
+                         <div className="minWidth- bg-color-4">
+                           {/* <Link
+                             id="adlinkid"
+                             className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+                             to="/create"
+                           >
+                             Add Link
+                           </Link> */}
+               
+                           <a 
+                           id="adlinkid"
+                           href="#"
+                           className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+                           onClick={handleClick}>Add Link</a>
+               
+                           {showComponent && <AddLinkPage />}
+                         </div>
+                       ) : (
+                         <div className="minWidth- bg-color-4">
+                           {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
+               
+                           {/* <Link
+                             className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w pointereventsnone width100 color-black-2 border5-"
+                             to="/create"
+                           >
+                             Add Link
+                           </Link> */}
+                         </div>
+                       )}
+              
+                       {props.signup === false ? (
+                         <div className="minWidth- bg-color-4">
+                           {/* <Link
+                             id="adlinkid"
+                             className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+                             to="/create"
+                           >
+                             Add Link
+                           </Link> */}
+               
+                           <a 
+                           id="adlinkid"
+                           href="#"
+                           className="pointereventsnone aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+                           onClick={handleClick}>Add Link</a>
+               
+                           {showComponent && <AddLinkPage />}
+                         </div>
+                       ) : (
+                         <div className="minWidth- bg-color-4">
+                           {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
+               
+                           {/* <Link
+                             className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w pointereventsnone width100 color-black-2 border5-"
+                             to="/create"
+                           >
+                             Add Link
+                           </Link> */}
+                         </div>
+                       )}
 
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}

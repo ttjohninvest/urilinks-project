@@ -9,6 +9,45 @@ export const addLink = (link) => ({
   link,
 });
 
+
+export const emailSharableLink = (linkData = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    const {
+      showpublic = false,
+      longname = "",
+      description = "",
+      Url = "",
+      yturl = "",
+      note = "",
+      foldername = "",
+      amount = 0,
+      createdAt = 0,
+      faviconURL = "",
+    } = linkData;
+    const link = {
+      showpublic,
+      longname,
+      description,
+      Url,
+      yturl,
+      note,
+      foldername,
+      amount,
+      createdAt,
+      faviconURL,
+    };
+
+    //////
+    //return false;
+
+    console.log("emailSharableLink, link=" + JSON.stringify(link));
+    //call email code here
+  };
+};
+
+
+
 export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;

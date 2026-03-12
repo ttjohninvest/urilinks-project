@@ -3,7 +3,7 @@ import * as firebase from "firebase";
 
 import { connect } from "react-redux";
 import EmailSharableLinkForm from "./EmailSharableLinkForm";
-import { startAddLink } from "../actions/links";
+import { startAddLink, emailSharableLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import TeirsPayment3 from "./TeirsPayment3";
 import StorageSizes from "./StorageSizes";
@@ -130,7 +130,8 @@ export const AddLinkPage2 = (props) => {
       link.foldername = link.description;
       link.yturl = isityt(link.Url);
       console.log("A link.yturl=" + link.yturl);
-      const r = props.startAddLink(link);
+
+       const r = props.emailSharableLink(link);
       if (r === false) {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
@@ -140,6 +141,17 @@ export const AddLinkPage2 = (props) => {
 
         //window.location.href = "https://urilinks.com?signup=signup";
       }
+
+      // const r = props.startAddLink(link);
+      // if (r === false) {
+      //   setErrorDialog(true);
+      //   console.log("VVVVVVVVVVVVV returned false");
+      // } else {
+      //   props.history.push("/");
+      //   window.scrollTo(0, 0);
+
+      //   //window.location.href = "https://urilinks.com?signup=signup";
+      // }
     } else {
       console.log("maximum links reached");
       setMaximumPage(true);

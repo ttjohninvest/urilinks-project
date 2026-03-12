@@ -925,6 +925,19 @@ function ExpandableArray(props) {
                   </div>
                 </span>
               )}
+
+              {props.signup && (
+                <span>
+                 email sharable link
+                </span>
+              )}
+
+               {props.signup === false && (
+                <span>
+                 email sharable link
+                </span>
+              )}
+
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}
                 {props.theplan.plan.replace(/"/g, "")}{" "}

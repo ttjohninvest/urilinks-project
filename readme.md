@@ -553,6 +553,14 @@ Firebase project name: see-my-index-project-7
 plan: I am on the blaze plan, pay as you go it is called
 heroku.com (host for code)
 ttjohninvest@gmail.com
+travel-planner by Ania. This code is open source for any good purpose.
+heroku.com stores the react code that calls the express server that is sent the user's prompt and recieves the ai answer
+ project name: travel-planner-main-2 and its github repository is named travel-planner
+github.com
+ repositories: travel-planner (react code), and travel-planner-server (express server code that uses gpt-3.5-turbo)
+vercel.com
+ project name: travel-planner-server and its github repository is travel-planner-server
+
 
 ---
 
@@ -671,6 +679,7 @@ express server api to convert the bookmarks.html file into json so that I can pr
 in FetchBookmarks.js and convert all of the folder names into hashtags
 
 expenses for urilinks.com:
+platform.openai.com, access to gpt-3.5-turbo, I paid $5.00 on 3/10/2026. It does not automatically recharge.
 cheapnames.com $12.99/year for urllynk.com due on 12/24/2026
 vercel.com
 heroku.com $7.00/month

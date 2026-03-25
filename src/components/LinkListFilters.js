@@ -476,7 +476,7 @@ function ExpandableArray(props) {
                               {sep(s.hashtag)}
                             </a>
                             {
-                            isCorrectAccount() === 
+                            !!s.hashtag && isCorrectAccount() === 
                             true && 
                             <span>
                               {/* <br /> */}

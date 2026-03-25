@@ -949,8 +949,9 @@ function ExpandableArray(props) {
                            <a 
                            id="adlinkid"
                            href="#"
+                           title="Email your sharable link so another may see your curated content."
                            className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
-                           onClick={handleClick}>Email Sharable Link to Your Curated Content</a>
+                           onClick={handleClick}>Email Sharable Link</a>
                
                            {showComponent && <AddLinkPage2 />}
                          </div>
@@ -980,8 +981,9 @@ function ExpandableArray(props) {
                            <a 
                            id="adlinkid"
                            href="#"
+                           title="Email your sharable link so another may see your curated content."
                            className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
-                           onClick={handleClick}>Email Sharable Link to Your Curated Content</a>
+                           onClick={handleClick}>Email Sharable Link</a>
                
                            {showComponent && <AddLinkPage2 />}
                          </div>

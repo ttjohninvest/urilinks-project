@@ -115,7 +115,7 @@ current plan: blaze plan, it does not let me upload bookmark files, so it does n
 blaze plan lets me upload bookmark files
 blaze plan when not turn off if the monthly budget is reached, charges will keep adding when bookmark files are uploaded so if a lot of people are uploading bookmark files, it will cost a lot of money.
 stop charges on blaze plan, give the class pointereventsnone to upload menu item or comment it out this is where the upload data charges are comming from.
-  
+
 ========================
 todo to do
 using currently node@11.11.0, changing it to the latest version
@@ -190,6 +190,7 @@ allow read, write;
 }
 
 ---
+
 {
 "rules": {
 "users": {
@@ -200,6 +201,7 @@ allow read, write;
 }
 }
 }
+
 ---
 
 {
@@ -210,7 +212,6 @@ allow read, write;
 }
 }
 }
-
 
 ## do the steps Konstantin gave me to get custom domain assigned to authDomain to appear after to continue to in signInWithPopup dialog
 
@@ -555,12 +556,11 @@ heroku.com (host for code)
 ttjohninvest@gmail.com
 travel-planner by Ania. This code is open source for any good purpose.
 heroku.com stores the react code that calls the express server that is sent the user's prompt and recieves the ai answer
- project name: travel-planner-main-2 and its github repository is named travel-planner
+project name: travel-planner-main-2 and its github repository is named travel-planner
 github.com
- repositories: travel-planner (react code), and travel-planner-server (express server code that uses gpt-3.5-turbo)
+repositories: travel-planner (react code), and travel-planner-server (express server code that uses gpt-3.5-turbo)
 vercel.com
- project name: travel-planner-server and its github repository is travel-planner-server
-
+project name: travel-planner-server and its github repository is travel-planner-server
 
 ---
 
@@ -1358,7 +1358,11 @@ Once the TXT record is added and propagated, you can verify ownership in the Fir
 ==================================================================================================================
 
 urilinks index.html i remove the following comment from index.html because the text is showing up in the search results
+
    <!-- <meta commented it out on 3/5/2026
       name="description"
       content="Welcome to Saint John's urilinks.com for church, state, economic, entertainment links and their storage and retrieval. So that others can see you content, I provide a sharing link to you."
       > -->
+
+error: when git push heroku main does not work because dialog shows saying something about git.heroku.com
+step to fix: heroku login

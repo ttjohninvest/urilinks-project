@@ -301,7 +301,7 @@ class EmailSharableLinkForm extends React.Component {
           } //"2300"
         ></textarea>
         <div>
-          <button className="button-2w border5 pointereventsnone">Email Link</button>
+          <button className="button-2w border5 pointereventsauto">Email Link</button>
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>

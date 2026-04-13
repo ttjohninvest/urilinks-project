@@ -560,11 +560,11 @@ export const Header = (props) => {
               </div>
             </header>
           ) : (
-            "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."
+            "Timeout error: To delete your accout, you will need to logout, relogin and then immediately delete the account."
           )}
 
           <div className="margin-left-118 margin-top-1">
-                      <img src={cathedral} className="minwidth-" height="200" />
+                      <img src={cathedral} className="minwidth" height="200" />
                     </div>
         </div>
 

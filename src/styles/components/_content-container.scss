@@ -302,7 +302,8 @@ input#option1[type="radio"] {
 }
 
 .minwidth {
-  min-width: 100px;
+  // min-width: 100px;
+  width:100%;
 }
 
 .width100 {

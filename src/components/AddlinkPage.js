@@ -41,7 +41,7 @@ export const AddLinkPage = (props) => {
     console.log("getPlanMax()=" + getPlanMax());
     const fetchData = async () => {
       try {
-        //7CzFYQjw2aUhHgCYjS2eDODrfVE2
+        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           if (user) {
@@ -52,18 +52,18 @@ export const AddLinkPage = (props) => {
             console.log("No user is currently logged in.");
           }
         } else {
-          setUserId("7CzFYQjw2aUhHgCYjS2eDODrfVE2");
+          setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
         }
 
         const db = firebase.database();
-        ////try {//7CzFYQjw2aUhHgCYjS2eDODrfVE2
+        ////try {//XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         let snapshot;
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
           snapshot = await db
-            .ref(`/users/7CzFYQjw2aUhHgCYjS2eDODrfVE2/links`)
+            .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
             .once("value");
         }
 

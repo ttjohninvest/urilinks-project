@@ -3,7 +3,7 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-import AddLinkPage2 from './AddlinkPage2'
+import AddLinkPage2 from "./AddlinkPage2";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -41,7 +41,7 @@ function ExpandableArray(props) {
   const [gmail, setGmail] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("description");
-  const [showComponent, setShowComponent] = useState(false)
+  const [showComponent, setShowComponent] = useState(false);
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -94,7 +94,7 @@ function ExpandableArray(props) {
       setUid(user.uid);
       setTheuser(user);
     } else {
-      setUid("7CzFYQjw2aUhHgCYjS2eDODrfVE2");
+      setUid("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
     }
 
     const x = window.localStorage.getItem("hideinformation");
@@ -173,15 +173,12 @@ function ExpandableArray(props) {
       return sentence;
     }
     return "";
-
-
   };
 
   const isCorrectAccount = () => {
-    if(uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2")
-      return true
-    return false
-  }
+    if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2") return true;
+    return false;
+  };
 
   //fggdd
   const vsep = (hashtag) => {
@@ -198,7 +195,7 @@ function ExpandableArray(props) {
       console.log(words); // Output: ['I', 'Really', 'Love', 'GSAP']
 
       const sentence = words.join(" ");
-      const sentence2 = sentence.substring(14,)
+      const sentence2 = sentence.substring(14);
       console.log(sentence2);
       return sentence2;
     }
@@ -335,17 +332,19 @@ function ExpandableArray(props) {
     //const vacationdays = window.document.getElementById("vacationdays").value
     //alert("genVacation,vacationdays="+vacationdays+", place="+place)
     //window.open('https://www.rutugo.com/', '_blank');
-    // https://travel-planner-main-2-481e769d0baf.herokuapp.com/   
-    window.open('https://travel-planner-main-2-481e769d0baf.herokuapp.com', '_blank');
-  }
-
-  const handleClick = (event) => {
-    event.preventDefault()
-    //adlinkid
-    document.getElementById('adlinkid').classList.add('pointereventsnone');
-    setShowComponent(true);
+    // https://travel-planner-main-2-481e769d0baf.herokuapp.com/
+    window.open(
+      "https://travel-planner-main-2-481e769d0baf.herokuapp.com",
+      "_blank",
+    );
   };
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    //adlinkid
+    document.getElementById("adlinkid").classList.add("pointereventsnone");
+    setShowComponent(true);
+  };
 
   return (
     <div className="bg-white-1">
@@ -367,7 +366,7 @@ function ExpandableArray(props) {
                 } theHeight flexrowzc2 border-b-5 margin-left-n-19`}
                 title="click a walk."
               >
-                {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
+                {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
                   ? "City Walks"
                   : "Categories"}
                 {/* categories */}
@@ -405,7 +404,7 @@ function ExpandableArray(props) {
                   }
                 >
                   {/* it works, i just used the false to turn it off*/}
-                  {!expanded && false 
+                  {!expanded && false
                     ? //props.b === 1 &&
                       props.mappedDataShort.map((s, index) => {
                         if (index < 50)
@@ -475,14 +474,21 @@ function ExpandableArray(props) {
                             >
                               {sep(s.hashtag)}
                             </a>
-                            {
-                            !!s.hashtag && isCorrectAccount() === 
-                            true && 
-                            <span>
-                              {/* <br /> */}
-                              {/* <label for="vacationdays">Number of vaction days (1-90):</label>
+                            {!!s.hashtag && isCorrectAccount() === true && (
+                              <span>
+                                {/* <br /> */}
+                                {/* <label for="vacationdays">Number of vaction days (1-90):</label>
                               <input type="number" id="vacationdays" name="vacationdays" min="1" max="90" /> */}
-                              <a href="#" onClick={()=>genVacation(vsep(s.hashtag))}><br /><span className="ib margin-left-11"></span>Take Vacation to {vsep(s.hashtag)}</a></span>}
+                                <a
+                                  href="#"
+                                  onClick={() => genVacation(vsep(s.hashtag))}
+                                >
+                                  <br />
+                                  <span className="ib margin-left-11"></span>
+                                  Take Vacation to {vsep(s.hashtag)}
+                                </a>
+                              </span>
+                            )}
                           </div>
                         );
                       })}
@@ -589,7 +595,7 @@ function ExpandableArray(props) {
         </div>
       )} */}
         {/*this part was causing the gap in the middle*/}
-       
+
         {/* {props.signup === true && (
         <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
           <span className="hide">Thank you. Your sharable link is:</span>
@@ -935,70 +941,76 @@ function ExpandableArray(props) {
                   </div>
                 </span>
               )}
-              
-                {props.signup === true ? (
-                         <div className="minWidth- bg-color-4">
-                           {/* <Link
+
+              {props.signup === true ? (
+                <div className="minWidth- bg-color-4">
+                  {/* <Link
                              id="adlinkid"
                              className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
                              to="/create"
                            >
                              Add Link
                            </Link> */}
-               
-                           <a 
-                           id="adlinkid"
-                           href="#"
-                           title="Email your sharable link so another may see your curated content."
-                           className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone width100  color-black-2 border5-"
-                           onClick={handleClick}>Email Sharable Link (currently turned off)</a>
-               
-                           {showComponent && <AddLinkPage2 />}
-                         </div>
-                       ) : (
-                         <div className="minWidth- bg-color-4">
-                           {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
-               
-                           {/* <Link
+
+                  <a
+                    id="adlinkid"
+                    href="#"
+                    title="Email your sharable link so another may see your curated content."
+                    className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone width100  color-black-2 border5-"
+                    onClick={handleClick}
+                  >
+                    Email Sharable Link (currently turned off)
+                  </a>
+
+                  {showComponent && <AddLinkPage2 />}
+                </div>
+              ) : (
+                <div className="minWidth- bg-color-4">
+                  {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
+
+                  {/* <Link
                              className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w pointereventsnone width100 color-black-2 border5-"
                              to="/create"
                            >
                              Add Link
                            </Link> */}
-                         </div>
-                       )}
-              
-                       {props.signup === false ? (
-                         <div className="minWidth- bg-color-4">
-                           {/* <Link
+                </div>
+              )}
+
+              {props.signup === false ? (
+                <div className="minWidth- bg-color-4">
+                  {/* <Link
                              id="adlinkid"
                              className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
                              to="/create"
                            >
                              Add Link
                            </Link> */}
-               
-                           <a 
-                           id="adlinkid"
-                           href="#"
-                           title="Email your sharable link so another may see your curated content."
-                           className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone width100  color-black-2 border5-"
-                           onClick={handleClick}>Email Sharable Link (currently turned off)</a>
-               
-                           {showComponent && <AddLinkPage2 />}
-                         </div>
-                       ) : (
-                         <div className="minWidth- bg-color-4">
-                           {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
-               
-                           {/* <Link
+
+                  <a
+                    id="adlinkid"
+                    href="#"
+                    title="Email your sharable link so another may see your curated content."
+                    className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone width100  color-black-2 border5-"
+                    onClick={handleClick}
+                  >
+                    Email Sharable Link (currently turned off)
+                  </a>
+
+                  {showComponent && <AddLinkPage2 />}
+                </div>
+              ) : (
+                <div className="minWidth- bg-color-4">
+                  {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
+
+                  {/* <Link
                              className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w pointereventsnone width100 color-black-2 border5-"
                              to="/create"
                            >
                              Add Link
                            </Link> */}
-                         </div>
-                       )}
+                </div>
+              )}
 
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}
@@ -1581,10 +1593,7 @@ export class LinkListFilters extends React.Component {
     //     behavior: "smooth",
     //   });
 
-  
-
     this.props.rerenderit();
-    
   };
 
   refreshIt = () => {

@@ -1,5 +1,19 @@
+
+wonderful invitation Please say "I call upon the name of Jesus Christ to save me." Wonderful invitation in Romans 10:13 and Acts 2:21.
+
 "affluent" Thank you Jesus Christ.
 "major part" when making mobile menu. Thank you Jesus Christ.
+
+He wondered how things were put together.
+project idea: He wondered how to transmit inmformation more efficiently.
+He did not need to know any information from another person to know the result. It is completely predictable.
+Transmitting information is completely predictable.
+He said if something is random you need information about everything to know the result.
+Kernigan said the dictionay of something grows as new words are added to it for example the subkects in googolideas.com grows as people add new words to it
+project idea: Computer tecnology has to evolve to make it easier for people to use.
+project idea: like bell labs has: they work everyday to make the telephone switching network more efficient.
+
+
 
 Fetchbookmarks.js, put foldernames in
 

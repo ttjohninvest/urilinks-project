@@ -41,7 +41,7 @@ export const AddLinkPage2 = (props) => {
     console.log("getPlanMax()=" + getPlanMax());
     const fetchData = async () => {
       try {
-        //7CzFYQjw2aUhHgCYjS2eDODrfVE2
+        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           if (user) {
@@ -52,18 +52,18 @@ export const AddLinkPage2 = (props) => {
             console.log("No user is currently logged in.");
           }
         } else {
-          setUserId("7CzFYQjw2aUhHgCYjS2eDODrfVE2");
+          setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
         }
 
         const db = firebase.database();
-        ////try {//7CzFYQjw2aUhHgCYjS2eDODrfVE2
+        ////try {//XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         let snapshot;
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
           snapshot = await db
-            .ref(`/users/7CzFYQjw2aUhHgCYjS2eDODrfVE2/links`)
+            .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
             .once("value");
         }
 
@@ -131,7 +131,7 @@ export const AddLinkPage2 = (props) => {
       link.yturl = isityt(link.Url);
       console.log("A link.yturl=" + link.yturl);
 
-       const r = props.emailSharableLink(link);
+      const r = props.emailSharableLink(link);
       if (r === false) {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
@@ -165,19 +165,23 @@ export const AddLinkPage2 = (props) => {
           Notice: firebase realtime database has thrown an exception (memmory
           exceeded)
         </div>
-      ) : true && (
-        <div>
-          <div className="page-header">
+      ) : (
+        true && (
+          <div>
+            <div className="page-header">
+              <div className="content-container">
+                <h1 className="page-header__title">
+                  <span className="color-purple color-black-2">
+                    Email Sharable Link Form
+                  </span>
+                </h1>
+              </div>
+            </div>
             <div className="content-container">
-              <h1 className="page-header__title">
-                <span className="color-purple color-black-2">Email Sharable Link Form</span>
-              </h1>
+              <EmailSharableLinkForm onSubmit={onSubmit} makereadonly={false} />
             </div>
           </div>
-          <div className="content-container">
-            <EmailSharableLinkForm onSubmit={onSubmit} makereadonly={false} />
-          </div>
-        </div>
+        )
       )}
     </div>
   );

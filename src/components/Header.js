@@ -564,7 +564,7 @@ export const Header = (props) => {
           )}
 
           <div className="margin-left-118 margin-top-1">
-                      <img src={cathedral} className="minwidth" />
+                      <img src={cathedral} className="minwidth-" height="200" />
                     </div>
         </div>
 

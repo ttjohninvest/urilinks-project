@@ -13,6 +13,7 @@ import logo from "../assets/images/logo-orange-u.png";
 import logo2 from "../assets/images/logo-urilinks.png";
 import myprofile from "../assets/images/myprofile.png";
 import signature from "../assets/images/signature.png";
+import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 //import { getAuth } from "firebase";
 import XShareButton from "./XShareButton";
 import setHasrefreshed from "../actions/hasrefreshed";
@@ -561,7 +562,12 @@ export const Header = (props) => {
           ) : (
             "Timeout error: To delete your accout, you will need to logout, relogin and then emmediately delete the account."
           )}
+
+          <div className="margin-left-118 margin-top-1">
+                      <img src={cathedral} className="minwidth" />
+                    </div>
         </div>
+
       ) : (
         <div>
           <Header2 />

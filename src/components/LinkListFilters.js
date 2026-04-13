@@ -15,7 +15,7 @@ import redarrow from "../assets/images/red-arrow.jpg";
 import * as firebase from "firebase";
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
-import signature from "../assets/images/sig-3.png";
+
 
 import {
   setTextFilter,

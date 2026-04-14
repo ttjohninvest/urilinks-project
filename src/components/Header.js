@@ -36,6 +36,29 @@ export const Header = (props) => {
   const [bmok, setBmok] = useState(false);
   const ideas = () => {};
 
+  function slowScrollDown(distance, duration) {
+  const startingY = window.pageYOffset;
+  const targetY = startingY + distance;
+  const startTime = performance.now();
+
+  function animate(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    
+    // Easing function (ease-out) for smoother deceleration
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+    
+    window.scrollTo(0, startingY + (targetY - startingY) * easeOut);
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+
   const isInMeArray = () => {
     //these email address are allowed to upload bookmark files
     const mearray = [
@@ -136,6 +159,10 @@ export const Header = (props) => {
     // else {
     //   setPhotoURL("");
     // }
+
+    
+// Usage: Scroll 300 pixels down over 1000ms (1 second)
+slowScrollDown(300, 1000);
   }, []);
 
   const scrolldown = () => {

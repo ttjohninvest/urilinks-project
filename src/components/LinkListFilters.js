@@ -482,14 +482,14 @@ function ExpandableArray(props) {
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>
                                 
-                                {/* <a
+                               {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && <a
                                   href="#"
                                   onClick={() => genVacation(vsep(s.hashtag))}
                                 >
                                   <br />
                                   <span className="ib margin-left-11"></span>
                                   Take Vacation to {vsep(s.hashtag)}
-                                </a> */}
+                                </a>}
                               </span>
                             )}
                           </div>

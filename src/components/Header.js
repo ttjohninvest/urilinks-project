@@ -162,7 +162,7 @@ export const Header = (props) => {
 
     
 // Usage: Scroll 300 pixels down over 1000ms (1 second)
-slowScrollDown(2000, 1000);
+//slowScrollDown(2000, 1000);
   }, []);
 
   const scrolldown = () => {

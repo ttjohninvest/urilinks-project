@@ -263,7 +263,7 @@ export const Header = (props) => {
   const okToShow = () => {};
 
   return (
-    <div className="top0pos-sticky-">
+    <div className="top0pos-sticky">
       {isMobile() === false ? (
         <div id="top">
           {!deleteAccountError ? (

@@ -346,6 +346,10 @@ function ExpandableArray(props) {
     setShowComponent(true);
   };
 
+  useEffect(()=>{
+    window.scrollTo(0,400)
+  },[])
+
   return (
     <div className="bg-white-1">
       <div className="flexrowztt containerui-">

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import LinkListFilters from "./LinkListFilters";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startLogout } from "../actions/auth";
+import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 
 import LinkListFileDate from "./LinkListFileDate";
 import LinkListFiltersFileDate from "./LinkListFiltersFileDate";
@@ -203,6 +204,8 @@ if(isMobile() === true)
 //      window.scrollTo(0,400)
 //    },[])
 
+
+
   return (
     <div>
       <div id="very-top-id" className="website-background-color">
@@ -222,6 +225,10 @@ left column
 right column
         </div> */}
       </div>
+
+      <div className="margin-left-118- margin-top-1- top0pos-sticky">
+                      <img src={cathedral} className="width100a- object-fit-cover" />
+                    </div>
     </div>
   );
 

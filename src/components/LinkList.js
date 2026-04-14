@@ -139,9 +139,10 @@ export const LinkList = (props) => {
   return (
     <div className="website-background-color width1001- border5- border-left-5">
 
-<div className="margin-left-118- margin-top-1- top0pos-sticky">
+
+{/* <div className="margin-left-118- margin-top-1- top0pos-sticky">
                       <img src={cathedral} className="width100a- object-fit-cover" />
-                    </div>
+                    </div> */}
 
 
       <div id="before-link-summary-id" className="flexrow2b- margin-bottom-5a">

@@ -8,6 +8,9 @@ import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
+
+
 import { DateRangePicker } from "react-dates";
 
 import database from "../firebase/firebase";

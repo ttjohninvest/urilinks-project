@@ -9,7 +9,7 @@ import MyInfiniteScroll4 from "./MyInfiniteScroll4";
 import { startRemoveLink, removeLink } from "../actions/links";
 import { Link } from "react-router-dom";
 import numeral from "numeral";
-
+import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 import selectLinksTotal from "../selectors/links-total";
 import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
@@ -138,6 +138,12 @@ export const LinkList = (props) => {
 
   return (
     <div className="website-background-color width1001- border5- border-left-5">
+
+<div className="margin-left-118- margin-top-1- top0pos-sticky">
+                      <img src={cathedral} className="width100a- object-fit-cover" />
+                    </div>
+
+
       <div id="before-link-summary-id" className="flexrow2b- margin-bottom-5a">
         {/* <LinksSummary /> */}
 

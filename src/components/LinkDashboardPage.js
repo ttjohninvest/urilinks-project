@@ -226,9 +226,7 @@ right column
         </div> */}
       </div>
 
-      <div className="margin-left-118- margin-top-1- top0pos-sticky">
-                      <img src={cathedral} className="width100a- object-fit-cover" />
-                    </div>
+
     </div>
   );
 

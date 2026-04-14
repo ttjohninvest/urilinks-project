@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
 import redarrow from "../assets/images/red-arrow.jpg";
+import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
+
 
 //import logo from "../assets/images/logo-l.png";
 //import logo from "../assets/images/logo-orange-urilinks.png";
@@ -263,8 +265,10 @@ export const Header = (props) => {
   const okToShow = () => {};
 
   return (
+    
     <div className="top0pos-sticky-">
       {isMobile() === false ? (
+        <div>
         <div id="top">
           {!deleteAccountError ? (
             <header className="header relief- bg-color-1g- bg-color-1">
@@ -591,6 +595,10 @@ export const Header = (props) => {
           )}
 
           
+        </div>
+              <div className="margin-left-118- margin-top-1- top0pos-sticky">
+                              <img src={cathedral} className="width100a- object-fit-cover" />
+                            </div>
         </div>
 
       ) : (

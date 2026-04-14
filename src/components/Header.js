@@ -263,7 +263,7 @@ export const Header = (props) => {
   const okToShow = () => {};
 
   return (
-    <div className="top0pos-sticky">
+    <div className="top0pos-sticky-">
       {isMobile() === false ? (
         <div id="top">
           {!deleteAccountError ? (
@@ -590,7 +590,7 @@ export const Header = (props) => {
             "Timeout error: To delete your accout, you will need to logout, relogin and then immediately delete the account."
           )}
 
-          <div className="margin-left-118 margin-top-1">
+          <div className="margin-left-118 margin-top-1 top0pos-sticky">
                       <img src={cathedral} className="width100a- object-fit-cover" />
                     </div>
         </div>

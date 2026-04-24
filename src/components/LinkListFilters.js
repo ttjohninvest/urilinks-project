@@ -10,7 +10,6 @@ import { connect } from "react-redux";
 
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 
-
 import { DateRangePicker } from "react-dates";
 
 import database from "../firebase/firebase";
@@ -18,7 +17,6 @@ import redarrow from "../assets/images/red-arrow.jpg";
 import * as firebase from "firebase";
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
-
 
 import {
   setTextFilter,
@@ -349,8 +347,6 @@ function ExpandableArray(props) {
     setShowComponent(true);
   };
 
-  
-
   return (
     <div className="bg-white-1">
       <div className="flexrowztt containerui-">
@@ -372,11 +368,10 @@ function ExpandableArray(props) {
                 title="click a walk."
               >
                 {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-
-                  ? "Loving Categories" :
-                  
-                  uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" ?"City Walks":"Categories"
-}
+                  ? "Loving Categories"
+                  : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
+                    ? "City Walks"
+                    : "Categories"}
                 {/* categories */}
               </div>
 
@@ -484,15 +479,16 @@ function ExpandableArray(props) {
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>
-                                
-                               {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && <a
-                                  href="#"
-                                  onClick={() => genVacation(vsep(s.hashtag))}
-                                >
-                                  <br />
-                                  <span className="ib margin-left-11"></span>
-                                  Take Vacation to {vsep(s.hashtag)}
-                                </a>}
+                                {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (
+                                  <a
+                                    href="#"
+                                    onClick={() => genVacation(vsep(s.hashtag))}
+                                  >
+                                    <br />
+                                    <span className="ib margin-left-11"></span>
+                                    Take Vacation to {vsep(s.hashtag)}
+                                  </a>
+                                )}
                               </span>
                             )}
                           </div>
@@ -911,7 +907,7 @@ function ExpandableArray(props) {
                           onClick={copyToClipboard}
                           title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >
-                          copy sharable link to Your Curated Content
+                          copy sharable link to share your curated content
                         </button>
                         {copySuccess}
                       </div>
@@ -939,7 +935,7 @@ function ExpandableArray(props) {
                           onClick={copyToClipboard}
                           title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >
-                          copy sharable link to Your Curated Content
+                          copy sharable link to share your curated content
                         </button>
                         {copySuccess}
                       </div>

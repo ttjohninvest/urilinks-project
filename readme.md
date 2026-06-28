@@ -1,3 +1,6 @@
+joy advice: Helping people to stop sinning through the Gospel of Jesus Christ in the ministry of reconciliation so they stop experiencing tribulation anguish from living wrong.  Step 1 please say "I call upon the name of Jesus Christ to save me." Pray to Jesus Christ and Holy Father God. Tell Holy Father God that you love him. Tell Jesus Christ that you love him. Embrace suffering by abandoning drunkenness and illicit sexual pleasures. Suffer for doing what is right. Experience peace, love and joy by walking by the Faith of Christ and stop suffering for doing wrong things. I hope you are blessed. Serve people out of love.
+
+Annie and Jordan Best Friends https://www.youtube.com/watch?v=SMhZXMNPzD8
 
 wonderful invitation Please say "I call upon the name of Jesus Christ to save me." Wonderful invitation in Romans 10:13 and Acts 2:21.
 
@@ -12,8 +15,6 @@ He said if something is random you need information about everything to know the
 Kernigan said the dictionay of something grows as new words are added to it for example the subkects in googolideas.com grows as people add new words to it
 project idea: Computer tecnology has to evolve to make it easier for people to use.
 project idea: like bell labs has: they work everyday to make the telephone switching network more efficient.
-
-
 
 Fetchbookmarks.js, put foldernames in
 
@@ -532,6 +533,8 @@ appwrite.io, urilinks-project-social-app
 
 ---
 
+project ideas: a phone app that reads the contacts list and sms text messages contacts the new phone number
+
 projects: what are real computer problems to solve?
 project: urilinks.com
 
@@ -551,6 +554,16 @@ i had uuid 3.1.0
 get an old file command:
 git show HEAD~26:src/components/FetchBookmarks.js > FetchBookmarks-old.js
 
+credit card changes (auto pay per month):
+spectrum.com
+nvenergy
+cbn september 28th next payment
+heifer.org last payment day: may 18th 2026 now is 28th, it has not gone through yet
+special olympics: 51.25 last payment went through on 4/29/26, 5/28/26 payment canceled, I canceled it by phone today 5/28/26 she said today's payment won't go through, I canceled recurring payments on 5/28/26 by phone
+mercychips.org not recurring each month
+virgina beach donation payed today on 5/28/26 but not posted yet, I DON'T KNOW
+WHAT THIS ONE IS, I CALLED DEBIT CARD 5/28/26, WHEN IT POSTS CALL THEM BACK
+
 tools to make urilinks.com:
 stripe.com (payment processor)
 ttjohninvest@gmail.com (google login)
@@ -566,11 +579,13 @@ account: johmcg64@gmail.com
 Payments profile name: see-my-index for urilink.com's firebase realtime database
 Firebase project name: see-my-index-project-7
 plan: I am on the blaze plan, pay as you go it is called
+credit card: https://payments.google.com/gp/w/u/0/home/paymentmethods
 heroku.com (host for code)
 ttjohninvest@gmail.com
 travel-planner by Ania. This code is open source for any good purpose.
 heroku.com stores the react code that calls the express server that is sent the user's prompt and recieves the ai answer
 project name: travel-planner-main-2 and its github repository is named travel-planner
+https://dashboard.heroku.com/account/billing
 github.com
 repositories: travel-planner (react code), and travel-planner-server (express server code that uses gpt-3.5-turbo)
 vercel.com
@@ -588,6 +603,10 @@ get the new key from stripe and put it into SK_LIVE environment variable in verc
 ---
 
 domain names
+tooalooa.com
+mindblessing.com
+mindbless.com
+
 urllynks.com
 
 urllynk.com
@@ -595,7 +614,7 @@ bought on cheapnames.com for 12.99 on 12/26/2025
 email: ttjohninvest@gmail.com
 username: ttjohninvest@gmail.com
 123.Y..2%..$%
-Well done! Time for the fun part.
+
 Confirmation #: 3978998350
 email from them: https://mail.google.com/mail/u/0/#inbox/FMfcgzQdzwChRJsjjhkwPtRbPkZmqjvf
 
@@ -833,11 +852,13 @@ Base64 Encoder 0.1.5
 
 ewogICJ0eXBlIjogInNlcnZpY2VfYWNjb3VudCIsCiAgInByb2plY3RfaWQiOiAic2VlLW15LWluZGV4LXByb2plY3QtNyIsCiAgInByaXZhdGVfa2V5X2lkIjogIjUxN2ZmODYyZTUyM2FjNzcwMzYxOWRhZDA3N2ZlZjE5NzE5MWY2MTkiLAogICJwcml2YXRlX2tleSI6ICItLS0tLUJFR0lOIFBSSVZBVEUgS0VZLS0tLS1cbk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRQ2duTEhzbFpVOEx1R1pcbmMvR21nQUV3M0M1VmVXcFI2MVpMRnYyeUJWK2h0bGp0dnFTenhhZExrUXBjQzBrVjJrM3NDWTRyZmVBbW1uU0NcbjBLdlNoaG5iV0gvYUtXckExMmlZNTBlcFZzR256aTVZdTZsTmxiL0RrVGtuNGcvZGFvcDR2clJKMi9SK0ZpRDlcbjdvQlc5eHMzdndNRDdqOTJTS3VGdXZMTVA5U04yMFZ6a0dsWVI5dUlJY0FBUk02b1I4bjBnNjA5ODZ4K2RjV2JcbjZkYWV0dk1vazV5aDQ2SzdUd2l1bGxQVFlVNkg0RTJZZ2F1ZUE5djV0VXBtSjJOMEdkYWdCQWJPT1UvMit2VmlcblJQVjE5bC9FaDdIV25PMmNGRWFJRGQ4QXdOcFdrd2RQR2Y3b0tLcHg5NGZIakRmQTdKNzZtcEVOeVJ1TmlLOXZcbk04UklFRHhmQWdNQkFBRUNnZ0VBTlBvYWtnL3c3cTRFQ2VxOWpZN3hWWjE2eHdUS2RnVHJMTStEbE9IQzNvTllcbkordFhSbGp1eXJVbnRwNmVWOC92SGVrMDlOR0xTeEJ0Vit6ZWtBMWRvQVU3L3Nqa2hvRkc1aEI3aWJhdEg5MlpcbldmbGthY3Y0T2RqQUFwREZiT0pFbEhsSzNJWHB5bUVnTnNJaG9RM1c4M2RVMWtvU3NzQmJtenZEOUcwbGZqaU1cbmdDQUwzYXBIcTVERmwraDNneHUvZVJEaHpnd0lkWVI5a3QwZ1lady8zK00xUFBIWXRCWjdmTkdLbEhxN2lpWFhcbnE5cDVrYjhWUk9xQzF5dk94dEVwaXJZUmZaVUxGMDRlS0lBdDUzZmNia3dwelFMU2NQbG5UeTcvVHB1M0tMK0RcbjF4YXpUTVMyaFplc2NCWGp3T2hXdlN1cWN2UnBjcGpJN3g0bUpPOTdFUUtCZ1FEU01OdHQrTi9xTnkyM3JNMUJcbktOaUNGY2lyQ25qRVVoU0psNUI5R0svTXpwd1p2UzJIakF1cjZBam9FdFU3dExVelRTbEFDbVFVaWhmTzNMMGZcbkZaZU5tSE5GbG9iTUtOM3cyNUdoVGxWZGt2V0NJMlBrODVnTWRZcFJCZm9nZXN1aVp5QWJrQjJyMzBEVlNDMzRcblhYL29oRlg5dGVJUnlUZTFZSjl0b091M3R3S0JnUUREbmJMUW1kTFJTTFNqTitLUmxxZWg2VGdDRDFDZmcwMzZcbk56ZGIxZ0ZDSWVRMzVKRjROVjhtWnlrV0ZVREtVNGx4UlB2MTZCbmREM3JudnVsMzQzMUxtZE5Jb1JQalZhOG1cbkp0SENYWllYU0liVUExMmNLODhWN3czQVNwVTBDMVNjQUpjZzYyWS80WXdOVEF6elZvbjB4WGRISnl3UVFhZW9cbloySzNGZXdRbVFLQmdETUllYjV4dHF2L1NiSlcybDcvczlHaHlGNys0K09HcWtYZDdzN3d0MzVhaTd3VUdvSFdcbmx0N2VMNHRwUnl4LzY1N1JGVHJmU3YxUnFnWW53aU5SOHNJR1NiYVRuWmJrTlQ3TmtNWkJacWlaamRKVEZXWDVcblh1bG5nSFc3cGNkTkNUUWRKY2FMYnlqVHc4SUZER1JKRDAwOUZFUE5iVjQwSkxwOUF6aHk0Y2h4QW9HQkFMVjJcblJkbkN5RkZDaStkWlFVRmpLekJFZzZOTmg3SGhnV1dhOFN5dEVrL0IxczZPcHUrSE96UUp3SkJ1dU1LM3lha2Ncbm9Fc1d1MTlaSzk5dE4zRHl4RmxzWWhaZTdtOFdIanRiQ1h5dmlqc2hHWW4xY1ZJZFJhYUlNdzV0WVlsODlVa2Vcbk54UGZxdU9abkd6OVhvb2hmaXBsUCtmdWk2NnM2UldNaW9OaXY3RUpBb0dCQUs4dk1YNzQ2dXZQWkJ4ZldTc0tcbnIzcnBlRkJCRy9QcFJEQ0g5MUU1b2s2RHpQQytMbzgwNE5HYTVMSXRaNmx4T2ZZd0M2YW9iYVZNZ283ZU9HT1dcblNDSGFIN2lwOEUvS1BwSE50Uk9menBnSlZYak1rSy8veWF4cWphU1dkcmlaZmlzSzlVZ1RJNUpQUWdJeWZ4RGFcblBBMnl0TEwva1FsZnozT2pRNzF5TUxDZ1xuLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLVxuIiwKICAiY2xpZW50X2VtYWlsIjogImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQHNlZS1teS1pbmRleC1wcm9qZWN0LTcuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLAogICJjbGllbnRfaWQiOiAiMTA0MTkxNDI3MzEyMTAzMTY1OTk2IiwKICAiYXV0aF91cmkiOiAiaHR0cHM6Ly9hY2NvdW50cy5nb29nbGUuY29tL28vb2F1dGgyL2F1dGgiLAogICJ0b2tlbl91cmkiOiAiaHR0cHM6Ly9vYXV0aDIuZ29
 
-put the above string into versel environement variable GOOGLE*APPLICATION*...
+put the above string into vercel environement variable GOOGLE*APPLICATION*...
 in urilinks-project-vercel-stripe-api put the new initialization code
 
 footnote: some lookup stuff:
 https://search.brave.com/search?q=example+of+how+to+initialize+firebase-admin+with+const+credentialsJson+%3D+Buffer.from%28process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON_BASE64%2C+%22base64%22%29.toString%28%22utf8%22%29%3B+const+credentials+%3D+JSON.parse%28credentialsJson%29%3B&summary=1&conversation=4496905d05bb3c2e13433e
+
+https://search.brave.com/search?q=steps+to+get+entire+service+account+JSON&summary=1&conversation=090f63d7fd18f5e58da5ccf4fa18f73c37be
 
 https://search.brave.com/search?q=example+of+how+to+download+the+base64+tool&summary=1&conversation=808181f7d0e3623564d4fa
 

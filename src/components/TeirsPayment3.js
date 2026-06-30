@@ -31,6 +31,7 @@ const TeirsPayment3 = (props) => {
   }, [props.history.action]);
 
   useEffect(() => {
+    console.log("firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
     console.log(
       "3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
     );

@@ -22,6 +22,7 @@ const TeirsPayment3 = (props) => {
   };
 
   useEffect(() => {
+     console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
     // Check if the navigation action is 'POP'
     if (props.history.action === "POP") {
       console.log("Navigated using back or forward button");

@@ -337,7 +337,7 @@ export const LinkList = (props) => {
           ) : false ? (
             props.links.slice(0, DISPLAY_THIS_MANY_LINKS).map((link) => {
               return (
-                <div>
+                <div key={link.id+"1"}>
                   <LinkListItem
                     key={link.id}
                     {...link}
@@ -358,7 +358,7 @@ export const LinkList = (props) => {
             // })
             props.links.splice(0, 400).map((link, index) => {
               return (
-                <div>
+                <div key={link.id+"1"}>
                   <LinkListItem
                     key={link.id}
                     //key={index}

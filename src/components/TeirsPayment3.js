@@ -2,16 +2,20 @@ import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as firebase from "firebase";
-//import { useHistory } from 'react-router-dom';
+
 import StorageSizes from "./StorageSizes";
 
 const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
+  // const [theUserId, setTheUserId] = useState(
+  //   firebase.auth().currentUser.uid + props.theplan.customerId
+  // );
+
   const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.customerId
+    props.uid + props.theplan.customerId
   );
-  //const [theUserId, setTheUserId] = useState(firebase.auth().currentUser.uid);
+  
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
   const [isStandard, setIsStandard] = useState(false);
@@ -22,7 +26,8 @@ const TeirsPayment3 = (props) => {
   };
 
   useEffect(() => {
-     console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
+     //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
+     console.log("props.uid="+props.uid)
     // Check if the navigation action is 'POP'
     if (props.history.action === "POP") {
       console.log("Navigated using back or forward button");

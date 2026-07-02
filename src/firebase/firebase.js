@@ -97,7 +97,7 @@ export { storage, firebase, googleAuthProvider, database as default };
 // // });
 
 // database.ref('links').push({
-//   description: 'Rent',
+//   description: 'Whatever',
 //   note: '',
 //   amount: 109500,
 //   createdAt: 976123498763
@@ -115,7 +115,6 @@ export { storage, firebase, googleAuthProvider, database as default };
 // //   console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`);
 // // })
 
-// // Setup data sub -> Andrew is a Software Developer at Amazon.
 
 // // Change the data and make sure it reprints
 

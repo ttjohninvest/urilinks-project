@@ -24,6 +24,7 @@ const TeirsPayment3 = (props) => {
   };
 
   useEffect(() => {
+    console.log("TeirsPayment3.js, theUserId="+theUserId)
      //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
      console.log("props.uid="+props.uid)
     // Check if the navigation action is 'POP'

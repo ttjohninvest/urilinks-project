@@ -8,13 +8,13 @@ import StorageSizes from "./StorageSizes";
 const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
-  // const [theUserId, setTheUserId] = useState(
-  //   firebase.auth().currentUser.uid + props.theplan.customerId
-  // );
-
   const [theUserId, setTheUserId] = useState(
-    props.uid + props.theplan.customerId
+    firebase.auth().currentUser.uid + props.theplan.customerId
   );
+
+  // const [theUserId, setTheUserId] = useState(
+  //   props.uid + props.theplan.customerId
+  // );
   
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
@@ -86,6 +86,8 @@ const TeirsPayment3 = (props) => {
 
   return (
     <div className="body1 flexrow2w">
+      in TeirsPayment3.js
+{/*       
       {props.theplan.plan.replace(/"/g, "") === "free" &&
       props.links.length <= StorageSizes.free ? (
 
@@ -189,7 +191,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
             goto the home page
           </button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { withRouter } from "react-router-dom";
 
 const Simple=(props)=>{
     useEffect(()=>{
@@ -11,4 +12,12 @@ const Simple=(props)=>{
 )
 }
 
-export default Simple;
+const mapStateToProps = (state) => ({
+  customerId: state.customerId,
+  uid: state.uid,
+  theplan: state.theplan,
+  links: state.links,
+});
+
+//export default Simple;
+export default withRouter(connect(mapStateToProps, undefined)(Simple));

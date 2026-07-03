@@ -22,6 +22,7 @@ const Simple=(props)=>{
 
     useEffect(()=>{
         console.log("console.log message, Hello, from Simple, theUserId="+theUserId)
+        console.log("props.theplan.plan="+props.theplan.plan)
     },[])
 
     useEffect(() => {
@@ -77,9 +78,114 @@ const Simple=(props)=>{
           }
 
   return (
-  <div>
-  <h1>Hello, from Simple</h1>
-</div>
+    <div className="body1 flexrow2w">
+   
+      
+      {props.theplan.plan.replace(/"/g, "") === "free" &&
+      props.links.length <= StorageSizes.free ? (
+
+      
+<stripe-pricing-table pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
+publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
+   client-reference-id={theUserId}
+</stripe-pricing-table>
+
+      ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
+        props.links.length <= StorageSizes.basic ? (
+
+    
+<stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
+publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
+   client-reference-id={theUserId}
+</stripe-pricing-table>
+
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
+        props.links.length <= StorageSizes.standard ? (
+
+       
+<stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
+publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
+   client-reference-id={theUserId}
+</stripe-pricing-table>
+
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
+        props.links.length <= StorageSizes.premium ? (
+        <div>
+          Thank you. You are on the premium plan which is the highest plan.
+        </div>
+      ) : props.theplan.plan.replace(/"/g, "") === "free" ? (
+        <div>
+          <div className="margin-left-11">
+            You are on the free plan. You may store up to {StorageSizes.free}{" "}
+            links, <span>You have stored {props.links.length} links.</span>
+          </div>
+          <div>
+            <button
+              className="button-2w ib margin-left-11 cursor-pointer"
+              onClick={goToHomePage}
+            >
+              goto the home page
+            </button>
+          </div>
+        </div>
+      ) : props.theplan.plan.replace(/"/g, "") === "basic" ? (
+        <div>
+          <div className="margin-left-11">
+            You are on the basic plan. You may store up to {StorageSizes.basic}{" "}
+            links, <span>You have stored {props.links.length} links.</span>
+          </div>
+          <div>
+            <button
+              className="button-2w ib margin-left-11 cursor-pointer"
+              onClick={goToHomePage}
+            >
+              goto the home page
+            </button>
+          </div>
+        </div>
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" ? (
+        <div>
+          <div className="margin-left-11">
+            You are on the standard plan. You may store up to{" "}
+            {StorageSizes.standard} links,{" "}
+            <span>You have stored {props.links.length} links.</span>
+          </div>
+          <div>
+            <button
+              className="button-2w ib margin-left-11 cursor-pointer"
+              onClick={goToHomePage}
+            >
+              goto the home page
+            </button>
+          </div>
+        </div>
+      ) : props.theplan.plan.replace(/"/g, "") === "premium" ? (
+        <div>
+          <div className="margin-left-11">
+            You are on the premium plan. You may store up to{" "}
+            {StorageSizes.premium} links,{" "}
+            <span>You have stored {props.links.length} links.</span>
+          </div>
+          <div>
+            <button
+              className="button-2w ib margin-left-11 cursor-pointer"
+              onClick={goToHomePage}
+            >
+              goto the home page
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <button
+            className="button-2w ib margin-left-11 cursor-pointer"
+            onClick={goToHomePage}
+          >
+            goto the home page
+          </button>
+        </div>
+      )}
+    </div>
 )
 }
 

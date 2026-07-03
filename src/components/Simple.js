@@ -1,10 +1,19 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import * as firebase from "firebase";
+import StorageSizes from "./StorageSizes";
 
 const Simple=(props)=>{
+  const [clientSecret, setClientSecret] = useState("");
+  const [pti, setPti] = useState(process.env.PTI);
+  const [theUserId, setTheUserId] = useState(
+    firebase.auth().currentUser.uid + props.theplan.customerId
+  );
+
+
     useEffect(()=>{
-        console.log("Hello, from Simple")
+        console.log("console.log message, Hello, from Simple, theUserId="+theUserId)
     },[])
   return (
   <div>

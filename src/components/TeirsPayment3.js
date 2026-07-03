@@ -25,64 +25,65 @@ const TeirsPayment3 = (props) => {
     props.history.push("/"); // Navigates back one step in the history
   };
 
-  useEffect(() => {
-     //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
-     console.log("props.uid="+props.uid)
-    // Check if the navigation action is 'POP'
-    if (props.history.action === "POP") {
-      console.log("Navigated using back or forward button");
-      // Perform actions based on back/forward navigation
-      props.history.push("/");
-    }
-  }, [props.history.action]);
+  // useEffect(() => {
+  //    //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
+  //    console.log("props.uid="+props.uid)
+  //   // Check if the navigation action is 'POP'
+  //   if (props.history.action === "POP") {
+  //     console.log("Navigated using back or forward button");
+  //     // Perform actions based on back/forward navigation
+  //     props.history.push("/");
+  //   }
+  // }, [props.history.action]);
 
   useEffect(() => {
+    console.log("the following should be the uid:")
     console.log("firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
-    console.log(
-      "3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
-    );
+    // console.log(
+    //   "3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
+    // );
     //setTheUserId(firebase.auth().currentUser.uid+props.theplan.customerId)
   }, []);
 
-  useEffect(() => {
-    console.log("4 theUserId=" + theUserId);
-    console.log(
-      "4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
-    );
+  // useEffect(() => {
+  //   console.log("4 theUserId=" + theUserId);
+  //   console.log(
+  //     "4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
+  //   );
 
-    fetch("https://urilinks-project-client-secret-api.vercel.app", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ customerId: props.customerId.customerId }), //JSON.stringify({ customerId: props.customerId.customerId }),
-    })
-      .then((res) => {
-        return res.json();
-        // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
-      })
-      .then((data) => {
-        console.log(data);
-        setClientSecret(data.clientSecret);
-      })
-      .catch((error) =>
-        console.error("There was a problem with the fetch operation:", error)
-      );
-  }, []);
+  //   fetch("https://urilinks-project-client-secret-api.vercel.app", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ customerId: props.customerId.customerId }), //JSON.stringify({ customerId: props.customerId.customerId }),
+  //   })
+  //     .then((res) => {
+  //       return res.json();
+  //       // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //       setClientSecret(data.clientSecret);
+  //     })
+  //     .catch((error) =>
+  //       console.error("There was a problem with the fetch operation:", error)
+  //     );
+  // }, []);
 
-  const initializedRef = useRef(false);
-  if (!initializedRef.current) {
-    // This code runs only once, before the first render
-    // Perform checks or setup here
+  // const initializedRef = useRef(false);
+  // if (!initializedRef.current) {
+  //   // This code runs only once, before the first render
+  //   // Perform checks or setup here
 
-    initializedRef.current = true;
-    if (props.history.action === "POP") {
-      console.log("Navigated using back or forward button");
-      // Perform actions based on back/forward navigation
+  //   initializedRef.current = true;
+  //   if (props.history.action === "POP") {
+  //     console.log("Navigated using back or forward button");
+  //     // Perform actions based on back/forward navigation
 
-      props.history.push("/");
-    }
-  }
+  //     props.history.push("/");
+  //   }
+  // }
 
   return (
     <div className="body1 flexrow2w">

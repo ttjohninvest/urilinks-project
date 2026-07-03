@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as firebase from "firebase";
@@ -15,6 +15,8 @@ const Simple=(props)=>{
     useEffect(()=>{
         console.log("console.log message, Hello, from Simple, theUserId="+theUserId)
     },[])
+
+
   return (
   <div>
   <h1>Hello, from Simple</h1>

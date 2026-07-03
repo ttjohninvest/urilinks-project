@@ -40,17 +40,22 @@ const config = {
 // };
 
 console.log("A ABOUT TO CALL firebase.initializeApp");
+console.log(1)
 const app = firebase.initializeApp(config);
+console.log(2)
 const storage = firebase.storage();
-
+console.log(3)
 const database = firebase.database();
+console.log(4)
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+console.log(5)
 //prompt: "select_account"
 googleAuthProvider.setCustomParameters({
   //this fixed the google email selection dialog from not coming up
   //prompt: "consent"
   prompt: "select_account",
 });
+console.log(6)
 export { storage, firebase, googleAuthProvider, database as default };
 
 // // child_removed

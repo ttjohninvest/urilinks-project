@@ -4,110 +4,106 @@ import { withRouter } from "react-router-dom";
 import * as firebase from "firebase";
 import StorageSizes from "./StorageSizes";
 
-const Simple=(props)=>{
+const Simple = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
   const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.customerId
+    firebase.auth().currentUser.uid + props.theplan.customerId,
   );
-   const [isFree, setIsFree] = useState(false);
-    const [isBasic, setIsBasic] = useState(false);
-    const [isStandard, setIsStandard] = useState(false);
-    const [isPremium, setIsPremium] = useState(false);
-  
-    const goToHomePage = () => {
-      props.history.push("/"); // Navigates back one step in the history
-    };
+  const [isFree, setIsFree] = useState(false);
+  const [isBasic, setIsBasic] = useState(false);
+  const [isStandard, setIsStandard] = useState(false);
+  const [isPremium, setIsPremium] = useState(false);
 
+  const goToHomePage = () => {
+    props.history.push("/"); // Navigates back one step in the history
+  };
 
-    useEffect(()=>{
-        console.log("console.log message, Hello, from Simple, theUserId="+theUserId)
-        console.log("props.theplan.plan="+props.theplan.plan)
-    },[])
+  useEffect(() => {
+    console.log(
+      "console.log message, Hello, from Simple, theUserId=" + theUserId,
+    );
+    console.log("props.theplan.plan=" + props.theplan.plan);
+  }, []);
 
-    useEffect(() => {
-        console.log("TeirsPayment3.js, theUserId="+theUserId)
-         //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
-         
-        // Check if the navigation action is 'POP'
-        if (props.history.action === "POP") {
-          console.log("Navigated using back or forward button");
-          // Perform actions based on back/forward navigation
-          props.history.push("/");
-        }
-      }, [props.history.action]);
+  useEffect(() => {
+    console.log("TeirsPayment3.js, theUserId=" + theUserId);
+    //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
 
-      useEffect(() => {
-          console.log("4 theUserId=" + theUserId);
-          console.log(
-            "4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
-          );
-      
-          fetch("https://urilinks-project-client-secret-api.vercel.app", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ customerId: props.customerId.customerId }), //JSON.stringify({ customerId: props.customerId.customerId }),
-          })
-            .then((res) => {
-              return res.json();
-              // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
-            })
-            .then((data) => {
-              console.log(data);
-              setClientSecret(data.clientSecret);
-            })
-            .catch((error) =>
-              console.error("There was a problem with the fetch operation:", error)
-            );
-        }, []);
+    // Check if the navigation action is 'POP'
+    if (props.history.action === "POP") {
+      console.log("Navigated using back or forward button");
+      // Perform actions based on back/forward navigation
+      props.history.push("/");
+    }
+  }, [props.history.action]);
 
-        const initializedRef = useRef(false);
-          if (!initializedRef.current) {
-            // This code runs only once, before the first render
-            // Perform checks or setup here
-        
-            initializedRef.current = true;
-            if (props.history.action === "POP") {
-              console.log("Navigated using back or forward button");
-              // Perform actions based on back/forward navigation
-        
-              props.history.push("/");
-            }
-          }
+  useEffect(() => {
+    console.log("4 theUserId=" + theUserId);
+    console.log(
+      "4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId,
+    );
+
+    fetch("https://urilinks-project-client-secret-api.vercel.app", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ customerId: props.customerId.customerId }), //JSON.stringify({ customerId: props.customerId.customerId }),
+    })
+      .then((res) => {
+        return res.json();
+        // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
+      })
+      .then((data) => {
+        console.log(data);
+        setClientSecret(data.clientSecret);
+      })
+      .catch((error) =>
+        console.error("There was a problem with the fetch operation:", error),
+      );
+  }, []);
+
+  const initializedRef = useRef(false);
+  if (!initializedRef.current) {
+    // This code runs only once, before the first render
+    // Perform checks or setup here
+
+    initializedRef.current = true;
+    if (props.history.action === "POP") {
+      console.log("Navigated using back or forward button");
+      // Perform actions based on back/forward navigation
+
+      props.history.push("/");
+    }
+  }
 
   return (
     <div className="body1 flexrow2w">
-   
-      
       {props.theplan.plan.replace(/"/g, "") === "free" &&
       props.links.length <= StorageSizes.free ? (
-
-      
-<stripe-pricing-table pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
-publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
-   client-reference-id={theUserId}
-</stripe-pricing-table>
-
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        >
+          client-reference-id={"m8f0YMF5bucp9uhblPZhM8CTjq12"}
+        </stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
         props.links.length <= StorageSizes.basic ? (
-
-    
-<stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
-publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
-   client-reference-id={theUserId}
-</stripe-pricing-table>
-
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        >
+          client-reference-id={"m8f0YMF5bucp9uhblPZhM8CTjq12"}
+        </stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length <= StorageSizes.standard ? (
-
-       
-<stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
-publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
-   client-reference-id={theUserId}
-</stripe-pricing-table>
-
+        <stripe-pricing-table
+          pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
+          publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
+        >
+          client-reference-id={"m8f0YMF5bucp9uhblPZhM8CTjq12"}
+        </stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length <= StorageSizes.premium ? (
         <div>
@@ -186,8 +182,8 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
         </div>
       )}
     </div>
-)
-}
+  );
+};
 
 const mapStateToProps = (state) => ({
   customerId: state.customerId,

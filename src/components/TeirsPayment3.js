@@ -6,15 +6,13 @@ import * as firebase from "firebase";
 import StorageSizes from "./StorageSizes";
 
 const TeirsPayment3 = (props) => {
-  const [clientSecret, setClientSecret] = useState("");
-  const [pti, setPti] = useState(process.env.PTI);
-  const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.customerId
-  );
-
+  // const [clientSecret, setClientSecret] = useState("");
+  // const [pti, setPti] = useState(process.env.PTI);
   // const [theUserId, setTheUserId] = useState(
-  //   props.uid + props.theplan.customerId
+  //   firebase.auth().currentUser.uid + props.theplan.customerId
   // );
+
+  
   
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
@@ -38,7 +36,7 @@ const TeirsPayment3 = (props) => {
 
   useEffect(() => {
     console.log("the following should be the uid:")
-    console.log("firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
+    //console.log("firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
     // console.log(
     //   "3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
     // );

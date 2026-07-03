@@ -17,7 +17,8 @@ import Benefits from "../components/Benefits";
 import NotFoundPage from "../components/NotFoundPage";
 import LoginPage from "../components/LoginPage";
 import IdeasPage from "../components/IdeasPage";
-import TeirsPayment3 from "../components/TeirsPayment3";
+//import TeirsPayment3 from "../components/TeirsPayment3";
+import Simple from "../components/Simple";
 import BookmarksManager from "../components/BookmarksManager";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
@@ -50,8 +51,10 @@ const AppRouter = (props) => (
         />
         <PrivateRoute
           path="/teirspayment3"
+          //path="/simple"
           signup={props.signup}
-          component={TeirsPayment3}
+          //component={TeirsPayment3}
+          component={Simple}
         />
         <PrivateRoute
           path="/settings"

@@ -91,7 +91,7 @@ const Simple = (props) => {
 <stripe-pricing-table pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
 client-reference-id={theUserId}
- customer-email="location_FR@email.com"
+customer-email={props.email}
 >
 
 </stripe-pricing-table>
@@ -102,6 +102,7 @@ client-reference-id={theUserId}
 <stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
 client-reference-id={theUserId}
+customer-email={props.email}
 
 >
 
@@ -113,7 +114,8 @@ client-reference-id={theUserId}
 <stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
 client-reference-id={theUserId}
- customer-email="location_FR@email.com"
+customer-email={props.email}
+
 >
 </stripe-pricing-table>
 
@@ -204,6 +206,7 @@ const mapStateToProps = (state) => ({
   uid: state.uid,
   theplan: state.theplan,
   links: state.links,
+  email: state.email
 });
 
 //export default Simple;

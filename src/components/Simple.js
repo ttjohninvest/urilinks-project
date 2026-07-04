@@ -15,28 +15,28 @@ const Simple = (props) => {
   const [isStandard, setIsStandard] = useState(false);
   const [isPremium, setIsPremium] = useState(false);
 
-//   const goToHomePage = () => {
-//     props.history.push("/"); // Navigates back one step in the history
-//   };
+  const goToHomePage = () => {
+    props.history.push("/"); // Navigates back one step in the history
+  };
 
-//   useEffect(() => {
-//     console.log(
-//       "console.log message, Hello, from Simple, theUserId=" + theUserId,
-//     );
-//     console.log("props.theplan.plan=" + props.theplan.plan);
-//   }, []);
+  useEffect(() => {
+    console.log(
+      "console.log message, Hello, from Simple, theUserId=" + theUserId,
+    );
+    console.log("props.theplan.plan=" + props.theplan.plan);
+  }, []);
 
-//   useEffect(() => {
-//     console.log("TeirsPayment3.js, theUserId=" + theUserId);
-//     //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
+  useEffect(() => {
+    console.log("TeirsPayment3.js, theUserId=" + theUserId);
+    //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
 
-//     // Check if the navigation action is 'POP'
-//     if (props.history.action === "POP") {
-//       console.log("Navigated using back or forward button");
-//       // Perform actions based on back/forward navigation
-//       props.history.push("/");
-//     }
-//   }, [props.history.action]);
+    // Check if the navigation action is 'POP'
+    if (props.history.action === "POP") {
+      console.log("Navigated using back or forward button");
+      // Perform actions based on back/forward navigation
+      props.history.push("/");
+    }
+  }, [props.history.action]);
 
 //   useEffect(() => {
 //     console.log("4 theUserId=" + theUserId);

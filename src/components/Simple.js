@@ -80,7 +80,6 @@ const Simple = (props) => {
 
 //  return (
 //     <div className="body1 flexrow2w">
-     
        
        
 // <stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
@@ -89,9 +88,11 @@ const Simple = (props) => {
 
 // >
 
-// </stripe-pricing-table>
+// </stripe-pricing-table>     
+
    
-//     </div>
+
+//        </div>
 //  );
 
  return (
@@ -209,15 +210,15 @@ client-reference-id={"m8f0YMF5bucp9uhblPZhM8CTjq12"}
       )}
     </div>
  );
- 
+
 };
 
-// const mapStateToProps = (state) => ({
-//   customerId: state.customerId,
-//   uid: state.uid,
-//   theplan: state.theplan,
-//   links: state.links,
-// });
+const mapStateToProps = (state) => ({
+  customerId: state.customerId,
+  uid: state.uid,
+  theplan: state.theplan,
+  links: state.links,
+});
 
 export default Simple;
 //export default withRouter(connect(mapStateToProps, undefined)(Simple));

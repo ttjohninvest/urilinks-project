@@ -220,5 +220,5 @@ const mapStateToProps = (state) => ({
   links: state.links,
 });
 
-export default Simple;
-//export default withRouter(connect(mapStateToProps, undefined)(Simple));
+//export default Simple;
+export default withRouter(connect(mapStateToProps, undefined)(Simple));

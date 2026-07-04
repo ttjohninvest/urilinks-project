@@ -85,7 +85,7 @@ const Simple = (props) => {
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
           publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
-          client-reference-id={"m8f0YMF5bucp9uhblPZhM8CTjq12"}
+          client_reference_id={"m8f0YMF5bucp9uhblPZhM8CTjq12"}
         >
           
         </stripe-pricing-table>
@@ -94,7 +94,7 @@ const Simple = (props) => {
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
           publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
-          client-reference-id={"m8f0YMF5bucp9uhblPZhM8CTjq12"}
+          client_reference_id={"m8f0YMF5bucp9uhblPZhM8CTjq12"}
         >
           
         </stripe-pricing-table>
@@ -103,7 +103,7 @@ const Simple = (props) => {
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
           publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
-          client-reference-id={"m8f0YMF5bucp9uhblPZhM8CTjq12"}
+          client_reference_id={"m8f0YMF5bucp9uhblPZhM8CTjq12"}
         >
           
         </stripe-pricing-table>

@@ -547,6 +547,7 @@ open two projects, in github.com and vercel.com
 GUI-CLI Integration: Users want more tools that allow interaction with GUI features, like clipboard access or managing desktop settings from the command line across different operating systems.
 
 ---
+---
 
 tools (utilities)
 infinite scroll help: https://search.brave.com/search?q=example+of+fetchmoredata+for+react-infinite-scroll-component+where+i+use+two+indexes+to+splice+pieces+of+a+local+array+to+display&summary=1&conversation=0d80110526f22b316d55d4

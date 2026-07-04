@@ -88,36 +88,31 @@ const Simple = (props) => {
       
 
      
-<stripe-pricing-table pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
-publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
-client-reference-id={theUserId}
-customer-email={props.email}
->
+<stripe-pricing-table
+          pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
 
-</stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
         props.links.length <= StorageSizes.basic ? (
        
        
-<stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
-publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
-client-reference-id={theUserId}
-customer-email={props.email}
+<stripe-pricing-table
+          pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
 
->
-
-</stripe-pricing-table>
       ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length <= StorageSizes.standard ? (
       
         
-<stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
-publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
-client-reference-id={theUserId}
-customer-email={props.email}
-
->
-</stripe-pricing-table>
+<stripe-pricing-table
+          pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
+          client-reference-id={theUserId}
+          publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
+        ></stripe-pricing-table>
 
       ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length <= StorageSizes.premium ? (

@@ -81,7 +81,6 @@ const Simple = (props) => {
   }
 
 
-
  return (
     <div className="body1 flexrow2w">
       {props.theplan.plan.replace(/"/g, "") === "free" &&
@@ -91,8 +90,7 @@ const Simple = (props) => {
      
 <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
-          client-reference-id={theUserId}
-          customer-email={theEmail}
+          client-reference-id={theUserId}      
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
 
@@ -102,8 +100,7 @@ const Simple = (props) => {
        
 <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
-          client-reference-id={theUserId}
-          customer-email={theEmail}
+          client-reference-id={theUserId}         
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
 
@@ -113,8 +110,7 @@ const Simple = (props) => {
         
 <stripe-pricing-table
           pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
-          client-reference-id={theUserId}
-          customer-email={theEmail}
+          client-reference-id={theUserId}         
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
 

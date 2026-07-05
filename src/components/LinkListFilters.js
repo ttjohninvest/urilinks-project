@@ -368,7 +368,7 @@ function ExpandableArray(props) {
                 title="click a walk."
               >
                 {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-                  ? "Loving Categories"
+                  ? "Categories"
                   : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
                     ? "City Walks"
                     : "Categories"}

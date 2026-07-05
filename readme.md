@@ -1,3 +1,5 @@
+I hope you are all blessed. Please say "I call upon the name of Jesus Christ to save me." Please see King James Version of the Holy Bible Romans 10:13.
+
 joy advice: Helping people to stop sinning through the Gospel of Jesus Christ in the ministry of reconciliation so they stop experiencing tribulation anguish from living wrong.  Step 1 please say "I call upon the name of Jesus Christ to save me." Pray to Jesus Christ and Holy Father God. Tell Holy Father God that you love him. Tell Jesus Christ that you love him. Embrace suffering by abandoning drunkenness and illicit sexual pleasures. Suffer for doing what is right. Experience peace, love and joy by walking by the Faith of Christ and stop suffering for doing wrong things. I hope you are blessed. Serve people out of love.
 
 Annie and Jordan Best Friends https://www.youtube.com/watch?v=SMhZXMNPzD8
@@ -1402,3 +1404,17 @@ urilinks index.html i remove the following comment from index.html because the t
 
 error: when git push heroku main does not work because dialog shows saying something about git.heroku.com
 step to fix: heroku login
+
+stripe and database testing procedure so real money is not used
+purpose: write the plan name and the database correctly to the database and make sure stripe keeps working by 
+putting the subscription entry and deleting the old subscription entry if user upgrades to more expensive plan so hr or
+she is not charged twice
+use non live WHSEC in urilinks sandbox
+use non live pricing tables by copying em in in Simple.js, this module replaces TeirsPayment3.js
+use non live SK_LIVE id, SK means secret key in stripe
+you don't need to change the google service account code regarding the database object
+that is it, now you can click plans, it will update stripe with subscription and the database with plan name, basic, standard or premium and put in the customer id and subscription id. the same database is used for live and non live 
+
+marketing and promoting it
+I would like people to see it as their own webpage where they can have the links they want on it like a [profession name] can have all of the [profession name]s they associate with on it and they can share their [profession name]s 
+with other [profession name]s or anyone who wants to see their list of [profession name]s

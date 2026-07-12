@@ -883,7 +883,7 @@ function ExpandableArray(props) {
                 BE YOUR OWN WEBSITE COLLECTIONS CURATOR AND SHARE IT WITH OTHERS
                 THROUGH THE PROVIDED LINK. SIGNUP/LOGIN TODAY.
               </div> */}
-              <div className="font-weight-900 underlinethicker text-size-15 margin-bottom-18">
+              <div className="font-weight-700 underlinethicker text-size-15 margin-bottom-18">
                 Links (Url) Management Tool, add, view, delete and share them with others
               </div>
              

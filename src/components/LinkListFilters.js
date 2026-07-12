@@ -1,5 +1,5 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
-
+////
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
@@ -911,7 +911,7 @@ function ExpandableArray(props) {
                           onClick={copyToClipboard}
                           title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >
-                          click to copy sharable link to share others
+                          click to copy your link to share others
                         </button>
                         {copySuccess}
                       </div>
@@ -939,7 +939,7 @@ function ExpandableArray(props) {
                           onClick={copyToClipboard}
                           title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >
-                          copy sharable link to share with others
+                          click to copy your link to share with others
                         </button>
                         {copySuccess}
                       </div>

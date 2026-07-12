@@ -911,7 +911,7 @@ function ExpandableArray(props) {
                           onClick={copyToClipboard}
                           title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >
-                          copy sharable link to share your curated content
+                          copy sharable link to share others
                         </button>
                         {copySuccess}
                       </div>
@@ -939,7 +939,7 @@ function ExpandableArray(props) {
                           onClick={copyToClipboard}
                           title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >
-                          copy sharable link to share your curated content
+                          copy sharable link to share with others
                         </button>
                         {copySuccess}
                       </div>
@@ -961,7 +961,7 @@ function ExpandableArray(props) {
                   <a
                     id="adlinkid"
                     href="#"
-                    title="Email your sharable link so another may see your curated content."
+                    title="Email your sharable link to share with others."
                     className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone width100  color-black-2 border5-"
                     onClick={handleClick}
                   >
@@ -996,7 +996,7 @@ function ExpandableArray(props) {
                   <a
                     id="adlinkid"
                     href="#"
-                    title="Email your sharable link so another may see your curated content."
+                    title="Email your sharable link to share with others."
                     className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone width100  color-black-2 border5-"
                     onClick={handleClick}
                   >

@@ -895,7 +895,7 @@ function ExpandableArray(props) {
                 <span>
                   <div className="margin-bottom-123">
                     <div className="flexrow2cv2">
-                      <div className="text-size-1 textLeft- margin-top-1-">
+                      <div className="text-size-1 textLeft- margin-top-1- margin-bottom-19">
                         <a
                           href="#"
                           ref={textAreaRef}
@@ -907,7 +907,7 @@ function ExpandableArray(props) {
                           {props.uid}
                         </a>
                         <button
-                          className="button-2w ib margin-right-1 margin-left-11 border5"
+                          className="button-2w ib margin-right-1 margin-left-11 border5 text-size-15"
                           onClick={copyToClipboard}
                           title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >

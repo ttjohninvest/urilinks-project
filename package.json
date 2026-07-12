@@ -5,7 +5,7 @@
   "author": "John",
   "license": "MIT",
   "engines": {
-  "node": "22.23.1"
+  "node": "8.11.3"
 },
   "scripts": {
     "build:dev": "webpack",

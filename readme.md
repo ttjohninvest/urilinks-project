@@ -1,4 +1,8 @@
-I hope you are all blessed. Please say "I call upon the name of Jesus Christ to save me." Please see King James Version of the Holy Bible Romans 10:13.
+========================================================================================================================
+SALVATION
+I hope you are all blessed. Please say "I call upon the name of Jesus Christ to save me." Please see King James Version of the Holy Bible Romans 10:13 and Acts 2:21 for the wonderful invitation. Also, please see the Salvation part of Mark 16:16: Mark 16:16 (KJV) states: "He that believeth and is baptized shall be saved." Also,  please see Galatians 3:27 "For as many of you as have been baptized into Christ have put on Christ." and please see Colossians 1:27: " To whom God would make known what is the riches of the glory of this mystery among the Gentiles; which is Christ in you, the hope of glory". Also, please see the Ethiopian Enuch and Philip story in Acts 8:27 to Acts 8:39: 27 And he arose and went: and, behold, a man of Ethiopia, an eunuch of great authority under Candace queen of the Ethiopians, who had the charge of all her treasure, and had come to Jerusalem for to worship, 28 Was returning, and sitting in his chariot read Esaias the prophet. 29 Then the Spirit said unto Philip, Go near, and join thyself to this chariot. 30 And Philip ran thither to him, and heard him read the prophet Esaias, and said, Understandest thou what thou readest? 31 And he said, How can I, except some man should guide me? And he desired Philip that he would come up and sit with him. 32 The place of the scripture which he read was this, He was led as a sheep to the slaughter; and like a lamb dumb before his shearer, so opened he not his mouth: 33 In his humiliation his judgment was taken away: and who shall declare his generation? for his life is taken from the earth. 34 And the eunuch answered Philip, and said, I pray thee, of whom speaketh the prophet this? of himself, or of some other man? 35 Then Philip opened his mouth, and began at the same scripture, and preached unto him Jesus. 36 And as they went on their way, they came unto a certain water: and the eunuch said, See, here is water; what doth hinder me to be baptized? 37 And Philip said, If thou believest with all thine heart, thou mayest. And he answered and said, I believe that Jesus Christ is the Son of God. 38 And he commanded the chariot to stand still: and they went down both into the water, both Philip and the eunuch; and he baptized him. 39 And when they were come up out of the water, the Spirit of the Lord caught away Philip, that the eunuch saw him no more: and he went on his way rejoicing.
+I hope this helps. John 17:3 "And this is life eternal, that they might know thee the only true God, and Jesus Christ, whom thou hast sent." I hope you all are blessed. Saint John
+===================================================================================================================
 
 joy advice: Helping people to stop sinning through the Gospel of Jesus Christ in the ministry of reconciliation so they stop experiencing tribulation anguish from living wrong.  Step 1 please say "I call upon the name of Jesus Christ to save me." Pray to Jesus Christ and Holy Father God. Tell Holy Father God that you love him. Tell Jesus Christ that you love him. Embrace suffering by abandoning drunkenness and illicit sexual pleasures. Suffer for doing what is right. Experience peace, love and joy by walking by the Faith of Christ and stop suffering for doing wrong things. I hope you are blessed. Serve people out of love.
 
@@ -557,9 +561,15 @@ i had uuid 3.1.0
 get an old file command:
 git show HEAD~26:src/components/FetchBookmarks.js > FetchBookmarks-old.js
 
+
+online websites that have my credit card
+heroku.com
+google cloud 
+
 credit card changes (auto pay per month):
-spectrum.com
-nvenergy
+neighbor.com, due on 17th each month for parking
+spectrum.com, due on the 20th each month
+nvenergy, due on 28th of each month
 cbn september 28th next payment
 heifer.org last payment day: may 18th 2026 now is 28th, it has not gone through yet
 special olympics: 51.25 last payment went through on 4/29/26, 5/28/26 payment canceled, I canceled it by phone today 5/28/26 she said today's payment won't go through, I canceled recurring payments on 5/28/26 by phone
@@ -1418,3 +1428,6 @@ that is it, now you can click plans, it will update stripe with subscription and
 marketing and promoting it
 I would like people to see it as their own webpage where they can have the links they want on it like a [profession name] can have all of the [profession name]s they associate with on it and they can share their [profession name]s 
 with other [profession name]s or anyone who wants to see their list of [profession name]s
+
+each link has a note section
+can search by link or hash tag or in note section

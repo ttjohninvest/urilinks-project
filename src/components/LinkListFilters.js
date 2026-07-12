@@ -911,7 +911,7 @@ function ExpandableArray(props) {
                           onClick={copyToClipboard}
                           title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >
-                          copy sharable link to share others
+                          click to copy sharable link to share others
                         </button>
                         {copySuccess}
                       </div>

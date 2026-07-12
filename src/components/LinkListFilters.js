@@ -884,7 +884,7 @@ function ExpandableArray(props) {
                 THROUGH THE PROVIDED LINK. SIGNUP/LOGIN TODAY.
               </div> */}
               <div className="weight-bold-1 underlinethicker">
-                Links Management Tool, add, delete and share
+                Links (Url) Management Tool, add, view, delete and share them with others
               </div>
              
               {/* <span><ReadMore

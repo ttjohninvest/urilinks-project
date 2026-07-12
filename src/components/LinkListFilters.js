@@ -883,7 +883,7 @@ function ExpandableArray(props) {
                 BE YOUR OWN WEBSITE COLLECTIONS CURATOR AND SHARE IT WITH OTHERS
                 THROUGH THE PROVIDED LINK. SIGNUP/LOGIN TODAY.
               </div> */}
-              <div className="weight-bold-1 underlinethicker">
+              <div className="weight-bold-1 underlinethicker text-size-15">
                 Links (Url) Management Tool, add, view, delete and share them with others
               </div>
              
@@ -907,11 +907,11 @@ function ExpandableArray(props) {
                           {props.uid}
                         </a>
                         <button
-                          className="button-2w ib margin-right-1 margin-left-11 border5 text-size-15"
+                          className="button-2w ib margin-right-1 margin-left-11 border5"
                           onClick={copyToClipboard}
                           title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >
-                          click to copy your link to share your links
+                          <span className="text-size-14-">click to copy your link to share your links</span>
                         </button>
                         {copySuccess}
                       </div>

@@ -84,7 +84,7 @@ function ExpandableArray(props) {
     }, 20); // Every 20 milliseconds
   };
 
-  const stopScrolling = () => {
+  const handleDivClick = () => {
     clearInterval(scrollInterval.current);
     scrollInterval.current = null;
   };
@@ -391,6 +391,13 @@ function ExpandableArray(props) {
           <div
           id="ls"
             className={`${useButtons === true ? "width30p" : "width30pt"}  scrollable-div1`}
+
+            onClick={handleDivClick}
+      style={{
+        padding: "20px",
+        backgroundColor: "#f0f0f0",
+        cursor: "pointer",
+      }}
           >
             {/* <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
@@ -421,9 +428,9 @@ function ExpandableArray(props) {
     
               </div>
               <div>
- <button onClick={stopScrolling} style={{ marginLeft: "10px" }}>
+ {/* <button onClick={stopScrolling} style={{ marginLeft: "10px" }}>
         Stop Scroll
-      </button>
+      </button> */}
                 </div>
                 </div>
 

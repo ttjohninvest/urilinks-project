@@ -425,37 +425,13 @@ function ExpandableArray(props) {
 
       <div className="flexrowztt containerui-">
         {
-          //props.signup === false &&
-
-          
-
           <div
           id="ls"
             className={`${useButtons === true ? "width30p" : "width30pt"}  scrollable-div1`}
-
-           
           >
-            {/* <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
            
-                </div> */}
-
-                
-
             <div className="border-right-5">
-              
-
-              {/* <div because i used the false below to turn off less than 50 i commented this out
-                className={`${useButtons === true ? " width30p" : " width30pt"} width1001- border-right-5`}
-              >
-                {props.b === 1 && (
-                  <button
-                    className="button-mq button-2- button--link color-black margin-left-n-1"
-                    onClick={toggleExpanded}
-                  >
-                    {expanded ? "Show Less" : "Show More"}
-                  </button>
-                )}
-              </div> */}
+                 
             </div>
 
             <div
@@ -565,158 +541,13 @@ function ExpandableArray(props) {
                         );
                       })}
 
-                  {/* { because I used the false above to turn less than 50 off I commented this out
-                  props.mappedDataShort.length > 50 && !expanded && (
-                    <span className="text-size-5">...</span>
-                  )} */}
+                  
                 </div>
               </div>
             </div>
           </div>
         }
-        {/* {props.signup === true && (
-        <div className="width30p-">
-          <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
-           
-          </div>
-       
-          
-           <div className="border2black sticky-div-">
-       <div className="containerhs-">
-            <div
-              ref={props.ref1}
-              className={`${
-                newspaper === false
-                  ? "grid-container5-"
-                  : "grid-container5-newspaper-"
-              } paddingparent margin-top-1 background-white-1 borderradius5`}
-              title={
-                props.signup === true
-                  ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
-                  : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
-              }
-            >
-              {!expanded
-                ? //props.b === 1 &&
-                  props.mappedDataShort.map((s, index) => {
-                    if (index < 50)
-                      return (
-                        <div
-                          key={index}
-                          className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                        >
-                          <a
-                            className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
-                              props.b == 1
-                                ? "pointereventsauto"
-                                : "pointereventsnone"
-                            }`}
-                            href="#"
-                            onClick={() => props.setit(s.hashtag, event)}
-                            title={`${sep(s.hashtag)}, hashtag: ${
-                              !!s.hashtag && s.hashtag
-                            }, click to scroll to results`}
-                            //title={props.signup === true?${s.hashtag}, click to scroll to results:
-                          >
-                            {sep(s.hashtag)}
-                          
-                          </a>
-                        </div>
-                      );
-                    else return false;
-                  })
-                : //props.b === 1 &&
-                  props.mappedDataShort.map((s, index) => {
-                    //have 3 map calls and display the first column then the second column and then the thrid column
-                    return (
-                      <div
-                        key={index}
-                        className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                      >
-                        <a
-                          className={`b1x- b1xw nounderline color-white-1 button-link-4 ${
-                            false && "border6"
-                          } ${
-                            props.b == 1
-                              ? "pointereventsauto"
-                              : "pointereventsnone"
-                          }`}
-                          href="#"
-                          onClick={() => props.setit(s.hashtag, event)}
-                          title={`${sep(s.hashtag)}, hashtag: ${
-                            !!s.hashtag && s.hashtag
-                          }, click to scroll to results`}
-                        >
-                          {sep(s.hashtag)}
-                          
-                        </a>
-                      </div>
-                    );
-                  })}
-
-              
-
-              {props.mappedDataShort.length > 50 && !expanded && (
-                <span className="text-size-5">...</span>
-              )}
-            </div>
-          </div>
-          </div>
-
-
-        </div>
-      )} */}
-        {/*this part was causing the gap in the middle*/}
-
-        {/* {props.signup === true && (
-        <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
-          <span className="hide">Thank you. Your sharable link is:</span>
-          <a
-            href="#"
-            ref={textAreaRef}
-            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-          >
-            https://urilinks.com/dashboard?signup=0&id={props.uid}
-          </a>
-          <button
-            className="button-2w ib margin-right-1 margin-left-11 border5"
-            onClick={copyToClipboard}
-            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-          >
-            Copy sharable link
-          </button>
-          {copySuccess}
-        </div>
-      )} */}
-
-        {/* {props.signup === false && (
-        <div className="flexrowzc2 text-size-1 textLeft margin-top-1">
-          <span className="hide">Thank you. Your sharable link is:</span>
-          <a
-            
-            href="#"
-            ref={textAreaRef}
-            className="ib nounderline border5 padding-all2 borderradius55"
-            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-          >
-            https://urilinks.com/dashboard?signup=0&id={props.uid}
-          </a>
-          <button
-            className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
-            onClick={copyToClipboard}
-            title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-          >
-            Copy sharable link
-          </button>
-          {copySuccess}
-        </div>
-      )} */}
-
-        {/* {props.signup === false && (
-        <div></div>
-      
-      )} */}
+        
 
         {props.mappedDataShort.length > 0 ? (
           <div className="width70p-">
@@ -1098,101 +929,6 @@ function ExpandableArray(props) {
               </span>
             </div>
 
-            {/* <div className="margin-left-minus-1 margin-top-1 margin-left-11111- margin-bottom--n-11111">
-              <span className="font-weight-bold uppercase-">
-                ALPHABETICAL INDEX (click a button and see results)
-              </span>
-            </div> */}
-
-            {/* <div
-          id="before-before-link-summary-id"
-          className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
-        >
-          <div className="flexrowzv">
-            <div className="margin-left-11">
-              <input
-                title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                placeholder="type/paste what to find?"
-                autoFocus
-                id="termid"
-                className="text-input responsive-input outline-none padding-left-11 borderRadius55"
-                type="text"
-                //value={this.state.dv}
-                //onChange={(e) => this.setState({ searchTerm: e.target.value })}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={handleKeyPress}
-              />
-            </div>
-
-            <div
-              //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
-              className={`${
-                isMobile() ? "margin-right-1" : "margin-left-11"
-              }`}
-            >
-              <button
-                id="buttonid"
-                className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
-                //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
-
-                //onClick={this.search}
-                onClick={search}
-                //title="Searches to find entered term through the previously selected list which will appear in copper color."
-                title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
-              >
-                search
-              </button>
-            </div>
-
-            <div
-              className={`${
-                isMobile()
-                  ? "margin-top-11z1 margin-left-11"
-                  : "margin-left-11"
-              }`}
-            >
-              <select
-                id="mode"
-                className="select outline-none"
-                //value={this.state.sortBy}
-                value={sortBy}
-                //value={this.props.filters.sortBy}
-                //value={window.localStorage.getItem("sortBy")}
-
-                onChange={onSortChange}
-                title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
-              >
-                <option value="hashtag" title="search by hash tag">
-                  Hash Tag
-                </option>
-
-                <option
-                  //selected
-                  value="description"
-                  title="search through the uri/url link texts"
-                >
-                  Link Text
-                </option>
-
-                <option value="notetext" title="search through the notes">
-                  Note Text
-                </option>
-              </select>
-            </div>
-          </div>
-        </div> */}
-
-            {/* <div>
-              {props.b === 1 && (
-                <button
-                  className="button-mq button-2- button--link color-black margin-left-n-1"
-                  onClick={toggleExpanded}
-                >
-                  {expanded ? "Show Less" : "Show More"}
-                </button>
-              )}
-            </div> */}
-
             <div
               id="before-before-link-summary-id"
               className="padding-top-20 bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111- padding-bottom-111- margin-bottom5"
@@ -1442,13 +1178,6 @@ export class LinkListFilters extends React.Component {
 
     this.props.sortByFolder();
 
-    /*
-      //this.props.setTextFilter("");
-      //if (this.myRef.current) this.myRef.current.focus();
-      //window.localStorage.setItem("sortBy", "description");
-      //this.setState({ sortBy: "description" });
-      //this.props.sortByDescription();
-    */
   };
 
   onSortChange = (e) => {
@@ -1527,102 +1256,6 @@ export class LinkListFilters extends React.Component {
     return regex.test(navigator.userAgent);
   }
 
-  // componentDidMount() {
-  //   this.props.setTheHashTagDivHeight(this.state.height);
-  //   const morehashtags = window.localStorage.getItem("morehashtags");
-
-  //   const searchLinks1 = window.localStorage.getItem("searchLinks1");
-  //   const searchLinks2 = window.localStorage.getItem("searchLinks2");
-  //   const searchLinks3 = window.localStorage.getItem("searchLinks3");
-  //   const searchLinks4 = window.localStorage.getItem("searchLinks4");
-
-  //   console.log("componentDidMount, searchLinks1=" + searchLinks1);
-  //   console.log("componentDidMount, searchLinks2=" + searchLinks2);
-  //   console.log("componentDidMount, searchLinks3=" + searchLinks3);
-  //   console.log("componentDidMount, searchLinks4=" + searchLinks4);
-
-  //   const sortBy = window.localStorage.getItem("sortBy");
-
-  //   console.log("componentDidMount, sortBy=" + sortBy);
-
-  //   // if (this.props.filters.sortBy === "date" || sortBy === "date") {
-  //   //   this.props.setTextFilter(searchLinks1);
-
-  //   //   this.props.sortByDate();
-  //   //   this.setState({ sortBy: "date" });
-  //   // } else
-
-  //   if (sortBy === "description") {
-  //     this.props.setTextFilter(searchLinks2);
-
-  //     this.props.sortByDescription();
-  //     this.setState({ sortBy: "description" });
-  //   } else if (sortBy === "notetext") {
-  //     this.props.setTextFilter(searchLinks4);
-  //     this.props.sortByNoteText();
-  //     this.setState({ sortBy: "notetext" });
-  //   } else if (
-  //     // this.props.filters.sortBy === "hashtag"
-  //     //||
-  //     sortBy === "hashtag"
-  //   ) {
-  //     if (
-  //       //this.props.filters.text === "" ||
-  //       searchLinks3 === "" ||
-  //       searchLinks3 === undefined ||
-  //       searchLinks3 === null
-  //     ) {
-  //       if (
-  //         searchLinks3 === "" ||
-  //         searchLinks3 === undefined ||
-  //         searchLinks3 === null
-  //       ) {
-  //         this.props.setTextFilter("#");
-  //       } else {
-  //         this.props.setTextFilter(searchLinks3);
-  //       }
-  //     } else {
-  //       this.props.setTextFilter(searchLinks3);
-  //     }
-  //     this.props.sortByHashTag();
-  //     this.setState({ sortBy: "hashtag" });
-  //   }
-
-  //   if (this.myRef.current) this.myRef.current.focus();
-
-  //   console.log(
-  //     "VVVVVVVVVVVVVVVVVVVV, this.props.hashtags=" + this.props.hashtags
-  //   );
-
-  //   this.setState({
-  //     morehashtags: morehashtags === "true" ? true : false,
-  //   });
-
-  //   console.log(
-  //     "AAAA window.localStorage.getItem('sortBy')=" +
-  //       window.localStorage.getItem("sortBy")
-  //   );
-
-  //   try {
-  //     const term = window.localStorage.getItem("termid");
-
-  //     window.document.getElementById("termid").value = term;
-
-  //     if (sortBy === "hashtag" && term !== "" && term.charAt(0) === "#") {
-  //       //window.document.getElementById("buttonid").click();
-  //       window.document.querySelector("#buttonid").click();
-  //     } else if (
-  //       sortBy === "description" ||
-  //       sortBy === "notetext" ||
-  //       term === "" ||
-  //       term.charAt(0) !== "#"
-  //     ) {
-  //       window.document.querySelector("#buttonid").click();
-  //     }
-  //   } catch (e) {
-  //     //alert("componentDidMount,e="+e)
-  //   }
-  // }
 
   componentDidMount() {
     this.props.setTheHashTagDivHeight(this.state.height);
@@ -1756,80 +1389,6 @@ export class LinkListFilters extends React.Component {
           )}
         </div>
 
-        {/* <div
-          id="before-before-link-summary-id"
-          className="bg-color-2- bg-color2w borderRadius4- flexrow2w flexrowzv padding-top-111 padding-bottom-111"
-        >
-          <div className="flexrowzv">
-            <div className="margin-left-11">
-              <input
-                title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                placeholder="type/paste what to find?"
-                autoFocus
-                id="termid"
-                className="text-input responsive-input outline-none padding-left-11 borderRadius55"
-                type="text"
-                //value={this.state.dv}
-                onChange={(e) => this.setState({ searchTerm: e.target.value })}
-                onKeyDown={this.handleKeyPress}
-              />
-            </div>
-
-            <div
-              //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
-              className={`${
-                this.isMobile() ? "margin-right-1" : "margin-left-11"
-              }`}
-            >
-              <button
-                id="buttonid"
-                className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
-                //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
-
-                onClick={this.search}
-                //title="Searches to find entered term through the previously selected list which will appear in copper color."
-                title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
-              >
-                search
-              </button>
-            </div>
-
-            <div
-              className={`${
-                this.isMobile()
-                  ? "margin-top-11z1 margin-left-11"
-                  : "margin-left-11"
-              }`}
-            >
-              <select
-                id="mode"
-                className="select outline-none"
-                value={this.state.sortBy}
-                //value={this.props.filters.sortBy}
-                //value={window.localStorage.getItem("sortBy")}
-
-                onChange={this.onSortChange}
-                title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
-              >
-                <option value="hashtag" title="search by hash tag">
-                  Hash Tag
-                </option>
-
-                <option
-                  //selected
-                  value="description"
-                  title="search through the uri/url link texts"
-                >
-                  Link Text
-                </option>
-
-                <option value="notetext" title="search through the notes">
-                  Note Text
-                </option>
-              </select>
-            </div>
-          </div>
-        </div> */}
       </div>
     );
   }
@@ -1859,93 +1418,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);
-
-/* 1
-<div>
-  <div>
- <span className="">
-                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
-                   <label for="dbdropdownid" />
-                  </span>
-             </div> 
-             {this.props.signup.signup === true ?<div>
- <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
-                   <label for="dbdropdownid" />
-                  </span>
-             </div>:
-             <div>
- <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                   <input type="checkbox" id="dbdropdownid" name="cbdropdownid" value="" onChange={this.handleCheckboxShow} title="show dropdown list" className="cb1 cursor-pointer" />
-                   <label for="dbdropdownid" />
-                  </span>
-             </div>
-             }
-             </div> 
-*/
-
-/* 2
- {
-            //this.state.isToggled === true &&
-            true && (
-               
-              <div className={`cursor-pointer ${this.isMobile()?"margin-top-11z1" :""}`}>
-             
-                <select
-                  className="select cursor-pointer"
-                  onChange={this.onFolderChange}
-                  title="pick a folder name in this list to search for its bookmarks"
-                >
-                  <option key={""} value={""}>
-                    folder name
-                  </option>
-
-                  {this.state.foldernamesList.map((option, i) => (
-                    <option
-                      className="cursor-pointer"
-                      key={option.value}
-                      value={option.value}
-                      title={option.value}
-                    >
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )
-          } 
-           <div className="">
-            <DateRangePicker
-              className="zindex"
-              startDate={this.props.filters.startDate}
-              endDate={this.props.filters.endDate}
-              onDatesChange={this.onDatesChange}
-              focusedInput={this.state.calendarFocused}
-              onFocusChange={this.onFocusChange}
-              showClearDates={true}
-              numberOfMonths={1}
-              isOutsideRange={() => false}
-            />
-          </div> 
-*/
-
-/* 3
- {this.isMobile() === false && (
-            <div
-              className="cursor-pointer  margin-right-1 the-text-color"
-              onClick={this.scrollUp}
-              title="scroll to top"
-            >
-              (up)
-            </div>
-          )}
-*/
-
-/* 4
-<option
-                value="date"
-                title="search through the uri/url link texts with a date range"
-              >
-                Date
-              </option>
-*/

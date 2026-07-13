@@ -67,7 +67,7 @@ function ExpandableArray(props) {
     if (scrollInterval.current) return;
 
     scrollInterval.current = setInterval(() => {
-      window.scrollBy({
+      document.getElementById("ls").scrollBy({
         top: 1, // Scroll 1 pixel each time
         left: 0,
         behavior: "auto",
@@ -75,8 +75,9 @@ function ExpandableArray(props) {
 
       // Stop automatically when reaching the bottom
       if (
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight
+        document.getElementById("ls").innerHeight + window.scrollY >=
+        //document.documentElement.scrollHeight
+        document.getElementById("ls").scrollHeight
       ) {
         stopScrolling();
       }
@@ -441,6 +442,7 @@ function ExpandableArray(props) {
             >
               <div className="containerhs-">
                 <div
+                  id="ls"
                   ref={props.ref1}
                   className={`${
                     newspaper === false

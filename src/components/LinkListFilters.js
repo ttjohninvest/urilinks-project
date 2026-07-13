@@ -48,6 +48,7 @@ function ExpandableArray(props) {
   const signup = params.get("signup");
   const id = params.get("id");
   const myRef = useRef(null);
+  const scrollInterval = useRef(null);
 
   const useButtons = false; //use buttons in display of categories
 
@@ -60,6 +61,32 @@ function ExpandableArray(props) {
   }
   //
   const [isToggled, setIsToggled] = useState(x);
+
+   const startScrolling = () => {
+    // Prevent multiple intervals
+    if (scrollInterval.current) return;
+
+    scrollInterval.current = setInterval(() => {
+      window.scrollBy({
+        top: 1, // Scroll 1 pixel each time
+        left: 0,
+        behavior: "auto",
+      });
+
+      // Stop automatically when reaching the bottom
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight
+      ) {
+        stopScrolling();
+      }
+    }, 20); // Every 20 milliseconds
+  };
+
+  const stopScrolling = () => {
+    clearInterval(scrollInterval.current);
+    scrollInterval.current = null;
+  };
 
   const isMobile = () => {
     const regex =
@@ -374,9 +401,7 @@ function ExpandableArray(props) {
                 } theHeight flexrowzc2 border-b-5 margin-left-n-19`}
                 title="click a walk."
               >
-                <button onClick={scrollToBottom}>
-        Scroll to Bottom
-      </button>
+               
                 {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
                   ? "Categories"
                   : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
@@ -384,6 +409,18 @@ function ExpandableArray(props) {
                     : "Categories"}
                 {/* categories */}
               </div>
+              <div>
+                 <button onClick={startScrolling}>
+        Start Slow Scroll
+      </button>
+
+    
+              </div>
+              <div>
+ <button onClick={stopScrolling} style={{ marginLeft: "10px" }}>
+        Stop Scroll
+      </button>
+                </div>
 
               {/* <div because i used the false below to turn off less than 50 i commented this out
                 className={`${useButtons === true ? " width30p" : " width30pt"} width1001- border-right-5`}

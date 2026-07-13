@@ -216,12 +216,12 @@ left column
         <div className="padding-tb-1">
           
           <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
-          //b={b} 
-          b={1}
-          //av={av}
-          av={()=>{}} 
+          b={b} 
+          
+          av={av}
+         
           //rerenderit={rerenderit}
-          rerenderit={false}
+          rerenderit={true}
           />
 
           

@@ -391,7 +391,7 @@ function ExpandableArray(props) {
                
                 className={`website-background-color ${
                   useButtons === true ? "width30p" : "width30pt"
-                } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14`}
+                } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
                 title=""
               >
                

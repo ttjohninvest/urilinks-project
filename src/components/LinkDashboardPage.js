@@ -217,7 +217,7 @@ left column
           
           <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
           //b={b} 
-          b={0}
+          b={1}
           //av={av}
           av={()=>{}} 
           //rerenderit={rerenderit}

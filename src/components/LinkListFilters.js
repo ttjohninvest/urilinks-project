@@ -375,17 +375,12 @@ function ExpandableArray(props) {
     setShowComponent(true);
   };
 
-   const scrollToBottom = () => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: "smooth",
-    });
-  };
+   
 
   return (
     <div className="bg-white-1">
-
-
+John
+{/*
       <div className="sticky-div-">
               <div
                
@@ -400,7 +395,7 @@ function ExpandableArray(props) {
                   : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
                     ? "City Walks"
                     : "Url Links Management Tool, add, view, delete and share them with others"}
-                {/* categories */}
+                
               </div>
               <div>
                  <button onClick={startScrolling}
@@ -410,8 +405,7 @@ function ExpandableArray(props) {
       </button>
 
     
-              {/* </div>
-              <div> */}
+             
  <button onClick={stopScrolling} 
  //style={{ marginLeft: "10px" }}
  className="button-2 ib margin-left-11"
@@ -452,7 +446,7 @@ function ExpandableArray(props) {
                       : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
                   }
                 >
-                  {/* it works, i just used the false to turn it off*/}
+                 
                   {!expanded && false
                     ? //props.b === 1 &&
                       props.mappedDataShort.map((s, index) => {
@@ -672,10 +666,7 @@ function ExpandableArray(props) {
                             ></span>
                           )}
 
-                          {/* <ReadMore
-                            text={`Clear values: Each link you save has note space for data entry; link notes, link texts and hastags are all searchable; a sharable link for pasting to instagram profile or other platorm for others is provided; also, each link is sharable to facebook.com, linkedin.com and x.com; facebook.com messenger is available for communication; each link in the results is clickable for direct access to web page. Freely login.`}
-                            maxChars={64}
-                          /> */}
+                         
                         </div>
                       ) : (
                         <div>
@@ -777,21 +768,7 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div className="margin-left-minus-1">
-              {/* <div className="weight-bold-1 underlinethicker">
-                EXAMPLE WEBSITE COLLECTIONS CURATOR'S DASHBOARD{" "}
-              </div>
-              <div className="weight-bold-1 underlinethicker">
-                BE YOUR OWN WEBSITE COLLECTIONS CURATOR AND SHARE IT WITH OTHERS
-                THROUGH THE PROVIDED LINK. SIGNUP/LOGIN TODAY.
-              </div> */}
-              {/* <div className="font-weight-700 underlinethicker text-size-15 margin-bottom-18">
-                Url Links Management Tool, add, view, delete and share them with others
-              </div> */}
              
-              {/* <span><ReadMore
-        text={`Eternal Salvation Invitation; please say "I call upon the name of Jesus Christ to save me." Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13. ✞😇 Welcome to the grace of Jesus Christ.`}
-        maxChars={41}
-      /></span> */}
               {props.signup && (
                 <span>
                   <div className="margin-bottom-123">
@@ -851,13 +828,7 @@ function ExpandableArray(props) {
 
               {props.signup === true ? (
                 <div className="minWidth- bg-color-4">
-                  {/* <Link
-                             id="adlinkid"
-                             className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
-                             to="/create"
-                           >
-                             Add Link
-                           </Link> */}
+                
 
                   <a
                     id="adlinkid"
@@ -873,26 +844,13 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4">
-                  {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
-
-                  {/* <Link
-                             className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w pointereventsnone width100 color-black-2 border5-"
-                             to="/create"
-                           >
-                             Add Link
-                           </Link> */}
+                
                 </div>
               )}
 
               {props.signup === false ? (
                 <div className="minWidth- bg-color-4">
-                  {/* <Link
-                             id="adlinkid"
-                             className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
-                             to="/create"
-                           >
-                             Add Link
-                           </Link> */}
+                 
 
                   <a
                     id="adlinkid"
@@ -908,14 +866,7 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4">
-                  {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
-
-                  {/* <Link
-                             className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w pointereventsnone width100 color-black-2 border5-"
-                             to="/create"
-                           >
-                             Add Link
-                           </Link> */}
+                
                 </div>
               )}
 
@@ -1011,7 +962,8 @@ function ExpandableArray(props) {
             <LinkList av={props.av} />
           </div>
         </div>
-      </div>
+      </div> 
+      */}
     </div>
   );
 }
@@ -1162,8 +1114,6 @@ export class LinkListFilters extends React.Component {
       this.props.setTextFilter(v);
     }
 
-    // window.localStorage.setItem("searchLinks", e.target.value);
-    // this.props.setTextFilter(e.target.value);
   };
 
   onFolderChange = (e) => {
@@ -1296,12 +1246,6 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("sortBy", "hashtag");
     window.localStorage.setItem("searchLinks3", value);
 
-    //this scrolls the results into view, the first and subsequent result is shown
-    // !!document.querySelector("#before-before-link-summary-id") &&
-    //   document.querySelector("#before-before-link-summary-id").scrollIntoView({
-    //     behavior: "smooth",
-    //   });
-
     this.props.rerenderit();
   };
 
@@ -1364,7 +1308,6 @@ export class LinkListFilters extends React.Component {
             (this.state.mappedDataLong &&
               this.state.mappedDataLong.length > 1)) && (
             <div>
-              {/* <div className="cursor-pointer" onClick={this.scrollDown}>scroll down past the hashtags</div> */}
               <ExpandableArray
                 mappedDataShort={this.props.hashtags}
                 mappedDataLong={this.state.mappedDataLong}

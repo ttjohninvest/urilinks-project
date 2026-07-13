@@ -416,7 +416,7 @@ John
                 </div>
 
 
-{/*
+{/* here */}
       <div className="flexrowztt">
         {
           <div
@@ -485,55 +485,9 @@ John
                           );
                         else return false;
                       })
-                    : //props.b === 1 &&
-                      props.mappedDataShort.map((s, index) => {
-                        //have 3 map calls and display the first column then the second column and then the thrid column
-                        return (
-                          <div
-                            key={index}
-                            className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                          >
-                            <a
-                              className={`${
-                                useButtons === true
-                                  ? "b1xw"
-                                  : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
-                              } ${
-                                useButtons === true ? "b1xw" : ""
-                              } nounderline- ${
-                                useButtons === true ? "color-white-1" : ""
-                              } ${useButtons === true ? "button-link-4" : ""} ${
-                                false && "border6"
-                              } ${
-                                props.b == 1
-                                  ? "pointereventsauto underline"
-                                  : "pointereventsnone"
-                              }`}
-                              href="#"
-                              onClick={() => props.setit(s.hashtag, event)}
-                              title={`${sep(s.hashtag)}, hashtag: ${
-                                !!s.hashtag && s.hashtag
-                              }, click to see results`}
-                            >
-                              {sep(s.hashtag)}
-                            </a>
-                            {!!s.hashtag && isCorrectAccount() === true && (
-                              <span>
-                                {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (
-                                  <a
-                                    href="#"
-                                    onClick={() => genVacation(vsep(s.hashtag))}
-                                  >
-                                    <br />
-                                    <span className="ib margin-left-11"></span>
-                                    Take Vacation to {vsep(s.hashtag)}
-                                  </a>
-                                )}
-                              </span>
-                            )}
-                          </div>
-                        );
-                      })}
+                    : <div>here 2</div>}
+                      
+                      
 
                   
                 </div>

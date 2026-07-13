@@ -397,6 +397,7 @@ function ExpandableArray(props) {
 
             <div className="border-right-5">
               <div
+               id="ls"
                 className={`website-background-color ${
                   useButtons === true ? "width30p" : "width30pt"
                 } theHeight flexrowzc2 border-b-5 margin-left-n-19`}
@@ -442,7 +443,7 @@ function ExpandableArray(props) {
             >
               <div className="containerhs-">
                 <div
-                  id="ls"
+                 
                   ref={props.ref1}
                   className={`${
                     newspaper === false

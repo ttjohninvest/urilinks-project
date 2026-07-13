@@ -396,10 +396,10 @@ function ExpandableArray(props) {
               >
                
                 {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-                  ? "Categories and links"
+                  ? "Url Links Management Tool, add, view, delete and share them with others"
                   : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
                     ? "City Walks"
-                    : "Categories and links"}
+                    : "Url Links Management Tool, add, view, delete and share them with others"}
                 {/* categories */}
               </div>
               <div>
@@ -953,9 +953,9 @@ function ExpandableArray(props) {
                 BE YOUR OWN WEBSITE COLLECTIONS CURATOR AND SHARE IT WITH OTHERS
                 THROUGH THE PROVIDED LINK. SIGNUP/LOGIN TODAY.
               </div> */}
-              <div className="font-weight-700 underlinethicker text-size-15 margin-bottom-18">
+              {/* <div className="font-weight-700 underlinethicker text-size-15 margin-bottom-18">
                 Url Links Management Tool, add, view, delete and share them with others
-              </div>
+              </div> */}
              
               {/* <span><ReadMore
         text={`Eternal Salvation Invitation; please say "I call upon the name of Jesus Christ to save me." Please see invitation in the KJV Holy Bible Romans chapter 10, verse 13. ✞😇 Welcome to the grace of Jesus Christ.`}

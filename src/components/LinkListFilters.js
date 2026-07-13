@@ -347,6 +347,13 @@ function ExpandableArray(props) {
     setShowComponent(true);
   };
 
+   const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="bg-white-1">
       <div className="flexrowztt containerui-">
@@ -367,6 +374,9 @@ function ExpandableArray(props) {
                 } theHeight flexrowzc2 border-b-5 margin-left-n-19`}
                 title="click a walk."
               >
+                <button onClick={scrollToBottom}>
+        Scroll to Bottom
+      </button>
                 {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
                   ? "Categories"
                   : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"

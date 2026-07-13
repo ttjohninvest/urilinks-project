@@ -84,7 +84,7 @@ function ExpandableArray(props) {
     }, 20); // Every 20 milliseconds
   };
 
-  const handleDivClick = () => {
+  const stopScrolling = () => {
     clearInterval(scrollInterval.current);
     scrollInterval.current = null;
   };
@@ -384,27 +384,9 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      <div className="flexrowztt containerui-">
-        {
-          //props.signup === false &&
 
-          <div
-          id="ls"
-            className={`${useButtons === true ? "width30p" : "width30pt"}  scrollable-div1`}
 
-            onClick={handleDivClick}
-      style={{
-        padding: "20px",
-        backgroundColor: "#f0f0f0",
-        cursor: "pointer",
-      }}
-          >
-            {/* <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
-           
-                </div> */}
-
-            <div className="border-right-5">
-              <div className="sticky-div">
+      <div className="sticky-div-">
               <div
                
                 className={`website-background-color ${
@@ -428,11 +410,34 @@ function ExpandableArray(props) {
     
               </div>
               <div>
- {/* <button onClick={stopScrolling} style={{ marginLeft: "10px" }}>
+ <button onClick={stopScrolling} style={{ marginLeft: "10px" }}>
         Stop Scroll
-      </button> */}
+      </button>
                 </div>
                 </div>
+
+
+
+      <div className="flexrowztt containerui-">
+        {
+          //props.signup === false &&
+
+          
+
+          <div
+          id="ls"
+            className={`${useButtons === true ? "width30p" : "width30pt"}  scrollable-div1`}
+
+           
+          >
+            {/* <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
+           
+                </div> */}
+
+                
+
+            <div className="border-right-5">
+              
 
               {/* <div because i used the false below to turn off less than 50 i commented this out
                 className={`${useButtons === true ? " width30p" : " width30pt"} width1001- border-right-5`}

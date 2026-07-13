@@ -403,14 +403,19 @@ function ExpandableArray(props) {
                 {/* categories */}
               </div>
               <div>
-                 <button onClick={startScrolling}>
-        Start Slow Scroll
+                 <button onClick={startScrolling}
+                 className="button-2"
+                 >
+        Start Scroll
       </button>
 
     
-              </div>
-              <div>
- <button onClick={stopScrolling} style={{ marginLeft: "10px" }}>
+              {/* </div>
+              <div> */}
+ <button onClick={stopScrolling} 
+ //style={{ marginLeft: "10px" }}
+ className="button-2"
+ >
         Stop Scroll
       </button>
                 </div>

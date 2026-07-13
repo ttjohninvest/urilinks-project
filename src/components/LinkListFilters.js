@@ -397,6 +397,7 @@ function ExpandableArray(props) {
                 </div> */}
 
             <div className="border-right-5">
+              <div className="sticky-div">
               <div
                
                 className={`website-background-color ${
@@ -423,6 +424,7 @@ function ExpandableArray(props) {
  <button onClick={stopScrolling} style={{ marginLeft: "10px" }}>
         Stop Scroll
       </button>
+                </div>
                 </div>
 
               {/* <div because i used the false below to turn off less than 50 i commented this out

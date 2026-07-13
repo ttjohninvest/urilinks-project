@@ -414,7 +414,7 @@ function ExpandableArray(props) {
               <div> */}
  <button onClick={stopScrolling} 
  //style={{ marginLeft: "10px" }}
- className="button-2"
+ className="button-2 ib margin-left-11"
  >
         Stop Scroll
       </button>

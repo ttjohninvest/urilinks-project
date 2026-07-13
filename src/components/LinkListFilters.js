@@ -389,6 +389,7 @@ function ExpandableArray(props) {
           //props.signup === false &&
 
           <div
+          id="ls"
             className={`${useButtons === true ? "width30p" : "width30pt"}  scrollable-div1`}
           >
             {/* <div className="flexrowzc2 text-size-1  font-weigth-bold padding-all text-center uppercase border5green">
@@ -397,7 +398,7 @@ function ExpandableArray(props) {
 
             <div className="border-right-5">
               <div
-               id="ls"
+               
                 className={`website-background-color ${
                   useButtons === true ? "width30p" : "width30pt"
                 } theHeight flexrowzc2 border-b-5 margin-left-n-19`}

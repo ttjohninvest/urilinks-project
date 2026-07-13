@@ -407,7 +407,7 @@ John
     
              
  <button onClick={stopScrolling} 
- //style={{ marginLeft: "10px" }}
+ 
  className="button-2 ib margin-left-11"
  >
         Stop Scroll
@@ -416,8 +416,8 @@ John
                 </div>
 
 
-
-      <div className="flexrowztt containerui-">
+{/*
+      <div className="flexrowztt">
         {
           <div
           id="ls"
@@ -962,7 +962,7 @@ John
             <LinkList av={props.av} />
           </div>
         </div>
-      </div> 
+      </div> */}
       
     </div>
   );

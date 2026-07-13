@@ -417,6 +417,7 @@ John
 
 
 {/* here */}
+{/*
       <div className="flexrowztt">
         {
           <div
@@ -966,7 +967,8 @@ John
           </div>
         </div>
       </div>
-      
+      */}
+
     </div>
   );
 }

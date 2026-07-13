@@ -396,10 +396,10 @@ function ExpandableArray(props) {
               >
                
                 {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-                  ? "Categories"
+                  ? "Categories and links"
                   : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
                     ? "City Walks"
-                    : "Categories"}
+                    : "Categories and links"}
                 {/* categories */}
               </div>
               <div>

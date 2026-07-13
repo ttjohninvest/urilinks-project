@@ -380,7 +380,7 @@ function ExpandableArray(props) {
   return (
     <div className="bg-white-1">
 John
-{/*
+
       <div className="sticky-div-">
               <div
                
@@ -963,7 +963,7 @@ John
           </div>
         </div>
       </div> 
-      */}
+      
     </div>
   );
 }

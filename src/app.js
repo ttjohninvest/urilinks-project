@@ -152,7 +152,7 @@ if (signup !== "signup") {
           amount : 0,
           createdAt : 0,
           faviconURL : "",
-        }))
+        })).then(()=>{}).catch(()=>{})
       // store //for People menu item
       //     .dispatch(startSetPeople())
       //     .then(() => {

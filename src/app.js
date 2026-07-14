@@ -59,16 +59,14 @@ store.subscribe(() => {
 });
 
 if (signup !== "signup") {
-  //D9LSg6elood8Yc5gd5oDMp3JNAQ2
-  //store.dispatch(login("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"));
-  //store.dispatch(login("D9LSg6elood8Yc5gd5oDMp3JNAQ2"));
+  
   window.localStorage.setItem("notloggedin", "1")
 
   if (id !== null) {
     store.dispatch(login(id));
   } else {
     id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
-    store.dispatch(login("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"));
+    store.dispatch(login(id));
   }
 
   store
@@ -103,18 +101,18 @@ if (signup !== "signup") {
       store.dispatch(login(user.uid));
       
       window.localStorage.setItem("notloggedin", "0");
-      store.dispatch(startAddLink({ //only do this on the first one
-          showpublic:false,
-          longname:"longname",
-          description : "description",
-          Url : "url.com",
-          yturl : "yturl.com",
-          note : "#first",
-          foldername : "foldername",
-          amount : 0,
-          createdAt : 0,
-          faviconURL : "",
-        })).then(()=>{}).catch(()=>{})
+      // store.dispatch(startAddLink({ //only do this on the first one
+      //     showpublic:false,
+      //     longname:"longname",
+      //     description : "description",
+      //     Url : "url.com",
+      //     yturl : "yturl.com",
+      //     note : "#first",
+      //     foldername : "foldername",
+      //     amount : 0,
+      //     createdAt : 0,
+      //     faviconURL : "",
+      //   })).then(()=>{}).catch(()=>{})
 
 
       

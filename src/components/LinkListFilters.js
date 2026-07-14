@@ -427,11 +427,7 @@ function ExpandableArray(props) {
         Start Scroll Up
       </button>
 
-       <button onClick={startScrollingDown}
-                 className="button-2 ib margin-left-11"
-                 >
-        Start Scroll Down
-      </button>
+     
 
     
              
@@ -440,6 +436,12 @@ function ExpandableArray(props) {
  className="button-2 ib margin-left-11"
  >
         Stop Scroll
+      </button>
+
+        <button onClick={startScrollingDown}
+                 className="button-2 ib margin-left-11"
+                 >
+        Start Scroll Down
       </button>
 
       

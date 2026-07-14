@@ -217,7 +217,7 @@ left column
         <div className="padding-tb-1">
           {/* <Simple2 /> */}
           
-          {this.props.links.length > 0 ? <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
+          {props.links.length > 0 ? <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
           b={b} 
           
           av={av}

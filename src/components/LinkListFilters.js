@@ -62,7 +62,29 @@ function ExpandableArray(props) {
   //
   const [isToggled, setIsToggled] = useState(x);
 
-   const startScrolling = () => {
+   const startScrollingDown = () => {
+    // Prevent multiple intervals
+    if (scrollInterval.current) return;
+
+    scrollInterval.current = setInterval(() => {
+      document.getElementById("ls").scrollBy({
+        top: -1, // Scroll 1 pixel each time
+        left: 0,
+        behavior: "auto",
+      });
+
+      // Stop automatically when reaching the bottom
+      if (
+        document.getElementById("ls").innerHeight + 0 >= 0
+        //document.documentElement.scrollHeight
+        // document.getElementById("ls").scrollHeight
+      ) {
+        stopScrolling();
+      }
+    }, 20); // Every 20 milliseconds
+  };
+
+   const startScrollingUp = () => {
     // Prevent multiple intervals
     if (scrollInterval.current) return;
 
@@ -399,10 +421,10 @@ function ExpandableArray(props) {
                 
               </div>
               <div>
-                 <button onClick={startScrolling}
+                 <button onClick={startScrollingUp}
                  className="button-2"
                  >
-        Start Scroll
+        Start Scroll Up
       </button>
 
     
@@ -412,6 +434,12 @@ function ExpandableArray(props) {
  className="button-2 ib margin-left-11"
  >
         Stop Scroll
+      </button>
+
+       <button onClick={startScrollingDown}
+                 className="button-2"
+                 >
+        Start Scroll Down
       </button>
                 </div>
                 </div>

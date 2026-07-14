@@ -509,7 +509,7 @@ export const Header = (props) => {
                         <span
                           className="ib- color-white-1 color-black-2- cursor-pointer pointereventsauto"
                           ////className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
-                          title="uploads bookmarks using downloaded browser bookmarks file"
+                          title="uploads bookmarks using exported bookmarks file"
                         >
                           upload bookmarks file
                         </span>
@@ -525,7 +525,7 @@ export const Header = (props) => {
                         <span
                           className="ib- color-white-1 color-black-2- cursor-pointer pointereventsnone"
                           //className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
-                          //title="uploads bookmarks using downloaded browser bookmarks file"
+                          
                           title="currently unavailable, please use Add Link."
                         >
                           upload bookmarks file

@@ -60,7 +60,7 @@ export const LinkList = (props) => {
   const handleClick = (event) => {
     event.preventDefault()
     //adlinkid
-    document.getElementById('adlinkid').classList.add('pointereventsnone');
+    //document.getElementById('adlinkid').classList.add('pointereventsnone');
     setShowComponent(true);
   };
 

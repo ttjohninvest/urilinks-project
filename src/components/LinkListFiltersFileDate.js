@@ -28,7 +28,7 @@ function ExpandableArray(props) {
   console.log("props.mappedDataShort=" + props.mappedDataShort);
   console.log(
     "EEEEEEEEEEEEEEEEEEEE, ExpandableArray, mappedDataShort.length=" +
-      props.mappedDataShort.length
+      props.mappedDataShort.length,
   );
   let displayedArray;
   if (expanded === true) displayedArray = props.mappedDataLong;
@@ -238,29 +238,29 @@ export class LinkListFiltersFileDate extends React.Component {
     const morehashtags = window.localStorage.getItem("morehashtags");
 
     const searchLinks1FileDate = window.localStorage.getItem(
-      "searchLinks1FileDate"
+      "searchLinks1FileDate",
     );
     const searchLinks2FileDate = window.localStorage.getItem(
-      "searchLinks2FileDate"
+      "searchLinks2FileDate",
     );
     const searchLinks3FileDate = window.localStorage.getItem(
-      "searchLinks3FileDate"
+      "searchLinks3FileDate",
     );
     const searchLinks4FileDate = window.localStorage.getItem(
-      "searchLinks4FileDate"
+      "searchLinks4FileDate",
     );
 
     console.log(
-      "componentDidMount, searchLinks1FileDate=" + searchLinks1FileDate
+      "componentDidMount, searchLinks1FileDate=" + searchLinks1FileDate,
     );
     console.log(
-      "componentDidMount, searchLinks2FileDate=" + searchLinks2FileDate
+      "componentDidMount, searchLinks2FileDate=" + searchLinks2FileDate,
     );
     console.log(
-      "componentDidMount, searchLinks3FileDate=" + searchLinks3FileDate
+      "componentDidMount, searchLinks3FileDate=" + searchLinks3FileDate,
     );
     console.log(
-      "componentDidMount, searchLinks4FileDate=" + searchLinks4FileDate
+      "componentDidMount, searchLinks4FileDate=" + searchLinks4FileDate,
     );
 
     const sortBy = window.localStorage.getItem("sortByFileDate");
@@ -317,7 +317,7 @@ export class LinkListFiltersFileDate extends React.Component {
 
     console.log(
       "VVVVVVVVVVVVVVVVVVVV, this.props.hashtagsfiledate=" +
-        this.props.hashtagsfiledate
+        this.props.hashtagsfiledate,
     );
 
     this.setState({
@@ -358,7 +358,7 @@ export class LinkListFiltersFileDate extends React.Component {
 
   refreshIt = () => {
     //window.location.reload();
-    window.location.href="https://urilinks.com?signup=signup"
+    window.location.href = "https://urilinks.com?signup=signup";
   };
 
   render() {
@@ -401,8 +401,8 @@ export class LinkListFiltersFileDate extends React.Component {
                 this.props.filtersfiledate.sortBy === "date"
                   ? ""
                   : this.props.filtersfiledate.sortBy === "description"
-                  ? "Search for Link(s) (Please enter link description to find)"
-                  : "Search for Link(s) (Please enter Hash Tag to find)"
+                    ? "Search for Link(s) (Please enter link description to find)"
+                    : "Search for Link(s) (Please enter Hash Tag to find)"
               }
             />
           </div>
@@ -475,5 +475,5 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(LinkListFiltersFileDate);

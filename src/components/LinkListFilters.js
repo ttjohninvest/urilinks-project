@@ -62,7 +62,7 @@ function ExpandableArray(props) {
   //
   const [isToggled, setIsToggled] = useState(x);
 
-   const startScrollingDown = () => {
+  const startScrollingDown = () => {
     // Prevent multiple intervals
     if (scrollInterval.current) return;
 
@@ -75,7 +75,8 @@ function ExpandableArray(props) {
 
       // Stop automatically when reaching the bottom
       if (
-        document.getElementById("ls").innerHeight + 0 >= 0
+        document.getElementById("ls").innerHeight + 0 >=
+        0
         //document.documentElement.scrollHeight
         // document.getElementById("ls").scrollHeight
       ) {
@@ -84,7 +85,7 @@ function ExpandableArray(props) {
     }, 20); // Every 20 milliseconds
   };
 
-   const startScrollingUp = () => {
+  const startScrollingUp = () => {
     // Prevent multiple intervals
     if (scrollInterval.current) return;
 
@@ -397,76 +398,55 @@ function ExpandableArray(props) {
     setShowComponent(true);
   };
 
-   
-
   return (
     <div className="bg-white-1">
-
-
-   
       <div className="sticky-div-">
-              <div
-               
-                className={`website-background-color ${
-                  useButtons === true ? "width30p" : "width30pt"
-                } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
-                title=""
-              >
-               
-                {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-                  ? "Url Links Management Tool, add, view, delete and share them with others"
-                  : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
-                    ? "City Walks"
-                    : "Url Links Management Tool, add, view, delete and share them with others"}
-                
-              </div>
-              <div>
-                 <button onClick={startScrollingUp}
-                 className="button-2"
-                 >
-        ScrollUp
-      </button>
+        <div
+          className={`website-background-color ${
+            useButtons === true ? "width30p" : "width30pt"
+          } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
+          title=""
+        >
+          {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+            ? "Url Links Management Tool, add, view, delete and share them with others"
+            : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
+              ? "City Walks"
+              : "Url Links Management Tool, add, view, delete and share them with others"}
+        </div>
+        <div>
+          <button onClick={startScrollingUp} className="button-2">
+            ScrollUp
+          </button>
 
-     
+          <button
+            onClick={stopScrolling}
+            className="button-2 ib margin-left-11"
+          >
+            Stop
+          </button>
 
-    
-             
- <button onClick={stopScrolling} 
- 
- className="button-2 ib margin-left-11"
- >
-        Stop
-      </button>
-
-        <button onClick={startScrollingDown}
-                 className="button-2 ib margin-left-11"
-                 >
-        ScrollDn
-      </button>
-
-      
-                </div>
-                </div>
-
-
+          <button
+            onClick={startScrollingDown}
+            className="button-2 ib margin-left-11"
+          >
+            ScrollDn
+          </button>
+        </div>
+      </div>
 
       <div className="flexrowztt">
         {
           <div
-          id="ls"
+            id="ls"
             className={`${useButtons === true ? "width30p" : "width30pt"}  scrollable-div1`}
           >
-           
-            <div className="border-right-5">
-                 
-            </div>
+            <div className="border-right-5"></div>
 
             <div
               className={`${useButtons === true ? "width30p" : "width30pt"} border2black- border-right-5 sticky-div-`}
             >
               <div className="containerhs-">
                 <div
-                 
                   ref={props.ref1}
                   className={`${
                     newspaper === false
@@ -479,48 +459,45 @@ function ExpandableArray(props) {
                       : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
                   }
                 >
-                 
-                  {!expanded && false
-                    ? //props.b === 1 &&
-                      props.mappedDataShort.map((s, index) => {
-                        if (index < 50)
-                          return (
-                            <div
-                              key={index}
-                              className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                  {!expanded && false ? (
+                    //props.b === 1 &&
+                    props.mappedDataShort.map((s, index) => {
+                      if (index < 50)
+                        return (
+                          <div
+                            key={index}
+                            className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                          >
+                            <a
+                              className={`${
+                                useButtons === true
+                                  ? "b1xw"
+                                  : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
+                              } ${
+                                useButtons === true ? "b1xw" : ""
+                              } nounderline- ${
+                                useButtons === true ? "color-white-1" : ""
+                              } ${useButtons === true ? "button-link-4" : ""} ${
+                                props.b == 1
+                                  ? "pointereventsauto underline"
+                                  : "pointereventsnone"
+                              }`}
+                              href="#"
+                              onClick={() => props.setit(s.hashtag, event)}
+                              title={`${sep(s.hashtag)}, hashtag: ${
+                                !!s.hashtag && s.hashtag
+                              }, click to see results`}
+                              //title={props.signup === true?${s.hashtag}, click to scroll to results:
                             >
-                              <a
-                                className={`${
-                                  useButtons === true
-                                    ? "b1xw"
-                                    : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
-                                } ${
-                                  useButtons === true ? "b1xw" : ""
-                                } nounderline- ${
-                                  useButtons === true ? "color-white-1" : ""
-                                } ${
-                                  useButtons === true ? "button-link-4" : ""
-                                } ${
-                                  props.b == 1
-                                    ? "pointereventsauto underline"
-                                    : "pointereventsnone"
-                                }`}
-                                href="#"
-                                onClick={() => props.setit(s.hashtag, event)}
-                                title={`${sep(s.hashtag)}, hashtag: ${
-                                  !!s.hashtag && s.hashtag
-                                }, click to see results`}
-                                //title={props.signup === true?${s.hashtag}, click to scroll to results:
-                              >
-                                {sep(s.hashtag)}
-                              </a>
-                            </div>
-                          );
-                        else return false;
-                      })
-                    : <div>
-                      
-                      { props.mappedDataShort.map((s, index) => {
+                              {sep(s.hashtag)}
+                            </a>
+                          </div>
+                        );
+                      else return false;
+                    })
+                  ) : (
+                    <div>
+                      {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         return (
                           <div
@@ -567,18 +544,14 @@ function ExpandableArray(props) {
                             )}
                           </div>
                         );
-                      })} 
-                      </div>}
-                      
-                      
-
-                  
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         }
-        
 
         {props.mappedDataShort.length >= 0 ? (
           <div className="width70p-">
@@ -702,8 +675,6 @@ function ExpandableArray(props) {
                             // }}
                             ></span>
                           )}
-
-                         
                         </div>
                       ) : (
                         <div>
@@ -751,17 +722,14 @@ function ExpandableArray(props) {
               </div>
 
               <div className="flexrow2e">
-                {
-                  
-                  props.signup === true && (
-                    <div
-                      title="current plan"
-                      className="margin-right-1 textLeft hide"
-                    >
-                      plan: {props.plan.replace(/"/g, "")}
-                    </div>
-                  )
-                }
+                {props.signup === true && (
+                  <div
+                    title="current plan"
+                    className="margin-right-1 textLeft hide"
+                  >
+                    plan: {props.plan.replace(/"/g, "")}
+                  </div>
+                )}
 
                 {isToggled && props.signup === false && <div></div>}
                 <div>
@@ -804,7 +772,6 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div className="margin-left-minus-1">
-             
               {props.signup && (
                 <span>
                   <div className="margin-bottom-123">
@@ -825,7 +792,9 @@ function ExpandableArray(props) {
                           onClick={copyToClipboard}
                           title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                         >
-                          <span className="text-size-14-">click to copy your link to share your links</span>
+                          <span className="text-size-14-">
+                            click to copy your link to share your links
+                          </span>
                         </button>
                         {copySuccess}
                       </div>
@@ -864,8 +833,6 @@ function ExpandableArray(props) {
 
               {props.signup === true ? (
                 <div className="minWidth- bg-color-4">
-                
-
                   <a
                     id="adlinkid"
                     href="#"
@@ -879,15 +846,11 @@ function ExpandableArray(props) {
                   {showComponent && <AddLinkPage2 />}
                 </div>
               ) : (
-                <div className="minWidth- bg-color-4">
-                
-                </div>
+                <div className="minWidth- bg-color-4"></div>
               )}
 
               {props.signup === false ? (
                 <div className="minWidth- bg-color-4">
-                 
-
                   <a
                     id="adlinkid"
                     href="#"
@@ -901,9 +864,7 @@ function ExpandableArray(props) {
                   {showComponent && <AddLinkPage2 />}
                 </div>
               ) : (
-                <div className="minWidth- bg-color-4">
-                
-                </div>
+                <div className="minWidth- bg-color-4"></div>
               )}
 
               <span>
@@ -999,8 +960,6 @@ function ExpandableArray(props) {
           </div>
         </div>
       </div>
-      
-
     </div>
   );
 }
@@ -1150,7 +1109,6 @@ export class LinkListFilters extends React.Component {
       else v = e.target.value;
       this.props.setTextFilter(v);
     }
-
   };
 
   onFolderChange = (e) => {
@@ -1164,7 +1122,6 @@ export class LinkListFilters extends React.Component {
     this.setState({ sortBy: "folder" });
 
     this.props.sortByFolder();
-
   };
 
   onSortChange = (e) => {
@@ -1242,7 +1199,6 @@ export class LinkListFilters extends React.Component {
       /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
     return regex.test(navigator.userAgent);
   }
-
 
   componentDidMount() {
     //this.props.setTheHashTagDivHeight(this.state.height);
@@ -1368,7 +1324,6 @@ export class LinkListFilters extends React.Component {
             </div>
           )}
         </div>
-
       </div>
     );
   }

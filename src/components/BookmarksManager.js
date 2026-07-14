@@ -78,11 +78,10 @@ class BookmarksManager extends React.Component {
             <li>
               <FileUpload setCheckDidUpload={this.setCheckDidUpload} />
             </li>
-          
+
             {this.state.didUpload ? (
               <div>
-                 
-                <li  className="">
+                <li className="">
                   <input
                     type="radio"
                     id="option1"
@@ -92,13 +91,12 @@ class BookmarksManager extends React.Component {
                     onChange={this.handleRadioChange}
                   />
                   <label
-                    for="option1"
+                    htmlFor="option1"
                     title="this is for importing bookmarks that were exported from a browser"
                   >
                     {" "}
                     convert folder names to hashtags
                   </label>{" "}
-                  
                 </li>
 
                 {/* <li className="">
@@ -111,7 +109,7 @@ class BookmarksManager extends React.Component {
                     onChange={this.handleRadioChange}
                   />
                   <label
-                    for="option2"
+                    htmlFor="option2"
                     title="this one is or get page urls for bookmarks.html file which was not written from a browser export."
                   >
                     {" "}

@@ -11,7 +11,9 @@ export default class LinkFormFileDate extends React.Component {
       Url: props.linkfiledate ? props.linkfiledate.Url : "",
       note: props.linkfiledate ? props.linkfiledate.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
-      createdAt: props.linkfiledate ? moment(props.linkfiledate.createdAt) : moment(),
+      createdAt: props.linkfiledate
+        ? moment(props.linkfiledate.createdAt)
+        : moment(),
       calendarFocused: false,
       error: "",
       hashTags: [],
@@ -58,69 +60,67 @@ export default class LinkFormFileDate extends React.Component {
     return hashtags;
   };
 
-    getUsableDomain=(d)=>{
+  getUsableDomain = (d) => {
     //www and three dots
     //not www and three dots
-    console.log("d="+d)
-    let s1=d
-    const d1=d.split(".")
-    const dotsCount = s1.split(".").length - 1
-    console.log("d1="+JSON.stringify(d1))
-    console.log("dotsCount="+dotsCount)
+    console.log("d=" + d);
+    let s1 = d;
+    const d1 = d.split(".");
+    const dotsCount = s1.split(".").length - 1;
+    console.log("d1=" + JSON.stringify(d1));
+    console.log("dotsCount=" + dotsCount);
     console.log(d1[0]);
     console.log(d1[1]);
     console.log(d1[2]);
-    console.log(d1[1]+d1[2])
-    console.log(d1[1]+"."+d1[2])
+    console.log(d1[1] + d1[2]);
+    console.log(d1[1] + "." + d1[2]);
     ////
     //s1=d1[1]+"."+d1[2]
     //console.log("d1[1].d1[2]="+s1)
-    if (s1.substring(0, 4) === 'www') {
-       console.log(1)
-    } else if(dotsCount===1) {
-      console.log(2)
-    } else if(dotsCount===2) {
-      console.log(3)
-      s1=d1[1]+"."+d1[2]
-    } else if(dotsCount===3) {
-      console.log(4)
-      s1=d1[2]+"."+d1[3]
-    } else if(dotsCount===4) {
-      console.log(5)
-          s1=d1[3]+"."+d1[4]
+    if (s1.substring(0, 4) === "www") {
+      console.log(1);
+    } else if (dotsCount === 1) {
+      console.log(2);
+    } else if (dotsCount === 2) {
+      console.log(3);
+      s1 = d1[1] + "." + d1[2];
+    } else if (dotsCount === 3) {
+      console.log(4);
+      s1 = d1[2] + "." + d1[3];
+    } else if (dotsCount === 4) {
+      console.log(5);
+      s1 = d1[3] + "." + d1[4];
+    } else if (dotsCount === 4) {
+      console.log(6);
+      s1 = d1[4] + "." + d1[5];
+    } else if (dotsCount === 5) {
+      console.log(7);
+      s1 = d1[5] + "." + d1[6];
+    } else if (dotsCount === 6) {
+      console.log(8);
+      s1 = d1[6] + "." + d1[7];
+    } else if (dotsCount === 7) {
+      console.log(9);
+      s1 = d1[7] + "." + d1[8];
+    } else if (dotsCount === 8) {
+      console.log(10);
+      s1 = d1[8] + "." + d1[9];
     }
-    else if(dotsCount===4) {
-      console.log(6)
-          s1=d1[4]+"."+d1[5]
-    }
-    else if(dotsCount===5) {
-      console.log(7)
-          s1=d1[5]+"."+d1[6]
-    }
-    else if(dotsCount===6) {
-      console.log(8)
-          s1=d1[6]+"."+d1[7]
-    }
-    else if(dotsCount===7) {
-      console.log(9)
-          s1=d1[7]+"."+d1[8]
-    }
-    else if(dotsCount===8) {
-      console.log(10)
-          s1=d1[8]+"."+d1[9]
-    }
-    console.log(11)
-    console.log("s1="+s1)
-    return s1
-  }
+    console.log(11);
+    console.log("s1=" + s1);
+    return s1;
+  };
 
   extractDomain(url) {
     try {
       const urlObject = new URL(url);
-      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>, urlObject.hostname="+urlObject.hostname)
-      const usableDomain = this.getUsableDomain(urlObject.hostname)
-      console.log("usableDomain="+usableDomain)
-      return "https://" + usableDomain
+      console.log(
+        ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>, urlObject.hostname=" +
+          urlObject.hostname,
+      );
+      const usableDomain = this.getUsableDomain(urlObject.hostname);
+      console.log("usableDomain=" + usableDomain);
+      return "https://" + usableDomain;
       //return "https://" + urlObject.hostname;
     } catch (error) {
       // Handles cases where the URL is invalid
@@ -141,24 +141,18 @@ export default class LinkFormFileDate extends React.Component {
     return new URL("/favicon.ico", url).href;
   }
 
-
-
   onSubmit = (e) => {
-   
     e.preventDefault();
     console.log("onSubmit");
-    let faviconURL 
-    
-    let str=this.state.Url.trim()
-      if (str.substring(0, 7) === 'http://')
-       {}
+    let faviconURL;
 
-      else if (str.substring(0, 8) === 'https://')
-      {}
-      else str = 'https://' + str;
-      const newDomain = this.extractDomain(str)
-      console.log("newDomain="+newDomain)
-      //return
+    let str = this.state.Url.trim();
+    if (str.substring(0, 7) === "http://") {
+    } else if (str.substring(0, 8) === "https://") {
+    } else str = "https://" + str;
+    const newDomain = this.extractDomain(str);
+    console.log("newDomain=" + newDomain);
+    //return
     //faviconURL = this.extractDomain(str) + "/favicon.ico";
     faviconURL = newDomain + "/favicon.ico";
     //return
@@ -166,17 +160,18 @@ export default class LinkFormFileDate extends React.Component {
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
     console.log(
-      "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL
+      "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
     );
     console.log(
       "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.Url) = " +
-        this.getFaviconUrl(this.state.Url)
+        this.getFaviconUrl(this.state.Url),
     );
     console.log("onSubmit, this.state.note=" + this.state.note);
     if (!this.state.description || !this.state.Url) {
       // || !this.state.amount) {
       this.setState(() => ({
-        error: "Please provide link text and uri/url link. The note with hash tags (i.e. #church, #mountains) is optional.",
+        error:
+          "Please provide link text and uri/url link. The note with hash tags (i.e. #church, #mountains) is optional.",
       }));
     } else {
       if (this.state.note.trim()) {
@@ -185,12 +180,12 @@ export default class LinkFormFileDate extends React.Component {
         //  hashTags:this.extractHashtags(this.state.note)
         // })
         console.log(
-          "hashTags=" + JSON.stringify(this.extractHashtags(this.state.note))
+          "hashTags=" + JSON.stringify(this.extractHashtags(this.state.note)),
         );
         const extractHashtags = this.extractHashtags(this.state.note);
         //I need to write the hashtags to the database here for the logged in user
         console.log(
-          "I need to write the hashtags to the database here for the logged in user"
+          "I need to write the hashtags to the database here for the logged in user",
         );
       } else {
         console.log("extractHashTag, note=empty string");
@@ -208,8 +203,7 @@ export default class LinkFormFileDate extends React.Component {
       // {}
       // else str = 'https://' + str;
 
-console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
-
+      console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str=" + str);
 
       this.setState(() => ({ error: "" }));
 
@@ -226,7 +220,9 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
   render() {
     return (
       <form className="form" onSubmit={this.onSubmit}>
-        {this.state.error && <p className="form__error flexrow2w">{this.state.error}</p>}
+        {this.state.error && (
+          <p className="form__error flexrow2w">{this.state.error}</p>
+        )}
         <input
           type="text"
           placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
@@ -235,7 +231,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="Uri, Uniform Resource Identifier"
-          maxlength="2048"
+          maxLength="2048"
         />
         <input
           type="text"
@@ -264,7 +260,7 @@ console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str="+str)
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}
-          maxlength="1024"
+          maxLength="1024"
         ></textarea>
         <div>
           <button className="button">Save Uri/Url Link</button>

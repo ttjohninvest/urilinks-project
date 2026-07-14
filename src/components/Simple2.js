@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
@@ -29,11 +28,7 @@ import {
 } from "../actions/filters";
 
 function ExpandableArray(props) {
-
-    return(
-        <div>ExpandableArray called</div>
-    )
-
+  return <div>ExpandableArray called</div>;
 }
 
 export class Simple2 extends React.Component {
@@ -43,9 +38,7 @@ export class Simple2 extends React.Component {
     this.elementRef = React.createRef();
     this.myRef = React.createRef();
 
-   
     let sb = "";
-   
 
     this.state = {
       sortBy: "description",
@@ -74,8 +67,6 @@ export class Simple2 extends React.Component {
   }
 
   handleSearch() {
-    
-
     var select = document.getElementById("mode");
     var selectedValue = select.options[select.selectedIndex].value;
     console.log("handleSearch search, selectedValue=" + selectedValue);
@@ -176,7 +167,6 @@ export class Simple2 extends React.Component {
       else v = e.target.value;
       this.props.setTextFilter(v);
     }
-
   };
 
   onFolderChange = (e) => {
@@ -190,7 +180,6 @@ export class Simple2 extends React.Component {
     this.setState({ sortBy: "folder" });
 
     this.props.sortByFolder();
-
   };
 
   onSortChange = (e) => {
@@ -268,7 +257,6 @@ export class Simple2 extends React.Component {
       /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
     return regex.test(navigator.userAgent);
   }
-
 
   componentDidMount() {
     //this.props.setTheHashTagDivHeight(this.state.height);
@@ -395,8 +383,7 @@ export class Simple2 extends React.Component {
             </div>
           )}
         </div> */}
-
-      </div> 
+      </div>
     );
   }
 }

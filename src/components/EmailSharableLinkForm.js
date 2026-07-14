@@ -126,7 +126,7 @@ class EmailSharableLinkForm extends React.Component {
       const urlObject = new URL(url);
       console.log(
         ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>, urlObject.hostname=" +
-          urlObject.hostname
+          urlObject.hostname,
       );
       const usableDomain = this.getUsableDomain(urlObject.hostname);
       console.log("usableDomain=" + usableDomain);
@@ -170,11 +170,11 @@ class EmailSharableLinkForm extends React.Component {
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
     console.log(
-      "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL
+      "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
     );
     console.log(
       "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.Url) = " +
-        this.getFaviconUrl(this.state.Url)
+        this.getFaviconUrl(this.state.Url),
     );
     console.log("onSubmit, this.state.note=" + this.state.note);
     if (!this.state.description || !this.state.Url) {
@@ -190,12 +190,12 @@ class EmailSharableLinkForm extends React.Component {
         //  hashTags:this.extractHashtags(this.state.note)
         // })
         console.log(
-          "hashTags=" + JSON.stringify(this.extractHashtags(this.state.note))
+          "hashTags=" + JSON.stringify(this.extractHashtags(this.state.note)),
         );
         const extractHashtags = this.extractHashtags(this.state.note);
         //I need to write the hashtags to the database here for the logged in user
         console.log(
-          "I need to write the hashtags to the database here for the logged in user"
+          "I need to write the hashtags to the database here for the logged in user",
         );
       } else {
         console.log("extractHashTag, note=empty string");
@@ -248,9 +248,9 @@ class EmailSharableLinkForm extends React.Component {
               value="show the public" //{this.state.showpublic}
               onChange={this.onShowpublicChange}
               title="check to show the link to the public"
-              //maxlength=""
+              //maxLength=""
             />
-            <label className="ib" for="showpublicid">
+            <label className="ib" htmlFor="showpublicid">
               <span className="ib margin-left-11">show the public</span>
             </label>
           </div>
@@ -264,7 +264,7 @@ class EmailSharableLinkForm extends React.Component {
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="text for url"
-          maxlength="2048"
+          maxLength="2048"
         />
         <input
           type="text"
@@ -273,7 +273,7 @@ class EmailSharableLinkForm extends React.Component {
           className="text-input"
           value={this.state.Url}
           onChange={this.onUrlChange}
-          maxlength="2048"
+          maxLength="2048"
         />
         {/* <input
           type="text"
@@ -296,12 +296,14 @@ class EmailSharableLinkForm extends React.Component {
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}
-          maxlength={
+          maxLength={
             this.props.theplan.plan.replace(/"/g, "") === "free" ? 2048 : 2048
           } //"2300"
         ></textarea>
         <div>
-          <button className="button-2w border5 pointereventsauto">Email Link</button>
+          <button className="button-2w border5 pointereventsauto">
+            Email Link
+          </button>
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>

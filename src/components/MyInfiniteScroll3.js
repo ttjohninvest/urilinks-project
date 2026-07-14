@@ -39,7 +39,7 @@ const E3 = (props) => {
       setLocalData(props.links3.filter((link) => link.showpublic === true));
       console.log(
         "filtered length=" +
-          props.links3.filter((link) => link.showpublic === true).length
+          props.links3.filter((link) => link.showpublic === true).length,
       );
       // Initialize display data with the first batch
       setData(props.links3.slice(0, itemsPerPage));
@@ -84,7 +84,7 @@ const E3 = (props) => {
 
     //newWin.title = "urilinks list of links";
     newWin.document.write(
-      "<html><head><title>list-of-links-urilinks.com</title></head><body>"
+      "<html><head><title>list-of-links-urilinks.com</title></head><body>",
     );
     newWin.document.write(printContent);
     newWin.document.write("</body></html>");
@@ -240,7 +240,7 @@ const E3 = (props) => {
                                 title="remove bookmark"
                                 className="cb1 cursor-pointer"
                               />
-                              <label for={"delete%" + props.id} />
+                              <label htmlFor={"delete%" + props.id} />
                             </span> */}
                                             </div>
                                           ) : (
@@ -255,7 +255,7 @@ const E3 = (props) => {
                                 title="remove bookmark"
                                 className="cb1 cursor-pointer"
                               />
-                              <label for={"delete%" + props.id} />
+                              <label htmlFor={"delete%" + props.id} />
                             </span> */}
                                             </div>
                                           )}
@@ -298,7 +298,7 @@ const E3 = (props) => {
               </Link>
               <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
                    <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
-                   <label for={"delete%"+props.id} />
+                   <label htmlFor={"delete%"+props.id} />
                   </span>
             </h3>
           </div> */}
@@ -307,7 +307,7 @@ const E3 = (props) => {
                           <div className="italicText list-item__sub-title- padding-left-1 text-size-10 color-purple margin-left-11p">
                             Link saved on:{" "}
                             {moment(link.createdAt).format(
-                              "MMMM Do, YYYY, h:mm:ss a"
+                              "MMMM Do, YYYY, h:mm:ss a",
                             )}
                           </div>
                         </div>

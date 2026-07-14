@@ -24,7 +24,7 @@ import XShareButton from "./XShareButton";
 // }) => {
 const LinkListItem = (props) => {
   console.log(
-    "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL
+    "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL,
   );
   const myRef = useRef(null);
 
@@ -90,7 +90,7 @@ const LinkListItem = (props) => {
   const sortit2 = (event) => {
     console.log(
       "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length
+        event.currentTarget.obj.data.length,
     );
     let url;
     let data1 = [];
@@ -137,7 +137,7 @@ const LinkListItem = (props) => {
 
     console.log(
       "data1 sorted by two fields name and pathname=" +
-        JSON.stringify(data1s, null, 4)
+        JSON.stringify(data1s, null, 4),
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
@@ -209,7 +209,7 @@ const LinkListItem = (props) => {
   const sortit1 = (event) => {
     console.log(
       "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length
+        event.currentTarget.obj.data.length,
     );
     let url;
     let data1 = [];
@@ -248,7 +248,7 @@ const LinkListItem = (props) => {
 
     console.log(
       "data1 sorted by name and extension in hostname=" +
-        JSON.stringify(data1s, null, 4)
+        JSON.stringify(data1s, null, 4),
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
@@ -315,7 +315,7 @@ const LinkListItem = (props) => {
   const sortit3 = (event) => {
     console.log(
       "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length
+        event.currentTarget.obj.data.length,
     );
     let url;
     let data1 = [];
@@ -362,7 +362,7 @@ const LinkListItem = (props) => {
 
     console.log(
       "data1 sorted by two fields name and pathname=" +
-        JSON.stringify(data1s, null, 4)
+        JSON.stringify(data1s, null, 4),
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
@@ -429,7 +429,7 @@ const LinkListItem = (props) => {
   const sortit4 = (event) => {
     console.log(
       "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length
+        event.currentTarget.obj.data.length,
     );
     let url;
     let data1 = [];
@@ -460,7 +460,7 @@ const LinkListItem = (props) => {
 
     console.log(
       "data1 sorted by name and extension in hostname=" +
-        JSON.stringify(data1s, null, 4)
+        JSON.stringify(data1s, null, 4),
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
@@ -750,7 +750,7 @@ const LinkListItem = (props) => {
                                 title="remove bookmark"
                                 className="cb1 cursor-pointer"
                               />
-                              <label for={"delete%" + props.id} />
+                              <label htmlFor={"delete%" + props.id} />
                             </span> */}
                                 </div>
                               ) : (
@@ -765,7 +765,7 @@ const LinkListItem = (props) => {
                                 title="remove bookmark"
                                 className="cb1 cursor-pointer"
                               />
-                              <label for={"delete%" + props.id} />
+                              <label htmlFor={"delete%" + props.id} />
                             </span> */}
                                 </div>
                               )}
@@ -808,7 +808,7 @@ const LinkListItem = (props) => {
               </Link>
               <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-purple">
                    <input type="checkbox" id={"delete%"+props.id} name={"delete%"+props.id} value={props.id} onChange={handleCheckboxDelete} title="remove bookmark" className="cb1 cursor-pointer" />
-                   <label for={"delete%"+props.id} />
+                   <label htmlFor={"delete%"+props.id} />
                   </span>
             </h3>
           </div> */}

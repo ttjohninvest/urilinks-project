@@ -1213,7 +1213,7 @@ export class LinkListFilters extends React.Component {
 
 
   componentDidMount() {
-    this.props.setTheHashTagDivHeight(this.state.height);
+    //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
     try {

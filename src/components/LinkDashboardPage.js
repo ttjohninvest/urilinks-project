@@ -215,16 +215,16 @@ if(isMobile() === true)
 left column
         </div> */}
         <div className="padding-tb-1">
-          <Simple2 />
+          {/* <Simple2 /> */}
           
-          {/* <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
+          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
           b={b} 
           
           av={av}
          
           //rerenderit={rerenderit}
           rerenderit={true}
-          /> */}
+          />
 
           
          

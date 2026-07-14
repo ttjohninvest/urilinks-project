@@ -3,7 +3,7 @@ import {v4} from "uuid"
 import { connect } from "react-redux";
 //import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
-import Simple2 from "./Simple2";
+import Simple3 from "./Simple3";
 import Testit from "./Testit";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startLogout } from "../actions/auth";
@@ -217,14 +217,16 @@ left column
         <div className="padding-tb-1">
           {/* <Simple2 /> */}
           
-          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
+          {this.props.links.length > 0 ? <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
           b={b} 
           
           av={av}
          
           rerenderit={rerenderit}
           
-          />
+          />:<Simple3 />
+          
+          }
 
           
          
@@ -247,7 +249,8 @@ right column
 
 const mapStateToProps = (state) => ({
   settings: state.settings,
-  hasrefreshed: state.hasrefreshed
+  hasrefreshed: state.hasrefreshed,
+  links: state.links
 });
 
 const mapDispatchToProps = (dispatch) => ({

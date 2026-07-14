@@ -3,6 +3,7 @@ import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import AddLinkPage2 from "./AddlinkPage2";
 import ReadMoreSpan from "./ReadMoreSpan";
+import AddLinkPage from "./AddlinkPage";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -41,23 +42,7 @@ export class Simple2 extends React.Component {
     let sb = "";
 
     this.state = {
-      sortBy: "description",
-      items: [],
-      calendarFocused: null,
-      mappedDataShort: [],
-      mappedDataLong: [],
-      loading: true,
-      height: 0,
-      hashtags: [],
-      hashtags2: [],
-      morehashtags:
-        window.localStorage.getItem("morehashtags") === "true" ? true : false,
-      newspaper: true,
-      // newspaper:
-      //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
-      foldernamesList: [],
-      isToggled: false,
-      searchTerm: "", //,
+     
     };
 
     this.setit = this.setit.bind(this);
@@ -353,37 +338,24 @@ export class Simple2 extends React.Component {
 
   render() {
     return (
-      <div className="">
-        <ExpandableArray />
-        {/* <div>
-          {((this.props.hashtags && this.props.hashtags.length > 0) ||
-            (this.state.mappedDataLong &&
-              this.state.mappedDataLong.length > 1)) && (
-            <div>
-              <ExpandableArray
-                mappedDataShort={this.props.hashtags}
-                mappedDataLong={this.state.mappedDataLong}
-                maxLength={this.SHORT_HASHTAG_LENGTH}
-                ref1={this.elementRef}
-                morehashtags={this.state.morehashtags}
-                setit={this.setit}
-                theplan={this.props.theplan}
-                plan={this.props.theplan.plan}
-                newspaper={this.state.newspaper}
-                signup={this.props.signup.signup}
-                uid={this.props.auth.uid}
-                links={this.props.links}
-                b={this.props.b}
-                setTextFilter={this.props.setTextFilter}
-                sortByDescription={this.props.sortByDescription}
-                sortByHashTag={this.props.sortByHashTag}
-                sortByNoteText={this.props.sortByNoteText}
-                filters={this.props.filters}
-              />
-            </div>
-          )}
-        </div> */}
-      </div>
+       <div className="minWidth- bg-color-4">
+                  {/* <Link
+                    id="adlinkid"
+                    className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+                    to="/create"
+                  >
+                    Add Link
+                  </Link> */}
+      
+                  <a 
+                  id="adlinkid"
+                  href="#"
+                  className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+                  onClick={handleClick}>Add New Link</a>
+      
+                  {showComponent && <AddLinkPage />}
+                </div>
+      
     );
   }
 }

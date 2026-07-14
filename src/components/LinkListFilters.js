@@ -102,7 +102,8 @@ function ExpandableArray(props) {
         //document.documentElement.scrollHeight
         document.getElementById("ls").scrollHeight
       ) {
-        stopScrolling();
+        //stopScrolling();
+        document.getElementById("ls").scrollTo(0,0)
       }
     }, 20); // Every 20 milliseconds
   };

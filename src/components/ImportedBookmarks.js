@@ -109,7 +109,7 @@ const ImportedBookmarks = (props) => {
               )}
               <ul className="scrollable-ul">
                 {props.result.map((r, i) => (
-                  <li>
+                  <li key={i}>
                     {r.description},{" "}
                     <span
                       className="font-weight-1"

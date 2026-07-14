@@ -528,7 +528,7 @@ export const Header = (props) => {
                           //title="uploads bookmarks using downloaded browser bookmarks file"
                           title="currently unavailable, please use Add Link."
                         >
-                          upload
+                          upload bookmarks file
                         </span>
                       </Link>
                     </div>

@@ -511,7 +511,7 @@ export const Header = (props) => {
                           ////className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
                           title="uploads bookmarks using downloaded browser bookmarks file"
                         >
-                          upload
+                          upload bookmarks file
                         </span>
                       </Link>
                     </div>

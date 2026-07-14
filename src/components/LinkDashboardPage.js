@@ -222,8 +222,8 @@ left column
           
           av={av}
          
-          //rerenderit={rerenderit}
-          rerenderit={true}
+          rerenderit={rerenderit}
+          
           />
 
           

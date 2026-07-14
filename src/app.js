@@ -141,18 +141,20 @@ if (signup !== "signup") {
       //store.dispatch(getCustomerId(user.uid)); //this should initialize the redux variable customerId
       //store.dispatch(getSubscriptionId(user.uid));//this should initialize the redux variable subscriptionId
       window.localStorage.setItem("notloggedin", "0");
-      store.dispatch(startAddLink({ //only do this on the first one
-          showpublic:false,
-          longname:"longname",
-          description : "description",
-          Url : "url.com",
-          yturl : "yturl.com",
-          note : "#first",
-          foldername : "foldername",
-          amount : 0,
-          createdAt : 0,
-          faviconURL : "",
-        })).then(()=>{}).catch(()=>{})
+      // store.dispatch(startAddLink({ //only do this on the first one
+      //     showpublic:false,
+      //     longname:"longname",
+      //     description : "description",
+      //     Url : "url.com",
+      //     yturl : "yturl.com",
+      //     note : "#first",
+      //     foldername : "foldername",
+      //     amount : 0,
+      //     createdAt : 0,
+      //     faviconURL : "",
+      //   })).then(()=>{}).catch(()=>{})
+
+        
       // store //for People menu item
       //     .dispatch(startSetPeople())
       //     .then(() => {

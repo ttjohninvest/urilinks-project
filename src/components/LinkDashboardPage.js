@@ -3,6 +3,7 @@ import {v4} from "uuid"
 import { connect } from "react-redux";
 //import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
+import Simple2 from "./Simple2";
 import Testit from "./Testit";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startLogout } from "../actions/auth";
@@ -214,15 +215,16 @@ if(isMobile() === true)
 left column
         </div> */}
         <div className="padding-tb-1">
+          <Simple2 />
           
-          <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
+          {/* <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
           b={b} 
           
           av={av}
          
           //rerenderit={rerenderit}
           rerenderit={true}
-          />
+          /> */}
 
           
          

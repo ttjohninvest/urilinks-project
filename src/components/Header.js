@@ -421,7 +421,7 @@ export const Header = (props) => {
                           <span
                             //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
                             className="ib text-size-1 color-white-1 color-black-2- color-blue-1-"
-                            title="Click to see plans, basic ($4.99/year stores up to 1,250 links), standard ($9.99/year stores up to 2,500 links) or premium ($14.99/year stores up to 5,000 links)"
+                            title="Click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links)"
                           >
                             paid plans
                           </span>

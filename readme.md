@@ -223,6 +223,23 @@ allow read, write;
 }
 }
 
+{
+"rules": {
+"users": {
+"$uid": {
+".write": "$uid === auth.uid",
+".read": true
+}
+}
+}
+}
+
+{
+"rules": {
+".read": true,
+".write": true
+}
+}
 ---
 
 {
@@ -1316,10 +1333,8 @@ realtime database rules
 "rules": {
 "users": {
 "$user_id": {
-        // grants write access to the owner of this user account
-        // whose uid must exactly match the key ($user_id)
 ".write": "$user_id === auth.uid",
-".read": "auth !== null && auth.uid === $user_id"
+".read": true
 }
 }
 }
@@ -1431,3 +1446,100 @@ with other [profession name]s or anyone who wants to see their list of [professi
 
 each link has a note section
 can search by link or hash tag or in note section
+
+qr code code:
+Client-Side (Browser)
+For a simple frontend implementation, include the qrcodejs library and use the QRCode constructor to render the code into a DOM element. 
+
+<!DOCTYPE html>
+<html>
+<body>
+    <input type="text" id="urlInput" placeholder="Enter URL">
+    <button onclick="generateQR()">Generate QR Code</button>
+    <div id="qrcode"></div>
+
+    <!-- Include qrcodejs library -->
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <script>
+        function generateQR() {
+            const url = document.getElementById("urlInput").value;
+            const container = document.getElementById("qrcode");
+            
+            // Clear previous QR code
+            container.innerHTML = "";
+
+            if (!url) {
+                alert("Please enter a valid URL");
+                return;
+            }
+
+            // Initialize QR code generator
+            new QRCode(container, {
+                text: url,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+    </script>
+</body>
+</html>
+
+Server-Side (Node.js)
+For backend generation, install the qrcode package (npm install qrcode) and use toDataURL or toFile. 
+
+const QRCode = require('qrcode');
+
+async function generateQRCode(url) {
+    try {
+        // Generate QR code as a base64 data URL
+        const qrCodeBase64 = await QRCode.toDataURL(url, {
+            width: 200,
+            margin: 1,
+            color: {
+                dark: "#000000",
+                light: "#ffffff"
+            }
+        });
+        return qrCodeBase64;
+    } catch (err) {
+        console.error("Error generating QR code:", err);
+        throw err;
+    }
+}
+
+// Example usage
+const myUrl = "https://example.com";
+generateQRCode(myUrl).then(base64 => {
+    console.log("Base64 QR Code:", base64);
+    // Use this in an <img src="..."> tag
+});
+-------------------------------------------------------------------------------------------
+code to shorten a url:
+Option 1: Using a Third-Party API (Functional Shortener)
+This example uses the TinyURL API to generate a real, redirectable short URL. You need a token from TinyURL for this to work. 
+
+async function shortenUrl(url) {
+  const apiUrl = "https://api.tinyurl.com/create";
+  const token = "your_tinyurl_token"; // Replace with your actual token
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({ url: url })
+    });
+    const data = await response.json();
+    return data.data.short_url;
+  } catch (error) {
+    console.error("Error shortening URL:", error);
+    return null;
+  }
+}
+------------------------------------------------------------------------------------------------------------------------------
+

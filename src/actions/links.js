@@ -224,6 +224,8 @@ export const startSetLinks = (uid) => {
     //const uid = getState().auth.uid;
     const hashtags = [];
 
+    //auth.currentUser.uid
+
     return database
       .ref(`users/${uid}/links`)
       .once("value")

@@ -44,6 +44,10 @@ const renderApp = (store) => {
   
 };
 
+/*
+
+*/
+
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
 
@@ -67,6 +71,13 @@ if (signup !== "signup") {
   } else {
     id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
     store.dispatch(login(id));
+    //trying to get auth.uid set for firebase realtime database
+    //https://search.brave.com/search?q=signinwithcustomtoken+example&summary=1&conversation=09551df67729851dc86250d9dcba75ea9728
+    //let uid = id
+    //const customToken = await admin.auth().createCustomToken(uid);
+    //const userCredential = await signInWithCustomToken(auth, token);
+    //const user = userCredential.user;
+    //console.log("Signed in:", user.uid);
   }
 
   store

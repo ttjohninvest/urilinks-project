@@ -16,7 +16,7 @@ return (
           className={`website-background-color theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
           title=""
         >
-          "Url Links Management Tool, add, view, delete and share them with others"
+          "Url Links Management Tool to add, view, delete and share them with others"
         </div>
     
    <div className="minWidth- bg-color-4">

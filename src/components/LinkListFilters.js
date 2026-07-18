@@ -409,10 +409,10 @@ function ExpandableArray(props) {
           title=""
         >
           {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-            ? "Url Links Management Tool, add, view, delete and share them with others"
+            ? "Url Links Management Tool to add, view, delete and share them with others"
             : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
               ? "City Walks"
-              : "Url Links Management Tool, add, view, delete and share them with others"}
+              : "Url Links Management Tool to add, view, delete and share them with others"}
         </div>
         <div>
           <button 

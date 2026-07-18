@@ -208,7 +208,7 @@ export const LinkList = (props) => {
             ScrollDn
           </button>
     
-    <div is="ls2" className="website-background-color width1001- border5- border-left-5">
+    <div id="ls2" className="website-background-color width1001- border5- border-left-5">
 
 
 

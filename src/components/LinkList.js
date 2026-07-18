@@ -208,7 +208,7 @@ export const LinkList = (props) => {
             ScrollDn
           </button>
     
-    <div id="ls2" className="website-background-color width1001- border5- border-left-5">
+    <div className="website-background-color width1001- border5- border-left-5">
 
 
 
@@ -219,13 +219,7 @@ export const LinkList = (props) => {
 
         {props.signup.signup === true ? (
           <div className="minWidth- bg-color-4">
-            {/* <Link
-              id="adlinkid"
-              className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
-              to="/create"
-            >
-              Add Link
-            </Link> */}
+           
 
             <a 
             id="adlinkid"
@@ -237,129 +231,11 @@ export const LinkList = (props) => {
           </div>
         ) : (
           <div className="minWidth- bg-color-4">
-            {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
-
-            {/* <Link
-              className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w pointereventsnone width100 color-black-2 border5-"
-              to="/create"
-            >
-              Add Link
-            </Link> */}
+            
           </div>
         )}
 
-        {/* {props.links.length > 0 && <div
-        className={`${isMobile()?"margin-bottom-1 margin-top-11a1" :""}`}
-        >
-          <label className="inline-block__flex">
-            <input
-              ref={myRef}
-              className="the-inline-block zindex2 makehidden"
-           
-              type="radio"
-              value="option1"
-              checked={selectedOption === "option1"}
-              onChange={handleOptionChange}
-            />
-            <span
-              className="button-2w ib cursor-pointer"
-              
-              style={{backgroundColor:bgcolor1}}
-              title="lists your links"
-            >
-              List Your Links
-            </span>
-          </label>
-        </div>} */}
-        {/*do not delete the following commented out code, List Links*/}
-        {/* <div>
-          <label className="inline-block__flex">
-            <input
-              ref={myRef}
-              className="the-inline-block zindex2 makehidden"
-              type="radio"
-              value="option2"
-              checked={selectedOption === "option2"}
-              onChange={handleOptionChange}
-            />
-              <span className="button-2w ib cursor-pointer" title="links list with out details">List Links</span>
-            
-          </label>
-        </div> */}
-
-        {/* {LIST_ALL_PUBLIC_LINKS === true && <div 
-        className={`${isMobile()?"margin-left-n-11p margin-top-11z1" :""}`}
-        
-        >
-          <label className="inline-block__flex">
-            <input
-              ref={myRef}
-              className="the-inline-block zindex2 makehidden"
-             
-              type="radio"
-              value="option3"
-              checked={selectedOption === "option3"}
-              onChange={handleOptionChange}
-            />
-            <span
-              className="button-2w ib cursor-pointer"
-              style={{backgroundColor:bgcolor2}}
-              title="The users have given permission to show these links to the public."
-            >
-              List All Public Links
-            </span>
-          </label>
-        </div>}
-       
-        {props.signup.signup === true ? (
-          <div>
-          {LIST_ALL_PUBLIC_LINKS_PEOPLE === true && <div 
-          className={`${isMobile()?"margin-top-11z2" :""}`}
-          >
-            <label className="inline-block__flex">
-              <input
-                ref={myRef}
-                className="pointereventsauto the-inline-block zindex2 makehidden"
-                
-                type="radio"
-                value="option4"
-                checked={selectedOption === "option4"}
-                onChange={handleOptionChange}
-              />
-              <span
-                className="button-2w ib cursor-pointer"
-                style={{backgroundColor:bgcolor3}}
-                title="This will show all the links the public has shared on a per user basis."
-              >
-                People
-              </span>
-            </label>
-          </div>}
-          </div>
-        ) : (
-          <div>
-          {LIST_ALL_PUBLIC_LINKS_PEOPLE === true && <div>
-            <label className="inline-block__flex">
-              <input
-                ref={myRef}
-                className="pointereventsnone the-inline-block zindex2 makehidden"
-                type="radio"
-                value="option4"
-                checked={selectedOption === "option4"}
-                onChange={handleOptionChange}
-              />
-              <span
-                className="button-2w ib cursor-pointer"
-                style={{backgroundColor:bgcolor3}}
-
-                title="This will show all the links the public has shared on a per user basis."
-              >
-                People
-              </span>
-            </label>
-          </div>} 
-          </div>
-        )}*/}
+      
       </div>
 
       <div
@@ -394,9 +270,11 @@ export const LinkList = (props) => {
       ) : (
         <div></div>
       )}
-      {/**  {selectedOption === "option4"?<div>People</div>:<div></div>} */}
+     
 
-
+<div
+ id="ls2" 
+>
       {selectedOption === "option4" ? (
         <MyInfiniteScroll2 firstone={true} key={key} />
       ) : selectedOption === "option1" ? (
@@ -504,6 +382,7 @@ export const LinkList = (props) => {
           <MyInfiniteScroll2 />
         </div>
       )}
+      </div>
       </div>
     </div>
     

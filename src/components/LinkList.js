@@ -190,7 +190,23 @@ export const LinkList = (props) => {
 
   return (
     <div>
+ <button onClick={startScrollingUp} className="button-2">
+            ScrollUp
+          </button>
 
+          <button
+            onClick={stopScrolling}
+            className="button-2 ib margin-left-11"
+          >
+            Stop
+          </button>
+
+          <button
+            onClick={startScrollingDown}
+            className="button-2 ib margin-left-11"
+          >
+            ScrollDn
+          </button>
     
     <div 
     id="ls"

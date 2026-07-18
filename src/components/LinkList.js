@@ -275,7 +275,7 @@ export const LinkList = (props) => {
 <div
   
 >
-      {selectedOption === "option1" ? (
+      {selectedOption === "option1" && (
         <div 
         id="ls2"
         className="list-body border-green- scrollable-div2">
@@ -301,47 +301,6 @@ export const LinkList = (props) => {
             
             
           )}
-        </div>
-      ) : selectedOption === "option2" ? (
-        <div className="list-body margin-top-11-">
-
-          {props.links.length === 0 ? (
-            <div className="list-item list-item--message">
-              
-            </div>
-          ) : false ? (
-            props.links.map((link) => {
-              return <LinkListItem2 lcf={lcf} key={link.id} {...link} />;
-            })
-          ) : (
-            props.links.map((link) => {
-              return <LinkListItem2 key={link.id} {...link} />;
-            })
-          )}
-        </div>
-      ) : selectedOption === "option3" ? (
-        <div className="list-body margin-top-11-">
-          <div id="listid">
-            {props.links2.length === 0 ? (
-              <div className="list-item list-item--message">
-                {/* <span>0 links found</span> */}
-              </div>
-            ) : false ? (
-              props.links2.map((link) => {
-                return <LinkListItem4 key={link.id} {...link} />;
-              })
-            ) : (
-              // <MyInfiniteScroll />
-
-              props.links2.map((link) => {
-                return <LinkListItem4 key={link.id} {...link} />;
-              })
-            )}
-          </div>
-        </div>
-      ) : (
-        <div>
-          <MyInfiniteScroll2 />
         </div>
       )}
       </div>

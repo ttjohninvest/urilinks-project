@@ -273,40 +273,18 @@ export const LinkList = (props) => {
      
 
 <div
- id="ls2" 
+  
 >
-      {selectedOption === "option4" ? (
-        <MyInfiniteScroll2 firstone={true} key={key} />
-      ) : selectedOption === "option1" ? (
+      {selectedOption === "option1" ? (
         <div 
-        
+        id="ls2"
         className="list-body border-green- scrollable-div2">
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
-              {/* <span>0 links found</span> */}
+              
             </div>
-          ) : false ? (
-            props.links.slice(0, DISPLAY_THIS_MANY_LINKS).map((link) => {
-              return (
-                <div key={link.id+"1"}>
-                  <LinkListItem
-                    key={link.id}
-                    {...link}
-                    signup={props.signup.signup}
-                  />
-                </div>
-              );
-            })
           ) : (
-            // <MyInfiniteScroll4 />
-
-            // mappedData.map((link, index) => {
-            //   return (
-            //     <div>
-            //       <LinkListItem key={link.id} {...link.link} index={link.index} />
-            //     </div>
-            //   );
-            // })
+            
             props.links.splice(0, 400).map((link, index) => {
               return (
                 <div key={link.id+"1"}>
@@ -321,31 +299,15 @@ export const LinkList = (props) => {
               );
             })
             
-            ///////
-
-            ///////
+            
           )}
         </div>
       ) : selectedOption === "option2" ? (
         <div className="list-body margin-top-11-">
-          {/* {props.links.length > 0 && (
-            <div
-              onClick={printIt}
-              className="margin-top-1111b cursor-pointer"
-              title="You may print this list to the printer."
-            >
-              <img
-                src={printerImage}
-                width="32"
-                height="32"
-                style={{ borderRadius: "50%" }}
-              />
-            </div>
-          )} */}
 
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
-              {/* <span>0 links found</span> */}
+              
             </div>
           ) : false ? (
             props.links.map((link) => {

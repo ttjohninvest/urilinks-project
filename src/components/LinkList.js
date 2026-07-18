@@ -39,6 +39,7 @@ export const LinkList = (props) => {
   //  const [mappedData, setMappedData] = useState([])
 
   const myRef = useRef();
+  const scrollInterval = useRef(null);
 
   //   useEffect(() => {
   //      const processedData = props.links.map((item,index) => ({
@@ -56,6 +57,57 @@ export const LinkList = (props) => {
   // useEffect(() => {
   //   window.onbeforeunload = null;
   // }, [items]);
+
+  const startScrollingDown = () => {
+    // Prevent multiple intervals
+    if (scrollInterval.current) return;
+
+    scrollInterval.current = setInterval(() => {
+      document.getElementById("ls").scrollBy({
+        top: -1, // Scroll 1 pixel each time
+        left: 0,
+        behavior: "auto",
+      });
+
+      // Stop automatically when reaching the bottom
+      if (
+        document.getElementById("ls").innerHeight + 0 >=
+        0
+        //document.documentElement.scrollHeight
+        // document.getElementById("ls").scrollHeight
+      ) {
+        stopScrolling();
+      }
+    }, 20); // Every 20 milliseconds
+  };
+
+  const startScrollingUp = () => {
+    // Prevent multiple intervals
+    if (scrollInterval.current) return;
+
+    scrollInterval.current = setInterval(() => {
+      document.getElementById("ls").scrollBy({
+        top: 1, // Scroll 1 pixel each time
+        left: 0,
+        behavior: "auto",
+      });
+
+      // Stop automatically when reaching the bottom
+      if (
+        document.getElementById("ls").innerHeight + window.scrollY >=
+        //document.documentElement.scrollHeight
+        document.getElementById("ls").scrollHeight
+      ) {
+        stopScrolling();
+        //document.getElementById("ls").scrollTo(0,0)
+      }
+    }, 20); // Every 20 milliseconds
+  };
+
+  const stopScrolling = () => {
+    clearInterval(scrollInterval.current);
+    scrollInterval.current = null;
+  };
 
   const handleClick = (event) => {
     event.preventDefault()
@@ -137,7 +189,12 @@ export const LinkList = (props) => {
   // }
 
   return (
-    <div className="website-background-color width1001- border5- border-left-5">
+    <div>
+
+    
+    <div 
+    id="ls"
+    className="website-background-color width1001- border5- border-left-5">
 
 
 {/* <div className="margin-left-118- margin-top-1- top0pos-sticky">
@@ -315,6 +372,7 @@ export const LinkList = (props) => {
               ? " Results"
               : ""}
         </span>
+         
       </div>
 
       {selectedOption === "option3" ? (
@@ -430,6 +488,7 @@ export const LinkList = (props) => {
           <MyInfiniteScroll2 />
         </div>
       )}
+    </div>
     </div>
   );
 };

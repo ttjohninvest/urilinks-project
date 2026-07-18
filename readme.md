@@ -667,6 +667,7 @@ get the new key from stripe and put it into SK_LIVE environment variable in verc
 ---
 
 domain names
+chilcoot.com available
 tooalooa.com
 mindblessing.com
 mindbless.com
@@ -1577,3 +1578,47 @@ async function shortenUrl(url) {
 }
 ------------------------------------------------------------------------------------------------------------------------------
 
+================================================================================================================================================
+Teacher shows how to get a person to use or buy something at https://www.youtube.com/watch?v=gTZSVThRWF8
+ai built shopify store
+build your store.ai to launch a fully automated store
+https://www.youtube.com/watch?v=gTZSVThRWF8
+ step by step click link in the description
+integrate tool called auto ds for inventory and fulfillment
+ inports trending products, updates price and images, ships orders directly to customers means no need to handle inventory, no packaging, deal with supplies and negotiation, 
+YOU FOCUS ON DRIVING TRAFFIC AND MAKING SALES
+FOR FREE, CREATE TICTOK VIDEOS REVIEWING YOUR PRODUCT
+ STEPS
+  STOP TRYING TO APPEAL TO EVERYONE, YOU WILL APPEAL TO NOONE
+  GRAB A NOTEPAD, DESCRIBE IDEAL CUSTOMER, AGE, INTERESTS, STUGGLES, WHAT TYPE OF CONTENT DO THEY CONSUME
+    THE CLEARER YOU ARE ABOUT THIS, THE EASIER IT IS TO CREATE CONTENT THAT ATTRACTS THEIR ATTENTION
+	IT IS EASIER TO GET ATTRACT THE ATTENTION OF SOMEONE THAT YOU SPEAK DIRECTLY TO THAN TO SHOUT AT A WHOLE CROWD
+  STEP 2: CONTINUE DOING IT, KEEPING YOUR STORE IN FRONT OF PEOPLE, EVEN IF RESULTS DO NOT COME RIGHT AWAY
+    STEP 2.1 POST CONTENT DAILY TO STAY VISIBLE IN PEOPLES FEEDS, 
+	         WORK WITH INSTAGRAM INFLUENCERS TO GET PRODUCT IN FRONT OF THE RIGHT AUDIENCE
+	STEP 2.2 ENGAGE WITH COMMENTS FOR TRUST, STRENGTHEN RELATIONSHIPS AND INCREASE THE LIKELYHOOD OF CONVERSIONS
+    STEP 2.3 TEST PRODUCT DESCRIPTIONS AND IMAGES, SMALL CHANGES CAN INCREASE SALES
+	STEP 2.4 SHOW, DON'T JUST TELL, MAKE IT CLEAR WHY SOMEONE SHOULD BUY YOUR PRODUCT BY SHOWING
+	         A PERSON NEEDS A CLEAR REASON TO BUY (FOR EXAMPLE, SHOW WHY URILINKS.COM IS BETTER THAN BOOKMARKS WITH DEMONSTRATIONS IN VIDEO)
+			 A PERSON NEEDS TO BE ABLE TO SEE HOW IT BENEFITS, 
+	STEP 2.5 A PERSON NEEDS PROOF BEFORE IT SPENDS IT'S MONEY, USE SOCIAL PROOF, REVIEWS, TESTIMONIALS, SHOW REAL PERSON USING MY PRODUCT
+	         TELL A PERSON WHY ANOTHER PERSON LIKES THE PRODUCT
+	STEP 2.6 PAY, BUY TOOLS TO AUTOMATE GETTING THE STORE IN FRONT OF USERS
+	         PAY FOR ADS
+			 TESTING CONENT IDEAS TO FIND WHAT CAUSES SALES,
+			 GET ANOTHER PERSON TO HELP, CALLED "OUT SOURCING"
+
+out sourcing websites:
+https://www.fiverr.com/search/gigs?query=tutorial&source=top-bar&ref_ctx_id=7923575c53664d96ab662e53b85606d3&search_in=everywhere&search-autocomplete-original-term=tutorial
+================================================================================================================================
+
+==============
+benefits
+bookmarks or urilinks
+search by link text, hashtag or note text
+friendly user interface
+youtube thumbnails
+
+
+
+	

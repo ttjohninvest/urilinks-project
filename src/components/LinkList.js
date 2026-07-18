@@ -208,14 +208,10 @@ export const LinkList = (props) => {
             ScrollDn
           </button>
     
-    <div 
-    
-    className="website-background-color width1001- border5- border-left-5">
+    <div is="ls2" className="website-background-color width1001- border5- border-left-5">
 
 
-{/* <div className="margin-left-118- margin-top-1- top0pos-sticky">
-                      <img src={cathedral} className="width100a- object-fit-cover" />
-                    </div> */}
+
 
 
       <div id="before-link-summary-id" className="flexrow2b- margin-bottom-5a">
@@ -400,7 +396,7 @@ export const LinkList = (props) => {
       )}
       {/**  {selectedOption === "option4"?<div>People</div>:<div></div>} */}
 
-<div  id="ls2">
+
       {selectedOption === "option4" ? (
         <MyInfiniteScroll2 firstone={true} key={key} />
       ) : selectedOption === "option1" ? (
@@ -446,6 +442,7 @@ export const LinkList = (props) => {
                 </div>
               );
             })
+            
             ///////
 
             ///////
@@ -509,7 +506,7 @@ export const LinkList = (props) => {
       )}
       </div>
     </div>
-    </div>
+    
   );
 };
 //

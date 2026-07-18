@@ -58,7 +58,7 @@ export const LinkList = (props) => {
   //   window.onbeforeunload = null;
   // }, [items]);
 
-  const startScrollingDown = () => {
+  const startScrollingDown2 = () => {
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -81,7 +81,7 @@ export const LinkList = (props) => {
     }, 20); // Every 20 milliseconds
   };
 
-  const startScrollingUp = () => {
+  const startScrollingUp2 = () => {
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -190,19 +190,19 @@ export const LinkList = (props) => {
 
   return (
     <div>
- <button onClick={startScrollingUp} className="button-2">
+ <button onClick={startScrollingUp2} className="button-2">
             ScrollUp
           </button>
 
           <button
-            onClick={stopScrolling}
+            onClick={stopScrolling2}
             className="button-2 ib margin-left-11"
           >
             Stop
           </button>
 
           <button
-            onClick={startScrollingDown}
+            onClick={startScrollingDown2}
             className="button-2 ib margin-left-11"
           >
             ScrollDn

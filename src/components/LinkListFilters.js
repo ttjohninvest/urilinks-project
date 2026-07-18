@@ -415,11 +415,14 @@ function ExpandableArray(props) {
               : "Url Links Management Tool, add, view, delete and share them with others"}
         </div>
         <div>
-          <button onClick={startScrollingUp} className="button-2">
+          <button 
+            title="Click the button to begin auto scroll."
+            onClick={startScrollingUp} className="button-2">
             ScrollUp
           </button>
 
           <button
+            title="Click the button to stop auto scroll."
             onClick={stopScrolling}
             className="button-2 ib margin-left-11"
           >
@@ -427,6 +430,7 @@ function ExpandableArray(props) {
           </button>
 
           <button
+            title="Click the button to begin auto scroll."
             onClick={startScrollingDown}
             className="button-2 ib margin-left-11"
           >

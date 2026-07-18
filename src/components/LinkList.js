@@ -190,11 +190,14 @@ export const LinkList = (props) => {
 
   return (
     <div>
- <button onClick={startScrollingUp2} className="button-2">
+ <button 
+ title="Click the button to begin auto scroll."
+ onClick={startScrollingUp2} className="button-2">
             ScrollUp
           </button>
 
           <button
+          title="Click the button to stop auto scroll."
             onClick={stopScrolling2}
             className="button-2 ib margin-left-11"
           >
@@ -202,6 +205,7 @@ export const LinkList = (props) => {
           </button>
 
           <button
+          title="Click the button to begin auto scroll."
             onClick={startScrollingDown2}
             className="button-2 ib margin-left-11"
           >

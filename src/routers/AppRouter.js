@@ -18,7 +18,7 @@ import NotFoundPage from "../components/NotFoundPage";
 import LoginPage from "../components/LoginPage";
 import IdeasPage from "../components/IdeasPage";
 //import TeirsPayment3 from "../components/TeirsPayment3";
-import Simple from "../components/Simple";
+import SimpleTest from "../components/SimpleTest";
 import BookmarksManager from "../components/BookmarksManager";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";

@@ -64,7 +64,7 @@ const Simple = (props) => {
 //       .catch((error) =>
 //         console.error("There was a problem with the fetch operation:", error),
 //       );
-//   }, []);
+   }, []);
 
   const initializedRef = useRef(false);
   if (!initializedRef.current) {

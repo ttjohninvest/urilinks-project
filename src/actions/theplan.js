@@ -33,7 +33,7 @@ export const startAddTheplan = (theplanData = {}) => {
           //   })
           // );
 
-          dispatch(setTheplan(theplanData));
+          dispatch(addTheplan(theplanData));
           
         })
     );
@@ -70,7 +70,7 @@ export const getTheplan2 = (id) => {
         } else {
           //theplan=snapshot.val();
           //zplan=snapshot.val();
-          dispatch(setTheplan(snapshot.val()));
+          dispatch(addTheplan(snapshot.val()));
         }
        
       });
@@ -88,7 +88,6 @@ export const getTheplan = (uid) => {
       .ref(`users/${uid}/theplan`)
       .once("value")
       .then((snapshot) => {
-        let theplan
        
         console.log(
           "11 action/getTheplan from db, snapshot.val()=" + JSON.stringify(snapshot.val())
@@ -108,7 +107,7 @@ export const getTheplan = (uid) => {
           //theplan=snapshot.val();
           //zplan=snapshot.val();
           console.log("app.js, zplan="+JSON.stringify(zplan))
-          dispatch(setTheplan(snapshot.val()));
+          dispatch(addTheplan(snapshot.val()));
         }
         
       });

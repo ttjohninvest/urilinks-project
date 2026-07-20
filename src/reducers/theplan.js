@@ -9,7 +9,10 @@ export default (state = theplanReducerDefaultState, action) => {
   switch (action.type) {
     case "ADD_THEPLAN":
       
-        return { theplan: action.theplan };
+        //return { ...state, theplan: action.theplan };
+        return {
+        ...action.theplan
+      }
     
     default:
       return state;

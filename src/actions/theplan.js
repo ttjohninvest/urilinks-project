@@ -34,7 +34,7 @@ export const startAddTheplan = (theplanData = {}) => {
           // );
 
           dispatch(setTheplan(theplanData));
-          //setTheplan(theplanData)
+          
         })
     );
   };
@@ -91,7 +91,7 @@ export const getTheplan = (uid) => {
         let theplan
        
         console.log(
-          "action/getTheplan from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+          "11 action/getTheplan from db, snapshot.val()=" + JSON.stringify(snapshot.val())
         );
 
         let zplan={

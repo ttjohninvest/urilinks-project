@@ -7,8 +7,11 @@ import StorageSizes from "./StorageSizes";
 const Simple = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
+  // const [theUserId, setTheUserId] = useState(
+  //   firebase.auth().currentUser.uid + props.theplan.customerId,
+  // );
   const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.customerId,
+    firebase.auth().currentUser.uid + props.theplan.subscriptionId,
   );
   const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email)
   const [isFree, setIsFree] = useState(false);
@@ -64,7 +67,7 @@ const Simple = (props) => {
     //   .catch((error) =>
     //     console.error("There was a problem with the fetch operation:", error),
     //   );
-    
+
   }, []);
 
   const initializedRef = useRef(false);

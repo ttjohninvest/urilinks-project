@@ -33,7 +33,8 @@ const [theUserId, setTheUserId] = useState(
     console.log(
       "console.log message, Hello, from Simple, theUserId=" + theUserId,
     );
-    console.log("props.theplan.plan=" + props.theplan.plan);
+    //console.log("props.theplan.plan=" + props.theplan.plan);
+    console.log("22 props.theplan=" + JSON.stringify(props.theplan));
   }, []);
 
   useEffect(() => {

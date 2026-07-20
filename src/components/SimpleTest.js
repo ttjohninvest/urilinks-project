@@ -7,8 +7,11 @@ import StorageSizes from "./StorageSizes";
 const Simple = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
-  const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.customerId,
+//   const [theUserId, setTheUserId] = useState(
+//     firebase.auth().currentUser.uid + props.theplan.customerId,
+//   );
+const [theUserId, setTheUserId] = useState(
+    firebase.auth().currentUser.uid + props.theplan.subscriptionid,
   );
   const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email)
   const [isFree, setIsFree] = useState(false);
@@ -198,6 +201,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
 
 const mapStateToProps = (state) => ({
   customerId: state.customerId,
+  subscriptionid: state.subscriptionid,
   uid: state.uid,
   theplan: state.theplan,
   links: state.links,

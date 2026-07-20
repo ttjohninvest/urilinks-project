@@ -10,8 +10,12 @@ const Simple = (props) => {
 //   const [theUserId, setTheUserId] = useState(
 //     firebase.auth().currentUser.uid + props.theplan.customerId,
 //   );
+// const [theUserId, setTheUserId] = useState(
+//     firebase.auth().currentUser.uid + props.theplan.subscriptionId!==undefined &&
+//     props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
+//   );
 const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.subscriptionId!==undefined &&
+    props.theplan.uid + props.theplan.subscriptionId!==undefined &&
     props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
   );
   const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email)

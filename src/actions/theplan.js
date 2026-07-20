@@ -60,7 +60,8 @@ export const getTheplan2 = () => {
         let zplan={
           plan:"free",
           subscriptionId:"",
-          customerId:""
+          customerId:"",
+          uid:uid
         }
 
         if (snapshot.val() === null) {

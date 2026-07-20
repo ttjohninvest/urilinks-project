@@ -14,11 +14,7 @@ const Simple = (props) => {
 //     firebase.auth().currentUser.uid + props.theplan.subscriptionId!==undefined &&
 //     props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
 //   );
-const [theUserId, setTheUserId] = useState(
-    props.theplan.uid 
-    + props.theplan.subscriptionId!==undefined &&
-    props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
-  );
+const [theUserId, setTheUserId] = useState("");
   const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email)
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
@@ -30,11 +26,11 @@ const [theUserId, setTheUserId] = useState(
   };
 
   useEffect(() => {
-    console.log(
-      "console.log message, Hello, from Simple, theUserId=" + theUserId,
-    );
     //console.log("props.theplan.plan=" + props.theplan.plan);
     console.log("22 props.theplan=" + JSON.stringify(props.theplan));
+    // setTheUserId(props.theplan.uid 
+    // + props.theplan.subscriptionId!==undefined &&
+    // props.theplan.subscriptionId!==null?props.theplan.subscriptionId:"")
   }, []);
 
   useEffect(() => {
@@ -100,7 +96,9 @@ const [theUserId, setTheUserId] = useState(
 
     
 <stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
-client-reference-id={theUserId}
+client-reference-id={props.theplan.uid 
+    + props.theplan.subscriptionId!==undefined &&
+    props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
  
 >
@@ -111,7 +109,9 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
        
        
 <stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
-client-reference-id={theUserId}
+client-reference-id={props.theplan.uid 
+    + props.theplan.subscriptionId!==undefined &&
+    props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
 
@@ -120,7 +120,9 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
       
         
 <stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
-client-reference-id={theUserId}
+client-reference-id={props.theplan.uid 
+    + props.theplan.subscriptionId!==undefined &&
+    props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
 

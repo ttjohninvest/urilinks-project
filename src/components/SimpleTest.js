@@ -32,7 +32,7 @@ const [theUserId, setTheUserId] = useState("");
     console.log("22, props.theplan.plan="+props.theplan.plan)
     console.log("22, props.theplan.subscriptionId="+props.theplan.subscriptionId)
     console.log("22, props.theplan.uid="+props.theplan.uid)
-    setTheUserId(props.theplan.uid+props.theplan.subscriptionId)
+    //setTheUserId(props.theplan.uid+props.theplan.subscriptionId)
     // console.log("33, userId="+props.theplan.uid 
     // + props.theplan.subscriptionId!==undefined &&
     // props.theplan.subscriptionId!==null?props.theplan.subscriptionId:"")
@@ -104,7 +104,7 @@ const [theUserId, setTheUserId] = useState("");
 
     
 <stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
-client-reference-id={theUserId}
+client-reference-id={props.theplan.uid+props.theplan.subscriptionId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
  
 >
@@ -115,7 +115,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
        
        
 <stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
-client-reference-id={theUserId}
+client-reference-id={props.theplan.uid+props.theplan.subscriptionId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
 
@@ -124,7 +124,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
       
         
 <stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
-client-reference-id={theUserId}
+client-reference-id={props.theplan.uid+props.theplan.subscriptionId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
 

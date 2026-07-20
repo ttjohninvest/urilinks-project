@@ -69,8 +69,8 @@ export const getTheplan2 = (id) => {
           dispatch(startAddTheplan(zplan))
         } else {
           //theplan=snapshot.val();
-          zplan=snapshot.val();
-          dispatch(setTheplan(zplan));
+          //zplan=snapshot.val();
+          dispatch(setTheplan(snapshot.val()));
         }
        
       });
@@ -106,9 +106,9 @@ export const getTheplan = (uid) => {
           dispatch(startAddTheplan(zplan))
         } else {
           //theplan=snapshot.val();
-          zplan=snapshot.val();
+          //zplan=snapshot.val();
           console.log("app.js, zplan="+JSON.stringify(zplan))
-          dispatch(setTheplan(zplan));
+          dispatch(setTheplan(snapshot.val()));
         }
         
       });

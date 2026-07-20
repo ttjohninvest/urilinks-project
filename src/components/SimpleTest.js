@@ -11,8 +11,8 @@ const Simple = (props) => {
 //     firebase.auth().currentUser.uid + props.theplan.customerId,
 //   );
 const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.subscriptionid!==undefined &&
-    props.theplan.subscriptionid!==null?props.theplan.subscriptionid:""
+    firebase.auth().currentUser.uid + props.theplan.subscriptionId!==undefined &&
+    props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
   );
   const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email)
   const [isFree, setIsFree] = useState(false);
@@ -202,7 +202,6 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
 
 const mapStateToProps = (state) => ({
   customerId: state.customerId,
-  subscriptionid: state.subscriptionid,
   uid: state.uid,
   theplan: state.theplan,
   links: state.links,

@@ -1,6 +1,6 @@
 const theplanReducerDefaultState = {
   plan:"free",
-  subscriptionid:"",
+  subscriptionId:"",
   customerId:""
 };
 

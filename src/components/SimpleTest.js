@@ -28,9 +28,13 @@ const [theUserId, setTheUserId] = useState("");
   useEffect(() => {
     //console.log("props.theplan.plan=" + props.theplan.plan);
     console.log("22 props.theplan=" + JSON.stringify(props.theplan));
-    console.log("33, userId="+props.theplan.uid 
-    + props.theplan.subscriptionId!==undefined &&
-    props.theplan.subscriptionId!==null?props.theplan.subscriptionId:"")
+    console.log("22, props.theplan.customerId="+props.theplan.customerId)
+    console.log("22, props.theplan.plan="+props.theplan.plan)
+    console.log("22, props.theplan.subscriptionId="+props.theplan.subscriptionId)
+    console.log("22, props.theplan.uid="+props.theplan.uid)
+    // console.log("33, userId="+props.theplan.uid 
+    // + props.theplan.subscriptionId!==undefined &&
+    // props.theplan.subscriptionId!==null?props.theplan.subscriptionId:"")
     // setTheUserId(props.theplan.uid 
     // + props.theplan.subscriptionId!==undefined &&
     // props.theplan.subscriptionId!==null?props.theplan.subscriptionId:"")

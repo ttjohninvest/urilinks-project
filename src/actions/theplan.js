@@ -40,11 +40,11 @@ export const startAddTheplan = (theplanData = {}) => {
   };
 };
 
-export const getTheplan2 = () => {
+export const getTheplan2 = (uid) => {
   console.log("actions/getTheplan");
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    console.log("actions/getTheplan, uid=" + uid);
+    //const uid = getState().auth.uid;
+    console.log("actions/getTheplan2, uid=" + uid);
     let s;
     return database
      
@@ -58,9 +58,9 @@ export const getTheplan2 = () => {
         );
 
         let zplan={
+          customerId:"",
           plan:"free",
           subscriptionId:"",
-          customerId:"",
           uid:uid
         }
 
@@ -95,9 +95,9 @@ export const getTheplan = () => {
         );
 
         let zplan={
+          customerId:"",
           plan:"free",
           subscriptionId:"",
-          customerId:"",
           uid:uid
         }
 

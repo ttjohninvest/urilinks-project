@@ -84,7 +84,7 @@ if (signup !== "signup") {
     .dispatch(startSetLinks(id))
     .then(() => {
       return store
-        .dispatch(getTheplan2())
+        .dispatch(getTheplan2(id))
         .then(() => {
           
           renderApp(store, signup);

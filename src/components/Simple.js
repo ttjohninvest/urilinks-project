@@ -11,7 +11,7 @@ const Simple = (props) => {
   //   firebase.auth().currentUser.uid + props.theplan.customerId,
   // );
   const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.subscriptionId,
+    firebase.auth().currentUser.uid + props.theplan.subscriptionid,
   );
   const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email)
   const [isFree, setIsFree] = useState(false);
@@ -202,6 +202,7 @@ const Simple = (props) => {
 
 const mapStateToProps = (state) => ({
   customerId: state.customerId,
+  subscriptionid: state.subscriptionid,
   uid: state.uid,
   theplan: state.theplan,
   links: state.links,

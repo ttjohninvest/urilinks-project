@@ -107,7 +107,7 @@ export const getTheplan = (uid) => {
           //theplan=snapshot.val();
           //zplan=snapshot.val();
           //console.log("app.js, zplan="+JSON.stringify(zplan))
-          dispatch(addTheplan(JSON.parse(snapshot.val())));
+          dispatch(addTheplan(snapshot.val()));
         //}
         
       });

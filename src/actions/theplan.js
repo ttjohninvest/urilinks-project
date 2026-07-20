@@ -77,10 +77,10 @@ export const getTheplan2 = (id) => {
   };
 };
 
-export const getTheplan = () => {
-  console.log("actions/getTheplan");
+export const getTheplan = (uid) => {
+  console.log("actions/getTheplan, uid="+uid);
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
     console.log("actions/getTheplan, uid=" + uid);
     let s;
     return database
@@ -107,6 +107,7 @@ export const getTheplan = () => {
         } else {
           //theplan=snapshot.val();
           zplan=snapshot.val();
+          console.log("app.js, zplan="+JSON.stringify(zplan))
           dispatch(setTheplan(zplan));
         }
         

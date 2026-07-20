@@ -131,7 +131,7 @@ if (signup !== "signup") {
         .dispatch(startSetLinksNew(user.uid))
         .then(() => {
           return store
-            .dispatch(getTheplan())
+            .dispatch(getTheplan(user.uid))
             .then(() => {
               //return store.dispatch(getSettings()).then(() => {
               renderApp(store, signup);

@@ -46,24 +46,24 @@ const Simple = (props) => {
       "4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId,
     );
 
-    fetch("https://urilinks-project-client-secret-api.vercel.app", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ customerId: props.customerId.customerId }), //JSON.stringify({ customerId: props.customerId.customerId }),
-    })
-      .then((res) => {
-        return res.json();
-        // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
-      })
-      .then((data) => {
-        console.log(data);
-        setClientSecret(data.clientSecret);
-      })
-      .catch((error) =>
-        console.error("There was a problem with the fetch operation:", error),
-      );
+    // fetch("https://urilinks-project-client-secret-api.vercel.app", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ customerId: props.customerId.customerId }), //JSON.stringify({ customerId: props.customerId.customerId }),
+    // })
+    //   .then((res) => {
+    //     return res.json();
+    //     // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
+    //   })
+    //   .then((data) => {
+    //     console.log(data);
+    //     setClientSecret(data.clientSecret);
+    //   })
+    //   .catch((error) =>
+    //     console.error("There was a problem with the fetch operation:", error),
+    //   );
 
    }, []);
 

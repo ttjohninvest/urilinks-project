@@ -54,7 +54,7 @@ const AppRouter = (props) => (
           //path="/simple"
           signup={props.signup}
           //component={TeirsPayment3}
-          component={Simple}
+          component={SimpleTest}
         />
         <PrivateRoute
           path="/settings"

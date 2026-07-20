@@ -1465,13 +1465,19 @@ urilinks index.html i remove the following comment from index.html because the t
 error: when git push heroku main does not work because dialog shows saying something about git.heroku.com
 step to fix: heroku login
 
-stripe and database testing procedure so real money is not used
+stripe and database testing procedure so real money is not used, vercel api, secret and cancel subscrition in vercel
 purpose: write the plan name and the database correctly to the database and make sure stripe keeps working by 
-putting the subscription entry and deleting the old subscription entry if user upgrades to more expensive plan so hr or
+putting the subscription entry and deleting the old subscription entry if user upgrades to more expensive plan so he or
 she is not charged twice
 use non live WHSEC in urilinks sandbox
+ test:whsec_bgc4vUti9rokDeFqFjmZe2spwqLNsSRO
+ live:whsec_qYxipjGk2OZEVqzBmwDTRTrQo5t5Smtd
 use non live pricing tables by copying em in in Simple.js, this module replaces TeirsPayment3.js
+test:change Simple to SimpleTest
+live:change SimpleTest to Simple
 use non live SK_LIVE id, SK means secret key in stripe
+ test:sk_test_51Rme3v2fleTjRvBSzv9KBZXJwXiicVNCXxVRLSLqwfCzH78gG6c0kH2ODJmXhxz1F6T6aLzeD8coyTKmjZQWKRD90057KknU14
+ live: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
 you don't need to change the google service account code regarding the database object
 that is it, now you can click plans, it will update stripe with subscription and the database with plan name, basic, standard or premium and put in the customer id and subscription id. the same database is used for live and non live 
 

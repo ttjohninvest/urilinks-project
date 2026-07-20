@@ -15,7 +15,8 @@ const Simple = (props) => {
 //     props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
 //   );
 const [theUserId, setTheUserId] = useState(
-    props.theplan.uid + props.theplan.subscriptionId!==undefined &&
+    //props.theplan.uid 
+    "m8f0YMF5bucp9uhblPZhM8CTjq12"+ props.theplan.subscriptionId!==undefined &&
     props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
   );
   const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email)

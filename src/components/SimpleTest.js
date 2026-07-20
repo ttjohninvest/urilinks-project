@@ -46,24 +46,25 @@ const Simple = (props) => {
       "4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId,
     );
 
-//     fetch("https://urilinks-project-client-secret-api.vercel.app", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ customerId: props.customerId.customerId }), //JSON.stringify({ customerId: props.customerId.customerId }),
-//     })
-//       .then((res) => {
-//         return res.json();
-//         // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
-//       })
-//       .then((data) => {
-//         console.log(data);
-//         setClientSecret(data.clientSecret);
-//       })
-//       .catch((error) =>
-//         console.error("There was a problem with the fetch operation:", error),
-//       );
+    fetch("https://urilinks-project-client-secret-api.vercel.app", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ customerId: props.customerId.customerId }), //JSON.stringify({ customerId: props.customerId.customerId }),
+    })
+      .then((res) => {
+        return res.json();
+        // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
+      })
+      .then((data) => {
+        console.log(data);
+        setClientSecret(data.clientSecret);
+      })
+      .catch((error) =>
+        console.error("There was a problem with the fetch operation:", error),
+      );
+
    }, []);
 
   const initializedRef = useRef(false);
@@ -89,7 +90,7 @@ const Simple = (props) => {
 
     
 <stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
-client-reference-id={theUserId+props.customerId.customerId}
+client-reference-id={theUserId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
  
 >
@@ -100,7 +101,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
        
        
 <stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
-client-reference-id={theUserId+props.customerId.customerId}
+client-reference-id={theUserId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
 
@@ -109,7 +110,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
       
         
 <stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
-client-reference-id={theUserId+props.customerId.customerId}
+client-reference-id={theUserId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
 

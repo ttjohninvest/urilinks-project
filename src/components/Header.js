@@ -416,7 +416,7 @@ export const Header = (props) => {
                       </span>
                     </Link>
                   </div>
-                  {props.theplan.plan?.replace(/"/g, "") !== "premium" &&
+                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") !== "premium" &&
                     props.signup.signup === true &&
                     isInMeArray() === true && (
                       <div>

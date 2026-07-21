@@ -104,9 +104,9 @@ export const getTheplan = (uid) => {
           //theplan = "free";
           dispatch(startAddTheplan(zplan))
         } else {
-          theplan=snapshot.val();
-          zplan=snapshot.val();
-          console.log("app.js, zplan="+JSON.stringify(zplan))
+          //theplan=snapshot.val();
+          //zplan=snapshot.val();
+          //console.log("app.js, zplan="+JSON.stringify(zplan))
           dispatch(addTheplan(snapshot.val()));
         }
         

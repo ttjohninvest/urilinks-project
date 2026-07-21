@@ -14,12 +14,14 @@ const ImportedBookmarks = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if (props.theplan.plan.replace(/"/g, "") === "free") {
+    if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
       max = StorageSizes.free;
-    } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
+    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic") {
       max = StorageSizes.basic;
-    } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
+    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard") {
       max = StorageSizes.standard;
+    } else if(!!props.theplan.plan===false) {
+      max = StorageSizes.free;
     } else {
       //premium
       max = StorageSizes.premium;

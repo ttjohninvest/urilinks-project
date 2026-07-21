@@ -78,14 +78,14 @@ const TeirsPayment3 = (props) => {
 
   return (
     <div className="body1 flexrow2w">
-      {props.theplan.plan.replace(/"/g, "") === "free" &&
+      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" &&
       props.links.length <= 250 ? (
         <stripe-pricing-table
           pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
           client-reference-id={theUserId}
           publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" &&
         //&& props.links.length > 250
         props.links.length <= 1500 ? (
         <stripe-pricing-table
@@ -93,7 +93,7 @@ const TeirsPayment3 = (props) => {
           client-reference-id={theUserId}
           publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" &&
         //&& props.links.length > 1500
         props.links.length <= 2500 ? (
         <stripe-pricing-table
@@ -101,11 +101,11 @@ const TeirsPayment3 = (props) => {
           client-reference-id={theUserId}
           publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO"
         ></stripe-pricing-table>
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" &&
         ////&& props.links.length > 2500
         props.links.length <= 5000 ? (
         <div></div>
-      ) : props.theplan.plan.replace(/"/g, "") === "free" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" ? (
         <div>
           <div className="margin-left-11">
             You are on the free plan. You may store up to 250 links,{" "}
@@ -120,7 +120,7 @@ const TeirsPayment3 = (props) => {
             </button>
           </div>
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "basic" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" ? (
         <div>
           <div className="margin-left-11">
             You are on the basic plan. You may store up to 1500 links,{" "}
@@ -135,7 +135,7 @@ const TeirsPayment3 = (props) => {
             </button>
           </div>
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "standard" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" ? (
         <div>
           <div className="margin-left-11">
             You are on the standard plan. You may store up to 2500 links,{" "}
@@ -150,7 +150,7 @@ const TeirsPayment3 = (props) => {
             </button>
           </div>
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" ? (
         <div>
           <div className="margin-left-11">
             You are on the premium plan. You may store up to 5000 links,{" "}

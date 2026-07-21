@@ -19,10 +19,7 @@ const TeirsPayment3 = (props) => {
 
   useEffect(() => {
     console.log("4 TeirsPayment3, props.links.length=" + props.links.length);
-    console.log(
-      "TeirsPayment4, props.theplan.plan.replace(/''/g, '')=" +
-        props.theplan.plan.replace(/"/g, "")
-    );
+   
 
     // if (props.theplan.plan.replace(/"/g, "") === "free") {
     //   console.log("calling setIsFree");
@@ -61,7 +58,7 @@ const TeirsPayment3 = (props) => {
 
   return (
     <div className="body1 flexrow2w">
-      {(props.theplan.plan.replace(/"/g, "") === "free" &&
+      {(!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" &&
         props.links.length <= 250) ||
       props.links.length > 250 ? (
         <stripe-pricing-table

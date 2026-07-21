@@ -297,7 +297,7 @@ class EmailSharableLinkForm extends React.Component {
           value={this.state.note}
           onChange={this.onNoteChange}
           maxLength={
-            this.props.theplan.plan.replace(/"/g, "") === "free" ? 2048 : 2048
+            !!this.props.theplan.plan && this.props.theplan.plan.replace(/"/g, "") === "free" ? 2048 : 2048
           } //"2300"
         ></textarea>
         <div>

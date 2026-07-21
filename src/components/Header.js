@@ -204,7 +204,7 @@ export const Header = (props) => {
       ) {
         //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
         //if(true) {
-        if (props.theplan.plan.replace(/"/g, "") === "free") {
+        if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
           props.startDeleteAccount();
           logoutit();
         } else {

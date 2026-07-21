@@ -98,7 +98,7 @@ const [theUserId, setTheUserId] = useState("");
 
  return (
     <div className="body1 flexrow2w">
-      {props.theplan.plan.replace(/"/g, "") === "free" &&
+      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" &&
       props.links.length <= StorageSizes.free ? (
       
 

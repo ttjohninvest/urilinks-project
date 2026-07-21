@@ -87,7 +87,7 @@ const Simple = (props) => {
 
  return (
     <div className="body1 flexrow2w">
-      {props.theplan.plan.replace(/"/g, "") === "free" &&
+      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" &&
       props.links.length <= StorageSizes.free ? (
       
 
@@ -108,7 +108,7 @@ const Simple = (props) => {
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
 
-      ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length <= StorageSizes.standard ? (
       
         
@@ -118,12 +118,12 @@ const Simple = (props) => {
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
 
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length <= StorageSizes.premium ? (
         <div>
           Thank you. You are on the premium plan which is the highest plan.
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "free" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" ? (
         <div>
           <div className="margin-left-11">
             You are on the free plan. You may store up to {StorageSizes.free}{" "}
@@ -138,7 +138,7 @@ const Simple = (props) => {
             </button>
           </div>
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "basic" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" ? (
         <div>
           <div className="margin-left-11">
             You are on the basic plan. You may store up to {StorageSizes.basic}{" "}
@@ -153,7 +153,7 @@ const Simple = (props) => {
             </button>
           </div>
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "standard" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" ? (
         <div>
           <div className="margin-left-11">
             You are on the standard plan. You may store up to{" "}
@@ -169,7 +169,7 @@ const Simple = (props) => {
             </button>
           </div>
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" ? (
         <div>
           <div className="margin-left-11">
             You are on the premium plan. You may store up to{" "}

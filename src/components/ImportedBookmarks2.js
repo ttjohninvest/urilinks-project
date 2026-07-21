@@ -113,16 +113,16 @@ const ImportedBookmarks2 = (props) => {
                     (props.theplan === null &&
                       props.links.length <= StorageSizes.free) ? (
                       <span> free</span>
-                    ) : props.theplan.plan.replace(/"/g, "") === "free" &&
+                    ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" &&
                       props.links.length <= StorageSizes.free ? (
                       <span> free</span>
-                    ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
+                    ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" &&
                       props.links.length <= StorageSizes.basic ? (
                       <span> basic</span>
-                    ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
+                    ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" &&
                       props.links.length <= StorageSizes.standard ? (
                       <span> standard</span>
-                    ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
+                    ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" &&
                       props.links.length <= StorageSizes.premium ? (
                       <span> premium, which is the highest plan</span>
                     ) : (
@@ -135,7 +135,7 @@ const ImportedBookmarks2 = (props) => {
                 </div>
                 {props.theplan === undefined ||
                   props.theplan === null ||
-                  (props.theplan.plan.replace(/"/g, "") !== "premium" && (
+                  (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") !== "premium" && (
                     <div className="margin-top-2">
                       <button
                         className="button-style-1- button-2w"

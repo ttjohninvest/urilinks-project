@@ -128,14 +128,16 @@ function ExpandableArray(props) {
 
   useEffect(() => {
     console.log("AB props.links.length=" + props.links.length);
-    if (props.theplan.plan.replace(/"/g, "") === "free") {
+    if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
       setMaximum(StorageSizes.free);
-    } else if (props.theplan.plan.replace(/"/g, "") === "basic") {
+    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic") {
       setMaximum(StorageSizes.basic);
-    } else if (props.theplan.plan.replace(/"/g, "") === "standard") {
+    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard") {
       setMaximum(StorageSizes.standard);
-    } else if (props.theplan.plan.replace(/"/g, "") === "premium") {
+    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium") {
       setMaximum(StorageSizes.premium);
+    } else if (!!props.theplan.plan === false) {
+      setMaximum(StorageSizes.free);
     }
 
     const user = firebase.auth().currentUser;
@@ -740,24 +742,24 @@ function ExpandableArray(props) {
                 <div>
                   {isToggled && props.signup === true && (
                     <div className="margin-right-1">
-                      {props.theplan.plan.replace(/"/g, "") === "free" ? (
+                      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" ? (
                         <span>(It stores upto {StorageSizes.free} links)</span>
                       ) : (
                         <span></span>
                       )}
-                      {props.theplan.plan.replace(/"/g, "") === "basic" ? (
+                      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" ? (
                         <span>(It stores upto {StorageSizes.basic} links)</span>
                       ) : (
                         <span></span>
                       )}
-                      {props.theplan.plan.replace(/"/g, "") === "standard" ? (
+                      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" ? (
                         <span>
                           (It stores upto {StorageSizes.standard} links)
                         </span>
                       ) : (
                         <span></span>
                       )}
-                      {props.theplan.plan.replace(/"/g, "") === "premium" ? (
+                      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" ? (
                         <span>
                           (It stores upto {StorageSizes.premium} links)
                         </span>

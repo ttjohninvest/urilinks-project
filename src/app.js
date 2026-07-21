@@ -34,7 +34,7 @@ import LoadingPage from "./components/LoadingPage";
 let hasRendered = false;
 const renderApp = (store) => {
   console.log("about to render the app");
-  //if (!hasRendered) {
+  
   ReactDOM.render(
     <Provider store={store}>
       <AppRouter />
@@ -51,9 +51,10 @@ const renderApp = (store) => {
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
 
-let id = params.get("id");
+let id2 = params.get("id");
+let id = ""
 console.log("1 signup=" + signup);
-console.log("1 id=" + id);
+console.log("1 id=" + id2);
 
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
@@ -66,8 +67,8 @@ if (signup !== "signup") {
   
   window.localStorage.setItem("notloggedin", "1")
 
-  if (id !== null) {
-    store.dispatch(login(id));
+  if (id2 !== null) {
+    store.dispatch(login(id2));
   } else {
     id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
     store.dispatch(login(id));
@@ -81,13 +82,18 @@ if (signup !== "signup") {
   }
 
   store
-    .dispatch(startSetLinks(id))
+    .dispatch(startSetLinks(id!=""?id:id2))
     .then(() => {
       return store
-        .dispatch(getTheplan2(id))
+        .dispatch(getTheplan2(id!=""?id:id2))
         .then(() => {
           
           renderApp(store, signup);
+          if(id!="") {
+
+          } else {
+          window.location.href="https://urilinks.com/dashboard?signup=&id="+id2
+          }
 
         })
         .catch((error) => {

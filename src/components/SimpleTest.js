@@ -99,8 +99,8 @@ const [theUserId, setTheUserId] = useState("");
  return (
     <div className="body1 flexrow2w">
       {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" 
-      //&&
-      //props.links.length <= StorageSizes.free 
+      &&
+      props.links.length <= StorageSizes.free 
       ? (
       
 
@@ -115,8 +115,8 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
 
       ) : props.theplan.plan.replace(/"/g, "") === "basic"
       
-      //&&
-        //props.links.length <= StorageSizes.basic 
+      &&
+        props.links.length <= StorageSizes.basic 
         ? (
        
        
@@ -126,8 +126,8 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
 </stripe-pricing-table>
 
       ) : props.theplan.plan.replace(/"/g, "") === "standard" 
-        //&&
-        //props.links.length <= StorageSizes.standard 
+        &&
+        props.links.length <= StorageSizes.standard 
         ? (
       
         

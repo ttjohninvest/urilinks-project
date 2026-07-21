@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
-import TeirsPayment3 from "./TeirsPayment3";
+//import TeirsPayment3 from "./TeirsPayment3";
+import SimpleTest from "./SimpleTest";
 import StorageSizes from "./StorageSizes";
 //uiuhff
 export const AddLinkPage = (props) => {
@@ -171,7 +172,8 @@ export const AddLinkPage = (props) => {
       ) : (
         <div>
           {" "}
-          <TeirsPayment3 />
+          <SimpleTest />
+          {/* <TeirsPayment3 /> */}
         </div>
       )}
     </div>

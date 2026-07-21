@@ -202,9 +202,9 @@ if(isMobile() === true)
     // };
 
   
-//  useEffect(()=>{
-//      window.scrollTo(0,400)
-//    },[])
+ useEffect(()=>{
+     window.scrollTo(0,0)
+   },[])
 
 
 

@@ -409,13 +409,13 @@ function ExpandableArray(props) {
           className={`website-background-color ${
             useButtons === true ? "width30p" : "width30pt"
           } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
-          title="You are welcome to use Url Links Management Tool to add, view, delete and share them with others"
+          title="You are welcome to use Internet Links Management Tool to add, view, delete and share them with others"
         >
           {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-            ? "Url Links Management Tool"
+            ? "Internet Links Management Tool"
             : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
               ? "City Walks"
-              : "Url Links Management Tool"}
+              : "Internet Links Management Tool"}
         </div>
         <div>
           <button 

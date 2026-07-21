@@ -732,7 +732,7 @@ function ExpandableArray(props) {
                     title="current plan"
                     className="margin-right-1 textLeft hide"
                   >
-                    plan: {props.plan.replace(/"/g, "")}
+                    plan: {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   </div>
                 )}
 

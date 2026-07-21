@@ -14,7 +14,7 @@ return (
     <div>
          <div
           className={`website-background-color theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
-          title="You are welcome to use Internet Links Management Tool to add, view, delete and share them with others"
+          title="You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           Internet Links Management Tool
         </div>

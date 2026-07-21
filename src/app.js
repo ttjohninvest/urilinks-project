@@ -67,7 +67,7 @@ if (signup !== "signup") {
   
   window.localStorage.setItem("notloggedin", "1")
 
-  if (id2 !== null) {
+  if (id2 !== null && id2 !== "" && id2 !== undefined) {
     store.dispatch(login(id2));
   } else {
     id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
@@ -92,7 +92,7 @@ if (signup !== "signup") {
           if(id!="") {
 
           } else {
-          window.location.href="https://urilinks.com/dashboard?signup=&id="+id2
+          //window.location.href="https://urilinks.com/dashboard?signup=&id="+id2
           }
 
         })

@@ -51,10 +51,9 @@ const renderApp = (store) => {
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
 
-let id2 = params.get("id");
-let id = ""
+let id = params.get("id");
 console.log("1 signup=" + signup);
-console.log("1 id=" + id2);
+console.log("1 id=" + id);
 
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
@@ -67,8 +66,8 @@ if (signup !== "signup") {
   
   window.localStorage.setItem("notloggedin", "1")
 
-  if (id2 !== null && id2 !== "" && id2 !== undefined) {
-    store.dispatch(login(id2));
+  if (id !== null) {
+    store.dispatch(login(id));
   } else {
     id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
     store.dispatch(login(id));
@@ -82,18 +81,14 @@ if (signup !== "signup") {
   }
 
   store
-    .dispatch(startSetLinks(id!=""?id:id2))
+    .dispatch(startSetLinks(id))
     .then(() => {
       return store
-        .dispatch(getTheplan2(id!=""?id:id2))
+        .dispatch(getTheplan2(id))
         .then(() => {
           
           renderApp(store, signup);
-          if(id!="") {
-
-          } else {
-          //window.location.href="https://urilinks.com/dashboard?signup=&id="+id2
-          }
+         
 
         })
         .catch((error) => {

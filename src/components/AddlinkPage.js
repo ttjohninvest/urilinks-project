@@ -138,7 +138,7 @@ export const AddLinkPage = (props) => {
       } else {
         //props.history.push("/");
         window.location.href = "https://urilinks.com/dashboard?signup=&id="+user.uid //props.theplan.plan.uid
-        window.scrollTo(0, 0);
+        //window.scrollTo(0, 0);
 
         //window.location.href = "https://urilinks.com?signup=signup";
       }

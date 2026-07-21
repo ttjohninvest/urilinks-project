@@ -168,6 +168,7 @@ function ExpandableArray(props) {
     //   console.log("LinkListFilters.js, window.location.reload()");
     //   window.location.reload();
     // }
+    window.scrollTo(0, 0);
   }, []);
 
   const moveIt = () => {

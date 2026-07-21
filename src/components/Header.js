@@ -35,6 +35,7 @@ export const Header = (props) => {
   const [toggledUse, setToggledUse] = useState(false);
   const [uid, setUid] = useState("");
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [bmok, setBmok] = useState(false);
   const ideas = () => {};
 
@@ -156,6 +157,7 @@ export const Header = (props) => {
       setEmaildb(user.email);
       setUid(gud.uid);
       setName(gud.displayname);
+      setEmail(user.email)
     }
 
     // }
@@ -345,7 +347,7 @@ export const Header = (props) => {
                         height="32"
                         style={{ borderRadius: "50%" }}
                         className="ib- margin-bottom-11-"
-                        title={name}
+                        title={name+", "+email}
                         alt="example"
                       />
                     </div>

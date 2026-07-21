@@ -910,7 +910,7 @@ function ExpandableArray(props) {
                 >
                   <button
                     id="buttonid"
-                    className="button-3 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
+                    className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
                     //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                     //onClick={this.search}

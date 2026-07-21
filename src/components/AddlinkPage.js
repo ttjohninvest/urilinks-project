@@ -137,11 +137,14 @@ export const AddLinkPage = (props) => {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
       } else {
-        //props.history.push("/");
-        window.location.href = "https://urilinks.com/dashboard?signup=&id="+user.uid //props.theplan.plan.uid
-        //window.scrollTo(0, 0);
+        
+        //window.location.href = "https://urilinks.com/dashboard?signup=&id="+user.uid //props.theplan.plan.uid
+       
+        props.history.push("/");
+        //window.location.reload();
+        window.location.href = "https://urilinks.com?signup=signup";
 
-        //window.location.href = "https://urilinks.com?signup=signup";
+       
       }
     } else {
       console.log("maximum links reached");

@@ -77,8 +77,10 @@ export const startDeleteAccount = () => {
       .ref(`users/${uid}`)
       .remove()
       .then(() => {
-        //dispatch(removeAccount());
-      });
+        dispatch(removeAccount());
+      }).catch(()=>{
+        console.log("in actions/email.js, failed to remove the user account,"+uid+", from the firebase realtime database")
+      })
 
       
   };

@@ -99,7 +99,7 @@ export const getTheplan = (uid) => {
           subscriptionId:"",
           uid:uid
         }
-
+//
         if (snapshot.val() === null) {
           //theplan = "free";
           dispatch(startAddTheplan(zplan))

@@ -98,8 +98,10 @@ const [theUserId, setTheUserId] = useState("");
 
  return (
     <div className="body1 flexrow2w">
-      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" &&
-      props.links.length <= StorageSizes.free ? (
+      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" 
+      //&&
+      //props.links.length <= StorageSizes.free 
+      ? (
       
 
     
@@ -110,8 +112,12 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
 >
 </stripe-pricing-table>
 
-      ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
-        props.links.length <= StorageSizes.basic ? (
+
+      ) : props.theplan.plan.replace(/"/g, "") === "basic"
+      
+      //&&
+        //props.links.length <= StorageSizes.basic 
+        ? (
        
        
 <stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
@@ -119,8 +125,10 @@ client-reference-id={props.theplan.uid+props.theplan.subscriptionId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
 
-      ) : props.theplan.plan.replace(/"/g, "") === "standard" &&
-        props.links.length <= StorageSizes.standard ? (
+      ) : props.theplan.plan.replace(/"/g, "") === "standard" 
+        //&&
+        //props.links.length <= StorageSizes.standard 
+        ? (
       
         
 <stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
@@ -128,12 +136,14 @@ client-reference-id={props.theplan.uid+props.theplan.subscriptionId}
 publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
 </stripe-pricing-table>
 
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" &&
-        props.links.length <= StorageSizes.premium ? (
+      ) :!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" 
+      //&&
+        //props.links.length <= StorageSizes.premium 
+        ? (
         <div>
           Thank you. You are on the premium plan which is the highest plan.
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "free" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" ? (
         <div>
           <div className="margin-left-11">
             You are on the free plan. You may store up to {StorageSizes.free}{" "}
@@ -148,7 +158,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
             </button>
           </div>
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "basic" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" ? (
         <div>
           <div className="margin-left-11">
             You are on the basic plan. You may store up to {StorageSizes.basic}{" "}
@@ -163,7 +173,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
             </button>
           </div>
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "standard" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" ? (
         <div>
           <div className="margin-left-11">
             You are on the standard plan. You may store up to{" "}
@@ -179,7 +189,7 @@ publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxD
             </button>
           </div>
         </div>
-      ) : props.theplan.plan.replace(/"/g, "") === "premium" ? (
+      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" ? (
         <div>
           <div className="margin-left-11">
             You are on the premium plan. You may store up to{" "}

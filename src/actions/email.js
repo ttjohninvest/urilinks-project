@@ -73,12 +73,20 @@ export const startRemoveEmail = () => {
 export const startDeleteAccount = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    return database
+    database
+      .ref(`users/${uid}/theplan`)
+      .remove()
+      .then(() => {
+        //dispatch(removeAccount());
+        return database
       .ref(`users/${uid}`)
       .remove()
       .then(() => {
         dispatch(removeAccount());
       });
+      });
+
+      
   };
 };
 

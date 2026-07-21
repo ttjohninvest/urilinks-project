@@ -100,15 +100,15 @@ export const getTheplan = (uid) => {
           uid:uid
         }
 
-        // if (snapshot.val() === null) {
-        //   //theplan = "free";
-        //   dispatch(startAddTheplan(zplan))
-        // } else {
-          //theplan=snapshot.val();
-          //zplan=snapshot.val();
-          //console.log("app.js, zplan="+JSON.stringify(zplan))
+        if (snapshot.val() === null) {
+          //theplan = "free";
+          dispatch(startAddTheplan(zplan))
+        } else {
+          theplan=snapshot.val();
+          zplan=snapshot.val();
+          console.log("app.js, zplan="+JSON.stringify(zplan))
           dispatch(addTheplan(snapshot.val()));
-        //}
+        }
         
       });
   };

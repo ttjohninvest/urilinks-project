@@ -137,7 +137,7 @@ export const AddLinkPage = (props) => {
         console.log("VVVVVVVVVVVVV returned false");
       } else {
         //props.history.push("/");
-        window.location.href = "https://urilinks.com?signup="
+        window.location.href = "https://urilinks.com?signup=&id="+props.theplan.plan.uid
         window.scrollTo(0, 0);
 
         //window.location.href = "https://urilinks.com?signup=signup";

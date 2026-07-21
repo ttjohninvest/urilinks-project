@@ -616,7 +616,7 @@ git show HEAD~26:src/components/FetchBookmarks.js > FetchBookmarks-old.js
 online websites that have my credit card
 heroku.com
 google cloud 
-
+//
 credit card changes (auto pay per month):
 neighbor.com, due on 17th each month for parking
 spectrum.com, due on the 20th each month

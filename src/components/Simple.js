@@ -102,10 +102,6 @@ const [theUserId, setTheUserId] = useState("");
       &&
       props.links.length <= StorageSizes.free 
       ? (
-      
-
-    
-
 
 <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
@@ -115,8 +111,7 @@ const [theUserId, setTheUserId] = useState("");
 
       ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
         props.links.length <= StorageSizes.basic ? (
-       
-       
+        
 <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
           client-reference-id={props.theplan.uid+props.theplan.subscriptionId}         
@@ -126,7 +121,6 @@ const [theUserId, setTheUserId] = useState("");
       ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length <= StorageSizes.standard ? (
       
-        
 <stripe-pricing-table
           pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
           client-reference-id={props.theplan.uid+props.theplan.subscriptionId}         

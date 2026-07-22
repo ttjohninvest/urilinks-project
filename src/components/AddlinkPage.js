@@ -6,10 +6,11 @@ import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 //import TeirsPayment3 from "./TeirsPayment3";
+import SimpleTest from "./SimpleTest";
 //import SimpleTest2 from "./SimpleTest2";
 import PremiumPlan from "./PremiumPlan"
 import StorageSizes from "./StorageSizes";
-//uiuhff
+
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
   const [userId, setUserId] = useState("");
@@ -182,8 +183,8 @@ export const AddLinkPage = (props) => {
       ) : (
         <div>
           {" "}
-          <PremiumPlan />
-          {/* <SimpleTest2 /> */}
+          {/* <PremiumPlan /> */}
+          <SimpleTest />
           {/* <TeirsPayment3 /> */}
         </div>
       )}

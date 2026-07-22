@@ -416,9 +416,11 @@ export const Header = (props) => {
                       </span>
                     </Link>
                   </div>
-                  {/* {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") !== "premium" &&
+                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") !== "premium" &&
                     props.signup.signup === true &&
-                    isInMeArray() === true && (
+                    //isInMeArray() === true && 
+                    true &&
+                    (
                       <div>
                         <Link className="header__title-" to="/teirspayment3">
                           <span
@@ -430,7 +432,7 @@ export const Header = (props) => {
                           </span>
                         </Link>
                       </div>
-                    )} */}
+                    )}
 
                     
                       {/* <div>
@@ -460,7 +462,7 @@ export const Header = (props) => {
                       </div>  */}
                     
 
-                      {props.theplan.plan.replace(/"/g, "") !== "premium" && <div>
+                      {/* {props.theplan.plan.replace(/"/g, "") !== "premium" && <div>
                         <Link className="header__title-" to="/premiumplan">
                           <span
                             //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
@@ -470,7 +472,7 @@ export const Header = (props) => {
                             Pay $14.99
                           </span>
                         </Link>
-                      </div>}
+                      </div>} */}
                     
                  
 

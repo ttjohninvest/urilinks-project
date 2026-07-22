@@ -18,12 +18,12 @@ import NotFoundPage from "../components/NotFoundPage";
 import LoginPage from "../components/LoginPage";
 import IdeasPage from "../components/IdeasPage";
 //import TeirsPayment3 from "../components/TeirsPayment3";
-//import SimpleTest2 from "../components/SimpleTest2";
+import SimpleTest from "../components/SimpleTest";
 import SimpleTest2 from "../components/SimpleTest2";
 
-import BasicPlan from "../components/BasicPlan";
-import StandardPlan from "../components/StandardPlan";
-import PremiumPlan from "../components/PremiumPlan";
+// import BasicPlan from "../components/BasicPlan";
+// import StandardPlan from "../components/StandardPlan";
+// import PremiumPlan from "../components/PremiumPlan";
 
 import BookmarksManager from "../components/BookmarksManager";
 import PrivateRoute from "./PrivateRoute";
@@ -60,7 +60,7 @@ const AppRouter = (props) => (
           //path="/simple"
           signup={props.signup}
           //component={TeirsPayment3}
-          component={SimpleTest2}
+          component={SimpleTest}
         />
 
           <PrivateRoute

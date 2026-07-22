@@ -1476,8 +1476,8 @@ use non live WHSEC in urilinks sandbox
 test:whsec_bgc4vUti9rokDeFqFjmZe2spwqLNsSRO
 live:whsec_qYxipjGk2OZEVqzBmwDTRTrQo5t5Smtd
 use non live pricing tables by copying em in in Simple.js, this module replaces TeirsPayment3.js
-test:change Simple to SimpleTest2
-live:change SimpleTest2 to Simple
+test:change Simple to SimpleTest
+live:change SimpleTest to Simple
 use non live SK_LIVE id, SK means secret key in stripe
 test:sk_test_51Rme3v2fleTjRvBSzv9KBZXJwXiicVNCXxVRLSLqwfCzH78gG6c0kH2ODJmXhxz1F6T6aLzeD8coyTKmjZQWKRD90057KknU14
 live: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
@@ -1631,3 +1631,8 @@ bookmarks or urilinks
 search by link text, hashtag or note text
 friendly user interface
 youtube thumbnails
+
+google cloud service account that I need for urilinks and firebase realtime database is stored in johmcg64@gmail.com
+using urilinks project so I can create the .GOOGLE_APPLICATION_CREDENTIALS_JSON_BASE64 for the stripe webhook project 
+urilinks-project-vercel-stripe that I use to write to the database. ./Base64 serviceaccount.json outputs the long string
+to put in the environment variable in vercel for the project.

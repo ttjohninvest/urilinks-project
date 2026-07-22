@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import StorageSizes from "./StorageSizes";
 
-const SimpleTest2 = (props) => {
+const BasicPlan = (props) => {
   
  return (
     <div className="body1 flexrow2w">
@@ -20,9 +19,8 @@ const SimpleTest2 = (props) => {
 
 const mapStateToProps = (state) => ({
   uid: state.uid,
-  theplan: state.theplan,
-  links: state.links,
+  theplan: state.theplan
 });
 
 //export default Simple;
-export default withRouter(connect(mapStateToProps, undefined)(SimpleTest2));
+export default withRouter(connect(mapStateToProps, undefined)(BasicPlan));

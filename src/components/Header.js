@@ -416,7 +416,7 @@ export const Header = (props) => {
                       </span>
                     </Link>
                   </div>
-                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") !== "premium" &&
+                  {/* {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") !== "premium" &&
                     props.signup.signup === true &&
                     isInMeArray() === true && (
                       <div>
@@ -430,28 +430,51 @@ export const Header = (props) => {
                           </span>
                         </Link>
                       </div>
-                    )}
-                  {/* {!inviewport && (
-                    <div
-                      id="scrolldownid"
-                      className="header__title- padding-top-11- cursor-pointer color-white-1 color-black-2- cursor-pointer nounderline"
-                      onClick={scrolldown}
-                      title="Click to scroll down to the search section"
-                    >
-                      search
-                    </div>
-                  )} */}
+                    )} */}
 
-                  {/* {!inviewport && (
-                    <div
-                      id="scrolldownid2"
-                      className="header__title- padding-top-11- cursor-pointer color-white-1 color-black-2- cursor-pointer nounderline"
-                      onClick={scrolldown2}
-                      title="Click to scroll down to the Add Link button"
-                    >
-                      add link
-                    </div>
-                  )} */}
+                    
+                      <div>
+                        <Link className="header__title-" to="/basicplan">
+                          <span
+                            //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
+                            className="ib text-size-1 color-white-1 color-black-2- color-blue-1-"
+                            title="Click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links)"
+                          >
+                            $4.99
+                          </span>
+                        </Link>
+                      </div>
+                  
+
+                   
+                      <div>
+                        <Link className="header__title-" to="/standardplan">
+                          <span
+                            //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
+                            className="ib text-size-1 color-white-1 color-black-2- color-blue-1-"
+                            title="Click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links)"
+                          >
+                            $9.99
+                          </span>
+                        </Link>
+                      </div>
+                    
+
+                      <div>
+                        <Link className="header__title-" to="/premiumplan">
+                          <span
+                            //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
+                            className="ib text-size-1 color-white-1 color-black-2- color-blue-1-"
+                            title="Click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links)"
+                          >
+                            $14.99
+                          </span>
+                        </Link>
+                      </div>
+                    
+                 
+
+                 
 
                   <div>
                     <Link

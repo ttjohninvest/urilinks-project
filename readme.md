@@ -1642,4 +1642,9 @@ urilinks-project-vercel-stripe that I use to write to the database. ./Base64 ser
 to put in the environment variable in vercel for the project.
 ========================
 
+firebase billing account in google cloud console
+urilinks-firebase-realtime-database-use, project linked to this billing account: see-my-index-project-7 
+
+=========================
+
 

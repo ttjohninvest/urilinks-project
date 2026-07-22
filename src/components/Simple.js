@@ -7,12 +7,14 @@ import StorageSizes from "./StorageSizes";
 const Simple = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
-  // const [theUserId, setTheUserId] = useState(
-  //   firebase.auth().currentUser.uid + props.theplan.customerId,
-  // );
-  const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.subscriptionid,
-  );
+//   const [theUserId, setTheUserId] = useState(
+//     firebase.auth().currentUser.uid + props.theplan.customerId,
+//   );
+// const [theUserId, setTheUserId] = useState(
+//     firebase.auth().currentUser.uid + props.theplan.subscriptionId!==undefined &&
+//     props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
+//   );
+const [theUserId, setTheUserId] = useState("");
   const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email)
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
@@ -24,10 +26,19 @@ const Simple = (props) => {
   };
 
   useEffect(() => {
-    console.log(
-      "console.log message, Hello, from Simple, theUserId=" + theUserId,
-    );
-    console.log("props.theplan.plan=" + props.theplan.plan);
+    //console.log("props.theplan.plan=" + props.theplan.plan);
+    console.log("22 props.theplan=" + JSON.stringify(props.theplan));
+    console.log("22, props.theplan.customerId="+props.theplan.customerId)
+    console.log("22, props.theplan.plan="+props.theplan.plan)
+    console.log("22, props.theplan.subscriptionId="+props.theplan.subscriptionId)
+    console.log("22, props.theplan.uid="+props.theplan.uid)
+    //setTheUserId(props.theplan.uid+props.theplan.subscriptionId)
+    // console.log("33, userId="+props.theplan.uid 
+    // + props.theplan.subscriptionId!==undefined &&
+    // props.theplan.subscriptionId!==null?props.theplan.subscriptionId:"")
+    // setTheUserId(props.theplan.uid 
+    // + props.theplan.subscriptionId!==undefined &&
+    // props.theplan.subscriptionId!==null?props.theplan.subscriptionId:"")
   }, []);
 
   useEffect(() => {
@@ -68,7 +79,7 @@ const Simple = (props) => {
     //     console.error("There was a problem with the fetch operation:", error),
     //   );
 
-  }, []);
+   }, []);
 
   const initializedRef = useRef(false);
   if (!initializedRef.current) {
@@ -87,14 +98,18 @@ const Simple = (props) => {
 
  return (
     <div className="body1 flexrow2w">
-      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" &&
-      props.links.length <= StorageSizes.free ? (
+      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" 
+      &&
+      props.links.length <= StorageSizes.free 
+      ? (
       
 
-     
+    
+
+
 <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
-          client-reference-id={theUserId}      
+          client-reference-id={props.theplan.uid+props.theplan.subscriptionId}      
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
 
@@ -104,7 +119,7 @@ const Simple = (props) => {
        
 <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
-          client-reference-id={theUserId}         
+          client-reference-id={props.theplan.uid+props.theplan.subscriptionId}         
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
 
@@ -114,12 +129,14 @@ const Simple = (props) => {
         
 <stripe-pricing-table
           pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
-          client-reference-id={theUserId}         
+          client-reference-id={props.theplan.uid+props.theplan.subscriptionId}         
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
 
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" &&
-        props.links.length <= StorageSizes.premium ? (
+      ) :!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" 
+      &&
+        props.links.length <= StorageSizes.premium 
+        ? (
         <div>
           Thank you. You are on the premium plan which is the highest plan.
         </div>
@@ -202,7 +219,6 @@ const Simple = (props) => {
 
 const mapStateToProps = (state) => ({
   customerId: state.customerId,
-  subscriptionid: state.subscriptionid,
   uid: state.uid,
   theplan: state.theplan,
   links: state.links,

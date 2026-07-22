@@ -443,11 +443,11 @@ export const Header = (props) => {
                             $4.99
                           </span>
                         </Link>
-                      </div> */}
+                      </div>
                   
 
-                   
-                      {/* <div>
+                  
+                       <div>
                         <Link className="header__title-" to="/standardplan">
                           <span
                             //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
@@ -457,7 +457,7 @@ export const Header = (props) => {
                             $9.99
                           </span>
                         </Link>
-                      </div> */}
+                      </div>  */}
                     
 
                       <div>

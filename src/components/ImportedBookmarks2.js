@@ -151,7 +151,7 @@ const ImportedBookmarks2 = (props) => {
                   className="button-style-1- button-2w"
                   onClick={closeThisPage}
                 >
-                  Close and Return
+                  Close
                 </button>
               </div>
             </div>

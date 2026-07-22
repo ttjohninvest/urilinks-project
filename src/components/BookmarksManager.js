@@ -95,7 +95,7 @@ class BookmarksManager extends React.Component {
                     title="this is for importing bookmarks that were exported from a browser"
                   >
                     {" "}
-                    convert folder names to hashtags
+                    click to convert folder names to hashtags
                   </label>{" "}
                 </li>
 

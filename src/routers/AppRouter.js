@@ -19,7 +19,7 @@ import LoginPage from "../components/LoginPage";
 import IdeasPage from "../components/IdeasPage";
 //import TeirsPayment3 from "../components/TeirsPayment3";
 import SimpleTest from "../components/SimpleTest";
-import SimpleTest2 from "../components/SimpleTest2";
+//import SimpleTest2 from "../components/SimpleTest2";
 
 // import BasicPlan from "../components/BasicPlan";
 // import StandardPlan from "../components/StandardPlan";

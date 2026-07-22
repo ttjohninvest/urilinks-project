@@ -74,7 +74,8 @@ export const startDeleteAccount = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
 
-    if(uid!=="" && uid !== null && uid !== undefined)
+    //if the uid is "" then the entire database of users, will be erased without the following if condition
+    if(!!uid !== false && uid.length===28) //user id's have 28 characters (numbers and letters). The protects the database.
      return database
       .ref(`users/${uid}`)
       .remove()

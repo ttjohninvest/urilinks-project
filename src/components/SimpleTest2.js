@@ -8,14 +8,16 @@ const SimpleTest2 = (props) => {
  return (
     <div className="body1 flexrow2w">
 
-      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" && props.links.length <= StorageSizes.free 
+      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" 
+      //&& props.links.length <= StorageSizes.free 
       ? (
 
             <stripe-pricing-table pricing-table-id="prctbl_1RuMq02fleTjRvBSfO1vqJEU"
               client-reference-id={props.theplan.uid+props.theplan.subscriptionId}
               publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
             </stripe-pricing-table>
-         ) : props.theplan.plan.replace(/"/g, "") === "basic" && props.links.length <= StorageSizes.basic 
+         ) : props.theplan.plan.replace(/"/g, "") === "basic" 
+         //&& props.links.length <= StorageSizes.basic 
            ? (
        
                 <stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
@@ -23,7 +25,8 @@ const SimpleTest2 = (props) => {
                   publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
                 </stripe-pricing-table>
 
-            ) : props.theplan.plan.replace(/"/g, "") === "standard" && props.links.length <= StorageSizes.standard 
+            ) : props.theplan.plan.replace(/"/g, "") === "standard" 
+            //&& props.links.length <= StorageSizes.standard 
               ? (
                     <stripe-pricing-table pricing-table-id="prctbl_1RuQqj2fleTjRvBSS5h0OR2W"
                     client-reference-id={props.theplan.uid+props.theplan.subscriptionId}

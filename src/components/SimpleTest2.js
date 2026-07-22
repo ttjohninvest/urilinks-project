@@ -29,7 +29,7 @@ const SimpleTest2 = (props) => {
                     client-reference-id={props.theplan.uid+props.theplan.subscriptionId}
                     publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
                     </stripe-pricing-table>
-             ):""
+             ):"hello"
  };
    
    

@@ -84,7 +84,7 @@ const AppRouter = (props) => (
           //path="/simple"
           signup={props.signup}
           //component={TeirsPayment3}
-          component={PreimiumPlan}
+          component={PremiumPlan}
         />
 
 

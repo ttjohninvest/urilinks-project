@@ -1,10 +1,10 @@
 ========================================================================================================================
 SALVATION
-I hope you are all blessed. Please say "I call upon the name of Jesus Christ to save me." Please see King James Version of the Holy Bible Romans 10:13 and Acts 2:21 for the wonderful invitation. Also, please see the Salvation part of Mark 16:16: Mark 16:16 (KJV) states: "He that believeth and is baptized shall be saved." Also,  please see Galatians 3:27 "For as many of you as have been baptized into Christ have put on Christ." and please see Colossians 1:27: " To whom God would make known what is the riches of the glory of this mystery among the Gentiles; which is Christ in you, the hope of glory". Also, please see the Ethiopian Enuch and Philip story in Acts 8:27 to Acts 8:39: 27 And he arose and went: and, behold, a man of Ethiopia, an eunuch of great authority under Candace queen of the Ethiopians, who had the charge of all her treasure, and had come to Jerusalem for to worship, 28 Was returning, and sitting in his chariot read Esaias the prophet. 29 Then the Spirit said unto Philip, Go near, and join thyself to this chariot. 30 And Philip ran thither to him, and heard him read the prophet Esaias, and said, Understandest thou what thou readest? 31 And he said, How can I, except some man should guide me? And he desired Philip that he would come up and sit with him. 32 The place of the scripture which he read was this, He was led as a sheep to the slaughter; and like a lamb dumb before his shearer, so opened he not his mouth: 33 In his humiliation his judgment was taken away: and who shall declare his generation? for his life is taken from the earth. 34 And the eunuch answered Philip, and said, I pray thee, of whom speaketh the prophet this? of himself, or of some other man? 35 Then Philip opened his mouth, and began at the same scripture, and preached unto him Jesus. 36 And as they went on their way, they came unto a certain water: and the eunuch said, See, here is water; what doth hinder me to be baptized? 37 And Philip said, If thou believest with all thine heart, thou mayest. And he answered and said, I believe that Jesus Christ is the Son of God. 38 And he commanded the chariot to stand still: and they went down both into the water, both Philip and the eunuch; and he baptized him. 39 And when they were come up out of the water, the Spirit of the Lord caught away Philip, that the eunuch saw him no more: and he went on his way rejoicing.
+I hope you are all blessed. Please say "I call upon the name of Jesus Christ to save me." Please see King James Version of the Holy Bible Romans 10:13 and Acts 2:21 for the wonderful invitation. Also, please see the Salvation part of Mark 16:16: Mark 16:16 (KJV) states: "He that believeth and is baptized shall be saved." Also, please see Galatians 3:27 "For as many of you as have been baptized into Christ have put on Christ." and please see Colossians 1:27: " To whom God would make known what is the riches of the glory of this mystery among the Gentiles; which is Christ in you, the hope of glory". Also, please see the Ethiopian Enuch and Philip story in Acts 8:27 to Acts 8:39: 27 And he arose and went: and, behold, a man of Ethiopia, an eunuch of great authority under Candace queen of the Ethiopians, who had the charge of all her treasure, and had come to Jerusalem for to worship, 28 Was returning, and sitting in his chariot read Esaias the prophet. 29 Then the Spirit said unto Philip, Go near, and join thyself to this chariot. 30 And Philip ran thither to him, and heard him read the prophet Esaias, and said, Understandest thou what thou readest? 31 And he said, How can I, except some man should guide me? And he desired Philip that he would come up and sit with him. 32 The place of the scripture which he read was this, He was led as a sheep to the slaughter; and like a lamb dumb before his shearer, so opened he not his mouth: 33 In his humiliation his judgment was taken away: and who shall declare his generation? for his life is taken from the earth. 34 And the eunuch answered Philip, and said, I pray thee, of whom speaketh the prophet this? of himself, or of some other man? 35 Then Philip opened his mouth, and began at the same scripture, and preached unto him Jesus. 36 And as they went on their way, they came unto a certain water: and the eunuch said, See, here is water; what doth hinder me to be baptized? 37 And Philip said, If thou believest with all thine heart, thou mayest. And he answered and said, I believe that Jesus Christ is the Son of God. 38 And he commanded the chariot to stand still: and they went down both into the water, both Philip and the eunuch; and he baptized him. 39 And when they were come up out of the water, the Spirit of the Lord caught away Philip, that the eunuch saw him no more: and he went on his way rejoicing.
 I hope this helps. John 17:3 "And this is life eternal, that they might know thee the only true God, and Jesus Christ, whom thou hast sent." I hope you all are blessed. Saint John
 ===================================================================================================================
 
-joy advice: Helping people to stop sinning through the Gospel of Jesus Christ in the ministry of reconciliation so they stop experiencing tribulation anguish from living wrong.  Step 1 please say "I call upon the name of Jesus Christ to save me." Pray to Jesus Christ and Holy Father God. Tell Holy Father God that you love him. Tell Jesus Christ that you love him. Embrace suffering by abandoning drunkenness and illicit sexual pleasures. Suffer for doing what is right. Experience peace, love and joy by walking by the Faith of Christ and stop suffering for doing wrong things. I hope you are blessed. Serve people out of love.
+joy advice: Helping people to stop sinning through the Gospel of Jesus Christ in the ministry of reconciliation so they stop experiencing tribulation anguish from living wrong. Step 1 please say "I call upon the name of Jesus Christ to save me." Pray to Jesus Christ and Holy Father God. Tell Holy Father God that you love him. Tell Jesus Christ that you love him. Embrace suffering by abandoning drunkenness and illicit sexual pleasures. Suffer for doing what is right. Experience peace, love and joy by walking by the Faith of Christ and stop suffering for doing wrong things. I hope you are blessed. Serve people out of love.
 
 Annie and Jordan Best Friends https://www.youtube.com/watch?v=SMhZXMNPzD8
 
@@ -211,39 +211,41 @@ allow read, write;
 }
 
 ---
+
 these 3 work
 {
-  "rules": {
-    "users": {
-      "$uid": {
-        ".read": "auth != null",
-        ".write": "auth != null && auth.uid === $uid"
-      }
-    }
-  }
+"rules": {
+"users": {
+"$uid": {
+".read": "auth != null",
+".write": "auth != null && auth.uid === $uid"
+}
+}
+}
 }
 
 {
-  "rules": {
-    "users": {
-      ".read":true,
-      "$uid": {
-        ".write": "auth != null && auth.uid === $uid"
-      }
-    }
-  }
-} 
+"rules": {
+"users": {
+".read":true,
+"$uid": {
+".write": "auth != null && auth.uid === $uid"
+}
+}
+}
+}
 
 {
-  "rules": {
-    "users": {
-      "$uid": {
-        ".read":true,
-        ".write": "auth != null && auth.uid === $uid"
-      }
-    }
-  }
-} 
+"rules": {
+"users": {
+"$uid": {
+".read":true,
+".write": "auth != null && auth.uid === $uid"
+}
+}
+}
+}
+
 ---
 
 {
@@ -274,6 +276,7 @@ these 3 work
 ".write": true
 }
 }
+
 ---
 
 {
@@ -604,6 +607,7 @@ open two projects, in github.com and vercel.com
 GUI-CLI Integration: Users want more tools that allow interaction with GUI features, like clipboard access or managing desktop settings from the command line across different operating systems.
 
 ---
+
 ---
 
 tools (utilities)
@@ -612,10 +616,9 @@ i had uuid 3.1.0
 get an old file command:
 git show HEAD~26:src/components/FetchBookmarks.js > FetchBookmarks-old.js
 
-
 online websites that have my credit card
 heroku.com
-google cloud 
+google cloud
 //
 credit card changes (auto pay per month):
 neighbor.com, due on 17th each month for parking
@@ -1466,23 +1469,23 @@ error: when git push heroku main does not work because dialog shows saying somet
 step to fix: heroku login
 
 stripe and database testing procedure so real money is not used, vercel api, secret and cancel subscrition in vercel
-purpose: write the plan name and the database correctly to the database and make sure stripe keeps working by 
+purpose: write the plan name and the database correctly to the database and make sure stripe keeps working by
 putting the subscription entry and deleting the old subscription entry if user upgrades to more expensive plan so he or
 she is not charged twice
 use non live WHSEC in urilinks sandbox
- test:whsec_bgc4vUti9rokDeFqFjmZe2spwqLNsSRO
- live:whsec_qYxipjGk2OZEVqzBmwDTRTrQo5t5Smtd
+test:whsec_bgc4vUti9rokDeFqFjmZe2spwqLNsSRO
+live:whsec_qYxipjGk2OZEVqzBmwDTRTrQo5t5Smtd
 use non live pricing tables by copying em in in Simple.js, this module replaces TeirsPayment3.js
-test:change Simple to SimpleTest
-live:change SimpleTest to Simple
+test:change Simple to SimpleTest2
+live:change SimpleTest2 to Simple
 use non live SK_LIVE id, SK means secret key in stripe
- test:sk_test_51Rme3v2fleTjRvBSzv9KBZXJwXiicVNCXxVRLSLqwfCzH78gG6c0kH2ODJmXhxz1F6T6aLzeD8coyTKmjZQWKRD90057KknU14
- live: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
+test:sk_test_51Rme3v2fleTjRvBSzv9KBZXJwXiicVNCXxVRLSLqwfCzH78gG6c0kH2ODJmXhxz1F6T6aLzeD8coyTKmjZQWKRD90057KknU14
+live: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
 you don't need to change the google service account code regarding the database object
-that is it, now you can click plans, it will update stripe with subscription and the database with plan name, basic, standard or premium and put in the customer id and subscription id. the same database is used for live and non live 
+that is it, now you can click plans, it will update stripe with subscription and the database with plan name, basic, standard or premium and put in the customer id and subscription id. the same database is used for live and non live
 
 marketing and promoting it
-I would like people to see it as their own webpage where they can have the links they want on it like a [profession name] can have all of the [profession name]s they associate with on it and they can share their [profession name]s 
+I would like people to see it as their own webpage where they can have the links they want on it like a [profession name] can have all of the [profession name]s they associate with on it and they can share their [profession name]s
 with other [profession name]s or anyone who wants to see their list of [profession name]s
 
 each link has a note section
@@ -1490,7 +1493,7 @@ can search by link or hash tag or in note section
 
 qr code code:
 Client-Side (Browser)
-For a simple frontend implementation, include the qrcodejs library and use the QRCode constructor to render the code into a DOM element. 
+For a simple frontend implementation, include the qrcodejs library and use the QRCode constructor to render the code into a DOM element.
 
 <!DOCTYPE html>
 <html>
@@ -1505,7 +1508,7 @@ For a simple frontend implementation, include the qrcodejs library and use the Q
         function generateQR() {
             const url = document.getElementById("urlInput").value;
             const container = document.getElementById("qrcode");
-            
+
             // Clear previous QR code
             container.innerHTML = "";
 
@@ -1525,94 +1528,98 @@ For a simple frontend implementation, include the qrcodejs library and use the Q
             });
         }
     </script>
+
 </body>
 </html>
 
 Server-Side (Node.js)
-For backend generation, install the qrcode package (npm install qrcode) and use toDataURL or toFile. 
+For backend generation, install the qrcode package (npm install qrcode) and use toDataURL or toFile.
 
 const QRCode = require('qrcode');
 
 async function generateQRCode(url) {
-    try {
-        // Generate QR code as a base64 data URL
-        const qrCodeBase64 = await QRCode.toDataURL(url, {
-            width: 200,
-            margin: 1,
-            color: {
-                dark: "#000000",
-                light: "#ffffff"
-            }
-        });
-        return qrCodeBase64;
-    } catch (err) {
-        console.error("Error generating QR code:", err);
-        throw err;
-    }
+try {
+// Generate QR code as a base64 data URL
+const qrCodeBase64 = await QRCode.toDataURL(url, {
+width: 200,
+margin: 1,
+color: {
+dark: "#000000",
+light: "#ffffff"
+}
+});
+return qrCodeBase64;
+} catch (err) {
+console.error("Error generating QR code:", err);
+throw err;
+}
 }
 
 // Example usage
 const myUrl = "https://example.com";
 generateQRCode(myUrl).then(base64 => {
-    console.log("Base64 QR Code:", base64);
-    // Use this in an <img src="..."> tag
+console.log("Base64 QR Code:", base64);
+// Use this in an <img src="..."> tag
 });
--------------------------------------------------------------------------------------------
+
+---
+
 code to shorten a url:
 Option 1: Using a Third-Party API (Functional Shortener)
-This example uses the TinyURL API to generate a real, redirectable short URL. You need a token from TinyURL for this to work. 
+This example uses the TinyURL API to generate a real, redirectable short URL. You need a token from TinyURL for this to work.
 
 async function shortenUrl(url) {
-  const apiUrl = "https://api.tinyurl.com/create";
-  const token = "your_tinyurl_token"; // Replace with your actual token
+const apiUrl = "https://api.tinyurl.com/create";
+const token = "your_tinyurl_token"; // Replace with your actual token
 
-  try {
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
-      body: JSON.stringify({ url: url })
-    });
-    const data = await response.json();
-    return data.data.short_url;
-  } catch (error) {
-    console.error("Error shortening URL:", error);
-    return null;
-  }
+try {
+const response = await fetch(apiUrl, {
+method: "POST",
+headers: {
+"Content-Type": "application/json",
+"Authorization": `Bearer ${token}`
+},
+body: JSON.stringify({ url: url })
+});
+const data = await response.json();
+return data.data.short_url;
+} catch (error) {
+console.error("Error shortening URL:", error);
+return null;
 }
-------------------------------------------------------------------------------------------------------------------------------
+}
+
+---
 
 ================================================================================================================================================
 Teacher shows how to get a person to use or buy something at https://www.youtube.com/watch?v=gTZSVThRWF8
 ai built shopify store
 build your store.ai to launch a fully automated store
 https://www.youtube.com/watch?v=gTZSVThRWF8
- step by step click link in the description
+step by step click link in the description
 integrate tool called auto ds for inventory and fulfillment
- inports trending products, updates price and images, ships orders directly to customers means no need to handle inventory, no packaging, deal with supplies and negotiation, 
+inports trending products, updates price and images, ships orders directly to customers means no need to handle inventory, no packaging, deal with supplies and negotiation,
 YOU FOCUS ON DRIVING TRAFFIC AND MAKING SALES
 FOR FREE, CREATE TICTOK VIDEOS REVIEWING YOUR PRODUCT
- STEPS
-  STOP TRYING TO APPEAL TO EVERYONE, YOU WILL APPEAL TO NOONE
-  GRAB A NOTEPAD, DESCRIBE IDEAL CUSTOMER, AGE, INTERESTS, STUGGLES, WHAT TYPE OF CONTENT DO THEY CONSUME
-    THE CLEARER YOU ARE ABOUT THIS, THE EASIER IT IS TO CREATE CONTENT THAT ATTRACTS THEIR ATTENTION
-	IT IS EASIER TO GET ATTRACT THE ATTENTION OF SOMEONE THAT YOU SPEAK DIRECTLY TO THAN TO SHOUT AT A WHOLE CROWD
-  STEP 2: CONTINUE DOING IT, KEEPING YOUR STORE IN FRONT OF PEOPLE, EVEN IF RESULTS DO NOT COME RIGHT AWAY
-    STEP 2.1 POST CONTENT DAILY TO STAY VISIBLE IN PEOPLES FEEDS, 
-	         WORK WITH INSTAGRAM INFLUENCERS TO GET PRODUCT IN FRONT OF THE RIGHT AUDIENCE
-	STEP 2.2 ENGAGE WITH COMMENTS FOR TRUST, STRENGTHEN RELATIONSHIPS AND INCREASE THE LIKELYHOOD OF CONVERSIONS
-    STEP 2.3 TEST PRODUCT DESCRIPTIONS AND IMAGES, SMALL CHANGES CAN INCREASE SALES
-	STEP 2.4 SHOW, DON'T JUST TELL, MAKE IT CLEAR WHY SOMEONE SHOULD BUY YOUR PRODUCT BY SHOWING
-	         A PERSON NEEDS A CLEAR REASON TO BUY (FOR EXAMPLE, SHOW WHY URILINKS.COM IS BETTER THAN BOOKMARKS WITH DEMONSTRATIONS IN VIDEO)
-			 A PERSON NEEDS TO BE ABLE TO SEE HOW IT BENEFITS, 
-	STEP 2.5 A PERSON NEEDS PROOF BEFORE IT SPENDS IT'S MONEY, USE SOCIAL PROOF, REVIEWS, TESTIMONIALS, SHOW REAL PERSON USING MY PRODUCT
-	         TELL A PERSON WHY ANOTHER PERSON LIKES THE PRODUCT
-	STEP 2.6 PAY, BUY TOOLS TO AUTOMATE GETTING THE STORE IN FRONT OF USERS
-	         PAY FOR ADS
-			 TESTING CONENT IDEAS TO FIND WHAT CAUSES SALES,
-			 GET ANOTHER PERSON TO HELP, CALLED "OUT SOURCING"
+STEPS
+STOP TRYING TO APPEAL TO EVERYONE, YOU WILL APPEAL TO NOONE
+GRAB A NOTEPAD, DESCRIBE IDEAL CUSTOMER, AGE, INTERESTS, STUGGLES, WHAT TYPE OF CONTENT DO THEY CONSUME
+THE CLEARER YOU ARE ABOUT THIS, THE EASIER IT IS TO CREATE CONTENT THAT ATTRACTS THEIR ATTENTION
+IT IS EASIER TO GET ATTRACT THE ATTENTION OF SOMEONE THAT YOU SPEAK DIRECTLY TO THAN TO SHOUT AT A WHOLE CROWD
+STEP 2: CONTINUE DOING IT, KEEPING YOUR STORE IN FRONT OF PEOPLE, EVEN IF RESULTS DO NOT COME RIGHT AWAY
+STEP 2.1 POST CONTENT DAILY TO STAY VISIBLE IN PEOPLES FEEDS,
+WORK WITH INSTAGRAM INFLUENCERS TO GET PRODUCT IN FRONT OF THE RIGHT AUDIENCE
+STEP 2.2 ENGAGE WITH COMMENTS FOR TRUST, STRENGTHEN RELATIONSHIPS AND INCREASE THE LIKELYHOOD OF CONVERSIONS
+STEP 2.3 TEST PRODUCT DESCRIPTIONS AND IMAGES, SMALL CHANGES CAN INCREASE SALES
+STEP 2.4 SHOW, DON'T JUST TELL, MAKE IT CLEAR WHY SOMEONE SHOULD BUY YOUR PRODUCT BY SHOWING
+A PERSON NEEDS A CLEAR REASON TO BUY (FOR EXAMPLE, SHOW WHY URILINKS.COM IS BETTER THAN BOOKMARKS WITH DEMONSTRATIONS IN VIDEO)
+A PERSON NEEDS TO BE ABLE TO SEE HOW IT BENEFITS,
+STEP 2.5 A PERSON NEEDS PROOF BEFORE IT SPENDS IT'S MONEY, USE SOCIAL PROOF, REVIEWS, TESTIMONIALS, SHOW REAL PERSON USING MY PRODUCT
+TELL A PERSON WHY ANOTHER PERSON LIKES THE PRODUCT
+STEP 2.6 PAY, BUY TOOLS TO AUTOMATE GETTING THE STORE IN FRONT OF USERS
+PAY FOR ADS
+TESTING CONENT IDEAS TO FIND WHAT CAUSES SALES,
+GET ANOTHER PERSON TO HELP, CALLED "OUT SOURCING"
 
 out sourcing websites:
 https://www.fiverr.com/search/gigs?query=tutorial&source=top-bar&ref_ctx_id=7923575c53664d96ab662e53b85606d3&search_in=everywhere&search-autocomplete-original-term=tutorial
@@ -1624,7 +1631,3 @@ bookmarks or urilinks
 search by link text, hashtag or note text
 friendly user interface
 youtube thumbnails
-
-
-
-	

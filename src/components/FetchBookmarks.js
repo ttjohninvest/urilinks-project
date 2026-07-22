@@ -11,7 +11,7 @@ import ImportedBookmarks2 from "./ImportedBookmarks2";
 import { storage } from "../firebase/firebase";
 import LoadingPage from "./LoadingPage";
 //import TeirsPayment3 from "./TeirsPayment3";
-import SimpleTest from "./SimpleTest";
+import SimpleTest2 from "./SimpleTest2";
 import StorageSizes from "./StorageSizes";
 
 const FetchBookmarks = (props) => {
@@ -85,13 +85,22 @@ const FetchBookmarks = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
+    if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "free"
+    ) {
       max = StorageSizes.free;
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "basic"
+    ) {
       max = StorageSizes.basic;
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "standard"
+    ) {
       max = StorageSizes.standard;
-    } else if(!!props.theplan.plan===false) {
+    } else if (!!props.theplan.plan === false) {
       max = StorageSizes.free;
     } else {
       //premium
@@ -3205,7 +3214,7 @@ const FetchBookmarks = (props) => {
         </div>
       ) : payPage === true ? (
         <div>
-          <SimpleTest />
+          <SimpleTest2 />
           {/* <TeirsPayment3 /> */}
         </div>
       ) : (

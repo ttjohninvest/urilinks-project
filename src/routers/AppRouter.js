@@ -18,8 +18,8 @@ import NotFoundPage from "../components/NotFoundPage";
 import LoginPage from "../components/LoginPage";
 import IdeasPage from "../components/IdeasPage";
 //import TeirsPayment3 from "../components/TeirsPayment3";
-//import SimpleTest from "../components/SimpleTest";
-import SimpleTest from "../components/SimpleTest";
+//import SimpleTest2 from "../components/SimpleTest2";
+import SimpleTest2 from "../components/SimpleTest2";
 import BookmarksManager from "../components/BookmarksManager";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
@@ -55,7 +55,7 @@ const AppRouter = (props) => (
           //path="/simple"
           signup={props.signup}
           //component={TeirsPayment3}
-          component={SimpleTest}
+          component={SimpleTest2}
         />
         <PrivateRoute
           path="/settings"

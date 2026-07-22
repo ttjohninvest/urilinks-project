@@ -6,7 +6,7 @@ import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 //import TeirsPayment3 from "./TeirsPayment3";
-import SimpleTest from "./SimpleTest";
+import SimpleTest2 from "./SimpleTest2";
 import StorageSizes from "./StorageSizes";
 //uiuhff
 export const AddLinkPage = (props) => {
@@ -19,16 +19,25 @@ export const AddLinkPage = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
+    if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "free"
+    ) {
       max = StorageSizes.free;
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "basic"
+    ) {
       max = StorageSizes.basic;
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "standard"
+    ) {
       max = StorageSizes.standard;
-    } else if(!!props.theplan.plan===false) {
+    } else if (!!props.theplan.plan === false) {
       max = StorageSizes.free;
     } else {
-       max = StorageSizes.premium;
+      max = StorageSizes.premium;
     }
 
     console.log("AddLinkPage.js, bookmarks, max=" + max);
@@ -137,14 +146,11 @@ export const AddLinkPage = (props) => {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
       } else {
-        
         //window.location.href = "https://urilinks.com/dashboard?signup=&id="+user.uid //props.theplan.plan.uid
-       
+
         props.history.push("/");
         //window.location.reload();
         window.location.href = "https://urilinks.com?signup=signup";
-
-       
       }
     } else {
       console.log("maximum links reached");
@@ -175,7 +181,7 @@ export const AddLinkPage = (props) => {
       ) : (
         <div>
           {" "}
-          <SimpleTest />
+          <SimpleTest2 />
           {/* <TeirsPayment3 /> */}
         </div>
       )}

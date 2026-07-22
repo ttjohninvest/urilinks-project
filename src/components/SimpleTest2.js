@@ -8,7 +8,7 @@ const SimpleTest2 = (props) => {
  return (
     <div className="body1 flexrow2w">
 
-      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" 
+      {/* {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" 
       //&& props.links.length <= StorageSizes.free 
       ? (
 
@@ -19,12 +19,12 @@ const SimpleTest2 = (props) => {
          ) : props.theplan.plan.replace(/"/g, "") === "basic" 
          //&& props.links.length <= StorageSizes.basic 
            ? (
-       
+        */}
                 <stripe-pricing-table pricing-table-id="prctbl_1RuQol2fleTjRvBSMfNwP6ir"
                   client-reference-id={props.theplan.uid+props.theplan.subscriptionId}
                   publishable-key="pk_test_51Rme3v2fleTjRvBSOV8WwAXKcCWeL69RaHntXDSL0l4ahUHmaNuVxDadMl5IO7nnESvU7MVmJHkAIBUHeAv00Jlh00b9oiWIaO">
                 </stripe-pricing-table>
-
+{/* 
             ) : props.theplan.plan.replace(/"/g, "") === "standard" 
             //&& props.links.length <= StorageSizes.standard 
               ? (
@@ -34,7 +34,7 @@ const SimpleTest2 = (props) => {
                     </stripe-pricing-table>
              ):"hello"
  };
-   
+    */}
    
 </div>
  )

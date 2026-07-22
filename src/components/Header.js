@@ -460,17 +460,17 @@ export const Header = (props) => {
                       </div>  */}
                     
 
-                      <div>
+                      {props.theplan.plan.replace(/"/g, "") !== "premium" && <div>
                         <Link className="header__title-" to="/premiumplan">
                           <span
                             //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
                             className="ib text-size-1 color-white-1 color-black-2- color-blue-1-"
-                            title="Click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links)"
+                            title="Pay $14.99/year to store up to 400 links"
                           >
                             $14.99
                           </span>
                         </Link>
-                      </div>
+                      </div>}
                     
                  
 

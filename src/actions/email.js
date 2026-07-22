@@ -73,6 +73,8 @@ export const startRemoveEmail = () => {
 export const startDeleteAccount = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
+
+    if(uid!=="" && uid !== null && uid !== undefined)
      return database
       .ref(`users/${uid}`)
       .remove()

@@ -1632,7 +1632,14 @@ search by link text, hashtag or note text
 friendly user interface
 youtube thumbnails
 
+========================
+Problem: database firebase realtime database was blinking and leaving thePlan key under the user id. delete was being prevented from working:
+
+Solution:
 google cloud service account that I need for urilinks and firebase realtime database is stored in johmcg64@gmail.com
 using urilinks project so I can create the .GOOGLE_APPLICATION_CREDENTIALS_JSON_BASE64 for the stripe webhook project 
 urilinks-project-vercel-stripe that I use to write to the database. ./Base64 serviceaccount.json outputs the long string
 to put in the environment variable in vercel for the project.
+========================
+
+

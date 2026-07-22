@@ -63,7 +63,7 @@ const AppRouter = (props) => (
           component={SimpleTest}
         />
 
-          <PrivateRoute
+          {/* <PrivateRoute
           path="/basicplan"
           //path="/simple"
           signup={props.signup}
@@ -85,7 +85,7 @@ const AppRouter = (props) => (
           signup={props.signup}
           //component={TeirsPayment3}
           component={PremiumPlan}
-        />
+        /> */}
 
 
 

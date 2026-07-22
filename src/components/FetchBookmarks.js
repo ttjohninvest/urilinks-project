@@ -11,7 +11,8 @@ import ImportedBookmarks2 from "./ImportedBookmarks2";
 import { storage } from "../firebase/firebase";
 import LoadingPage from "./LoadingPage";
 //import TeirsPayment3 from "./TeirsPayment3";
-import SimpleTest2 from "./SimpleTest2";
+//import SimpleTest2 from "./SimpleTest2";
+import PremiumPlan from "./PremiumPlan"
 import StorageSizes from "./StorageSizes";
 
 const FetchBookmarks = (props) => {
@@ -3214,7 +3215,8 @@ const FetchBookmarks = (props) => {
         </div>
       ) : payPage === true ? (
         <div>
-          <SimpleTest2 />
+          <PremiumPlan />
+          {/* <SimpleTest2 /> */}
           {/* <TeirsPayment3 /> */}
         </div>
       ) : (

@@ -467,7 +467,7 @@ export const Header = (props) => {
                             className="ib text-size-1 color-white-1 color-black-2- color-blue-1-"
                             title="Pay $14.99/year to store up to 400 links"
                           >
-                            $14.99
+                            Pay $14.99
                           </span>
                         </Link>
                       </div>}

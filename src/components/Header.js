@@ -36,6 +36,7 @@ export const Header = (props) => {
   const [uid, setUid] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [theplan, setTheplan] = useState("");
   const [bmok, setBmok] = useState(false);
   const ideas = () => {};
 
@@ -158,6 +159,10 @@ export const Header = (props) => {
       setUid(gud.uid);
       setName(gud.displayname);
       setEmail(user.email)
+      if(props.theplan.plan==="basic") setTheplan("basic")
+      else if(props.theplan.plan==="standard") setTheplan("standard")
+      else if(props.theplan.plan==="premium") setTheplan("premium")
+      else setTheplan("free")
     }
 
     // }
@@ -347,7 +352,7 @@ export const Header = (props) => {
                         height="32"
                         style={{ borderRadius: "50%" }}
                         className="ib- margin-bottom-11-"
-                        title={name+", "+email}
+                        title={name+", "+email+", "+theplan}
                         alt="example"
                       />
                     </div>

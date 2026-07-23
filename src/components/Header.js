@@ -8,7 +8,6 @@ import { setLinks } from "../actions/links";
 import redarrow from "../assets/images/red-arrow.jpg";
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 
-
 //import logo from "../assets/images/logo-l.png";
 //import logo from "../assets/images/logo-orange-urilinks.png";
 import logo from "../assets/images/logo-orange-u.png";
@@ -41,27 +40,26 @@ export const Header = (props) => {
   const ideas = () => {};
 
   function slowScrollDown(distance, duration) {
-  const startingY = window.pageYOffset;
-  const targetY = startingY + distance;
-  const startTime = performance.now();
+    const startingY = window.pageYOffset;
+    const targetY = startingY + distance;
+    const startTime = performance.now();
 
-  function animate(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    
-    // Easing function (ease-out) for smoother deceleration
-    const easeOut = 1 - Math.pow(1 - progress, 3);
-    
-    window.scrollTo(0, startingY + (targetY - startingY) * easeOut);
+    function animate(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
 
-    if (progress < 1) {
-      requestAnimationFrame(animate);
+      // Easing function (ease-out) for smoother deceleration
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+
+      window.scrollTo(0, startingY + (targetY - startingY) * easeOut);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
     }
+
+    requestAnimationFrame(animate);
   }
-
-  requestAnimationFrame(animate);
-}
-
 
   const isInMeArray = () => {
     //these email address are allowed to upload bookmark files
@@ -158,11 +156,12 @@ export const Header = (props) => {
       setEmaildb(user.email);
       setUid(gud.uid);
       setName(gud.displayname);
-      setEmail(user.email)
-      if(props.theplan.plan==="basic") setTheplan("basic")
-      else if(props.theplan.plan==="standard") setTheplan("standard")
-      else if(props.theplan.plan==="premium") setTheplan("premium")
-      else setTheplan("free")
+      setEmail(user.email);
+      if (props.theplan.plan === "basic") setTheplan("on basic plan");
+      else if (props.theplan.plan === "standard")
+        setTheplan("on standard plan");
+      else if (props.theplan.plan === "premium") setTheplan("on premium plan");
+      else setTheplan("free");
     }
 
     // }
@@ -170,9 +169,8 @@ export const Header = (props) => {
     //   setPhotoURL("");
     // }
 
-    
-// Usage: Scroll 300 pixels down over 1000ms (1 second)
-//slowScrollDown(2000, 1000);
+    // Usage: Scroll 300 pixels down over 1000ms (1 second)
+    //slowScrollDown(2000, 1000);
   }, []);
 
   const scrolldown = () => {
@@ -209,7 +207,10 @@ export const Header = (props) => {
       ) {
         //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
         //if(true) {
-        if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
+        if (
+          !!props.theplan.plan &&
+          props.theplan.plan.replace(/"/g, "") === "free"
+        ) {
           props.startDeleteAccount();
           logoutit();
         } else {
@@ -273,50 +274,49 @@ export const Header = (props) => {
   const okToShow = () => {};
 
   return (
-    
     <div className="top0pos-sticky-">
       {isMobile() === false ? (
         <div>
-        <div id="top">
-          {!deleteAccountError ? (
-            <header className="header relief- bg-color-1g- bg-color-1">
-              <div className="">
-                <div className="flexrow2w">
-                  <div className="flexrowzl1">
-                    <Link
-                      className="nounderline color-white-1 cursor-pointer"
-                      to="/dashboard"
-                      title=""
-                    >
-                      <header className="margin-left-11 solid">
-                        <img
-                          className="rounded-full-1 thumbnail-"
-                          src={logo}
-                          width="35"
-                          height="35"
-                          alt="Logo"
-                        />
-                        <span className="nav-link active">
-                          {/* <i className="material-icons">home</i> */}
-                          <h3 className="color-white-1">urilinks</h3>
-                        </span>
-                        {/* <h3 className="color-white-1">urilinks</h3> */}
-                        {/* <img
+          <div id="top">
+            {!deleteAccountError ? (
+              <header className="header relief- bg-color-1g- bg-color-1">
+                <div className="">
+                  <div className="flexrow2w">
+                    <div className="flexrowzl1">
+                      <Link
+                        className="nounderline color-white-1 cursor-pointer"
+                        to="/dashboard"
+                        title=""
+                      >
+                        <header className="margin-left-11 solid">
+                          <img
+                            className="rounded-full-1 thumbnail-"
+                            src={logo}
+                            width="35"
+                            height="35"
+                            alt="Logo"
+                          />
+                          <span className="nav-link active">
+                            {/* <i className="material-icons">home</i> */}
+                            <h3 className="color-white-1">urilinks</h3>
+                          </span>
+                          {/* <h3 className="color-white-1">urilinks</h3> */}
+                          {/* <img
                       className=""
                       src={logo2}
                       width="60"
                       height="35"
                       alt="urilinks logo"
                     /> */}
-                      </header>
-                    </Link>
+                        </header>
+                      </Link>
 
-                    {/* <div className="margin-left-118 margin-top-1">
+                      {/* <div className="margin-left-118 margin-top-1">
                       <img src={signature} className="minwidth" />
                     </div> */}
-                  </div>
+                    </div>
 
-                  {/* {props.signup.signup === false && (
+                    {/* {props.signup.signup === false && (
                     <div
                       className="color-white-1"
                       title="Please use it for good. Bookmarks for internet pages, urls/links"
@@ -331,7 +331,7 @@ export const Header = (props) => {
                     </div>
                   )} */}
 
-                  {/* <div
+                    {/* <div
                     className="color-white-1"
                     title="Please use it for good. Bookmarks for internet pages, urls/links"
                   >
@@ -344,103 +344,102 @@ export const Header = (props) => {
                     </Link>
                   </div> */}
 
-                  {props.signup.signup === true || signup === "0" ? (
-                    <div className="padding-top-1112 margin-left-118">
-                      <img
-                        src={photoURL}
-                        width="32"
-                        height="32"
-                        style={{ borderRadius: "50%" }}
-                        className="ib- margin-bottom-11-"
-                        title={name+", "+email+", "+theplan}
-                        alt="example"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      className="padding-top-1112 margin-left-118-"
-                      title="welcome"
-                    >
-                      {
-                        //firebase.auth().currentUser !== null &&
-                        //firebase.auth().currentUser !== undefined
-                        //photourl==="" ||
-                        false ? ( // uid !== null
-                          <img
-                            src={photoURL}
-                            width="32"
-                            height="32"
-                            style={{ borderRadius: "50%" }}
-                            className="ib- margin-bottom-11-"
-                          />
-                        ) : (
-                          <img
-                            src={myprofile}
-                            width="32"
-                            height="32"
-                            style={{ borderRadius: "50%" }}
-                            className="ib- margin-bottom-11-"
-                            title={name}
-                            alt="example"
-                          />
-                        )
-                      }
-                    </div>
-                  )}
-
-                  {/* <div>
-                  <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="Click to see a  list of colleges and universities">colleges</a>
-                  </div> */}
-
-                  <div>
-                    <Link
-                      className="header__title- nounderline"
-                      to="/use"
-                      target="_blank"
-                    >
-                      <span
-                        className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer"
-                        title="Click to see how to use this website."
+                    {props.signup.signup === true || signup === "0" ? (
+                      <div className="padding-top-1112 margin-left-118">
+                        <img
+                          src={photoURL}
+                          width="32"
+                          height="32"
+                          style={{ borderRadius: "50%" }}
+                          className="ib- margin-bottom-11-"
+                          title={name + ", " + email + ", " + theplan}
+                          alt="example"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="padding-top-1112 margin-left-118-"
+                        title="welcome"
                       >
-                        usage
-                      </span>
-                    </Link>
-                  </div>
-
-                  <div>
-                    <Link
-                      className="header__title- nounderline"
-                      to="/termsandprivacy"
-                      target="_blank"
-                    >
-                      <span
-                        className="ib- color-white-1 color-black-2- cursor-pointer"
-                        title="Click to see terms ane privacy"
-                      >
-                        legal
-                      </span>
-                    </Link>
-                  </div>
-                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") !== "premium" &&
-                    props.signup.signup === true &&
-                    //isInMeArray() === true && 
-                    true &&
-                    (
-                      <div>
-                        <Link className="header__title-" to="/teirspayment3">
-                          <span
-                            //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
-                            className="ib text-size-1 color-white-1 color-black-2- color-blue-1-"
-                            title="Click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links)"
-                          >
-                            plans
-                          </span>
-                        </Link>
+                        {
+                          //firebase.auth().currentUser !== null &&
+                          //firebase.auth().currentUser !== undefined
+                          //photourl==="" ||
+                          false ? ( // uid !== null
+                            <img
+                              src={photoURL}
+                              width="32"
+                              height="32"
+                              style={{ borderRadius: "50%" }}
+                              className="ib- margin-bottom-11-"
+                            />
+                          ) : (
+                            <img
+                              src={myprofile}
+                              width="32"
+                              height="32"
+                              style={{ borderRadius: "50%" }}
+                              className="ib- margin-bottom-11-"
+                              title={name}
+                              alt="example"
+                            />
+                          )
+                        }
                       </div>
                     )}
 
-                    
-                      {/* <div>
+                    {/* <div>
+                  <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="Click to see a  list of colleges and universities">colleges</a>
+                  </div> */}
+
+                    <div>
+                      <Link
+                        className="header__title- nounderline"
+                        to="/use"
+                        target="_blank"
+                      >
+                        <span
+                          className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer"
+                          title="Click to see how to use this website."
+                        >
+                          usage
+                        </span>
+                      </Link>
+                    </div>
+
+                    <div>
+                      <Link
+                        className="header__title- nounderline"
+                        to="/termsandprivacy"
+                        target="_blank"
+                      >
+                        <span
+                          className="ib- color-white-1 color-black-2- cursor-pointer"
+                          title="Click to see terms ane privacy"
+                        >
+                          legal
+                        </span>
+                      </Link>
+                    </div>
+                    {!!props.theplan.plan &&
+                      props.theplan.plan.replace(/"/g, "") !== "premium" &&
+                      props.signup.signup === true &&
+                      //isInMeArray() === true &&
+                      true && (
+                        <div>
+                          <Link className="header__title-" to="/teirspayment3">
+                            <span
+                              //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
+                              className="ib text-size-1 color-white-1 color-black-2- color-blue-1-"
+                              title="Click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links)"
+                            >
+                              plans
+                            </span>
+                          </Link>
+                        </div>
+                      )}
+
+                    {/* <div>
                         <Link className="header__title-" to="/basicplan">
                           <span
                             //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
@@ -465,9 +464,8 @@ export const Header = (props) => {
                           </span>
                         </Link>
                       </div>  */}
-                    
 
-                      {/* {props.theplan.plan.replace(/"/g, "") !== "premium" && <div>
+                    {/* {props.theplan.plan.replace(/"/g, "") !== "premium" && <div>
                         <Link className="header__title-" to="/premiumplan">
                           <span
                             //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
@@ -478,27 +476,23 @@ export const Header = (props) => {
                           </span>
                         </Link>
                       </div>} */}
-                    
-                 
 
-                 
-
-                  <div>
-                    <Link
-                      className="header__title- nounderline"
-                      to="/ideas"
-                      target="_blank"
-                    >
-                      <span
-                        className="ib- color-white-1 color-black-2- cursor-pointer"
-                        title="Click to see a list of educational ideas."
+                    <div>
+                      <Link
+                        className="header__title- nounderline"
+                        to="/ideas"
+                        target="_blank"
                       >
-                        ideas
-                      </span>
-                    </Link>
-                  </div>
+                        <span
+                          className="ib- color-white-1 color-black-2- cursor-pointer"
+                          title="Click to see a list of educational ideas."
+                        >
+                          ideas
+                        </span>
+                      </Link>
+                    </div>
 
-                  {/* {props.signup.signup === true ? (
+                    {/* {props.signup.signup === true ? (
                     <div className="hide-">
                       <a
                         className="header__title- nounderline pointereventsauto"
@@ -530,111 +524,108 @@ export const Header = (props) => {
                     </div>
                   )} */}
 
-                  {props.signup.signup === true &&
-                  //&& isInMeArray(uid)===true
-                  bmok === true ? (
-                    //|| bmok === undefined//if bmok is true the menu item upload will be active and able to upload bookmarks files
+                    {props.signup.signup === true &&
+                    //&& isInMeArray(uid)===true
+                    bmok === true ? (
+                      //|| bmok === undefined//if bmok is true the menu item upload will be active and able to upload bookmarks files
 
-                    <div className="pointereventsauto hide-">
-                      <Link
-                        className="header__title- nounderline pointereventsauto"
-                        to="/bookmarksmanager"
-                      >
-                        <span
-                          className="ib- color-white-1 color-black-2- cursor-pointer pointereventsauto"
-                          ////className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
-                          title="uploads bookmarks using exported bookmarks file"
+                      <div className="pointereventsauto hide-">
+                        <Link
+                          className="header__title- nounderline pointereventsauto"
+                          to="/bookmarksmanager"
                         >
-                          upload bookmarks file
-                        </span>
-                      </Link>
-                    </div>
-                  ) : (
-                    // <div></div>
-                    <div className="pointereventsnone margin-right-1 hide-">
-                      <Link
-                        className="header__title- nounderline pointereventsnone"
-                        to="/bookmarksmanager"
-                      >
-                        <span
-                          className="ib- color-white-1 color-black-2- cursor-pointer pointereventsnone"
-                          //className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
-                          
-                          title="currently unavailable, please use Add Link."
+                          <span
+                            className="ib- color-white-1 color-black-2- cursor-pointer pointereventsauto"
+                            ////className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
+                            title="uploads bookmarks using exported bookmarks file"
+                          >
+                            upload bookmarks file
+                          </span>
+                        </Link>
+                      </div>
+                    ) : (
+                      // <div></div>
+                      <div className="pointereventsnone margin-right-1 hide-">
+                        <Link
+                          className="header__title- nounderline pointereventsnone"
+                          to="/bookmarksmanager"
                         >
-                          upload bookmarks file
-                        </span>
-                      </Link>
-                    </div>
-                  )}
+                          <span
+                            className="ib- color-white-1 color-black-2- cursor-pointer pointereventsnone"
+                            //className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
 
-                  {props.signup.signup === false && (
-                    //       <div className="flexrowz">
-                    //      <div>
-                    //    <img
-                    //      className="ib minWidth"
-                    //      src={redarrow}
-                    //      width="100"
-                    //     height="50"
-                    //      alt="Logo"
-                    //    />
-                    //  </div>
-                    <div
-                      className="color-white-1 color-black-2- margin-right-1"
-                      title="Please use it for good. Bookmarks for internet pages, urls/links"
-                    >
-                      <Link
-                        className="nounderline color-white-1 color-black-2- cursor-pointer"
-                        to="/signup"
-                        title="The first 250 saved links are free. plan $4.99 stores up to 1500; plan $9.99 stores up to 2500;plan $14.99 stores up to 5000"
-                        style={{ textDecoration: "none", color: "white" }}
-                      >
-                        signup/login
-                      </Link>
-                    </div>
-                    //  </div>
-                  )}
+                            title="currently unavailable, please use Add Link."
+                          >
+                            upload bookmarks file
+                          </span>
+                        </Link>
+                      </div>
+                    )}
 
-                  {props.signup.signup === true ? (
-                    <div className="margin-top-1111a-">
-                      <button
-                        className="button button--link ib text-size-3- color-white-1 color-black-2- cursor-pointer"
-                        onClick={logoutit}
+                    {props.signup.signup === false && (
+                      //       <div className="flexrowz">
+                      //      <div>
+                      //    <img
+                      //      className="ib minWidth"
+                      //      src={redarrow}
+                      //      width="100"
+                      //     height="50"
+                      //      alt="Logo"
+                      //    />
+                      //  </div>
+                      <div
+                        className="color-white-1 color-black-2- margin-right-1"
+                        title="Please use it for good. Bookmarks for internet pages, urls/links"
                       >
-                        logout
-                      </button>
-                    </div>
-                  ) : (
-                    ""
-                  )}
+                        <Link
+                          className="nounderline color-white-1 color-black-2- cursor-pointer"
+                          to="/signup"
+                          title="The first 250 saved links are free. plan $4.99 stores up to 1500; plan $9.99 stores up to 2500;plan $14.99 stores up to 5000"
+                          style={{ textDecoration: "none", color: "white" }}
+                        >
+                          signup/login
+                        </Link>
+                      </div>
+                      //  </div>
+                    )}
 
-                  {props.signup.signup === true ? (
-                    <div className="margin-top-1111a-">
-                      <button
-                        title="delete account"
-                        className="button button--link ib text-size-3- color-white-1 color-black-2- cursor-pointer"
-                        onClick={cancelsubscription}
-                      >
-                        delete
-                      </button>
-                    </div>
-                  ) : (
-                    ""
-                  )}
+                    {props.signup.signup === true ? (
+                      <div className="margin-top-1111a-">
+                        <button
+                          className="button button--link ib text-size-3- color-white-1 color-black-2- cursor-pointer"
+                          onClick={logoutit}
+                        >
+                          logout
+                        </button>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+
+                    {props.signup.signup === true ? (
+                      <div className="margin-top-1111a-">
+                        <button
+                          title="delete account"
+                          className="button button--link ib text-size-3- color-white-1 color-black-2- cursor-pointer"
+                          onClick={cancelsubscription}
+                        >
+                          delete
+                        </button>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </div>
-              </div>
-            </header>
-          ) : (
-            "Timeout error: To delete your accout, you will need to logout, relogin and then immediately delete the account."
-          )}
-
-          
+              </header>
+            ) : (
+              "Timeout error: To delete your accout, you will need to logout, relogin and then immediately delete the account."
+            )}
+          </div>
+          <div className="margin-left-118- margin-top-1- top0pos-sticky">
+            <img src={cathedral} className="width100a- object-fit-cover" />
+          </div>
         </div>
-              <div className="margin-left-118- margin-top-1- top0pos-sticky">
-                              <img src={cathedral} className="width100a- object-fit-cover" />
-                            </div>
-        </div>
-
       ) : (
         <div>
           <Header2 />

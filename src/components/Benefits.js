@@ -8,7 +8,7 @@ const Benefits = () => {
 return (<div>
  
   <div className="list-header__flex__center">
-    urilinks tool use:<br />
+    Interent Links Management Tool Usage:<br />
 -after you add link/s to your page, a sharable link is provided so that you may share your content with others<br />
 -links are not limited to commercial purposes<br />
 -search throuh link titles, hashtags or notes<br />

@@ -75,10 +75,8 @@ export const Header2 = (props) => {
       setEmaildb(user.email);
     }
 
-    // }
-    // else {
-    //   setPhotoURL("");
-    // }
+    
+    window.scrollTo(0,0)
   }, []);
 
   const scrolldown = () => {

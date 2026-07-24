@@ -28,7 +28,7 @@ Interent Links Management Tool Usage:<br />
 -easy account deletion, no refunds<br />
 <br />
 -If you have any questions, comments or concerns, please contact me, John, at john@urilinks.com or johmcg64@gmail.com<br />
--my phone number is 775 559 5740
+-my phone number is 775 559 5740. I am happy to help you.
 </div>
 <div></div>
 </div>)

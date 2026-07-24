@@ -34,14 +34,13 @@ import LoadingPage from "./components/LoadingPage";
 let hasRendered = false;
 const renderApp = (store) => {
   console.log("about to render the app");
-  
+
   ReactDOM.render(
     <Provider store={store}>
       <AppRouter />
     </Provider>,
     document.getElementById("app"),
   );
-  
 };
 
 /*
@@ -63,13 +62,12 @@ store.subscribe(() => {
 });
 
 if (signup !== "signup") {
-  
-  window.localStorage.setItem("notloggedin", "1")
+  window.localStorage.setItem("notloggedin", "1");
 
   if (id !== null) {
     store.dispatch(login(id));
   } else {
-    id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
+    id = "RZOEMMu7Nwa5bQ51sf71FfDX3A93";
     store.dispatch(login(id));
     //trying to get auth.uid set for firebase realtime database
     //https://search.brave.com/search?q=signinwithcustomtoken+example&summary=1&conversation=09551df67729851dc86250d9dcba75ea9728
@@ -86,10 +84,7 @@ if (signup !== "signup") {
       return store
         .dispatch(getTheplan2(id))
         .then(() => {
-          
           renderApp(store, signup);
-         
-
         })
         .catch((error) => {
           console.log("theplan, error", error);
@@ -98,8 +93,6 @@ if (signup !== "signup") {
     .catch((error) => {
       console.log("error", error);
     });
-
- 
 } else {
   store.dispatch({
     type: "SET_SIGNUP",
@@ -109,9 +102,9 @@ if (signup !== "signup") {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log("logged in user=" + JSON.stringify(user));
-      
+
       store.dispatch(login(user.uid));
-      
+
       window.localStorage.setItem("notloggedin", "0");
       // store.dispatch(startAddLink({ //only do this on the first one
       //     showpublic:false,
@@ -126,8 +119,6 @@ if (signup !== "signup") {
       //     faviconURL : "",
       //   })).then(()=>{}).catch(()=>{})
 
-
-      
       store
         .dispatch(startSetLinksNew(user.uid))
         .then(() => {
@@ -163,8 +154,6 @@ if (signup !== "signup") {
         .catch((error) => {
           console.log("error", error);
         });
-
-     
     } else {
       console.log("logout happened");
       store.dispatch(logout());

@@ -46,7 +46,7 @@ export const AddLinkPageFileDate = (props) => {
 
           const db = firebase.database();
           const snapshot = await db
-            .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/linksfiledate`)
+            .ref(`/users/RZOEMMu7Nwa5bQ51sf71FfDX3A93/linksfiledate`)
             .once("value");
           if (snapshot.exists()) {
             const data = snapshot.val();

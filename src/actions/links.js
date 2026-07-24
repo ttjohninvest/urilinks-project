@@ -249,7 +249,7 @@ export const startSetLinks = (uid) => {
         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links2));
 
-        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+        //RZOEMMu7Nwa5bQ51sf71FfDX3A93
         let hashtags = [];
         const longnamesnowhitespace = [];
         const longnames = [];
@@ -266,8 +266,8 @@ export const startSetLinks = (uid) => {
 
         let h2 = homelesslist + prisonerslist + ht + htc;
 
-        if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2") x1 = "";
-        else if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
+        if (uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93") x1 = "";
+        else if (uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93")
           //x1 = extractHashtags(h2);
 
           x1 = extractHashtags(h2);
@@ -460,8 +460,8 @@ export const startSetLinksNew = (uid) => {
           "#JesusChrist#SalvationOfJesusChrist#LifeOfJesusChrist#GraceOfJesusChrist#FaithOfJesusChrist#AudioHolyBible#Fellowship#Kindness#Devine#Love#MysteryOfJesusChrist#FaithOfJesusChrist#LivingWaters#DeathOfChrist#ResurrectionOfChrist#Prayers#Sermons#Healings#CatholicChurches#Happy#Joy#Cathedrals#Homilies#Israel#Nuns#Priests#Saints#Angels#Music#Pictures#Videos#Movies#Testimonies#Pastors#Deacons#Christmas#ChristmasTrees#Easter#HolyBibles#Maps#Directions#Convents#Vatican#Popes#HolyGodTheFather#Donations#Forgiveness#Humility#Services#Disciples#BlessedMary#Flowers#Cardinals#Blessings#CatholicPriests";
         let h2 = homelesslist + prisonerslist + ht + htc;
 
-        if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2") x1 = "";
-        else if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
+        if (uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93") x1 = "";
+        else if (uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93")
           x1 = extractHashtags(h2);
         else x1 = extractHashtags(h1);
         //x1 = extractHashtags(h2);

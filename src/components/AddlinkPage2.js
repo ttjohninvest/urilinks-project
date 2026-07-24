@@ -18,13 +18,22 @@ export const AddLinkPage2 = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
+    if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "free"
+    ) {
       max = StorageSizes.free;
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "basic"
+    ) {
       max = StorageSizes.basic;
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "standard"
+    ) {
       max = StorageSizes.standard;
-    } else if(!!props.theplan.plan === false) {
+    } else if (!!props.theplan.plan === false) {
       max = StorageSizes.free;
     } else {
       //premium
@@ -43,7 +52,7 @@ export const AddLinkPage2 = (props) => {
     console.log("getPlanMax()=" + getPlanMax());
     const fetchData = async () => {
       try {
-        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+        //RZOEMMu7Nwa5bQ51sf71FfDX3A93
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           if (user) {
@@ -54,18 +63,18 @@ export const AddLinkPage2 = (props) => {
             console.log("No user is currently logged in.");
           }
         } else {
-          setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
+          setUserId("RZOEMMu7Nwa5bQ51sf71FfDX3A93");
         }
 
         const db = firebase.database();
-        ////try {//XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+        ////try {//RZOEMMu7Nwa5bQ51sf71FfDX3A93
         let snapshot;
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
           snapshot = await db
-            .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
+            .ref(`/users/RZOEMMu7Nwa5bQ51sf71FfDX3A93/links`)
             .once("value");
         }
 

@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom";
 //import TeirsPayment3 from "./TeirsPayment3";
 import Simple from "./Simple";
 //import SimpleTest2 from "./SimpleTest2";
-import PremiumPlan from "./PremiumPlan"
+import PremiumPlan from "./PremiumPlan";
 import StorageSizes from "./StorageSizes";
 
 export const AddLinkPage = (props) => {
@@ -54,7 +54,7 @@ export const AddLinkPage = (props) => {
     console.log("getPlanMax()=" + getPlanMax());
     const fetchData = async () => {
       try {
-        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+        //RZOEMMu7Nwa5bQ51sf71FfDX3A93
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           if (user) {
@@ -65,18 +65,18 @@ export const AddLinkPage = (props) => {
             console.log("No user is currently logged in.");
           }
         } else {
-          setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
+          setUserId("RZOEMMu7Nwa5bQ51sf71FfDX3A93");
         }
 
         const db = firebase.database();
-        ////try {//XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+        ////try {//RZOEMMu7Nwa5bQ51sf71FfDX3A93
         let snapshot;
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
           snapshot = await db
-            .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
+            .ref(`/users/RZOEMMu7Nwa5bQ51sf71FfDX3A93/links`)
             .once("value");
         }
 

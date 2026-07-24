@@ -40,7 +40,7 @@ class FileUpload extends React.Component {
   };
 
   uploadFiles = (file) => {
-    //"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+    //"RZOEMMu7Nwa5bQ51sf71FfDX3A93"
     let user;
     let uid;
     let uploadTask;
@@ -50,9 +50,9 @@ class FileUpload extends React.Component {
       uploadTask = storage.ref(`files/${uid}/${file.name}`).put(file);
     } else {
       uploadTask = storage
-        .ref(`files/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/${file.name}`)
+        .ref(`files/RZOEMMu7Nwa5bQ51sf71FfDX3A93/${file.name}`)
         .put(file);
-      uid = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
+      uid = "RZOEMMu7Nwa5bQ51sf71FfDX3A93";
     }
 
     uploadTask.on(

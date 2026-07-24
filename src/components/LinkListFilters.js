@@ -128,13 +128,25 @@ function ExpandableArray(props) {
 
   useEffect(() => {
     console.log("AB props.links.length=" + props.links.length);
-    if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
+    if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "free"
+    ) {
       setMaximum(StorageSizes.free);
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "basic"
+    ) {
       setMaximum(StorageSizes.basic);
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "standard"
+    ) {
       setMaximum(StorageSizes.standard);
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "premium"
+    ) {
       setMaximum(StorageSizes.premium);
     } else if (!!props.theplan.plan === false) {
       setMaximum(StorageSizes.free);
@@ -149,7 +161,7 @@ function ExpandableArray(props) {
       setUid(user.uid);
       setTheuser(user);
     } else {
-      setUid("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
+      setUid("RZOEMMu7Nwa5bQ51sf71FfDX3A93");
     }
 
     const x = window.localStorage.getItem("hideinformation");
@@ -232,7 +244,7 @@ function ExpandableArray(props) {
   };
 
   const isCorrectAccount = () => {
-    if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2") return true;
+    if (uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93") return true;
     return false;
   };
 
@@ -411,16 +423,18 @@ function ExpandableArray(props) {
           } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
           title="You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
-          {uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+          {uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93"
             ? "Internet Links Management Tool"
             : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
               ? "City Walks"
               : "Internet Links Management Tool"}
         </div>
         <div>
-          <button 
+          <button
             title="Click the button to begin auto scroll."
-            onClick={startScrollingUp} className="button-2">
+            onClick={startScrollingUp}
+            className="button-2"
+          >
             ScrollUp
           </button>
 
@@ -735,7 +749,9 @@ function ExpandableArray(props) {
                     title="current plan"
                     className="margin-right-1 textLeft hide"
                   >
-                    plan: {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
+                    plan:{" "}
+                    {!!props.theplan.plan &&
+                      props.theplan.plan.replace(/"/g, "")}
                   </div>
                 )}
 
@@ -743,24 +759,28 @@ function ExpandableArray(props) {
                 <div>
                   {isToggled && props.signup === true && (
                     <div className="margin-right-1">
-                      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" ? (
+                      {!!props.theplan.plan &&
+                      props.theplan.plan.replace(/"/g, "") === "free" ? (
                         <span>(It stores upto {StorageSizes.free} links)</span>
                       ) : (
                         <span></span>
                       )}
-                      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" ? (
+                      {!!props.theplan.plan &&
+                      props.theplan.plan.replace(/"/g, "") === "basic" ? (
                         <span>(It stores upto {StorageSizes.basic} links)</span>
                       ) : (
                         <span></span>
                       )}
-                      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" ? (
+                      {!!props.theplan.plan &&
+                      props.theplan.plan.replace(/"/g, "") === "standard" ? (
                         <span>
                           (It stores upto {StorageSizes.standard} links)
                         </span>
                       ) : (
                         <span></span>
                       )}
-                      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" ? (
+                      {!!props.theplan.plan &&
+                      props.theplan.plan.replace(/"/g, "") === "premium" ? (
                         <span>
                           (It stores upto {StorageSizes.premium} links)
                         </span>
@@ -877,8 +897,8 @@ function ExpandableArray(props) {
 
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}
-                {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}{" plan."}
-                
+                {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
+                {" plan."}
               </span>
             </div>
 

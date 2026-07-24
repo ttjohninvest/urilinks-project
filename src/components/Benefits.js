@@ -27,7 +27,7 @@ Interent Links Management Tool Usage:<br />
 -renews on day of plan selection and yearly renewal and old plan is canceled<br />
 -easy account deletion, no refunds<br />
 <br />
--questions or comments, please contact me, John, at john@urilinks.com or johmcg64@gmail.com<br />
+-If you have any questions, comments or concerns, please contact me, John, at john@urilinks.com or johmcg64@gmail.com<br />
 </div>
 <div></div>
 </div>)

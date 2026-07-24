@@ -1646,7 +1646,9 @@ firebase billing account in google cloud console
 urilinks-firebase-realtime-database-use, project linked to this billing account: see-my-index-project-7 
 
 =========================
-
+how to shutdown windows 11 from cmd window:
+shutdown /s /t 0
+=========================
 
 promotion
 hashnode.com

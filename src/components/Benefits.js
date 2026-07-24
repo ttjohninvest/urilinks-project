@@ -13,7 +13,7 @@ Interent Links Management Tool Usage:<br />
   and view them by clicking on them. You may upload a bookmark file that is under 100kb. You may add them one by one.<br />
 -a sharable link is provided so that you may share your content with others<br />
 -links are not limited to commercial purposes<br />
--search throuh link titles, hashtags or notes<br />
+-search through link titles, hashtags or notes<br />
 -easy grouping or regrouping of links by hashtag by adding or removing hashtags from the note sections<br />
 -hashtags need to be entered in pascal case for example #TheCatIsFriendly so they will have spaces between words in the left menu pane.<br /> 
 -the # hash is removed and spaces are added and presented in alphabetical order<br />

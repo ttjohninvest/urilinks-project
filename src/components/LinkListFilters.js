@@ -421,13 +421,13 @@ function ExpandableArray(props) {
           className={`website-background-color ${
             useButtons === true ? "width30p" : "width30pt"
           } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
-          title="You are welcome to use the Medical Referal Links Management System" //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
+          title="You are welcome to use the Medical Referral Links Management System" //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           {uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93"
-            ? "Medical Referal Links Management System" //"Internet Links Management Tool"
+            ? "Medical Referral Links Management System" //"Internet Links Management Tool"
             : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
               ? "City Walks"
-              : "Medical Referal Links Management System" //"Internet Links Management Tool"
+              : "Medical Referral Links Management System" //"Internet Links Management Tool"
               }
         </div>
         <div>

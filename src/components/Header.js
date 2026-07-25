@@ -156,7 +156,7 @@ export const Header = (props) => {
       setGoogleUserDatadb(gud);
       setEmaildb(user.email);
       setUid(gud.uid);
-      setName(gud.displayname);
+      setName(gud.uid==="RZOEMMu7Nwa5bQ51sf71FfDX3A93"?"example medical provider's profile image":gud.displayname);
       setEmail(user.email);
       if (props.theplan.plan === "basic") setTheplan("on basic plan");
       else if (props.theplan.plan === "standard")

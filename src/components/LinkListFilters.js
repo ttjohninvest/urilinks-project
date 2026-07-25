@@ -109,6 +109,7 @@ function ExpandableArray(props) {
   };
 
   const stopScrolling = () => {
+    window.document.getElementById("stopscroll").current.click()
     clearInterval(scrollInterval.current);
     scrollInterval.current = null;
   };
@@ -441,6 +442,7 @@ function ExpandableArray(props) {
           </button>
 
           <button
+            id="stopscroll"
             title="Click the button to stop auto scroll."
             onClick={stopScrolling}
             className="button-2 ib margin-left-11"

@@ -82,6 +82,7 @@ function ExpandableArray(props) {
         //document.documentElement.scrollHeight
         // document.getElementById("ls").scrollHeight
       ) {
+        alert(2)
             buttonRef.current.click()
 
         //stopScrolling();
@@ -106,6 +107,7 @@ function ExpandableArray(props) {
         //document.documentElement.scrollHeight
         document.getElementById("ls").scrollHeight
       ) {
+            alert(1)
             buttonRef.current.click()
 
         //stopScrolling();

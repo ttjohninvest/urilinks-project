@@ -158,7 +158,9 @@ const FetchBookmarks = (props) => {
   const getHashtag = (str) => {
     console.log("getHashtag");
 
-    const str2 = str
+    const cleanedString = str.replace(/[^a-zA-Z0-9&]/g, '')
+
+    const str2 = cleanedString
       .trim()
       .replace(
         /(^|[^a-zA-Z0-9])([a-zA-Z])/g,

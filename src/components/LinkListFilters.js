@@ -82,7 +82,9 @@ function ExpandableArray(props) {
         //document.documentElement.scrollHeight
         // document.getElementById("ls").scrollHeight
       ) {
-        stopScrolling();
+            buttonRef.current.click()
+
+        //stopScrolling();
       }
     }, 20); // Every 20 milliseconds
   };
@@ -104,15 +106,15 @@ function ExpandableArray(props) {
         //document.documentElement.scrollHeight
         document.getElementById("ls").scrollHeight
       ) {
+            buttonRef.current.click()
 
-        stopScrolling();
+        //stopScrolling();
         //document.getElementById("ls").scrollTo(0,0)
       }
     }, 20); // Every 20 milliseconds
   };
 
   const stopScrolling = () => {
-    buttonRef.current.click()
     clearInterval(scrollInterval.current);
     scrollInterval.current = null;
   };

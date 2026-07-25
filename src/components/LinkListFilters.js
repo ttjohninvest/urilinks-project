@@ -75,13 +75,12 @@ function ExpandableArray(props) {
         behavior: "auto",
       });
 
-      // Stop automatically when reaching the bottom
-      if (
-        document.getElementById("ls").innerHeight + 0 >=
-        0
-        //document.documentElement.scrollHeight
-        // document.getElementById("ls").scrollHeight
-      ) {
+      // Stop automatically when reaching the top
+      if (document.getElementById("ls").scrollTop === 0) {
+      // if (
+      //   document.getElementById("ls").innerHeight + 0 >=
+      //   0
+      // ) {
         alert(2)
             buttonRef.current.click()
 
@@ -101,12 +100,12 @@ function ExpandableArray(props) {
         behavior: "auto",
       });
 
+       if (document.getElementById("ls").scrollTop + element.clientHeight >= document.getElementById("ls").scrollHeight) {
       // Stop automatically when reaching the bottom
-      if (
-        document.getElementById("ls").innerHeight + window.scrollY >=
-        //document.documentElement.scrollHeight
-        document.getElementById("ls").scrollHeight
-      ) {
+      // if (
+      //   document.getElementById("ls").innerHeight + window.scrollY >=
+      //   document.getElementById("ls").scrollHeight
+      // ) {
             alert(1)
             buttonRef.current.click()
 

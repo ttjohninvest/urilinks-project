@@ -106,7 +106,7 @@ function ExpandableArray(props) {
       //   document.getElementById("ls").innerHeight + window.scrollY >=
       //   document.getElementById("ls").scrollHeight
       // ) {
-            alert(1)
+            //alert(1)
             buttonRef.current.click()
 
         //stopScrolling();

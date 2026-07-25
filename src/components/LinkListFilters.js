@@ -52,6 +52,8 @@ function ExpandableArray(props) {
 
   const useButtons = false; //use buttons in display of categories
 
+  const buttonRef = useRef(null);
+
   let x = false;
   if (window.localStorage.getItem("hideinformation") === null) {
     window.localStorage.setItem("hideinformation", false);
@@ -102,6 +104,7 @@ function ExpandableArray(props) {
         //document.documentElement.scrollHeight
         document.getElementById("ls").scrollHeight
       ) {
+
         stopScrolling();
         //document.getElementById("ls").scrollTo(0,0)
       }
@@ -109,7 +112,7 @@ function ExpandableArray(props) {
   };
 
   const stopScrolling = () => {
-    window.document.getElementById("stopscroll").current.click()
+    buttonRef.current.click()
     clearInterval(scrollInterval.current);
     scrollInterval.current = null;
   };
@@ -442,6 +445,7 @@ function ExpandableArray(props) {
           </button>
 
           <button
+            ref={buttonRef}
             id="stopscroll"
             title="Click the button to stop auto scroll."
             onClick={stopScrolling}

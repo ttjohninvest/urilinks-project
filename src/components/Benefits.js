@@ -8,7 +8,7 @@ const Benefits = () => {
 return (<div>
  
   <div className="list-header__flex__center">
-Interent Links Management Tool Usage:<br />
+Medical Referral Links Management System Usage:<br />
 -This tool is to help people manage their internet links. They can add, search, share them with others, delete<br />
   and view them by clicking on them. You may upload a bookmark file that is under 100kb. You may add them one by one.<br />
 -a sharable link is provided so that you may share your content with others<br />

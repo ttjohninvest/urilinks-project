@@ -162,7 +162,7 @@ const FetchBookmarks = (props) => {
     //const cleanedString2 = cleanedString.replace(/[^\&]/g, 'And')
     const cleanedString2 = cleanedString.replace(/\_/g, "");
 
-    const str2 = cleanedString3
+    const str2 = cleanedString2
       .trim()
       .replace(
         /(^|[^a-zA-Z0-9])([a-zA-Z])/g,

@@ -12,8 +12,8 @@ import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 //import logo from "../assets/images/logo-orange-urilinks.png";
 import logo from "../assets/images/logo-orange-u.png";
 import logo2 from "../assets/images/logo-urilinks.png";
-//import myprofile from "../assets/images/myprofile.png";
-import myprofile from "../assets/images/medicalprofilepicture.png";
+import myprofile from "../assets/images/myprofile.png";
+//import myprofile from "../assets/images/medicalprofilepicture.png";
 import signature from "../assets/images/signature.png";
 
 //import { getAuth } from "firebase";

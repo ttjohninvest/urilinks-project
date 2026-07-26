@@ -77,11 +77,7 @@ function ExpandableArray(props) {
 
       // Stop automatically when reaching the top
       if (document.getElementById("ls").scrollTop === 0) {
-      // if (
-      //   document.getElementById("ls").innerHeight + 0 >=
-      //   0
-      // ) {
-        //alert(2)
+     
             buttonRef.current.click()
 
         //stopScrolling();
@@ -101,16 +97,10 @@ function ExpandableArray(props) {
       });
 
        if (document.getElementById("ls").scrollTop + document.getElementById("ls").clientHeight >= document.getElementById("ls").scrollHeight) {
-      // Stop automatically when reaching the bottom
-      // if (
-      //   document.getElementById("ls").innerHeight + window.scrollY >=
-      //   document.getElementById("ls").scrollHeight
-      // ) {
-            //alert(1)
+      
             buttonRef.current.click()
 
-        //stopScrolling();
-        //document.getElementById("ls").scrollTo(0,0)
+        
       }
     }, 20); // Every 20 milliseconds
   };
@@ -428,7 +418,7 @@ function ExpandableArray(props) {
           className={`website-background-color ${
             useButtons === true ? "width30p" : "width30pt"
           } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
-          title="You are welcome to use the Medical Referral Links Management System." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
+          title="Medical providers are welcome to use this Medical Referral Links Management System." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           {
             uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93"

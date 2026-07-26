@@ -418,7 +418,7 @@ function ExpandableArray(props) {
           className={`website-background-color ${
             useButtons === true ? "width30p" : "width30pt"
           } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
-          title="Medical staff providers' are welcome to use this Medical Referral Links Management System to add, view, delete and share your links with a patient or other providers." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
+          title="For Medical staff patient providers' are welcome to use this Medical Referral Links Management System to add, view, delete and share your links with a patient or other providers." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           {
             uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93"

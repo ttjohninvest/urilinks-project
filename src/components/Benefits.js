@@ -15,6 +15,8 @@ Medical Referral Links Management System Usage:<br />
 -what saving bookmarks to chrome browser bookmarks, you will need to enter a file name so when they are imported<br />
   you will so your folder name as a menu item<br />
 -the menu items are in ascii alphabetical order, numbers and symbols appear before letters<br />
+-if you want a menu item to appear before another menu item, preceed the hashtag name with 1 or more zeros<br />
+  two zeros will sort before one zero<br />
 -links are not limited to commercial purposes<br />
 -search through link titles, hashtags or notes<br />
 -easy grouping or regrouping of links by hashtag by adding or removing hashtags from the note sections<br />

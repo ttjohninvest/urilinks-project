@@ -478,7 +478,7 @@ export const Header = (props) => {
                         </Link>
                       </div>} */}
 
-                    <div>
+                    {/* <div>
                       <Link
                         className="header__title- nounderline"
                         to="/ideas"
@@ -491,7 +491,7 @@ export const Header = (props) => {
                           ideas
                         </span>
                       </Link>
-                    </div>
+                    </div> */}
 
                     {/* {props.signup.signup === true ? (
                     <div className="hide-">

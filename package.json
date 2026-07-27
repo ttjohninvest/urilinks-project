@@ -4,6 +4,7 @@
   "main": "index.js",
   "author": "John",
   "license": "MIT",
+  "type":"module",
   "engines": {
   "node": "8.11.3"
 },

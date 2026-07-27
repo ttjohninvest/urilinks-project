@@ -3,6 +3,7 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
+import { writeFile } from "../actions/links";
 import AddLinkPage2 from "./AddlinkPage2";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
@@ -108,6 +109,10 @@ function ExpandableArray(props) {
   const stopScrolling = () => {
     clearInterval(scrollInterval.current);
     scrollInterval.current = null;
+  };
+
+  const startWrite = () => {
+    props.writeFile(props.links)
   };
 
   const isMobile = () => {
@@ -453,6 +458,13 @@ function ExpandableArray(props) {
             className="button-2 ib margin-left-11"
           >
             ScrollDn
+          </button>
+           <button
+            title="Click the button to begin auto scroll."
+            onClick={startWrite}
+            className="button-2"
+          >
+            Write
           </button>
         </div>
       </div>
@@ -1376,6 +1388,7 @@ const mapDispatchToProps = (dispatch) => ({
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
   sortByFolder: () => dispatch(sortByFolder()),
+  writeFile: (links) => dispatch(writeFile(links)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

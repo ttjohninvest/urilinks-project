@@ -446,7 +446,7 @@ function ExpandableArray(props) {
         <div
           className={`website-background-color ${
             useButtons === true ? "width30p" : "width30pt"
-          } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-14 font-weight-500`}
+          } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-16 font-weight-500`}
           title="For Medical staff patient providers' are welcome to use this Medical Referral Links Management System to add, view, delete and share your links with a patient or other providers." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           {

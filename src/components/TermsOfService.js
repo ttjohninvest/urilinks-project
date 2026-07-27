@@ -19,7 +19,25 @@ The Service is intended for individuals 13 years of age or older. If you are und
 
 COPPA Compliance
 urilinks.com is committed to complying with the Children's Online Privacy Protection Act (COPPA). I do not knowingly collect personal information from children under 13. If I become aware that the website has collected personal information from a child under 13, we will delete that information.
+<div>
+<br />
+Nevada Government Laws regulating medical service providers and Medical Service Vendors?<br />
+Yes, the Nevada government heavily regulates how vendors do business with medical providers<br />
+through a combination of state licensing laws, federal statutes, and the Corporate Practice of<br />
+Medicine (CPOM) doctrine. Corporate Practice of Medicine (CPOM): Nevada strictly prohibits<br />
+non-physician entities from owning or controlling medical practices. Vendors providing<br /> 
+administrative services must typically operate as a Management Services Organization (MSO)<br /> 
+under a formal Management Services Agreement (MSA) that separates business operations from clinical<br />
+decision-making, which must remain with licensed physicians. Federal Compliance: Vendors must adhere<br />
+to the Stark Law (prohibiting self-referrals for financial gain) and the Anti-Kickback Statute<br />
+(prohibiting remuneration for referrals), with contracts requiring fair market value compensation<br />
+to avoid liability. Data Privacy: Under SB 370, vendors handling consumer health data must comply<br />
+with strict privacy and security requirements, regardless of revenue thresholds, if they process<br />
+data for Nevada-based healthcare entities. Licensing: The Nevada State Board of Medical Examiners<br />
+and other regulatory bodies enforce licensing standards, meaning vendors facilitating care must<br /> 
+ensure their contracts and operational structures do not compromise provider licensure or patient safety.<br />
 
+</div>
 <div>
 <br/>
 The Federal Stark Law<br/>

@@ -78,6 +78,33 @@ of a financial relationship and the resulting referral. The law was originally e
 (Stark I) and expanded in 1993 (Stark II) to cover Medicaid and additional services, aiming to<br/>
 eliminate conflicts of interest where financial gain might influence medical decision-making.<br/>
 </div>
+<div>
+The Federal Anti-Kickback Statute (AKS) is a federal law that makes it illegal to offer, pay, solicit,<br/>
+or receive any form of payment or benefit in exchange for referring patients or generating business<br/>
+for services covered by Medicare, Medicaid, or other federal healthcare programs.<br/>
+Its primary goal is to ensure that medical decisions are based on patient needs rather than<br/>
+financial incentives.<br/>
+<br/>
+The law applies broadly to anyone involved in the healthcare industry, including physicians, hospitals,<br/>
+pharmaceutical companies, and medical device manufacturers.  It prohibits "remuneration"<br/>
+(anything of value, such as cash, gifts, free services, or discounted rent) if even one<br/>
+purpose of the payment is to induce or reward referrals for items or services reimbursed<br/>
+by the government.<br/>
+<br/>
+Key aspects of the statute include:<br/>
+<br/>
+Strict Liability for Intent: The law targets the intent behind a transaction; if a payment<br/>
+is made to influence referrals, it violates the AKS, even if the payment also serves a<br/>
+legitimate business purpose.<br/>
+Severe Penalties: Violations are felonies punishable by up to 10 years in prison and fines<br/>
+up to $100,000 per violation, plus mandatory exclusion from federal healthcare programs<br/>
+and potential treble damages under the False Claims Act. Safe Harbors: Certain arrangements<br/>
+are protected if they meet specific regulatory criteria, such as payments made at fair market<br/>
+value for legitimate personal services or bona fide employment relationships. Distinction<br/>
+from Stark Law: Unlike the Stark Law, which specifically targets physician self-referrals<br/>
+for designated health services and does not require proof of intent, the AKS is broader, covering<br/>
+all providers and requiring proof of intent to induce referrals.<br/>
+</div>
 </div>)
 };
 

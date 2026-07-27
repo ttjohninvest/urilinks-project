@@ -118,7 +118,7 @@ function ExpandableArray(props) {
     }
 
     //write to express server that writes the text file
-    fetch("https://urilinks-project-writefile.vercel.app", {
+    fetch("https://urilinks-writefile-2.vercel.app", {
       method: "POST",
       headers: {
        "Content-Type": "text/plain; charset=utf-8",

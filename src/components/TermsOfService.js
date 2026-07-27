@@ -13,25 +13,16 @@ Effective Date: December 23rd 2025
 
 Introduction
 Welcome to urilinks.com! These Terms of Service ("Terms") govern your use of my website, urilinks.com, and my services (collectively, the "Service"). By using the Service, you agree to be bound by these Terms.
-and the following two Federal Laws need to be adhered to:
+
+Eligibility
+The Service is intended for individuals 13 years of age or older. If you are under 13, you may not use the Service. If you are between 13 and 18, you must have parental consent to use the Service.
+
+COPPA Compliance
+urilinks.com is committed to complying with the Children's Online Privacy Protection Act (COPPA). I do not knowingly collect personal information from children under 13. If I become aware that the website has collected personal information from a child under 13, we will delete that information.
+
 <div>
-Does the Nevada Government regulate medical service providers?<br />
-Yes, the Nevada government heavily regulates how vendors do business with medical providers<br />
-through a combination of state licensing laws, federal statutes, and the Corporate Practice of<br />
-Medicine (CPOM) doctrine. Corporate Practice of Medicine (CPOM): Nevada strictly prohibits<br />
-non-physician entities from owning or controlling medical practices. Vendors providing<br /> 
-administrative services must typically operate as a Management Services Organization (MSO)<br /> 
-under a formal Management Services Agreement (MSA) that separates business operations from clinical<br />
-decision-making, which must remain with licensed physicians. Federal Compliance: Vendors must adhere<br />
-to the Stark Law (prohibiting self-referrals for financial gain) and the Anti-Kickback Statute<br />
-(prohibiting remuneration for referrals), with contracts requiring fair market value compensation<br />
-to avoid liability. Data Privacy: Under SB 370, vendors handling consumer health data must comply<br />
-with strict privacy and security requirements, regardless of revenue thresholds, if they process<br />
-data for Nevada-based healthcare entities. Licensing: The Nevada State Board of Medical Examiners<br />
-and other regulatory bodies enforce licensing standards, meaning vendors facilitating care must<br /> 
-ensure their contracts and operational structures do not compromise provider licensure or patient safety.<br /> 
 <br/>
-stark law<br/>
+The Federal Stark Law<br/>
 The Federal Stark Law, also known as the Physician Self-Referral Law, prohibits physicians from referring<br/>
 Medicare or Medicaid patients for designated health services (DHS) to entities with which the<br/>
 physician or an immediate family member has a financial relationship,<br/>
@@ -55,7 +46,9 @@ of a financial relationship and the resulting referral. The law was originally e
 eliminate conflicts of interest where financial gain might influence medical decision-making.<br/>
 </div>
 <div>
-The Federal Anti-Kickback Statute (AKS) is a federal law that makes it illegal to offer, pay, solicit,<br/>
+<br />
+The Federal Anti-Kickback Statute (AKS)<br /><br />
+This is a federal law that makes it illegal to offer, pay, solicit,<br/>
 or receive any form of payment or benefit in exchange for referring patients or generating business<br/>
 for services covered by Medicare, Medicaid, or other federal healthcare programs.<br/>
 Its primary goal is to ensure that medical decisions are based on patient needs rather than<br/>
@@ -66,7 +59,7 @@ pharmaceutical companies, and medical device manufacturers.  It prohibits "remun
 (anything of value, such as cash, gifts, free services, or discounted rent) if even one<br/>
 purpose of the payment is to induce or reward referrals for items or services reimbursed<br/>
 by the government.<br/>
-<br/>
+
 Key aspects of the statute include:<br/>
 <br/>
 Strict Liability for Intent: The law targets the intent behind a transaction; if a payment<br/>
@@ -80,12 +73,8 @@ value for legitimate personal services or bona fide employment relationships. Di
 from Stark Law: Unlike the Stark Law, which specifically targets physician self-referrals<br/>
 for designated health services and does not require proof of intent, the AKS is broader, covering<br/>
 all providers and requiring proof of intent to induce referrals.<br/>
-</div>
-Eligibility
-The Service is intended for individuals 13 years of age or older. If you are under 13, you may not use the Service. If you are between 13 and 18, you must have parental consent to use the Service.
 
-COPPA Compliance
-urilinks.com is committed to complying with the Children's Online Privacy Protection Act (COPPA). I do not knowingly collect personal information from children under 13. If I become aware that the website has collected personal information from a child under 13, we will delete that information.
+</div>
 
 User Accounts
 To use certain features of the Service, you may be required to create an account. You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your account credentials.

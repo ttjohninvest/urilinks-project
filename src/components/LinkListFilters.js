@@ -118,6 +118,25 @@ function ExpandableArray(props) {
     }
 
     //write to express server that writes the text file
+    fetch("https://urilinks-project-writefile.vercel.app", {
+      method: "POST",
+      headers: {
+       "Content-Type": "text/plain; charset=utf-8",
+      },
+      body: content,
+    })
+      .then((res) => {
+        //alert("returned from writing the file")
+        return res.json();
+        // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
+      })
+      .then((data) => {
+        console.log("returned from writing the file with writeFile, https://urilinks-project-writefile.vercel");
+        //setClientSecret(data.clientSecret);
+      })
+      .catch((error) =>
+        console.error("There was a problem with the fetch operation:", error)
+      );
   };
 
   const isMobile = () => {

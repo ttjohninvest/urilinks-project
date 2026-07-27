@@ -39,6 +39,7 @@ Medical Referral Links Management System Usage:<br />
 -my phone number is 775 559 5740. I am happy to help you.
 </div>
 <div>
+Does the Nevada Government regulate medical service providers?<br />
 Yes, the Nevada government heavily regulates how vendors do business with medical providers<br />
 through a combination of state licensing laws, federal statutes, and the Corporate Practice of<br />
 Medicine (CPOM) doctrine. Corporate Practice of Medicine (CPOM): Nevada strictly prohibits<br />

@@ -451,10 +451,10 @@ function ExpandableArray(props) {
         >
           {
             uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93"
-              ? "Medical Staff Referral Links Management System (Example Page for user:"+" For User: "+props.theplan.uid+")" //"Internet Links Management Tool"
+              ? "Medical Staff Referral Links Management System (Example Page for user:"+" For User Id: "+props.theplan.uid+")" //"Internet Links Management Tool"
               : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
                 ? "City Walks"
-                : "Medical Staff Referral Links Management System"+" For User: "+props.theplan.uid //"Internet Links Management Tool"
+                : "Medical Staff Referral Links Management System"+" For User Id: "+props.theplan.uid //"Internet Links Management Tool"
           }
         </div>
         <div>

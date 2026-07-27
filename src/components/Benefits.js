@@ -54,7 +54,29 @@ with strict privacy and security requirements, regardless of revenue thresholds,
 data for Nevada-based healthcare entities. Licensing: The Nevada State Board of Medical Examiners<br />
 and other regulatory bodies enforce licensing standards, meaning vendors facilitating care must<br /> 
 ensure their contracts and operational structures do not compromise provider licensure or patient safety.<br /> 
-
+<br/>
+stark law<br/>
+The Federal Stark Law, also known as the Physician Self-Referral Law, prohibits physicians from referring<br/>
+Medicare or Medicaid patients for designated health services (DHS) to entities with which the<br/>
+physician or an immediate family member has a financial relationship,<br/>
+unless a specific regulatory exception applies.<br/> 
+<br/>
+Key characteristics of the law include:<br/>
+<br/>
+Scope: It applies to a wide range of DHS, including clinical laboratory services, radiology, physical<br/>
+therapy, durable medical equipment, and hospital services. A "financial relationship" encompasses ownership,<br/> 
+investment interests, and compensation arrangements. Strict Liability: The law is a strict liability<br/>
+statute, meaning intent to violate the law is not required for a violation to occur; technical<br/>
+non-compliance can trigger penalties. Penalties: Violations result in denial of payment for the services,<br/>
+mandatory refunds of amounts collected, civil penalties of up to $15,000 per prohibited referral,<br/>
+and potential exclusion from federal healthcare programs. False Claims Act: Claims submitted in<br/>
+violation of the Stark Law are considered false or fraudulent claims under the False Claims Act,<br/>
+which can lead to treble damages (three times the claim amount) and additional civil monetary penalties.<br/>
+Distinction from Anti-Kickback Statute: Unlike the Anti-Kickback Statute, which is a criminal law<br/>
+requiring proof of intent to induce referrals, the Stark Law is a civil law focused on the existence<br/>
+of a financial relationship and the resulting referral. The law was originally enacted in 1989<br/>
+(Stark I) and expanded in 1993 (Stark II) to cover Medicaid and additional services, aiming to<br/>
+eliminate conflicts of interest where financial gain might influence medical decision-making.<br/>
 </div>
 </div>)
 };

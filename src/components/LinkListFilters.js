@@ -4,7 +4,8 @@ import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 //import { writeFile } from "../actions/links";
-import fs from "fs"
+//import fs from "fs"
+const fs = require('fs');
 import AddLinkPage2 from "./AddlinkPage2";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";

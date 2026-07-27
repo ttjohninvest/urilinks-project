@@ -61,14 +61,14 @@ export class Simple2 extends React.Component {
     if (selectedValue === "hashtag") {
       const words = term.split(/\s+/); // Split by one or more whitespace characters
 
-      if (term.charAt(0) !== "#") {
-        alert("The search term needs to be a hashtag.");
-        return;
-      }
-      if (words.length !== 1) {
-        alert("The search term needs to be one word.");
-        return;
-      }
+      // if (term.charAt(0) !== "#") {
+      //   alert("The search term needs to be a hashtag.");
+      //   return;
+      // }
+      // if (words.length !== 1) {
+      //   alert("The search term needs to be one word.");
+      //   return;
+      // }
     }
     //alert (term)
     this.props.setTextFilter(term);
@@ -182,10 +182,10 @@ export class Simple2 extends React.Component {
       //this.setState({ sortBy: "description" });
     } else if (e.target.value === "hashtag") {
       window.localStorage.setItem("sortBy", "hashtag");
-      if (val !== "" && val.charAt(0) !== "#") {
-        alert("The search term needs to be a hashtag.");
-        return;
-      }
+      // if (val !== "" && val.charAt(0) !== "#") {
+      //   alert("The search term needs to be a hashtag.");
+      //   return;
+      // }
 
       if (val === "") {
         //window.document.getElementById("termid").value = "#"
@@ -320,10 +320,10 @@ export class Simple2 extends React.Component {
       // && sortBy === "hashtag"
       this.props.filters.sortBy === "hashtag"
     ) {
-      if (term !== "" && term.charAt(0) !== "#") {
-        alert("The search term needs to be a hashtag.");
-        return;
-      }
+      // if (term !== "" && term.charAt(0) !== "#") {
+      //   alert("The search term needs to be a hashtag.");
+      //   return;
+      // }
 
       if (term === "") {
         window.document.getElementById("termid").value = "#";

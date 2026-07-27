@@ -1688,3 +1688,20 @@ in notepad++, search for the user id
 make a separate file with the user's data with extension .json for example x.json. you
 don't need this part: "7CzFYQjw2aUhHgCYjS2eDODrfVE2":
 then in the firebase website, select uid that was lost in the database portion (left menu pane), click three dots, select import json, pick file that has user data in json format, select import, all is restored to the latest date and time the whole database was backed up, all is backed up.
+
+
+=====================
+hashtag error when do the search
+problem: I would get the error. The search term needs to be a hashtag
+solution: I commented out all of the code that outputs this error
+
+// if (term.charAt(0) !== "#") {
+      //   alert("The search term needs to be a hashtag.");
+      //   return;
+      // }
+      // if (words.length !== 1) {
+      //   alert("The search term needs to be one word.");
+      //   return;
+      // }
+
+====================================

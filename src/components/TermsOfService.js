@@ -40,59 +40,57 @@ ensure their contracts and operational structures do not compromise provider lic
 </div>
 <div>
 <br/>
-The Federal Stark Law<br/>
-The Federal Stark Law, also known as the Physician Self-Referral Law, prohibits physicians from referring<br/>
-Medicare or Medicaid patients for designated health services (DHS) to entities with which the<br/>
-physician or an immediate family member has a financial relationship,<br/>
-unless a specific regulatory exception applies.<br/> 
-<br/>
-Key characteristics of the law include:<br/>
-<br/>
-Scope: It applies to a wide range of DHS, including clinical laboratory services, radiology, physical<br/>
-therapy, durable medical equipment, and hospital services. A "financial relationship" encompasses ownership,<br/> 
-investment interests, and compensation arrangements. Strict Liability: The law is a strict liability<br/>
-statute, meaning intent to violate the law is not required for a violation to occur; technical<br/>
-non-compliance can trigger penalties. Penalties: Violations result in denial of payment for the services,<br/>
-mandatory refunds of amounts collected, civil penalties of up to $15,000 per prohibited referral,<br/>
-and potential exclusion from federal healthcare programs. False Claims Act: Claims submitted in<br/>
-violation of the Stark Law are considered false or fraudulent claims under the False Claims Act,<br/>
-which can lead to treble damages (three times the claim amount) and additional civil monetary penalties.<br/>
-Distinction from Anti-Kickback Statute: Unlike the Anti-Kickback Statute, which is a criminal law<br/>
-requiring proof of intent to induce referrals, the Stark Law is a civil law focused on the existence<br/>
-of a financial relationship and the resulting referral. The law was originally enacted in 1989<br/>
-(Stark I) and expanded in 1993 (Stark II) to cover Medicaid and additional services, aiming to<br/>
-eliminate conflicts of interest where financial gain might influence medical decision-making.<br/>
+Warning: The Federal Stark Law
+The Federal Stark Law, also known as the Physician Self-Referral Law, prohibits physicians from referring
+Medicare or Medicaid patients for designated health services (DHS) to entities with which the
+physician or an immediate family member has a financial relationship,
+unless a specific regulatory exception applies. 
+
+Key characteristics of the law include:
+
+Scope: It applies to a wide range of DHS, including clinical laboratory services, radiology, physical
+therapy, durable medical equipment, and hospital services. A "financial relationship" encompasses ownership,
+investment interests, and compensation arrangements. Strict Liability: The law is a strict liability
+statute, meaning intent to violate the law is not required for a violation to occur; technical
+non-compliance can trigger penalties. Penalties: Violations result in denial of payment for the services,
+mandatory refunds of amounts collected, civil penalties of up to $15,000 per prohibited referral,
+and potential exclusion from federal healthcare programs. False Claims Act: Claims submitted in
+violation of the Stark Law are considered false or fraudulent claims under the False Claims Act,
+which can lead to treble damages (three times the claim amount) and additional civil monetary penalties.
+Distinction from Anti-Kickback Statute: Unlike the Anti-Kickback Statute, which is a criminal law
+requiring proof of intent to induce referrals, the Stark Law is a civil law focused on the existence
+of a financial relationship and the resulting referral. The law was originally enacted in 1989
+(Stark I) and expanded in 1993 (Stark II) to cover Medicaid and additional services, aiming to
+eliminate conflicts of interest where financial gain might influence medical decision-making.
 </div>
 <div>
-<br />
-The Federal Anti-Kickback Statute (AKS)<br /><br />
-This is a federal law that makes it illegal to offer, pay, solicit,<br/>
-or receive any form of payment or benefit in exchange for referring patients or generating business<br/>
-for services covered by Medicare, Medicaid, or other federal healthcare programs.<br/>
-Its primary goal is to ensure that medical decisions are based on patient needs rather than<br/>
+
+The Federal Anti-Kickback Statute (AKS)
+This is a federal law that makes it illegal to offer, pay, solicit,
+or receive any form of payment or benefit in exchange for referring patients or generating business
+for services covered by Medicare, Medicaid, or other federal healthcare programs.
+Its primary goal is to ensure that medical decisions are based on patient needs rather than
 financial incentives.<br/>
 <br/>
-The law applies broadly to anyone involved in the healthcare industry, including physicians, hospitals,<br/>
-pharmaceutical companies, and medical device manufacturers.  It prohibits "remuneration"<br/>
-(anything of value, such as cash, gifts, free services, or discounted rent) if even one<br/>
-purpose of the payment is to induce or reward referrals for items or services reimbursed<br/>
-by the government.<br/>
+The law applies broadly to anyone involved in the healthcare industry, including physicians, hospitals,
+pharmaceutical companies, and medical device manufacturers.  It prohibits "remuneration"
+(anything of value, such as cash, gifts, free services, or discounted rent) if even one
+purpose of the payment is to induce or reward referrals for items or services reimbursed
+by the government.
 
-Key aspects of the statute include:<br/>
-<br/>
-Strict Liability for Intent: The law targets the intent behind a transaction; if a payment<br/>
-is made to influence referrals, it violates the AKS, even if the payment also serves a<br/>
-legitimate business purpose.<br/>
-Severe Penalties: Violations are felonies punishable by up to 10 years in prison and fines<br/>
-up to $100,000 per violation, plus mandatory exclusion from federal healthcare programs<br/>
-and potential treble damages under the False Claims Act. Safe Harbors: Certain arrangements<br/>
-are protected if they meet specific regulatory criteria, such as payments made at fair market<br/>
-value for legitimate personal services or bona fide employment relationships. Distinction<br/>
-from Stark Law: Unlike the Stark Law, which specifically targets physician self-referrals<br/>
-for designated health services and does not require proof of intent, the AKS is broader, covering<br/>
-all providers and requiring proof of intent to induce referrals.<br/>
+Key aspects of the statute include:
 
-</div>
+Strict Liability for Intent: The law targets the intent behind a transaction; if a payment
+is made to influence referrals, it violates the AKS, even if the payment also serves a
+legitimate business purpose.
+Severe Penalties: Violations are felonies punishable by up to 10 years in prison and fines
+up to $100,000 per violation, plus mandatory exclusion from federal healthcare programs
+and potential treble damages under the False Claims Act. Safe Harbors: Certain arrangements
+are protected if they meet specific regulatory criteria, such as payments made at fair market
+value for legitimate personal services or bona fide employment relationships. Distinction
+from Stark Law: Unlike the Stark Law, which specifically targets physician self-referrals
+for designated health services and does not require proof of intent, the AKS is broader, covering
+all providers and requiring proof of intent to induce referrals.
 
 User Accounts
 To use certain features of the Service, you may be required to create an account. You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your account credentials.

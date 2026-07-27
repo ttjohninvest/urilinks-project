@@ -3,7 +3,8 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-import { writeFile } from "../actions/links";
+//import { writeFile } from "../actions/links";
+import fs from "fs"
 import AddLinkPage2 from "./AddlinkPage2";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
@@ -112,7 +113,15 @@ function ExpandableArray(props) {
   };
 
   const startWrite = () => {
-    props.writeFile(props.links)
+   
+let content=""
+for (let link of props.links) {
+    content += link.foldername+", "+link.description+", "+link.Url + '\n';
+}
+
+fs.writeFileSync('output.txt', content, 'utf8');
+
+
   };
 
   const isMobile = () => {
@@ -1388,7 +1397,7 @@ const mapDispatchToProps = (dispatch) => ({
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
   sortByFolder: () => dispatch(sortByFolder()),
-  writeFile: (links) => dispatch(writeFile(links)),
+  //writeFile: (links) => dispatch(writeFile(links)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

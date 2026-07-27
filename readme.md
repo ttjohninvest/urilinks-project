@@ -1681,5 +1681,10 @@ to restore lost database
 5. everything is restored good as new
 
 For individual account backup
-look through the whole json file that was backed up, the latest and find user id can it content json,
-copy and paste it into its own file, remove as an example "7CzFYQjw2aUhHgCYjS2eDODrfVE2":  in the firebase website, select uid that was lost, click three dots, select import json, pick file that has user data in json format, select import, all is restored to the latest date and time the whole database was backed up, all is backed up.
+to find the data to use to back up
+load most recent realtime database json file into notepad++
+get user id from email that user sent to me
+in notepad++, search for the user id
+make a separate file with the user's data with extension .json for example x.json. you
+don't need this part: "7CzFYQjw2aUhHgCYjS2eDODrfVE2":
+then in the firebase website, select uid that was lost in the database portion (left menu pane), click three dots, select import json, pick file that has user data in json format, select import, all is restored to the latest date and time the whole database was backed up, all is backed up.

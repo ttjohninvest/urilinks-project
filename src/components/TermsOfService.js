@@ -37,9 +37,6 @@ data for Nevada-based healthcare entities. Licensing: The Nevada State Board of 
 and other regulatory bodies enforce licensing standards, meaning vendors facilitating care must<br /> 
 ensure their contracts and operational structures do not compromise provider licensure or patient safety.<br />
 
-</div>
-<div>
-<br/>
 Warning: The Federal Stark Law
 The Federal Stark Law, also known as the Physician Self-Referral Law, prohibits physicians from referring
 Medicare or Medicaid patients for designated health services (DHS) to entities with which the
@@ -62,16 +59,14 @@ requiring proof of intent to induce referrals, the Stark Law is a civil law focu
 of a financial relationship and the resulting referral. The law was originally enacted in 1989
 (Stark I) and expanded in 1993 (Stark II) to cover Medicaid and additional services, aiming to
 eliminate conflicts of interest where financial gain might influence medical decision-making.
-</div>
-<div>
 
 The Federal Anti-Kickback Statute (AKS)
 This is a federal law that makes it illegal to offer, pay, solicit,
 or receive any form of payment or benefit in exchange for referring patients or generating business
 for services covered by Medicare, Medicaid, or other federal healthcare programs.
 Its primary goal is to ensure that medical decisions are based on patient needs rather than
-financial incentives.<br/>
-<br/>
+financial incentives.
+
 The law applies broadly to anyone involved in the healthcare industry, including physicians, hospitals,
 pharmaceutical companies, and medical device manufacturers.  It prohibits "remuneration"
 (anything of value, such as cash, gifts, free services, or discounted rent) if even one
@@ -91,6 +86,36 @@ value for legitimate personal services or bona fide employment relationships. Di
 from Stark Law: Unlike the Stark Law, which specifically targets physician self-referrals
 for designated health services and does not require proof of intent, the AKS is broader, covering
 all providers and requiring proof of intent to induce referrals.
+
+Warning: The Corporate Practice of Medicine (CPOM) 
+is a legal doctrine in the United States that prohibits non-physicians or general business
+corporations from practicing medicine or employing physicians to provide medical services.
+Originating in the early 1900s, the doctrine aims to preserve the independence of medical judgment
+by ensuring that clinical decisions are made by licensed healthcare professionals rather than corporate
+entities focused on profit. 
+
+Core Principles and Enforcement
+
+Primary Goal: To prevent laypeople or corporations from influencing medical decisions, thereby
+avoiding conflicts of interest between shareholder profit motives and patient care. 
+State Variability: While over 50% of states have CPOM regulations, enforcement ranges from
+strict (e.g., New York, California, Texas, and Michigan) to permissive or dormant. 
+Professional Autonomy: The doctrine ensures that physicians retain clinical autonomy,
+protecting the physician-patient relationship from commercial interference. 
+Common Exceptions and Compliance Structures
+
+Professional Corporations (PCs): Most states allow licensed physicians to form PCs or Professional
+Associations (PAs) to practice medicine within a corporate structure. 
+Management Services Organizations (MSOs): A common compliance model where a physician-owned entity
+handles all medical services, while a separate non-physician-owned MSO manages business operations
+(billing, HR) without influencing clinical care. 
+Other Exemptions: Many states exempt hospitals, Health Maintenance Organizations (HMOs),
+and non-profit entities from strict CPOM prohibitions, though these entities may still be barred
+from interfering with a physician’s independent medical judgment. 
+Current Legal Trends Recent years have seen increased enforcement and litigation, particularly
+regarding large staffing groups and private equity investments.  Notable cases, such as AAEMP v.
+Envision Healthcare in California, challenge whether complex corporate structures (like "shell" entities)
+improperly circumvent CPOM laws to allow non-physician control over medical practices. 
 
 User Accounts
 To use certain features of the Service, you may be required to create an account. You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your account credentials.

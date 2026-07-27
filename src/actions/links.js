@@ -1,5 +1,5 @@
-//const fs = require('fs');
-import fs from "fs"
+
+const fs = require('fs');
 import { v4 } from "uuid";
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags";

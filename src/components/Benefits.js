@@ -26,7 +26,7 @@ Medical Referral Links Management System Usage:<br />
 -a link may be added one at a time through the "Add Link" button and appear in the left side menu pane<br />
 -your google name and profile picture will appear at the top of your page<br />
 -if you accidentally loose your data, please contact me and give me your userid at johmcg64@gmail.com or 775 559 5740<br />
- and I will restore your data from back up. You can obtain your user from your sharable url on the urilinks home page.
+ and I will restore your data from back up. You can obtain your user id from the user id in the title on your urilinks home page.
  It is the alpha numberic string that appears after the id=. Thank you.
 -plans: [the free plan stores up to {StorageSizes.free} links], [The basic plan stores up to {StorageSizes.basic} links<br />
 -for $4.99 per year], [the standard plan stores up to {StorageSizes.standard} links for $9.99 per year],<br />

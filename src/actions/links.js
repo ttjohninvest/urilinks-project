@@ -624,12 +624,6 @@ export const startSetLinksNew = (uid) => {
 //link.Url
 //write a file with these three things on one line first
 
-export const writeFile = (textcontent) => {
-
-fs.writeFileSync('output.txt', textcontent, 'utf8');
-
-}
-
 export const startSetLinksAll = () => {
   return (dispatch, getState) => {
     return database

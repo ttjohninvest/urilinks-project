@@ -3,9 +3,8 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-import { writeFile } from "../actions/links";
 
-const fs = require('fs');
+const fs = require("fs");
 import AddLinkPage2 from "./AddlinkPage2";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
@@ -80,8 +79,7 @@ function ExpandableArray(props) {
 
       // Stop automatically when reaching the top
       if (document.getElementById("ls").scrollTop === 0) {
-     
-            buttonRef.current.click()
+        buttonRef.current.click();
 
         //stopScrolling();
       }
@@ -99,11 +97,12 @@ function ExpandableArray(props) {
         behavior: "auto",
       });
 
-       if (document.getElementById("ls").scrollTop + document.getElementById("ls").clientHeight >= document.getElementById("ls").scrollHeight) {
-      
-            buttonRef.current.click()
-
-        
+      if (
+        document.getElementById("ls").scrollTop +
+          document.getElementById("ls").clientHeight >=
+        document.getElementById("ls").scrollHeight
+      ) {
+        buttonRef.current.click();
       }
     }, 20); // Every 20 milliseconds
   };
@@ -114,15 +113,13 @@ function ExpandableArray(props) {
   };
 
   const startWrite = () => {
-   
-let content=""
-for (let link of props.links) {
-    content += link.foldername+", "+link.description+", "+link.Url + '\n';
-}
+    let content = "";
+    for (let link of props.links) {
+      content +=
+        link.foldername + ", " + link.description + ", " + link.Url + "\n";
+    }
 
-props.writeFile(content)
-
-
+    //write to express server that writes the text file
   };
 
   const isMobile = () => {
@@ -469,7 +466,7 @@ props.writeFile(content)
           >
             ScrollDn
           </button>
-           <button
+          <button
             title="Click the button to begin auto scroll."
             onClick={startWrite}
             className="button-2"
@@ -1398,7 +1395,6 @@ const mapDispatchToProps = (dispatch) => ({
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
   sortByFolder: () => dispatch(sortByFolder()),
-  writeFile: (cntnt) => dispatch(writeFile(cntnt)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

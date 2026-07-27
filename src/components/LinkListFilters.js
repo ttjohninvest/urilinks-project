@@ -454,7 +454,7 @@ function ExpandableArray(props) {
               ? "Medical Staff Referral Links Management System (Example Medical Staff Provider's Page)" //"Internet Links Management Tool"
               : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
                 ? "City Walks"
-                : "Medical Referral Links Management System" //"Internet Links Management Tool"
+                : "Medical Staff Referral Links Management System" //"Internet Links Management Tool"
           }
         </div>
         <div>

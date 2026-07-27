@@ -1668,19 +1668,18 @@ to back up firebase realtime database each day
 steps:
 1 go to firebase.google.com
 2 select urilink
-3 select database
+3 select the users key
 4 click three dots upper right side
 5 click export json and select Documents/urilinks/realtimedatabasebackups as the folder to save to, save it
 6 it is backed up
 
 to restore lost database
-1. select users
+1. select the database url
 2. select 3 dots
 3. select import json, and pick the latest json file that was previously exported
 4. select import 
 5. everything is restored good as new
 
 For individual account backup
-look through the while json file that was backed up, the latest and find user id can it content json,
-copy and paste it into its own file, select uid that was lost, click three dots, select import json
-select import, done, all is backed up.
+look through the whole json file that was backed up, the latest and find user id can it content json,
+copy and paste it into its own file, remove as an example "7CzFYQjw2aUhHgCYjS2eDODrfVE2":  in the firebase website, select uid that was lost, click three dots, select import json, pick file that has user data in json format, select import, all is restored to the latest date and time the whole database was backed up, all is backed up.

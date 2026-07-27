@@ -1,5 +1,5 @@
 //const fs = require('fs');
-
+import fs from "fs"
 import { v4 } from "uuid";
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags";
@@ -624,18 +624,11 @@ export const startSetLinksNew = (uid) => {
 //link.Url
 //write a file with these three things on one line first
 
-// export const writeFile = (links) => {
-// // links2.forEach((link) => {
+export const writeFile = (textcontent) => {
 
-// // })
-// let content=""
-// for (let link of links) {
-//     content += link.foldername+", "+link.description+", "+link.Url + '\n';
-// }
+fs.writeFileSync('output.txt', textcontent, 'utf8');
 
-// fs.writeFileSync('output.txt', content, 'utf8');
-
-// }
+}
 
 export const startSetLinksAll = () => {
   return (dispatch, getState) => {

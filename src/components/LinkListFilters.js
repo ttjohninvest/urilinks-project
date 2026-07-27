@@ -3,8 +3,8 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-//import { writeFile } from "../actions/links";
-//import fs from "fs"
+import { writeFile } from "../actions/links";
+
 const fs = require('fs');
 import AddLinkPage2 from "./AddlinkPage2";
 import ReadMoreSpan from "./ReadMoreSpan";
@@ -120,7 +120,7 @@ for (let link of props.links) {
     content += link.foldername+", "+link.description+", "+link.Url + '\n';
 }
 
-fs.writeFileSync('output.txt', content, 'utf8');
+props.writeFile(content)
 
 
   };
@@ -1398,7 +1398,7 @@ const mapDispatchToProps = (dispatch) => ({
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
   sortByFolder: () => dispatch(sortByFolder()),
-  //writeFile: (links) => dispatch(writeFile(links)),
+  writeFile: (cntnt) => dispatch(writeFile(cntnt)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

@@ -1662,3 +1662,20 @@ Manage the details and ordering for each series.
 title: Your developments
 
 slug: /yourdevelopments
+
+
+to back up firebase realtime database each day
+steps:
+1 go to firebase.google.com
+2 select urilink
+3 select database
+4 click three dots upper right side
+5 click export json and select Documents/urilinks/realtimedatabasebackups as the folder to save to, save it
+6 it is backed up
+
+to restore lost database
+1. select users
+2. select 3 dots
+3. select import json, and pick the latest json file that was previously exported
+4. select import 
+5. everything is restored good as new

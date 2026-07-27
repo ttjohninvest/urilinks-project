@@ -1679,3 +1679,8 @@ to restore lost database
 3. select import json, and pick the latest json file that was previously exported
 4. select import 
 5. everything is restored good as new
+
+For individual account backup
+look through the while json file that was backed up, the latest and find user id can it content json,
+copy and paste it into its own file, select uid that was lost, click three dots, select import json
+select import, done, all is backed up.

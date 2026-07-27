@@ -486,7 +486,7 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startWrite}
-            className="button-2"
+            className="button-2 ib margin-left-11"
           >
             Write
           </button>

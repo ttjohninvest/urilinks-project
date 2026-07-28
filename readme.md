@@ -1691,11 +1691,11 @@ then in the firebase website, select uid that was lost in the database portion (
 
 
 =====================
-hashtag error when do the search
+title: hashtag error when do the search
 problem: I would get the error. The search term needs to be a hashtag
 solution: I commented out all of the code that outputs this error
 
-// if (term.charAt(0) !== "#") {
+      // if (term.charAt(0) !== "#") {
       //   alert("The search term needs to be a hashtag.");
       //   return;
       // }

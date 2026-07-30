@@ -300,7 +300,7 @@ export const Header = (props) => {
                           />
                           <span className="nav-link active">
                             
-                              <div class="dropdown ib">
+                              {/* <div class="">
   <button class="dropbtn-"><h3 className="color-white-1">urilinks</h3></button>
   <div class="dropdown-content ib">
      <Link
@@ -329,9 +329,9 @@ export const Header = (props) => {
                       </Link>
     
   </div>
-</div>
-{/* </span> */}
-                            {/* <h3 className="color-white-1">urilinks</h3> */}
+</div> */}
+
+                            <h3 className="color-white-1">urilinks</h3>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
                           {/* <img

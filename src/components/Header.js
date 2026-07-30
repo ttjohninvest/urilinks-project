@@ -304,9 +304,31 @@ export const Header = (props) => {
                               <div class="dropdown ib">
   <button class="dropbtn-"><h3 className="color-white-1">urilinks</h3></button>
   <div class="dropdown-content ib">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+     <Link
+                        className="header__title- nounderline"
+                        to="/use"
+                        target="_blank"
+                      >
+                        <span
+                          className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer"
+                          title="Click to see how to use this website."
+                        >
+                          usage
+                        </span>
+                      </Link>
+    <Link
+                        className="header__title- nounderline"
+                        to="/termsandprivacy"
+                        target="_blank"
+                      >
+                        <span
+                          className="ib- color-white-1 color-black-2- cursor-pointer"
+                          title="Click to see terms ane privacy"
+                        >
+                          legal
+                        </span>
+                      </Link>
+    
   </div>
 </div>
 {/* </span> */}
@@ -404,7 +426,7 @@ export const Header = (props) => {
                   <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="Click to see a  list of colleges and universities">colleges</a>
                   </div> */}
 
-                    <div>
+                    {/* <div>
                       <Link
                         className="header__title- nounderline"
                         to="/use"
@@ -417,9 +439,9 @@ export const Header = (props) => {
                           usage
                         </span>
                       </Link>
-                    </div>
+                    </div> */}
 
-                    <div>
+                    {/* <div>
                       <Link
                         className="header__title- nounderline"
                         to="/termsandprivacy"
@@ -432,7 +454,7 @@ export const Header = (props) => {
                           legal
                         </span>
                       </Link>
-                    </div>
+                    </div> */}
                     {!!props.theplan.plan &&
                       props.theplan.plan.replace(/"/g, "") !== "premium" &&
                       props.signup.signup === true &&

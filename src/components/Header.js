@@ -302,15 +302,15 @@ export const Header = (props) => {
                             {/* <i className="material-icons">home</i> */}
                             {/* <span className="dropdown-menu"> */}
                               <div class="dropdown ib">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
+  <button class="dropbtn-"><h3 className="color-white-1">urilinks</h3></button>
+  <div class="dropdown-content ib">
     <a href="#">Link 1</a>
     <a href="#">Link 2</a>
     <a href="#">Link 3</a>
   </div>
 </div>
 {/* </span> */}
-                            <h3 className="color-white-1">urilinks</h3>
+                            {/* <h3 className="color-white-1">urilinks</h3> */}
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
                           {/* <img

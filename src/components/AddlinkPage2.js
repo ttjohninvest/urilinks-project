@@ -52,7 +52,7 @@ export const AddLinkPage2 = (props) => {
     console.log("getPlanMax()=" + getPlanMax());
     const fetchData = async () => {
       try {
-        //RZOEMMu7Nwa5bQ51sf71FfDX3A93
+        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           if (user) {
@@ -63,18 +63,18 @@ export const AddLinkPage2 = (props) => {
             console.log("No user is currently logged in.");
           }
         } else {
-          setUserId("RZOEMMu7Nwa5bQ51sf71FfDX3A93");
+          setUserId("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
         }
 
         const db = firebase.database();
-        ////try {//RZOEMMu7Nwa5bQ51sf71FfDX3A93
+        ////try {//XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         let snapshot;
         if (props.signup.signup === true) {
           const user = firebase.auth().currentUser;
           snapshot = await db.ref(`/users/${user.uid}/links`).once("value");
         } else {
           snapshot = await db
-            .ref(`/users/RZOEMMu7Nwa5bQ51sf71FfDX3A93/links`)
+            .ref(`/users/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/links`)
             .once("value");
         }
 

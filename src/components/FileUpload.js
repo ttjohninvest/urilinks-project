@@ -27,7 +27,6 @@ class FileUpload extends React.Component {
     const uploadField = document.getElementById("file");
 
     if (file.size > 102130) {
-    
       //about 100kb
       alert(
         "The bookmarks file," +
@@ -41,7 +40,7 @@ class FileUpload extends React.Component {
   };
 
   uploadFiles = (file) => {
-    //"RZOEMMu7Nwa5bQ51sf71FfDX3A93"
+    //"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
     let user;
     let uid;
     let uploadTask;
@@ -51,9 +50,9 @@ class FileUpload extends React.Component {
       uploadTask = storage.ref(`files/${uid}/${file.name}`).put(file);
     } else {
       uploadTask = storage
-        .ref(`files/RZOEMMu7Nwa5bQ51sf71FfDX3A93/${file.name}`)
+        .ref(`files/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2/${file.name}`)
         .put(file);
-      uid = "RZOEMMu7Nwa5bQ51sf71FfDX3A93";
+      uid = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
     }
 
     uploadTask.on(

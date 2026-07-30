@@ -67,7 +67,7 @@ if (signup !== "signup") {
   if (id !== null) {
     store.dispatch(login(id));
   } else {
-    id = "RZOEMMu7Nwa5bQ51sf71FfDX3A93";
+    id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
     store.dispatch(login(id));
     //trying to get auth.uid set for firebase realtime database
     //https://search.brave.com/search?q=signinwithcustomtoken+example&summary=1&conversation=09551df67729851dc86250d9dcba75ea9728

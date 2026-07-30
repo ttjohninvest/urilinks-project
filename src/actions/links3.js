@@ -191,11 +191,11 @@ export const startSetLinks3 = async (uid) => {
       // const ids = [
       //   "D9LSg6elood8Yc5gd5oDMp3JNAQ2"//,
       //   //"Gj6I5M7qf8ODZCsFqC3zAuFTXgx2",
-      //   //"RZOEMMu7Nwa5bQ51sf71FfDX3A93"
-      //   // "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-      //   // "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
+      //   //"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+      //   // "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+      //   // "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
       //   // "WJGHkWycjKQxPK83Fi4zqx53bCl1",
-      //   // "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
+      //   // "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
       //   // "cvo17Ph52BcJ3gRMgSTL7gxrBUp1",
       //   // "m8f0YMF5bucp9uhblPZhM8CTjq12",
       //   // "tWKNG14PYYYY0hDPurLouWtYjtq1"

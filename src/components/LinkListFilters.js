@@ -187,7 +187,7 @@ function ExpandableArray(props) {
       setUid(user.uid);
       setTheuser(user);
     } else {
-      setUid("RZOEMMu7Nwa5bQ51sf71FfDX3A93");
+      setUid("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
     }
 
     const x = window.localStorage.getItem("hideinformation");
@@ -270,7 +270,7 @@ function ExpandableArray(props) {
   };
 
   const isCorrectAccount = () => {
-    if (uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93") return true;
+    if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2") return true;
     return false;
   };
 
@@ -443,18 +443,32 @@ function ExpandableArray(props) {
   return (
     <div className="bg-white-1">
       <div className="sticky-div-">
-        <div
+        {/* <div
           className={`website-background-color ${
             useButtons === true ? "width30p" : "width30pt"
           } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-16 font-weight-500`}
           title="For Medical staff patient providers' are welcome to use this Medical Referral Links Management System to add, view, delete and share your links with a patient or other providers." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           {
-            uid === "RZOEMMu7Nwa5bQ51sf71FfDX3A93"
+            uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" //use RZ...
               ? "Medical Staff Referral Links Management System (Example Page For Staff User Id: "+props.theplan.uid+")" //"Internet Links Management Tool"
               : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
                 ? "City Walks"
                 : "Medical Staff Referral Links Management System"+" For Staff User Id: "+props.theplan.uid //"Internet Links Management Tool"
+          }
+        </div> */}
+          <div
+          className={`website-background-color ${
+            useButtons === true ? "width30p" : "width30pt"
+          } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-16 font-weight-500`}
+          title="You are welcome to use this Links Management Tool to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
+        >
+          {
+            uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+              ? "Internet Links Management Tool" //"Internet Links Management Tool"
+              : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
+                ? "City Walks"
+                : "Internet Links Management Tool" //"Internet Links Management Tool"
           }
         </div>
         <div>

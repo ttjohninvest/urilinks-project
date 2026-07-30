@@ -158,7 +158,7 @@ const FetchBookmarks = (props) => {
   const getHashtag = (str) => {
     console.log("getHashtag");
 
-    const cleanedString = str.replace(/[^a-zA-Z0-9&]/g, '')
+    const cleanedString = str.replace(/[^a-zA-Z0-9&]/g, "");
     //const cleanedString2 = cleanedString.replace(/&/g, 'And')
     const cleanedString2 = cleanedString.replace(/\_/g, "");
 
@@ -3061,7 +3061,7 @@ const FetchBookmarks = (props) => {
 
                 let max = 0;
                 let loopmax2 = rl;
-                //RZOEMMu7Nwa5bQ51sf71FfDX3A93
+                //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
                 if (props.signup.signup === true) {
                   const user = firebase.auth().currentUser;
                   let skip = 0;

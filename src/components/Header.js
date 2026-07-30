@@ -72,10 +72,10 @@ export const Header = (props) => {
       "D9LSg6elood8Yc5gd5oDMp3JNAQ2",
       "WJGHkWycjKQxPK83Fi4zqx53bCl1",
       "W4XCM1PRqtZeAzCZ0ALlEFrIwaw1",
-      "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
-      "RZOEMMu7Nwa5bQ51sf71FfDX3A93",
+      "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
+      "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2",
       "Gj6I5M7qf8ODZCsFqC3zAuFTXgx2", //,
-      //"RZOEMMu7Nwa5bQ51sf71FfDX3A93" //jmjohnmcgovern707@gmail.com
+      //"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" //jmjohnmcgovern707@gmail.com
     ];
     let val = false;
     mearray.forEach((id) => {
@@ -157,7 +157,11 @@ export const Header = (props) => {
       setGoogleUserDatadb(gud);
       setEmaildb(user.email);
       setUid(gud.uid);
-      setName(user.uid==="RZOEMMu7Nwa5bQ51sf71FfDX3A93"?"example medical provider's profile image":gud.displayname);
+      setName(
+        user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+          ? "example medical provider's profile image"
+          : gud.displayname,
+      );
       setEmail(user.email);
       if (props.theplan.plan === "basic") setTheplan("on basic plan");
       else if (props.theplan.plan === "standard")
@@ -299,8 +303,7 @@ export const Header = (props) => {
                             alt="Logo"
                           />
                           <span className="nav-link active">
-                            
-                              {/* <div class="">
+                            {/* <div class="">
   <button class="dropbtn-"><h3 className="color-white-1">urilinks</h3></button>
   <div class="dropdown-content ib">
      <Link
@@ -650,7 +653,7 @@ export const Header = (props) => {
                       ""
                     )}
 
-                        {props.signup.signup === true || signup === "0" ? (
+                    {props.signup.signup === true || signup === "0" ? (
                       <div className="padding-top-1112 margin-left-118">
                         <img
                           src={photoURL}

@@ -298,9 +298,18 @@ export const Header = (props) => {
                             height="35"
                             alt="Logo"
                           />
-                          <span className="nav-link active dropdown">
+                          <span className="nav-link active">
                             {/* <i className="material-icons">home</i> */}
-                            <span className="dropdown-menu"><Dropdown /></span>
+                            {/* <span className="dropdown-menu"> */}
+                              <div class="dropdown ib">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+{/* </span> */}
                             <h3 className="color-white-1">urilinks</h3>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}

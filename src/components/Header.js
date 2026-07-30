@@ -573,7 +573,7 @@ export const Header = (props) => {
                           <span
                             className="ib- color-white-1 color-black-2- cursor-pointer pointereventsauto"
                             ////className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
-                            title="uploads bookmarks using exported bookmarks file"
+                            title="uploads bookmarks file that was previously exported from the browser. It must be less the 100kb in size."
                           >
                             upload bookmarks file
                           </span>

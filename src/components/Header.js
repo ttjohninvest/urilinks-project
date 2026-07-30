@@ -157,9 +157,14 @@ export const Header = (props) => {
       setGoogleUserDatadb(gud);
       setEmaildb(user.email);
       setUid(gud.uid);
+      // setName(
+      //   user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+      //     ? "example medical provider's profile image"
+      //     : gud.displayname,
+      // );
       setName(
         user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-          ? "example medical provider's profile image"
+          ? "example user's profile image"
           : gud.displayname,
       );
       setEmail(user.email);

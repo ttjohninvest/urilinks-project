@@ -465,7 +465,7 @@ function ExpandableArray(props) {
         >
           {
             uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-              ? "Internet Links Management Tool" //"Internet Links Management Tool"
+              ? "Internet Links Management Dashboard" //"Internet Links Management Tool"
               : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
                 ? "City Walks"
                 : "Internet Links Management Dashboard" //"Internet Links Management Tool"

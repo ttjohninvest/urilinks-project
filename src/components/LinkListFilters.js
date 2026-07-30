@@ -465,10 +465,10 @@ function ExpandableArray(props) {
         >
           {
             uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-              ? "Internet Links Management Dashboard" //"Internet Links Management Tool"
+              ? <span>Internet Links Management Dashboard<a href="https://accuradio.com">accuradio</a></span> //"Internet Links Management Tool"
               : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
                 ? "City Walks"
-                : "Internet Links Management Dashboard" //"Internet Links Management Tool"
+                : <span>Internet Links Management Dashboard<a href="https://accuradio.com">accuradio</a></span> //"Internet Links Management Tool"
           }
         </div>
         <div>

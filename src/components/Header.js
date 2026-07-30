@@ -18,6 +18,7 @@ import signature from "../assets/images/signature.png";
 
 //import { getAuth } from "firebase";
 import XShareButton from "./XShareButton";
+import Dropdown from "./Dropdown";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startAddPhotourl } from "../actions/photourl";
 import { startAddBmok } from "../actions/bmok";
@@ -297,8 +298,9 @@ export const Header = (props) => {
                             height="35"
                             alt="Logo"
                           />
-                          <span className="nav-link active">
+                          <span className="nav-link active dropdown">
                             {/* <i className="material-icons">home</i> */}
+                            <span className="dropdown-menu"><Dropdown /></span>
                             <h3 className="color-white-1">urilinks</h3>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}

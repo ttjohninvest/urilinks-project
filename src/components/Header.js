@@ -299,8 +299,7 @@ export const Header = (props) => {
                             alt="Logo"
                           />
                           <span className="nav-link active">
-                            {/* <i className="material-icons">home</i> */}
-                            {/* <span className="dropdown-menu"> */}
+                            
                               <div class="dropdown ib">
   <button class="dropbtn-"><h3 className="color-white-1">urilinks</h3></button>
   <div class="dropdown-content ib">
@@ -426,7 +425,7 @@ export const Header = (props) => {
                   <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="Click to see a  list of colleges and universities">colleges</a>
                   </div> */}
 
-                    {/* <div>
+                    <div>
                       <Link
                         className="header__title- nounderline"
                         to="/use"
@@ -439,9 +438,9 @@ export const Header = (props) => {
                           usage
                         </span>
                       </Link>
-                    </div> */}
+                    </div>
 
-                    {/* <div>
+                    <div>
                       <Link
                         className="header__title- nounderline"
                         to="/termsandprivacy"
@@ -454,7 +453,7 @@ export const Header = (props) => {
                           legal
                         </span>
                       </Link>
-                    </div> */}
+                    </div>
                     {!!props.theplan.plan &&
                       props.theplan.plan.replace(/"/g, "") !== "premium" &&
                       props.signup.signup === true &&
@@ -643,7 +642,7 @@ export const Header = (props) => {
                           className="button button--link ib text-size-3- color-white-1 color-black-2- cursor-pointer"
                           onClick={cancelsubscription}
                         >
-                          delete
+                          delete account
                         </button>
                       </div>
                     ) : (

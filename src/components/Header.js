@@ -310,7 +310,7 @@ export const Header = (props) => {
                         target="_blank"
                       >
                         <span
-                          className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer"
+                          className="margin-right-1-ib- color-white-1- color-black-2 cursor-pointer"
                           title="Click to see how to use this website."
                         >
                           usage
@@ -322,7 +322,7 @@ export const Header = (props) => {
                         target="_blank"
                       >
                         <span
-                          className="ib- color-white-1 color-black-2- cursor-pointer"
+                          className="ib- color-white-1= color-black-2 cursor-pointer"
                           title="Click to see terms ane privacy"
                         >
                           legal
@@ -378,7 +378,7 @@ export const Header = (props) => {
                     </Link>
                   </div> */}
 
-                    {props.signup.signup === true || signup === "0" ? (
+                    {/* {props.signup.signup === true || signup === "0" ? (
                       <div className="padding-top-1112 margin-left-118">
                         <img
                           src={photoURL}
@@ -420,7 +420,7 @@ export const Header = (props) => {
                           )
                         }
                       </div>
-                    )}
+                    )} */}
 
                     {/* <div>
                   <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="Click to see a  list of colleges and universities">colleges</a>
@@ -648,6 +648,50 @@ export const Header = (props) => {
                       </div>
                     ) : (
                       ""
+                    )}
+
+                        {props.signup.signup === true || signup === "0" ? (
+                      <div className="padding-top-1112 margin-left-118">
+                        <img
+                          src={photoURL}
+                          width="32"
+                          height="32"
+                          style={{ borderRadius: "50%" }}
+                          className="ib- margin-bottom-11-"
+                          title={name + ", " + email + ", " + theplan}
+                          alt="example"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="padding-top-1112 margin-left-118-"
+                        title="welcome"
+                      >
+                        {
+                          //firebase.auth().currentUser !== null &&
+                          //firebase.auth().currentUser !== undefined
+                          //photourl==="" ||
+                          false ? ( // uid !== null
+                            <img
+                              src={photoURL}
+                              width="32"
+                              height="32"
+                              style={{ borderRadius: "50%" }}
+                              className="ib- margin-bottom-11-"
+                            />
+                          ) : (
+                            <img
+                              src={myprofile}
+                              width="32"
+                              height="32"
+                              style={{ borderRadius: "50%" }}
+                              className="ib- margin-bottom-11-"
+                              title={name}
+                              alt="example"
+                            />
+                          )
+                        }
+                      </div>
                     )}
                   </div>
                 </div>

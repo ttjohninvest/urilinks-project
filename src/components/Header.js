@@ -164,7 +164,7 @@ export const Header = (props) => {
       // );
       setName(
         user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-          ? "example user's profile image"
+          ? gud.displayname
           : gud.displayname,
       );
       setEmail(user.email);

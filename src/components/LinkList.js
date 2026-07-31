@@ -40,6 +40,7 @@ export const LinkList = (props) => {
 
   const myRef = useRef();
   const scrollInterval2 = useRef(null);
+  const buttonRef2 = useRef(null);
 
   //   useEffect(() => {
   //      const processedData = props.links.map((item,index) => ({
@@ -60,46 +61,41 @@ export const LinkList = (props) => {
 
   const startScrollingDown2 = () => {
     // Prevent multiple intervals
-    if (scrollInterval2.current) return;
+    if (scrollInterval.current) return;
 
-    scrollInterval2.current = setInterval(() => {
+    scrollInterval.current = setInterval(() => {
       document.getElementById("ls2").scrollBy({
         top: -1, // Scroll 1 pixel each time
         left: 0,
         behavior: "auto",
       });
 
-      // Stop automatically when reaching the bottom
-      if (
-        document.getElementById("ls2").innerHeight + 0 >=
-        0
-        //document.documentElement.scrollHeight
-        // document.getElementById("ls2").scrollHeight
-      ) {
-        stopScrolling2();
+      // Stop automatically when reaching the top
+      if (document.getElementById("ls2").scrollTop === 0) {
+        buttonRef2.current.click();
+
+        //stopScrolling();
       }
     }, 20); // Every 20 milliseconds
   };
 
   const startScrollingUp2 = () => {
     // Prevent multiple intervals
-    if (scrollInterval2.current) return;
+    if (scrollInterval.current) return;
 
-    scrollInterval2.current = setInterval(() => {
+    scrollInterval.current = setInterval(() => {
       document.getElementById("ls2").scrollBy({
         top: 1, // Scroll 1 pixel each time
         left: 0,
         behavior: "auto",
       });
 
-      // Stop automatically when reaching the bottom
       if (
-        document.getElementById("ls2").innerHeight + window.scrollY >=
-        //document.documentElement.scrollHeight
+        document.getElementById("ls2").scrollTop +
+          document.getElementById("ls2").clientHeight >=
         document.getElementById("ls2").scrollHeight
       ) {
-        stopScrolling2();
-        //document.getElementById("ls2").scrollTo(0,0)
+        buttonRef2.current.click();
       }
     }, 20); // Every 20 milliseconds
   };
@@ -197,6 +193,7 @@ export const LinkList = (props) => {
           </button>
 
           <button
+          ref={buttonRef2}
           title="Click the button to stop auto scroll."
             onClick={stopScrolling2}
             className="button-2 ib margin-left-11"

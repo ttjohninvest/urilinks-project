@@ -700,7 +700,7 @@ set mode to sandbox
 3 SK\_... go into client secret and vercel stripe api and cancel subscription, redeploy each
 in urilinks-project-vercel-stripe-api "whsec_aSLiT5bL5VXNiFBl1mVm4MU0hAPNM2M2" needs to be used, redeploy
 
----
+----
 
 stripe secret key, stripe update time, see urilinks.com googledocuments for roll it or delete it time so I can keep accepting payments
 test upgrade plan when you get more money in the bank

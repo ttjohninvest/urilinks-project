@@ -150,7 +150,7 @@ export const SendEmailPage = (props) => {
           <div className="page-header">
             <div className="content-container">
               <h1 className="page-header__title">
-                <span className="color-purple color-black-2">Add Link</span>
+                <span className="color-purple color-black-2">Email Data</span>
               </h1>
             </div>
           </div>

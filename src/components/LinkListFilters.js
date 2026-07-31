@@ -32,6 +32,7 @@ import {
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
+  const [email, setEmail] = useState("");
   const [theuser, setTheuser] = useState(firebase.auth().currentUser);
   const [copySuccess, setCopySuccess] = useState("");
   //const [max, setMax] = useState(250);
@@ -185,6 +186,7 @@ function ExpandableArray(props) {
     if (props.signup === true) {
       const user = firebase.auth().currentUser;
       setUid(user.uid);
+      setEmail(user.email);
       setTheuser(user);
     } else {
       setUid("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");

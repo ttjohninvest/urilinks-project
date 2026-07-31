@@ -63,7 +63,7 @@ export const LinkList = (props) => {
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
-    scrollInterval.current = setInterval(() => {
+    scrollInterval2.current = setInterval(() => {
       document.getElementById("ls2").scrollBy({
         top: -1, // Scroll 1 pixel each time
         left: 0,
@@ -83,7 +83,7 @@ export const LinkList = (props) => {
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
-    scrollInterval.current = setInterval(() => {
+    scrollInterval2.current = setInterval(() => {
       document.getElementById("ls2").scrollBy({
         top: 1, // Scroll 1 pixel each time
         left: 0,

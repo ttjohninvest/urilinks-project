@@ -250,7 +250,7 @@ class EmailForm extends React.Component {
 
          <input
           type="text"
-          placeholder="to email address"
+          placeholder="toemail"
           //readOnly={this.props.makereadonly===true?true:false}
           autoFocus
           className="text-input"

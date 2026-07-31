@@ -459,7 +459,7 @@ function ExpandableArray(props) {
 
   //const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 const uri = encodeURIComponent("https://urilinks.com/dashboard?signup=0&id=1")
-  const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=Hello+World&to=johmcg64@gmail.com&body={uri}&tf=cm`
+  const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=Hello+World&to=johmcg64@gmail.com&body=${uri}&tf=cm`
 
   return (
     <div className="bg-white-1">

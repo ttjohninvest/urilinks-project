@@ -61,7 +61,7 @@ export const LinkList = (props) => {
 
   const startScrollingDown2 = () => {
     // Prevent multiple intervals
-    if (scrollInterval.current) return;
+    if (scrollInterval2.current) return;
 
     scrollInterval.current = setInterval(() => {
       document.getElementById("ls2").scrollBy({
@@ -81,7 +81,7 @@ export const LinkList = (props) => {
 
   const startScrollingUp2 = () => {
     // Prevent multiple intervals
-    if (scrollInterval.current) return;
+    if (scrollInterval2.current) return;
 
     scrollInterval.current = setInterval(() => {
       document.getElementById("ls2").scrollBy({

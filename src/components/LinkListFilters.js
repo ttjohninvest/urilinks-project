@@ -910,7 +910,7 @@ function ExpandableArray(props) {
                 </span>
               )}
 
-              {props.signup === true ? (
+              {/* {props.signup === true ? (
                 <div className="minWidth- bg-color-4">
                   <a
                     id="adlinkid"
@@ -926,9 +926,9 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>
-              )}
+              )} */}
 
-              {props.signup === false ? (
+              {/* {props.signup === false ? (
                 <div className="minWidth- bg-color-4">
                   <a
                     id="adlinkid"
@@ -944,7 +944,7 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>
-              )}
+              )} */}
 
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}

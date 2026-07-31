@@ -453,6 +453,13 @@ function ExpandableArray(props) {
 
   };
 
+  const email = "johmcg64@gmail.com";
+  const subject = "Subject Line";
+  const body = "body of email";
+
+  const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+
   return (
     <div className="bg-white-1">
       <div className="sticky-div-">
@@ -925,7 +932,37 @@ function ExpandableArray(props) {
                 </span>
               )}
 
-              {props.signup === true ? (
+              {props.signup === true ? 
+               
+               (
+                <div className="">
+                <a href={mailtoUrl}>Send Email</a>
+                </div>
+              ) : (
+                <div className=""></div>
+              ) 
+              
+              }
+
+
+              {props.signup === false ? 
+              
+              (
+                <div className="">
+                <a href={mailtoUrl}>Send Email</a>
+                </div>
+              ) : (
+                <div className="minWidth- bg-color-4"></div>
+              )
+              
+              }  
+
+
+
+
+                 {/* {props.signup === true ? 
+               
+               (
                 <div className="minWidth- bg-color-4">
                   <a
                     id="adlinkid"
@@ -935,15 +972,20 @@ function ExpandableArray(props) {
                     onClick={handleClick}
                   >
                     Email Sharable Link 
-                  </a> {/*(currently turned off)*/}
+                  </a> 
 
                   {showComponent && <AddLinkPage2 />}
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>
-              )}
+              ) 
+              
+              }
 
-              {props.signup === false ? (
+
+              {props.signup === false ? 
+              
+              (
                 <div className="minWidth- bg-color-4">
                   <a
                     id="adlinkid"
@@ -953,13 +995,18 @@ function ExpandableArray(props) {
                     onClick={handleClick}
                   >
                     Email Sharable Link 
-                  </a> {/*(currently turned off)*/}
+                  </a> 
 
                   {showComponent && <AddLinkPage2 />}
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>
-              )}
+              )
+              
+              }  */}
+
+
+
 
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}

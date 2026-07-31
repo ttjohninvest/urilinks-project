@@ -936,7 +936,7 @@ function ExpandableArray(props) {
                
                (
                 <div className="">
-                <a href={mailtoUrl}>Send Email</a>
+                <a href={mailtoUrl} target="_blank">Send Email</a>
                 </div>
               ) : (
                 <div className=""></div>
@@ -949,7 +949,7 @@ function ExpandableArray(props) {
               
               (
                 <div className="">
-                <a href={mailtoUrl}>Send Email</a>
+                <a href={mailtoUrl} target="_blank">Send Email</a>
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>

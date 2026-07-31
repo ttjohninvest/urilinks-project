@@ -435,9 +435,22 @@ function ExpandableArray(props) {
 
   const handleClick = (event) => {
     event.preventDefault();
-    //adlinkid
-    document.getElementById("adlinkid").classList.add("pointereventsnone");
-    setShowComponent(true);
+    
+    // document.getElementById("adlinkid").classList.add("pointereventsnone");
+    // setShowComponent(true);
+
+      const email = "johmcg64@gmail.com";
+    const subject = encodeURIComponent("Hello");
+    const body = encodeURIComponent("This is a test email.");
+    
+    // Construct the mailto URL
+    const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+    
+    // Open the mail client
+    window.location.href = mailtoLink;
+
+
+
   };
 
   return (
@@ -912,41 +925,41 @@ function ExpandableArray(props) {
                 </span>
               )}
 
-              {/* {props.signup === true ? (
+              {props.signup === true ? (
                 <div className="minWidth- bg-color-4">
                   <a
                     id="adlinkid"
                     href="#"
                     title="Email your sharable link to share with others."
-                    className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone width100  color-black-2 border5-"
+                    className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone- width100  color-black-2 border5-"
                     onClick={handleClick}
                   >
-                    Email Sharable Link (currently turned off)
-                  </a>
+                    Email Sharable Link 
+                  </a> {/*(currently turned off)*/}
 
                   {showComponent && <AddLinkPage2 />}
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>
-              )} */}
+              )}
 
-              {/* {props.signup === false ? (
+              {props.signup === false ? (
                 <div className="minWidth- bg-color-4">
                   <a
                     id="adlinkid"
                     href="#"
                     title="Email your sharable link to share with others."
-                    className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone width100  color-black-2 border5-"
+                    className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone- width100  color-black-2 border5-"
                     onClick={handleClick}
                   >
-                    Email Sharable Link (currently turned off)
-                  </a>
+                    Email Sharable Link 
+                  </a> {/*(currently turned off)*/}
 
                   {showComponent && <AddLinkPage2 />}
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>
-              )} */}
+              )}
 
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}

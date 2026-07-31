@@ -36,12 +36,12 @@ class EmailForm extends React.Component {
   };
 
   onEmailChange = (e) => {
-    const Email = e.target.value;
-    this.setState(() => ({ Email }));
+    const email = e.target.value;
+    this.setState(() => ({ email }));
   };
   onSubjectChange = (e) => {
-    const Subject = e.target.value;
-    this.setState(() => ({ Subject }));
+    const subject = e.target.value;
+    this.setState(() => ({ subject }));
   };
 
   onUrlChange = (e) => {

@@ -975,7 +975,7 @@ const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid
                     className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone- width100  color-black-2 border5-"
                     onClick={handleClick}
                   >
-                    Email Sharable Link 
+                    Click to email sharable link to {email}
                   </a> 
 
                   {showComponent && <AddLinkPage2 />}
@@ -999,7 +999,7 @@ const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid
                     className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone- width100  color-black-2 border5-"
                     onClick={handleClick}
                   >
-                    Email Sharable Link 
+                     Click to email sharable link to {email}
                   </a> 
 
                   {showComponent && <AddLinkPage2 />}

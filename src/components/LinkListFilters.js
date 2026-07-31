@@ -936,7 +936,7 @@ const mailtoUrl = "https://mail.google.com/mail/u/0/#inbox"
                
                (
                 <div className="">
-                <a href={mailtoUrl} target="_blank">Send Email</a>
+                <a href={mailtoUrl} target="_blank">Send gmail</a>
                 </div>
               ) : (
                 <div className=""></div>
@@ -949,7 +949,7 @@ const mailtoUrl = "https://mail.google.com/mail/u/0/#inbox"
               
               (
                 <div className="">
-                <a href={mailtoUrl} target="_blank">Send Email</a>
+                <a href={mailtoUrl} target="_blank">Send gmail</a>
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>

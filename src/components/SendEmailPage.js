@@ -3,6 +3,7 @@ import * as firebase from "firebase";
 
 import { connect } from "react-redux";
 import EmailSharableLinkForm from "./EmailSharableLinkForm";
+import EmailForm from "./EmailForm"
 import { startAddLink, emailSharableLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import TeirsPayment3 from "./TeirsPayment3";

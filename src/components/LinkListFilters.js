@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import AddLinkPage2 from "./AddlinkPage2";
+import SendEmailPage from "./SendEmailPage";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -11,6 +12,7 @@ import { connect } from "react-redux";
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 
 import { DateRangePicker } from "react-dates";
+import EmailForm from "./EmailForm"
 
 import database from "../firebase/firebase";
 import redarrow from "../assets/images/red-arrow.jpg";
@@ -33,6 +35,7 @@ function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
   const [email, setEmail] = useState("");
+  const [emailForm, showEmailForm] = useState(false)
   const [theuser, setTheuser] = useState(firebase.auth().currentUser);
   const [copySuccess, setCopySuccess] = useState("");
   //const [max, setMax] = useState(250);
@@ -436,22 +439,23 @@ function ExpandableArray(props) {
   };
 
   const handleClick = (event) => {
-    event.preventDefault();
+//     event.preventDefault();
     
-    // document.getElementById("adlinkid").classList.add("pointereventsnone");
-    // setShowComponent(true);
+//     // document.getElementById("adlinkid").classList.add("pointereventsnone");
+//     // setShowComponent(true);
 
-     const email = "johmcg64@gmail.com";
-  const subject = "Subject Line";
-  const body = "body of email";
+//      const email = "johmcg64@gmail.com";
+//   const subject = "Subject Line";
+//   const body = "body of email";
 
-  //const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid}`)
-  const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=Somebody+Sent+Me+A+gmail+From+urilinks.com&to=johmcg64@gmail.com&body=${uri}&tf=cm`
+//   //const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+// const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid}`)
+//   const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=Somebody+Sent+Me+A+gmail+From+urilinks.com&to=johmcg64@gmail.com&body=${uri}&tf=cm`
 
     
-    // Open the mail client
-    window.location.href = mailtoUrl //mailtoLink;
+//     // Open the mail client
+//     window.location.href = mailtoUrl //mailtoLink;
+showEmailForm(true)
 
 
 
@@ -981,6 +985,7 @@ const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid
                   </a> 
 
                   {showComponent && <AddLinkPage2 />}
+                  {emailForm && <SendEmailPage />}
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>

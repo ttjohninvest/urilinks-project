@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom";
 import TeirsPayment3 from "./TeirsPayment3";
 import StorageSizes from "./StorageSizes";
 //uiuhff
-export const AddLinkPage2 = (props) => {
+export const SendEmailPage = (props) => {
   const [count, setCount] = useState(0);
   const [userId, setUserId] = useState("");
   const [maximumPage, setMaximumPage] = useState(false);
@@ -170,5 +170,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(AddLinkPage2),
+  connect(mapStateToProps, mapDispatchToProps)(SendEmailPage),
 );

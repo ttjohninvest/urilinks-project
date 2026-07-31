@@ -968,6 +968,7 @@ const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid
                (
                 <div className="minWidth- bg-color-4">
                   <a
+                    target="_blank"
                     id="adlinkid"
                     href="#"
                     title="Email your sharable link to share with others."
@@ -991,6 +992,7 @@ const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid
               (
                 <div className="minWidth- bg-color-4">
                   <a
+                    target="_blank"
                     id="adlinkid"
                     href="#"
                     title="Email your sharable link to share with others."

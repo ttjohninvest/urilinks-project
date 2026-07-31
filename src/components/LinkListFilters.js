@@ -439,7 +439,7 @@ function ExpandableArray(props) {
   };
 
   const handleClick = (event) => {
-//     event.preventDefault();
+   event.preventDefault();
     
 //     // document.getElementById("adlinkid").classList.add("pointereventsnone");
 //     // setShowComponent(true);

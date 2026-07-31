@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react";
 import * as firebase from "firebase";
 
 import { connect } from "react-redux";
-import LinkForm from "./LinkForm";
-import { startAddLink } from "../actions/links";
+import EmailSharableLinkForm from "./EmailSharableLinkForm";
+import { startAddLink, emailSharableLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
-//import TeirsPayment3 from "./TeirsPayment3";
-import Simple from "./Simple";
-//import SimpleTest2 from "./SimpleTest2";
-import PremiumPlan from "./PremiumPlan";
+import TeirsPayment3 from "./TeirsPayment3";
 import StorageSizes from "./StorageSizes";
-
-export const SendEmailPage = (props) => {
+//uiuhff
+export const AddLinkPage2 = (props) => {
   const [count, setCount] = useState(0);
   const [userId, setUserId] = useState("");
   const [maximumPage, setMaximumPage] = useState(false);
@@ -39,6 +36,7 @@ export const SendEmailPage = (props) => {
     } else if (!!props.theplan.plan === false) {
       max = StorageSizes.free;
     } else {
+      //premium
       max = StorageSizes.premium;
     }
 
@@ -172,5 +170,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(SendEmailPage),
+  connect(mapStateToProps, mapDispatchToProps)(AddLinkPage2),
 );

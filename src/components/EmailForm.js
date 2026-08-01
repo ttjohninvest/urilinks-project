@@ -167,54 +167,48 @@ class EmailForm extends React.Component {
     console.log("onSubmit");
     let faviconURL;
 
-    let str = this.state.Url.trim();
-    if (str.substring(0, 7) === "http://") {
-    } else if (str.substring(0, 8) === "https://") {
-    } else str = "https://" + str;
-    const newDomain = this.extractDomain(str);
-    console.log("newDomain=" + newDomain);
+    let str = "" //this.state.Url.trim();
+    if (true) {
+    } else if (true) {
+    } else str = ""
+    //const newDomain = this.extractDomain(str);
+    //console.log("newDomain=" + newDomain);
     //return
     //faviconURL = this.extractDomain(str) + "/favicon.ico";
-    faviconURL = newDomain + "/favicon.ico";
+    faviconURL = "" //newDomain + "/favicon.ico";
     //return
     //const url = new URL(this.state.Url);
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
-    console.log(
-      "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
-    );
-    console.log(
-      "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.Url) = " +
-        this.getFaviconUrl(this.state.Url),
-    );
-    console.log("onSubmit, this.state.note=" + this.state.note);
-    if (!this.state.description || !this.state.Url) {
+   
+   // console.log("onSubmit, this.state.note=" + this.state.note);
+    if (!this.state.description) {
       // || !this.state.amount) {
       this.setState(() => ({
         error:
-          "Please provide link text and uri/url link. The note with hash tags (i.e. #church, #mountains) is optional.",
+          "Please provide email body",
       }));
     } else {
-      if (this.state.note.trim()) {
-        console.log("2 extractHashTags, this.state.note=" + this.state.note);
-        // this.setState({
-        //  hashTags:this.extractHashtags(this.state.note)
-        // })
-        console.log(
-          "hashTags=" + JSON.stringify(this.extractHashtags(this.state.note)),
-        );
-        const extractHashtags = this.extractHashtags(this.state.note);
-        //I need to write the hashtags to the database here for the logged in user
-        console.log(
-          "I need to write the hashtags to the database here for the logged in user",
-        );
+      if (false) {
+        // console.log("2 extractHashTags, this.state.note=" + this.state.note);
+        // // this.setState({
+        // //  hashTags:this.extractHashtags(this.state.note)
+        // // })
+        // console.log(
+        //   "hashTags=" + JSON.stringify(this.extractHashtags(this.state.note)),
+        // );
+        // const extractHashtags = this.extractHashtags(this.state.note);
+        // //I need to write the hashtags to the database here for the logged in user
+        // console.log(
+        //   "I need to write the hashtags to the database here for the logged in user",
+        // );
       } else {
-        console.log("extractHashTag, note=empty string");
+        //console.log("extractHashTag, note=empty string");
       }
 
-      if (this.state.Url.length > 50) {
-      } else {
-      }
+    //   if (this.state.Url.length > 50) {
+    //   } else {
+    //   }
 
       // str=this.state.Url
       // if (this.state.Url.substring(0, 7) === 'http://')
@@ -224,7 +218,7 @@ class EmailForm extends React.Component {
       // {}
       // else str = 'https://' + str;
 
-      console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str=" + str);
+      //console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str=" + str);
 
       this.setState(() => ({ error: "" }));
 
@@ -233,10 +227,10 @@ class EmailForm extends React.Component {
         subject:this.state.subject,
         showpublic: this.state.showpublic,
         description: this.state.description,
-        Url: str,
+        Url: "",
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
-        note: this.state.note,
+        note: "", //this.state.note,
         faviconURL: faviconURL,
       });
     }

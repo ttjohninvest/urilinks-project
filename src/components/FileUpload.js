@@ -88,16 +88,15 @@ class FileUpload extends React.Component {
       <div className="App">
         <form onSubmit={this.formHandler}>
           <input
-            className="input"
-            //ref={this.element1}
+            className="input- button-2"
             id="real-file"
             type="file"
             accept=".html"
             //hidden="hidden"
           />
-          <label for="real-file" class="custom-upload-btn">Choose File</label>
+          {/* <label for="real-file" class="custom-upload-btn">Choose File</label> */}
          
-          <button type="submit" button-2>1upload</button>
+          <button type="submit" button-2>upload</button>
         </form>
       
         <hr />

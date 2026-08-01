@@ -149,7 +149,9 @@ export const SendEmailPage = (props) => {
   };
 
    const handleClose = () => {
-    setIsFormOpen(!isFormOpen);
+    let x = !isFormOpen
+    alert("isFormOpen="+x)
+    setIsFormOpen(x);
   };
 
   return (

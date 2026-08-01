@@ -140,7 +140,8 @@ export const SendEmailPage = (props) => {
      const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&from=${"ttjohninvest@gmail.com"}&to=${toemail}&body=${body}${uri}&tf=cm`
 
     // Open the mail client
-    window.location.href = mailtoUrl //mailtoLink;
+    //window.location.href = mailtoUrl //mailtoLink;
+    window.open(mailtoUrl, "_blank")
       
     
   };

@@ -141,7 +141,7 @@ export const SendEmailPage = (props) => {
 
     // Open the mail client
     //window.location.href = mailtoUrl //mailtoLink;
-    window.open(mailtoUrl, "_blank")
+    window.open(mailtoUrl, '_blank')
       
     
   };

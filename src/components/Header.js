@@ -89,6 +89,9 @@ export const Header = (props) => {
   const signup = params.get("signup");
   const x = params.get("x");
 
+  console.log("Header.js, signup="+signup)
+  console.log("Header.js, x="+x)
+
   const setPhotoURLdb = (photoURL) => {
     console.log("setPhotoURLdb, Header.js, photoURL=" + photoURL);
     ////put the photoURL in the database

@@ -318,11 +318,13 @@ class EmailForm extends React.Component {
         ></textarea> */}
         <div>
           <button className="button-2w border5">Send Email</button>
-          <button className="button-2w border5 margin-left-11" onClick={this.closeit}>Close</button>
+          
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>
+
       </div>}
+      <button className="button-2w border5 margin-left-11" onClick={this.closeit}>Close</button>
       </div>
     
     

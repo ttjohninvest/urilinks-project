@@ -242,7 +242,7 @@ class EmailForm extends React.Component {
       return null; // Hides UI but keeps lifecycle active
     }
     
-    return (
+    else return (
       <div>
       <div>
         <form className="form form-bg" onSubmit={this.onSubmit}>

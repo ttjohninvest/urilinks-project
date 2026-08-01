@@ -322,9 +322,9 @@ class EmailForm extends React.Component {
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>
-
+<button className="button-2w border5 margin-left-11" onClick={this.closeit}>Close</button>
       </div>}
-      <button className="button-2w border5 margin-left-11" onClick={this.closeit}>Close</button>
+      
       </div>
     
     

@@ -1024,7 +1024,7 @@ showEmailForm(isFormOpen)
                     className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone- width100  color-black-2 border5-"
                     onClick={handleClick}
                   >
-                    Click to open up form to email to your recipient your sharable link to your readonly dashboard page ({r!=="readonly"?"example page":""})
+                    Click to open up form to email to your recipient your sharable link to your readonly dashboard page {r!=="readonly"?"(example page)":""}
                   </a> 
 
                   {showComponent && <AddLinkPage2 />}

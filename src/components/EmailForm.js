@@ -150,11 +150,11 @@ class EmailForm extends React.Component {
     }
   }
 
-  closeit=() => {
-    //alert("closeit")
-    this.setState(() => ({ closetheform:true }));
-    this.props.setPagereload()
-  }
+  // closeit=() => {
+  //   //alert("closeit")
+  //   this.setState(() => ({ closetheform:true }));
+  //   this.props.setPagereload()
+  // }
 
   getFaviconUrl(url) {
     const linkElements = document.getElementsByTagName("link");
@@ -324,7 +324,7 @@ class EmailForm extends React.Component {
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>
-<button className="button-2w border5 margin-left-11" onClick={this.closeit}>Close</button>
+ <button className="button-2w border5 margin-left-11" onClick={this.props.setPagereload}>Close</button>
       </div>}
       
       </div>

@@ -47,6 +47,8 @@ function ExpandableArray(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("description");
   const [showComponent, setShowComponent] = useState(false);
+   const [isFormOpen, setIsFormOpen] = useState(true);
+  
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -438,6 +440,14 @@ function ExpandableArray(props) {
       "_blank",
     );
   };
+
+  const handleClose = () => {
+    let x = !isFormOpen
+    alert("isFormOpen="+x)
+    setIsFormOpen(x);
+  };
+
+  
 
   const handleClick = (event) => {
    event.preventDefault();
@@ -986,7 +996,7 @@ showEmailForm(true)
                   </a> 
 
                   {showComponent && <AddLinkPage2 />}
-                  {emailForm && <SendEmailPage uid={uid} />}
+                  {emailForm && isFormOpen && <SendEmailPage uid={uid} isFormOpen={isFormOpen} handleClose={handleClose} />}
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>

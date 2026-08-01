@@ -14,7 +14,7 @@ export const SendEmailPage = (props) => {
   const [userId, setUserId] = useState("");
   const [maximumPage, setMaximumPage] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
-  const [isFormOpen, setIsFormOpen] = useState(true);
+ 
 
   //const history = useHistory();
 
@@ -148,15 +148,11 @@ export const SendEmailPage = (props) => {
     
   };
 
-   const handleClose = () => {
-    let x = !isFormOpen
-    alert("isFormOpen="+x)
-    setIsFormOpen(x);
-  };
+   
 
   return (
         <div>
-        {isFormOpen && (<div>
+        <div>
           <div className="page-header">
             <div className="content-container">
               <h1 className="page-header__title">
@@ -165,9 +161,9 @@ export const SendEmailPage = (props) => {
             </div>
           </div>
           <div className="content-container">
-            <EmailForm onSubmit={onSubmit} makereadonly={false} isOpen={isFormOpen} onClose={handleClose} />
+            <EmailForm onSubmit={onSubmit} makereadonly={false} isOpen={props.isFormOpen} onClose={props.handleClose} />
           </div>
-        </div>)}
+        </div>
 
         </div>
   );

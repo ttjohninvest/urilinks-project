@@ -447,6 +447,10 @@ function ExpandableArray(props) {
     setIsFormOpen(x);
   };
 
+  const resetit = () => {
+setIsFormOpen(true)
+  }
+
   
 
   const handleClick = (event) => {
@@ -999,7 +1003,7 @@ showEmailForm(isFormOpen)
 
                   {showComponent && <AddLinkPage2 />}
                   {//emailForm &&
-                   isFormOpen && <SendEmailPage uid={uid} isFormOpen={isFormOpen} handleClose={handleClose} />}
+                   isFormOpen && <SendEmailPage uid={uid} isFormOpen={isFormOpen} handleClose={handleClose} resetit={resetit} />}
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>

@@ -41,6 +41,7 @@ class FileUpload extends React.Component {
 
   uploadFiles = (file) => {
     //"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+    window.document.getElementById("file-input").textContent=file.name
     let user;
     let uid;
     let uploadTask;
@@ -96,10 +97,10 @@ class FileUpload extends React.Component {
             hidden
           />
           <label for="real-file" className="button-2">Choose File</label>
-         
-          <button type="submit" className="button-2 margin-left-77">upload</button>
+          <span id="file-name">No file chosen</span>
+          <button type="submit" className="button-2 margin-left-77 ib">upload</button>
 
-          {/* <span id="file-name">No file chosen</span> */}
+          
         </form>
       
         <hr />

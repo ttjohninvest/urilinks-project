@@ -985,7 +985,7 @@ showEmailForm(true)
                   </a> 
 
                   {showComponent && <AddLinkPage2 />}
-                  {emailForm && <SendEmailPage />}
+                  {emailForm && <SendEmailPage uid={uid} />}
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>

@@ -895,7 +895,7 @@ showEmailForm(true)
                           style={{ textDecoration: "none", color: "black" }}
                         >
                           https://urilinks.com/dashboard?signup=0&id=
-                          {props.uid}
+                          {props.uid}&x=1
                         </a>
                         <button
                           className="button-2w ib margin-right-1 margin-left-11 border5"
@@ -925,7 +925,7 @@ showEmailForm(true)
                           style={{ textDecoration: "none", color: "black" }}
                         >
                           https://urilinks.com/dashboard?signup=0&id=
-                          {props.uid}
+                          {props.uid}&x=1
                         </a>
                         <button
                           className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"

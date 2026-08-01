@@ -102,7 +102,7 @@ class FileUpload extends React.Component {
           {/* <span 
         ref={this.element3} 
         id="custom-text">no file chosen yet</span> */}
-          <button type="submit" button-2>upload</button>
+          <button type="submit" button-2>1upload</button>
         </form>
         <hr />
         <h2>uploading done {this.state.progress}%</h2>

@@ -444,6 +444,7 @@ function ExpandableArray(props) {
     //let x = !isFormOpen
     //alert("isFormOpen="+x)
     setIsFormOpen(false);
+    window.scrollTo(0,0)
   };
 
   const resetit = () => {

@@ -139,7 +139,7 @@ export const SendEmailPage = (props) => {
      const body = emaildata.description+" ";
 
      const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`)
-     const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&from=${"ttjohninvest@gmail.com"}&to=${toemail}&body=${body}${uri}&tf=cm`
+     const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&to=${toemail}&body=${body}${uri}&tf=cm`
 
     // Open the mail client
     //window.location.href = mailtoUrl //mailtoLink;
@@ -161,7 +161,7 @@ export const SendEmailPage = (props) => {
             </div>
           </div>
           <div className="content-container">
-            <EmailForm onSubmit={onSubmit} makereadonly={false} isFormOpen={props.isFormOpen} handleClose={props.handleClose} resetit={props.resetit} />
+            <EmailForm onSubmit={onSubmit} makereadonly={false} isFormOpen={props.isFormOpen} handleClose={props.handleClose} />
           </div>
         </div>
 

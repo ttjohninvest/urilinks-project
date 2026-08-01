@@ -239,7 +239,7 @@ class EmailForm extends React.Component {
   };
   render() {
      if (!this.props.isFormOpen) {
-      //this.props.resetit() //to true
+      
       return null; // Hides UI but keeps lifecycle active
     }
     

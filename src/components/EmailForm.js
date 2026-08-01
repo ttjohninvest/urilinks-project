@@ -329,6 +329,8 @@ class EmailForm extends React.Component {
         )
 }
 
+}
+
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
 });

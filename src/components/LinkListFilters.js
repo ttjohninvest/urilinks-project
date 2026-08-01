@@ -895,7 +895,7 @@ showEmailForm(true)
                           style={{ textDecoration: "none", color: "black" }}
                         >
                           https://urilinks.com/dashboard?signup=0&id=
-                          {props.uid}&x="shared"
+                          {props.uid}&x="readonly"
                         </a>
                         <button
                           className="button-2w ib margin-right-1 margin-left-11 border5"

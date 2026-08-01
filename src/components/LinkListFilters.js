@@ -47,8 +47,7 @@ function ExpandableArray(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("description");
   const [showComponent, setShowComponent] = useState(false);
-   const [isFormOpen, setIsFormOpen] = useState(true);
-  
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -444,7 +443,7 @@ function ExpandableArray(props) {
   const handleClose = (x) => {
     //let x = !isFormOpen
     //alert("isFormOpen="+x)
-    setIsFormOpen(x);
+    setIsFormOpen(false);
   };
 
   const resetit = () => {
@@ -455,7 +454,8 @@ setIsFormOpen(true)
 
   const handleClick = (event) => {
    event.preventDefault();
-    
+   setIsFormOpen(true);
+   
 //     // document.getElementById("adlinkid").classList.add("pointereventsnone");
 //     // setShowComponent(true);
 

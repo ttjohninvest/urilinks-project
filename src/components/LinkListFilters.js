@@ -443,7 +443,7 @@ function ExpandableArray(props) {
 
   const handleClose = () => {
     let x = !isFormOpen
-    alert("isFormOpen="+x)
+    //alert("isFormOpen="+x)
     setIsFormOpen(x);
   };
 
@@ -466,6 +466,7 @@ function ExpandableArray(props) {
     
 //     // Open the mail client
 //     window.location.href = mailtoUrl //mailtoLink;
+alert("before call to showEmailForm(true)="+emailForm+",isFormOpen="+isFormOpen)
 showEmailForm(true)
 
 

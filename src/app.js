@@ -50,6 +50,7 @@ const renderApp = (store) => {
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
 
+
 let id = params.get("id");
 console.log("1 signup=" + signup);
 console.log("1 id=" + id);

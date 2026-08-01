@@ -87,6 +87,7 @@ export const Header = (props) => {
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
+  const x = params.get("x");
 
   const setPhotoURLdb = (photoURL) => {
     console.log("setPhotoURLdb, Header.js, photoURL=" + photoURL);
@@ -603,17 +604,8 @@ export const Header = (props) => {
                       </div>
                     )}
 
-                    {props.signup.signup === false && (
-                      //       <div className="flexrowz">
-                      //      <div>
-                      //    <img
-                      //      className="ib minWidth"
-                      //      src={redarrow}
-                      //      width="100"
-                      //     height="50"
-                      //      alt="Logo"
-                      //    />
-                      //  </div>
+                    {props.signup.signup === false && x !== 1 && (
+                
                       <div
                         className="color-white-1 color-black-2- margin-right-1"
                         title="Please use it for good. Bookmarks for internet pages, urls/links"
@@ -625,10 +617,11 @@ export const Header = (props) => {
                           style={{ textDecoration: "none", color: "white" }}
                         >
                           login
-                          {/* signup/login */}
+                          
                         </Link>
                       </div>
                       //  </div>
+                    
                     )}
 
                     {props.signup.signup === true ? (

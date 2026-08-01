@@ -40,9 +40,9 @@ class FileUpload extends React.Component {
   };
 
   uploadFiles = (file) => {
-    alert(file.name)
+    //alert(file.name)
     //"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-    window.document.getElementById("file-input").textContent=file.name
+    window.document.getElementById("file-name").textContent=file.name
     let user;
     let uid;
     let uploadTask;

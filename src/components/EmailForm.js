@@ -275,7 +275,7 @@ class EmailForm extends React.Component {
           title="text for url"
           maxLength="2048"
         />
-        <input
+        {/* <input
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="url"
@@ -283,7 +283,7 @@ class EmailForm extends React.Component {
           value={this.state.Url}
           onChange={this.onUrlChange}
           maxLength="2048"
-        />
+        /> */}
         {/* <input
           type="text"
           placeholder="Amount"
@@ -291,7 +291,7 @@ class EmailForm extends React.Component {
           value={this.state.amount}
           onChange={this.onAmountChange}
         /> */}
-        <SingleDatePicker
+        {/* <SingleDatePicker
           date={this.state.createdAt}
           onDateChange={this.onDateChange}
           focused={this.state.calendarFocused}
@@ -308,7 +308,7 @@ class EmailForm extends React.Component {
           maxLength={
             !!this.props.theplan.plan && this.props.theplan.plan.replace(/"/g, "") === "free" ? 2048 : 2048
           } //"2300"
-        ></textarea>
+        ></textarea> */}
         <div>
           <button className="button-2w border5">Send Email</button>
           {/* <button className="button">Save Uri/Url Link</button> */}

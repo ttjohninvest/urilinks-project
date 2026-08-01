@@ -14,12 +14,9 @@ export const SendEmailPage = (props) => {
   const [userId, setUserId] = useState("");
   const [maximumPage, setMaximumPage] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
-  const [pagereload, setPagereload] = useState(false);
-  //const history = useHistory();
+  const [isFormOpen, setIsFormOpen] = useState(true);
 
-  const setPagereload2 = () => {
-    setPagereload(!pagereload)
-  }
+  //const history = useHistory();
 
   const getPlanMax = () => {
     let max = StorageSizes.free;
@@ -151,9 +148,13 @@ export const SendEmailPage = (props) => {
     
   };
 
+   const handleClose = () => {
+    setIsFormOpen(false);
+  };
+
   return (
         <div>
-        {!pagereload && <div>
+        {isFormOpen && (<div>
           <div className="page-header">
             <div className="content-container">
               <h1 className="page-header__title">
@@ -162,9 +163,10 @@ export const SendEmailPage = (props) => {
             </div>
           </div>
           <div className="content-container">
-            <EmailForm onSubmit={onSubmit} makereadonly={false} closetheform={props.closetheform} setPagereload={setPagereload2}/>
+            <EmailForm onSubmit={onSubmit} makereadonly={false} isOpen={isFormOpen} 
+          onClose={handleClose} />
           </div>
-        </div>}
+        </div>)}
 
         </div>
   );

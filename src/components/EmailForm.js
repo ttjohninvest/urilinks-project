@@ -8,7 +8,7 @@ import { SingleDatePicker } from "react-dates";
 class EmailForm extends React.Component {
   constructor(props) {
     super(props);
-
+   
     this.state = {
       email: "",
       subject:"",
@@ -20,8 +20,8 @@ class EmailForm extends React.Component {
       createdAt: props.link ? moment(props.link.createdAt) : moment(),
       calendarFocused: false,
       error: "",
-      hashTags: [],
-      closetheform:props.closetheform
+      hashTags: []
+      
     };
   }
 
@@ -150,12 +150,6 @@ class EmailForm extends React.Component {
     }
   }
 
-  // closeit=() => {
-  //   //alert("closeit")
-  //   this.setState(() => ({ closetheform:true }));
-  //   this.props.setPagereload()
-  // }
-
   getFaviconUrl(url) {
     const linkElements = document.getElementsByTagName("link");
     for (let i = 0; i < linkElements.length; i++) {
@@ -244,9 +238,13 @@ class EmailForm extends React.Component {
     }
   };
   render() {
+     if (!this.props.isOpen) {
+      return null; // Hides UI but keeps lifecycle active
+    }
+    
     return (
       <div>
-      {this.state.closetheform === false && <div>
+      <div>
         <form className="form form-bg" onSubmit={this.onSubmit}>
         {this.state.error && (
           <p className="form__error flexrow2w">{this.state.error}</p>
@@ -324,8 +322,8 @@ class EmailForm extends React.Component {
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>
- <button className="button-2w border5 margin-left-11" onClick={this.props.setPagereload}>Close</button>
-      </div>}
+ <button className="button-2w border5 margin-left-11"  onClick={this.props.onClose}>Close</button>
+      </div>
       
       </div>
     

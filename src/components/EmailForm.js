@@ -165,7 +165,7 @@ class EmailForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     console.log("onSubmit");
-    let faviconURL;
+    let faviconURL="";
 
     let str = "" //this.state.Url.trim();
     if (true) {
@@ -175,7 +175,7 @@ class EmailForm extends React.Component {
     //console.log("newDomain=" + newDomain);
     //return
     //faviconURL = this.extractDomain(str) + "/favicon.ico";
-    faviconURL = "" //newDomain + "/favicon.ico";
+    //faviconURL = "" //newDomain + "/favicon.ico";
     //return
     //const url = new URL(this.state.Url);
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;

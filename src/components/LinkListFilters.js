@@ -985,7 +985,7 @@ showEmailForm(isFormOpen)
 
 
 
-                 {props.signup === true && x !== "readonly" ? 
+                 {props.signup === true && r !== "readonly" ? 
                
                (
                 <div className="minWidth- bg-color-4">

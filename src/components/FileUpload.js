@@ -95,7 +95,7 @@ class FileUpload extends React.Component {
             //hidden="hidden"
             hidden
           />
-          <label for="real-file" class="button-2">Choose File</label>
+          <label for="real-file" className="button-2">Choose File</label>
          
           <button type="submit" className="button-2">upload</button>
 

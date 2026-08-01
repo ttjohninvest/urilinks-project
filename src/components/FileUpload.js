@@ -97,7 +97,7 @@ class FileUpload extends React.Component {
           />
           <label for="real-file" className="button-2">Choose File</label>
          
-          <button type="submit" className="button-2">upload</button>
+          <button type="submit" className="button-2 margin-left-77">upload</button>
 
           {/* <span id="file-name">No file chosen</span> */}
         </form>

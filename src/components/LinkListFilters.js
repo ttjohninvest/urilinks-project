@@ -47,7 +47,7 @@ function ExpandableArray(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("description");
   const [showComponent, setShowComponent] = useState(false);
-   const [isFormOpen, setIsFormOpen] = useState(false);
+   const [isFormOpen, setIsFormOpen] = useState(true);
   
 
   const params = new URLSearchParams(window.location.search);
@@ -441,8 +441,8 @@ function ExpandableArray(props) {
     );
   };
 
-  const handleClose = () => {
-    let x = !isFormOpen
+  const handleClose = (x) => {
+    //let x = !isFormOpen
     //alert("isFormOpen="+x)
     setIsFormOpen(x);
   };

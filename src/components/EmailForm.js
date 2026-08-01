@@ -238,7 +238,7 @@ class EmailForm extends React.Component {
     }
   };
   render() {
-     if (!this.props.isOpen) {
+     if (!this.props.isFormOpen) {
       return null; // Hides UI but keeps lifecycle active
     }
     
@@ -322,7 +322,7 @@ class EmailForm extends React.Component {
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>
- <button className="button-2w border5 margin-left-11"  onClick={this.props.onClose}>Close</button>
+ <button className="button-2w border5 margin-left-11"  onClick={()=>this.props.handleClose(!this.props.isFormOpen)}>Close</button>
       </div>
       
       </div>

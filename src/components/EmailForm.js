@@ -21,6 +21,7 @@ class EmailForm extends React.Component {
       calendarFocused: false,
       error: "",
       hashTags: [],
+      closetheform:false
     };
   }
 
@@ -149,6 +150,10 @@ class EmailForm extends React.Component {
     }
   }
 
+  closeit() {
+    this.setState(() => ({ closetheform:true }));
+  }
+
   getFaviconUrl(url) {
     const linkElements = document.getElementsByTagName("link");
     for (let i = 0; i < linkElements.length; i++) {
@@ -238,7 +243,9 @@ class EmailForm extends React.Component {
   };
   render() {
     return (
-      <form className="form form-bg" onSubmit={this.onSubmit}>
+      <div>
+      {this.state.closetheform === false && <div>
+        <form className="form form-bg" onSubmit={this.onSubmit}>
         {this.state.error && (
           <p className="form__error flexrow2w">{this.state.error}</p>
         )}
@@ -311,11 +318,15 @@ class EmailForm extends React.Component {
         ></textarea> */}
         <div>
           <button className="button-2w border5">Send Email</button>
+          <button className="button-2w border5 margin-left-11" onClick={closeit}>Close</button>
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>
-    );
-  }
+      </div>}
+      </div>
+    
+    
+        )
 }
 
 const mapStateToProps = (state) => ({

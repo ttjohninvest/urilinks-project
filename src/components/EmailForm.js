@@ -245,7 +245,7 @@ class EmailForm extends React.Component {
 
          <input
           type="text"
-          placeholder="to email address"
+          placeholder="enter your recipient's email address"
           //readOnly={this.props.makereadonly===true?true:false}
           autoFocus
           className="text-input"
@@ -257,7 +257,7 @@ class EmailForm extends React.Component {
         <input
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
-          placeholder="subject"
+          placeholder="enter email subject"
           className="text-input"
           value={this.state.subject}
           onChange={this.onSubjectChange}
@@ -266,7 +266,7 @@ class EmailForm extends React.Component {
        
         <input
           type="text"
-          placeholder="body of email"
+          placeholder="enter email body"
           //readOnly={this.props.makereadonly===true?true:false}
           autoFocus
           className="text-input"

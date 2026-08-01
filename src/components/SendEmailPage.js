@@ -17,6 +17,10 @@ export const SendEmailPage = (props) => {
   const [pagereload, setPagereload] = useState(false);
   //const history = useHistory();
 
+  const setPagereload2 = () => {
+    setPagereload(!pagereload)
+  }
+
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
@@ -149,6 +153,7 @@ export const SendEmailPage = (props) => {
 
   return (
         <div>
+        {!pagereload && <div>
           <div className="page-header">
             <div className="content-container">
               <h1 className="page-header__title">
@@ -157,8 +162,10 @@ export const SendEmailPage = (props) => {
             </div>
           </div>
           <div className="content-container">
-            <EmailForm onSubmit={onSubmit} makereadonly={false} closetheform={props.closetheform} setPagereload={setPagereload}/>
+            <EmailForm onSubmit={onSubmit} makereadonly={false} closetheform={props.closetheform} setPagereload={setPagereload2}/>
           </div>
+        </div>}
+
         </div>
   );
 };

@@ -466,8 +466,9 @@ function ExpandableArray(props) {
     
 //     // Open the mail client
 //     window.location.href = mailtoUrl //mailtoLink;
-alert("before call to showEmailForm(true)="+emailForm+",isFormOpen="+isFormOpen)
-showEmailForm(true)
+//alert("before call to showEmailForm(true), emailForm="+emailForm+",isFormOpen="+isFormOpen)
+alert("before call to showEmailForm, isFormOpen="+isFormOpen)
+showEmailForm(isFormOpen)
 
 
 
@@ -997,7 +998,8 @@ showEmailForm(true)
                   </a> 
 
                   {showComponent && <AddLinkPage2 />}
-                  {emailForm && isFormOpen && <SendEmailPage uid={uid} isFormOpen={isFormOpen} handleClose={handleClose} />}
+                  {//emailForm &&
+                   isFormOpen && <SendEmailPage uid={uid} isFormOpen={isFormOpen} handleClose={handleClose} />}
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>

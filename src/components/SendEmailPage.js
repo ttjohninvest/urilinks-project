@@ -14,6 +14,7 @@ export const SendEmailPage = (props) => {
   const [userId, setUserId] = useState("");
   const [maximumPage, setMaximumPage] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
+  const [pagereload, setPagereload] = useState(false);
   //const history = useHistory();
 
   const getPlanMax = () => {
@@ -156,7 +157,7 @@ export const SendEmailPage = (props) => {
             </div>
           </div>
           <div className="content-container">
-            <EmailForm onSubmit={onSubmit} makereadonly={false} closetheform={props.closetheform} />
+            <EmailForm onSubmit={onSubmit} makereadonly={false} closetheform={props.closetheform} setPagereload={setPagereload}/>
           </div>
         </div>
   );

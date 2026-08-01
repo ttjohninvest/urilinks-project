@@ -50,6 +50,7 @@ function ExpandableArray(props) {
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
+  const x = params.get("x");
   const id = params.get("id");
   const myRef = useRef(null);
   const scrollInterval = useRef(null);
@@ -978,7 +979,7 @@ showEmailForm(true)
                     id="adlinkid"
                     href="#"
                     title="Email your sharable link to share with others."
-                    className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone- width100  color-black-2 border5-"
+                    className={`cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w ${x==="readonly"?'pointereventsnone':""} width100  color-black-2 border5-`}
                     onClick={handleClick}
                   >
                     Click to email your sharable link to your readonly dashboard page to your recipient

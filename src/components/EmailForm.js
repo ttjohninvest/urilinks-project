@@ -150,9 +150,9 @@ class EmailForm extends React.Component {
     }
   }
 
-  closeit() {
-    alert("closeit")
-    //this.setState(() => ({ closetheform:true }));
+  closeit=() => {
+    //alert("closeit")
+    this.setState(() => ({ closetheform:true }));
   }
 
   getFaviconUrl(url) {

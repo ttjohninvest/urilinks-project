@@ -607,7 +607,7 @@ export const Header = (props) => {
                       </div>
                     )}
 
-                    {props.signup.signup === false && x !== "1" && (
+                    {props.signup.signup === false && x !== "readonly" && (
                 
                       <div
                         className="color-white-1 color-black-2- margin-right-1"

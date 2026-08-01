@@ -455,7 +455,7 @@ setIsFormOpen(true)
   const handleClick = (event) => {
    event.preventDefault();
    setIsFormOpen(true);
-   
+
 //     // document.getElementById("adlinkid").classList.add("pointereventsnone");
 //     // setShowComponent(true);
 
@@ -471,7 +471,7 @@ setIsFormOpen(true)
 //     // Open the mail client
 //     window.location.href = mailtoUrl //mailtoLink;
 //alert("before call to showEmailForm(true), emailForm="+emailForm+",isFormOpen="+isFormOpen)
-alert("before call to showEmailForm, isFormOpen="+isFormOpen)
+//alert("before call to showEmailForm, isFormOpen="+isFormOpen)
 showEmailForm(isFormOpen)
 
 

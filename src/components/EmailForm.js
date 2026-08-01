@@ -21,7 +21,7 @@ class EmailForm extends React.Component {
       calendarFocused: false,
       error: "",
       hashTags: [],
-      closetheform:false
+      closetheform:props.closetheform
     };
   }
 

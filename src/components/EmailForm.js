@@ -182,7 +182,8 @@ class EmailForm extends React.Component {
     //const faviconURL = this.getFavicon(this.state.Url)
    
    // console.log("onSubmit, this.state.note=" + this.state.note);
-    if (!this.state.description) {
+    //if (!this.state.description) {
+    if(false) {
       // || !this.state.amount) {
       this.setState(() => ({
         error:

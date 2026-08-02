@@ -343,7 +343,7 @@ export const Header = (props) => {
   </div>
 </div> */}
 
-                            <h3 className="color-white-1">urilinks</h3>
+                            <h3 className="color-white-1 text-size-11">urilinks</h3>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
                           {/* <img

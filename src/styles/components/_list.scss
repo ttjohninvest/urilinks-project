@@ -1518,3 +1518,18 @@ font-family: monospace;
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .the-menu-item {
+  background: transparent;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Styles for the highlighted/active item */
+.the-menu-item.active {
+  background: red;
+  color: white;
+  font-weight: bold;
+}   

@@ -48,7 +48,7 @@ function ExpandableArray(props) {
   const [sortBy, setSortBy] = useState("description");
   const [showComponent, setShowComponent] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [isActive, setIsActive] = useState(false)
+  const [activeItem, setActiveItem] = useState(1);
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -492,8 +492,8 @@ const style={
 }
 
 
-const setItNow=(ht,e)=>{
-  setIsActive(!isActive)
+const setItNow=(index, ht,e)=>{
+  setActiveItem(index)
   props.setit(ht, e)
 }
  
@@ -601,7 +601,7 @@ const setItNow=(ht,e)=>{
                             className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                           >
                             <a
-                              className={`${
+                              className={`${activeItem === index ? 'menu-item active' : 'menu-item'} ${
                                 useButtons === true
                                   ? "b1xw"
                                   : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
@@ -618,7 +618,7 @@ const setItNow=(ht,e)=>{
                               //onClick={() => props.setit(s.hashtag, event)}
                               // props.setit(s.hashtag, event) style={style} onClick={() => setIsActive(!isActive)}
                               style={style}
-                              onClick = {()=>setItNow(s.hashtag, event)}
+                              onClick = {()=>setItNow(index, s.hashtag, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${
                                 !!s.hashtag && s.hashtag
                               }, click to see results`}

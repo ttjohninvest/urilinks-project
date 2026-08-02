@@ -639,7 +639,7 @@ showEmailForm(isFormOpen)
                                 props.b == 1
                                   ? "pointereventsauto underline"
                                   : "pointereventsnone"
-                              }`}
+                              } ${true?"color-green":""}`}
                               href="#"
                               onClick={() => props.setit(s.hashtag, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${

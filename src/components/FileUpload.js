@@ -23,7 +23,7 @@ class FileUpload extends React.Component {
     
     console.log("in formHandler");
     const file = e.target[0].files[0];
-    const name = e.target.files[0].name
+    
     console.log("file.type=" + file.type);
     if (file.type !== "text/html") return false;
     const uploadField = document.getElementById("file");
@@ -38,7 +38,7 @@ class FileUpload extends React.Component {
       //this.value = "";
       return;
     }
-    window.document.getElementById("file-name").textContent=name
+    window.document.getElementById("file-name").textContent=file.name
     this.uploadFiles(file);
   };
 

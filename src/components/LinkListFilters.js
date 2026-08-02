@@ -48,7 +48,7 @@ function ExpandableArray(props) {
   const [sortBy, setSortBy] = useState("description");
   const [showComponent, setShowComponent] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState(1);
+  const [activeItem, setActiveItem] = useState(0);
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");

@@ -649,7 +649,7 @@ const setItNow=(index, ht,e)=>{
                                 props.b == 1
                                   ? "pointereventsauto underline"
                                   : "pointereventsnone"
-                              } ${false?"color-green":""}`}
+                              }`}
                               href="#"
                               //onClick={() => props.setit(s.hashtag, event)}
                               onClick = {()=>setItNow(index, s.hashtag, event)}

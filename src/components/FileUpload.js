@@ -23,10 +23,10 @@ class FileUpload extends React.Component {
     
     console.log("in formHandler");
     const file = e.target[0].files[0];
-    alert(file.name)
+    
     console.log("file.type=" + file.type);
     if (file.type !== "text/html") return false;
-    const uploadField = document.getElementById("file");
+    //const uploadField = document.getElementById("file");
 
     if (file.size > 102130) {
       //about 100kb
@@ -38,7 +38,7 @@ class FileUpload extends React.Component {
       //this.value = "";
       return;
     }
-    window.document.getElementById("file-name").textContent=file.name
+    
     this.uploadFiles(file);
   };
 
@@ -93,16 +93,16 @@ class FileUpload extends React.Component {
       <div className="App">
         <form onSubmit={this.formHandler}>
           <input
-            className=""
+            className="button-2"
             id="real-file"
             type="file"
             accept=".html"
             //hidden="hidden"
-            hidden
+            //hidden
           />
           <label htmlFor="real-file" className="button-2">Choose File</label>
           {/* <span id="file-name">No file chosen</span> */}
-          <span id="file-name"></span>
+          {/* <span id="file-name"></span> */}
           <button type="submit" className="button-2 margin-left-77 ib">upload</button>
 
           

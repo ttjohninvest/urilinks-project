@@ -48,6 +48,7 @@ function ExpandableArray(props) {
   const [sortBy, setSortBy] = useState("description");
   const [showComponent, setShowComponent] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isActive, setIsActive] = useState(false)
 
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
@@ -484,7 +485,18 @@ showEmailForm(isFormOpen)
 //   //const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 // const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid}`)
 //   const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=Somebody+Sent+Me+A+gmail+From+urilinks.com&to=johmcg64@gmail.com&body=${uri}&tf=cm`
+// style={style} 
 
+const style={
+  color: isActive ? "red" : "black"
+}
+
+
+const setItNow=(ht,e)=>{
+  setIsActive(!isActive)
+  props.setit(ht, e)
+}
+ 
   return (
     <div className="bg-white-1">
       <div className="sticky-div-">
@@ -603,11 +615,14 @@ showEmailForm(isFormOpen)
                                   : "pointereventsnone"
                               }`}
                               href="#"
-                              onClick={() => props.setit(s.hashtag, event)}
+                              //onClick={() => props.setit(s.hashtag, event)}
+                              // props.setit(s.hashtag, event) style={style} onClick={() => setIsActive(!isActive)}
+                              style={style}
+                              onClick = {()=>setItNow(s.hashtag, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${
                                 !!s.hashtag && s.hashtag
                               }, click to see results`}
-                              //title={props.signup === true?${s.hashtag}, click to scroll to results:
+                              
                             >
                               {sep(s.hashtag)}
                             </a>

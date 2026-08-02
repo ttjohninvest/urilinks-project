@@ -93,7 +93,7 @@ class FileUpload extends React.Component {
       <div className="App">
         <form onSubmit={this.formHandler}>
           <input
-            className="button-2"
+            className="button-2-"
             id="real-file"
             type="file"
             accept=".html"
@@ -103,7 +103,7 @@ class FileUpload extends React.Component {
           <label htmlFor="real-file" className="button-2">Choose File</label>
           {/* <span id="file-name">No file chosen</span> */}
           {/* <span id="file-name"></span> */}
-          <button type="submit" className="button-2 margin-left-77 ib">upload</button>
+          {/* <button type="submit" className="button-2 margin-left-77 ib">upload</button> */}
 
           
         </form>

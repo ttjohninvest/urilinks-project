@@ -635,7 +635,7 @@ const setItNow=(index, ht,e)=>{
                             className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                           >
                             <a
-                              className={` color-green ${
+                              className={`${activeItem === index ? 'the-menu-item active' : 'the-menu-item'} ${
                                 useButtons === true
                                   ? "b1xw"
                                   : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
@@ -651,13 +651,14 @@ const setItNow=(index, ht,e)=>{
                                   : "pointereventsnone"
                               } ${false?"color-green":""}`}
                               href="#"
-                              onClick={() => props.setit(s.hashtag, event)}
+                              //onClick={() => props.setit(s.hashtag, event)}
+                              onClick = {()=>setItNow(index, s.hashtag, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${
                                 !!s.hashtag && s.hashtag
                               }, click to see results`}
                               //style={{ color: 'red' }}
                             >
-                              1{sep(s.hashtag)}
+                              {sep(s.hashtag)}
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>

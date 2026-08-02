@@ -23,7 +23,7 @@ class FileUpload extends React.Component {
     
     console.log("in formHandler");
     const file = e.target[0].files[0];
-    
+    alert(file.name)
     console.log("file.type=" + file.type);
     if (file.type !== "text/html") return false;
     const uploadField = document.getElementById("file");

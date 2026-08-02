@@ -20,10 +20,10 @@ class FileUpload extends React.Component {
 
   formHandler = (e) => {
     e.preventDefault();
-    alert(1)
+    
     console.log("in formHandler");
     const file = e.target[0].files[0];
-    window.document.getElementById("file-name").textContent=file.name
+    
     console.log("file.type=" + file.type);
     if (file.type !== "text/html") return false;
     const uploadField = document.getElementById("file");
@@ -38,13 +38,14 @@ class FileUpload extends React.Component {
       //this.value = "";
       return;
     }
+    window.document.getElementById("file-name").textContent=file.name
     this.uploadFiles(file);
   };
 
   uploadFiles = (file) => {
     //alert(file.name)
     //"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-    window.document.getElementById("file-name").textContent=file.name
+    //window.document.getElementById("file-name").textContent=file.name
     let user;
     let uid;
     let uploadTask;

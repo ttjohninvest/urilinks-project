@@ -639,14 +639,15 @@ showEmailForm(isFormOpen)
                                 props.b == 1
                                   ? "pointereventsauto underline"
                                   : "pointereventsnone"
-                              } ${true?"color-green":""}`}
+                              } ${false?"color-green":""}`}
                               href="#"
                               onClick={() => props.setit(s.hashtag, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${
                                 !!s.hashtag && s.hashtag
                               }, click to see results`}
+                              style={{ color: 'red' }}
                             >
-                              {sep(s.hashtag)}
+                              1{sep(s.hashtag)}
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>

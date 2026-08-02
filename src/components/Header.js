@@ -633,7 +633,7 @@ export const Header = (props) => {
                           className="button button--link ib text-size-3-  text-size-11 color-white-1 color-black-2- cursor-pointer"
                           onClick={logoutit}
                         >
-                          logout
+                          friendly logout
                         </button>
                       </div>
                     ) : (

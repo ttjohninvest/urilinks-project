@@ -1529,7 +1529,8 @@ font-family: monospace;
 
 /* Styles for the highlighted/active item */
 .the-menu-item.active {
-  background: red;
-  color: white;
+  // background: red;
+  // color: white;
+  color:red;
   font-weight: bold;
 }   

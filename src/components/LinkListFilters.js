@@ -487,9 +487,6 @@ showEmailForm(isFormOpen)
 //   const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=Somebody+Sent+Me+A+gmail+From+urilinks.com&to=johmcg64@gmail.com&body=${uri}&tf=cm`
 // style={style} 
 
-const style={
-  color: isActive ? "red" : "black"
-}
 
 
 const setItNow=(index, ht,e)=>{
@@ -617,7 +614,7 @@ const setItNow=(index, ht,e)=>{
                               href="#"
                               //onClick={() => props.setit(s.hashtag, event)}
                               // props.setit(s.hashtag, event) style={style} onClick={() => setIsActive(!isActive)}
-                              style={style}
+                              //style={style}
                               onClick = {()=>setItNow(index, s.hashtag, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${
                                 !!s.hashtag && s.hashtag

@@ -462,7 +462,7 @@ export const Header = (props) => {
                           className="ib- color-white-1 color-black-2- cursor-pointer text-size-11"
                           title="Click to see terms ane privacy"
                         >
-                          terms
+                          kind terms
                         </span>
                       </Link>
                     </div>

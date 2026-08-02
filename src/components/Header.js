@@ -619,7 +619,7 @@ export const Header = (props) => {
                           title="The first 25 links are free. plan $4.99 stores up to 100; plan $9.99 stores up to 200;plan $14.99 stores up to 400"
                           style={{ textDecoration: "none", color: "white" }}
                         >
-                          login
+                          friendly login
                           
                         </Link>
                       </div>

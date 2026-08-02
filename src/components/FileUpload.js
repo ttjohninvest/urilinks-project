@@ -20,6 +20,7 @@ class FileUpload extends React.Component {
 
   formHandler = (e) => {
     e.preventDefault();
+    alert(1)
     console.log("in formHandler");
     const file = e.target[0].files[0];
     window.document.getElementById("file-name").textContent=file.name
@@ -43,7 +44,7 @@ class FileUpload extends React.Component {
   uploadFiles = (file) => {
     //alert(file.name)
     //"XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-    //window.document.getElementById("file-name").textContent=file.name
+    window.document.getElementById("file-name").textContent=file.name
     let user;
     let uid;
     let uploadTask;
@@ -91,7 +92,7 @@ class FileUpload extends React.Component {
       <div className="App">
         <form onSubmit={this.formHandler}>
           <input
-            className="input-"
+            className=""
             id="real-file"
             type="file"
             accept=".html"
@@ -99,7 +100,7 @@ class FileUpload extends React.Component {
             hidden
           />
           <label htmlFor="real-file" className="button-2">Choose File</label>
-          <span id="file-name">No file chosen</span>
+          {/* <span id="file-name">No file chosen</span> */}
           <button type="submit" className="button-2 margin-left-77 ib">upload</button>
 
           

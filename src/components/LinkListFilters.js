@@ -257,14 +257,13 @@ function ExpandableArray(props) {
     setGmail("jmjohnmcgovern707@gmail.com");
   };
 
-  const rz(s)=>{
+  const rz=(s)=>{
     //s = s.replace(/^0+/, '');
     return "1"+s
   }
 
   const sep = (hashtag) => {
-    //const hashtag = "#IReallyLoveGSAP";
-    //const hashtag = "#IReallyLoveGsap";
+    //const hashtag = "#john";
 
     let words;
     if (!!hashtag === true) {

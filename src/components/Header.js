@@ -442,6 +442,7 @@ export const Header = (props) => {
                         className="header__title- nounderline"
                         href="https://steps-to-access-online-ai-models.netlify.app"
                         target="_blank"
+                        title="steps to using any of the ai models on the internet"
                       >
                         <span
                           className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"

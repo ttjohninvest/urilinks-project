@@ -258,7 +258,7 @@ function ExpandableArray(props) {
   };
 
   const removezeros=(s)=>{
-    s = s?.replace(/^0+/, '');
+    s = s.replace(/^0+/, '');
     return s
   }
 

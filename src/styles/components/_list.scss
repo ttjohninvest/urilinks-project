@@ -1529,8 +1529,8 @@ font-family: monospace;
 
 /* Styles for the highlighted/active item */
 .the-menu-item.active {
-  background: red;
-  color: white;
-  //color:rgba(219, 87, 5, 1);
+  //background: red;
+  //color: white;
+  color:rgba(219, 87, 5, 1);
   font-weight: bold;
 }   

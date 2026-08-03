@@ -20,8 +20,13 @@ Medical Referral Links Management System Usage and Federal Referral Law Warnings
 -links are not limited to commercial purposes<br />
 -search through link titles, hashtags or notes<br />
 -easy grouping or regrouping of links by hashtag by adding or removing hashtags from the note sections<br />
+-you can search through hashtags with the hash or without the hash<br />
 -hashtags need to be entered in pascal case for example #TheCatIsFriendly so they will have spaces between words in the left menu pane.<br /> 
 -the # hash is removed and spaces are added and presented in alphabetical order<br />
+-put one or more zeros after the # to sort it to the top of the menu list in the left menu panel<br />
+-the more zeros added after the # will causes it to sort higher in the menu list in the left menu panel and menu item<br />
+ serves as a reminder because it always appears on the top of the menu list<br />
+-if you do a hashtag search with this, #0, as the search term, the menu items at the top of the menu list will appear in the results<br />
 -when a link in the left sidebar is clicked, clickable link results will appear to the adjacent content area.<br />
 -a link may be added one at a time through the "Add Link" button and appear in the left side menu pane<br />
 -your google name and profile picture will appear at the top of your page<br />

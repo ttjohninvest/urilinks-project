@@ -257,9 +257,9 @@ function ExpandableArray(props) {
     setGmail("jmjohnmcgovern707@gmail.com");
   };
 
-  const removezeros=(s)=>{
-    s = s.replace(/^0+/, '');
-    return s
+  const rz(s)=>{
+    //s = s.replace(/^0+/, '');
+    return "1"+s
   }
 
   const sep = (hashtag) => {
@@ -663,7 +663,7 @@ const setItNow=(index, ht,e)=>{
                               }, click to see results`}
                               //style={{ color: 'red' }}
                             >
-                              {sep(s.hashtag)}
+                              {sep(rz(s.hashtag))}
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>

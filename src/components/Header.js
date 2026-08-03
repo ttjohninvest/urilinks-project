@@ -446,7 +446,7 @@ export const Header = (props) => {
                       >
                         <span
                           className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
-                          title="Click to see instructions to have access ai models."
+                          title="Click to see instructions to have access ai models so you can run them, enter prompts and get responses."
                         >
                           ai access
                         </span>

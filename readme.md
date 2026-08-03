@@ -1705,3 +1705,45 @@ solution: I commented out all of the code that outputs this error
       // }
 
 ====================================
+open ai secret key to maybe be used with (A) to to use ai with links array of javascript objects
+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
+
+(A):
+https://search.brave.com/search?q=steps+to+use+ai+with+an+array+of+javascript+objects+in+react+program&summary=1&conversation=0965869de28ca16fc1d4206e4174bd03278d
+
+import { ArraysAi } from 'arrays-ai';
+
+const arraysai = new ArraysAi();
+arraysai.Configure({ apiKey: 'YOUR_OPENAI_API_KEY' });
+arraysai.SetData(myArrayOfObjects);
+
+// Example query
+arraysai.Ask("Filter records where age is greater than 30").then(result => {
+  console.log(result);
+});   
+
+==================================================================================================================
+source: https://www.requesty.ai/models#explorer
+ai models 
+kimi k3 api key rqsty-sk-jukak1MrSG+YnBJvbYaywgJOT6kckCQj6IOaJ/CxOXBKB7ut3GsuuWd9ekYuf56VMdV8GrJAE8iwNX/xPmYEU/K7s68/XCNrHVtdEP7xNgU=
+==============================================
+STEPS TO USING ANY OF THE LIST OF AI MODELS ON THE INTERET
+1. open https://www.requesty.ai/
+2. click start for free button
+3. click model library or Approved
+4. from the model names list click the copy icon
+5. in google.com, paste model name you just copied
+6. click on the company name that supports the model
+7. follow steps to use the model and get responses from the ai
+==================================================================================
+
+========================================================================
+Current Projects as of 8/2/2026
+Steps-to-access-online-ai-models.netlify.app, johmcg64@gmail.com
+Purpose: to give people a way to easily access any of the ai models that are online
+Code in C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs/steps-to-access-online-ai
+github.com, johmcg64@gmail.com
+urilinks.com
+C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project
+========================================================================
+

@@ -662,7 +662,7 @@ const setItNow=(index, ht,e)=>{
                               }, click to see results`}
                               //style={{ color: 'red' }}
                             >
-                              {sep(rz(s.hashtag))}
+                              {sep(s.hashtag)}
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>

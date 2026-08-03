@@ -258,7 +258,7 @@ function ExpandableArray(props) {
   };
 
   const removezeros=(s)=>{
-    s = s.replace(/^0+/, '');
+    s = s?.replace(/^0+/, '');
     return s
   }
 
@@ -663,7 +663,7 @@ const setItNow=(index, ht,e)=>{
                               }, click to see results`}
                               //style={{ color: 'red' }}
                             >
-                              {sep(s.hashtag)}
+                              {sep(removezeros(s.hashtag))}
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>

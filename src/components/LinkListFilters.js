@@ -257,6 +257,11 @@ function ExpandableArray(props) {
     setGmail("jmjohnmcgovern707@gmail.com");
   };
 
+  const removezeros=(s)=>{
+    s = s.replace(/^0+/, '');
+    return s
+  }
+
   const sep = (hashtag) => {
     //const hashtag = "#IReallyLoveGSAP";
     //const hashtag = "#IReallyLoveGsap";
@@ -619,7 +624,7 @@ const setItNow=(index, ht,e)=>{
                               }, click to see results`}
                               
                             >
-                              {sep(s.hashtag)}
+                              {sep(removezeros(s.hashtag))}
                             </a>
                           </div>
                         );

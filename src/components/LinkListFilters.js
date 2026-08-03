@@ -258,8 +258,8 @@ function ExpandableArray(props) {
   };
 
   const rz=(s)=>{
-    //s = s.replace(/^0+/, '');
-    return "1"+s
+    s = s.replace(/0/g, '');
+    return s
   }
 
   const sep = (hashtag) => {

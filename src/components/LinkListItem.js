@@ -784,7 +784,7 @@ const LinkListItem = (props) => {
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
                                     <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black">make private:&nbsp;</span><input
+                                      <span className="color-black">{!!props.showpublic?"make private" :"made private"}:&nbsp;</span><input
                                         checked={!!props.showpublic?'':'checked'}
                                         type="checkbox"
                                         id={"private%" + props.id}

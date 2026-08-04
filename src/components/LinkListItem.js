@@ -835,7 +835,7 @@ const LinkListItem = (props) => {
                                           )
                                         }
                                         title="click to make url private"
-                                        className="cb1 cursor-pointer"
+                                        className="cb1 cursor-pointer margin-top-1"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>

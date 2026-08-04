@@ -773,7 +773,7 @@ const LinkListItem = (props) => {
                                   <div>
                                     <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <span className="color-black">remove:&nbsp;</span><input
-                                        checked={!!props.showpublic?'true':'false'}
+                                        checked={!!props.showpublic?'checked':''}
         
                                         type="checkbox"
                                         id={"delete%" + props.id}
@@ -787,7 +787,7 @@ const LinkListItem = (props) => {
                                     </span>
                                     <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <span className="color-black">make private:&nbsp;</span><input
-                                        checked={!!props.showpublic?'true':'false'}
+                                        checked={!!props.showpublic?'checked':''}
                                         type="checkbox"
                                         id={"private%" + props.id}
                                         name={"private%" + props.id}
@@ -803,7 +803,7 @@ const LinkListItem = (props) => {
                                   <div>
                                     <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                                       <span className="color-black">remove:&nbsp;</span><input
-                                        checked={!!props.showpublic?'true':'false'}
+                                        checked={!!props.showpublic?'checked':''}
                                         type="checkbox"
                                         id={"delete%" + props.id}
                                         name={"delete%" + props.id}
@@ -816,7 +816,7 @@ const LinkListItem = (props) => {
                                     </span>
                                       <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                                       <span className="color-black">make private:&nbsp;</span><input
-                                      checked={!!props.showpublic?'true':'false'}
+                                      checked={!!props.showpublic?'checked':''}
                                         type="checkbox"
                                         id={"private%" + props.id}
                                         name={"private%" + props.id}

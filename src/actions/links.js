@@ -340,7 +340,7 @@ export const startSetLinks = (uid) => {
 
         //dispatch(setHashTags(hashtags2));
         //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
-        dispatch(setHashTags(hashTags2WithCount));
+        dispatch(setHashTags(hashTags3WithCount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));

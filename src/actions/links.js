@@ -174,7 +174,7 @@ const extractHashtags = (link) => {
   let matchesstring = "";
 
    while ((match = regex.exec(link.note)) !== null) {
-    matchesstring += "\n"+match[0]
+    matchesstring += " "+match[0]
   }
 
   // while ((match = regex.exec(link.note)) !== null) {

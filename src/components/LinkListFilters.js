@@ -72,7 +72,7 @@ function ExpandableArray(props) {
   const [isToggled, setIsToggled] = useState(x);
 
   useEffect(()=>{
-    console.log("ZZZZZ, props.mappedDataShort[0].showpublic="+props.mappedDataShort[0].showpublic)
+    console.log("ZZZZZ, props.mappedDataShort[0]="+JSON.stringify(props.mappedDataShort[0]))
   },[])
 
   const startScrollingDown = () => {

@@ -395,7 +395,7 @@ export const startSetLinksNew = (uid) => {
          hashtags.forEach((s) => {
            hashtags3.push({
              hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
-             showpublic: hashtag.showpublic,
+             showpublic: s.showpublic,
            });
          });
 		  

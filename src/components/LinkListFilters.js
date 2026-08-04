@@ -666,7 +666,7 @@ const setItNow=(index, ht,e)=>{
                               }, click to see results`}
                             >
                               {
-                              //(s.showpublic ===1) && 
+                              (s.showpublic ===1) && 
                               sep(s.hashtag)
                               }
                             </a>

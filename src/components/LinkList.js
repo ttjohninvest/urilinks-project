@@ -23,6 +23,9 @@ import printerImage from "../assets/images/printer_image.png";
 import { v4 } from "uuid";
 import LoadingPage from "./LoadingPage";
 
+ const params = new URLSearchParams(window.location.search);
+const r = params.get("x");
+
 export const LinkList = (props) => {
   const [selectedOption, setSelectedOption] = useState("option1");
   const [deleteData, setDeleteData] = useState([]);
@@ -285,9 +288,10 @@ export const LinkList = (props) => {
               
             </div>
           ) : (
-            
+            //readonly means another user is seeing the page
+            //private urls don't have to be hid from owner of page
             props.links.splice(0, 400).map((link, index) => {
-              if(link.showpublic === 0) return (<div></div>)
+              if(r === "readonly" && link.showpublic === 0) return (<div></div>)
               else return (
                 <div key={link.id+"1"}>
                   <LinkListItem

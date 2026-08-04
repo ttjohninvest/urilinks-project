@@ -647,7 +647,7 @@ const setItNow=(index, ht,e)=>{
                           
                           <div
                             key={index}
-                            className="b1x- item-newspaper- padding-all- text-size-5 element5-"
+                            className="b1x- item-newspaper- padding-all- text-size-5 element5- border-bottom-5"
                           >
                             <a
                               className={`${activeItem === index ? 'the-menu-item active' : 'the-menu-item'} ${

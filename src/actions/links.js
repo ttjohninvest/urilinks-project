@@ -396,7 +396,7 @@ export const startSetLinksNew = (uid) => {
         dispatch(setLinks(links2));
 
         
-    let hashtags = [];
+   let hashtags = [];
         const longnamesnowhitespace = [];
         const longnames = [];
        let x1 = []; //"";
@@ -445,17 +445,34 @@ export const startSetLinksNew = (uid) => {
 
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
-        hashTags2WithCount.sort((a, b) => {
-          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+
+
+        // hashTags2WithCount.sort((a, b) => {
+        //   return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+        //   //return a.hashtag > b.hashtag ? 1 : -1;
+        // });
+
+          hashTags2WithCount.sort((a, b) => {
+          return a.description > b.description ? 1 : -1;
           //return a.hashtag > b.hashtag ? 1 : -1;
         });
+
+
+
         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         
         //let hashtags2 = removeDuplicates(hashtags);
         let hashtags2 = hashtags;
 
+        // hashtags2.sort((a, b) => {
+        //   return a.hashtag.toLowerCase() > b.hashtag.toLowerCase()
+        //     ? 1
+        //     : -1;
+        //   //return a > b ? 1 : -1;
+        // });
+
         hashtags2.sort((a, b) => {
-          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase()
+          return a.description > b.description
             ? 1
             : -1;
           //return a > b ? 1 : -1;

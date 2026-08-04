@@ -797,7 +797,7 @@ const LinkListItem = (props) => {
                                 )}
                                 {props.signup.signup === true ? (
                                   <div>
-                                    <span className="ib alignit">
+                                    <span className="ib alignit-">
                                     <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <span className="color-black">
                                         remove:&nbsp;

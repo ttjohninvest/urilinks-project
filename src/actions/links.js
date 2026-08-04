@@ -175,7 +175,7 @@ const extractHashtags = (link) => {
   while ((match = regex.exec(link.note)) !== null) {
     hashtags10.push({
        hashtag:match[0],
-       showpublic:!!link.showpublic?1:0
+       showpublic:link.showpublic===1?1:0
     });
   }
   //console.log("hashtags=" + JSON.stringify(hashtags));
@@ -296,7 +296,7 @@ export const startSetLinks = (uid) => {
           let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
           hashtags4.push({
             hashtag: hashtagresult,
-            showpublic: !!s.showpublic?s.showpublic:0,
+            showpublic: s.showpublic
           });
         });
 
@@ -376,7 +376,7 @@ export const startSetLinksNew = (uid) => {
         dispatch(setLinks(links2));
 
         
-        let hashtags = [];
+      let hashtags = [];
         const longnamesnowhitespace = [];
         const longnames = [];
        let x1 = []; //"";
@@ -421,9 +421,8 @@ export const startSetLinksNew = (uid) => {
 
         hashtags = hashtags4;
 
-        //hashTags2WithCount is the array that LinkListFilters.js uses to display the menu items in the left pane
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
-        console.log("2 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         hashTags2WithCount.sort((a, b) => {
           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
           //return a.hashtag > b.hashtag ? 1 : -1;

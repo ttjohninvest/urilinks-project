@@ -205,10 +205,20 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
   return newArray;
 };
 
-const seen = (hashtag, theSeenArray) => {
+// const seen = (hashtag, theSeenArray) => {
+//   let boolvalue = false;
+//   theSeenArray.forEach((h1) => {
+//     if (hashtag === h1) {
+//       boolvalue = true;
+//     }
+//   });
+//   return boolvalue;
+// };
+
+const seen = (description, theSeenArray) => {
   let boolvalue = false;
-  theSeenArray.forEach((h1) => {
-    if (hashtag === h1) {
+  theSeenArray.forEach((d) => {
+    if (description === d) {
       boolvalue = true;
     }
   });
@@ -343,13 +353,28 @@ export const startSetLinks = (uid) => {
         let hashTags3WithCount = [];
         let seenArray = [];
 
-        hashtags2.forEach((ht1) => {
+        // hashtags2.forEach((ht1) => {
+        //   hashTags2WithCount.forEach((ht2) => {
+        //     if (
+        //       !seen(ht1.hashtag, seenArray) &&
+        //       ht1.hashtag === ht2.hashtag
+        //     ) {
+        //       seenArray.push(ht1.hashtag);
+        //       console.log(
+        //         "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
+        //       );
+        //       hashTags3WithCount.push(ht2);
+        //     }
+        //   });
+        // });
+
+         hashtags2.forEach((ht1) => {
           hashTags2WithCount.forEach((ht2) => {
             if (
-              !seen(ht1.hashtag, seenArray) &&
-              ht1.hashtag === ht2.hashtag
+              !seen(ht1.description, seenArray) &&
+              ht1.description === ht2.description
             ) {
-              seenArray.push(ht1.hashtag);
+              seenArray.push(ht1.description);
               console.log(
                 "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
               );
@@ -481,13 +506,28 @@ export const startSetLinksNew = (uid) => {
         let hashTags3WithCount = [];
         let seenArray = [];
 
-        hashtags2.forEach((ht1) => {
+        // hashtags2.forEach((ht1) => {
+        //   hashTags2WithCount.forEach((ht2) => {
+        //     if (
+        //       !seen(ht1.hashtag, seenArray) &&
+        //       ht1.hashtag === ht2.hashtag
+        //     ) {
+        //       seenArray.push(ht1.hashtag);
+        //       console.log(
+        //         "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
+        //       );
+        //       hashTags3WithCount.push(ht2);
+        //     }
+        //   });
+        // });
+
+         hashtags2.forEach((ht1) => {
           hashTags2WithCount.forEach((ht2) => {
             if (
-              !seen(ht1.hashtag, seenArray) &&
-              ht1.hashtag === ht2.hashtag
+              !seen(ht1.description, seenArray) &&
+              ht1.description === ht2.description
             ) {
-              seenArray.push(ht1.hashtag);
+              seenArray.push(ht1.description);
               console.log(
                 "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
               );

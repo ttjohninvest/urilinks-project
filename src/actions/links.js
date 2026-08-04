@@ -175,7 +175,7 @@ const extractHashtags = (link) => {
   while ((match = regex.exec(link.note)) !== null) {
     hashtags10.push({
        hashtag:match[0],
-       showpublic:link.showpublic===1?1:0
+       showpublic:parseInt(link.showpublic)===1?1:0
     });
   }
   //console.log("hashtags=" + JSON.stringify(hashtags));

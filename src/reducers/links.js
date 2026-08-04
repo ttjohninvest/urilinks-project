@@ -4,6 +4,17 @@ const linksReducerDefaultState = [];
 
 export default (state = linksReducerDefaultState, action) => {
   switch (action.type) {
+     case "PRIVATE_LINK":
+       return state.map((link) => {
+        if (link.id === action.id) {
+          return {
+            ...link,
+            ...action.updates,
+          };
+        } else {
+          return link;
+        }
+      });
     case "ADD_LINK":
       return [...state, action.link];
     case "REMOVE_LINK":

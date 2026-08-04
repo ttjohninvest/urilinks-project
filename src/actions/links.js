@@ -102,6 +102,14 @@ export const removeLink = ({ id } = {}) => ({
   id,
 });
 
+
+
+export const privateLink = (id, updates) => ({
+  type: "PRIVATE_LINK",
+  id,
+  updates,
+});
+
 export const startRemoveLink = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -111,6 +119,22 @@ export const startRemoveLink = ({ id } = {}) => {
       .remove()
       .then(() => {
         dispatch(removeLink({ id }));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
+export const startPrivateLink = ({ id } = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({showpublic:0})
+      .then(() => {
+        dispatch(privateLink(id, {showpublic:0}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
@@ -173,7 +197,7 @@ const extractHashtags = (link) => {
   let match;
   let matchesstring = "";
   let i = 0;
-  
+
    while ((match = regex.exec(link.note)) !== null) {
     if(i===0)
       matchesstring += "\n"+match[0]

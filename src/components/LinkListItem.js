@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { startRemoveLink, removeLink } from "../actions/links";
+import { startRemoveLink, removeLink, privateLink, startPrivateLink } from "../actions/links";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
@@ -79,6 +79,23 @@ const LinkListItem = (props) => {
       // User clicked OK, perform the deletion
       props.removeLink({ id: event.target.value });
       props.startRemoveLink({ id: event.target.value });
+      //alert("Item deleted.");
+    } else {
+      // User clicked Cancel
+      document.getElementById("delete%" + event.target.value).checked = false;
+      alert("Deletion canceled.");
+    }
+  };
+
+  const handleCheckboxPrivate = (event) => {
+    console.log("bookmark id=" + event.target.value);
+    //addIdToDelete(event.target.value)
+    //console.log("bookmark ids="+localStorage.getItem('deleteData'))
+    let result = confirm("Are you sure you want to make it private?");
+    if (result) {
+      // User clicked OK, perform the deletion
+      props.privateLink({ id: event.target.value });
+      props.startPrivateLink({ id: event.target.value });
       //alert("Item deleted.");
     } else {
       // User clicked Cancel
@@ -766,6 +783,18 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
+                                    <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                                      <input
+                                        type="checkbox2"
+                                        id={"private%" + props.id}
+                                        name={"private%" + props.id}
+                                        value={props.id}
+                                        onChange={handleCheckboxPrivate}
+                                        title="make url private"
+                                        className="cb1 cursor-pointer"
+                                      />
+                                      <label htmlFor={"delete%" + props.id} />
+                                    </span>
                                   </div>
                                 ) : (
                                   <div>
@@ -835,6 +864,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, props) => ({
   startRemoveLink: (data) => dispatch(startRemoveLink(data)),
   removeLink: (data) => dispatch(removeLink(data)),
+  startPrivateLink: (data) => dispatch(startPrivateLink(data)),
+  privateLink: (data) => dispatch(privateLink(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListItem);

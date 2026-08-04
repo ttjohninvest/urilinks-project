@@ -198,7 +198,7 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
       hashtag: s.hashtag,
       count: count,
       longname: "",
-      showpublic: 0 //s.showpublic,
+      showpublic: s.showpublic,
     });
   });
   return newArray;
@@ -296,7 +296,7 @@ export const startSetLinks = (uid) => {
           let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
           hashtags4.push({
             hashtag: hashtagresult,
-            showpublic: !!s.showpublic?s.showpublic:1,
+            showpublic: !!s.showpublic?s.showpublic:0,
           });
         });
 

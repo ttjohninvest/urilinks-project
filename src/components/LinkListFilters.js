@@ -661,7 +661,9 @@ const setItNow=(index, ht,e)=>{
                                 !!s.hashtag && s.hashtag
                               }, click to see results`}
                             >
-                              {s.showpublic === true && sep(s.hashtag)}
+                              {
+                              //s.showpublic ===
+                               true && sep(s.hashtag)}
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>

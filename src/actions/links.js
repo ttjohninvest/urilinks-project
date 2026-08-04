@@ -276,7 +276,7 @@ export const startSetLinks = (uid) => {
         let hashtags3 = [];
          hashtags.forEach((hashtag) => {
            hashtags3.push({
-             hashtaglist: hashtag.hashtag.trim().substring(1),
+             hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
              showpublic: 1 //hashtag.showpublic,
            });
          });
@@ -375,11 +375,10 @@ export const startSetLinksNew = (uid) => {
         dispatch(setLinks(links2));
 
         
+         let hashtags = [];
         const longnamesnowhitespace = [];
         const longnames = [];
-        let hashtags = [];
-       
-       let x1 = []; //"";
+        let x1 = []; //"";
 
         
         //this loop builds an array of all of the hashtags and is called hashtags
@@ -393,9 +392,9 @@ export const startSetLinksNew = (uid) => {
         console.log("actions/links.js, hashtags="+JSON.stringify(hashtags))
 
         let hashtags3 = [];
-         hashtags.forEach((hashtag) => {
+         hashtags.forEach((s) => {
            hashtags3.push({
-             hashtaglist: hashtag.hashtag.trim().substring(1),
+             hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
              showpublic: 1 //hashtag.showpublic,
            });
          });
@@ -405,12 +404,12 @@ export const startSetLinksNew = (uid) => {
 
         hashtags3.forEach((s) => {
           //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great
-          let str2 = s.hashtag
+          let str2 = !!s.hashtag?s.hashtag
             .trim()
             .replace(
               /(^|[^a-zA-Z0-9])([a-zA-Z])/g,
               (match, p1, p2) => p1 + p2.toUpperCase(),
-            );
+            ):""
           let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //this removes the space so The Cat Is Great becomes TheCatIsGreat
           let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
           hashtags4.push({

@@ -99,8 +99,8 @@ const LinkListItem = (props) => {
       //alert("Item deleted.");
     } else {
       // User clicked Cancel
-      document.getElementById("delete%" + event.target.value).checked = false;
-      alert("Deletion canceled.");
+      document.getElementById("private%" + event.target.value).checked = false;
+      alert("Setting it to private is canceled.");
     }
   };
 
@@ -785,7 +785,7 @@ const LinkListItem = (props) => {
                                     </span>
                                     <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <input
-                                        type="checkbox2"
+                                        type="checkbox"
                                         id={"private%" + props.id}
                                         name={"private%" + props.id}
                                         value={props.id}

@@ -24,6 +24,8 @@ Medical Referral Links Management System Usage and Federal Referral Law Warnings
 -hashtags need to be entered in pascal case for example #TheCatIsFriendly so they will have spaces between words in the left menu pane.<br /> 
 -the # hash is removed and spaces are added and presented in alphabetical order<br />
 -put one or more zeros after the # to sort it to the top of the menu list in the left menu panel<br />
+-also, you can enter another hashtag in the notes like this #abc #00000abc and the website is<br />
+ accessible through menu items 00000abc or abc, if 00000abc is sorted in the first position, it will be at the top of the list<br />
 -the more zeros added after the # will causes it to sort higher in the menu list in the left menu panel and menu item<br />
  serves as a reminder because it always appears on the top of the menu list<br />
 -if you do a hashtag search with this, #0, as the search term, the menu items at the top of the menu list will appear in the results<br />

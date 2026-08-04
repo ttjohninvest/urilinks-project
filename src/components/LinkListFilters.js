@@ -660,9 +660,8 @@ const setItNow=(index, ht,e)=>{
                               title={`${sep(s.hashtag)}, hashtag: ${
                                 !!s.hashtag && s.hashtag
                               }, click to see results`}
-                              //style={{ color: 'red' }}
                             >
-                              {sep(s.hashtag)}
+                              {s.showpublic === true && sep(s.hashtag)}
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>
@@ -679,6 +678,7 @@ const setItNow=(index, ht,e)=>{
                               </span>
                             )}
                           </div>
+
                         );
                       })}
                     </div>

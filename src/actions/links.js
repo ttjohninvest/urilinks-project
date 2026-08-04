@@ -339,7 +339,7 @@ export const startSetLinks = (uid) => {
         });
 
         //dispatch(setHashTags(hashtags2));
-
+        console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
         dispatch(setHashTags(hashtags3withcount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
@@ -422,7 +422,7 @@ export const startSetLinksNew = (uid) => {
         hashtags = hashtags4;
 
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
-        console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        console.log("2 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         hashTags2WithCount.sort((a, b) => {
           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
           //return a.hashtag > b.hashtag ? 1 : -1;
@@ -458,7 +458,7 @@ export const startSetLinksNew = (uid) => {
         });
 
         //dispatch(setHashTags(hashtags2));
-
+console.log("2 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
         dispatch(setHashTags(hashtags3withcount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })

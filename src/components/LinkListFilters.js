@@ -678,9 +678,9 @@ const setItNow=(index, ht,e)=>{
                               
                               {/*sep(s.hashtag)*/}
                               <span>{s.description2}</span>
-                              <span style={{"color": "black", "font-size":".8rem", "text-decoration": "none", "font-weight": "normal", "pointer-events":"none"}}>{s.matchesstring}</span>
                               
-                            </a>
+                              
+                            </a><span style={{"color": "black", "font-size":".9rem", "text-decoration": "none", "font-weight": "normal", "pointer-events":"none"}}>{s.matchesstring}</span>
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>
                                 {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (

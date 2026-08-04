@@ -181,7 +181,7 @@ const E3 = (props) => {
                                           )
                                         }
                                       </div>
-                                      {/* <div>showpublic: {link.showpublic===true?"yes":"no"}</div> */}
+                                      {/* <div>showpublic: {link.showpublic===1?"yes":"no"}</div> */}
                                       <div>
                                         <a
                                           ref={myRef}

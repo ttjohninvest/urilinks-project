@@ -175,7 +175,7 @@ const extractHashtags = (link) => {
   while ((match = regex.exec(link.note)) !== null) {
     hashtags10.push({
        hashtag:match[0],
-       showpublic:1 //link.showpublic
+       showpublic:!!link.showpublic?1:1
     });
   }
   //console.log("hashtags=" + JSON.stringify(hashtags));
@@ -198,7 +198,7 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
       hashtag: s.hashtag,
       count: count,
       longname: "",
-      showpublic: 1 //hashtag.showpublic,
+      showpublic: s.showpublic,
     });
   });
   return newArray;
@@ -277,7 +277,7 @@ export const startSetLinks = (uid) => {
          hashtags.forEach((s) => {
            hashtags3.push({
              hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
-             showpublic: 1 //hashtag.showpublic,
+             showpublic: s.showpublic,
            });
          });
 		  
@@ -286,17 +286,17 @@ export const startSetLinks = (uid) => {
 
         hashtags3.forEach((s) => {
           //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great
-          let str2 = s.hashtag
+          let str2 = !!s.hashtag?s.hashtag
             .trim()
             .replace(
               /(^|[^a-zA-Z0-9])([a-zA-Z])/g,
               (match, p1, p2) => p1 + p2.toUpperCase(),
-            );
+            ):""
           let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //this removes the space so The Cat Is Great becomes TheCatIsGreat
           let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
           hashtags4.push({
             hashtag: hashtagresult,
-            showpublic: s.showpublic,
+            showpublic: !!s.showpublic?s.showpublic:1,
           });
         });
 
@@ -395,7 +395,7 @@ export const startSetLinksNew = (uid) => {
          hashtags.forEach((s) => {
            hashtags3.push({
              hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
-             showpublic: 1 //hashtag.showpublic,
+             showpublic: hashtag.showpublic,
            });
          });
 		  

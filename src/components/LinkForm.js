@@ -10,7 +10,7 @@ class LinkForm extends React.Component {
     super(props);
 
     this.state = {
-      showpublic: props.link ? props.link.showpublic : false,
+      showpublic: props.link ? props.link.showpublic : 0,
       description: props.link ? props.link.description : "",
       Url: props.link ? props.link.Url : "",
       note: props.link ? props.link.note : "",

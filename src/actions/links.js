@@ -374,12 +374,11 @@ export const startSetLinksNew = (uid) => {
         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
         dispatch(setLinks(links2));
 
-        let hashtags = [];
+        
         const longnamesnowhitespace = [];
         const longnames = [];
         let hashtags = [];
-        const longnamesnowhitespace = [];
-        const longnames = [];
+       
        let x1 = []; //"";
 
         

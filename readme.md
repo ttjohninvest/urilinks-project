@@ -780,6 +780,7 @@ express server api to convert the bookmarks.html file into json so that I can pr
 in FetchBookmarks.js and convert all of the folder names into hashtags
 
 expenses for urilinks.com:
+amazon.com/snap food orders, have prime $4.95/month so delivery is always free first month free from 8/4/2026 to 9/4/2026
 platform.openai.com, access to gpt-3.5-turbo, I paid $5.00 on 3/10/2026. It does not automatically recharge.
 cheapnames.com $12.99/year for urllynk.com due on 12/24/2026
 vercel.com
@@ -1746,4 +1747,6 @@ github.com, johmcg64@gmail.com
 urilinks.com
 C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project
 ========================================================================
+amazon.com/snap, ttjohninvest4@gmail.com, 50% off prime delivery about $4.95/month
+
 

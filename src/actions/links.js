@@ -156,7 +156,7 @@ export const startPrivateLink2 = ({ id } = {}) => {
       .ref(`users/${uid}/links/${id}`)
       .update({showpublic:1})
       .then(() => {
-        dispatch(privateLink(id, {showpublic:1}));
+        dispatch(privateLink2(id, {showpublic:1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

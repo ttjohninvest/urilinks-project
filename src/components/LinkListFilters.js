@@ -621,13 +621,16 @@ const setItNow=(index, ht,e)=>{
                               //onClick={() => props.setit(s.hashtag, event)}
                               // props.setit(s.hashtag, event) style={style} onClick={() => setIsActive(!isActive)}
                               //style={style}
-                              onClick = {()=>setItNow(index, s.hashtag, event)}
+                              //onClick = {()=>setItNow(index, s.hashtag, event)}
+                              onClick = {()=>setItNow(index, s.description, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${
                                 !!s.hashtag && s.hashtag
                               }, click to see results`}
                               
                             >
-                              {sep(s.hashtag)}
+                              {//sep(s.hashtag)
+                              s.description2
+                              }
                             </a>
                           </div>
                         );
@@ -664,7 +667,8 @@ const setItNow=(index, ht,e)=>{
                               }`}
                               href="#"
                               //onClick={() => props.setit(s.hashtag, event)}
-                              onClick = {()=>setItNow(index, s.hashtag, event)}
+                              //onClick = {()=>setItNow(index, s.hashtag, event)}
+                              onClick = {()=>setItNow(index, s.description, event)}
                               title={`${sep(s.hashtag)}, hashtag: ${
                                 !!s.hashtag && s.hashtag
                               }, click to see results`}
@@ -1426,18 +1430,33 @@ export class LinkListFilters extends React.Component {
     this.setState({ height });
   };
 
+  // setit = (value, event) => {
+  //   event.preventDefault();
+  //   console.log("setIt, 3333333333333333333333333 value=" + value);
+
+  //   this.props.sortByHashTag();
+  //   this.props.setTextFilter(value);
+
+  //   window.localStorage.setItem("sortBy", "hashtag");
+  //   window.localStorage.setItem("searchLinks3", value);
+
+  //   this.props.rerenderit();
+  // };
+
   setit = (value, event) => {
     event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
 
-    this.props.sortByHashTag();
+    this.props.sortByDescription();
     this.props.setTextFilter(value);
 
-    window.localStorage.setItem("sortBy", "hashtag");
+    //window.localStorage.setItem("sortBy", "hashtag");
+    window.localStorage.setItem("sortBy", "description");
     window.localStorage.setItem("searchLinks3", value);
 
     this.props.rerenderit();
   };
+
 
   refreshIt = () => {
     //window.location.reload();

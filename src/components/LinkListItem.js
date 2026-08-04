@@ -778,7 +778,7 @@ const LinkListItem = (props) => {
                                         name={"delete%" + props.id}
                                         value={props.id}
                                         onChange={handleCheckboxDelete}
-                                        title="remove bookmark"
+                                        title="click to remove url"
                                         className="cb1 cursor-pointer"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
@@ -790,7 +790,7 @@ const LinkListItem = (props) => {
                                         name={"private%" + props.id}
                                         value={props.id}
                                         onChange={handleCheckboxPrivate}
-                                        title="make url private"
+                                        title="click to make url private"
                                         className="cb1 cursor-pointer"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
@@ -805,7 +805,7 @@ const LinkListItem = (props) => {
                                         name={"delete%" + props.id}
                                         value={props.id}
                                         onChange={handleCheckboxDelete}
-                                        title="remove bookmark"
+                                        title="click to remove url"
                                         className="cb1 cursor-pointer"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
@@ -817,7 +817,7 @@ const LinkListItem = (props) => {
                                         name={"private%" + props.id}
                                         value={props.id}
                                         onChange={handleCheckboxPrivate}
-                                        title="make url private"
+                                        title="click to make url private"
                                         className="cb1 cursor-pointer"
                                       />
                                       <label htmlFor={"delete%" + props.id} />

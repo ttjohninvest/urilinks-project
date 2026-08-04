@@ -810,6 +810,18 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
+                                      <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                                      <input
+                                        type="checkbox"
+                                        id={"private%" + props.id}
+                                        name={"private%" + props.id}
+                                        value={props.id}
+                                        onChange={handleCheckboxPrivate}
+                                        title="make url private"
+                                        className="cb1 cursor-pointer"
+                                      />
+                                      <label htmlFor={"delete%" + props.id} />
+                                    </span>
                                   </div>
                                 )}
                               </div>

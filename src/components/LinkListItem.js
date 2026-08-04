@@ -108,9 +108,9 @@ const LinkListItem = (props) => {
         //alert("Item deleted.");
       } else {
         // User clicked Cancel
-        document.getElementById("private%" + event.target.value).checked =
-          "";
-        alert("Setting it to private is canceled.");
+        // document.getElementById("private%" + event.target.value).checked =
+        //   "";
+        // alert("Setting it to private is canceled.");
       }
     } else {
       result = confirm("Are you sure you want to make it private?");
@@ -121,9 +121,9 @@ const LinkListItem = (props) => {
         //alert("Item deleted.");
       } else {
         // User clicked Cancel
-        document.getElementById("private%" + event.target.value).checked =
-          "";
-        alert("Setting it to private is canceled.");
+        // document.getElementById("private%" + event.target.value).checked =
+        //   "";
+        // alert("Setting it to private is canceled.");
       }
     }
   };

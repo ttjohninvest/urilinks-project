@@ -154,7 +154,7 @@ export const startPrivateLink2 = ({ id } = {}) => {
 
     return database
       .ref(`users/${uid}/links/${id}`)
-      .update({showpublic:0})
+      .update({showpublic:1})
       .then(() => {
         dispatch(privateLink(id, {showpublic:1}));
       })

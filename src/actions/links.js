@@ -207,7 +207,7 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
 const seen = (hashtag, theSeenArray) => {
   let boolvalue = false;
   theSeenArray.forEach((h1) => {
-    if (hashtag === h1.hashtag) {
+    if (hashtag === h1) {
       boolvalue = true;
     }
   });
@@ -329,7 +329,7 @@ export const startSetLinks = (uid) => {
               !seen(ht1.hashtag, seenArray) &&
               ht1.hashtag === ht2.hashtag
             ) {
-              seenArray.push(ht1);
+              seenArray.push(ht1.hashtag);
               console.log(
                 "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
               );
@@ -339,8 +339,8 @@ export const startSetLinks = (uid) => {
         });
 
         //dispatch(setHashTags(hashtags2));
-        console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
-        dispatch(setHashTags(hashTags3WithCount));
+        //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
+        dispatch(setHashTags(hashTags2WithCount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));

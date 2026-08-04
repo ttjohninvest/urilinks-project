@@ -172,7 +172,8 @@ const extractHashtags = (link) => {
   const hashtags10 = [];
   let match;
   let matchesstring = "";
-
+  let i = 0;
+  
    while ((match = regex.exec(link.note)) !== null) {
     if(i===0)
       matchesstring += "\n"+match[0]

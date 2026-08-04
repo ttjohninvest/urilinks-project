@@ -198,7 +198,7 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
     newArray.push({ //this is the hashtag array that is used in LinkListFilter.js if showpublic === 1 it displays the menu item
       hashtag: s.hashtag,
       count: count,
-      longname: s.description,
+      description: s.description,
       showpublic: s.showpublic,
     });
   });

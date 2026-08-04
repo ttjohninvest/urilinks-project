@@ -674,11 +674,11 @@ const setItNow=(index, ht,e)=>{
                                 !!s.hashtag && s.hashtag
                               }, click to see results`}
                             >
-                              {
+                              
                               
                               //sep(s.hashtag)
-                              s.description2+s.matchesstring
-                              }
+                              <span>{s.description2}</span><span style="color: inherit; text-decoration: none; font-weight: normal;">{s.matchesstring}</span>
+                              
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (
                               <span>

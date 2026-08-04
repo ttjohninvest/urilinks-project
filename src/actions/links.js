@@ -176,6 +176,7 @@ const extractHashtags = (link) => {
     hashtags10.push({
        hashtag:match[0],
        description:link.description.toLowerCase(),
+       description2:link.description,
        showpublic:parseInt(link.showpublic)===1?1:0
     });
   }
@@ -199,6 +200,7 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
       hashtag: s.hashtag,
       count: count,
       description: s.description,
+      description2:s.description2,
       showpublic: s.showpublic,
     });
   });
@@ -289,6 +291,7 @@ export const startSetLinks = (uid) => {
            hashtags3.push({
              hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
              description:s.description,
+             description2:s.description2,
              showpublic: s.showpublic
            });
          });
@@ -309,6 +312,7 @@ export const startSetLinks = (uid) => {
           hashtags4.push({
             hashtag: hashtagresult,
             description:s.description,
+            description2:s.description2,
             showpublic: s.showpublic
           });
         });
@@ -442,6 +446,7 @@ export const startSetLinksNew = (uid) => {
            hashtags3.push({
              hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
              description:s.description,
+             description2:s.description2,
              showpublic: s.showpublic
            });
          });
@@ -462,6 +467,7 @@ export const startSetLinksNew = (uid) => {
           hashtags4.push({
             hashtag: hashtagresult,
             description:s.description,
+            description2:s.description2,
             showpublic: s.showpublic
           });
         });

@@ -668,7 +668,8 @@ const setItNow=(index, ht,e)=>{
                               }, click to see results`}
                             >
                               {
-                              (s.showpublic ===1) && sep(s.hashtag)
+                              //(s.showpublic === 1) && 
+                              sep(s.showpublic+" "+s.hashtag)
                               }
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (

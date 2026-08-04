@@ -303,12 +303,12 @@ export const startSetLinks = (uid) => {
         hashtags = hashtags4;
 
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
-        console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         hashTags2WithCount.sort((a, b) => {
           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
           //return a.hashtag > b.hashtag ? 1 : -1;
         });
-        //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         //
         //let hashtags2 = removeDuplicates(hashtags);
         let hashtags2 = hashtags;

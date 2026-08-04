@@ -308,7 +308,7 @@ export const startSetLinks = (uid) => {
           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
           //return a.hashtag > b.hashtag ? 1 : -1;
         });
-        console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         //
         //let hashtags2 = removeDuplicates(hashtags);
         let hashtags2 = hashtags;
@@ -320,7 +320,7 @@ export const startSetLinks = (uid) => {
           //return a > b ? 1 : -1;
         });
 
-        let hashtags3withcount = [];
+        let hashTags3WithCount = [];
         let seenArray = [];
 
         hashtags2.forEach((ht1) => {
@@ -333,14 +333,14 @@ export const startSetLinks = (uid) => {
               console.log(
                 "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
               );
-              hashtags3withcount.push(ht2);
+              hashTags3WithCount.push(ht2);
             }
           });
         });
 
         //dispatch(setHashTags(hashtags2));
-        //console.log("1 hashtags3withcount="+JSON.stringify(hashtags3withcount))
-        dispatch(setHashTags(hashtags3withcount));
+        console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
+        dispatch(setHashTags(hashTags3WithCount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));

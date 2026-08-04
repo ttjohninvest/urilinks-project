@@ -287,7 +287,8 @@ export const LinkList = (props) => {
           ) : (
             
             props.links.splice(0, 400).map((link, index) => {
-              return (
+              if(link.showpublic === 0) return (<div></div>)
+              else return (
                 <div key={link.id+"1"}>
                   <LinkListItem
                     key={link.id}

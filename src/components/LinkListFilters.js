@@ -663,7 +663,7 @@ const setItNow=(index, ht,e)=>{
                             >
                               {
                               (s.showpublic ===
-                               false) && sep(s.hashtag)
+                               null) && sep(s.hashtag)
                               }
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (

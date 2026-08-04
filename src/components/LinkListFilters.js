@@ -653,7 +653,7 @@ const setItNow=(index, ht,e)=>{
                               className={`${activeItem === index ? 'the-menu-item active' : 'the-menu-item'} ${
                                 useButtons === true
                                   ? "b1xw"
-                                  : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
+                                  : "ib width30pt- flexrowzc22 margin-left-11- margin-top-1"
                               } ${
                                 useButtons === true ? "b1xw" : ""
                               } nounderline- ${
@@ -681,7 +681,7 @@ const setItNow=(index, ht,e)=>{
                               
                               
                             </a><span className="ib margin-left-11" style={{"color": "black", "font-size":".9rem", "text-decoration": "none", "font-weight": "normal", "pointer-events":"none"}}>{s.matchesstring}</span>
-                            {!!s.hashtag && isCorrectAccount() === true && (
+                            {!!s.hashtag && isCorrectAccount() === true && false && (
                               <span>
                                 {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (
                                   <a

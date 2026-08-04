@@ -71,6 +71,10 @@ function ExpandableArray(props) {
   //
   const [isToggled, setIsToggled] = useState(x);
 
+  useEffect(()=>{
+    console.log("ZZZZZ, props.mappedDataShort[0].showpublic="+props.mappedDataShort[0].showpublic)
+  },[])
+
   const startScrollingDown = () => {
     // Prevent multiple intervals
     if (scrollInterval.current) return;

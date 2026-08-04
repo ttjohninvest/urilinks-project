@@ -157,18 +157,7 @@ export const setLinksAll = (links) => ({
   links,
 });
 
-const extractHashtags = (text) => {
-  console.log("extractHashTags, text=" + text);
-  const regex = /#([a-zA-Z0-9_]+)/g;
-  const hashtags = [];
-  let match;
 
-  while ((match = regex.exec(text)) !== null) {
-    hashtags.push(match[0]);
-  }
-  console.log("hashtags=" + JSON.stringify(hashtags));
-  return hashtags;
-};
 
 const removeDuplicates = (stringArray) => {
   const stringifiedArray = stringArray.join(" ");
@@ -177,6 +166,23 @@ const removeDuplicates = (stringArray) => {
   return [...new Set(lcStringArray)];
 };
 
+const extractHashtags = (link) => {
+  
+  const regex = /#([a-zA-Z0-9_]+)/g;
+  const hashtags = [];
+  let match;
+
+  while ((match = regex.exec(link.note)) !== null) {
+    hashtags.push({
+       hashtag:match[0],
+       showpublic:1 //link.showpublic
+    });
+  }
+  console.log("hashtags=" + JSON.stringify(hashtags));
+  return hashtags;
+};
+
+
 const countTimesEachHashTagIsUsed = (hashtags) => {
   const length = hashtags.length;
   let newArray = [];
@@ -184,11 +190,16 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
   hashtags.forEach((hashtag) => {
     let count = 0;
     hashtags.forEach((hashtag2) => {
-      if (hashtag === hashtag2) {
+      if (hashtag.hashtag === hashtag2.hashtag) {
         count = count + 1;
       }
     });
-    newArray.push({ hashtag: hashtag, count: count, longname: "" });
+    newArray.push({
+      hashtag: hashtag.hashtag,
+      count: count,
+      longname: "",
+      showpublic: 1 //hashtag.showpublic,
+    });
   });
   return newArray;
 };
@@ -196,12 +207,13 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
 const seen = (hashtag, theSeenArray) => {
   let boolvalue = false;
   theSeenArray.forEach((h1) => {
-    if (hashtag === h1) {
+    if (hashtag === h1.hashtag) {
       boolvalue = true;
     }
   });
   return boolvalue;
 };
+
 
 const isInOkArray = (uid) => {
   const okarray = [
@@ -216,11 +228,9 @@ const isInOkArray = (uid) => {
   return val;
 };
 
-//this puts the links array in the global redux store to be used to list the output
 export const startSetLinks = (uid) => {
   console.log("startSetLinks");
   return (dispatch, getState) => {
-   
     const hashtags = [];
 
     return database
@@ -244,49 +254,42 @@ export const startSetLinks = (uid) => {
           });
         });
         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
-        dispatch(setLinks(links2));
+        dispatch(setLinks(links2)); //links2[0].showpublic
 
         //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
         let hashtags = [];
         const longnamesnowhitespace = [];
         const longnames = [];
-        let x1 = "";
+       let x1 = []; //"";
 
-        let ht =
-          "#Computer#Animals#Schools#Banks#Libraries#Stores#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel";
-        let homelesslist =
-          "#HomelessInAlaska#HomelessInAlabama#HomelessInArkansas#HomelessInAmericanSamoa#HomelessInArizona#HomelessInCalifornia#HomelessInColorado#HomelessInConnecticut#HomelessInDistrictOfColumbia#HomelessInDelaware#HomelessInFlorida#HomelessInGeorgia#HomelessInGuam#HomelessInHawaii#HomelessInIowa#HomelessInIdaho#HomelessInIllinois#HomelessInIndiana#HomelessInKansas#HomelessInKentucky#HomelessInLouisiana#HomelessInMassachusetts#HomelessInMaryland#HomelessInMaine#HomelessInMichigan#HomelessInMinnesota#HomelessInMissouri#HomelessInMississippi#HomelessInMontana#HomelessInNorthCarolina#HomelessInNorthDakota#HomelessInNebraska#HomelessInNewHampshire#HomelessInNewJersey#HomelessInNewMexico#HomelessInNevada#HomelessInNewYork#HomelessInOhio#HomelessInOklahoma#HomelessInOregon#HomelessInPennsylvania#HomelessInPuertoRico#HomelessInRhodeIsland#HomelessInSouthCarolina#HomelessInSouthDakota#HomelessInTennessee#HomelessInTexas#NorthernMarianaIslands#HomelessInUtah#HomelessInVirginia#HomelessInVirginIslands#HomelessInVermont#HomelessInWashington#HomelessInWisconsin#HomelessInWestVirginia#HomelessInWyoming";
-        let prisonerslist =
-          "#PrisonersInAlaska#PrisonersInAlabama#PrisonersInArkansas#PrisonersInAmericanSamoa#PrisonersInArizona#PrisonersInCalifornia#PrisonersInColorado#PrisonersInConnecticut#PrisonersInDistrictOfColumbia#PrisonersInDelaware#PrisonersInFlorida#PrisonersInGeorgia#PrisonersInGuam#PrisonersInHawaii#PrisonersInIowa#PrisonersInIdaho#PrisonersInIllinois#PrisonersInIndiana#PrisonersInKansas#PrisonersInKentucky#PrisonersInLouisiana#PrisonersInMassachusetts#PrisonersInMaryland#PrisonersInMaine#PrisonersInMichigan#PrisonersInMinnesota#PrisonersInMissouri#PrisonersInMississippi#PrisonersInMontana#PrisonersInNorthCarolina#PrisonersInNorthDakota#PrisonersInNebraska#PrisonersInNewHampshire#PrisonersInNewJersey#PrisonersInNewMexico#PrisonersInNevada#PrisonersInNewYork#PrisonersInOhio#PrisonersInOklahoma#PrisonersInOregon#PrisonersInPennsylvania#PrisonersInPuertoRico#PrisonersInRhodeIsland#PrisonersInSouthCarolina#PrisonersInSouthDakota#PrisonersInTennessee#PrisonersInTexas#NorthernMarianaIslands#PrisonersInUtah#PrisonersInVirginia#PrisonersInVirginIslands#PrisonersInVermont#PrisonersInWashington#PrisonersInWisconsin#PrisonersInWestVirginia#PrisonersInWyoming";
-        let htc =
-          "#JesusChrist#SalvationOfJesusChrist#LifeOfJesusChrist#GraceOfJesusChrist#FaithOfJesusChrist#AudioHolyBible#Fellowship#Kindness#Devine#Love#MysteryOfJesusChrist#FaithOfJesusChrist#LivingWaters#DeathOfChrist#ResurrectionOfChrist#Prayers#Sermons#Healings#CatholicChurches#Happy#Joy#Cathedrals#Homilies#Israel#Nuns#Priests#Saints#Angels#Music#Pictures#Videos#Movies#Testimonies#Pastors#Deacons#Christmas#ChristmasTrees#Easter#HolyBibles#Maps#Directions#Convents#Vatican#Popes#HolyGodTheFather#Donations#Forgiveness#Humility#Services#Disciples#BlessedMary#Flowers#Cardinals#Blessings#CatholicPriests";
-
-        let h2 = homelesslist + prisonerslist + ht + htc;
-
-        if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2") x1 = "";
-        else if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
-          //x1 = extractHashtags(h2);
-
-          x1 = extractHashtags(h2);
-
-        hashtags.push(...x1);
-
+        console.log("before looping")
+        //this loop builds an array of all of the hashtags and is called hashtags
         links2.forEach((link) => {
-          x1 = extractHashtags(link.note);
-          hashtags.push(...x1);
+          console.log("looping")
+          x1 =  extractHashtags(link) //converst text string into an array of hashtags
+          //x1.showpublic = link.showpublic;
+          hashtags.push(...x1); //this line adds elements to the array, x1 is an array that is expanded
+          //hashtags is a one dimensional array of all of the hashtags from links2
+          //hashtags.push(x1);
+
         });
+
+        console.log("links.js, hashtags="+JSON.stringify(hashtags))
 
         let hashtags3 = [];
-
-        hashtags.forEach((hashtag) => {
-          hashtags3.push(hashtag.trim().substring(1));
-        });
+         hashtags.forEach((hashtag) => {
+           hashtags3.push({
+             hashtaglist: hashtag.hashtag.trim().substring(1),
+             showpublic: hashtag.showpublic,
+           });
+         });
+		  
 
         let hashtags4 = [];
 
-        hashtags3.forEach((hashtag) => {
+        hashtags3.forEach((s) => {
           //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great
-          let str2 = hashtag
+          let str2 = s.hashtag
             .trim()
             .replace(
               /(^|[^a-zA-Z0-9])([a-zA-Z])/g,
@@ -294,7 +297,10 @@ export const startSetLinks = (uid) => {
             );
           let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //this removes the space so The Cat Is Great becomes TheCatIsGreat
           let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
-          hashtags4.push(hashtagresult);
+          hashtags4.push({
+            hashtag: hashtagresult,
+            showpublic: 1 //s.showpublic,
+          });
         });
 
         hashtags = hashtags4;
@@ -305,10 +311,14 @@ export const startSetLinks = (uid) => {
           //return a.hashtag > b.hashtag ? 1 : -1;
         });
         // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        //
+        //let hashtags2 = removeDuplicates(hashtags);
+        let hashtags2 = hashtags;
 
-        let hashtags2 = removeDuplicates(hashtags);
         hashtags2.sort((a, b) => {
-          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase()
+            ? 1
+            : -1;
           //return a > b ? 1 : -1;
         });
 
@@ -317,7 +327,10 @@ export const startSetLinks = (uid) => {
 
         hashtags2.forEach((ht1) => {
           hashTags2WithCount.forEach((ht2) => {
-            if (!seen(ht1, seenArray) && ht1 === ht2.hashtag) {
+            if (
+              !seen(ht1.hashtag, seenArray) &&
+              ht1.hashtag === ht2.hashtag
+            ) {
               seenArray.push(ht1);
               console.log(
                 "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
@@ -327,20 +340,18 @@ export const startSetLinks = (uid) => {
           });
         });
 
-        dispatch(setHashTags(hashtags2));
+        //dispatch(setHashTags(hashtags2));
 
         dispatch(setHashTags(hashtags3withcount));
-        dispatch(setHashTags2WithCount(hashTags2WithCount));
+        //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));
-
   };
 };
 
 export const startSetLinksNew = (uid) => {
   console.log("startSetLinks");
   return (dispatch, getState) => {
-    
     const hashtags = [];
 
     return database
@@ -369,47 +380,51 @@ export const startSetLinksNew = (uid) => {
         let hashtags = [];
         const longnamesnowhitespace = [];
         const longnames = [];
-        let x1 = "";
+       let x1 = []; //"";
 
-        // let homelesslist = "#HomelessInAlaska#HomelessInAlabama#HomelessInArkansas#HomelessInAmericanSamoa#HomelessInArizona#HomelessInCalifornia#HomelessInColorado#HomelessInConnecticut#HomelessInDistrictOfColumbia#HomelessInDelaware#HomelessInFlorida#HomelessInGeorgia#HomelessInGuam#HomelessInHawaii#HomelessInIowa#HomelessInIdaho#HomelessInIllinois#HomelessInIndiana#HomelessInKansas#HomelessInKentucky#HomelessInLouisiana#HomelessInMassachusetts#HomelessInMaryland#HomelessInMaine#HomelessInMichigan#HomelessInMinnesota#HomelessInMissouri#HomelessInMississippi#HomelessInMontana#HomelessInNorthCarolina#HomelessInNorthDakota#HomelessInNebraska#HomelessInNewHampshire#HomelessInNewJersey#HomelessInNewMexico#HomelessInNevada#HomelessInNewYork#HomelessInOhio#HomelessInOklahoma#HomelessInOregon#HomelessInPennsylvania#HomelessInPuertoRico#HomelessInRhodeIsland#HomelessInSouthCarolina#HomelessInSouthDakota#HomelessInTennessee#HomelessInTexas#NorthernMarianaIslands#HomelessInUtah#HomelessInVirginia#HomelessInVirginIslands#HomelessInVermont#HomelessInWashington#HomelessInWisconsin#HomelessInWestVirginia#HomelessInWyoming"
-        // let ht="#Computer#Animals#Schools#Banks#Libraries#Stores#Prayer#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel"
-        // let htc = "#christ#prayer#sermons#healings#churches#cathedrals#homilies#israel#nuns#priests#saints#angels#music#pictures#videos#movies#testimonies#pastors#deacons#christmas#easter#bible#salvation#maps#directions#convents#vatican#popes#god#father#donations#forgiveness#humility#services#disciples#mary#flowers#cardinals#blessings"
-        // let h2 = homelesslist+ht+htc
-        let h1 = ""; //"#General"
+        // let ht =
+        //   "#Computer#Animals#Schools#Banks#Libraries#Stores#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel";
+        // let homelesslist =
+        //   "#HomelessInAlaska#HomelessInAlabama#HomelessInArkansas#HomelessInAmericanSamoa#HomelessInArizona#HomelessInCalifornia#HomelessInColorado#HomelessInConnecticut#HomelessInDistrictOfColumbia#HomelessInDelaware#HomelessInFlorida#HomelessInGeorgia#HomelessInGuam#HomelessInHawaii#HomelessInIowa#HomelessInIdaho#HomelessInIllinois#HomelessInIndiana#HomelessInKansas#HomelessInKentucky#HomelessInLouisiana#HomelessInMassachusetts#HomelessInMaryland#HomelessInMaine#HomelessInMichigan#HomelessInMinnesota#HomelessInMissouri#HomelessInMississippi#HomelessInMontana#HomelessInNorthCarolina#HomelessInNorthDakota#HomelessInNebraska#HomelessInNewHampshire#HomelessInNewJersey#HomelessInNewMexico#HomelessInNevada#HomelessInNewYork#HomelessInOhio#HomelessInOklahoma#HomelessInOregon#HomelessInPennsylvania#HomelessInPuertoRico#HomelessInRhodeIsland#HomelessInSouthCarolina#HomelessInSouthDakota#HomelessInTennessee#HomelessInTexas#NorthernMarianaIslands#HomelessInUtah#HomelessInVirginia#HomelessInVirginIslands#HomelessInVermont#HomelessInWashington#HomelessInWisconsin#HomelessInWestVirginia#HomelessInWyoming";
+        // let prisonerslist =
+        //   "#PrisonersInAlaska#PrisonersInAlabama#PrisonersInArkansas#PrisonersInAmericanSamoa#PrisonersInArizona#PrisonersInCalifornia#PrisonersInColorado#PrisonersInConnecticut#PrisonersInDistrictOfColumbia#PrisonersInDelaware#PrisonersInFlorida#PrisonersInGeorgia#PrisonersInGuam#PrisonersInHawaii#PrisonersInIowa#PrisonersInIdaho#PrisonersInIllinois#PrisonersInIndiana#PrisonersInKansas#PrisonersInKentucky#PrisonersInLouisiana#PrisonersInMassachusetts#PrisonersInMaryland#PrisonersInMaine#PrisonersInMichigan#PrisonersInMinnesota#PrisonersInMissouri#PrisonersInMississippi#PrisonersInMontana#PrisonersInNorthCarolina#PrisonersInNorthDakota#PrisonersInNebraska#PrisonersInNewHampshire#PrisonersInNewJersey#PrisonersInNewMexico#PrisonersInNevada#PrisonersInNewYork#PrisonersInOhio#PrisonersInOklahoma#PrisonersInOregon#PrisonersInPennsylvania#PrisonersInPuertoRico#PrisonersInRhodeIsland#PrisonersInSouthCarolina#PrisonersInSouthDakota#PrisonersInTennessee#PrisonersInTexas#NorthernMarianaIslands#PrisonersInUtah#PrisonersInVirginia#PrisonersInVirginIslands#PrisonersInVermont#PrisonersInWashington#PrisonersInWisconsin#PrisonersInWestVirginia#PrisonersInWyoming";
+        // let htc =
+        //   "#JesusChrist#SalvationOfJesusChrist#LifeOfJesusChrist#GraceOfJesusChrist#FaithOfJesusChrist#AudioHolyBible#Fellowship#Kindness#Devine#Love#MysteryOfJesusChrist#FaithOfJesusChrist#LivingWaters#DeathOfChrist#ResurrectionOfChrist#Prayers#Sermons#Healings#CatholicChurches#Happy#Joy#Cathedrals#Homilies#Israel#Nuns#Priests#Saints#Angels#Music#Pictures#Videos#Movies#Testimonies#Pastors#Deacons#Christmas#ChristmasTrees#Easter#HolyBibles#Maps#Directions#Convents#Vatican#Popes#HolyGodTheFather#Donations#Forgiveness#Humility#Services#Disciples#BlessedMary#Flowers#Cardinals#Blessings#CatholicPriests";
 
-        let ht =
-          "#Computer#Animals#Schools#Banks#Libraries#Stores#Books#Ebooks#Entertainment#Church#Politics#Music#Movies#Delivery#Hotels#Motels#Rentals#Maps#Directions#Laundry#Theater#Mechanics#Vehicles#Insurance#Travel";
-        let homelesslist =
-          "#HomelessInAlaska#HomelessInAlabama#HomelessInArkansas#HomelessInAmericanSamoa#HomelessInArizona#HomelessInCalifornia#HomelessInColorado#HomelessInConnecticut#HomelessInDistrictOfColumbia#HomelessInDelaware#HomelessInFlorida#HomelessInGeorgia#HomelessInGuam#HomelessInHawaii#HomelessInIowa#HomelessInIdaho#HomelessInIllinois#HomelessInIndiana#HomelessInKansas#HomelessInKentucky#HomelessInLouisiana#HomelessInMassachusetts#HomelessInMaryland#HomelessInMaine#HomelessInMichigan#HomelessInMinnesota#HomelessInMissouri#HomelessInMississippi#HomelessInMontana#HomelessInNorthCarolina#HomelessInNorthDakota#HomelessInNebraska#HomelessInNewHampshire#HomelessInNewJersey#HomelessInNewMexico#HomelessInNevada#HomelessInNewYork#HomelessInOhio#HomelessInOklahoma#HomelessInOregon#HomelessInPennsylvania#HomelessInPuertoRico#HomelessInRhodeIsland#HomelessInSouthCarolina#HomelessInSouthDakota#HomelessInTennessee#HomelessInTexas#NorthernMarianaIslands#HomelessInUtah#HomelessInVirginia#HomelessInVirginIslands#HomelessInVermont#HomelessInWashington#HomelessInWisconsin#HomelessInWestVirginia#HomelessInWyoming";
-        let prisonerslist =
-          "#PrisonersInAlaska#PrisonersInAlabama#PrisonersInArkansas#PrisonersInAmericanSamoa#PrisonersInArizona#PrisonersInCalifornia#PrisonersInColorado#PrisonersInConnecticut#PrisonersInDistrictOfColumbia#PrisonersInDelaware#PrisonersInFlorida#PrisonersInGeorgia#PrisonersInGuam#PrisonersInHawaii#PrisonersInIowa#PrisonersInIdaho#PrisonersInIllinois#PrisonersInIndiana#PrisonersInKansas#PrisonersInKentucky#PrisonersInLouisiana#PrisonersInMassachusetts#PrisonersInMaryland#PrisonersInMaine#PrisonersInMichigan#PrisonersInMinnesota#PrisonersInMissouri#PrisonersInMississippi#PrisonersInMontana#PrisonersInNorthCarolina#PrisonersInNorthDakota#PrisonersInNebraska#PrisonersInNewHampshire#PrisonersInNewJersey#PrisonersInNewMexico#PrisonersInNevada#PrisonersInNewYork#PrisonersInOhio#PrisonersInOklahoma#PrisonersInOregon#PrisonersInPennsylvania#PrisonersInPuertoRico#PrisonersInRhodeIsland#PrisonersInSouthCarolina#PrisonersInSouthDakota#PrisonersInTennessee#PrisonersInTexas#NorthernMarianaIslands#PrisonersInUtah#PrisonersInVirginia#PrisonersInVirginIslands#PrisonersInVermont#PrisonersInWashington#PrisonersInWisconsin#PrisonersInWestVirginia#PrisonersInWyoming";
-        let htc =
-          "#JesusChrist#SalvationOfJesusChrist#LifeOfJesusChrist#GraceOfJesusChrist#FaithOfJesusChrist#AudioHolyBible#Fellowship#Kindness#Devine#Love#MysteryOfJesusChrist#FaithOfJesusChrist#LivingWaters#DeathOfChrist#ResurrectionOfChrist#Prayers#Sermons#Healings#CatholicChurches#Happy#Joy#Cathedrals#Homilies#Israel#Nuns#Priests#Saints#Angels#Music#Pictures#Videos#Movies#Testimonies#Pastors#Deacons#Christmas#ChristmasTrees#Easter#HolyBibles#Maps#Directions#Convents#Vatican#Popes#HolyGodTheFather#Donations#Forgiveness#Humility#Services#Disciples#BlessedMary#Flowers#Cardinals#Blessings#CatholicPriests";
-        let h2 = homelesslist + prisonerslist + ht + htc;
+        // let h2 = homelesslist + prisonerslist + ht + htc;
 
-        if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2") x1 = "";
-        else if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
-          x1 = extractHashtags(h2);
-        else x1 = extractHashtags(h1);
+        // if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2") x1 = "";
+        // else if (uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
+        //   x1 = extractHashtags(h2);
 
-        hashtags.push(...x1);
-
+        // hashtags.push(...x1);
+        console.log("before looping")
+        //this loop builds an array of all of the hashtags and is called hashtags
         links2.forEach((link) => {
-          x1 = extractHashtags(link.note);
-          hashtags.push(...x1);
+          console.log("looping")
+          x1 =  extractHashtags(link) //converst text string into an array of hashtags
+          //x1.showpublic = link.showpublic;
+          hashtags.push(...x1); //this line adds elements to the array, x1 is an array that is expanded
+          //hashtags is a one dimensional array of all of the hashtags from links2
+          //hashtags.push(x1);
+
         });
+
+        console.log("links.js, hashtags="+JSON.stringify(hashtags))
 
         let hashtags3 = [];
-
-        hashtags.forEach((hashtag) => {
-          hashtags3.push(hashtag.trim().substring(1));
-        });
+         hashtags.forEach((hashtag) => {
+           hashtags3.push({
+             hashtaglist: hashtag.hashtag.trim().substring(1),
+             showpublic: hashtag.showpublic,
+           });
+         });
 
         let hashtags4 = [];
 
-        hashtags3.forEach((hashtag) => {
+        hashtags3.forEach((s) => {
           //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great
-          let str2 = hashtag
+          let str2 = s.hashtag
             .trim()
             .replace(
               /(^|[^a-zA-Z0-9])([a-zA-Z])/g,
@@ -417,7 +432,10 @@ export const startSetLinksNew = (uid) => {
             );
           let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //this removes the space so The Cat Is Great becomes TheCatIsGreat
           let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
-          hashtags4.push(hashtagresult);
+          hashtags4.push({
+            hashtag: hashtagresult,
+            showpublic: 1 //s.showpublic,
+          });
         });
 
         hashtags = hashtags4;
@@ -425,12 +443,17 @@ export const startSetLinksNew = (uid) => {
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
         hashTags2WithCount.sort((a, b) => {
           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
-         
+          //return a.hashtag > b.hashtag ? 1 : -1;
         });
-        
-        let hashtags2 = removeDuplicates(hashtags);
+        // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        //
+        //let hashtags2 = removeDuplicates(hashtags);
+        let hashtags2 = hashtags;
+
         hashtags2.sort((a, b) => {
-          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase()
+            ? 1
+            : -1;
           //return a > b ? 1 : -1;
         });
 
@@ -439,7 +462,10 @@ export const startSetLinksNew = (uid) => {
 
         hashtags2.forEach((ht1) => {
           hashTags2WithCount.forEach((ht2) => {
-            if (!seen(ht1, seenArray) && ht1 === ht2.hashtag) {
+            if (
+              !seen(ht1.hashtag, seenArray) &&
+              ht1.hashtag === ht2.hashtag
+            ) {
               seenArray.push(ht1);
               console.log(
                 "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
@@ -449,14 +475,12 @@ export const startSetLinksNew = (uid) => {
           });
         });
 
-        dispatch(setHashTags(hashtags2));
+        //dispatch(setHashTags(hashtags2));
 
         dispatch(setHashTags(hashtags3withcount));
-        dispatch(setHashTags2WithCount(hashTags2WithCount));
+        //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));
-
-
   };
 };
 

@@ -419,7 +419,13 @@ text-decoration-thickness: 3px;
 a:link { color: #0000EE; }
 a:visited { color: #551A8B; }
 //a:link:active, a:visited:active { color: #FF0000; }
-   
+
+.alignit {
+  display: flex;
+  justify-content: center; /* Centers along the main axis */
+  align-items: center;     /* Centers along the cross axis */
+  //height: 100vh;           /* Ensures vertical centering works within viewport */
+}
 
 .margin-top-n-hh {
   margin-top: -0.2rem;

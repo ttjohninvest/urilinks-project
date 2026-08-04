@@ -797,7 +797,8 @@ const LinkListItem = (props) => {
                                 )}
                                 {props.signup.signup === true ? (
                                   <div>
-                                    <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                                    <span className="ib alignit">
+                                    <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <span className="color-black">
                                         remove:&nbsp;
                                       </span>
@@ -812,7 +813,7 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
-                                    <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                                    <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <span className="color-black">
                                         {!!props.showpublic
                                           ? "make private"
@@ -837,6 +838,7 @@ const LinkListItem = (props) => {
                                         className="cb1 cursor-pointer"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
+                                    </span>
                                     </span>
                                   </div>
                                 ) : (

@@ -175,6 +175,7 @@ const extractHashtags = (link) => {
   while ((match = regex.exec(link.note)) !== null) {
     hashtags10.push({
        hashtag:match[0],
+       description:link.description,
        showpublic:parseInt(link.showpublic)===1?1:0
     });
   }
@@ -197,7 +198,7 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
     newArray.push({ //this is the hashtag array that is used in LinkListFilter.js if showpublic === 1 it displays the menu item
       hashtag: s.hashtag,
       count: count,
-      longname: "",
+      longname: s.description,
       showpublic: s.showpublic,
     });
   });
@@ -277,7 +278,8 @@ export const startSetLinks = (uid) => {
          hashtags.forEach((s) => {
            hashtags3.push({
              hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
-             showpublic: s.showpublic,
+             description:s.description,
+             showpublic: s.showpublic
            });
          });
 		  
@@ -296,6 +298,7 @@ export const startSetLinks = (uid) => {
           let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
           hashtags4.push({
             hashtag: hashtagresult,
+            description:s.description,
             showpublic: s.showpublic
           });
         });
@@ -340,7 +343,7 @@ export const startSetLinks = (uid) => {
 
         //dispatch(setHashTags(hashtags2));
         //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
-        dispatch(setHashTags(hashTags3WithCount));
+        dispatch(setHashTags(hashTags2WithCount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));
@@ -376,7 +379,7 @@ export const startSetLinksNew = (uid) => {
         dispatch(setLinks(links2));
 
         
-     let hashtags = [];
+    let hashtags = [];
         const longnamesnowhitespace = [];
         const longnames = [];
        let x1 = []; //"";
@@ -396,7 +399,8 @@ export const startSetLinksNew = (uid) => {
          hashtags.forEach((s) => {
            hashtags3.push({
              hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
-             showpublic: s.showpublic,
+             description:s.description,
+             showpublic: s.showpublic
            });
          });
 		  
@@ -415,6 +419,7 @@ export const startSetLinksNew = (uid) => {
           let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
           hashtags4.push({
             hashtag: hashtagresult,
+            description:s.description,
             showpublic: s.showpublic
           });
         });
@@ -428,7 +433,7 @@ export const startSetLinksNew = (uid) => {
           //return a.hashtag > b.hashtag ? 1 : -1;
         });
         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
-        //
+        
         //let hashtags2 = removeDuplicates(hashtags);
         let hashtags2 = hashtags;
 

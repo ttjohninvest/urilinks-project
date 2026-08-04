@@ -671,7 +671,8 @@ const setItNow=(index, ht,e)=>{
                             >
                               {
                               
-                              sep(s.hashtag)
+                              //sep(s.hashtag)
+                              s.description
                               }
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (

@@ -339,7 +339,7 @@ export const startSetLinks = (uid) => {
         });
 
         //dispatch(setHashTags(hashtags2));
-        console.log("1 hashTags3withCount="+JSON.stringify(hashTags3withCount))
+        console.log("1 hashtags3withcount="+JSON.stringify(hashtags3withcount))
         dispatch(setHashTags(hashtags3withcount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
@@ -458,7 +458,7 @@ export const startSetLinksNew = (uid) => {
         });
 
         //dispatch(setHashTags(hashtags2));
-console.log("2 hashTags3withCount="+JSON.stringify(hashTags3withCount))
+console.log("2 hashtags3withcount="+JSON.stringify(hashtags3withcount))
         dispatch(setHashTags(hashtags3withcount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })

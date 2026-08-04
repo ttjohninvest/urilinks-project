@@ -198,7 +198,7 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
       hashtag: s.hashtag,
       count: count,
       longname: "",
-      showpublic: s.showpublic,
+      showpublic: 0 //s.showpublic,
     });
   });
   return newArray;

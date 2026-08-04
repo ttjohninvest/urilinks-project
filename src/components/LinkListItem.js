@@ -99,7 +99,7 @@ const LinkListItem = (props) => {
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
     let result;
-    if (x === true) {
+    if (x === false) {
       result = confirm("Are you sure you want to make it public?");
       if (result) {
         // User clicked OK, perform the deletion

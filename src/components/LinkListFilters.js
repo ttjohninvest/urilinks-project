@@ -634,7 +634,9 @@ const setItNow=(index, ht,e)=>{
                       else return false;
                     })
                   ) : (
-                    <div>
+                    <div> {/*s looks like this [{hashtag:"#abc", count:1, longname:"longname", showpublic:1}...{hashtag:"#xyz", count:1, longname:"longnamesubn", showpublic:0}]*/}
+                      {/*all of the hashtags have a showpublic property and their can be m hashtags for a url, if user
+                      set showpublic to false for the url all of the hashtags for that url have showpublic set to 0 for false*/}
                       {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         return (
@@ -666,8 +668,7 @@ const setItNow=(index, ht,e)=>{
                               }, click to see results`}
                             >
                               {
-                              (s.showpublic ===1) && 
-                              sep(s.hashtag)
+                              (s.showpublic ===1) && sep(s.hashtag)
                               }
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (

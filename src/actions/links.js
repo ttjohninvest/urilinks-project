@@ -194,7 +194,7 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
         count = count + 1;
       }
     });
-    newArray.push({
+    newArray.push({ //this is the hashtag array that is used in LinkListFilter.js if showpublic === 1 it displays the menu item
       hashtag: s.hashtag,
       count: count,
       longname: "",
@@ -375,10 +375,10 @@ export const startSetLinksNew = (uid) => {
         dispatch(setLinks(links2));
 
         
-         let hashtags = [];
+        let hashtags = [];
         const longnamesnowhitespace = [];
         const longnames = [];
-        let x1 = []; //"";
+       let x1 = []; //"";
 
         
         //this loop builds an array of all of the hashtags and is called hashtags
@@ -414,7 +414,7 @@ export const startSetLinksNew = (uid) => {
           let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
           hashtags4.push({
             hashtag: hashtagresult,
-            showpublic: s.showpublic,
+            showpublic: !!s.showpublic?s.showpublic:0,
           });
         });
 

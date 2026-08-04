@@ -274,7 +274,7 @@ export const startSetLinks = (uid) => {
         console.log("actions/links.js, hashtags="+JSON.stringify(hashtags))
 
         let hashtags3 = [];
-         hashtags.forEach((hashtag) => {
+         hashtags.forEach((s) => {
            hashtags3.push({
              hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
              showpublic: 1 //hashtag.showpublic,

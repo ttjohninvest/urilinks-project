@@ -677,7 +677,7 @@ const setItNow=(index, ht,e)=>{
                               
                               
                               //sep(s.hashtag)
-                              <span>{s.description2}</span><span style={{"color": "inherit", "text-decoration": "none", "font-weight": "normal"}}>{s.matchesstring}</span>
+                              <span>{s.description2}</span><span style={{"color": "inherit", "text-decoration": "none", "font-weight": "normal", "pointer-events":"none"}}>{s.matchesstring}</span>
                               
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (

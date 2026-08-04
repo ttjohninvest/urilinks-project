@@ -171,15 +171,30 @@ const extractHashtags = (link) => {
   const regex = /#([a-zA-Z0-9_]+)/g;
   const hashtags10 = [];
   let match;
+  let matchesstring = "";
 
-  while ((match = regex.exec(link.note)) !== null) {
-    hashtags10.push({
-       hashtag:match[0],
-       description:link.description.toLowerCase(),
-       description2:link.description,
-       showpublic:parseInt(link.showpublic)===1?1:0
-    });
+   while ((match = regex.exec(link.note)) !== null) {
+    matchesstring += " "+match[0]
   }
+
+  // while ((match = regex.exec(link.note)) !== null) {
+  //   hashtags10.push({
+  //      hashtag:match[0],
+  //      description:link.description.toLowerCase(),
+  //      description2:link.description, //preserves the letter case for display
+  //      showpublic:parseInt(link.showpublic)===1?1:0
+  //   });
+
+  
+    hashtags10.push({
+       matchesstring:matchesstring,
+       //hashtag:match[0],
+       description:link.description.toLowerCase(),
+       description2:link.description, //preserves the letter case for display
+       showpublic:parseInt(link.showpublic)===1?1:0
+    })
+
+  //}
   //console.log("hashtags=" + JSON.stringify(hashtags));
   return hashtags10;
 };
@@ -190,15 +205,16 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
   let newArray = [];
 
   hashtags.forEach((s) => {
-    let count = 0;
-    hashtags.forEach((s2) => {
-      if (s.hashtag === s2.hashtag) {
-        count = count + 1;
-      }
-    });
+    // let count = 0;
+    // hashtags.forEach((s2) => {
+    //   if (s.hashtag === s2.hashtag) {
+    //     count = count + 1;
+    //   }
+    // });
     newArray.push({ //this is the hashtag array that is used in LinkListFilter.js if showpublic === 1 it displays the menu item
-      hashtag: s.hashtag,
-      count: count,
+      matchesstring:s.matchesstring,
+      //hashtag: s.hashtag,
+      //count: count,
       description: s.description,
       description2:s.description2,
       showpublic: s.showpublic,
@@ -284,40 +300,42 @@ export const startSetLinks = (uid) => {
           
         });
 
-        console.log("actions/links.js, hashtags="+JSON.stringify(hashtags))
+        //console.log("actions/links.js, hashtags="+JSON.stringify(hashtags))
 
-        let hashtags3 = [];
-         hashtags.forEach((s) => {
-           hashtags3.push({
-             hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
-             description:s.description,
-             description2:s.description2,
-             showpublic: s.showpublic
-           });
-         });
+        // let hashtags3 = [];
+        //  hashtags.forEach((s) => {
+        //    hashtags3.push({
+        //      matchesstring:s.matchesstring,
+        //      hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
+        //      description:s.description,
+        //      description2:s.description2,
+        //      showpublic: s.showpublic
+        //    });
+        //  });
 		  
 
-        let hashtags4 = [];
+        //let hashtags4 = [];
 
-        hashtags3.forEach((s) => {
-          //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great
-          let str2 = !!s.hashtag?s.hashtag
-            .trim()
-            .replace(
-              /(^|[^a-zA-Z0-9])([a-zA-Z])/g,
-              (match, p1, p2) => p1 + p2.toUpperCase(),
-            ):""
-          let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //this removes the space so The Cat Is Great becomes TheCatIsGreat
-          let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
-          hashtags4.push({
-            hashtag: hashtagresult,
-            description:s.description,
-            description2:s.description2,
-            showpublic: s.showpublic
-          });
-        });
+        // hashtags3.forEach((s) => {
+        //   //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great
+        //   let str2 = !!s.hashtag?s.hashtag
+        //     .trim()
+        //     .replace(
+        //       /(^|[^a-zA-Z0-9])([a-zA-Z])/g,
+        //       (match, p1, p2) => p1 + p2.toUpperCase(),
+        //     ):""
+        //   let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //this removes the space so The Cat Is Great becomes TheCatIsGreat
+        //   let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
+        //   hashtags4.push({
+        //     matchesstring:s.matchesstring,
+        //     hashtag: hashtagresult,
+        //     description:s.description,
+        //     description2:s.description2,
+        //     showpublic: s.showpublic
+        //   });
+        // });
 
-        hashtags = hashtags4;
+        //hashtags = hashtags4;
 
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
@@ -389,7 +407,7 @@ export const startSetLinks = (uid) => {
 
         //dispatch(setHashTags(hashtags2));
         //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
-        dispatch(setHashTags(hashTags2WithCount));
+        dispatch(setHashTags(hashTags3WithCount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));
@@ -425,7 +443,7 @@ export const startSetLinksNew = (uid) => {
         dispatch(setLinks(links2));
 
         
-   let hashtags = [];
+  let hashtags = [];
         const longnamesnowhitespace = [];
         const longnames = [];
        let x1 = []; //"";
@@ -439,40 +457,42 @@ export const startSetLinksNew = (uid) => {
           
         });
 
-        console.log("actions/links.js, hashtags="+JSON.stringify(hashtags))
+        //console.log("actions/links.js, hashtags="+JSON.stringify(hashtags))
 
-        let hashtags3 = [];
-         hashtags.forEach((s) => {
-           hashtags3.push({
-             hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
-             description:s.description,
-             description2:s.description2,
-             showpublic: s.showpublic
-           });
-         });
+        // let hashtags3 = [];
+        //  hashtags.forEach((s) => {
+        //    hashtags3.push({
+        //      matchesstring:s.matchesstring,
+        //      hashtag: !!s.hashtag?s.hashtag.trim().substring(1):"",
+        //      description:s.description,
+        //      description2:s.description2,
+        //      showpublic: s.showpublic
+        //    });
+        //  });
 		  
 
-        let hashtags4 = [];
+        //let hashtags4 = [];
 
-        hashtags3.forEach((s) => {
-          //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great
-          let str2 = !!s.hashtag?s.hashtag
-            .trim()
-            .replace(
-              /(^|[^a-zA-Z0-9])([a-zA-Z])/g,
-              (match, p1, p2) => p1 + p2.toUpperCase(),
-            ):""
-          let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //this removes the space so The Cat Is Great becomes TheCatIsGreat
-          let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
-          hashtags4.push({
-            hashtag: hashtagresult,
-            description:s.description,
-            description2:s.description2,
-            showpublic: s.showpublic
-          });
-        });
+        // hashtags3.forEach((s) => {
+        //   //the following line uppercase's the first character and adds a space for example TheCatIsGreat to The Cat Is Great
+        //   let str2 = !!s.hashtag?s.hashtag
+        //     .trim()
+        //     .replace(
+        //       /(^|[^a-zA-Z0-9])([a-zA-Z])/g,
+        //       (match, p1, p2) => p1 + p2.toUpperCase(),
+        //     ):""
+        //   let cleaned = str2.replace(/[^a-zA-Z0-9]/g, ""); //this removes the space so The Cat Is Great becomes TheCatIsGreat
+        //   let hashtagresult = "#" + cleaned; //This produces #TheCatIsGreat
+        //   hashtags4.push({
+        //     matchesstring:s.matchesstring,
+        //     hashtag: hashtagresult,
+        //     description:s.description,
+        //     description2:s.description2,
+        //     showpublic: s.showpublic
+        //   });
+        // });
 
-        hashtags = hashtags4;
+        //hashtags = hashtags4;
 
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
@@ -544,7 +564,7 @@ export const startSetLinksNew = (uid) => {
 
         //dispatch(setHashTags(hashtags2));
         //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
-        dispatch(setHashTags(hashTags2WithCount));
+        dispatch(setHashTags(hashTags3WithCount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));

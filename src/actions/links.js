@@ -308,7 +308,7 @@ export const startSetLinks = (uid) => {
           return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
           //return a.hashtag > b.hashtag ? 1 : -1;
         });
-        // console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         //
         //let hashtags2 = removeDuplicates(hashtags);
         let hashtags2 = hashtags;
@@ -339,7 +339,7 @@ export const startSetLinks = (uid) => {
         });
 
         //dispatch(setHashTags(hashtags2));
-        console.log("1 hashtags3withcount="+JSON.stringify(hashtags3withcount))
+        //console.log("1 hashtags3withcount="+JSON.stringify(hashtags3withcount))
         dispatch(setHashTags(hashtags3withcount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })

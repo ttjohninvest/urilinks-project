@@ -1,6 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { startRemoveLink, removeLink, privateLink, startPrivateLink } from "../actions/links";
+import {
+  startRemoveLink,
+  removeLink,
+  privateLink,
+  startPrivateLink,
+  privateLink2,
+  startPrivateLink2,
+} from "../actions/links";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
@@ -30,7 +37,7 @@ import CalendarGoogle from "./CalendarGoogle";
 // }) => {
 const LinkListItem = (props) => {
   console.log(
-    "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL
+    "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL,
   );
   const myRef = useRef(null);
 
@@ -87,20 +94,37 @@ const LinkListItem = (props) => {
     }
   };
 
-  const handleCheckboxPrivate = (event) => {
+  const handleCheckboxPrivate = (x, event) => {
     console.log("bookmark id=" + event.target.value);
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
-    let result = confirm("Are you sure you want to make it private?");
-    if (result) {
-      // User clicked OK, perform the deletion
-      props.privateLink({ id: event.target.value });
-      props.startPrivateLink({ id: event.target.value });
-      //alert("Item deleted.");
+    let result;
+    if (x === true) {
+      result = confirm("Are you sure you want to make it public?");
+      if (result) {
+        // User clicked OK, perform the deletion
+        props.privateLink2({ id: event.target.value });
+        props.startPrivateLink2({ id: event.target.value });
+        //alert("Item deleted.");
+      } else {
+        // User clicked Cancel
+        document.getElementById("private%" + event.target.value).checked =
+          "";
+        alert("Setting it to private is canceled.");
+      }
     } else {
-      // User clicked Cancel
-      document.getElementById("private%" + event.target.value).checked = false;
-      alert("Setting it to private is canceled.");
+      result = confirm("Are you sure you want to make it private?");
+      if (result) {
+        // User clicked OK, perform the deletion
+        props.privateLink({ id: event.target.value });
+        props.startPrivateLink({ id: event.target.value });
+        //alert("Item deleted.");
+      } else {
+        // User clicked Cancel
+        document.getElementById("private%" + event.target.value).checked =
+          "";
+        alert("Setting it to private is canceled.");
+      }
     }
   };
 
@@ -113,7 +137,7 @@ const LinkListItem = (props) => {
   const sortit2 = (event) => {
     console.log(
       "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length
+        event.currentTarget.obj.data.length,
     );
     let url;
     let data1 = [];
@@ -160,7 +184,7 @@ const LinkListItem = (props) => {
 
     console.log(
       "data1 sorted by two fields name and pathname=" +
-        JSON.stringify(data1s, null, 4)
+        JSON.stringify(data1s, null, 4),
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
@@ -232,7 +256,7 @@ const LinkListItem = (props) => {
   const sortit1 = (event) => {
     console.log(
       "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length
+        event.currentTarget.obj.data.length,
     );
     let url;
     let data1 = [];
@@ -271,7 +295,7 @@ const LinkListItem = (props) => {
 
     console.log(
       "data1 sorted by name and extension in hostname=" +
-        JSON.stringify(data1s, null, 4)
+        JSON.stringify(data1s, null, 4),
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
@@ -338,7 +362,7 @@ const LinkListItem = (props) => {
   const sortit3 = (event) => {
     console.log(
       "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length
+        event.currentTarget.obj.data.length,
     );
     let url;
     let data1 = [];
@@ -385,7 +409,7 @@ const LinkListItem = (props) => {
 
     console.log(
       "data1 sorted by two fields name and pathname=" +
-        JSON.stringify(data1s, null, 4)
+        JSON.stringify(data1s, null, 4),
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
@@ -452,7 +476,7 @@ const LinkListItem = (props) => {
   const sortit4 = (event) => {
     console.log(
       "Button was clicked, event.currentTarget.obj.data.length=" +
-        event.currentTarget.obj.data.length
+        event.currentTarget.obj.data.length,
     );
     let url;
     let data1 = [];
@@ -483,7 +507,7 @@ const LinkListItem = (props) => {
 
     console.log(
       "data1 sorted by name and extension in hostname=" +
-        JSON.stringify(data1s, null, 4)
+        JSON.stringify(data1s, null, 4),
     );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
@@ -739,7 +763,9 @@ const LinkListItem = (props) => {
                                 }
                                 onClick={storeScrollPosition}
                               >
-                                <span className="hide underline">Click to show page:{" "}</span> 
+                                <span className="hide underline">
+                                  Click to show page:{" "}
+                                </span>
                                 {props.description}
                                 {/* {decodeURIComponent(props.description)} */}
                               </a>
@@ -772,7 +798,10 @@ const LinkListItem = (props) => {
                                 {props.signup.signup === true ? (
                                   <div>
                                     <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black">remove:&nbsp;</span><input
+                                      <span className="color-black">
+                                        remove:&nbsp;
+                                      </span>
+                                      <input
                                         type="checkbox"
                                         id={"delete%" + props.id}
                                         name={"delete%" + props.id}
@@ -784,13 +813,26 @@ const LinkListItem = (props) => {
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
                                     <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black">{!!props.showpublic?"make private" :"made private"}:&nbsp;</span><input
-                                        checked={!!props.showpublic?'':'checked'}
+                                      <span className="color-black">
+                                        {!!props.showpublic
+                                          ? "make private"
+                                          : "made private"}
+                                        :&nbsp;
+                                      </span>
+                                      <input
+                                        checked={
+                                          !!props.showpublic ? "" : "checked"
+                                        }
                                         type="checkbox"
                                         id={"private%" + props.id}
                                         name={"private%" + props.id}
                                         value={props.id}
-                                        onChange={handleCheckboxPrivate}
+                                        onChange={() =>
+                                          handleCheckboxPrivate(
+                                            !!props.showpublic,
+                                            event,
+                                          )
+                                        }
                                         title="click to make url private"
                                         className="cb1 cursor-pointer"
                                       />
@@ -800,8 +842,10 @@ const LinkListItem = (props) => {
                                 ) : (
                                   <div>
                                     <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                                      <span className="color-black">remove:&nbsp;</span><input
-                                        
+                                      <span className="color-black">
+                                        remove:&nbsp;
+                                      </span>
+                                      <input
                                         type="checkbox"
                                         id={"delete%" + props.id}
                                         name={"delete%" + props.id}
@@ -812,9 +856,11 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
-                                      <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                                      <span className="color-black">make private:&nbsp;</span><input
-                                      
+                                    <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                                      <span className="color-black">
+                                        make private:&nbsp;
+                                      </span>
+                                      <input
                                         type="checkbox"
                                         id={"private%" + props.id}
                                         name={"private%" + props.id}
@@ -830,38 +876,41 @@ const LinkListItem = (props) => {
                               </div>
                             </div>
                           </div>
-
                         </div>
 
                         <ol id={"uldata" + props.id} start="0"></ol>
                       </div>
                     </div>
                   </div>
-                  
                 </div>
 
                 <div className="italicText list-item__sub-title- margin-left-1181- border-green- text-size-10 color-purple margin-left-11p1 color-black-2">
-                  <span className="ib padding-left-1122 margin-top-n-15a">Link saved on:{" "}{moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}</span>
+                  <span className="ib padding-left-1122 margin-top-n-15a">
+                    Link saved on:{" "}
+                    {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
+                  </span>
                 </div>
               </div>
               <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p- color-black-2">
                 {props.note}
               </div>
-              {props.signup.signup===true && <div className="flexrow2w">
-                <MayDoInGoogleDocument />
-                <CalendarGoogle />
-                <FBShareButton url={props.Url} />
+              {props.signup.signup === true && (
+                <div className="flexrow2w">
+                  <MayDoInGoogleDocument />
+                  <CalendarGoogle />
+                  <FBShareButton url={props.Url} />
 
-                <MessengerButton />
-                <LinkedInShareButton url={props.Url} />
-                {/* <AddToAny /> */}
-                
-                <XShareButton url={props.Url} />
-                <MapQuestButton />
-                <AlarmClockButton />
-                <GoogleMapsButton />
-                <GoogleEarthButton />
-              </div>}
+                  <MessengerButton />
+                  <LinkedInShareButton url={props.Url} />
+                  {/* <AddToAny /> */}
+
+                  <XShareButton url={props.Url} />
+                  <MapQuestButton />
+                  <AlarmClockButton />
+                  <GoogleMapsButton />
+                  <GoogleEarthButton />
+                </div>
+              )}
             </div>
           </div>
         )
@@ -881,6 +930,8 @@ const mapDispatchToProps = (dispatch, props) => ({
   removeLink: (data) => dispatch(removeLink(data)),
   startPrivateLink: (data) => dispatch(startPrivateLink(data)),
   privateLink: (data) => dispatch(privateLink(data)),
+  startPrivateLink2: (data) => dispatch(startPrivateLink2(data)),
+  privateLink2: (data) => dispatch(privateLink2(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListItem);

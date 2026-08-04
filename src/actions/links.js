@@ -110,6 +110,12 @@ export const privateLink = (id, updates) => ({
   updates,
 });
 
+export const privateLink2 = (id, updates) => ({
+  type: "PRIVATE_LINK",
+  id,
+  updates,
+});
+
 export const startRemoveLink = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -135,6 +141,22 @@ export const startPrivateLink = ({ id } = {}) => {
       .update({showpublic:0})
       .then(() => {
         dispatch(privateLink(id, {showpublic:0}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
+export const startPrivateLink2 = ({ id } = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({showpublic:0})
+      .then(() => {
+        dispatch(privateLink(id, {showpublic:1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

@@ -639,7 +639,9 @@ const setItNow=(index, ht,e)=>{
                       set showpublic to 0 for false for the url all of the hashtags for that url have showpublic set to 0 for false*/}
                       {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
-                        return (
+                        if(s.showpublic === 0) return (<div></div>)
+                        else return (
+                          
                           <div
                             key={index}
                             className="b1x- item-newspaper- padding-all- text-size-5 element5-"
@@ -668,8 +670,8 @@ const setItNow=(index, ht,e)=>{
                               }, click to see results`}
                             >
                               {
-                              (s.showpublic === 1) && 
-                              sep(s.showpublic+" "+s.hashtag)
+                              
+                              sep(s.hashtag)
                               }
                             </a>
                             {!!s.hashtag && isCorrectAccount() === true && (
@@ -687,6 +689,7 @@ const setItNow=(index, ht,e)=>{
                               </span>
                             )}
                           </div>
+                          
 
                         );
                       })}

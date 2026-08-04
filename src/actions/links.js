@@ -175,7 +175,7 @@ const extractHashtags = (link) => {
   while ((match = regex.exec(link.note)) !== null) {
     hashtags10.push({
        hashtag:match[0],
-       description:link.description,
+       description:link.description.toLowerCase(),
        showpublic:parseInt(link.showpublic)===1?1:0
     });
   }
@@ -307,17 +307,34 @@ export const startSetLinks = (uid) => {
 
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
-        hashTags2WithCount.sort((a, b) => {
-          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+
+
+        // hashTags2WithCount.sort((a, b) => {
+        //   return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+        //   //return a.hashtag > b.hashtag ? 1 : -1;
+        // });
+
+          hashTags2WithCount.sort((a, b) => {
+          return a.description > b.description ? 1 : -1;
           //return a.hashtag > b.hashtag ? 1 : -1;
         });
+
+
+
         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
         
         //let hashtags2 = removeDuplicates(hashtags);
         let hashtags2 = hashtags;
 
+        // hashtags2.sort((a, b) => {
+        //   return a.hashtag.toLowerCase() > b.hashtag.toLowerCase()
+        //     ? 1
+        //     : -1;
+        //   //return a > b ? 1 : -1;
+        // });
+
         hashtags2.sort((a, b) => {
-          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase()
+          return a.description > b.description
             ? 1
             : -1;
           //return a > b ? 1 : -1;

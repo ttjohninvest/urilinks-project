@@ -309,7 +309,7 @@ export const startSetLinks = (uid) => {
           //return a.hashtag > b.hashtag ? 1 : -1;
         });
         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
-        //
+        
         //let hashtags2 = removeDuplicates(hashtags);
         let hashtags2 = hashtags;
 
@@ -459,7 +459,7 @@ export const startSetLinksNew = (uid) => {
 
         //dispatch(setHashTags(hashtags2));
         //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
-        dispatch(setHashTags(hashTags3WithCount));
+        dispatch(setHashTags(hashTags2WithCount));
         //dispatch(setHashTags2WithCount(hashTags2WithCount));
       })
       .catch((error) => console.log("error=" + error));

@@ -363,7 +363,7 @@ export const Header = (props) => {
                       <img src={signature} className="minwidth" />
                     </div> */}
                     </div>
-{x1 !== "usage" && <div>
+
                     {/* {props.signup.signup === false && (
                     <div
                       className="color-white-1"
@@ -682,7 +682,7 @@ export const Header = (props) => {
                       ""
                     )}
 
-                    </div>}
+                    
 
                     {props.signup.signup === true || signup === "0" ? (
                       <div className="padding-top-1112 margin-left-118">

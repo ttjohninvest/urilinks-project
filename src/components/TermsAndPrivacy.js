@@ -3,12 +3,12 @@ import React,{useEffect} from "react";
 const TermsAndPrivacy = () => {
 
    useEffect(()=>{
-      if(!!window.document.getElementById("aiaccess")) window.document.getElementById("aiaccess").textContent=""
-      if(!!window.document.getElementById("usage")) window.document.getElementById("usage").textContent=""
-      if(!!window.document.getElementById("termsandprivacy")) window.document.getElementById("termsandprivacy").textContent=""
-      if(!!window.document.getElementById("subscribe")) window.document.getElementById("subscribe").textContent=""
-      if(!!window.document.getElementById("uploadbookmarksfile")) window.document.getElementById("uploadbookmarksfile").textContent=""
-      if(!!window.document.getElementById("friendlylogin")) window.document.getElementById("friendlylogin").textContent=""
+    //   if(!!window.document.getElementById("aiaccess")) window.document.getElementById("aiaccess").textContent=""
+    //   if(!!window.document.getElementById("usage")) window.document.getElementById("usage").textContent=""
+    //   if(!!window.document.getElementById("termsandprivacy")) window.document.getElementById("termsandprivacy").textContent=""
+    //   if(!!window.document.getElementById("subscribe")) window.document.getElementById("subscribe").textContent=""
+    //   if(!!window.document.getElementById("uploadbookmarksfile")) window.document.getElementById("uploadbookmarksfile").textContent=""
+    //   if(!!window.document.getElementById("friendlylogin")) window.document.getElementById("friendlylogin").textContent=""
     },[])
 
   return (<div className="list-header__flex__center">

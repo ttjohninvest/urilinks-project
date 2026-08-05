@@ -6,7 +6,7 @@ import StorageSizes from './StorageSizes'
 
 const Benefits = () => {
   useEffect(()=>{
-    //window.document.getElementById("aiaccess").textContent=""
+    window.document.getElementById("aiaccess").textContent=""
   },[])
 return (<div>
  

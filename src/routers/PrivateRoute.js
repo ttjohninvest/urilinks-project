@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 //import HeaderA from '../components/HeaderA';
 import Header from '../components/Header';
-import HeaderA from '../components/HeaderA';
+
 
 export const PrivateRoute = ({
-  x,
+  
   signup,
   isAuthenticated,
   component: Component,
@@ -15,7 +15,7 @@ export const PrivateRoute = ({
     <Route {...rest} component={(props) => (
       isAuthenticated ? (
           <div>
-          { !!x && x===1 ?<HeaderA signup={signup} />:<Header   signup={signup} />}
+          <Header   signup={signup} />
           <Component {...props} />
         </div>
       ) : (

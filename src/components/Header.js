@@ -493,7 +493,7 @@ export const Header = (props) => {
                               className="ib text-size-11 color-white-1 color-black-2- color-blue-1-"
                               title="Click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links)"
                             >
-                              plans
+                              subscribe
                             </span>
                           </Link>
                         </div>

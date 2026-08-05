@@ -789,7 +789,7 @@ const LinkListItem = (props) => {
                                       className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
                                       to={`/edit/${props.id}`}
                                     >
-                                      <span className="padding-right-11 color-white-1- color-black-2 button-2w border5">
+                                      <span className="padding-right-11 color-white-1- color-black-2 button-2w border5 ib margin-left-11">
                                         edit or remove
                                       </span>
                                     </Link>

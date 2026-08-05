@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { addSettings } from "./../actions/settings";
 import FileUpload from "./FileUpload";
 import { combineReducers } from "redux";

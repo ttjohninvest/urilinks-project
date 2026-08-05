@@ -5,6 +5,9 @@ import { combineReducers } from "redux";
 import StorageSizes from './StorageSizes'
 
 const Benefits = () => {
+  useEffect(()=>{
+    window.document.getElementById("aiaccess").textContent=""
+  },[])
 return (<div>
  
   <div className="list-header__flex__center">

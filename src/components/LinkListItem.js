@@ -8,7 +8,7 @@ import {
   privateLink2,
   startPrivateLink2,
 } from "../actions/links";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
 import FBShareButton from "./FBShareButton";
@@ -938,4 +938,5 @@ const mapDispatchToProps = (dispatch, props) => ({
   privateLink2: (data) => dispatch(privateLink2(data)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LinkListItem);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LinkListItem));
+

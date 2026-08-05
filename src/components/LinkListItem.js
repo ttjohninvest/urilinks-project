@@ -87,6 +87,9 @@ const LinkListItem = (props) => {
       props.removeLink({ id: event.target.value });
       props.startRemoveLink({ id: event.target.value });
       //alert("Item deleted.");
+      this.props.history.push("/");
+      //window.location.reload()
+      window.location.href = "https://urilinks.com?signup=signup";
     } else {
       // User clicked Cancel
       document.getElementById("delete%" + event.target.value).checked = false;

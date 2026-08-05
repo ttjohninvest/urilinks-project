@@ -19,7 +19,7 @@ class BookmarksManager extends React.Component {
   }
 
   componentDidMount() {
-    window.document.getElementById("uploadbookmarksfile").textContent=""
+    //window.document.getElementById("uploadbookmarksfile").textContent=""
   }
 
   handleRadioChange = (event) => {

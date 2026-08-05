@@ -7,6 +7,11 @@ import StorageSizes from './StorageSizes'
 const Benefits = () => {
   useEffect(()=>{
     window.document.getElementById("aiaccess").textContent=""
+    window.document.getElementById("usage").textContent=""
+    window.document.getElementById("termsandprivacy").textContent=""
+    window.document.getElementById("subscribe").textContent=""
+    window.document.getElementById("uploadbookmarksfile").textContent=""
+    window.document.getElementById("friendlylogin").textContent=""
   },[])
 return (<div>
  

@@ -623,9 +623,7 @@ const setItNow=(index, ht,e)=>{
                               //style={style}
                               //onClick = {()=>setItNow(index, s.hashtag, event)}
                               onClick = {()=>setItNow(index, s.description, event)}
-                              title={`${sep(s.hashtag)}, hashtag: ${
-                                !!s.hashtag && s.hashtag
-                              }, click to see results`}
+                              title={`click to see results`}
                               
                             >
                               {//sep(s.hashtag)
@@ -670,9 +668,7 @@ const setItNow=(index, ht,e)=>{
                               //onClick={() => props.setit(s.hashtag, event)}
                               //onClick = {()=>setItNow(index, s.hashtag, event)}
                               onClick = {()=>setItNow(index, s.description, event)}
-                              title={`${sep(s.hashtag)}, hashtag: ${
-                                !!s.hashtag && s.hashtag
-                              }, click to see results`}
+                              title={`click to see results`}
                             >
                               
                               

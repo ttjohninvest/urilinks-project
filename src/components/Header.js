@@ -41,6 +41,11 @@ export const Header = (props) => {
   const [bmok, setBmok] = useState(false);
   const ideas = () => {};
 
+  const params = new URLSearchParams(window.location.search);
+  const signup = params.get("signup");
+  const x = params.get("x");
+  const x1 = params.get("x1");
+
   function slowScrollDown(distance, duration) {
     const startingY = window.pageYOffset;
     const targetY = startingY + distance;
@@ -85,9 +90,7 @@ export const Header = (props) => {
     return val;
   };
 
-  const params = new URLSearchParams(window.location.search);
-  const signup = params.get("signup");
-  const x = params.get("x");
+  
 
   console.log("Header.js, signup="+signup)
   console.log("Header.js, x="+x)
@@ -360,7 +363,7 @@ export const Header = (props) => {
                       <img src={signature} className="minwidth" />
                     </div> */}
                     </div>
-
+{x1 !== "usage" && <div>
                     {/* {props.signup.signup === false && (
                     <div
                       className="color-white-1"
@@ -678,6 +681,8 @@ export const Header = (props) => {
                     ) : (
                       ""
                     )}
+
+                    </div>}
 
                     {props.signup.signup === true || signup === "0" ? (
                       <div className="padding-top-1112 margin-left-118">

@@ -102,9 +102,13 @@ const AppRouter = (props) => (
           component={TermsAndPrivacyPolicy}
         />
 
-        <PrivateRoute path="/use" signup={props.signup} component={Benefits} />
+        <PrivateRoute 
+        path="/use" 
+        signup={props.signup} 
+        x1="usage"
+        component={Benefits} />
 
-        
+
         {/* <PrivateRoute path="/settings" component={LinkSettingsPage} /> */}
         <PrivateRoute
           path="/create"

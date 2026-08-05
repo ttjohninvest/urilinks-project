@@ -24,7 +24,6 @@ const TeirsPayment3 = (props) => {
     props.history.push("/"); // Navigates back one step in the history
   };
 
-
   useEffect(() => {
     console.log("TeirsPayment3.js, theUserId="+theUserId)
      //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)

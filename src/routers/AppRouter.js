@@ -107,6 +107,7 @@ const AppRouter = (props) => (
         <PrivateRoute
           path="/create"
           signup={props.signup}
+          x="1"
           component={AddLinkPage}
         />
         <PrivateRoute

@@ -1,7 +1,10 @@
-import React from "react";
+import React,{useEffect} from "react";
 
-const TermsAndPrivacy = () => (
-  <div className="list-header__flex__center">
+const TermsAndPrivacy = () => {
+  useEffect(()=>{
+      window.document.getElementById("termsandprivacy").textContent=""
+    },[])
+  return (<div className="list-header__flex__center">
     urilinks.com Terms of Use <br />
     <br />
     The following Terms of Use are entered into by and between You and Get
@@ -529,7 +532,7 @@ delete your account at anytime, no refunds) If you delete your account the subsc
     <br />
     <br />
     urilinks.com
-  </div>
-);
+  </div>)
+};
 
 export default TermsAndPrivacy;

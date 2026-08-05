@@ -18,6 +18,10 @@ class BookmarksManager extends React.Component {
     };
   }
 
+  componentDidMount() {
+    window.document.getElementById("uploadbookmarksfile").textContent=""
+  }
+
   handleRadioChange = (event) => {
     const value = event.target.value;
     this.setState({ selectedOption: value });

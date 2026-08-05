@@ -455,6 +455,7 @@ export const Header = (props) => {
                     </div>
                     <div>
                       <Link
+                        id="usage"
                         className="header__title- nounderline"
                         to="/use"
                         target="_blank"
@@ -470,6 +471,7 @@ export const Header = (props) => {
 
                     <div>
                       <Link
+                        id="termsandprivacy"
                         className="header__title- nounderline"
                         to="/termsandprivacy"
                         target="_blank"
@@ -488,7 +490,9 @@ export const Header = (props) => {
                       //isInMeArray() === true &&
                       true && (
                         <div>
-                          <Link className="header__title-" to="/teirspayment3">
+                          <Link 
+                          id="subscribe"
+                          className="header__title-" to="/teirspayment3">
                             <span
                               //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
                               className="ib text-size-11 color-white-1 color-black-2- color-blue-1-"
@@ -592,6 +596,7 @@ export const Header = (props) => {
 
                       <div className="pointereventsauto hide-">
                         <Link
+                          id="uploadbookmarksfile"
                           className="header__title- nounderline pointereventsauto"
                           to="/bookmarksmanager"
                         >
@@ -608,6 +613,7 @@ export const Header = (props) => {
                       // <div></div>
                       <div className="pointereventsnone margin-right-1 hide-">
                         <Link
+                          id="uploadbookmarksfile"
                           className="header__title- nounderline pointereventsnone"
                           to="/bookmarksmanager"
                         >
@@ -630,6 +636,7 @@ export const Header = (props) => {
                         title="Please use it for good. Bookmarks for internet pages, urls/links"
                       >
                         <Link
+                          id="friendlylogin"
                           className="nounderline color-white-1 color-black-2- cursor-pointer text-size-11"
                           to="/signup"
                           title="The first 25 links are free. plan $4.99 stores up to 100; plan $9.99 stores up to 200;plan $14.99 stores up to 400"
@@ -646,6 +653,7 @@ export const Header = (props) => {
                     {props.signup.signup === true ? (
                       <div className="margin-top-1111a-">
                         <button
+                          id="friendlylogout"
                           className="button button--link ib text-size-3-  text-size-11 color-white-1 color-black-2- cursor-pointer"
                           onClick={logoutit}
                         >
@@ -659,6 +667,7 @@ export const Header = (props) => {
                     {props.signup.signup === true ? (
                       <div className="margin-top-1111a-">
                         <button
+                          id="deleteaccount"
                           title="delete account"
                           className="button button--link ib text-size-3- text-size-11 color-white-1 color-black-2- cursor-pointer"
                           onClick={cancelsubscription}

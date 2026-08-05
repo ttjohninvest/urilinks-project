@@ -12,6 +12,7 @@ const TeirsPayment3 = (props) => {
     firebase.auth().currentUser.uid + props.theplan.customerId
   );
 
+
   
   
   const [isFree, setIsFree] = useState(false);
@@ -22,6 +23,15 @@ const TeirsPayment3 = (props) => {
   const goToHomePage = () => {
     props.history.push("/"); // Navigates back one step in the history
   };
+
+   useEffect(()=>{
+      if(!!window.document.getElementById("aiaccess")) window.document.getElementById("aiaccess").textContent=""
+      if(!!window.document.getElementById("usage")) window.document.getElementById("usage").textContent=""
+      if(!!window.document.getElementById("termsandprivacy")) window.document.getElementById("termsandprivacy").textContent=""
+      if(!!window.document.getElementById("subscribe")) window.document.getElementById("subscribe").textContent=""
+      if(!!window.document.getElementById("uploadbookmarksfile")) window.document.getElementById("uploadbookmarksfile").textContent=""
+      if(!!window.document.getElementById("friendlylogin")) window.document.getElementById("friendlylogin").textContent=""
+    },[])
 
   useEffect(() => {
     console.log("TeirsPayment3.js, theUserId="+theUserId)

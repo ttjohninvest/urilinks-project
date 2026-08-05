@@ -814,7 +814,7 @@ const LinkListItem = (props) => {
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
                                     <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black">
+                                      <span className="color-black margin-left-n-11">
                                         {!!props.showpublic
                                           ? "make private"
                                           : "made private"}

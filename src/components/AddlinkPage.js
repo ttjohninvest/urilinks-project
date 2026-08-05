@@ -148,8 +148,7 @@ export const AddLinkPage = (props) => {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
       } else {
-        //window.location.href = "https://urilinks.com/dashboard?signup=&id="+user.uid //props.theplan.plan.uid
-
+        
         props.history.push("/");
         //window.location.reload();
         window.location.href = "https://urilinks.com?signup=signup";

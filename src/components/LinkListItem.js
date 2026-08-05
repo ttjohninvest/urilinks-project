@@ -799,7 +799,7 @@ const LinkListItem = (props) => {
                                   <div>
                                     <span className="ib alignit-">
                                     <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black">
+                                      <span className="color-black margin-left-11">
                                         remove:&nbsp;
                                       </span>
                                       <input
@@ -814,7 +814,7 @@ const LinkListItem = (props) => {
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
                                     <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black margin-left-n-11">
+                                      <span className="color-black">
                                         {!!props.showpublic
                                           ? "make private"
                                           : "made private"}

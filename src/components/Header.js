@@ -300,7 +300,7 @@ export const Header = (props) => {
                     <div className="flexrowzl1">
                       <Link
                         className="nounderline color-white-1 cursor-pointer"
-                        to="/dashboard"
+                        to="/dashboard?signup=signup"
                         title=""
                       >
                         <header className="margin-left-11 solid">

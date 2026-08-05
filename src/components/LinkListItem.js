@@ -808,7 +808,7 @@ const LinkListItem = (props) => {
                                         name={"delete%" + props.id}
                                         value={props.id}
                                         onChange={handleCheckboxDelete}
-                                        title="click to remove url"
+                                        title="click to delete the url"
                                         className="cb1 cursor-pointer"
                                       />
                                       <label htmlFor={"delete%" + props.id} />

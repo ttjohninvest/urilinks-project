@@ -125,14 +125,14 @@ if (signup !== "signup") {
   //       .catch((error) => {
   //         console.log("error", error);
   //       });
-    } else {
-      console.log("logout happened");
-      store.dispatch(logout());
-      renderApp(store, signup);
-      //history.push("/dashboard?signup=signup");
-      history.push("/");
-    }
-  });
+  //   } else {
+  //     console.log("logout happened");
+  //     store.dispatch(logout());
+  //     renderApp(store, signup);
+  //     //history.push("/dashboard?signup=signup");
+  //     history.push("/");
+  //   }
+  // });
 }
 
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));

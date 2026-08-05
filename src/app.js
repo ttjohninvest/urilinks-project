@@ -100,39 +100,39 @@ if (signup !== "signup") {
     signup: { signup: true },
   });
 
-  // firebase.auth().onAuthStateChanged((user) => {
-  //   if (user) {
-  //     console.log("logged in user=" + JSON.stringify(user));
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log("logged in user=" + JSON.stringify(user));
 
-  //     store.dispatch(login(user.uid));
+      store.dispatch(login(user.uid));
 
-  //     window.localStorage.setItem("notloggedin", "0");
+      window.localStorage.setItem("notloggedin", "0");
 
-  //     store
-  //       .dispatch(startSetLinksNew(user.uid))
-  //       .then(() => {
-  //         return store
-  //           .dispatch(getTheplan(user.uid))
-  //           .then(() => {
+      store
+        .dispatch(startSetLinksNew(user.uid))
+        .then(() => {
+          return store
+            .dispatch(getTheplan(user.uid))
+            .then(() => {
               
-  //             renderApp(store, signup);
+              renderApp(store, signup);
 
-  //           })
-  //           .catch((error) => {
-  //             console.log("theplan, error", error);
-  //           });
-  //       })
-  //       .catch((error) => {
-  //         console.log("error", error);
-  //       });
-  //   } else {
-  //     console.log("logout happened");
-  //     store.dispatch(logout());
-  //     renderApp(store, signup);
-  //     //history.push("/dashboard?signup=signup");
-  //     history.push("/");
-  //   }
-  // });
+            })
+            .catch((error) => {
+              console.log("theplan, error", error);
+            });
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    } else {
+      console.log("logout happened");
+      store.dispatch(logout());
+      renderApp(store, signup);
+      //history.push("/dashboard?signup=signup");
+      history.push("/");
+    }
+  });
 }
 
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));

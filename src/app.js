@@ -154,11 +154,11 @@ if (signup !== "signup") {
           console.log("error", error);
         });
     } else {
-      console.log("logout happened");
-      store.dispatch(logout());
-      renderApp(store, signup);
-      //history.push("/dashboard?signup=signup");
-      history.push("/");
+      // console.log("logout happened");
+      // store.dispatch(logout());
+      // renderApp(store, signup);
+      // //history.push("/dashboard?signup=signup");
+      // history.push("/");
     }
   });
 }

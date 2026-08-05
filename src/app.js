@@ -100,61 +100,31 @@ if (signup !== "signup") {
     signup: { signup: true },
   });
 
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      console.log("logged in user=" + JSON.stringify(user));
+  // firebase.auth().onAuthStateChanged((user) => {
+  //   if (user) {
+  //     console.log("logged in user=" + JSON.stringify(user));
 
-      store.dispatch(login(user.uid));
+  //     store.dispatch(login(user.uid));
 
-      window.localStorage.setItem("notloggedin", "0");
-      // store.dispatch(startAddLink({ //only do this on the first one
-      //     showpublic:false,
-      //     longname:"longname",
-      //     description : "description",
-      //     Url : "url.com",
-      //     yturl : "yturl.com",
-      //     note : "#first",
-      //     foldername : "foldername",
-      //     amount : 0,
-      //     createdAt : 0,
-      //     faviconURL : "",
-      //   })).then(()=>{}).catch(()=>{})
+  //     window.localStorage.setItem("notloggedin", "0");
 
-      store
-        .dispatch(startSetLinksNew(user.uid))
-        .then(() => {
-          return store
-            .dispatch(getTheplan(user.uid))
-            .then(() => {
-              //return store.dispatch(getSettings()).then(() => {
-              renderApp(store, signup);
+  //     store
+  //       .dispatch(startSetLinksNew(user.uid))
+  //       .then(() => {
+  //         return store
+  //           .dispatch(getTheplan(user.uid))
+  //           .then(() => {
+              
+  //             renderApp(store, signup);
 
-              // console.log("111 history.location.pathname="+history.location.pathname)
-              // if (history.location.pathname === "/") {
-              //   //history.push("/dashboard?signup=signup");
-              //   console.log("first one");
-              //   window.location.href = "https://urilinks.com?signup=signup&x=2";
-              // } else if (
-              //   history.location.pathname === "/dashboard?signup=signup"
-              // ) {
-              //   console.log("second one");
-              //   window.location.href = "https://urilinks.com?signup=signup&x=3";
-              // } else if (history.location.pathname === "/dashboard") {
-              //   console.log("third one");
-              //   // DON'T DELETE THE FOLLOWING LINE***********************************************
-              //   window.location.href = "https://urilinks.com/o?signup=signup"; //this one was needed to have the folder name drop down list TO WORK IN in LinkListFilters.js
-              //   // DON'T DELETE THE ABOVE LINE***********************************************
-              // }
-
-              //});
-            })
-            .catch((error) => {
-              console.log("theplan, error", error);
-            });
-        })
-        .catch((error) => {
-          console.log("error", error);
-        });
+  //           })
+  //           .catch((error) => {
+  //             console.log("theplan, error", error);
+  //           });
+  //       })
+  //       .catch((error) => {
+  //         console.log("error", error);
+  //       });
     } else {
       console.log("logout happened");
       store.dispatch(logout());

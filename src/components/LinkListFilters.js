@@ -676,7 +676,7 @@ const setItNow=(index, ht,e)=>{
                               <span>{s.description2}</span>
                               
                               
-                            </a><br /><span className="ib margin-left-11z" style={{"color": "black", "font-size":".9rem", "text-decoration": "none", "font-weight": "normal", "pointerEvents":"none"}}>{s.matchesstring}</span>
+                            </a><br /><span className="ib margin-left-11z" style={{"color": "black", "fontSize":".9rem", "textDecoration": "none", "fontWeight": "normal", "pointerEvents":"none"}}>{s.matchesstring}</span>
                             {!!s.hashtag && isCorrectAccount() === true && false && (
                               <span>
                                 {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (

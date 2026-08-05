@@ -663,7 +663,7 @@ const setItNow=(index, ht,e)=>{
                                   ? "pointereventsauto underline"
                                   : "pointereventsnone"
                               }`}
-                              style={{"white-space": "pre-wrap"}}
+                              style={{"whiteSpace": "pre-wrap"}}
                               href="#"
                               //onClick={() => props.setit(s.hashtag, event)}
                               //onClick = {()=>setItNow(index, s.hashtag, event)}

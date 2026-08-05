@@ -1748,5 +1748,15 @@ urilinks.com
 C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project
 ========================================================================
 amazon.com/snap, ttjohninvest4@gmail.com, 50% off prime delivery about $4.95/month
+=================================================================================
+Yes, the Firebase Realtime Database can store 100,000,000 records, as it has no stated limit on total storage capacity.  The primary constraint is not the number of records but the rate of data ingestion, which is limited to 64 MB per minute for write operations. 
+
+To handle this volume effectively, you must consider the following limits:
+
+Write Throughput: The total bytes written through simultaneous operations are capped at 64 MB per minute. If your 100 million records are small, you can write them quickly; if they are large, you will hit the bandwidth cap before hitting a record count cap. 
+Concurrent Connections: A single database instance supports up to 200,000 simultaneous connections.  If your 100 million records correspond to unique active users, you would need to shard your data across multiple database instances (up to 1,000 per project) to exceed this connection limit. 
+Query Depth: You cannot listen to or query paths with more than 75 million nodes cumulatively.  For 100 million records, you must structure your data carefully, likely by breaking it into smaller, specific child nodes or using separate listeners for different data segments.
+Storage Pricing: While there is no hard storage cap, the free Spark plan is limited to 1 GB. To store 100 million records (depending on their size), you would need the Blaze plan (pay-as-you-go), which allows for unlimited storage. 
+=========================================================================================
 
 

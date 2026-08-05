@@ -83,7 +83,7 @@ if (signup !== "signup") {
       return store
         .dispatch(getTheplan2(id))
         .then(() => {
-          renderApp(store, signup);
+          //renderApp(store, signup);
         })
         .catch((error) => {
           console.log("theplan, error", error);
@@ -154,11 +154,11 @@ if (signup !== "signup") {
           console.log("error", error);
         });
     } else {
-      // console.log("logout happened");
-      // store.dispatch(logout());
-      // renderApp(store, signup);
-      // //history.push("/dashboard?signup=signup");
-      // history.push("/");
+      console.log("logout happened");
+      store.dispatch(logout());
+      renderApp(store, signup);
+      //history.push("/dashboard?signup=signup");
+      history.push("/");
     }
   });
 }

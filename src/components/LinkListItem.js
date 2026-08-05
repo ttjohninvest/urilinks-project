@@ -100,8 +100,8 @@ const LinkListItem = (props) => {
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
     let result;
     if (x === false) {
-      result = confirm("Are you sure you want to make it public?");
-      if (result) {
+      //result = confirm("Are you sure you want to make it public?");
+      if (true) {
         // User clicked OK, perform the deletion
         props.privateLink2({ id: event.target.value });
         props.startPrivateLink2({ id: event.target.value });
@@ -113,8 +113,8 @@ const LinkListItem = (props) => {
         // alert("Setting it to private is canceled.");
       }
     } else {
-      result = confirm("Are you sure you want to make it private?");
-      if (result) {
+      //result = confirm("Are you sure you want to make it private?");
+      if (true) {
         // User clicked OK, perform the deletion
         props.privateLink({ id: event.target.value });
         props.startPrivateLink({ id: event.target.value });

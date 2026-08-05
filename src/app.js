@@ -83,8 +83,8 @@ if (signup !== "signup") {
       return store
         .dispatch(getTheplan2(id))
         .then(() => {
-          let x=window.localStorage.getItem("notloggedin")
-          if(x===1)
+          //let x=window.localStorage.getItem("notloggedin")
+          //if(x===1)
           renderApp(store, signup);
         })
         .catch((error) => {

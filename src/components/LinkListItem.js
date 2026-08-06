@@ -774,7 +774,7 @@ const LinkListItem = (props) => {
                             </div>
                             <div className="">
                               {
-                                //isityt(props.Url)
+                                
                                 !!props.yturl && (
                                   //true
                                   <a
@@ -812,7 +812,7 @@ const LinkListItem = (props) => {
 <div>
                               <a
                                 ref={myRef}
-                                className={`ib nounderline- text-size-5 text-color-db color-purple breakWord margin-left-11 color-black-2 ${
+                                className={`ib nounderline- text-size-5 text-color-db color-purple breakWord- width100 textWrap100 margin-left-11 color-black-2 ${
                                   !!props.yturl ? "" : "padding-top-n-hh"
                                 }`}
                                 href={props.Url}
@@ -824,8 +824,8 @@ const LinkListItem = (props) => {
                                 onClick={storeScrollPosition}
                               >
                                 
-                                
-                                {truncateString(props.description,10)}
+                                {props.description}
+                                {/* {truncateString(props.description,10)} */}
                               </a>
                             </div>
  <div className="margin-bottom-1141">
@@ -844,7 +844,7 @@ const LinkListItem = (props) => {
                                 ) : (
                                   <div>
                                     <Link
-                                      className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
+                                      className="nounderline text-size-5 inline-block-margin-left-1- margin-top-1 pointereventsnone"
                                       to={`/edit/${props.id}`}
                                     >
                                       <span className="padding-right-11 color-white-1- color-black-2 button-2w border5 ib margin-left-11">

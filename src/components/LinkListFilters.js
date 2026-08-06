@@ -635,7 +635,8 @@ function ExpandableArray(props) {
                       {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         //if (r === "readonly" && s.showpublic === 0) return (<div></div>)
-                        if(r === "readonly" && (s.showpublic === 0 || s.archive === 1)) return (<div></div>)
+                        if(//(r === "readonly")  && 
+                        (s.showpublic === 0 || s.archive === 1)) return (<div></div>)
                         else
                           return (
                             <div

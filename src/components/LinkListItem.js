@@ -101,7 +101,7 @@ const LinkListItem = (props) => {
   };
 
   const handleCheckboxPrivate = (x, event) => {
-    alert(event.target.value)
+    //alert(event.target.value)
     console.log("bookmark id=" + event.target.value);
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
@@ -136,7 +136,7 @@ const LinkListItem = (props) => {
   };
 
   const handleCheckboxArchive = (x, event) => {
-    alert(event.target.value)
+    //alert(event.target.value)
     console.log("bookmark id=" + event.target.value);
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
@@ -916,13 +916,14 @@ const LinkListItem = (props) => {
                                         remove:&nbsp;
                                       </span>
                                       <input
+                                        
                                         type="checkbox"
                                         id={"delete%" + props.id}
                                         name={"delete%" + props.id}
                                         value={props.id}
                                         onChange={handleCheckboxDelete}
                                         title="click to remove url"
-                                        className="cb1 cursor-pointer"
+                                        className="cb1 cursor-pointer pointereventsnone"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
@@ -937,11 +938,11 @@ const LinkListItem = (props) => {
                                         value={props.id}
                                         onChange={handleCheckboxPrivate}
                                         title="click to make url private"
-                                        className="cb1 cursor-pointer"
+                                        className="cb1 cursor-pointer pointereventsnone"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
-                                    <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                                    <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                                       <span className="color-black">
                                         {!!props.archive
                                           ? "archive it"
@@ -963,7 +964,7 @@ const LinkListItem = (props) => {
                                           )
                                         }
                                         title={!!props.archive ?"click to archive it":"click to unarchive it"}
-                                        className="cb1 cursor-pointer"
+                                        className="cb1 cursor-pointer pointereventsnone"
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>

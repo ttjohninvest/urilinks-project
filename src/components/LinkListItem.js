@@ -758,15 +758,16 @@ const LinkListItem = (props) => {
                     <div className="flexrow2t">
                       <div className={`${!!props.yturl ? "" : "margin-top-1"}`}>
                         <div className="flexcol3">
-                          <div className={`flexrow4`}>
-                            {/* <div className="margin-top-1q margin-left-11">
+                          {props.description}
+                          {/* <div className={`flexrow4`}>
+                            <div className="margin-top-1q margin-left-11">
                               <img
                                 className=""
                                 width="20"
                                 height="20"
                                 src={props.faviconURL}
                               />
-                            </div> */}
+                            </div>
                             <div className="">
                              
                             </div>
@@ -775,7 +776,7 @@ const LinkListItem = (props) => {
                              
                             </div>
                             
-                          </div>
+                          </div> */}
                         </div>
 
                       

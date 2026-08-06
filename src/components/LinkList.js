@@ -329,29 +329,18 @@ setThemax(x)
             //readonly means another user is seeing the page
             //private urls don't have to be hid from owner of page
             props.links.splice(0, themax).map((link, index) => {
-              // if(r === "readonly" && link.showpublic === 0) return (<div></div>)
-              // else return (
-              //   <div key={link.id+"1"}>
-              //     <LinkListItem
-              //       key={link.id}
-              //       //key={index}
-              //       {...link}
-              //       index={index}
-              //       signup={props.signup.signup}
-              //     />
-              //   </div>
-              // );
-              if(link.archive === 0) return (<div></div>)
+              if(r === "readonly" && link.showpublic === 0 || (link.showpublic === 1 && link.archive===1)) return (<div></div>)
               else return (
                 <div key={link.id+"1"}>
                   <LinkListItem
                     key={link.id}
+                    //key={index}
                     {...link}
                     index={index}
                     signup={props.signup.signup}
                   />
                 </div>
-              );
+              )
             })
             
             

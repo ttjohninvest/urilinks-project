@@ -30,6 +30,7 @@ import StorageSizes from "./StorageSizes";
 const r = params.get("x");
 
 export const LinkList = (props) => {
+  const thelinks = [{id:1,text:"hello 1"},{id:2,text:"hello 2"},{id:3,text:"hello 3"}]
   const [selectedOption, setSelectedOption] = useState("option1");
   const [deleteData, setDeleteData] = useState([]);
   const [first, setFirst] = useState(0);
@@ -279,27 +280,14 @@ setThemax(x)
           ) : (
             //readonly means another user is seeing the page
             //private urls don't have to be hid from owner of page
-            props.links.splice(0, themax).map((link, index) => {
-              //if(r === "readonly" && link.showpublic === 0 || (link.showpublic === 1 && link.archive===1)) return (<div></div>)
-              if(r === "readonly" && (link.showpublic === 0
-                 //|| link.archive === 1
-                )) return (<div></div>)
-              else return (
+            thelinks.map((link, index) => {
+               return (
                 <div key={link.id+"1"}>
-                  <LinkListItem
-                    r={r}
-                    key={link.id}
-                    //key={index}
-                    {...link}
-                    index={index}
-                    signup={props.signup.signup}
-                  />
+                  <div>{link.text}</div>
                 </div>
                 
               )
             })
-            
-            
           )}
         </div>
       )}

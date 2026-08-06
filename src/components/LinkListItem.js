@@ -7,10 +7,10 @@ import {
   startPrivateLink,
   privateLink2,
   startPrivateLink2,
-  privateLink,
-  startPrivateLink,
-  privateLink2,
-  startPrivateLink2,
+  archiveLink,
+  startArchiveLink,
+  archiveLink2,
+  startArchiveLink2,
 } from "../actions/links";
 import { Link, withRouter } from "react-router-dom";
 import moment from "moment";

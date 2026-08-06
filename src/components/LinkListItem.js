@@ -751,18 +751,16 @@ const LinkListItem = (props) => {
           <div
           //key={props.index}
           >
-            <div className="margin-bottom-1">
+            {props.description}
+            {/* <div className="margin-bottom-1">
               <div className="card-background-color">
                 {props.description}
-                {/* <div className="list-item__flex-">
-                  {props.description}
-                 
-                </div> */}
+                
 
               </div>
              
              
-            </div>
+            </div> */}
           </div>
         )
       }

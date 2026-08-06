@@ -22,6 +22,9 @@ import AddLinkPage from "./AddlinkPage";
 import printerImage from "../assets/images/printer_image.png";
 import { v4 } from "uuid";
 import LoadingPage from "./LoadingPage";
+import StorageSizes from "./StorageSizes";
+
+  
 
  const params = new URLSearchParams(window.location.search);
 const r = params.get("x");
@@ -35,6 +38,7 @@ export const LinkList = (props) => {
   const [bgcolor1, setBgcolor1] = useState("#b87333"); //rgba(219, 87, 5, 1)
   const [bgcolor2, setBgcolor2] = useState("#db5705"); //rgba(219, 87, 5, 1)
   const [bgcolor3, setBgcolor3] = useState("#db5705"); //rgba(219, 87, 5, 1)
+  const [themax, setThemax] = useState(0)
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -44,6 +48,40 @@ export const LinkList = (props) => {
   const myRef = useRef();
   const scrollInterval2 = useRef(null);
   const buttonRef2 = useRef(null);
+
+  const getPlanMax = () => {
+    let max = StorageSizes.free;
+    //props.settings.plan
+    if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "free"
+    ) {
+      max = StorageSizes.free;
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "basic"
+    ) {
+      max = StorageSizes.basic;
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "standard"
+    ) {
+      max = StorageSizes.standard;
+    } else if (!!props.theplan.plan === false) {
+      max = StorageSizes.free;
+    } else {
+      //premium
+      max = StorageSizes.premium;
+    }
+
+    console.log("AddLinkPage.js, bookmarks, max=" + max);
+    return max;
+  };
+
+  useEffect(()=>{
+let x = getPlanMax()
+setThemax(x)
+  },[])
 
   //   useEffect(() => {
   //      const processedData = props.links.map((item,index) => ({
@@ -290,7 +328,7 @@ export const LinkList = (props) => {
           ) : (
             //readonly means another user is seeing the page
             //private urls don't have to be hid from owner of page
-            props.links.splice(0, 400).map((link, index) => {
+            props.links.splice(0, themax).map((link, index) => {
               // if(r === "readonly" && link.showpublic === 0) return (<div></div>)
               // else return (
               //   <div key={link.id+"1"}>
@@ -333,6 +371,7 @@ const mapStateToProps = (state) => {
   const visibleLinks2 = selectLinks2(state.links2, state.filters);
 
   return {
+    theplan:state.theplan,
     linkCount: visibleLinks.length,
     linkCount2: visibleLinks2.length,
     linksTotal: selectLinksTotal(visibleLinks),

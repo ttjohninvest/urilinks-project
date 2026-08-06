@@ -754,11 +754,11 @@ const LinkListItem = (props) => {
             <div className="margin-bottom-1">
               <div className="card-background-color">
                 <div className="list-item__flex">
-                  <div className="">
-                    <div className="flexrow2t border-green-">
+                  <div>
+                    <div className="flexrow2t">
                       <div className={`${!!props.yturl ? "" : "margin-top-1"}`}>
                         <div className="flexcol3">
-                          <div className={`flexrow4 border-green-`}>
+                          <div className={`flexrow4`}>
                             <div className="margin-top-1q margin-left-11">
                               <img
                                 className=""
@@ -767,7 +767,7 @@ const LinkListItem = (props) => {
                                 src={props.faviconURL}
                               />
                             </div>
-                            <div className="border-blue-">
+                            <div className="">
                               {
                                 //isityt(props.Url)
                                 !!props.yturl && (
@@ -794,7 +794,7 @@ const LinkListItem = (props) => {
                             <div>
                               <a
                                 ref={myRef}
-                                className={`ib nounderline- text-size-5 text-color-db color-purple breakWord margin-left-11 color-black-2 ${
+                                className={`ib text-size-5 text-color-db color-purple breakWord margin-left-11 color-black-2 ${
                                   !!props.yturl ? "" : "padding-top-n-hh"
                                 }`}
                                 href={props.Url}
@@ -809,204 +809,22 @@ const LinkListItem = (props) => {
                                   Click to show page:{" "}
                                 </span>
                                 {props.description}
-                                {/* {decodeURIComponent(props.description)} */}
+                               
                               </a>
                             </div>
-                            <div className="margin-bottom-1141">
-                              <div className="flexrow4">
-                                {props.signup.signup === true ? (
-                                  <div>
-                                    <Link
-                                      className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
-                                      to={`/edit/${props.id}`}
-                                    >
-                                      <span className="padding-right-11 color-white-1- color-black-2 button-2w border5">
-                                        edit or remove
-                                      </span>
-                                    </Link>
-                                  </div>
-                                ) : (
-                                  <div>
-                                    <Link
-                                      className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
-                                      to={`/edit/${props.id}`}
-                                    >
-                                      <span className="padding-right-11 color-white-1- color-black-2 button-2w border5 ib margin-left-11">
-                                        edit or remove
-                                      </span>
-                                    </Link>
-                                  </div>
-                                )}
-                                {props.signup.signup === true ? (
-                                  <div>
-                                    <span className="ib alignit-">
-                                    <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black margin-left-11">
-                                        remove:&nbsp;
-                                      </span>
-                                      <input
-                                        type="checkbox"
-                                        id={"delete%" + props.id}
-                                        name={"delete%" + props.id}
-                                        value={props.id}
-                                        onChange={handleCheckboxDelete}
-                                        title="click to delete the url"
-                                        className="cb1 cursor-pointer"
-                                      />
-                                      <label htmlFor={"delete%" + props.id} />
-                                    </span>
-                                    <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black">
-                                        {!!props.showpublic
-                                          ? "make private"
-                                          : "made private"}
-                                        :&nbsp;
-                                      </span>
-                                      <input
-                                        checked={
-                                          !!props.showpublic ? "" : "checked"
-                                        }
-                                        type="checkbox"
-                                        id={"private%" + props.id}
-                                        name={"private%" + props.id}
-                                        value={props.id}
-                                        onChange={() =>
-                                          handleCheckboxPrivate(
-                                            !!props.showpublic,
-                                            event,
-                                          )
-                                        }
-                                        title={!!props.showpublic ?"click to make url private":"click to make url public"}
-                                        className="cb1 cursor-pointer"
-                                      />
-                                      <label htmlFor={"delete%" + props.id} />
-                                    </span>
-                                     {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black">
-                                        {!!props.archive
-                                          ? "unarchive it" //+props.r
-                                          : "archive it" //+props.r
-                                          }
-                                        :&nbsp;
-                                      </span>
-                                      <input
-                                        checked={
-                                          !!props.archive ? "checked" : ""
-                                        }
-                                        type="checkbox"
-                                        id={"archive%" + props.id}
-                                        name={"archive%" + props.id}
-                                        value={props.id}
-                                        onChange={() =>
-                                          handleCheckboxArchive(
-                                            !!props.archive,
-                                            event,
-                                          )
-                                        }
-                                        title={!!props.archive ?"click to archive it":"click to unarchive it"}
-                                        className="cb1 cursor-pointer"
-                                      />
-                                      <label htmlFor={"archive%" + props.id} />
-                                    </span> */}
-                                    </span>
-                                  </div>
-                                ) : (
-                                  <div>
-                                    <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                                      <span className="color-black">
-                                        remove:&nbsp;
-                                      </span>
-                                      <input
-                                        
-                                        type="checkbox"
-                                        id={"delete%" + props.id}
-                                        name={"delete%" + props.id}
-                                        value={props.id}
-                                        //onChange={handleCheckboxDelete}
-                                        title="click to remove url"
-                                        className="cb1 cursor-pointer pointereventsnone"
-                                      />
-                                      <label htmlFor={"delete%" + props.id} />
-                                    </span>
-                                    <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                                      <span className="color-black">
-                                        make private:&nbsp;
-                                      </span>
-                                      <input
-                                        type="checkbox"
-                                        id={"private%" + props.id}
-                                        name={"private%" + props.id}
-                                        value={props.id}
-                                        //onChange={handleCheckboxPrivate}
-                                        title="click to make url private"
-                                        className="cb1 cursor-pointer pointereventsnone"
-                                      />
-                                      <label htmlFor={"delete%" + props.id} />
-                                    </span>
-                                    {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                                      <span className="color-black">
-                                        {!!props.archive
-                                          ? "unarchive it"
-                                          : "archive it"}
-                                        :&nbsp;
-                                      </span>
-                                      <input
-                                       
-                                        type="checkbox"
-                                        id={"archive%" + props.id}
-                                        name={"archive%" + props.id}
-                                        value={props.id}
-                                        // onChange={() =>
-                                        //   handleCheckboxArchive(
-                                        //     !!props.archive,
-                                        //     event,
-                                        //   )
-                                        // }
-                                        title={!!props.archive ?"click to archive it":"click to unarchive it"}
-                                        className="cb1 cursor-pointer pointereventsnone"
-                                      />
-                                      <label htmlFor={"archive%" + props.id} />
-                                    </span>  */}
-                                  </div>
-                                )}
-                              </div>
-                            </div>
+                            
                           </div>
                         </div>
 
-                        <ol id={"uldata" + props.id} start="0"></ol>
+                      
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="italicText list-item__sub-title- margin-left-1181- border-green- text-size-10 color-purple margin-left-11p1 color-black-2">
-                  <span className="ib padding-left-1122 margin-top-n-15a">
-                    Link saved on:{" "}
-                    {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
-                  </span>
-                </div>
               </div>
-              <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p- color-black-2">
-                {props.note}
-              </div>
-              {props.signup.signup === true && (
-                <div className="flexrow2w">
-                  <MayDoInGoogleDocument />
-                  <CalendarGoogle />
-                  <FBShareButton url={props.Url} />
-
-                  <MessengerButton />
-                  <LinkedInShareButton url={props.Url} />
-                  {/* <AddToAny /> */}
-
-                  <XShareButton url={props.Url} />
-                  <MapQuestButton />
-                  <AlarmClockButton />
-                  <GoogleMapsButton />
-                  <GoogleEarthButton />
-                </div>
-              )}
+             
+             
             </div>
           </div>
         )

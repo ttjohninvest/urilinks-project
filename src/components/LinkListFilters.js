@@ -646,12 +646,12 @@ function ExpandableArray(props) {
                             >
                               <a
                                 className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
-                                ib flexrowzc22- margin-top-1 ${
+                                ib margin-top-1 ${
                                   props.b == 1
                                     ? "pointereventsauto underline"
                                     : "pointereventsnone"
                                 }`}
-                                style={{ whiteSpace: "pre-wrap" }}
+                                //style={{ whiteSpace: "pre-wrap" }}
                                 href="#"
                                
                                 onClick={() =>

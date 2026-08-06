@@ -292,17 +292,6 @@ export const LinkList = (props) => {
             //private urls don't have to be hid from owner of page
             props.links.splice(0, 400).map((link, index) => {
               if(r === "readonly" && link.showpublic === 0) return (<div></div>)
-              else if(r !== "readonly" && link.archive === 1) return (
-                <div key={link.id+"1"}>
-                  <LinkListItem
-                    key={link.id}
-                    //key={index}
-                    {...link}
-                    index={index}
-                    signup={props.signup.signup}
-                  />
-                </div>
-                )
               else return (
                 <div key={link.id+"1"}>
                   <LinkListItem

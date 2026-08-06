@@ -634,75 +634,8 @@ function ExpandableArray(props) {
                       set showpublic to 0 for false for the url all of the hashtags for that url have showpublic set to 0 for false*/}
                       {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
-                        //if (r === "readonly" && s.showpublic === 0 && false)
-                          //return <div></div>;
-                        //else if (r !== "readonly" && true && s.archive === 1)
-                        //else 
-                          if (s.archive === 1)
-                          return (<div
-                            key={index}
-                            className="b1x- item-newspaper- padding-all- text-size-5 element5- border-bottom-5z border-left-5 padding-bottom-5z"
-                          >
-                            <a
-                              className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} ${
-                                useButtons === true
-                                  ? "b1xw"
-                                  : "ib width30pt- flexrowzc22 margin-left-11- margin-top-1"
-                              } ${
-                                useButtons === true ? "b1xw" : ""
-                              } nounderline- ${
-                                useButtons === true ? "color-white-1" : ""
-                              } ${useButtons === true ? "button-link-4" : ""} ${
-                                false && "border6"
-                              } ${
-                                props.b == 1
-                                  ? "pointereventsauto underline"
-                                  : "pointereventsnone"
-                              }`}
-                              style={{ whiteSpace: "pre-wrap" }}
-                              href="#"
-                              //onClick={() => props.setit(s.hashtag, event)}
-                              //onClick = {()=>setItNow(index, s.hashtag, event)}
-                              onClick={() =>
-                                setItNow(index, s.description, event)
-                              }
-                              title={`click to see results`}
-                            >
-                              {/*sep(s.hashtag)*/}
-                              <span>{s.description2}</span>
-                            </a>
-                            <br />
-                            <span
-                              className="ib margin-left-11z"
-                              style={{
-                                color: "black",
-                                fontSize: ".9rem",
-                                textDecoration: "none",
-                                fontWeight: "normal",
-                                pointerEvents: "none",
-                              }}
-                            >
-                              {s.matchesstring}
-                            </span>
-                            {!!s.hashtag &&
-                              isCorrectAccount() === true &&
-                              false && (
-                                <span>
-                                  {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (
-                                    <a
-                                      href="#"
-                                      onClick={() =>
-                                        genVacation(vsep(s.hashtag))
-                                      }
-                                    >
-                                      <br />
-                                      <span className="ib margin-left-11"></span>
-                                      Take Vacation to {vsep(s.hashtag)}
-                                    </a>
-                                  )}
-                                </span>
-                              )}
-                          </div>)
+                        if (r === "readonly" && s.showpublic === 0)
+                          return <div></div>
                         else
                           return (
                             <div

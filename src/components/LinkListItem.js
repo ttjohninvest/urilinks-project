@@ -753,15 +753,11 @@ const LinkListItem = (props) => {
           >
             <div className="margin-bottom-1">
               <div className="card-background-color">
-                <div className="list-item__flex-">
+                {props.description}
+                {/* <div className="list-item__flex-">
                   {props.description}
-                  {/* <div>
-                    <div className="flexrow2t">
-                      
-                     
-                    </div>
-                  </div> */}
-                </div>
+                 
+                </div> */}
 
               </div>
              

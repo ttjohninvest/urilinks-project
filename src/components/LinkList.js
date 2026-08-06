@@ -346,7 +346,6 @@ setThemax(x)
                 <div key={link.id+"1"}>
                   <LinkListItem
                     key={link.id}
-                    //key={index}
                     {...link}
                     index={index}
                     signup={props.signup.signup}

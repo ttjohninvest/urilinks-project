@@ -754,19 +754,13 @@ const LinkListItem = (props) => {
             <div className="margin-bottom-1">
               <div className="card-background-color">
                 <div className="list-item__flex">
-                  <div>
+                  {props.description}
+                  {/* <div>
                     <div className="flexrow2t">
-                      {props.description}
-                      {/* <div className={`${!!props.yturl ? "" : "margin-top-1"}`}>
-                        <div className="flexcol3">
-                          {props.description}
-                         
-                        </div>
-
                       
-                      </div> */}
+                     
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
               </div>

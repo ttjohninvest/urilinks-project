@@ -791,7 +791,34 @@ const LinkListItem = (props) => {
                                 )
                               }
                             </div>
-                            
+                            <div>
+                              <a
+                                ref={myRef}
+                                className={`ib
+                                   text-size-5
+                                    text-color-db
+                                     color-purple
+                                      breakWord-
+                                       margin-left-11
+                                        color-black-2
+                                         ${
+                                  !!props.yturl ? "" : "padding-top-n-hh"
+                                }`}
+                                href={props.Url}
+                                //target="_self"
+                                target="_blank"
+                                title={
+                                  "click to open the webpage: " + props.Url
+                                }
+                                onClick={storeScrollPosition}
+                              >
+                                <span className="hide underline">
+                                  Click to show page:{" "}
+                                </span>
+                                {props.description}
+                               
+                              </a>
+                            </div>
                             
                           </div>
                         </div>

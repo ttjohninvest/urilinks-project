@@ -293,7 +293,8 @@ const extractHashtags = (link) => {
        //hashtag:match[0],
        description:link.description.toLowerCase(),
        description2:link.description, //preserves the letter case for display
-       showpublic:parseInt(link.showpublic)===1?1:0
+       showpublic:parseInt(link.showpublic)===1?1:0,
+       archive:parseInt(link.archive)===1?1:0
     })
 
   //}
@@ -320,6 +321,7 @@ const countTimesEachHashTagIsUsed = (hashtags) => {
       description: s.description,
       description2:s.description2,
       showpublic: s.showpublic,
+      archive:s.archive,
     });
   });
   return newArray;

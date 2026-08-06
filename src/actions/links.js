@@ -297,8 +297,6 @@ const extractHashtags = (link) => {
        archive:parseInt(link.archive)===1?1:0
     })
 
-  //}
-  //console.log("hashtags=" + JSON.stringify(hashtags));
   return hashtags10;
 };
 

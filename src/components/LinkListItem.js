@@ -884,8 +884,9 @@ const LinkListItem = (props) => {
                                      <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <span className="color-black">
                                         {!!props.archive
-                                          ? "unarchive it"+props.r
-                                          : "archive it"+props.r}
+                                          ? "unarchive it" //+props.r
+                                          : "archive it" //+props.r
+                                          }
                                         :&nbsp;
                                       </span>
                                       <input

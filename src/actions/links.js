@@ -665,7 +665,7 @@ export const startSetLinksNew = (uid) => {
             }
           });
         });
-
+//
         //dispatch(setHashTags(hashtags2));
         //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
         dispatch(setHashTags(hashTags3WithCount));

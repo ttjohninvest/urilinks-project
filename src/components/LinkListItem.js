@@ -890,7 +890,7 @@ const LinkListItem = (props) => {
                                       </span>
                                       <input
                                         checked={
-                                          !!props.archive ? "checked" : ""
+                                          !!props.archive ? "" : "checked"
                                         }
                                         type="checkbox"
                                         id={"archive%" + props.id}

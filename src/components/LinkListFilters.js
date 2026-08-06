@@ -642,20 +642,18 @@ function ExpandableArray(props) {
                           return (
                             <div
                               key={index}
-                              className="b1x- item-newspaper- padding-all- text-size-5 element5- border-bottom-5z border-left-5 padding-bottom-5z"
+                              className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                             >
                               <a
                                 className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} ${
                                   useButtons === true
                                     ? "b1xw"
-                                    : "ib width30pt- flexrowzc22 margin-left-11- margin-top-1"
+                                    : "ib flexrowzc22 margin-top-1 widthmenupane"
                                 } ${
                                   useButtons === true ? "b1xw" : ""
                                 } nounderline- ${
                                   useButtons === true ? "color-white-1" : ""
                                 } ${useButtons === true ? "button-link-4" : ""} ${
-                                  false && "border6"
-                                } ${
                                   props.b == 1
                                     ? "pointereventsauto underline"
                                     : "pointereventsnone"

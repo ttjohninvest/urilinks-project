@@ -795,14 +795,14 @@ const LinkListItem = (props) => {
                               <a
                                 ref={myRef}
                                 className={`ib
-                                   text-size-5
-                                    text-color-db
-                                     color-purple
+                                   text-size-5-
+                                    text-color-db-
+                                     color-purple-
                                       breakWord-
-                                       margin-left-11
-                                        color-black-2
+                                       margin-left-11-
+                                        color-black-2-
                                          ${
-                                  !!props.yturl ? "" : "padding-top-n-hh"
+                                  !!props.yturl ? "" : "padding-top-n-hh-"
                                 }`}
                                 href={props.Url}
                                 //target="_self"

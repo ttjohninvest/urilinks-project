@@ -334,6 +334,7 @@ setThemax(x)
               else return (
                 <div key={link.id+"1"}>
                   <LinkListItem
+                    r={r}
                     key={link.id}
                     //key={index}
                     {...link}

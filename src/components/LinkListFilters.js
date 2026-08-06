@@ -636,7 +636,7 @@ function ExpandableArray(props) {
                       set showpublic to 0 for false for the url all of the hashtags for that url have showpublic set to 0 for false*/}
                       {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
-                        //if (r === "readonly" && s.showpublic === 0) return (<div></div>)
+                        //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
                         if((rt === "readonly")  && 
                         (s.showpublic === 0 || s.archive === 1)) return (<div></div>)
                         else
@@ -1024,7 +1024,7 @@ function ExpandableArray(props) {
               
               }   */}
 
-              {props.signup === true && r !== "readonly" ? (
+              {props.signup === true && rt !== "readonly" ? (
                 <div className="minWidth- bg-color-4">
                   <a
                     target="_blank"
@@ -1054,7 +1054,7 @@ function ExpandableArray(props) {
                 <div className="minWidth- bg-color-4"></div>
               )}
 
-              {props.signup === false && r !== "readonly" ? (
+              {props.signup === false && rt !== "readonly" ? (
                 <div className="minWidth- bg-color-4">
                   <a
                     target="_blank"
@@ -1066,7 +1066,7 @@ function ExpandableArray(props) {
                   >
                     Click to open up form to email to your recipient your
                     sharable link to your readonly dashboard page{" "}
-                    {r !== "readonly" ? "(example page)" : ""}
+                    {rt !== "readonly" ? "(example page)" : ""}
                   </a>
 
                   {showComponent && <AddLinkPage2 />}

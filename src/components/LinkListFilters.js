@@ -565,7 +565,7 @@ function ExpandableArray(props) {
         {
           <div
             id="ls"
-            className={`${useButtons === true ? "width30p" : "width30pt"}  scrollable-div1`}
+            className={`${useButtons === true ? "width30p" : "width30pt"}  ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}
           >
             <div className="border-right-5"></div>
 

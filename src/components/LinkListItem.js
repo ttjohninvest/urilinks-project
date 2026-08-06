@@ -939,6 +939,32 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
+                                    <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                                      <span className="color-black">
+                                        {!!props.archive
+                                          ? "archive it"
+                                          : "unarchive it"}
+                                        :&nbsp;
+                                      </span>
+                                      <input
+                                        checked={
+                                          !!props.archive ? "" : "checked"
+                                        }
+                                        type="checkbox"
+                                        id={"archive%" + props.id}
+                                        name={"archive%" + props.id}
+                                        value={props.id}
+                                        onChange={() =>
+                                          handleCheckboxArchive(
+                                            !!props.archive,
+                                            event,
+                                          )
+                                        }
+                                        title={!!props.archive ?"click to archive it":"click to unarchive it"}
+                                        className="cb1 cursor-pointer"
+                                      />
+                                      <label htmlFor={"archive%" + props.id} />
+                                    </span>
                                   </div>
                                 )}
                               </div>

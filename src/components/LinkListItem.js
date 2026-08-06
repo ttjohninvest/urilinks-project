@@ -989,10 +989,10 @@ const LinkListItem = (props) => {
                               </div>
                             </div>
                 <div className="italicText list-item__sub-title- margin-left-1181- border-green- text-size-10 color-purple margin-left-11p1 color-black-2">
-                  <div className="ib- padding-left-1122 margin-top-n-15a margin-bottom-abc">
+                  <span className="ib- padding-left-1122 margin-top-n-15a margin-bottom-abc">
                     Link saved on:{" "}
                     {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
-                  </div>
+                  </span>
                 </div>
               </div>
               <div className="textWrap100 text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p- color-black-2">

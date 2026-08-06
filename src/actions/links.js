@@ -184,9 +184,9 @@ export const startArchiveLink = ({ id } = {}) => {
 
     return database
       .ref(`users/${uid}/links/${id}`)
-      .update({archive:1})
+      .update({archive:0})
       .then(() => {
-        dispatch(archiveLink(id, {archive:1}));
+        dispatch(archiveLink(id, {archive:0}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
@@ -200,9 +200,9 @@ export const startArchiveLink2 = ({ id } = {}) => {
 
     return database
       .ref(`users/${uid}/links/${id}`)
-      .update({archive:0})
+      .update({archive:1})
       .then(() => {
-        dispatch(archiveLink2(id, {archive:0}));
+        dispatch(archiveLink2(id, {archive:1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

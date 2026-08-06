@@ -651,7 +651,7 @@ function ExpandableArray(props) {
                                     ? "pointereventsauto underline"
                                     : "pointereventsnone"
                                 }`}
-                                //style={{ whiteSpace: "pre-wrap" }}
+                                style={{ whiteSpace: "pre-wrap" }}
                                 href="#"
                                
                                 onClick={() =>

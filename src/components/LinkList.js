@@ -250,29 +250,29 @@ setThemax(x)
             ScrollDn
           </button>
     
-    <div className="website-background-color width1001- border5- border-left-5">
+    <div className="website-background-color border-left-5">
 
 
 
 
 
-      <div id="before-link-summary-id" className="flexrow2b- margin-bottom-5a">
+      <div id="before-link-summary-id" className="margin-bottom-5a">
         {/* <LinksSummary /> */}
 
         {props.signup.signup === true ? (
-          <div className="minWidth- bg-color-4">
+          <div className="bg-color-4">
            
 
             <a 
             id="adlinkid"
             href="#"
-            className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+            className="cursor-pointer aw alignCenter b1xw1 button-link-4 ib text-size-5 bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
             onClick={handleClick}>Add New Link</a>
 
             {showComponent && <AddLinkPage />}
           </div>
         ) : (
-          <div className="minWidth- bg-color-4">
+          <div className="bg-color-4">
             
           </div>
         )}
@@ -320,7 +320,7 @@ setThemax(x)
       {selectedOption === "option1" && (
         <div 
         id="ls2"
-        className="list-body border-green- scrollable-div2">
+        className="list-body- scrollable-div2content-">
           {props.links.length === 0 ? (
             <div className="list-item list-item--message">
               

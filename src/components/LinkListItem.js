@@ -812,7 +812,7 @@ const LinkListItem = (props) => {
 <div>
                               <a
                                 ref={myRef}
-                                className={`ib nounderline- text-size-5 text-color-db color-purple breakWord- width50 textWrap100 margin-left-11 color-black-2 ${
+                                className={`ib nounderline- text-size-5 text-color-db color-purple breakWord- width75 textWrap100 margin-left-11 color-black-2 ${
                                   !!props.yturl ? "" : "padding-top-n-hh"
                                 }`}
                                 href={props.Url}
@@ -833,7 +833,7 @@ const LinkListItem = (props) => {
                                 {props.signup.signup === true ? (
                                   <div>
                                     <Link
-                                      className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
+                                      className="margin-top-1 nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
                                       to={`/edit/${props.id}`}
                                     >
                                       <span className="padding-right-11 color-white-1- color-black-2 button-2w border5">

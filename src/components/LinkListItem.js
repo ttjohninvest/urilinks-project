@@ -943,7 +943,12 @@ const LinkListItem = (props) => {
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
                                     <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                                      
+                                      <span className="color-black">
+                                        {!!props.archive
+                                          ? "unarchive it"
+                                          : "archive it"}
+                                        :&nbsp;
+                                      </span>
                                       <input
                                        
                                         type="checkbox"

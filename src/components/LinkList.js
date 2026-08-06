@@ -287,15 +287,15 @@ setThemax(x)
                 )) return (<div></div>)
               else return (
                 <div key={link.id+"1"}>
-                  <div>hello</div>
-                  {/* <LinkListItem
+                  
+                  <LinkListItem
                     r={r}
                     key={link.id}
                     //key={index}
                     {...link}
                     index={index}
                     signup={props.signup.signup}
-                  /> */}
+                  />
                 </div>
                 
               )

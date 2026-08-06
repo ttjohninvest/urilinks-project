@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 
 import { DateRangePicker } from "react-dates";
-import EmailForm from "./EmailForm"
+import EmailForm from "./EmailForm";
 
 import database from "../firebase/firebase";
 import redarrow from "../assets/images/red-arrow.jpg";
@@ -35,7 +35,7 @@ function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
   const [email, setEmail] = useState("");
-  const [emailForm, showEmailForm] = useState(false)
+  const [emailForm, showEmailForm] = useState(false);
   const [theuser, setTheuser] = useState(firebase.auth().currentUser);
   const [copySuccess, setCopySuccess] = useState("");
   //const [max, setMax] = useState(250);
@@ -71,9 +71,12 @@ function ExpandableArray(props) {
   //
   const [isToggled, setIsToggled] = useState(x);
 
-  useEffect(()=>{
-    console.log("ZZZZZ, props.mappedDataShort[0]="+JSON.stringify(props.mappedDataShort[0]))
-  },[])
+  useEffect(() => {
+    console.log(
+      "ZZZZZ, props.mappedDataShort[0]=" +
+        JSON.stringify(props.mappedDataShort[0]),
+    );
+  }, []);
 
   const startScrollingDown = () => {
     // Prevent multiple intervals
@@ -132,7 +135,7 @@ function ExpandableArray(props) {
     fetch("https://urilinks-writefile-2.vercel.app", {
       method: "POST",
       headers: {
-       "Content-Type": "text/plain; charset=utf-8",
+        "Content-Type": "text/plain; charset=utf-8",
       },
       body: content,
     })
@@ -142,11 +145,13 @@ function ExpandableArray(props) {
         // //console.log("data.clientSecret="+JSON.stringify(data)) //.clientSecret)
       })
       .then((data) => {
-        console.log("returned from writing the file with writeFile, https://urilinks-project-writefile.vercel");
+        console.log(
+          "returned from writing the file with writeFile, https://urilinks-project-writefile.vercel",
+        );
         //setClientSecret(data.clientSecret);
       })
       .catch((error) =>
-        console.error("There was a problem with the fetch operation:", error)
+        console.error("There was a problem with the fetch operation:", error),
       );
   };
 
@@ -261,10 +266,10 @@ function ExpandableArray(props) {
     setGmail("jmjohnmcgovern707@gmail.com");
   };
 
-  const rz=(s)=>{
-    s = s.replace(/0/g, '');
-    return s
-  }
+  const rz = (s) => {
+    s = s.replace(/0/g, "");
+    return s;
+  };
 
   const sep = (hashtag) => {
     //const hashtag = "#john";
@@ -453,44 +458,36 @@ function ExpandableArray(props) {
     //let x = !isFormOpen
     //alert("isFormOpen="+x)
     setIsFormOpen(false);
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0);
   };
-
-  
-
-  
 
   const handleClick = (event) => {
-   event.preventDefault();
-   setIsFormOpen(true);
+    event.preventDefault();
+    setIsFormOpen(true);
 
-//     // document.getElementById("adlinkid").classList.add("pointereventsnone");
-//     // setShowComponent(true);
+    //     // document.getElementById("adlinkid").classList.add("pointereventsnone");
+    //     // setShowComponent(true);
 
-//      const email = "johmcg64@gmail.com";
-//   const subject = "Subject Line";
-//   const body = "body of email";
+    //      const email = "johmcg64@gmail.com";
+    //   const subject = "Subject Line";
+    //   const body = "body of email";
 
-//   //const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-// const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid}`)
-//   const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=Somebody+Sent+Me+A+gmail+From+urilinks.com&to=johmcg64@gmail.com&body=${uri}&tf=cm`
+    //   //const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid}`)
+    //   const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=Somebody+Sent+Me+A+gmail+From+urilinks.com&to=johmcg64@gmail.com&body=${uri}&tf=cm`
 
-    
-//     // Open the mail client
-//     window.location.href = mailtoUrl //mailtoLink;
-//alert("before call to showEmailForm(true), emailForm="+emailForm+",isFormOpen="+isFormOpen)
-//alert("before call to showEmailForm, isFormOpen="+isFormOpen)
-showEmailForm(isFormOpen)
-
-
-
+    //     // Open the mail client
+    //     window.location.href = mailtoUrl //mailtoLink;
+    //alert("before call to showEmailForm(true), emailForm="+emailForm+",isFormOpen="+isFormOpen)
+    //alert("before call to showEmailForm, isFormOpen="+isFormOpen)
+    showEmailForm(isFormOpen);
   };
 
-const setItNow=(index, ht,e)=>{
-  setActiveItem(index)
-  props.setit(ht, e)
-}
- 
+  const setItNow = (index, ht, e) => {
+    setActiveItem(index);
+    props.setit(ht, e);
+  };
+
   return (
     <div className="bg-white-1">
       <div className="sticky-div-">
@@ -508,20 +505,22 @@ const setItNow=(index, ht,e)=>{
                 : "Medical Staff Referral Links Management System"+" For Staff User Id: "+props.theplan.uid //"Internet Links Management Tool"
           }
         </div> */}
-          <div
+        <div
           className={`website-background-color ${
             useButtons === true ? "width30p" : "width30pt"
           } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Links Management Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           {
-            uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-              ? <span>My Internet Links Organizer Dashboard</span>
-                // <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
-              : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
-                ? "City Walks"
-                : <span>My Internet Links Organizer Dashboard</span>
-                  //  <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
+            uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" ? (
+              <span>My Internet Links Organizer Dashboard</span>
+            ) : // <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
+            uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" ? (
+              "City Walks"
+            ) : (
+              <span>My Internet Links Organizer Dashboard</span>
+            )
+            //  <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
           }
         </div>
         <div>
@@ -595,7 +594,7 @@ const setItNow=(index, ht,e)=>{
                             className="b1x- item-newspaper- padding-all- text-size-5 element5-"
                           >
                             <a
-                              className={`${activeItem === index ? 'the-menu-item active' : 'the-menu-item'} ${
+                              className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} ${
                                 useButtons === true
                                   ? "b1xw"
                                   : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
@@ -613,12 +612,14 @@ const setItNow=(index, ht,e)=>{
                               // props.setit(s.hashtag, event) style={style} onClick={() => setIsActive(!isActive)}
                               //style={style}
                               //onClick = {()=>setItNow(index, s.hashtag, event)}
-                              onClick = {()=>setItNow(index, s.description, event)}
+                              onClick={() =>
+                                setItNow(index, s.description, event)
+                              }
                               title={`click to see results`}
-                              
                             >
-                              {//sep(s.hashtag)
-                              s.description2
+                              {
+                                //sep(s.hashtag)
+                                s.description2
                               }
                             </a>
                           </div>
@@ -626,20 +627,22 @@ const setItNow=(index, ht,e)=>{
                       else return false;
                     })
                   ) : (
-                    <div> {/*s looks like this [{hashtag:"#abc", count:1, longname:"longname", showpublic:1}...{hashtag:"#xyz", count:1, longname:"longnamesubn", showpublic:0}]*/}
+                    <div>
+                      {" "}
+                      {/*s looks like this [{hashtag:"#abc", count:1, longname:"longname", showpublic:1}...{hashtag:"#xyz", count:1, longname:"longnamesubn", showpublic:0}]*/}
                       {/*all of the hashtags have a showpublic property and their can be m hashtags for a url, if user
                       set showpublic to 0 for false for the url all of the hashtags for that url have showpublic set to 0 for false*/}
                       {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
-                        if(r === "readonly" && s.showpublic === 0) return (<div></div>)
-                        else return (
-                          
+                        if (r === "readonly" && s.showpublic === 0)
+                          return <div></div>;
+                        else if (r !== "readonly" && true && s.archive === 1)
                           <div
                             key={index}
                             className="b1x- item-newspaper- padding-all- text-size-5 element5- border-bottom-5z border-left-5 padding-bottom-5z"
                           >
                             <a
-                              className={`${activeItem === index ? 'the-menu-item active' : 'the-menu-item'} ${
+                              className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} ${
                                 useButtons === true
                                   ? "b1xw"
                                   : "ib width30pt- flexrowzc22 margin-left-11- margin-top-1"
@@ -654,38 +657,117 @@ const setItNow=(index, ht,e)=>{
                                   ? "pointereventsauto underline"
                                   : "pointereventsnone"
                               }`}
-                              style={{"whiteSpace": "pre-wrap"}}
+                              style={{ whiteSpace: "pre-wrap" }}
                               href="#"
                               //onClick={() => props.setit(s.hashtag, event)}
                               //onClick = {()=>setItNow(index, s.hashtag, event)}
-                              onClick = {()=>setItNow(index, s.description, event)}
+                              onClick={() =>
+                                setItNow(index, s.description, event)
+                              }
                               title={`click to see results`}
                             >
-                              
-                              
                               {/*sep(s.hashtag)*/}
                               <span>{s.description2}</span>
-                              
-                              
-                            </a><br /><span className="ib margin-left-11z" style={{"color": "black", "fontSize":".9rem", "textDecoration": "none", "fontWeight": "normal", "pointerEvents":"none"}}>{s.matchesstring}</span>
-                            {!!s.hashtag && isCorrectAccount() === true && false && (
-                              <span>
-                                {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (
-                                  <a
-                                    href="#"
-                                    onClick={() => genVacation(vsep(s.hashtag))}
-                                  >
-                                    <br />
-                                    <span className="ib margin-left-11"></span>
-                                    Take Vacation to {vsep(s.hashtag)}
-                                  </a>
-                                )}
+                            </a>
+                            <br />
+                            <span
+                              className="ib margin-left-11z"
+                              style={{
+                                color: "black",
+                                fontSize: ".9rem",
+                                textDecoration: "none",
+                                fontWeight: "normal",
+                                pointerEvents: "none",
+                              }}
+                            >
+                              {s.matchesstring}
+                            </span>
+                            {!!s.hashtag &&
+                              isCorrectAccount() === true &&
+                              false && (
+                                <span>
+                                  {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (
+                                    <a
+                                      href="#"
+                                      onClick={() =>
+                                        genVacation(vsep(s.hashtag))
+                                      }
+                                    >
+                                      <br />
+                                      <span className="ib margin-left-11"></span>
+                                      Take Vacation to {vsep(s.hashtag)}
+                                    </a>
+                                  )}
+                                </span>
+                              )}
+                          </div>;
+                        else
+                          return (
+                            <div
+                              key={index}
+                              className="b1x- item-newspaper- padding-all- text-size-5 element5- border-bottom-5z border-left-5 padding-bottom-5z"
+                            >
+                              <a
+                                className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} ${
+                                  useButtons === true
+                                    ? "b1xw"
+                                    : "ib width30pt- flexrowzc22 margin-left-11- margin-top-1"
+                                } ${
+                                  useButtons === true ? "b1xw" : ""
+                                } nounderline- ${
+                                  useButtons === true ? "color-white-1" : ""
+                                } ${useButtons === true ? "button-link-4" : ""} ${
+                                  false && "border6"
+                                } ${
+                                  props.b == 1
+                                    ? "pointereventsauto underline"
+                                    : "pointereventsnone"
+                                }`}
+                                style={{ whiteSpace: "pre-wrap" }}
+                                href="#"
+                                //onClick={() => props.setit(s.hashtag, event)}
+                                //onClick = {()=>setItNow(index, s.hashtag, event)}
+                                onClick={() =>
+                                  setItNow(index, s.description, event)
+                                }
+                                title={`click to see results`}
+                              >
+                                {/*sep(s.hashtag)*/}
+                                <span>{s.description2}</span>
+                              </a>
+                              <br />
+                              <span
+                                className="ib margin-left-11z"
+                                style={{
+                                  color: "black",
+                                  fontSize: ".9rem",
+                                  textDecoration: "none",
+                                  fontWeight: "normal",
+                                  pointerEvents: "none",
+                                }}
+                              >
+                                {s.matchesstring}
                               </span>
-                            )}
-                          </div>
-                          
-
-                        );
+                              {!!s.hashtag &&
+                                isCorrectAccount() === true &&
+                                false && (
+                                  <span>
+                                    {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (
+                                      <a
+                                        href="#"
+                                        onClick={() =>
+                                          genVacation(vsep(s.hashtag))
+                                        }
+                                      >
+                                        <br />
+                                        <span className="ib margin-left-11"></span>
+                                        Take Vacation to {vsep(s.hashtag)}
+                                      </a>
+                                    )}
+                                  </span>
+                                )}
+                            </div>
+                          );
                       })}
                     </div>
                   )}
@@ -1004,41 +1086,39 @@ const setItNow=(index, ht,e)=>{
               
               }   */}
 
-
-
-
-                 {props.signup === true && r !== "readonly" ? 
-               
-               (
+              {props.signup === true && r !== "readonly" ? (
                 <div className="minWidth- bg-color-4">
                   <a
                     target="_blank"
                     id="adlinkid"
                     href="#"
                     title="Email your sharable link to share with others."
-                    className={`cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w ${r==="readonly"?'pointereventsnone':""} width100  color-black-2 border5-`}
+                    className={`cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w ${r === "readonly" ? "pointereventsnone" : ""} width100  color-black-2 border5-`}
                     onClick={handleClick}
                   >
-                    Click to open up form to email to your recipient your sharable link to your readonly dashboard page
-                  </a> 
+                    Click to open up form to email to your recipient your
+                    sharable link to your readonly dashboard page
+                  </a>
 
                   {showComponent && <AddLinkPage2 />}
-                  {//emailForm &&
-                   isFormOpen && <SendEmailPage uid={uid} isFormOpen={isFormOpen} handleClose={handleClose} />}
+                  {
+                    //emailForm &&
+                    isFormOpen && (
+                      <SendEmailPage
+                        uid={uid}
+                        isFormOpen={isFormOpen}
+                        handleClose={handleClose}
+                      />
+                    )
+                  }
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>
-              ) 
-              
-              }
+              )}
 
-
-              {props.signup === false  && r !== "readonly" ? 
-              
-              (
+              {props.signup === false && r !== "readonly" ? (
                 <div className="minWidth- bg-color-4">
                   <a
-
                     target="_blank"
                     id="adlinkid"
                     href="#"
@@ -1046,19 +1126,16 @@ const setItNow=(index, ht,e)=>{
                     className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone- width100  color-black-2 border5-"
                     onClick={handleClick}
                   >
-                    Click to open up form to email to your recipient your sharable link to your readonly dashboard page {r!=="readonly"?"(example page)":""}
-                  </a> 
+                    Click to open up form to email to your recipient your
+                    sharable link to your readonly dashboard page{" "}
+                    {r !== "readonly" ? "(example page)" : ""}
+                  </a>
 
                   {showComponent && <AddLinkPage2 />}
                 </div>
               ) : (
                 <div className="minWidth- bg-color-4"></div>
-              )
-              
-              } 
-
-
-
+              )}
 
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}
@@ -1445,7 +1522,6 @@ export class LinkListFilters extends React.Component {
 
     this.props.rerenderit();
   };
-
 
   refreshIt = () => {
     //window.location.reload();

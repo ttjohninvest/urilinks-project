@@ -825,8 +825,8 @@ const LinkListItem = (props) => {
                                 onClick={storeScrollPosition}
                               >
                                 
-                                {props.description}
-                                {/* {truncateString(props.description,10)} */}
+                                {/* {props.description} */}
+                                {truncateString(props.description,80)}
                               </a>
                             </div>
  <div className="margin-bottom-1141">
@@ -995,7 +995,7 @@ const LinkListItem = (props) => {
                   </span>
                 </div>
               </div>
-              <div className="text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p- color-black-2">
+              <div className="textWrap100 text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p- color-black-2">
                 {props.note}
               </div>
               {props.signup.signup === true && (

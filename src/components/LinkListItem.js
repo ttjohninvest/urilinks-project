@@ -101,6 +101,7 @@ const LinkListItem = (props) => {
   };
 
   const handleCheckboxPrivate = (x, event) => {
+    alert(event.target.value)
     console.log("bookmark id=" + event.target.value);
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))

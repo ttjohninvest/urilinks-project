@@ -792,7 +792,8 @@ const LinkListItem = (props) => {
                               }
                             </div>
                             <div>
-                              <a
+                              {props.description}
+                              {/* <a
                                 ref={myRef}
                                 className={`ib`}
                                 href={props.Url}
@@ -806,7 +807,7 @@ const LinkListItem = (props) => {
                                
                                 {props.description}
                                
-                              </a>
+                              </a> */}
                             </div>
                             
                           </div>

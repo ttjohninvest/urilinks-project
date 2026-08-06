@@ -791,26 +791,7 @@ const LinkListItem = (props) => {
                                 )
                               }
                             </div>
-                            <div>
-                              <a
-                                ref={myRef}
-                                className={`ib nounderline- text-size-5 text-color-db color-purple breakWord margin-left-11 color-black-2 ${
-                                  !!props.yturl ? "" : "padding-top-n-hh"
-                                }`}
-                                href={props.Url}
-                                //target="_self"
-                                target="_blank"
-                                title={
-                                  "click to open the webpage: " + props.Url
-                                }
-                                onClick={storeScrollPosition}
-                              >
-                                
-                                {"jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"}
-                                
-                                {/* {props.description} */}
-                              </a>
-                            </div>
+                            
                             <div className="margin-bottom-1141">
                               <div className="flexrow4">
                                 {props.signup.signup === true ? (
@@ -978,7 +959,25 @@ const LinkListItem = (props) => {
                     </div>
                   </div>
                 </div>
-
+<div>
+                              <a
+                                ref={myRef}
+                                className={`ib nounderline- text-size-5 text-color-db color-purple breakWord margin-left-11 color-black-2 ${
+                                  !!props.yturl ? "" : "padding-top-n-hh"
+                                }`}
+                                href={props.Url}
+                                //target="_self"
+                                target="_blank"
+                                title={
+                                  "click to open the webpage: " + props.Url
+                                }
+                                onClick={storeScrollPosition}
+                              >
+                                
+                                
+                                {props.description}
+                              </a>
+                            </div>
                 <div className="italicText list-item__sub-title- margin-left-1181- border-green- text-size-10 color-purple margin-left-11p1 color-black-2">
                   <span className="ib padding-left-1122 margin-top-n-15a">
                     Link saved on:{" "}

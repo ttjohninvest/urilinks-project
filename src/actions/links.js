@@ -162,22 +162,6 @@ export const startPrivateLink = ({ id } = {}) => {
   };
 };
 
-export const startArchiveLink = ({ id } = {}) => {
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-
-    return database
-      .ref(`users/${uid}/links/${id}`)
-      .update({archive:0})
-      .then(() => {
-        dispatch(archiveLink(id, {archive:0}));
-      })
-      .catch((error) => {
-        console.log("error removing link data in firebase, error=" + error);
-      });
-  };
-};
-
 export const startPrivateLink2 = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -187,6 +171,22 @@ export const startPrivateLink2 = ({ id } = {}) => {
       .update({showpublic:1})
       .then(() => {
         dispatch(privateLink2(id, {showpublic:1}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
+export const startArchiveLink = ({ id } = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({archive:0})
+      .then(() => {
+        dispatch(archiveLink(id, {archive:0}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
@@ -209,6 +209,10 @@ export const startArchiveLink2 = ({ id } = {}) => {
       });
   };
 };
+
+
+
+
 
 // EDIT_LINK
 export const editLink = (id, updates) => ({

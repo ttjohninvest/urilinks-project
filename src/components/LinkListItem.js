@@ -809,10 +809,11 @@ const LinkListItem = (props) => {
                     </div>
                   </div>
                 </div>
-<div>
+<div className="margin-bottom-1">
+
                               <a
                                 ref={myRef}
-                                className={`ib nounderline- text-size-5 text-color-db color-purple breakWord- width75 textWrap100 margin-left-11 color-black-2 ${
+                                className={`ib nounderline- text-size-5 text-color-db color-purple breakWord- width50 textWrap100 margin-left-11 color-black-2 ${
                                   !!props.yturl ? "" : "padding-top-n-hh"
                                 }`}
                                 href={props.Url}

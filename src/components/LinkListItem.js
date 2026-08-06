@@ -884,13 +884,13 @@ const LinkListItem = (props) => {
                                      <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <span className="color-black">
                                         {!!props.archive
-                                          ? "archive it"
-                                          : "unarchive it"}
+                                          ? "unarchive it"
+                                          : "archive it"}
                                         :&nbsp;
                                       </span>
                                       <input
                                         checked={
-                                          !!props.archive ? "" : "checked"
+                                          !!props.archive ? "checked" : ""
                                         }
                                         type="checkbox"
                                         id={"archive%" + props.id}
@@ -921,7 +921,7 @@ const LinkListItem = (props) => {
                                         id={"delete%" + props.id}
                                         name={"delete%" + props.id}
                                         value={props.id}
-                                        onChange={handleCheckboxDelete}
+                                        //onChange={handleCheckboxDelete}
                                         title="click to remove url"
                                         className="cb1 cursor-pointer pointereventsnone"
                                       />
@@ -936,33 +936,26 @@ const LinkListItem = (props) => {
                                         id={"private%" + props.id}
                                         name={"private%" + props.id}
                                         value={props.id}
-                                        onChange={handleCheckboxPrivate}
+                                        //onChange={handleCheckboxPrivate}
                                         title="click to make url private"
                                         className="cb1 cursor-pointer pointereventsnone"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
                                     <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                                      <span className="color-black">
-                                        {!!props.archive
-                                          ? "archive it"
-                                          : "unarchive it"}
-                                        :&nbsp;
-                                      </span>
+                                      
                                       <input
-                                        checked={
-                                          !!props.archive ? "" : "checked"
-                                        }
+                                       
                                         type="checkbox"
                                         id={"archive%" + props.id}
                                         name={"archive%" + props.id}
                                         value={props.id}
-                                        onChange={() =>
-                                          handleCheckboxArchive(
-                                            !!props.archive,
-                                            event,
-                                          )
-                                        }
+                                        // onChange={() =>
+                                        //   handleCheckboxArchive(
+                                        //     !!props.archive,
+                                        //     event,
+                                        //   )
+                                        // }
                                         title={!!props.archive ?"click to archive it":"click to unarchive it"}
                                         className="cb1 cursor-pointer pointereventsnone"
                                       />

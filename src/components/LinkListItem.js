@@ -759,37 +759,16 @@ const LinkListItem = (props) => {
                       <div className={`${!!props.yturl ? "" : "margin-top-1"}`}>
                         <div className="flexcol3">
                           <div className={`flexrow4`}>
-                            <div className="margin-top-1q margin-left-11">
+                            {/* <div className="margin-top-1q margin-left-11">
                               <img
                                 className=""
                                 width="20"
                                 height="20"
                                 src={props.faviconURL}
                               />
-                            </div>
+                            </div> */}
                             <div className="">
-                              {/* {
-                                
-                                !!props.yturl && (
-                                  //true
-                                  <a
-                                    ref={myRef}
-                                    className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1 color-black-2"
-                                    href={props.Url}
-                                    //target="_self"
-                                    target="_blank"
-                                    title={
-                                      "click to open the webpage: " + props.Url
-                                    }
-                                    onClick={storeScrollPosition}
-                                  >
-                                    <img
-                                      className="borderRadius4 rem8- rem45-"
-                                      src={props.yturl}
-                                    />
-                                  </a>
-                                )
-                              } */}
+                             
                             </div>
                             <div>
                               {props.description}

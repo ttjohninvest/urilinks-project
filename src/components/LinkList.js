@@ -259,61 +259,12 @@ setThemax(x)
       <div id="before-link-summary-id" className="margin-bottom-5a">
         {/* <LinksSummary /> */}
 
-        {props.signup.signup === true ? (
-          <div className="bg-color-4">
-           
-
-            <a 
-            id="adlinkid"
-            href="#"
-            className="cursor-pointer aw alignCenter b1xw1 button-link-4 ib text-size-5 bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
-            onClick={handleClick}>Add New Link</a>
-
-            {showComponent && <AddLinkPage />}
-          </div>
-        ) : (
-          <div className="bg-color-4">
-            
-          </div>
-        )}
+      
 
       
       </div>
 
-      <div
-        id="link-summary-id"
-        className="margin-left-11 text-size-5 margin-right-1 borderRadius55 pointereventsauto"
-      >
-        <span id="linkcount2id" className="ib is-active">
-          {/* {first === 0 ? props.linkCount : first === 1 ? props.linkCount2 : ""} */}
-          {/* {first === 0
-            ? props.linkCount >= 0
-              ? props.linkCount
-              : props.linkCount
-            : first === 1
-              ? props.linkCount2
-              : ""} */}
-              {props.linkCount}
-        </span>
-        <span className="ib margin-left-11">
-          {first === 0 || first === 1
-            ? " Link(s) Displayed"
-            : first === 2
-              ? " Results"
-              : ""}
-        </span>
-         
-      </div>
-
-      {selectedOption === "option3" ? (
-        <div title="The user has given permission to show these links to the public.">
-          Filtered by permission
-        </div>
-      ) : (
-        <div></div>
-      )}
      
-
 <div
   
 >
@@ -330,7 +281,9 @@ setThemax(x)
             //private urls don't have to be hid from owner of page
             props.links.splice(0, themax).map((link, index) => {
               //if(r === "readonly" && link.showpublic === 0 || (link.showpublic === 1 && link.archive===1)) return (<div></div>)
-              if(r === "readonly" && (link.showpublic === 0 || link.archive === 1)) return (<div></div>)
+              if(r === "readonly" && (link.showpublic === 0
+                 //|| link.archive === 1
+                )) return (<div></div>)
               else return (
                 <div key={link.id+"1"}>
                   <LinkListItem
@@ -342,6 +295,7 @@ setThemax(x)
                     signup={props.signup.signup}
                   />
                 </div>
+                
               )
             })
             
@@ -350,7 +304,12 @@ setThemax(x)
         </div>
       )}
       </div>
-      </div>
+      
+     
+
+
+      
+    </div>
     </div>
     
   );

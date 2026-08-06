@@ -341,7 +341,7 @@ setThemax(x)
               //     />
               //   </div>
               // );
-              if(link.archive === 0) return (<div></div>)
+              if(link.archive === 1) return (<div></div>)
               else return (
                 <div key={link.id+"1"}>
                   <LinkListItem

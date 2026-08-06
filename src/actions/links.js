@@ -49,6 +49,7 @@ export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
+      archive = 0,
       showpublic = 1,
       longname = "",
       description = "",
@@ -61,6 +62,7 @@ export const startAddLink = (linkData = {}) => {
       faviconURL = "",
     } = linkData;
     const link = {
+      archive,
       showpublic,
       longname,
       description,
@@ -116,6 +118,18 @@ export const privateLink2 = (id, updates) => ({
   updates,
 });
 
+export const archiveLink = (id, updates) => ({
+  type: "ARCHIVE_LINK",
+  id,
+  updates,
+});
+
+export const archiveLink2 = (id, updates) => ({
+  type: "ARCHIVE_LINK",
+  id,
+  updates,
+});
+
 export const startRemoveLink = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -148,6 +162,22 @@ export const startPrivateLink = ({ id } = {}) => {
   };
 };
 
+export const startArchiveLink = ({ id } = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({archive:0})
+      .then(() => {
+        dispatch(archiveLink(id, {archive:0}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
 export const startPrivateLink2 = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -157,6 +187,22 @@ export const startPrivateLink2 = ({ id } = {}) => {
       .update({showpublic:1})
       .then(() => {
         dispatch(privateLink2(id, {showpublic:1}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
+export const startArchiveLink2 = ({ id } = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({archive:1})
+      .then(() => {
+        dispatch(archiveLink2(id, {archive:1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

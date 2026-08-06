@@ -7,6 +7,10 @@ import {
   startPrivateLink,
   privateLink2,
   startPrivateLink2,
+  privateLink,
+  startPrivateLink,
+  privateLink2,
+  startPrivateLink2,
 } from "../actions/links";
 import { Link, withRouter } from "react-router-dom";
 import moment from "moment";
@@ -120,6 +124,40 @@ const LinkListItem = (props) => {
         // User clicked OK, perform the deletion
         props.privateLink({ id: event.target.value });
         props.startPrivateLink({ id: event.target.value });
+        //alert("Item deleted.");
+      } else {
+        // User clicked Cancel
+        // document.getElementById("private%" + event.target.value).checked =
+        //   "";
+        // alert("Setting it to private is canceled.");
+      }
+    }
+  };
+
+  const handleCheckboxArchive = (x, event) => {
+    console.log("bookmark id=" + event.target.value);
+    //addIdToDelete(event.target.value)
+    //console.log("bookmark ids="+localStorage.getItem('deleteData'))
+    let result;
+    if (x === false) {
+      //result = confirm("Are you sure you want to make it public?");
+      if (true) {
+        // User clicked OK, perform the deletion
+        props.archiveLink2({ id: event.target.value });
+        props.startArchiveLink2({ id: event.target.value });
+        //alert("Item deleted.");
+      } else {
+        // User clicked Cancel
+        // document.getElementById("private%" + event.target.value).checked =
+        //   "";
+        // alert("Setting it to private is canceled.");
+      }
+    } else {
+      //result = confirm("Are you sure you want to make it private?");
+      if (true) {
+        // User clicked OK, perform the deletion
+        props.archiveLink({ id: event.target.value });
+        props.startArchiveLink({ id: event.target.value });
         //alert("Item deleted.");
       } else {
         // User clicked Cancel
@@ -836,10 +874,36 @@ const LinkListItem = (props) => {
                                             event,
                                           )
                                         }
-                                        title={!!props.showpublic ?"click ot make url private":"click to make url public"}
+                                        title={!!props.showpublic ?"click to make url private":"click to make url public"}
                                         className="cb1 cursor-pointer"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
+                                    </span>
+                                     <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                                      <span className="color-black">
+                                        {!!props.archive
+                                          ? "archive it"
+                                          : "unarchive it"}
+                                        :&nbsp;
+                                      </span>
+                                      <input
+                                        checked={
+                                          !!props.archive ? "" : "checked"
+                                        }
+                                        type="checkbox"
+                                        id={"archive%" + props.id}
+                                        name={"archive%" + props.id}
+                                        value={props.id}
+                                        onChange={() =>
+                                          handleCheckboxArchive(
+                                            !!props.archive,
+                                            event,
+                                          )
+                                        }
+                                        title={!!props.archive ?"click to archive it":"click to unarchive it"}
+                                        className="cb1 cursor-pointer"
+                                      />
+                                      <label htmlFor={"archive%" + props.id} />
                                     </span>
                                     </span>
                                   </div>
@@ -936,6 +1000,10 @@ const mapDispatchToProps = (dispatch, props) => ({
   privateLink: (data) => dispatch(privateLink(data)),
   startPrivateLink2: (data) => dispatch(startPrivateLink2(data)),
   privateLink2: (data) => dispatch(privateLink2(data)),
+  startArchiveLink: (data) => dispatch(startArchiveLink(data)),
+  archiveLink: (data) => dispatch(archiveLink(data)),
+  startArchiveLink2: (data) => dispatch(startArchiveLink2(data)),
+  archiveLink2: (data) => dispatch(archiveLink2(data)),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LinkListItem));

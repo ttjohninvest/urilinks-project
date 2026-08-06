@@ -1759,4 +1759,32 @@ Query Depth: You cannot listen to or query paths with more than 75 million nodes
 Storage Pricing: While there is no hard storage cap, the free Spark plan is limited to 1 GB. To store 100 million records (depending on their size), you would need the Blaze plan (pay-as-you-go), which allows for unlimited storage. 
 =========================================================================================
 
+STEPS TO USE THE BROWSER AND URILINKS.COM
+for brave browser: ctrl-shift-d saves all open tabs to folder
+ it will save it to NewFolder, so you will need to change the foldername
+
+steps for other browsers: 
+To copy the URLs of all open tabs at once for bookmarking or sharing, you can use a built-in browser feature or a dedicated extension. 
+
+Built-in Bookmark Method (No Extensions Required) Most browsers allow you to save all open tabs into a single folder, which you can then copy as a list.
+
+Chrome, Edge, and Firefox: Press Ctrl+Shift+D (Windows/Linux) or Cmd+Shift+D (Mac) to bookmark all tabs into a new folder. 
+Extract URLs: Open the Bookmark Manager (Ctrl+Shift+O in Chrome/Edge, or via the menu in Firefox), select the newly created folder, highlight all bookmarks (Ctrl+A / Cmd+A), and copy them (Ctrl+C / Cmd+C). 
+Paste: Paste the list into a text editor; most browsers paste the URLs as plain text. 
+Extension Method (Fastest & Most Flexible) Using an extension is the quickest way to copy URLs directly to your clipboard in various formats (plain text, markdown, HTML).
+
+TabCopy: A popular Chrome/Edge extension that copies all tab URLs with one click, allowing you to choose the output format. 
+Copy All Tabs (Free): Another lightweight extension that automatically formats URLs as a list for easy pasting. 
+Firefox Users: The Copy All Tab URLs add-on provides similar functionality specifically for Firefox. 
+----------------------------------------
+
+ideas
+tritter.com, pocket.com has bookmarks for importing
+convert user bookmarks to rss feed for sharing
+https://pinboard.in/tour/
+show new links
+offer an archive checkbox with with remove or make private
+
+
+
 

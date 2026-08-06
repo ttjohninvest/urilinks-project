@@ -17,7 +17,10 @@ Medical Referral Links Management System Usage and Federal Referral Law Warnings
   and view them by clicking on them. You may upload a bookmark file that is under 100kb. You may add them one by one.<br />
 -a sharable link is provided so that you may share your content with others<br />
 -what saving bookmarks to chrome browser bookmarks, you will need to enter a file name so when they are imported<br />
-  you will so your folder name as a menu item<br />
+  you will so your folder name as a menu item<br />import { sortByFolder } from './../actions/filters';
+import { startRemoveBmok } from './../actions/bmok';
+import BookmarksManager from './BookmarksManager';
+
 -the menu items are in ascii alphabetical order, numbers appear before letters<br />
 -if you want a menu item to appear before another menu item, preceed the hashtag name with 1 or more zeros<br />
   two zeros will sort before one zero<br />
@@ -49,6 +52,14 @@ Medical Referral Links Management System Usage and Federal Referral Law Warnings
 -If you have any questions, comments or concerns, please contact me, John, at john@urilinks.com or johmcg64@gmail.com<br />
 -my phone number is 775 559 5740. I am happy to help you.
 </div>
+
+recipes:
+steps to save all tabs to bookmarks sortByFolder
+1 press ctrl-shift-d keys together
+2 it will open up a dialog
+3 click save
+4 click bookmarks manager 
+5 change the folder name 
 
 </div>)
 };

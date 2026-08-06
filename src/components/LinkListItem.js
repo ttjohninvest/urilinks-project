@@ -794,16 +794,7 @@ const LinkListItem = (props) => {
                             <div>
                               <a
                                 ref={myRef}
-                                className={`ib-
-                                   text-size-5-
-                                    text-color-db-
-                                     color-purple-
-                                      breakWord-
-                                       margin-left-11-
-                                        color-black-2-
-                                         ${
-                                  !!props.yturl ? "" : "padding-top-n-hh-"
-                                }`}
+                                className={`ib`}
                                 href={props.Url}
                           
                                 target="_blank"

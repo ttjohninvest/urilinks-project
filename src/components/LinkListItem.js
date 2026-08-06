@@ -806,7 +806,7 @@ const LinkListItem = (props) => {
 
                         <ol id={"uldata" + props.id} start="0"></ol>
                       </div>
-                      <div className="border5" style={{borderRadius:'10px',marginLeft:'1rem',width:'600px',height:'180px',display:'flex',justifyContent: 'center',alignItems: 'center'}}>
+                      <div className="border5" style={{marginTop:'1rem',borderRadius:'10px',marginLeft:'1rem',width:'600px',height:'190px',display:'flex',justifyContent: 'center',alignItems: 'center'}}>
 I love you.
                       </div>
                     </div>

@@ -881,7 +881,7 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
-                                     <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+                                     {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <span className="color-black">
                                         {!!props.archive
                                           ? "unarchive it" //+props.r
@@ -907,7 +907,7 @@ const LinkListItem = (props) => {
                                         className="cb1 cursor-pointer"
                                       />
                                       <label htmlFor={"archive%" + props.id} />
-                                    </span>
+                                    </span> */}
                                     </span>
                                   </div>
                                 ) : (
@@ -943,7 +943,7 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
-                                    <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                                    {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                                       <span className="color-black">
                                         {!!props.archive
                                           ? "unarchive it"
@@ -966,7 +966,7 @@ const LinkListItem = (props) => {
                                         className="cb1 cursor-pointer pointereventsnone"
                                       />
                                       <label htmlFor={"archive%" + props.id} />
-                                    </span>
+                                    </span> */}
                                   </div>
                                 )}
                               </div>

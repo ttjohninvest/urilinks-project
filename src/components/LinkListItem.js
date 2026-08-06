@@ -768,8 +768,8 @@ const LinkListItem = (props) => {
                               />
                             </div>
                             <div className="">
-                              {
-                                //isityt(props.Url)
+                              {/* {
+                                
                                 !!props.yturl && (
                                   //true
                                   <a
@@ -789,25 +789,11 @@ const LinkListItem = (props) => {
                                     />
                                   </a>
                                 )
-                              }
+                              } */}
                             </div>
                             <div>
                               {props.description}
-                              {/* <a
-                                ref={myRef}
-                                className={`ib`}
-                                href={props.Url}
-                          
-                                target="_blank"
-                                title={
-                                  "click to open the webpage: " + props.Url
-                                }
-                                onClick={storeScrollPosition}
-                              >
-                               
-                                {props.description}
-                               
-                              </a> */}
+                             
                             </div>
                             
                           </div>

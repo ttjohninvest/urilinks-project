@@ -636,7 +636,7 @@ function ExpandableArray(props) {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         if (r === "readonly" && s.showpublic === 0)
                           return <div></div>;
-                        else if (r !== "readonly" && true && s.archive === 1)
+                        else if (r !== "readonly" && true && s.archive === 0)
                           <div
                             key={index}
                             className="b1x- item-newspaper- padding-all- text-size-5 element5- border-bottom-5z border-left-5 padding-bottom-5z"

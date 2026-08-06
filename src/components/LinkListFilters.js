@@ -645,29 +645,21 @@ function ExpandableArray(props) {
                               className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                             >
                               <a
-                                className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} ${
-                                  useButtons === true
-                                    ? "b1xw"
-                                    : "ib flexrowzc22 margin-top-1 widthmenupane"
-                                } ${
-                                  useButtons === true ? "b1xw" : ""
-                                } nounderline- ${
-                                  useButtons === true ? "color-white-1" : ""
-                                } ${useButtons === true ? "button-link-4" : ""} ${
+                                className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
+                                ib flexrowzc22- margin-top-1 ${
                                   props.b == 1
                                     ? "pointereventsauto underline"
                                     : "pointereventsnone"
                                 }`}
                                 style={{ whiteSpace: "pre-wrap" }}
                                 href="#"
-                                //onClick={() => props.setit(s.hashtag, event)}
-                                //onClick = {()=>setItNow(index, s.hashtag, event)}
+                               
                                 onClick={() =>
                                   setItNow(index, s.description, event)
                                 }
+
                                 title={`click to see results`}
                               >
-                                {/*sep(s.hashtag)*/}
                                 <span>{s.description2}</span>
                               </a>
                               <br />

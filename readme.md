@@ -1787,4 +1787,9 @@ offer an archive checkbox with with remove or make private
 
 
 
-
+=======================
+programming solved problems
+the reason the left menu pane was giving changing with sizes when a menu item was clicked on is because
+of the length of the link.description in the anchor tag
+solution truncateString function
+=============

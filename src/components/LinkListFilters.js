@@ -570,16 +570,12 @@ function ExpandableArray(props) {
             <div className="border-right-5"></div>
 
             <div
-              className={`${useButtons === true ? "width30p" : "width30pt"} border2black- border-right-5 sticky-div-`}
+              className={`${useButtons === true ? "width30p" : "width30pt"} border-right-5`}
             >
-              <div className="containerhs-">
+              <div className="">
                 <div
                   ref={props.ref1}
-                  className={`${
-                    newspaper === false
-                      ? "grid-container5-"
-                      : "grid-container5-newspaper-"
-                  } background-white-1 borderradius5`}
+                  className={`${""} background-white-1 borderradius5`}
                   title={
                     props.signup === true
                       ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
@@ -637,8 +633,11 @@ function ExpandableArray(props) {
                       {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
-                        if((rt === "readonly")  && 
-                        (s.showpublic === 0 || s.archive === 1)) return (<div></div>)
+                        if(
+                          //(rt === "readonly")  && 
+                        (s.showpublic === 0
+                           //|| s.archive === 1
+                          )) return (<div></div>)
                         else
                           return (
                             <div

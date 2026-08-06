@@ -50,10 +50,7 @@ function ExpandableArray(props) {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
 
-  const params = new URLSearchParams(window.location.search);
-  const signup = params.get("signup");
-  const r = params.get("x");
-  const id = params.get("id");
+  
   const myRef = useRef(null);
   const scrollInterval = useRef(null);
 
@@ -70,6 +67,11 @@ function ExpandableArray(props) {
   }
   //
   const [isToggled, setIsToggled] = useState(x);
+
+  const params = new URLSearchParams(window.location.search);
+  const signup = params.get("signup");
+  const rt = params.get("x");
+  const id = params.get("id");
 
   useEffect(() => {
     console.log(
@@ -635,7 +637,7 @@ function ExpandableArray(props) {
                       {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         //if (r === "readonly" && s.showpublic === 0) return (<div></div>)
-                        if(//(r === "readonly")  && 
+                        if((rt === "readonly")  && 
                         (s.showpublic === 0 || s.archive === 1)) return (<div></div>)
                         else
                           return (

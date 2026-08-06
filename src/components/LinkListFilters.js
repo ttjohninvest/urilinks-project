@@ -638,7 +638,7 @@ function ExpandableArray(props) {
                           //return <div></div>;
                         //else if (r !== "readonly" && true && s.archive === 1)
                         //else 
-                          if (true) //(s.archive === 1)
+                          if (s.archive === 1)
                           return (<div
                             key={index}
                             className="b1x- item-newspaper- padding-all- text-size-5 element5- border-bottom-5z border-left-5 padding-bottom-5z"

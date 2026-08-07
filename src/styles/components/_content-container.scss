@@ -580,3 +580,21 @@ input#option1[type="radio"] {
   // padding-right:1rem;
   border-radius: 5px;
 }
+
+.searchinput {
+  -webkit-border-radius: 20px; /* Safari, Chrome, older WebKit */
+  -moz-border-radius: 20px;    /* Older Firefox */
+  -khtml-border-radius: 20px;  /* Very old Konqueror */
+  border-radius: 20px;         /* Standard CSS3 */
+  border: 1px solid #2d9fd9;
+  color: #a0d18c;
+  width: 250px;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.searchinput:focus {
+  outline: none;
+  border: 1px solid #a0d18c;
+  color: #2d9fd9;
+}

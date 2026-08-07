@@ -744,146 +744,99 @@ const LinkListItem = (props) => {
   };
   //
 
-  const truncateString=(str, length)=>{
-  return str.length > length ? str.slice(0, length) + '...' : str;
-}
+  const truncateString = (str, length) => {
+    return str.length > length ? str.slice(0, length) + "..." : str;
+  };
 
   return (
     <div key={props.index}>
-          
-                              <img
-                                className=""
-                                width="20"
-                                height="20"
-                                src={props.faviconURL}
-                              />
-                            
-                           
-                              {!!props.yturl && (
-                                  //true
-                                  <a
-                                    ref={myRef}
-                                    className=""
-                                    href={props.Url}
-                                    //target="_self"
-                                    target="_blank"
-                                    title={
-                                      "click to open the webpage: " + props.Url
-                                    }
-                                    onClick={storeScrollPosition}
-                                  >
-                                    <img
-                                      className=""
-                                      src={props.yturl}
-                                    />
-                                  </a>
-                                
-                                  )}
-                            
+      <img className="" width="20" height="20" src={props.faviconURL} />
 
+      {!!props.yturl && (
+        
+        <a
+          ref={myRef}
+          className=""
+          href={props.Url}
+          //target="_self"
+          target="_blank"
+          title={"click to open the webpage: " + props.Url}
+          onClick={storeScrollPosition}
+        >
+          <img className="" src={props.yturl} />
+        </a>
+      )}
 
+      <ol id={"uldata" + props.id} start="0"></ol>
 
-                           
-                          
-                        
+      <div className="">
+        <a
+          ref={myRef}
+          className={``}
+          href={props.Url}
+          target="_blank"
+          title={"click to open the webpage: " + props.Url}
+          onClick={storeScrollPosition}
+        >
+          {/* {props.description} */}
+          {truncateString(props.description, 80)}
+        </a>
+      </div>
 
-                        <ol id={"uldata" + props.id} start="0"></ol>
-                      
-                     
-                    
-
-
-
-                  
-              
-<div className="">
-
-                              <a
-                                ref={myRef}
-                                className={``}
-                                href={props.Url}
-                              
-                                target="_blank"
-                                title={
-                                  "click to open the webpage: " + props.Url
-                                }
-                                onClick={storeScrollPosition}
-                              >
-                                
-                                {/* {props.description} */}
-                                {truncateString(props.description,80)}
-                              </a>
-                            </div>
- 
-                              <div className="">
-                                {props.signup.signup === true ? (
-                                  <div>
-                                    <Link
-                                      className="pointereventsauto"
-                                      to={`/edit/${props.id}`}
-                                    >
-                                      <span className="">
-                                        edit or remove
-                                      </span>
-                                    </Link>
-                                  </div>
-                                ) : (
-                                  <div>
-                                    <Link
-                                      className="pointereventsnone"
-                                      to={`/edit/${props.id}`}
-                                    >
-                                      <span className="">
-                                        edit or remove
-                                      </span>
-                                    </Link>
-                                  </div>
-                                )}
-                                {props.signup.signup === true ? (
-                                  <div>
-                                    <span className="">
-                                    <span className="pointereventsauto">
-                                      <span className="">
-                                        remove:&nbsp;
-                                      </span>
-                                      <input
-                                        type="checkbox"
-                                        id={"delete%" + props.id}
-                                        name={"delete%" + props.id}
-                                        value={props.id}
-                                        onChange={handleCheckboxDelete}
-                                        title="click to delete the url"
-                                        className=""
-                                      />
-                                      <label htmlFor={"delete%" + props.id} />
-                                    </span>
-                                    <span className="pointereventsauto">
-                                      <span className="">
-                                        {!!props.showpublic
-                                          ? "make private"
-                                          : "made private"}
-                                        :&nbsp;
-                                      </span>
-                                      <input
-                                        checked={
-                                          !!props.showpublic ? "" : "checked"
-                                        }
-                                        type="checkbox"
-                                        id={"private%" + props.id}
-                                        name={"private%" + props.id}
-                                        value={props.id}
-                                        onChange={() =>
-                                          handleCheckboxPrivate(
-                                            !!props.showpublic,
-                                            event,
-                                          )
-                                        }
-                                        title={!!props.showpublic ?"click to make url private":"click to make url public"}
-                                        className=""
-                                      />
-                                      <label htmlFor={"delete%" + props.id} />
-                                    </span>
-                                     {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
+      <div className="">
+        {props.signup.signup === true ? (
+          <div>
+            <Link className="pointereventsauto" to={`/edit/${props.id}`}>
+              <span className="">edit or remove</span>
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <Link className="pointereventsnone" to={`/edit/${props.id}`}>
+              <span className="">edit or remove</span>
+            </Link>
+          </div>
+        )}
+        {props.signup.signup === true ? (
+          <div>
+            <span className="">
+              <span className="pointereventsauto">
+                <span className="">remove:&nbsp;</span>
+                <input
+                  type="checkbox"
+                  id={"delete%" + props.id}
+                  name={"delete%" + props.id}
+                  value={props.id}
+                  onChange={handleCheckboxDelete}
+                  title="click to delete the url"
+                  className=""
+                />
+                <label htmlFor={"delete%" + props.id} />
+              </span>
+              <span className="pointereventsauto">
+                <span className="">
+                  {!!props.showpublic ? "make private" : "made private"}
+                  :&nbsp;
+                </span>
+                <input
+                  checked={!!props.showpublic ? "" : "checked"}
+                  type="checkbox"
+                  id={"private%" + props.id}
+                  name={"private%" + props.id}
+                  value={props.id}
+                  onChange={() =>
+                    handleCheckboxPrivate(!!props.showpublic, event)
+                  }
+                  title={
+                    !!props.showpublic
+                      ? "click to make url private"
+                      : "click to make url public"
+                  }
+                  className=""
+                />
+                <label htmlFor={"delete%" + props.id} />
+              </span>
+              {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <span className="color-black">
                                         {!!props.archive
                                           ? "unarchive it" //+props.r
@@ -910,42 +863,37 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span> */}
-                                    </span>
-                                  </div>
-                                ) : (
-                                  <div>
-                                    <span className="pointereventsnone">
-                                      <span className="">
-                                        remove:&nbsp;
-                                      </span>
-                                      <input
-                                        
-                                        type="checkbox"
-                                        id={"delete%" + props.id}
-                                        name={"delete%" + props.id}
-                                        value={props.id}
-                                        //onChange={handleCheckboxDelete}
-                                        title="click to remove url"
-                                        className="pointereventsnone"
-                                      />
-                                      <label htmlFor={"delete%" + props.id} />
-                                    </span>
-                                    <span className="pointereventsnone">
-                                      <span className="color-black">
-                                        make private:&nbsp;
-                                      </span>
-                                      <input
-                                        type="checkbox"
-                                        id={"private%" + props.id}
-                                        name={"private%" + props.id}
-                                        value={props.id}
-                                        //onChange={handleCheckboxPrivate}
-                                        title="click to make url private"
-                                        className="pointereventsnone"
-                                      />
-                                      <label htmlFor={"delete%" + props.id} />
-                                    </span>
-                                    {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+            </span>
+          </div>
+        ) : (
+          <div>
+            <span className="pointereventsnone">
+              <span className="">remove:&nbsp;</span>
+              <input
+                type="checkbox"
+                id={"delete%" + props.id}
+                name={"delete%" + props.id}
+                value={props.id}
+                //onChange={handleCheckboxDelete}
+                title="click to remove url"
+                className="pointereventsnone"
+              />
+              <label htmlFor={"delete%" + props.id} />
+            </span>
+            <span className="pointereventsnone">
+              <span className="color-black">make private:&nbsp;</span>
+              <input
+                type="checkbox"
+                id={"private%" + props.id}
+                name={"private%" + props.id}
+                value={props.id}
+                //onChange={handleCheckboxPrivate}
+                title="click to make url private"
+                className="pointereventsnone"
+              />
+              <label htmlFor={"delete%" + props.id} />
+            </span>
+            {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                                       <span className="color-black">
                                         {!!props.archive
                                           ? "unarchive it"
@@ -969,41 +917,36 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>  */}
-                                  </div>
-                                )}
-                              </div>
-                            
-                <div className="italicText text-size-10 color-purple margin-left-11p1 color-black-2">
-                  <span className="ib- padding-left-1122 margin-top-n-15a margin-bottom-abc">
-                    Link saved on:{" "}
-                    {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
-                  </span>
-                </div>
-              
-              <div className="padding-top-1t- textWrap100- text-size-1- font-weight-1- card-background-color- padding-bottom-2- padding-left-2-  text-color-db- text-size-2- margin-left-11p- color-black-2-">
-                {props.note}
-              </div>
-              {props.signup.signup === true && (
-                <div className="flexrow2w">
-                  <MayDoInGoogleDocument />
-                  <CalendarGoogle />
-                  <FBShareButton url={props.Url} />
+          </div>
+        )}
+      </div>
 
-                  <MessengerButton />
-                  <LinkedInShareButton url={props.Url} />
-                  {/* <AddToAny /> */}
+      <div className="italicText text-size-10 color-purple margin-left-11p1 color-black-2">
+        <span className="ib- padding-left-1122 margin-top-n-15a margin-bottom-abc">
+          Link saved on:{" "}
+          {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
+        </span>
+      </div>
 
-                  <XShareButton url={props.Url} />
-                  <MapQuestButton />
-                  <AlarmClockButton />
-                  <GoogleMapsButton />
-                  <GoogleEarthButton />
-                </div>
-              )}
-            
-          
-        
-      
+      <div className="padding-top-1t textWrap100 text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p color-black-2">
+        {props.note}
+      </div>
+      {props.signup.signup === true && (
+        <div className="flexrow2w">
+          <MayDoInGoogleDocument />
+          <CalendarGoogle />
+          <FBShareButton url={props.Url} />
+
+          <MessengerButton />
+          <LinkedInShareButton url={props.Url} />
+
+          <XShareButton url={props.Url} />
+          <MapQuestButton />
+          <AlarmClockButton />
+          <GoogleMapsButton />
+          <GoogleEarthButton />
+        </div>
+      )}
     </div>
   );
 };
@@ -1027,5 +970,6 @@ const mapDispatchToProps = (dispatch, props) => ({
   archiveLink2: (data) => dispatch(archiveLink2(data)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LinkListItem));
-
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(LinkListItem),
+);

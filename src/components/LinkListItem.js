@@ -748,6 +748,28 @@ const LinkListItem = (props) => {
     return str.length > length ? str.slice(0, length) + "..." : str;
   };
 
+  const putinnewlines = (str) => {
+  
+const hashtags = str.match(/#\w+/g) || [];
+// Result: ["#world", "#javascript", "#coding"]   
+  const regex = /#([a-zA-Z0-9_]+)/g;
+
+  let match;
+  let matchesstring = "";
+  let i = 0;
+
+   while ((match = regex.exec(hashtags[i])) !== null) {
+    if(i===0)
+      matchesstring += "\n"+match[0]
+    else {
+      matchesstring += " "+match[0]
+    }
+    i=i+1
+  }
+
+  return matchesstring;
+};
+
   return (
     <div key={props.index}>
       <img className="" width="20" height="20" src={props.faviconURL} />
@@ -932,7 +954,7 @@ const LinkListItem = (props) => {
       </div>
 
       <div className="normal-wrap">
-        {props.note}
+        {putinnewlines(props.note)}
       </div>
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">

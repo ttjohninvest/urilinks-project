@@ -3,6 +3,7 @@ import React,{useEffect} from "react";
 const TermsAndPrivacy = () => {
 
    useEffect(()=>{
+    document.title="urilinks (terms and privacy)"
     //   if(!!window.document.getElementById("aiaccess")) window.document.getElementById("aiaccess").textContent=""
     //   if(!!window.document.getElementById("usage")) window.document.getElementById("usage").textContent=""
     //   if(!!window.document.getElementById("termsandprivacy")) window.document.getElementById("termsandprivacy").textContent=""

@@ -276,7 +276,7 @@ export const LinkList = (props) => {
                     return <div></div>;
                   else
                     return (
-                      <div key={link.id + "1"}>
+                      <div key={link.id + "1"} className="border-bottom-1t">
                         <LinkListItem
                           r={r}
                           key={link.id}

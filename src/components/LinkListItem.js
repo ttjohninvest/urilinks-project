@@ -787,7 +787,7 @@ const LinkListItem = (props) => {
         {props.signup.signup === true ? (
           <div>
             <Link className="pointereventsauto" to={`/edit/${props.id}`}>
-              <span className="">edit or remove</span>
+              <span className="" style={{cursor:'pointer'}}>edit or remove</span>
             </Link>
           </div>
         ) : (
@@ -810,6 +810,7 @@ const LinkListItem = (props) => {
                   onChange={handleCheckboxDelete}
                   title="click to delete the url"
                   className=""
+                  style={{cursor:'pointer'}}
                 />
                 <label htmlFor={"delete%" + props.id} />
               </span>
@@ -819,6 +820,7 @@ const LinkListItem = (props) => {
                   :&nbsp;
                 </span>
                 <input
+                  style={{cursor:'pointer'}}
                   checked={!!props.showpublic ? "" : "checked"}
                   type="checkbox"
                   id={"private%" + props.id}
@@ -845,6 +847,7 @@ const LinkListItem = (props) => {
                                         :&nbsp;
                                       </span>
                                       <input
+                                      style={{cursor:'pointer'}}
                                         checked={
                                           !!props.archive ? "checked" : ""
                                         }
@@ -859,7 +862,7 @@ const LinkListItem = (props) => {
                                           )
                                         }
                                         title={!!props.archive ?"click to archive it":"click to unarchive it"}
-                                        className="cb1 cursor-pointer"
+                                        className=""
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span> */}

@@ -954,7 +954,8 @@ const hashtags = str.match(/#\w+/g) || [];
       </div>
 
       <div className="normal-wrap">
-        {putinnewlines(props.note)}
+        {/* {putinnewlines(props.note)} */}
+        {props.note}
       </div>
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">

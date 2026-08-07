@@ -224,75 +224,75 @@ const LinkListItem = (props) => {
       return a.pathname.localeCompare(b.pathname);
     });
 
-    console.log(
-      "data1 sorted by two fields name and pathname=" +
-        JSON.stringify(data1s, null, 4),
-    );
+    // console.log(
+    //   "data1 sorted by two fields name and pathname=" +
+    //     JSON.stringify(data1s, null, 4),
+    // );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
     //setS(1) //makes the other list ready to be displayed
-    const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    ul.innerHTML = "";
-    if (data1s.length === 0) {
-      let li = document.createElement("li");
-      li.className = "lsn corangered";
-      li.innerHTML = `Results: 0`;
+    // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+    // ul.innerHTML = "";
+    //if (data1s.length === 0) {
+      // let li = document.createElement("li");
+      // li.className = "lsn corangered";
+      // li.innerHTML = `Results: 0`;
 
-      ul.appendChild(li);
-    } else {
-      let li0 = document.createElement("li");
-      li0.className = "lsn corangered";
-      li0.innerHTML = `Results: ${data1s.length} url(s)`;
+      // ul.appendChild(li);
+    //} else {
+      // let li0 = document.createElement("li");
+      // li0.className = "lsn corangered";
+      // li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
-      ul.appendChild(li0);
+      // ul.appendChild(li0);
 
-      data1s.map((d) => {
-        let li = document.createElement("li");
+      // data1s.map((d) => {
+      //   let li = document.createElement("li");
 
-        let a = document.createElement("a");
-        a.title = "click to open the page";
-        a.className = "nounderline color-purple";
-        a.href = d.url;
-        a.target = "_blank";
-        a.innerHTML = `${decodeURIComponent(d.url)}`;
+      //   let a = document.createElement("a");
+      //   a.title = "click to open the page";
+      //   a.className = "nounderline color-purple";
+      //   a.href = d.url;
+      //   a.target = "_blank";
+      //   a.innerHTML = `${decodeURIComponent(d.url)}`;
 
-        // li.appendChild(a);
+      //   // li.appendChild(a);
 
-        // ul.appendChild(li);
+      //   // ul.appendChild(li);
 
-        let a2 = document.createElement("a");
-        a2.title = `click to open page,${d.hostname}`;
-        a2.className = "nounderline color-black";
-        a2.href = "https://" + d.hostname;
-        a2.target = "_blank";
-        a2.innerHTML = `${d.hostname}`;
+      //   let a2 = document.createElement("a");
+      //   a2.title = `click to open page,${d.hostname}`;
+      //   a2.className = "nounderline color-black";
+      //   a2.href = "https://" + d.hostname;
+      //   a2.target = "_blank";
+      //   a2.innerHTML = `${d.hostname}`;
 
-        let span2 = document.createElement("span");
-        let br2 = document.createElement("br");
+      //   let span2 = document.createElement("span");
+      //   let br2 = document.createElement("br");
 
-        span2.appendChild(a);
-        span2.appendChild(br2);
-        span2.appendChild(a2);
-        //https://www.google.com/search?q=arthritis
+      //   span2.appendChild(a);
+      //   span2.appendChild(br2);
+      //   span2.appendChild(a2);
+      //   //https://www.google.com/search?q=arthritis
 
-        let pathnamearray = d.pathname.split("/");
+      //   let pathnamearray = d.pathname.split("/");
 
-        for (let i = 0; i < pathnamearray.length; i++) {
-          if (pathnamearray[i + 1] !== undefined) {
-            let a3 = document.createElement("a");
-            a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-            a3.className = "nounderline color-black";
-            a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
-            a3.target = "_blank";
-            a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
-            span2.appendChild(a3);
-          }
-        }
+      //   for (let i = 0; i < pathnamearray.length; i++) {
+      //     if (pathnamearray[i + 1] !== undefined) {
+      //       let a3 = document.createElement("a");
+      //       a3.title = `click to google search for ${pathnamearray[i + 1]}`;
+      //       a3.className = "nounderline color-black";
+      //       a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+      //       a3.target = "_blank";
+      //       a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
+      //       span2.appendChild(a3);
+      //     }
+      //   }
 
-        li.appendChild(span2);
-        ul.appendChild(li);
-      });
-    }
+      //   li.appendChild(span2);
+      //   ul.appendChild(li);
+      // });
+    //}
   };
 
   const sortit1 = (event) => {
@@ -342,63 +342,63 @@ const LinkListItem = (props) => {
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
     //setS(1) //makes the other list ready to be displayed
-    const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    ul.innerHTML = "";
-    if (data1s.length === 0) {
-      let li = document.createElement("li");
-      li.className = "lsn corangered";
-      li.innerHTML = `Results: 0`;
+    // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+    // ul.innerHTML = "";
+    // if (data1s.length === 0) {
+    //   let li = document.createElement("li");
+    //   li.className = "lsn corangered";
+    //   li.innerHTML = `Results: 0`;
 
-      ul.appendChild(li);
-    } else {
-      let li0 = document.createElement("li");
-      li0.className = "lsn corangered";
-      li0.innerHTML = `Results: ${data1s.length} url(s)`;
+    //   ul.appendChild(li);
+    // } else {
+    //   let li0 = document.createElement("li");
+    //   li0.className = "lsn corangered";
+    //   li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
-      ul.appendChild(li0);
+    //   ul.appendChild(li0);
 
-      data1s.map((d) => {
-        let li = document.createElement("li");
-        let a = document.createElement("a");
-        a.title = "click to open the page";
-        a.className = "nounderline color-purple";
-        a.href = d.url;
-        //a.target = "_blank";
-        a.innerHTML = `${decodeURIComponent(d.url)}`;
+    //   data1s.map((d) => {
+    //     let li = document.createElement("li");
+    //     let a = document.createElement("a");
+    //     a.title = "click to open the page";
+    //     a.className = "nounderline color-purple";
+    //     a.href = d.url;
+    //     //a.target = "_blank";
+    //     a.innerHTML = `${decodeURIComponent(d.url)}`;
 
-        let a2 = document.createElement("a");
-        a2.title = `click to open page,${d.hostname}`;
-        a2.className = "nounderline color-black";
-        a2.href = "https://" + d.hostname;
-        a2.target = "_blank";
-        a2.innerHTML = `${d.hostname}`;
+    //     let a2 = document.createElement("a");
+    //     a2.title = `click to open page,${d.hostname}`;
+    //     a2.className = "nounderline color-black";
+    //     a2.href = "https://" + d.hostname;
+    //     a2.target = "_blank";
+    //     a2.innerHTML = `${d.hostname}`;
 
-        let span2 = document.createElement("span");
-        let br2 = document.createElement("br");
+    //     let span2 = document.createElement("span");
+    //     let br2 = document.createElement("br");
 
-        span2.appendChild(a);
-        span2.appendChild(br2);
-        span2.appendChild(a2);
-        //https://www.google.com/search?q=arthritis
+    //     span2.appendChild(a);
+    //     span2.appendChild(br2);
+    //     span2.appendChild(a2);
+    //     //https://www.google.com/search?q=arthritis
 
-        let pathnamearray = d.pathname.split("/");
+    //     let pathnamearray = d.pathname.split("/");
 
-        for (let i = 0; i < pathnamearray.length; i++) {
-          if (pathnamearray[i + 1] !== undefined) {
-            let a3 = document.createElement("a");
-            a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-            a3.className = "nounderline color-black";
-            a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
-            a3.target = "_blank";
-            a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
-            span2.appendChild(a3);
-          }
-        }
+    //     for (let i = 0; i < pathnamearray.length; i++) {
+    //       if (pathnamearray[i + 1] !== undefined) {
+    //         let a3 = document.createElement("a");
+    //         a3.title = `click to google search for ${pathnamearray[i + 1]}`;
+    //         a3.className = "nounderline color-black";
+    //         a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+    //         a3.target = "_blank";
+    //         a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
+    //         span2.appendChild(a3);
+    //       }
+    //     }
 
-        li.appendChild(span2);
-        ul.appendChild(li);
-      });
-    }
+    //     li.appendChild(span2);
+    //     ul.appendChild(li);
+    //   });
+    // }
   };
 
   const sortit3 = (event) => {
@@ -456,63 +456,63 @@ const LinkListItem = (props) => {
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
     //setS(1) //makes the other list ready to be displayed
-    const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    ul.innerHTML = "";
-    if (data1s.length === 0) {
-      let li = document.createElement("li");
-      li.className = "lsn corangered";
-      li.innerHTML = `Results: 0`;
+    // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+    // ul.innerHTML = "";
+    // if (data1s.length === 0) {
+    //   let li = document.createElement("li");
+    //   li.className = "lsn corangered";
+    //   li.innerHTML = `Results: 0`;
 
-      ul.appendChild(li);
-    } else {
-      let li0 = document.createElement("li");
-      li0.className = "lsn corangered";
-      li0.innerHTML = `Results: ${data1s.length} url(s)`;
+    //   ul.appendChild(li);
+    // } else {
+    //   let li0 = document.createElement("li");
+    //   li0.className = "lsn corangered";
+    //   li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
-      ul.appendChild(li0);
+    //   ul.appendChild(li0);
 
-      data1s.map((d) => {
-        let li = document.createElement("li");
-        let a = document.createElement("a");
-        a.title = "click to open the page";
-        a.className = "nounderline color1- color-purple";
-        a.href = d.url;
-        a.target = "_blank";
-        a.innerHTML = `${decodeURIComponent(d.url)}`;
+    //   data1s.map((d) => {
+    //     let li = document.createElement("li");
+    //     let a = document.createElement("a");
+    //     a.title = "click to open the page";
+    //     a.className = "nounderline color1- color-purple";
+    //     a.href = d.url;
+    //     a.target = "_blank";
+    //     a.innerHTML = `${decodeURIComponent(d.url)}`;
 
-        let a2 = document.createElement("a");
-        a2.title = `click to open page,${d.hostname}`;
-        a2.className = "nounderline color-black";
-        a2.href = "https://" + d.hostname;
-        a2.target = "_blank";
-        a2.innerHTML = `${d.hostname}`;
+    //     let a2 = document.createElement("a");
+    //     a2.title = `click to open page,${d.hostname}`;
+    //     a2.className = "nounderline color-black";
+    //     a2.href = "https://" + d.hostname;
+    //     a2.target = "_blank";
+    //     a2.innerHTML = `${d.hostname}`;
 
-        let span2 = document.createElement("span");
-        let br2 = document.createElement("br");
+    //     let span2 = document.createElement("span");
+    //     let br2 = document.createElement("br");
 
-        span2.appendChild(a);
-        span2.appendChild(br2);
-        span2.appendChild(a2);
-        //https://www.google.com/search?q=arthritis
+    //     span2.appendChild(a);
+    //     span2.appendChild(br2);
+    //     span2.appendChild(a2);
+    //     //https://www.google.com/search?q=arthritis
 
-        let pathnamearray = d.pathname.split("/");
+    //     let pathnamearray = d.pathname.split("/");
 
-        for (let i = 0; i < pathnamearray.length; i++) {
-          if (pathnamearray[i + 1] !== undefined) {
-            let a3 = document.createElement("a");
-            a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-            a3.className = "nounderline color-black";
-            a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
-            a3.target = "_blank";
-            a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
-            span2.appendChild(a3);
-          }
-        }
+    //     for (let i = 0; i < pathnamearray.length; i++) {
+    //       if (pathnamearray[i + 1] !== undefined) {
+    //         let a3 = document.createElement("a");
+    //         a3.title = `click to google search for ${pathnamearray[i + 1]}`;
+    //         a3.className = "nounderline color-black";
+    //         a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+    //         a3.target = "_blank";
+    //         a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
+    //         span2.appendChild(a3);
+    //       }
+    //     }
 
-        li.appendChild(span2);
-        ul.appendChild(li);
-      });
-    }
+    //     li.appendChild(span2);
+    //     ul.appendChild(li);
+    //   });
+    // }
   };
 
   const sortit4 = (event) => {
@@ -547,77 +547,77 @@ const LinkListItem = (props) => {
 
     let data1s = data1.sort((a, b) => b.name.localeCompare(a.name));
 
-    console.log(
-      "data1 sorted by name and extension in hostname=" +
-        JSON.stringify(data1s, null, 4),
-    );
+    // console.log(
+    //   "data1 sorted by name and extension in hostname=" +
+    //     JSON.stringify(data1s, null, 4),
+    // );
     //setData2s(data1s)
     //setSortit1flag(true) //sortit1flag
     //setS(1) //makes the other list ready to be displayed
-    const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
-    ul.innerHTML = "";
-    if (data1s.length === 0) {
-      let li = document.createElement("li");
-      li.className = "lsn corangered";
-      li.innerHTML = `Results: 0`;
+    // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
+    // ul.innerHTML = "";
+    // if (data1s.length === 0) {
+    //   let li = document.createElement("li");
+    //   li.className = "lsn corangered";
+    //   li.innerHTML = `Results: 0`;
 
-      ul.appendChild(li);
-    } else {
-      let li0 = document.createElement("li");
-      li0.className = "lsn corangered";
-      li0.innerHTML = `Results: ${data1s.length} url(s)`;
+    //   ul.appendChild(li);
+    // } else {
+    //   let li0 = document.createElement("li");
+    //   li0.className = "lsn corangered";
+    //   li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
-      ul.appendChild(li0);
+    //   ul.appendChild(li0);
 
-      data1s.map((d) => {
-        let li = document.createElement("li");
-        let a = document.createElement("a");
-        a.title = "click to open the page";
-        a.className = "nounderline color-purple";
-        a.href = d.url;
-        a.target = "_blank";
-        a.innerHTML = `${decodeURIComponent(d.url)}`;
+    //   data1s.map((d) => {
+    //     let li = document.createElement("li");
+    //     let a = document.createElement("a");
+    //     a.title = "click to open the page";
+    //     a.className = "nounderline color-purple";
+    //     a.href = d.url;
+    //     a.target = "_blank";
+    //     a.innerHTML = `${decodeURIComponent(d.url)}`;
 
-        let a2 = document.createElement("a");
-        a2.title = `click to open page,${d.hostname}`;
-        a2.className = "nounderline color-black";
-        a2.href = "https://" + d.hostname;
-        a2.target = "_blank";
-        a2.innerHTML = `${d.hostname}`;
+    //     let a2 = document.createElement("a");
+    //     a2.title = `click to open page,${d.hostname}`;
+    //     a2.className = "nounderline color-black";
+    //     a2.href = "https://" + d.hostname;
+    //     a2.target = "_blank";
+    //     a2.innerHTML = `${d.hostname}`;
 
-        let span2 = document.createElement("span");
-        let br2 = document.createElement("br");
+    //     let span2 = document.createElement("span");
+    //     let br2 = document.createElement("br");
 
-        span2.appendChild(a);
-        span2.appendChild(br2);
-        span2.appendChild(a2);
-        //https://www.google.com/search?q=arthritis
+    //     span2.appendChild(a);
+    //     span2.appendChild(br2);
+    //     span2.appendChild(a2);
+    //     //https://www.google.com/search?q=arthritis
 
-        let pathnamearray = d.pathname.split("/");
+    //     let pathnamearray = d.pathname.split("/");
 
-        for (let i = 0; i < pathnamearray.length; i++) {
-          if (pathnamearray[i + 1] !== undefined) {
-            let a3 = document.createElement("a");
-            a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-            a3.className = "nounderline color-black";
-            a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
-            a3.target = "_blank";
-            a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
-            span2.appendChild(a3);
-          }
-        }
+    //     for (let i = 0; i < pathnamearray.length; i++) {
+    //       if (pathnamearray[i + 1] !== undefined) {
+    //         let a3 = document.createElement("a");
+    //         a3.title = `click to google search for ${pathnamearray[i + 1]}`;
+    //         a3.className = "nounderline color-black";
+    //         a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+    //         a3.target = "_blank";
+    //         a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
+    //         span2.appendChild(a3);
+    //       }
+    //     }
 
-        li.appendChild(span2);
-        ul.appendChild(li);
-      });
-    }
+    //     li.appendChild(span2);
+    //     ul.appendChild(li);
+    //   });
+    // }
   };
 
   const getUrlsList = (url2, id) => {
     if (s === 1) {
       setS(0);
-      const ul = document.getElementById("uldata" + id);
-      ul.innerHTML = "";
+      // const ul = document.getElementById("uldata" + id);
+      // ul.innerHTML = "";
       fetch("https://urilinks-project-links-to-tabs-expr.vercel.app", {
         method: "POST",
         headers: {
@@ -632,11 +632,11 @@ const LinkListItem = (props) => {
         .then((data) => {
           setData(data);
           if (data.length === 0) {
-            let li = document.createElement("li");
-            li.className = "lsn corangered";
-            li.innerHTML = `Results: 0`;
+            // let li = document.createElement("li");
+            // li.className = "lsn corangered";
+            // li.innerHTML = `Results: 0`;
 
-            ul.appendChild(li);
+            // ul.appendChild(li);
 
             //  let r = document.getElementById("resultsId")
             // r.innerHTML = `Results: ${data.length} url(s)`;
@@ -654,7 +654,7 @@ const LinkListItem = (props) => {
             span.obj = obj;
 
             span.addEventListener("click", sortit1);
-            ul.appendChild(span);
+            //ul.appendChild(span);
 
             let span2 = document.createElement("span");
             span2.innerHTML = "sort2a";
@@ -669,7 +669,7 @@ const LinkListItem = (props) => {
             span2.obj = obj2;
 
             span2.addEventListener("click", sortit2);
-            ul.appendChild(span2);
+            //ul.appendChild(span2);
 
             let span4 = document.createElement("span");
             span4.innerHTML = "sort3d";
@@ -684,7 +684,7 @@ const LinkListItem = (props) => {
             span4.obj = obj4;
 
             span4.addEventListener("click", sortit4);
-            ul.appendChild(span4);
+            //ul.appendChild(span4);
 
             let span3 = document.createElement("span");
             span3.innerHTML = "sort4d";
@@ -699,13 +699,13 @@ const LinkListItem = (props) => {
             span3.obj = obj3;
 
             span3.addEventListener("click", sortit3);
-            ul.appendChild(span3);
+            //ul.appendChild(span3);
 
             let li0 = document.createElement("li");
             li0.className = "lsn corangered";
             li0.innerHTML = `Results: ${data.length} url(s)`;
 
-            ul.appendChild(li0);
+            //ul.appendChild(li0);
 
             //here
             data.map((url, index) => {
@@ -716,9 +716,9 @@ const LinkListItem = (props) => {
               // console.log("urlstruct.pathname="+urlstruct.pathname); // "/path/to/page"
               // console.log("urlstruct.search="+urlstruct.search); // "?query=string"
               // console.log("urlstruct.hash="+urlstruct.hash); // "#fragment"
-              let li = document.createElement("li");
-              li.id = index; //index has to be unique
-              li.title = "click to go to page";
+              // let li = document.createElement("li");
+              // li.id = index; //index has to be unique
+              // li.title = "click to go to page";
               let a = document.createElement("a");
               a.title = "click to open the page";
               a.className = "nounderline color1- color-purple";
@@ -727,9 +727,9 @@ const LinkListItem = (props) => {
               //a.onClick = {()=>drilldown(url,index)}
               a.innerHTML = `${decodeURIComponent(url)}`; //data.title+", "+`${url}`;
 
-              li.appendChild(a);
+              // li.appendChild(a);
 
-              ul.appendChild(li);
+              // ul.appendChild(li);
             });
           }
         })
@@ -738,8 +738,8 @@ const LinkListItem = (props) => {
         });
     } else {
       setS(1);
-      const ul = document.getElementById("uldata" + id);
-      ul.innerHTML = "";
+      // const ul = document.getElementById("uldata" + id);
+      // ul.innerHTML = "";
     }
   };
   //
@@ -767,7 +767,7 @@ const LinkListItem = (props) => {
         </a>
       )}
 
-      <ol id={"uldata" + props.id} start="0"></ol>
+      {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
       <div className="">
         <a

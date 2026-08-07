@@ -24,13 +24,15 @@ import { v4 } from "uuid";
 import LoadingPage from "./LoadingPage";
 import StorageSizes from "./StorageSizes";
 
-  
-
- const params = new URLSearchParams(window.location.search);
+const params = new URLSearchParams(window.location.search);
 const r = params.get("x");
 
 export const LinkList = (props) => {
-  const thelinks = [{id:1,text:"hello 1"},{id:2,text:"hello 2"},{id:3,text:"hello 3"}]
+  const thelinks = [
+    { id: 1, text: "hello 1" },
+    { id: 2, text: "hello 2" },
+    { id: 3, text: "hello 3" },
+  ];
   const [selectedOption, setSelectedOption] = useState("option1");
   const [deleteData, setDeleteData] = useState([]);
   const [first, setFirst] = useState(0);
@@ -39,7 +41,7 @@ export const LinkList = (props) => {
   const [bgcolor1, setBgcolor1] = useState("#b87333"); //rgba(219, 87, 5, 1)
   const [bgcolor2, setBgcolor2] = useState("#db5705"); //rgba(219, 87, 5, 1)
   const [bgcolor3, setBgcolor3] = useState("#db5705"); //rgba(219, 87, 5, 1)
-  const [themax, setThemax] = useState(0)
+  const [themax, setThemax] = useState(0);
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -79,10 +81,10 @@ export const LinkList = (props) => {
     return max;
   };
 
-  useEffect(()=>{
-let x = getPlanMax()
-setThemax(x)
-  },[])
+  useEffect(() => {
+    let x = getPlanMax();
+    setThemax(x);
+  }, []);
 
   //   useEffect(() => {
   //      const processedData = props.links.map((item,index) => ({
@@ -148,7 +150,7 @@ setThemax(x)
   };
 
   const handleClick = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     //adlinkid
     //document.getElementById('adlinkid').classList.add('pointereventsnone');
     setShowComponent(true);
@@ -228,92 +230,70 @@ setThemax(x)
 
   return (
     <div>
- <button 
- title="Click the button to begin auto scroll."
- onClick={startScrollingUp2} className="button-2">
-            ScrollUp
-          </button>
+      <button
+        title="Click the button to begin auto scroll."
+        onClick={startScrollingUp2}
+        className="button-2"
+      >
+        ScrollUp
+      </button>
 
-          <button
-          ref={buttonRef2}
-          title="Click the button to stop auto scroll."
-            onClick={stopScrolling2}
-            className="button-2 ib margin-left-11"
-          >
-            Stop
-          </button>
+      <button
+        ref={buttonRef2}
+        title="Click the button to stop auto scroll."
+        onClick={stopScrolling2}
+        className="button-2 ib margin-left-11"
+      >
+        Stop
+      </button>
 
-          <button
-          title="Click the button to begin auto scroll."
-            onClick={startScrollingDown2}
-            className="button-2 ib margin-left-11"
-          >
-            ScrollDn
-          </button>
-    
-    <div className="border-left-5">
+      <button
+        title="Click the button to begin auto scroll."
+        onClick={startScrollingDown2}
+        className="button-2 ib margin-left-11"
+      >
+        ScrollDn
+      </button>
 
+      <div className="border-left-5">
+        <div id="before-link-summary-id" className="margin-bottom-5a"></div>
 
-
-
-
-      <div id="before-link-summary-id" className="margin-bottom-5a">
-        {/* <LinksSummary /> */}
-
-      
-
-      
-      </div>
-
-     
-<div
-  
->
-      {selectedOption === "option1" && (
-        <div 
-        id="ls2"
-        className="list-body- scrollable-div2content-">
-          {props.links.length === 0 ? (
-            <div className="list-item- list-item--message-">
-              
+        <div>
+          {selectedOption === "option1" && (
+            <div id="ls2" className="list-body- scrollable-div2content-">
+              {props.links.length === 0 ? (
+                <div className="list-item- list-item--message-"></div>
+              ) : (
+                //readonly means another user is seeing the page
+                //private urls don't have to be hid from owner of page
+                props.links.splice(0, themax).map((link, index) => {
+                  //if(r === "readonly" && link.showpublic === 0 || (link.showpublic === 1 && link.archive===1)) return (<div></div>)
+                  if (
+                    r === "readonly" &&
+                    link.showpublic === 0
+                    //|| link.archive === 1
+                  )
+                    return <div></div>;
+                  else
+                    return (
+                      <div key={link.id + "1"}>
+                        <LinkListItem
+                          r={r}
+                          key={link.id}
+                          //key={index}
+                          {...link}
+                          index={index}
+                          signup={props.signup.signup}
+                        />
+                      </div>
+                    );
+                })
+              )}
             </div>
-          ) : (
-            //readonly means another user is seeing the page
-            //private urls don't have to be hid from owner of page
-            props.links.splice(0, themax).map((link, index) => {
-              //if(r === "readonly" && link.showpublic === 0 || (link.showpublic === 1 && link.archive===1)) return (<div></div>)
-              if(r === "readonly" && (link.showpublic === 0
-                 //|| link.archive === 1
-                )) return (<div></div>)
-              else return (
-                <div key={link.id+"1"}>
-                  
-                  <LinkListItem
-                    r={r}
-                    key={link.id}
-                    //key={index}
-                    {...link}
-                    index={index}
-                    signup={props.signup.signup}
-                  />
-                </div>
-                
-              )
-            })
-            
-            
           )}
         </div>
-      )}
       </div>
-      
-     
-
-
-      
     </div>
-    </div>
-    
   );
 };
 //
@@ -322,7 +302,7 @@ const mapStateToProps = (state) => {
   const visibleLinks2 = selectLinks2(state.links2, state.filters);
 
   return {
-    theplan:state.theplan,
+    theplan: state.theplan,
     linkCount: visibleLinks.length,
     linkCount2: visibleLinks2.length,
     linksTotal: selectLinksTotal(visibleLinks),

@@ -251,7 +251,7 @@ setThemax(x)
             ScrollDn
           </button>
     
-    <div className="">
+    <div className="border-left-5">
 
 
 

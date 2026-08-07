@@ -582,11 +582,11 @@ input#option1[type="radio"] {
 }
 
 .searchinput {
-  -webkit-border-radius: 20px; /* Safari, Chrome, older WebKit */
-  -moz-border-radius: 20px;    /* Older Firefox */
-  -khtml-border-radius: 20px;  /* Very old Konqueror */
-  border-radius: 20px;         /* Standard CSS3 */
-  border: 1px solid #f3f3f3;//#2d9fd9;
+  -webkit-border-radius: 30px; /* Safari, Chrome, older WebKit */
+  -moz-border-radius: 30px;    /* Older Firefox */
+  -khtml-border-radius: 30px;  /* Very old Konqueror */
+  border-radius: 30px;         /* Standard CSS3 */
+  border: 1px solid #fbbf77;//#2d9fd9;
   color: black;//#a0d18c;
   width: 400px;
   height: 50px;
@@ -596,5 +596,5 @@ input#option1[type="radio"] {
 .searchinput:focus {
   outline: none;
   border: 1px solid rgba(219, 87, 5, 1);
-  color: #2d9fd9;
+  color: black;
 }

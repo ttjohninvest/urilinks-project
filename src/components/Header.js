@@ -471,7 +471,21 @@ export const Header = (props) => {
                         </span>
                       </Link>
                     </div>
-
+                    <div>
+                      <Link
+                        id="displayhashtags"
+                        className="header__title- nounderline"
+                        to="/displayhashtags"
+                        target="_blank"
+                      >
+                        <span
+                          className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
+                          title="Click to see your hashtags."
+                        >
+                          hashtags
+                        </span>
+                      </Link>
+                    </div>
                     <div>
                       <Link
                         id="termsandprivacy"

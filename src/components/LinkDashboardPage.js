@@ -228,21 +228,7 @@ left column
           />:<Simple3 />
           
           }
-
-           {props.links.length > 0 ? <DisplayHashtags setTheHashTagDivHeight={setTheHashTagDivHeight}  
-          b={b} 
-          
-          av={av}
-         
-          rerenderit={rerenderit}
-          
-          />:<Simple3 />
-          
-          }
-
-          
-         
-         
+    
         </div>
         
         {/* <div className="border2black">

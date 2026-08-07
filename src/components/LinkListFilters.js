@@ -515,12 +515,12 @@ function ExpandableArray(props) {
         >
           {
             uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" ? (
-              <span>My Internet Links Organizer Dashboard</span>
+              <span>Internet Links Organizer Dashboard</span>
             ) : // <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
             uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" ? (
               "City Walks"
             ) : (
-              <span>My Internet Links Organizer Dashboard</span>
+              <span>Internet Links Organizer Dashboard</span>
             )
             //  <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
           }

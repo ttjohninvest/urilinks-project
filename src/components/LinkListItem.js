@@ -980,7 +980,7 @@ const LinkListItem = (props) => {
                   </span>
                 </div>
               
-              <div className="padding-top-1t textWrap100 text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p- color-black-2">
+              <div className="padding-top-1t- textWrap100- text-size-1- font-weight-1- card-background-color- padding-bottom-2- padding-left-2-  text-color-db- text-size-2- margin-left-11p- color-black-2-">
                 {props.note}
               </div>
               {props.signup.signup === true && (

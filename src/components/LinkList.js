@@ -260,7 +260,7 @@ export const LinkList = (props) => {
 
         <div>
           {selectedOption === "option1" && (
-            <div id="ls2" className="list-body- scrollable-div2content-">
+            <div id="ls2" className="list-body- scrollable-div2content">
               {props.links.length === 0 ? (
                 <div className="list-item- list-item--message-"></div>
               ) : (
@@ -276,11 +276,10 @@ export const LinkList = (props) => {
                     return <div></div>;
                   else
                     return (
-                      <div key={link.id + "1"} className="border-bottom-1t padding-left-1t padding-top-1t padding-bottom-1t">
+                      <div key={link.id + "1"} className="padding-left-1t padding-top-1t padding-bottom-1t">
                         <LinkListItem
                           r={r}
                           key={link.id}
-                          //key={index}
                           {...link}
                           index={index}
                           signup={props.signup.signup}

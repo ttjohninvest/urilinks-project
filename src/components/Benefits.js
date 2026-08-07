@@ -8,7 +8,7 @@ import StorageSizes from './StorageSizes'
 
 const Benefits = () => {
   useEffect(()=>{
-    document.title="urilinks (usage)"
+    document.title="urilinks (usage page)"
   },[])
 return (<div>
  

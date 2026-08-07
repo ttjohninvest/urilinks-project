@@ -3,7 +3,7 @@ import React,{useEffect} from "react";
 const TermsAndPrivacy = () => {
 
   useEffect(()=>{
-      document.title="urilinks (terms and privacy)"
+      document.title="urilinks (terms and privacy page)"
     },[])
 
   return (<div className="list-header__flex__center">

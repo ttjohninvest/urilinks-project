@@ -1147,7 +1147,7 @@ export class DisplayHashtags extends React.Component {
     //this.props.hashtags
     //thehashtags
     // this.setState(() => ({ thehashtags }));
-    getIndividualHashtags()
+    this.getIndividualHashtags()
 
     //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");

@@ -314,6 +314,11 @@ input#option1[type="radio"] {
   opacity:0.25;
 }
 
+.normal-wrap {
+  white-space: normal;
+  overflow-wrap: break-word;
+}   
+
 .margin-topt {
   margin-top: 0;
 }

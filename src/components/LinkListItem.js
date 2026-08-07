@@ -769,7 +769,7 @@ const LinkListItem = (props) => {
 
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
-      <div className="">
+      <div className="normal-wrap">
         <a
           ref={myRef}
           className={``}
@@ -778,8 +778,8 @@ const LinkListItem = (props) => {
           title={"click to open the webpage: " + props.Url}
           onClick={storeScrollPosition}
         >
-          {/* {props.description} */}
-          {truncateString(props.description, 80)}
+          {props.description}
+          {/* {truncateString(props.description, 80)} */}
         </a>
       </div>
 

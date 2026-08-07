@@ -15,8 +15,7 @@ const TermsAndPrivacy = () => {
   return (<div className="list-header__flex__center">
     urilinks.com Terms of Use <br />
     <br />
-    The following Terms of Use are entered into by and between You and Get
-    urilinks.com ("service").
+    The following Terms of Use are entered into by and between You and urilinks.com ("service").
     <br />
     <br />
     The following terms and conditions, together with any documents they

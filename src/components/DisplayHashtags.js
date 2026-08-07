@@ -1133,7 +1133,7 @@ export class DisplayHashtags extends React.Component {
   getIndividualHashtags() {
     let hta="" //results in a string of hashtags
     this.props.hashtags.forEach((item,index)=>{
-        hta.push(item.matchesstring)
+        hta+=item.matchesstring
     })
     //convert string of hashtags to an array of hashtags
     let arr = hta.match(/#[^\s#]+/g) || [];

@@ -801,7 +801,7 @@ const LinkListItem = (props) => {
           <div>
             <span className="">
               <span className="pointereventsauto">
-                <span className="">remove:&nbsp;</span>
+                <span className="margin-left-11">remove link:&nbsp;</span>
                 <input
                   type="checkbox"
                   id={"delete%" + props.id}
@@ -815,8 +815,8 @@ const LinkListItem = (props) => {
                 <label htmlFor={"delete%" + props.id} />
               </span>
               <span className="pointereventsauto">
-                <span className="">
-                  {!!props.showpublic ? "make private" : "made private"}
+                <span className="margin-left-11">
+                  {!!props.showpublic ? "make link private" : "made link private"}
                   :&nbsp;
                 </span>
                 <input
@@ -836,7 +836,7 @@ const LinkListItem = (props) => {
                   }
                   className=""
                 />
-                <label htmlFor={"delete%" + props.id} />
+                <label htmlFor={"private%" + props.id} />
               </span>
               {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
                                       <span className="color-black">
@@ -871,7 +871,7 @@ const LinkListItem = (props) => {
         ) : (
           <div>
             <span className="pointereventsnone">
-              <span className="">remove:&nbsp;</span>
+              <span className="margin-left-11">remove link:&nbsp;</span>
               <input
                 type="checkbox"
                 id={"delete%" + props.id}
@@ -884,7 +884,7 @@ const LinkListItem = (props) => {
               <label htmlFor={"delete%" + props.id} />
             </span>
             <span className="pointereventsnone">
-              <span className="color-black">make private:&nbsp;</span>
+              <span className="color-black margin-left-11">make link private:&nbsp;</span>
               <input
                 type="checkbox"
                 id={"private%" + props.id}
@@ -894,7 +894,7 @@ const LinkListItem = (props) => {
                 title="click to make url private"
                 className="pointereventsnone"
               />
-              <label htmlFor={"delete%" + props.id} />
+              <label htmlFor={"private%" + props.id} />
             </span>
             {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                                       <span className="color-black">

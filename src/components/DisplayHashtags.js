@@ -1139,7 +1139,9 @@ export class DisplayHashtags extends React.Component {
     let arr = hta.match(/#[^\s#]+/g) || [];
     //sort the array of hashtags
     arr.sort()
-    this.setState(() => ({ thehashtags:arr }));
+    //remove duplicates
+    const uniqueArray = [...new Set(arr)];
+    this.setState(() => ({ thehashtags:uniqueArray }));
     //done
   }
 

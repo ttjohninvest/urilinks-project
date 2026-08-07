@@ -251,7 +251,7 @@ setThemax(x)
             ScrollDn
           </button>
     
-    <div className="website-background-color border-left-5">
+    <div className="">
 
 
 

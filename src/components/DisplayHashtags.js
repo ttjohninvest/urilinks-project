@@ -1146,6 +1146,7 @@ export class DisplayHashtags extends React.Component {
   }
 
   componentDidMount() {
+    document.title="urilinks (hashtags)"
     //this.props.hashtags
     //thehashtags
     // this.setState(() => ({ thehashtags }));

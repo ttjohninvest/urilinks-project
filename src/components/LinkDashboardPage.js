@@ -3,6 +3,7 @@ import {v4} from "uuid"
 import { connect } from "react-redux";
 //import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
+import DisplayHashtags from "./DisplayHashtags";
 import Simple3 from "./Simple3";
 import Testit from "./Testit";
 import setHasrefreshed from "../actions/hasrefreshed";
@@ -218,6 +219,17 @@ left column
           {/* <Simple2 /> */}
           
           {props.links.length > 0 ? <LinkListFilters setTheHashTagDivHeight={setTheHashTagDivHeight}  
+          b={b} 
+          
+          av={av}
+         
+          rerenderit={rerenderit}
+          
+          />:<Simple3 />
+          
+          }
+
+           {props.links.length > 0 ? <DisplayHashtags setTheHashTagDivHeight={setTheHashTagDivHeight}  
           b={b} 
           
           av={av}

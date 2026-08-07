@@ -671,6 +671,7 @@ function ExpandableArray(props) {
                                   textDecoration: "none",
                                   fontWeight: "normal",
                                   pointerEvents: "none",
+                                  whiteSpace: "pre-wrap"
                                 }}
                               >
                                 {s.matchesstring}

@@ -787,13 +787,13 @@ const LinkListItem = (props) => {
         {props.signup.signup === true ? (
           <div>
             <Link className="pointereventsauto" to={`/edit/${props.id}`}>
-              <span className="" style={{cursor:'pointer'}}>edit or remove</span>
+              <span className="" style={{cursor:'pointer'}}>edit</span>
             </Link>
           </div>
         ) : (
           <div>
             <Link className="pointereventsnone" to={`/edit/${props.id}`}>
-              <span className="">edit or remove</span>
+              <span className="">edit</span>
             </Link>
           </div>
         )}

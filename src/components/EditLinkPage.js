@@ -39,12 +39,12 @@ export class EditLinkPage extends React.Component {
             onSubmit={this.onSubmit}
             makereadonly={true}
           />
-          <button
+          {/* <button
             className="button- button--secondary- button-2w  border5"
             onClick={this.onRemove}
           >
             Remove Link
-          </button>
+          </button> */}
           {/* <button className="button button--secondary" onClick={()=>this.onRemove(this.props.filters.text, event)}>
             Remove Link
           </button> */}

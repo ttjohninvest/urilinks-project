@@ -760,7 +760,7 @@ const LinkListItem = (props) => {
               <div className="card-background-color">
                 <div className="list-item__flex">
                   <div>
-                    <div className="flexrow2t">
+                    <div className="flexrow2t" style={{display:'flex',justifyContent: 'center',alignItems: 'space-between'}}>
                       <div className={`${!!props.yturl ? "" : "margin-top-1"}`}>
                         <div className="flexcol3">
                           <div className={`flexrow4`}>
@@ -806,7 +806,7 @@ const LinkListItem = (props) => {
 
                         <ol id={"uldata" + props.id} start="0"></ol>
                       </div>
-                      <div className="border5" style={{marginTop:'1rem',borderRadius:'10px',marginLeft:'1rem',width:'600px',height:'190px',display:'flex',justifyContent: 'space-between',alignItems: 'center'}}>
+                      <div className="border5" style={{marginTop:'1rem',borderRadius:'10px',marginLeft:'1rem',width:'600px',height:'190px',display:'flex',justifyContent: 'center',alignItems: 'center'}}>
 I love you.
                       </div>
                     </div>

@@ -85,14 +85,14 @@ function ExpandableArray(props) {
     if (scrollInterval.current) return;
 
     scrollInterval.current = setInterval(() => {
-      document.getElementById("ls").scrollBy({
+      document.getElementById("ls3").scrollBy({
         top: -1, // Scroll 1 pixel each time
         left: 0,
         behavior: "auto",
       });
 
       // Stop automatically when reaching the top
-      if (document.getElementById("ls").scrollTop === 0) {
+      if (document.getElementById("ls3").scrollTop === 0) {
         buttonRef.current.click();
 
         //stopScrolling();
@@ -105,16 +105,16 @@ function ExpandableArray(props) {
     if (scrollInterval.current) return;
 
     scrollInterval.current = setInterval(() => {
-      document.getElementById("ls").scrollBy({
+      document.getElementById("ls3").scrollBy({
         top: 1, // Scroll 1 pixel each time
         left: 0,
         behavior: "auto",
       });
 
       if (
-        document.getElementById("ls").scrollTop +
-          document.getElementById("ls").clientHeight >=
-        document.getElementById("ls").scrollHeight
+        document.getElementById("ls3").scrollTop +
+          document.getElementById("ls3").clientHeight >=
+        document.getElementById("ls3").scrollHeight
       ) {
         buttonRef.current.click();
       }
@@ -564,7 +564,7 @@ function ExpandableArray(props) {
       <div className="flexrowztt">
         {
           <div
-            id="ls"
+            id="ls3"
             className={`${useButtons === true ? "width30p" : "width30menupane"}  ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}
           >
             <div className="border-right-5"></div>

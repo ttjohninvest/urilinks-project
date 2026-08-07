@@ -274,20 +274,11 @@ const extractHashtags = (link) => {
     if(i===0)
       matchesstring += "\n"+match[0]
     else {
-      matchesstring += " "+match[0]
+      matchesstring += "\n"+match[0]
     }
     i=i+1
   }
 
-  // while ((match = regex.exec(link.note)) !== null) {
-  //   hashtags10.push({
-  //      hashtag:match[0],
-  //      description:link.description.toLowerCase(),
-  //      description2:link.description, //preserves the letter case for display
-  //      showpublic:parseInt(link.showpublic)===1?1:0
-  //   });
-
-  
     hashtags10.push({
        matchesstring:matchesstring,
        //hashtag:match[0],

@@ -630,7 +630,7 @@ function ExpandableArray(props) {
                       {/*s looks like this [{hashtag:"#abc", count:1, longname:"longname", showpublic:1}...{hashtag:"#xyz", count:1, longname:"longnamesubn", showpublic:0}]*/}
                       {/*all of the hashtags have a showpublic property and their can be m hashtags for a url, if user
                       set showpublic to 0 for false for the url all of the hashtags for that url have showpublic set to 0 for false*/}
-                      {props.mappedDataShort.map((s, index) => {
+                      {props.thehashtags.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
                         if(
@@ -644,55 +644,12 @@ function ExpandableArray(props) {
                               key={index}
                               className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                             >
-                              <a
-                                className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
-                                ib margin-top-1 ${
-                                  props.b == 1
-                                    ? "pointereventsauto underline"
-                                    : "pointereventsnone"
-                                }`}
-                                style={{ whiteSpace: "pre-wrap" }}
-                                href="#"
-                               
-                                onClick={() =>
-                                  setItNow(index, s.description, event)
-                                }
-
-                                title={`click to see results`}
-                              >
-                                {/* <span>{s.description2}</span> */}
-                              </a>
-                              <br />
-                              <span
-                                className="ib margin-left-11z"
-                                style={{
-                                  color: "black",
-                                  fontSize: ".9rem",
-                                  textDecoration: "none",
-                                  fontWeight: "normal",
-                                  pointerEvents: "none",
-                                }}
-                              >
-                                {s.matchesstring}
-                              </span>
-                              {!!s.hashtag &&
-                                isCorrectAccount() === true &&
-                                false && (
-                                  <span>
-                                    {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (
-                                      <a
-                                        href="#"
-                                        onClick={() =>
-                                          genVacation(vsep(s.hashtag))
-                                        }
-                                      >
-                                        <br />
-                                        <span className="ib margin-left-11"></span>
-                                        Take Vacation to {vsep(s.hashtag)}
-                                      </a>
-                                    )}
-                                  </span>
-                                )}
+                              
+                                <span>{s}</span>
+                              
+                             
+                              
+                            
                             </div>
                           );
                       })}
@@ -980,6 +937,7 @@ export class DisplayHashtags extends React.Component {
       foldernamesList: [],
       isToggled: false,
       searchTerm: "", //,
+      thehashtags:[]
     };
 
     this.setit = this.setit.bind(this);
@@ -1154,19 +1112,7 @@ export class DisplayHashtags extends React.Component {
       //this.setState({ sortBy: "notetext" });
     }
   };
-  //
-  extractHashtags = (text) => {
-    console.log("extractHashTags, text=" + text);
-    const regex = /#([a-zA-Z0-9_]+)/g;
-    const hashtags = [];
-    let match;
-
-    while ((match = regex.exec(text)) !== null) {
-      hashtags.push(match[0]);
-    }
-    console.log("hashtags=" + JSON.stringify(hashtags));
-    return hashtags;
-  };
+ 
 
   removeDuplicatesByKey(array, keyFunction) {
     const seen = new Set();
@@ -1184,7 +1130,25 @@ export class DisplayHashtags extends React.Component {
     return regex.test(navigator.userAgent);
   }
 
+  getIndividualHashtags() {
+    let hta="" //results in a string of hashtags
+    this.props.hashtags.forEach((item,index)=>{
+        hta.push(item.matchesstring)
+    })
+    //convert string of hashtags to an array of hashtags
+    let arr = hta.match(/#[^\s#]+/g) || [];
+    //sort the array of hashtags
+    arr.sort()
+    this.setState(() => ({ thehashtags:arr }));
+    //done
+  }
+
   componentDidMount() {
+    //this.props.hashtags
+    //thehashtags
+    // this.setState(() => ({ thehashtags }));
+    getIndividualHashtags()
+
     //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
@@ -1300,6 +1264,7 @@ export class DisplayHashtags extends React.Component {
               this.state.mappedDataLong.length > 1)) && (
             <div>
               <ExpandableArray
+                thehashtags = {thehashtags}
                 mappedDataShort={this.props.hashtags}
                 mappedDataLong={this.state.mappedDataLong}
                 maxLength={this.SHORT_HASHTAG_LENGTH}

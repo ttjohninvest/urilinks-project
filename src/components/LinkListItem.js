@@ -750,36 +750,20 @@ const LinkListItem = (props) => {
 
   return (
     <div key={props.index}>
-      {
-        //link.showpublic ===
-        true && (
-          <div
-          //key={props.index}
-          >
-            <div className="margin-bottom-1">
-              <div className="card-background-color">
-                <div className="list-item__flex">
-                  <div>
-                    <div className="flexrow2t" style={{display:'flex',justifyContent: 'center',alignItems: 'space-between'}}>
-                      <div className={`${!!props.yturl ? "" : "margin-top-1"}`}>
-                        <div className="flexcol3">
-                          <div className={`flexrow4`}>
-                            <div className="margin-top-1q margin-left-11">
+          
                               <img
                                 className=""
                                 width="20"
                                 height="20"
                                 src={props.faviconURL}
                               />
-                            </div>
-                            <div className="">
-                              {
-                                
-                                !!props.yturl && (
+                            
+                           
+                              {!!props.yturl && (
                                   //true
                                   <a
                                     ref={myRef}
-                                    className="ib nounderline text-size-5 color-purple margin-left-11 margin-top-1 color-black-2"
+                                    className=""
                                     href={props.Url}
                                     //target="_self"
                                     target="_blank"
@@ -789,41 +773,36 @@ const LinkListItem = (props) => {
                                     onClick={storeScrollPosition}
                                   >
                                     <img
-                                      className="borderRadius4 rem8- rem45-"
+                                      className=""
                                       src={props.yturl}
                                     />
                                   </a>
-                                )
-                              }
-                            </div>
+                                
+                                  )}
                             
 
 
 
                            
-                          </div>
-                        </div>
+                          
+                        
 
                         <ol id={"uldata" + props.id} start="0"></ol>
-                      </div>
-                      <div className="border5" style={{marginTop:'1rem',borderRadius:'10px',marginLeft:'1rem',width:'100vw',height:'190px',display:'flex',justifyContent: 'center',alignItems: 'center'}}>
-I love you.
-                      </div>
-                    </div>
+                      
+                     
+                    
 
 
 
-                  </div>
-                </div>
-<div className="margin-bottom-1">
+                  
+              
+<div className="">
 
                               <a
                                 ref={myRef}
-                                className={`ib nounderline- text-size-5 text-color-db color-purple breakWord- width50- textWrap100 margin-left-11 color-black-2 ${
-                                  !!props.yturl ? "" : "padding-top-n-hh"
-                                }`}
+                                className={``}
                                 href={props.Url}
-                                //target="_self"
+                              
                                 target="_blank"
                                 title={
                                   "click to open the webpage: " + props.Url
@@ -835,15 +814,15 @@ I love you.
                                 {truncateString(props.description,80)}
                               </a>
                             </div>
- <div className="margin-bottom-1141">
-                              <div className="flexrow4">
+ 
+                              <div className="">
                                 {props.signup.signup === true ? (
                                   <div>
                                     <Link
-                                      className="margin-top-1 nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
+                                      className="pointereventsauto"
                                       to={`/edit/${props.id}`}
                                     >
-                                      <span className="padding-right-11 color-white-1- color-black-2 button-2w border5">
+                                      <span className="">
                                         edit or remove
                                       </span>
                                     </Link>
@@ -851,10 +830,10 @@ I love you.
                                 ) : (
                                   <div>
                                     <Link
-                                      className="nounderline text-size-5 inline-block-margin-left-1- margin-top-1 pointereventsnone"
+                                      className="pointereventsnone"
                                       to={`/edit/${props.id}`}
                                     >
-                                      <span className="padding-right-11 color-white-1- color-black-2 button-2w border5 ib margin-left-11">
+                                      <span className="">
                                         edit or remove
                                       </span>
                                     </Link>
@@ -862,9 +841,9 @@ I love you.
                                 )}
                                 {props.signup.signup === true ? (
                                   <div>
-                                    <span className="ib alignit-">
-                                    <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black margin-left-11">
+                                    <span className="">
+                                    <span className="pointereventsauto">
+                                      <span className="">
                                         remove:&nbsp;
                                       </span>
                                       <input
@@ -874,12 +853,12 @@ I love you.
                                         value={props.id}
                                         onChange={handleCheckboxDelete}
                                         title="click to delete the url"
-                                        className="cb1 cursor-pointer"
+                                        className=""
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
-                                    <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black">
+                                    <span className="pointereventsauto">
+                                      <span className="">
                                         {!!props.showpublic
                                           ? "make private"
                                           : "made private"}
@@ -900,7 +879,7 @@ I love you.
                                           )
                                         }
                                         title={!!props.showpublic ?"click to make url private":"click to make url public"}
-                                        className="cb1 cursor-pointer"
+                                        className=""
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
@@ -935,8 +914,8 @@ I love you.
                                   </div>
                                 ) : (
                                   <div>
-                                    <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                                      <span className="color-black">
+                                    <span className="pointereventsnone">
+                                      <span className="">
                                         remove:&nbsp;
                                       </span>
                                       <input
@@ -947,11 +926,11 @@ I love you.
                                         value={props.id}
                                         //onChange={handleCheckboxDelete}
                                         title="click to remove url"
-                                        className="cb1 cursor-pointer pointereventsnone"
+                                        className="pointereventsnone"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
-                                    <span className="padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+                                    <span className="pointereventsnone">
                                       <span className="color-black">
                                         make private:&nbsp;
                                       </span>
@@ -962,7 +941,7 @@ I love you.
                                         value={props.id}
                                         //onChange={handleCheckboxPrivate}
                                         title="click to make url private"
-                                        className="cb1 cursor-pointer pointereventsnone"
+                                        className="pointereventsnone"
                                       />
                                       <label htmlFor={"delete%" + props.id} />
                                     </span>
@@ -993,14 +972,14 @@ I love you.
                                   </div>
                                 )}
                               </div>
-                            </div>
-                <div className="italicText list-item__sub-title- margin-left-1181- border-green- text-size-10 color-purple margin-left-11p1 color-black-2">
+                            
+                <div className="italicText text-size-10 color-purple margin-left-11p1 color-black-2">
                   <span className="ib- padding-left-1122 margin-top-n-15a margin-bottom-abc">
                     Link saved on:{" "}
                     {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}
                   </span>
                 </div>
-              </div>
+              
               <div className="padding-top-1t textWrap100 text-size-1 font-weight-1 card-background-color padding-bottom-2 padding-left-2  text-color-db text-size-2 margin-left-11p- color-black-2">
                 {props.note}
               </div>
@@ -1021,10 +1000,10 @@ I love you.
                   <GoogleEarthButton />
                 </div>
               )}
-            </div>
-          </div>
-        )
-      }
+            
+          
+        
+      
     </div>
   );
 };

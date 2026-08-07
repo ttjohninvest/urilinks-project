@@ -778,8 +778,8 @@ const LinkListItem = (props) => {
           title={"click to open the webpage: " + props.Url}
           onClick={storeScrollPosition}
         >
-          {props.description}
-          {/* {truncateString(props.description, 80)} */}
+          {/* {props.description} */}
+          {truncateString(props.description, 80)}
         </a>
       </div>
 

@@ -19,13 +19,13 @@ return (<div>
         >
          
             
-              <span>Internet Links Organizer Dashboard (Usage Page)</span>
+              <span>Internet Links Organizer Dashboard's Usage Page</span>
             
             
         </div>
  
   <div className="list-header__flex__center">
-Internet Links Organizer Dashboard (Usage Page):<br />
+Internet Links Organizer Dashboard's Usage Page:<br />
 -This tool is to help people manage their internet links. They can add, search, share them with others, delete<br />
   and view them by clicking on them. You may upload a bookmark file that is under 100kb. You may add them one by one.<br />
 -a sharable link is provided so that you may share your content with others<br />

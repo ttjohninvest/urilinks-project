@@ -16,7 +16,7 @@ return(
         >
          
             
-              <span>Internet Links Organizer Dashboard (Terms and Privacy Page)</span>
+              <span>Internet Links Organizer Dashboard's Terms and Privacy Page</span>
             
             
         </div>

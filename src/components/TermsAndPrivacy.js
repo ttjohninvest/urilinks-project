@@ -2,9 +2,9 @@ import React,{useEffect} from "react";
 
 const TermsAndPrivacy = () => {
 
-  useEffect(()=>{
-      document.title="urilinks (terms and privacy page)"
-    },[])
+  // useEffect(()=>{
+  //     document.title="urilinks (terms and privacy page)"
+  //   },[])
 
   return (<div className="list-header__flex__center">
     urilinks.com Terms of Use <br />

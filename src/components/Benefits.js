@@ -17,11 +17,8 @@ Medical Referral Links Management System Usage and Federal Referral Law Warnings
 -This tool is to help people manage their internet links. They can add, search, share them with others, delete<br />
   and view them by clicking on them. You may upload a bookmark file that is under 100kb. You may add them one by one.<br />
 -a sharable link is provided so that you may share your content with others<br />
--what saving bookmarks to chrome browser bookmarks, you will need to enter a file name so when they are imported<br />
-  you will so your folder name as a menu item<br />import { sortByFolder } from './../actions/filters';
-import { startRemoveBmok } from './../actions/bmok';
-import BookmarksManager from './BookmarksManager';
-
+-when saving bookmarks to chrome browser bookmarks, you will need to enter a file name so when they are imported<br />
+  you will so your folder name be same as a menu item<br />
 -the menu items are in ascii alphabetical order, numbers appear before letters<br />
 -if you want a menu item to appear before another menu item, preceed the hashtag name with 1 or more zeros<br />
   two zeros will sort before one zero<br />

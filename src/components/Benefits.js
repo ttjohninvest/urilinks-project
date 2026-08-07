@@ -11,9 +11,21 @@ const Benefits = () => {
     document.title="urilinks (usage page)"
   },[])
 return (<div>
+  <div
+          className={`website-background-color ${
+            useButtons === true ? "width30p" : "width30pt"
+          } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-16 font-weight-500`}
+          title="You are welcome to use this Internet Links Organizer Dashboard (Usage Page)" //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
+        >
+         
+            
+              <span>Internet Links Organizer Dashboard (Usage Page)</span>
+            
+            
+        </div>
  
   <div className="list-header__flex__center">
-Medical Referral Links Management System Usage and Federal Referral Law Warnings<br />
+Internet Links Organizer Dashboard (Usage Page):<br />
 -This tool is to help people manage their internet links. They can add, search, share them with others, delete<br />
   and view them by clicking on them. You may upload a bookmark file that is under 100kb. You may add them one by one.<br />
 -a sharable link is provided so that you may share your content with others<br />

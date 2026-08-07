@@ -1,7 +1,10 @@
 
-import React from "react"
+import React, {useEffect} from "react"
 
 const TermsOfService = () => {
+      useEffect(()=>{
+        document.title="urilinks (terms)"
+      },[])
 
 return (
 <div className="margin-top-118-">

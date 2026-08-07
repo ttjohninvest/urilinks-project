@@ -586,10 +586,10 @@ input#option1[type="radio"] {
   -moz-border-radius: 20px;    /* Older Firefox */
   -khtml-border-radius: 20px;  /* Very old Konqueror */
   border-radius: 20px;         /* Standard CSS3 */
-  border: 1px solid #2d9fd9;
-  color: #a0d18c;
+  border: 1px solid #f3f3f3;//#2d9fd9;
+  color: black;//#a0d18c;
   width: 400px;
-  height: 40px;
+  height: 50px;
   padding-left: 10px;
 }
 

@@ -931,7 +931,7 @@ const LinkListItem = (props) => {
         </span>
       </div>
 
-      <div className="">
+      <div className="normal-wrap">
         {props.note}
       </div>
       {/* {props.signup.signup === true && (

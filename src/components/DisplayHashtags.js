@@ -1264,7 +1264,7 @@ export class DisplayHashtags extends React.Component {
               this.state.mappedDataLong.length > 1)) && (
             <div>
               <ExpandableArray
-                thehashtags = {thehashtags}
+                thehashtags = {this.state.thehashtags}
                 mappedDataShort={this.props.hashtags}
                 mappedDataLong={this.state.mappedDataLong}
                 maxLength={this.SHORT_HASHTAG_LENGTH}

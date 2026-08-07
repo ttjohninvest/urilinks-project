@@ -763,7 +763,7 @@ const LinkListItem = (props) => {
           title={"click to open the webpage: " + props.Url}
           onClick={storeScrollPosition}
         >
-          <img className="" src={props.yturl} />
+          <img className="borderRadius10" src={props.yturl} />
         </a>
       )}
 

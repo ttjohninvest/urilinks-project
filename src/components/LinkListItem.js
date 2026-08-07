@@ -783,7 +783,7 @@ const LinkListItem = (props) => {
         </a>
       </div>
 
-      <div className="flexrow3">
+      <div className="flexrowz">
         {props.signup.signup === true ? (
           <div>
             <Link className="pointereventsauto" to={`/edit/${props.id}`}>

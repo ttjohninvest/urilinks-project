@@ -49,6 +49,7 @@ export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
+      frequency = 0,
       archive = 0,
       showpublic = 1,
       longname = "",
@@ -62,6 +63,7 @@ export const startAddLink = (linkData = {}) => {
       faviconURL = "",
     } = linkData;
     const link = {
+      frequency,
       archive,
       showpublic,
       longname,
@@ -104,6 +106,10 @@ export const removeLink = ({ id } = {}) => ({
   id,
 });
 
+export const incrementLinkClickCount2 = (id) => ({
+  type: "INCREMENT_LINK_COUNT",
+  id
+});
 
 
 export const privateLink = (id, updates) => ({
@@ -155,6 +161,22 @@ export const startPrivateLink = ({ id } = {}) => {
       .update({showpublic:0})
       .then(() => {
         dispatch(privateLink(id, {showpublic:0}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
+export const incrementLinkClickCount = ({ id } = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+//update(dbRef, { value: increment(1) });
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({frequency:increment(1)})
+      .then(() => {
+        //dispatch(incrementLinkClickCount2(id, {showpublic:0}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

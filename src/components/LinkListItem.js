@@ -11,6 +11,7 @@ import {
   startArchiveLink,
   archiveLink2,
   startArchiveLink2,
+  incrementLinkClickCount,
 } from "../actions/links";
 import { Link, withRouter } from "react-router-dom";
 import moment from "moment";
@@ -172,8 +173,20 @@ const LinkListItem = (props) => {
 
   const storeScrollPosition = () => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
-    // window.localStorage.setItem("scrollY",window.scrollY)
-    //you need to call dispatch(setSetit(false)) here////
+
+     //alert(event.target.value)
+    console.log("bookmark id=" + event.target.value);
+    //addIdToDelete(event.target.value)
+    //console.log("bookmark ids="+localStorage.getItem('deleteData'))
+    let result;
+    
+     
+       
+        props.incrementLinkClickCount({ id: event.target.value });
+        
+       
+    
+    
   };
 
   const sortit2 = (event) => {
@@ -789,7 +802,7 @@ const hashtags = str.match(/#\w+/g) || [];
           //target="_self"
           target="_blank"
           title={"click to open the webpage: " + props.Url}
-          onClick={storeScrollPosition}
+          onClick={()=>storeScrollPosition(props.Url)}
         >
           <img className="borderRadius10" src={props.yturl} />
         </a>
@@ -1001,6 +1014,7 @@ const mapDispatchToProps = (dispatch, props) => ({
   archiveLink: (data) => dispatch(archiveLink(data)),
   startArchiveLink2: (data) => dispatch(startArchiveLink2(data)),
   archiveLink2: (data) => dispatch(archiveLink2(data)),
+  incrementLinkClickCount: (data)=>dispatch(incrementLinkClickCount()),
 });
 
 export default withRouter(

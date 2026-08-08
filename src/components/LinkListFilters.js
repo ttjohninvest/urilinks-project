@@ -660,6 +660,7 @@ function ExpandableArray(props) {
 
                                 title={`click to see results`}
                               >
+                                
                                 <span>{s.description2}</span>
                               </a>
                               <br />

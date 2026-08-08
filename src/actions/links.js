@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 //import { getDatabase, ref, update, serverValue } from "firebase/database";
-import { ServerValue } from "../firebase/firebase";
+//import { ServerValue } from "../firebase/firebase";
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags";
 import setHashTags2WithCount from "./hashtags2withcount";
@@ -170,14 +170,14 @@ export const startPrivateLink = ({ id } = {}) => {
   };
 };
 
-export const incrementLinkClickCount = ({ id } = {}) => {
-  alert("id="+id)
+export const incrementLinkClickCount = ({ id,freq } = {}) => {
+  //alert("id="+id)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/links/${id}`)
-      .update({frequency:serverValue.increment(1)}) //serverValue.increment(1)
+      .update({frequency:freq+1}) //serverValue.increment(1)
       .then(() => {
         alert("success")
         dispatch(incrementLinkClickCount2(id));

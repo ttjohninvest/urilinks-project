@@ -171,10 +171,10 @@ const LinkListItem = (props) => {
     }
   };
 
-  const storeScrollPosition = () => {
+  const storeScrollPosition = (frequency) => {
     const x = event.target.getAttribute('data-value')
     //alert("storeScrollPosition, event.target.value="+x)
-    props.incrementLinkClickCount({ id: x });
+    props.incrementLinkClickCount({ id: x, freq:frequency });
     window.localStorage.setItem("scrollPosition", window.scrollY);
    
     
@@ -795,7 +795,7 @@ const hashtags = str.match(/#\w+/g) || [];
           target="_blank"
           data-value={props.id}
           title={"click to open the webpage: " + props.Url}
-          onClick={storeScrollPosition}
+          onClick={()=>storeScrollPosition(props.frequency, event)}
         >
           <img className="borderRadius10" src={props.yturl} />
         </a>
@@ -812,7 +812,7 @@ const hashtags = str.match(/#\w+/g) || [];
           target="_blank"
           data-value={props.id}
           title={"click to open the webpage: " + props.Url}
-          onClick={storeScrollPosition}
+          onClick={()=>storeScrollPosition(props.frequency, event)}
         >
           {/* {props.description} */}
           {truncateString(props.description, 80)}

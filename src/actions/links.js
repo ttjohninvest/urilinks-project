@@ -169,6 +169,7 @@ export const startPrivateLink = ({ id } = {}) => {
 };
 
 export const incrementLinkClickCount = ({ id } = {}) => {
+  alert("id="+id)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
 //update(dbRef, { value: increment(1) });
@@ -176,7 +177,7 @@ export const incrementLinkClickCount = ({ id } = {}) => {
       .ref(`users/${uid}/links/${id}`)
       .update({frequency:increment(1)})
       .then(() => {
-        //dispatch(incrementLinkClickCount2(id, {showpublic:0}));
+        dispatch(incrementLinkClickCount2(id));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

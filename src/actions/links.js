@@ -398,7 +398,7 @@ export const startSetLinks = (uid) => {
             ...childSnapshot.val(),
           });
         });
-        //console.log("startSetLinks, about to call dispatch(setLinks(links));");
+        console.log("1234567, startSetLinks, about to call dispatch(setLinks(links)),links2="+JSON.stringify(links2))
         dispatch(setLinks(links2)); //links2[0].showpublic
 
         //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2

@@ -117,7 +117,7 @@ export const setLinksAllFileDate = (links) => ({
 
   const removeDuplicates = (stringArray) => {
     const stringifiedArray = stringArray.join(" ");
-    const lcstring = stringifiedArray.toLowerCase();
+    const lcstring = !!stringifiedArray && stringifiedArray.toLowerCase();
     const lcStringArray = lcstring.split(" ");
     return [...new Set(lcStringArray)];
   };
@@ -186,14 +186,14 @@ export const startSetLinksFileDate = () => {
         //at this point hashtags contains the number of times each hashtag is being used
         let hashTags2WithCountFileDate = countTimesEachHashTagIsUsed(hashtagsfiledate)
          hashTags2WithCountFileDate.sort((a, b) => {
-          return a.hashtag.toLowerCase() > b.hashtag.toLowerCase() ? 1 : -1;
+          return (a.hashtag.toLowerCase()) > (b.hashtag.toLowerCase()) ? 1 : -1;
         });
         console.log("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZz, hashTags2WithCount="+JSON.stringify(hashTags2WithCountFileDate))
         
 
         let hashtags2filedate = removeDuplicates(hashtagsfiledate);
         hashtags2filedate.sort((a, b) => {
-          return a.toLowerCase() > b.toLowerCase() ? 1 : -1;
+          return (a.toLowerCase()) > (b.toLowerCase()) ? 1 : -1;
         });
         
         let hashtags3withcountFileDate=[]

@@ -128,7 +128,7 @@ const extractHashtags = (text) => {
 
 const removeDuplicates = (stringArray) => {
   const stringifiedArray = stringArray.join(" ");
-  const lcstring = stringifiedArray.toLowerCase();
+  const lcstring = !!stringifiedArray && stringifiedArray.toLowerCase();
   const lcStringArray = lcstring.split(" ");
   return [...new Set(lcStringArray)];
 };

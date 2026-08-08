@@ -792,7 +792,7 @@ const hashtags = str.match(/#\w+/g) || [];
           //target="_self"
           target="_blank"
           title={"click to open the webpage: " + props.Url}
-          onClick={()=>storeScrollPosition(props.Url)}
+          onClick={storeScrollPosition}
         >
           <img className="borderRadius10" src={props.yturl} />
         </a>
@@ -805,7 +805,7 @@ const hashtags = str.match(/#\w+/g) || [];
           ref={myRef}
           className={`text-size-15 font-weight-900`}
           href={props.Url}
-          target="_blank"
+          target="_self"
           title={"click to open the webpage: " + props.Url}
           onClick={storeScrollPosition}
         >

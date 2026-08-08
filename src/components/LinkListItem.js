@@ -173,20 +173,9 @@ const LinkListItem = (props) => {
 
   const storeScrollPosition = () => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
-
-     //alert(event.target.value)
-    console.log("bookmark id=" + event.target.value);
-    //addIdToDelete(event.target.value)
-    //console.log("bookmark ids="+localStorage.getItem('deleteData'))
-    let result;
-    
-     
-       
-        props.incrementLinkClickCount({ id: event.target.value });
-        
-       
-    
-    
+   
+    props.incrementLinkClickCount({ id: event.target.value });
+   
   };
 
   const sortit2 = (event) => {

@@ -133,7 +133,7 @@ export const SendEmailPage = (props) => {
      console.log("in onSubmit");
      //if(props.signup.signup === true) {
      const user = firebase.auth().currentUser;
-     const uid=props.uid
+     const uid=emaildata.uid
      const toemail = emaildata.email;
      const subject = emaildata.subject;
      const body = emaildata.description+" ";
@@ -163,7 +163,13 @@ export const SendEmailPage = (props) => {
             </div>
           </div>
           <div className="content-container">
-            <EmailForm onSubmit={onSubmit} makereadonly={false} isFormOpen={props.isFormOpen} handleClose={props.handleClose} />
+            <EmailForm 
+            onSubmit={onSubmit} 
+            makereadonly={false} 
+            isFormOpen={props.isFormOpen} 
+            handleClose={props.handleClose} 
+            sharablelink={props.sharablelink}
+            />
           </div>
         </div>
 

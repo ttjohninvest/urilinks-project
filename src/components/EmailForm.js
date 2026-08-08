@@ -273,12 +273,13 @@ class EmailForm extends React.Component {
         />
        
         <input
+          readonly="readonly"
           type="text"
           placeholder="enter email body text"
           //readOnly={this.props.makereadonly===true?true:false}
           autoFocus
           className="text-input"
-          value={this.state.description}
+          value={this.props.sharablelink}
           onChange={this.onDescriptionChange}
           title="text for url"
           maxLength="2048"

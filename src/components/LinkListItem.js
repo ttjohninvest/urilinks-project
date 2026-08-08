@@ -807,8 +807,8 @@ const hashtags = str.match(/#\w+/g) || [];
           onClick={storeScrollPosition}
         >
           {/* {props.description} */}
-          {/* {truncateString(props.description, 80)} */}
-          {breakEvery50Chars(props.description)}
+          {truncateString(props.description, 80)}
+          {/* {breakEvery50Chars(props.description)} */}
         </a>
       </div>
 

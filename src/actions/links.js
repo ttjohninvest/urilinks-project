@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 //import { getDatabase, ref, update, serverValue } from "firebase/database";
-
+import { ServerValue } from "../firebase/database";
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags";
 import setHashTags2WithCount from "./hashtags2withcount";
@@ -177,7 +177,7 @@ export const incrementLinkClickCount = ({ id } = {}) => {
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/links/${id}`)
-      .update({frequency:1}) //serverValue.increment(1)
+      .update({frequency:serverValue.increment(1)}) //serverValue.increment(1)
       .then(() => {
         alert("success")
         dispatch(incrementLinkClickCount2(id));

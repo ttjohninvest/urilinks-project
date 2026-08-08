@@ -173,10 +173,11 @@ const LinkListItem = (props) => {
 
   const storeScrollPosition = () => {
     const x = event.target.getAttribute('data-value')
-    alert("storeScrollPosition, event.target.value="+x)
+    //alert("storeScrollPosition, event.target.value="+x)
+    props.incrementLinkClickCount({ id: x });
     window.localStorage.setItem("scrollPosition", window.scrollY);
    
-    props.incrementLinkClickCount({ id: x });
+    
    
   };
 
@@ -1008,7 +1009,7 @@ const mapDispatchToProps = (dispatch, props) => ({
   archiveLink: (data) => dispatch(archiveLink(data)),
   startArchiveLink2: (data) => dispatch(startArchiveLink2(data)),
   archiveLink2: (data) => dispatch(archiveLink2(data)),
-  incrementLinkClickCount: (data)=>dispatch(incrementLinkClickCount()),
+  incrementLinkClickCount: (data)=>dispatch(incrementLinkClickCount(data)),
 });
 
 export default withRouter(

@@ -4,7 +4,7 @@ import FileUpload from "./FileUpload";
 import { combineReducers } from "redux";
 import StorageSizes from './StorageSizes'
 
-
+const useButtons = false; 
 
 const Benefits = () => {
   useEffect(()=>{

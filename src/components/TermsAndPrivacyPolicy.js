@@ -2,6 +2,8 @@ import React, {useEffect} from 'react'
 import TermsOfService from './TermsOfService'
 import PrivacyPolicy from './PrivacyPolicy'
 
+const useButtons = false; 
+
 const TermsAndPrivacyPolicy = () => {
     useEffect(()=>{
     document.title="urilinks (terms and privacy page)"

@@ -182,7 +182,7 @@ export const incrementLinkClickCount = ({ id } = {}) => {
   //     .catch((error) => {
   //       console.log("error removing link data in firebase, error=" + error);
   //     });
-  };
+  //};
 };
 
 export const startPrivateLink2 = ({ id } = {}) => {

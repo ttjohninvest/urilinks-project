@@ -933,6 +933,7 @@ const hashtags = str.match(/#\w+/g) || [];
               />
               <label htmlFor={"private%" + props.id} />
             </span>
+              <span className="ib margin-left-11">{props.frequency}</span>
             {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                                       <span className="color-black">
                                         {!!props.archive
@@ -960,6 +961,7 @@ const hashtags = str.match(/#\w+/g) || [];
           </div>
         )}
       </div>
+    
 
       <div className="italicText text-size-10 color-purple margin-left-11p1 color-black-2">
         <span className="ib- padding-left-1122 margin-top-n-15a margin-bottom-abc">

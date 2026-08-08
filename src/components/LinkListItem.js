@@ -770,6 +770,10 @@ const hashtags = str.match(/#\w+/g) || [];
   return matchesstring;
 };
 
+const breakEvery80=(str) =>{
+  return str.match(/.{1,80}/g);
+}
+
   return (
     <div key={props.index}>
       <img className="" width="20" height="20" src={props.faviconURL} />
@@ -801,7 +805,8 @@ const hashtags = str.match(/#\w+/g) || [];
           onClick={storeScrollPosition}
         >
           {/* {props.description} */}
-          {truncateString(props.description, 80)}
+          {/* {truncateString(props.description, 80)} */}
+          {breakEvery80(props.description)}
         </a>
       </div>
 

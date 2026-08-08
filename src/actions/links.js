@@ -179,7 +179,7 @@ export const incrementLinkClickCount = ({ id,freq } = {}) => {
       .ref(`users/${uid}/links/${id}`)
       .update({frequency:freq+1}) //serverValue.increment(1)
       .then(() => {
-        alert("success")
+        //alert("success")
         dispatch(incrementLinkClickCount2(id));
       })
       .catch((error) => {

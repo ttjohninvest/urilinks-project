@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 //import { getDatabase, ref, update, serverValue } from "firebase/database";
-import { ServerValue } from "../firebase/database";
+import { ServerValue } from "../firebase/firebase";
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags";
 import setHashTags2WithCount from "./hashtags2withcount";

@@ -802,10 +802,12 @@ const hashtags = str.match(/#\w+/g) || [];
 
       <div className="normal-wrap">
         <a
+           id={props.id}
+                  name={props.id}
           ref={myRef}
           className={`text-size-15 font-weight-900`}
           href={props.Url}
-          target="_self"
+          target="_blank"
           title={"click to open the webpage: " + props.Url}
           onClick={storeScrollPosition}
         >

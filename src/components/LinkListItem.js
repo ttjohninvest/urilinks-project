@@ -770,8 +770,10 @@ const hashtags = str.match(/#\w+/g) || [];
   return matchesstring;
 };
 
-const breakEvery80=(str) =>{
-  return str.match(/.{1,80}/g);
+ const breakEvery50Chars=(text)=> {
+    if (!text) return '';
+    // Matches exactly 50 characters and replaces with the match + newline
+    return text.replace(/(.{50})/g, "$1\n");
 }
 
   return (
@@ -806,7 +808,7 @@ const breakEvery80=(str) =>{
         >
           {/* {props.description} */}
           {/* {truncateString(props.description, 80)} */}
-          {breakEvery80(props.description)}
+          {breakEvery50Chars(props.description)}
         </a>
       </div>
 

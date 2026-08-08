@@ -172,14 +172,13 @@ const LinkListItem = (props) => {
   };
 
   const storeScrollPosition = (frequency,event) => {
-    console.log("frequency="+frequency)
-    const y = 0
-    if(frequency === undefined || frequency === null) frequency = 1
-
-    const x = event.target.getAttribute('data-value')
-     console.log("value="+x)
+    alert("frequency="+frequency)
+    let x = 0
+    if(frequency === undefined || frequency === null) x = 1
+    else x = event.target.getAttribute('data-value')
+    alert("value="+x)
     //alert("storeScrollPosition, event.target.value="+x)
-    props.incrementLinkClickCount({ id: x, freq:frequency });
+    props.incrementLinkClickCount({ id: x, freq:x });
     window.localStorage.setItem("scrollPosition", window.scrollY);
    
     

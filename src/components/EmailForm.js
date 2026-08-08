@@ -252,6 +252,7 @@ class EmailForm extends React.Component {
         )}
 
          <input
+          style={{outline: "none"}}
           type="text"
           placeholder="enter your recipient's email address"
           //readOnly={this.props.makereadonly===true?true:false}
@@ -263,6 +264,7 @@ class EmailForm extends React.Component {
           maxLength="2048"
         />
         <input
+          style={{outline: "none"}}
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="enter email subject line"
@@ -273,6 +275,7 @@ class EmailForm extends React.Component {
         />
        
         <input
+          style={{outline: "none"}}
           readonly="readonly"
           type="text"
           placeholder="enter email body text"

@@ -578,8 +578,8 @@ function ExpandableArray(props) {
                   className={`${""} background-white-1 borderradius5`}
                   title={
                     props.signup === true
-                      ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
-                      : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
+                      ? "hashtag, triple click to highlight"
+                      : "hashtag, triple click to highlight"
                   }
                 >
                   {!expanded && false ? (

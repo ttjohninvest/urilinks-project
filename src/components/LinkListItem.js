@@ -172,7 +172,7 @@ const LinkListItem = (props) => {
   };
 
   const storeScrollPosition = () => {
-    alert("storeScrollPosition, event.target="+JSON.stringify(event.target))
+    alert("storeScrollPosition, event.target.value="+JSON.stringify(event.target.getAttribute('data-value')))
     window.localStorage.setItem("scrollPosition", window.scrollY);
    
     //props.incrementLinkClickCount({ id: event.target.value });

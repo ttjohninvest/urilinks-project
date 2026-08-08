@@ -794,7 +794,7 @@ const hashtags = str.match(/#\w+/g) || [];
       <div className="normal-wrap">
         <a
           ref={myRef}
-          className={``}
+          className={`text-size-15`}
           href={props.Url}
           target="_blank"
           title={"click to open the webpage: " + props.Url}

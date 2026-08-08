@@ -138,7 +138,8 @@ export const SendEmailPage = (props) => {
      const subject = emaildata.subject;
      const body = emaildata.description+" ";
 
-     const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`)
+     //const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`)
+     const uri = encodeURIComponent(body)
      //const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&to=${toemail}&body=${body}${uri}&tf=cm`
      const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&to=${toemail}&body=${uri}&tf=cm`
 
@@ -179,7 +180,7 @@ export const SendEmailPage = (props) => {
 
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
-  signup: state.signup,
+  signup: state.signup
 });
 
 const mapDispatchToProps = (dispatch) => ({

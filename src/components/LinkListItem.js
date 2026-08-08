@@ -791,7 +791,7 @@ const hashtags = str.match(/#\w+/g) || [];
           href={props.Url}
           //target="_self"
           target="_blank"
-          value={props.id}
+          data-value={props.id}
           title={"click to open the webpage: " + props.Url}
           onClick={storeScrollPosition}
         >
@@ -808,7 +808,7 @@ const hashtags = str.match(/#\w+/g) || [];
           className={`text-size-15 font-weight-900`}
           href={props.Url}
           target="_blank"
-          value={props.id}
+          data-value={props.id}
           title={"click to open the webpage: " + props.Url}
           onClick={storeScrollPosition}
         >

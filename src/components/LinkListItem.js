@@ -102,7 +102,7 @@ const LinkListItem = (props) => {
   };
 
   const handleCheckboxPrivate = (x, event) => {
-    alert(event.target.value)
+    //alert(event.target.value)
     console.log("bookmark id=" + event.target.value);
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
@@ -175,7 +175,7 @@ const LinkListItem = (props) => {
     alert("storeScrollPosition, event.target.value"+event.target.value)
     window.localStorage.setItem("scrollPosition", window.scrollY);
    
-    //props.incrementLinkClickCount({ id: event.target.value });
+    props.incrementLinkClickCount({ id: event.target.value });
    
   };
 
@@ -791,6 +791,7 @@ const hashtags = str.match(/#\w+/g) || [];
           href={props.Url}
           //target="_self"
           target="_blank"
+          value={props.id}
           title={"click to open the webpage: " + props.Url}
           onClick={storeScrollPosition}
         >
@@ -802,12 +803,12 @@ const hashtags = str.match(/#\w+/g) || [];
 
       <div className="normal-wrap">
         <a
-           id={props.id}
-                  name={props.id}
+          
           ref={myRef}
           className={`text-size-15 font-weight-900`}
           href={props.Url}
           target="_blank"
+          value={props.id}
           title={"click to open the webpage: " + props.Url}
           onClick={storeScrollPosition}
         >

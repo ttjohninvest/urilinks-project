@@ -814,8 +814,8 @@ const hashtags = str.match(/#\w+/g) || [];
           title={"click to open the webpage: " + props.Url}
           onClick={()=>storeScrollPosition(props.frequency, event)}
         >
-          {props.description}
-          {/* {truncateString(props.description, 80)} */}
+          {/* {props.description} */}
+          {truncateString(props.description, 80)}
           {/* {breakEvery50Chars(props.description)} */}
         </a>
       </div>

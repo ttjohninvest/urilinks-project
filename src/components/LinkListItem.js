@@ -171,11 +171,11 @@ const LinkListItem = (props) => {
     }
   };
 
-  const storeScrollPosition = (frequency) => {
+  const storeScrollPosition = (frequency,event) => {
     console.log("frequency="+frequency)
     const y = 0
     if(frequency === undefined || frequency === null) frequency = 1
-    
+
     const x = event.target.getAttribute('data-value')
      console.log("value="+x)
     //alert("storeScrollPosition, event.target.value="+x)

@@ -276,7 +276,7 @@ class EmailForm extends React.Component {
        
         <input
           style={{outline: "none"}}
-          readonly="readonly"
+          //readonly="readonly"
           type="text"
           placeholder="enter email body text"
           //readOnly={this.props.makereadonly===true?true:false}

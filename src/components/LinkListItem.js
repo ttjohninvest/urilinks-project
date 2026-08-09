@@ -909,7 +909,7 @@ const hashtags = str1.match(/#\w+/g) || [];
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span> */}
-                                    <span className="margin-left-11xy">   views:<span className="ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.frequency===undefined?0:props.frequency}</span>
+                                    <span className="margin-left-11xy">   views:<span className="ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.frequency}</span>
             {/* <img src={visited} width="16" height="16" /> */}
             </span>
             </span>
@@ -969,7 +969,7 @@ const hashtags = str1.match(/#\w+/g) || [];
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>  */}
-                                    <span className="margin-left-11xy">   views:<span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.frequency===undefined?0:props.frequency}</span>
+                                    <span className="margin-left-11xy">   views:<span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.frequency}</span>
           {/* <img src={visited} width="16" height="16" /> */}
           </span>
           </span>

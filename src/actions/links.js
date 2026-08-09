@@ -400,7 +400,7 @@ export const startSetLinks = (uid) => {
           );
           let aval = childSnapshot.val()
           if(aval.frequency === undefined || aval.frequency === null)
-            aval.frequency = 9999999
+            aval.frequency = 100 //9999999
           links2.push({
             id: childSnapshot.key,
             ...aval //...childSnapshot.val(),

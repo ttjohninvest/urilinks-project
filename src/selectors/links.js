@@ -85,7 +85,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         }
         console.log("za="+za)
         console.log("zb="+zb)
-        return za < zb
+        return za <= zb
           ? 1
           : -1;
       }

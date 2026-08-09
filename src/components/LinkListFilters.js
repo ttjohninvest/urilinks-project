@@ -1159,6 +1159,9 @@ function ExpandableArray(props) {
                     <option value="notetext" title="search through the notes">
                       Note Text
                     </option>
+                     <option value="views" title="search through the notes">
+                      Views
+                    </option>
                   </select>
                 </div>
               </div>

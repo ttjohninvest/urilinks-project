@@ -61,7 +61,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           return isTextInNote;
         } else if (sortBy === "views") {
           
-            return true
+            return true //0 won't work for false here
           
         } else return true;
       })
@@ -80,27 +80,27 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           
 
           
-                let x = parseInt(a.frequency)
-                let y = parseInt(b.frequency)
-                let x1 = isNaN(x)
-                let y1 = isNaN(y)
-                if(x1 === true) za = parseInt(0)
-                else  
-                  {
-                    za = parseInt(a.frequency)
-                    if(za===parseInt(0))
-                    za = parseInt(0)
+                // let x = parseInt(a.frequency)
+                // let y = parseInt(b.frequency)
+                // let x1 = isNaN(x)
+                // let y1 = isNaN(y)
+                // if(x1 === true) za = parseInt(0)
+                // else  
+                //   {
+                //     za = parseInt(a.frequency)
+                //     if(za===parseInt(0))
+                //     za = parseInt(0)
                     
 
-                  }
-                if(y1 === true) zb = parseInt(0)
-                else {
+                //   }
+                // if(y1 === true) zb = parseInt(0)
+                // else {
                   
-                    zb = parseInt(b.frequency)
-                    if(zb===parseInt(0))
-                    zb = parseInt(0)
+                //     zb = parseInt(b.frequency)
+                //     if(zb===parseInt(0))
+                //     zb = parseInt(0)
                     
-                }
+                // }
                
                 
                 // if(parseInt(a.frequency) === undefined  || parseInt(a.frequency) === null) {
@@ -117,26 +117,27 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
 
 //console.log("a.frequency="+parseInt(a.frequency)+", parseInt(b.frequency)="+parseInt(b.frequency))
 
-                console.log("za="+za+", zb="+zb)
-                if (za === parseInt(0) && zb === parseInt(0)) 
-                  {
-                    //console.log("returning 0")
-                    return parseInt(0)
-                  }
-                if (za === parseInt(0)) 
-                  {
-                     //console.log("returning -1")
-                    return -1;
-                  }
-                if (zb === parseInt(0)) 
-                  {
-                     //console.log("returning 1")
-                    return 1;
-                  }
-                return za < zb
-                  ? parseInt(1)
-                  : parseInt(-1);
+                // console.log("za="+za+", zb="+zb)
+                // if (za === parseInt(0) && zb === parseInt(0)) 
+                //   {
+                //     //console.log("returning 0")
+                //     return parseInt(0)
+                //   }
+                // if (za === parseInt(0)) 
+                //   {
+                //      //console.log("returning -1")
+                //     return -1;
+                //   }
+                // if (zb === parseInt(0)) 
+                //   {
+                //      //console.log("returning 1")
+                //     return 1;
+                //   }
+                // return za < zb
+                //   ? parseInt(1)
+                //   : parseInt(-1);
                 //return 0
+                return b.frequency - a.frequency
 
         }
       })

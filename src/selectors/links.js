@@ -61,7 +61,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           return isTextInNote;
         } else if (sortBy === "views") {
           //return !!link.frequency?link.frequency:0
-          return link.frequency;
+          return parseInt(link.frequency);
         } else return true;
       })
       .sort((a, b) => {

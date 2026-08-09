@@ -398,11 +398,12 @@ export const startSetLinks = (uid) => {
           console.log(
             "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           );
-          if(childsnapshot.frequency === undefined || childsnapshot.frequency === null)
-            childSnapshot.frequency = 0
+          let aval = childSnapshot.val()
+          if(aval.frequency === undefined || aval.frequency === null)
+            aval.frequency = 0
           links2.push({
             id: childSnapshot.key,
-            ...childSnapshot.val(),
+            ...aval //...childSnapshot.val(),
           });
         });
         console.log("1234567, startSetLinks, about to call dispatch(setLinks(links)),links2="+JSON.stringify(links2))

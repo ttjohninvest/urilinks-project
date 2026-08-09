@@ -176,13 +176,11 @@ const LinkListItem = (props) => {
     let x1 = 0
     if(frequency === undefined || frequency === null) x1 = 1
     else x1 = frequency
-    const x = event.target.getAttribute('data-value')
-    
+    const x = event.target.getAttribute('data-value') //x is link id
+    alert("id="+x)
     //alert("storeScrollPosition, event.target.value="+x)
     props.incrementLinkClickCount({ id: x, freq:x1 });
     window.localStorage.setItem("scrollPosition", window.scrollY);
-   
-    
    
   };
 

@@ -108,9 +108,10 @@ export const removeLink = ({ id } = {}) => ({
   id,
 });
 
-export const incrementLinkClickCount2 = (id) => ({
+export const incrementLinkClickCount2 = (id, updates) => ({
   type: "INCREMENT_LINK_COUNT",
-  id
+  id,
+  updates,
 });
 
 
@@ -177,10 +178,10 @@ export const incrementLinkClickCount = ({ id,freq } = {}) => {
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/links/${id}`)
-      .update({frequency:freq+1}) //serverValue.increment(1)
+      .update({frequency:freq+1}) //id, {showpublic:0}
       .then(() => {
         //alert("success")
-        dispatch(incrementLinkClickCount2(id));
+        dispatch(incrementLinkClickCount2(id,{frequency:freq+1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

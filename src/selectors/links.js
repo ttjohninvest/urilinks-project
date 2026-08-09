@@ -91,16 +91,16 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                     za = parseInt(a.frequency)
                     if(za===9999999)
                     za = 0
-                    else za = parseInt(link.frequency);
+                    //else za = parseInt(a.frequency);
 
                   }
                 if(y1 === true) zb = 0
                 else {
                   
-                  zb = parseInt(b.frequency)
+                    zb = parseInt(b.frequency)
                     if(zb===9999999)
                     zb = 0
-                    else zb = parseInt(link.frequency);
+                    //else zb = parseInt(b.frequency);
                 }
                
                 

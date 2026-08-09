@@ -178,7 +178,7 @@ export const incrementLinkClickCount = ({ id,freq } = {}) => {
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/links/${id}`)
-      .update({frequency:freq+1}) //id, {showpublic:0}
+      .update({frequency:freq+1}) //{showpublic:0}
       .then(() => {
         //alert("success")
         dispatch(incrementLinkClickCount2(id,{frequency:freq+1}));

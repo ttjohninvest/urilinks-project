@@ -15,10 +15,11 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   // if(sortBy="notetext")
   //   sortBy = "views"
   // alert("getFilteredLinksArray, sortBy="+sortBy)
+  
    let za=0
    let zb=0
   //sortBy="description"
-  //sortBy="views"
+  sortBy="views"
   if(!!links===false) return []
   else
   return links.filter((link) => {

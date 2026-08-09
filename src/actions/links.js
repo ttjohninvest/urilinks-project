@@ -171,7 +171,7 @@ export const startPrivateLink = ({ id } = {}) => {
 };
 
 export const incrementLinkClickCount = ({ id,freq } = {}) => {
-  //alert("id="+id)
+  alert("id="+id+", freq="+freq)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });

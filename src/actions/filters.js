@@ -19,6 +19,11 @@ export const sortByNoteText = () => ({
   type: 'SORT_BY_NOTETEXT'
 });
 
+export const sortByViews = () => ({
+  type: 'SORT_BY_VIEWS'
+});
+
+
 export const sortByFolder = () => ({
   type: 'SORT_BY_FOLDER'
 });

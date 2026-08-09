@@ -28,6 +28,7 @@ import {
   setStartDate,
   setEndDate,
   sortByNoteText,
+  sortByViews,
   sortByFolder,
 } from "../actions/filters";
 
@@ -435,6 +436,16 @@ function ExpandableArray(props) {
       //this.setState({ sortBy: "notetext" });
       setSortBy("notetext");
       props.sortByNoteText();
+      //this.setState({ sortBy: "notetext" });
+    } else if (e.target.value === "views") {
+      window.localStorage.setItem("sortBy", "views");
+      if (myRef.current) myRef.current.focus();
+      //this.props.setTextFilter("");
+      props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      //this.setState({ sortBy: "notetext" });
+      setSortBy("views");
+      props.sortByViews();
       //this.setState({ sortBy: "notetext" });
     }
   };
@@ -1531,6 +1542,7 @@ export class LinkListFilters extends React.Component {
                 sortByDescription={this.props.sortByDescription}
                 sortByHashTag={this.props.sortByHashTag}
                 sortByNoteText={this.props.sortByNoteText}
+                sortByViews={this.props.sortByViews}
                 filters={this.props.filters}
               />
             </div>
@@ -1561,6 +1573,7 @@ const mapDispatchToProps = (dispatch) => ({
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
+  ortByViews: () => dispatch(sortByViews()),
   sortByFolder: () => dispatch(sortByFolder()),
 });
 

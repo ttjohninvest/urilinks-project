@@ -51,6 +51,9 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           .includes(text.toLowerCase()):false;
           return isTextInNote
         }
+        else if(sortBy==="views") {
+          
+        }
         else return true 
 
 
@@ -61,6 +64,10 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
       
       if (sortBy === "description" || sortBy === "hashtag" || sortBy === "notetext" || sortBy === "folder") {
         return a.description.toLowerCase() > b.description.toLowerCase()
+          ? 1
+          : -1;
+      } else if(sortBy === "views") {
+        return a.frequency > b.frequency
           ? 1
           : -1;
       }

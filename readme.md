@@ -1795,3 +1795,7 @@ the reason the left menu pane was giving changing with sizes when a menu item wa
 of the length of the link.description in the anchor tag
 solution truncateString function
 =============
+visited icons https://search.brave.com/images?q=visited+icon
+https://search.brave.com/search?q=icon+an+arrow+with+a+circle+at+the+end+indicating+a+click&conversation=096cec8ad3179cb19967e978ecff522d7034
+
+=============

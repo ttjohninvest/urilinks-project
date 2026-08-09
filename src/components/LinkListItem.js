@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
+import visited from "../assets/images/visited-1.png";
 import {
   startRemoveLink,
   removeLink,
@@ -790,7 +791,7 @@ const hashtags = str.match(/#\w+/g) || [];
 
       {!!props.yturl && (
         
-        <a
+        <span><a
           ref={myRef}
           className=""
           href={props.Url}
@@ -801,7 +802,7 @@ const hashtags = str.match(/#\w+/g) || [];
           onClick={()=>storeScrollPosition(props.frequency, event)}
         >
           <img className="borderRadius10" src={props.yturl} />
-        </a>
+        </a><img src={visited} width="16" height="16" /></span>
       )}
 
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}

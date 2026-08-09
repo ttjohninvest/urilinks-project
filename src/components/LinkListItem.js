@@ -174,10 +174,10 @@ const LinkListItem = (props) => {
   const storeScrollPosition = (frequency,event) => {
     alert("frequency="+frequency)
     let x1 = 0
-    if(frequency === undefined || frequency === null || frequency==="-OzElBFsTsnkw4TtgayA1" || frequency==="NaN") x1 = 1
+    if(frequency === undefined || frequency === null || frequency==="NaN") x1 = 1
     else x1 = frequency
     const x = event.target.getAttribute('data-value') //x is link id
-    alert("id="+x)
+    alert("id="+x+", frequency="+x1)
     //alert("storeScrollPosition, event.target.value="+x)
     props.incrementLinkClickCount({ id: x, freq:x1 });
     window.localStorage.setItem("scrollPosition", window.scrollY);

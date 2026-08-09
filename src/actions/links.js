@@ -398,6 +398,8 @@ export const startSetLinks = (uid) => {
           console.log(
             "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           );
+          if(childsnapshot.frequency === undefined || childsnapshot.frequency === null)
+            childSnapshot.frequency = 0
           links2.push({
             id: childSnapshot.key,
             ...childSnapshot.val(),

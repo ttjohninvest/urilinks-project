@@ -92,6 +92,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           //         ? 1
           //         : -1;
 
+          if (a.frequency === 0 && b.frequency === 0) return 0
           if (a.frequency === 0) return -1;
           if (b.frequency === 0) return 1;
           return b.frequency - a.frequency;

@@ -61,7 +61,6 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           return isTextInNote;
         } else if (sortBy === "views") {
           
-          
             return true
           
         } else return true;
@@ -116,7 +115,9 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 //   zb=parseInt(b.frequency)
                 // }
 
-                console.log("za="+za+", zb="+zb)
+console.log("a.frequency="+parseInt(a.frequency)+", parseInt(b.frequency)="+parseInt(b.frequency))
+
+                //console.log("za="+za+", zb="+zb)
                 // if (za === parseInt(0) && zb === parseInt(0)) 
                 //   {
                 //     console.log("returning 0")

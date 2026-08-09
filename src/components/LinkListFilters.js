@@ -439,7 +439,7 @@ function ExpandableArray(props) {
       props.sortByNoteText();
       //this.setState({ sortBy: "notetext" });
     } else if (e.target.value === "views") {
-      alert("views")
+      //alert("views")
       window.localStorage.setItem("sortBy", "views");
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
@@ -448,7 +448,7 @@ function ExpandableArray(props) {
       //this.setState({ sortBy: "notetext" });
       setSortBy("views");
       props.sortByViews();
-      alert("after call to props.sortByViews()")
+      //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
   };
@@ -1391,7 +1391,7 @@ export class LinkListFilters extends React.Component {
       //window.localStorage.setItem("sortBy", "notetext");
       this.setState({ sortBy: "views" });
       this.props.sortByViews();
-      alert("after call to this.props.sortByViews()")
+      //alert("after call to this.props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
   };

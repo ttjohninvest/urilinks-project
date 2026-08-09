@@ -13,6 +13,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   console.log("getFilteredLinksArray, text="+text)
   console.log("getFilteredLinksArray, TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT sortBy="+sortBy)
   console.log("getFilteredLinksArray, sortBy="+sortBy)
+  alert("getFilteredLinksArray, sortBy="+sortBy)
    let za=0
         let zb=0
   //sortBy="description"
@@ -81,7 +82,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         } else {
           zb=parseInt(b.frequency)
         }
-       
+        console.log("za="+za)
+        console.log("zb="+zb)
         return za < zb
           ? 1
           : -1;

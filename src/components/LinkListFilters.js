@@ -331,6 +331,7 @@ function ExpandableArray(props) {
     let term = window.document.getElementById("termid").value;
     let str = term.trim();
     term = str;
+    alert("selectedValue="+selectedValue)
     if (selectedValue === "hashtag") {
       const words = term.split(/\s+/); // Split by one or more whitespace characters
 
@@ -1494,6 +1495,7 @@ export class LinkListFilters extends React.Component {
     if (window.localStorage.getItem("sortBy") !== "")
       selectedValue = window.localStorage.getItem("sortBy");
     else selectedValue = select.options[select.selectedIndex].value;
+
     console.log("search = () => {, selectedValue=" + selectedValue);
     let term = window.document.getElementById("termid").value.trim();
     window.localStorage.setItem("termid", term);
@@ -1517,6 +1519,13 @@ export class LinkListFilters extends React.Component {
         window.localStorage.setItem("termid", term);
         this.props.setTextFilter(term);
       }
+    } else if (
+      selectedValue === "views" &&
+      // && sortBy === "hashtag"
+      this.props.filters.sortBy === "views"
+    ) {
+      window.localStorage.setItem("termid", "");
+        this.props.setTextFilter("");
     }
   };
 

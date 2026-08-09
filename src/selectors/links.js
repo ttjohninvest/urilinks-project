@@ -74,14 +74,14 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           : -1;
       } else if(sortBy === "views") {
         if(a.frequency === undefined  || a.frequency === null) {
-          za = 0
+          za = 1 //0
         } else {
           za = parseInt(a.frequency)
         }
         
         
         if(b.frequency === undefined || b.frequency === null) {
-          zb = 0
+          zb = 1 //0
         } else {
           zb=parseInt(b.frequency)
         }

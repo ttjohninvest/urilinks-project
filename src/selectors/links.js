@@ -75,54 +75,39 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             ? 1
             : -1;
         } else if (sortBy === "views") {
-                // let x = parseInt(a.frequency)
-                // let y = parseInt(a.frequency)
-                // let x1 = isNaN(x)
-                // let y1 = isNaN(y)
-                // if(x1 === true) za = 0 
-                // else za = parseInt(a.frequency)
-                // if(y1 === true) za = 0
-                // else zb = parseInt(b.frequency)
+                let x = parseInt(a.frequency)
+                let y = parseInt(a.frequency)
+                let x1 = isNaN(x)
+                let y1 = isNaN(y)
+                if(x1 === true) za = 1 
+                else za = parseInt(a.frequency)
+                if(y1 === true) zb = 1
+                else zb = parseInt(b.frequency)
                 
-                // // if(parseInt(a.frequency) === undefined  || parseInt(a.frequency) === null) {
-                // //   za = 0
-                // // } else {
-                // //   za = parseInt(a.frequency)
-                // // }
+                // if(parseInt(a.frequency) === undefined  || parseInt(a.frequency) === null) {
+                //   za = 0
+                // } else {
+                //   za = parseInt(a.frequency)
+                // }
 
-                // // if(b.frequency === undefined || b.frequency === null) {
-                // //   zb = 0
-                // // } else {
-                // //   zb=parseInt(b.frequency)
-                // // }
+                // if(b.frequency === undefined || b.frequency === null) {
+                //   zb = 0
+                // } else {
+                //   zb=parseInt(b.frequency)
+                // }
 
-                // console.log("za="+za+", zb="+zb)
-                // if (za === 0 && zb === 0) return 0
-                // if (za === 0) return -1;
-                // if (zb === 0) return 1;
-                // return za < zb
-                //   ? 1
-                //   : -1;
+                console.log("za="+za+", zb="+zb)
+                if (za === 1 && zb === 1) return 0
+                if (za === 1) return -1;
+                if (zb === 1) return 1;
+                return za < zb
+                  ? 1
+                  : -1;
 
-          // if (a.frequency === 0 && b.frequency === 0) return 0
-          // if (a.frequency === 0) return -1;
-          // if (b.frequency === 0) return 1;
-          // return b.frequency - a.frequency;
+         
+        
 
-          //    if (za === 0 && zb === 0) return 0
-          //  if (za === 0) return -1;
-          //  if (zb === 0) return 1;
-          //  return zb - za;
 
-          //return ((zb === 0) - (za === 0) || zb - za)
-
-          //  if (za === 1 && zb === 1) return 0
-          // if (za === 1) return -1;
-          // if (zb === 1) return 1;
-          // return zb - za;
-
-          //const numbers = [140000, 104, 99];
- return b.frequency - a.frequency;
 
         }
       })

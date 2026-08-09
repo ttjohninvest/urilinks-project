@@ -97,24 +97,29 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 // }
 
                 console.log("za="+za+", zb="+zb)
-                // if (za === 0 && zb === 0) return 0
-                // if (za === 0) return -1;
-                // if (zb === 0) return 1;
-                // return za < zb
-                //   ? 1
-                //   : -1;
+                if (za === 0 && zb === 0) return 0
+                if (za === 0) return -1;
+                if (zb === 0) return 1;
+                return za < zb
+                  ? 1
+                  : -1;
 
           // if (a.frequency === 0 && b.frequency === 0) return 0
           // if (a.frequency === 0) return -1;
           // if (b.frequency === 0) return 1;
           // return b.frequency - a.frequency;
 
+          //    if (za === 0 && zb === 0) return 0
+          //  if (za === 0) return -1;
+          //  if (zb === 0) return 1;
+          //  return zb - za;
+
           //return ((zb === 0) - (za === 0) || zb - za)
 
-           if (za === 1 && zb === 1) return 0
-          if (za === 1) return -1;
-          if (zb === 1) return 1;
-          return zb - za;
+          //  if (za === 1 && zb === 1) return 0
+          // if (za === 1) return -1;
+          // if (zb === 1) return 1;
+          // return zb - za;
         }
       })
       alert("after sort, elements count="+arr.length)

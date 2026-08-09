@@ -1597,7 +1597,7 @@ const mapDispatchToProps = (dispatch) => ({
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
-  ortByViews: () => dispatch(sortByViews()),
+  sortByViews: () => dispatch(sortByViews()),
   sortByFolder: () => dispatch(sortByFolder()),
 });
 

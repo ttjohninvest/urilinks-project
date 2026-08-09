@@ -13,6 +13,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   console.log("getFilteredLinksArray, text="+text)
   console.log("getFilteredLinksArray, TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT sortBy="+sortBy)
   console.log("getFilteredLinksArray, sortBy="+sortBy)
+  if(sortBy="notetext")
+    sortBy = "views"
   alert("getFilteredLinksArray, sortBy="+sortBy)
    let za=0
         let zb=0

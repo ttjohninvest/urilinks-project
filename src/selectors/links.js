@@ -111,9 +111,9 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
 
           //return ((zb === 0) - (za === 0) || zb - za)
 
-           if (za === 0 && zb === 0) return 0
-          if (za === 0) return -1;
-          if (zb === 0) return 1;
+           if (za === 1 && zb === 1) return 0
+          if (za === 1) return -1;
+          if (zb === 1) return 1;
           return zb - za;
         }
       })

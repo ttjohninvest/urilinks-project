@@ -12,7 +12,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   //console.log("links="+JSON.stringify(links))
   console.log("getFilteredLinksArray, text="+text)
   console.log("getFilteredLinksArray, TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT sortBy="+sortBy)
-
+   let za=0
+        let zb=0
   //sortBy="description"
 
   if(!!links===false) return []
@@ -67,7 +68,20 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           ? 1
           : -1;
       } else if(sortBy === "views") {
-        return a.frequency > b.frequency
+        if(a.frequency === undefined  || a.frequency === null) {
+          za = 0
+        } else {
+          za = parseInt(a.frequency)
+        }
+        
+        
+        if(b.frequency === undefined || b.frequency === null) {
+          zb = 0
+        } else {
+          zb=parseInt(b.frequency)
+        }
+       
+        return za < zb
           ? 1
           : -1;
       }

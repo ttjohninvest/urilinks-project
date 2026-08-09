@@ -117,24 +117,25 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 // }
 
                 console.log("za="+za+", zb="+zb)
-                if (za === parseInt(0) && zb === parseInt(0)) 
-                  {
-                    console.log("returning 0")
-                    return parseInt(0)
-                  }
-                if (za === parseInt(0)) 
-                  {
-                     console.log("returning -1")
-                    return -1;
-                  }
-                if (zb === parseInt(0)) 
-                  {
-                     console.log("returning 1")
-                    return 1;
-                  }
-                return za < zb
-                  ? parseInt(1)
-                  : parseInt(-1);
+                // if (za === parseInt(0) && zb === parseInt(0)) 
+                //   {
+                //     console.log("returning 0")
+                //     return parseInt(0)
+                //   }
+                // if (za === parseInt(0)) 
+                //   {
+                //      console.log("returning -1")
+                //     return -1;
+                //   }
+                // if (zb === parseInt(0)) 
+                //   {
+                //      console.log("returning 1")
+                //     return 1;
+                //   }
+                // return za < zb
+                //   ? parseInt(1)
+                //   : parseInt(-1);
+                return 0
 
         }
       })

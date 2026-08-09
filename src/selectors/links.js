@@ -24,7 +24,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   //sortBy="views"
   if (!!links === false) return [];
   else {
-    alert("1 before sort, elements count="+links.length)
+    //alert("1 before sort, elements count="+links.length)
     let arr = links
       .filter((link) => {
         //text=''
@@ -87,20 +87,21 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                   zb=parseInt(b.frequency)
                 }
                 console.log("za="+za+", zb="+zb)
-          //       if (za === 0) return -1;
-          //  if (zb === 0) return 1;
-          //       return za < zb
-          //         ? 1
-          //         : -1;
+                if (za === 0 && zb === 0) return 0
+                if (za === 0) return -1;
+                if (zb === 0) return 1;
+                return za < zb
+                  ? 1
+                  : -1;
 
           // if (a.frequency === 0 && b.frequency === 0) return 0
           // if (a.frequency === 0) return -1;
           // if (b.frequency === 0) return 1;
           // return b.frequency - a.frequency;
-          return ((zb === 0) - (za === 0) || zb - za)
+          //return ((zb === 0) - (za === 0) || zb - za)
         }
       })
-      alert("sort, elements count="+arr.length)
+      alert("after sort, elements count="+arr.length)
       return arr
     }
 };

@@ -75,17 +75,27 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             ? 1
             : -1;
         } else if (sortBy === "views") {
-                if(a.frequency === undefined  || a.frequency === null) {
-                  za = 0
-                } else {
-                  za = parseInt(a.frequency)
-                }
+                let x = parseInt(a.frequency)
+                let y = parseInt(a.frequency)
+                x1 = isNaN(x)
+                y1 = isNaN(y)
+                if(x1 === true) za = 0 
+                else za = parseInt(a.frequency)
+                if(y1 === true) za = 0
+                else zb = parseInt(b.frequency)
+                
+                // if(parseInt(a.frequency) === undefined  || parseInt(a.frequency) === null) {
+                //   za = 0
+                // } else {
+                //   za = parseInt(a.frequency)
+                // }
 
-                if(b.frequency === undefined || b.frequency === null) {
-                  zb = 0
-                } else {
-                  zb=parseInt(b.frequency)
-                }
+                // if(b.frequency === undefined || b.frequency === null) {
+                //   zb = 0
+                // } else {
+                //   zb=parseInt(b.frequency)
+                // }
+                
                 console.log("za="+za+", zb="+zb)
                 if (za === 0 && zb === 0) return 0
                 if (za === 0) return -1;

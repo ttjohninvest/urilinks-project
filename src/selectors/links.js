@@ -77,14 +77,32 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             ? 1
             : -1;
         } else if (sortBy === "views") {
-                // let x = parseInt(a.frequency)
-                // let y = parseInt(b.frequency)
-                // let x1 = isNaN(x)
-                // let y1 = isNaN(y)
-                // if(x1 === true) za = 0
-                // else za = parseInt(a.frequency)
-                // if(y1 === true) zb = 0
-                // else zb = parseInt(b.frequency)
+
+          
+
+          
+                let x = parseInt(a.frequency)
+                let y = parseInt(b.frequency)
+                let x1 = isNaN(x)
+                let y1 = isNaN(y)
+                if(x1 === true) za = 0
+                else  
+                  {
+                    za = parseInt(a.frequency)
+                    if(za===9999999)
+                    za = 0
+                    else za = parseInt(link.frequency);
+
+                  }
+                if(y1 === true) zb = 0
+                else {
+                  
+                  zb = parseInt(b.frequency)
+                    if(zb===9999999)
+                    zb = 0
+                    else zb = parseInt(link.frequency);
+                }
+               
                 
                 // if(parseInt(a.frequency) === undefined  || parseInt(a.frequency) === null) {
                 //   za = 0
@@ -98,11 +116,11 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 //   zb=parseInt(b.frequency)
                 // }
 
-                console.log("parseInt(a.frequency)="+parseInt(a.frequency)+", parseInt(b.frequency)="+parseInt(b.frequency))
-                if (parseInt(a.frequency) === parseInt(0) && parseInt(b.frequency) === parseInt(0)) return parseInt(0)
-                if (parseInt(a.frequency) === parseInt(0)) return -1;
-                if (parseInt(b.frequency) === parseInt(0)) return 1;
-                return parseInt(a.frequency) < parseInt(b.frequency)
+                console.log("za="+za+", zb="+zb)
+                if (za === parseInt(0) && zb === parseInt(0)) return parseInt(0)
+                if (za === parseInt(0)) return -1;
+                if (zb === parseInt(0)) return 1;
+                return za < zb
                   ? 1
                   : -1;
 

@@ -96,18 +96,13 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 //   zb=parseInt(b.frequency)
                 // }
 
-                //console.log("za="+za+", zb="+zb)
+                console.log("parseInt(a.frequency)="+parseInt(b.frequency)+", parseInt(a.frequency)="+parseInt(b.frequency))
                 if (parseInt(a.frequency) === 0 && parseInt(b.frequency) === 0) return 0
                 if (parseInt(a.frequency) === 0) return -1;
                 if (parseInt(b.frequency) === 0) return 1;
                 return parseInt(a.frequency) < parseInt(b.frequency)
                   ? 1
                   : -1;
-
-         
-        
-
-
 
         }
       })

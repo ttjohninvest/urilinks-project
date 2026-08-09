@@ -1530,14 +1530,15 @@ export class LinkListFilters extends React.Component {
         window.localStorage.setItem("termid", term);
         this.props.setTextFilter(term);
       }
-    } else if (
-      selectedValue === "views" &&
-      // && sortBy === "hashtag"
-      this.props.filters.sortBy === "views"
-    ) {
-      window.localStorage.setItem("termid", "");
-        this.props.setTextFilter("");
-    }
+     } 
+    //else if (
+    //   selectedValue === "views" &&
+    //   // && sortBy === "hashtag"
+    //   this.props.filters.sortBy === "views"
+    // ) {
+    //   window.localStorage.setItem("termid", "");
+    //     this.props.setTextFilter("");
+    // }
   };
 
   render() {

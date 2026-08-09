@@ -172,7 +172,7 @@ export const startPrivateLink = ({ id } = {}) => {
 };
 
 export const incrementLinkClickCount = ({ id,frequency } = {}) => {
-  alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
+  //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
@@ -180,7 +180,7 @@ export const incrementLinkClickCount = ({ id,frequency } = {}) => {
       .ref(`users/${uid}/links/${id}`)
       .update({frequency:parseInt(frequency)+1}) //{showpublic:0}
       .then(() => {
-        alert("success")
+        //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
         dispatch(incrementLinkClickCount2(id,{frequency:parseInt(frequency)+1}));
       })

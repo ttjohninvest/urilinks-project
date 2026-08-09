@@ -791,7 +791,7 @@ const hashtags = str.match(/#\w+/g) || [];
 
       {!!props.yturl && (
         
-        <span><a
+        <a
           ref={myRef}
           className=""
           href={props.Url}
@@ -802,7 +802,7 @@ const hashtags = str.match(/#\w+/g) || [];
           onClick={()=>storeScrollPosition(props.frequency, event)}
         >
           <img className="borderRadius10" src={props.yturl} />
-        </a><img src={visited} width="16" height="16" /></span>
+        </a>
       )}
 
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
@@ -907,7 +907,8 @@ const hashtags = str.match(/#\w+/g) || [];
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span> */}
-                                    <span className="ib margin-left-11 font-weight-900" title={"This is the number of times someone has clicked this link."}>{props.frequency}</span>
+                                    <span><span className="ib margin-left-11 font-weight-900" title={"This is the number of times someone has clicked this link."}>{props.frequency}</span>
+            <img src={visited} width="16" height="16" /></span>
             </span>
             
           </div>
@@ -965,7 +966,9 @@ const hashtags = str.match(/#\w+/g) || [];
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>  */}
-                                    <span className="ib margin-left-11 font-weight-900" title={"This is the number of times someone has clicked this link."}>{props.frequency}</span>
+                                    <span><span className="ib margin-left-11 font-weight-900" title={"This is the number of times someone has clicked this link."}>{props.frequency}</span>
+          <img src={visited} width="16" height="16" />
+          </span>
           </span>
           </div>
         )}

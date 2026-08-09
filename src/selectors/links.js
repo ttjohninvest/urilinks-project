@@ -56,7 +56,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           return isTextInNote
         }
         else if(sortBy==="views") {
-          return !!link.frequency?link.frequency:0
+          //return !!link.frequency?link.frequency:0
+          return link.frequency
         }
         else return true 
 
@@ -71,21 +72,21 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           ? 1
           : -1;
       } else if(sortBy === "views") {
-        // if(a.frequency === undefined  || a.frequency === null) {
-        //   za = 0
-        // } else {
-        //   za = parseInt(a.frequency)
-        // }
+        if(a.frequency === undefined  || a.frequency === null) {
+          za = 0
+        } else {
+          za = parseInt(a.frequency)
+        }
         
         
-        // if(b.frequency === undefined || b.frequency === null) {
-        //   zb = 0
-        // } else {
-        //   zb=parseInt(b.frequency)
-        // }
-        // console.log("za="+za)
-        // console.log("zb="+zb)
-        return a.frequency < b.frequency
+        if(b.frequency === undefined || b.frequency === null) {
+          zb = 0
+        } else {
+          zb=parseInt(b.frequency)
+        }
+        console.log("za="+za+", zb="+zb)
+        
+        return za < zb
           ? 1
           : -1;
       }

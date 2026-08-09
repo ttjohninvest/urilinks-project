@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import AddLinkPage from "./AddlinkPage";
 
+const useButtons = false
+
 const Simple3 = () => {
     const [showComponent, setShowComponent] = useState(false);
 

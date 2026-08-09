@@ -438,6 +438,7 @@ function ExpandableArray(props) {
       props.sortByNoteText();
       //this.setState({ sortBy: "notetext" });
     } else if (e.target.value === "views") {
+      alert("views")
       window.localStorage.setItem("sortBy", "views");
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");

@@ -75,14 +75,14 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             ? 1
             : -1;
         } else if (sortBy === "views") {
-                let x = parseInt(a.frequency)
-                let y = parseInt(a.frequency)
-                let x1 = isNaN(x)
-                let y1 = isNaN(y)
-                if(x1 === true) za = 1 
-                else za = parseInt(a.frequency)
-                if(y1 === true) zb = 1
-                else zb = parseInt(b.frequency)
+                // let x = parseInt(a.frequency)
+                // let y = parseInt(b.frequency)
+                // let x1 = isNaN(x)
+                // let y1 = isNaN(y)
+                // if(x1 === true) za = 0
+                // else za = parseInt(a.frequency)
+                // if(y1 === true) zb = 0
+                // else zb = parseInt(b.frequency)
                 
                 // if(parseInt(a.frequency) === undefined  || parseInt(a.frequency) === null) {
                 //   za = 0
@@ -96,11 +96,11 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 //   zb=parseInt(b.frequency)
                 // }
 
-                console.log("za="+za+", zb="+zb)
-                if (za === 1 && zb === 1) return 0
-                if (za === 1) return -1;
-                if (zb === 1) return 1;
-                return za < zb
+                //console.log("za="+za+", zb="+zb)
+                if (parseInt(a.frequency) === 0 && parseInt(b.frequency) === 0) return 0
+                if (parseInt(a.frequency) === 0) return -1;
+                if (parseInt(b.frequency) === 0) return 1;
+                return parseInt(a.frequency) < parseInt(b.frequency)
                   ? 1
                   : -1;
 

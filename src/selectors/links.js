@@ -81,27 +81,27 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           
 
           
-                let x = parseInt(a.frequency)
-                let y = parseInt(b.frequency)
-                let x1 = isNaN(x)
-                let y1 = isNaN(y)
-                if(x1 === true) za = parseInt(0)
-                else  
-                  {
-                    za = parseInt(a.frequency)
-                    if(za===parseInt(0))
-                    za = parseInt(0)
+                // let x = parseInt(a.frequency)
+                // let y = parseInt(b.frequency)
+                // let x1 = isNaN(x)
+                // let y1 = isNaN(y)
+                // if(x1 === true) za = parseInt(0)
+                // else  
+                //   {
+                //     za = parseInt(a.frequency)
+                //     if(za===parseInt(0))
+                //     za = parseInt(0)
                     
 
-                  }
-                if(y1 === true) zb = parseInt(0)
-                else {
+                //   }
+                // if(y1 === true) zb = parseInt(0)
+                // else {
                   
-                    zb = parseInt(b.frequency)
-                    if(zb===parseInt(0))
-                    zb = parseInt(0)
+                //     zb = parseInt(b.frequency)
+                //     if(zb===parseInt(0))
+                //     zb = parseInt(0)
                     
-                }
+                // }
                
                 
                 // if(parseInt(a.frequency) === undefined  || parseInt(a.frequency) === null) {

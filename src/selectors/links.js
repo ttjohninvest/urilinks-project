@@ -85,21 +85,21 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 let y = parseInt(b.frequency)
                 let x1 = isNaN(x)
                 let y1 = isNaN(y)
-                if(x1 === true) za = 100
+                if(x1 === true) za = parseInt(0)
                 else  
                   {
                     za = parseInt(a.frequency)
-                    if(za===100)
-                    za = 1
+                    if(za===parseInt(0))
+                    za = parseInt(0)
                     
 
                   }
-                if(y1 === true) zb = 100
+                if(y1 === true) zb = parseInt(0)
                 else {
                   
                     zb = parseInt(b.frequency)
-                    if(zb===100)
-                    zb = 1
+                    if(zb===parseInt(0))
+                    zb = parseInt(0)
                     
                 }
                
@@ -117,12 +117,12 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 // }
 
                 console.log("za="+za+", zb="+zb)
-                if (za === parseInt(1) && zb === parseInt(1)) return parseInt(0)
-                if (za === parseInt(1)) return -1;
-                if (zb === parseInt(1)) return 1;
+                if (za === parseInt(0) && zb === parseInt(0)) return parseInt(0)
+                if (za === parseInt(0)) return -1;
+                if (zb === parseInt(0)) return 1;
                 return za < zb
-                  ? 1
-                  : -1;
+                  ? parseInt(1)
+                  : parseInt(-1);
 
         }
       })

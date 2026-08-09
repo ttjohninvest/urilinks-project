@@ -912,6 +912,7 @@ const hashtags = str.match(/#\w+/g) || [];
           </div>
         ) : (
           <div>
+            <span className="">
             <span className="pointereventsnone">
               <span className="margin-left-11">remove link:&nbsp;</span>
               <input
@@ -964,6 +965,7 @@ const hashtags = str.match(/#\w+/g) || [];
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>  */}
                                     <span className="ib margin-left-11 font-weight-900" title={"This is the number of times someone has clicked this link."}>{props.frequency}</span>
+          </span>
           </div>
         )}
       </div>

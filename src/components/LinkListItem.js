@@ -966,7 +966,7 @@ const hashtags = str.match(/#\w+/g) || [];
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>  */}
-                                    <span><span className="ib margin-left-11 font-weight-900" title={"This is the number of times someone has clicked this link."}>{props.frequency}</span>
+                                    <span><span className="margin-bottom-xy ib margin-left-11 font-weight-900" title={"This is the number of times someone has clicked this link."}>{props.frequency}</span>
           <img src={visited} width="16" height="16" />
           </span>
           </span>

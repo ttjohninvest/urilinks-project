@@ -263,7 +263,7 @@ class EmailSharableLinkForm extends React.Component {
           className="text-input"
           value={this.state.description}
           onChange={this.onDescriptionChange}
-          title="text for url"
+          title="After the data is entered, click send mail."
           maxLength="2048"
         />
         <input

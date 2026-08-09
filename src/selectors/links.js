@@ -89,8 +89,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 else  
                   {
                     za = parseInt(a.frequency)
-                    // if(za===100)
-                    // za = 0
+                    if(za===100)
+                    za = 1
                     
 
                   }
@@ -98,8 +98,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 else {
                   
                     zb = parseInt(b.frequency)
-                    // if(zb===100)
-                    // zb = 0
+                    if(zb===100)
+                    zb = 1
                     
                 }
                
@@ -117,9 +117,9 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
                 // }
 
                 console.log("za="+za+", zb="+zb)
-                if (za === parseInt(100) && zb === parseInt(100)) return parseInt(0)
-                if (za === parseInt(100)) return -1;
-                if (zb === parseInt(100)) return 1;
+                if (za === parseInt(1) && zb === parseInt(1)) return parseInt(0)
+                if (za === parseInt(1)) return -1;
+                if (zb === parseInt(1)) return 1;
                 return za < zb
                   ? 1
                   : -1;

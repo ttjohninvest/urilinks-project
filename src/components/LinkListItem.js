@@ -754,12 +754,14 @@ const LinkListItem = (props) => {
   //
 
   const truncateString = (str, length) => {
-    return str.length > length ? str.slice(0, length) + "..." : str;
+    let str1 = !!str?str:""
+    return str1.length > length ? str1.slice(0, length) + "..." : str1;
   };
 
   const putinnewlines = (str) => {
+  let str1 = !!str?str:""
   
-const hashtags = str.match(/#\w+/g) || [];
+const hashtags = str1.match(/#\w+/g) || [];
 // Result: ["#world", "#javascript", "#coding"]   
   const regex = /#([a-zA-Z0-9_]+)/g;
 

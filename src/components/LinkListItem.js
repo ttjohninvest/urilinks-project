@@ -933,8 +933,8 @@ const hashtags = str1.match(/#\w+/g) || [];
           title={"click to like"}
           onClick={()=>storeScrollPosition2(props.likes, event)}
         >
-         
-        </span>
+         likes
+        </span><span className="margin-left-11xy">   views:<span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span></span>
             
             </span>
             
@@ -1003,8 +1003,8 @@ const hashtags = str1.match(/#\w+/g) || [];
           title={"click to like"}
           onClick={()=>storeScrollPosition2(props.likes, event)}
         >
-         
-        </span>
+         likes
+        </span><span className="margin-left-11xy">   views:<span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span></span>
           </span>
           </div>
         )}

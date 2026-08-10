@@ -928,7 +928,7 @@ const hashtags = str1.match(/#\w+/g) || [];
            <span
           
           ref={myRef2}
-          className={`text-size-15- font-weight-900- margin-left-11xy`}
+          className={`text-size-15- font-weight-900- margin-left-11xy1`}
           //href="#"
           
           data-value={props.id}
@@ -1001,7 +1001,7 @@ const hashtags = str1.match(/#\w+/g) || [];
             <span
           
           ref={myRef2}
-          className={`text-size-15- font-weight-900- margin-left-11xy`}
+          className={`text-size-15- font-weight-900- margin-left-11xy1`}
           //href="#"
           
           data-value={props.id}

@@ -925,18 +925,18 @@ const hashtags = str1.match(/#\w+/g) || [];
                                       <label htmlFor={"archive%" + props.id} />
                                     </span> */}
                                     <span className="margin-left-11xy">   views:<span className="ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.frequency===undefined?0:props.frequency}</span></span>
-           <a
+           <span
           
           ref={myRef2}
-          className={`text-size-15 font-weight-900 margin-left-11xy`}
-          href="#"
+          className={`text-size-15- font-weight-900- margin-left-11xy`}
+          //href="#"
           
           data-value={props.id}
           title={"click to like"}
           onClick={()=>storeScrollPosition2(props.likes, event)}
         >
          likes:
-        </a>
+        </span>
         
         <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span>
             
@@ -998,18 +998,18 @@ const hashtags = str1.match(/#\w+/g) || [];
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>  */}
                                     <span className="margin-left-11xy">   views:<span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.frequency===undefined?0:props.frequency}</span></span>
-            <a
+            <span
           
           ref={myRef2}
-          className={`text-size-15 font-weight-900 margin-left-11xy`}
-          href="#"
+          className={`text-size-15- font-weight-900- margin-left-11xy`}
+          //href="#"
           
           data-value={props.id}
           title={"click to like"}
           onClick={()=>storeScrollPosition2(props.likes, event)}
         >
          likes:
-        </a>
+        </span>
         
         <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span>
           

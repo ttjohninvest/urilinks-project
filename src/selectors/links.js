@@ -63,6 +63,10 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           
             return true //0 won't work for false here
           
+        } else if (sortBy === "likes") {
+          
+            return true //0 won't work for false here
+          
         } else return true;
       })
       .sort((a, b) => {

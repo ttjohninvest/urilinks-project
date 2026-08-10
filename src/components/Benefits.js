@@ -29,6 +29,7 @@ Internet Links Organizer Dashboard's Usage Page:<br />
 -This tool is to help people manage their internet links. They can add, search, share them with others, delete<br />
   and view them by clicking on them. You may upload a bookmark file that is under 100kb. You may add them one by one.<br />
 -a sharable link is provided so that you may share your content with others<br />
+-your sharable link can be used in instagram, on your profile page.
 -when saving bookmarks to chrome browser bookmarks, you will need to enter a file name so when they are imported<br />
   you will so your folder name be same as a menu item<br />
 -the menu items are in ascii alphabetical order, numbers appear before letters<br />

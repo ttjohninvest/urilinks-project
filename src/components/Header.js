@@ -473,6 +473,21 @@ export const Header = (props) => {
                     </div>
                     <div>
                       <Link
+                        id="usage"
+                        className="header__title- nounderline"
+                        to="/shortcuts"
+                        target="_blank"
+                      >
+                        <span
+                          className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
+                          title="Click to see short cut commands."
+                        >
+                          short cuts
+                        </span>
+                      </Link>
+                    </div>
+                    <div>
+                      <Link
                         id="displayhashtags"
                         className="header__title- nounderline"
                         to="/displayhashtags"

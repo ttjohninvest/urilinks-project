@@ -1762,7 +1762,7 @@ Storage Pricing: While there is no hard storage cap, the free Spark plan is limi
 STEPS TO USE THE BROWSER AND URILINKS.COM
 three fast clicks on a hashtag will highlight the whole thing, ctrl c will copy it to the clipboard 
  for pasting it into the search field
-for brave browser: ctrl-shift-d saves all open tabs to folder
+ ctrl-shift-d saves all open tabs to folder for brave browser: 
  it will save it to NewFolder, so you will need to change the foldername
 
 steps for other browsers: 

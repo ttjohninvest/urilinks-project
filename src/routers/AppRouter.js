@@ -7,7 +7,7 @@ import DisplayHashtags from "../components/DisplayHashtags";
 import AddSettingsPage from "../components/AddSettingsPage";
 //import AddLinkPage from "../components/AddLinkPage";
 import AddLinkPage from "../components/AddlinkPage";
-
+import ShortCuts from "../components/ShortCuts"
 import EditLinkPage from "../components/EditLinkPage";
 import Signup from "../components/Signup";
 //import TermsAndPrivacy from "../components/TermsAndPrivacy";
@@ -108,6 +108,12 @@ const AppRouter = (props) => (
         signup={props.signup} 
         x1="usage"
         component={Benefits} />
+
+         <PrivateRoute 
+        path="/shortcuts" 
+        signup={props.signup} 
+        x1="usage"
+        component={ShortCuts} />
 
 
         {/* <PrivateRoute path="/settings" component={LinkSettingsPage} /> */}

@@ -35,6 +35,8 @@ Internet Links Organizer Dashboard's Usage Page:<br />
 -if you want a menu item to appear before another menu item, preceed the hashtag name with 1 or more zeros<br />
   two zeros will sort before one zero<br />
 -links are not limited to commercial purposes<br />
+-all users that have received the owner's webpage through the urilinks.com sharable link see updates immediately<br />
+ after the owner makes changes to his or her webpage. The user of owner's shared link only need to refresh (a single press of key F5) the page<br />
 -views show how many people clicked on the link<br />
 -likes show how many people liked on the link<br />
 -in the dropdown menu next to the search field, selecting views displays the most viewed first, next most viewed and so on.<br />

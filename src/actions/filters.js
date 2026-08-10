@@ -23,6 +23,10 @@ export const sortByViews = () => ({
   type: 'SORT_BY_VIEWS'
 });
 
+export const sortByLikes = () => ({
+  type: 'SORT_BY_LIKES'
+});
+
 
 export const sortByFolder = () => ({
   type: 'SORT_BY_FOLDER'

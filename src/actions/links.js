@@ -51,6 +51,7 @@ export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
+      likes = 0,
       frequency = 0,
       archive = 0,
       showpublic = 1,
@@ -65,6 +66,7 @@ export const startAddLink = (linkData = {}) => {
       faviconURL = "",
     } = linkData;
     const link = {
+      likes,
       frequency,
       archive,
       showpublic,
@@ -110,6 +112,12 @@ export const removeLink = ({ id } = {}) => ({
 
 export const incrementLinkClickCount2 = (id, updates) => ({
   type: "INCREMENT_LINK_COUNT",
+  id,
+  updates,
+});
+
+export const incrementLinkLikesClickCount2 = (id, updates) => ({
+  type: "INCREMENT_LINK_LIKES_COUNT",
   id,
   updates,
 });
@@ -183,6 +191,25 @@ export const incrementLinkClickCount = ({ id,frequency } = {}) => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
         dispatch(incrementLinkClickCount2(id,{frequency:parseInt(frequency)+1}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
+export const incrementLinkLikesClickCount = ({ id,likes } = {}) => {
+  
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    //update(dbRef, { value: increment(1) });
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({likes:parseInt(likes)+1}) //{showpublic:0}
+      .then(() => {
+        //alert("success")
+        
+        dispatch(incrementLinkLikesClickCount2(id,{likes:parseInt(likes)+1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
@@ -401,6 +428,8 @@ export const startSetLinks = (uid) => {
           let aval = childSnapshot.val()
           if(aval.frequency === undefined || aval.frequency === null)
             aval.frequency = parseInt(0) //9999999
+          if(aval.likes === undefined || aval.likes === null)
+            aval.likes = parseInt(0) 
           links2.push({
             id: childSnapshot.key,
             ...aval //...childSnapshot.val(),

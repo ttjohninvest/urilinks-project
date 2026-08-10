@@ -29,6 +29,7 @@ import {
   setEndDate,
   sortByNoteText,
   sortByViews,
+  sortByLikes,
   sortByFolder,
 } from "../actions/filters";
 
@@ -448,6 +449,19 @@ function ExpandableArray(props) {
       //this.setState({ sortBy: "notetext" });
       setSortBy("views");
       props.sortByViews();
+      //alert("after call to props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
+    }
+    else if (e.target.value === "likes") {
+      //alert("views")
+      window.localStorage.setItem("sortBy", "likes");
+      if (myRef.current) myRef.current.focus();
+      //this.props.setTextFilter("");
+      props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      //this.setState({ sortBy: "notetext" });
+      setSortBy("likes");
+      props.sortByLikes();
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
@@ -1162,8 +1176,11 @@ function ExpandableArray(props) {
                     <option value="notetext" title="search through the notes">
                       Note Text
                     </option>
-                     <option value="views" title="search through the notes">
+                     <option value="views" title="sort views into descending order">
                       Views
+                    </option>
+                     <option value="likes" title="sort likes into descending order">
+                      Likes
                     </option>
                   </select>
                 </div>
@@ -1393,6 +1410,16 @@ export class LinkListFilters extends React.Component {
       this.props.sortByViews();
       //alert("after call to this.props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
+    } else if (e.target.value === "likes") {
+      window.localStorage.setItem("sortBy", "likes");
+      if (this.myRef.current) this.myRef.current.focus();
+      //this.props.setTextFilter("");
+      this.props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      this.setState({ sortBy: "likes" });
+      this.props.sortByLikes();
+      //alert("after call to this.props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
     }
   };
   //
@@ -1568,6 +1595,7 @@ export class LinkListFilters extends React.Component {
                 sortByHashTag={this.props.sortByHashTag}
                 sortByNoteText={this.props.sortByNoteText}
                 sortByViews={this.props.sortByViews}
+                sortByLikes={this.props.sortByLikes}
                 filters={this.props.filters}
               />
             </div>
@@ -1599,6 +1627,7 @@ const mapDispatchToProps = (dispatch) => ({
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   sortByNoteText: () => dispatch(sortByNoteText()),
   sortByViews: () => dispatch(sortByViews()),
+  sortByLikes: () => dispatch(sortByLikes()),
   sortByFolder: () => dispatch(sortByFolder()),
 });
 

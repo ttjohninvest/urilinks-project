@@ -35,6 +35,10 @@ Internet Links Organizer Dashboard's Usage Page:<br />
 -if you want a menu item to appear before another menu item, preceed the hashtag name with 1 or more zeros<br />
   two zeros will sort before one zero<br />
 -links are not limited to commercial purposes<br />
+-views show how many people clicked on the link<br />
+-likes show how many people liked on the link<br />
+-in the dropdown menu next to the search field, selecting views displays the most viewed first, next most viewed and so on.<br />
+-in the dropdown menu next to the search field, selecting likes displays the most liked first, next most liked and so on.<br />
 -search through link titles, hashtags or notes<br />
 -easy grouping or regrouping of links by hashtag by adding or removing hashtags from the note sections<br />
 -you can search through hashtags with the hash or without the hash<br />

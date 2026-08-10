@@ -1176,6 +1176,7 @@ function ExpandableArray(props) {
                     <option value="notetext" title="search through the notes">
                       Note Text
                     </option>
+                    <div style={{ borderBottom: '1px solid #dee2e6', margin: '0.5rem 0' }} />
                      <option value="views" title="sort views into descending order">
                       Views
                     </option>

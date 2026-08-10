@@ -27,6 +27,13 @@ return (<div>
   <div className="list-header__flex__center">
 Internet Links Organizer Dashboard's Short Cuts Page:<br />
 Ctrl-Shift-d: pressing these three keys at the same time will put all open tabs into one bookmarks folder<br />
+recipe:<br />
+steps to save all tabs to a bookmarks Folder<br />
+1 press ctrl-shift-d keys together<br />
+2 it will open up a dialog<br />
+3 click save<br />
+4 click bookmarks manager<br />
+5 change the folder name<br /> 
 <br />
 -If you have any questions, comments or concerns, please contact me, John, at john@urilinks.com or johmcg64@gmail.com<br />
 -my phone number is 775 559 5740. I am happy to help you.

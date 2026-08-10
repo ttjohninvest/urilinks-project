@@ -63,14 +63,6 @@ Internet Links Organizer Dashboard's Usage Page:<br />
 -my phone number is 775 559 5740. I am happy to help you.
 </div>
 
-recipes:
-steps to save all tabs to bookmarks sortByFolder
-1 press ctrl-shift-d keys together
-2 it will open up a dialog
-3 click save
-4 click bookmarks manager 
-5 change the folder name 
-
 </div>)
 };
 

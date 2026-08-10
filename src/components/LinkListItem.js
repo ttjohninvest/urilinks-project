@@ -47,6 +47,7 @@ const LinkListItem = (props) => {
     "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL,
   );
   const myRef = useRef(null);
+  const myRef2 = useRef(null)
 
   const [s, setS] = useState(1);
   const [s2, setS2] = useState(1);
@@ -924,17 +925,20 @@ const hashtags = str1.match(/#\w+/g) || [];
                                       <label htmlFor={"archive%" + props.id} />
                                     </span> */}
                                     <span className="margin-left-11xy">   views:<span className="ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.frequency===undefined?0:props.frequency}</span></span>
-            <span
+           <a
           
-          //ref={myRef}
-          className={`text-size-15 font-weight-900`}
-          target="_blank"
+          ref={myRef2}
+          className={`text-size-15 font-weight-900 margin-left-11xy`}
+          href="#"
+          
           data-value={props.id}
           title={"click to like"}
           onClick={()=>storeScrollPosition2(props.likes, event)}
         >
-         likes
-        </span><span className="margin-left-11xy">   views:<span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span></span>
+         likes:
+        </a>
+        
+        <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span>
             
             </span>
             
@@ -994,17 +998,22 @@ const hashtags = str1.match(/#\w+/g) || [];
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>  */}
                                     <span className="margin-left-11xy">   views:<span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.frequency===undefined?0:props.frequency}</span></span>
-           <span
+            <a
           
-          //ref={myRef}
-          className={`text-size-15 font-weight-900`}
-          target="_blank"
+          ref={myRef2}
+          className={`text-size-15 font-weight-900 margin-left-11xy`}
+          href="#"
+          
           data-value={props.id}
           title={"click to like"}
           onClick={()=>storeScrollPosition2(props.likes, event)}
         >
-         likes
-        </span><span className="margin-left-11xy">   views:<span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span></span>
+         likes:
+        </a>
+        
+        <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span>
+          
+          
           </span>
           </div>
         )}

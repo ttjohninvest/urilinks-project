@@ -26,10 +26,10 @@ return (<div>
  
   <div className="list-header__flex__center">
 Internet Links Organizer Dashboard's Short Cuts Page:<br />
-Ctrl-Shift-d: pressing these three keys at the same time will put all open tabs into one bookmarks folder<br />
+<span className="font-weight-900">Ctrl-Shift-d</span>: pressing these three keys at the same time will put all open tabs into one bookmarks folder<br />
 recipe:<br />
 steps to save all tabs to a bookmarks Folder<br />
-1 press ctrl-shift-d keys together<br />
+1 press <span className="font-weight-900">Ctrl-Shift-d</span> keys together<br />
 2 it will open up a dialog<br />
 3 click save<br />
 4 click bookmarks manager<br />

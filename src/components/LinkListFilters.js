@@ -1161,7 +1161,7 @@ function ExpandableArray(props) {
                     onChange={onSortChange}
                     title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
                   >
-                    <optgroup label="Group 1">
+                    <optgroup label="Find:">
                     <option value="hashtag" title="search by hash tag">
                       Hash Tag
                     </option>
@@ -1178,7 +1178,7 @@ function ExpandableArray(props) {
                       Note Text
                     </option>
                     </optgroup>
-                    <optgroup label="Group 2">
+                    <optgroup label="Popularity:">
                     <div style={{ borderBottom: '1px solid #dee2e6', margin: '0.5rem 0' }} />
                      <option value="views" title="sort views into descending order">
                       Views

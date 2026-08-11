@@ -590,17 +590,18 @@ function ExpandableArray(props) {
       </div>
 
       <div className="flexrowztt">
-        {
+        
+          <div>
           <div
             id="ls"
             className={`${useButtons === true ? "width30p" : "width30menupane"}  ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}
           >
-            <div className="border-right-5"></div>
+            
 
             <div
-              className={`${useButtons === true ? "width30p" : "width30pt-"} border-right-5`}
+              className={`border-right-5`}
             >
-              <div className="">
+              
                 <div
                   ref={props.ref1}
                   className={`${""} background-white-1 borderradius5`}
@@ -610,11 +611,9 @@ function ExpandableArray(props) {
                       : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
                   }
                 >
-                  {!expanded && false ? (<div></div>
-                   
-                  ) : (
+                 
                     <div>
-                      {""}
+                      
                       {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
@@ -684,110 +683,14 @@ function ExpandableArray(props) {
                           );
                       })}
                     </div>
-                  )}
+                  
                 </div>
-              </div>
+              
             </div>
-          </div>
-        }
 
-        {props.mappedDataShort.length >= 0 ? (
-          <div className="width70p-">
-            <div
-              className="flexrow2c padding-left-a borderRadius4"
-              title={props.signup === true ? "" : ""}
-            >
-              <div className="text-size-5 padding-top-11">
-                {isMobile() === false ? (
-                  <div className="flexrow2j margin-left-minus-3">
-                    {props.signup === true || signup === "0" ? (
-                      <div className="padding-top-1112  textCenter- hide">
-                        <img
-                          src={photoURL}
-                          width="64"
-                          height="64"
-                          style={{ borderRadius: "50%" }}
-                          className="ib- margin-bottom-11-"
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        className="padding-top-1112  textCenter-"
-                        title="welcome"
-                      >
-                        {false ? (
-                          <img
-                            src={photoURL}
-                            width="64"
-                            height="64"
-                            style={{ borderRadius: "50%" }}
-                            className="ib- margin-bottom-11-"
-                          />
-                        ) : (
-                          <div className="textCenter- hide">
-                            <img
-                              src={myprofile}
-                              width="64"
-                              height="64"
-                              style={{ borderRadius: "50%" }}
-                              className="ib- margin-bottom-11-"
-                            />
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="flexrow2j margin-left-minus-2">
-                    {props.signup === true || signup === "0" ? (
-                      <div className="padding-top-1112  textCenter- hide">
-                        <img
-                          src={photoURL}
-                          width="64"
-                          height="64"
-                          style={{ borderRadius: "50%" }}
-                          className="ib- margin-bottom-11-"
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        className="padding-top-1112 textCenter-"
-                        title="welcome"
-                      >
-                        {false ? (
-                          <img
-                            src={photoURL}
-                            width="64"
-                            height="64"
-                            style={{ borderRadius: "50%" }}
-                            className="ib- margin-bottom-11-"
-                          />
-                        ) : (
-                          <div className="textCenter- hide">
-                            <img
-                              src={myprofile}
-                              width="64"
-                              height="64"
-                              style={{ borderRadius: "50%" }}
-                              className="ib- margin-bottom-11-"
-                            />
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                <br />
-              </div>
-
-             
             </div>
-          </div>
-        ) : (
-          <div></div>
-        )}
-
+{/*right column code here*/}
+<div>
         <div>
           <div>
             <div className="margin-left-minus-1">
@@ -984,6 +887,14 @@ function ExpandableArray(props) {
           <div className="margin-top-18 width800">
             <LinkList av={props.av} />
           </div>
+          </div>
+          </div>
+        
+
+       
+
+
+
         </div>
       </div>
     </div>

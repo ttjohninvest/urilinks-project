@@ -594,7 +594,7 @@ function ExpandableArray(props) {
           <div>
           <div
             id="ls"
-            className={`${useButtons === true ? "width30p" : "width30menupane"}  ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}
+            className={`width30menupane ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}
           >
             
 
@@ -796,7 +796,7 @@ function ExpandableArray(props) {
 
             <div
               id="before-before-link-summary-id"
-              className="padding-top-20-bg-color2w-  flexrow2w- flexrowzv-  margin-bottom5-"
+              className=""
             >
               {/* <div className="flexrowzv">
                 <div className="margin-left-11-">

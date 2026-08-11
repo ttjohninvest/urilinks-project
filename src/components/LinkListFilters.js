@@ -592,8 +592,9 @@ function ExpandableArray(props) {
       <div className="flexrowztt">
         
           {/* <div> */}
-            <div>left column</div>
-          {/* <div id="ls" className={`width30menupane ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}>
+            <div>
+              {/* left column */}
+              <div id="ls" className={`width30menupane ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}>
             
 
             <div
@@ -669,12 +670,15 @@ function ExpandableArray(props) {
               
             </div>
 
-            </div> */}
+            </div>
+            
+            </div>
+         
 {/*right column code here*/}
 <div>
         <div>
           <div>
-            {/* <div className="margin-left-minus-1">
+            <div className="margin-left-minus-1">
               {props.signup === true && (
                 <span>
                   <div className="margin-bottom-123">
@@ -773,13 +777,13 @@ function ExpandableArray(props) {
                 {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                 {" plan."}
               </span>
-            </div> */}
+            </div>
 
             <div
               id="before-before-link-summary-id"
               className=""
             >
-              {/* <div className="flexrowzv">
+              <div className="flexrowzv">
                 <div className="margin-left-11-">
                   <input
                     title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
@@ -861,7 +865,7 @@ function ExpandableArray(props) {
                     </optgroup>
                   </select>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
           

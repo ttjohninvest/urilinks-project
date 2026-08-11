@@ -485,8 +485,7 @@ function ExpandableArray(props) {
   };
 
   const handleClose = (x) => {
-    //let x = !isFormOpen
-    //alert("isFormOpen="+x)
+    
     setIsFormOpen(false);
     window.scrollTo(0, 0);
   };
@@ -495,21 +494,6 @@ function ExpandableArray(props) {
     event.preventDefault();
     setIsFormOpen(true);
 
-    //     // document.getElementById("adlinkid").classList.add("pointereventsnone");
-    //     // setShowComponent(true);
-
-    //      const email = "johmcg64@gmail.com";
-    //   const subject = "Subject Line";
-    //   const body = "body of email";
-
-    //   //const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    // const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid}`)
-    //   const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=Somebody+Sent+Me+A+gmail+From+urilinks.com&to=johmcg64@gmail.com&body=${uri}&tf=cm`
-
-    //     // Open the mail client
-    //     window.location.href = mailtoUrl //mailtoLink;
-    //alert("before call to showEmailForm(true), emailForm="+emailForm+",isFormOpen="+isFormOpen)
-    //alert("before call to showEmailForm, isFormOpen="+isFormOpen)
     showEmailForm(isFormOpen);
   };
 
@@ -521,37 +505,15 @@ function ExpandableArray(props) {
   return (
     <div className="bg-white-1">
       <div className="sticky-div-">
-        {/* <div
-          className={`website-background-color ${
-            useButtons === true ? "width30p" : "width30pt"
-          } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-16 font-weight-500`}
-          title="For Medical staff patient providers' are welcome to use this Medical Referral Links Management System to add, view, delete and share your links with a patient or other providers." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
-        >
-          {
-            uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" //use RZ...
-              ? "Medical Staff Referral Links Management System (Example Page For Staff User Id: "+props.theplan.uid+")" //"Internet Links Management Tool"
-              : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
-                ? "City Walks"
-                : "Medical Staff Referral Links Management System"+" For Staff User Id: "+props.theplan.uid //"Internet Links Management Tool"
-          }
-        </div> */}
+      
         <div
-          className={`website-background-color ${
-            useButtons === true ? "width30p" : "width30pt"
+          className={`website-background-color width30pt
           } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
-          {
-            uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" ? (
+          
               <span>Internet Links Organizer Dashboard's Home Page</span>
-            ) : // <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
-            uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" ? (
-              "City Walks"
-            ) : (
-              <span>Internet Links Organizer Dashboard's Home Page</span>
-            )
-            //  <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
-          }
+          
         </div>
         <div>
           <button
@@ -579,13 +541,7 @@ function ExpandableArray(props) {
           >
             ScrollDn
           </button>
-          {/* <button
-            title="Click the button to begin auto scroll."
-            onClick={startWrite}
-            className="button-2 ib margin-left-11"
-          >
-            Write
-          </button> */}
+         
         </div>
       </div>
 

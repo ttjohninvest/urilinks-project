@@ -592,10 +592,8 @@ function ExpandableArray(props) {
       <div className="flexrowztt">
         
           <div>
-          <div
-            id="ls"
-            className={`width30menupane ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}
-          >
+            left column
+          {/* <div id="ls" className={`width30menupane ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}>
             
 
             <div
@@ -661,24 +659,7 @@ function ExpandableArray(props) {
                               >
                                 {s.matchesstring}
                               </span>
-                              {/* {!!s.hashtag &&
-                                isCorrectAccount() === true &&
-                                false && (
-                                  <span>
-                                    {uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" && (
-                                      <a
-                                        href="#"
-                                        onClick={() =>
-                                          genVacation(vsep(s.hashtag))
-                                        }
-                                      >
-                                        <br />
-                                        <span className="ib margin-left-11"></span>
-                                        Take Vacation to {vsep(s.hashtag)}
-                                      </a>
-                                    )}
-                                  </span>
-                                )} */}
+                             
                             </div>
                           );
                       })}
@@ -688,7 +669,7 @@ function ExpandableArray(props) {
               
             </div>
 
-            </div>
+            </div> */}
 {/*right column code here*/}
 <div>
         <div>

@@ -611,53 +611,10 @@ function ExpandableArray(props) {
                   }
                 >
                   {!expanded && false ? (<div></div>
-                    //props.b === 1 &&
-                    // props.mappedDataShort.map((s, index) => {
-                    //   if (index < 50)
-                    //     return (
-                    //       <div
-                    //         key={index}
-                    //         className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                    //       >
-                    //         <a
-                    //           className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} ${
-                    //             useButtons === true
-                    //               ? "b1xw"
-                    //               : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
-                    //           } ${
-                    //             useButtons === true ? "b1xw" : ""
-                    //           } nounderline- ${
-                    //             useButtons === true ? "color-white-1" : ""
-                    //           } ${useButtons === true ? "button-link-4" : ""} ${
-                    //             props.b == 1
-                    //               ? "pointereventsauto underline"
-                    //               : "pointereventsnone"
-                    //           }`}
-                    //           href="#"
-                    //           //onClick={() => props.setit(s.hashtag, event)}
-                    //           // props.setit(s.hashtag, event) style={style} onClick={() => setIsActive(!isActive)}
-                    //           //style={style}
-                    //           //onClick = {()=>setItNow(index, s.hashtag, event)}
-                    //           onClick={() =>
-                    //             setItNow(index, s.description, event)
-                    //           }
-                    //           title={`click to see results`}
-                    //         >
-                    //           {
-                    //             //sep(s.hashtag)
-                    //             s.description2
-                    //           }
-                    //         </a>
-                    //       </div>
-                    //     );
-                    //   else return false;
-                    // })
+                   
                   ) : (
                     <div>
                       {""}
-                      {/*s looks like this [{hashtag:"#abc", count:1, longname:"longname", showpublic:1}...{hashtag:"#xyz", count:1, longname:"longnamesubn", showpublic:0}]*/}
-                      {/*all of the hashtags have a showpublic property and their can be m hashtags for a url, if user
-                      set showpublic to 0 for false for the url all of the hashtags for that url have showpublic set to 0 for false*/}
                       {props.mappedDataShort.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
@@ -705,7 +662,7 @@ function ExpandableArray(props) {
                               >
                                 {s.matchesstring}
                               </span>
-                              {!!s.hashtag &&
+                              {/* {!!s.hashtag &&
                                 isCorrectAccount() === true &&
                                 false && (
                                   <span>
@@ -722,7 +679,7 @@ function ExpandableArray(props) {
                                       </a>
                                     )}
                                   </span>
-                                )}
+                                )} */}
                             </div>
                           );
                       })}
@@ -821,135 +778,10 @@ function ExpandableArray(props) {
                   </div>
                 )}
 
-                {isMobile() === true && (
-                  <div></div>
-                  // <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
-                  //   <div className="text-size-1">
-                  //     <div
-                  //       className="ib text-size-1"
-                  //       title="location for your gmail name"
-                  //     >
-                  //       {(!!theuser && props.signup === true) || signup === "0"
-                  //         ? !!theuser.displayName === true
-                  //           ? theuser.displayName
-                  //           : "error getting display name"
-                  //         : !!theuser === true
-                  //           ? theuser.displayName
-                  //           : "(gmail name)"}
-                  //     </div>
-                  //   </div>
-                  // </div>
-                )}
-
-                {
-                  //props.signup === false
-                  true ? (
-                    <div className="text-size-1 flexrowzc">
-                      {isMobile() === true ? (
-                        <div className="padding-right-11 padding-bottom-118 lowercase">
-                          {props.signup === false && (
-                            //props.signup !== 0
-                            //signup !== 0
-                            <span
-                            // dangerouslySetInnerHTML={{
-                            //   __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different websites like email of your choice, promoting worry free, and organized internet use.<br/><br/>`,
-                            // }}
-                            ></span>
-                          )}
-                        </div>
-                      ) : (
-                        <div>
-                          {props.signup === false && (
-                            //props.signup !== 0
-                            //signup !== 0  &&
-                            <span
-                            //dangerouslySetInnerHTML={{ __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save<br /> your links for revisitation and to provide one link for sharing your links<br /> with others on different websites like email of your choice.<br/><br/>`}}
-                            ></span>
-                          )}
-                        </div>
-                      )}
-
-                      {props.signup === false && <div></div>}
-                    </div>
-                  ) : (
-                    <div></div>
-                    // <div>
-                    //   <div className="flexrow2c">
-                    //     <div className="text-size-1 textLeft margin-top-1">
-                    //       <a
-                    //         href="#"
-                    //         ref={textAreaRef}
-                    //         className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                    //         title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                    //       >
-                    //         https://urilinks.com/dashboard?signup=0&id=
-                    //         {props.uid}
-                    //       </a>
-                    //       <button
-                    //         className="button-2w ib margin-right-1 margin-left-11 border5"
-                    //         onClick={copyToClipboard}
-                    //         title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                    //       >
-                    //         copy sharable link
-                    //       </button>
-                    //       {copySuccess}
-                    //     </div>
-                    //   </div>
-                    // </div>
-                  )
-                }
-
                 <br />
               </div>
 
-              <div className="flexrow2e">
-                {props.signup === true && (
-                  <div
-                    title="current plan"
-                    className="margin-right-1 textLeft hide"
-                  >
-                    plan:{" "}
-                    {!!props.theplan.plan &&
-                      props.theplan.plan.replace(/"/g, "")}
-                  </div>
-                )}
-
-                {isToggled && props.signup === false && <div></div>}
-                <div>
-                  {isToggled && props.signup === true && (
-                    <div className="margin-right-1">
-                      {!!props.theplan.plan &&
-                      props.theplan.plan.replace(/"/g, "") === "free" ? (
-                        <span>(It stores upto {StorageSizes.free} links)</span>
-                      ) : (
-                        <span></span>
-                      )}
-                      {!!props.theplan.plan &&
-                      props.theplan.plan.replace(/"/g, "") === "basic" ? (
-                        <span>(It stores upto {StorageSizes.basic} links)</span>
-                      ) : (
-                        <span></span>
-                      )}
-                      {!!props.theplan.plan &&
-                      props.theplan.plan.replace(/"/g, "") === "standard" ? (
-                        <span>
-                          (It stores upto {StorageSizes.standard} links)
-                        </span>
-                      ) : (
-                        <span></span>
-                      )}
-                      {!!props.theplan.plan &&
-                      props.theplan.plan.replace(/"/g, "") === "premium" ? (
-                        <span>
-                          (It stores upto {StorageSizes.premium} links)
-                        </span>
-                      ) : (
-                        <span></span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
+             
             </div>
           </div>
         ) : (
@@ -959,7 +791,7 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div className="margin-left-minus-1">
-              {props.signup && (
+              {props.signup === true && (
                 <span>
                   <div className="margin-bottom-123">
                     <div className="flexrow2cv2">
@@ -1018,30 +850,7 @@ function ExpandableArray(props) {
                 </span>
               )}
 
-              {/* {props.signup === true ? 
-               
-               (
-                <div className="">
-                <a href={mailtoUrl} target="_blank">Send gmail</a>
-                </div>
-              ) : (
-                <div className=""></div>
-              ) 
-              
-              }
-
-
-              {props.signup === false ? 
-              
-              (
-                <div className="">
-                <a href={mailtoUrl} target="_blank">Send gmail</a>
-                </div>
-              ) : (
-                <div className="minWidth- bg-color-4"></div>
-              )
-              
-              }   */}
+             
 
               {props.signup === true && rt !== "readonly" 
               ? (
@@ -1074,27 +883,6 @@ function ExpandableArray(props) {
               ) : (
                 <div className="minWidth- bg-color-4"></div>
               )}
-
-              {/* {props.signup === false && rt !== "readonly" ? (
-                <div className="minWidth- bg-color-4">
-                  <a
-                    target="_blank"
-                    id="adlinkid"
-                    href="#"
-                    title="This will work on your official page."
-                    className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsnone- width100  color-black-2 border5-"
-                    onClick={handleClick}
-                  >
-                    Click to open up form to email to your recipient your
-                    sharable link to your readonly dashboard page{" "}
-                    {rt !== "readonly" ? "(example page)" : ""}
-                  </a>
-
-                  {showComponent && <AddLinkPage2 />}
-                </div>
-              ) : (
-                <div className="minWidth- bg-color-4"></div>
-              )} */}
 
               <span>
                 {props.links.length} of {maximum} links is stored on the{" "}
@@ -1192,6 +980,7 @@ function ExpandableArray(props) {
               </div>
             </div>
           </div>
+          
           <div className="margin-top-18 width800">
             <LinkList av={props.av} />
           </div>

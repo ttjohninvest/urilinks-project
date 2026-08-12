@@ -60,39 +60,41 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         } else return true;
       })
 
-      // links.sort((a, b) => {
-      //   if (
-      //     sortBy === "description" ||
-      //     sortBy === "hashtag" ||
-      //     sortBy === "notetext" 
-      //     //||
-      //     //sortBy === "folder"
-      //   ) {
-      //     return a.description.toLowerCase() > b.description.toLowerCase()
-      //       ? 1
-      //       : -1;
-      //   } else if (sortBy === "hashtag") { //the hashtag is in the note
-      //   a.note.toLowerCase() > b.note.toLowerCase()
-      //       ? 1
-      //       : -1;
-      //   } else if (sortBy === "notetext") {
-      //      a.note.toLowerCase() > b.note.toLowerCase()
-      //       ? 1
-      //       : -1;
-      //   } else if (sortBy === "views") {
+      let arr2 = arr.sort((a, b) => {
+        if (
+          sortBy === "description" 
+          //||
+          //sortBy === "hashtag" ||
+          //sortBy === "notetext" 
+          //||
+          //sortBy === "folder"
+        ) {
+          return a.description.toLowerCase() > b.description.toLowerCase()
+            ? 1
+            : -1;
+        } else if (sortBy === "hashtag") { //the hashtag is in the note
+        a.note.toLowerCase() > b.note.toLowerCase()
+            ? 1
+            : -1;
+        } else if (sortBy === "notetext") {
+           a.note.toLowerCase() > b.note.toLowerCase()
+            ? 1
+            : -1;
+        } else if (sortBy === "views") {
 
-      //       return b.frequency - a.frequency
+            return b.frequency - a.frequency
 
-      //   } else if (sortBy === "likes") {
+        } else if (sortBy === "likes") {
 
-      //       return b.likes - a.likes
+            return b.likes - a.likes
 
-      //   }
-      // })
+        }
+      })
+
       console.log("getFilteredLinksArray, links.length="+links.length)
-      console.log("getFilteredLinksArray, arr.length="+arr.length)
+      console.log("getFilteredLinksArray, arr2.length="+arr2.length)
       console.log("getFilteredLinksArray, links="+JSON.stringify(links))
-      console.log("getFilteredLinksArray, arr="+JSON.stringify(arr))
+      console.log("getFilteredLinksArray, arr2="+JSON.stringify(arr2))
       return arr
     }
 };

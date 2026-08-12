@@ -741,7 +741,7 @@ function ExpandableArray(props) {
 
                   <div
                     
-                    className={`margin-right-1`}
+                    className={`margin-right-1 margin-left-11 margin-top-1`}
                   >
                     <button
                       id="buttonid"

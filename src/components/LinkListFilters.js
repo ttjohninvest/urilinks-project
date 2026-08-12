@@ -830,7 +830,7 @@ function ExpandableArray(props) {
               </div>}
 
               <div id="before-before-link-summary-id" className="">
-                {isMobile() === true ? <div className="flexrowzv- flexcol3">
+                {isMobile() === true ? <div className="flexcol3">
                   <div className="">
                     <input
                       title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
@@ -853,7 +853,7 @@ function ExpandableArray(props) {
                   >
                     <button
                       id="buttonid"
-                      className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
+                      className={`${isMobile()===true?'width325':''} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
                       //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                       //onClick={this.search}
@@ -945,8 +945,8 @@ function ExpandableArray(props) {
                   >
                     <button
                       id="buttonid"
-                      className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
-                      //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
+                      //className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
+                      className={`${isMobile()===true?'width325':''} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
 
                       //onClick={this.search}
                       onClick={search}

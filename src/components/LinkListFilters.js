@@ -395,8 +395,9 @@ function ExpandableArray(props) {
 
   const onSortChange = (e) => {
     if (e.target.value === "none" || e.target.value === undefined || e.target.value === null) return;
-
+    console.log("onSortChange, e.target.value="+e.target.value)
     const val = window.document.getElementById("termid").value.trim();
+    console.log("onSortChange, term="+val)
     
     if (e.target.value === "description")
     {

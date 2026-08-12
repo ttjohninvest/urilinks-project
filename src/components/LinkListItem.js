@@ -828,8 +828,8 @@ const hashtags = str1.match(/#\w+/g) || [];
         <a
           
           ref={myRef}
-          className={`ib text-size-16 font-weight-900 margin-right-1 textWrap overflowWrapBreakWord-`}
-          style={{width:"325px"}}
+          className={`ib text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile()===true?'width325':''}`}
+          
           href={props.Url}
           target="_blank"
           data-value={props.id}

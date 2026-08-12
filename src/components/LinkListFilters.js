@@ -742,9 +742,9 @@ function ExpandableArray(props) {
               <div className="margin-left-11 flexcol3">
                 {props.signup === true && (
                   <span>
-                    <div className="margin-bottom-123">
+                   <div className="margin-bottom-123">
                       <div className="flexrow2cv2">
-                        <div className="text-size-1 textLeft- margin-top-1- margin-bottom-19">
+                        <div className="text-size-1 textLeft- margin-top-1- margin-bottom-1">
                           <a
                             href="#"
                             ref={textAreaRef}
@@ -925,8 +925,11 @@ function ExpandableArray(props) {
                       </optgroup>
                     </select>
                   </div>
+
+
                 </div>:
-                <div className="flexrowzv margin-top-1t1">
+
+                <div className="flexrowzv margin-top-1t1 margin-bottom-1">
                   <div className="">
                     <input
                       title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."

@@ -637,7 +637,7 @@ function ExpandableArray(props) {
                     <div className="">
                       <div className="flexcol3">
                         <fieldset className="width325 padding-bottom-11 margin-bottom-1-">
-  <legend>Your Link:</legend>
+                       <legend>Your Link:</legend>
                         <div className="text-size-1">
                           <a
                             href="#"
@@ -735,11 +735,8 @@ function ExpandableArray(props) {
                   <div className="minWidth- bg-color-4"></div>
                 )}
 
-                {isMobile() === false && <div className="ib margin-top-1">
-                  {props.links.length} of {maximum} links is stored on the{" "}
-                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
-                  {" plan."}
-                </div>}
+              
+
               </div>
               :
               <div className="margin-left-11 flexcol3">
@@ -833,11 +830,11 @@ function ExpandableArray(props) {
                   <div className="bg-color-4"></div>
                 )}
 
-                <span className="ib">
+                <div className="ib">
                   {props.links.length} of {maximum} links is stored on the{" "}
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   {" plan."}
-                </span>
+                </div>
               </div>}
 
               <div id="before-before-link-summary-id" className="">

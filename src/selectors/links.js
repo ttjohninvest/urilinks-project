@@ -95,7 +95,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
       console.log("getFilteredLinksArray, arr2.length="+arr2.length)
       console.log("getFilteredLinksArray, links="+JSON.stringify(links))
       console.log("getFilteredLinksArray, arr2="+JSON.stringify(arr2))
-      return arr
+      return arr2
     }
 };
 

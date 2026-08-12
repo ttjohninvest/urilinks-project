@@ -625,7 +625,7 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div>
-               {isMobile() === true && <span className="ib margin-left-n-11-">
+               {isMobile() === true && <span className="ib margin-left-11">
                   {props.links.length} of {maximum} links is stored on the{" "}
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   {" plan."}

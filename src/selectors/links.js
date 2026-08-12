@@ -19,12 +19,14 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   //sortBy="views"
   if (!!links === false) return [];
   else {
-    //alert("1 before sort, elements count="+links.length)
+    
+    let isTextInDescription, isTextInNote;
+
     let arr = links
       .filter((link) => {
         //text=''
 
-        let isTextInDescription, isTextInNote;
+        //let isTextInDescription, isTextInNote;
         
         //let isTextInFoldername;
 

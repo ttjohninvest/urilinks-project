@@ -24,23 +24,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
 
     let arr = 
     links.filter((link) => {
-        //text=''
-
-        //let isTextInDescription, isTextInNote;
-        
-        //let isTextInFoldername;
-
-        // if (sortBy === "folder") {
-        //   // || sortBy==='date') {
-        //   if (!!link.foldername === false) return false;
-        //   isTextInFoldername = link.foldername
-        //     ? link.foldername.toLowerCase() === text.toLowerCase()
-        //     : false;
-        //   return isTextInFoldername; //&& startDateMatch && endDateMatch;
-        
-        // } 
-        
-        // else 
+      
           
           if (sortBy === "description") {
 
@@ -105,7 +89,10 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
 
       //   }
       // })
-      
+      console.log("getFilteredLinksArray, links.length="+links.length)
+      console.log("getFilteredLinksArray, arr.length="+arr.length)
+      console.log("getFilteredLinksArray, links="+JSON.stringify(links))
+      console.log("getFilteredLinksArray, arr="+JSON.stringify(arr))
       return arr
     }
 };

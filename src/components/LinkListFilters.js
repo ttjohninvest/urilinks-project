@@ -933,7 +933,7 @@ function ExpandableArray(props) {
                     </select>
                   </div>
                 </div>:
-                <div className="flexrowzv">
+                <div className="flexrowzv margin-top-1">
                   <div className="">
                     <input
                       title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."

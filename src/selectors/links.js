@@ -11,12 +11,7 @@ const removeHashTags = (text) => {
 const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   //console.log("links="+JSON.stringify(links))
   console.log("getFilteredLinksArray, text=" + text);
-  console.log(
-    "getFilteredLinksArray, TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT sortBy=" + sortBy,
-  );
-  // if(sortBy="notetext")
-  //   sortBy = "views"
-  // alert("getFilteredLinksArray, sortBy="+sortBy)
+  console.log("getFilteredLinksArray, TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT sortBy=" + sortBy);
 
   let za = 0;
   let zb = 0;
@@ -79,133 +74,21 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           return a.description.toLowerCase() > b.description.toLowerCase()
             ? 1
             : -1;
+        } else if (sortBy === "hashtag") {
+        a.hashtag.toLowerCase() > b.hashtag.toLowerCase()
+            ? 1
+            : -1;
+        } else if (sortBy === "notetext") {
+           a.note.toLowerCase() > b.note.toLowerCase()
+            ? 1
+            : -1;
         } else if (sortBy === "views") {
 
-          
-
-          
-                // let x = parseInt(a.frequency)
-                // let y = parseInt(b.frequency)
-                // let x1 = isNaN(x)
-                // let y1 = isNaN(y)
-                // if(x1 === true) za = parseInt(0)
-                // else  
-                //   {
-                //     za = parseInt(a.frequency)
-                //     if(za===parseInt(0))
-                //     za = parseInt(0)
-                    
-
-                //   }
-                // if(y1 === true) zb = parseInt(0)
-                // else {
-                  
-                //     zb = parseInt(b.frequency)
-                //     if(zb===parseInt(0))
-                //     zb = parseInt(0)
-                    
-                // }
-               
-                
-                // if(parseInt(a.frequency) === undefined  || parseInt(a.frequency) === null) {
-                //   za = 0
-                // } else {
-                //   za = parseInt(a.frequency)
-                // }
-
-                // if(b.frequency === undefined || b.frequency === null) {
-                //   zb = 0
-                // } else {
-                //   zb=parseInt(b.frequency)
-                // }
-
-//console.log("a.frequency="+parseInt(a.frequency)+", parseInt(b.frequency)="+parseInt(b.frequency))
-
-                // console.log("za="+za+", zb="+zb)
-                // if (za === parseInt(0) && zb === parseInt(0)) 
-                //   {
-                //     //console.log("returning 0")
-                //     return parseInt(0)
-                //   }
-                // if (za === parseInt(0)) 
-                //   {
-                //      //console.log("returning -1")
-                //     return -1;
-                //   }
-                // if (zb === parseInt(0)) 
-                //   {
-                //      //console.log("returning 1")
-                //     return 1;
-                //   }
-                // return za < zb
-                //   ? parseInt(1)
-                //   : parseInt(-1);
-                //return 0
-                return b.frequency - a.frequency
+            return b.frequency - a.frequency
 
         } else if (sortBy === "likes") {
 
-          
-
-          
-                // let x = parseInt(a.frequency)
-                // let y = parseInt(b.frequency)
-                // let x1 = isNaN(x)
-                // let y1 = isNaN(y)
-                // if(x1 === true) za = parseInt(0)
-                // else  
-                //   {
-                //     za = parseInt(a.frequency)
-                //     if(za===parseInt(0))
-                //     za = parseInt(0)
-                    
-
-                //   }
-                // if(y1 === true) zb = parseInt(0)
-                // else {
-                  
-                //     zb = parseInt(b.frequency)
-                //     if(zb===parseInt(0))
-                //     zb = parseInt(0)
-                    
-                // }
-               
-                
-                // if(parseInt(a.frequency) === undefined  || parseInt(a.frequency) === null) {
-                //   za = 0
-                // } else {
-                //   za = parseInt(a.frequency)
-                // }
-
-                // if(b.frequency === undefined || b.frequency === null) {
-                //   zb = 0
-                // } else {
-                //   zb=parseInt(b.frequency)
-                // }
-
-//console.log("a.frequency="+parseInt(a.frequency)+", parseInt(b.frequency)="+parseInt(b.frequency))
-
-                // console.log("za="+za+", zb="+zb)
-                // if (za === parseInt(0) && zb === parseInt(0)) 
-                //   {
-                //     //console.log("returning 0")
-                //     return parseInt(0)
-                //   }
-                // if (za === parseInt(0)) 
-                //   {
-                //      //console.log("returning -1")
-                //     return -1;
-                //   }
-                // if (zb === parseInt(0)) 
-                //   {
-                //      //console.log("returning 1")
-                //     return 1;
-                //   }
-                // return za < zb
-                //   ? parseInt(1)
-                //   : parseInt(-1);
-                //return 0
-                return b.likes - a.likes
+            return b.likes - a.likes
 
         }
       })

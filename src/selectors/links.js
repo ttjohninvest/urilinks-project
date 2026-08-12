@@ -22,7 +22,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
     
     let isTextInDescription, isTextInNote;
 
-    //let arr = 
+    let arr = 
     links.filter((link) => {
         //text=''
 
@@ -106,7 +106,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
       //   }
       // })
       
-      return links
+      return arr
     }
 };
 

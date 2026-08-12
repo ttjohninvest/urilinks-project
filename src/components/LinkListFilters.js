@@ -554,7 +554,7 @@ function ExpandableArray(props) {
             
 
             <div
-              className={`border-right-5-`}
+              className={`border-right-5`}
             >
               
                 <div

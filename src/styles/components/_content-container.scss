@@ -56,6 +56,7 @@
 .scrollable-div1 {
   height: 150vh; //112vh;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .scrollable-div1m {
@@ -292,7 +293,7 @@ input#option1[type="radio"] {
 }
 
 .containerhs {
-  //overflow-x: scroll;
+  overflow-x: hidden; //scroll;
   overflow-y: hidden;
   white-space: nowrap;
   width: 100%;

@@ -809,7 +809,7 @@ function ExpandableArray(props) {
                       className={`ib flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                       onClick={handleClick}
                     >
-                      <span className="color-white-1">email your link</span>
+                      <span className="ib color-white-1">Email your link</span>
                      
                     </a>
 

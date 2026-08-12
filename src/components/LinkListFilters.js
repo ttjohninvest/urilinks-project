@@ -729,7 +729,7 @@ function ExpandableArray(props) {
                       placeholder="enter what to find"
                       autoFocus
                       id="termid"
-                      className="text-input- responsive-input- outline-none- padding-left-11- borderRadius55- searchinput"
+                      className={`${isMobile===true?"width325":"width100"} searchinput`}
                       type="text"
                       //value={this.state.dv}
                       //onChange={(e) => this.setState({ searchTerm: e.target.value })}

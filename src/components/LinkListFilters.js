@@ -622,7 +622,7 @@ function ExpandableArray(props) {
         </div>
 
         {/*right column code here*/}
-        <div>
+        <div className="margin-top-n-x">
           <div>
             <div>
                {isMobile() === true && <span className="ib margin-left-11">

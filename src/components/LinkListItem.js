@@ -802,6 +802,12 @@ const hashtags = str1.match(/#\w+/g) || [];
     return text.replace(/(.{50})/g, "$1\n");
 }
 
+  function isMobile() {
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  }
+
   return (
     <div key={props.index}>
       <img className="" width="20" height="20" src={props.faviconURL} />

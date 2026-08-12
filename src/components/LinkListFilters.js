@@ -631,6 +631,8 @@ function ExpandableArray(props) {
                   <span>
                     <div className="">
                       <div className="flexcol3">
+                        <fieldset>
+  <legend>Your Link:</legend>
                         <div className="text-size-1">
                           <a
                             href="#"
@@ -656,6 +658,7 @@ function ExpandableArray(props) {
                           </button>
                           {copySuccess}
                         </div>
+                        </fieldset>
                       </div>
                     </div>
                   </span>
@@ -663,7 +666,9 @@ function ExpandableArray(props) {
                 {props.signup === false && (
                   <span>
                     <div className="">
-                      <div className="">
+                      <div className="flexcol3">
+                        <fieldset>
+                       <legend>Your Link:</legend>
                         <div className="text-size-1">
                           <a
                             href="#"
@@ -686,8 +691,9 @@ function ExpandableArray(props) {
                               click to copy your link to share your links
                             </span>
                           </button>
-                          {copySuccess}
+                          {/* {copySuccess} */}
                         </div>
+                        </fieldset>
                       </div>
                     </div>
                   </span>

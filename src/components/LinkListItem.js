@@ -880,7 +880,7 @@ const hashtags = str1.match(/#\w+/g) || [];
                 <label htmlFor={"delete%" + props.id} />
               </span>
               <span className="pointereventsauto">
-                <span className="margin-left-11">
+                <span className="margin-left-11 color-black ">
                   {!!props.showpublic ? "make link private" : "made link private"}
                   :&nbsp;
                 </span>

@@ -520,7 +520,7 @@ function ExpandableArray(props) {
         >
           <span>Internet Links Organizer Dashboard's Home Page</span>
         </div>
-        <div>
+        <div className="margin-left-11">
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingUp}
@@ -714,7 +714,7 @@ function ExpandableArray(props) {
                   <div className="minWidth- bg-color-4"></div>
                 )}
 
-                <span>
+                <span className="ib margin-left-11">
                   {props.links.length} of {maximum} links is stored on the{" "}
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   {" plan."}

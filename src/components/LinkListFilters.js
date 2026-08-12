@@ -875,7 +875,7 @@ function ExpandableArray(props) {
 
                       //onClick={this.search}
                       onClick={search}
-                      //title="Searches to find entered term through the previously selected list which will appear in copper color."
+                      ////title="Searches to find entered term through the previously selected list which will appear in copper color."
                       title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
                     >
                       Search

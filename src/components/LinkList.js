@@ -260,7 +260,7 @@ export const LinkList = (props) => {
 
         <div>
           {selectedOption === "option1" && (
-            <div id="ls2" className="list-body- scrollable-div2content">
+            <div id="ls2" className="scrollable-div2content">
               {props.links.length === 0 ? (
                 <div className="list-item- list-item--message-"></div>
               ) : (

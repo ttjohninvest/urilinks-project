@@ -502,11 +502,11 @@ function ExpandableArray(props) {
         behavior: "smooth",
       });
 
-      document.getElementById("very-top-id").scrollBy({
-        top: 500, 
-        left: 360,
-        behavior: "smooth",
-      });
+      // document.getElementById("very-top-id").scrollBy({
+      //   top: 500, 
+      //   left: 360,
+      //   behavior: "smooth",
+      // });
     
   };
 

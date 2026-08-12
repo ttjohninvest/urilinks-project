@@ -328,6 +328,7 @@ input.cb1[type="checkbox"]:hover {
 
 #very-top-id {
     overflow-x: auto;
+    scroll-snap-type: x mandatory;
     //white-space: nowrap; /* Prevents content wrapping if needed */
 }
 

@@ -724,10 +724,10 @@ function ExpandableArray(props) {
                       id="adlinkid"
                       href="#"
                       title="Email your sharable link to share with others."
-                      className={`cursor-pointer width400 button-2 color-white-1 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                      className={`cursor-pointer width325 button-2 color-white-1 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                       onClick={handleClick}
                     >
-                      email your link2
+                      <span className="ib color-white-1">Email your link</span>
                       
                     </a>
 

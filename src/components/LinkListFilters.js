@@ -632,7 +632,7 @@ function ExpandableArray(props) {
                           <a
                             href="#"
                             ref={textAreaRef}
-                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                            className={`ib nounderline pointereventsnone border5 padding-all2 borderradius55 ${isMobile()===false?'':'width325'}`}
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                             style={{ textDecoration: "none", color: "black" }}
                           >
@@ -640,11 +640,11 @@ function ExpandableArray(props) {
                             {props.uid}
                           </a>
                           <button
-                            className="button-2w ib margin-right-1 margin-left-11 border5"
+                            className={`button-2w ib margin-right-1 border5 ${isMobile()===false?'':'margin-top-1'}`}
                             onClick={copyToClipboard}
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >
-                            <span className="text-size-14-">
+                            <span className="">
                               click to copy your link to share your links
                             </span>
                           </button>

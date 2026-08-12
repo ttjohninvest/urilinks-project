@@ -628,7 +628,7 @@ function ExpandableArray(props) {
                 {props.signup === true && (
                   <span>
                     <div className="">
-                      <div className="">
+                      <div className="flexcol3">
                         <div className="text-size-1">
                           <a
                             href="#"
@@ -640,7 +640,9 @@ function ExpandableArray(props) {
                             https://urilinks.com/dashboard?signup=0&x=readonly&id=
                             {props.uid}
                           </a>
-                          <br />
+                          
+                        </div>
+                        <div>
                           <button
                             className={`button-2w ib border5 ${isMobile()===false?'':'width325 margin-top-1'}`}
                             onClick={copyToClipboard}
@@ -671,15 +673,18 @@ function ExpandableArray(props) {
                             https://urilinks.com/dashboard?signup=0&x=readonly&id=
                             {props.uid}
                           </a>
-                          <br />
+                        </div>
+                         <div>
                           <button
-                            className="button-2w ib border5 pointereventsnone"
+                            className={`button-2w ib border5 ${isMobile()===false?'':'width325 margin-top-1'}`}
                             onClick={copyToClipboard}
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >
-                            click to copy your link to share your links
+                            <span className="">
+                              click to copy your link to share your links
+                            </span>
                           </button>
-                          {/* {copySuccess} */}
+                          {copySuccess}
                         </div>
                       </div>
                     </div>

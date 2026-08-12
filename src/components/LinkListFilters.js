@@ -1113,6 +1113,7 @@ export class LinkListFilters extends React.Component {
         this.setState({ sortBy: "description" });
         window.document.querySelector("#buttonid").click();
       }
+       window.scrollTo(0,0)
     } catch (e) {
       //alert("componentDidMount,e="+e)
     }

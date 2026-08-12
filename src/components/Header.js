@@ -182,13 +182,8 @@ export const Header = (props) => {
       else setTheplan("free");
     }
 
-    // }
-    // else {
-    //   setPhotoURL("");
-    // }
-
-    // Usage: Scroll 300 pixels down over 1000ms (1 second)
-    //slowScrollDown(2000, 1000);
+  
+     window.scrollTo(0,0)
   }, []);
 
   const scrolldown = () => {

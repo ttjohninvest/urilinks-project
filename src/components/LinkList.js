@@ -244,7 +244,7 @@ const startScrollingUp2 = () => {
       <button
         title="Click the button to begin auto scroll."
         onClick={startScrollingUp2}
-        className="button-2"
+        className="button-2 widthxpx1"
       >
         ScrollUp
       </button>
@@ -261,7 +261,7 @@ const startScrollingUp2 = () => {
       <button
         title="Click the button to begin auto scroll."
         onClick={startScrollingDown2}
-        className="button-2 ib margin-left-11"
+        className="button-2 ib margin-left-11 widthxpx1"
       >
         ScrollDn
       </button>

@@ -549,12 +549,12 @@ function ExpandableArray(props) {
         
           {/* <div> */}
             <div>
-              {/* left column */}
-              <div id="ls" className={`width30menupane ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}>
+              {/* left column scrollable-div1m for mobile*/}
+              <div id="ls" className={`width30menupane scrollable-div1`}>
             
 
             <div
-              className={`border-right-5`}
+              className={`border-right-5-`}
             >
               
                 <div

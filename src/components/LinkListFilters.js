@@ -1372,15 +1372,16 @@ export class LinkListFilters extends React.Component {
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
-
+    // alert("select="+select)
     //var selectedValue = select.options[select.selectedIndex].value;
     var selectedValue;
     if (window.localStorage.getItem("sortBy") !== "")
       selectedValue = window.localStorage.getItem("sortBy");
     else selectedValue = select.options[select.selectedIndex].value;
-
+    
     console.log("search = () => {, selectedValue=" + selectedValue);
     let term = window.document.getElementById("termid").value.trim();
+    alert("selectedValue="+selectedValue+", term="+term)
     window.localStorage.setItem("termid", term);
     this.props.setTextFilter(term);
 

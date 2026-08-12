@@ -58,7 +58,7 @@ export const Header = (props) => {
       // Easing function (ease-out) for smoother deceleration
       const easeOut = 1 - Math.pow(1 - progress, 3);
 
-      ////window.scrollTo(0, startingY + (targetY - startingY) * easeOut);
+      //window.scrollTo(0, startingY + (targetY - startingY) * easeOut);
 
       if (progress < 1) {
         requestAnimationFrame(animate);
@@ -180,7 +180,7 @@ export const Header = (props) => {
       else setTheplan("free");
     }
 
-    ////window.scrollTo(0,0)
+    //window.scrollTo(0,0)
   }, []);
 
   const scrolldown = () => {

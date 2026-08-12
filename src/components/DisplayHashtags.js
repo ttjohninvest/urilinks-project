@@ -227,7 +227,7 @@ function ExpandableArray(props) {
   }, []);
 
   const moveIt = () => {
-    ////window.scrollTo(0, props.elementRef.current.offsetHeight);
+    //window.scrollTo(0, props.elementRef.current.offsetHeight);
   };
   //jkjsakldfja;lkfj;aslkdfj;jslkjfkdf;ja
   const toggleExpanded = () => {
@@ -1197,7 +1197,7 @@ export class DisplayHashtags extends React.Component {
 
   scrollDown = () => {
     let d = this.getHeight();
-    ////window.scrollTo(0, d);
+    //window.scrollTo(0, d);
   };
 
   handleCheckboxShow = (event) => {

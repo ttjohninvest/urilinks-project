@@ -75,7 +75,7 @@ export const Header2 = (props) => {
       setEmaildb(user.email);
     }
 
-    ////window.scrollTo(0,0)
+    //window.scrollTo(0,0)
   }, []);
 
   const scrolldown = () => {

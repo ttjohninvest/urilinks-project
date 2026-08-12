@@ -497,6 +497,7 @@ function ExpandableArray(props) {
     setActiveItem(index);
     props.setit(ht, e);
     window.scrollTo(360,0)
+    alert("after 360")
   };
 
   return (

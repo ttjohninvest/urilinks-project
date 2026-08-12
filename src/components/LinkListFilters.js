@@ -623,6 +623,105 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div>
+              {isMobile() === true ? 
+                <div className="margin-left-11 margin-bottom-1">
+                {props.signup === true && (
+                  <span>
+                    <div className="margin-bottom-123">
+                      <div className="flexcol3">
+                        <div className="text-size-1 textLeft- margin-top-1- margin-bottom-19">
+                          <a
+                            href="#"
+                            ref={textAreaRef}
+                            className={`ib nounderline pointereventsnone border5 padding-all2 borderradius55 ${isMobile()===false?'':'width325'}`}
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                            style={{ textDecoration: "none", color: "black" }}
+                          >
+                            https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                            {props.uid}
+                          </a>
+                          <button
+                            className={`button-2w ib margin-right-1 border5 ${isMobile()===false?'':'margin-top-1'}`}
+                            onClick={copyToClipboard}
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          >
+                            <span className="">
+                              click to copy your link to share your links
+                            </span>
+                          </button>
+                          {copySuccess}
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+                )}
+                {props.signup === false && (
+                  <span>
+                    <div className="margin-bottom-123">
+                      <div className="flexrow2cv2">
+                        <div className="text-size-1 textLeft- margin-top-1-">
+                          <a
+                            href="#"
+                            ref={textAreaRef}
+                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                            style={{ textDecoration: "none", color: "black" }}
+                          >
+                            https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                            {props.uid}
+                          </a>
+                          <button
+                            className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
+                            onClick={copyToClipboard}
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          >
+                            click to copy your link to share your links
+                          </button>
+                          {copySuccess}
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+                )}
+
+                {props.signup === true && rt !== "readonly" ? (
+                  <div className="bg-color-4">
+                    <a
+                      target="_blank"
+                      id="adlinkid"
+                      href="#"
+                      title="Email your sharable link to share with others."
+                      className={`cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w ${rt === "readonly" ? "pointereventsnone" : ""} width100  color-black-2 border5-`}
+                      onClick={handleClick}
+                    >
+                      Click to open up form to email to your recipient your
+                      sharable link to your readonly dashboard page
+                    </a>
+
+                    {showComponent && <AddLinkPage2 />}
+                    {
+                      //emailForm &&
+                      isFormOpen && (
+                        <SendEmailPage
+                          sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
+                          uid={uid}
+                          isFormOpen={isFormOpen}
+                          handleClose={handleClose}
+                        />
+                      )
+                    }
+                  </div>
+                ) : (
+                  <div className="minWidth- bg-color-4"></div>
+                )}
+
+                <span className="ib margin-left-11">
+                  {props.links.length} of {maximum} links is stored on the{" "}
+                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
+                  {" plan."}
+                </span>
+              </div>
+              :
               <div className="margin-left-11 margin-bottom-1">
                 {props.signup === true && (
                   <span>
@@ -719,7 +818,7 @@ function ExpandableArray(props) {
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   {" plan."}
                 </span>
-              </div>
+              </div>}
 
               <div id="before-before-link-summary-id" className="">
                 {isMobile() === true ? <div className="flexrowzv- flexcol3">

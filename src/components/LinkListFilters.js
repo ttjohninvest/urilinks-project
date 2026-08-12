@@ -735,7 +735,7 @@ function ExpandableArray(props) {
                   <div className="minWidth- bg-color-4"></div>
                 )}
 
-                {isMobile() === false && <span className="ib margin-left-n-11-">
+                {isMobile() === false && <span className="ib margin-left-n-11- margin-top-1t1">
                   {props.links.length} of {maximum} links is stored on the{" "}
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   {" plan."}
@@ -933,7 +933,7 @@ function ExpandableArray(props) {
                     </select>
                   </div>
                 </div>:
-                <div className="flexrowzv margin-top-1">
+                <div className="flexrowzv margin-top-1t1">
                   <div className="">
                     <input
                       title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."

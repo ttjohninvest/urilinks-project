@@ -22,8 +22,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
     
     let isTextInDescription, isTextInNote;
 
-    let arr = links
-      .filter((link) => {
+    //let arr = 
+    links.filter((link) => {
         //text=''
 
         //let isTextInDescription, isTextInNote;
@@ -75,37 +75,38 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           
         } else return true;
       })
-      .sort((a, b) => {
-        if (
-          sortBy === "description" ||
-          sortBy === "hashtag" ||
-          sortBy === "notetext" 
-          //||
-          //sortBy === "folder"
-        ) {
-          return a.description.toLowerCase() > b.description.toLowerCase()
-            ? 1
-            : -1;
-        } else if (sortBy === "hashtag") { //the hashtag is in the note
-        a.note.toLowerCase() > b.note.toLowerCase()
-            ? 1
-            : -1;
-        } else if (sortBy === "notetext") {
-           a.note.toLowerCase() > b.note.toLowerCase()
-            ? 1
-            : -1;
-        } else if (sortBy === "views") {
 
-            return b.frequency - a.frequency
+      // links.sort((a, b) => {
+      //   if (
+      //     sortBy === "description" ||
+      //     sortBy === "hashtag" ||
+      //     sortBy === "notetext" 
+      //     //||
+      //     //sortBy === "folder"
+      //   ) {
+      //     return a.description.toLowerCase() > b.description.toLowerCase()
+      //       ? 1
+      //       : -1;
+      //   } else if (sortBy === "hashtag") { //the hashtag is in the note
+      //   a.note.toLowerCase() > b.note.toLowerCase()
+      //       ? 1
+      //       : -1;
+      //   } else if (sortBy === "notetext") {
+      //      a.note.toLowerCase() > b.note.toLowerCase()
+      //       ? 1
+      //       : -1;
+      //   } else if (sortBy === "views") {
 
-        } else if (sortBy === "likes") {
+      //       return b.frequency - a.frequency
 
-            return b.likes - a.likes
+      //   } else if (sortBy === "likes") {
 
-        }
-      })
-      //alert("after sort, elements count="+arr.length)
-      return arr
+      //       return b.likes - a.likes
+
+      //   }
+      // })
+      
+      return links
     }
 };
 

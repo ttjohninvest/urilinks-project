@@ -113,7 +113,7 @@ export const LinkList = (props) => {
 
  
 
-const startScrollingUp = () => {
+const startScrollingUp2 = () => {
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -134,12 +134,12 @@ const startScrollingUp = () => {
     }, 20); // Every 20 milliseconds
   };
 
-  const stopScrolling = () => {
+  const stopScrolling2 = () => {
     clearInterval(scrollInterval2.current);
     scrollInterval2.current = null;
   };
 
-   const startScrollingDown = () => {
+   const startScrollingDown2 = () => {
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 

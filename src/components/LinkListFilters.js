@@ -81,26 +81,7 @@ function ExpandableArray(props) {
     );
   }, []);
 
-  const startScrollingDown = () => {
-    // Prevent multiple intervals
-    if (scrollInterval.current) return;
-
-    scrollInterval.current = setInterval(() => {
-      document.getElementById("ls").scrollBy({
-        top: -1, // Scroll 1 pixel each time
-        left: 0,
-        behavior: "auto",
-      });
-
-      // Stop automatically when reaching the top
-      if (document.getElementById("ls").scrollTop === 0) {
-        buttonRef.current.click();
-
-        //stopScrolling();
-      }
-    }, 20); // Every 20 milliseconds
-  };
-
+ 
   const startScrollingUp = () => {
     // Prevent multiple intervals
     if (scrollInterval.current) return;
@@ -126,6 +107,27 @@ function ExpandableArray(props) {
     clearInterval(scrollInterval.current);
     scrollInterval.current = null;
   };
+
+   const startScrollingDown = () => {
+    // Prevent multiple intervals
+    if (scrollInterval.current) return;
+
+    scrollInterval.current = setInterval(() => {
+      document.getElementById("ls").scrollBy({
+        top: -1, // Scroll 1 pixel each time
+        left: 0,
+        behavior: "auto",
+      });
+
+      // Stop automatically when reaching the top
+      if (document.getElementById("ls").scrollTop === 0) {
+        buttonRef.current.click();
+
+        //stopScrolling();
+      }
+    }, 20); // Every 20 milliseconds
+  };
+
 
   const startWrite = () => {
     let content = "";
@@ -817,10 +819,10 @@ function ExpandableArray(props) {
                     }
                   </div>
                 ) : (
-                  <div className="minWidth- bg-color-4"></div>
+                  <div className="bg-color-4"></div>
                 )}
 
-                <span className="ib margin-left-11">
+                <span className="ib">
                   {props.links.length} of {maximum} links is stored on the{" "}
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   {" plan."}
@@ -1110,6 +1112,11 @@ export class LinkListFilters extends React.Component {
       });
   };
 
+  scrollDown = () => {
+    let d = this.getHeight();
+    //window.scrollTo(0, d);
+  };
+
   deleteHashtagLinks = () => {
     console.log("hashtag is " + this.props.filters.text);
     const hashtag = this.props.filters.text;
@@ -1347,10 +1354,7 @@ export class LinkListFilters extends React.Component {
     window.location.href = "https://urilinks.com?signup=signup";
   };
 
-  scrollDown = () => {
-    let d = this.getHeight();
-    //window.scrollTo(0, d);
-  };
+  
 
   handleCheckboxShow = (event) => {
     this.setState({ isToggled: !this.state.isToggled });

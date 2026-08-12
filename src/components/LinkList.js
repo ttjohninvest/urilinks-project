@@ -103,27 +103,17 @@ export const LinkList = (props) => {
   //   window.onbeforeunload = null;
   // }, [items]);
 
-  const startScrollingDown2 = () => {
-    // Prevent multiple intervals
-    if (scrollInterval2.current) return;
 
-    scrollInterval2.current = setInterval(() => {
-      document.getElementById("ls2").scrollBy({
-        top: -1, // Scroll 1 pixel each time
-        left: 0,
-        behavior: "auto",
-      });
+  //  scrollUp = () => {
+  //   !!document.querySelector("#top") &&
+  //     document.querySelector("#top").scrollIntoView({
+  //       behavior: "smooth",
+  //     });
+  // };
 
-      // Stop automatically when reaching the top
-      if (document.getElementById("ls2").scrollTop === 0) {
-        buttonRef2.current.click();
+ 
 
-        //stopScrolling();
-      }
-    }, 20); // Every 20 milliseconds
-  };
-
-  const startScrollingUp2 = () => {
+const startScrollingUp = () => {
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -144,9 +134,29 @@ export const LinkList = (props) => {
     }, 20); // Every 20 milliseconds
   };
 
-  const stopScrolling2 = () => {
+  const stopScrolling = () => {
     clearInterval(scrollInterval2.current);
     scrollInterval2.current = null;
+  };
+
+   const startScrollingDown = () => {
+    // Prevent multiple intervals
+    if (scrollInterval2.current) return;
+
+    scrollInterval2.current = setInterval(() => {
+      document.getElementById("ls2").scrollBy({
+        top: -1, // Scroll 1 pixel each time
+        left: 0,
+        behavior: "auto",
+      });
+
+      // Stop automatically when reaching the top
+      if (document.getElementById("ls2").scrollTop === 0) {
+        buttonRef2.current.click();
+
+        //stopScrolling();
+      }
+    }, 20); // Every 20 milliseconds
   };
 
   const handleClick = (event) => {

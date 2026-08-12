@@ -60,6 +60,7 @@
 .scrollable-div2content {
   width: 360px;
   height: 105vh; //89vh
+  overflow-y: auto;
   //overflow-y: auto; //scroll scroll bar stays on page even if not needed
   
 

@@ -42,6 +42,7 @@ export const LinkList = (props) => {
   const [bgcolor2, setBgcolor2] = useState("#db5705"); //rgba(219, 87, 5, 1)
   const [bgcolor3, setBgcolor3] = useState("#db5705"); //rgba(219, 87, 5, 1)
   const [themax, setThemax] = useState(0);
+  const [maximum, setMaximum] = useState(0);
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -84,6 +85,36 @@ export const LinkList = (props) => {
   useEffect(() => {
     let x = getPlanMax();
     setThemax(x);
+  }, []);
+
+  useEffect(() => {
+    console.log("AB props.links.length=" + props.links.length);
+    if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "free"
+    ) {
+      setMaximum(StorageSizes.free);
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "basic"
+    ) {
+      setMaximum(StorageSizes.basic);
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "standard"
+    ) {
+      setMaximum(StorageSizes.standard);
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "premium"
+    ) {
+      setMaximum(StorageSizes.premium);
+    } else if (!!props.theplan.plan === false) {
+      setMaximum(StorageSizes.free);
+    }
+
+    
+
   }, []);
 
   //   useEffect(() => {

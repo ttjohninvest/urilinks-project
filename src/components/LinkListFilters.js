@@ -497,7 +497,7 @@ function ExpandableArray(props) {
     setActiveItem(index);
     props.setit(ht, e);
     document.getElementById("very-top-id").scrollBy({
-        top: 360, 
+        top: 460, 
         left: 360,
         behavior: "auto",
       });

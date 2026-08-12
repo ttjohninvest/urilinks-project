@@ -494,15 +494,14 @@ function ExpandableArray(props) {
   };
 
   const setItNow = (index, ht, e) => {
-    setActiveItem(index);
-    props.setit(ht, e);
+    //setActiveItem(index);
+    //props.setit(ht, e);
     document.getElementById("very-top-id").scrollBy({
-        top: 0, // Scroll 1 pixel each time
+        top: 0, 
         left: 360,
         behavior: "auto",
       });
-    //window.scrollTo(360,0)
-    //alert("after 360")
+    
   };
 
   return (

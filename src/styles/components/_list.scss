@@ -326,6 +326,11 @@ input.cb1[type="checkbox"]:hover {
     -4px 4px 0 #000, -5px 5px 0 #000, -6px 6px 0 #000, -7px 7px 0 #000;
 }
 
+#very-top-id {
+    overflow-x: auto;
+    white-space: nowrap; /* Prevents content wrapping if needed */
+}
+
 .body1 {
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;

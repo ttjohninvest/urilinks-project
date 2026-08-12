@@ -830,11 +830,7 @@ function ExpandableArray(props) {
                   <div className="bg-color-4"></div>
                 )}
 
-                <div className="ib">
-                  {props.links.length} of {maximum} links is stored on the{" "}
-                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
-                  {" plan."}
-                </div>
+              
               </div>}
 
               <div id="before-before-link-summary-id" className="">

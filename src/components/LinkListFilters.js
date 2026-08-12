@@ -714,7 +714,7 @@ function ExpandableArray(props) {
                       className={`cursor-pointer width400 button-2 color-white-1 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                       onClick={handleClick}
                     >
-                      email your link
+                      email your link2
                       
                     </a>
 
@@ -809,7 +809,7 @@ function ExpandableArray(props) {
                       className={`cursor-pointer width400 button-2 color-white-1 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                       onClick={handleClick}
                     >
-                      email your link
+                      email your link1
                      
                     </a>
 

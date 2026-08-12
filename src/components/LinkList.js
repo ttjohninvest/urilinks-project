@@ -15,8 +15,10 @@ import LinkListItem from "./LinkListItem";
 import LinkListItem2 from "./LinkListItem2";
 import LinkListItem3 from "./LinkListItem3";
 import LinkListItem4 from "./LinkListItem4";
+
 import selectLinks from "../selectors/links";
 import selectLinks2 from "../selectors/links2";
+
 import LinksSummary from "./LinksSummary";
 import AddLinkPage from "./AddlinkPage";
 import printerImage from "../assets/images/printer_image.png";
@@ -346,15 +348,15 @@ const startScrollingUp2 = () => {
 };
 //
 const mapStateToProps = (state) => {
-  const visibleLinks = selectLinks(state.links, state.filters);
-  const visibleLinks2 = selectLinks2(state.links2, state.filters);
+  const visibleLinks = selectLinks(state.links, state.filters); //selectLinks calls getFilteredLinksArray in actions/links.js
+  //const visibleLinks2 = selectLinks2(state.links2, state.filters);
 
   return {
     theplan: state.theplan,
     linkCount: visibleLinks.length,
-    linkCount2: visibleLinks2.length,
+    //linkCount2: visibleLinks2.length,
     linksTotal: selectLinksTotal(visibleLinks),
-    linksTotal2: selectLinksTotal(visibleLinks2),
+    //linksTotal2: selectLinksTotal(visibleLinks2),
     signup: state.signup,
     links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),

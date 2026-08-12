@@ -170,10 +170,10 @@ class LinkForm extends React.Component {
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
     console.log(
-      "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
+      "3 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
     );
     console.log(
-      "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.Url) = " +
+      "3 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.Url) = " +
         this.getFaviconUrl(this.state.Url),
     );
     console.log("onSubmit, this.state.note=" + this.state.note);

@@ -170,10 +170,10 @@ class EmailSharableLinkForm extends React.Component {
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
     console.log(
-      "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
+      "4 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
     );
     console.log(
-      "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.Url) = " +
+      "4 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.Url) = " +
         this.getFaviconUrl(this.state.Url),
     );
     console.log("onSubmit, this.state.note=" + this.state.note);

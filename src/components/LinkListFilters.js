@@ -623,7 +623,7 @@ function ExpandableArray(props) {
         <div>
           <div>
             <div>
-              <div className="margin-left-minus-1">
+              <div className="margin-left-11 margin-bottom-1">
                 {props.signup === true && (
                   <span>
                     <div className="margin-bottom-123">
@@ -684,7 +684,7 @@ function ExpandableArray(props) {
                 )}
 
                 {props.signup === true && rt !== "readonly" ? (
-                  <div className="minWidth- bg-color-4">
+                  <div className="bg-color-4">
                     <a
                       target="_blank"
                       id="adlinkid"

@@ -65,13 +65,6 @@
 
 }
 
-#very-top-id > div {
-  /* Ensures the child div snaps to the start (left) of the viewport */
-  scroll-snap-align: start; 
-  
-  /* Optional: Prevents the scroll from skipping snap points during fast swipes */
-  scroll-snap-stop: always; 
-}
 
 .border5 {
   border-width: 1px;

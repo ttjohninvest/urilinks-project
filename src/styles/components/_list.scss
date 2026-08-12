@@ -328,9 +328,17 @@ input.cb1[type="checkbox"]:hover {
 
 #very-top-id {
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    //scroll-snap-type: x mandatory;
     //white-space: nowrap; /* Prevents content wrapping if needed */
 }
+
+// #very-top-id > div {
+//   /* Ensures the child div snaps to the start (left) of the viewport */
+//   scroll-snap-align: start; 
+  
+//   /* Optional: Prevents the scroll from skipping snap points during fast swipes */
+//   scroll-snap-stop: always; 
+// }
 
 .body1 {
   font-family: Arial, sans-serif;

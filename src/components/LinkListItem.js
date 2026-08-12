@@ -818,7 +818,7 @@ const hashtags = str1.match(/#\w+/g) || [];
           title={"click to open the webpage: " + props.Url}
           onClick={()=>storeScrollPosition(props.frequency, event)}
         >
-          <img className="borderRadius10" style={{width:"335px"}} src={props.yturl} />
+          <img className="borderRadius10" style={{width:"325px"}} src={props.yturl} />
         </a>
       )}
 

@@ -722,14 +722,14 @@ function ExpandableArray(props) {
               </div>
 
               <div id="before-before-link-summary-id" className="">
-                <div className="flexrowzv">
+                {isMobile() ?<div className="flexrowzv">
                   <div className="">
                     <input
                       title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
                       placeholder="enter what to find"
                       autoFocus
                       id="termid"
-                      className={`${isMobile()===true?"width325":"width100"} searchinput`}
+                      className={`margin-left-11 width325 searchinput`}
                       //className={`width325 searchinput`}
                       type="text"
                       //value={this.state.dv}
@@ -740,10 +740,8 @@ function ExpandableArray(props) {
                   </div>
 
                   <div
-                    //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
-                    className={`${
-                      isMobile() ? "margin-right-1" : "margin-left-11"
-                    }`}
+                    
+                    className={`margin-right-1`}
                   >
                     <button
                       id="buttonid"
@@ -760,11 +758,7 @@ function ExpandableArray(props) {
                   </div>
 
                   <div
-                    className={`${
-                      isMobile()
-                        ? "margin-top-11z1 margin-left-11"
-                        : "margin-left-11"
-                    }`}
+                    className={`margin-top-11z1 margin-left-11`}
                   >
                     <select
                       id="mode"
@@ -819,7 +813,101 @@ function ExpandableArray(props) {
                       </optgroup>
                     </select>
                   </div>
-                </div>
+                </div>:
+                <div className="flexrowzv">
+                  <div className="">
+                    <input
+                      title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
+                      placeholder="enter what to find"
+                      autoFocus
+                      id="termid"
+                      className={`width100 searchinput`}
+                      //className={`width325 searchinput`}
+                      type="text"
+                      //value={this.state.dv}
+                      //onChange={(e) => this.setState({ searchTerm: e.target.value })}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      onKeyDown={handleKeyPress}
+                    />
+                  </div>
+
+                  <div
+                    //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
+                    className={`margin-left-11`}
+                  >
+                    <button
+                      id="buttonid"
+                      className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
+                      //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
+
+                      //onClick={this.search}
+                      onClick={search}
+                      //title="Searches to find entered term through the previously selected list which will appear in copper color."
+                      title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
+                    >
+                      search
+                    </button>
+                  </div>
+
+                  <div
+                    className={`margin-left-11`}
+                  >
+                    <select
+                      id="mode"
+                      className="select outline-none"
+                      //value={this.state.sortBy}
+                      value={sortBy}
+                      //value={this.props.filters.sortBy}
+                      //value={window.localStorage.getItem("sortBy")}
+
+                      onChange={onSortChange}
+                      title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
+                    >
+                      <optgroup label="Find:">
+                        <option value="hashtag" title="search by hash tag">
+                          Hash Tag
+                        </option>
+
+                        <option
+                          //selected
+                          value="description"
+                          title="search through the uri/url link texts"
+                        >
+                          Link Text
+                        </option>
+
+                        <option
+                          value="notetext"
+                          title="search through the notes"
+                        >
+                          Note Text
+                        </option>
+                      </optgroup>
+                      <optgroup label="Popularity:">
+                        <div
+                          style={{
+                            borderBottom: "1px solid #dee2e6",
+                            margin: "0.5rem 0",
+                          }}
+                        />
+                        <option
+                          value="views"
+                          title="sort views into descending order"
+                        >
+                          Views
+                        </option>
+                        <option
+                          value="likes"
+                          title="sort likes into descending order"
+                        >
+                          Likes
+                        </option>
+                      </optgroup>
+                    </select>
+                  </div>
+                </div>}
+
+
               </div>
             </div>
 

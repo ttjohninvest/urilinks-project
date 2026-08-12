@@ -800,16 +800,16 @@ function ExpandableArray(props) {
                 )}
 
                 {props.signup === true && rt !== "readonly" ? (
-                  <div className="">
+                  <div className="margin-bottom-1">
                     <a
                       target="_blank"
                       id="adlinkid"
                       href="#"
                       title="Email your sharable link to share with others. Email recipient sees readonly page"
-                      className={`cursor-pointer width400 button-2 color-white-1 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                      className={`cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                       onClick={handleClick}
                     >
-                      email your link1
+                      <span className="color-white-1">email your link</span>
                      
                     </a>
 

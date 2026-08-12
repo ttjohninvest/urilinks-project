@@ -61,6 +61,16 @@
   width: 360px;
   height: 105vh; //89vh
   //overflow-y: auto; //scroll scroll bar stays on page even if not needed
+  scroll-snap-type: x mandatory;
+
+}
+
+.scrollable-div2content > div {
+  /* Ensures the child div snaps to the start (left) of the viewport */
+  scroll-snap-align: start; 
+  
+  /* Optional: Prevents the scroll from skipping snap points during fast swipes */
+  scroll-snap-stop: always; 
 }
 
 .border5 {

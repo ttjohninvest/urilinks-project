@@ -642,7 +642,7 @@ function ExpandableArray(props) {
                           </a>
                           
                         </div>
-                        <div>
+                        <div className="margin-bottom-1">
                           <button
                             className={`button-2w ib border5 ${isMobile()===false?'':'width325 margin-top-1'}`}
                             onClick={copyToClipboard}
@@ -674,7 +674,7 @@ function ExpandableArray(props) {
                             {props.uid}
                           </a>
                         </div>
-                         <div>
+                         <div className="margin-bottom-1">
                           <button
                             className={`button-2w ib border5 ${isMobile()===false?'':'width325 margin-top-1'}`}
                             onClick={copyToClipboard}

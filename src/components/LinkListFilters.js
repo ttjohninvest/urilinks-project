@@ -648,7 +648,7 @@ function ExpandableArray(props) {
                         </div>
                         <div className="margin-bottom-1">
                           <button
-                            className={`button-2w ib border5 ${isMobile()===false?'':'width325 margin-top-1'}`}
+                            className={`button-2w ib border5 ${isMobile()===false?'':'width305 margin-top-1'}`}
                             onClick={copyToClipboard}
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >
@@ -683,7 +683,7 @@ function ExpandableArray(props) {
                         </div>
                          <div className="margin-bottom-1">
                           <button
-                            className={`button-2w ib border5 ${isMobile()===false?'':'width325 margin-top-1'}`}
+                            className={`button-2w ib border5 ${isMobile()===false?'':'width305 margin-top-1'}`}
                             onClick={copyToClipboard}
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >

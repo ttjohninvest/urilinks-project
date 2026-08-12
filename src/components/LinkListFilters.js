@@ -517,7 +517,7 @@ function ExpandableArray(props) {
       <div className="sticky-div-">
         <div
           className={`website-background-color width30pt
-          } theHeight flexrowzc2 border-b-5 margin-left-n-x font-roboto text-size-16 font-weight-500`}
+          } theHeight flexrowzc2 border-b-5 padding-left-n-x font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           <span>Internet Links Organizer Dashboard's Home Page</span>

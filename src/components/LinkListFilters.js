@@ -705,18 +705,17 @@ function ExpandableArray(props) {
                 )}
 
                 {props.signup === true && rt !== "readonly" ? (
-                  <div className="bg-color-4">
+                  <div className="">
                     <a
                       target="_blank"
                       id="adlinkid"
                       href="#"
                       title="Email your sharable link to share with others."
-                      className={`cursor-pointer aw- width400 alignCenter button-2 b1xw1- button-link-4 ib text-size-5 bg-color-1- bg-color-1w- ${rt === "readonly" ? "pointereventsnone" : ""} width100  color-black-2- border5-`}
+                      className={`cursor-pointer width400 button-2 color-white-1 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                       onClick={handleClick}
                     >
                       email your link
-                      {/* Click to open up form to email to your recipient your
-                      sharable link to your readonly dashboard page */}
+                      
                     </a>
 
                     {showComponent && <AddLinkPage2 />}
@@ -801,18 +800,17 @@ function ExpandableArray(props) {
                 )}
 
                 {props.signup === true && rt !== "readonly" ? (
-                  <div className="bg-color-4">
+                  <div className="">
                     <a
                       target="_blank"
                       id="adlinkid"
                       href="#"
-                      title="Email your sharable link to share with others."
+                      title="Email your sharable link to share with others. Email recipient sees readonly page"
                       className={`cursor-pointer width400 button-2 color-white-1 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                       onClick={handleClick}
                     >
                       email your link
-                      {/* Click to open up form to email to your recipient your
-                      sharable link to your readonly dashboard page */}
+                     
                     </a>
 
                     {showComponent && <AddLinkPage2 />}

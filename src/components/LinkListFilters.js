@@ -640,6 +640,7 @@ function ExpandableArray(props) {
                             https://urilinks.com/dashboard?signup=0&x=readonly&id=
                             {props.uid}
                           </a>
+                          <br />
                           <button
                             className={`button-2w ib margin-right-1 border5 ${isMobile()===false?'':'margin-top-1'}`}
                             onClick={copyToClipboard}
@@ -663,13 +664,14 @@ function ExpandableArray(props) {
                           <a
                             href="#"
                             ref={textAreaRef}
-                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                            className={`ib nounderline pointereventsnone border5 padding-all2 borderradius55 ${isMobile()===false?'':'width325'}`}
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                             style={{ textDecoration: "none", color: "black" }}
                           >
                             https://urilinks.com/dashboard?signup=0&x=readonly&id=
                             {props.uid}
                           </a>
+                          <br />
                           <button
                             className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
                             onClick={copyToClipboard}

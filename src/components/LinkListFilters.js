@@ -711,7 +711,7 @@ function ExpandableArray(props) {
                       id="adlinkid"
                       href="#"
                       title="Email your sharable link to share with others."
-                      className={`cursor-pointer aw alignCenter button-2 b1xw1- button-link-4 ib text-size-5 bg-color-1- bg-color-1w- ${rt === "readonly" ? "pointereventsnone" : ""} width100  color-black-2- border5-`}
+                      className={`cursor-pointer aw- width400 alignCenter button-2 b1xw1- button-link-4 ib text-size-5 bg-color-1- bg-color-1w- ${rt === "readonly" ? "pointereventsnone" : ""} width100  color-black-2- border5-`}
                       onClick={handleClick}
                     >
                       email your link
@@ -807,11 +807,12 @@ function ExpandableArray(props) {
                       id="adlinkid"
                       href="#"
                       title="Email your sharable link to share with others."
-                      className={`cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w ${rt === "readonly" ? "pointereventsnone" : ""} width100  color-black-2 border5-`}
+                      className={`cursor-pointer aw- width400 button-2 alignCenter  b1xw1- button-link-4 ib text-size-5- bg-color-1- bg-color-1w- ${rt === "readonly" ? "pointereventsnone" : ""} color-black-2- color-white-1 border5-`}
                       onClick={handleClick}
                     >
-                      Click to open up form to email to your recipient your
-                      sharable link to your readonly dashboard page
+                      email your link
+                      {/* Click to open up form to email to your recipient your
+                      sharable link to your readonly dashboard page */}
                     </a>
 
                     {showComponent && <AddLinkPage2 />}

@@ -240,6 +240,7 @@ const startScrollingUp2 = () => {
 
   return (
     <div>
+      <div className="margin-left-11">
       <button
         title="Click the button to begin auto scroll."
         onClick={startScrollingUp2}
@@ -264,6 +265,7 @@ const startScrollingUp2 = () => {
       >
         ScrollDn
       </button>
+      </div>
 
       <div className="border-left-5">
         <div id="before-link-summary-id" className="margin-bottom-5a"></div>

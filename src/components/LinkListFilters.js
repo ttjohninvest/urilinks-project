@@ -940,7 +940,7 @@ function ExpandableArray(props) {
                       placeholder="enter what to find"
                       autoFocus
                       id="termid"
-                      className={`width400 searchinput`}
+                      className={`margin-left-11 width400 searchinput`}
                       //className={`width325 searchinput`}
                       type="text"
                       //value={this.state.dv}

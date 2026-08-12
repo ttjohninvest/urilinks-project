@@ -723,13 +723,14 @@ function ExpandableArray(props) {
 
               <div id="before-before-link-summary-id" className="">
                 <div className="flexrowzv">
-                  <div className="margin-left-11-">
+                  <div className="">
                     <input
                       title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
                       placeholder="enter what to find"
                       autoFocus
                       id="termid"
                       className={`${isMobile()===true?"width325":"width100"} searchinput`}
+                      //className={`width325 searchinput`}
                       type="text"
                       //value={this.state.dv}
                       //onChange={(e) => this.setState({ searchTerm: e.target.value })}

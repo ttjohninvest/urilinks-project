@@ -398,7 +398,7 @@ function ExpandableArray(props) {
     console.log("onSortChange, e.target.value="+e.target.value)
     const val = window.document.getElementById("termid").value.trim();
     console.log("onSortChange, term="+val)
-    
+
     if (e.target.value === "description")
     {
           window.localStorage.setItem("sortBy", "description");
@@ -424,7 +424,7 @@ function ExpandableArray(props) {
           props.setTextFilter(val);
           if (myRef.current) myRef.current.focus();
           setSortBy("hashtag");
-          props.sortByHashtag();
+          props.sortByHashTag();
       // if (val === "") {
       //   //window.document.getElementById("termid").value = "#"
       //   props.setTextFilter("#");
@@ -1479,15 +1479,18 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
-  sortByDate: () => dispatch(sortByDate()),
-  sortByDescription: () => dispatch(sortByDescription()),
+ 
   sortByHashTag: () => dispatch(sortByHashTag()),
-  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
-  setEndDate: (endDate) => dispatch(setEndDate(endDate)),
+  sortByDescription: () => dispatch(sortByDescription()),
   sortByNoteText: () => dispatch(sortByNoteText()),
+  
   sortByViews: () => dispatch(sortByViews()),
   sortByLikes: () => dispatch(sortByLikes()),
   sortByFolder: () => dispatch(sortByFolder()),
+
+  sortByDate: () => dispatch(sortByDate()),
+  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
+  setEndDate: (endDate) => dispatch(setEndDate(endDate)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

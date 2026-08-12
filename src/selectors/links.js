@@ -25,32 +25,41 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         //text=''
 
         let isTextInDescription, isTextInNote;
-        let isTextInFoldername;
+        
+        //let isTextInFoldername;
 
-        if (sortBy === "folder") {
-          // || sortBy==='date') {
-          if (!!link.foldername === false) return false;
-          isTextInFoldername = link.foldername
-            ? link.foldername.toLowerCase() === text.toLowerCase()
-            : false;
-          return isTextInFoldername; //&& startDateMatch && endDateMatch;
-        } else if (sortBy === "description") {
+        // if (sortBy === "folder") {
+        //   // || sortBy==='date') {
+        //   if (!!link.foldername === false) return false;
+        //   isTextInFoldername = link.foldername
+        //     ? link.foldername.toLowerCase() === text.toLowerCase()
+        //     : false;
+        //   return isTextInFoldername; //&& startDateMatch && endDateMatch;
+        
+        // } 
+        
+        // else 
+          
+          if (sortBy === "description") {
+
           // || sortBy==='date') {
           if (!!link.description === false) return false;
-          isTextInDescription = link.description
+          isTextInDescription = !!link.description === true
             ? link.description.toLowerCase().includes(text.toLowerCase())
             : false;
           return isTextInDescription;
+
         } else if (sortBy === "hashtag") {
           //the user entered a hash tag, for example #project1
           if (!!link.note === false) return false;
-          isTextInNote = link.note
+          isTextInNote = !!link.note === true
             ? link.note.toLowerCase().includes(text.toLowerCase())
             : false;
           return isTextInNote;
+
         } else if (sortBy === "notetext") {
           if (!!link.note === false) return false;
-          isTextInNote = link.note
+          isTextInNote = !!link.note === true
             ? link.note.toLowerCase().includes(text.toLowerCase())
             : false;
           return isTextInNote;
@@ -68,14 +77,15 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
         if (
           sortBy === "description" ||
           sortBy === "hashtag" ||
-          sortBy === "notetext" ||
-          sortBy === "folder"
+          sortBy === "notetext" 
+          //||
+          //sortBy === "folder"
         ) {
           return a.description.toLowerCase() > b.description.toLowerCase()
             ? 1
             : -1;
-        } else if (sortBy === "hashtag") {
-        a.hashtag.toLowerCase() > b.hashtag.toLowerCase()
+        } else if (sortBy === "hashtag") { //the hashtag is in the note
+        a.note.toLowerCase() > b.note.toLowerCase()
             ? 1
             : -1;
         } else if (sortBy === "notetext") {

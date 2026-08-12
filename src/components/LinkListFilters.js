@@ -499,7 +499,7 @@ function ExpandableArray(props) {
     document.getElementById("very-top-id").scrollBy({
         top: 460, 
         left: 360,
-        behavior: "auto",
+        behavior: "smooth",
       });
     
   };

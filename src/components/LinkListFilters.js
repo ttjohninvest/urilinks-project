@@ -774,7 +774,7 @@ function ExpandableArray(props) {
                   <span>
                     <div className="margin-bottom-123">
                       <div className="flexrow2cv2">
-                        <div className="text-size-1 textLeft- margin-top-1-">
+                        <div className="text-size-1 textLeft- margin-top-1- margin-bottom-1">
                           <a
                             href="#"
                             ref={textAreaRef}

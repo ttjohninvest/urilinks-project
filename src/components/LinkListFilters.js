@@ -624,12 +624,12 @@ function ExpandableArray(props) {
           <div>
             <div>
               {isMobile() === true ? 
-                <div className="margin-left-11 margin-bottom-1">
+                <div className="margin-left-11 margin-bottom-1 flexcol3">
                 {props.signup === true && (
                   <span>
-                    <div className="margin-bottom-123">
-                      <div className="flexcol3">
-                        <div className="text-size-1 textLeft- margin-top-1- margin-bottom-19">
+                    <div className="">
+                      <div className="">
+                        <div className="text-size-1">
                           <a
                             href="#"
                             ref={textAreaRef}
@@ -642,7 +642,7 @@ function ExpandableArray(props) {
                           </a>
                           <br />
                           <button
-                            className={`button-2w ib margin-right-1 border5 ${isMobile()===false?'':'margin-top-1'}`}
+                            className={`button-2w ib border5 ${isMobile()===false?'':'width325 margin-top-1'}`}
                             onClick={copyToClipboard}
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >
@@ -658,9 +658,9 @@ function ExpandableArray(props) {
                 )}
                 {props.signup === false && (
                   <span>
-                    <div className="margin-bottom-123">
-                      <div className="flexrow2cv2">
-                        <div className="text-size-1 textLeft- margin-top-1-">
+                    <div className="">
+                      <div className="">
+                        <div className="text-size-1">
                           <a
                             href="#"
                             ref={textAreaRef}
@@ -673,13 +673,13 @@ function ExpandableArray(props) {
                           </a>
                           <br />
                           <button
-                            className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
+                            className="button-2w ib border5 pointereventsnone"
                             onClick={copyToClipboard}
                             title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                           >
                             click to copy your link to share your links
                           </button>
-                          {copySuccess}
+                          {/* {copySuccess} */}
                         </div>
                       </div>
                     </div>
@@ -724,7 +724,7 @@ function ExpandableArray(props) {
                 </span>
               </div>
               :
-              <div className="margin-left-11 margin-bottom-1">
+              <div className="margin-left-11 flexcol3">
                 {props.signup === true && (
                   <span>
                     <div className="margin-bottom-123">

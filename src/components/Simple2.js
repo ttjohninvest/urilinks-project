@@ -41,9 +41,7 @@ export class Simple2 extends React.Component {
 
     let sb = "";
 
-    this.state = {
-     
-    };
+    this.state = {};
 
     this.setit = this.setit.bind(this);
 
@@ -81,7 +79,6 @@ export class Simple2 extends React.Component {
   }
 
   scrollUp = () => {
-    //window.scrollTo(0, 0);
     !!document.querySelector("#top") &&
       document.querySelector("#top").scrollIntoView({
         behavior: "smooth",
@@ -292,7 +289,7 @@ export class Simple2 extends React.Component {
 
   scrollDown = () => {
     let d = this.getHeight();
-    window.scrollTo(0, d);
+    //window.scrollTo(0, d);
   };
 
   handleCheckboxShow = (event) => {
@@ -338,24 +335,26 @@ export class Simple2 extends React.Component {
 
   render() {
     return (
-       <div className="minWidth- bg-color-4">
-                  {/* <Link
+      <div className="minWidth- bg-color-4">
+        {/* <Link
                     id="adlinkid"
                     className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
                     to="/create"
                   >
                     Add Link
                   </Link> */}
-      
-                  <a 
-                  id="adlinkid"
-                  href="#"
-                  className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
-                  onClick={handleClick}>Add New Link</a>
-      
-                  {showComponent && <AddLinkPage />}
-                </div>
-      
+
+        <a
+          id="adlinkid"
+          href="#"
+          className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+          onClick={handleClick}
+        >
+          Add New Link
+        </a>
+
+        {showComponent && <AddLinkPage />}
+      </div>
     );
   }
 }

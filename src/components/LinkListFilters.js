@@ -52,7 +52,6 @@ function ExpandableArray(props) {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
 
-  
   const myRef = useRef(null);
   const scrollInterval = useRef(null);
 
@@ -227,11 +226,10 @@ function ExpandableArray(props) {
     //   console.log("LinkListFilters.js, window.location.reload()");
     //   window.location.reload();
     // }
-    //window.scrollTo(0, 0);
   }, []);
 
   const moveIt = () => {
-    window.scrollTo(0, props.elementRef.current.offsetHeight);
+    //window.scrollTo(0, props.elementRef.current.offsetHeight);
   };
   //jkjsakldfja;lkfj;aslkdfj;jslkjfkdf;ja
   const toggleExpanded = () => {
@@ -332,7 +330,7 @@ function ExpandableArray(props) {
     let term = window.document.getElementById("termid").value;
     let str = term.trim();
     term = str;
-    alert("selectedValue="+selectedValue)
+    alert("selectedValue=" + selectedValue);
     if (selectedValue === "hashtag") {
       const words = term.split(/\s+/); // Split by one or more whitespace characters
 
@@ -451,8 +449,7 @@ function ExpandableArray(props) {
       props.sortByViews();
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
-    }
-    else if (e.target.value === "likes") {
+    } else if (e.target.value === "likes") {
       //alert("views")
       window.localStorage.setItem("sortBy", "likes");
       if (myRef.current) myRef.current.focus();
@@ -485,9 +482,8 @@ function ExpandableArray(props) {
   };
 
   const handleClose = (x) => {
-    
     setIsFormOpen(false);
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
   };
 
   const handleClick = (event) => {
@@ -500,21 +496,18 @@ function ExpandableArray(props) {
   const setItNow = (index, ht, e) => {
     setActiveItem(index);
     props.setit(ht, e);
-    window.scrollTo(0,360)
+    window.scrollTo(360,0)
   };
 
   return (
     <div className="bg-white-1">
       <div className="sticky-div-">
-      
         <div
           className={`website-background-color width30pt
           } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
-          
-              <span>Internet Links Organizer Dashboard's Home Page</span>
-          
+          <span>Internet Links Organizer Dashboard's Home Page</span>
         </div>
         <div>
           <button
@@ -542,301 +535,288 @@ function ExpandableArray(props) {
           >
             ScrollDn
           </button>
-         
         </div>
       </div>
 
       <div className="flexrowztt">
-        
-          {/* <div> */}
-            <div>
-              {/* left column scrollable-div1m for mobile*/}
-              <div id="ls" className={`width30menupane scrollable-div1`}>
-            
-
-            <div
-              className={`border-right-5`}
-            >
-              
-                <div
-                  ref={props.ref1}
-                  className={`${""} background-white-1 borderradius5`}
-                  title={
-                    props.signup === true
-                      ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
-                      : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
-                  }
-                >
-                 
-                    <div>
-                      
-                      {props.mappedDataShort.map((s, index) => {
-                        //have 3 map calls and display the first column then the second column and then the thrid column
-                        //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
-                        if(
-                          //(rt === "readonly")  && 
-                        (s.showpublic === 0
-                           //|| s.archive === 1
-                          )) return (<div key={index}></div>)
-                        else
-                          return (
-                            <div
-                              key={index}
-                              className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
-                            >
-                              <a
-                                className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
+        {/* <div> */}
+        <div>
+          {/* left column scrollable-div1m for mobile*/}
+          <div id="ls" className={`width30menupane scrollable-div1`}>
+            <div className={`border-right-5`}>
+              <div
+                ref={props.ref1}
+                className={`${""} background-white-1 borderradius5`}
+                title={
+                  props.signup === true
+                    ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
+                    : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
+                }
+              >
+                <div>
+                  {props.mappedDataShort.map((s, index) => {
+                    //have 3 map calls and display the first column then the second column and then the thrid column
+                    //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
+                    if (
+                      //(rt === "readonly")  &&
+                      s.showpublic === 0
+                      //|| s.archive === 1
+                    )
+                      return <div key={index}></div>;
+                    else
+                      return (
+                        <div
+                          key={index}
+                          className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
+                        >
+                          <a
+                            className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
                                 ib margin-top-1 ${
                                   props.b == 1
                                     ? "pointereventsauto underline"
                                     : "pointereventsnone"
                                 }`}
-                                style={{ whiteSpace: "pre-wrap" }}
-                                href="#"
-                               
-                                onClick={() =>
-                                  setItNow(index, s.description, event)
-                                }
-
-                                title={`click to see results`}
-                              >
-                                
-                                <span>{s.description2}</span>
-                              </a>
-                              <br />
-                              <span
-                                className="ib margin-left-11z"
-                                style={{
-                                  color: "black",
-                                  fontSize: ".9rem",
-                                  textDecoration: "none",
-                                  fontWeight: "normal",
-                                  pointerEvents: "none",
-                                  whiteSpace: "pre-wrap"
-                                }}
-                              >
-                                {s.matchesstring}
-                              </span>
-                             
-                            </div>
-                          );
-                      })}
-                    </div>
-                  
-                </div>
-              
-            </div>
-
-            </div>
-            
-            </div>
-         
-{/*right column code here*/}
-<div>
-        <div>
-          <div>
-            <div className="margin-left-minus-1">
-              {props.signup === true && (
-                <span>
-                  <div className="margin-bottom-123">
-                    <div className="flexrow2cv2">
-                      <div className="text-size-1 textLeft- margin-top-1- margin-bottom-19">
-                        <a
-                          href="#"
-                          ref={textAreaRef}
-                          className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                          title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                          style={{ textDecoration: "none", color: "black" }}
-                        >
-                          https://urilinks.com/dashboard?signup=0&x=readonly&id=
-                          {props.uid}
-                        </a>
-                        <button
-                          className="button-2w ib margin-right-1 margin-left-11 border5"
-                          onClick={copyToClipboard}
-                          title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                        >
-                          <span className="text-size-14-">
-                            click to copy your link to share your links
+                            style={{ whiteSpace: "pre-wrap" }}
+                            href="#"
+                            onClick={() =>
+                              setItNow(index, s.description, event)
+                            }
+                            title={`click to see results`}
+                          >
+                            <span>{s.description2}</span>
+                          </a>
+                          <br />
+                          <span
+                            className="ib margin-left-11z"
+                            style={{
+                              color: "black",
+                              fontSize: ".9rem",
+                              textDecoration: "none",
+                              fontWeight: "normal",
+                              pointerEvents: "none",
+                              whiteSpace: "pre-wrap",
+                            }}
+                          >
+                            {s.matchesstring}
                           </span>
-                        </button>
-                        {copySuccess}
-                      </div>
-                    </div>
-                  </div>
-                </span>
-              )}
-              {props.signup === false && (
-                <span>
-                  <div className="margin-bottom-123">
-                    <div className="flexrow2cv2">
-                      <div className="text-size-1 textLeft- margin-top-1-">
-                        <a
-                          href="#"
-                          ref={textAreaRef}
-                          className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                          title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                          style={{ textDecoration: "none", color: "black" }}
-                        >
-                          https://urilinks.com/dashboard?signup=0&x=readonly&id=
-                          {props.uid}
-                        </a>
-                        <button
-                          className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
-                          onClick={copyToClipboard}
-                          title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                        >
-                          click to copy your link to share your links
-                        </button>
-                        {copySuccess}
-                      </div>
-                    </div>
-                  </div>
-                </span>
-              )}
-
-             
-
-              {props.signup === true && rt !== "readonly" 
-              ? (
-                <div className="minWidth- bg-color-4">
-                  <a
-                    target="_blank"
-                    id="adlinkid"
-                    href="#"
-                    title="Email your sharable link to share with others."
-                    className={`cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w ${rt === "readonly" ? "pointereventsnone" : ""} width100  color-black-2 border5-`}
-                    onClick={handleClick}
-                  >
-                    Click to open up form to email to your recipient your
-                    sharable link to your readonly dashboard page
-                  </a>
-
-                  {showComponent && <AddLinkPage2 />}
-                  {
-                    //emailForm &&
-                    isFormOpen && (
-                      <SendEmailPage
-                        sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
-                        uid={uid}
-                        isFormOpen={isFormOpen}
-                        handleClose={handleClose}
-                      />
-                    )
-                  }
-                </div>
-              ) : (
-                <div className="minWidth- bg-color-4"></div>
-              )}
-
-              <span>
-                {props.links.length} of {maximum} links is stored on the{" "}
-                {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
-                {" plan."}
-              </span>
-            </div>
-
-            <div
-              id="before-before-link-summary-id"
-              className=""
-            >
-              <div className="flexrowzv">
-                <div className="margin-left-11-">
-                  <input
-                    title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                    placeholder="enter what to find"
-                    autoFocus
-                    id="termid"
-                    className="text-input- responsive-input- outline-none- padding-left-11- borderRadius55- searchinput"
-                    type="text"
-                    //value={this.state.dv}
-                    //onChange={(e) => this.setState({ searchTerm: e.target.value })}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    onKeyDown={handleKeyPress}
-                  />
-                </div>
-
-                <div
-                  //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
-                  className={`${
-                    isMobile() ? "margin-right-1" : "margin-left-11"
-                  }`}
-                >
-                  <button
-                    id="buttonid"
-                    className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
-                    //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
-
-                    //onClick={this.search}
-                    onClick={search}
-                    //title="Searches to find entered term through the previously selected list which will appear in copper color."
-                    title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
-                  >
-                    search
-                  </button>
-                </div>
-
-                <div
-                  className={`${
-                    isMobile()
-                      ? "margin-top-11z1 margin-left-11"
-                      : "margin-left-11"
-                  }`}
-                >
-                  <select
-                    id="mode"
-                    className="select outline-none"
-                    //value={this.state.sortBy}
-                    value={sortBy}
-                    //value={this.props.filters.sortBy}
-                    //value={window.localStorage.getItem("sortBy")}
-
-                    onChange={onSortChange}
-                    title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
-                  >
-                    <optgroup label="Find:">
-                    <option value="hashtag" title="search by hash tag">
-                      Hash Tag
-                    </option>
-
-                    <option
-                      //selected
-                      value="description"
-                      title="search through the uri/url link texts"
-                    >
-                      Link Text
-                    </option>
-
-                    <option value="notetext" title="search through the notes">
-                      Note Text
-                    </option>
-                    </optgroup>
-                    <optgroup label="Popularity:">
-                    <div style={{ borderBottom: '1px solid #dee2e6', margin: '0.5rem 0' }} />
-                     <option value="views" title="sort views into descending order">
-                      Views
-                    </option>
-                     <option value="likes" title="sort likes into descending order">
-                      Likes
-                    </option>
-                    </optgroup>
-                  </select>
+                        </div>
+                      );
+                  })}
                 </div>
               </div>
             </div>
           </div>
-          
-          <div className="margin-top-18 width800-">
-            {/* column 2 */}
-            <LinkList av={props.av} />
-          </div>
-          </div>
-          </div>
-        
+        </div>
 
-       
+        {/*right column code here*/}
+        <div>
+          <div>
+            <div>
+              <div className="margin-left-minus-1">
+                {props.signup === true && (
+                  <span>
+                    <div className="margin-bottom-123">
+                      <div className="flexrow2cv2">
+                        <div className="text-size-1 textLeft- margin-top-1- margin-bottom-19">
+                          <a
+                            href="#"
+                            ref={textAreaRef}
+                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                            style={{ textDecoration: "none", color: "black" }}
+                          >
+                            https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                            {props.uid}
+                          </a>
+                          <button
+                            className="button-2w ib margin-right-1 margin-left-11 border5"
+                            onClick={copyToClipboard}
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          >
+                            <span className="text-size-14-">
+                              click to copy your link to share your links
+                            </span>
+                          </button>
+                          {copySuccess}
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+                )}
+                {props.signup === false && (
+                  <span>
+                    <div className="margin-bottom-123">
+                      <div className="flexrow2cv2">
+                        <div className="text-size-1 textLeft- margin-top-1-">
+                          <a
+                            href="#"
+                            ref={textAreaRef}
+                            className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                            style={{ textDecoration: "none", color: "black" }}
+                          >
+                            https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                            {props.uid}
+                          </a>
+                          <button
+                            className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
+                            onClick={copyToClipboard}
+                            title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                          >
+                            click to copy your link to share your links
+                          </button>
+                          {copySuccess}
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+                )}
 
+                {props.signup === true && rt !== "readonly" ? (
+                  <div className="minWidth- bg-color-4">
+                    <a
+                      target="_blank"
+                      id="adlinkid"
+                      href="#"
+                      title="Email your sharable link to share with others."
+                      className={`cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w ${rt === "readonly" ? "pointereventsnone" : ""} width100  color-black-2 border5-`}
+                      onClick={handleClick}
+                    >
+                      Click to open up form to email to your recipient your
+                      sharable link to your readonly dashboard page
+                    </a>
 
+                    {showComponent && <AddLinkPage2 />}
+                    {
+                      //emailForm &&
+                      isFormOpen && (
+                        <SendEmailPage
+                          sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
+                          uid={uid}
+                          isFormOpen={isFormOpen}
+                          handleClose={handleClose}
+                        />
+                      )
+                    }
+                  </div>
+                ) : (
+                  <div className="minWidth- bg-color-4"></div>
+                )}
+
+                <span>
+                  {props.links.length} of {maximum} links is stored on the{" "}
+                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
+                  {" plan."}
+                </span>
+              </div>
+
+              <div id="before-before-link-summary-id" className="">
+                <div className="flexrowzv">
+                  <div className="margin-left-11-">
+                    <input
+                      title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
+                      placeholder="enter what to find"
+                      autoFocus
+                      id="termid"
+                      className="text-input- responsive-input- outline-none- padding-left-11- borderRadius55- searchinput"
+                      type="text"
+                      //value={this.state.dv}
+                      //onChange={(e) => this.setState({ searchTerm: e.target.value })}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      onKeyDown={handleKeyPress}
+                    />
+                  </div>
+
+                  <div
+                    //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
+                    className={`${
+                      isMobile() ? "margin-right-1" : "margin-left-11"
+                    }`}
+                  >
+                    <button
+                      id="buttonid"
+                      className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
+                      //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
+
+                      //onClick={this.search}
+                      onClick={search}
+                      //title="Searches to find entered term through the previously selected list which will appear in copper color."
+                      title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
+                    >
+                      search
+                    </button>
+                  </div>
+
+                  <div
+                    className={`${
+                      isMobile()
+                        ? "margin-top-11z1 margin-left-11"
+                        : "margin-left-11"
+                    }`}
+                  >
+                    <select
+                      id="mode"
+                      className="select outline-none"
+                      //value={this.state.sortBy}
+                      value={sortBy}
+                      //value={this.props.filters.sortBy}
+                      //value={window.localStorage.getItem("sortBy")}
+
+                      onChange={onSortChange}
+                      title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
+                    >
+                      <optgroup label="Find:">
+                        <option value="hashtag" title="search by hash tag">
+                          Hash Tag
+                        </option>
+
+                        <option
+                          //selected
+                          value="description"
+                          title="search through the uri/url link texts"
+                        >
+                          Link Text
+                        </option>
+
+                        <option
+                          value="notetext"
+                          title="search through the notes"
+                        >
+                          Note Text
+                        </option>
+                      </optgroup>
+                      <optgroup label="Popularity:">
+                        <div
+                          style={{
+                            borderBottom: "1px solid #dee2e6",
+                            margin: "0.5rem 0",
+                          }}
+                        />
+                        <option
+                          value="views"
+                          title="sort views into descending order"
+                        >
+                          Views
+                        </option>
+                        <option
+                          value="likes"
+                          title="sort likes into descending order"
+                        >
+                          Likes
+                        </option>
+                      </optgroup>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="margin-top-18 width800-">
+              {/* column 2 */}
+              <LinkList av={props.av} />
+            </div>
+          </div>
+        </div>
 
         {/* </div> */}
       </div>
@@ -918,7 +898,6 @@ export class LinkListFilters extends React.Component {
   }
 
   scrollUp = () => {
-    //window.scrollTo(0, 0);
     !!document.querySelector("#top") &&
       document.querySelector("#top").scrollIntoView({
         behavior: "smooth",
@@ -1114,7 +1093,7 @@ export class LinkListFilters extends React.Component {
         this.setState({ sortBy: "description" });
         window.document.querySelector("#buttonid").click();
       }
-       window.scrollTo(0,0)
+      //window.scrollTo(0,0)
     } catch (e) {
       //alert("componentDidMount,e="+e)
     }
@@ -1164,7 +1143,7 @@ export class LinkListFilters extends React.Component {
 
   scrollDown = () => {
     let d = this.getHeight();
-    window.scrollTo(0, d);
+    //window.scrollTo(0, d);
   };
 
   handleCheckboxShow = (event) => {
@@ -1206,7 +1185,7 @@ export class LinkListFilters extends React.Component {
         window.localStorage.setItem("termid", term);
         this.props.setTextFilter(term);
       }
-     } 
+    }
     //else if (
     //   selectedValue === "views" &&
     //   // && sortBy === "hashtag"

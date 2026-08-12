@@ -148,7 +148,7 @@ export const AddLinkPage2 = (props) => {
         console.log("VVVVVVVVVVVVV returned false");
       } else {
         props.history.push("/");
-        window.scrollTo(0, 0);
+        ////window.scrollTo(0, 0);
 
         //window.location.href = "https://urilinks.com?signup=signup";
       }
@@ -159,7 +159,6 @@ export const AddLinkPage2 = (props) => {
       //   console.log("VVVVVVVVVVVVV returned false");
       // } else {
       //   props.history.push("/");
-      //   window.scrollTo(0, 0);
 
       //   //window.location.href = "https://urilinks.com?signup=signup";
       // }

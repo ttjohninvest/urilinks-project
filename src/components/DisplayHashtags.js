@@ -50,7 +50,6 @@ function ExpandableArray(props) {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
 
-  
   const myRef = useRef(null);
   const scrollInterval = useRef(null);
 
@@ -225,11 +224,10 @@ function ExpandableArray(props) {
     //   console.log("LinkListFilters.js, window.location.reload()");
     //   window.location.reload();
     // }
-    //window.scrollTo(0, 0);
   }, []);
 
   const moveIt = () => {
-    window.scrollTo(0, props.elementRef.current.offsetHeight);
+    ////window.scrollTo(0, props.elementRef.current.offsetHeight);
   };
   //jkjsakldfja;lkfj;aslkdfj;jslkjfkdf;ja
   const toggleExpanded = () => {
@@ -460,7 +458,7 @@ function ExpandableArray(props) {
     //let x = !isFormOpen
     //alert("isFormOpen="+x)
     setIsFormOpen(false);
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
   };
 
   const handleClick = (event) => {
@@ -520,7 +518,7 @@ function ExpandableArray(props) {
             uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" ? (
               "City Walks"
             ) : (
-              <span>Internet Links Organizer Dashboard  (Hashtags Page)</span>
+              <span>Internet Links Organizer Dashboard (Hashtags Page)</span>
             )
             //  <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
           }
@@ -565,7 +563,7 @@ function ExpandableArray(props) {
         {
           <div
             id="ls3"
-            className={`${useButtons === true ? "width30p" : "width30menupane"}  ${isMobile() === false?'scrollable-div1':'scrollable-div1m'}`}
+            className={`${useButtons === true ? "width30p" : "width30menupane"}  ${isMobile() === false ? "scrollable-div1" : "scrollable-div1m"}`}
           >
             <div className="border-right-5"></div>
 
@@ -633,23 +631,19 @@ function ExpandableArray(props) {
                       {props.thehashtags.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
-                        if(
-                          //(rt === "readonly")  && 
-                        (s.showpublic === 0
-                           //|| s.archive === 1
-                          )) return (<div></div>)
+                        if (
+                          //(rt === "readonly")  &&
+                          s.showpublic === 0
+                          //|| s.archive === 1
+                        )
+                          return <div></div>;
                         else
                           return (
                             <div
                               key={index}
                               className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                             >
-                              
-                                <span>{s}</span>
-                              
-                             
-                              
-                            
+                              <span>{s}</span>
                             </div>
                           );
                       })}
@@ -885,16 +879,7 @@ function ExpandableArray(props) {
 
         <div>
           <div>
-            <div className="margin-left-minus-1">
-              
-             
-
-              
-
-
-            </div>
-
-          
+            <div className="margin-left-minus-1"></div>
           </div>
           {/* <div className="margin-top-18 width800">
             <LinkList av={props.av} />
@@ -937,7 +922,7 @@ export class DisplayHashtags extends React.Component {
       foldernamesList: [],
       isToggled: false,
       searchTerm: "", //,
-      thehashtags:[]
+      thehashtags: [],
     };
 
     this.setit = this.setit.bind(this);
@@ -980,7 +965,6 @@ export class DisplayHashtags extends React.Component {
   }
 
   scrollUp = () => {
-    //window.scrollTo(0, 0);
     !!document.querySelector("#top") &&
       document.querySelector("#top").scrollIntoView({
         behavior: "smooth",
@@ -1112,7 +1096,6 @@ export class DisplayHashtags extends React.Component {
       //this.setState({ sortBy: "notetext" });
     }
   };
- 
 
   removeDuplicatesByKey(array, keyFunction) {
     const seen = new Set();
@@ -1131,26 +1114,26 @@ export class DisplayHashtags extends React.Component {
   }
 
   getIndividualHashtags() {
-    let hta="" //results in a string of hashtags
-    this.props.hashtags.forEach((item,index)=>{
-        hta+=item.matchesstring
-    })
+    let hta = ""; //results in a string of hashtags
+    this.props.hashtags.forEach((item, index) => {
+      hta += item.matchesstring;
+    });
     //convert string of hashtags to an array of hashtags
     let arr = hta.match(/#[^\s#]+/g) || [];
     //sort the array of hashtags
-    arr.sort()
+    arr.sort();
     //remove duplicates
     const uniqueArray = [...new Set(arr)];
-    this.setState(() => ({ thehashtags:uniqueArray }));
+    this.setState(() => ({ thehashtags: uniqueArray }));
     //done
   }
 
   componentDidMount() {
-    document.title="urilinks (hashtags page)"
+    document.title = "urilinks (hashtags page)";
     //this.props.hashtags
     //thehashtags
     // this.setState(() => ({ thehashtags }));
-    this.getIndividualHashtags()
+    this.getIndividualHashtags();
 
     //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
@@ -1214,7 +1197,7 @@ export class DisplayHashtags extends React.Component {
 
   scrollDown = () => {
     let d = this.getHeight();
-    window.scrollTo(0, d);
+    ////window.scrollTo(0, d);
   };
 
   handleCheckboxShow = (event) => {
@@ -1267,7 +1250,7 @@ export class DisplayHashtags extends React.Component {
               this.state.mappedDataLong.length > 1)) && (
             <div>
               <ExpandableArray
-                thehashtags = {this.state.thehashtags}
+                thehashtags={this.state.thehashtags}
                 mappedDataShort={this.props.hashtags}
                 mappedDataLong={this.state.mappedDataLong}
                 maxLength={this.SHORT_HASHTAG_LENGTH}

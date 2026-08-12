@@ -58,7 +58,7 @@ export const Header = (props) => {
       // Easing function (ease-out) for smoother deceleration
       const easeOut = 1 - Math.pow(1 - progress, 3);
 
-      window.scrollTo(0, startingY + (targetY - startingY) * easeOut);
+      ////window.scrollTo(0, startingY + (targetY - startingY) * easeOut);
 
       if (progress < 1) {
         requestAnimationFrame(animate);
@@ -90,10 +90,8 @@ export const Header = (props) => {
     return val;
   };
 
-  
-
-  console.log("Header.js, signup="+signup)
-  console.log("Header.js, x="+x)
+  console.log("Header.js, signup=" + signup);
+  console.log("Header.js, x=" + x);
 
   const setPhotoURLdb = (photoURL) => {
     console.log("setPhotoURLdb, Header.js, photoURL=" + photoURL);
@@ -182,8 +180,7 @@ export const Header = (props) => {
       else setTheplan("free");
     }
 
-  
-     window.scrollTo(0,0)
+    ////window.scrollTo(0,0)
   }, []);
 
   const scrolldown = () => {
@@ -341,7 +338,9 @@ export const Header = (props) => {
   </div>
 </div> */}
 
-                            <h3 className="color-white-1 text-size-11">urilinks</h3>
+                            <h3 className="color-white-1 text-size-11">
+                              urilinks
+                            </h3>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
                           {/* <img
@@ -517,9 +516,11 @@ export const Header = (props) => {
                       //isInMeArray() === true &&
                       true && (
                         <div>
-                          <Link 
-                          id="subscribe"
-                          className="header__title-" to="/teirspayment3">
+                          <Link
+                            id="subscribe"
+                            className="header__title-"
+                            to="/teirspayment3"
+                          >
                             <span
                               //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
                               className="ib text-size-11 color-white-1 color-black-2- color-blue-1-"
@@ -657,7 +658,6 @@ export const Header = (props) => {
                     )}
 
                     {props.signup.signup === false && x !== "readonly" && (
-                
                       <div
                         className="color-white-1 color-black-2- margin-right-1"
                         title="Please use it for good. Bookmarks for internet pages, urls/links"
@@ -670,11 +670,9 @@ export const Header = (props) => {
                           style={{ textDecoration: "none", color: "white" }}
                         >
                           friendly login
-                          
                         </Link>
                       </div>
                       //  </div>
-                    
                     )}
 
                     {props.signup.signup === true ? (
@@ -705,8 +703,6 @@ export const Header = (props) => {
                     ) : (
                       ""
                     )}
-
-                    
 
                     {props.signup.signup === true || signup === "0" ? (
                       <div className="padding-top-1112 margin-left-118">

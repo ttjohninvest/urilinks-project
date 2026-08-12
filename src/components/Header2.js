@@ -59,7 +59,7 @@ export const Header2 = (props) => {
 
   useEffect(() => {
     console.log(
-      "Header.js, useEffect, props.signup.signup=" + props.signup.signup
+      "Header.js, useEffect, props.signup.signup=" + props.signup.signup,
     );
     // const user = firebase.auth().currentUser;
     // console.log("Header.js, useEffect, user.uid=" + user.uid);
@@ -75,8 +75,7 @@ export const Header2 = (props) => {
       setEmaildb(user.email);
     }
 
-    
-    window.scrollTo(0,0)
+    ////window.scrollTo(0,0)
   }, []);
 
   const scrolldown = () => {
@@ -102,7 +101,10 @@ export const Header2 = (props) => {
       ) {
         //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
         //if(true) {
-        if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
+        if (
+          !!props.theplan.plan &&
+          props.theplan.plan.replace(/"/g, "") === "free"
+        ) {
           props.startDeleteAccount();
           logoutit();
         } else {
@@ -210,7 +212,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(startLogout())
       .then(() => console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSdispatch then"))
       .catch((error) =>
-        console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error" + error)
+        console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error" + error),
       );
   },
   setLinks: (links) => dispatch(setLinks(links)),

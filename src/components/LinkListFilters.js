@@ -367,6 +367,7 @@ function ExpandableArray(props) {
     else selectedValue = select.options[select.selectedIndex].value;
     console.log("search = () => {, selectedValue=" + selectedValue);
     let term = window.document.getElementById("termid").value.trim();
+    alert("1 selectedValue="+selectedValue+", term="+term)
     window.localStorage.setItem("termid", term);
     props.setTextFilter(term);
 
@@ -1378,10 +1379,10 @@ export class LinkListFilters extends React.Component {
     if (window.localStorage.getItem("sortBy") !== "")
       selectedValue = window.localStorage.getItem("sortBy");
     else selectedValue = select.options[select.selectedIndex].value;
-    
+    alert("2 selectedValue="+selectedValue+", term="+term)
     console.log("search = () => {, selectedValue=" + selectedValue);
     let term = window.document.getElementById("termid").value.trim();
-    alert("selectedValue="+selectedValue+", term="+term)
+    //alert("selectedValue="+selectedValue+", term="+term)
     window.localStorage.setItem("termid", term);
     this.props.setTextFilter(term);
 

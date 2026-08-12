@@ -500,6 +500,7 @@ function ExpandableArray(props) {
   const setItNow = (index, ht, e) => {
     setActiveItem(index);
     props.setit(ht, e);
+    window.scrollTo(0,360)
   };
 
   return (

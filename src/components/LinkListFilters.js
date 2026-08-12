@@ -394,54 +394,62 @@ function ExpandableArray(props) {
   };
 
   const onSortChange = (e) => {
-    if (e.target.value === "none") return;
+    if (e.target.value === "none" || e.target.value === undefined || e.target.value === null) return;
 
     const val = window.document.getElementById("termid").value.trim();
-    //window.localStorage.setItem("termid", val);
-    console.log("onSortChange=(), search term=, val=" + val);
-    if (e.target.value === "description") {
-      window.localStorage.setItem("sortBy", "description");
-      props.setTextFilter(val);
-      if (myRef.current) myRef.current.focus();
-      //this.setState({ sortBy: "description" });
-      setSortBy("description");
-      props.sortByDescription();
-      //this.setState({ sortBy: "description" });
-    } else if (e.target.value === "hashtag") {
-      window.localStorage.setItem("sortBy", "hashtag");
-      // if (val !== "" && val.charAt(0) !== "#") {
-      //   alert("The search term needs to be a hashtag.");
-      //   return;
+    
+    if (e.target.value === "description")
+    {
+          window.localStorage.setItem("sortBy", "description");
+          props.setTextFilter(val);
+          if (myRef.current) myRef.current.focus();
+          setSortBy("description");
+          props.sortByDescription();
+          
+    } 
+    else if (e.target.value === "notetext") 
+    {
+         
+          window.localStorage.setItem("sortBy", "notetext");
+          props.setTextFilter(val);
+          if (myRef.current) myRef.current.focus();
+          setSortBy("notetext");
+          props.sortByNoteText();
+      
+    } 
+    else if (e.target.value === "hashtag") 
+    {
+         window.localStorage.setItem("sortBy", "hashtag");
+          props.setTextFilter(val);
+          if (myRef.current) myRef.current.focus();
+          setSortBy("hashtag");
+          props.sortByHashtag();
+      // if (val === "") {
+      //   //window.document.getElementById("termid").value = "#"
+      //   props.setTextFilter("#");
+       
+      // } else {
+        
+      //   props.setTextFilter(val);
       // }
+      // if (myRef.current) myRef.current.focus();
+     
+      // setSortBy("hashtag");
 
-      if (val === "") {
-        //window.document.getElementById("termid").value = "#"
-        props.setTextFilter("#");
-        //window.localStorage.setItem("termid", "#");
-      } else {
-        //window.localStorage.setItem("termid", val);
-        props.setTextFilter(val);
-      }
-      if (myRef.current) myRef.current.focus();
-      //this.props.setTextFilter("#");
+      // props.sortByHashTag();
+      
+    } 
+   
 
-      //window.localStorage.setItem("sortBy", "hashtag");
-      //this.setState({ sortBy: "hashtag" });
-      setSortBy("hashtag");
 
-      props.sortByHashTag();
-      //this.setState({ sortBy: "hashtag" });
-    } else if (e.target.value === "notetext") {
-      window.localStorage.setItem("sortBy", "notetext");
-      if (myRef.current) myRef.current.focus();
-      //this.props.setTextFilter("");
-      props.setTextFilter(val);
-      //window.localStorage.setItem("sortBy", "notetext");
-      //this.setState({ sortBy: "notetext" });
-      setSortBy("notetext");
-      props.sortByNoteText();
-      //this.setState({ sortBy: "notetext" });
-    } else if (e.target.value === "views") {
+
+
+
+
+
+
+    else if (e.target.value === "views") 
+    {
       //alert("views")
       window.localStorage.setItem("sortBy", "views");
       if (myRef.current) myRef.current.focus();
@@ -453,7 +461,9 @@ function ExpandableArray(props) {
       props.sortByViews();
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
-    } else if (e.target.value === "likes") {
+    } 
+    else if (e.target.value === "likes") 
+    {
       //alert("views")
       window.localStorage.setItem("sortBy", "likes");
       if (myRef.current) myRef.current.focus();

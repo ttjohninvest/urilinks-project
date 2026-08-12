@@ -44,7 +44,7 @@ import CalendarGoogle from "./CalendarGoogle";
 // }) => {
 const LinkListItem = (props) => {
   console.log(
-    "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL,
+    "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL
   );
   const myRef = useRef(null);
   const myRef2 = useRef(null)

@@ -73,7 +73,6 @@ export default () => {
       gud: gudReducer,
       links3:links3Reducer,
       bmok:bmokReducer,
-      totalstars: totalstarsReducer,
     
     }),
     composeEnhancers(applyMiddleware(thunk))

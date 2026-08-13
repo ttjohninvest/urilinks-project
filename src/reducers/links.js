@@ -31,18 +31,7 @@ export default (state = linksReducerDefaultState, action) => {
         }
       });
 
-       case "INCREMENT_LINK_TOTAL_STAR_COUNT":
-       return state.map((link) => {
-        if (link.id === action.id) {
-          //{ ...state, count: state.count + 1 };
-          return {
-            ...link,
-           totalstar: !!link.totalstar? link.totalstar + 1:1,
-          };
-        } else {
-          return link;
-        }
-      });
+      
 
      case "INCREMENT_LINK_LIKES_COUNT":
        return state.map((link) => {

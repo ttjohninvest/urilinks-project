@@ -1205,6 +1205,8 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(incrementLinkLikesClickCount(data)),
   incrementLinkStarClickCount: (data) =>
     dispatch(incrementLinkStarClickCount(data)),
+  decrementLinkStarClickCount: (data) =>
+    dispatch(decrementLinkStarClickCount(data)),
 });
 
 export default withRouter(

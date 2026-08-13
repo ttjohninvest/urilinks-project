@@ -222,14 +222,16 @@ const LinkListItem = (props) => {
     if (star === undefined || star === null || star === "NaN") x1 = 0;
     else x1 = star;
     const x = event.target.getAttribute("data-value"); //x is link id
-
+    
     if(x1===0) {
-    props.incrementLinkStarClickCount({ id: x, star: 0 });
-    props.incrementTotalStarClickCount({ id: x, totalstars: props.thetotalstars.totalstars });
+      alert("going to increment")
+      props.incrementLinkStarClickCount({ id: x, star: 0 });
+      props.incrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
     }
     else {
+      alert("going to decrement")
       props.decrementLinkStarClickCount({ id: x, star: 1 });
-      props.decrementTotalStarClickCount({ id: x, totalstars: props.thetotalstars.totalstars });
+      props.decrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
     }
 
     window.localStorage.setItem("scrollPosition", window.scrollY);

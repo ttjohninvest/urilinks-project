@@ -156,18 +156,18 @@ export const decrementTotalStarClickCount2 = (id, updates) => ({
   updates,
 });
 
-export const incrementTotalStarClickCount = ({ id,totalstars } = {}) => {
+export const incrementTotalStarClickCount = (x) => {
   //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/thetotalstars`)
-      .update({totalstars:parseInt(totalstars)+1}) //{showpublic:0}
+      .update({totalstars:parseInt(x.totalstars)+1}) //{showpublic:0}
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(incrementTotalStarsClickCount2({totalstars:parseInt(totalstars)+1}));
+        dispatch(incrementTotalStarsClickCount2({totalstars:parseInt(x.totalstars)+1}));
        
       })
       .catch((error) => {
@@ -176,19 +176,19 @@ export const incrementTotalStarClickCount = ({ id,totalstars } = {}) => {
   };
 };
 
-export const decrementTotalStarClickCount = ({ id,totalstars } = {}) => {
+export const decrementTotalStarClickCount = (x) => {
   //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/thetotalstars`)
-      .update({totalstars:parseInt(totalstars)-1}) //{showpublic:0}
+      .update({totalstars:parseInt(x.totalstars)-1}) //{showpublic:0}
       //.update({totalstars:4}) 
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(decrementTotalStarClickCount2({totalstars:parseInt(totalstars)-1}));
+        dispatch(decrementTotalStarClickCount2({totalstars:parseInt(x.totalstars)-1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

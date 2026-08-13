@@ -51,6 +51,7 @@ const LinkListItem = (props) => {
    const params = new URLSearchParams(window.location.search);
   
   const rt = params.get("x");
+  alert("rt="+rt)
 
   console.log(
     "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL,

@@ -210,6 +210,7 @@ const LinkListItem = (props) => {
   };
 
   const storeScrollPosition3 = (star, event) => {
+    alert("props.thetotalstars.totalstars="+props.thetotalstars.totalstars)
     let x1 = 0;
     if (star === undefined || star === null || star === "NaN") x1 = 0;
     else x1 = star;
@@ -1198,6 +1199,7 @@ const LinkListItem = (props) => {
 //export default LinkListItem;
 
 const mapStateToProps = (state) => ({
+  thetotalstars: state.thetotalstars,
   signup: state.signup,
 });
 

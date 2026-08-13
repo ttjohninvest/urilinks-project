@@ -225,6 +225,25 @@ export const incrementLinkLikesClickCount = ({ id,likes } = {}) => {
   };
 };
 
+export const incrementLinkStarClickCount = ({ id,star } = {}) => {
+  
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    //update(dbRef, { value: increment(1) });
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({star:parseInt(star)+1}) //{showpublic:0}
+      .then(() => {
+        //alert("success")
+        
+        dispatch(incrementLinkStarClickCount2(id,{star:parseInt(star)+1}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
 export const startPrivateLink2 = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;

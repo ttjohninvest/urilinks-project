@@ -8,21 +8,21 @@ export default (state = thetotalstarsReducerDefaultState, action) => {
       
         //return { ...state, theplan: action.theplan };
         return {
-        ...action.totalstars
+        ...action.thetotalstars
       }
     
     case "INCREMENT_TOTAL_STAR_COUNT":
       
         //return { ...state, theplan: action.theplan };
         return {
-        ...action.totalstars
+        ...action.thetotalstars
       }
 
     case "DECREMENT_TOTAL_STAR_COUNT":
       
         //return { ...state, theplan: action.theplan };
         return {
-        ...action.totalstars
+        ...action.thetotalstars
       }
     
     default:

@@ -955,7 +955,19 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span> */}
-             <span
+
+                                    <span className="margin-left-11xy">
+                views:
+                <span
+                  className="ib margin-left-11tx font-weight-900-"
+                  title={
+                    "This is the number of times someone has clicked this link."
+                  }
+                >
+                  {props.frequency === undefined ? 0 : props.frequency}
+                </span>
+              </span>
+             {/* <span
                 ref={myRef}
                 className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
                 //href="#"
@@ -974,7 +986,7 @@ const LinkListItem = (props) => {
                 }
               >
                 {props.frequency === undefined ? 0 : props.frequency}
-              </span>
+              </span> */}
 
 
 

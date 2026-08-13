@@ -146,3 +146,54 @@ export const startEditThetotalstars = (updates) => {
   };
 };
 
+export const incrementTotalStarClickCount2 = (id, updates) => ({
+  type: "INCREMENT_TOTAL_STAR_COUNT",
+  id,
+  updates,
+});
+
+export const decrementTotalStarClickCount2 = (id, updates) => ({
+  type: "DECREMENT_TOTAL_STAR_COUNT",
+  id,
+  updates,
+});
+
+export const incrementTotalStarClickCount = ({ id,totalstars } = {}) => {
+  //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    //update(dbRef, { value: increment(1) });
+    return database
+      .ref(`users/${uid}/thetotalstars`)
+      .update({totalstars:parseInt(totalstars)+1}) //{showpublic:0}
+      .then(() => {
+        //alert("success")
+        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+        dispatch(incrementTotalStarsClickCount2(id,{totalstars:parseInt(totalstars)+1}));
+        //dispatch(incrementTotalStarClickCount2(id,{totalstars:4}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
+export const decrementTotalStarClickCount = ({ id,totalstars } = {}) => {
+  //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    //update(dbRef, { value: increment(1) });
+    return database
+      .ref(`users/${uid}/thetotalstars`)
+      .update({totalstars:parseInt(totalstars)-1}) //{showpublic:0}
+      //.update({totalstars:4}) 
+      .then(() => {
+        //alert("success")
+        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+        dispatch(decrementTotalStarClickCount2(id,{totalstars:parseInt(totalstars)-1}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};

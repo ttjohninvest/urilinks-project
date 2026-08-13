@@ -33,7 +33,7 @@ export const startAddThetotalstars = (thetotalstarsData = {}) => {
           //   })
           // );
 
-          dispatch(addTheplan(thetotalstarsData));
+          dispatch(addThetotalstars(thetotalstarsData));
           
         })
     );

@@ -24,7 +24,7 @@ import setitfiledateReducer from '../reducers/setitfiledate';
 import storageReducer from '../reducers/storage';
 import customeridReducer from '../reducers/customerid';
 import theplanReducer from '../reducers/theplan';
-
+import thetotalstarsReducer from '../reducers/thetotalstars';
 import signupReducer from '../reducers/signup';
 import hasrefreshedReducer from '../reducers/hasrefreshed';
 import photourlReducer from '../reducers/photourl';
@@ -59,6 +59,7 @@ export default () => {
       url: storageReducer,
       customerId: customeridReducer,
       theplan: theplanReducer,
+      thetotalstars: thetotalstarsReducer,
       signup: signupReducer,
       hasrefreshed: hasrefreshedReducer,
       photourl: photourlReducer,

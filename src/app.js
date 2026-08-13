@@ -17,7 +17,7 @@ import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
 import { getSettings } from "./actions/settings";
 import { getTheplan, getTheplan2 } from "./actions/theplan";
-
+import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
 import { login, logout } from "./actions/auth";
 import { setSettings } from "./actions/settings";
 //import getVisibleLinks from './selectors/links';
@@ -82,12 +82,12 @@ if (signup !== "signup") {
         .dispatch(getTheplan2(id))
         .then(() => {
           return store
-            .dispatch(getTotalStars(id))
+            .dispatch(getThetotalstars2(id))
             .then(() => {
               renderApp(store, signup);
             })
             .catch((error) => {
-              console.log("theplan, error", error);
+              console.log("thetotalstars, error", error);
             });
         })
         .catch((error) => {
@@ -114,10 +114,17 @@ if (signup !== "signup") {
       store
         .dispatch(startSetLinksNew(user.uid))
         .then(() => {
-          return store
+          store
             .dispatch(getTheplan(user.uid))
             .then(() => {
+              return store
+            .dispatch(getThetotalstars(user.uid))
+            .then(() => {
               renderApp(store, signup);
+            })
+            .catch((error) => {
+              console.log("theplan, error", error);
+            });
             })
             .catch((error) => {
               console.log("theplan, error", error);

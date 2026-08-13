@@ -17,7 +17,7 @@ import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
 import { getSettings } from "./actions/settings";
 import { getTheplan, getTheplan2 } from "./actions/theplan";
-
+import { totalStars, getTotalStars } from "./actions/totalstars";
 import { login, logout } from "./actions/auth";
 import { setSettings } from "./actions/settings";
 //import getVisibleLinks from './selectors/links';
@@ -44,11 +44,8 @@ const renderApp = (store) => {
   );
 };
 
-
-
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
-
 
 let id = params.get("id");
 console.log("1 signup=" + signup);
@@ -81,10 +78,17 @@ if (signup !== "signup") {
   store
     .dispatch(startSetLinks(id))
     .then(() => {
-      return store
+      store
         .dispatch(getTheplan2(id))
         .then(() => {
-          renderApp(store, signup);
+          return store
+            .dispatch(getTotalStars(id))
+            .then(() => {
+              renderApp(store, signup);
+            })
+            .catch((error) => {
+              console.log("theplan, error", error);
+            });
         })
         .catch((error) => {
           console.log("theplan, error", error);
@@ -113,9 +117,7 @@ if (signup !== "signup") {
           return store
             .dispatch(getTheplan(user.uid))
             .then(() => {
-              
               renderApp(store, signup);
-
             })
             .catch((error) => {
               console.log("theplan, error", error);

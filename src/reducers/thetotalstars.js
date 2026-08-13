@@ -1,5 +1,5 @@
 const thetotalstarsReducerDefaultState = {
-  totalstars:5
+  totalstars:0
 };
 
 export default (state = thetotalstarsReducerDefaultState, action) => {

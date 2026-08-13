@@ -3,13 +3,13 @@ import database from "../firebase/firebase";
 // ADD_LINK
 export const addTotalStars = (totalstars) => ({
   type: "ADD_TOTALSTARS",
-  theplan,
+  totalstars,
 });
 
 // SET_SETTINGS
 export const setTotalStars = (totalstars) => ({
   type: "SET_TOTALSTARS",
-  theplan,
+  totalstars,
 });
 
 export const startAddTotalStars = (totalstarsData = {}) => {

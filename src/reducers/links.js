@@ -5,6 +5,19 @@ const linksReducerDefaultState = [];
 export default (state = linksReducerDefaultState, action) => {
   switch (action.type) {
 
+      case "DECREMENT_LINK_STAR_COUNT":
+       return state.map((link) => {
+        if (link.id === action.id) {
+          //{ ...state, count: state.count + 1 };
+          return {
+            ...link,
+           star: !!link.star? link.star - 1:0,
+          };
+        } else {
+          return link;
+        }
+      });
+
      case "INCREMENT_LINK_STAR_COUNT":
        return state.map((link) => {
         if (link.id === action.id) {

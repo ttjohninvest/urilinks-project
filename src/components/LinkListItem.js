@@ -15,6 +15,7 @@ import {
   incrementLinkClickCount,
   incrementLinkLikesClickCount,
   incrementLinkStarClickCount,
+  decrementLinkStarClickCount,
 } from "../actions/links";
 import { Link, withRouter } from "react-router-dom";
 import moment from "moment";
@@ -214,7 +215,10 @@ const LinkListItem = (props) => {
     else x1 = star;
     const x = event.target.getAttribute("data-value"); //x is link id
 
-    props.incrementLinkStarClickCount({ id: x, star: x1 });
+    if(x1===0)
+    props.incrementLinkStarClickCount({ id: x, star: 0 });
+    else props.decrementLinkStarClickCount({ id: x, star: 1 });
+
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };
 

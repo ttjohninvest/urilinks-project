@@ -56,13 +56,13 @@ export const getTotalStars = (id) => {
           "action/getTotalStars from db, snapshot.val()=" + JSON.stringify(snapshot.val())
         );
 
-        // let zplan={
-        //   totalstars:snapshot.val()
-        // }
+        let zplan={
+          totalstars:0
+        }
 
         if (snapshot.val() === null) {
           //theplan = "free";
-          dispatch(startAddTotalStars(snapshot.val()))
+          dispatch(startAddTotalStars(zplan))
         } else {
           //theplan=snapshot.val();
           //zplan=snapshot.val();

@@ -1129,7 +1129,7 @@ const LinkListItem = (props) => {
                     title={"click to select to the top ten"}
                     onClick={() => storeScrollPosition3(props.star, event)}
                   >
-                    star:
+                    {props.rt}star:
                   </span>
 
                   <span

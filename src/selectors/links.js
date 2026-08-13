@@ -96,7 +96,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
 
         } else if (sortBy === "star") {
 
-            return b.likes - a.likes
+            if(a.star === 1) return true
+            else return false
 
         }
       })

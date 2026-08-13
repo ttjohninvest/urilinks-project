@@ -1,11 +1,7 @@
 import database from "../firebase/firebase";
 import subscriptionid from "../reducers/subscriptionid";
 
-// ADD_LINK
-export const addThetotalstars = (thetotalstars) => ({
-  type: "ADD_THETOTALSTARS",
-  thetotalstars,
-});
+
 
 // SET_SETTINGS
 export const setThetotalstars = (thetotalstars) => ({
@@ -142,12 +138,18 @@ export const startEditThetotalstars = (updates) => {
   };
 };
 
-export const incrementTotalStarClickCount2 = (id, thetotalstars) => ({
+
+export const addThetotalstars = (thetotalstars) => ({
+  type: "ADD_THETOTALSTARS",
+  thetotalstars,
+});
+
+export const incrementTotalStarClickCount2 = (thetotalstars) => ({
   type: "INCREMENT_TOTAL_STAR_COUNT",
   thetotalstars,
 });
 
-export const decrementTotalStarClickCount2 = (id, thetotalstars) => ({
+export const decrementTotalStarClickCount2 = (thetotalstars) => ({
   type: "DECREMENT_TOTAL_STAR_COUNT",
   thetotalstars,
 });

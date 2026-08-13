@@ -217,19 +217,19 @@ const LinkListItem = (props) => {
   };
 
   const storeScrollPosition3 = (star, event) => {
-    alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
+    //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
     let x1 = 0;
     if (star === undefined || star === null || star === "NaN") x1 = 0;
     else x1 = star;
     const x = event.target.getAttribute("data-value"); //x is link id
     
     if(x1===0) {
-      alert("going to increment")
+      //alert("going to increment")
       props.incrementLinkStarClickCount({ id: x, star: 0 });
       props.incrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
     }
     else {
-      alert("going to decrement")
+      //alert("going to decrement")
       props.decrementLinkStarClickCount({ id: x, star: 1 });
       props.decrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
     }

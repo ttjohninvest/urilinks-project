@@ -218,21 +218,21 @@ const LinkListItem = (props) => {
 
   const storeScrollPosition3 = (star, event) => {
     alert("props.thetotalstars.totalstars="+props.thetotalstars.totalstars)
-    // let x1 = 0;
-    // if (star === undefined || star === null || star === "NaN") x1 = 0;
-    // else x1 = star;
-    // const x = event.target.getAttribute("data-value"); //x is link id
+    let x1 = 0;
+    if (star === undefined || star === null || star === "NaN") x1 = 0;
+    else x1 = star;
+    const x = event.target.getAttribute("data-value"); //x is link id
 
-    // if(x1===0) {
-    // props.incrementLinkStarClickCount({ id: x, star: 0 });
-    // props.incrementTotalStarClickCount({ id: x, totalstars: props.thetotalstars.totalstars });
-    // }
-    // else {
-    //   props.decrementLinkStarClickCount({ id: x, star: 1 });
-    //   props.decrementTotalStarClickCount({ id: x, totalstars: props.thetotalstars.totalstars });
-    // }
+    if(x1===0) {
+    props.incrementLinkStarClickCount({ id: x, star: 0 });
+    props.incrementTotalStarClickCount({ id: x, thetotalstars: props.thetotalstars.totalstars });
+    }
+    else {
+      props.decrementLinkStarClickCount({ id: x, star: 1 });
+      props.decrementTotalStarClickCount({ id: x, thetotalstars: props.thetotalstars.totalstars });
+    }
 
-    // window.localStorage.setItem("scrollPosition", window.scrollY);
+    window.localStorage.setItem("scrollPosition", window.scrollY);
   };
 
   const sortit2 = (event) => {

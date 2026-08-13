@@ -167,7 +167,7 @@ export const incrementTotalStarClickCount = (x) => {
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(incrementTotalStarsClickCount2({totalstars:parseInt(x.totalstars)+1}));
+        dispatch(incrementTotalStarClickCount2({totalstars:parseInt(x.totalstars)+1}));
        
       })
       .catch((error) => {

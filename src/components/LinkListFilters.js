@@ -964,7 +964,7 @@ function ExpandableArray(props) {
                           value="star"
                           title="sort stared ones into descending order"
                         >
-                          Star
+                          Top ten
                         </option>
                       </optgroup>
                     </select>
@@ -1065,7 +1065,7 @@ function ExpandableArray(props) {
                           value="star"
                           title="sort likes into descending order"
                         >
-                          Star
+                          Top ten
                         </option>
                       </optgroup>
                     </select>

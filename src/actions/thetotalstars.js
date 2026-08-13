@@ -58,7 +58,7 @@ export const getThetotalstars2 = (id) => {
         );
 
         let ztotalstars={
-           totalstars:0
+           totalstars:5
         }
 
         if (snapshot.val() === null) {

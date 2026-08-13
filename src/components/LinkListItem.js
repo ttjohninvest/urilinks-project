@@ -1052,8 +1052,8 @@ const LinkListItem = (props) => {
                     className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
                     title={"This is a selection to the top ten."}
                   >
-                    {/* {props.star === undefined ? 0 : props.star} */}
-                    {props.star === undefined ? "No" : "Yes"}
+                    {props.star === undefined ? 0 : props.star}
+                    {/* {props.star === undefined ? "No" : "Yes"} */}
                   </span>
                 </span>
               ) : (<span></span>
@@ -1173,8 +1173,8 @@ const LinkListItem = (props) => {
                     "This is the number of times someone has clicked this link."
                   }
                 >
-                  {/* {props.star === undefined ? 0 : props.star} */}
-                  {props.star === undefined ? "No" : "Yes"}
+                  {props.star === undefined ? 0 : props.star}
+                  {/* {props.star === undefined ? "No" : "Yes"} */}
                 </span>
               </span>}
 

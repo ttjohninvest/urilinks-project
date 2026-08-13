@@ -1128,7 +1128,7 @@ const LinkListItem = (props) => {
                 </span>
               </span>
 
-             <span className="margin-left-11xy">
+            {props.rt !== "readonly" && <span className="margin-left-11xy">
                 {" "}
                 star:
                 <span
@@ -1139,7 +1139,7 @@ const LinkListItem = (props) => {
                 >
                   {props.star === undefined ? 0 : props.star}
                 </span>
-              </span>
+              </span>}
 
 
            

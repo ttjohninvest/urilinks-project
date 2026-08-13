@@ -19,8 +19,8 @@ export const startAddTotalStars = (totalstarsData = {}) => {
 
     return (
       database
-        .ref(`users/${uid}/totalstars`)
-        //.push(settingsData)
+        //.ref(`users/${uid}/totalstars`)
+        .ref(`users/${uid}`)
         .update(totalstarsData)
         .then(() => {
           console.log(

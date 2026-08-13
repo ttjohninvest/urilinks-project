@@ -951,18 +951,30 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span> */}
-              <span className="margin-left-11xy">
-                {" "}
+             <span
+                ref={myRef}
+                className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
+                //href="#"
+
+                data-value={props.id}
+                title={"click to see"}
+                onClick={() => storeScrollPosition(props.frequency, event)}
+              >
                 views:
-                <span
-                  className="ib margin-left-11tx font-weight-900-"
-                  title={
-                    "This is the number of times someone has clicked this link."
-                  }
-                >
-                  {props.frequency === undefined ? 0 : props.frequency}
-                </span>
               </span>
+
+              <span
+                className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                title={
+                  "This is the number of times someone has clicked this link."
+                }
+              >
+                {props.frequency === undefined ? 0 : props.frequency}
+              </span>
+
+
+
+
               <span
                 ref={myRef2}
                 className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
@@ -974,7 +986,6 @@ const LinkListItem = (props) => {
               >
                 likes:
               </span>
-
               <span
                 className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
                 title={
@@ -983,6 +994,10 @@ const LinkListItem = (props) => {
               >
                 {props.likes === undefined ? 0 : props.likes}
               </span>
+
+
+
+
 
               {props.rt !== "readonly" ? (
                 <span>
@@ -1085,11 +1100,12 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>  */}
-              <span className="margin-left-11xy">
+             
+<span className="margin-left-11xy">
                 {" "}
                 views:
                 <span
-                  className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                  className="ib margin-left-11tx font-weight-900-"
                   title={
                     "This is the number of times someone has clicked this link."
                   }
@@ -1097,70 +1113,36 @@ const LinkListItem = (props) => {
                   {props.frequency === undefined ? 0 : props.frequency}
                 </span>
               </span>
-              <span
-                ref={myRef2}
-                className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
-                //href="#"
 
-                data-value={props.id}
-                title={"click to like"}
-                onClick={() => storeScrollPosition2(props.likes, event)}
-              >
+
+<span className="margin-left-11xy">
+                {" "}
                 likes:
-              </span>
-
-              <span
-                className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
-                title={
-                  "This is the number of times someone has clicked this link."
-                }
-              >
-                {props.likes === undefined ? 0 : props.likes}
-              </span>
-
-             {props.rt !== "readonly" ? (
-                <span>
-                  <span
-                    ref={myRef3}
-                    className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
-                    //href="#"
-
-                    data-value={props.id}
-                    title={"click to select to the top ten"}
-                    onClick={() => storeScrollPosition3(props.star, event)}
-                  >
-                    {props.rt}star:
-                  </span>
-
-                  <span
-                    className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
-                    title={"This is a selection to the top ten."}
-                  >
-                    {props.star === undefined ? 0 : props.star}
-                  </span>
+                <span
+                  className="ib margin-left-11tx font-weight-900-"
+                  title={
+                    "This is the number of times someone has clicked this link."
+                  }
+                >
+                  {props.likes === undefined ? 0 : props.likes}
                 </span>
-              ) : (<span></span>
-                // <span>
-                //   <span
-                //     ref={myRef3}
-                //     className={`font-weight-900- margin-left-11xy1 cursor-pointer pointereventsnone`}
-                //     //href="#"
+              </span>
 
-                //     data-value={props.id}
-                //     title={"click to select to the top ten"}
-                //     onClick={() => storeScrollPosition3(props.star, event)}
-                //   >
-                //     star:
-                //   </span>
+             <span className="margin-left-11xy">
+                {" "}
+                star:
+                <span
+                  className="ib margin-left-11tx font-weight-900-"
+                  title={
+                    "This is the number of times someone has clicked this link."
+                  }
+                >
+                  {props.star === undefined ? 0 : props.star}
+                </span>
+              </span>
 
-                //   <span
-                //     className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
-                //     title={"This is a selection to the top ten."}
-                //   >
-                //     {props.star === undefined ? 0 : props.star}
-                //   </span>
-                // </span>
-              )}
+
+           
             </span>
           </div>
         )}

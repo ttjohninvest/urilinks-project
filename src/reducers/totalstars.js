@@ -1,4 +1,4 @@
-const theplanReducerDefaultState = {
+const totalstarsReducerDefaultState = {
   totalstars:0,
  
 };

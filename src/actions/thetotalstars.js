@@ -148,13 +148,11 @@ export const startEditThetotalstars = (updates) => {
 
 export const incrementTotalStarClickCount2 = (id, updates) => ({
   type: "INCREMENT_TOTAL_STAR_COUNT",
-  id,
   updates,
 });
 
 export const decrementTotalStarClickCount2 = (id, updates) => ({
   type: "DECREMENT_TOTAL_STAR_COUNT",
-  id,
   updates,
 });
 
@@ -169,8 +167,8 @@ export const incrementTotalStarClickCount = ({ id,totalstars } = {}) => {
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(incrementTotalStarsClickCount2(id,{totalstars:parseInt(totalstars)+1}));
-        //dispatch(incrementTotalStarClickCount2(id,{totalstars:4}));
+        dispatch(incrementTotalStarsClickCount2({totalstars:parseInt(totalstars)+1}));
+       
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
@@ -190,7 +188,7 @@ export const decrementTotalStarClickCount = ({ id,totalstars } = {}) => {
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(decrementTotalStarClickCount2(id,{totalstars:parseInt(totalstars)-1}));
+        dispatch(decrementTotalStarClickCount2({totalstars:parseInt(totalstars)-1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

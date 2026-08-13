@@ -43,13 +43,21 @@ import CalendarGoogle from "./CalendarGoogle";
 //   createdAt,
 //   faviconURL,
 // }) => {
+
+ 
+
 const LinkListItem = (props) => {
+
+   const params = new URLSearchParams(window.location.search);
+  
+  const rt = params.get("x");
+
   console.log(
-    "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL
+    "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL,
   );
   const myRef = useRef(null);
-  const myRef2 = useRef(null)
-  const myRef3 = useRef(null)
+  const myRef2 = useRef(null);
+  const myRef3 = useRef(null);
 
   const [s, setS] = useState(1);
   const [s2, setS2] = useState(1);
@@ -176,43 +184,38 @@ const LinkListItem = (props) => {
     }
   };
 
-  const storeScrollPosition = (frequency,event) => {
+  const storeScrollPosition = (frequency, event) => {
     //alert("frequency="+frequency)
-    let x1 = 0
-    if(frequency === undefined || frequency === null || frequency==="NaN") x1 = 0
-    else x1 = frequency
-    const x = event.target.getAttribute('data-value') //x is link id
+    let x1 = 0;
+    if (frequency === undefined || frequency === null || frequency === "NaN")
+      x1 = 0;
+    else x1 = frequency;
+    const x = event.target.getAttribute("data-value"); //x is link id
     //alert("id="+x+", frequency="+x1)
     //alert("storeScrollPosition, event.target.value="+x)
-    props.incrementLinkClickCount({ id: x, frequency:x1 });
+    props.incrementLinkClickCount({ id: x, frequency: x1 });
     window.localStorage.setItem("scrollPosition", window.scrollY);
-   
   };
 
-    const storeScrollPosition2 = (likes,event) => {
-    
-    let x1 = 0
-    if(likes === undefined || likes === null || likes==="NaN") x1 = 0
-    else x1 = likes
-    const x = event.target.getAttribute('data-value') //x is link id
-    
-    props.incrementLinkLikesClickCount({ id: x, likes:x1 });
+  const storeScrollPosition2 = (likes, event) => {
+    let x1 = 0;
+    if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
+    else x1 = likes;
+    const x = event.target.getAttribute("data-value"); //x is link id
+
+    props.incrementLinkLikesClickCount({ id: x, likes: x1 });
     window.localStorage.setItem("scrollPosition", window.scrollY);
-   
   };
 
-   const storeScrollPosition3 = (star,event) => {
-    
-    let x1 = 0
-    if(star === undefined || star === null || star==="NaN") x1 = 0
-    else x1 = star
-    const x = event.target.getAttribute('data-value') //x is link id
-    
-    props.incrementLinkStarClickCount({ id: x, star:x1 });
-    window.localStorage.setItem("scrollPosition", window.scrollY);
-   
-  };
+  const storeScrollPosition3 = (star, event) => {
+    let x1 = 0;
+    if (star === undefined || star === null || star === "NaN") x1 = 0;
+    else x1 = star;
+    const x = event.target.getAttribute("data-value"); //x is link id
 
+    props.incrementLinkStarClickCount({ id: x, star: x1 });
+    window.localStorage.setItem("scrollPosition", window.scrollY);
+  };
 
   const sortit2 = (event) => {
     console.log(
@@ -272,64 +275,64 @@ const LinkListItem = (props) => {
     // const ul = document.getElementById("uldata" + event.currentTarget.obj.id);
     // ul.innerHTML = "";
     //if (data1s.length === 0) {
-      // let li = document.createElement("li");
-      // li.className = "lsn corangered";
-      // li.innerHTML = `Results: 0`;
+    // let li = document.createElement("li");
+    // li.className = "lsn corangered";
+    // li.innerHTML = `Results: 0`;
 
-      // ul.appendChild(li);
+    // ul.appendChild(li);
     //} else {
-      // let li0 = document.createElement("li");
-      // li0.className = "lsn corangered";
-      // li0.innerHTML = `Results: ${data1s.length} url(s)`;
+    // let li0 = document.createElement("li");
+    // li0.className = "lsn corangered";
+    // li0.innerHTML = `Results: ${data1s.length} url(s)`;
 
-      // ul.appendChild(li0);
+    // ul.appendChild(li0);
 
-      // data1s.map((d) => {
-      //   let li = document.createElement("li");
+    // data1s.map((d) => {
+    //   let li = document.createElement("li");
 
-      //   let a = document.createElement("a");
-      //   a.title = "click to open the page";
-      //   a.className = "nounderline color-purple";
-      //   a.href = d.url;
-      //   a.target = "_blank";
-      //   a.innerHTML = `${decodeURIComponent(d.url)}`;
+    //   let a = document.createElement("a");
+    //   a.title = "click to open the page";
+    //   a.className = "nounderline color-purple";
+    //   a.href = d.url;
+    //   a.target = "_blank";
+    //   a.innerHTML = `${decodeURIComponent(d.url)}`;
 
-      //   // li.appendChild(a);
+    //   // li.appendChild(a);
 
-      //   // ul.appendChild(li);
+    //   // ul.appendChild(li);
 
-      //   let a2 = document.createElement("a");
-      //   a2.title = `click to open page,${d.hostname}`;
-      //   a2.className = "nounderline color-black";
-      //   a2.href = "https://" + d.hostname;
-      //   a2.target = "_blank";
-      //   a2.innerHTML = `${d.hostname}`;
+    //   let a2 = document.createElement("a");
+    //   a2.title = `click to open page,${d.hostname}`;
+    //   a2.className = "nounderline color-black";
+    //   a2.href = "https://" + d.hostname;
+    //   a2.target = "_blank";
+    //   a2.innerHTML = `${d.hostname}`;
 
-      //   let span2 = document.createElement("span");
-      //   let br2 = document.createElement("br");
+    //   let span2 = document.createElement("span");
+    //   let br2 = document.createElement("br");
 
-      //   span2.appendChild(a);
-      //   span2.appendChild(br2);
-      //   span2.appendChild(a2);
-      //   //https://www.google.com/search?q=arthritis
+    //   span2.appendChild(a);
+    //   span2.appendChild(br2);
+    //   span2.appendChild(a2);
+    //   //https://www.google.com/search?q=arthritis
 
-      //   let pathnamearray = d.pathname.split("/");
+    //   let pathnamearray = d.pathname.split("/");
 
-      //   for (let i = 0; i < pathnamearray.length; i++) {
-      //     if (pathnamearray[i + 1] !== undefined) {
-      //       let a3 = document.createElement("a");
-      //       a3.title = `click to google search for ${pathnamearray[i + 1]}`;
-      //       a3.className = "nounderline color-black";
-      //       a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
-      //       a3.target = "_blank";
-      //       a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
-      //       span2.appendChild(a3);
-      //     }
-      //   }
+    //   for (let i = 0; i < pathnamearray.length; i++) {
+    //     if (pathnamearray[i + 1] !== undefined) {
+    //       let a3 = document.createElement("a");
+    //       a3.title = `click to google search for ${pathnamearray[i + 1]}`;
+    //       a3.className = "nounderline color-black";
+    //       a3.href = "https://www.google.com/search?q=" + pathnamearray[i + 1];
+    //       a3.target = "_blank";
+    //       a3.innerHTML = `,  ${decodeURIComponent(pathnamearray[i + 1])}`;
+    //       span2.appendChild(a3);
+    //     }
+    //   }
 
-      //   li.appendChild(span2);
-      //   ul.appendChild(li);
-      // });
+    //   li.appendChild(span2);
+    //   ul.appendChild(li);
+    // });
     //}
   };
 
@@ -673,9 +676,7 @@ const LinkListItem = (props) => {
             // let li = document.createElement("li");
             // li.className = "lsn corangered";
             // li.innerHTML = `Results: 0`;
-
             // ul.appendChild(li);
-
             //  let r = document.getElementById("resultsId")
             // r.innerHTML = `Results: ${data.length} url(s)`;
           } else {
@@ -783,38 +784,37 @@ const LinkListItem = (props) => {
   //
 
   const truncateString = (str, length) => {
-    let str1 = !!str?str:""
+    let str1 = !!str ? str : "";
     return str1.length > length ? str1.slice(0, length) + "..." : str1;
   };
 
   const putinnewlines = (str) => {
-  let str1 = !!str?str:""
-  
-const hashtags = str1.match(/#\w+/g) || [];
-// Result: ["#world", "#javascript", "#coding"]   
-  const regex = /#([a-zA-Z0-9_]+)/g;
+    let str1 = !!str ? str : "";
 
-  let match;
-  let matchesstring = "";
-  let i = 0;
+    const hashtags = str1.match(/#\w+/g) || [];
+    // Result: ["#world", "#javascript", "#coding"]
+    const regex = /#([a-zA-Z0-9_]+)/g;
 
-   while ((match = regex.exec(hashtags[i])) !== null) {
-    if(i===0)
-      matchesstring += "\n"+match[0]
-    else {
-      matchesstring += " "+match[0]
+    let match;
+    let matchesstring = "";
+    let i = 0;
+
+    while ((match = regex.exec(hashtags[i])) !== null) {
+      if (i === 0) matchesstring += "\n" + match[0];
+      else {
+        matchesstring += " " + match[0];
+      }
+      i = i + 1;
     }
-    i=i+1
-  }
 
-  return matchesstring;
-};
+    return matchesstring;
+  };
 
- const breakEvery50Chars=(text)=> {
-    if (!text) return '';
+  const breakEvery50Chars = (text) => {
+    if (!text) return "";
     // Matches exactly 50 characters and replaces with the match + newline
     return text.replace(/(.{50})/g, "$1\n");
-}
+  };
 
   function isMobile() {
     const regex =
@@ -827,7 +827,6 @@ const hashtags = str1.match(/#\w+/g) || [];
       <img className="" width="20" height="20" src={props.faviconURL} />
 
       {!!props.yturl && (
-        
         <a
           ref={myRef}
           className=""
@@ -836,9 +835,13 @@ const hashtags = str1.match(/#\w+/g) || [];
           target="_blank"
           data-value={props.id}
           title={"click to open the webpage: " + props.Url}
-          onClick={()=>storeScrollPosition(props.frequency, event)}
+          onClick={() => storeScrollPosition(props.frequency, event)}
         >
-          <img className="borderRadius10" style={{width:"325px"}} src={props.yturl} />
+          <img
+            className="borderRadius10"
+            style={{ width: "325px" }}
+            src={props.yturl}
+          />
         </a>
       )}
 
@@ -846,15 +849,13 @@ const hashtags = str1.match(/#\w+/g) || [];
 
       <div className="normal-wrap">
         <a
-          
           ref={myRef}
-          className={`ib text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile()===true?'width325':''}`}
-          
+          className={`ib text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
           href={props.Url}
           target="_blank"
           data-value={props.id}
           title={"click to open the webpage: " + props.Url}
-          onClick={()=>storeScrollPosition(props.frequency, event)}
+          onClick={() => storeScrollPosition(props.frequency, event)}
         >
           {props.description}
           {/* {truncateString(props.description, 80)} */}
@@ -866,7 +867,9 @@ const hashtags = str1.match(/#\w+/g) || [];
         {props.signup.signup === true ? (
           <div>
             <Link className="pointereventsauto" to={`/edit/${props.id}`}>
-              <span className="" style={{cursor:'pointer'}}>edit link</span>
+              <span className="" style={{ cursor: "pointer" }}>
+                edit link
+              </span>
             </Link>
           </div>
         ) : (
@@ -889,17 +892,19 @@ const hashtags = str1.match(/#\w+/g) || [];
                   onChange={handleCheckboxDelete}
                   title="click to delete the url"
                   className=""
-                  style={{cursor:'pointer'}}
+                  style={{ cursor: "pointer" }}
                 />
                 <label htmlFor={"delete%" + props.id} />
               </span>
               <span className="pointereventsauto">
                 <span className="margin-left-11 color-black ">
-                  {!!props.showpublic ? "make link private" : "made link private"}
+                  {!!props.showpublic
+                    ? "make link private"
+                    : "made link private"}
                   :&nbsp;
                 </span>
                 <input
-                  style={{cursor:'pointer'}}
+                  style={{ cursor: "pointer" }}
                   checked={!!props.showpublic ? "" : "checked"}
                   type="checkbox"
                   id={"private%" + props.id}
@@ -945,75 +950,117 @@ const hashtags = str1.match(/#\w+/g) || [];
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span> */}
-                                    <span className="margin-left-11xy">   views:<span className="ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.frequency===undefined?0:props.frequency}</span></span>
-           <span
-          
-          ref={myRef2}
-          className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
-          //href="#"
-          
-          data-value={props.id}
-          title={"click to like"}
-          onClick={()=>storeScrollPosition2(props.likes, event)}
-        >
-         likes:
-        </span>
-        
-        <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span>
-            
-            
-        <span
-          
-          ref={myRef3}
-          className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
-          //href="#"
-          
-          data-value={props.id}
-          title={"click to select to the top ten"}
-          onClick={()=>storeScrollPosition3(props.star, event)}
-        >
-         star:
-        </span>
-        
-        <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is a selection to the top ten."}>{props.star===undefined?0:props.star}</span>
-            
-            
-            
-            
+              <span className="margin-left-11xy">
+                {" "}
+                views:
+                <span
+                  className="ib margin-left-11tx font-weight-900-"
+                  title={
+                    "This is the number of times someone has clicked this link."
+                  }
+                >
+                  {props.frequency === undefined ? 0 : props.frequency}
+                </span>
+              </span>
+              <span
+                ref={myRef2}
+                className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
+                //href="#"
+
+                data-value={props.id}
+                title={"click to like"}
+                onClick={() => storeScrollPosition2(props.likes, event)}
+              >
+                likes:
+              </span>
+
+              <span
+                className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                title={
+                  "This is the number of times someone has clicked this link."
+                }
+              >
+                {props.likes === undefined ? 0 : props.likes}
+              </span>
+
+              {rt !== "readonly" ? (
+                <span>
+                  <span
+                    ref={myRef3}
+                    className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
+                    //href="#"
+
+                    data-value={props.id}
+                    title={"click to select to the top ten"}
+                    onClick={() => storeScrollPosition3(props.star, event)}
+                  >
+                    star:
+                  </span>
+
+                  <span
+                    className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                    title={"This is a selection to the top ten."}
+                  >
+                    {props.star === undefined ? 0 : props.star}
+                  </span>
+                </span>
+              ) : (<span></span>
+                // <span>
+                //   <span
+                //     ref={myRef3}
+                //     className={`font-weight-900- margin-left-11xy1 cursor-pointer pointereventsnone`}
+                //     //href="#"
+
+                //     data-value={props.id}
+                //     title={"click to select to the top ten"}
+                //     onClick={() => storeScrollPosition3(props.star, event)}
+                //   >
+                //     star:
+                //   </span>
+
+                //   <span
+                //     className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                //     title={"This is a selection to the top ten."}
+                //   >
+                //     {props.star === undefined ? 0 : props.star}
+                //   </span>
+                // </span>
+              )}
             </span>
-            
           </div>
         ) : (
           <div>
             <span className="">
-            <span className="pointereventsnone">
-              <span className="margin-left-11">remove link:&nbsp;</span>
-              <input
-                type="checkbox"
-                id={"delete%" + props.id}
-                name={"delete%" + props.id}
-                value={props.id}
-                //onChange={handleCheckboxDelete}
-                title="click to remove url"
-                className="pointereventsnone"
-              />
-              <label htmlFor={"delete%" + props.id} />
-            </span>
-            <span className="pointereventsnone">
-              <span className="color-black margin-left-11">make link private:&nbsp;</span>
-              <input
-                type="checkbox"
-                id={"private%" + props.id}
-                name={"private%" + props.id}
-                value={props.id}
-                //onChange={handleCheckboxPrivate}
-                title="click to make url private"
-                className="pointereventsnone"
-              />
-              <label htmlFor={"private%" + props.id} />
-            </span>
-              
-            {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
+              <span className="pointereventsnone">
+                <span className="margin-left-11">remove link:&nbsp;</span>
+                <input
+                  type="checkbox"
+                  id={"delete%" + props.id}
+                  name={"delete%" + props.id}
+                  value={props.id}
+                  //onChange={handleCheckboxDelete}
+                  title="click to remove url"
+                  className="pointereventsnone"
+                />
+                <label htmlFor={"delete%" + props.id} />
+              </span>
+              <span className="pointereventsnone">
+                <span className="color-black margin-left-11">
+                  make link private:&nbsp;
+                </span>
+                <input
+                  type="checkbox"
+                  id={"private%" + props.id}
+                  name={"private%" + props.id}
+                  value={props.id}
+                  //onChange={handleCheckboxPrivate}
+                  title="click to make url private"
+                  className="pointereventsnone"
+                />
+                <label htmlFor={"private%" + props.id} />
+              </span>
+
+              {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
                                       <span className="color-black">
                                         {!!props.archive
                                           ? "unarchive it"
@@ -1037,43 +1084,61 @@ const hashtags = str1.match(/#\w+/g) || [];
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>  */}
-                                    <span className="margin-left-11xy">   views:<span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.frequency===undefined?0:props.frequency}</span></span>
-            <span
-          
-          ref={myRef2}
-          className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
-          //href="#"
-          
-          data-value={props.id}
-          title={"click to like"}
-          onClick={()=>storeScrollPosition2(props.likes, event)}
-        >
-         likes:
-        </span>
-        
-        <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span>
-          
-           <span
-          
-          ref={myRef3}
-          className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
-          //href="#"
-          
-          data-value={props.id}
-          title={"click to select to the top ten"}
-          onClick={()=>storeScrollPosition3(props.star, event)}
-        >
-         star:
-        </span>
-        
-        <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is a selection to the top ten."}>{props.star===undefined?0:props.star}</span>
-            
-          
-          </span>
+              <span className="margin-left-11xy">
+                {" "}
+                views:
+                <span
+                  className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                  title={
+                    "This is the number of times someone has clicked this link."
+                  }
+                >
+                  {props.frequency === undefined ? 0 : props.frequency}
+                </span>
+              </span>
+              <span
+                ref={myRef2}
+                className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
+                //href="#"
+
+                data-value={props.id}
+                title={"click to like"}
+                onClick={() => storeScrollPosition2(props.likes, event)}
+              >
+                likes:
+              </span>
+
+              <span
+                className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                title={
+                  "This is the number of times someone has clicked this link."
+                }
+              >
+                {props.likes === undefined ? 0 : props.likes}
+              </span>
+
+              <span
+                ref={myRef3}
+                className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
+                //href="#"
+
+                data-value={props.id}
+                title={"click to select to the top ten"}
+                onClick={() => storeScrollPosition3(props.star, event)}
+              >
+                star:
+              </span>
+
+              <span
+                className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                title={"This is a selection to the top ten."}
+              >
+                {props.star === undefined ? 0 : props.star}
+              </span>
+            </span>
           </div>
         )}
       </div>
-    
 
       <div className="italicText text-size-10 color-purple margin-left-11p1 color-black-2">
         <span className="ib- padding-left-1122 margin-top-n-15a margin-bottom-abc">
@@ -1123,9 +1188,11 @@ const mapDispatchToProps = (dispatch, props) => ({
   archiveLink: (data) => dispatch(archiveLink(data)),
   startArchiveLink2: (data) => dispatch(startArchiveLink2(data)),
   archiveLink2: (data) => dispatch(archiveLink2(data)),
-  incrementLinkClickCount: (data)=>dispatch(incrementLinkClickCount(data)),
-  incrementLinkLikesClickCount: (data)=>dispatch(incrementLinkLikesClickCount(data)),
-  incrementLinkStarClickCount: (data)=>dispatch(incrementLinkStarClickCount(data)),
+  incrementLinkClickCount: (data) => dispatch(incrementLinkClickCount(data)),
+  incrementLinkLikesClickCount: (data) =>
+    dispatch(incrementLinkLikesClickCount(data)),
+  incrementLinkStarClickCount: (data) =>
+    dispatch(incrementLinkStarClickCount(data)),
 });
 
 export default withRouter(

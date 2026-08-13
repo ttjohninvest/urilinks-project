@@ -48,10 +48,10 @@ import CalendarGoogle from "./CalendarGoogle";
 
 const LinkListItem = (props) => {
 
-   const params = new URLSearchParams(window.location.search);
+  //  const params = new URLSearchParams(window.location.search);
   
-  const rt = params.get("x");
-  alert("rt="+rt)
+  // const rt = params.get("x");
+  //alert("rt="+rt)
 
   console.log(
     "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL,
@@ -984,7 +984,7 @@ const LinkListItem = (props) => {
                 {props.likes === undefined ? 0 : props.likes}
               </span>
 
-              {rt !== "readonly" ? (
+              {props.rt !== "readonly" ? (
                 <span>
                   <span
                     ref={myRef3}

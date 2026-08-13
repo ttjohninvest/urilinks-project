@@ -27,7 +27,7 @@ import LoadingPage from "./LoadingPage";
 import StorageSizes from "./StorageSizes";
 
 const params = new URLSearchParams(window.location.search);
-const r = params.get("x");
+const rt = params.get("x");
 
 export const LinkList = (props) => {
   const thelinks = [
@@ -317,9 +317,9 @@ const startScrollingUp2 = () => {
                 //readonly means another user is seeing the page
                 //private urls don't have to be hid from owner of page
                 props.links.splice(0, themax).map((link, index) => {
-                  //if(r === "readonly" && link.showpublic === 0 || (link.showpublic === 1 && link.archive===1)) return (<div></div>)
+                  //if(rt === "readonly" && link.showpublic === 0 || (link.showpublic === 1 && link.archive===1)) return (<div></div>)
                   if (
-                    r === "readonly" &&
+                    rt === "readonly" &&
                     link.showpublic === 0
                     //|| link.archive === 1
                   )
@@ -328,7 +328,7 @@ const startScrollingUp2 = () => {
                     return (
                       <div key={link.id + "1"} className="border-bottom-1t padding-left-1t padding-top-1t padding-bottom-1t">
                         <LinkListItem
-                          r={r}
+                          rt={rt}
                           key={link.id}
                           {...link}
                           index={index}

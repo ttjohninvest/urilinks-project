@@ -146,14 +146,14 @@ export const startEditThetotalstars = (updates) => {
   };
 };
 
-export const incrementTotalStarClickCount2 = (id, updates) => ({
+export const incrementTotalStarClickCount2 = (id, thetotalstars) => ({
   type: "INCREMENT_TOTAL_STAR_COUNT",
-  updates,
+  thetotalstars,
 });
 
-export const decrementTotalStarClickCount2 = (id, updates) => ({
+export const decrementTotalStarClickCount2 = (id, thetotalstars) => ({
   type: "DECREMENT_TOTAL_STAR_COUNT",
-  updates,
+  thetotalstars,
 });
 
 export const incrementTotalStarClickCount = (x) => {

@@ -51,6 +51,7 @@ export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
+      totalstar = 0,
       star = 0,
       likes = 0,
       frequency = 0,
@@ -67,6 +68,7 @@ export const startAddLink = (linkData = {}) => {
       faviconURL = "",
     } = linkData;
     const link = {
+      totalstar,
       star,
       likes,
       frequency,
@@ -126,6 +128,12 @@ export const incrementLinkLikesClickCount2 = (id, updates) => ({
 
 export const incrementLinkStarClickCount2 = (id, updates) => ({
   type: "INCREMENT_LINK_STAR_COUNT",
+  id,
+  updates,
+});
+
+export const incrementLinkTotalStarClickCount2 = (id, updates) => ({
+  type: "INCREMENT_LINK_TOTAL_STAR_COUNT",
   id,
   updates,
 });
@@ -231,7 +239,26 @@ export const incrementLinkLikesClickCount = ({ id,likes } = {}) => {
   };
 };
 
-export const incrementLinkStarClickCount = ({ id,star } = {}) => {
+// export const incrementLinkStarClickCount = ({ id,star } = {}) => {
+  
+//   return (dispatch, getState) => {
+//     const uid = getState().auth.uid;
+//     //update(dbRef, { value: increment(1) });
+//     return database
+//       .ref(`users/${uid}/links/${id}`)
+//       .update({star:parseInt(star)+1}) //{showpublic:0}
+//       .then(() => {
+//         //alert("success")
+        
+//         dispatch(incrementLinkStarClickCount2(id,{star:parseInt(star)+1}));
+//       })
+//       .catch((error) => {
+//         console.log("error removing link data in firebase, error=" + error);
+//       });
+//   };
+// };
+
+export const incrementLinkStarClickCount = ({ id,star,totalstar } = {}) => {
   
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -240,9 +267,20 @@ export const incrementLinkStarClickCount = ({ id,star } = {}) => {
       .ref(`users/${uid}/links/${id}`)
       .update({star:parseInt(star)+1}) //{showpublic:0}
       .then(() => {
+         return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({totalstar:parseInt(totalstar)+1}) //{showpublic:0}
+      .then(() => {
         //alert("success")
         
         dispatch(incrementLinkStarClickCount2(id,{star:parseInt(star)+1}));
+        dispatch(incrementLinkTotalStarClickCount2(id,{totalstar:parseInt(totalstar)+1}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+        
+        
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
@@ -484,6 +522,8 @@ export const startSetLinks = (uid) => {
             aval.likes = parseInt(0) 
            if(aval.star === undefined || aval.star === null)
             aval.star = parseInt(0) 
+           if(aval.totalstar === undefined || aval.totalstar === null)
+            aval.totalstar = parseInt(0) 
           links2.push({
             id: childSnapshot.key,
             ...aval //...childSnapshot.val(),

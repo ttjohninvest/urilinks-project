@@ -209,14 +209,14 @@ const LinkListItem = (props) => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };
 
-  const storeScrollPosition3 = (star, event) => {
+  const storeScrollPosition3 = (star,totalstar, event) => {
     let x1 = 0;
     if (star === undefined || star === null || star === "NaN") x1 = 0;
     else x1 = star;
     const x = event.target.getAttribute("data-value"); //x is link id
 
     if(x1===0)
-    props.incrementLinkStarClickCount({ id: x, star: 0 });
+    props.incrementLinkStarClickCount({ id: x, star: 0, totalstar });
     else props.decrementLinkStarClickCount({ id: x, star: 1 });
 
     window.localStorage.setItem("scrollPosition", window.scrollY);
@@ -1012,7 +1012,7 @@ const LinkListItem = (props) => {
 
                     data-value={props.id}
                     title={"click to select to the top ten"}
-                    onClick={() => storeScrollPosition3(props.star, event)}
+                    onClick={() => storeScrollPosition3(props.star, props.totalstar, event)}
                   >
                     star:
                   </span>

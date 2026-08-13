@@ -27,11 +27,7 @@ export const startAddThetotalstars = (thetotalstarsData = {}) => {
           console.log(
             "in startAddTheplan, just before the call to dispatch to add theplanData to redux"
           );
-          // dispatch(
-          //   addTheplan({
-          //     ...theplanData,
-          //   })
-          // );
+         
 
           dispatch(addThetotalstars(thetotalstarsData));
           
@@ -58,7 +54,7 @@ export const getThetotalstars2 = (id) => {
         );
 
         let ztotalstars={
-           totalstars:5
+           totalstars:0
         }
 
         if (snapshot.val() === null) {

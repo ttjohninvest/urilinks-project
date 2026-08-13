@@ -995,7 +995,7 @@ const LinkListItem = (props) => {
                     title={"click to select to the top ten"}
                     onClick={() => storeScrollPosition3(props.star, event)}
                   >
-                    {props.rt}star:
+                    star:
                   </span>
 
                   <span
@@ -1118,24 +1118,49 @@ const LinkListItem = (props) => {
                 {props.likes === undefined ? 0 : props.likes}
               </span>
 
-              <span
-                ref={myRef3}
-                className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
-                //href="#"
+             {props.rt !== "readonly" ? (
+                <span>
+                  <span
+                    ref={myRef3}
+                    className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
+                    //href="#"
 
-                data-value={props.id}
-                title={"click to select to the top ten"}
-                onClick={() => storeScrollPosition3(props.star, event)}
-              >
-                star:
-              </span>
+                    data-value={props.id}
+                    title={"click to select to the top ten"}
+                    onClick={() => storeScrollPosition3(props.star, event)}
+                  >
+                    star:
+                  </span>
 
-              <span
-                className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
-                title={"This is a selection to the top ten."}
-              >
-                {props.star === undefined ? 0 : props.star}
-              </span>
+                  <span
+                    className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                    title={"This is a selection to the top ten."}
+                  >
+                    {props.star === undefined ? 0 : props.star}
+                  </span>
+                </span>
+              ) : (<span></span>
+                // <span>
+                //   <span
+                //     ref={myRef3}
+                //     className={`font-weight-900- margin-left-11xy1 cursor-pointer pointereventsnone`}
+                //     //href="#"
+
+                //     data-value={props.id}
+                //     title={"click to select to the top ten"}
+                //     onClick={() => storeScrollPosition3(props.star, event)}
+                //   >
+                //     star:
+                //   </span>
+
+                //   <span
+                //     className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                //     title={"This is a selection to the top ten."}
+                //   >
+                //     {props.star === undefined ? 0 : props.star}
+                //   </span>
+                // </span>
+              )}
             </span>
           </div>
         )}

@@ -1045,7 +1045,7 @@ const LinkListItem = (props) => {
                     title={"click to select to the top ten"}
                     onClick={() => storeScrollPosition3(props.star, event)}
                   >
-                    star:
+                    🧸:
                   </span>
 
                   <span
@@ -1165,7 +1165,7 @@ const LinkListItem = (props) => {
 
             {props.rt !== "readonly" && <span className="margin-left-11xy">
                 {" "}
-                star:
+                🧸:
                 <span
                   className="ib margin-left-11tx font-weight-900-"
                   title={

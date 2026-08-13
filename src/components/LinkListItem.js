@@ -217,7 +217,7 @@ const LinkListItem = (props) => {
   };
 
   const storeScrollPosition3 = (star, event) => {
-    alert("props.thetotalstars.totalstars="+props.thetotalstars.totalstars)
+    alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
     let x1 = 0;
     if (star === undefined || star === null || star === "NaN") x1 = 0;
     else x1 = star;

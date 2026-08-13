@@ -14,6 +14,7 @@ import {
   startArchiveLink2,
   incrementLinkClickCount,
   incrementLinkLikesClickCount,
+  incrementLinkStarClickCount,
 } from "../actions/links";
 import { Link, withRouter } from "react-router-dom";
 import moment from "moment";
@@ -48,6 +49,7 @@ const LinkListItem = (props) => {
   );
   const myRef = useRef(null);
   const myRef2 = useRef(null)
+  const myRef3 = useRef(null)
 
   const [s, setS] = useState(1);
   const [s2, setS2] = useState(1);
@@ -195,6 +197,18 @@ const LinkListItem = (props) => {
     const x = event.target.getAttribute('data-value') //x is link id
     
     props.incrementLinkLikesClickCount({ id: x, likes:x1 });
+    window.localStorage.setItem("scrollPosition", window.scrollY);
+   
+  };
+
+   const storeScrollPosition3 = (star,event) => {
+    
+    let x1 = 0
+    if(star === undefined || star === null || star==="NaN") x1 = 0
+    else x1 = star
+    const x = event.target.getAttribute('data-value') //x is link id
+    
+    props.incrementLinkStarClickCount({ id: x, star:x1 });
     window.localStorage.setItem("scrollPosition", window.scrollY);
    
   };
@@ -947,6 +961,25 @@ const hashtags = str1.match(/#\w+/g) || [];
         
         <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span>
             
+            
+        <span
+          
+          ref={myRef3}
+          className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
+          //href="#"
+          
+          data-value={props.id}
+          title={"click to select to the top ten"}
+          onClick={()=>storeScrollPosition3(props.star, event)}
+        >
+         star:
+        </span>
+        
+        <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is a selection to the top ten."}>{props.star===undefined?0:props.star}</span>
+            
+            
+            
+            
             </span>
             
           </div>
@@ -1020,6 +1053,21 @@ const hashtags = str1.match(/#\w+/g) || [];
         
         <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is the number of times someone has clicked this link."}>{props.likes===undefined?0:props.likes}</span>
           
+           <span
+          
+          ref={myRef3}
+          className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
+          //href="#"
+          
+          data-value={props.id}
+          title={"click to select to the top ten"}
+          onClick={()=>storeScrollPosition3(props.star, event)}
+        >
+         star:
+        </span>
+        
+        <span className="margin-bottom-xy ib margin-left-11tx font-weight-900-" title={"This is a selection to the top ten."}>{props.star===undefined?0:props.star}</span>
+            
           
           </span>
           </div>
@@ -1077,6 +1125,7 @@ const mapDispatchToProps = (dispatch, props) => ({
   archiveLink2: (data) => dispatch(archiveLink2(data)),
   incrementLinkClickCount: (data)=>dispatch(incrementLinkClickCount(data)),
   incrementLinkLikesClickCount: (data)=>dispatch(incrementLinkLikesClickCount(data)),
+  incrementLinkStarClickCount: (data)=>dispatch(incrementLinkStarClickCount(data)),
 });
 
 export default withRouter(

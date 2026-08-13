@@ -57,7 +57,13 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           
             return true //0 won't work for false here
           
-        } else return true;
+        } else if (sortBy === "star") {
+          
+            return true //0 won't work for false here
+          
+        }
+        
+        else return true;
       })
 
       let arr2 = arr.sort((a, b) => {
@@ -85,6 +91,10 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             return b.frequency - a.frequency
 
         } else if (sortBy === "likes") {
+
+            return b.likes - a.likes
+
+        } else if (sortBy === "star") {
 
             return b.likes - a.likes
 

@@ -51,6 +51,7 @@ export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
+      star = 0,
       likes = 0,
       frequency = 0,
       archive = 0,
@@ -66,6 +67,7 @@ export const startAddLink = (linkData = {}) => {
       faviconURL = "",
     } = linkData;
     const link = {
+      star,
       likes,
       frequency,
       archive,
@@ -118,6 +120,12 @@ export const incrementLinkClickCount2 = (id, updates) => ({
 
 export const incrementLinkLikesClickCount2 = (id, updates) => ({
   type: "INCREMENT_LINK_LIKES_COUNT",
+  id,
+  updates,
+});
+
+export const incrementLinkStarClickCount2 = (id, updates) => ({
+  type: "INCREMENT_LINK_STAR_COUNT",
   id,
   updates,
 });
@@ -430,6 +438,8 @@ export const startSetLinks = (uid) => {
             aval.frequency = parseInt(0) //9999999
           if(aval.likes === undefined || aval.likes === null)
             aval.likes = parseInt(0) 
+           if(aval.star === undefined || aval.star === null)
+            aval.star = parseInt(0) 
           links2.push({
             id: childSnapshot.key,
             ...aval //...childSnapshot.val(),

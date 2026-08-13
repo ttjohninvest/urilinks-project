@@ -30,6 +30,7 @@ import {
   sortByNoteText,
   sortByViews,
   sortByLikes,
+  sortByStar,
   sortByFolder,
 } from "../actions/filters";
 
@@ -440,6 +441,16 @@ function ExpandableArray(props) {
       // props.sortByHashTag();
       
     } 
+     else if (e.target.value === "hashtag") 
+    {
+         window.localStorage.setItem("sortBy", "star");
+          props.setTextFilter(val);
+          if (myRef.current) myRef.current.focus();
+          setSortBy("star");
+          props.sortByStar();
+    
+      
+    } 
    
 
 
@@ -465,7 +476,7 @@ function ExpandableArray(props) {
     } 
     else if (e.target.value === "likes") 
     {
-      //alert("views")
+      
       window.localStorage.setItem("sortBy", "likes");
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
@@ -474,6 +485,20 @@ function ExpandableArray(props) {
       //this.setState({ sortBy: "notetext" });
       setSortBy("likes");
       props.sortByLikes();
+      //alert("after call to props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
+    }
+     else if (e.target.value === "star") 
+    {
+      
+      window.localStorage.setItem("sortBy", "star");
+      if (myRef.current) myRef.current.focus();
+      //this.props.setTextFilter("");
+      props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      //this.setState({ sortBy: "notetext" });
+      setSortBy("star");
+      props.sortByStar();
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
@@ -935,6 +960,12 @@ function ExpandableArray(props) {
                         >
                           Likes
                         </option>
+                         <option
+                          value="star"
+                          title="sort likes into descending order"
+                        >
+                          Star
+                        </option>
                       </optgroup>
                     </select>
                   </div>
@@ -1029,6 +1060,12 @@ function ExpandableArray(props) {
                           title="sort likes into descending order"
                         >
                           Likes
+                        </option>
+                        <option
+                          value="star"
+                          title="sort likes into descending order"
+                        >
+                          Star
                         </option>
                       </optgroup>
                     </select>
@@ -1281,6 +1318,17 @@ export class LinkListFilters extends React.Component {
       //alert("after call to this.props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
+    else if (e.target.value === "star") {
+      window.localStorage.setItem("sortBy", "star");
+      if (this.myRef.current) this.myRef.current.focus();
+      //this.props.setTextFilter("");
+      this.props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      this.setState({ sortBy: "star" });
+      this.props.sortByStar();
+      //alert("after call to this.props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
+    }
   };
   //
   extractHashtags = (text) => {
@@ -1455,6 +1503,7 @@ export class LinkListFilters extends React.Component {
                 sortByNoteText={this.props.sortByNoteText}
                 sortByViews={this.props.sortByViews}
                 sortByLikes={this.props.sortByLikes}
+                sortByStar={this.props.sortByStar}
                 filters={this.props.filters}
               />
             </div>
@@ -1486,6 +1535,7 @@ const mapDispatchToProps = (dispatch) => ({
   
   sortByViews: () => dispatch(sortByViews()),
   sortByLikes: () => dispatch(sortByLikes()),
+  sortByStar: () => dispatch(sortByStar()),
   sortByFolder: () => dispatch(sortByFolder()),
 
   sortByDate: () => dispatch(sortByDate()),

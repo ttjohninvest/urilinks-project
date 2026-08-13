@@ -59,7 +59,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           
         } else if (sortBy === "star") {
           
-            return true //0 won't work for false here
+            if (link.star === 1 ) return true //0 won't work for false here
+            else return false
           
         }
         
@@ -96,8 +97,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
 
         } else if (sortBy === "star") {
 
-            if(a.star === 1) return true
-            else return false
+            return true
+            
 
         }
       })

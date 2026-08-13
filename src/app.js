@@ -17,7 +17,7 @@ import { startSetLinksFileDate } from "./actions/linksfiledate";
 //import { startSetSettings } from "./actions/settings";
 import { getSettings } from "./actions/settings";
 import { getTheplan, getTheplan2 } from "./actions/theplan";
-import { totalStars, getTotalStars } from "./actions/totalstars";
+
 import { login, logout } from "./actions/auth";
 import { setSettings } from "./actions/settings";
 //import getVisibleLinks from './selectors/links';

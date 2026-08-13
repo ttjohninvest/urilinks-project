@@ -24,7 +24,7 @@ import setitfiledateReducer from '../reducers/setitfiledate';
 import storageReducer from '../reducers/storage';
 import customeridReducer from '../reducers/customerid';
 import theplanReducer from '../reducers/theplan';
-import totalstarsReducer from '../reducers/totalstars';
+
 import signupReducer from '../reducers/signup';
 import hasrefreshedReducer from '../reducers/hasrefreshed';
 import photourlReducer from '../reducers/photourl';

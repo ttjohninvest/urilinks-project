@@ -225,11 +225,11 @@ const LinkListItem = (props) => {
 
     if(x1===0) {
     props.incrementLinkStarClickCount({ id: x, star: 0 });
-    props.incrementTotalStarClickCount({ id: x, totalstar: props.thetotalstars.totalstars });
+    props.incrementTotalStarClickCount({ id: x, totalstars: props.thetotalstars.totalstars });
     }
     else {
       props.decrementLinkStarClickCount({ id: x, star: 1 });
-      props.decrementTotalStarClickCount({ id: x, totalstar: props.thetotalstars.totalstars });
+      props.decrementTotalStarClickCount({ id: x, totalstars: props.thetotalstars.totalstars });
     }
 
     window.localStorage.setItem("scrollPosition", window.scrollY);

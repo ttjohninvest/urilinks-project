@@ -527,7 +527,7 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingUp}
-            className="button-2h"
+            className="button-2"
           >
             ScrollUp
           </button>
@@ -537,7 +537,7 @@ function ExpandableArray(props) {
             id="stopscroll"
             title="Click the button to stop auto scroll."
             onClick={stopScrolling}
-            className="button-2h ib margin-left-11"
+            className="button-2 ib margin-left-11"
           >
             Stop
           </button>
@@ -545,14 +545,14 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingDown}
-            className="button-2h ib margin-left-11"
+            className="button-2 ib margin-left-11"
           >
             ScrollDn
           </button>
           {/* <button
             title="Click the button to begin auto scroll."
             onClick={startWrite}
-            className="button-2h ib margin-left-11"
+            className="button-2 ib margin-left-11"
           >
             Write
           </button> // */}
@@ -807,7 +807,7 @@ function ExpandableArray(props) {
                     //         {props.uid}
                     //       </a>
                     //       <button
-                    //         className="button-2hw ib margin-right-1 margin-left-11 border5"
+                    //         className="button-2w ib margin-right-1 margin-left-11 border5"
                     //         onClick={copyToClipboard}
                     //         title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                     //       >

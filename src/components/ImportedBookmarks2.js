@@ -46,7 +46,7 @@ const ImportedBookmarks2 = (props) => {
               <div className="rectangle-1">
                 <div className="margin-top-2">
                   <button
-                    className="button-style-1- button-2hw"
+                    className="button-style-1- button-2w"
                     onClick={openPaymentPage}
                   >
                     go to payment page
@@ -55,7 +55,7 @@ const ImportedBookmarks2 = (props) => {
               </div>
               <div className="margin-top-2">
                 <button
-                  className="button-style-1- button-2hw"
+                  className="button-style-1- button-2w"
                   onClick={closeThisPage}
                 >
                   Close and Return
@@ -143,7 +143,7 @@ const ImportedBookmarks2 = (props) => {
                     props.theplan.plan.replace(/"/g, "") !== "premium" && (
                       <div className="margin-top-2">
                         <button
-                          className="button-style-1- button-2hw"
+                          className="button-style-1- button-2w"
                           onClick={openPaymentPage}
                         >
                           go to plans page
@@ -153,7 +153,7 @@ const ImportedBookmarks2 = (props) => {
               </div>
               <div className="margin-top-2">
                 <button
-                  className="button-style-1- button-2hw"
+                  className="button-style-1- button-2w"
                   onClick={closeThisPage}
                 >
                   Close

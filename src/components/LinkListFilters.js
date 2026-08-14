@@ -538,7 +538,7 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingUp}
-            className="button-2h widthxpx2"
+            className="button-2 widthxpx2"
           >
             ScrollUp
           </button>
@@ -548,7 +548,7 @@ function ExpandableArray(props) {
             id="stopscroll"
             title="Click the button to stop auto scroll."
             onClick={stopScrolling}
-            className="button-2h ib margin-left-11 widthxpx2"
+            className="button-2 ib margin-left-11 widthxpx2"
           >
             Stop
           </button>
@@ -556,7 +556,7 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingDown}
-            className="button-2h ib margin-left-11 widthxpx2"
+            className="button-2 ib margin-left-11 widthxpx2"
           >
             ScrollDn
           </button>
@@ -675,7 +675,7 @@ function ExpandableArray(props) {
                             </div>
                             <div className="margin-bottom-1">
                               <button
-                                className={`button-2hw ib border5 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+                                className={`button-2w ib border5 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
                                 onClick={copyToClipboard}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
@@ -713,7 +713,7 @@ function ExpandableArray(props) {
                             </div>
                             <div className="margin-bottom-1">
                               <button
-                                className={`button-2hw ib border5 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+                                className={`button-2w ib border5 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
                                 onClick={copyToClipboard}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
@@ -736,7 +736,7 @@ function ExpandableArray(props) {
                         id="adlinkid"
                         href="#"
                         title="Email your sharable link to share with others."
-                        className={`cursor-pointer width325 button-2h color-white-1 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                        className={`cursor-pointer width325 button-2 color-white-1 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                         onClick={handleClick}
                       >
                         <span className="ib color-white-1">
@@ -779,7 +779,7 @@ function ExpandableArray(props) {
                               {props.uid}
                             </a>
                             <button
-                              className={`button-2hw ib margin-right-1 border5 ${isMobile() === false ? "" : "margin-top-1"}`}
+                              className={`button-2w ib margin-right-1 border5 ${isMobile() === false ? "" : "margin-top-1"}`}
                               onClick={copyToClipboard}
                               title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                             >
@@ -809,7 +809,7 @@ function ExpandableArray(props) {
                               {props.uid}
                             </a>
                             <button
-                              className="button-2hw ib margin-right-1 margin-left-11 border5 pointereventsnone"
+                              className="button-2w ib margin-right-1 margin-left-11 border5 pointereventsnone"
                               onClick={copyToClipboard}
                               title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                             >
@@ -829,7 +829,7 @@ function ExpandableArray(props) {
                         id="adlinkid"
                         href="#"
                         title="Email your sharable link to share with others. Email recipient sees readonly page"
-                        className={`ib flexrowzc2 cursor-pointer width400 button-2h borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                        className={`ib flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                         onClick={handleClick}
                       >
                         <span className="ib color-white-1">
@@ -880,7 +880,7 @@ function ExpandableArray(props) {
                     >
                       <button
                         id="buttonid"
-                        className={`${isMobile() === true ? "width325" : ""} button-2h button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                        className={`${isMobile() === true ? "width325" : ""} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
                         //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                         //onClick={this.search}
@@ -974,8 +974,8 @@ function ExpandableArray(props) {
                     >
                       <button
                         id="buttonid"
-                        //className="button-3- button-2h button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
-                        className={`${isMobile() === true ? "width325" : ""} button-2h button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                        //className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
+                        className={`${isMobile() === true ? "width325" : ""} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
                         //onClick={this.search}
                         onClick={search}
                         //title="Searches to find entered term through the previously selected list which will appear in copper color."

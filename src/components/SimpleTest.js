@@ -135,7 +135,7 @@ const Simple = (props) => {
           </div>
           <div>
             <button
-              className="button-2hw ib margin-left-11 cursor-pointer"
+              className="button-2w ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
@@ -151,7 +151,7 @@ const Simple = (props) => {
           </div>
           <div>
             <button
-              className="button-2hw ib margin-left-11 cursor-pointer"
+              className="button-2w ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
@@ -168,7 +168,7 @@ const Simple = (props) => {
           </div>
           <div>
             <button
-              className="button-2hw ib margin-left-11 cursor-pointer"
+              className="button-2w ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
@@ -185,7 +185,7 @@ const Simple = (props) => {
           </div>
           <div>
             <button
-              className="button-2hw ib margin-left-11 cursor-pointer"
+              className="button-2w ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
@@ -195,7 +195,7 @@ const Simple = (props) => {
       ) : (
         <div>
           <button
-            className="button-2hw ib margin-left-11 cursor-pointer"
+            className="button-2w ib margin-left-11 cursor-pointer"
             onClick={goToHomePage}
           >
             goto the home page

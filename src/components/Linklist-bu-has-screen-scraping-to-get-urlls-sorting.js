@@ -111,7 +111,7 @@ export const LinkList = (props) => {
             {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div> */}
 
             <Link
-              className="button-2hw ib text-size-5 bg-color-1 pointereventsauto"
+              className="button-2w ib text-size-5 bg-color-1 pointereventsauto"
               to="/create"
             >
               Add Link
@@ -122,7 +122,7 @@ export const LinkList = (props) => {
             {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
 
             <Link
-              className="button-2hw ib text-size-5 bg-color-1 pointereventsnone"
+              className="button-2w ib text-size-5 bg-color-1 pointereventsnone"
               to="/create"
             >
               Add Link
@@ -141,7 +141,7 @@ export const LinkList = (props) => {
               onChange={handleOptionChange}
             />
             <span
-              className="button-2hw ib cursor-pointer"
+              className="button-2w ib cursor-pointer"
               title="links list with details"
             >
               List Links
@@ -159,7 +159,7 @@ export const LinkList = (props) => {
               checked={selectedOption === "option2"}
               onChange={handleOptionChange}
             />
-              <span className="button-2hw ib cursor-pointer" title="links list with out details">List Links</span>
+              <span className="button-2w ib cursor-pointer" title="links list with out details">List Links</span>
             
           </label>
         </div> */}
@@ -175,7 +175,7 @@ export const LinkList = (props) => {
               onChange={handleOptionChange}
             />
             <span
-              className="button-2hw ib cursor-pointer"
+              className="button-2w ib cursor-pointer"
               title="This will show all the links the public has shared."
             >
               List All Links
@@ -194,7 +194,7 @@ export const LinkList = (props) => {
               onChange={handleOptionChange}
             />
             <span
-              className="button-2hw ib cursor-pointer"
+              className="button-2w ib cursor-pointer"
               title="This will show all the links the public has shared."
             >
               People

@@ -224,7 +224,7 @@ const E2 = (props) => {
                                                   onClick={(event) =>
                                                     YZ(event, gud)
                                                   }
-                                                  className="ib button-2hw margin-left-118 borderradius55"
+                                                  className="ib button-2w margin-left-118 borderradius55"
                                                 >{`Display ${
                                                   !!gud.displayname
                                                     ? gud.displayname + "'s"

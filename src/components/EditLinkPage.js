@@ -40,7 +40,7 @@ export class EditLinkPage extends React.Component {
             makereadonly={true}
           />
           {/* <button
-            className="button- button--secondary- button-2hw  border5"
+            className="button- button--secondary- button-2w  border5"
             onClick={this.onRemove}
           >
             Remove Link

@@ -593,7 +593,7 @@ function ExpandableArray(props) {
         {/* <div> */}
         <div>
           {/* left column scrollable-div1m for mobile*/}
-          <div id="ls" className={`width30menupane scrollable-div1`}>
+          <div id="ls" className={`${(isMobile()===true)?"width30menupane":"width30menupane2"} scrollable-div1`}>
             <div className={`border-right-5`}>
               <div
                 ref={props.ref1}

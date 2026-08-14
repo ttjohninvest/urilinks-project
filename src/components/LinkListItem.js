@@ -938,7 +938,7 @@ const LinkListItem = (props) => {
           <div>
             <span className="">
               <span className="pointereventsauto">
-                <span className="margin-left-11">remove link:&nbsp;</span>
+                <span className="margin-left-11">Remove link:&nbsp;</span>
                 <input
                   type="checkbox"
                   id={"delete%" + props.id}
@@ -1007,7 +1007,7 @@ const LinkListItem = (props) => {
                                     </span> */}
 
                                     <span className="margin-left-11xy">
-                views:
+                Views:
                 <span
                   className="ib margin-left-11tx font-weight-900-"
                   title={
@@ -1050,7 +1050,7 @@ const LinkListItem = (props) => {
                 title={"click to like"}
                 onClick={() => storeScrollPosition2(props.likes, event)}
               >
-                likes:
+                Likes:
               </span>
               <span
                 className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
@@ -1077,7 +1077,7 @@ const LinkListItem = (props) => {
                     onClick={() => storeScrollPosition3(props.star, event)}
                   >
                      {/* <span>🧸put in top ten:</span> */}
-                     star:
+                     Star:
                   </span>
 
                   <span
@@ -1116,7 +1116,7 @@ const LinkListItem = (props) => {
           <div>
             <span className="">
               <span className="pointereventsnone">
-                <span className="margin-left-11">remove link:&nbsp;</span>
+                <span className="margin-left-11">Remove link:&nbsp;</span>
                 <input
                   type="checkbox"
                   id={"delete%" + props.id}
@@ -1130,7 +1130,7 @@ const LinkListItem = (props) => {
               </span>
               <span className="pointereventsnone">
                 <span className="color-black margin-left-11">
-                  make link private:&nbsp;
+                  Make link private:&nbsp;
                 </span>
                 <input
                   type="checkbox"
@@ -1171,7 +1171,7 @@ const LinkListItem = (props) => {
              
 <span className="margin-left-11xy">
                 {" "}
-                views:
+                Views:
                 <span
                   className="ib margin-left-11tx font-weight-900-"
                   title={
@@ -1185,7 +1185,7 @@ const LinkListItem = (props) => {
 
 <span className="margin-left-11xy">
                 {" "}
-                likes:
+                Likes:
                 <span
                   className="ib margin-left-11tx font-weight-900-"
                   title={
@@ -1199,7 +1199,7 @@ const LinkListItem = (props) => {
             {props.rt !== "readonly" && <span className="margin-left-11xy">
                 
                 {/* 🧸put in top ten: */}
-                star:
+                Star:
                 <span
                   className="ib margin-left-11tx font-weight-900-"
                   title={

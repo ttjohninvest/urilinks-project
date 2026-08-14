@@ -208,7 +208,8 @@ export const startPrivateLink = ({ id } = {}) => {
 };
 
 export const incrementLinkClickCount = ({ id,frequency } = {}) => {
-  //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
+    //alert("incrementLinkClickCount, x="+JSON.stringify(x))
+
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
@@ -266,7 +267,8 @@ export const decrementLinkLikesClickCount = ({ id,likes } = {}) => {
 
 
 export const incrementLinkStarClickCount = ({ id,star } = {}) => {
-  
+    alert("incrementLinkStarClickCount, id="+id+", star="+star)
+
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
@@ -274,7 +276,7 @@ export const incrementLinkStarClickCount = ({ id,star } = {}) => {
       .ref(`users/${uid}/links/${id}`)
       .update({star:parseInt(star)+1}) //{showpublic:0}
       .then(() => {
-        //alert("success")
+        alert("success")
         
         dispatch(incrementLinkStarClickCount2(id,{star:parseInt(star)+1}));
       })

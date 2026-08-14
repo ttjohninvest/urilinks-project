@@ -155,9 +155,9 @@ export const decrementTotalStarClickCount2 = (thetotalstars) => ({
 });
 
 export const incrementTotalStarClickCount = (x) => {
-  //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
+    // alert("incrementClickCount, uid="+uid)
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/thetotalstars`)

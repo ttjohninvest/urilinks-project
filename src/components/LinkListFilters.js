@@ -663,11 +663,12 @@ function ExpandableArray(props) {
         <div className="margin-top-n-x">
           <div>
             <div>
-               {isMobile() === true && <span className="ib margin-left-11">
+               {/* {isMobile() === true && <span className="ib margin-left-11">
                   {props.links.length} of {maximum} links is stored on the{" "}
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
-                  {" plan."}
-                </span>}
+                  {" plan."} 
+                </span>}*/}
+                {isMobile() === true && <div className="ib margin-left-11 margin-bottom-1">{props.links.length} is displayed.</div>}
               {isMobile() === true ? 
                 <div className="margin-left-11 margin-bottom-1 flexcol3">
                 {props.signup === true && (

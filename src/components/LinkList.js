@@ -273,11 +273,13 @@ const startScrollingUp2 = () => {
 
   return (
     <div>
-        {isMobile() === false && <div className="ib margin-left-11 margin-bottom-1">
+        {/* {isMobile() === false && <div className="ib margin-left-11 margin-bottom-1">
                   {props.links.length} of {maximum} links is stored on the{" "}
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   {" plan."}
-                </div>}
+                </div>} */}
+                
+                {isMobile() === false && <div className="ib margin-left-11 margin-bottom-1">{props.links.length} is displayed.</div>}
       <div className="margin-left-11">
       <button
         title="Click the button to begin auto scroll."

@@ -453,7 +453,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="usage"
-                        className="header__title- nounderline"
+                        className="header__title- nounderline button-2"
                         to="/use"
                         target="_blank"
                       >

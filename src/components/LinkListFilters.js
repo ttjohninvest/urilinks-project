@@ -584,7 +584,7 @@ function ExpandableArray(props) {
             onClick={startScrollingDown}
             className="button-2 ib margin-left-11 widthxpx2"
           >
-            👇 ScrollDn
+            ScrollDn
           </button>
         </div>
       </div>

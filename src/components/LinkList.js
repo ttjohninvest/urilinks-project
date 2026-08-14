@@ -299,7 +299,7 @@ const startScrollingUp2 = () => {
       <button
         title="Click the button to begin auto scroll."
         onClick={startScrollingDown2}
-        className="button-2 ib margin-left-11 widthxpx1 widthxpx1noWrap "
+        className="button-2 ib margin-left-11 widthxpx1 noWrap "
       >
         <span>👇&nbsp;ScrollDn</span>
       </button>

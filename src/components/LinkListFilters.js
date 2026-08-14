@@ -1076,7 +1076,7 @@ function ExpandableArray(props) {
               </div>
             </div>
 
-            <div className="margin-top-18 width800-">
+            <div className={`margin-top-18 ${isMobile() === false? "width100":"width360"}`}>
               {/* column 2 */}
               <LinkList av={props.av} />
             </div>

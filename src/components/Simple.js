@@ -7,15 +7,15 @@ import StorageSizes from "./StorageSizes";
 const Simple = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
-//   const [theUserId, setTheUserId] = useState(
-//     firebase.auth().currentUser.uid + props.theplan.customerId,
-//   );
-// const [theUserId, setTheUserId] = useState(
-//     firebase.auth().currentUser.uid + props.theplan.subscriptionId!==undefined &&
-//     props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
-//   );
-const [theUserId, setTheUserId] = useState("");
-  const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email)
+  //   const [theUserId, setTheUserId] = useState(
+  //     firebase.auth().currentUser.uid + props.theplan.customerId,
+  //   );
+  // const [theUserId, setTheUserId] = useState(
+  //     firebase.auth().currentUser.uid + props.theplan.subscriptionId!==undefined &&
+  //     props.theplan.subscriptionId!==null?props.theplan.subscriptionId:""
+  //   );
+  const [theUserId, setTheUserId] = useState("");
+  const [theEmail, setTheEmail] = useState(firebase.auth().currentUser.email);
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
   const [isStandard, setIsStandard] = useState(false);
@@ -28,15 +28,17 @@ const [theUserId, setTheUserId] = useState("");
   useEffect(() => {
     //console.log("props.theplan.plan=" + props.theplan.plan);
     console.log("22 props.theplan=" + JSON.stringify(props.theplan));
-    console.log("22, props.theplan.customerId="+props.theplan.customerId)
-    console.log("22, props.theplan.plan="+props.theplan.plan)
-    console.log("22, props.theplan.subscriptionId="+props.theplan.subscriptionId)
-    console.log("22, props.theplan.uid="+props.theplan.uid)
+    console.log("22, props.theplan.customerId=" + props.theplan.customerId);
+    console.log("22, props.theplan.plan=" + props.theplan.plan);
+    console.log(
+      "22, props.theplan.subscriptionId=" + props.theplan.subscriptionId,
+    );
+    console.log("22, props.theplan.uid=" + props.theplan.uid);
     //setTheUserId(props.theplan.uid+props.theplan.subscriptionId)
-    // console.log("33, userId="+props.theplan.uid 
+    // console.log("33, userId="+props.theplan.uid
     // + props.theplan.subscriptionId!==undefined &&
     // props.theplan.subscriptionId!==null?props.theplan.subscriptionId:"")
-    // setTheUserId(props.theplan.uid 
+    // setTheUserId(props.theplan.uid
     // + props.theplan.subscriptionId!==undefined &&
     // props.theplan.subscriptionId!==null?props.theplan.subscriptionId:"")
   }, []);
@@ -78,8 +80,7 @@ const [theUserId, setTheUserId] = useState("");
     //   .catch((error) =>
     //     console.error("There was a problem with the fetch operation:", error),
     //   );
-
-   }, []);
+  }, []);
 
   const initializedRef = useRef(false);
   if (!initializedRef.current) {
@@ -95,46 +96,39 @@ const [theUserId, setTheUserId] = useState("");
     }
   }
 
-
- return (
+  return (
     <div className="body1 flexrow2w">
-      {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" 
-      &&
-      props.links.length <= StorageSizes.free 
-      ? (
-
-<stripe-pricing-table
+      {!!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "free" &&
+      props.links.length <= StorageSizes.free ? (
+        <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
-          client-reference-id={props.theplan.uid+props.theplan.subscriptionId}      
+          client-reference-id={props.theplan.uid + props.theplan.subscriptionId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-
       ) : props.theplan.plan.replace(/"/g, "") === "basic" &&
         props.links.length <= StorageSizes.basic ? (
-        
-<stripe-pricing-table
+        <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
-          client-reference-id={props.theplan.uid+props.theplan.subscriptionId}         
+          client-reference-id={props.theplan.uid + props.theplan.subscriptionId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" &&
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length <= StorageSizes.standard ? (
-      
-<stripe-pricing-table
+        <stripe-pricing-table
           pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
-          client-reference-id={props.theplan.uid+props.theplan.subscriptionId}         
+          client-reference-id={props.theplan.uid + props.theplan.subscriptionId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-
-      ) :!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" 
-      &&
-        props.links.length <= StorageSizes.premium 
-        ? (
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "premium" &&
+        props.links.length <= StorageSizes.premium ? (
         <div>
           Thank you. You are on the premium plan which is the highest plan.
         </div>
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" ? (
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "free" ? (
         <div>
           <div className="margin-left-11">
             You are on the free plan. You may store up to {StorageSizes.free}{" "}
@@ -142,14 +136,15 @@ const [theUserId, setTheUserId] = useState("");
           </div>
           <div>
             <button
-              className="button-2w ib margin-left-11 cursor-pointer"
+              className="button-2hw ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
             </button>
           </div>
         </div>
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" ? (
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "basic" ? (
         <div>
           <div className="margin-left-11">
             You are on the basic plan. You may store up to {StorageSizes.basic}{" "}
@@ -157,14 +152,15 @@ const [theUserId, setTheUserId] = useState("");
           </div>
           <div>
             <button
-              className="button-2w ib margin-left-11 cursor-pointer"
+              className="button-2hw ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
             </button>
           </div>
         </div>
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" ? (
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "standard" ? (
         <div>
           <div className="margin-left-11">
             You are on the standard plan. You may store up to{" "}
@@ -173,14 +169,15 @@ const [theUserId, setTheUserId] = useState("");
           </div>
           <div>
             <button
-              className="button-2w ib margin-left-11 cursor-pointer"
+              className="button-2hw ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
             </button>
           </div>
         </div>
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" ? (
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "premium" ? (
         <div>
           <div className="margin-left-11">
             You are on the premium plan. You may store up to{" "}
@@ -189,7 +186,7 @@ const [theUserId, setTheUserId] = useState("");
           </div>
           <div>
             <button
-              className="button-2w ib margin-left-11 cursor-pointer"
+              className="button-2hw ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
@@ -199,7 +196,7 @@ const [theUserId, setTheUserId] = useState("");
       ) : (
         <div>
           <button
-            className="button-2w ib margin-left-11 cursor-pointer"
+            className="button-2hw ib margin-left-11 cursor-pointer"
             onClick={goToHomePage}
           >
             goto the home page
@@ -207,8 +204,7 @@ const [theUserId, setTheUserId] = useState("");
         </div>
       )}
     </div>
- );
-
+  );
 };
 
 const mapStateToProps = (state) => ({
@@ -216,7 +212,7 @@ const mapStateToProps = (state) => ({
   uid: state.uid,
   theplan: state.theplan,
   links: state.links,
-  email: state.email
+  email: state.email,
 });
 
 //export default Simple;

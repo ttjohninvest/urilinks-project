@@ -15,7 +15,7 @@ export const LinksSummaryFileDate = ({ linkCount, linksTotal }) => {
         <span className="is-active">{linkCount}</span> Uri/Url Link's Found
       </div>
 
-      <Link className="button-2w ib text-size-5" to="/createfiledate">
+      <Link className="button-2hw ib text-size-5" to="/createfiledate">
         Add Link FileDate
       </Link>
     </div>
@@ -25,7 +25,7 @@ export const LinksSummaryFileDate = ({ linkCount, linksTotal }) => {
 const mapStateToProps = (state) => {
   const visibleLinks = selectLinksFileDate(
     state.linksfiledate,
-    state.filtersfiledate
+    state.filtersfiledate,
   );
 
   return {

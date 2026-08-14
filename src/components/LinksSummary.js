@@ -16,7 +16,7 @@ export const LinksSummary = (props) => {
           {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsauto"><span className="ib is-active">{props.linkCount}</span> <span className="ib margin-left-11"> Link(s) Found</span></div> */}
 
           <Link
-            className="button-2w ib text-size-5 bg-color-1 pointereventsauto  minWidth"
+            className="button-2hw ib text-size-5 bg-color-1 pointereventsauto  minWidth"
             to="/create"
           >
             Add Link
@@ -27,7 +27,7 @@ export const LinksSummary = (props) => {
           {/* <div id="link-summary-id" className="text-size-5 margin-right-1 borderRadius55 pointereventsnone"><span className="ib is-active">{props.linkCount}</span><span className="ib margin-left-11-"> Link(s) Found</span></div> */}
 
           <Link
-            className="button-2w ib text-size-5 bg-color-1 pointereventsnone minWidth"
+            className="button-2hw ib text-size-5 bg-color-1 pointereventsnone minWidth"
             to="/create"
           >
             Add Link

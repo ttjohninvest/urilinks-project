@@ -20,10 +20,10 @@ class FileUpload extends React.Component {
 
   formHandler = (e) => {
     e.preventDefault();
-    
+
     console.log("in formHandler");
     const file = e.target[0].files[0];
-    
+
     console.log("file.type=" + file.type);
     if (file.type !== "text/html") return false;
     //const uploadField = document.getElementById("file");
@@ -38,7 +38,7 @@ class FileUpload extends React.Component {
       //this.value = "";
       return;
     }
-    
+
     this.uploadFiles(file);
   };
 
@@ -93,21 +93,21 @@ class FileUpload extends React.Component {
       <div className="App">
         <form onSubmit={this.formHandler}>
           <input
-            className="button-2"
+            className="button-2h"
             id="real-file"
             type="file"
             accept=".html"
             //hidden="hidden"
             //hidden
           />
-          {/* <label htmlFor="real-file" className="button-2">Choose File</label> */}
+          {/* <label htmlFor="real-file" className="button-2h">Choose File</label> */}
           {/* <span id="file-name">No file chosen</span> */}
           {/* <span id="file-name"></span> */}
-          <button type="submit" className="button-2 margin-left-77 ib">upload</button>
-
-          
+          <button type="submit" className="button-2h margin-left-77 ib">
+            upload
+          </button>
         </form>
-      
+
         <hr />
         <h2>uploading done {this.state.progress}%</h2>
       </div>

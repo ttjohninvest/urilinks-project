@@ -114,9 +114,6 @@ export const LinkList = (props) => {
     } else if (!!props.theplan.plan === false) {
       setMaximum(StorageSizes.free);
     }
-
-    
-
   }, []);
 
   //   useEffect(() => {
@@ -136,7 +133,6 @@ export const LinkList = (props) => {
   //   window.onbeforeunload = null;
   // }, [items]);
 
-
   //  scrollUp = () => {
   //   !!document.querySelector("#top") &&
   //     document.querySelector("#top").scrollIntoView({
@@ -144,9 +140,7 @@ export const LinkList = (props) => {
   //     });
   // };
 
- 
-
-const startScrollingUp2 = () => {
+  const startScrollingUp2 = () => {
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -172,7 +166,7 @@ const startScrollingUp2 = () => {
     scrollInterval2.current = null;
   };
 
-   const startScrollingDown2 = () => {
+  const startScrollingDown2 = () => {
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -273,38 +267,42 @@ const startScrollingUp2 = () => {
 
   return (
     <div>
-        {/* {isMobile() === false && <div className="ib margin-left-11 margin-bottom-1">
+      {/* {isMobile() === false && <div className="ib margin-left-11 margin-bottom-1">
                   {props.links.length} of {maximum} links is stored on the{" "}
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   {" plan."}
                 </div>} */}
-                
-                {isMobile() === false && <div className="ib margin-left-11 margin-bottom-1">{props.links.length} is displayed.</div>}
+
+      {isMobile() === false && (
+        <div className="ib margin-left-11 margin-bottom-1">
+          {props.links.length} is displayed.
+        </div>
+      )}
       <div className="margin-left-11">
-      <button
-        title="Click the button to begin auto scroll."
-        onClick={startScrollingUp2}
-        className="button-2 widthxpx1"
-      >
-        <span>ScrollUp</span>
-      </button>
+        <button
+          title="Click the button to begin auto scroll."
+          onClick={startScrollingUp2}
+          className="button-2h widthxpx1"
+        >
+          <span>ScrollUp</span>
+        </button>
 
-      <button
-        ref={buttonRef2}
-        title="Click the button to stop auto scroll."
-        onClick={stopScrolling2}
-        className="button-2 ib margin-left-11"
-      >
-        <span>Stop</span>
-      </button>
+        <button
+          ref={buttonRef2}
+          title="Click the button to stop auto scroll."
+          onClick={stopScrolling2}
+          className="button-2h ib margin-left-11"
+        >
+          <span>Stop</span>
+        </button>
 
-      <button
-        title="Click the button to begin auto scroll."
-        onClick={startScrollingDown2}
-        className="button-2 ib margin-left-11 widthxpx1"
-      >
-        <span>ScrollDn</span>
-      </button>
+        <button
+          title="Click the button to begin auto scroll."
+          onClick={startScrollingDown2}
+          className="button-2h ib margin-left-11 widthxpx1"
+        >
+          <span>ScrollDn</span>
+        </button>
       </div>
 
       <div className="border-left-5">
@@ -312,7 +310,10 @@ const startScrollingUp2 = () => {
 
         <div>
           {selectedOption === "option1" && (
-            <div id="ls2" className={`${isMobile()===true? 'scrollable-div2content':'scrollable-div1'}`}>
+            <div
+              id="ls2"
+              className={`${isMobile() === true ? "scrollable-div2content" : "scrollable-div1"}`}
+            >
               {props.links.length === 0 ? (
                 <div className="list-item- list-item--message-"></div>
               ) : (
@@ -328,7 +329,10 @@ const startScrollingUp2 = () => {
                     return <div></div>;
                   else
                     return (
-                      <div key={link.id + "1"} className="border-bottom-1t padding-left-1t padding-top-1t padding-bottom-1t">
+                      <div
+                        key={link.id + "1"}
+                        className="border-bottom-1t padding-left-1t padding-top-1t padding-bottom-1t"
+                      >
                         <LinkListItem
                           rt={rt}
                           key={link.id}
@@ -344,7 +348,6 @@ const startScrollingUp2 = () => {
           )}
         </div>
       </div>
-      
     </div>
   );
 };

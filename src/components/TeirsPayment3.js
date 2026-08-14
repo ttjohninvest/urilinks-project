@@ -9,12 +9,9 @@ const TeirsPayment3 = (props) => {
   const [clientSecret, setClientSecret] = useState("");
   const [pti, setPti] = useState(process.env.PTI);
   const [theUserId, setTheUserId] = useState(
-    firebase.auth().currentUser.uid + props.theplan.customerId
+    firebase.auth().currentUser.uid + props.theplan.customerId,
   );
 
-
-  
-  
   const [isFree, setIsFree] = useState(false);
   const [isBasic, setIsBasic] = useState(false);
   const [isStandard, setIsStandard] = useState(false);
@@ -25,9 +22,9 @@ const TeirsPayment3 = (props) => {
   };
 
   useEffect(() => {
-    console.log("TeirsPayment3.js, theUserId="+theUserId)
-     //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
-     console.log("props.uid="+props.uid)
+    console.log("TeirsPayment3.js, theUserId=" + theUserId);
+    //console.log("in TeirsPayment3, firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
+    console.log("props.uid=" + props.uid);
     // Check if the navigation action is 'POP'
     if (props.history.action === "POP") {
       console.log("Navigated using back or forward button");
@@ -37,8 +34,10 @@ const TeirsPayment3 = (props) => {
   }, [props.history.action]);
 
   useEffect(() => {
-    console.log("the following should be the uid:")
-    console.log("firebase.auth().currentUser.uid="+firebase.auth().currentUser.uid)
+    console.log("the following should be the uid:");
+    console.log(
+      "firebase.auth().currentUser.uid=" + firebase.auth().currentUser.uid,
+    );
     // console.log(
     //   "3 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
     // );
@@ -48,7 +47,7 @@ const TeirsPayment3 = (props) => {
   useEffect(() => {
     console.log("4 theUserId=" + theUserId);
     console.log(
-      "4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId
+      "4 TeirsPayment3, props.theplan.customerId=" + props.theplan.customerId,
     );
 
     fetch("https://urilinks-project-client-secret-api.vercel.app", {
@@ -67,7 +66,7 @@ const TeirsPayment3 = (props) => {
         setClientSecret(data.clientSecret);
       })
       .catch((error) =>
-        console.error("There was a problem with the fetch operation:", error)
+        console.error("There was a problem with the fetch operation:", error),
       );
   }, []);
 
@@ -87,44 +86,37 @@ const TeirsPayment3 = (props) => {
 
   return (
     <div className="body1 flexrow2w">
-   
-      
       {props.theplan.plan.replace(/"/g, "") === "free" &&
       props.links.length <= StorageSizes.free ? (
-
-      
-<stripe-pricing-table
+        <stripe-pricing-table
           pricing-table-id="prctbl_1RuZObK6yDYe5WAxMmd2DrLm"
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" &&
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "basic" &&
         props.links.length <= StorageSizes.basic ? (
-
-    
-<stripe-pricing-table
+        <stripe-pricing-table
           pricing-table-id="prctbl_1RuZQOK6yDYe5WAxcLSWEECi"
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" &&
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "standard" &&
         props.links.length <= StorageSizes.standard ? (
-
-       
-<stripe-pricing-table
+        <stripe-pricing-table
           pricing-table-id="prctbl_1RuZROK6yDYe5WAxUamTm64X"
           client-reference-id={theUserId}
           publishable-key="pk_live_51Rme3iK6yDYe5WAxsw3uoH0G3h8C5AbUXynAMdLB8O3XxVOZiL4CRKUahRL7eXotjyX67shBaBRLFeETO6Bo3Ier00LRPKKOaR"
         ></stripe-pricing-table>
-
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" &&
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "premium" &&
         props.links.length <= StorageSizes.premium ? (
         <div>
           Thank you. You are on the premium plan which is the highest plan.
         </div>
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" ? (
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "free" ? (
         <div>
           <div className="margin-left-11">
             You are on the free plan. You may store up to {StorageSizes.free}{" "}
@@ -132,14 +124,15 @@ const TeirsPayment3 = (props) => {
           </div>
           <div>
             <button
-              className="button-2w ib margin-left-11 cursor-pointer"
+              className="button-2hw ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
             </button>
           </div>
         </div>
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" ? (
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "basic" ? (
         <div>
           <div className="margin-left-11">
             You are on the basic plan. You may store up to {StorageSizes.basic}{" "}
@@ -147,14 +140,15 @@ const TeirsPayment3 = (props) => {
           </div>
           <div>
             <button
-              className="button-2w ib margin-left-11 cursor-pointer"
+              className="button-2hw ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
             </button>
           </div>
         </div>
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" ? (
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "standard" ? (
         <div>
           <div className="margin-left-11">
             You are on the standard plan. You may store up to{" "}
@@ -163,14 +157,15 @@ const TeirsPayment3 = (props) => {
           </div>
           <div>
             <button
-              className="button-2w ib margin-left-11 cursor-pointer"
+              className="button-2hw ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
             </button>
           </div>
         </div>
-      ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" ? (
+      ) : !!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "premium" ? (
         <div>
           <div className="margin-left-11">
             You are on the premium plan. You may store up to{" "}
@@ -179,7 +174,7 @@ const TeirsPayment3 = (props) => {
           </div>
           <div>
             <button
-              className="button-2w ib margin-left-11 cursor-pointer"
+              className="button-2hw ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page
@@ -189,7 +184,7 @@ const TeirsPayment3 = (props) => {
       ) : (
         <div>
           <button
-            className="button-2w ib margin-left-11 cursor-pointer"
+            className="button-2hw ib margin-left-11 cursor-pointer"
             onClick={goToHomePage}
           >
             goto the home page

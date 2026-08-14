@@ -338,7 +338,7 @@ export class Simple2 extends React.Component {
       <div className="minWidth- bg-color-4">
         {/* <Link
                     id="adlinkid"
-                    className="aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+                    className="aw minWidth- alignCenter button-2hw- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
                     to="/create"
                   >
                     Add Link
@@ -347,7 +347,7 @@ export class Simple2 extends React.Component {
         <a
           id="adlinkid"
           href="#"
-          className="cursor-pointer aw minWidth- alignCenter button-2w- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
+          className="cursor-pointer aw minWidth- alignCenter button-2hw- b1xw1 button-link-4 ib text-size-5 bg-color-1- bg-color-1w bg-color-1w pointereventsauto width100  color-black-2 border5-"
           onClick={handleClick}
         >
           Add New Link

@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { connect } from "react-redux";
 import moment from "moment";
@@ -8,20 +6,19 @@ import { SingleDatePicker } from "react-dates";
 class EmailForm extends React.Component {
   constructor(props) {
     super(props);
-   
+
     this.state = {
       email: "",
-      subject:"",
+      subject: "",
       showpublic: props.link ? props.link.showpublic : 0,
-      description: props.sharablelink ? props.sharablelink : "",//props.link ? props.link.description : "",
+      description: props.sharablelink ? props.sharablelink : "", //props.link ? props.link.description : "",
       Url: props.link ? props.link.Url : "",
       note: props.link ? props.link.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link ? moment(props.link.createdAt) : moment(),
       calendarFocused: false,
       error: "",
-      hashTags: []
-      
+      hashTags: [],
     };
   }
 
@@ -166,12 +163,12 @@ class EmailForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     console.log("onSubmit");
-    let faviconURL="";
+    let faviconURL = "";
 
-    let str = "" //this.state.Url.trim();
+    let str = ""; //this.state.Url.trim();
     if (true) {
     } else if (true) {
-    } else str = ""
+    } else str = "";
     //const newDomain = this.extractDomain(str);
     //console.log("newDomain=" + newDomain);
     //return
@@ -181,14 +178,13 @@ class EmailForm extends React.Component {
     //const url = new URL(this.state.Url);
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
-   
-   // console.log("onSubmit, this.state.note=" + this.state.note);
+
+    // console.log("onSubmit, this.state.note=" + this.state.note);
     //if (!this.state.description) {
-    if(false) {
+    if (false) {
       // || !this.state.amount) {
       this.setState(() => ({
-        error:
-          "Please provide email body",
+        error: "Please provide email body",
       }));
     } else {
       if (false) {
@@ -208,9 +204,9 @@ class EmailForm extends React.Component {
         //console.log("extractHashTag, note=empty string");
       }
 
-    //   if (this.state.Url.length > 50) {
-    //   } else {
-    //   }
+      //   if (this.state.Url.length > 50) {
+      //   } else {
+      //   }
 
       // str=this.state.Url
       // if (this.state.Url.substring(0, 7) === 'http://')
@@ -225,8 +221,8 @@ class EmailForm extends React.Component {
       this.setState(() => ({ error: "" }));
 
       this.props.onSubmit({
-        email:this.state.email,
-        subject:this.state.subject,
+        email: this.state.email,
+        subject: this.state.subject,
         showpublic: this.state.showpublic,
         description: this.state.description,
         Url: "",
@@ -238,57 +234,54 @@ class EmailForm extends React.Component {
     }
   };
   render() {
-     if (!this.props.isFormOpen) {
-      
+    if (!this.props.isFormOpen) {
       return null; // Hides UI but keeps lifecycle active
-    }
-    
-    else return (
-      <div>
-      <div>
-        <form className="form form-bg" onSubmit={this.onSubmit}>
-        {this.state.error && (
-          <p className="form__error flexrow2w">{this.state.error}</p>
-        )}
+    } else
+      return (
+        <div>
+          <div>
+            <form className="form form-bg" onSubmit={this.onSubmit}>
+              {this.state.error && (
+                <p className="form__error flexrow2w">{this.state.error}</p>
+              )}
 
-         <input
-          style={{outline: "none"}}
-          type="text"
-          placeholder="enter your recipient's email address"
-          //readOnly={this.props.makereadonly===true?true:false}
-          autoFocus
-          className="text-input"
-          value={this.state.email}
-          onChange={this.onEmailChange}
-          title="email to send to"
-          maxLength="2048"
-        />
-        <input
-          style={{outline: "none"}}
-          type="text"
-          ////placeholder="Uri/Url Link, example: https://gmail.com"
-          placeholder="enter email subject line"
-          className="text-input"
-          value={this.state.subject}
-          onChange={this.onSubjectChange}
-          maxLength="2048"
-        />
-       
-        <input
-          style={{outline: "none",backgroundColor:'#fbbf77'}}
-          readonly="readonly"
-          type="text"
-          placeholder="public link to our page"
-          
-          autoFocus
-          className="text-input"
-          value={this.state.description}
-          onChange={this.onDescriptionChange}
-          title="After the data is entered, click send mail."
-          maxLength="2048"
-        />
+              <input
+                style={{ outline: "none" }}
+                type="text"
+                placeholder="enter your recipient's email address"
+                //readOnly={this.props.makereadonly===true?true:false}
+                autoFocus
+                className="text-input"
+                value={this.state.email}
+                onChange={this.onEmailChange}
+                title="email to send to"
+                maxLength="2048"
+              />
+              <input
+                style={{ outline: "none" }}
+                type="text"
+                ////placeholder="Uri/Url Link, example: https://gmail.com"
+                placeholder="enter email subject line"
+                className="text-input"
+                value={this.state.subject}
+                onChange={this.onSubjectChange}
+                maxLength="2048"
+              />
 
-        {/* <input
+              <input
+                style={{ outline: "none", backgroundColor: "#fbbf77" }}
+                readonly="readonly"
+                type="text"
+                placeholder="public link to our page"
+                autoFocus
+                className="text-input"
+                value={this.state.description}
+                onChange={this.onDescriptionChange}
+                title="After the data is entered, click send mail."
+                maxLength="2048"
+              />
+
+              {/* <input
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="url"
@@ -297,14 +290,14 @@ class EmailForm extends React.Component {
           onChange={this.onUrlChange}
           maxLength="2048"
         /> */}
-        {/* <input
+              {/* <input
           type="text"
           placeholder="Amount"
           className="text-input"
           value={this.state.amount}
           onChange={this.onAmountChange}
         /> */}
-        {/* <SingleDatePicker
+              {/* <SingleDatePicker
           date={this.state.createdAt}
           onDateChange={this.onDateChange}
           focused={this.state.calendarFocused}
@@ -322,21 +315,22 @@ class EmailForm extends React.Component {
             !!this.props.theplan.plan && this.props.theplan.plan.replace(/"/g, "") === "free" ? 2048 : 2048
           } //"2300"
         ></textarea> */}
-        <div>
-          <button className="button-2w border5">Send Email</button>
-          
-          {/* <button className="button">Save Uri/Url Link</button> */}
-        </div>
-      </form>
- <button className="button-2w border5 margin-left-11- margin-bottom-1 ib"  onClick={()=>this.props.handleClose()}>Close</button>
-      </div>
-      
-      </div>
-    
-    
-        )
-}
+              <div>
+                <button className="button-2hw border5">Send Email</button>
 
+                {/* <button className="button">Save Uri/Url Link</button> */}
+              </div>
+            </form>
+            <button
+              className="button-2hw border5 margin-left-11- margin-bottom-1 ib"
+              onClick={() => this.props.handleClose()}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      );
+  }
 }
 
 const mapStateToProps = (state) => ({

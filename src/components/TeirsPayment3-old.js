@@ -19,7 +19,6 @@ const TeirsPayment3 = (props) => {
 
   useEffect(() => {
     console.log("4 TeirsPayment3, props.links.length=" + props.links.length);
-   
 
     // if (props.theplan.plan.replace(/"/g, "") === "free") {
     //   console.log("calling setIsFree");
@@ -52,13 +51,14 @@ const TeirsPayment3 = (props) => {
         setClientSecret(data.clientSecret);
       })
       .catch((error) =>
-        console.error("There was a problem with the fetch operation:", error)
+        console.error("There was a problem with the fetch operation:", error),
       );
   }, []);
 
   return (
     <div className="body1 flexrow2w">
-      {(!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" &&
+      {(!!props.theplan.plan &&
+        props.theplan.plan.replace(/"/g, "") === "free" &&
         props.links.length <= 250) ||
       props.links.length > 250 ? (
         <stripe-pricing-table
@@ -126,7 +126,7 @@ const TeirsPayment3 = (props) => {
           </div>
           <div>
             <button
-              className="button-2w ib margin-left-11 cursor-pointer"
+              className="button-2hw ib margin-left-11 cursor-pointer"
               onClick={goToHomePage}
             >
               goto the home page

@@ -718,7 +718,7 @@ const LinkListItem = (props) => {
                               className="nounderline text-size-5 inline-block-margin-left-1 pointereventsauto"
                               to={`/edit/${props.id}`}
                             >
-                              <span className="padding-right-11 color-white-1 button-2w">
+                              <span className="padding-right-11 color-white-1 button-2hw">
                                 edit or remove
                               </span>
                             </Link> */}
@@ -729,7 +729,7 @@ const LinkListItem = (props) => {
                               className="nounderline text-size-5 inline-block-margin-left-1 pointereventsnone"
                               to={`/edit/${props.id}`}
                             >
-                              <span className="padding-right-11 color-white-1 button-2w">
+                              <span className="padding-right-11 color-white-1 button-2hw">
                                 edit or remove
                               </span>
                             </Link> */}
@@ -797,7 +797,7 @@ const LinkListItem = (props) => {
             <h3 className="">
               <Link className="nounderline  text-size-1" to={`/edit/${props.id}`}>
                
-                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2w">
+                  <span className="padding-right-11 inline-block-margin-left-1 padding-bottom-11 color-white-1 button-2hw">
                     edit or remove
                   </span>
                   

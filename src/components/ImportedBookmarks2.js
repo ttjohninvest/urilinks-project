@@ -46,7 +46,7 @@ const ImportedBookmarks2 = (props) => {
               <div className="rectangle-1">
                 <div className="margin-top-2">
                   <button
-                    className="button-style-1- button-2w"
+                    className="button-style-1- button-2hw"
                     onClick={openPaymentPage}
                   >
                     go to payment page
@@ -55,7 +55,7 @@ const ImportedBookmarks2 = (props) => {
               </div>
               <div className="margin-top-2">
                 <button
-                  className="button-style-1- button-2w"
+                  className="button-style-1- button-2hw"
                   onClick={closeThisPage}
                 >
                   Close and Return
@@ -113,16 +113,20 @@ const ImportedBookmarks2 = (props) => {
                     (props.theplan === null &&
                       props.links.length <= StorageSizes.free) ? (
                       <span> free</span>
-                    ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free" &&
+                    ) : !!props.theplan.plan &&
+                      props.theplan.plan.replace(/"/g, "") === "free" &&
                       props.links.length <= StorageSizes.free ? (
                       <span> free</span>
-                    ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic" &&
+                    ) : !!props.theplan.plan &&
+                      props.theplan.plan.replace(/"/g, "") === "basic" &&
                       props.links.length <= StorageSizes.basic ? (
                       <span> basic</span>
-                    ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard" &&
+                    ) : !!props.theplan.plan &&
+                      props.theplan.plan.replace(/"/g, "") === "standard" &&
                       props.links.length <= StorageSizes.standard ? (
                       <span> standard</span>
-                    ) : !!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "premium" &&
+                    ) : !!props.theplan.plan &&
+                      props.theplan.plan.replace(/"/g, "") === "premium" &&
                       props.links.length <= StorageSizes.premium ? (
                       <span> premium, which is the highest plan</span>
                     ) : (
@@ -135,20 +139,21 @@ const ImportedBookmarks2 = (props) => {
                 </div>
                 {props.theplan === undefined ||
                   props.theplan === null ||
-                  (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") !== "premium" && (
-                    <div className="margin-top-2">
-                      <button
-                        className="button-style-1- button-2w"
-                        onClick={openPaymentPage}
-                      >
-                        go to plans page
-                      </button>
-                    </div>
-                  ))}
+                  (!!props.theplan.plan &&
+                    props.theplan.plan.replace(/"/g, "") !== "premium" && (
+                      <div className="margin-top-2">
+                        <button
+                          className="button-style-1- button-2hw"
+                          onClick={openPaymentPage}
+                        >
+                          go to plans page
+                        </button>
+                      </div>
+                    ))}
               </div>
               <div className="margin-top-2">
                 <button
-                  className="button-style-1- button-2w"
+                  className="button-style-1- button-2hw"
                   onClick={closeThisPage}
                 >
                   Close
@@ -206,6 +211,6 @@ const mapStateToProps = (state) => ({
 
 //export default withRouter(connect(mapStateToProps, undefined)(ImportedBookmarks2));
 export default withRouter(
-  connect(mapStateToProps, undefined)(ImportedBookmarks2)
+  connect(mapStateToProps, undefined)(ImportedBookmarks2),
 );
 //export default connect(mapStateToProps, undefined)(ImportedBookmarks2);

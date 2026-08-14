@@ -24,7 +24,7 @@ const E2 = (props) => {
   const [email, setEmail] = useState(
     !!firebase.auth().currentUser === true
       ? firebase.auth().currentUser.email
-      : "x@x.com"
+      : "x@x.com",
   );
 
   // Store the full local data in state
@@ -58,7 +58,7 @@ const E2 = (props) => {
       //setLocalPeople(props.people.filter(person => person.showpublic === true));
       setLocalPeople(props.people);
       console.log(
-        "MyInfiniteScroll 2, props.people.length=" + props.people.length
+        "MyInfiniteScroll 2, props.people.length=" + props.people.length,
       );
 
       setPeople(props.people.slice(0, itemsPerPage));
@@ -224,7 +224,7 @@ const E2 = (props) => {
                                                   onClick={(event) =>
                                                     YZ(event, gud)
                                                   }
-                                                  className="ib button-2w margin-left-118 borderradius55"
+                                                  className="ib button-2hw margin-left-118 borderradius55"
                                                 >{`Display ${
                                                   !!gud.displayname
                                                     ? gud.displayname + "'s"

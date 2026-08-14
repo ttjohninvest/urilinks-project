@@ -297,11 +297,14 @@ class LinkForm extends React.Component {
           value={this.state.note}
           onChange={this.onNoteChange}
           maxLength={
-            !!this.props.theplan.plan && this.props.theplan.plan.replace(/"/g, "") === "free" ? 2048 : 2048
+            !!this.props.theplan.plan &&
+            this.props.theplan.plan.replace(/"/g, "") === "free"
+              ? 2048
+              : 2048
           } //"2300"
         ></textarea>
         <div>
-          <button className="button-2w border5">Save Link</button>
+          <button className="button-2hw border5">Save Link</button>
           {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>

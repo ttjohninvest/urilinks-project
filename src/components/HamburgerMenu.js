@@ -38,7 +38,10 @@ const HamburgerMenu = (props) => {
       ) {
         //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
         //if(true) {
-        if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
+        if (
+          !!props.theplan.plan &&
+          props.theplan.plan.replace(/"/g, "") === "free"
+        ) {
           props.startDeleteAccount();
           logoutit();
         } else {
@@ -94,7 +97,7 @@ const HamburgerMenu = (props) => {
               className="nounderline color-white-1 cursor-pointer font-weight-bold"
               to="/signup"
               title="The first 25 links are free. plan $4.99 stores up to 100; plan $9.99 stores up to 200;plan $14.99 stores up to 400"
-              style={{ textDecoration: 'none', color:'white' }}
+              style={{ textDecoration: "none", color: "white" }}
             >
               login
             </Link>
@@ -254,7 +257,7 @@ const HamburgerMenu = (props) => {
         <li>
           {props.signup.signup === true ? (
             <button
-              className="button-2w button--link ib color-white-1 cursor-pointer font-weight-bold"
+              className="button-2hw button--link ib color-white-1 cursor-pointer font-weight-bold"
               onClick={logoutit}
             >
               logout
@@ -268,7 +271,7 @@ const HamburgerMenu = (props) => {
             <div className="margin-top-1111a-">
               <button
                 title="delete account"
-                className="button-2w button--link ib text-size-3- color-white-1 cursor-pointer font-weight-bold"
+                className="button-2hw button--link ib text-size-3- color-white-1 cursor-pointer font-weight-bold"
                 onClick={cancelsubscription}
               >
                 delete

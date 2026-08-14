@@ -14,13 +14,22 @@ const ImportedBookmarks = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "free") {
+    if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "free"
+    ) {
       max = StorageSizes.free;
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "basic") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "basic"
+    ) {
       max = StorageSizes.basic;
-    } else if (!!props.theplan.plan && props.theplan.plan.replace(/"/g, "") === "standard") {
+    } else if (
+      !!props.theplan.plan &&
+      props.theplan.plan.replace(/"/g, "") === "standard"
+    ) {
       max = StorageSizes.standard;
-    } else if(!!props.theplan.plan===false) {
+    } else if (!!props.theplan.plan === false) {
       max = StorageSizes.free;
     } else {
       //premium
@@ -74,7 +83,7 @@ const ImportedBookmarks = (props) => {
             <div className="rectangle-1">
               <div className="margin-top-2">
                 <button
-                  className="button-style-1- button-2w"
+                  className="button-style-1- button-2hw"
                   onClick={returnAndRefresh}
                 >
                   Return and Refresh
@@ -83,7 +92,7 @@ const ImportedBookmarks = (props) => {
 
               <div className="margin-top-2">
                 <button
-                  className="button-style-1- button-2w"
+                  className="button-style-1- button-2hw"
                   onClick={goToHomePage}
                 >
                   Return
@@ -93,7 +102,7 @@ const ImportedBookmarks = (props) => {
           ) : (
             <div className="margin-top-2">
               <button
-                className="button-style-1- button-2w"
+                className="button-style-1- button-2hw"
                 onClick={goToHomePage}
               >
                 Return
@@ -135,5 +144,5 @@ const ImportedBookmarks = (props) => {
 // });
 
 export default withRouter(
-  connect(mapStateToProps, undefined)(ImportedBookmarks3)
+  connect(mapStateToProps, undefined)(ImportedBookmarks3),
 );

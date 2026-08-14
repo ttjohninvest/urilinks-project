@@ -339,7 +339,7 @@ export const Header = (props) => {
 </div> */}
 
                             <h3 className="color-white-1 text-size-11">
-                              urilinks 🌺
+                              🌺 urilinks
                             </h3>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
@@ -669,7 +669,7 @@ export const Header = (props) => {
                           title="The first 25 links are free. plan $4.99 stores up to 100; plan $9.99 stores up to 200;plan $14.99 stores up to 400"
                           style={{ textDecoration: "none", color: "white" }}
                         >
-                          🎻 friendly login
+                           friendly 🎻 login
                         </Link>
                       </div>
                       //  </div>

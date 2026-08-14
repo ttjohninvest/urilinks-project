@@ -560,11 +560,11 @@ function ExpandableArray(props) {
         >
           <span className="padding-left-n-x">Internet Links Organizer Dashboard's Home Page</span>
         </div>
-        <div className="margin-left-11">
+        <div className="margin-left-11-">
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingUp}
-            className="button-2"
+            className="button-2 widthxpx2"
           >
            ☝ ScrollUp
           </button>
@@ -574,7 +574,7 @@ function ExpandableArray(props) {
             id="stopscroll"
             title="Click the button to stop auto scroll."
             onClick={stopScrolling}
-            className="button-2 ib margin-left-11"
+            className="button-2 ib margin-left-11 widthxpx2"
           >
             ✋ Stop
           </button>
@@ -582,7 +582,7 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingDown}
-            className="button-2 ib margin-left-11"
+            className="button-2 ib margin-left-11 widthxpx2"
           >
             👇 ScrollDn
           </button>

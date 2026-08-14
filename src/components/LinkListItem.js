@@ -243,7 +243,7 @@ const LinkListItem = (props) => {
     if (star === undefined || star === null || star === "NaN") x1 = 0;
     else x1 = star;
     const x = event.target.getAttribute("data-value"); //x is link id
-    
+    alert("storeScrollPosition3, x1="+x1)
     if(x1===0) {
       //alert("going to increment")
       props.incrementLinkStarClickCount({ id: x, star: 0 });

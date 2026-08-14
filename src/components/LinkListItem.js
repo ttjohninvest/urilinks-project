@@ -1045,16 +1045,16 @@ const LinkListItem = (props) => {
                     title={"click to select to the top ten"}
                     onClick={() => storeScrollPosition3(props.star, event)}
                   >
-                    {props.sortBy !== "star" && <span>🧸put in top ten:</span>}
+                     <span>🧸put in top ten:</span>
                   </span>
 
-                  {props.sortBy !== "star" && <span
+                  <span
                     className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
                     title={"This is a selection to the top ten."}
                   >
                     {props.star === undefined ? "No" : props.star===1?"Yes":"No"}
                     {/* {props.star === undefined ? "No" : "Yes"} */}
-                  </span>}
+                  </span>
                 </span>
               ) : (<span></span>
                 // <span>

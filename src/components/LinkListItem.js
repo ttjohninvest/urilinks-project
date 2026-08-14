@@ -253,7 +253,8 @@ const LinkListItem = (props) => {
       //else alert("You have ten of ten stars selected for top ten.")
     }
     else {
-      alert("going to decrement, props.star="+props.star)
+      alert("going to increment,id="+x)
+      alert("going to increment,id="+x+", props.star="+props.star)
       props.decrementLinkStarClickCount({ id: x, star: 1 });
       //if(props.thetotalstars.totalstars > 0)
       props.decrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });

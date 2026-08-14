@@ -321,7 +321,12 @@ input#option1[type="radio"] {
 .normal-wrap {
   white-space: normal;
   overflow-wrap: break-word;
-}   
+} 
+
+.noWrap {
+  display: flex;
+  flex-wrap: nowrap;
+}
 
 .margin-topt {
   margin-top: 0;

@@ -247,16 +247,16 @@ const LinkListItem = (props) => {
     if(x1===0) {
       //alert("going to increment")
       props.incrementLinkStarClickCount({ id: x, star: 0 });
-      if(props.thetotalstars.totalstars < 10)
+      //if(props.thetotalstars.totalstars < 10)
       props.incrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
-      else alert("You have ten of ten stars selected for top ten.")
+      //else alert("You have ten of ten stars selected for top ten.")
     }
     else {
       //alert("going to decrement")
       props.decrementLinkStarClickCount({ id: x, star: 1 });
-      if(props.thetotalstars.totalstars > 0)
+      //if(props.thetotalstars.totalstars > 0)
       props.decrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
-      else alert("You have zero of ten stars selected for top ten.")
+      //else alert("You have zero of ten stars selected for top ten.")
     }
 
     window.localStorage.setItem("scrollPosition", window.scrollY);
@@ -1238,7 +1238,7 @@ const LinkListItem = (props) => {
 };
 
 //export default LinkListItem;
-
+//
 const mapStateToProps = (state) => ({
   thetotalstars: state.thetotalstars,
   signup: state.signup,

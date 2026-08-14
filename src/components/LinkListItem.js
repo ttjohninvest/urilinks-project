@@ -240,7 +240,7 @@ const LinkListItem = (props) => {
   const storeScrollPosition3 = (star, event) => {
 
     const text = "Please confirm it ok to remove this link from your top ten list?";
-    if (props.sortBy!=="topten" || confirm(text) === true) {
+    if (props.sortBy!=="star" || confirm(text) === true) {
     //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
     let x1 = 0;
     if (star === undefined || star === null || star === "NaN") x1 = 0;

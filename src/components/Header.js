@@ -443,7 +443,8 @@ export const Header = (props) => {
                         title="steps to using any of the ai models on the internet"
                       >
                         <span
-                          className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
+                          className="padding-left-4x padding-right-4x ib margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
+                          
                           title="Click to see instructions to have access ai models so you can run one, enter a prompt and get a response."
                         >
                           🌟 ai access
@@ -453,7 +454,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="usage"
-                        className="header__title- nounderline button-2h"
+                        className="padding-left-4x padding-right-4x header__title- nounderline button-2h"
                         to="/use"
                         target="_blank"
                       >
@@ -468,7 +469,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="usage"
-                        className="header__title- nounderline button-2h"
+                        className="padding-left-4x padding-right-4x header__title- nounderline button-2h"
                         to="/shortcuts"
                         target="_blank"
                       >
@@ -483,7 +484,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="displayhashtags"
-                        className="header__title- nounderline button-2h"
+                        className="padding-left-4x padding-right-4x header__title- nounderline button-2h"
                         to="/displayhashtags"
                         target="_blank"
                       >
@@ -498,7 +499,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="termsandprivacy"
-                        className="header__title- nounderline button-2h"
+                        className="padding-left-4x padding-right-4x header__title- nounderline button-2h"
                         to="/termsandprivacy"
                         target="_blank"
                       >
@@ -518,7 +519,7 @@ export const Header = (props) => {
                         <div>
                           <Link
                             id="subscribe"
-                            className="header__title- button-2h"
+                            className="padding-left-4x padding-right-4x header__title- button-2h"
                             to="/teirspayment3"
                           >
                             <span
@@ -625,7 +626,7 @@ export const Header = (props) => {
                       <div className="pointereventsauto hide-">
                         <Link
                           id="uploadbookmarksfile"
-                          className="header__title- nounderline pointereventsauto button-2h"
+                          className="padding-left-4x padding-right-4x header__title- nounderline pointereventsauto button-2h"
                           to="/bookmarksmanager"
                         >
                           <span
@@ -642,7 +643,7 @@ export const Header = (props) => {
                       <div className="pointereventsnone margin-right-1 hide-">
                         <Link
                           id="uploadbookmarksfile"
-                          className="header__title- nounderline pointereventsnone button-2h"
+                          className="padding-left-4x padding-right-4x header__title- nounderline pointereventsnone button-2h"
                           to="/bookmarksmanager"
                         >
                           <span
@@ -679,7 +680,7 @@ export const Header = (props) => {
                       <div className="margin-top-1111a-">
                         <button
                           id="friendlylogout"
-                          className="button button--link- button-2h ib text-size-11 color-white-1 color-black-2- cursor-pointer"
+                          className="padding-left-4x padding-right-4x button button--link- button-2h ib text-size-11 color-white-1 color-black-2- cursor-pointer"
                           onClick={logoutit}
                         >
                           ◧ friendly logout
@@ -694,7 +695,7 @@ export const Header = (props) => {
                         <button
                           id="deleteaccount"
                           title="delete account"
-                          className="button button--link ib text-size-3- text-size-11 color-white-1 color-black-2- cursor-pointer button-2h"
+                          className="padding-left-4x padding-right-4x button button--link- button-2h  ib text-size-3- text-size-11 color-white-1 color-black-2- cursor-pointer button-2h"
                           onClick={cancelsubscription}
                         >
                           ◢◤ delete account
@@ -754,9 +755,9 @@ export const Header = (props) => {
               "Timeout error: To delete your accout, you will need to logout, relogin and then immediately delete the account."
             )}
           </div>
-          <div className="margin-left-118- margin-top-1- top0pos-sticky">
+          {/* <div className="margin-left-118- margin-top-1- top0pos-sticky">
             <img src={cathedral} className="width100a- object-fit-cover" />
-          </div>
+          </div> */}
         </div>
       ) : (
         <div>

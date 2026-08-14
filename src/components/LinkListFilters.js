@@ -582,7 +582,7 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingDown}
-            className="button-2f ib margin-left-11 widthxpx2"
+            className="button-2 ib margin-left-11 widthxpx2"
           >
             ScrollDn
           </button>

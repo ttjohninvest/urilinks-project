@@ -267,7 +267,7 @@ export const decrementLinkLikesClickCount = ({ id,likes } = {}) => {
 
 
 export const incrementLinkStarClickCount = ({ id,star } = {}) => {
-    alert("incrementLinkStarClickCount, id="+id+", star="+star)
+    //alert("incrementLinkStarClickCount, id="+id+", star="+star)
 
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -276,7 +276,7 @@ export const incrementLinkStarClickCount = ({ id,star } = {}) => {
       .ref(`users/${uid}/links/${id}`)
       .update({star:parseInt(star)+1}) //{showpublic:0}
       .then(() => {
-        alert("success")
+        //alert("success")
         
         dispatch(incrementLinkStarClickCount2(id,{star:parseInt(star)+1}));
       })

@@ -298,7 +298,7 @@ export const Header = (props) => {
                         to="/dashboard?signup=signup"
                         title=""
                       >
-                        <header className="margin-left-11 solid padding-bottom-1m">
+                        <header className="margin-left-11 solid padding-bottom-1m header1">
                           <img
                             className="rounded-full-1 thumbnail-"
                             src={logo}

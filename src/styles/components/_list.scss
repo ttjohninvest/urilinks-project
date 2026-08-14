@@ -1644,3 +1644,12 @@ font-family: monospace;
   color:rgba(219, 87, 5, 1);
   font-weight: bold;
 }   
+
+.header1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  // width: 100%;
+  z-index: 999; /* Ensures it stays above other content */
+  
+}

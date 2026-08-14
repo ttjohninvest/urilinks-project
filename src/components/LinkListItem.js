@@ -239,7 +239,7 @@ const LinkListItem = (props) => {
 
   const storeScrollPosition3 = (star, event) => {
 
-    const text = "Is it ok to remove this link from the your top ten list?";
+    const text = "Please confirm it ok to remove this link from the your top ten list?";
     if (confirm(text) == true) {
     //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
     let x1 = 0;

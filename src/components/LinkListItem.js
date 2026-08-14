@@ -869,8 +869,10 @@ const LinkListItem = (props) => {
 
   return (
     <div key={props.index}>
+      <div>
       <img className="" width="20" height="20" src={props.faviconURL} />
-
+      </div>
+      <div>
       {!!props.yturl && (
         <a
           ref={myRef}
@@ -889,7 +891,7 @@ const LinkListItem = (props) => {
           />
         </a>
       )}
-
+</div>
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
       <div className="normal-wrap">

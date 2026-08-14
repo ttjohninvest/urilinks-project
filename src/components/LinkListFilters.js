@@ -566,7 +566,7 @@ function ExpandableArray(props) {
             onClick={startScrollingUp}
             className="button-2 widthxpx2"
           >
-           ☝ ScrollUp
+           ScrollUp
           </button>
 
           <button
@@ -576,7 +576,7 @@ function ExpandableArray(props) {
             onClick={stopScrolling}
             className="button-2 ib margin-left-11 widthxpx2"
           >
-            ✋ Stop
+            Stop
           </button>
 
           <button

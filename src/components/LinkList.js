@@ -284,7 +284,7 @@ const startScrollingUp2 = () => {
         onClick={startScrollingUp2}
         className="button-2 widthxpx1"
       >
-        ☝ ScrollUp
+        <span>☝ ScrollUp</span>
       </button>
 
       <button
@@ -293,7 +293,7 @@ const startScrollingUp2 = () => {
         onClick={stopScrolling2}
         className="button-2 ib margin-left-11"
       >
-        ✋ Stop
+        <span>✋ Stop</span>
       </button>
 
       <button
@@ -301,7 +301,7 @@ const startScrollingUp2 = () => {
         onClick={startScrollingDown2}
         className="button-2 ib margin-left-11 widthxpx1"
       >
-        👇 ScrollDn
+        <span>👇 ScrollDn</span>
       </button>
       </div>
 

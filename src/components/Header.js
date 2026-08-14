@@ -679,7 +679,7 @@ export const Header = (props) => {
                       <div className="margin-top-1111a-">
                         <button
                           id="friendlylogout"
-                          className="button button--link ib text-size-3-  text-size-11 color-white-1 color-black-2- cursor-pointer button-2h"
+                          className="button button--link- button-2h ib text-size-11 color-white-1 color-black-2- cursor-pointer"
                           onClick={logoutit}
                         >
                           ◧ friendly logout

@@ -434,7 +434,7 @@ export const Header = (props) => {
                   <a href="https://colleges-index-2.netlify.app/" className="header__title- nounderline color-white-1 cursor-pointer" target="_blank" title="Click to see a  list of colleges and universities">colleges</a>
                   </div> */}
 
-                    <div>
+                    {/* <div>
                       <a
                         id="aiaccess"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
@@ -450,7 +450,7 @@ export const Header = (props) => {
                           🌟 ai access
                         </span>
                       </a>
-                    </div>
+                    </div> */}
                     <div>
                       <Link
                         id="usage"

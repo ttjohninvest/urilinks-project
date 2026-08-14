@@ -1034,7 +1034,7 @@ const LinkListItem = (props) => {
 
 
 
-              {props.rt !== "readonly" && window.localStorage.getItem("sortBy")!=="star" ?
+              {props.rt !== "readonly"  ? (
                 <span>
                   <span
                     ref={myRef3}
@@ -1045,17 +1045,17 @@ const LinkListItem = (props) => {
                     title={"click to select to the top ten"}
                     onClick={() => storeScrollPosition3(props.star, event)}
                   >
-                    🧸put in top ten:
+                    {props.sortBy !== "star" && <span>🧸put in top ten:</span>}
                   </span>
 
-                  <span
+                  {props.sortBy !== "star" && <span
                     className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
                     title={"This is a selection to the top ten."}
                   >
                     {props.star === undefined ? "No" : props.star===1?"Yes":"No"}
                     {/* {props.star === undefined ? "No" : "Yes"} */}
-                  </span>
-                </span>:""}
+                  </span>}
+                </span>
               ) : (<span></span>
                 // <span>
                 //   <span
@@ -1221,6 +1221,7 @@ const LinkListItem = (props) => {
 const mapStateToProps = (state) => ({
   thetotalstars: state.thetotalstars,
   signup: state.signup,
+  sortBy: state.sortBy
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

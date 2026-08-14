@@ -217,7 +217,7 @@ const LinkListItem = (props) => {
     // window.localStorage.setItem("scrollPosition", window.scrollY);
 
       let x1 = 0;
-    if (star === undefined || star === null || star === "NaN") x1 = 0;
+    if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
     else x1 = likes;
     const x = event.target.getAttribute("data-value"); //x is link id
     

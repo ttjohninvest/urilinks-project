@@ -245,14 +245,14 @@ const LinkListItem = (props) => {
     const x = event.target.getAttribute("data-value"); //x is link id
     //alert("storeScrollPosition3, x1="+x1)
     if(x1===0) {
-      alert("going to increment")
+      alert("going to increment, props.star="+props.star)
       props.incrementLinkStarClickCount({ id: x, star: 0 });
       //if(props.thetotalstars.totalstars < 10)
       props.incrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
       //else alert("You have ten of ten stars selected for top ten.")
     }
     else {
-      alert("going to decrement")
+      alert("going to decrement, props.star="+props.star)
       props.decrementLinkStarClickCount({ id: x, star: 1 });
       //if(props.thetotalstars.totalstars > 0)
       props.decrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
@@ -1066,7 +1066,8 @@ const LinkListItem = (props) => {
                     title={"click to select to the top ten"}
                     onClick={() => storeScrollPosition3(props.star, event)}
                   >
-                     <span>🧸put in top ten:</span>
+                     {/* <span>🧸put in top ten:</span> */}
+                     star:
                   </span>
 
                   <span
@@ -1186,8 +1187,9 @@ const LinkListItem = (props) => {
               </span>
 
             {props.rt !== "readonly" && <span className="margin-left-11xy">
-                {" "}
-                🧸put in top ten:
+                
+                {/* 🧸put in top ten: */}
+                star:
                 <span
                   className="ib margin-left-11tx font-weight-900-"
                   title={

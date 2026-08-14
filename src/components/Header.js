@@ -437,13 +437,13 @@ export const Header = (props) => {
                     <div>
                       <a
                         id="aiaccess"
-                        className="header__title- nounderline button-2h"
+                        className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
                         href="https://steps-to-access-online-ai-models.netlify.app"
                         target="_blank"
                         title="steps to using any of the ai models on the internet"
                       >
                         <span
-                          className="padding-left-4x padding-right-4x ib margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
+                          className="ib margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
                           
                           title="Click to see instructions to have access ai models so you can run one, enter a prompt and get a response."
                         >
@@ -454,7 +454,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="usage"
-                        className="padding-left-4x padding-right-4x header__title- nounderline button-2h"
+                        className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
                         to="/use"
                         target="_blank"
                       >
@@ -469,7 +469,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="usage"
-                        className="padding-left-4x padding-right-4x header__title- nounderline button-2h"
+                        className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
                         to="/shortcuts"
                         target="_blank"
                       >
@@ -484,7 +484,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="displayhashtags"
-                        className="padding-left-4x padding-right-4x header__title- nounderline button-2h"
+                        className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
                         to="/displayhashtags"
                         target="_blank"
                       >
@@ -499,7 +499,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="termsandprivacy"
-                        className="padding-left-4x padding-right-4x header__title- nounderline button-2h"
+                        className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
                         to="/termsandprivacy"
                         target="_blank"
                       >
@@ -519,7 +519,7 @@ export const Header = (props) => {
                         <div>
                           <Link
                             id="subscribe"
-                            className="padding-left-4x padding-right-4x header__title- button-2h"
+                            className="header__title- button-2h padding-left-4x padding-right-4x "
                             to="/teirspayment3"
                           >
                             <span
@@ -626,7 +626,7 @@ export const Header = (props) => {
                       <div className="pointereventsauto hide-">
                         <Link
                           id="uploadbookmarksfile"
-                          className="padding-left-4x padding-right-4x header__title- nounderline pointereventsauto button-2h"
+                          className="header__title- nounderline pointereventsauto button-2h padding-left-4x padding-right-4x "
                           to="/bookmarksmanager"
                         >
                           <span
@@ -643,7 +643,7 @@ export const Header = (props) => {
                       <div className="pointereventsnone margin-right-1 hide-">
                         <Link
                           id="uploadbookmarksfile"
-                          className="padding-left-4x padding-right-4x header__title- nounderline pointereventsnone button-2h"
+                          className="header__title- nounderline pointereventsnone button-2h padding-left-4x padding-right-4x "
                           to="/bookmarksmanager"
                         >
                           <span
@@ -665,7 +665,7 @@ export const Header = (props) => {
                       >
                         <Link
                           id="friendlylogin"
-                          className="nounderline color-white-1 color-black-2- cursor-pointer text-size-11 button-2h"
+                          className="nounderline color-white-1 color-black-2- cursor-pointer text-size-11 button-2h padding-left-4x padding-right-4x  "
                           to="/signup"
                           title="The first 25 links are free. plan $4.99 stores up to 100; plan $9.99 stores up to 200;plan $14.99 stores up to 400"
                           style={{ textDecoration: "none", color: "white" }}
@@ -680,7 +680,7 @@ export const Header = (props) => {
                       <div className="margin-top-1111a-">
                         <button
                           id="friendlylogout"
-                          className="padding-left-4x padding-right-4x button button--link- button-2h ib text-size-11 color-white-1 color-black-2- cursor-pointer"
+                          className=" button button--link- button-2h padding-left-4x padding-right-4x  ib text-size-11 color-white-1 color-black-2- cursor-pointer"
                           onClick={logoutit}
                         >
                           ◧ friendly logout
@@ -695,7 +695,7 @@ export const Header = (props) => {
                         <button
                           id="deleteaccount"
                           title="delete account"
-                          className="padding-left-4x padding-right-4x button button--link- button-2h  ib text-size-3- text-size-11 color-white-1 color-black-2- cursor-pointer button-2h"
+                          className="button button--link- button-2h  ib text-size-3- text-size-11 color-white-1 color-black-2- cursor-pointer button-2h padding-left-4x padding-right-4x "
                           onClick={cancelsubscription}
                         >
                           ◢◤ delete account

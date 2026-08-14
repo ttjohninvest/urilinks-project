@@ -915,14 +915,14 @@ const LinkListItem = (props) => {
           <div>
             <Link className="pointereventsauto" to={`/edit/${props.id}`}>
               <span className="" style={{ cursor: "pointer" }}>
-                edit link
+                Edit link
               </span>
             </Link>
           </div>
         ) : (
           <div>
             <Link className="pointereventsnone" to={`/edit/${props.id}`}>
-              <span className="">edit link</span>
+              <span className="">Edit link</span>
             </Link>
           </div>
         )}

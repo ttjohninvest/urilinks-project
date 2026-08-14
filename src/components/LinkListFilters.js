@@ -564,7 +564,7 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingUp}
-            className="button-2 widthxpx2"
+            className="button-2h widthxpx2"
           >
            ScrollUp
           </button>
@@ -574,7 +574,7 @@ function ExpandableArray(props) {
             id="stopscroll"
             title="Click the button to stop auto scroll."
             onClick={stopScrolling}
-            className="button-2 ib margin-left-11 widthxpx2"
+            className="button-2h ib margin-left-11 widthxpx2"
           >
             Stop
           </button>
@@ -582,7 +582,7 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingDown}
-            className="button-2 ib margin-left-11 widthxpx2"
+            className="button-2f ib margin-left-11 widthxpx2"
           >
             ScrollDn
           </button>
@@ -896,7 +896,7 @@ function ExpandableArray(props) {
                   >
                     <button
                       id="buttonid"
-                      className={`${isMobile()===true?'width325':''} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                      className={`${isMobile()===true?'width325':''} button-2h button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
                       //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                       //onClick={this.search}

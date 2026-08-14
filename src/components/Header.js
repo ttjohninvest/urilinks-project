@@ -446,7 +446,7 @@ export const Header = (props) => {
                           className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
                           title="Click to see instructions to have access ai models so you can run one, enter a prompt and get a response."
                         >
-                          ai access
+                         🌟 ai access
                         </span>
                       </a>
                     </div>
@@ -461,7 +461,7 @@ export const Header = (props) => {
                           className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
                           title="Click to see how to use this website."
                         >
-                          usage
+                        🥉 usage
                         </span>
                       </Link>
                     </div>
@@ -476,7 +476,7 @@ export const Header = (props) => {
                           className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
                           title="Click to see short cut commands."
                         >
-                          short cuts
+                        𝝿 short cuts
                         </span>
                       </Link>
                     </div>
@@ -491,7 +491,7 @@ export const Header = (props) => {
                           className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
                           title="Click to see your hashtags."
                         >
-                          hashtags
+                          👑 hashtags
                         </span>
                       </Link>
                     </div>
@@ -506,7 +506,7 @@ export const Header = (props) => {
                           className="ib- color-white-1 color-black-2- cursor-pointer text-size-11"
                           title="Click to see terms ane privacy"
                         >
-                          kind terms
+                          ❒ kind terms
                         </span>
                       </Link>
                     </div>
@@ -526,12 +526,12 @@ export const Header = (props) => {
                               className="ib text-size-11 color-white-1 color-black-2- color-blue-1-"
                               title="Thank you. Please click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links). I hope you the best."
                             >
-                              subscribe
+                             ✧ subscribe
                             </span>
                           </Link>
                         </div>
                       )}
-
+✧
                     {/* <div>
                         <Link className="header__title-" to="/basicplan">
                           <span
@@ -651,7 +651,7 @@ export const Header = (props) => {
 
                             title="currently unavailable, please use Add Link."
                           >
-                            upload bookmarks file
+                           🎺 upload bookmarks file
                           </span>
                         </Link>
                       </div>
@@ -669,7 +669,7 @@ export const Header = (props) => {
                           title="The first 25 links are free. plan $4.99 stores up to 100; plan $9.99 stores up to 200;plan $14.99 stores up to 400"
                           style={{ textDecoration: "none", color: "white" }}
                         >
-                          friendly login
+                          friendly 🎻 login
                         </Link>
                       </div>
                       //  </div>
@@ -682,7 +682,7 @@ export const Header = (props) => {
                           className="button button--link ib text-size-3-  text-size-11 color-white-1 color-black-2- cursor-pointer"
                           onClick={logoutit}
                         >
-                          friendly logout
+                         ◧ friendly logout
                         </button>
                       </div>
                     ) : (
@@ -697,7 +697,7 @@ export const Header = (props) => {
                           className="button button--link ib text-size-3- text-size-11 color-white-1 color-black-2- cursor-pointer"
                           onClick={cancelsubscription}
                         >
-                          delete account
+                        ◢◤ delete account
                         </button>
                       </div>
                     ) : (

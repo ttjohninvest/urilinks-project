@@ -126,6 +126,12 @@ export const incrementLinkLikesClickCount2 = (id, updates) => ({
   updates,
 });
 
+export const decrementLinkLikesClickCount2 = (id, updates) => ({
+  type: "DECREMENT_LINK_LIKES_COUNT",
+  id,
+  updates,
+});
+
 export const incrementLinkStarClickCount2 = (id, updates) => ({
   type: "INCREMENT_LINK_STAR_COUNT",
   id,
@@ -238,6 +244,26 @@ export const incrementLinkLikesClickCount = ({ id,likes } = {}) => {
       });
   };
 };
+
+export const decrementLinkLikesClickCount = ({ id,likes } = {}) => {
+  
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    //update(dbRef, { value: increment(1) });
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({likes:parseInt(likes)-1}) //{showpublic:0}
+      .then(() => {
+        //alert("success")
+        
+        dispatch(decrementLinkLikesClickCount2(id,{likes:parseInt(likes)-1}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
 
 export const incrementLinkStarClickCount = ({ id,star } = {}) => {
   

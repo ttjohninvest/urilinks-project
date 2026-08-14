@@ -14,6 +14,7 @@ import {
   startArchiveLink2,
   incrementLinkClickCount,
   incrementLinkLikesClickCount,
+  decrementLinkLikesClickCount,
   incrementLinkStarClickCount,
   decrementLinkStarClickCount,
 } from "../actions/links";
@@ -207,13 +208,33 @@ const LinkListItem = (props) => {
   };
 
   const storeScrollPosition2 = (likes, event) => {
-    let x1 = 0;
-    if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
+    // let x1 = 0;
+    // if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
+    // else x1 = likes;
+    // const x = event.target.getAttribute("data-value"); //x is link id
+
+    // props.incrementLinkLikesClickCount({ id: x, likes: x1 });
+    // window.localStorage.setItem("scrollPosition", window.scrollY);
+
+      let x1 = 0;
+    if (star === undefined || star === null || star === "NaN") x1 = 0;
     else x1 = likes;
     const x = event.target.getAttribute("data-value"); //x is link id
+    
+    if(x1===0) {
+      //alert("going to increment")
+      props.incrementLinkLikesClickCount({ id: x, likes: 0 });
+     
+      
+    }
+    else {
+      //alert("going to decrement")
+      props.decrementLinkLikesClickCount({ id: x, likes: 1 });
+    }
 
-    props.incrementLinkLikesClickCount({ id: x, likes: x1 });
     window.localStorage.setItem("scrollPosition", window.scrollY);
+
+
   };
 
   const storeScrollPosition3 = (star, event) => {
@@ -1238,6 +1259,8 @@ const mapDispatchToProps = (dispatch, props) => ({
   incrementLinkClickCount: (data) => dispatch(incrementLinkClickCount(data)),
   incrementLinkLikesClickCount: (data) =>
     dispatch(incrementLinkLikesClickCount(data)),
+  decrementLinkLikesClickCount: (data) =>
+    dispatch(decrementLinkLiesClickCount(data)),
   incrementLinkStarClickCount: (data) =>
     dispatch(incrementLinkStarClickCount(data)),
   decrementLinkStarClickCount: (data) =>

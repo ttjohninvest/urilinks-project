@@ -45,6 +45,19 @@ export default (state = linksReducerDefaultState, action) => {
           return link;
         }
       });
+
+        case "DECREMENT_LINK_LIKES_COUNT":
+       return state.map((link) => {
+        if (link.id === action.id) {
+          //{ ...state, count: state.count + 1 };
+          return {
+            ...link,
+           likes: !!link.likes? link.likes - 1:0,
+          };
+        } else {
+          return link;
+        }
+      });
  
      case "INCREMENT_LINK_COUNT":
        return state.map((link) => {

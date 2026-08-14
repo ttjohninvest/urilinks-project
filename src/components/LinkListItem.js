@@ -1254,7 +1254,8 @@ const LinkListItem = (props) => {
 const mapStateToProps = (state) => ({
   thetotalstars: state.thetotalstars,
   signup: state.signup,
-  sortBy: state.sortBy
+  sortBy: state.sortBy,
+  filters: state.filters
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

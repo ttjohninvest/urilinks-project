@@ -1034,7 +1034,7 @@ const LinkListItem = (props) => {
 
 
 
-              {props.rt !== "readonly" ? (
+              {props.rt !== "readonly" && window.localStorage.getItem("sortBy")!=="star" ?
                 <span>
                   <span
                     ref={myRef3}
@@ -1055,7 +1055,7 @@ const LinkListItem = (props) => {
                     {props.star === undefined ? "No" : props.star===1?"Yes":"No"}
                     {/* {props.star === undefined ? "No" : "Yes"} */}
                   </span>
-                </span>
+                </span>:""}
               ) : (<span></span>
                 // <span>
                 //   <span

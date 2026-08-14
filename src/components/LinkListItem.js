@@ -1260,7 +1260,7 @@ const mapDispatchToProps = (dispatch, props) => ({
   incrementLinkLikesClickCount: (data) =>
     dispatch(incrementLinkLikesClickCount(data)),
   decrementLinkLikesClickCount: (data) =>
-    dispatch(decrementLinkLiesClickCount(data)),
+    dispatch(decrementLinkLikesClickCount(data)),
   incrementLinkStarClickCount: (data) =>
     dispatch(incrementLinkStarClickCount(data)),
   decrementLinkStarClickCount: (data) =>

@@ -238,6 +238,9 @@ const LinkListItem = (props) => {
   };
 
   const storeScrollPosition3 = (star, event) => {
+
+    const text = "Is it ok to remove this link from the your top ten list?";
+    if (confirm(text) == true) {
     //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
     let x1 = 0;
     if (star === undefined || star === null || star === "NaN") x1 = 0;
@@ -250,7 +253,7 @@ const LinkListItem = (props) => {
       props.incrementLinkStarClickCount({ id: x, star: 0 });
       if(props.thetotalstars.totalstars < 10)
       props.incrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
-      else alert("You have ten of ten stars selected for top ten.")
+      else alert("You have ten of ten stars selected for your top ten.")
     }
     else {
       //alert("going to increment,id="+x)
@@ -258,10 +261,13 @@ const LinkListItem = (props) => {
       props.decrementLinkStarClickCount({ id: x, star: 1 });
       if(props.thetotalstars.totalstars > 0)
       props.decrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
-      else alert("You have zero of ten stars selected for top ten.")
+      else alert("You have zero of ten stars selected for your top ten.")
     }
 
     window.localStorage.setItem("scrollPosition", window.scrollY);
+  } else {
+    alert("deletion canceled")
+  }
   };
 
   const sortit2 = (event) => {

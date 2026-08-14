@@ -531,7 +531,7 @@ export const Header = (props) => {
                           </Link>
                         </div>
                       )}
-✧
+
                     {/* <div>
                         <Link className="header__title-" to="/basicplan">
                           <span

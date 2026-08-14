@@ -437,7 +437,7 @@ export const Header = (props) => {
                     <div>
                       <a
                         id="aiaccess"
-                        className="header__title- nounderline"
+                        className="header__title- nounderline button-2h"
                         href="https://steps-to-access-online-ai-models.netlify.app"
                         target="_blank"
                         title="steps to using any of the ai models on the internet"
@@ -468,7 +468,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="usage"
-                        className="header__title- nounderline"
+                        className="header__title- nounderline button-2h"
                         to="/shortcuts"
                         target="_blank"
                       >
@@ -483,7 +483,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="displayhashtags"
-                        className="header__title- nounderline"
+                        className="header__title- nounderline button-2h"
                         to="/displayhashtags"
                         target="_blank"
                       >
@@ -498,7 +498,7 @@ export const Header = (props) => {
                     <div>
                       <Link
                         id="termsandprivacy"
-                        className="header__title- nounderline"
+                        className="header__title- nounderline button-2h"
                         to="/termsandprivacy"
                         target="_blank"
                       >
@@ -518,7 +518,7 @@ export const Header = (props) => {
                         <div>
                           <Link
                             id="subscribe"
-                            className="header__title-"
+                            className="header__title- button-2h"
                             to="/teirspayment3"
                           >
                             <span
@@ -625,7 +625,7 @@ export const Header = (props) => {
                       <div className="pointereventsauto hide-">
                         <Link
                           id="uploadbookmarksfile"
-                          className="header__title- nounderline pointereventsauto"
+                          className="header__title- nounderline pointereventsauto button-2h"
                           to="/bookmarksmanager"
                         >
                           <span
@@ -642,7 +642,7 @@ export const Header = (props) => {
                       <div className="pointereventsnone margin-right-1 hide-">
                         <Link
                           id="uploadbookmarksfile"
-                          className="header__title- nounderline pointereventsnone"
+                          className="header__title- nounderline pointereventsnone button-2h"
                           to="/bookmarksmanager"
                         >
                           <span
@@ -664,7 +664,7 @@ export const Header = (props) => {
                       >
                         <Link
                           id="friendlylogin"
-                          className="nounderline color-white-1 color-black-2- cursor-pointer text-size-11"
+                          className="nounderline color-white-1 color-black-2- cursor-pointer text-size-11 button-2h"
                           to="/signup"
                           title="The first 25 links are free. plan $4.99 stores up to 100; plan $9.99 stores up to 200;plan $14.99 stores up to 400"
                           style={{ textDecoration: "none", color: "white" }}
@@ -679,7 +679,7 @@ export const Header = (props) => {
                       <div className="margin-top-1111a-">
                         <button
                           id="friendlylogout"
-                          className="button button--link ib text-size-3-  text-size-11 color-white-1 color-black-2- cursor-pointer"
+                          className="button button--link ib text-size-3-  text-size-11 color-white-1 color-black-2- cursor-pointer button-2h"
                           onClick={logoutit}
                         >
                          ◧ friendly logout
@@ -694,7 +694,7 @@ export const Header = (props) => {
                         <button
                           id="deleteaccount"
                           title="delete account"
-                          className="button button--link ib text-size-3- text-size-11 color-white-1 color-black-2- cursor-pointer"
+                          className="button button--link ib text-size-3- text-size-11 color-white-1 color-black-2- cursor-pointer button-2h"
                           onClick={cancelsubscription}
                         >
                         ◢◤ delete account

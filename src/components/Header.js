@@ -651,7 +651,7 @@ export const Header = (props) => {
                             ////className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
                             title="uploads bookmarks file that was previously exported from the browser. It must be less the 100kb in size."
                           >
-                            🎺 upload bookmarks file
+                            🎺 bookmarks upload
                           </span>
                         </Link>
                       </div>
@@ -715,7 +715,7 @@ export const Header = (props) => {
                           className="button button--link- button-2h  ib text-size-3- text-size-11 color-white-1 color-black-2- cursor-pointer button-2h padding-left-4x padding-right-4x "
                           onClick={cancelsubscription}
                         >
-                          ◢◤ delete account
+                          ◢◤ delete acct
                         </button>
                       </div>
                     ) : (

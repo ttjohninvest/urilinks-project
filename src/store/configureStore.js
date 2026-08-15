@@ -26,7 +26,7 @@ import customeridReducer from '../reducers/customerid';
 import theplanReducer from '../reducers/theplan';
 import thetotalstarsReducer from '../reducers/thetotalstars';
 import signupReducer from '../reducers/signup';
-import hasrefreshedReducer from '../reducers/hasrefreshed';
+import hasrefreshedReducer from '../reducers/hasrefreshed';//
 import photourlReducer from '../reducers/photourl';
 import emailReducer from '../reducers/email';
 //import customeridReducer from '../reducers/customerid';

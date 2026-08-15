@@ -208,24 +208,24 @@ left column
           {/* <Simple2 /> */}
 
             
-            <LinkListFilters
+            {/* <LinkListFilters
               setTheHashTagDivHeight={setTheHashTagDivHeight}
               b={b}
               av={av}
               rerenderit={rerenderit}
-            />
+            /> */}
          
 
-          {/* {props.links.length > 0 ? (
+          {props.links.length > 0 ? (
             <LinkListFilters
               setTheHashTagDivHeight={setTheHashTagDivHeight}
               b={b}
               av={av}
               rerenderit={rerenderit}
             />
-          ) : true  ?(<div></div>
-            // <Simple3 />
-          ):<div></div>} */}
+          ) :  <Simple3 />
+          
+          }
         </div>
 
         {/* <div className="border2black">

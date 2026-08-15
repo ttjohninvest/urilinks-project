@@ -111,7 +111,7 @@ export class LinkListFilters extends React.Component {
   render() {
     return (
       <div className="">
-        <div>
+        {/* <div>
           {((
             this.props.hashtags 
           
@@ -125,7 +125,10 @@ export class LinkListFilters extends React.Component {
               />
             </div>
           )}
-        </div>
+        </div> */}
+        <ExpandableArray
+                
+              />
       </div>
     );
   }

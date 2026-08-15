@@ -22,7 +22,7 @@ import Dropdown from "./Dropdown";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startAddPhotourl } from "../actions/photourl";
 import { startAddBmok } from "../actions/bmok";
-import { startAddDisplayname } from "../actions/displayname";
+//import { startAddDisplayname } from "../actions/displayname";
 import { startAddGoogleUserData } from "../actions/googleuserdata";
 import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
@@ -113,8 +113,8 @@ export const Header = (props) => {
 
   const setDisplayNamedb = (displayName) => {
     console.log("setDisplayNamedb, Header.js, displayName=" + displayName);
-    ////put the photoURL in the database
-    props.startAddDisplayname({ displayname: displayName });
+    
+    //props.startAddDisplayname({ displayname: displayName });
     console.log("Header.js, done calling startAddDisplayname");
   };
 

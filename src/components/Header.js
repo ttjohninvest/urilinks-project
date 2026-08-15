@@ -206,8 +206,14 @@ export const Header = (props) => {
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
     props.setHasrefreshed({ hasrefreshed: false });
     //props.setTheplan({subscriptionId:"",plan:"free",customerId:""})
+     if (location.href.indexOf("#") === -1) {
+    window.open(location.href + "#", "_self");
+}
+window.close();
     props.startLogout();
   };
+
+ 
 
   const cancelsubscription = () => {
     //alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))

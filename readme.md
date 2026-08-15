@@ -1665,7 +1665,7 @@ title: Your developments
 slug: /yourdevelopments
 
 
-to back up firebase realtime database each day
+to back up firebase realtime database each day (this is happening automatically)
 steps:
 1 go to firebase.google.com
 2 select urilink

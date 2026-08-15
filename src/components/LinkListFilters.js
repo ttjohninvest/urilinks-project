@@ -863,7 +863,7 @@ function ExpandableArray(props) {
                        {
                          isForm2Open && <AddLinkPage 
                          isForm2Open={isForm2Open}
-                         closeLink={handleClose2}
+                         handleClose2={handleClose2}
                          />
                         }
                    

@@ -214,9 +214,9 @@ left column
               av={av}
               rerenderit={rerenderit}
             />
-          ) : (
+          ) : props.signup !== true ?(
             <Simple3 />
-          )}
+          ):<div></div>}
         </div>
 
         {/* <div className="border2black">
@@ -231,6 +231,7 @@ const mapStateToProps = (state) => ({
   settings: state.settings,
   hasrefreshed: state.hasrefreshed,
   links: state.links,
+  signup: state.signup
 });
 
 const mapDispatchToProps = (dispatch) => ({

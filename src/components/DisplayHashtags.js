@@ -637,7 +637,9 @@ function ExpandableArray(props) {
                               whiteSpace: "pre-wrap",
                             }}
                           >
-                            {s.matchesstring}
+                            {/* {s.matchesstring} */}
+                                                        {s.hashtag}
+
                           </span>
                         </div>
                       );

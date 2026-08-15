@@ -568,42 +568,10 @@ function ExpandableArray(props) {
                 >
                   {!expanded && false ? (
                     //props.b === 1 &&
-                    props.mappedDataShort.map((s, index) => {
+                    props.links.map((s, index) => {
                       if (index < 50)
                         return (
-                          <div
-                            key={index}
-                            className="b1x- item-newspaper- padding-all- text-size-5 element5-"
-                          >
-                            <a
-                              className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} ${
-                                useButtons === true
-                                  ? "b1xw"
-                                  : "ib width30pt- flexrowzc22 margin-left-11 margin-top-1"
-                              } ${
-                                useButtons === true ? "b1xw" : ""
-                              } nounderline- ${
-                                useButtons === true ? "color-white-1" : ""
-                              } ${useButtons === true ? "button-link-4" : ""} ${
-                                props.b == 1
-                                  ? "pointereventsauto underline"
-                                  : "pointereventsnone"
-                              }`}
-                              href="#"
-                              //onClick={() => props.setit(s.hashtag, event)}
-                              // props.setit(s.hashtag, event) style={style} onClick={() => setIsActive(!isActive)}
-                              //style={style}
-                              //onClick = {()=>setItNow(index, s.hashtag, event)}
-                              onClick={() =>
-                                setItNow(index, s.description, event)
-                              }
-                              title={`click to see results`}
-                            >
-                              {
-                                //sep(s.hashtag)
-                                s.description2
-                              }
-                            </a>
+                          <div>
                           </div>
                         );
                       else return false;

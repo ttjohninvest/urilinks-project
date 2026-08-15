@@ -7,7 +7,7 @@ import React, { useState, useRef, useEffect } from "react";
 // import SendEmailPage from "./SendEmailPage";
 // import ReadMoreSpan from "./ReadMoreSpan";
 // import { Link } from "react-router-dom";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 
 // import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 

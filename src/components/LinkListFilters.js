@@ -773,7 +773,7 @@ function ExpandableArray(props) {
                             <a
                               href="#"
                               ref={textAreaRef}
-                              className={`ib nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55 ${isMobile() === false ? "" : "width325"}`}
+                              className={`ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55 ${isMobile() === false ? "" : "width325"}`}
                               title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               style={{ textDecoration: "none", color: "black" }}
                             >
@@ -804,7 +804,7 @@ function ExpandableArray(props) {
                             <a
                               href="#"
                               ref={textAreaRef}
-                              className="ib nounderline pointereventsnone border5- borderLightOrange borderLightOrange padding-all2 borderradius55"
+                              className="ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange borderLightOrange padding-all2 borderradius55"
                               title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               style={{ textDecoration: "none", color: "black" }}
                             >

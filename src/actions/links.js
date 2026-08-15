@@ -599,7 +599,7 @@ export const startSetLinks = (uid) => {
   };
 };
 
-export const startSetLinksNew = (uid) => {
+export const startSetLinksNew = async (uid) => {
   console.log("startSetLinks");
   return (dispatch, getState) => {
     const hashtags = [];

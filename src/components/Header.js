@@ -162,7 +162,7 @@ export const Header = (props) => {
       if (bmok === undefined) setBmokdb(ttbmok);
       else setBmokdb(bmok);
 
-      setDisplayNamedb(dn);
+      //setDisplayNamedb(dn);
       setGoogleUserDatadb(gud);
       setEmaildb(user.email);
       setUid(gud.uid);

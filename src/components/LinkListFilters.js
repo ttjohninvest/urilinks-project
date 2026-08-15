@@ -647,7 +647,7 @@ function ExpandableArray(props) {
                 </span>}*/}
               {isMobile() === true && (
                 <div className="ib margin-left-11 margin-bottom-1">
-                  {props.links.length} is displayed.
+                  {props.links.length} links is displayed. {props.links.length===0 && "You have a new account. Thank you."}
                 </div>
               )}
               {isMobile() === true ? (

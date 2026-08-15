@@ -599,7 +599,9 @@ function ExpandableArray(props) {
             ? 1
             : -1;
           
-        }).map((s, index) => {
+        }).filter((item, index, self) => 
+  self.indexOf(item) === index
+).map((s, index) => {
                     //have 3 map calls and display the first column then the second column and then the thrid column
                     //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
                     if (

@@ -3,8 +3,8 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-// import AddLinkPage2 from "./AddlinkPage2";
-import AddLinkPage from "./AddlinkPage";
+import AddLinkPage2 from "./AddlinkPage2";
+//import AddLinkPage from "./AddlinkPage";
 import SendEmailPage from "./SendEmailPage";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
@@ -750,7 +750,7 @@ function ExpandableArray(props) {
                       </a>
 
                       {/* {showComponent && <AddLinkPage2 />} */}
-                      <AddLinkPage />
+                      <AddLinkPage2 />
                       {
                         //emailForm &&
                         isFormOpen && (
@@ -846,7 +846,7 @@ function ExpandableArray(props) {
                       </a>
 
                       {/* {showComponent && <AddLinkPage2 />} */}
-                      <AddLinkPage />
+                      <AddLinkPage2 />
                       {
                         //emailForm &&
                         isFormOpen && (

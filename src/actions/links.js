@@ -51,7 +51,6 @@ export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
-      
       star = 0,
       likes = 0,
       frequency = 0,
@@ -68,7 +67,6 @@ export const startAddLink = (linkData = {}) => {
       faviconURL = "",
     } = linkData;
     const link = {
-      
       star,
       likes,
       frequency,

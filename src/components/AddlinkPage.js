@@ -10,6 +10,7 @@ import Simple from "./Simple";
 //import SimpleTest2 from "./SimpleTest2";
 import PremiumPlan from "./PremiumPlan";
 import StorageSizes from "./StorageSizes";
+import { getShowPublic } from './../actions/sp';
 
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
@@ -140,6 +141,7 @@ export const AddLinkPage = (props) => {
     if (count < getPlanMax()) {
       //if (count < 10) {
       //if (true) {
+      link.showpublic = 1
       link.foldername = link.description;
       link.yturl = isityt(link.Url);
       console.log("A link.yturl=" + link.yturl);

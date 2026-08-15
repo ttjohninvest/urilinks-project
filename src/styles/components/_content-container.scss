@@ -634,6 +634,10 @@ width:400px;
   border-width:2px;
 }
 
+select {
+  border: 2px solid #fbbf77;
+}
+
 .searchinput {
   -webkit-border-radius: 30px; /* Safari, Chrome, older WebKit */
   -moz-border-radius: 30px;    /* Older Firefox */

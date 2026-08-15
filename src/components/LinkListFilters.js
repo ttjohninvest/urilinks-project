@@ -896,7 +896,7 @@ function ExpandableArray(props) {
                       </button>
                     </div>
 
-                    <div className={`margin-top-11z1 margin-left-11 borderLightOrange`}>
+                    <div className={`margin-top-11z1 margin-left-11`}>
                       <select
                         id="mode"
                         className="select outline-none"
@@ -992,7 +992,7 @@ function ExpandableArray(props) {
                     <div className={`margin-left-11`}>
                       <select
                         id="mode"
-                        className="select outline-none borderLightOrange"
+                        className="select outline-none"
                         //value={this.state.sortBy}
                         value={sortBy}
                         //value={this.props.filters.sortBy}

@@ -597,7 +597,107 @@ export const startSetLinks = (uid) => {
   };
 };
 
-export const startSetLinksNew =  (uid) => {
+// export const startSetLinksNew =  (uid) => {
+//   console.log("startSetLinks");
+//   return (dispatch, getState) => {
+//     const hashtags = [];
+
+//     return database
+//       .ref(`users/${uid}/links`)
+//       .once("value")
+//       .then((snapshot) => {
+//         const links2 = [];
+
+//         //console.log("snapshot=" + JSON.stringify(snapshot));
+//         snapshot.forEach((childSnapshot) => {
+//           console.log("tt,childSnapshot=" + JSON.stringify(childSnapshot));
+//           console.log(
+//             "tt,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+//           );
+//           console.log(
+//             "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+//           );
+//           links2.push({
+//             id: childSnapshot.key,
+//             ...childSnapshot.val(),
+//           });
+//         });
+//         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
+//         dispatch(setLinks(links2));
+
+        
+//   let hashtags = [];
+//         const longnamesnowhitespace = [];
+//         const longnames = [];
+//        let x1 = []; //"";
+
+        
+//         //this loop builds an array of all of the hashtags and is called hashtags
+//         links2.forEach((link) => {
+          
+//           x1 =  extractHashtags(link) //converst text string into an array of hashtags
+//           hashtags.push(...x1); 
+          
+//         });
+
+        
+//         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
+//         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+
+
+       
+
+//           hashTags2WithCount.sort((a, b) => {
+//           return a.description > b.description ? 1 : -1;
+//           //return a.hashtag > b.hashtag ? 1 : -1;
+//         });
+
+
+
+//         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        
+//         //let hashtags2 = removeDuplicates(hashtags);
+//         let hashtags2 = hashtags;
+
+      
+
+//         hashtags2.sort((a, b) => {
+//           return a.description > b.description
+//             ? 1
+//             : -1;
+//           //return a > b ? 1 : -1;
+//         });
+
+//         let hashTags3WithCount = [];
+//         let seenArray = [];
+
+       
+
+//          hashtags2.forEach((ht1) => {
+//           hashTags2WithCount.forEach((ht2) => {
+//             if (
+//               !seen(ht1.description, seenArray) &&
+//               ht1.description === ht2.description
+//             ) {
+//               seenArray.push(ht1.description);
+//               console.log(
+//                 "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
+//               );
+//               hashTags3WithCount.push(ht2);
+//             }
+//           });
+//         });
+// //
+//         //dispatch(setHashTags(hashtags2));
+//         //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
+//         dispatch(setHashTags(hashTags3WithCount));
+//         //dispatch(setHashTags2WithCount(hashTags2WithCount));
+//       })
+//       .catch((error) => console.log("error=" + error));
+//   };
+// };
+
+export const startSetLinksNew = (uid) => {
   console.log("startSetLinks");
   return (dispatch, getState) => {
     const hashtags = [];
@@ -617,16 +717,24 @@ export const startSetLinksNew =  (uid) => {
           console.log(
             "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           );
+          let aval = childSnapshot.val()
+          if(aval.frequency === undefined || aval.frequency === null)
+            aval.frequency = parseInt(0) //9999999
+          if(aval.likes === undefined || aval.likes === null)
+            aval.likes = parseInt(0) 
+           if(aval.star === undefined || aval.star === null)
+            aval.star = parseInt(0) 
+         
           links2.push({
             id: childSnapshot.key,
-            ...childSnapshot.val(),
+            ...aval //...childSnapshot.val(),
           });
         });
-        //console.log("startSetLinks, about to call dispatch(setLinks(links));");
-        dispatch(setLinks(links2));
+        console.log("1234567, startSetLinks, about to call dispatch(setLinks(links)),links2="+JSON.stringify(links2))
+        dispatch(setLinks(links2)); //links2[0].showpublic
 
-        
-  let hashtags = [];
+        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+        let hashtags = [];
         const longnamesnowhitespace = [];
         const longnames = [];
        let x1 = []; //"";
@@ -641,11 +749,9 @@ export const startSetLinksNew =  (uid) => {
         });
 
         
+
         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
-        //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
-
-
-       
+      
 
           hashTags2WithCount.sort((a, b) => {
           return a.description > b.description ? 1 : -1;
@@ -659,7 +765,7 @@ export const startSetLinksNew =  (uid) => {
         //let hashtags2 = removeDuplicates(hashtags);
         let hashtags2 = hashtags;
 
-      
+     
 
         hashtags2.sort((a, b) => {
           return a.description > b.description
@@ -670,8 +776,6 @@ export const startSetLinksNew =  (uid) => {
 
         let hashTags3WithCount = [];
         let seenArray = [];
-
-       
 
          hashtags2.forEach((ht1) => {
           hashTags2WithCount.forEach((ht2) => {
@@ -687,7 +791,7 @@ export const startSetLinksNew =  (uid) => {
             }
           });
         });
-//
+
         //dispatch(setHashTags(hashtags2));
         //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
         dispatch(setHashTags(hashTags3WithCount));

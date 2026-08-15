@@ -680,7 +680,7 @@ function ExpandableArray(props) {
                                 onClick={copyToClipboard}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
-                                <span className="">
+                                <span className="height48">
                                   click to copy your link to share your links
                                 </span>
                               </button>
@@ -719,7 +719,7 @@ function ExpandableArray(props) {
                                 onClick={copyToClipboard}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
-                                <span className="">
+                                <span className="height48">
                                   click to copy your link to share your links
                                 </span>
                               </button>

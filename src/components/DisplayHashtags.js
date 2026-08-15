@@ -1,6 +1,7 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 ////
 import React, { useState, useRef, useEffect } from "react";
+import selectLinks from "../selectors/links";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import AddLinkPage2 from "./AddlinkPage2";
@@ -1236,7 +1237,7 @@ export class DisplayHashtags extends React.Component {
 
 const mapStateToProps = (state) => ({
   filters: state.filters,
-  links: state.links,
+  links: selectLinks(state.links, state.filters),
   hashtags: state.hashtags,
   setit: state.setit,
   settings: state.settings,

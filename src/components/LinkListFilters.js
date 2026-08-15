@@ -3,8 +3,8 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-import AddLinkPage2 from "./AddlinkPage2";
-//import AddLinkPage from "./AddlinkPage";
+
+import AddLinkPage from "./AddlinkPage";
 import SendEmailPage from "./SendEmailPage";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
@@ -229,7 +229,7 @@ function ExpandableArray(props) {
     //   window.location.reload();
     // }
 
-    if(props.signup.signup===true) setShowComponent(true)
+    //if(props.signup.signup===true) setShowComponent(true)
   }, []);
 
   const moveIt = () => {
@@ -525,6 +525,10 @@ function ExpandableArray(props) {
     // });
   };
 
+  const addALink = () => {
+    setShowComponent(true)
+  }
+
   return (
     <div className="bg-white-1">
       <div className="sticky-div-">
@@ -748,9 +752,9 @@ function ExpandableArray(props) {
                           Email your link
                         </span>
                       </a>
-
-                      {/* {showComponent && <AddLinkPage2 />} */}
-                      <AddLinkPage2 />
+                     <button className="button-2" onClick={addALink} >Add A Link1</button>
+                      {showComponent && <AddLinkPage />}
+                      {/* <AddLinkPage /> */}
                       {
                         //emailForm &&
                         isFormOpen && (
@@ -844,9 +848,9 @@ function ExpandableArray(props) {
                           Email your link
                         </span>
                       </a>
-
-                      {/* {showComponent && <AddLinkPage2 />} */}
-                      <AddLinkPage2 />
+                      <button className="button-2" onClick={addALink} >Add A Link2</button>
+                      {showComponent && <AddLinkPage />}
+                      {/* <AddLinkPage /> */}
                       {
                         //emailForm &&
                         isFormOpen && (

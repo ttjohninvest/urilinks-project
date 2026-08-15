@@ -305,11 +305,11 @@ class LinkForm extends React.Component {
           } //"2300"
         ></textarea>
         <div>
-          <button className="ib button-2w border5">Save Link</button>
+          <button className="ib button-2w border5-">Save Link</button>
          
         </div>
       </form>
-      <button className="ib button-2w border5 margin- left-11" onClick={() => this.props.handleClose2()}>Cancel</button>
+      <button className="button-2w border5- margin-left-11- margin-bottom-1 ib" onClick={() => this.props.handleClose2()}>Cancel</button>
       </div>
     );
   }

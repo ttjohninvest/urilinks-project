@@ -861,7 +861,8 @@ function ExpandableArray(props) {
                       </a>
                       <button className="ib margin-left-11 button-2" onClick={addALink} title="Add a link to your page.">Add A link</button>
                        {
-                         isForm2Open && <AddLinkPage 
+                         isForm2Open && 
+                         <AddLinkPage 
                          isForm2Open={isForm2Open}
                          handleClose2={handleClose2}
                          />

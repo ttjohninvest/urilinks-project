@@ -79,30 +79,27 @@ export class LinkListFilters extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
-  // handleSearch() {
-  //   // Perform the search action here
-  //   //console.log('Searching for:', this.state.searchTerm);
-  //   // Example: this.props.onSearch(this.state.searchTerm);
-
-  //   var select = document.getElementById("mode");
-  //   var selectedValue = select.options[select.selectedIndex].value;
-  //   console.log("handleSearch search, selectedValue=" + selectedValue);
-  //   let term = window.document.getElementById("termid").value;
-  //   let str = term.trim();
-  //   term = str;
-  //   if (selectedValue === "hashtag") {
-  //     const words = term.split(/\s+/); // Split by one or more whitespace characters
-
-  //   }
+  handleSearch() {
     
-  //   this.props.setTextFilter(term);
-  // }
+    // var select = document.getElementById("mode");
+    // var selectedValue = select.options[select.selectedIndex].value;
+    // console.log("handleSearch search, selectedValue=" + selectedValue);
+    // let term = window.document.getElementById("termid").value;
+    // let str = term.trim();
+    // term = str;
+    // if (selectedValue === "hashtag") {
+    //   const words = term.split(/\s+/); // Split by one or more whitespace characters
 
-  // handleKeyPress(e) {
-  //   if (e.key === "Enter") {
-  //     this.handleSearch();
-  //   }
-  // }
+    // }
+    
+    // this.props.setTextFilter(term);
+  }
+
+  handleKeyPress(e) {
+    // if (e.key === "Enter") {
+    //   this.handleSearch();
+    // }
+  }
 
   // scrollUp = () => {
   //   !!document.querySelector("#top") &&

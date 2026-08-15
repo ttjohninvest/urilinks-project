@@ -227,6 +227,8 @@ function ExpandableArray(props) {
     //   console.log("LinkListFilters.js, window.location.reload()");
     //   window.location.reload();
     // }
+
+    if(props.signup.signup===true) setShowComponent(true)
   }, []);
 
   const moveIt = () => {

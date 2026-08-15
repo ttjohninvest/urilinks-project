@@ -599,9 +599,9 @@ export const startSetLinks = (uid) => {
   };
 };
 
-export const startSetLinksNew = async (uid) => {
+export const startSetLinksNew =  (uid) => {
   console.log("startSetLinks");
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     const hashtags = [];
 
     return database

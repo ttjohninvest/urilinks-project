@@ -114,7 +114,7 @@ export class LinkListFilters extends React.Component {
         <div>
           {((this.props.hashtags 
           
-          // && this.props.hashtags.length > 0
+          && this.props.hashtags.length > 0
         ) ||
             (this.state.mappedDataLong &&
               this.state.mappedDataLong.length > 1)) && (

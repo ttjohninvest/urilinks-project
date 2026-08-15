@@ -1,38 +1,38 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 ////
 import React, { useState, useRef, useEffect } from "react";
-// import ReadMore from "./ReadMore";
-// import LinkList from "./LinkList";
-// import AddLinkPage2 from "./AddlinkPage2";
-// import SendEmailPage from "./SendEmailPage";
-// import ReadMoreSpan from "./ReadMoreSpan";
-// import { Link } from "react-router-dom";
+import ReadMore from "./ReadMore";
+import LinkList from "./LinkList";
+import AddLinkPage2 from "./AddlinkPage2";
+import SendEmailPage from "./SendEmailPage";
+import ReadMoreSpan from "./ReadMoreSpan";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-// import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
+import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 
-// import { DateRangePicker } from "react-dates";
-// import EmailForm from "./EmailForm";
+import { DateRangePicker } from "react-dates";
+import EmailForm from "./EmailForm";
 
-// import database from "../firebase/firebase";
-// import redarrow from "../assets/images/red-arrow.jpg";
-// import * as firebase from "firebase";
-// import StorageSizes from "./StorageSizes";
-// import myprofile from "../assets/images/myprofile.png";
+import database from "../firebase/firebase";
+import redarrow from "../assets/images/red-arrow.jpg";
+import * as firebase from "firebase";
+import StorageSizes from "./StorageSizes";
+import myprofile from "../assets/images/myprofile.png";
 
-// import {
-//   setTextFilter,
-//   sortByDate,
-//   sortByDescription,
-//   sortByHashTag,
-//   setStartDate,
-//   setEndDate,
-//   sortByNoteText,
-//   sortByViews,
-//   sortByLikes,
-//   sortByStar,
-//   sortByFolder,
-// } from "../actions/filters";
+import {
+  setTextFilter,
+  sortByDate,
+  sortByDescription,
+  sortByHashTag,
+  setStartDate,
+  setEndDate,
+  sortByNoteText,
+  sortByViews,
+  sortByLikes,
+  sortByStar,
+  sortByFolder,
+} from "../actions/filters";
 
 function ExpandableArray(props) {
 

@@ -669,7 +669,7 @@ export const Header = (props) => {
 
                             title="currently unavailable, please use Add Link."
                           >
-                            🎺 upload bookmarks file
+                            🎺 bookmarks upload
                           </span>
                         </Link>
                       </div>

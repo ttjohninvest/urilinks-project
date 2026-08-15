@@ -35,30 +35,30 @@ import {
 } from "../actions/filters";
 //
 function ExpandableArray(props) {
-  // const [expanded, setExpanded] = useState(props.morehashtags);
-  // const [uid, setUid] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [emailForm, showEmailForm] = useState(false);
-  // const [theuser, setTheuser] = useState(firebase.auth().currentUser);
-  // const [copySuccess, setCopySuccess] = useState("");
-  // //const [max, setMax] = useState(250);
-  // const [newspaper, setNewspaper] = useState(props.newspaper);
-  // const textAreaRef = useRef(null);
-  // const [photoURL, setPhotoURL] = useState("");
-  // const [maximum, setMaximum] = useState(0);
-  // const [gmail, setGmail] = useState("");
-  // const [searchTerm, setSearchTerm] = useState("");
-  // const [sortBy, setSortBy] = useState("description");
-  // const [showComponent, setShowComponent] = useState(false);
-  // const [isFormOpen, setIsFormOpen] = useState(false);
-  // const [activeItem, setActiveItem] = useState(0);
+  const [expanded, setExpanded] = useState(props.morehashtags);
+  const [uid, setUid] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailForm, showEmailForm] = useState(false);
+  const [theuser, setTheuser] = useState(firebase.auth().currentUser);
+  const [copySuccess, setCopySuccess] = useState("");
+  //const [max, setMax] = useState(250);
+  const [newspaper, setNewspaper] = useState(props.newspaper);
+  const textAreaRef = useRef(null);
+  const [photoURL, setPhotoURL] = useState("");
+  const [maximum, setMaximum] = useState(0);
+  const [gmail, setGmail] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("description");
+  const [showComponent, setShowComponent] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState(0);
 
-  // const myRef = useRef(null);
-  // const scrollInterval = useRef(null);
+  const myRef = useRef(null);
+  const scrollInterval = useRef(null);
 
-  // const useButtons = false; //use buttons in display of categories
+  const useButtons = false; //use buttons in display of categories
 
-  // const buttonRef = useRef(null);
+  const buttonRef = useRef(null);
 
   // let x = false;
   // if (window.localStorage.getItem("hideinformation") === null) {

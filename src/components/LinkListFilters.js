@@ -530,6 +530,7 @@ function ExpandableArray(props) {
   }
 
   const closeLink = () => {
+    alert("closeLink")
     setShowComponent(false)
   }
 

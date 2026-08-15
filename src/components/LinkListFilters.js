@@ -50,7 +50,7 @@ function ExpandableArray(props) {
   const [gmail, setGmail] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("description");
-  const [showComponent, setShowComponent] = useState(false);
+  const [isForm2Open, setIsForm2Open] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
 
@@ -526,12 +526,12 @@ function ExpandableArray(props) {
   };
 
   const addALink = () => {
-    setShowComponent(true)
+    setIsForm2Open(true)
   }
 
-  const closeLink = () => {
-    alert("closeLink")
-    setShowComponent(false)
+  const handleClose2 = () => {
+    //alert("closeLink")
+    setIsForm2Open(false)
   }
 
   return (
@@ -758,7 +758,13 @@ function ExpandableArray(props) {
                         </span>
                       </a>
                      <button className="ib margin-left-11 button-2" onClick={addALink} title="Add a link to your page.">Add A link</button>
-                      {showComponent && <AddLinkPage closeLink={closeLink}/>}
+                      {isForm2Open && <AddLinkPage 
+                      isForm2Open={isForm2Open}
+                      closeLink={handleClose2}
+                      
+                      />
+                      
+                      }
                       {/* <AddLinkPage /> */}
                       {
                         //emailForm &&
@@ -854,8 +860,13 @@ function ExpandableArray(props) {
                         </span>
                       </a>
                       <button className="ib margin-left-11 button-2" onClick={addALink} title="Add a link to your page.">Add A link</button>
-                      {showComponent && <AddLinkPage />}
-                      {/* <AddLinkPage /> */}
+                       {
+                         isForm2Open && <AddLinkPage 
+                         isForm2Open={isForm2Open}
+                         closeLink={handleClose2}
+                         />
+                        }
+                   
                       {
                         //emailForm &&
                         isFormOpen && (

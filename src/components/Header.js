@@ -26,7 +26,11 @@ import { startAddDisplayname } from "../actions/displayname";
 import { startAddGoogleUserData } from "../actions/googleuserdata";
 import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
-import { setTheplan } from "../actions/theplan";
+import { setTheplan2 } from "../actions/theplan";
+import { setBmok2 } from "../actions/bmok";
+import { setGoogleUserData } from "../actions/googleuserdata";
+import { setPhotourl } from "../actions/photourl";
+import setSignup from "../actions/signup"
 import Header2 from "./Header2";
 
 export const Header = (props) => {
@@ -206,14 +210,21 @@ export const Header = (props) => {
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
     props.setHasrefreshed({ hasrefreshed: false });
     //props.setTheplan({subscriptionId:"",plan:"free",customerId:""})
-     if (location.href.indexOf("#") === -1) {
-    window.open(location.href + "#", "_self");
-}
-window.close();
+    setTheplan2({
+      customerId: "",
+      plan: "free",
+      subscriptionId: "",
+      uid: "",
+    });
+    setPhotourl("");
+    setGoogleUserData({});
+    setBmok2(true);
+    //setDisplayname("");
+    setSignup(false);
+    //setEmail("");
+    setLinks([]);
     props.startLogout();
   };
-
- 
 
   const cancelsubscription = () => {
     //alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))

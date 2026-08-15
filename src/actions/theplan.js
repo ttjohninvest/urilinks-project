@@ -13,6 +13,12 @@ export const setTheplan = (theplan) => ({
   theplan,
 });
 
+export const setTheplan2 = (theplan) => ({
+  type: "SET_THEPLAN",
+  theplan,
+});
+
+
 export const startAddTheplan = (theplanData = {}) => {
   console.log("startAddTheplan, theplanData=" + JSON.stringify(theplanData));
   return (dispatch, getState) => {

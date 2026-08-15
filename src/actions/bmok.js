@@ -90,6 +90,11 @@ export const setBmok = (bmok) => ({
   bmok,
 });
 
+export const setBmok2 = (bmok) => ({
+  type: "SET_BMOK",
+  bmok,
+});
+
 //this puts the links array in the global redux store to be used to list the output
 export const startSetBmok = () => {
   

@@ -24,7 +24,7 @@ import { startAddPhotourl } from "../actions/photourl";
 import { startAddBmok } from "../actions/bmok";
 //import { startAddDisplayname } from "../actions/displayname";
 import { startAddGoogleUserData } from "../actions/googleuserdata";
-import { startAddEmail } from "../actions/email";
+//import { startAddEmail } from "../actions/email";
 import { startDeleteAccount } from "../actions/email";
 import { setTheplan2 } from "../actions/theplan";
 import { setBmok2 } from "../actions/bmok";
@@ -111,12 +111,12 @@ export const Header = (props) => {
     console.log("Header.js, done calling startAddBmok");
   };
 
-  const setDisplayNamedb = (displayName) => {
-    console.log("setDisplayNamedb, Header.js, displayName=" + displayName);
+  // const setDisplayNamedb = (displayName) => {
+  //   console.log("setDisplayNamedb, Header.js, displayName=" + displayName);
     
-    //props.startAddDisplayname({ displayname: displayName });
-    console.log("Header.js, done calling startAddDisplayname");
-  };
+  //   //props.startAddDisplayname({ displayname: displayName });
+  //   console.log("Header.js, done calling startAddDisplayname");
+  // };
 
   const setGoogleUserDatadb = (gud) => {
     console.log("setGoogleUserDatadb, Header.js, gud=" + gud);
@@ -125,12 +125,12 @@ export const Header = (props) => {
     console.log("Header.js, done calling startGoogleUserData");
   };
 
-  const setEmaildb = (email) => {
-    console.log("setEmaildb, Header.js, email=" + email);
-    ////put the photoURL in the database
-    props.startAddEmail({ email: email });
-    console.log("Header.js, done calling startAddEmail");
-  };
+  // const setEmaildb = (email) => {
+  //   console.log("setEmaildb, Header.js, email=" + email);
+  //   ////put the photoURL in the database
+  //   props.startAddEmail({ email: email });
+  //   console.log("Header.js, done calling startAddEmail");
+  // };
 
   useEffect(() => {
     console.log(
@@ -164,7 +164,7 @@ export const Header = (props) => {
 
       //setDisplayNamedb(dn);
       setGoogleUserDatadb(gud);
-      setEmaildb(user.email);
+      //setEmaildb(user.email);
       setUid(gud.uid);
       // setName(
       //   user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
@@ -806,10 +806,10 @@ const mapDispatchToProps = (dispatch) => ({
   setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),
   startAddPhotourl: (photourl) => dispatch(startAddPhotourl(photourl)),
   startAddBmok: (bmok) => dispatch(startAddBmok(bmok)),
-  startAddDisplayname: (displayname) =>
-    dispatch(startAddDisplayname(displayname)),
+  // startAddDisplayname: (displayname) =>
+  //   dispatch(startAddDisplayname(displayname)),
   startAddGoogleUserData: (gud) => dispatch(startAddGoogleUserData(gud)),
-  startAddEmail: (email) => dispatch(startAddEmail(email)),
+  //startAddEmail: (email) => dispatch(startAddEmail(email)),
   startDeleteAccount: (email) => dispatch(startDeleteAccount(email)),
   setTheplan: (theplan) => dispatch(setTheplan(theplan)),
 });

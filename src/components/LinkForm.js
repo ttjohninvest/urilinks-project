@@ -306,7 +306,6 @@ class LinkForm extends React.Component {
         <div>
           <button className="ib button-2w border5">Save Link</button>
           <button className="ib button-2w border5 margin-left-11" onClick={this.props.closeLink}>Cancel</button>
-          {/* <button className="button">Save Uri/Url Link</button> */}
         </div>
       </form>
     );

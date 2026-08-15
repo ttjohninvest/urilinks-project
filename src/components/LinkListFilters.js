@@ -67,8 +67,7 @@ export class LinkListFilters extends React.Component {
       morehashtags:
         window.localStorage.getItem("morehashtags") === "true" ? true : false,
       newspaper: true,
-      // newspaper:
-      //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
+      
       foldernamesList: [],
       isToggled: false,
       searchTerm: "", //,
@@ -334,19 +333,19 @@ export class LinkListFilters extends React.Component {
 
   
 
-  // setit = (value, event) => {
-  //   event.preventDefault();
-  //   console.log("setIt, 3333333333333333333333333 value=" + value);
+  setit = (value, event) => {
+    event.preventDefault();
+    console.log("setIt, 3333333333333333333333333 value=" + value);
 
-  //   this.props.sortByDescription();
-  //   this.props.setTextFilter(value);
+    this.props.sortByDescription();
+    this.props.setTextFilter(value);
 
-  //   //window.localStorage.setItem("sortBy", "hashtag");
-  //   window.localStorage.setItem("sortBy", "description");
-  //   window.localStorage.setItem("searchLinks3", value);
+    //window.localStorage.setItem("sortBy", "hashtag");
+    window.localStorage.setItem("sortBy", "description");
+    window.localStorage.setItem("searchLinks3", value);
 
-  //   this.props.rerenderit();
-  // };
+    this.props.rerenderit();
+  };
 
   // refreshIt = () => {
   //   //window.location.reload();

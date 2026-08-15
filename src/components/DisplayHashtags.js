@@ -1,10 +1,10 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 ////
 import React, { useState, useRef, useEffect } from "react";
-import selectLinks from "../selectors/links";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-import AddLinkPage2 from "./AddlinkPage2";
+
+import AddLinkPage from "./AddlinkPage";
 import SendEmailPage from "./SendEmailPage";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
@@ -29,6 +29,9 @@ import {
   setStartDate,
   setEndDate,
   sortByNoteText,
+  sortByViews,
+  sortByLikes,
+  sortByStar,
   sortByFolder,
 } from "../actions/filters";
 
@@ -47,7 +50,7 @@ function ExpandableArray(props) {
   const [gmail, setGmail] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("description");
-  const [showComponent, setShowComponent] = useState(false);
+  const [isForm2Open, setIsForm2Open] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
 
@@ -80,41 +83,21 @@ function ExpandableArray(props) {
     );
   }, []);
 
-  const startScrollingDown = () => {
-    // Prevent multiple intervals
-    if (scrollInterval.current) return;
-
-    scrollInterval.current = setInterval(() => {
-      document.getElementById("ls3").scrollBy({
-        top: -1, // Scroll 1 pixel each time
-        left: 0,
-        behavior: "auto",
-      });
-
-      // Stop automatically when reaching the top
-      if (document.getElementById("ls3").scrollTop === 0) {
-        buttonRef.current.click();
-
-        //stopScrolling();
-      }
-    }, 20); // Every 20 milliseconds
-  };
-
   const startScrollingUp = () => {
     // Prevent multiple intervals
     if (scrollInterval.current) return;
 
     scrollInterval.current = setInterval(() => {
-      document.getElementById("ls3").scrollBy({
+      document.getElementById("ls").scrollBy({
         top: 1, // Scroll 1 pixel each time
         left: 0,
         behavior: "auto",
       });
 
       if (
-        document.getElementById("ls3").scrollTop +
-          document.getElementById("ls3").clientHeight >=
-        document.getElementById("ls3").scrollHeight
+        document.getElementById("ls").scrollTop +
+          document.getElementById("ls").clientHeight >=
+        document.getElementById("ls").scrollHeight
       ) {
         buttonRef.current.click();
       }
@@ -124,6 +107,26 @@ function ExpandableArray(props) {
   const stopScrolling = () => {
     clearInterval(scrollInterval.current);
     scrollInterval.current = null;
+  };
+
+  const startScrollingDown = () => {
+    // Prevent multiple intervals
+    if (scrollInterval.current) return;
+
+    scrollInterval.current = setInterval(() => {
+      document.getElementById("ls").scrollBy({
+        top: -1, // Scroll 1 pixel each time
+        left: 0,
+        behavior: "auto",
+      });
+
+      // Stop automatically when reaching the top
+      if (document.getElementById("ls").scrollTop === 0) {
+        buttonRef.current.click();
+
+        //stopScrolling();
+      }
+    }, 20); // Every 20 milliseconds
   };
 
   const startWrite = () => {
@@ -225,6 +228,8 @@ function ExpandableArray(props) {
     //   console.log("LinkListFilters.js, window.location.reload()");
     //   window.location.reload();
     // }
+
+    //if(props.signup.signup===true) setShowComponent(true)
   }, []);
 
   const moveIt = () => {
@@ -329,6 +334,7 @@ function ExpandableArray(props) {
     let term = window.document.getElementById("termid").value;
     let str = term.trim();
     term = str;
+    alert("selectedValue=" + selectedValue);
     if (selectedValue === "hashtag") {
       const words = term.split(/\s+/); // Split by one or more whitespace characters
 
@@ -361,8 +367,10 @@ function ExpandableArray(props) {
     if (window.localStorage.getItem("sortBy") !== "")
       selectedValue = window.localStorage.getItem("sortBy");
     else selectedValue = select.options[select.selectedIndex].value;
-    console.log("search = () => {, selectedValue=" + selectedValue);
+    //console.log("search = () => {, selectedValue=" + selectedValue)
+    console.log("1 selectedValue=" + selectedValue + ", term=" + term);
     let term = window.document.getElementById("termid").value.trim();
+    //alert("1 selectedValue="+selectedValue+", term="+term)
     window.localStorage.setItem("termid", term);
     props.setTextFilter(term);
 
@@ -388,52 +396,86 @@ function ExpandableArray(props) {
   };
 
   const onSortChange = (e) => {
-    if (e.target.value === "none") return;
-
+    if (
+      e.target.value === "none" ||
+      e.target.value === undefined ||
+      e.target.value === null
+    )
+      return;
+    console.log("onSortChange, e.target.value=" + e.target.value);
     const val = window.document.getElementById("termid").value.trim();
-    //window.localStorage.setItem("termid", val);
-    console.log("onSortChange=(), search term=, val=" + val);
+    console.log("onSortChange, term=" + val);
+
     if (e.target.value === "description") {
       window.localStorage.setItem("sortBy", "description");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
-      //this.setState({ sortBy: "description" });
       setSortBy("description");
       props.sortByDescription();
-      //this.setState({ sortBy: "description" });
-    } else if (e.target.value === "hashtag") {
-      window.localStorage.setItem("sortBy", "hashtag");
-      // if (val !== "" && val.charAt(0) !== "#") {
-      //   alert("The search term needs to be a hashtag.");
-      //   return;
-      // }
-
-      if (val === "") {
-        //window.document.getElementById("termid").value = "#"
-        props.setTextFilter("#");
-        //window.localStorage.setItem("termid", "#");
-      } else {
-        //window.localStorage.setItem("termid", val);
-        props.setTextFilter(val);
-      }
-      if (myRef.current) myRef.current.focus();
-      //this.props.setTextFilter("#");
-
-      //window.localStorage.setItem("sortBy", "hashtag");
-      //this.setState({ sortBy: "hashtag" });
-      setSortBy("hashtag");
-
-      props.sortByHashTag();
-      //this.setState({ sortBy: "hashtag" });
     } else if (e.target.value === "notetext") {
       window.localStorage.setItem("sortBy", "notetext");
-      if (myRef.current) myRef.current.focus();
-      //this.props.setTextFilter("");
       props.setTextFilter(val);
-      //window.localStorage.setItem("sortBy", "notetext");
-      //this.setState({ sortBy: "notetext" });
+      if (myRef.current) myRef.current.focus();
       setSortBy("notetext");
       props.sortByNoteText();
+    } else if (e.target.value === "hashtag") {
+      window.localStorage.setItem("sortBy", "hashtag");
+      props.setTextFilter(val);
+      if (myRef.current) myRef.current.focus();
+      setSortBy("hashtag");
+      props.sortByHashTag();
+      // if (val === "") {
+      //   //window.document.getElementById("termid").value = "#"
+      //   props.setTextFilter("#");
+
+      // } else {
+
+      //   props.setTextFilter(val);
+      // }
+      // if (myRef.current) myRef.current.focus();
+
+      // setSortBy("hashtag");
+
+      // props.sortByHashTag();
+    } else if (e.target.value === "hashtag") {
+      window.localStorage.setItem("sortBy", "star");
+      props.setTextFilter(val);
+      if (myRef.current) myRef.current.focus();
+      setSortBy("star");
+      props.sortByStar();
+    } else if (e.target.value === "views") {
+      //alert("views")
+      window.localStorage.setItem("sortBy", "views");
+      if (myRef.current) myRef.current.focus();
+      //this.props.setTextFilter("");
+      props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      //this.setState({ sortBy: "notetext" });
+      setSortBy("views");
+      props.sortByViews();
+      //alert("after call to props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
+    } else if (e.target.value === "likes") {
+      window.localStorage.setItem("sortBy", "likes");
+      if (myRef.current) myRef.current.focus();
+      //this.props.setTextFilter("");
+      props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      //this.setState({ sortBy: "notetext" });
+      setSortBy("likes");
+      props.sortByLikes();
+      //alert("after call to props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
+    } else if (e.target.value === "star") {
+      window.localStorage.setItem("sortBy", "star");
+      if (myRef.current) myRef.current.focus();
+      //this.props.setTextFilter("");
+      props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      //this.setState({ sortBy: "notetext" });
+      setSortBy("star");
+      props.sortByStar();
+      //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
   };
@@ -456,8 +498,6 @@ function ExpandableArray(props) {
   };
 
   const handleClose = (x) => {
-    //let x = !isFormOpen
-    //alert("isFormOpen="+x)
     setIsFormOpen(false);
     //window.scrollTo(0, 0);
   };
@@ -466,55 +506,51 @@ function ExpandableArray(props) {
     event.preventDefault();
     setIsFormOpen(true);
 
-   
     showEmailForm(isFormOpen);
   };
 
   const setItNow = (index, ht, e) => {
     setActiveItem(index);
     props.setit(ht, e);
+    document.getElementById("very-top-id").scrollBy({
+      top: 0,
+      left: 360,
+      behavior: "smooth",
+    });
+
+    // document.getElementById("very-top-id").scrollBy({
+    //   top: 500,
+    //   left: 360,
+    //   behavior: "smooth",
+    // });
   };
+
+  const addALink = () => {
+    setIsForm2Open(true)
+  }
+
+  const handleClose2 = () => {
+    //alert("closeLink")
+    setIsForm2Open(false)
+  }
 
   return (
     <div className="bg-white-1">
       <div className="sticky-div-">
-        {/* <div
-          className={`website-background-color ${
-            useButtons === true ? "width30p" : "width30pt"
-          } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-16 font-weight-500`}
-          title="For Medical staff patient providers' are welcome to use this Medical Referral Links Management System to add, view, delete and share your links with a patient or other providers." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
-        >
-          {
-            uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" //use RZ...
-              ? "Medical Staff Referral Links Management System (Example Page For Staff User Id: "+props.theplan.uid+")" //"Internet Links Management Tool"
-              : uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2"
-                ? "City Walks"
-                : "Medical Staff Referral Links Management System"+" For Staff User Id: "+props.theplan.uid //"Internet Links Management Tool"
-          }
-        </div> */}
         <div
-          className={`website-background-color ${
-            useButtons === true ? "width30p" : "width30pt"
-          } theHeight flexrowzc2 border-b-5 margin-left-n-19 font-roboto text-size-16 font-weight-500`}
+          className={`website-background-color width30pt
+          } theHeight flexrowzc2 border-b-5font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
-          {
-            uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" ? (
-              <span>Internet Links Organizer Dashboard (Hashtags Page)</span>
-            ) : // <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
-            uid === "7CzFYQjw2aUhHgCYjS2eDODrfVE2" ? (
-              "City Walks"
-            ) : (
-              <span>Internet Links Organizer Dashboard (Hashtags Page)</span>
-            )
-            //  <span className="margin-left-11"></span><a href="https://accuradio.com" className="text-size-17" style={{ 'margin-right': '1rem'}} target="_blank">play radio</a>❤</span> //"Internet Links Management Tool"
-          }
+          <span className="padding-left-n-x">
+            Internet Links Organizer Dashboard's Home Page
+          </span>
         </div>
-        <div>
+        <div className="margin-left-11-">
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingUp}
-            className="button-2"
+            className="button-2 widthxpx2"
           >
             ScrollUp
           </button>
@@ -524,7 +560,7 @@ function ExpandableArray(props) {
             id="stopscroll"
             title="Click the button to stop auto scroll."
             onClick={stopScrolling}
-            className="button-2 ib margin-left-11"
+            className="button-2 ib margin-left-11 widthxpx2"
           >
             Stop
           </button>
@@ -532,316 +568,523 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingDown}
-            className="button-2 ib margin-left-11"
+            className="button-2 ib margin-left-11 widthxpx2"
           >
             ScrollDn
           </button>
-          {/* <button
-            title="Click the button to begin auto scroll."
-            onClick={startWrite}
-            className="button-2 ib margin-left-11"
-          >
-            Write
-          </button> // */}
         </div>
       </div>
 
       <div className="flexrowztt">
-        {
+        {/* <div> */}
+        <div>
+          {/* left column scrollable-div1m for mobile*/}
           <div
-            id="ls3"
-            className={`${useButtons === true ? "width30p" : "width30menupane"}  ${isMobile() === false ? "scrollable-div1" : "scrollable-div1m"}`}
+            id="ls"
+            className={`${isMobile() === true ? "width30menupane" : "width30menupane2"} scrollable-div1`}
           >
-            <div className="border-right-5"></div>
-
-            <div
-              className={`${useButtons === true ? "width30p" : "width30pt-"} border-right-5`}
-            >
-              <div className="">
-                <div
-                  ref={props.ref1}
-                  className={`${""} background-white-1 borderradius5`}
-                  title={
-                    props.signup === true
-                      ? "hashtag, triple click to highlight"
-                      : "hashtag, triple click to highlight"
-                  }
-                >
-                  {!expanded && false ? (
-                    //props.b === 1 &&
-                    props.links.map((s, index) => {
-                      if (index < 50)
-                        return (
-                          <div>
-                          </div>
-                        );
-                      else return false;
-                    })
-                  ) : (
-                    <div>
-                      {""}
-                      {/*s looks like this [{hashtag:"#abc", count:1, longname:"longname", showpublic:1}...{hashtag:"#xyz", count:1, longname:"longnamesubn", showpublic:0}]*/}
-                      {/*all of the hashtags have a showpublic property and their can be m hashtags for a url, if user
-                      set showpublic to 0 for false for the url all of the hashtags for that url have showpublic set to 0 for false*/}
-                      {props.links.map((s, index) => {
-                      //props.thehashtags.map((s, index) => {
-                        //have 3 map calls and display the first column then the second column and then the thrid column
-                        //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
-                        if (
-                          //(rt === "readonly")  &&
-                          s.showpublic === 0
-                          //|| s.archive === 1
-                        )
-                          return <div></div>;
-                        else
-                          return (
-                            <div
-                              key={index}
-                              className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
-                            >
-                              <span>{s.description2}</span>
-                              {/* <span>{s.note}</span> */}
-                            </div>
-                          );
-                      })}
-                    </div>
-                  )}
+            <div className={`border-right-5`}>
+              <div
+                ref={props.ref1}
+                className={`${""} background-white-1 borderradius5`}
+                title={
+                  props.signup === true
+                    ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
+                    : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
+                }
+              >
+                <div>
+                  {props.mappedDataShort.map((s, index) => {
+                    //have 3 map calls and display the first column then the second column and then the thrid column
+                    //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
+                    if (
+                      //(rt === "readonly")  &&
+                      s.showpublic === 0
+                      //|| s.archive === 1
+                    )
+                      return <div key={index}></div>;
+                    else
+                      return (
+                        <div
+                          key={index}
+                          className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
+                        >
+                          <a
+                            className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
+                                ib margin-top-1 ${
+                                  props.b == 1
+                                    ? "pointereventsauto underline"
+                                    : "pointereventsnone"
+                                }`}
+                            style={{ whiteSpace: "pre-wrap" }}
+                            href="#"
+                            onClick={() =>
+                              setItNow(index, s.description, event)
+                            }
+                            title={`click to see results`}
+                          >
+                            <span>{s.description2}</span>
+                          </a>
+                          <br />
+                          <span
+                            className="ib margin-left-11z"
+                            style={{
+                              color: "black",
+                              fontSize: ".9rem",
+                              textDecoration: "none",
+                              fontWeight: "normal",
+                              pointerEvents: "none",
+                              whiteSpace: "pre-wrap",
+                            }}
+                          >
+                            {s.matchesstring}
+                          </span>
+                        </div>
+                      );
+                  })}
                 </div>
               </div>
             </div>
           </div>
-        }
+        </div>
 
-        {props.mappedDataShort.length >= 0 ? (
-          <div className="width70p-">
-            <div
-              className="flexrow2c padding-left-a borderRadius4"
-              title={props.signup === true ? "" : ""}
-            >
-              <div className="text-size-5 padding-top-11">
-                {isMobile() === false ? (
-                  <div className="flexrow2j margin-left-minus-3">
-                    {props.signup === true || signup === "0" ? (
-                      <div className="padding-top-1112  textCenter- hide">
-                        <img
-                          src={photoURL}
-                          width="64"
-                          height="64"
-                          style={{ borderRadius: "50%" }}
-                          className="ib- margin-bottom-11-"
-                        />
+        {/*right column code here*/}
+        <div className="margin-top-n-x">
+          <div>
+            <div>
+              {/* {isMobile() === true && <span className="ib margin-left-11">
+                  {props.links.length} of {maximum} links is stored on the{" "}
+                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
+                  {" plan."} 
+                </span>}*/}
+              {isMobile() === true && (
+                <div className="ib margin-left-11 margin-bottom-1">
+                  {props.links.length} links are displayed.{props.links.length===0 && " Please add your first link to your page."}
+                </div>
+              )}
+              {isMobile() === true ? (
+                <div className="margin-left-11 margin-bottom-1 flexcol3">
+                  {props.signup === true && (
+                    <span>
+                      <div className="">
+                        <div className="flexcol3">
+                          <fieldset className="width325 padding-bottom-11 margin-bottom-1-">
+                            <legend>Your Link:</legend>
+                            <div className="text-size-1">
+                              <a
+                                href="#"
+                                ref={textAreaRef}
+                                className={`ib nounderline pointereventsnone borderLightOrange- padding-all2 borderradius55 ${isMobile() === false ? "" : "width295"}`}
+                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                                style={{
+                                  textDecoration: "none",
+                                  color: "black",
+                                }}
+                              >
+                                https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                                {props.uid}
+                              </a>
+                            </div>
+                            <div className="margin-bottom-1">
+                              <button
+                                className={`margin-left-11 height48- button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+                                
+                                onClick={copyToClipboard}
+                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                              >
+                                <span className="ib height48">
+                                  click to copy your link to share your links
+                                </span>
+                              </button>
+                              {copySuccess}
+                            </div>
+                          </fieldset>
+                        </div>
                       </div>
-                    ) : (
-                      <div
-                        className="padding-top-1112  textCenter-"
-                        title="welcome"
+                    </span>
+                  )}
+                  {props.signup === false && (
+                    <span>
+                      <div className="">
+                        <div className="flexcol3">
+                          <fieldset className="width325 padding-bottom-11 margin-bottom-1-">
+                            <legend>Your Link:</legend>
+                            <div className="text-size-1">
+                              <a
+                                href="#"
+                                ref={textAreaRef}
+                                className={`ib nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55 ${isMobile() === false ? "" : "width295"}`}
+                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                                style={{
+                                  textDecoration: "none",
+                                  color: "black",
+                                }}
+                              >
+                                https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                                {props.uid}
+                              </a>
+                            </div>
+                            <div className="margin-bottom-1">
+                              <button
+                                className={`margin-left-11 height48 button-2w ib border5- ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+                                
+                                onClick={copyToClipboard}
+                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                              >
+                                <span className="ib height48">
+                                  click to copy your link to share your links
+                                </span>
+                              </button>
+                              {/* {copySuccess} */}
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </span>
+                  )}
+
+                  {props.signup === true && rt !== "readonly" ? (
+                    <div className="">
+                      <a
+                        target="_blank"
+                        id="adlinkid"
+                        href="#"
+                        title="Email your sharable link to share with others."
+                        className={`cursor-pointer width325 button-2 color-white-1 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                        onClick={handleClick}
                       >
-                        {false ? (
-                          <img
-                            src={photoURL}
-                            width="64"
-                            height="64"
-                            style={{ borderRadius: "50%" }}
-                            className="ib- margin-bottom-11-"
+                        <span className="ib color-white-1">
+                          Email your link
+                        </span>
+                      </a>
+                     <button className="ib margin-left-11 button-2" onClick={addALink} title="Add a link to your page.">Add A link</button>
+                      {isForm2Open && <AddLinkPage 
+                      isForm2Open={isForm2Open}
+                      closeLink={handleClose2}
+                      
+                      />
+                      
+                      }
+                      {/* <AddLinkPage /> */}
+                      {
+                        //emailForm &&
+                        isFormOpen && (
+                          <SendEmailPage
+                            sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
+                            uid={uid}
+                            isFormOpen={isFormOpen}
+                            handleClose={handleClose}
                           />
-                        ) : (
-                          <div className="textCenter- hide">
-                            <img
-                              src={myprofile}
-                              width="64"
-                              height="64"
-                              style={{ borderRadius: "50%" }}
-                              className="ib- margin-bottom-11-"
-                            />
+                        )
+                      }
+                    </div>
+                  ) : (
+                    <div className="minWidth- bg-color-4"></div>
+                  )}
+                </div>
+              ) : (
+                <div className="margin-left-11 flexcol3">
+                  {props.signup === true && (
+                    <span>
+                      <div className="margin-bottom-123">
+                        <div className="flexrow2cv2">
+                          <div className="text-size-1 textLeft- margin-top-1- margin-bottom-1">
+                            <a
+                              href="#"
+                              ref={textAreaRef}
+                              className={`ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55 ${isMobile() === false ? "" : "width325"}`}
+                              title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                              style={{ textDecoration: "none", color: "black" }}
+                            >
+                              https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                              {props.uid}
+                            </a>
+                            <button
+                              className={`margin-left-11 height48 button-2w ib margin-right-1 border5- ${isMobile() === false ? "" : "margin-top-1"}`}
+                              
+                              onClick={copyToClipboard}
+                              title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                            >
+                              <span className="">
+                                click to copy your link to share your links
+                              </span>
+                            </button>
+                            {copySuccess}
                           </div>
-                        )}
+                        </div>
                       </div>
-                    )}
+                    </span>
+                  )}
+                  {props.signup === false && (
+                    <span>
+                      <div className="margin-bottom-123">
+                        <div className="flexrow2cv2">
+                          <div className="text-size-1 textLeft- margin-top-1- margin-bottom-1">
+                            <a
+                              href="#"
+                              ref={textAreaRef}
+                              className="ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange borderLightOrange padding-all2 borderradius55"
+                              title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                              style={{ textDecoration: "none", color: "black" }}
+                            >
+                              https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                              {props.uid}
+                            </a>
+                            <button
+                              className="margin-left-11 button-2w height48 ib margin-right-1 margin-left-11 border5- pointereventsnone height: 48px"
+                             
+                              onClick={copyToClipboard}
+                              title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                            >
+                              click to copy your link to share your links
+                            </button>
+                            {copySuccess}
+                          </div>
+                        </div>
+                      </div>
+                    </span>
+                  )}
+
+                  {props.signup === true && rt !== "readonly" ? (
+                    <div className="margin-bottom-1">
+                      <a
+                        target="_blank"
+                        id="adlinkid"
+                        href="#"
+                        title="Email your sharable link to share with others. Email recipient sees readonly page"
+                        className={`ib flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                        onClick={handleClick}
+                      >
+                        <span className="ib color-white-1">
+                          Email your link
+                        </span>
+                      </a>
+                      <button className="ib margin-left-11 button-2" onClick={addALink} title="Add a link to your page.">Add A link</button>
+                       {
+                         isForm2Open && 
+                         <AddLinkPage 
+                         isForm2Open={isForm2Open}
+                         handleClose2={handleClose2}
+                         />
+                        }
+                   
+                      {
+                        //emailForm &&
+                        isFormOpen && (
+                          <SendEmailPage
+                            sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
+                            uid={uid}
+                            isFormOpen={isFormOpen}
+                            handleClose={handleClose}
+                          />
+                        )
+                      }
+                    </div>
+                  ) : (
+                    <div className="bg-color-4"></div>
+                  )}
+                </div>
+              )}
+
+              <div id="before-before-link-summary-id" className="">
+                {isMobile() === true ? (
+                  <div className="flexcol3">
+                    <div className="">
+                      <input
+                        title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
+                        placeholder="enter what to find"
+                        autoFocus
+                        id="termid"
+                        className={`margin-left-11 width325 searchinput`}
+                        //className={`width325 searchinput`}
+                        type="text"
+                        //value={this.state.dv}
+                        //onChange={(e) => this.setState({ searchTerm: e.target.value })}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onKeyDown={handleKeyPress}
+                      />
+                    </div>
+
+                    <div
+                      className={`margin-right-1 margin-left-11 margin-top-1`}
+                    >
+                      <button
+                        id="buttonid"
+                        className={`${isMobile() === true ? "width325" : ""} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                        //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
+
+                        //onClick={this.search}
+                        onClick={search}
+                        ////title="Searches to find entered term through the previously selected list which will appear in copper color."
+                        title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
+                      >
+                        Search
+                      </button>
+                    </div>
+
+                    <div className={`margin-top-11z1 margin-left-11`}>
+                      <select
+                        id="mode"
+                        className="select outline-none borderRadius55"
+                        //value={this.state.sortBy}
+                        value={sortBy}
+                        //value={this.props.filters.sortBy}
+                        //value={window.localStorage.getItem("sortBy")}
+
+                        onChange={onSortChange}
+                        title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
+                      >
+                        <optgroup label="Find:">
+                          <option value="hashtag" title="search by hash tag">
+                            Hash Tag
+                          </option>
+
+                          <option
+                            //selected
+                            value="description"
+                            title="search through the uri/url link texts"
+                          >
+                            Link Text
+                          </option>
+
+                          <option
+                            value="notetext"
+                            title="search through the notes"
+                          >
+                            Note Text
+                          </option>
+                        </optgroup>
+                        <optgroup label="Popularity:">
+                          <div
+                            style={{
+                              borderBottom: "1px solid #dee2e6",
+                              margin: "0.5rem 0",
+                            }}
+                          />
+                          <option
+                            value="views"
+                            title="sort views into descending order"
+                          >
+                            Views
+                          </option>
+                          <option
+                            value="likes"
+                            title="sort likes into descending order"
+                          >
+                            Likes
+                          </option>
+                          <option value="star" title="show your top ten">
+                            My Top Ten
+                          </option>
+                        </optgroup>
+                      </select>
+                    </div>
                   </div>
                 ) : (
-                  <div className="flexrow2j margin-left-minus-2">
-                    {props.signup === true || signup === "0" ? (
-                      <div className="padding-top-1112  textCenter- hide">
-                        <img
-                          src={photoURL}
-                          width="64"
-                          height="64"
-                          style={{ borderRadius: "50%" }}
-                          className="ib- margin-bottom-11-"
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        className="padding-top-1112 textCenter-"
-                        title="welcome"
+                  <div className="flexrowzv margin-top-1t1 margin-bottom-1">
+                    <div className="">
+                      <input
+                        title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
+                        placeholder="enter what to find"
+                        autoFocus
+                        id="termid"
+                        className={`margin-left-11 width400 searchinput`}
+                        //className={`width325 searchinput`}
+                        type="text"
+                        //value={this.state.dv}
+                        //onChange={(e) => this.setState({ searchTerm: e.target.value })}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onKeyDown={handleKeyPress}
+                      />
+                    </div>
+
+                    <div
+                      //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
+                      className={`margin-left-11`}
+                    >
+                      <button
+                        id="buttonid"
+                        //className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
+                        className={`${isMobile() === true ? "width325" : ""} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                        //onClick={this.search}
+                        onClick={search}
+                        //title="Searches to find entered term through the previously selected list which will appear in copper color."
+                        title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
                       >
-                        {false ? (
-                          <img
-                            src={photoURL}
-                            width="64"
-                            height="64"
-                            style={{ borderRadius: "50%" }}
-                            className="ib- margin-bottom-11-"
+                        Search
+                      </button>
+                    </div>
+
+                    <div className={`margin-left-11`}>
+                      <select
+                        id="mode"
+                        className="select outline-none borderRadius55"
+                        //value={this.state.sortBy}
+                        value={sortBy}
+                        //value={this.props.filters.sortBy}
+                        //value={window.localStorage.getItem("sortBy")}
+
+                        onChange={onSortChange}
+                        title="Select one of these before pressing the search button. Hash Tag is the mode for searching through all of the hashtags, Link Text is the mode for searching through all of the link texts, Note Text is the mode for searching through all of the note texts"
+                      >
+                        <optgroup label="Find:">
+                          <option value="hashtag" title="search by hash tag">
+                            Hash Tag
+                          </option>
+
+                          <option
+                            //selected
+                            value="description"
+                            title="search through the uri/url link texts"
+                          >
+                            Link Text
+                          </option>
+
+                          <option
+                            value="notetext"
+                            title="search through the notes"
+                          >
+                            Note Text
+                          </option>
+                        </optgroup>
+                        <optgroup label="Popularity:">
+                          <div
+                            style={{
+                              borderBottom: "1px solid #dee2e6",
+                              margin: "0.5rem 0",
+                            }}
                           />
-                        ) : (
-                          <div className="textCenter- hide">
-                            <img
-                              src={myprofile}
-                              width="64"
-                              height="64"
-                              style={{ borderRadius: "50%" }}
-                              className="ib- margin-bottom-11-"
-                            />
-                          </div>
-                        )}
-                      </div>
-                    )}
+                          <option
+                            value="views"
+                            title="sort views into descending order"
+                          >
+                            Views
+                          </option>
+                          <option
+                            value="likes"
+                            title="sort likes into descending order"
+                          >
+                            Likes
+                          </option>
+                          <option value="star" title="show your top ten">
+                            My Top Ten
+                          </option>
+                        </optgroup>
+                      </select>
+                    </div>
                   </div>
                 )}
-
-                {isMobile() === true && (
-                  <div></div>
-                  // <div className="flexrow2j margin-left-minus-2 margin-bottom-1">
-                  //   <div className="text-size-1">
-                  //     <div
-                  //       className="ib text-size-1"
-                  //       title="location for your gmail name"
-                  //     >
-                  //       {(!!theuser && props.signup === true) || signup === "0"
-                  //         ? !!theuser.displayName === true
-                  //           ? theuser.displayName
-                  //           : "error getting display name"
-                  //         : !!theuser === true
-                  //           ? theuser.displayName
-                  //           : "(gmail name)"}
-                  //     </div>
-                  //   </div>
-                  // </div>
-                )}
-
-                {
-                  //props.signup === false
-                  true ? (
-                    <div className="text-size-1 flexrowzc">
-                      {isMobile() === true ? (
-                        <div className="padding-right-11 padding-bottom-118 lowercase">
-                          {props.signup === false && (
-                            //props.signup !== 0
-                            //signup !== 0
-                            <span
-                            // dangerouslySetInnerHTML={{
-                            //   __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save your links for revisitation and to provide one link for sharing your links with others on different websites like email of your choice, promoting worry free, and organized internet use.<br/><br/>`,
-                            // }}
-                            ></span>
-                          )}
-                        </div>
-                      ) : (
-                        <div>
-                          {props.signup === false && (
-                            //props.signup !== 0
-                            //signup !== 0  &&
-                            <span
-                            //dangerouslySetInnerHTML={{ __html: `Mission: To kindly invite you to this friendly user interface to alphabetically save<br /> your links for revisitation and to provide one link for sharing your links<br /> with others on different websites like email of your choice.<br/><br/>`}}
-                            ></span>
-                          )}
-                        </div>
-                      )}
-
-                      {props.signup === false && <div></div>}
-                    </div>
-                  ) : (
-                    <div></div>
-                    // <div>
-                    //   <div className="flexrow2c">
-                    //     <div className="text-size-1 textLeft margin-top-1">
-                    //       <a
-                    //         href="#"
-                    //         ref={textAreaRef}
-                    //         className="ib nounderline pointereventsnone border5 padding-all2 borderradius55"
-                    //         title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                    //       >
-                    //         https://urilinks.com/dashboard?signup=0&id=
-                    //         {props.uid}
-                    //       </a>
-                    //       <button
-                    //         className="button-2w ib margin-right-1 margin-left-11 border5"
-                    //         onClick={copyToClipboard}
-                    //         title="Share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                    //       >
-                    //         copy sharable link
-                    //       </button>
-                    //       {copySuccess}
-                    //     </div>
-                    //   </div>
-                    // </div>
-                  )
-                }
-
-                <br />
-              </div>
-
-              <div className="flexrow2e">
-                {props.signup === true && (
-                  <div
-                    title="current plan"
-                    className="margin-right-1 textLeft hide"
-                  >
-                    plan:{" "}
-                    {!!props.theplan.plan &&
-                      props.theplan.plan.replace(/"/g, "")}
-                  </div>
-                )}
-
-                {isToggled && props.signup === false && <div></div>}
-                <div>
-                  {isToggled && props.signup === true && (
-                    <div className="margin-right-1">
-                      {!!props.theplan.plan &&
-                      props.theplan.plan.replace(/"/g, "") === "free" ? (
-                        <span>(It stores upto {StorageSizes.free} links)</span>
-                      ) : (
-                        <span></span>
-                      )}
-                      {!!props.theplan.plan &&
-                      props.theplan.plan.replace(/"/g, "") === "basic" ? (
-                        <span>(It stores upto {StorageSizes.basic} links)</span>
-                      ) : (
-                        <span></span>
-                      )}
-                      {!!props.theplan.plan &&
-                      props.theplan.plan.replace(/"/g, "") === "standard" ? (
-                        <span>
-                          (It stores upto {StorageSizes.standard} links)
-                        </span>
-                      ) : (
-                        <span></span>
-                      )}
-                      {!!props.theplan.plan &&
-                      props.theplan.plan.replace(/"/g, "") === "premium" ? (
-                        <span>
-                          (It stores upto {StorageSizes.premium} links)
-                        </span>
-                      ) : (
-                        <span></span>
-                      )}
-                    </div>
-                  )}
-                </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <div></div>
-        )}
 
-        <div>
-          <div>
-            <div className="margin-left-minus-1"></div>
+            <div className={`margin-top-18`}>
+              {/* column 2 */}
+              {/* <LinkList av={props.av} /> */}
+            </div>
           </div>
-          {/* <div className="margin-top-18 width800">
-            <LinkList av={props.av} />
-          </div> */}
         </div>
+
+        {/* </div> */}
       </div>
     </div>
   );
@@ -879,7 +1122,6 @@ export class DisplayHashtags extends React.Component {
       foldernamesList: [],
       isToggled: false,
       searchTerm: "", //,
-      thehashtags: [],
     };
 
     this.setit = this.setit.bind(this);
@@ -926,6 +1168,11 @@ export class DisplayHashtags extends React.Component {
       document.querySelector("#top").scrollIntoView({
         behavior: "smooth",
       });
+  };
+
+  scrollDown = () => {
+    let d = this.getHeight();
+    //window.scrollTo(0, d);
   };
 
   deleteHashtagLinks = () => {
@@ -1051,7 +1298,50 @@ export class DisplayHashtags extends React.Component {
       this.setState({ sortBy: "notetext" });
       this.props.sortByNoteText();
       //this.setState({ sortBy: "notetext" });
+    } else if (e.target.value === "views") {
+      window.localStorage.setItem("sortBy", "views");
+      if (this.myRef.current) this.myRef.current.focus();
+      //this.props.setTextFilter("");
+      this.props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      this.setState({ sortBy: "views" });
+      this.props.sortByViews();
+      //alert("after call to this.props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
+    } else if (e.target.value === "likes") {
+      window.localStorage.setItem("sortBy", "likes");
+      if (this.myRef.current) this.myRef.current.focus();
+      //this.props.setTextFilter("");
+      this.props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      this.setState({ sortBy: "likes" });
+      this.props.sortByLikes();
+      //alert("after call to this.props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
+    } else if (e.target.value === "star") {
+      window.localStorage.setItem("sortBy", "star");
+      if (this.myRef.current) this.myRef.current.focus();
+      //this.props.setTextFilter("");
+      this.props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      this.setState({ sortBy: "star" });
+      this.props.sortByStar();
+      //alert("after call to this.props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
     }
+  };
+  //
+  extractHashtags = (text) => {
+    console.log("extractHashTags, text=" + text);
+    const regex = /#([a-zA-Z0-9_]+)/g;
+    const hashtags = [];
+    let match;
+
+    while ((match = regex.exec(text)) !== null) {
+      hashtags.push(match[0]);
+    }
+    console.log("hashtags=" + JSON.stringify(hashtags));
+    return hashtags;
   };
 
   removeDuplicatesByKey(array, keyFunction) {
@@ -1070,28 +1360,7 @@ export class DisplayHashtags extends React.Component {
     return regex.test(navigator.userAgent);
   }
 
-  getIndividualHashtags() {
-    let hta = ""; //results in a string of hashtags
-    this.props.hashtags.forEach((item, index) => {
-      hta += item.matchesstring;
-    });
-    //convert string of hashtags to an array of hashtags
-    let arr = hta.match(/#[^\s#]+/g) || [];
-    //sort the array of hashtags
-    arr.sort();
-    //remove duplicates
-    const uniqueArray = [...new Set(arr)];
-    this.setState(() => ({ thehashtags: uniqueArray }));
-    //done
-  }
-
   componentDidMount() {
-    document.title = "urilinks (hashtags page)";
-    //this.props.hashtags
-    //thehashtags
-    // this.setState(() => ({ thehashtags }));
-    this.getIndividualHashtags();
-
     //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
@@ -1105,6 +1374,7 @@ export class DisplayHashtags extends React.Component {
         this.setState({ sortBy: "description" });
         window.document.querySelector("#buttonid").click();
       }
+      //window.scrollTo(0,0)
     } catch (e) {
       //alert("componentDidMount,e="+e)
     }
@@ -1152,11 +1422,6 @@ export class DisplayHashtags extends React.Component {
     window.location.href = "https://urilinks.com?signup=signup";
   };
 
-  scrollDown = () => {
-    let d = this.getHeight();
-    //window.scrollTo(0, d);
-  };
-
   handleCheckboxShow = (event) => {
     this.setState({ isToggled: !this.state.isToggled });
     console.log("show dd");
@@ -1166,14 +1431,16 @@ export class DisplayHashtags extends React.Component {
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
-
+    // alert("select="+select)
     //var selectedValue = select.options[select.selectedIndex].value;
     var selectedValue;
     if (window.localStorage.getItem("sortBy") !== "")
       selectedValue = window.localStorage.getItem("sortBy");
     else selectedValue = select.options[select.selectedIndex].value;
+    //alert("2 selectedValue="+selectedValue+", term="+term)
     console.log("search = () => {, selectedValue=" + selectedValue);
     let term = window.document.getElementById("termid").value.trim();
+    //alert("selectedValue="+selectedValue+", term="+term)
     window.localStorage.setItem("termid", term);
     this.props.setTextFilter(term);
 
@@ -1196,18 +1463,20 @@ export class DisplayHashtags extends React.Component {
         this.props.setTextFilter(term);
       }
     }
+    //else if (
+    //   selectedValue === "views" &&
+    //   // && sortBy === "hashtag"
+    //   this.props.filters.sortBy === "views"
+    // ) {
+    //   window.localStorage.setItem("termid", "");
+    //     this.props.setTextFilter("");
+    // }
   };
 
   render() {
     return (
-      <div className="">
         <div>
-          {((this.props.hashtags && this.props.hashtags.length > 0) ||
-            (this.state.mappedDataLong &&
-              this.state.mappedDataLong.length > 1)) && (
-            <div>
               <ExpandableArray
-                thehashtags={this.state.thehashtags}
                 mappedDataShort={this.props.hashtags}
                 mappedDataLong={this.state.mappedDataLong}
                 maxLength={this.SHORT_HASHTAG_LENGTH}
@@ -1225,19 +1494,19 @@ export class DisplayHashtags extends React.Component {
                 sortByDescription={this.props.sortByDescription}
                 sortByHashTag={this.props.sortByHashTag}
                 sortByNoteText={this.props.sortByNoteText}
+                sortByViews={this.props.sortByViews}
+                sortByLikes={this.props.sortByLikes}
+                sortByStar={this.props.sortByStar}
                 filters={this.props.filters}
               />
             </div>
-          )}
-        </div>
-      </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
   filters: state.filters,
-  links: selectLinks(state.links, state.filters),
+  links: state.links,
   hashtags: state.hashtags,
   setit: state.setit,
   settings: state.settings,
@@ -1249,13 +1518,19 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
-  sortByDate: () => dispatch(sortByDate()),
-  sortByDescription: () => dispatch(sortByDescription()),
+
   sortByHashTag: () => dispatch(sortByHashTag()),
+  sortByDescription: () => dispatch(sortByDescription()),
+  sortByNoteText: () => dispatch(sortByNoteText()),
+
+  sortByViews: () => dispatch(sortByViews()),
+  sortByLikes: () => dispatch(sortByLikes()),
+  sortByStar: () => dispatch(sortByStar()),
+  sortByFolder: () => dispatch(sortByFolder()),
+
+  sortByDate: () => dispatch(sortByDate()),
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
-  sortByNoteText: () => dispatch(sortByNoteText()),
-  sortByFolder: () => dispatch(sortByFolder()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayHashtags);

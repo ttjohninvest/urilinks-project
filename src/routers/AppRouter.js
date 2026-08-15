@@ -3,7 +3,7 @@ import { Router, Route, Switch, Link, NavLink } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 import LinkDashboardPage from "../components/LinkDashboardPage";
 import LinkSettingsPage from "../components/LinkSettingsPage";
-import DisplayHashtags from "../components/DisplayHashtags";
+import LinkHashtagsPage from "../components/LinkHashtagsPage";
 import AddSettingsPage from "../components/AddSettingsPage";
 //import AddLinkPage from "../components/AddLinkPage";
 import AddLinkPage from "../components/AddlinkPage";
@@ -141,7 +141,7 @@ const AppRouter = (props) => (
          <PrivateRoute
           path="/displayhashtags"
           signup={props.signup}
-          component={DisplayHashtags}
+          component={LinkHashtagsPage}
         />
         <PrivateRoute
           path="/fetchbookmarks/:option"

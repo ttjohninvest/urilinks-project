@@ -675,7 +675,7 @@ function ExpandableArray(props) {
                             </div>
                             <div className="margin-bottom-1">
                               <button
-                                className={`margin-left-11 height: 48px button-2w ib border5- ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+                                className={`margin-left-11 height48 button-2w ib border5- ${isMobile() === false ? "" : "width295 margin-top-1"}`}
                                 style={{border: '1px solid #fbbf77'}}
                                 onClick={copyToClipboard}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
@@ -804,7 +804,7 @@ function ExpandableArray(props) {
                             <a
                               href="#"
                               ref={textAreaRef}
-                              className="ib nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55"
+                              className="ib nounderline pointereventsnone border5- height48 borderLightOrange padding-all2 borderradius55"
                               title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               style={{ textDecoration: "none", color: "black" }}
                             >

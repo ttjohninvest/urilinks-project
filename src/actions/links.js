@@ -15,7 +15,7 @@ export const emailSharableLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
-      showpublic = false,
+      showpublic = 1,
       longname = "",
       description = "",
       Url = "",

@@ -599,8 +599,8 @@ function ExpandableArray(props) {
                               key={index}
                               className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                             >
-                              {/* <span>{s.description2}</span> */}
-                              <span>{s.note}</span>
+                              <span>{s.description2}</span>
+                              {/* <span>{s.note}</span> */}
                             </div>
                           );
                       })}

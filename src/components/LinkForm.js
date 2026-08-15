@@ -230,6 +230,7 @@ class LinkForm extends React.Component {
   };
   render() {
     return (
+      <div>
       <form className="form form-bg" onSubmit={this.onSubmit}>
         {this.state.error && (
           <p className="form__error flexrow2w">{this.state.error}</p>
@@ -305,9 +306,11 @@ class LinkForm extends React.Component {
         ></textarea>
         <div>
           <button className="ib button-2w border5">Save Link</button>
-          <button className="ib button-2w border5 margin-left-11" onClick={this.props.closeLink}>Cancel</button>
+         
         </div>
       </form>
+      <button className="ib button-2w border5 margin- left-11" onClick={this.props.closeLink}>Cancel</button>
+      </div>
     );
   }
 }

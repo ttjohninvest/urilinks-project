@@ -614,7 +614,8 @@ function ExpandableArray(props) {
                       {/*s looks like this [{hashtag:"#abc", count:1, longname:"longname", showpublic:1}...{hashtag:"#xyz", count:1, longname:"longnamesubn", showpublic:0}]*/}
                       {/*all of the hashtags have a showpublic property and their can be m hashtags for a url, if user
                       set showpublic to 0 for false for the url all of the hashtags for that url have showpublic set to 0 for false*/}
-                      {props.thehashtags.map((s, index) => {
+                      {props.mappedDataShort.map((s, index) => {
+                      //props.thehashtags.map((s, index) => {
                         //have 3 map calls and display the first column then the second column and then the thrid column
                         //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
                         if (
@@ -629,7 +630,8 @@ function ExpandableArray(props) {
                               key={index}
                               className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                             >
-                              <span>{s}</span>
+                              {/* <span>{s.description2}</span> */}
+                              <span>{s.note}</span>
                             </div>
                           );
                       })}

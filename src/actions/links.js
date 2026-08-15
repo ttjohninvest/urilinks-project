@@ -601,7 +601,7 @@ export const startSetLinks = (uid) => {
 
 export const startSetLinksNew =  (uid) => {
   console.log("startSetLinks");
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const hashtags = [];
 
     return database
@@ -625,7 +625,7 @@ export const startSetLinksNew =  (uid) => {
           });
         });
         //console.log("startSetLinks, about to call dispatch(setLinks(links));");
-        await dispatch(setLinks(links2));
+        dispatch(setLinks(links2));
 
         
   let hashtags = [];

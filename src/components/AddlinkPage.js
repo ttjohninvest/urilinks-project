@@ -176,7 +176,7 @@ export const AddLinkPage = (props) => {
             </div>
           </div>
           <div className="content-container">
-            <LinkForm onSubmit={onSubmit} makereadonly={false} />
+            <LinkForm onSubmit={onSubmit} closeLink={props.closeLink} makereadonly={false} />
           </div>
         </div>
       ) : (

@@ -529,6 +529,10 @@ function ExpandableArray(props) {
     setShowComponent(true)
   }
 
+  const closeLink = () => {
+    setShowComponent(false)
+  }
+
   return (
     <div className="bg-white-1">
       <div className="sticky-div-">

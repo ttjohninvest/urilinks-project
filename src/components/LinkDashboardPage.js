@@ -207,16 +207,25 @@ left column
         <div className="padding-tb-1">
           {/* <Simple2 /> */}
 
-          {props.links.length > 0 ? (
+            
             <LinkListFilters
               setTheHashTagDivHeight={setTheHashTagDivHeight}
               b={b}
               av={av}
               rerenderit={rerenderit}
             />
-          ) : props.signup !== true ?(
-            <Simple3 />
-          ):<div></div>}
+         
+
+          {/* {props.links.length > 0 ? (
+            <LinkListFilters
+              setTheHashTagDivHeight={setTheHashTagDivHeight}
+              b={b}
+              av={av}
+              rerenderit={rerenderit}
+            />
+          ) : true  ?(<div></div>
+            // <Simple3 />
+          ):<div></div>} */}
         </div>
 
         {/* <div className="border2black">

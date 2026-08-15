@@ -465,21 +465,7 @@ function ExpandableArray(props) {
     event.preventDefault();
     setIsFormOpen(true);
 
-    //     // document.getElementById("adlinkid").classList.add("pointereventsnone");
-    //     // setShowComponent(true);
-
-    //      const email = "johmcg64@gmail.com";
-    //   const subject = "Subject Line";
-    //   const body = "body of email";
-
-    //   //const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    // const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&id=${uid}`)
-    //   const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=Somebody+Sent+Me+A+gmail+From+urilinks.com&to=johmcg64@gmail.com&body=${uri}&tf=cm`
-
-    //     // Open the mail client
-    //     window.location.href = mailtoUrl //mailtoLink;
-    //alert("before call to showEmailForm(true), emailForm="+emailForm+",isFormOpen="+isFormOpen)
-    //alert("before call to showEmailForm, isFormOpen="+isFormOpen)
+   
     showEmailForm(isFormOpen);
   };
 

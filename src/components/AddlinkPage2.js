@@ -148,20 +148,10 @@ export const AddLinkPage2 = (props) => {
         console.log("VVVVVVVVVVVVV returned false");
       } else {
         props.history.push("/");
-        //window.scrollTo(0, 0);
-
-        //window.location.href = "https://urilinks.com?signup=signup";
+       
       }
 
-      // const r = props.startAddLink(link);
-      // if (r === false) {
-      //   setErrorDialog(true);
-      //   console.log("VVVVVVVVVVVVV returned false");
-      // } else {
-      //   props.history.push("/");
-
-      //   //window.location.href = "https://urilinks.com?signup=signup";
-      // }
+      
     } else {
       console.log("maximum links reached");
       setMaximumPage(true);

@@ -28,7 +28,7 @@ import Simple from "../components/Simple";
 // import PremiumPlan from "../components/PremiumPlan";
 
 import BookmarksManager from "../components/BookmarksManager";
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute-1";
 import PublicRoute from "./PublicRoute";
 import FetchBookmarks from "../components/FetchBookmarks";
 import AddLinkPageFileDate from "../components/AddLinkPageFileDate";

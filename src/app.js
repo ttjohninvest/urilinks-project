@@ -137,7 +137,6 @@ if (signup !== "signup") {
       console.log("logout happened");
       store.dispatch(logout());
       renderApp(store, signup);
-      //history.push("/dashboard?signup=signup");
       history.push("/");
     }
   });

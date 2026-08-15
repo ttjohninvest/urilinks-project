@@ -758,7 +758,7 @@ function ExpandableArray(props) {
                         </span>
                       </a>
                      <button className="ib margin-left-11 button-2" onClick={addALink} title="Add a link to your page.">Add A link</button>
-                      {showComponent && <AddLinkPage />}
+                      {showComponent && <AddLinkPage closeLink={closeLink}/>}
                       {/* <AddLinkPage /> */}
                       {
                         //emailForm &&

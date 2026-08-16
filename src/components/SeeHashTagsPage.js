@@ -4,9 +4,7 @@ import { withRouter } from "react-router-dom";
 
 export const SeeHashTagsPage = (props) => {
   //const [count, setCount] = useState(0);
-  //const [uniqueData, setUniqueData] = useState([]);
-
-const uniqueData2 = []
+  const [uniqueData, setUniqueData] = useState([]);
 
 useEffect(()=>{
      
@@ -33,7 +31,7 @@ useEffect(()=>{
  console.log("DisplayHashtags.js, hashtag="+e.matchesstring)
  })
  
- //setUniqueData(uniqueData2)
+ setUniqueData(uniqueData2)
  //console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
    },[])
 
@@ -51,7 +49,7 @@ useEffect(()=>{
           </div>
           <div className="content-container heightx widthx overflowyauto borderLightOrange">
            {
-             uniqueData2.forEach((e)=>{
+             uniqueData.forEach((e)=>{
  {e.matchesstring}
  })
            }

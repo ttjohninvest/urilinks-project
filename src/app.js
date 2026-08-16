@@ -63,7 +63,7 @@ if (signup !== "signup") {
   window.localStorage.setItem("notloggedin", "1");
 
   if (id !== null) {
-    //startLogout()
+    startLogout()
     store.dispatch(login(id));
   } else {
     startLogout()
@@ -106,7 +106,7 @@ if (signup !== "signup") {
     signup: { signup: true },
   });
 
-  //startLogout()
+  startLogout()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log("logged in user=" + JSON.stringify(user));

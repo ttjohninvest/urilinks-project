@@ -51,8 +51,8 @@ useEffect(()=>{
           <div className="content-container heightx widthx overflowyauto borderLightOrange">
            {
              uniqueData.forEach((e)=>{
- {e.matchesstring}
- })
+                return e.matchesstring
+           })
            }
           </div>
           

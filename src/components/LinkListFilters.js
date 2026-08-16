@@ -398,6 +398,10 @@ function ExpandableArray(props) {
     }
   };
 
+  const changeSortBy = (sv) => {
+    setSortBy(sv)
+  }
+
   const onSortChange = (e) => {
     if (
       e.target.value === "none" ||
@@ -1014,6 +1018,7 @@ function ExpandableArray(props) {
                        {
                          isForm3Open && 
                          <SeeHashTagsPage 
+                         sortBy={changeSortBy}
                          isForm3Open={isForm3Open}
                          handleClose3={handleClose3}
                          />
@@ -1115,6 +1120,7 @@ function ExpandableArray(props) {
                        {
                          isForm3Open && 
                          <SeeHashTagsPage 
+                         sortBy={changeSortBy}
                          isForm3Open={isForm3Open}
                          handleClose3={handleClose3}
                          />

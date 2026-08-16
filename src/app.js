@@ -10,7 +10,7 @@ import store from "./store";
 import { startSetLinks, startSetLinksNew, startAddLink } from "./actions/links";
 import { startSetLinks2 } from "./actions/links2";
 import { startSetPeople } from "./actions/people";
-import {startlogout} from "./actions/auth"
+import {startLogout} from "./actions/auth"
 //startSetGoogleUserData
 import { startSetGoogleUserData } from "./actions/googleuserdata";
 

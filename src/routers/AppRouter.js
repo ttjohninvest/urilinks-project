@@ -53,10 +53,10 @@ const AppRouter = (props) => (
         />
 
          <PrivateRoute
-          path="/displayhashtags"
+          path="/displayhashtags?signup=signup"
           signup={props.signup}
           component={LinkHashtagsPage}
-          componentProps={{ theValue: true }}
+          //componentProps={{ theValue: true }}
         />
 
         <PrivateRoute

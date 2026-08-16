@@ -502,7 +502,7 @@ export const Header = (props) => {
                       <Link
                         id="displayhashtags"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
-                        to="/displayhashtags"
+                        to="/displayhashtags?signup=signup"
                         target="_blank"
                       >
                         <span

@@ -8,7 +8,7 @@ export const SeeHashTagsPage = (props) => {
 
 
  useEffect(()=>{
-     const uniqueData2 = props.mappedDataShort.filter((value, index, array) => {
+     const uniqueData2 = props.hashtags.filter((value, index, array) => {
    // Returns the first index where the name matches
    const firstIndex = array.findIndex(item => item.matchesstring === value.matchesstring);
    // Keep the item only if it is the first occurrence
@@ -53,7 +53,7 @@ export const SeeHashTagsPage = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  mappedDataShort: state.mappedDataShort,
+  hashtags: state.hashtags
 });
 
 export default withRouter(

@@ -302,9 +302,10 @@ export const Header = (props) => {
 
   const hashtagsPage = (event) => {
     event.preventDefault();
-    if(uid==="XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
-      window.open("https://urilinks.com/displayhashtags", "_blank");   //window.location.href = "https://urilinks.com/displayhashtags"
-    else window.location.href = window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank"); //"https://urilinks.com/displayhashtags?signup=signup";
+    // if(uid==="XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
+    //   window.open("https://urilinks.com/displayhashtags", "_blank");   //window.location.href = "https://urilinks.com/displayhashtags"
+    // else window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank"); window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
+    window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
   }
 
   return (

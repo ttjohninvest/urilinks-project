@@ -58,9 +58,9 @@ export const SeeHashTagsPage = (props) => {
             //setSortBy("hashtag");
       props.sortByHashTag();
 
-      const selectElement = document.getElementById('mode');
-      selectElement.value = 'hashtag';
-      selectElement.click()
+      // const selectElement = document.getElementById('mode');
+      // selectElement.value = 'hashtag';
+      // selectElement.click()
 
       //alert(`Clicked item with ID: ${itemId}`)
       console.log(`Clicked item with ID: ${itemId}`);

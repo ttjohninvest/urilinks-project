@@ -337,7 +337,7 @@ function ExpandableArray(props) {
     let term = window.document.getElementById("termid").value;
     let str = term.trim();
     term = str;
-    alert("selectedValue=" + selectedValue);
+    //alert("selectedValue=" + selectedValue);
     if (selectedValue === "hashtag") {
       const words = term.split(/\s+/); // Split by one or more whitespace characters
 

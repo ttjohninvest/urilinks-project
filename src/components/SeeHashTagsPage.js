@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 export const SeeHashTagsPage = (props) => {
   //const [count, setCount] = useState(0);
-  const [uniqueData2, setUniqueData2] = useState([]);
+  const [uniqueData, setUniqueData] = useState([]);
 
 
  useEffect(()=>{

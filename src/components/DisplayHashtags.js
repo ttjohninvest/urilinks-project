@@ -100,8 +100,8 @@ function ExpandableArray(props) {
   return firstIndex === index;
 });
 uniqueData.sort((a, b) => {
-  const valA = a.propertyName.toLowerCase();
-  const valB = b.propertyName.toLowerCase();
+  const valA = a.matchesstring.toLowerCase();
+  const valB = b.matchesstring.toLowerCase();
   if (valA < valB) return -1;
   if (valA > valB) return 1;
   return 0;

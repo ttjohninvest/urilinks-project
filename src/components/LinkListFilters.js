@@ -778,14 +778,14 @@ function ExpandableArray(props) {
                       />
                       }
 
-                        <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
+                        {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
                        {
                          isForm3Open && 
                          <SeeHashTagsPage 
                          isForm3Open={isForm3Open}
                          handleClose3={handleClose3}
                          />
-                        }
+                        } */}
 
                       
                       {
@@ -890,14 +890,14 @@ function ExpandableArray(props) {
                          />
                         }
 
-                         <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
+                         {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
                        {
                          isForm3Open && 
                          <SeeHashTagsPage 
                          isForm3Open={isForm3Open}
                          handleClose3={handleClose3}
                          />
-                        }
+                        } */}
                    
                       {
                         //emailForm &&
@@ -1010,6 +1010,14 @@ function ExpandableArray(props) {
                         </optgroup>
                       </select>
                     </div>
+                      <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
+                       {
+                         isForm3Open && 
+                         <SeeHashTagsPage 
+                         isForm3Open={isForm3Open}
+                         handleClose3={handleClose3}
+                         />
+                        }
                   </div>
                 ) : (
                   <div className="flexrowzv margin-top-1t1 margin-bottom-1">
@@ -1103,6 +1111,14 @@ function ExpandableArray(props) {
                         </optgroup>
                       </select>
                     </div>
+                      <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
+                       {
+                         isForm3Open && 
+                         <SeeHashTagsPage 
+                         isForm3Open={isForm3Open}
+                         handleClose3={handleClose3}
+                         />
+                        }
                   </div>
                 )}
               </div>

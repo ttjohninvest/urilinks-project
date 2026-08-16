@@ -11,6 +11,9 @@ export const SeeHashTagsPage = (props) => {
   //const [count, setCount] = useState(0);
   const [uniqueData, setUniqueData] = useState([]);
 
+  const scrollInterval4 = useRef(null);
+  const buttonRef4 = useRef(null);
+
   useEffect(() => {
     console.log(
       "SeeHashTagsPage.js, hashtags=" + JSON.stringify(props.hashtags),
@@ -72,8 +75,80 @@ export const SeeHashTagsPage = (props) => {
     }
   }
 
+   const startScrollingUp4 = () => {
+    // Prevent multiple intervals
+    if (scrollInterval4.current) return;
+
+    scrollInterval4.current = setInterval(() => {
+      document.getElementById("ls4").scrollBy({
+        top: 1, // Scroll 1 pixel each time
+        left: 0,
+        behavior: "auto",
+      });
+
+      if (
+        document.getElementById("ls4").scrollTop +
+          document.getElementById("ls4").clientHeight >=
+        document.getElementById("ls4").scrollHeight
+      ) {
+        buttonRef4.current.click();
+      }
+    }, 20); // Every 20 milliseconds
+  };
+
+  const stopScrolling4 = () => {
+    clearInterval(scrollInterval4.current);
+    scrollInterval4.current = null;
+  };
+
+  const startScrollingDown4 = () => {
+    // Prevent multiple intervals
+    if (scrollInterval4.current) return;
+
+    scrollInterval4.current = setInterval(() => {
+      document.getElementById("ls4").scrollBy({
+        top: -1, // Scroll 1 pixel each time
+        left: 0,
+        behavior: "auto",
+      });
+
+      // Stop automatically when reaching the top
+      if (document.getElementById("ls4").scrollTop === 0) {
+        buttonRef4.current.click();
+
+        //stopScrolling();
+      }
+    }, 20); // Every 20 milliseconds
+  };
+
   return (
     <div>
+       <div className="margin-left-11">
+        <button
+          title="Click the button to begin auto scroll."
+          onClick={startScrollingUp4}
+          className="button-2 widthxpx1"
+        >
+          <span>ScrollUp</span>
+        </button>
+
+        <button
+          ref={buttonRef4}
+          title="Click the button to stop auto scroll."
+          onClick={stopScrolling4}
+          className="button-2 ib margin-left-11"
+        >
+          <span>Stop</span>
+        </button>
+
+        <button
+          title="Click the button to begin auto scroll."
+          onClick={startScrollingDown4}
+          className="button-2 ib margin-left-11 widthxpx1"
+        >
+          <span>ScrollDn</span>
+        </button>
+      </div>
       <div className="margin-top-1 margin-left-11">
         <div className="page-header">
           <div className="content-container">
@@ -89,7 +164,7 @@ export const SeeHashTagsPage = (props) => {
           </div>
         </div>
         {uniqueData.length} results
-        <div className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange">
+        <div id="ls4" className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange">
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
             {uniqueData.map((item, index) => (
               !!item.matchesstring && <li key={index}  key={index} data-item-id={item.matchesstring} >{item.matchesstring}</li>

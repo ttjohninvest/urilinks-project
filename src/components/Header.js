@@ -303,7 +303,7 @@ export const Header = (props) => {
   const hashtagsPage = (event) => {
     event.preventDefault();
     if(uid==="XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
-      window.location.href = "https://urilinks.com"
+      window.location.href = "https://urilinks.com/displayhashtags"
     else window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
   }
 

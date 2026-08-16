@@ -163,8 +163,8 @@ export const SeeHashTagsPage = (props) => {
 
   return (
     <div>
-     
-        <div>
+     hello
+        {/* <div>
           <div className="page-header">
             <div className="content-container">
               <h1 className="page-header__title">
@@ -175,7 +175,7 @@ export const SeeHashTagsPage = (props) => {
           <div className="content-container heightx widthx overflowyauto">
             
           </div>
-        </div>
+        </div> */}
       
     </div>
   );

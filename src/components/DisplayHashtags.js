@@ -53,6 +53,7 @@ function ExpandableArray(props) {
   const [isForm2Open, setIsForm2Open] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
+  const [uniqueData, setUniqueData] = useState(0);
 
   const myRef = useRef(null);
   const scrollInterval = useRef(null);
@@ -83,14 +84,7 @@ function ExpandableArray(props) {
     );
   }, []);
 
-  //const removed = hashtags.map(tag.matchesstring => tag.matchesstring.substr(1));
-
-  // .map(tag => tag.matchesstring.substr(2)).sort((a, b) => {
-  //         return a.matchesstring > b.matchesstring
-  //           ? 1
-  //           : -1;
-          
-  //       }).filter((tag, index, self) => self.indexOf(tag.matchesstring) === index)
+  
 
   useEffect(()=>{
     const uniqueData = props.mappedDataShort.filter((value, index, array) => {
@@ -110,6 +104,8 @@ uniqueData.sort((a, b) => {
 uniqueData.forEach((e)=>{
 console.log("DisplayHashtags.js, hashtag="+e.matchesstring)
 })
+
+setUniqueData(uniqueData)
 //console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
   },[])
 
@@ -634,16 +630,17 @@ console.log("DisplayHashtags.js, hashtag="+e.matchesstring)
         }).filter((tag, index, self) => self.indexOf(tag.matchesstring) === index)
                 */}
                 <div>
-                  {props.mappedDataShort.map((s, index) => {
+                  {/* {props.mappedDataShort.map((s, index) => { */}
+                  {uniqueData.map((s, index) => {
                     //have 3 map calls and display the first column then the second column and then the thrid column
                     //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
-                    if (
-                      //(rt === "readonly")  &&
-                      s.showpublic === 0
-                      //|| s.archive === 1
-                    )
-                      return <div key={index}></div>;
-                    else
+                    // if (
+                    //   //(rt === "readonly")  &&
+                    //   s.showpublic === 0
+                    //   //|| s.archive === 1
+                    // )
+                    //   return <div key={index}></div>;
+                    // else
                       return (
                         <div
                           key={index}
@@ -677,7 +674,8 @@ console.log("DisplayHashtags.js, hashtag="+e.matchesstring)
                               whiteSpace: "pre-wrap",
                             }}
                           >
-                            {s.matchesstring}
+                            {/* {s.matchesstring} */}
+                            {s}
 
                           </span>
                         </div>

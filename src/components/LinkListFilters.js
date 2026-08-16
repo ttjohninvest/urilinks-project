@@ -403,6 +403,11 @@ function ExpandableArray(props) {
     //alert("sv="+sv)
     setSortBy(sv)
     //setSortBy("hashtag")
+     !!document.querySelector("#results1") &&
+      document.querySelector("#results1").scrollIntoView({
+        behavior: "smooth",
+      });
+    
   }
 
   const onSortChange = (e) => {
@@ -1133,7 +1138,9 @@ function ExpandableArray(props) {
               </div>
             </div>
 
-            <div className={`margin-top-18`}>
+            <div 
+            id="results1"
+            className={`margin-top-18`}>
               {/* column 2 */}
               <LinkList av={props.av} />
             </div>

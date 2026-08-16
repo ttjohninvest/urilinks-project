@@ -175,6 +175,7 @@ export const SeeHashTagsPage = (props) => {
           <div className="content-container heightx widthx overflowyauto borderLightOrange">
             
           </div>
+          <button className="ib button-2" onClick={()=>props.handleClose3()}>Close</button>
         </div>
       
     </div>

@@ -172,7 +172,7 @@ export const SeeHashTagsPage = (props) => {
               </h1>
             </div>
           </div>
-          <div className="content-container heightx widthx overflowyauto">
+          <div className="content-container heightx widthx overflowyauto borderLightOrange">
             
           </div>
         </div>

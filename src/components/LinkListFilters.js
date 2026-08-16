@@ -399,6 +399,7 @@ function ExpandableArray(props) {
   };
 
   const changeSortBy = (sv) => {
+    alert("sv="+sv)
     setSortBy(sv)
   }
 

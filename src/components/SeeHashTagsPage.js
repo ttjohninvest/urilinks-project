@@ -48,7 +48,7 @@ useEffect(()=>{
             </div>
           </div>
           {uniqueData.length}
-          <div className="content-container- heightx- widthx- overflowyauto- borderLightOrange-">
+          <div className="content-containerht heightx widthx overflowyauto borderLightOrange">
          
 
            <ul>

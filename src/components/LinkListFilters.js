@@ -399,8 +399,10 @@ function ExpandableArray(props) {
   };
 
   const changeSortBy = (sv) => {
-    alert("sv="+sv)
-    setSortBy(sv)
+    alert("sv="+"hashtag")
+    //alert("sv="+sv)
+    //setSortBy(sv)
+    setSortBy("hashtag")
   }
 
   const onSortChange = (e) => {

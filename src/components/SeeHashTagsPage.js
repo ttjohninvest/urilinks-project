@@ -38,7 +38,7 @@ useEffect(()=>{
   return (
     <div>
      
-        <div>
+        {/* <div>
           <div className="page-header">
             <div className="content-container">
               <h1 className="page-header__title">
@@ -51,12 +51,21 @@ useEffect(()=>{
           <div className="content-container heightx widthx overflowyauto borderLightOrange">
            {
              uniqueData.forEach((e)=>{
-                return e.matchesstring
+                e.matchesstring
            })
            }
           </div>
           
-        </div>
+        </div> */}
+
+          {uniqueData.length}
+          <div className="content-container- heightx- widthx- overflowyauto- borderLightOrange-">
+           {
+             uniqueData.forEach((e)=>{
+                e.matchesstring
+           })
+           }
+          </div>
       
     </div>
   );

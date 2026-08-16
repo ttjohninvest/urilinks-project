@@ -46,7 +46,7 @@ export const SeeHashTagsPage = (props) => {
     const itemId = clickedElement.dataset.itemId;
     
     if (itemId) {
-      alert("clickedElement="+JSON.stringify(clickedElement))
+      
       alert(`Clicked item with ID: ${itemId}`)
       console.log(`Clicked item with ID: ${itemId}`);
       // Add your logic here, e.g., update state
@@ -73,7 +73,7 @@ export const SeeHashTagsPage = (props) => {
         <div className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange">
           <ul className="liststylenone" onClick={handleClick}>
             {uniqueData.map((item, index) => (
-              !!item.matchesstring && <li key={index}  key={index} data-item-id={index} >{item.matchesstring}</li>
+              !!item.matchesstring && <li key={index}  key={index} data-item-id={item.matchesstring} >{item.matchesstring}</li>
             ))}
           </ul>
         </div>

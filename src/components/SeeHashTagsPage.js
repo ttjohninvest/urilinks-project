@@ -55,10 +55,10 @@ export const SeeHashTagsPage = (props) => {
           </div>
         </div>
         {uniqueData.length} hashtags
-        <div className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange liststylenone">
-          <ul>
+        <div className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange">
+          <ul className="liststylenone">
             {uniqueData.map((e, index) => (
-              <li key={index}>{e.matchesstring}</li>
+              !!e.matchesstring && <li key={index}>{e.matchesstring}</li>
             ))}
           </ul>
         </div>

@@ -60,11 +60,17 @@ useEffect(()=>{
 
           {uniqueData.length}
           <div className="content-container- heightx- widthx- overflowyauto- borderLightOrange-">
-           {
+           {/* {
              uniqueData.forEach((e)=>{
                 e.matchesstring
            })
-           }
+           } */}
+
+           <ul>
+      {uniqueData.map((str, index) => (
+        <li key={index}>{str.matchesstring}</li>
+      ))}
+    </ul>
           </div>
       
     </div>

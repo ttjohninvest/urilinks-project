@@ -54,9 +54,9 @@ export const SeeHashTagsPage = (props) => {
       
       window.document.getElementById("termid").value = itemId
 
-       alert("props.changeSortBy")
-            //props.changeSortBy("hashtag");
-            props.changeSortBy();
+       //alert("props.changeSortBy")
+            props.changeSortBy("hashtag");
+            //props.changeSortBy();
       
       props.setTextFilter(itemId);
      
@@ -74,7 +74,7 @@ export const SeeHashTagsPage = (props) => {
 
   return (
     <div>
-      <div>
+      <div className="margin-top-1 margin-left-11">
         <div className="page-header">
           <div className="content-container">
             <h1 className="page-header__title">

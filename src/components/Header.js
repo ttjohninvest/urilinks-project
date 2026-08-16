@@ -519,7 +519,23 @@ export const Header = (props) => {
                           👑 hashtags
                         </span>
                       </Link> */}
-                      <a
+
+                      <Link
+                        id="displayhashtags"
+                        className="header__title- nounderline button-2h padding-left-4x- padding-right-4x- "
+                        
+                        target="_blank"
+                      >
+                        <span
+                          onClick={hashtagsPage}
+                          className="color-white-1 color-black-2- cursor-pointer text-size-11"
+                          title="Click to see your hashtags."
+                        >
+                          👑 hashtags
+                        </span>
+                      </Link> 
+
+                      {/* <a
                         id="displayhashtags"
                         className="header__title- nounderline button-2h padding-left-4x- padding-right-4x- "
                         target="_blank"
@@ -531,7 +547,7 @@ export const Header = (props) => {
                         >
                           👑 hashtags
                         </span>
-                        </a>
+                        </a> */}
                     </div>
                     <div>
                       <Link

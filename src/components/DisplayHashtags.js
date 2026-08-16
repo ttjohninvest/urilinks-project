@@ -53,7 +53,7 @@ function ExpandableArray(props) {
   const [isForm2Open, setIsForm2Open] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
-  const [uniqueData, setUniqueData] = useState(0);
+  const [uniqueData, setUniqueData] = useState([]);
 
   const myRef = useRef(null);
   const scrollInterval = useRef(null);
@@ -87,13 +87,13 @@ function ExpandableArray(props) {
   
 
   useEffect(()=>{
-    const uniqueData = props.mappedDataShort.filter((value, index, array) => {
+    const uniqueData2 = props.mappedDataShort.filter((value, index, array) => {
   // Returns the first index where the name matches
   const firstIndex = array.findIndex(item => item.matchesstring === value.matchesstring);
   // Keep the item only if it is the first occurrence
   return firstIndex === index;
 });
-uniqueData.sort((a, b) => {
+uniqueData2.sort((a, b) => {
   const valA = a.matchesstring.toLowerCase();
   const valB = b.matchesstring.toLowerCase();
   if (valA < valB) return -1;
@@ -101,11 +101,11 @@ uniqueData.sort((a, b) => {
   return 0;
 });   
 
-uniqueData.forEach((e)=>{
+uniqueData2.forEach((e)=>{
 console.log("DisplayHashtags.js, hashtag="+e.matchesstring)
 })
 
-setUniqueData(uniqueData)
+setUniqueData(uniqueData2)
 //console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
   },[])
 

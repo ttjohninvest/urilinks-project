@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
+import {
+  setTextFilter,
+  sortByHashTag,
+} from "../actions/filters";
+
 export const SeeHashTagsPage = (props) => {
   //const [count, setCount] = useState(0);
   const [uniqueData, setUniqueData] = useState([]);
@@ -46,9 +51,13 @@ export const SeeHashTagsPage = (props) => {
     const itemId = clickedElement.dataset.itemId;
     
     if (itemId) {
+      
+      window.document.getElementById("termid").value = itemId
       const selectElement = document.getElementById('mode');
       selectElement.value = 'hashtag';
-      window.document.getElementById("termid").value = itemId
+      props.setTextFilter(itemId);
+            //setSortBy("hashtag");
+      props.sortByHashTag();
       //alert(`Clicked item with ID: ${itemId}`)
       console.log(`Clicked item with ID: ${itemId}`);
       // Add your logic here, e.g., update state
@@ -86,6 +95,13 @@ export const SeeHashTagsPage = (props) => {
 
 const mapStateToProps = (state) => ({
   hashtags: state.hashtags,
+  
 });
 
-export default withRouter(connect(mapStateToProps, undefined)(SeeHashTagsPage));
+const mapDispatchToProps = (dispatch) => ({
+  setTextFilter: (text) => dispatch(setTextFilter(text)),
+  sortByHashTag: () => dispatch(sortByHashTag()),
+  
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SeeHashTagsPage));

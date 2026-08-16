@@ -38,6 +38,19 @@ export const SeeHashTagsPage = (props) => {
     //console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
   }, []);
 
+  const handleClick = () => {
+    // Identify the clicked element
+    const clickedElement = event.target;
+    
+    // Extract data from data attributes
+    const itemId = clickedElement.dataset.itemId;
+    
+    if (itemId) {
+      console.log(`Clicked item with ID: ${itemId}`);
+      // Add your logic here, e.g., update state
+    }
+  }
+
   return (
     <div>
       <div>
@@ -56,9 +69,9 @@ export const SeeHashTagsPage = (props) => {
         </div>
         {uniqueData.length} results
         <div className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange">
-          <ul className="liststylenone">
-            {uniqueData.map((e, index) => (
-              !!e.matchesstring && <li key={index}>{e.matchesstring}</li>
+          <ul className="liststylenone" onClick={handleClick}>
+            {uniqueData.map((item, index) => (
+              !!item.matchesstring && <li key={index}  key={item.id} data-item-id={item.id} >{item.matchesstring}</li>
             ))}
           </ul>
         </div>

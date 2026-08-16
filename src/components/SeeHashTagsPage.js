@@ -55,7 +55,7 @@ export const SeeHashTagsPage = (props) => {
       window.document.getElementById("termid").value = itemId
       
       props.setTextFilter(itemId);
-            props.setSortBy("hashtag");
+            props.changeSortBy("hashtag");
       props.sortByHashTag();
 
       // const selectElement = document.getElementById('mode');

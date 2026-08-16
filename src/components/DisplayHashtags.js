@@ -78,8 +78,8 @@ function ExpandableArray(props) {
 
   useEffect(() => {
     console.log(
-      "ZZZZZ, props.mappedDataShort[0]=" +
-        JSON.stringify(props.mappedDataShort[0]),
+      "ZZZZZ, props.mappedDataShort=" +
+        JSON.stringify(props.mappedDataShort),
     );
   }, []);
 

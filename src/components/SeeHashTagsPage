@@ -1,12 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+// import React, { useEffect, useState } from "react";
+// import { connect } from "react-redux";
+// import { withRouter } from "react-router-dom";
+
+
+// const SeeHashTagsPage = (props) => {
+//   const [count, setCount] = useState(0);
+
+//   return (
+//     <div>
+//      hello
+//     </div>
+//   );
+// };
+
+// const mapStateToProps = (state) => ({
+//   theplan: state.theplan,
+//   signup: state.signup,
+// });
+
+// const mapDispatchToProps = (dispatch) => ({
+//   startAddLink: (link) => dispatch(startAddLink(link)),
+// });
+
+// export default withRouter(
+//   connect(mapStateToProps, mapDispatchToProps)(SeeHashTagsPage),
+// );
+
+import React from "react";
+// import { connect } from "react-redux";
+// import { withRouter } from "react-router-dom";
 
 
 const SeeHashTagsPage = (props) => {
-  const [count, setCount] = useState(0);
-
-
+  
   return (
     <div>
      hello
@@ -14,15 +40,18 @@ const SeeHashTagsPage = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  theplan: state.theplan,
-  signup: state.signup,
-});
+// const mapStateToProps = (state) => ({
+//   theplan: state.theplan,
+//   signup: state.signup,
+// });
 
-const mapDispatchToProps = (dispatch) => ({
-  startAddLink: (link) => dispatch(startAddLink(link)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   startAddLink: (link) => dispatch(startAddLink(link)),
+// });
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(SeeHashTagsPage),
-);
+// export default withRouter(
+//   connect(mapStateToProps, mapDispatchToProps)(SeeHashTagsPage),
+// );
+
+export default SeeHashTagsPage
+

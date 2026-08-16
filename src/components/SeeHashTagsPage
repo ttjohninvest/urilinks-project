@@ -163,17 +163,12 @@ export const SeeHashTagsPage = (props) => {
 
   return (
     <div>
-      {errorDialog ? (
-        <div>
-          Notice: firebase realtime database has thrown an exception (memmory
-          exceeded)
-        </div>
-      ) : maximumPage === false ? (
+     
         <div>
           <div className="page-header">
             <div className="content-container">
               <h1 className="page-header__title">
-                <span className="color-purple color-black-2">Add Link</span>
+                <span className="color-purple color-black-2">Hashtags</span>
               </h1>
             </div>
           </div>
@@ -181,13 +176,7 @@ export const SeeHashTagsPage = (props) => {
             
           </div>
         </div>
-      ) : (
-        <div>
-          
-          <Simple />
-          
-        </div>
-      )}
+      
     </div>
   );
 };

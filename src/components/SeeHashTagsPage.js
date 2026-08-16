@@ -53,11 +53,14 @@ export const SeeHashTagsPage = (props) => {
     if (itemId) {
       
       window.document.getElementById("termid").value = itemId
-      const selectElement = document.getElementById('mode');
-      selectElement.value = 'hashtag';
+      
       props.setTextFilter(itemId);
             //setSortBy("hashtag");
       props.sortByHashTag();
+
+      const selectElement = document.getElementById('mode');
+      selectElement.value = 'hashtag';
+      
       //alert(`Clicked item with ID: ${itemId}`)
       console.log(`Clicked item with ID: ${itemId}`);
       // Add your logic here, e.g., update state

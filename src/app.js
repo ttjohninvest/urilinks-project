@@ -10,6 +10,7 @@ import store from "./store";
 import { startSetLinks, startSetLinksNew, startAddLink } from "./actions/links";
 import { startSetLinks2 } from "./actions/links2";
 import { startSetPeople } from "./actions/people";
+import {startlogout} from "./actions/auth"
 //startSetGoogleUserData
 import { startSetGoogleUserData } from "./actions/googleuserdata";
 
@@ -62,8 +63,10 @@ if (signup !== "signup") {
   window.localStorage.setItem("notloggedin", "1");
 
   if (id !== null) {
+    startLogout()
     store.dispatch(login(id));
   } else {
+    startLogout()
     id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
     store.dispatch(login(id));
     //trying to get auth.uid set for firebase realtime database
@@ -103,6 +106,7 @@ if (signup !== "signup") {
     signup: { signup: true },
   });
 
+  startLogout()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log("logged in user=" + JSON.stringify(user));

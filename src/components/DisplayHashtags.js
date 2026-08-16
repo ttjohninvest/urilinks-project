@@ -99,7 +99,7 @@ function ExpandableArray(props) {
   // Keep the item only if it is the first occurrence
   return firstIndex === index;
 });
-console.log("DisplayHashtags.js, uniqueData="+uniqueData)
+console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
   },[])
 
   const startScrollingUp = () => {

@@ -3,26 +3,13 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 
-export const SeeHashTagsPage = (props) => {
+const SeeHashTagsPage = (props) => {
   const [count, setCount] = useState(0);
 
 
   return (
     <div>
      hello
-        {/* <div>
-          <div className="page-header">
-            <div className="content-container">
-              <h1 className="page-header__title">
-                <span className="color-purple color-black-2">Hashtags</span>
-              </h1>
-            </div>
-          </div>
-          <div className="content-container heightx widthx overflowyauto">
-            
-          </div>
-        </div> */}
-      
     </div>
   );
 };

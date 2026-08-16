@@ -300,6 +300,11 @@ export const Header = (props) => {
 
   const okToShow = () => {};
 
+  const hashtagsPage = (event) => {
+    event.preventDefault();
+    window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
+  }
+
   return (
     <div className="top0pos-sticky-">
       {isMobile() === false ? (
@@ -499,7 +504,7 @@ export const Header = (props) => {
                       </Link>
                     </div>
                     <div>
-                      <Link
+                      {/* <Link
                         id="displayhashtags"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
                         to="/displayhashtags"
@@ -511,7 +516,20 @@ export const Header = (props) => {
                         >
                           👑 hashtags
                         </span>
-                      </Link>
+                      </Link> */}
+                      <a
+                        id="displayhashtags"
+                        className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
+                        target="_blank"
+                      >
+                      <span
+                          onClick={hashtagsPage}
+                          className="margin-right-1-ib- color-white-1 color-black-2- cursor-pointer text-size-11"
+                          title="Click to see your hashtags."
+                        >
+                          👑 hashtags
+                        </span>
+                        </a>
                     </div>
                     <div>
                       <Link

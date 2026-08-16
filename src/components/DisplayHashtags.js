@@ -602,13 +602,16 @@ function ExpandableArray(props) {
                     : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
                 }
               >
-                <div>
-                  {props.mappedDataShort.map(tag => tag.matchesstring.substr(2)).sort((a, b) => {
+                {/*
+                .map(tag => tag.matchesstring.substr(2)).sort((a, b) => {
           return a.matchesstring > b.matchesstring
             ? 1
             : -1;
           
-        }).filter((tag, index, self) => self.indexOf(tag.matchesstring) === index).map((s, index) => {
+        }).filter((tag, index, self) => self.indexOf(tag.matchesstring) === index)
+                */}
+                <div>
+                  {props.mappedDataShort.map((s, index) => {
                     //have 3 map calls and display the first column then the second column and then the thrid column
                     //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
                     if (

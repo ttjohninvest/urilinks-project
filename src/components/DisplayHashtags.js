@@ -106,7 +106,11 @@ uniqueData.sort((a, b) => {
   if (valA > valB) return 1;
   return 0;
 });   
-console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
+
+uniqueData.forEach((e)=>{
+console.log("DisplayHashtags.js, hashtag="+e.matchesstring)
+})
+//console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
   },[])
 
   const startScrollingUp = () => {

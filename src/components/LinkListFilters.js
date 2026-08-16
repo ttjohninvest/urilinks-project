@@ -78,7 +78,7 @@ function ExpandableArray(props) {
   const signup = params.get("signup");
   const rt = params.get("x");
   const id = params.get("id");
-   const z = params.get("z");
+  const z = params.get("z");
 
   useEffect(() => {
     console.log(

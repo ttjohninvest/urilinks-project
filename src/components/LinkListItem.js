@@ -115,8 +115,8 @@ const LinkListItem = (props) => {
       props.removeLink({ id: event.target.value });
       props.startRemoveLink({ id: event.target.value });
       alert("Item deleted.");
-      props.history.push("/");
-      window.location.href = "https://urilinks.com?signup=signup&z=1";
+      // props.history.push("/");
+      // window.location.href = "https://urilinks.com?signup=signup&z=1";
     } else {
       // User clicked Cancel
       document.getElementById("delete%" + event.target.value).checked = false;

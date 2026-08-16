@@ -5,6 +5,7 @@ import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 
 import AddLinkPage from "./AddlinkPage";
+import SeeHashTagsPage from ".//SeeHashTagsPage"
 import SendEmailPage from "./SendEmailPage";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
@@ -52,6 +53,8 @@ function ExpandableArray(props) {
   const [sortBy, setSortBy] = useState("description");
   const [isForm2Open, setIsForm2Open] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const [isForm3Open, setIsForm3Open] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
 
   const myRef = useRef(null);
@@ -525,6 +528,11 @@ function ExpandableArray(props) {
     // });
   };
 
+  const seeHashTags = () =>
+  {
+    setIsForm3Open(true)
+  }
+
   const addALink = () => {
     setIsForm2Open(true)
   }
@@ -532,6 +540,11 @@ function ExpandableArray(props) {
   const handleClose2 = () => {
     //alert("closeLink")
     setIsForm2Open(false)
+  }
+
+  const handleClose3 = () => {
+    //alert("closeLink")
+    setIsForm3Open(false)
   }
 
   return (
@@ -763,9 +776,18 @@ function ExpandableArray(props) {
                       closeLink={handleClose2}
                       
                       />
-                      
                       }
-                      {/* <AddLinkPage /> */}
+
+                        <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
+                       {
+                         isForm3Open && 
+                         <SeeHashTagsPage 
+                         isForm3Open={isForm3Open}
+                         handleClose3={handleClose3}
+                         />
+                        }
+
+                      
                       {
                         //emailForm &&
                         isFormOpen && (
@@ -865,6 +887,15 @@ function ExpandableArray(props) {
                          <AddLinkPage 
                          isForm2Open={isForm2Open}
                          handleClose2={handleClose2}
+                         />
+                        }
+
+                         <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
+                       {
+                         isForm3Open && 
+                         <SeeHashTagsPage 
+                         isForm3Open={isForm3Open}
+                         handleClose3={handleClose3}
                          />
                         }
                    

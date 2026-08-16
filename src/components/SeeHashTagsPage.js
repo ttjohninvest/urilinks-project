@@ -46,6 +46,8 @@ export const SeeHashTagsPage = (props) => {
     const itemId = clickedElement.dataset.itemId;
     
     if (itemId) {
+      const selectElement = document.getElementById('mode');
+      selectElement.value = 'hashtag';
       window.document.getElementById("termid").value = itemId
       //alert(`Clicked item with ID: ${itemId}`)
       console.log(`Clicked item with ID: ${itemId}`);

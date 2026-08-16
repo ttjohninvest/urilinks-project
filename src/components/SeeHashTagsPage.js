@@ -9,7 +9,7 @@ export const SeeHashTagsPage = (props) => {
 
   useEffect(()=>{
      
- //console.log("SeeHashTagsPage.js, hashtags="+JSON.stringify(props.hashtags))
+ console.log("SeeHashTagsPage.js, hashtags="+JSON.stringify(props.hashtags))
  })
 
  useEffect(()=>{
@@ -27,9 +27,9 @@ export const SeeHashTagsPage = (props) => {
    return 0;
  });   
  
-//  uniqueData2.forEach((e)=>{
-//  console.log("DisplayHashtags.js, hashtag="+e.matchesstring)
-//  })
+ uniqueData2.forEach((e)=>{
+ console.log("DisplayHashtags.js, hashtag="+e.matchesstring)
+ })
  
  setUniqueData(uniqueData2)
  //console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
@@ -49,7 +49,7 @@ export const SeeHashTagsPage = (props) => {
           </div>
           <div className="content-container heightx widthx overflowyauto borderLightOrange">
             {uniqueData.map((ht,index)=>{
-              {ht}
+              {ht.matchesstring}
             })}
           </div>
           

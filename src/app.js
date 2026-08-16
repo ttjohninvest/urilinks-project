@@ -106,7 +106,7 @@ if (signup !== "signup") {
     signup: { signup: true },
   });
 
-  startLogout()
+  //startLogout()
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log("logged in user=" + JSON.stringify(user));

@@ -47,6 +47,7 @@ useEffect(()=>{
               </h1>
             </div>
           </div>
+          {uniqueData.length}
           <div className="content-container heightx widthx overflowyauto borderLightOrange">
            {
              uniqueData.forEach((e)=>{

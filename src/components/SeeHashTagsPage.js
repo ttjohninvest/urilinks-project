@@ -54,7 +54,7 @@ export const SeeHashTagsPage = (props) => {
             </h1>
           </div>
         </div>
-        {uniqueData.length} hashtags
+        {uniqueData.length} results
         <div className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange">
           <ul className="liststylenone">
             {uniqueData.map((e, index) => (

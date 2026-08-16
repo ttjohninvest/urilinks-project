@@ -785,7 +785,7 @@ function ExpandableArray(props) {
                       />
                       }
 
-                         <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
+                         <button className="ib margin-left-11b button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
                        {/* {
                          isForm3Open && 
                          <SeeHashTagsPage 
@@ -897,7 +897,7 @@ function ExpandableArray(props) {
                          />
                         }
 
-                          <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
+                          <button className="ib margin-left-11b button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
                        {/*{
                          isForm3Open && 
                          <SeeHashTagsPage 

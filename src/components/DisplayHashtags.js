@@ -99,6 +99,13 @@ function ExpandableArray(props) {
   // Keep the item only if it is the first occurrence
   return firstIndex === index;
 });
+uniqueData.sort((a, b) => {
+  const valA = a.propertyName.toLowerCase();
+  const valB = b.propertyName.toLowerCase();
+  if (valA < valB) return -1;
+  if (valA > valB) return 1;
+  return 0;
+});   
 console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
   },[])
 

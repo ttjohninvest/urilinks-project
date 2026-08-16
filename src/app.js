@@ -63,7 +63,7 @@ if (signup !== "signup") {
   window.localStorage.setItem("notloggedin", "1");
 
   if (id !== null) {
-    startLogout()
+    //startLogout()
     store.dispatch(login(id));
   } else {
     startLogout()

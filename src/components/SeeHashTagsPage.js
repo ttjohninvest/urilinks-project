@@ -4,21 +4,23 @@ import { withRouter } from "react-router-dom";
 
 export const SeeHashTagsPage = (props) => {
   //const [count, setCount] = useState(0);
-  const [uniqueData, setUniqueData] = useState([]);
+  //const [uniqueData, setUniqueData] = useState([]);
 
+const uniqueData2 = []
 
-  useEffect(()=>{
+useEffect(()=>{
      
  console.log("SeeHashTagsPage.js, hashtags="+JSON.stringify(props.hashtags))
  })
 
  useEffect(()=>{
-     const uniqueData2 = props.hashtags.filter((value, index, array) => {
+     uniqueData2 = props.hashtags.filter((value, index, array) => {
    // Returns the first index where the name matches
    const firstIndex = array.findIndex(item => item.matchesstring === value.matchesstring);
    // Keep the item only if it is the first occurrence
    return firstIndex === index;
  });
+
  uniqueData2.sort((a, b) => {
    const valA = a.matchesstring.toLowerCase();
    const valB = b.matchesstring.toLowerCase();
@@ -31,7 +33,7 @@ export const SeeHashTagsPage = (props) => {
  console.log("DisplayHashtags.js, hashtag="+e.matchesstring)
  })
  
- setUniqueData(uniqueData2)
+ //setUniqueData(uniqueData2)
  //console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
    },[])
 
@@ -48,9 +50,11 @@ export const SeeHashTagsPage = (props) => {
             </div>
           </div>
           <div className="content-container heightx widthx overflowyauto borderLightOrange">
-           {uniqueData.forEach((e)=>{
- {e.matchesstring}
- })}
+           {
+             uniqueData2.forEach((e)=>{
+ e.matchesstring
+ })
+           }
           </div>
           
         </div>

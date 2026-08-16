@@ -82,7 +82,7 @@ export const SeeHashTagsPage = (props) => {
         </div>
         {uniqueData.length} results
         <div className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange">
-          <ul className="liststylenone" onClick={handleClick}>
+          <ul className="liststylenone cursor-pointer" onClick={handleClick}>
             {uniqueData.map((item, index) => (
               !!item.matchesstring && <li key={index}  key={index} data-item-id={item.matchesstring} >{item.matchesstring}</li>
             ))}
@@ -95,7 +95,7 @@ export const SeeHashTagsPage = (props) => {
 
 const mapStateToProps = (state) => ({
   hashtags: state.hashtags,
-  
+
 });
 
 const mapDispatchToProps = (dispatch) => ({

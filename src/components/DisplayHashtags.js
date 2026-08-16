@@ -83,7 +83,7 @@ function ExpandableArray(props) {
     );
   }, []);
 
-  //const removed = hashtags.map(tag => tag.substr(1));
+  //const removed = hashtags.map(tag.matchesstring => tag.matchesstring.substr(1));
 
   // .map(tag => tag.matchesstring.substr(2)).sort((a, b) => {
   //         return a.matchesstring > b.matchesstring
@@ -91,6 +91,16 @@ function ExpandableArray(props) {
   //           : -1;
           
   //       }).filter((tag, index, self) => self.indexOf(tag.matchesstring) === index)
+
+  useEffect(()=>{
+    const uniqueData = props.mappedDataShort.filter((value, index, array) => {
+  // Returns the first index where the name matches
+  const firstIndex = array.findIndex(item => item.matchesstring === value.name);
+  // Keep the item only if it is the first occurrence
+  return firstIndex === index;
+});
+console.log("DisplayHashtags.js, uniqueData="+uniqueData)
+  },[])
 
   const startScrollingUp = () => {
     // Prevent multiple intervals
@@ -602,8 +612,10 @@ function ExpandableArray(props) {
                     : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
                 }
               >
-                {/*
-                .map(tag => tag.matchesstring.substr(2)).sort((a, b) => {
+                {/* .map(tag.matchesstring => tag.matchesstring.substr(0))
+                .map(tag.matchesstring => tag.matchesstring.substr(0))
+                
+                .sort((a, b) => {
           return a.matchesstring > b.matchesstring
             ? 1
             : -1;

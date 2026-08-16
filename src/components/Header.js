@@ -521,7 +521,7 @@ export const Header = (props) => {
                       </Link> */}
                       <a
                         id="displayhashtags"
-                        className="ib header__title- nounderline button-2h padding-left-4x padding-right-4x "
+                        className="header__title- nounderline button-2h padding-left-4x- padding-right-4x- "
                         target="_blank"
                       >
                       <span

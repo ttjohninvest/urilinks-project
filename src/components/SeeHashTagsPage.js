@@ -77,7 +77,7 @@ export const SeeHashTagsPage = (props) => {
       <div className="margin-top-1 margin-left-11">
         <div className="page-header">
           <div className="content-container">
-            <h1 className="page-header__title">
+            <h1 className="page-header__title borderRadius55">
               <span className="color-purple color-black-2">Hashtags</span>
               <button
                 className="ib margin-left-11 button-2 text-size-1"

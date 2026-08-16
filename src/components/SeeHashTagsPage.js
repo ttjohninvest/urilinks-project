@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
@@ -123,7 +123,23 @@ export const SeeHashTagsPage = (props) => {
 
   return (
     <div>
-       <div className="margin-left-11">
+       
+      <div className="margin-top-1 margin-left-11">
+        <div className="page-header">
+          <div className="content-container">
+            <h1 className="page-header__title borderRadius55">
+              <span className="color-purple color-black-2">Hashtags</span>
+              <button
+                className="ib margin-left-11 button-2 text-size-1"
+                onClick={() => props.handleClose3()}
+              >
+                Close
+              </button>
+            </h1>
+          </div>
+        </div>
+        <div>
+<div className="margin-left-11 margin-bottom-1 margin-top-1">
         <button
           title="Click the button to begin auto scroll."
           onClick={startScrollingUp4}
@@ -149,19 +165,6 @@ export const SeeHashTagsPage = (props) => {
           <span>ScrollDn</span>
         </button>
       </div>
-      <div className="margin-top-1 margin-left-11">
-        <div className="page-header">
-          <div className="content-container">
-            <h1 className="page-header__title borderRadius55">
-              <span className="color-purple color-black-2">Hashtags</span>
-              <button
-                className="ib margin-left-11 button-2 text-size-1"
-                onClick={() => props.handleClose3()}
-              >
-                Close
-              </button>
-            </h1>
-          </div>
         </div>
         {uniqueData.length} results
         <div id="ls4" className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange">

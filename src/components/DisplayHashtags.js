@@ -674,8 +674,8 @@ setUniqueData(uniqueData2)
                               whiteSpace: "pre-wrap",
                             }}
                           >
-                            {/* {s.matchesstring} */}
-                            {s}
+                            {s.matchesstring}
+                            {/* {s} */}
 
                           </span>
                         </div>

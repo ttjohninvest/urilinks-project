@@ -1021,7 +1021,7 @@ function ExpandableArray(props) {
                        {
                          isForm3Open && 
                          <SeeHashTagsPage 
-                         sortBy={changeSortBy}
+                         changeSortBy={changeSortBy}
                          isForm3Open={isForm3Open}
                          handleClose3={handleClose3}
                          />
@@ -1123,7 +1123,7 @@ function ExpandableArray(props) {
                        {
                          isForm3Open && 
                          <SeeHashTagsPage 
-                         sortBy={changeSortBy}
+                         changeSortBy={changeSortBy}
                          isForm3Open={isForm3Open}
                          handleClose3={handleClose3}
                          />

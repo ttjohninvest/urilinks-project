@@ -83,6 +83,15 @@ function ExpandableArray(props) {
     );
   }, []);
 
+  //const removed = hashtags.map(tag => tag.substr(1));
+
+  // .map(tag => tag.matchesstring.substr(2)).sort((a, b) => {
+  //         return a.matchesstring > b.matchesstring
+  //           ? 1
+  //           : -1;
+          
+  //       }).filter((tag, index, self) => self.indexOf(tag.matchesstring) === index)
+
   const startScrollingUp = () => {
     // Prevent multiple intervals
     if (scrollInterval.current) return;
@@ -594,12 +603,12 @@ function ExpandableArray(props) {
                 }
               >
                 <div>
-                  {props.mappedDataShort.sort((a, b) => {
+                  {props.mappedDataShort.map(tag => tag.matchesstring.substr(2)).sort((a, b) => {
           return a.matchesstring > b.matchesstring
             ? 1
             : -1;
           
-        }).filter((tag, index, self) => self.indexOf(tag) === index).map((s, index) => {
+        }).filter((tag, index, self) => self.indexOf(tag.matchesstring) === index).map((s, index) => {
                     //have 3 map calls and display the first column then the second column and then the thrid column
                     //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
                     if (

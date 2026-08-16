@@ -60,7 +60,8 @@ export const SeeHashTagsPage = (props) => {
 
       const selectElement = document.getElementById('mode');
       selectElement.value = 'hashtag';
-      
+      selectElement.click()
+
       //alert(`Clicked item with ID: ${itemId}`)
       console.log(`Clicked item with ID: ${itemId}`);
       // Add your logic here, e.g., update state

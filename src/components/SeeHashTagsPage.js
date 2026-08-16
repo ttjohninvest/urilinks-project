@@ -12,7 +12,7 @@ useEffect(()=>{
  })
 
  useEffect(()=>{
-     uniqueData2 = props.hashtags.filter((value, index, array) => {
+   const uniqueData2 = props.hashtags.filter((value, index, array) => {
    // Returns the first index where the name matches
    const firstIndex = array.findIndex(item => item.matchesstring === value.matchesstring);
    // Keep the item only if it is the first occurrence

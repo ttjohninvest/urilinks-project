@@ -46,6 +46,7 @@ export const SeeHashTagsPage = (props) => {
     const itemId = clickedElement.dataset.itemId;
     
     if (itemId) {
+      alert("clickedElement="+JSON.stringify(clickedElement))
       alert(`Clicked item with ID: ${itemId}`)
       console.log(`Clicked item with ID: ${itemId}`);
       // Add your logic here, e.g., update state

@@ -7,6 +7,11 @@ export const SeeHashTagsPage = (props) => {
   const [uniqueData, setUniqueData] = useState([]);
 
 
+  useEffect(()=>{
+     
+ console.log("SeeHashTagsPage.js, hashtags="+props.hashtags)
+ })
+
  useEffect(()=>{
      const uniqueData2 = props.hashtags.filter((value, index, array) => {
    // Returns the first index where the name matches

@@ -48,9 +48,9 @@ export const SeeHashTagsPage = (props) => {
             </div>
           </div>
           <div className="content-container heightx widthx overflowyauto borderLightOrange">
-            {uniqueData.map((ht,index)=>{
-              {ht.matchesstring}
-            })}
+           {uniqueData.forEach((e)=>{
+ {e.matchesstring}
+ })}
           </div>
           
         </div>

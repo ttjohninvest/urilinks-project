@@ -5,7 +5,7 @@ import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 
 import AddLinkPage from "./AddlinkPage";
-import SeeHashTagsPage from ".//SeeHashTagsPage"
+import SeeHashTagsPage from "./SeeHashTagsPage.js"
 import SendEmailPage from "./SendEmailPage";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";

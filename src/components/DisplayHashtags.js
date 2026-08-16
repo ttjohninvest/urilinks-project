@@ -619,16 +619,7 @@ setUniqueData(uniqueData2)
                     : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
                 }
               >
-                {/* .map(tag.matchesstring => tag.matchesstring.substr(0))
-                .map(tag.matchesstring => tag.matchesstring.substr(0))
-                
-                .sort((a, b) => {
-          return a.matchesstring > b.matchesstring
-            ? 1
-            : -1;
-          
-        }).filter((tag, index, self) => self.indexOf(tag.matchesstring) === index)
-                */}
+               
                 <div>
                   {/* {props.mappedDataShort.map((s, index) => { */}
                   {uniqueData.map((s, index) => {

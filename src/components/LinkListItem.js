@@ -109,17 +109,17 @@ const LinkListItem = (props) => {
     console.log("bookmark id=" + event.target.value);
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
-    let result = confirm("Are you sure you want to delete?");
+    let result = confirm("1 Are you sure you want to remove the link?");
     if (result) {
       // User clicked OK, perform the deletion
       props.removeLink({ id: event.target.value });
       props.startRemoveLink({ id: event.target.value });
       alert("Link removed.");
-      // const x = confirm("Do you want to refresh the menu?")
-      // if(x===true){
-      //   props.history.push("/");
-      //   window.location.href = "https://urilinks.com?signup=signup&z=1";
-      // }
+      const x = confirm("Do you want to refresh the menu?")
+      if(x===true){
+        props.history.push("/");
+        window.location.href = "https://urilinks.com?signup=signup&z=1";
+      }
       
     } else {
       // User clicked Cancel

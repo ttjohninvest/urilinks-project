@@ -790,7 +790,7 @@ function ExpandableArray(props) {
                           Email your link
                         </span>
                       </a>
-                     <button className="ib margin-left-11 button-2" onClick={addALink} title="Add a link to your page.">Add A link</button>
+                     <button className="ib margin-left-11 button-2 bg-shade-1" onClick={addALink} title="Add a link to your page.">Add A link</button>
                       {isForm2Open && <AddLinkPage 
                       isForm2Open={isForm2Open}
                       closeLink={handleClose2}
@@ -911,7 +911,7 @@ function ExpandableArray(props) {
                           Email your link
                         </span>
                       </a>
-                      <button className="ib margin-left-11 button-2" onClick={addALink} title="Add a link to your page.">Add A link</button>
+                      <button className="ib margin-left-11 button-2 bg-shade-1" onClick={addALink} title="Add a link to your page.">Add A link</button>
                        {
                          isForm2Open && 
                          <AddLinkPage 

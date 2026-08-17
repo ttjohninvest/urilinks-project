@@ -557,7 +557,7 @@ export const Header = (props) => {
                               className="ib text-size-11 color-white-1 color-black-2- color-blue-1-"
                               title="Thank you. Please click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links). I hope you the best."
                             >
-                              subscribe
+                              🐈 subscribe
                             </span>
                           </Link>
                         </div>
@@ -656,7 +656,7 @@ export const Header = (props) => {
                       <div className="pointereventsauto hide-">
                         <Link
                           id="uploadbookmarksfile"
-                          className="header__title- nounderline pointereventsauto button-2h padding-left-4x padding-right-4x "
+                          className="header__title- nounderline pointereventsauto button-2h bg-shade-1 padding-left-4x padding-right-4x "
                           to="/bookmarksmanager"
                         >
                           <span

@@ -1169,7 +1169,11 @@ John
           </div>
           {/*ends third column*/}
         </div>
-
+  {/*begins third column*/}
+          <div>
+John
+          </div>
+          {/*ends third column*/}
         
       </div>
     </div>

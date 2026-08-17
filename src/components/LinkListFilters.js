@@ -1210,7 +1210,7 @@ function ExpandableArray(props) {
             7. Use the content section to the right of the left pane menu to see
             left pane menu selections and search results.
             <br />
-            7. In the content section you may click on any of the links and the
+            7. In the content section you can click on any of the links and the
             website will open in a new tab for viewing.
             <br />
           </div>

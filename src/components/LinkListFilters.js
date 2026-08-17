@@ -699,7 +699,7 @@ function ExpandableArray(props) {
                     <span>
                       <div className="">
                         <div className="flexcol3">
-                          <fieldset className="width325 padding-bottom-11 margin-bottom-1-">
+                          <fieldset className="flexcol3 width325 padding-bottom-11 margin-bottom-1-">
                             <legend>Your Link:</legend>
                             <div className="text-size-1">
                               <a
@@ -738,7 +738,7 @@ function ExpandableArray(props) {
                     <span>
                       <div className="">
                         <div className="flexcol3">
-                          <fieldset className="width325 padding-bottom-11 margin-bottom-1-">
+                          <fieldset className="flexcol3 width325 padding-bottom-11 margin-bottom-1-">
                             <legend>Your Link:</legend>
                             <div className="text-size-1">
                               <a
@@ -828,7 +828,8 @@ function ExpandableArray(props) {
                     <span>
                       <div className="margin-bottom-123">
                         <div className="flexrow2cv2">
-                          <div className="text-size-1 textLeft- margin-top-1- margin-bottom-1">
+                          <div className="flexcol3 text-size-1 textLeft- margin-top-1- margin-bottom-1">
+                            <div>
                             <a
                               href="#"
                               ref={textAreaRef}
@@ -839,6 +840,8 @@ function ExpandableArray(props) {
                               https://urilinks.com/dashboard?signup=0&x=readonly&id=
                               {props.uid}
                             </a>
+                            </div>
+                            <div>
                             <button
                               className={`margin-left-11 height48 button-2w ib margin-right-1 border5- ${isMobile() === false ? "" : "margin-top-1"}`}
                               
@@ -850,6 +853,7 @@ function ExpandableArray(props) {
                               </span>
                             </button>
                             {copySuccess}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -859,7 +863,8 @@ function ExpandableArray(props) {
                     <span>
                       <div className="margin-bottom-123">
                         <div className="flexrow2cv2">
-                          <div className="text-size-1 textLeft- margin-top-1- margin-bottom-1">
+                          <div className="flexcol3 text-size-1 textLeft- margin-top-1- margin-bottom-1">
+                            <div>
                             <a
                               href="#"
                               ref={textAreaRef}
@@ -870,6 +875,8 @@ function ExpandableArray(props) {
                               https://urilinks.com/dashboard?signup=0&x=readonly&id=
                               {props.uid}
                             </a>
+</div>
+                            <div>
                             <button
                               className="margin-left-11 button-2w height48 ib margin-right-1 margin-left-11 border5- pointereventsnone height: 48px"
                              
@@ -879,6 +886,7 @@ function ExpandableArray(props) {
                               click to copy your link to share your links
                             </button>
                             {copySuccess}
+                            </div>
                           </div>
                         </div>
                       </div>

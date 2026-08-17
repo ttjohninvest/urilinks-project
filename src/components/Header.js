@@ -477,7 +477,7 @@ export const Header = (props) => {
                         </span>
                       </a>
                     </div> */}
-                    <div>
+                    {/* <div>
                       <Link
                         id="usage"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
@@ -491,8 +491,8 @@ export const Header = (props) => {
                           🥉 usage
                         </span>
                       </Link>
-                    </div>
-                    <div>
+                    </div> */}
+                    {/* <div>
                       <Link
                         id="usage"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
@@ -506,7 +506,7 @@ export const Header = (props) => {
                           🎀 short cuts
                         </span>
                       </Link>
-                    </div>
+                    </div> */}
                     {/* <div>
                       
 

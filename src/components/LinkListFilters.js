@@ -1215,6 +1215,9 @@ function ExpandableArray(props) {
             <br />
             8. Click copy to copy your sharable link. Paste it were you want.<br />
             9. Click email your link to open up a form to to enter recipient's email address and subject line.<br />
+            10. Click the ScrollUp button to start automatic scrolling up.<br />
+            11. Click the Stop button to stop automatic scrolling.<br />
+            13. Click the ScrollDn button to start automatic scrolling down.<br />
           </div>
         )}
         {/*ends third column*/}

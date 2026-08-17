@@ -125,7 +125,7 @@ export const SeeHashTagsPage = (props) => {
             <h1 className="page-header__title borderRadius55">
               <span className="color-purple color-black-2">Hashtags</span>
               <button
-                className="ib margin-left-11 button-2 text-size-1"
+                className="ib margin-left-11 button-2 text-size-1 padding-bottom-5z1"
                 onClick={() => props.handleClose3()}
               >
                 Close

@@ -176,7 +176,10 @@ export const SeeHashTagsPage = (props) => {
         {uniqueData.length} results
         <div
           id="ls3"
-          className={`content-containerht ${isMobile()===true?'widthhashtagcolumn':'widthx1'} heightx1 overflowyauto borderLightOrange`}
+          className={`content-containerht ${
+            
+            //isMobile()===true
+            true?'widthhashtagcolumn':'widthx1'} heightx1 overflowyauto borderLightOrange`}
         >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
             {uniqueData.map(

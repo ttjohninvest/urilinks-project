@@ -17,6 +17,9 @@ Effective Date: December 23rd 2025
 Introduction
 Welcome to urilinks.com! These Terms of Service ("Terms") govern your use of my website, urilinks.com, and my services (collectively, the "Service"). By using the Service, you agree to be bound by these Terms.
 
+Payment Processing Security
+If you pay for a plan, I don't store your credit card. Stripe.com handles all credit card processing securely.
+
 Eligibility
 The Service is intended for individuals 13 years of age or older. If you are under 13, you may not use the Service. If you are between 13 and 18, you must have parental consent to use the Service.
 

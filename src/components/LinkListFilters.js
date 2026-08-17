@@ -953,7 +953,7 @@ function ExpandableArray(props) {
                     <div className="">
                       <input
                         title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                        placeholder="enter what to find"
+                        placeholder="search field"
                         autoFocus
                         id="termid"
                         className={`margin-left-11 width325 searchinput`}
@@ -1169,7 +1169,13 @@ function ExpandableArray(props) {
           {isMobile()===false && <div 
           style={{'borderRadius':'5px'}}
           className="borderLightOrange width100 margin-left-11 margin-right-1 margin-top-n-x2 padding1">
-❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved."
+{/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
+          INSTRUCTIONS<BR/>
+          1. Use Bookmarks upload to upload a bookmarks.html file that is less than 100k.<BR/>
+          2. Use Add A Link to add 1 link.<BR/>
+          3. Use the search field to add word(s) to search for.<BR/>
+          4. Use the drop down list to the right of the search button to select the type of search (hashtag, link text, or note text).<BR/>
+          5. Use the search button to activate the search.<BR/>
           </div>}
           {/*ends third column*/}
         

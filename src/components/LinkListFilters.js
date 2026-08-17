@@ -1164,13 +1164,13 @@ function ExpandableArray(props) {
             </div>
           </div>
           {/*begins third column*/}
-          <div>
+          <div className="border5">
 John
           </div>
           {/*ends third column*/}
         </div>
   {/*begins third column*/}
-          <div>
+          <div className="border5">
 John
           </div>
           {/*ends third column*/}

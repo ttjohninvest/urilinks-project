@@ -718,13 +718,14 @@ function ExpandableArray(props) {
                             </div>
                             <div className="margin-bottom-1">
                               <button
-                                className={`margin-left-11- height48 widthx button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+                                className={`margin-left-11- height48 button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
                                 
                                 onClick={copyToClipboard}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
                                 <span className="ib height48">
-                                  click to copy your link to share your links
+                                  Copy
+                                  {/* click to copy your link to share your links */}
                                 </span>
                               </button>
                               {copySuccess}
@@ -757,13 +758,14 @@ function ExpandableArray(props) {
                             </div>
                             <div className="margin-bottom-1">
                               <button
-                                className={`margin-left-11- widthx height48 button-2w ib border5- ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+                                className={`height48 button-2w ib border5- ${isMobile() === false ? "" : "width295 margin-top-1"}`}
                                 
                                 onClick={copyToClipboard}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
                                 <span className="ib height48">
-                                  click to copy your link to share your links
+                                  Copy
+                                  {/* click to copy your link to share your links */}
                                 </span>
                               </button>
                               {/* {copySuccess} */}
@@ -843,13 +845,14 @@ function ExpandableArray(props) {
                             </div>
                             <div>
                             <button
-                              className={`margin-left-11- widthx height48 button-2w ib margin-right-1 border5- ${isMobile() === false ? "" : "margin-top-1"}`}
+                              className={` height48 button-2w ib margin-right-1 border5- ${isMobile() === false ? "" : "margin-top-1"}`}
                               
                               onClick={copyToClipboard}
                               title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                             >
                               <span className="">
-                                click to copy your link to share your links
+                                Copy
+                                {/* click to copy your link to share your links */}
                               </span>
                             </button>
                             {copySuccess}
@@ -878,12 +881,13 @@ function ExpandableArray(props) {
 </div>
                             <div>
                             <button
-                              className="margin-left-11- button-2w widthx height48 ib margin-right-1 border5- pointereventsnone"
+                              className="button-2w height48 ib margin-right-1 border5- pointereventsnone"
                              
                               onClick={copyToClipboard}
                               title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                             >
-                              click to copy your link to share your links
+                              Copy
+                              {/* click to copy your link to share your links */}
                             </button>
                             {copySuccess}
                             </div>

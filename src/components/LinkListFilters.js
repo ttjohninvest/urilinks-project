@@ -1167,7 +1167,7 @@ function ExpandableArray(props) {
         </div>
   {/*begins third column*/}
           {isMobile()===false && <div className="border5 width100 margin-left-11 margin-right-1 margin-top-n-x2 borderRadius55">
-John
+Hi, I appreciate that you are here.
           </div>}
           {/*ends third column*/}
         

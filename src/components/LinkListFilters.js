@@ -1168,7 +1168,7 @@ function ExpandableArray(props) {
   {/*begins third column*/}
           {isMobile()===false && <div 
           style={{'borderRadius':'5px'}}
-          className="borderLightOrange width100 margin-left-11 margin-right-1 margin-top-n-x2">
+          className="borderLightOrange width100 margin-left-11 margin-right-1 margin-top-n-x2 padding1">
 Hi, I appreciate that you are here.
           </div>}
           {/*ends third column*/}

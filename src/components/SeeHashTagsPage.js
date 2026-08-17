@@ -117,6 +117,12 @@ export const SeeHashTagsPage = (props) => {
     }, 20); // Every 20 milliseconds
   };
 
+  const isMobile = () => {
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
+  };
+
   return (
     <div>
       <div className="margin-top-1 margin-left-11">
@@ -170,7 +176,7 @@ export const SeeHashTagsPage = (props) => {
         {uniqueData.length} results
         <div
           id="ls3"
-          className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange"
+          className={`content-containerht ${isMobile()===true?'widthhashtagcolumn':'widthx1'} heightx1 overflowyauto borderLightOrange`}
         >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
             {uniqueData.map(

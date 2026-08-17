@@ -2,10 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import {
-  setTextFilter,
-  sortByHashTag,
-} from "../actions/filters";
+import { setTextFilter, sortByHashTag } from "../actions/filters";
 
 export const SeeHashTagsPage = (props) => {
   //const [count, setCount] = useState(0);
@@ -49,20 +46,19 @@ export const SeeHashTagsPage = (props) => {
   const handleClick = () => {
     // Identify the clicked element
     const clickedElement = event.target;
-    
+
     // Extract data from data attributes
     const itemId = clickedElement.dataset.itemId;
-    
-    if (itemId) {
-      
-      window.document.getElementById("termid").value = itemId
 
-       //alert("props.changeSortBy")
-            props.changeSortBy("hashtag");
-            //props.changeSortBy();
-      
+    if (itemId) {
+      window.document.getElementById("termid").value = itemId;
+
+      //alert("props.changeSortBy")
+      props.changeSortBy("hashtag");
+      //props.changeSortBy();
+
       props.setTextFilter(itemId);
-     
+
       props.sortByHashTag();
 
       // const selectElement = document.getElementById('mode');
@@ -73,23 +69,23 @@ export const SeeHashTagsPage = (props) => {
       console.log(`Clicked item with ID: ${itemId}`);
       // Add your logic here, e.g., update state
     }
-  }
+  };
 
-   const startScrollingUp4 = () => {
+  const startScrollingUp4 = () => {
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
 
     scrollInterval4.current = setInterval(() => {
-      document.getElementById("ls4").scrollBy({
+      document.getElementById("ls3").scrollBy({
         top: 1, // Scroll 1 pixel each time
         left: 0,
         behavior: "auto",
       });
 
       if (
-        document.getElementById("ls4").scrollTop +
-          document.getElementById("ls4").clientHeight >=
-        document.getElementById("ls4").scrollHeight
+        document.getElementById("ls3").scrollTop +
+          document.getElementById("ls3").clientHeight >=
+        document.getElementById("ls3").scrollHeight
       ) {
         buttonRef4.current.click();
       }
@@ -106,14 +102,14 @@ export const SeeHashTagsPage = (props) => {
     if (scrollInterval4.current) return;
 
     scrollInterval4.current = setInterval(() => {
-      document.getElementById("ls4").scrollBy({
+      document.getElementById("ls3").scrollBy({
         top: -1, // Scroll 1 pixel each time
         left: 0,
         behavior: "auto",
       });
 
       // Stop automatically when reaching the top
-      if (document.getElementById("ls4").scrollTop === 0) {
+      if (document.getElementById("ls3").scrollTop === 0) {
         buttonRef4.current.click();
 
         //stopScrolling();
@@ -123,7 +119,6 @@ export const SeeHashTagsPage = (props) => {
 
   return (
     <div>
-       
       <div className="margin-top-1 margin-left-11">
         <div className="page-header">
           <div className="content-container">
@@ -139,39 +134,47 @@ export const SeeHashTagsPage = (props) => {
           </div>
         </div>
         <div>
-<div className="margin-left-11 margin-bottom-1 margin-top-1">
-        <button
-          title="Click the button to begin auto scroll."
-          onClick={startScrollingUp4}
-          className="button-2 widthxpx1"
-        >
-          <span>ScrollUp</span>
-        </button>
+          <div className="margin-left-11 margin-bottom-1 margin-top-1">
+            <button
+              title="Click the button to begin auto scroll."
+              onClick={startScrollingUp4}
+              className="button-2 widthxpx1"
+            >
+              <span>ScrollUp</span>
+            </button>
 
-        <button
-          ref={buttonRef4}
-          title="Click the button to stop auto scroll."
-          onClick={stopScrolling4}
-          className="button-2 ib margin-left-11"
-        >
-          <span>Stop</span>
-        </button>
+            <button
+              ref={buttonRef4}
+              title="Click the button to stop auto scroll."
+              onClick={stopScrolling4}
+              className="button-2 ib margin-left-11"
+            >
+              <span>Stop</span>
+            </button>
 
-        <button
-          title="Click the button to begin auto scroll."
-          onClick={startScrollingDown4}
-          className="button-2 ib margin-left-11 widthxpx1"
-        >
-          <span>ScrollDn</span>
-        </button>
-      </div>
+            <button
+              title="Click the button to begin auto scroll."
+              onClick={startScrollingDown4}
+              className="button-2 ib margin-left-11 widthxpx1"
+            >
+              <span>ScrollDn</span>
+            </button>
+          </div>
         </div>
         {uniqueData.length} results
-        <div id="ls4" className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange">
+        <div
+          id="ls3"
+          className="content-containerht widthx1 heightx1 overflowyauto borderLightOrange"
+        >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
-            {uniqueData.map((item, index) => (
-              !!item.matchesstring && <li key={index}  key={index} data-item-id={item.matchesstring} >{item.matchesstring}</li>
-            ))}
+            {uniqueData.map(
+              (item, index) =>
+                !!item.matchesstring && (
+                  <li key={index} key={index} data-item-id={item.matchesstring}>
+                    {item.matchesstring}
+                  </li>
+                ),
+            )}
           </ul>
         </div>
       </div>
@@ -181,13 +184,13 @@ export const SeeHashTagsPage = (props) => {
 
 const mapStateToProps = (state) => ({
   hashtags: state.hashtags,
-
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
   sortByHashTag: () => dispatch(sortByHashTag()),
-  
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SeeHashTagsPage));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SeeHashTagsPage),
+);

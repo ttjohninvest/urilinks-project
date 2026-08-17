@@ -1176,6 +1176,9 @@ function ExpandableArray(props) {
           3. Use the search field to add word(s) to search for.<BR/>
           4. Use the drop down list to the right of the search button to select the type of search (hashtag, link text, or note text).<BR/>
           5. Use the search button to activate the search.<BR/>
+          6. Use the left pane menu to select a link.<BR/>
+          7. Use the content section to the right of the left pane menu to see left pane menu selections and search results.<BR/>
+          7. In the content section you may click on any of the links and the website will open in a new tab for viewing.<BR/>
           </div>}
           {/*ends third column*/}
         

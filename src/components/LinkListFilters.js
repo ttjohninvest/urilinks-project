@@ -1166,7 +1166,7 @@ function ExpandableArray(props) {
          
         </div>
   {/*begins third column*/}
-          <div className="border5 width100 margin-left-11 margin-right-1 margin-top-n-x2">
+          <div className="border5 width100 margin-left-11 margin-right-1 margin-top-n-x2 borderRadius55">
 John
           </div>
           {/*ends third column*/}

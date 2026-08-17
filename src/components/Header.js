@@ -673,7 +673,12 @@ export const Header = (props) => {
                       <div className="pointereventsnone margin-right-1 hide-">
                         <Link
                           id="uploadbookmarksfile"
-                          className="header__title- nounderline pointereventsnone button-2h padding-left-4x padding-right-4x "
+                          className="header__title-
+                           nounderline
+                            pointereventsnone
+                             button-2h bg-shade-1
+                              padding-left-4x
+                               padding-right-4x "
                           to="/bookmarksmanager"
                         >
                           <span

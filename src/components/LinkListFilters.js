@@ -1163,9 +1163,14 @@ function ExpandableArray(props) {
               <LinkList av={props.av} />
             </div>
           </div>
+          {/*begins third column*/}
+          <div>
+John
+          </div>
+          {/*ends third column*/}
         </div>
 
-        {/* </div> */}
+        
       </div>
     </div>
   );

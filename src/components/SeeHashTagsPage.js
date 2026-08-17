@@ -134,7 +134,7 @@ export const SeeHashTagsPage = (props) => {
           </div>
         </div>
         <div>
-          <div className="margin-left-11 margin-bottom-1 margin-top-1">
+          <div className="margin-left-11- margin-bottom-1 margin-top-1">
             <button
               title="Click the button to begin auto scroll."
               onClick={startScrollingUp4}

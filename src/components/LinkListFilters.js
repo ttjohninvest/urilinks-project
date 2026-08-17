@@ -1213,6 +1213,8 @@ function ExpandableArray(props) {
             7. In the content section you can click on any of the links and the
             website will open in a new tab for viewing.
             <br />
+            8. Click copy to copy your sharable link. Paste it were you want.<br />
+            9. Click email your link to open up a form to to enter recipient's email address and subject line.<br />
           </div>
         )}
         {/*ends third column*/}

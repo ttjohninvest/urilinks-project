@@ -124,12 +124,12 @@ export const SeeHashTagsPage = (props) => {
           <div className="content-container">
             <h1 className="page-header__title borderRadius55 padding-bottom-5z1-">
               <span className="color-purple color-black-2">Hashtags</span>
-              <button
+              {/* <button
                 className="ib margin-left-11 button-2 text-size-1"
                 onClick={() => props.handleClose3()}
               >
                 Close
-              </button>
+              </button> */}
             </h1>
           </div>
         </div>
@@ -159,6 +159,12 @@ export const SeeHashTagsPage = (props) => {
             >
               <span>ScrollDn</span>
             </button>
+             <button
+                className="button-2 ib margin-left-11 widthxpx1"
+                onClick={() => props.handleClose3()}
+              >
+                Close
+              </button>
           </div>
         </div>
         {uniqueData.length} results

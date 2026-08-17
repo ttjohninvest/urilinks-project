@@ -1169,7 +1169,7 @@ function ExpandableArray(props) {
           {isMobile()===false && <div 
           style={{'borderRadius':'5px'}}
           className="borderLightOrange width100 margin-left-11 margin-right-1 margin-top-n-x2 padding1">
-Hi, I appreciate that you are here.
+Hi, I appreciate that you are here. Please say "I call upon the name of Jesus Christ to save me. This wonderful invvitation is in Romans 10:13."
           </div>}
           {/*ends third column*/}
         

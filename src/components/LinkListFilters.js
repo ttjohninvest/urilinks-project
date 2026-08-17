@@ -5,7 +5,7 @@ import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 
 import AddLinkPage from "./AddlinkPage";
-import SeeHashTagsPage from "./SeeHashTagsPage.js"
+import SeeHashTagsPage from "./SeeHashTagsPage.js";
 import SendEmailPage from "./SendEmailPage";
 import ReadMoreSpan from "./ReadMoreSpan";
 import { Link } from "react-router-dom";
@@ -85,11 +85,11 @@ function ExpandableArray(props) {
       "ZZZZZ, props.mappedDataShort[0]=" +
         JSON.stringify(props.mappedDataShort[0]),
     );
-    if(z===1) 
-        !!document.querySelector("#results1") &&
-      document.querySelector("#results1").scrollIntoView({
-        behavior: "smooth",
-      });
+    if (z === 1)
+      !!document.querySelector("#results1") &&
+        document.querySelector("#results1").scrollIntoView({
+          behavior: "smooth",
+        });
   }, []);
 
   const startScrollingUp = () => {
@@ -407,14 +407,13 @@ function ExpandableArray(props) {
   const changeSortBy = (sv) => {
     //alert("sv="+"hashtag")
     //alert("sv="+sv)
-    setSortBy(sv)
+    setSortBy(sv);
     //setSortBy("hashtag")
-     !!document.querySelector("#results1") &&
+    !!document.querySelector("#results1") &&
       document.querySelector("#results1").scrollIntoView({
         behavior: "smooth",
       });
-    
-  }
+  };
 
   const onSortChange = (e) => {
     if (
@@ -546,24 +545,23 @@ function ExpandableArray(props) {
     // });
   };
 
-  const seeHashTags = () =>
-  {
-    setIsForm3Open(true)
-  }
+  const seeHashTags = () => {
+    setIsForm3Open(true);
+  };
 
   const addALink = () => {
-    setIsForm2Open(true)
-  }
+    setIsForm2Open(true);
+  };
 
   const handleClose2 = () => {
     //alert("closeLink")
-    setIsForm2Open(false)
-  }
+    setIsForm2Open(false);
+  };
 
   const handleClose3 = () => {
     //alert("closeLink")
-    setIsForm3Open(false)
-  }
+    setIsForm3Open(false);
+  };
 
   return (
     <div className="bg-white-1">
@@ -690,7 +688,9 @@ function ExpandableArray(props) {
                 </span>}*/}
               {isMobile() === true && (
                 <div className="ib margin-left-11 margin-bottom-1">
-                  {props.links.length} links are displayed.{props.links.length===0 && " Please add your first link to your page."}
+                  {props.links.length} links are displayed.
+                  {props.links.length === 0 &&
+                    " Please add your first link to your page."}
                 </div>
               )}
               {isMobile() === true ? (
@@ -719,7 +719,6 @@ function ExpandableArray(props) {
                             <div className="margin-bottom-1">
                               <button
                                 className={`margin-left-11- height48 button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
-                                
                                 onClick={copyToClipboard}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
@@ -759,7 +758,6 @@ function ExpandableArray(props) {
                             <div className="margin-bottom-1">
                               <button
                                 className={`height48 button-2w ib border5- ${isMobile() === false ? "" : "width295 margin-top-1"}`}
-                                
                                 onClick={copyToClipboard}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
@@ -790,16 +788,28 @@ function ExpandableArray(props) {
                           Email your link
                         </span>
                       </a>
-                     <button className="ib margin-left-11 button-2 bg-shade-1" onClick={addALink} title="Add a link to your page.">Add A link</button>
-                      {isForm2Open && <AddLinkPage 
-                      isForm2Open={isForm2Open}
-                      closeLink={handleClose2}
-                      
-                      />
-                      }
+                      <button
+                        className="ib margin-left-11 button-2 bg-shade-1"
+                        onClick={addALink}
+                        title="Add a link to your page."
+                      >
+                        Add A link
+                      </button>
+                      {isForm2Open && (
+                        <AddLinkPage
+                          isForm2Open={isForm2Open}
+                          closeLink={handleClose2}
+                        />
+                      )}
 
-                         <button className="ib margin-left-11 margin-left-11b- button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
-                       {/* {
+                      <button
+                        className="ib margin-left-11 margin-left-11b- button-2"
+                        onClick={seeHashTags}
+                        title="See hashtags"
+                      >
+                        See Hashtags
+                      </button>
+                      {/* {
                          isForm3Open && 
                          <SeeHashTagsPage 
                          isForm3Open={isForm3Open}
@@ -807,7 +817,6 @@ function ExpandableArray(props) {
                          />
                         } */}
 
-                      
                       {
                         //emailForm &&
                         isFormOpen && (
@@ -832,30 +841,32 @@ function ExpandableArray(props) {
                         <div className="flexrow2cv2">
                           <div className="flexcol3 text-size-1 textLeft- margin-top-1- margin-bottom-1">
                             <div>
-                            <a
-                              href="#"
-                              ref={textAreaRef}
-                              className={`ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55 ${isMobile() === false ? "" : "width325"}`}
-                              title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                              style={{ textDecoration: "none", color: "black" }}
-                            >
-                              https://urilinks.com/dashboard?signup=0&x=readonly&id=
-                              {props.uid}
-                            </a>
+                              <a
+                                href="#"
+                                ref={textAreaRef}
+                                className={`ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55 ${isMobile() === false ? "" : "width325"}`}
+                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                                style={{
+                                  textDecoration: "none",
+                                  color: "black",
+                                }}
+                              >
+                                https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                                {props.uid}
+                              </a>
                             </div>
                             <div>
-                            <button
-                              className={` height48 button-2w ib margin-right-1 border5- ${isMobile() === false ? "" : "margin-top-1"}`}
-                              
-                              onClick={copyToClipboard}
-                              title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                            >
-                              <span className="">
-                                Copy
-                                {/* click to copy your link to share your links */}
-                              </span>
-                            </button>
-                            {copySuccess}
+                              <button
+                                className={` height48 button-2w ib margin-right-1 border5- ${isMobile() === false ? "" : "margin-top-1"}`}
+                                onClick={copyToClipboard}
+                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                              >
+                                <span className="">
+                                  Copy
+                                  {/* click to copy your link to share your links */}
+                                </span>
+                              </button>
+                              {copySuccess}
                             </div>
                           </div>
                         </div>
@@ -868,28 +879,30 @@ function ExpandableArray(props) {
                         <div className="flexrow2cv2">
                           <div className="flexcol3 text-size-1 textLeft- margin-top-1- margin-bottom-1">
                             <div>
-                            <a
-                              href="#"
-                              ref={textAreaRef}
-                              className="ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55"
-                              title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                              style={{ textDecoration: "none", color: "black" }}
-                            >
-                              https://urilinks.com/dashboard?signup=0&x=readonly&id=
-                              {props.uid}
-                            </a>
-</div>
+                              <a
+                                href="#"
+                                ref={textAreaRef}
+                                className="ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55"
+                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                                style={{
+                                  textDecoration: "none",
+                                  color: "black",
+                                }}
+                              >
+                                https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                                {props.uid}
+                              </a>
+                            </div>
                             <div>
-                            <button
-                              className="button-2w height48 ib margin-right-1 border5- pointereventsnone"
-                             
-                              onClick={copyToClipboard}
-                              title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                            >
-                              Copy
-                              {/* click to copy your link to share your links */}
-                            </button>
-                            {copySuccess}
+                              <button
+                                className="button-2w height48 ib margin-right-1 border5- pointereventsnone"
+                                onClick={copyToClipboard}
+                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                              >
+                                Copy
+                                {/* click to copy your link to share your links */}
+                              </button>
+                              {copySuccess}
                             </div>
                           </div>
                         </div>
@@ -911,24 +924,35 @@ function ExpandableArray(props) {
                           Email your link
                         </span>
                       </a>
-                      <button className="ib margin-left-11 button-2 bg-shade-1" onClick={addALink} title="Add a link to your page.">Add A link</button>
-                       {
-                         isForm2Open && 
-                         <AddLinkPage 
-                         isForm2Open={isForm2Open}
-                         handleClose2={handleClose2}
-                         />
-                        }
+                      <button
+                        className="ib margin-left-11 button-2 bg-shade-1"
+                        onClick={addALink}
+                        title="Add a link to your page."
+                      >
+                        Add A link
+                      </button>
+                      {isForm2Open && (
+                        <AddLinkPage
+                          isForm2Open={isForm2Open}
+                          handleClose2={handleClose2}
+                        />
+                      )}
 
-                          <button className="ib margin-top-1 margin-left-11 margin-left-11b- button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button>
-                       {/*{
+                      <button
+                        className="ib margin-top-1 margin-left-11 margin-left-11b- button-2"
+                        onClick={seeHashTags}
+                        title="See hashtags"
+                      >
+                        See Hashtags
+                      </button>
+                      {/*{
                          isForm3Open && 
                          <SeeHashTagsPage 
                          isForm3Open={isForm3Open}
                          handleClose3={handleClose3}
                          />
                         } */}
-                   
+
                       {
                         //emailForm &&
                         isFormOpen && (
@@ -1040,15 +1064,14 @@ function ExpandableArray(props) {
                         </optgroup>
                       </select>
                     </div>
-                      {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
-                       {
-                         isForm3Open && 
-                         <SeeHashTagsPage 
-                         changeSortBy={changeSortBy}
-                         isForm3Open={isForm3Open}
-                         handleClose3={handleClose3}
-                         />
-                        }
+                    {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
+                    {isForm3Open && (
+                      <SeeHashTagsPage
+                        changeSortBy={changeSortBy}
+                        isForm3Open={isForm3Open}
+                        handleClose3={handleClose3}
+                      />
+                    )}
                   </div>
                 ) : (
                   <div className="flexrowzv margin-top-1t1 margin-bottom-1">
@@ -1142,46 +1165,57 @@ function ExpandableArray(props) {
                         </optgroup>
                       </select>
                     </div>
-                      {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
-                       {
-                         isForm3Open && 
-                         <SeeHashTagsPage 
-                         changeSortBy={changeSortBy}
-                         isForm3Open={isForm3Open}
-                         handleClose3={handleClose3}
-                         />
-                        }
+                    {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
+                    {isForm3Open && (
+                      <SeeHashTagsPage
+                        changeSortBy={changeSortBy}
+                        isForm3Open={isForm3Open}
+                        handleClose3={handleClose3}
+                      />
+                    )}
                   </div>
                 )}
               </div>
             </div>
 
-            <div 
-            id="results1"
-            className={`margin-top-18`}>
+            <div id="results1" className={`margin-top-18`}>
               {/* column 2 */}
               <LinkList av={props.av} />
             </div>
           </div>
-         
         </div>
-  {/*begins third column*/}
-          {isMobile()===false && <div 
-          style={{'borderRadius':'5px'}}
-          className="borderLightOrange width100 margin-left-11 margin-right-1 margin-top-n-x2 padding1">
-{/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
-          INSTRUCTIONS<BR/>
-          1. Use Bookmarks upload to upload a bookmarks.html file that is less than 100k.<BR/>
-          2. Use Add A Link to add 1 link.<BR/>
-          3. Use the search field to add word(s) to search for.<BR/>
-          4. Use the drop down list to the right of the search button to select the type of search (hashtag, link text, or note text).<BR/>
-          5. Use the search button to activate the search.<BR/>
-          6. Use the left pane menu to select a link.<BR/>
-          7. Use the content section to the right of the left pane menu to see left pane menu selections and search results.<BR/>
-          7. In the content section you may click on any of the links and the website will open in a new tab for viewing.<BR/>
-          </div>}
-          {/*ends third column*/}
-        
+        {/*begins third column*/}
+        {isMobile() === false && (
+          <div
+            style={{ borderRadius: "5px" }}
+            className="borderLightOrange width100 margin-left-11 margin-right-1 margin-top-n-x2 padding1"
+          >
+            {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
+            INSTRUCTIONS
+            <br />
+            1. Use Bookmarks upload to upload a bookmarks.html file that is less
+            than 100k.
+            <br />
+            2. Use Add A Link to add 1 link.
+            <br />
+            3. Use the search field to add word(s) to search for.
+            <br />
+            4. Use the drop down list to the right of the search button to
+            select the type of search (hashtag, link text, or note text). if word(s) are entered in the search field, the search will activate.
+            <br />
+            5. Use the search button to activate the search.
+            <br />
+            6. Use the left pane menu to select a link.
+            <br />
+            7. Use the content section to the right of the left pane menu to see
+            left pane menu selections and search results.
+            <br />
+            7. In the content section you may click on any of the links and the
+            website will open in a new tab for viewing.
+            <br />
+          </div>
+        )}
+        {/*ends third column*/}
       </div>
     </div>
   );
@@ -1572,31 +1606,31 @@ export class LinkListFilters extends React.Component {
 
   render() {
     return (
-        <div>
-              <ExpandableArray
-                mappedDataShort={this.props.hashtags}
-                mappedDataLong={this.state.mappedDataLong}
-                maxLength={this.SHORT_HASHTAG_LENGTH}
-                ref1={this.elementRef}
-                morehashtags={this.state.morehashtags}
-                setit={this.setit}
-                theplan={this.props.theplan}
-                plan={this.props.theplan.plan}
-                newspaper={this.state.newspaper}
-                signup={this.props.signup.signup}
-                uid={this.props.auth.uid}
-                links={this.props.links}
-                b={this.props.b}
-                setTextFilter={this.props.setTextFilter}
-                sortByDescription={this.props.sortByDescription}
-                sortByHashTag={this.props.sortByHashTag}
-                sortByNoteText={this.props.sortByNoteText}
-                sortByViews={this.props.sortByViews}
-                sortByLikes={this.props.sortByLikes}
-                sortByStar={this.props.sortByStar}
-                filters={this.props.filters}
-              />
-            </div>
+      <div>
+        <ExpandableArray
+          mappedDataShort={this.props.hashtags}
+          mappedDataLong={this.state.mappedDataLong}
+          maxLength={this.SHORT_HASHTAG_LENGTH}
+          ref1={this.elementRef}
+          morehashtags={this.state.morehashtags}
+          setit={this.setit}
+          theplan={this.props.theplan}
+          plan={this.props.theplan.plan}
+          newspaper={this.state.newspaper}
+          signup={this.props.signup.signup}
+          uid={this.props.auth.uid}
+          links={this.props.links}
+          b={this.props.b}
+          setTextFilter={this.props.setTextFilter}
+          sortByDescription={this.props.sortByDescription}
+          sortByHashTag={this.props.sortByHashTag}
+          sortByNoteText={this.props.sortByNoteText}
+          sortByViews={this.props.sortByViews}
+          sortByLikes={this.props.sortByLikes}
+          sortByStar={this.props.sortByStar}
+          filters={this.props.filters}
+        />
+      </div>
     );
   }
 }

@@ -871,7 +871,7 @@ function ExpandableArray(props) {
                             <a
                               href="#"
                               ref={textAreaRef}
-                              className="ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange borderLightOrange padding-all2 borderradius55"
+                              className="ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55"
                               title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               style={{ textDecoration: "none", color: "black" }}
                             >
@@ -1166,7 +1166,7 @@ function ExpandableArray(props) {
          
         </div>
   {/*begins third column*/}
-          {isMobile()===false && <div className="borderLightOrange width100 margin-left-11 margin-right-1 margin-top-n-x2 borderRadius55">
+          {isMobile()===false && <div className="borderLightOrange width100 margin-left-11 margin-right-1 margin-top-n-x2 borderRadius5">
 Hi, I appreciate that you are here.
           </div>}
           {/*ends third column*/}

@@ -223,6 +223,7 @@ export const AddLinkPage = (props) => {
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
   signup: state.signup,
+  links:state.links
 });
 
 const mapDispatchToProps = (dispatch) => ({

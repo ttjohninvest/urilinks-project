@@ -150,15 +150,15 @@ export const AddLinkPage = (props) => {
       props.links.forEach((link)=>{
            console.log("link.description="+link.description+", link.description="+link.description)
         if(link.description === link.description) {
-           alert("found a match")
+           //alert("found a match")
            isin === true
         }
          
       })
       
-      if(inin === false) {
-         alert("did not find a match")
-      }
+      // if(inin === false) {
+      //    alert("did not find a match")
+      // }
 
       if(isin===false) {
       const r = props.startAddLink(link);

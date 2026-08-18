@@ -148,28 +148,29 @@ export const AddLinkPage = (props) => {
       let isin = false
       //don't add the link if the link text is already in the props.links array of jso objects
       props.links.forEach((l)=>{
-           alert("l.description="+"'"+l.description+"'"+", link.description="+"'"+link.description+"'")
-        //    let x = !!l.description
-        //    let x1 = ""
-        //    if(!!x) x1 = l.description.toLowerCase()
+           //alert("l.description="+"'"+l.description+"'"+", link.description="+"'"+link.description+"'")
+           let x = !!l.description
+           let x1 = ""
+           if(!!x) x1 = l.description.toLowerCase()
 
-        //    let y = !!link.description
-        //    let x2 = ""
-        //    if(!!y) x2 = link.description.toLowerCase()
+           let y = !!link.description
+           let x2 = ""
+           if(!!y) x2 = link.description.toLowerCase()
 
            
-        // if(!!x && !!y && (x1 === x2)) {
-        //    //alert("found a match")
-        //    isin === true
-        // }
-
-         if(l.description === link.description) {
-           alert("found a match,"+l.description+","+link.description)
-           isin === true
-        } else {
-          alert("did not find a match,"+l.description+","+link.description)
-           isin === false
+        if(!!x && !!y && (x1 === x2)) {
+           //alert("found a match")
+           isin = true
         }
+
+        //  if(l.description === link.description) {
+        //    //alert("found a match,"+l.description+","+link.description)
+        //    isin = true
+        //     break
+        // } else {
+        //    //alert("did not find a match,"+l.description+","+link.description)
+        //    isin = false
+        // }
          
       })
       
@@ -178,6 +179,7 @@ export const AddLinkPage = (props) => {
       // }
 
       if(isin===false) {
+        //alert("isin="+isin)
       const r = props.startAddLink(link);
       if (r === false) {
         setErrorDialog(true);
@@ -191,7 +193,8 @@ export const AddLinkPage = (props) => {
 
       }
       else {
-        alert("The link is not added because it is alread in the list. If you think that it is not already in the list change the link text to a unique description.")
+        //alert("isin="+isin)
+        alert("The link was not added because it is alread in the list. If you think that it is not already in the list change the link text to a unique description.")
       }
       
     } else {

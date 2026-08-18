@@ -3091,7 +3091,7 @@ const FetchBookmarks = (props) => {
                 // let result = B.filter(
                 //   (b) => !A.some((a) => a.description.replace(/-/g, ' ') === b.description.replace(/-/g, ' '))
                 // ); //I am having a problem with the hyphen
-
+//
                 let A = props.links;
                 let B = htmllinksarray;
                 let result = B.filter(

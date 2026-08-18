@@ -1078,7 +1078,7 @@ function ExpandableArray(props) {
                     <div className="">
                       <input
                         title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                        placeholder="enter what to find"
+                        placeholder="search field"
                         autoFocus
                         id="termid"
                         className={`margin-left-11 width400 searchinput`}

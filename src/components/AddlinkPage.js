@@ -148,7 +148,7 @@ export const AddLinkPage = (props) => {
       let isin = false
       //don't add the link if the link text is already in the props.links array of jso objects
       props.links.forEach((l)=>{
-           console.log("l.description="+l.description+", link.description="+link.description)
+           alert("l.description="+l.description+", link.description="+link.description)
         //    let x = !!l.description
         //    let x1 = ""
         //    if(!!x) x1 = l.description.toLowerCase()

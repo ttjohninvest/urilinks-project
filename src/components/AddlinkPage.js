@@ -147,10 +147,18 @@ export const AddLinkPage = (props) => {
       console.log("A link.yturl=" + link.yturl);
       let isin = false
       //don't add the link if the link text is already in the props.links array of jso objects
-      props.links.forEach(()=>{
-        if(link.description === link.description)
-          isin === true
+      props.links.forEach((link)=>{
+           console.log("link.description="+link.description+", link.description="+link.description)
+        if(link.description === link.description) {
+           alert("found a match")
+           isin === true
+        }
+         
       })
+      
+      if(inin === false) {
+         alert("did not find a match")
+      }
 
       if(isin===false) {
       const r = props.startAddLink(link);

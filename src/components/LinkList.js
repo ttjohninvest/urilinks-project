@@ -275,7 +275,7 @@ export const LinkList = (props) => {
 
       {isMobile() === false && (
         <div className="ib margin-left-11 margin-bottom-1">
-          {props.links.length} links are displayed.{props.links.length===0 && " Please add your first link to your page."}
+          {props.links.length} links are displayed.
         </div>
       )}
       <div className="margin-left-11">

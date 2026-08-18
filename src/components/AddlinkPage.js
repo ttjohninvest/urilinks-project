@@ -145,6 +145,14 @@ export const AddLinkPage = (props) => {
       link.foldername = link.description;
       link.yturl = isityt(link.Url);
       console.log("A link.yturl=" + link.yturl);
+      let isin = false
+      //don't add the link if the link text is already in the props.links array of jso objects
+      props.links.forEach(()=>{
+        if(link.description === link.description)
+          isin === true
+      })
+
+      if(isin===false) {
       const r = props.startAddLink(link);
       if (r === false) {
         setErrorDialog(true);
@@ -155,6 +163,12 @@ export const AddLinkPage = (props) => {
         //window.location.reload();
         window.location.href = "https://urilinks.com?signup=signup";
       }
+
+      }
+      else {
+        alert("The link is not added because it is alread in the list. If you think that it is not already in the list change the link text to a unique description.")
+      }
+      
     } else {
       console.log("maximum links reached");
       setMaximumPage(true);

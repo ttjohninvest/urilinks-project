@@ -58,6 +58,15 @@
 .scrollable-div1 {
   //width:100%;
   width:675px;
+  height: 200vh; //150vh; //112vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-left: 1rem;
+}
+
+.scrollable-div1c {
+  //width:100%;
+  width:675px;
   height: 150vh; //112vh;
   overflow-y: auto;
   overflow-x: hidden;

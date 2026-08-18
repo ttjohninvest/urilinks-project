@@ -1194,50 +1194,50 @@ function ExpandableArray(props) {
             🙂 INSTRUCTIONS TO SAVE AND SHARE LINK(S)
             <br />
             <br />
-            1. Use Bookmarks upload to upload a bookmarks.html file that is less
+            ✮ Use Bookmarks upload to upload a bookmarks.html file that is less
             than 100k.
             <br />
             <br />
-            2. Use Add A Link to add 1 link.
+            ✮ Use Add A Link to add 1 link.
             <br />
             <br />
-            3. Use the search field to add word(s) to search for.
+            ✮ Use the search field to add word(s) to search for.
             <br />
             <br />
-            4. Use the drop down list to the right of the search button to
+            ✮ Use the drop down list to the right of the search button to
             select the type of search (hashtag, link text, or note text). if word(s) are entered in the search field, the search will activate.
             <br />
             <br />
-            5. If you want a link to be findable under two different hashtags, add the hashtag to the note section. The system will not store duplicate link titles.
+            ✮ If you want a link to be findable under two different hashtags, add the hashtag to the note section. The system will not store duplicate link titles.
             <br />
             <br />
-            6. Use the search button to activate the search.
+            ✮ Use the search button to activate the search.
             <br />
             <br />
-            7. Use the left pane menu to select a link.
+            ✮ Use the left pane menu to select a link.
             <br />
             <br />
-            8. Use the content section to the right of the left pane menu to see
+            ✮ Use the content section to the right of the left pane menu to see
             left pane menu selections and search results.
             <br />
             <br />
-            9. In the content section you can click on any of the links and the
+            ✮ In the content section you can click on any of the links and the
             website will open in a new tab for viewing.
             <br />
             <br />
-            10. Click copy to copy your sharable link. Paste it were you want.
+            ✮ Click copy to copy your sharable link. Paste it were you want.
             <br />
             <br />
-            11. Click email your link to open up a form to to enter recipient's email address and subject line.
+            ✮ Click email your link to open up a form to to enter recipient's email address and subject line.
             <br />
             <br />
-            12. Click the ScrollUp button to start automatic scrolling up.
+            ✮ Click the ScrollUp button to start automatic scrolling up.
             <br />
             <br />
-            13. Click the Stop button to stop automatic scrolling.
+            ✮ Click the Stop button to stop automatic scrolling.
             <br />
             <br />
-            14. Click the ScrollDn button to start automatic scrolling down.
+            ✮ Click the ScrollDn button to start automatic scrolling down.
             <br />
             <br />
           </div>

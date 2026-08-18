@@ -41,7 +41,7 @@ const LinkDashboardPage = (props) => {
   };
 
   useEffect(() => {
-    document.body.style.zoom = "80%"
+    
     // const handleTabClose = (event) => {
     //   //event.preventDefault();
     //   // Optional: Set a custom message (though modern browsers may ignore it)

@@ -1203,6 +1203,7 @@ function ExpandableArray(props) {
             4. Use the drop down list to the right of the search button to
             select the type of search (hashtag, link text, or note text). if word(s) are entered in the search field, the search will activate.
             <br />
+            5. If you want a link to be findable under two different hashtags, add the hashtag to the note section. The system will not store duplicate link titles.<br />
             5. Use the search button to activate the search.
             <br />
             6. Use the left pane menu to select a link.

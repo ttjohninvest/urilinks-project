@@ -164,8 +164,11 @@ export const AddLinkPage = (props) => {
         // }
 
          if(l.description === link.description) {
-           //alert("found a match")
+           alert("found a match,"+l.description+","+link.description)
            isin === true
+        } else {
+          alert("did not find a match,"+l.description+","+link.description)
+           isin === false
         }
          
       })

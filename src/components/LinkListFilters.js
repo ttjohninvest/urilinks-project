@@ -1188,7 +1188,7 @@ function ExpandableArray(props) {
         {isMobile() === false && (
           <div
             style={{ borderRadius: "5px" }}
-            className="borderLightOrange width100 margin-left-11 margin-right-1 margin-top-n-x2 padding1"
+            className="borderLightOrange widthxy margin-left-11 margin-right-1 margin-top-n-x2 padding1"
           >
             {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
             🙂 INSTRUCTIONS TO SAVE AND SHARE LINK(S)

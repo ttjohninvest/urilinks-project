@@ -361,7 +361,9 @@ function ExpandableArray(props) {
   };
 
   const handleKeyPress = (event) => {
+    alert("handleSearch1")
     if (event.key === "Enter") {
+      alert("handleSearch2")
       handleSearch();
     }
   };

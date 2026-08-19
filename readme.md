@@ -1810,3 +1810,80 @@ API Methods: Realtime Database methods like onValue or orderByChild do not have 
 Querying: Firestore supports complex compound queries and indexing, which eliminates the need for the "fan-out" or denormalization patterns often required in the Realtime Database. 
 
 =================
+
+Speach Recognition Component
+<!-- 
+import React, { useState, useEffect } from "react";
+
+//import "./index.css";
+
+
+import Mic from "../assets/images/purpleflower.png";
+
+// App.js
+let speech;
+if (window.webkitSpeechRecognition) {
+  // eslint-disable-next-line
+  const SpeechRecognition = webkitSpeechRecognition;
+  speech = new SpeechRecognition();
+  speech.continuous = true;
+} else {
+  speech = null;
+}
+
+//const App = () => { ... };
+
+
+
+// App.js
+const SpeachRecognition = (props) => {
+ const [isListening, setIsListening] = useState(false);
+ const [text, setText] = useState("");
+
+ const listen = () => {
+   setIsListening(!isListening);
+   if (isListening) {
+     speech.stop();
+   } else {
+     speech.start();
+   }
+ };
+
+ useEffect(() => {
+  //handle if the browser does not support the Speech API
+   if (!speech) {
+      return;
+    }
+   speech.onresult = (event) => {
+     setText(event.results[event.results.length - 1][0].transcript);
+     //console.log("said: "+event.results[event.results.length - 1][0].transcript)
+     alert("said: "+event.results[event.results.length - 1][0].transcript)
+   };
+ }, []);
+
+ return (
+   <div>
+     <div className="app">
+       <h2>Book Voice Search</h2>
+       <h3>Click the purple flower and say something.</h3>
+       <div>
+         <img
+           className={`microphone ${isListening && "isListening"}`}
+           src={Mic}
+           width="30"
+           height="30"
+           alt="microphone"
+           onClick={listen}
+         />
+       </div>
+       <p>{text}</p>
+     </div>
+   </div>
+ );
+} 
+export default SpeachRecognition;
+-->
+
+
+==========================================================================
+

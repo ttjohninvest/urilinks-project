@@ -346,7 +346,7 @@ const FetchBookmarks = (props) => {
                             console.log(1);
                             console.log("15 foldername:=" + foldername);
                             htmllinksarray.push({
-                              description: !!title === true ? title : "",
+                              description: title,
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
@@ -409,7 +409,7 @@ const FetchBookmarks = (props) => {
                                 console.log(2);
                                 console.log("16 foldername:=" + foldername);
                                 htmllinksarray.push({
-                                  description: !!title === true ? title : "",
+                                  description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
@@ -472,7 +472,7 @@ const FetchBookmarks = (props) => {
                                     console.log("17 foldername:=" + foldername);
                                     htmllinksarray.push({
                                       description:
-                                        !!title === true ? title : "",
+                                        title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
@@ -548,7 +548,7 @@ const FetchBookmarks = (props) => {
                                         );
                                         htmllinksarray.push({
                                           description:
-                                            !!title === true ? title : "",
+                                            title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
@@ -634,7 +634,7 @@ const FetchBookmarks = (props) => {
                                             );
                                             htmllinksarray.push({
                                               description:
-                                                !!title === true ? title : "",
+                                                title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
@@ -896,7 +896,7 @@ const FetchBookmarks = (props) => {
                             console.log(8);
                             console.log("22 foldername:=" + foldername);
                             htmllinksarray.push({
-                              description: !!title === true ? title : "",
+                              description: title,
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
@@ -958,7 +958,7 @@ const FetchBookmarks = (props) => {
                                 console.log(9);
                                 console.log("23 foldername:=" + foldername);
                                 htmllinksarray.push({
-                                  description: !!title === true ? title : "",
+                                  description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
@@ -1022,7 +1022,7 @@ const FetchBookmarks = (props) => {
                                     console.log("24 foldername:=" + foldername);
                                     htmllinksarray.push({
                                       description:
-                                        !!title === true ? title : "",
+                                        title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
@@ -1098,7 +1098,7 @@ const FetchBookmarks = (props) => {
                                         );
                                         htmllinksarray.push({
                                           description:
-                                            !!title === true ? title : "",
+                                            title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
@@ -1184,7 +1184,7 @@ const FetchBookmarks = (props) => {
                                             );
                                             htmllinksarray.push({
                                               description:
-                                                !!title === true ? title : "",
+                                                title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
@@ -1449,7 +1449,7 @@ const FetchBookmarks = (props) => {
                             console.log(15);
                             console.log("29 foldername:=" + foldername);
                             htmllinksarray.push({
-                              description: !!title === true ? title : "",
+                              description: title,
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
@@ -1512,7 +1512,7 @@ const FetchBookmarks = (props) => {
                                 console.log(16);
                                 console.log("30 foldername:=" + foldername);
                                 htmllinksarray.push({
-                                  description: !!title === true ? title : "",
+                                  description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
@@ -1576,7 +1576,7 @@ const FetchBookmarks = (props) => {
                                     console.log("31 foldername:=" + foldername);
                                     htmllinksarray.push({
                                       description:
-                                        !!title === true ? title : "",
+                                        title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
@@ -1652,7 +1652,7 @@ const FetchBookmarks = (props) => {
                                         );
                                         htmllinksarray.push({
                                           description:
-                                            !!title === true ? title : "",
+                                            title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
@@ -1738,7 +1738,7 @@ const FetchBookmarks = (props) => {
                                             );
                                             htmllinksarray.push({
                                               description:
-                                                !!title === true ? title : "",
+                                                title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
@@ -2011,7 +2011,7 @@ const FetchBookmarks = (props) => {
                             console.log("1 foldername:=" + foldername);
 
                             htmllinksarray.push({
-                              description: !!title === true ? title : "",
+                              description: title,
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
@@ -2074,7 +2074,7 @@ const FetchBookmarks = (props) => {
 
                                 htmllinksarray.push({
                                   foldername: foldername,
-                                  description: !!title === true ? title : "",
+                                  description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
@@ -2138,7 +2138,7 @@ const FetchBookmarks = (props) => {
 
                                     htmllinksarray.push({
                                       description:
-                                        !!title === true ? title : "",
+                                        title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
@@ -2213,7 +2213,7 @@ const FetchBookmarks = (props) => {
                                         );
                                         htmllinksarray.push({
                                           description:
-                                            !!title === true ? title : "",
+                                            title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
@@ -2298,7 +2298,7 @@ const FetchBookmarks = (props) => {
                                             );
                                             htmllinksarray.push({
                                               description:
-                                                !!title === true ? title : "",
+                                                title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
@@ -2559,7 +2559,7 @@ const FetchBookmarks = (props) => {
                             console.log("pushing unto htmllinksarray");
                             console.log("8 foldername:=" + foldername);
                             htmllinksarray.push({
-                              description: !!title === true ? title : "",
+                              description: title,
                               Url: url, //, //href,
                               yturl: yturl,
                               note: hashtagv1,
@@ -2621,7 +2621,7 @@ const FetchBookmarks = (props) => {
                                 console.log("pushing unto htmllinksarray");
                                 console.log("9 foldername:=" + foldername);
                                 htmllinksarray.push({
-                                  description: !!title === true ? title : "",
+                                  description: title,
                                   Url: url, //, //href,
                                   yturl: yturl,
                                   note: hashtagv2,
@@ -2684,7 +2684,7 @@ const FetchBookmarks = (props) => {
                                     console.log("10 foldername:=" + foldername);
                                     htmllinksarray.push({
                                       description:
-                                        !!title === true ? title : "",
+                                        title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
@@ -2759,7 +2759,7 @@ const FetchBookmarks = (props) => {
                                         );
                                         htmllinksarray.push({
                                           description:
-                                            !!title === true ? title : "",
+                                            title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
@@ -2844,7 +2844,7 @@ const FetchBookmarks = (props) => {
                                             );
                                             htmllinksarray.push({
                                               description:
-                                                !!title === true ? title : "",
+                                                title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
@@ -3129,7 +3129,7 @@ const FetchBookmarks = (props) => {
                       "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
                     r = props.startAddLink({
-                      description: !!result[i].description===true?result[i].description:"",
+                      description: result[i].description,
                       Url: result[i].Url, //, //href,
                       yturl: result[i].yturl,
                       note: result[i].note,
@@ -3186,7 +3186,7 @@ const FetchBookmarks = (props) => {
                       "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
                     r = props.startAddLink({
-                      description: !!result[i].description===true?result[i].description:"",
+                      description: result[i].description,
                       Url: result[i].Url, //, //href,
                       yturl: result[i].yturl,
                       note: result[i].note,

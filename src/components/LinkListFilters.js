@@ -459,8 +459,8 @@ function ExpandableArray(props) {
     //alert("sv="+sv)
     setSortBy(sv);
     //setSortBy("hashtag")
-    !!document.querySelector("#results1") &&
-      document.querySelector("#results1").scrollIntoView({
+    !!document.querySelector("#before-before-link-summary-id") &&
+      document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
       });
   };
@@ -586,8 +586,9 @@ function ExpandableArray(props) {
   const setItNow = (index, ht, e) => {
     setActiveItem(index);
     props.setit(ht, e);
-    //  !!document.querySelector("#results1") &&
-      document.querySelector("#results1").scrollIntoView({
+    
+    !!document.querySelector("#before-before-link-summary-id") &&
+      document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
       });
 

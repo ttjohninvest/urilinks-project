@@ -1085,7 +1085,7 @@ function ExpandableArray(props) {
                       </button>
                     </div>
 
-                    <div className={`margin-top-1 margin-left-11 border5`}>
+                    <div className={`margin-top-n-1z margin-left-11 border5`}>
                       <select
                         id="mode"
                         className="select outline-none borderRadius55"

@@ -366,7 +366,7 @@ function ExpandableArray(props) {
     }
   };
 
-  const search = () => {
+  const search = (z) => {
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
@@ -401,11 +401,13 @@ function ExpandableArray(props) {
         window.localStorage.setItem("termid", term);
         props.setTextFilter(term);
       }
-      
-    }!!document.querySelector("#results1") &&
-      document.querySelector("#results1").scrollIntoView({
-        behavior: "smooth",
-      });
+
+    }
+    
+    // !!document.querySelector("#results1") &&
+    //   document.querySelector("#results1").scrollIntoView({
+    //     behavior: "smooth",
+    //   });
 
   };
 

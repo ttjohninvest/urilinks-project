@@ -746,11 +746,13 @@ function ExpandableArray(props) {
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   {" plan."} 
                 </span>}*/}
-              {isMobile() === true && (
-                <div className="margin-top-n-1z ib margin-left-11 margin-bottom-1">
+              {isMobile() === true && (<div>
+                <div className="flexrowzc2">Internet Links Organizer's Home Page</div>
+                <div className="ib margin-left-11 margin-bottom-1">
                   {props.links.length} 1links are displayed.
                   {props.links.length === 0 &&
                     " Please add your first link to your page."}
+                </div>
                 </div>
               )}
               {isMobile() === true ? (

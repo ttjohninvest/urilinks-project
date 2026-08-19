@@ -401,7 +401,12 @@ function ExpandableArray(props) {
         window.localStorage.setItem("termid", term);
         props.setTextFilter(term);
       }
-    }
+      
+    }!!document.querySelector("#results1") &&
+      document.querySelector("#results1").scrollIntoView({
+        behavior: "smooth",
+      });
+
   };
 
   const changeSortBy = (sv) => {

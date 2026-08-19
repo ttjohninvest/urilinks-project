@@ -361,9 +361,9 @@ function ExpandableArray(props) {
   };
 
   const handleKeyPress = (event) => {
-    alert("handleSearch1")
+    //alert("handleSearch1")
     if (event.key === "Enter") {
-      alert("handleSearch2")
+      //alert("handleSearch2")
       handleSearch();
     }
   };
@@ -1050,7 +1050,7 @@ function ExpandableArray(props) {
                         //value={this.state.dv}
                         //onChange={(e) => this.setState({ searchTerm: e.target.value })}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        onKeyDown={handleKeyPress}
+                        //onKeyDown={handleKeyPress}
                       />
                     </div>
 
@@ -1169,7 +1169,7 @@ function ExpandableArray(props) {
                         //value={this.state.dv}
                         //onChange={(e) => this.setState({ searchTerm: e.target.value })}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        onKeyDown={handleKeyPress}
+                        //onKeyDown={handleKeyPress}
                       />
                     </div>
 

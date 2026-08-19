@@ -625,7 +625,7 @@ function ExpandableArray(props) {
           } theHeight flexrowzc2 border-b-5font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
-          <span className="padding-left-n-x">
+          <span className="padding-left-n-x sticky-left-text">
             Internet Links Organizer Dashboard's Home Page
           </span>
         </div>
@@ -746,14 +746,14 @@ function ExpandableArray(props) {
                   {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
                   {" plan."} 
                 </span>}*/}
-              {isMobile() === true && (<div>
-                <div className="flexrowzc2">Internet Links Organizer's Home Page</div>
+              {isMobile() === true && (
+                
                 <div className="ib margin-left-11 margin-bottom-1">
                   {props.links.length} 1links are displayed.
                   {props.links.length === 0 &&
                     " Please add your first link to your page."}
                 </div>
-                </div>
+                
               )}
               {isMobile() === true ? (
                 <div className="margin-left-11 margin-bottom-1 flexcol3">

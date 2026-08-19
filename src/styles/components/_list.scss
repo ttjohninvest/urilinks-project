@@ -1055,6 +1055,12 @@ font-family: 'Roboto', sans-serif;
   pointer-events: auto;
 }
 
+.sticky-left-text {
+  position: sticky;
+  left: 0; /* Distance from the left edge of the parent */
+  /* Optional: ensure the parent has a defined width and scroll context */
+}
+
 
 .margin-left-1 {
   margin-left: 0.5rem;

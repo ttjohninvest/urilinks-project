@@ -688,7 +688,7 @@ function ExpandableArray(props) {
                       return <div key={index}></div>;
                     else
                       return (
-                       <div className={`${isMobile()===true?'margin-left-n-11p':''}`}>
+                       <div className={``}>
                         {!!s.description2===false?<div></div>
                         :
                         <div

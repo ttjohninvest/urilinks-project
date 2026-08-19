@@ -1033,7 +1033,7 @@ function ExpandableArray(props) {
 
               <div id="before-before-link-summary-id" className="">
                 {isMobile() === true ? (
-                  <div className="flexcol3">
+                  <div className="flexcol3a">
                     <div className="">
                       <input
                         title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."

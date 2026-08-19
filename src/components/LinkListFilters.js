@@ -532,17 +532,12 @@ function ExpandableArray(props) {
   const setItNow = (index, ht, e) => {
     setActiveItem(index);
     props.setit(ht, e);
-    document.getElementById("very-top-id").scrollBy({
-      top: 0,
-      left: 360,
-      behavior: "smooth",
-    });
+    //  !!document.querySelector("#results1") &&
+      document.querySelector("#results1").scrollIntoView({
+        behavior: "smooth",
+      });
 
-    // document.getElementById("very-top-id").scrollBy({
-    //   top: 500,
-    //   left: 360,
-    //   behavior: "smooth",
-    // });
+    
   };
 
   const seeHashTags = () => {

@@ -446,8 +446,8 @@ function ExpandableArray(props) {
 
     }
     
-    !!document.querySelector("#results1") &&
-      document.querySelector("#results1").scrollIntoView({
+    !!document.querySelector("#before-before-link-summary-id") &&
+      document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
       });
 

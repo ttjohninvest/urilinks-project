@@ -366,6 +366,48 @@ function ExpandableArray(props) {
     }
   };
 
+  const search2 = (z) => {
+    console.log("search");
+    //const sortBy = window.localStorage.getItem("sortBy");
+    var select = document.getElementById("mode");
+
+    //var selectedValue = select.options[select.selectedIndex].value;
+    var selectedValue;
+    if (window.localStorage.getItem("sortBy") !== "")
+      selectedValue = window.localStorage.getItem("sortBy");
+    else selectedValue = select.options[select.selectedIndex].value;
+    //console.log("search = () => {, selectedValue=" + selectedValue)
+    console.log("1 selectedValue=" + selectedValue + ", term=" + term);
+    let term = window.document.getElementById("termid").value.trim();
+    //alert("1 selectedValue="+selectedValue+", term="+term)
+    window.localStorage.setItem("termid", term);
+    props.setTextFilter(term);
+
+    if (
+      selectedValue === "hashtag" &&
+      // && sortBy === "hashtag"
+      props.filters.sortBy === "hashtag"
+    ) {
+      // if (term !== "" && term.charAt(0) !== "#") {
+      //   alert("The search term needs to be a hashtag.");
+      //   return;
+      // }
+
+      if (term === "") {
+        window.document.getElementById("termid").value = "#";
+        window.localStorage.setItem("termid", "#");
+        props.setTextFilter("#");
+      } else {
+        window.localStorage.setItem("termid", term);
+        props.setTextFilter(term);
+      }
+
+    }
+    
+    
+
+  };
+
   const search = (z) => {
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
@@ -404,12 +446,13 @@ function ExpandableArray(props) {
 
     }
     
-    // !!document.querySelector("#results1") &&
-    //   document.querySelector("#results1").scrollIntoView({
-    //     behavior: "smooth",
-    //   });
+    !!document.querySelector("#results1") &&
+      document.querySelector("#results1").scrollIntoView({
+        behavior: "smooth",
+      });
 
   };
+
 
   const changeSortBy = (sv) => {
     //alert("sv="+"hashtag")
@@ -1007,7 +1050,25 @@ function ExpandableArray(props) {
                         //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                         //onClick={this.search}
-                        onClick={search}
+                        onClick={()=>search()}
+                        ////title="Searches to find entered term through the previously selected list which will appear in copper color."
+                        title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
+                      >
+                        Search
+                      </button>
+                    </div>
+
+                    <div
+                      className={`margin-right-1 margin-left-11 margin-top-1`}
+                    >
+                      <button
+                        id="buttonid2"
+                        className={`${isMobile() === true ? "width325" : ""} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                        style={{'visibility':'hidden'}}
+                        //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
+
+                        //onClick={this.search}
+                        onClick={()=>search2()} 
                         ////title="Searches to find entered term through the previously selected list which will appear in copper color."
                         title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
                       >
@@ -1108,7 +1169,7 @@ function ExpandableArray(props) {
                         //className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
                         className={`${isMobile() === true ? "width325" : ""} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
                         //onClick={this.search}
-                        onClick={search}
+                        onClick={()=>search()}
                         //title="Searches to find entered term through the previously selected list which will appear in copper color."
                         title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
                       >
@@ -1535,10 +1596,10 @@ export class LinkListFilters extends React.Component {
       //const term = window.localStorage.getItem("termid");
       if (term !== "" && term.charAt(0) === "#") {
         this.setState({ sortBy: "hashtag" });
-        window.document.querySelector("#buttonid").click();
+        window.document.querySelector("#buttonid2").click();
       } else if (term === "" || term.charAt(0) !== "#") {
         this.setState({ sortBy: "description" });
-        window.document.querySelector("#buttonid").click();
+        window.document.querySelector("#buttonid2").click();
       }
       //window.scrollTo(0,0)
     } catch (e) {
@@ -1592,6 +1653,8 @@ export class LinkListFilters extends React.Component {
     this.setState({ isToggled: !this.state.isToggled });
     console.log("show dd");
   };
+
+  
 
   search = () => {
     console.log("search");

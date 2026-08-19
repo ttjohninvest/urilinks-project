@@ -446,6 +446,7 @@ function ExpandableArray(props) {
 
     }
     
+    handleClose3()
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
@@ -459,6 +460,7 @@ function ExpandableArray(props) {
     //alert("sv="+sv)
     setSortBy(sv);
     //setSortBy("hashtag")
+    handleClose3()
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
@@ -548,6 +550,7 @@ function ExpandableArray(props) {
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
+    handleClose3()
       !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
@@ -587,6 +590,7 @@ function ExpandableArray(props) {
     setActiveItem(index);
     props.setit(ht, e);
     
+    handleClose3()
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",

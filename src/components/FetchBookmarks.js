@@ -3096,7 +3096,7 @@ const FetchBookmarks = (props) => {
                 let B = htmllinksarray;
                 let result = B.filter(
                   //(b) => !A.some((a) => (a.description === b.description) && (a.note === b.note)),
-                  (b) => !A.some((a) => a.description.toLowerCase() === b.description.toLowerCase()), //if the link texts are the same don't put it in
+                  (b) => !A.some((a) => a.description === b.description), //if the link texts are the same don't put it in
                 );
 
                 console.log("result.length=" + result.length);

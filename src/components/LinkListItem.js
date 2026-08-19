@@ -1077,7 +1077,7 @@ const LinkListItem = (props) => {
                     //href="#"
 
                     data-value={props.id}
-                    title={"click to select to the top ten"}
+                    title={"click to select to your top ten"}
                     onClick={() => storeScrollPosition3(props.star, event)}
                   >
                      {/* <span>🧸put in top ten:</span> */}
@@ -1086,7 +1086,7 @@ const LinkListItem = (props) => {
 
                   <span
                     className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
-                    title={"This is a selection to the top ten."}
+                    title={"This is a selection to your top ten."}
                   >
                     {props.star === undefined ? "No" : props.star===1?"Yes":"No"}
                     {/* {props.star === undefined ? "No" : "Yes"} */}

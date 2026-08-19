@@ -849,7 +849,7 @@ function ExpandableArray(props) {
                         </span>
                       </a>
                       <button
-                        className="ib margin-left-11 button-2 bg-shade-1"
+                        className={`ib ${isMobile()===false?'margin-left-11':'margin-top-1'} button-2 bg-shade-1`}
                         onClick={addALink}
                         title="Add a link to your page."
                       >
@@ -863,7 +863,7 @@ function ExpandableArray(props) {
                       )}
 
                       <button
-                        className="ib margin-left-11 margin-left-11b- button-2"
+                        className={`ib button-2 margin-left-11 ${isMobile()===false?'':'margin-top-1'}`}
                         onClick={seeHashTags}
                         title="See hashtags"
                       >
@@ -985,7 +985,7 @@ function ExpandableArray(props) {
                         </span>
                       </a>
                       <button
-                        className="ib margin-left-11 button-2 bg-shade-1"
+                        className={`ib ${isMobile()===false?'margin-left-11':'margin-top-1'} button-2 bg-shade-1`}
                         onClick={addALink}
                         title="Add a link to your page."
                       >
@@ -999,7 +999,7 @@ function ExpandableArray(props) {
                       )}
 
                       <button
-                        className="ib margin-top-1 margin-left-11 margin-left-11b- button-2"
+                        className={`ib button-2 margin-left-11 ${isMobile()===false?'':'margin-top-1'}`}
                         onClick={seeHashTags}
                         title="See hashtags"
                       >

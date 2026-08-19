@@ -634,10 +634,14 @@ function ExpandableArray(props) {
                       return <div key={index}></div>;
                     else
                       return (
+                       <div>
+                        {!!s.description2===false?<div></div>
+                        :
                         <div
                           key={index}
                           className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                         >
+
                           <a
                             className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
                                 ib margin-top-1 ${
@@ -668,6 +672,8 @@ function ExpandableArray(props) {
                           >
                             {s.matchesstring}
                           </span>
+                          
+                        </div>}
                         </div>
                       );
                   })}

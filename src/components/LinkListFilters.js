@@ -548,6 +548,10 @@ function ExpandableArray(props) {
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
+      !!document.querySelector("#results1") &&
+      document.querySelector("#results1").scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
   //  const isMobile=()=>{

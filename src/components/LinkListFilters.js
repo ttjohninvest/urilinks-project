@@ -1055,7 +1055,7 @@ function ExpandableArray(props) {
                     >
                       <button
                         id="buttonid"
-                        className={`${isMobile() === true ? "width325" : ""} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                        className={`ib ${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
                         //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                         //onClick={this.search}
@@ -1072,7 +1072,7 @@ function ExpandableArray(props) {
                     >
                       <button
                         id="buttonid2"
-                        className={`${isMobile() === true ? "width325" : ""} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                        className={`${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
                         style={{'visibility':'hidden'}}
                         //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
@@ -1085,7 +1085,7 @@ function ExpandableArray(props) {
                       </button>
                     </div>
 
-                    <div className={`margin-top-11z1 margin-left-11`}>
+                    <div className={`margin-top-1 margin-left-11`}>
                       <select
                         id="mode"
                         className="select outline-none borderRadius55"
@@ -1176,7 +1176,7 @@ function ExpandableArray(props) {
                       <button
                         id="buttonid"
                         //className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
-                        className={`${isMobile() === true ? "width325" : ""} button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55`}
+                        className={`ib ${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
                         //onClick={this.search}
                         onClick={()=>search()}
                         //title="Searches to find entered term through the previously selected list which will appear in copper color."

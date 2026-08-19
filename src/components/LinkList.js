@@ -267,15 +267,11 @@ export const LinkList = (props) => {
 
   return (
     <div>
-      {/* {isMobile() === false && <div className="ib margin-left-11 margin-bottom-1">
-                  {props.links.length} of {maximum} links is stored on the{" "}
-                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
-                  {" plan."}
-                </div>} */}
+     
 
       {isMobile() === false && (
         <div className="ib margin-left-11 margin-bottom-1">
-          {props.links.length} links are displayed.
+          {props.links.length} 2links are displayed.
         </div>
       )}
       <div className="margin-left-11">

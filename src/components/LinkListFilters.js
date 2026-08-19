@@ -619,17 +619,17 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      <div className="sticky-div-">
+      <div className="">
         <div
           className={`website-background-color width30pt
           } theHeight flexrowzc2 border-b-5font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
-          <span className="padding-left-n-x sticky-left-text">
+          <span className="padding-left-n-x">
             Internet Links Organizer Dashboard's Home Page
           </span>
         </div>
-        <div className="margin-left-11-">
+        <div className="width30menupanep">
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingUp}
@@ -643,7 +643,7 @@ function ExpandableArray(props) {
             id="stopscroll"
             title="Click the button to stop auto scroll."
             onClick={stopScrolling}
-            className="button-2 ib margin-left-11 widthxpx2"
+            className="button-2 ib margin-left-11"
           >
             Stop
           </button>
@@ -651,7 +651,7 @@ function ExpandableArray(props) {
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingDown}
-            className="button-2 ib margin-left-11 widthxpx2"
+            className="ib button-2 margin-left-11"
           >
             ScrollDn
           </button>

@@ -166,7 +166,7 @@ export const SeeHashTagsPage = (props) => {
               <span>ScrollDn</span>
             </button>
              <button
-                className="button-2 ib margin-left-11 widthxpx1"
+                className={`button-2 ib ${isMobile()===false?'margin-left-11':'margin-top-1'} widthxpx1`}
                 onClick={() => props.handleClose3()}
               >
                 Close

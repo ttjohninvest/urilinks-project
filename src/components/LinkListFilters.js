@@ -700,7 +700,7 @@ return <span key={index}>{s}</span>
                           key={index}
                           className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                         >
-{s}
+{s.description}
                           {/* <a
                             className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
                                 ib margin-top-1 ${

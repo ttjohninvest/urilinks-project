@@ -1235,8 +1235,10 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
        {props.signup.signup === true && (
+        <div className="flexrow2w">
       <XShareButton url={props.Url} />
       <FBShareButton url={props.Url} />
+      </div>
        )}
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">

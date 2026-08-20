@@ -702,7 +702,7 @@ return <span key={index}>{s}</span>
                     else
                       return (
                        <div 
-                       key={2*index}
+                       key={crypto.randomUUID()}
                        className={``}>
                         {!!s.description2===false?<div 
                         key={index}

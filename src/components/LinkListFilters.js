@@ -1128,12 +1128,12 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
-                          <div
+                          <option className="ib"
                             style={{
                               borderBottom: "1px solid #dee2e6",
                               margin: "0.5rem 0",
                             }}
-                          />
+                          ></option>
                           <option
                             value="views"
                             title="sort views into descending order"
@@ -1229,12 +1229,12 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
-                          <div
+                          <option className="ib"
                             style={{
                               borderBottom: "1px solid #dee2e6",
                               margin: "0.5rem 0",
                             }}
-                          />
+                          ></option>
                           <option
                             value="views"
                             title="sort views into descending order"

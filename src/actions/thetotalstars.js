@@ -85,7 +85,7 @@ export const getThetotalstars = (uid) => {
         let ztotalstars={
            totalstars:0
         }
-//
+////
         if (snapshot.val() === null) {
           //theplan = "free";
           dispatch(startAddThetotalstars(ztotalstars))

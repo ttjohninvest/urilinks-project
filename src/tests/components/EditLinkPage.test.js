@@ -15,6 +15,7 @@ beforeEach(() => {
       startRemoveLink={startRemoveLink}
       history={history}
       link={links[2]}
+      //handleClose2={handleClose2}
     />
   );
 });

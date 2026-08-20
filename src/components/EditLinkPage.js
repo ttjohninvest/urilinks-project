@@ -1,9 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import LinkForm from "./LinkForm";
+import EditForm from "./EditForm";
 import { startEditLink, startRemoveLink, removeLink } from "../actions/links";
 
 export class EditLinkPage extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+     hideEditForm : false
+    }
+  }
+
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
 
@@ -11,6 +19,10 @@ export class EditLinkPage extends React.Component {
 
     window.location.href = "https://urilinks.com?signup=signup";
   };
+
+  handleClose4 = () => {
+    this.setState({ hideEditForm: true }); 
+  }
   //onRemove = (value,event) => {
   onRemove = () => {
     //remove the links hash tags from the array of hashtags only if each hash tag is only used once
@@ -26,6 +38,7 @@ export class EditLinkPage extends React.Component {
   render() {
     return (
       <div>
+        {this.state.hideEditForm === false && <div>
         <div className="page-header">
           <div className="content-container">
             <h1 className="page-header__title">
@@ -34,21 +47,16 @@ export class EditLinkPage extends React.Component {
           </div>
         </div>
         <div className="content-container">
-          <LinkForm
+          <EditForm
             link={this.props.link}
             onSubmit={this.onSubmit}
             makereadonly={true}
           />
-          {/* <button
-            className="button- button--secondary- button-2w  border5"
-            onClick={this.onRemove}
-          >
-            Remove Link
-          </button> */}
-          {/* <button className="button button--secondary" onClick={()=>this.onRemove(this.props.filters.text, event)}>
-            Remove Link
-          </button> */}
+         
         </div>
+        </div>}
+        <button className="button-2w border5- margin-left-11- margin-bottom-1 ib" 
+        onClick={() => this.handleClose4()}>Cancel</button>
       </div>
     );
   }

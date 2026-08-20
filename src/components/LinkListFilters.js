@@ -696,7 +696,7 @@ function ExpandableArray(props) {
                     else
                       return (
                        <div className={``}>
-                        {!!s.description2===false?<div></div>
+                        {!!s.description2===false?<div key={index}></div>
                         :
                         <div
                           key={index}
@@ -1128,12 +1128,12 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
-                          <option className="ib"
+                          {/* <option className="ib"
                             style={{
                               borderBottom: "1px solid #dee2e6",
                               margin: "0.5rem 0",
                             }}
-                          ></option>
+                          ></option> */}
                           <option
                             value="views"
                             title="sort views into descending order"
@@ -1229,12 +1229,12 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
-                          <option className="ib"
+                          {/* <option className="ib"
                             style={{
                               borderBottom: "1px solid #dee2e6",
                               margin: "0.5rem 0",
                             }}
-                          ></option>
+                          ></option> */}
                           <option
                             value="views"
                             title="sort views into descending order"

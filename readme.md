@@ -670,6 +670,7 @@ get the new key from stripe and put it into SK_LIVE environment variable in verc
 ---
 
 domain names
+leahandlynn.com
 chilcoot.com available
 tooalooa.com
 mindblessing.com

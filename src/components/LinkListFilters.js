@@ -845,7 +845,8 @@ function ExpandableArray(props) {
 
                   {props.signup === true && rt !== "readonly" ? (
                     <div className="">
-                      <a
+                      {/*end email is not working in mobile phone*/}
+                      {/* <a
                         target="_blank"
                         id="adlinkid"
                         href="#"
@@ -863,7 +864,7 @@ function ExpandableArray(props) {
                         title="Add a link to your page."
                       >
                         Add A link
-                      </button>
+                      </button> */}
                       {isForm2Open && (
                         <AddLinkPage
                           isForm2Open={isForm2Open}

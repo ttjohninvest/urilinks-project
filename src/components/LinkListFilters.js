@@ -705,13 +705,13 @@ return <span key={index}>{s}</span>
                        key={index}
                        className={``}>
                         {!!s.description2===false?<div 
-                        //key={index}
+                        key={index}
                         >
 
                         </div>
                         :
                         <div
-                          //key={index}
+                          key={index}
                           className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                         >
 

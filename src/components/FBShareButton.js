@@ -13,7 +13,7 @@ class FBShareButton extends React.Component{
     return(
       <div className="padding-top-55-"><a href={`https://facebook.com/sharer/sharer.php?u=${encodedURL}`} 
       className="text-size-3 nounderline ib" target="_blank">
-        <img className="ib facebooklogo__image" src="/images/facebooklogo.png" title="share link on facebook" /></a></div>
+        <img className="ib facebooklogo__image margin-left-n-11 margin-top-1" src="/images/facebooklogo.png" title="share link on facebook" /></a></div>
     )
   }
 }

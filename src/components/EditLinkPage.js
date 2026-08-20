@@ -56,8 +56,8 @@ export class EditLinkPage extends React.Component {
          
         </div>
         </div>}
-        <button className="button-2w border5- margin-left-11- margin-bottom-1 ib" 
-        onClick={() => this.handleClose4()}>1Close</button>
+        <button className="button-2w border5- margin-left-11 margin-bottom-1 ib" 
+        onClick={() => this.handleClose4()}>Cancel</button>
       </div>
     );
   }

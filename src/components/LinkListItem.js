@@ -1225,9 +1225,11 @@ const LinkListItem = (props) => {
 
         {props.signup.signup === true && (
         <div className="flexrow2w2 border5">
-          <XShareButton url={props.Url} className='border5' />
+          <a href={`https://twitter.com/intent/tweet?url=${props.Url}`} className="ib">Twitter</a>
+          <a href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`} className="ib">Facebook</a>   
+          {/* <XShareButton url={props.Url} className='border5' />
           <FBShareButton url={props.Url} className='border5' />
-          <MessengerButton  className='border5' />
+          <MessengerButton  className='border5' /> */}
       </div>
        )}
 

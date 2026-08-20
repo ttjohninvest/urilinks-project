@@ -21,7 +21,8 @@ export class EditLinkPage extends React.Component {
   };
 
   handleClose4 = () => {
-    this.setState({ hideEditForm: true }); 
+    //this.setState({ hideEditForm: true }); 
+    window.location.href="https://urilinks.com?signup=signup"
   }
   //onRemove = (value,event) => {
   onRemove = () => {
@@ -56,7 +57,7 @@ export class EditLinkPage extends React.Component {
         </div>
         </div>}
         <button className="button-2w border5- margin-left-11- margin-bottom-1 ib" 
-        onClick={() => this.handleClose4()}>Cancel</button>
+        onClick={() => this.handleClose4()}>1Close</button>
       </div>
     );
   }

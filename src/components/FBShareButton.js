@@ -11,9 +11,9 @@ class FBShareButton extends React.Component{
   render(){
     let encodedURL = encodeURI(this.state.url);
     return(
-      <div className="padding-top-55"><a href={`https://facebook.com/sharer/sharer.php?u=${encodedURL}`} 
+      <div className="padding-top-55-"><a href={`https://facebook.com/sharer/sharer.php?u=${encodedURL}`} 
       className="text-size-3 nounderline ib" target="_blank">
-        <img className="facebooklogo__image" src="/images/facebooklogo.png" title="share link on facebook" /></a></div>
+        <img className="ib facebooklogo__image" src="/images/facebooklogo.png" title="share link on facebook" /></a></div>
     )
   }
 }

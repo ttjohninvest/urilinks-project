@@ -322,7 +322,7 @@ export const LinkList = (props) => {
                     link.showpublic === 0
                     //|| link.archive === 1
                   )
-                    return <div></div>;
+                    return <div key={link.id + "1"}></div>;
                   else
                     return (
                       <div

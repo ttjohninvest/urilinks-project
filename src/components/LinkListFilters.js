@@ -694,7 +694,7 @@ return <span key={index}>{s}</span>
                     //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
                     
                       return (
-                       <div className={``}>
+                       
                         
                         <div
                           key={index}
@@ -734,7 +734,7 @@ return <span key={index}>{s}</span>
                           </span> */}
                           
                         </div>
-                        </div>
+                        
                       );
                   })}
                   {/* {props.mappedDataShort.map((s, index) => {

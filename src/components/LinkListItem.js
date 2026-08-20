@@ -1234,6 +1234,10 @@ const LinkListItem = (props) => {
         {/* {putinnewlines(props.note)} */}
         {props.note}
       </div>
+       {props.signup.signup === true && (
+      <XShareButton url={props.Url} />
+      <FBShareButton url={props.Url} />
+       )}
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">
           <MayDoInGoogleDocument />

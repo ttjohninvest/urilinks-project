@@ -1890,3 +1890,8 @@ export default SpeachRecognition;
 Promotions:
 microsoft maybe
 ==========================================================================
+social media sharing on urilinks.com
+linkedin.com account is ttjohninvest4@gmail.com
+I am identified on their as the Chief Executive Officer of urilinks.com
+My name is given as John McGovern
+===========================================================================

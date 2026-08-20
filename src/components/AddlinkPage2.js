@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 //import * as firebase from "firebase";
-import * as firebase from 'firebase/app';
-import 'firebase/auth';        // If using authentication
-import 'firebase/firestore';   // If using Firestore
-import 'firebase/database';    // If using Realtime Database
-import 'firebase/storage';     // If using Storage  
+import * as firebase from "firebase/app";
+import "firebase/auth"; // If using authentication
+//import 'firebase/firestore';   // If using Firestore
+import "firebase/database"; // If using Realtime Database
+import "firebase/storage"; // If using Storage
 
 import { connect } from "react-redux";
 import EmailSharableLinkForm from "./EmailSharableLinkForm";
@@ -153,10 +153,7 @@ export const AddLinkPage2 = (props) => {
         console.log("VVVVVVVVVVVVV returned false");
       } else {
         props.history.push("/");
-       
       }
-
-      
     } else {
       console.log("maximum links reached");
       setMaximumPage(true);

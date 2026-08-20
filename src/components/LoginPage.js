@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 //import * as firebase from "firebase";
-import * as firebase from 'firebase/app';
-import 'firebase/auth';        // If using authentication
-import 'firebase/firestore';   // If using Firestore
-import 'firebase/database';    // If using Realtime Database
-import 'firebase/storage';     // If using Storage  
+import * as firebase from "firebase/app";
+import "firebase/auth"; // If using authentication
+//import 'firebase/firestore';   // If using Firestore
+import "firebase/database"; // If using Realtime Database
+import "firebase/storage"; // If using Storage
 import { connect } from "react-redux";
 import { startLogin } from "../actions/auth";
 //import penguinSayingHello from "../assets/gifs/penguin-saying-hello.gif";
@@ -64,9 +64,7 @@ const LoginPage = ({ startLogin }) => {
             title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
             className="box-layout__box"
           >
-            
-
-             {/* <h3 className="margin-left-11 box-layout__title">
+            {/* <h3 className="margin-left-11 box-layout__title">
               HOLY LOVING GOD'S SALVATION INVITATION
             </h3>
 
@@ -74,13 +72,11 @@ const LoginPage = ({ startLogin }) => {
               <a classname="blueText" href="https://www.blueletterbible.org/kjv/rom/10/13/s_1056013" target="_blank">Please, may I invite you to call upon the name of Jesus Christ to be saved? Please say "I call upon the name of Jesus Christ to be saved." Also, you may click to see the holy bible reference at Romans 10:13 or </a><a classname="blueText" href="https://www.blueletterbible.org/kjv/act/2/21/s_1020021" target="_blank">acts 2:21</a>
             </p> */}
 
-            <h3 className="margin-left-11- box-layout__title">
-              urilinks.com
-            </h3>
-             
+            <h3 className="margin-left-11- box-layout__title">urilinks.com</h3>
+
             {/* <p className="margin-left-11">
                Welcome. Worry about forgetting is diminished by using this. It works like a physical file organizer. It organizes internet bookmarks through a web interface using alphabetically arranged clickable hashtags or folder names. It is more satisfying and easy than chrome browser bookmarks.</p> */}
-           
+
             <p className="margin-left-11">Welcome, click the Enter button</p>
 
             {/* {innerWidth<=1000 && <div className="margin-left-118 margin-bottom-18">
@@ -94,15 +90,11 @@ const LoginPage = ({ startLogin }) => {
               </a>
             </div>} */}
 
-            <button
-              className="ib button margin-left-11-"
-              onClick={startLogin}
-            >
+            <button className="ib button margin-left-11-" onClick={startLogin}>
               enter button
             </button>
             {/* <p className="margin-left-11">Contact Information: Mr. McGovern at 775 507 0098 or email ttjohninvest@gmail.com</p> */}
-           {/* <p className="margin-left-11">-------</p> */}
-           
+            {/* <p className="margin-left-11">-------</p> */}
           </div>
           {/* {innerWidth > 1000 && (
             <div className="margin-left-11 borderRadius4">
@@ -130,4 +122,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(undefined, mapDispatchToProps)(LoginPage);
-

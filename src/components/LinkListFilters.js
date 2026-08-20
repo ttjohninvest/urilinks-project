@@ -19,11 +19,11 @@ import EmailForm from "./EmailForm";
 import database from "../firebase/firebase";
 import redarrow from "../assets/images/red-arrow.jpg";
 //import * as firebase from "firebase";
-import * as firebase from 'firebase/app';
-import 'firebase/auth';        // If using authentication
-import 'firebase/firestore';   // If using Firestore
-import 'firebase/database';    // If using Realtime Database
-import 'firebase/storage';     // If using Storage  
+import * as firebase from "firebase/app";
+import "firebase/auth"; // If using authentication
+//import 'firebase/firestore';   // If using Firestore
+import "firebase/database"; // If using Realtime Database
+import "firebase/storage"; // If using Storage
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
 
@@ -96,10 +96,12 @@ function ExpandableArray(props) {
       //   document.querySelector("#results1").scrollIntoView({
       //     behavior: "smooth",
       //   });
-        !!document.querySelector("#before-before-link-summary-id") &&
-        document.querySelector("#before-before-link-summary-id").scrollIntoView({
-          behavior: "smooth",
-        });
+      !!document.querySelector("#before-before-link-summary-id") &&
+        document
+          .querySelector("#before-before-link-summary-id")
+          .scrollIntoView({
+            behavior: "smooth",
+          });
   }, []);
 
   const startScrollingUp = () => {
@@ -413,11 +415,7 @@ function ExpandableArray(props) {
         window.localStorage.setItem("termid", term);
         props.setTextFilter(term);
       }
-
     }
-    
-    
-
   };
 
   const search = (z) => {
@@ -455,24 +453,21 @@ function ExpandableArray(props) {
         window.localStorage.setItem("termid", term);
         props.setTextFilter(term);
       }
-
     }
-    
-    handleClose3()
+
+    handleClose3();
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
       });
-
   };
-
 
   const changeSortBy = (sv) => {
     //alert("sv="+"hashtag")
     //alert("sv="+sv)
     setSortBy(sv);
     //setSortBy("hashtag")
-    handleClose3()
+    handleClose3();
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
@@ -562,8 +557,8 @@ function ExpandableArray(props) {
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
-    handleClose3()
-      !!document.querySelector("#before-before-link-summary-id") &&
+    handleClose3();
+    !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
       });
@@ -601,14 +596,12 @@ function ExpandableArray(props) {
   const setItNow = (index, ht, e) => {
     setActiveItem(index);
     props.setit(ht, e);
-    
-    handleClose3()
+
+    handleClose3();
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
       });
-
-    
   };
 
   const seeHashTags = () => {
@@ -637,7 +630,10 @@ function ExpandableArray(props) {
           } theHeight flexrowzc2 border-b-5font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
-          <span className={`ib padding-left-n-x ${isMobile()===true?'fleur-de-leah-regular2':'fleur-de-leah-regular'}`} title="Internet Links Organizer Dashboard's Home Page">
+          <span
+            className={`ib padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2" : "fleur-de-leah-regular"}`}
+            title="Internet Links Organizer Dashboard's Home Page"
+          >
             Internet Links Organizer Dashboard's Home Page
           </span>
         </div>
@@ -689,8 +685,6 @@ function ExpandableArray(props) {
                 }
               >
                 <div>
-                  
-                  
                   {props.mappedDataShort.map((s, index) => {
                     //have 3 map calls and display the first column then the second column and then the thrid column
                     //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
@@ -702,51 +696,42 @@ function ExpandableArray(props) {
                       return null;
                     else
                       return (
-                       <div 
-                       
-                       key={index}
-                       className={``}
-                       >
-                        {!!s.description2===false?null
-                        :
-                        <div
-                          
-                          className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
-                        >
-
-                          <a
-                            className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
+                        <div key={index} className={``}>
+                          {!!s.description2 === false ? null : (
+                            <div className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z">
+                              <a
+                                className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
                                 ib margin-top-1 ${
                                   props.b == 1
                                     ? "pointereventsauto underline"
                                     : "pointereventsnone"
                                 }`}
-                            style={{ whiteSpace: "pre-wrap" }}
-                            href="#"
-                            onClick={() =>
-                              setItNow(index, s.description, event)
-                            }
-                            title={`click to see results`}
-                          >
-                            <span>{s.description2}</span>
-                          </a>
-                          <br />
-                           
-                          <span
-                            className="ib margin-left-11z"
-                            style={{
-                              color: "black",
-                              fontSize: ".9rem",
-                              textDecoration: "none",
-                              fontWeight: "normal",
-                              pointerEvents: "none",
-                              whiteSpace: "pre-wrap",
-                            }}
-                          >
-                            {s.matchesstring}
-                          </span>
-                          
-                        </div>}
+                                style={{ whiteSpace: "pre-wrap" }}
+                                href="#"
+                                onClick={() =>
+                                  setItNow(index, s.description, event)
+                                }
+                                title={`click to see results`}
+                              >
+                                <span>{s.description2}</span>
+                              </a>
+                              <br />
+
+                              <span
+                                className="ib margin-left-11z"
+                                style={{
+                                  color: "black",
+                                  fontSize: ".9rem",
+                                  textDecoration: "none",
+                                  fontWeight: "normal",
+                                  pointerEvents: "none",
+                                  whiteSpace: "pre-wrap",
+                                }}
+                              >
+                                {s.matchesstring}
+                              </span>
+                            </div>
+                          )}
                         </div>
                       );
                   })}
@@ -766,12 +751,11 @@ function ExpandableArray(props) {
                   {" plan."} 
                 </span>}*/}
               {isMobile() === true && (
-                
                 <div className="ib margin-left-11 margin-bottom-1">
-                  {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`}
-                  
+                  {props.links.length === 1
+                    ? "1 link is displayed."
+                    : `${props.links.length} links are displayed.`}
                 </div>
-                
               )}
               {isMobile() === true ? (
                 <div className="margin-left-11 margin-bottom-1 flexcol3">
@@ -884,7 +868,7 @@ function ExpandableArray(props) {
                       )}
 
                       <button
-                        className={`ib button-2 margin-left-11 ${isMobile()===false?'':'margin-top-1'}`}
+                        className={`ib button-2 margin-left-11 ${isMobile() === false ? "" : "margin-top-1"}`}
                         onClick={seeHashTags}
                         title="See hashtags"
                       >
@@ -1006,7 +990,7 @@ function ExpandableArray(props) {
                         </span>
                       </a>
                       <button
-                        className={`ib ${isMobile()===false?'margin-left-11':'margin-top-1'} button-2 bg-shade-1`}
+                        className={`ib ${isMobile() === false ? "margin-left-11" : "margin-top-1"} button-2 bg-shade-1`}
                         onClick={addALink}
                         title="Add a link to your page."
                       >
@@ -1020,7 +1004,7 @@ function ExpandableArray(props) {
                       )}
 
                       <button
-                        className={`ib button-2 margin-left-11 ${isMobile()===false?'':'margin-top-1'}`}
+                        className={`ib button-2 margin-left-11 ${isMobile() === false ? "" : "margin-top-1"}`}
                         onClick={seeHashTags}
                         title="See hashtags"
                       >
@@ -1080,7 +1064,7 @@ function ExpandableArray(props) {
                         //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                         //onClick={this.search}
-                        onClick={()=>search()}
+                        onClick={() => search()}
                         ////title="Searches to find entered term through the previously selected list which will appear in copper color."
                         title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
                       >
@@ -1094,11 +1078,11 @@ function ExpandableArray(props) {
                       <button
                         id="buttonid2"
                         className={`${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
-                        style={{'visibility':'hidden'}}
+                        style={{ visibility: "hidden" }}
                         //className="b1x1 nounderline color-white-1 button-link-4 outline-none"
 
                         //onClick={this.search}
-                        onClick={()=>search2()} 
+                        onClick={() => search2()}
                         ////title="Searches to find entered term through the previously selected list which will appear in copper color."
                         title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
                       >
@@ -1199,7 +1183,7 @@ function ExpandableArray(props) {
                         //className="button-3- button-2 button--link- ib- text-size-3- color-white-1 cursor-pointer font-weight-bold borderRadius55"
                         className={`ib ${isMobile() === true ? "width325" : ""} button-2 color-white-1 cursor-pointer font-weight-bold borderRadius55`}
                         //onClick={this.search}
-                        onClick={()=>search()}
+                        onClick={() => search()}
                         //title="Searches to find entered term through the previously selected list which will appear in copper color."
                         title="Searches to find entered term. A partial search term is ok. For example if you are searching for elephant, you may enter elep as the term and it will find elephant or elephants"
                       >
@@ -1304,11 +1288,14 @@ function ExpandableArray(props) {
             ✮ Use the search field to add word(s) to search for.
             <br />
             <br />
-            ✮ Use the drop down list to the right of the search button to
-            select the type of search (hashtag, link text, or note text). if word(s) are entered in the search field, the search will activate.
+            ✮ Use the drop down list to the right of the search button to select
+            the type of search (hashtag, link text, or note text). if word(s)
+            are entered in the search field, the search will activate.
             <br />
             <br />
-            ✮ If you want a link to be findable under two different hashtags, add the hashtag to the note section. The system will not store duplicate link titles.
+            ✮ If you want a link to be findable under two different hashtags,
+            add the hashtag to the note section. The system will not store
+            duplicate link titles.
             <br />
             <br />
             ✮ Use the search button to activate the search.
@@ -1328,7 +1315,8 @@ function ExpandableArray(props) {
             ✮ Click copy to copy your sharable link. Paste it were you want.
             <br />
             <br />
-            ✮ Click email your link to open up a form to to enter recipient's email address and subject line.
+            ✮ Click email your link to open up a form to to enter recipient's
+            email address and subject line.
             <br />
             <br />
             ✮ Click the ScrollUp button to start automatic scrolling up.
@@ -1684,8 +1672,6 @@ export class LinkListFilters extends React.Component {
     this.setState({ isToggled: !this.state.isToggled });
     console.log("show dd");
   };
-
-  
 
   search = () => {
     console.log("search");

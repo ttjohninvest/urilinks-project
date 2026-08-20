@@ -18,11 +18,11 @@ import EmailForm from "./EmailForm";
 import database from "../firebase/firebase";
 import redarrow from "../assets/images/red-arrow.jpg";
 //import * as firebase from "firebase";
-import * as firebase from 'firebase/app';
-import 'firebase/auth';        // If using authentication
-import 'firebase/firestore';   // If using Firestore
-import 'firebase/database';    // If using Realtime Database
-import 'firebase/storage';     // If using Storage  
+import * as firebase from "firebase/app";
+import "firebase/auth"; // If using authentication
+//import 'firebase/firestore';   // If using Firestore
+import "firebase/database"; // If using Realtime Database
+import "firebase/storage"; // If using Storage
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
 
@@ -84,35 +84,34 @@ function ExpandableArray(props) {
 
   useEffect(() => {
     console.log(
-      "ZZZZZ, props.mappedDataShort=" +
-        JSON.stringify(props.mappedDataShort),
+      "ZZZZZ, props.mappedDataShort=" + JSON.stringify(props.mappedDataShort),
     );
   }, []);
 
-  
-
-  useEffect(()=>{
+  useEffect(() => {
     const uniqueData2 = props.mappedDataShort.filter((value, index, array) => {
-  // Returns the first index where the name matches
-  const firstIndex = array.findIndex(item => item.matchesstring === value.matchesstring);
-  // Keep the item only if it is the first occurrence
-  return firstIndex === index;
-});
-uniqueData2.sort((a, b) => {
-  const valA = a.matchesstring.toLowerCase();
-  const valB = b.matchesstring.toLowerCase();
-  if (valA < valB) return -1;
-  if (valA > valB) return 1;
-  return 0;
-});   
+      // Returns the first index where the name matches
+      const firstIndex = array.findIndex(
+        (item) => item.matchesstring === value.matchesstring,
+      );
+      // Keep the item only if it is the first occurrence
+      return firstIndex === index;
+    });
+    uniqueData2.sort((a, b) => {
+      const valA = a.matchesstring.toLowerCase();
+      const valB = b.matchesstring.toLowerCase();
+      if (valA < valB) return -1;
+      if (valA > valB) return 1;
+      return 0;
+    });
 
-uniqueData2.forEach((e)=>{
-console.log("DisplayHashtags.js, hashtag="+e.matchesstring)
-})
+    uniqueData2.forEach((e) => {
+      console.log("DisplayHashtags.js, hashtag=" + e.matchesstring);
+    });
 
-setUniqueData(uniqueData2)
-//console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
-  },[])
+    setUniqueData(uniqueData2);
+    //console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
+  }, []);
 
   const startScrollingUp = () => {
     // Prevent multiple intervals
@@ -557,13 +556,13 @@ setUniqueData(uniqueData2)
   };
 
   const addALink = () => {
-    setIsForm2Open(true)
-  }
+    setIsForm2Open(true);
+  };
 
   const handleClose2 = () => {
     //alert("closeLink")
-    setIsForm2Open(false)
-  }
+    setIsForm2Open(false);
+  };
 
   return (
     <div className="bg-white-1">
@@ -624,7 +623,6 @@ setUniqueData(uniqueData2)
                     : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
                 }
               >
-               
                 <div>
                   {/* {props.mappedDataShort.map((s, index) => { */}
                   {uniqueData.map((s, index) => {
@@ -637,12 +635,12 @@ setUniqueData(uniqueData2)
                     // )
                     //   return <div key={index}></div>;
                     // else
-                      return (
-                        <div
-                          key={index}
-                          className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
-                        >
-                          {/* <a
+                    return (
+                      <div
+                        key={index}
+                        className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
+                      >
+                        {/* <a
                             className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
                                 ib margin-top-1 ${
                                   props.b == 1
@@ -659,23 +657,22 @@ setUniqueData(uniqueData2)
                             <span>{s.description2}</span>
                           </a>
                           <br /> */}
-                          <span
-                            className="ib margin-left-11z"
-                            style={{
-                              color: "black",
-                              fontSize: ".9rem",
-                              textDecoration: "none",
-                              fontWeight: "normal",
-                              pointerEvents: "none",
-                              whiteSpace: "pre-wrap",
-                            }}
-                          >
-                            {s.matchesstring}
-                            {/* {s} */}
-
-                          </span>
-                        </div>
-                      );
+                        <span
+                          className="ib margin-left-11z"
+                          style={{
+                            color: "black",
+                            fontSize: ".9rem",
+                            textDecoration: "none",
+                            fontWeight: "normal",
+                            pointerEvents: "none",
+                            whiteSpace: "pre-wrap",
+                          }}
+                        >
+                          {s.matchesstring}
+                          {/* {s} */}
+                        </span>
+                      </div>
+                    );
                   })}
                 </div>
               </div>
@@ -684,7 +681,7 @@ setUniqueData(uniqueData2)
         </div>
 
         {/*right column code here*/}
-       
+
         {/* right column code here */}
       </div>
     </div>
@@ -1076,31 +1073,31 @@ export class DisplayHashtags extends React.Component {
 
   render() {
     return (
-        <div>
-              <ExpandableArray
-                mappedDataShort={this.props.hashtags}
-                mappedDataLong={this.state.mappedDataLong}
-                maxLength={this.SHORT_HASHTAG_LENGTH}
-                ref1={this.elementRef}
-                morehashtags={this.state.morehashtags}
-                setit={this.setit}
-                theplan={this.props.theplan}
-                plan={this.props.theplan.plan}
-                newspaper={this.state.newspaper}
-                signup={this.props.signup.signup}
-                uid={this.props.auth.uid}
-                links={this.props.links}
-                b={this.props.b}
-                setTextFilter={this.props.setTextFilter}
-                sortByDescription={this.props.sortByDescription}
-                sortByHashTag={this.props.sortByHashTag}
-                sortByNoteText={this.props.sortByNoteText}
-                sortByViews={this.props.sortByViews}
-                sortByLikes={this.props.sortByLikes}
-                sortByStar={this.props.sortByStar}
-                filters={this.props.filters}
-              />
-            </div>
+      <div>
+        <ExpandableArray
+          mappedDataShort={this.props.hashtags}
+          mappedDataLong={this.state.mappedDataLong}
+          maxLength={this.SHORT_HASHTAG_LENGTH}
+          ref1={this.elementRef}
+          morehashtags={this.state.morehashtags}
+          setit={this.setit}
+          theplan={this.props.theplan}
+          plan={this.props.theplan.plan}
+          newspaper={this.state.newspaper}
+          signup={this.props.signup.signup}
+          uid={this.props.auth.uid}
+          links={this.props.links}
+          b={this.props.b}
+          setTextFilter={this.props.setTextFilter}
+          sortByDescription={this.props.sortByDescription}
+          sortByHashTag={this.props.sortByHashTag}
+          sortByNoteText={this.props.sortByNoteText}
+          sortByViews={this.props.sortByViews}
+          sortByLikes={this.props.sortByLikes}
+          sortByStar={this.props.sortByStar}
+          filters={this.props.filters}
+        />
+      </div>
     );
   }
 }

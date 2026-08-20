@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 //import * as firebase from "firebase";
-import * as firebase from 'firebase/app';
-import 'firebase/auth';        // If using authentication
-import 'firebase/firestore';   // If using Firestore
-import 'firebase/database';    // If using Realtime Database
-import 'firebase/storage';     // If using Storage  
+import * as firebase from "firebase/app";
+import "firebase/auth"; // If using authentication
+//import 'firebase/firestore';   // If using Firestore
+import "firebase/database"; // If using Realtime Database
+import "firebase/storage"; // If using Storage
 import { connect } from "react-redux";
 import EmailSharableLinkForm from "./EmailSharableLinkForm";
-import EmailForm from "./EmailForm"
+import EmailForm from "./EmailForm";
 import { startAddLink, emailSharableLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import TeirsPayment3 from "./TeirsPayment3";
@@ -18,7 +18,6 @@ export const SendEmailPage = (props) => {
   const [userId, setUserId] = useState("");
   const [maximumPage, setMaximumPage] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
- 
 
   //const history = useHistory();
 
@@ -134,57 +133,52 @@ export const SendEmailPage = (props) => {
   };
 
   const onSubmit = (emaildata) => {
-     console.log("in onSubmit");
-     //if(props.signup.signup === true) {
-     const user = firebase.auth().currentUser;
-     const uid=emaildata.uid
-     const toemail = emaildata.email;
-     const subject = emaildata.subject;
-     const body = emaildata.description;
-     //alert(body)
-     //const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`)
-     const uri = encodeURIComponent(body)
-     //const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&to=${toemail}&body=${body}${uri}&tf=cm`
-     const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&to=${toemail}&body=${uri}&tf=cm`
+    console.log("in onSubmit");
+    //if(props.signup.signup === true) {
+    const user = firebase.auth().currentUser;
+    const uid = emaildata.uid;
+    const toemail = emaildata.email;
+    const subject = emaildata.subject;
+    const body = emaildata.description;
+    //alert(body)
+    //const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`)
+    const uri = encodeURIComponent(body);
+    //const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&to=${toemail}&body=${body}${uri}&tf=cm`
+    const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&to=${toemail}&body=${uri}&tf=cm`;
 
-     https://mail.google.com/mail/u/0/?fs=1&tf=cm&su=Your+Subject&to=recipient@example.com&body=Your+Message
+    //mail.google.com/mail/u/0/?fs=1&tf=cm&su=Your+Subject&to=recipient@example.com&body=Your+Message
     // Open the mail client
     //window.location.href = mailtoUrl //mailtoLink;
-    window.open(mailtoUrl, '_blank')
-      
-    
+    https: window.open(mailtoUrl, "_blank");
   };
 
-   
-
   return (
-        <div>
-        <div>
-          <div className="page-header">
-            <div className="content-container">
-              <h1 className="page-header__title">
-                <span className="color-purple color-black-2">Email Data</span>
-              </h1>
-            </div>
-          </div>
+    <div>
+      <div>
+        <div className="page-header">
           <div className="content-container">
-            <EmailForm 
-            onSubmit={onSubmit} 
-            makereadonly={false} 
-            isFormOpen={props.isFormOpen} 
-            handleClose={props.handleClose} 
-            sharablelink={props.sharablelink}
-            />
+            <h1 className="page-header__title">
+              <span className="color-purple color-black-2">Email Data</span>
+            </h1>
           </div>
         </div>
-
+        <div className="content-container">
+          <EmailForm
+            onSubmit={onSubmit}
+            makereadonly={false}
+            isFormOpen={props.isFormOpen}
+            handleClose={props.handleClose}
+            sharablelink={props.sharablelink}
+          />
         </div>
+      </div>
+    </div>
   );
 };
 
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
-  signup: state.signup
+  signup: state.signup,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,12 +1,10 @@
 //import * as firebase from "firebase";
 //import "firebase/storage";
-import * as firebase from 'firebase/app';
-import 'firebase/auth';        // If using authentication
-import 'firebase/firestore';   // If using Firestore
-import 'firebase/database';    // If using Realtime Database
-import 'firebase/storage';     // If using Storage  
-
-
+import * as firebase from "firebase/app";
+import "firebase/auth"; // If using authentication
+//import 'firebase/firestore';   // If using Firestore
+import "firebase/database"; // If using Realtime Database
+import "firebase/storage"; // If using Storage
 
 // let config = {};
 
@@ -33,7 +31,7 @@ const config = {
   databaseURL: process.env.FIREBASE_DATABASE_URL,
   projectId: process.env.FIREBASE_PROJECT_ID,
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
 };
 
 // const config = {
@@ -46,22 +44,22 @@ const config = {
 // };
 
 console.log("A ABOUT TO CALL firebase.initializeApp");
-console.log(1)
+console.log(1);
 const app = firebase.initializeApp(config);
-console.log(2)
+console.log(2);
 const storage = firebase.storage();
-console.log(3)
+console.log(3);
 const database = firebase.database();
-console.log(4)
+console.log(4);
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-console.log(5)
+console.log(5);
 //prompt: "select_account"
 googleAuthProvider.setCustomParameters({
   //this fixed the google email selection dialog from not coming up
   //prompt: "consent"
   prompt: "select_account",
 });
-console.log(6)
+console.log(6);
 export { storage, firebase, googleAuthProvider, database as default };
 
 // // child_removed
@@ -125,7 +123,6 @@ export { storage, firebase, googleAuthProvider, database as default };
 // //   const val = snapshot.val();
 // //   console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`);
 // // })
-
 
 // // Change the data and make sure it reprints
 

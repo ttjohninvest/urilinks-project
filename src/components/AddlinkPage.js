@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 //import * as firebase from "firebase";
-import * as firebase from 'firebase/app';
-import 'firebase/auth';        // If using authentication
-import 'firebase/firestore';   // If using Firestore
-import 'firebase/database';    // If using Realtime Database
-import 'firebase/storage';     // If using Storage   
+import * as firebase from "firebase/app";
+import "firebase/auth"; // If using authentication
+//import 'firebase/firestore';   // If using Firestore
+import "firebase/database"; // If using Realtime Database
+import "firebase/storage"; // If using Storage
 
 import { connect } from "react-redux";
 import LinkForm from "./LinkForm";
@@ -15,7 +15,7 @@ import Simple from "./Simple";
 //import SimpleTest2 from "./SimpleTest2";
 import PremiumPlan from "./PremiumPlan";
 import StorageSizes from "./StorageSizes";
-import { getShowPublic } from './../actions/sp';
+import { getShowPublic } from "./../actions/sp";
 
 export const AddLinkPage = (props) => {
   const [count, setCount] = useState(0);
@@ -146,26 +146,25 @@ export const AddLinkPage = (props) => {
     if (count < getPlanMax()) {
       //if (count < 10) {
       //if (true) {
-      link.showpublic = 1
+      link.showpublic = 1;
       link.foldername = link.description;
       link.yturl = isityt(link.Url);
       console.log("A link.yturl=" + link.yturl);
-      let isin = false
+      let isin = false;
       //don't add the link if the link text is already in the props.links array of jso objects
-      props.links.forEach((l)=>{
-           //alert("l.description="+"'"+l.description+"'"+", link.description="+"'"+link.description+"'")
-           let x = !!l.description
-           let x1 = ""
-           if(!!x) x1 = l.description.toLowerCase()
+      props.links.forEach((l) => {
+        //alert("l.description="+"'"+l.description+"'"+", link.description="+"'"+link.description+"'")
+        let x = !!l.description;
+        let x1 = "";
+        if (!!x) x1 = l.description.toLowerCase();
 
-           let y = !!link.description
-           let x2 = ""
-           if(!!y) x2 = link.description.toLowerCase()
+        let y = !!link.description;
+        let x2 = "";
+        if (!!y) x2 = link.description.toLowerCase();
 
-           
-        if(!!x && !!y && (x1 === x2)) {
-           //alert("found a match")
-           isin = true
+        if (!!x && !!y && x1 === x2) {
+          //alert("found a match")
+          isin = true;
         }
 
         //  if(l.description === link.description) {
@@ -176,32 +175,29 @@ export const AddLinkPage = (props) => {
         //    //alert("did not find a match,"+l.description+","+link.description)
         //    isin = false
         // }
-         
-      })
-      
+      });
+
       // if(inin === false) {
       //    alert("did not find a match")
       // }
 
-      if(isin===false) {
+      if (isin === false) {
         //alert("isin="+isin)
-      const r = props.startAddLink(link);
-      if (r === false) {
-        setErrorDialog(true);
-        console.log("VVVVVVVVVVVVV returned false");
+        const r = props.startAddLink(link);
+        if (r === false) {
+          setErrorDialog(true);
+          console.log("VVVVVVVVVVVVV returned false");
+        } else {
+          props.history.push("/");
+          //window.location.reload();
+          window.location.href = "https://urilinks.com?signup=signup";
+        }
       } else {
-        
-        props.history.push("/");
-        //window.location.reload();
-        window.location.href = "https://urilinks.com?signup=signup";
-      }
-
-      }
-      else {
         //alert("isin="+isin)
-        alert("The link was not added because it is alread in the list. If you think that it is not already in the list change the link text to a unique description.")
+        alert(
+          "The link was not added because it is alread in the list. If you think that it is not already in the list change the link text to a unique description.",
+        );
       }
-      
     } else {
       console.log("maximum links reached");
       setMaximumPage(true);
@@ -225,11 +221,11 @@ export const AddLinkPage = (props) => {
             </div>
           </div>
           <div className="content-container">
-            <LinkForm 
-              onSubmit={onSubmit} 
-              handleClose2={props.handleClose2} 
-              isForm2Open={props.isForm2Open}  
-              makereadonly={false} 
+            <LinkForm
+              onSubmit={onSubmit}
+              handleClose2={props.handleClose2}
+              isForm2Open={props.isForm2Open}
+              makereadonly={false}
             />
           </div>
         </div>
@@ -248,7 +244,7 @@ export const AddLinkPage = (props) => {
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
   signup: state.signup,
-  links:state.links
+  links: state.links,
 });
 
 const mapDispatchToProps = (dispatch) => ({

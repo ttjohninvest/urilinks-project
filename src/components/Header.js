@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 //import * as firebase from "firebase";
-import * as firebase from 'firebase/app';
-import 'firebase/auth';        // If using authentication
-import 'firebase/firestore';   // If using Firestore
-import 'firebase/database';    // If using Realtime Database
-import 'firebase/storage';     // If using Storage  
+import * as firebase from "firebase/app";
+import "firebase/auth"; // If using authentication
+//import 'firebase/firestore';   // If using Firestore
+import "firebase/database"; // If using Realtime Database
+import "firebase/storage"; // If using Storage
 
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -35,7 +35,7 @@ import { setTheplan2 } from "../actions/theplan";
 import { setBmok2 } from "../actions/bmok";
 import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
-import setSignup from "../actions/signup"
+import setSignup from "../actions/signup";
 import Header2 from "./Header2";
 
 export const Header = (props) => {
@@ -118,7 +118,7 @@ export const Header = (props) => {
 
   // const setDisplayNamedb = (displayName) => {
   //   console.log("setDisplayNamedb, Header.js, displayName=" + displayName);
-    
+
   //   //props.startAddDisplayname({ displayname: displayName });
   //   console.log("Header.js, done calling startAddDisplayname");
   // };
@@ -311,8 +311,8 @@ export const Header = (props) => {
     //   window.open("https://urilinks.com/displayhashtags", "_blank");   //window.location.href = "https://urilinks.com/displayhashtags"
     // else window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank"); //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
     //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
-    window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank")
-  }
+    window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank");
+  };
 
   return (
     <div className="top0pos-sticky-">

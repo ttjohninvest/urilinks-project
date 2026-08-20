@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 //import * as firebase from "firebase";
-import * as firebase from 'firebase/app';
-import 'firebase/auth';        // If using authentication
-import 'firebase/firestore';   // If using Firestore
-import 'firebase/database';    // If using Realtime Database
-import 'firebase/storage';     // If using Storage  
+import * as firebase from "firebase/app";
+import "firebase/auth"; // If using authentication
+//import 'firebase/firestore';   // If using Firestore
+import "firebase/database"; // If using Realtime Database
+import "firebase/storage"; // If using Storage
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import moment from "moment";
@@ -476,8 +476,7 @@ const FetchBookmarks = (props) => {
                                     console.log(3);
                                     console.log("17 foldername:=" + foldername);
                                     htmllinksarray.push({
-                                      description:
-                                        title,
+                                      description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
@@ -552,8 +551,7 @@ const FetchBookmarks = (props) => {
                                           "18 foldername:=" + foldername,
                                         );
                                         htmllinksarray.push({
-                                          description:
-                                            title,
+                                          description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
@@ -638,8 +636,7 @@ const FetchBookmarks = (props) => {
                                               "19 foldername:=" + foldername,
                                             );
                                             htmllinksarray.push({
-                                              description:
-                                                title,
+                                              description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
@@ -1026,8 +1023,7 @@ const FetchBookmarks = (props) => {
                                     console.log(10);
                                     console.log("24 foldername:=" + foldername);
                                     htmllinksarray.push({
-                                      description:
-                                        title,
+                                      description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
@@ -1102,8 +1098,7 @@ const FetchBookmarks = (props) => {
                                           "25 foldername:=" + foldername,
                                         );
                                         htmllinksarray.push({
-                                          description:
-                                            title,
+                                          description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
@@ -1188,8 +1183,7 @@ const FetchBookmarks = (props) => {
                                               "26 foldername:=" + foldername,
                                             );
                                             htmllinksarray.push({
-                                              description:
-                                                title,
+                                              description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
@@ -1580,8 +1574,7 @@ const FetchBookmarks = (props) => {
                                     console.log(17);
                                     console.log("31 foldername:=" + foldername);
                                     htmllinksarray.push({
-                                      description:
-                                        title,
+                                      description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
@@ -1656,8 +1649,7 @@ const FetchBookmarks = (props) => {
                                           "32 foldername:=" + foldername,
                                         );
                                         htmllinksarray.push({
-                                          description:
-                                            title,
+                                          description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
@@ -1742,8 +1734,7 @@ const FetchBookmarks = (props) => {
                                               "33 foldername:=" + foldername,
                                             );
                                             htmllinksarray.push({
-                                              description:
-                                                title,
+                                              description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
@@ -2142,8 +2133,7 @@ const FetchBookmarks = (props) => {
                                     console.log("3 foldername:=" + foldername);
 
                                     htmllinksarray.push({
-                                      description:
-                                        title,
+                                      description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
@@ -2217,8 +2207,7 @@ const FetchBookmarks = (props) => {
                                           "4 foldername:=" + foldername,
                                         );
                                         htmllinksarray.push({
-                                          description:
-                                            title,
+                                          description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
@@ -2302,8 +2291,7 @@ const FetchBookmarks = (props) => {
                                               "5 foldername:=" + foldername,
                                             );
                                             htmllinksarray.push({
-                                              description:
-                                                title,
+                                              description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
@@ -2688,8 +2676,7 @@ const FetchBookmarks = (props) => {
                                     console.log("pushing unto htmllinksarray");
                                     console.log("10 foldername:=" + foldername);
                                     htmllinksarray.push({
-                                      description:
-                                        title,
+                                      description: title,
                                       Url: url, //, //href,
                                       yturl: yturl,
                                       note: hashtagv3,
@@ -2763,8 +2750,7 @@ const FetchBookmarks = (props) => {
                                           "11 foldername:=" + foldername,
                                         );
                                         htmllinksarray.push({
-                                          description:
-                                            title,
+                                          description: title,
                                           Url: url, //, //href,
                                           yturl: yturl,
                                           note: hashtagv4,
@@ -2848,8 +2834,7 @@ const FetchBookmarks = (props) => {
                                               "12 foldername:=" + foldername,
                                             );
                                             htmllinksarray.push({
-                                              description:
-                                                title,
+                                              description: title,
                                               Url: url, //, //href,
                                               yturl: yturl,
                                               note: hashtagv5,
@@ -3096,7 +3081,7 @@ const FetchBookmarks = (props) => {
                 // let result = B.filter(
                 //   (b) => !A.some((a) => a.description.replace(/-/g, ' ') === b.description.replace(/-/g, ' '))
                 // ); //I am having a problem with the hyphen
-//
+                //
                 let A = props.links;
                 let B = htmllinksarray;
                 let result = B.filter(

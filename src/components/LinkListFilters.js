@@ -757,7 +757,7 @@ function ExpandableArray(props) {
               {isMobile() === true && (
                 
                 <div className="ib margin-left-11 margin-bottom-1">
-                  {props.links.length} 1links are displayed.
+                  {props.links.length} links are displayed.
                   {props.links.length === 0 &&
                     " Please add your first link to your page."}
                 </div>
@@ -1048,7 +1048,7 @@ function ExpandableArray(props) {
                     <div className="border5-">
                       <input
                         title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                        placeholder="1search field"
+                        placeholder="search field"
                         autoFocus
                         id="termid"
                         className={`margin-left-11 width325 searchinput`}

@@ -1246,22 +1246,22 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
      
-      {props.signup.signup === true && (
+      {/* {props.signup.signup === true && (
         <div className="flexrow2w">
-          {/* <MayDoInGoogleDocument />
+          <MayDoInGoogleDocument />
           <CalendarGoogle />
-          <FBShareButton url={props.Url} /> */}
+          <FBShareButton url={props.Url} />
 
           <MessengerButton />
-          {/* <LinkedInShareButton url={props.Url} />
+          <LinkedInShareButton url={props.Url} />
 
           <XShareButton url={props.Url} />
           <MapQuestButton />
           <AlarmClockButton />
           <GoogleMapsButton />
-          <GoogleEarthButton /> */}
+          <GoogleEarthButton />
         </div>
-      )}
+      )} */}
     </div>
   );
 };

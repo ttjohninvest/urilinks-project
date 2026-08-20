@@ -702,7 +702,7 @@ return <span key={index}>{s}</span>
                     else
                       return (
                        <div 
-                       //key={index}
+                       key={2*index}
                        className={``}>
                         {!!s.description2===false?<div 
                         key={index}

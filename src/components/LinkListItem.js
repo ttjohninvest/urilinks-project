@@ -1222,7 +1222,7 @@ const LinkListItem = (props) => {
           </div>
         )}
       </div>
-//https://www.linkedin.com/sharing/share-offsite/?url={url}
+
         {props.signup.signup === true && (
         <div className="flexrow2w2 border5-">
           <a href={`https://twitter.com/intent/tweet?url=${props.Url}`} className="ib nounderline cursor-pointer">Twitter</a>

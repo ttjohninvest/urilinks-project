@@ -632,7 +632,7 @@ function ExpandableArray(props) {
           } theHeight flexrowzc2 border-b-5font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
-          <span className={`padding-left-n-x ${isMobile()===true?'fleur-de-leah-regular2':'fleur-de-leah-regular'}`} title="Internet Links Organizer Dashboard's Home Page">
+          <span className={`ib padding-left-n-x- ${isMobile()===true?'fleur-de-leah-regular2':'fleur-de-leah-regular'}`} title="Internet Links Organizer Dashboard's Home Page">
             Internet Links Organizer Dashboard's Home Page
           </span>
         </div>

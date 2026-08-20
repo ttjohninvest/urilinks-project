@@ -590,6 +590,14 @@ width:400px;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+.flexrow2w2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  //justify-content: space-between;
+  flex-wrap: wrap;
+}
 .flexrow2lw {
   display: flex;
   flex-direction: row;

@@ -274,7 +274,7 @@ export const LinkList = (props) => {
           {props.links.length} links are displayed.
         </div>
       )}
-      <div className="margin-left-11">
+      {props.links.length > 1 && <div className="margin-left-11">
         <button
           title="Click the button to begin auto scroll."
           onClick={startScrollingUp2}
@@ -299,7 +299,7 @@ export const LinkList = (props) => {
         >
           <span>ScrollDn</span>
         </button>
-      </div>
+      </div>}
 
       <div className="border-left-5">
         <div id="before-link-summary-id" className="margin-bottom-5a"></div>

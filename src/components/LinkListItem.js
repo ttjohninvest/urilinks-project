@@ -1223,6 +1223,13 @@ const LinkListItem = (props) => {
         )}
       </div>
 
+        {props.signup.signup === true && (
+        <div className="flexrow2w">
+      <XShareButton url={props.Url} />
+      <FBShareButton url={props.Url} />
+      </div>
+       )}
+
       <div className="italicText text-size-10 color-purple margin-top-aa color-black-2">
         <span className="ib padding-left-n-1z-  margin-top-n-15a margin-bottom-abc">
           Link saved on:{" "}
@@ -1234,12 +1241,7 @@ const LinkListItem = (props) => {
         {/* {putinnewlines(props.note)} */}
         {props.note}
       </div>
-       {props.signup.signup === true && (
-        <div className="flexrow2w">
-      <XShareButton url={props.Url} />
-      <FBShareButton url={props.Url} />
-      </div>
-       )}
+     
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">
           <MayDoInGoogleDocument />

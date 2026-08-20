@@ -720,6 +720,7 @@ function ExpandableArray(props) {
                             <span>{s.description2}</span>
                           </a>
                           <br />
+                           
                           <span
                             className="ib margin-left-11z"
                             style={{

@@ -906,7 +906,7 @@ const LinkListItem = (props) => {
 </div>
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
-      <div className="normal-wrap">
+      <div className="normal-wrap padding-bottom-11">
         <a
           ref={myRef}
           className={`ib text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
@@ -920,6 +920,7 @@ const LinkListItem = (props) => {
           {/* {truncateString(props.description, 80)} */}
           {/* {breakEvery50Chars(props.description)} */}
         </a>
+        
       </div>
 
       <div className="flexrowz">

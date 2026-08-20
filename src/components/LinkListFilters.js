@@ -684,11 +684,7 @@ function ExpandableArray(props) {
                 }
               >
                 <div>
-                  {/* {
-                    [1,2,3,4,5,6,7,8].map((s, index) => {
-return <span key={index}>{s}</span>
-                    })
-                  } */}
+                  
                   
                   {props.mappedDataShort.map((s, index) => {
                     //have 3 map calls and display the first column then the second column and then the thrid column
@@ -702,14 +698,14 @@ return <span key={index}>{s}</span>
                     else
                       return (
                        <div 
-                       //key={crypto.randomUUID()} 
+                       
                        key={index}
                        className={``}
                        >
                         {!!s.description2===false?null
                         :
                         <div
-                          //key={index}
+                          
                           className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                         >
 

@@ -109,7 +109,7 @@ const LinkListItem = (props) => {
     console.log("bookmark id=" + event.target.value);
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
-    let result = confirm("1 Are you sure you want to remove the link?");
+    let result = confirm("Are you sure you want to remove the link?");
     if (result) {
       // User clicked OK, perform the deletion
       props.removeLink({ id: event.target.value });

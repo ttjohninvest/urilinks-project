@@ -695,14 +695,13 @@ return <span key={index}>{s}</span>
                     
                       return (
                        <div className={``}>
-                        {!!s.description2===false ? <div key={index}></div>
-                        :
+                        
                         <div
                           key={index}
                           className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                         >
-
-                          <a
+{s}
+                          {/* <a
                             className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
                                 ib margin-top-1 ${
                                   props.b == 1
@@ -732,9 +731,9 @@ return <span key={index}>{s}</span>
                             }}
                           >
                             {s.matchesstring}
-                          </span>
+                          </span> */}
                           
-                        </div>}
+                        </div>
                         </div>
                       );
                   })}

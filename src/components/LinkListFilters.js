@@ -1273,6 +1273,7 @@ function ExpandableArray(props) {
           </div>
         </div>
         {/*begins third column*/}
+        
         {isMobile() === false && (
           <div
             style={{ borderRadius: "5px" }}

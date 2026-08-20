@@ -698,20 +698,18 @@ return <span key={index}>{s}</span>
                       s.showpublic === 0
                       //|| s.archive === 1
                     )
-                      return <div key={index}></div>;
+                      return null;
                     else
                       return (
                        <div 
-                       key={crypto.randomUUID()}
-                       className={``}>
-                        {!!s.description2===false?<div 
-                        key={index}
-                        >
-
-                        </div>
+                       //key={crypto.randomUUID()} 
+                       key={index}
+                       className={``}
+                       >
+                        {!!s.description2===false?null
                         :
                         <div
-                          key={index}
+                          //key={index}
                           className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z"
                         >
 

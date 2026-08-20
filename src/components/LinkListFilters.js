@@ -85,9 +85,14 @@ function ExpandableArray(props) {
       "ZZZZZ, props.mappedDataShort[0]=" +
         JSON.stringify(props.mappedDataShort[0]),
     );
+    //before-before-link-summary-id
     if (z === 1)
-      !!document.querySelector("#results1") &&
-        document.querySelector("#results1").scrollIntoView({
+      // !!document.querySelector("#results1") &&
+      //   document.querySelector("#results1").scrollIntoView({
+      //     behavior: "smooth",
+      //   });
+        !!document.querySelector("#before-before-link-summary-id") &&
+        document.querySelector("#before-before-link-summary-id").scrollIntoView({
           behavior: "smooth",
         });
   }, []);

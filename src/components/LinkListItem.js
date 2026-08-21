@@ -959,8 +959,8 @@ const LinkListItem = (props) => {
               <span className="pointereventsauto">
                 <span className="margin-left-11 color-black ">
                   {!!props.showpublic
-                    ? "make link private"
-                    : "made link private"}
+                    ? "Make link private"
+                    : "Made link private"}
                   :&nbsp;
                 </span>
                 <input

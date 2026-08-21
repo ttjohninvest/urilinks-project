@@ -162,6 +162,7 @@ export const LinkList = (props) => {
         buttonRef2.current.click();
         if(!!scrolldownref===true)
         scrolldownref.current.click()
+        else alert("wrong, scrollDn not started")
       }
     }, 20); // Every 20 milliseconds
   };
@@ -188,6 +189,7 @@ export const LinkList = (props) => {
         buttonRef2.current.click();
         if(!!scrollupref===true)
         scrollupref.current.click()
+        else alert("wrong, scrollUp not started")
         //stopScrolling();
       }
     }, 20); // Every 20 milliseconds

@@ -143,6 +143,7 @@ export const LinkList = (props) => {
   // };
 
   const startScrollingUp2 = () => {
+    buttonRef2.current.click();
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -171,6 +172,7 @@ export const LinkList = (props) => {
   };
 
   const startScrollingDown2 = () => {
+    buttonRef2.current.click();
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 

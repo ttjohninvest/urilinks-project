@@ -103,19 +103,27 @@ function ExpandableArray(props) {
        return value.matchesstring
     })
 
+    console.log("DisplayHashtags.js, stringArray="+JSON.stringify(stringArray))
+
     let i = 0
     let str=""
     let htsArray = []
     let htsArray2 = [] //holds an array of individual hashtags
     stringArray.forEach((str)=>{
       htsArray=str.match(/#\w+/g) || [];
+      console.log("DisplayHashtags.js, htsArray="+JSON.stringify(htsArray))
       htsArray.forEach((str,index)=>{
         htsArray2[i++] = htsArray[index]
       })
       
     })
 
+    console.log("DisplayHashtags.js, htsArray2="+JSON.stringify(htsArray2))
+
     const htsArray3 = removeDuplicates(htsArray2)
+    console.log("DisplayHashtags.js, duplicates should be removed now")
+    console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray3))
+
     const htsArray4 = htsArray3.sort((a, b) => {
       const valA = a.toLowerCase();
       const valB = b.toLowerCase();
@@ -123,6 +131,9 @@ function ExpandableArray(props) {
       if (valA > valB) return 1;
       return 0;
     })
+
+    console.log("DisplayHashtags.js, they should be in sorted order now")
+    console.log("DisplayHashtags.js, htsArray4="+JSON.stringify(htsArray4))
 
     //htsArray4 contains the sorted array of individual hashtags
     setUniqueData(htsArray4);

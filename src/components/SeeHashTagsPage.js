@@ -17,6 +17,13 @@ export const SeeHashTagsPage = (props) => {
     );
   });
 
+  const removeDuplicates = (stringArray) => {
+  const stringifiedArray = stringArray.join(" ");
+  const lcstring = stringifiedArray; 
+  const lcStringArray = lcstring.split(" ");
+  return [...new Set(lcStringArray)];
+};
+
   useEffect(() => {
     // const uniqueData2 = props.hashtags.filter((value, index, array) => {
     //   // Returns the first index where the name matches

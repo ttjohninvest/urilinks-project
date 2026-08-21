@@ -143,7 +143,7 @@ export const LinkList = (props) => {
   // };
 
   const startScrollingUp2 = () => {
-    //buttonRef2.current.click();
+    buttonRef2.current.click();
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -154,16 +154,19 @@ export const LinkList = (props) => {
         behavior: "auto",
       });
 
+      console.log(document.getElementById("ls2").scrollTop +
+          document.getElementById("ls2").clientHeight)
+      console.log(document.getElementById("ls2").scrollHeight)
       if (
         document.getElementById("ls2").scrollTop +
           document.getElementById("ls2").clientHeight >=
         document.getElementById("ls2").scrollHeight
       ) {
-        alert("1")
-        buttonRef2.current.click();
+        
+        buttonRef2.current.click(); //clicks the stop button
         if(!!scrolldownref===true)
         scrolldownref.current.click()
-        else alert("wrong, scrollDn not started")
+        //else alert("wrong, scrollDn not started")
       }
     }, 20); // Every 20 milliseconds
   };
@@ -174,7 +177,7 @@ export const LinkList = (props) => {
   };
 
   const startScrollingDown2 = () => {
-    //buttonRef2.current.click();
+    buttonRef2.current.click();
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -187,10 +190,10 @@ export const LinkList = (props) => {
 
       // Stop automatically when reaching the top
       if (document.getElementById("ls2").scrollTop === 0) {
-        buttonRef2.current.click();
+        buttonRef2.current.click(); //clicks the stop button
         if(!!scrollupref===true)
         scrollupref.current.click()
-        else alert("wrong, scrollUp not started")
+       
         //stopScrolling();
       }
     }, 20); // Every 20 milliseconds

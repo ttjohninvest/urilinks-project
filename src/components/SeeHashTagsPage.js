@@ -244,6 +244,7 @@ export const SeeHashTagsPage = (props) => {
             
             isMobile()===true
             ?'widthhashtagcolumn':'widthx1'} heightx1 overflowyauto borderLightOrange overflowxhidden`}
+            onClick={()=>stopScrolling4()}
         >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
             {/* {uniqueData.map(

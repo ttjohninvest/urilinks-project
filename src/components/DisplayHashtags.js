@@ -118,19 +118,21 @@ function ExpandableArray(props) {
       
     })
 
-    console.log("DisplayHashtags.js, htsArray2="+JSON.stringify(htsArray2))
-
-    const htsArray3 = removeDuplicates(htsArray2)
-    console.log("DisplayHashtags.js, duplicates should be removed now")
-    console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray3))
-
-    const htsArray4 = htsArray3.sort((a, b) => {
+     const htsArray3 = htsArray2.sort((a, b) => {
       const valA = a.toLowerCase();
       const valB = b.toLowerCase();
       if (valA < valB) return -1;
       if (valA > valB) return 1;
       return 0;
     })
+
+    
+
+    const htsArray4 = removeDuplicates(htsArray3)
+    console.log("DisplayHashtags.js, duplicates should be removed now")
+    console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray3))
+
+   
 
     console.log("DisplayHashtags.js, they should be in sorted order now")
     console.log("DisplayHashtags.js, htsArray4="+JSON.stringify(htsArray4))

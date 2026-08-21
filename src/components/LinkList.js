@@ -52,6 +52,7 @@ export const LinkList = (props) => {
   //  const [mappedData, setMappedData] = useState([])
 
   const myRef = useRef();
+  const scrollupref = useRef();
   const scrollInterval2 = useRef(null);
   const buttonRef2 = useRef(null);
 
@@ -266,7 +267,8 @@ export const LinkList = (props) => {
   // }
 
   useEffect(() => {
-    document.getElementById("scrollup1").click()
+    // document.getElementById("scrollup1").click()
+    scrollupref.current.click()
   }, []);
 
   return (
@@ -281,6 +283,7 @@ export const LinkList = (props) => {
       {props.links.length > 1 && <div className="margin-left-11">
         <button
           id="scrollup1"
+          ref={scrollupref}
           title="Click the button to begin auto scroll."
           onClick={startScrollingUp2}
           className="button-2 widthxpx1"

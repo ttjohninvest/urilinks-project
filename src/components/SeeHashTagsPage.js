@@ -11,6 +11,7 @@ export const SeeHashTagsPage = (props) => {
   const scrollInterval4 = useRef(null);
   const buttonRef4 = useRef(null);
   const scrolldownref8 = useRef(null);
+  const scrollupref8 = useRef(null)
 
   useEffect(() => {
     console.log(
@@ -127,7 +128,7 @@ export const SeeHashTagsPage = (props) => {
   };
 
   const startScrollingUp4 = () => {
-    buttonRef.current.click();
+    buttonRef4.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
 
@@ -141,7 +142,7 @@ export const SeeHashTagsPage = (props) => {
       if (
         document.getElementById("ls3").scrollTop +
           document.getElementById("ls3").clientHeight >=
-        document.getElementById("ls3").scrollHeight
+        (document.getElementById("ls3").scrollHeight-2 ||  document.getElementById("ls3").scrollHeight+2)
       ) {
         buttonRef4.current.click();
          if(!!scrolldownref8===true)
@@ -156,7 +157,7 @@ export const SeeHashTagsPage = (props) => {
   };
 
   const startScrollingDown4 = () => {
-    buttonRef.current.click();
+    buttonRef4.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
 
@@ -168,8 +169,10 @@ export const SeeHashTagsPage = (props) => {
       });
 
       // Stop automatically when reaching the top
-      if (document.getElementById("ls3").scrollTop === 0) {
+       if (document.getElementById("ls3").scrollTop === 0 || document.getElementById("ls3").scrollTop <= 2) {
         buttonRef4.current.click();
+         if(!!scrollupref8===true)
+        scrollupref8.current.click()
 
         //stopScrolling();
       }
@@ -201,6 +204,7 @@ export const SeeHashTagsPage = (props) => {
         <div>
           <div className="margin-left-11- margin-bottom-1 margin-top-1">
             <button
+              ref={scrollupref8}
               title="Click the button to begin auto scroll."
               onClick={startScrollingUp4}
               className="button-2 widthxpx1"

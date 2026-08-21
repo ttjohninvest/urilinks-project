@@ -273,8 +273,10 @@ export const LinkList = (props) => {
   // }
 
   useEffect(() => {
-    // document.getElementById("scrollup1").click()
+    setTimeout(() => {
     scrollupref.current.click()
+}, 7000);
+    
   }, []);
 
   return (

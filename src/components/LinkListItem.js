@@ -1226,7 +1226,10 @@ const LinkListItem = (props) => {
         {props.signup.signup === true && (
         <div className="flexrow2w2 border5-">
           <a href={`https://twitter.com/intent/tweet?url=${props.Url}`} className="ib nounderline- cursor-pointer" title="x.com is formerly twiiter.com. Click to share link on x.com." target="_blank">X</a>
-          <a href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`} className="ib margin-left-11 nounderline- cursor-pointer" title="Click to share link on facebook.com."  target="_blank">Facebook</a>   
+          <a href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`} className="ib margin-left-11 nounderline- cursor-pointer" title="Click to share link on facebook.com."  target="_blank">Facebook</a> 
+          <a href={`https://instagram.com/share?url=${props.Url}`} className="ib margin-left-11 nounderline- cursor-pointer" title="Click to share link on facebook.com."  target="_blank">Facebook</a>     
+         
+          
           {/* <a href={`https://messenger.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Messenger</a>
           <a href={`https://gmail.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Gmail</a>
           <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${props.Url}`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Linkedin</a> */}

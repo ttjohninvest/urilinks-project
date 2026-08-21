@@ -303,6 +303,7 @@ export const LinkList = (props) => {
         </button>
 
         <button
+          ref={scrolldownref}
           title="Click the button to begin auto scroll."
           onClick={startScrollingDown2}
           className="button-2 ib margin-left-11 widthxpx1"

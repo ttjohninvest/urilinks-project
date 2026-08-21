@@ -184,7 +184,8 @@ export const LinkList = (props) => {
       // Stop automatically when reaching the top
       if (document.getElementById("ls2").scrollTop === 0) {
         buttonRef2.current.click();
-
+        if(!!scrollupref===true)
+        scrollupref.current.click()
         //stopScrolling();
       }
     }, 20); // Every 20 milliseconds

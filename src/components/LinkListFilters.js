@@ -872,7 +872,7 @@ function ExpandableArray(props) {
                         onClick={seeHashTags}
                         title="See hashtags"
                       >
-                        See Hashtags
+                        See Hashtags1
                       </button>
                       {/* {
                          isForm3Open && 
@@ -1008,7 +1008,7 @@ function ExpandableArray(props) {
                         onClick={seeHashTags}
                         title="See hashtags"
                       >
-                        See Hashtags
+                        See Hashtags2
                       </button>
                       {/*{
                          isForm3Open && 

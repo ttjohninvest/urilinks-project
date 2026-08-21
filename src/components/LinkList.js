@@ -160,7 +160,7 @@ export const LinkList = (props) => {
       if (
         document.getElementById("ls2").scrollTop +
           document.getElementById("ls2").clientHeight >=
-        document.getElementById("ls2").scrollHeight
+        (document.getElementById("ls2").scrollHeight-2 ||  document.getElementById("ls2").scrollHeight+2)
       ) {
         
         buttonRef2.current.click(); //clicks the stop button

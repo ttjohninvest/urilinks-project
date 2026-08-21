@@ -168,7 +168,7 @@ export const LinkList = (props) => {
         scrolldownref.current.click()
         //else alert("wrong, scrollDn not started")
       }
-    }, 40); // Every 20 milliseconds
+    }, 20); // Every 20 milliseconds
   };
 
   const stopScrolling2 = () => {
@@ -196,7 +196,7 @@ export const LinkList = (props) => {
        
         //stopScrolling();
       }
-    }, 40); // Every 20 milliseconds
+    }, 20); // Every 20 milliseconds
   };
 
   const handleClick = (event) => {

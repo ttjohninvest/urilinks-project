@@ -85,21 +85,20 @@ function ExpandableArray(props) {
   const rt = params.get("x");
   const id = params.get("id");
 
-  useEffect(() => {
-    console.log(
-      "ZZZZZ, props.mappedDataShort=" + JSON.stringify(props.mappedDataShort),
-    );
-  }, []);
-
-  removeDuplicates = (stringArray) => {
+   removeDuplicates = (stringArray) => {
   const stringifiedArray = stringArray.join(" ");
   const lcstring = stringifiedArray; 
   const lcStringArray = lcstring.split(" ");
   return [...new Set(lcStringArray)];
 };
 
- useEffect(() => {
-    const stringArray = props.mappedDataShort.filter((value) => {
+
+  useEffect(() => {
+    console.log(
+      "ZZZZZ, props.mappedDataShort=" + JSON.stringify(props.mappedDataShort),
+    );
+
+     const stringArray = props.mappedDataShort.filter((value) => {
        return value.matchesstring
     })
 
@@ -118,6 +117,9 @@ function ExpandableArray(props) {
       
     })
 
+     console.log("DisplayHashtags.js, hashtags should be individual strings now")
+    console.log("DisplayHashtags.js, htsArray2="+JSON.stringify(htsArray2))
+
      const htsArray3 = htsArray2.sort((a, b) => {
       const valA = a.toLowerCase();
       const valB = b.toLowerCase();
@@ -126,46 +128,46 @@ function ExpandableArray(props) {
       return 0;
     })
 
-    
-
-    const htsArray4 = removeDuplicates(htsArray3)
-    console.log("DisplayHashtags.js, duplicates should be removed now")
+    console.log("DisplayHashtags.js, should be in sorted order now")
     console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray3))
 
-   
+    
+    const htsArray4 = removeDuplicates(htsArray3)
+     console.log("DisplayHashtags.js, duplicates should be removed now")
+    console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray4))
 
-    console.log("DisplayHashtags.js, they should be in sorted order now")
-    console.log("DisplayHashtags.js, htsArray4="+JSON.stringify(htsArray4))
 
     //htsArray4 contains the sorted array of individual hashtags
     setUniqueData(htsArray4);
-
   }, []);
 
-  useEffect(() => {
-    // const uniqueData2 = props.mappedDataShort.filter((value, index, array) => {
-    //   // Returns the first index where the name matches
-    //   const firstIndex = array.findIndex(
-    //     (item) => item.matchesstring === value.matchesstring,
-    //   );
-    //   // Keep the item only if it is the first occurrence
-    //   return firstIndex === index;
-    // });
-    // uniqueData2.sort((a, b) => {
-    //   const valA = a.matchesstring.toLowerCase();
-    //   const valB = b.matchesstring.toLowerCase();
-    //   if (valA < valB) return -1;
-    //   if (valA > valB) return 1;
-    //   return 0;
-    // });
+ 
 
-    // uniqueData2.forEach((e) => {
-    //   console.log("DisplayHashtags.js, hashtag=" + e.matchesstring);
-    // });
 
-    // setUniqueData(uniqueData2);
+  // useEffect(() => {
+  //   // const uniqueData2 = props.mappedDataShort.filter((value, index, array) => {
+  //   //   // Returns the first index where the name matches
+  //   //   const firstIndex = array.findIndex(
+  //   //     (item) => item.matchesstring === value.matchesstring,
+  //   //   );
+  //   //   // Keep the item only if it is the first occurrence
+  //   //   return firstIndex === index;
+  //   // });
+  //   // uniqueData2.sort((a, b) => {
+  //   //   const valA = a.matchesstring.toLowerCase();
+  //   //   const valB = b.matchesstring.toLowerCase();
+  //   //   if (valA < valB) return -1;
+  //   //   if (valA > valB) return 1;
+  //   //   return 0;
+  //   // });
+
+  //   // uniqueData2.forEach((e) => {
+  //   //   console.log("DisplayHashtags.js, hashtag=" + e.matchesstring);
+  //   // });
+
+  //   // setUniqueData(uniqueData2);
     
-  }, []);
+  // }, []);
 
   const startScrollingUp = () => {
     // Prevent multiple intervals

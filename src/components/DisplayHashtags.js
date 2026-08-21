@@ -91,29 +91,67 @@ function ExpandableArray(props) {
     );
   }, []);
 
-  useEffect(() => {
-    const uniqueData2 = props.mappedDataShort.filter((value, index, array) => {
-      // Returns the first index where the name matches
-      const firstIndex = array.findIndex(
-        (item) => item.matchesstring === value.matchesstring,
-      );
-      // Keep the item only if it is the first occurrence
-      return firstIndex === index;
-    });
-    uniqueData2.sort((a, b) => {
-      const valA = a.matchesstring.toLowerCase();
-      const valB = b.matchesstring.toLowerCase();
+  removeDuplicates = (stringArray) => {
+  const stringifiedArray = stringArray.join(" ");
+  const lcstring = stringifiedArray; 
+  const lcStringArray = lcstring.split(" ");
+  return [...new Set(lcStringArray)];
+};
+
+ useEffect(() => {
+    const stringArray = props.mappedDataShort.filter((value) => {
+       return value.matchesstring
+    })
+
+    let i = 0
+    let str=""
+    let htsArray = []
+    let htsArray2 = [] //holds an array of individual hashtags
+    stringArray.forEach((str)=>{
+      htsArray=str.match(/#\w+/g) || [];
+      htsArray.forEach((str,index)=>{
+        htsArray2[i++] = htsArray[index]
+      })
+      
+    })
+
+    const htsArray3 = removeDuplicates(htsArray2)
+    const htsArray4 = htsArray3.sort((a, b) => {
+      const valA = a.toLowerCase();
+      const valB = b.toLowerCase();
       if (valA < valB) return -1;
       if (valA > valB) return 1;
       return 0;
-    });
+    })
 
-    uniqueData2.forEach((e) => {
-      console.log("DisplayHashtags.js, hashtag=" + e.matchesstring);
-    });
+    //htsArray4 contains the sorted array of individual hashtags
+    setUniqueData(htsArray4);
 
-    setUniqueData(uniqueData2);
-    //console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
+  }, []);
+
+  useEffect(() => {
+    // const uniqueData2 = props.mappedDataShort.filter((value, index, array) => {
+    //   // Returns the first index where the name matches
+    //   const firstIndex = array.findIndex(
+    //     (item) => item.matchesstring === value.matchesstring,
+    //   );
+    //   // Keep the item only if it is the first occurrence
+    //   return firstIndex === index;
+    // });
+    // uniqueData2.sort((a, b) => {
+    //   const valA = a.matchesstring.toLowerCase();
+    //   const valB = b.matchesstring.toLowerCase();
+    //   if (valA < valB) return -1;
+    //   if (valA > valB) return 1;
+    //   return 0;
+    // });
+
+    // uniqueData2.forEach((e) => {
+    //   console.log("DisplayHashtags.js, hashtag=" + e.matchesstring);
+    // });
+
+    // setUniqueData(uniqueData2);
+    
   }, []);
 
   const startScrollingUp = () => {
@@ -569,7 +607,7 @@ function ExpandableArray(props) {
 
   return (
     <div className="bg-white-1">
-      <div className="sticky-div-">
+      <div className="">
         <div
           className={`website-background-color width30pt
           } theHeight flexrowzc2 border-b-5font-roboto text-size-16 font-weight-500`}
@@ -671,8 +709,8 @@ function ExpandableArray(props) {
                             whiteSpace: "pre-wrap",
                           }}
                         >
-                          {s.matchesstring}
-                          {/* {s} */}
+                          {/* {s.matchesstring} */}
+                          {s}
                         </span>
                       </div>
                     );

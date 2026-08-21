@@ -315,12 +315,12 @@ export const Header = (props) => {
   };
 
   return (
-    <div className="top0pos-sticky-">
+    <div className="">
       {isMobile() === false ? (
         <div>
           <div id="top">
             {!deleteAccountError ? (
-              <header className="header relief- bg-color-1g- bg-color-1">
+              <header className="header bg-color-1g- bg-color-1">
                 <div className="">
                   <div className="flexrow2w">
                     <div className="flexrowzl1">

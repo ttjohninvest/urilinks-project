@@ -332,7 +332,7 @@ export const LinkList = (props) => {
             <div
               id="ls2"
               className={`${isMobile() === true ? "scrollable-div2content" : "scrollable-div1c"}`}
-              onClick={()=>stopScrolling2()}
+              //onClick={()=>stopScrolling2()}
             >
               {props.links.length === 0 ? (
                 <div className="list-item- list-item--message-"></div>

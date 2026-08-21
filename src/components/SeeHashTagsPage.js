@@ -202,7 +202,9 @@ export const SeeHashTagsPage = (props) => {
           </div>
         </div>
         <div>
-          <div className="margin-left-11- margin-bottom-1 margin-top-1">
+          <div className="margin-left-11- margin-bottom-1 margin-top-1"
+          style={{'position':'sticky', 'top':0}}
+          >
             <button
               ref={scrollupref8}
               title="Click the button to begin auto scroll."
@@ -244,7 +246,7 @@ export const SeeHashTagsPage = (props) => {
             
             isMobile()===true
             ?'widthhashtagcolumn':'widthx1'} heightx1 overflowyauto borderLightOrange overflowxhidden`}
-            onClick={()=>stopScrolling4()}
+            //onClick={()=>stopScrolling4()}
         >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
             {/* {uniqueData.map(

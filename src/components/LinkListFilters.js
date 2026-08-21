@@ -679,7 +679,7 @@ function ExpandableArray(props) {
           <div
             id="ls"
             className={`${isMobile() === true ? "width30menupane" : "width30menupane2"} scrollable-div1`}
-            onClick={()=>stopScrolling()}
+            //onClick={()=>stopScrolling()}
           >
             <div className={`border-right-5`}>
               <div

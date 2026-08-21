@@ -112,8 +112,8 @@ function ExpandableArray(props) {
     stringArray.forEach((str)=>{
       htsArray=str.match(/#\w+/g) || [];
       console.log("DisplayHashtags.js, htsArray="+JSON.stringify(htsArray))
-      htsArray.forEach((str,index)=>{
-        htsArray2[i++] = htsArray[index]
+      htsArray.forEach((str2)=>{
+        htsArray2[i++] = str2
       })
       
     })

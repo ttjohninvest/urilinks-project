@@ -265,6 +265,10 @@ export const LinkList = (props) => {
   //   return <LoadingPage />
   // }
 
+  useEffect(() => {
+    document.getElementById("scrollup1").click()
+  }, []);
+
   return (
     <div>
      
@@ -276,6 +280,7 @@ export const LinkList = (props) => {
       )}
       {props.links.length > 1 && <div className="margin-left-11">
         <button
+          id="scrollup1"
           title="Click the button to begin auto scroll."
           onClick={startScrollingUp2}
           className="button-2 widthxpx1"

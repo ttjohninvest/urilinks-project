@@ -53,6 +53,7 @@ export const LinkList = (props) => {
 
   const myRef = useRef();
   const scrollupref = useRef();
+  const scrolldownref = useRef();
   const scrollInterval2 = useRef(null);
   const buttonRef2 = useRef(null);
 
@@ -158,6 +159,7 @@ export const LinkList = (props) => {
         document.getElementById("ls2").scrollHeight
       ) {
         buttonRef2.current.click();
+        scrolldownref.current.click()
       }
     }, 20); // Every 20 milliseconds
   };

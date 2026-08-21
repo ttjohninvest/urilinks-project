@@ -98,47 +98,47 @@ function ExpandableArray(props) {
       "ZZZZZ, props.mappedDataShort=" + JSON.stringify(props.mappedDataShort),
     );
 
-     const stringArray = props.mappedDataShort.filter((value) => {
-       return value.matchesstring
-    })
+    //  const stringArray = props.mappedDataShort.filter((value) => {
+    //    return value.matchesstring
+    // })
 
-    console.log("DisplayHashtags.js, stringArray="+JSON.stringify(stringArray))
+    // console.log("DisplayHashtags.js, stringArray="+JSON.stringify(stringArray))
 
-    let i = 0
-    let str=""
-    let htsArray = []
-    let htsArray2 = [] //holds an array of individual hashtags
-    stringArray.forEach((str)=>{
-      htsArray=str.match(/#\w+/g) || [];
-      console.log("DisplayHashtags.js, htsArray="+JSON.stringify(htsArray))
-      htsArray.forEach((str2)=>{
-        htsArray2[i++] = str2
-      })
+    // let i = 0
+    // let str=""
+    // let htsArray = []
+    // let htsArray2 = [] //holds an array of individual hashtags
+    // stringArray.forEach((str)=>{
+    //   htsArray=str.match(/#\w+/g) || [];
+    //   console.log("DisplayHashtags.js, htsArray="+JSON.stringify(htsArray))
+    //   htsArray.forEach((str2)=>{
+    //     htsArray2[i++] = str2
+    //   })
       
-    })
+    // })
 
-     console.log("DisplayHashtags.js, hashtags should be individual strings now")
-    console.log("DisplayHashtags.js, htsArray2="+JSON.stringify(htsArray2))
+    //  console.log("DisplayHashtags.js, hashtags should be individual strings now")
+    // console.log("DisplayHashtags.js, htsArray2="+JSON.stringify(htsArray2))
 
-     const htsArray3 = htsArray2.sort((a, b) => {
-      const valA = a.toLowerCase();
-      const valB = b.toLowerCase();
-      if (valA < valB) return -1;
-      if (valA > valB) return 1;
-      return 0;
-    })
+    //  const htsArray3 = htsArray2.sort((a, b) => {
+    //   const valA = a.toLowerCase();
+    //   const valB = b.toLowerCase();
+    //   if (valA < valB) return -1;
+    //   if (valA > valB) return 1;
+    //   return 0;
+    // })
 
-    console.log("DisplayHashtags.js, should be in sorted order now")
-    console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray3))
+    // console.log("DisplayHashtags.js, should be in sorted order now")
+    // console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray3))
 
     
-    const htsArray4 = removeDuplicates(htsArray3)
-     console.log("DisplayHashtags.js, duplicates should be removed now")
-    console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray4))
+    // const htsArray4 = removeDuplicates(htsArray3)
+    //  console.log("DisplayHashtags.js, duplicates should be removed now")
+    // console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray4))
 
 
-    //htsArray4 contains the sorted array of individual hashtags
-    setUniqueData(htsArray4);
+    // //htsArray4 contains the sorted array of individual hashtags
+    // setUniqueData(htsArray4);
   }, []);
 
  
@@ -629,7 +629,7 @@ function ExpandableArray(props) {
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           <span className="padding-left-n-x">
-            1Internet Links Organizer Dashboard's Home Page
+            Internet Links Organizer Dashboard's Home Page
           </span>
         </div>
         <div className="margin-left-11-">

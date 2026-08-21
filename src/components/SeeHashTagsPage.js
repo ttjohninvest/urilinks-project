@@ -230,23 +230,23 @@ export const SeeHashTagsPage = (props) => {
             ?'widthhashtagcolumn':'widthx1'} heightx1 overflowyauto borderLightOrange overflowxhidden`}
         >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
-            {/* {uniqueData.map(
+            {uniqueData.map(
               (item, index) =>
                 !!item.matchesstring && (
                   <li key={index} data-item-id={item.matchesstring}>
                     {item.matchesstring}
                   </li>
                 ),
-            )} */}
+            )}
 
-             {uniqueData.map(
+             {/* {uniqueData.map(
               (item, index) =>
                 !!item && (
                   <li key={index} data-item-id={item}>
                     {item}
                   </li>
                 ),
-            )}
+            )} */}
           </ul>
         </div>
       </div>

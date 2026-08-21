@@ -10,6 +10,7 @@ export const SeeHashTagsPage = (props) => {
 
   const scrollInterval4 = useRef(null);
   const buttonRef4 = useRef(null);
+  const scrolldownref8 = useRef(null);
 
   useEffect(() => {
     console.log(
@@ -126,6 +127,7 @@ export const SeeHashTagsPage = (props) => {
   };
 
   const startScrollingUp4 = () => {
+    buttonRef.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
 
@@ -142,6 +144,8 @@ export const SeeHashTagsPage = (props) => {
         document.getElementById("ls3").scrollHeight
       ) {
         buttonRef4.current.click();
+         if(!!scrolldownref8===true)
+        scrolldownref8.current.click()
       }
     }, 20); // Every 20 milliseconds
   };
@@ -152,6 +156,7 @@ export const SeeHashTagsPage = (props) => {
   };
 
   const startScrollingDown4 = () => {
+    buttonRef.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
 
@@ -213,6 +218,7 @@ export const SeeHashTagsPage = (props) => {
             </button>
 
             <button
+              ref={scrolldownref8}
               title="Click the button to begin auto scroll."
               onClick={startScrollingDown4}
               className="button-2 ib margin-left-11 widthxpx1"

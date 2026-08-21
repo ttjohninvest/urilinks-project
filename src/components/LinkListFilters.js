@@ -68,6 +68,7 @@ function ExpandableArray(props) {
   const useButtons = false; //use buttons in display of categories
 
   const buttonRef = useRef(null);
+   const scrolldownref7 = useRef(null);
 
   let x = false;
   if (window.localStorage.getItem("hideinformation") === null) {
@@ -105,6 +106,7 @@ function ExpandableArray(props) {
   }, []);
 
   const startScrollingUp = () => {
+    buttonRef.current.click();
     // Prevent multiple intervals
     if (scrollInterval.current) return;
 
@@ -121,6 +123,8 @@ function ExpandableArray(props) {
         document.getElementById("ls").scrollHeight
       ) {
         buttonRef.current.click();
+        if(!!scrolldownref7===true)
+        scrolldownref7.current.click()
       }
     }, 20); // Every 20 milliseconds
   };
@@ -131,6 +135,7 @@ function ExpandableArray(props) {
   };
 
   const startScrollingDown = () => {
+    buttonRef.current.click();
     // Prevent multiple intervals
     if (scrollInterval.current) return;
 
@@ -657,6 +662,7 @@ function ExpandableArray(props) {
           </button>
 
           <button
+            ref={scrolldownref7}
             title="Click the button to begin auto scroll."
             onClick={startScrollingDown}
             className="ib button-2 margin-left-11"

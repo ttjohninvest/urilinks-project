@@ -1227,9 +1227,9 @@ const LinkListItem = (props) => {
         <div className="flexrow2w2 border5-">
           <a href={`https://twitter.com/intent/tweet?url=${props.Url}`} className="ib nounderline cursor-pointer">Twitter</a>
           <a href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`} className="ib margin-left-11 nounderline cursor-pointer">Facebook</a>   
-          <a href={`https://messenger.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Messenger</a>
+          {/* <a href={`https://messenger.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Messenger</a>
           <a href={`https://gmail.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Gmail</a>
-          <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${props.Url}`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Linkedin</a>
+          <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${props.Url}`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Linkedin</a> */}
           {/* <XShareButton url={props.Url} className='border5' />
           <FBShareButton url={props.Url} className='border5' />
           <MessengerButton  className='border5' /> */}

@@ -159,6 +159,7 @@ export const LinkList = (props) => {
           document.getElementById("ls2").clientHeight >=
         document.getElementById("ls2").scrollHeight
       ) {
+        alert("1")
         buttonRef2.current.click();
         if(!!scrolldownref===true)
         scrolldownref.current.click()

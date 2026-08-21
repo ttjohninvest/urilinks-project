@@ -725,7 +725,7 @@ function ExpandableArray(props) {
                           }}
                         >
                           {/* {s.matchesstring} */}
-                          {"1"+s}
+                          {s}
                         </span>
                       </div>
                     );

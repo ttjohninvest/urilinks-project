@@ -18,29 +18,77 @@ export const SeeHashTagsPage = (props) => {
   });
 
   useEffect(() => {
-    const uniqueData2 = props.hashtags.filter((value, index, array) => {
-      // Returns the first index where the name matches
-      const firstIndex = array.findIndex(
-        (item) => item.matchesstring === value.matchesstring,
-      );
-      // Keep the item only if it is the first occurrence
-      return firstIndex === index;
-    });
+    // const uniqueData2 = props.hashtags.filter((value, index, array) => {
+    //   // Returns the first index where the name matches
+    //   const firstIndex = array.findIndex(
+    //     (item) => item.matchesstring === value.matchesstring,
+    //   );
+    //   // Keep the item only if it is the first occurrence
+    //   return firstIndex === index;
+    // });
 
-    uniqueData2.sort((a, b) => {
-      const valA = a.matchesstring.toLowerCase();
-      const valB = b.matchesstring.toLowerCase();
+    // uniqueData2.sort((a, b) => {
+    //   const valA = a.matchesstring.toLowerCase();
+    //   const valB = b.matchesstring.toLowerCase();
+    //   if (valA < valB) return -1;
+    //   if (valA > valB) return 1;
+    //   return 0;
+    // });
+
+    // uniqueData2.forEach((e) => {
+    //   console.log("DisplayHashtags.js, hashtag=" + e.matchesstring);
+    // });
+
+    // setUniqueData(uniqueData2);
+
+    ///////////
+
+    //////////////
+
+    //////////////
+
+     const stringArray = props.mappedDataShort.filter((value) => {
+       return value.matchesstring
+    })
+
+    console.log("DisplayHashtags.js, stringArray="+JSON.stringify(stringArray))
+
+    let i = 0
+    let str=""
+    let htsArray = []
+    let htsArray2 = [] //holds an array of individual hashtags
+    stringArray.forEach((str)=>{
+      htsArray=str.match(/#\w+/g) || [];
+      console.log("DisplayHashtags.js, htsArray="+JSON.stringify(htsArray))
+      htsArray.forEach((str2)=>{
+        htsArray2[i++] = str2
+      })
+      
+    })
+
+     console.log("DisplayHashtags.js, hashtags should be individual strings now")
+    console.log("DisplayHashtags.js, htsArray2="+JSON.stringify(htsArray2))
+
+     const htsArray3 = htsArray2.sort((a, b) => {
+      const valA = a.toLowerCase();
+      const valB = b.toLowerCase();
       if (valA < valB) return -1;
       if (valA > valB) return 1;
       return 0;
-    });
+    })
 
-    uniqueData2.forEach((e) => {
-      console.log("DisplayHashtags.js, hashtag=" + e.matchesstring);
-    });
+    console.log("DisplayHashtags.js, should be in sorted order now")
+    console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray3))
 
-    setUniqueData(uniqueData2);
-    //console.log("DisplayHashtags.js, uniqueData="+JSON.stringify(uniqueData))
+    
+    const htsArray4 = removeDuplicates(htsArray3)
+     console.log("DisplayHashtags.js, duplicates should be removed now")
+    console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray4))
+
+
+    //htsArray4 contains the sorted array of individual hashtags
+    setUniqueData(htsArray4);
+    
   }, []);
 
   const handleClick = () => {
@@ -182,11 +230,20 @@ export const SeeHashTagsPage = (props) => {
             ?'widthhashtagcolumn':'widthx1'} heightx1 overflowyauto borderLightOrange overflowxhidden`}
         >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
-            {uniqueData.map(
+            {/* {uniqueData.map(
               (item, index) =>
                 !!item.matchesstring && (
-                  <li key={index} key={index} data-item-id={item.matchesstring}>
+                  <li key={index} data-item-id={item.matchesstring}>
                     {item.matchesstring}
+                  </li>
+                ),
+            )} */}
+
+             {uniqueData.map(
+              (item, index) =>
+                !!item && (
+                  <li key={index} data-item-id={item}>
+                    {item}
                   </li>
                 ),
             )}

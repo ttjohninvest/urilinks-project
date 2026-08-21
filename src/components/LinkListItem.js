@@ -1242,8 +1242,7 @@ const LinkListItem = (props) => {
         { true && (
         <div className="flexrow2w2 border5-">
           <span>ad1</span>
-          <span className="margin-left-11">ad2</span>
-          <span className="margin-left-11">ad3</span>
+         
       </div>
        )}
 

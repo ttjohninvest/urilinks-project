@@ -275,7 +275,7 @@ export const LinkList = (props) => {
   useEffect(() => {
     setTimeout(() => {
     scrollupref.current.click()
-}, 7000);
+}, 5500);
     
   }, []);
 

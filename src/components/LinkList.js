@@ -189,7 +189,7 @@ export const LinkList = (props) => {
       });
 
       // Stop automatically when reaching the top
-      if (document.getElementById("ls2").scrollTop === 0) {
+      if (document.getElementById("ls2").scrollTop === 0 || document.getElementById("ls2").scrollTop <= 2) {
         buttonRef2.current.click(); //clicks the stop button
         if(!!scrollupref===true)
         scrollupref.current.click()

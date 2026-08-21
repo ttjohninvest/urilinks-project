@@ -159,6 +159,7 @@ export const LinkList = (props) => {
         document.getElementById("ls2").scrollHeight
       ) {
         buttonRef2.current.click();
+        if(!!scrolldownref===true)
         scrolldownref.current.click()
       }
     }, 20); // Every 20 milliseconds

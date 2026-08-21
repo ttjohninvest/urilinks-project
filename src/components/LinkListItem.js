@@ -960,7 +960,7 @@ const LinkListItem = (props) => {
                 <span className="margin-left-11 color-black ">
                   {!!props.showpublic
                     ? "Make link private"
-                    : "Made link public"}
+                    : "Made link private"}
                   :&nbsp;
                 </span>
                 <input

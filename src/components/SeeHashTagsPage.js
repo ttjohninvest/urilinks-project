@@ -47,7 +47,7 @@ export const SeeHashTagsPage = (props) => {
 
     //////////////
 
-     const stringArray = props.hashtags.filter((value) => {
+     const stringArray = props.hashtags.forEach((value) => {
        return value.matchesstring
     })
 

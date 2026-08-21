@@ -126,7 +126,7 @@ function ExpandableArray(props) {
         if(!!scrolldownref7===true)
         scrolldownref7.current.click()
       }
-    }, 20); // Every 20 milliseconds
+    }, 40); // Every 20 milliseconds
   };
 
   const stopScrolling = () => {
@@ -152,7 +152,7 @@ function ExpandableArray(props) {
 
         //stopScrolling();
       }
-    }, 20); // Every 20 milliseconds
+    }, 40); // Every 20 milliseconds
   };
 
   const startWrite = () => {

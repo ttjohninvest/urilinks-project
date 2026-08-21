@@ -47,7 +47,7 @@ export const SeeHashTagsPage = (props) => {
 
     //////////////
 
-     const stringArray = props.mappedDataShort.filter((value) => {
+     const stringArray = props.hashtags.filter((value) => {
        return value.matchesstring
     })
 

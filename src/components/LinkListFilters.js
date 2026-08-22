@@ -3,6 +3,7 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
+import LinkList2 from "./LinkList2";
 
 import AddLinkPage from "./AddlinkPage";
 import SeeHashTagsPage from "./SeeHashTagsPage.js";
@@ -1272,10 +1273,13 @@ function ExpandableArray(props) {
                 )}
               </div>
             </div>
-
+{/* column 2 */}
             <div id="results1" className={`margin-top-18`}>
-              {/* column 2 */}
-              <LinkList av={props.av} z2={z2} />
+              {
+              z2===false?<LinkList av={props.av} />:
+              <LinkList2 av={props.av} />
+              }
+             
             </div>
           </div>
         </div>

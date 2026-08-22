@@ -285,10 +285,10 @@ export const LinkList = (props) => {
   //
   useEffect(() => {
     //scrollupref.current.click()
-    // if(props.z2===false)
-    setTimeout(() => {
-    scrollupref.current.click() //starts automatic scrolling as soon as the program loads, for this to be useful, this setTimeout has to be cleared when a hashtag, link text or note text search is initiated otherwise it continues to scroll it should stop scrolling
-}, 5000);
+    !!document.querySelector("#ls2") &&
+      document.querySelector("#ls2").scrollIntoView({
+        behavior: "smooth",
+      });
     
   }, []);
 

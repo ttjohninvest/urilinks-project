@@ -882,7 +882,7 @@ const LinkListItem = (props) => {
   return (
     <div key={props.index}>
       <div>
-       {props.faviconURL}
+       {/* {props.faviconURL} */}
       {props.faviconURL==="https://instagram.com/favicon.ico" ? <img className="" width="20" height="20" src="http://www.google.com/s2/favicons?domain=instagram.com" />:!!props.favicon===false?"":<img className="" width="20" height="20" src={props.faviconURL} />}
       </div>
       <div>

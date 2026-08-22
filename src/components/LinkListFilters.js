@@ -61,6 +61,7 @@ function ExpandableArray(props) {
 
   const [isForm3Open, setIsForm3Open] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
+  const [z2, setZ2] = useState(false);
 
   const myRef = useRef(null);
   const scrollInterval = useRef(null);
@@ -424,6 +425,7 @@ function ExpandableArray(props) {
   };
 
   const search = (z) => {
+    setZ2(true)
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
@@ -481,6 +483,7 @@ function ExpandableArray(props) {
   };
 
   const onSortChange = (e) => {
+    setZ2(true)
     if (
       e.target.value === "none" ||
       e.target.value === undefined ||
@@ -1272,7 +1275,7 @@ function ExpandableArray(props) {
 
             <div id="results1" className={`margin-top-18`}>
               {/* column 2 */}
-              <LinkList av={props.av} />
+              <LinkList av={props.av} z2={z2} />
             </div>
           </div>
         </div>

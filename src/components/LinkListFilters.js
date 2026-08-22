@@ -1289,6 +1289,8 @@ function ExpandableArray(props) {
             </div>
             {/* column 2 is the following div */}
             <div id="results1" className={`margin-top-18`}>
+              <button onClick={handleStartScroll}>Start Auto Scroll</button>
+              <button onClick={handleCancelScroll}>Cancel Auto Scroll</button>
               <LinkList av={props.av} ref={childRef} />
               {/* {
               z2===false?<LinkList av={props.av} />:
@@ -1646,12 +1648,12 @@ export class LinkListFilters extends React.Component {
       //const term = window.localStorage.getItem("termid");
       if (term !== "" && term.charAt(0) === "#") {
         this.setState({ sortBy: "hashtag" });
-        //window.document.querySelector("#buttonid2").click();
-        handleStartScroll()
+        window.document.querySelector("#buttonid2").click();
+        //handleStartScroll()
       } else if (term === "" || term.charAt(0) !== "#") {
         this.setState({ sortBy: "description" });
-        handleStartScroll()
-        //window.document.querySelector("#buttonid2").click();
+        //handleStartScroll()
+        window.document.querySelector("#buttonid2").click();
       }
       //window.scrollTo(0,0)
     } catch (e) {

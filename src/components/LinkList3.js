@@ -31,7 +31,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
     <div>
       {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
       <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
-      <LinkList av={props.av} ref={ref} />
+      <LinkList av={props.av} />
      
     </div>
   );

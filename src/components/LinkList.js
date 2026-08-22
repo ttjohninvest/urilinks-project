@@ -89,7 +89,11 @@ export const LinkList = (props) => {
   useEffect(() => {
     let x = getPlanMax();
     setThemax(x);
-    window.scrollTo(0,0)
+    //window.scrollTo(0,0)
+    !!document.querySelector("#ls2") &&
+      document.querySelector("#ls2").scrollIntoView({
+        behavior: "smooth",
+      });
   }, []);
 
   useEffect(() => {

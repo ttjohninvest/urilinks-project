@@ -284,7 +284,7 @@ export const LinkList = (props) => {
   // }
   //
   useEffect(() => {
-    props.handleStartScroll()
+    props.handleStartScroll(scrollupref.current)
     //scrollupref.current.click()
     // if(props.z2===false)
 //     setTimeout(() => {

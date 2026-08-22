@@ -90,9 +90,9 @@ function ExpandableArray(props) {
 
   const childRef = useRef(null);
 
-  const handleStartScroll = () => {
+  const handleStartScroll = (v) => {
     if (childRef.current) {
-      childRef.current.startAutoScroll();
+      childRef.current.startAutoScroll(v);
     }
   };
 

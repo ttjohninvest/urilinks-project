@@ -14,7 +14,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
       }
     },
 
-    startAutoScroll: () => {
+    startAutoScroll: (v) => {
       // Clear any existing timeout before starting a new one
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
@@ -22,6 +22,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
 
        scrollTimeoutRef.current = setTimeout(() => {
         // Perform scroll action here
+        v.click()
         console.log('Auto-scroll executed');
       }, 5000); // 5 seconds
     }

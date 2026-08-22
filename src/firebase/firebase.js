@@ -1,10 +1,10 @@
-import * as firebase from "firebase";
-import "firebase/storage";
-// import * as firebase from "firebase/app";
-// import "firebase/auth"; // If using authentication
-// //import 'firebase/firestore';   // If using Firestore
-// import "firebase/database"; // If using Realtime Database
-// import "firebase/storage"; // If using Storage
+// import * as firebase from "firebase";
+// import "firebase/storage";
+import firebase from "firebase/app";
+import "firebase/auth"; // If using authentication
+//import 'firebase/firestore';   // If using Firestore
+import "firebase/database"; // If using Realtime Database
+import "firebase/storage"; // If using Storage
 
 // let config = {};
 

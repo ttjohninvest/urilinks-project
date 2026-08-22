@@ -882,7 +882,8 @@ const LinkListItem = (props) => {
   return (
     <div key={props.index}>
       <div>
-      {!!props.faviconURL===true ? <img className="" width="20" height="20" src={props.faviconURL} />:props.faviconURL}
+        {props.faviconURL}
+      {/* {!!props.faviconURL===true ? <img className="" width="20" height="20" src={props.faviconURL} />:props.faviconURL} */}
       </div>
       <div>
       {!!props.yturl && (

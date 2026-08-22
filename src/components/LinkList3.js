@@ -6,6 +6,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
 
     // Expose the cancel method to the parent
   React.useImperativeHandle(ref, () => ({
+    
     cancelScroll: () => {
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);

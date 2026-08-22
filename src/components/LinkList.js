@@ -89,6 +89,7 @@ export const LinkList = (props) => {
   useEffect(() => {
     let x = getPlanMax();
     setThemax(x);
+    window.scrollTo(0,0)
   }, []);
 
   useEffect(() => {

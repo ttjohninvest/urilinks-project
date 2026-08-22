@@ -1291,11 +1291,8 @@ function ExpandableArray(props) {
             <div id="results1" className={`margin-top-18`}>
               <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button>
-              <LinkList3 av={props.av} ref={childRef} />
-              {/* {
-              z2===false?<LinkList av={props.av} />:
-              <LinkList2 av={props.av} />
-              } */}
+              <LinkList3 av={props.av} ref={childRef} handleStartScroll={handleStartScroll} />
+             
              
             </div>
           </div>

@@ -639,7 +639,7 @@ function ExpandableArray(props) {
             className={`ib padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2" : "fleur-de-leah-regular"}`}
             title="Internet Links Organizer Dashboard's Home Page"
           >
-            Internet Links Organizer Dashboard's Home Page (New Release)
+            Internet Links Organizer Dashboard's Home Page 
           </span>
         </div>
         <div className="width30menupanep">

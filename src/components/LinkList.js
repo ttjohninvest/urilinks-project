@@ -164,9 +164,9 @@ export const LinkList = (props) => {
       ) {
         
         buttonRef2.current.click(); //clicks the stop button
-        if(!!scrolldownref===true)
-        scrolldownref.current.click()
-        //else alert("wrong, scrollDn not started")
+        // if(!!scrolldownref===true) //auto scroll in the other direction
+        // scrolldownref.current.click()
+        
       }
     }, 20); // Every 20 milliseconds
   };
@@ -191,8 +191,8 @@ export const LinkList = (props) => {
       // Stop automatically when reaching the top
       if (document.getElementById("ls2").scrollTop === 0 || document.getElementById("ls2").scrollTop <= 2) {
         buttonRef2.current.click(); //clicks the stop button
-        if(!!scrollupref===true)
-        scrollupref.current.click()
+        // if(!!scrollupref===true) //auto scroll in the other direction
+        // scrollupref.current.click()
        
         //stopScrolling();
       }

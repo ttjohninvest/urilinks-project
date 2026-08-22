@@ -460,6 +460,7 @@ function ExpandableArray(props) {
       }
     }
 
+    buttonRef.current.click();
     handleClose3();
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
@@ -562,6 +563,7 @@ function ExpandableArray(props) {
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
+    buttonRef.current.click();
     handleClose3();
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({

@@ -1273,12 +1273,13 @@ function ExpandableArray(props) {
                 )}
               </div>
             </div>
-{/* column 2 */}
+            {/* column 2 is the following div */}
             <div id="results1" className={`margin-top-18`}>
-              {
+              <LinkList av={props.av} z2={z2} />
+              {/* {
               z2===false?<LinkList av={props.av} />:
               <LinkList2 av={props.av} />
-              }
+              } */}
              
             </div>
           </div>

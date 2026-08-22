@@ -148,8 +148,9 @@ export const LinkList = (props) => {
   // };
 
   const startScrollingUp2 = () => {
-    // if(!!buttonRef2===true)
-    // buttonRef2.current.click();
+    try {
+    if(!!buttonRef2===true)
+    buttonRef2.current.click();
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -169,13 +170,16 @@ export const LinkList = (props) => {
         (document.getElementById("ls2").scrollHeight-2 ||  document.getElementById("ls2").scrollHeight+2)
       ) {
         
-        // if(!!buttonRef2===true)
-        // buttonRef2.current.click(); //clicks the stop button
+        if(!!buttonRef2===true)
+        buttonRef2.current.click(); //clicks the stop button
         if(!!scrolldownref===true) //auto scroll in the other direction
         scrolldownref.current.click()
         
       }
     }, 20); // Every 20 milliseconds
+  } catch(error) {
+    console.log("error="+error)
+  }
   };
 
   const stopScrolling2 = () => {
@@ -184,8 +188,9 @@ export const LinkList = (props) => {
   };
 
   const startScrollingDown2 = () => {
-    // if(!!buttonRef2===true)
-    // buttonRef2.current.click();
+    try {
+    if(!!buttonRef2===true)
+    buttonRef2.current.click();
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
@@ -198,14 +203,17 @@ export const LinkList = (props) => {
 
       // Stop automatically when reaching the top
       if (document.getElementById("ls2").scrollTop === 0 || document.getElementById("ls2").scrollTop <= 2) {
-        // if(!!buttonRef2===true)
-        // buttonRef2.current.click(); //clicks the stop button
+        if(!!buttonRef2===true)
+        buttonRef2.current.click(); //clicks the stop button
         if(!!scrollupref===true) //auto scroll in the other direction
         scrollupref.current.click()
        
         //stopScrolling();
       }
     }, 20); // Every 20 milliseconds
+    } catch(error) {
+    console.log("error="+error)
+  }
   };
 
   const handleClick = (event) => {

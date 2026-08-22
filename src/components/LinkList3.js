@@ -29,8 +29,8 @@ export const LinkList3 = React.forwardRef((props, ref) => {
 
    return (
     <div>
-      <button onClick={handleStartScroll}>Start Auto Scroll</button>
-      <button onClick={handleCancelScroll}>Cancel Auto Scroll</button>
+      {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
+      <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
       <LinkList ref={childRef} />
      
     </div>

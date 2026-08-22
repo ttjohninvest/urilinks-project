@@ -3,7 +3,7 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-import LinkList2 from "./LinkList2";
+import LinkList3 from "./LinkList3.js";
 
 import AddLinkPage from "./AddlinkPage";
 import SeeHashTagsPage from "./SeeHashTagsPage.js";
@@ -1289,9 +1289,9 @@ function ExpandableArray(props) {
             </div>
             {/* column 2 is the following div */}
             <div id="results1" className={`margin-top-18`}>
-              <button onClick={handleStartScroll}>Start Auto Scroll</button>
-              <button onClick={handleCancelScroll}>Cancel Auto Scroll</button>
-              <LinkList av={props.av} ref={childRef} />
+              {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
+              <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
+              <LinkList3 av={props.av} ref={childRef} />
               {/* {
               z2===false?<LinkList av={props.av} />:
               <LinkList2 av={props.av} />

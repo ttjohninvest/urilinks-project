@@ -28,8 +28,35 @@ import StorageSizes from "./StorageSizes";
 
 const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
+//React.forwardRef((props, ref) => {
+  export const LinkList = React.forwardRef((props, ref) => {
+    const scrollTimeoutRef = useRef(null);
 
-export const LinkList = (props) => {
+    // Expose the cancel method to the parent
+  React.useImperativeHandle(ref, () => ({
+    cancelScroll: () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+        scrollTimeoutRef.current = null;
+        console.log('Scroll timeout cancelled');
+      }
+    },
+
+    startAutoScroll: () => {
+      // Clear any existing timeout before starting a new one
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+       scrollTimeoutRef.current = setTimeout(() => {
+        // Perform scroll action here
+        console.log('Auto-scroll executed');
+      }, 5000); // 5 seconds
+    }
+  }));
+
+  
+//export const LinkList = (props) => {
   const thelinks = [
     { id: 1, text: "hello 1" },
     { id: 2, text: "hello 2" },
@@ -377,7 +404,7 @@ export const LinkList = (props) => {
       </div>
     </div>
   );
-};
+});
 //
 const mapStateToProps = (state) => {
   const visibleLinks = selectLinks(state.links, state.filters); //selectLinks calls getFilteredLinksArray in actions/links.js

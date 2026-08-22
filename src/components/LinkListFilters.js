@@ -62,7 +62,7 @@ function ExpandableArray(props) {
 
   const [isForm3Open, setIsForm3Open] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
-  const [z2, setZ2] = useState(false);
+  
 
   const myRef = useRef(null);
   const scrollInterval = useRef(null);
@@ -87,6 +87,20 @@ function ExpandableArray(props) {
   const rt = params.get("x");
   const id = params.get("id");
   const z = params.get("z");
+
+  const childRef = useRef(null);
+
+  const handleStartScroll = () => {
+    if (childRef.current) {
+      childRef.current.startAutoScroll();
+    }
+  };
+
+  const handleCancelScroll = () => {
+    if (childRef.current) {
+      childRef.current.cancelScroll();
+    }
+  };
 
   useEffect(() => {
     console.log(
@@ -426,7 +440,7 @@ function ExpandableArray(props) {
   };
 
   const search = (z) => {
-    setZ2(true)
+    handleCancelScroll()
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
@@ -484,7 +498,7 @@ function ExpandableArray(props) {
   };
 
   const onSortChange = (e) => {
-    setZ2(true)
+    handleCancelScroll()
     if (
       e.target.value === "none" ||
       e.target.value === undefined ||
@@ -1275,7 +1289,7 @@ function ExpandableArray(props) {
             </div>
             {/* column 2 is the following div */}
             <div id="results1" className={`margin-top-18`}>
-              <LinkList av={props.av} z2={z2} />
+              <LinkList av={props.av} ref={childRef} />
               {/* {
               z2===false?<LinkList av={props.av} />:
               <LinkList2 av={props.av} />
@@ -1632,10 +1646,12 @@ export class LinkListFilters extends React.Component {
       //const term = window.localStorage.getItem("termid");
       if (term !== "" && term.charAt(0) === "#") {
         this.setState({ sortBy: "hashtag" });
-        window.document.querySelector("#buttonid2").click();
+        //window.document.querySelector("#buttonid2").click();
+        handleStartScroll()
       } else if (term === "" || term.charAt(0) !== "#") {
         this.setState({ sortBy: "description" });
-        window.document.querySelector("#buttonid2").click();
+        handleStartScroll()
+        //window.document.querySelector("#buttonid2").click();
       }
       //window.scrollTo(0,0)
     } catch (e) {

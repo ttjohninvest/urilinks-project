@@ -3,7 +3,7 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-import LinkList3 from "./LinkList3.js";
+import {LinkList3} from "./LinkList3.js";
 
 import AddLinkPage from "./AddlinkPage";
 import SeeHashTagsPage from "./SeeHashTagsPage.js";

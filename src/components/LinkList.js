@@ -90,10 +90,10 @@ export const LinkList = (props) => {
     let x = getPlanMax();
     setThemax(x);
     //window.scrollTo(0,0)
-    !!document.querySelector("#ls2") &&
-      document.querySelector("#ls2").scrollIntoView({
-        behavior: "smooth",
-      });
+    // !!document.querySelector("#ls2") &&
+    //   document.querySelector("#ls2").scrollIntoView({
+    //     behavior: "smooth",
+    //   });
   }, []);
 
   useEffect(() => {

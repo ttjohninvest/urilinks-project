@@ -942,7 +942,7 @@ const LinkListItem = (props) => {
           </div>
         )}
         {props.signup.signup === true ? (
-          <div>
+          <div className="bg-light-orange">
             <span className="">
               <span className="pointereventsauto">
                 <span className="margin-left-11">Remove link:&nbsp;</span>

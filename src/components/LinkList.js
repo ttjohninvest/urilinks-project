@@ -391,8 +391,8 @@ export const LinkList = (props) => {
               className={`${isMobile() === true ? "scrollable-div2content" : "scrollable-div1c"}`}
               //onClick={()=>stopScrolling2()}
             >
-              {props.links.length === 0 ? (
-                <div className="list-item- list-item--message-"></div>
+              {props.links.length === 0 ? (null
+                // <div className="list-item- list-item--message-"></div>
               ) : (
                 //readonly means another user is seeing the page
                 //private urls don't have to be hid from owner of page
@@ -403,11 +403,11 @@ export const LinkList = (props) => {
                     link.showpublic === 0
                     //|| link.archive === 1
                   )
-                    return <div key={link.id + "1"}></div>;
+                    return null //<div key={link.id + "1"}></div>;
                   else
                     return (
                       <div
-                        key={link.id + "1"}
+                        key={link.id} //+ "1"}
                         className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
                       >
                         <LinkListItem

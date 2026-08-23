@@ -16,18 +16,19 @@ export class EditLinkPage extends React.Component {
     this.props.startEditLink(this.props.link.id, link);
 
     //this.props.history.push("/");
-    const text = "Is it ok to refresh the page?";
-    if (confirm(text) == true) {
-      this.props.history.push("/");
+    // const text = "Updated, is it ok to refresh the page?";
+    // if (confirm(text) == true) {
+       this.props.history.push("/");
        window.location.href = "https://urilinks.com?signup=signup&z=1";
-    }
+    //}
 
     
   };
 
   handleClose4 = () => {
     //this.setState({ hideEditForm: true }); 
-    window.location.href="https://urilinks.com?signup=signup"
+    this.props.history.push("/");
+    window.location.href="https://urilinks.com?signup=signup&z=1"
   }
   //onRemove = (value,event) => {
   onRemove = () => {

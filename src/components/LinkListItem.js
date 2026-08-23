@@ -944,7 +944,7 @@ const LinkListItem = (props) => {
         {props.signup.signup === true ? (
           <div className="bg-light-orange height48 flexrowzv">
             {/* <span className=""> */}
-              {/* <span className="ib pointereventsauto-"> */}
+              {/* <span className="ib pointereventsauto"> */}
                 <span className="ib pointereventsauto margin-left-11">Remove link:&nbsp;</span>
                 <input
                   type="checkbox"
@@ -953,7 +953,7 @@ const LinkListItem = (props) => {
                   value={props.id}
                   onChange={handleCheckboxDelete}
                   title="click to delete the url"
-                  className="ib margin-top-1 pointereventsauto"
+                  className="ib margin-top-1t pointereventsauto"
                   style={{ cursor: "pointer" }}
                 />
                 <label htmlFor={"delete%" + props.id} />

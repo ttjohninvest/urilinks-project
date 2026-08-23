@@ -299,7 +299,7 @@ function ExpandableArray(props) {
     //document.execCommand('copy');
     // This is just personal preference.
     // I prefer to not show the whole text area selected.
-    e.target.focus();
+    //e.target.focus();
     setCopySuccess("Copied "); // + text);
     //alert(6)
   };

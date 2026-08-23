@@ -906,13 +906,7 @@ function ExpandableArray(props) {
                       >
                         See Hashtags
                       </button>
-                      {/* {
-                         isForm3Open && 
-                         <SeeHashTagsPage 
-                         isForm3Open={isForm3Open}
-                         handleClose3={handleClose3}
-                         />
-                        } */}
+                    
 
                       {
                         //emailForm &&
@@ -1046,13 +1040,7 @@ function ExpandableArray(props) {
                       >
                         See Hashtags
                       </button>
-                      {/*{
-                         isForm3Open && 
-                         <SeeHashTagsPage 
-                         isForm3Open={isForm3Open}
-                         handleClose3={handleClose3}
-                         />
-                        } */}
+                     
 
                       {
                         //emailForm &&
@@ -1187,12 +1175,12 @@ function ExpandableArray(props) {
                       </select>
                     </div>
                     {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
-                    {isForm3Open && (
-                      <SeeHashTagsPage
-                        changeSortBy={changeSortBy}
-                        isForm3Open={isForm3Open}
-                        handleClose3={handleClose3}
-                      />
+                    {isForm3Open && (<div>aaaaaaaaaaaaaaaaa2</div>
+                      // <SeeHashTagsPage
+                      //   changeSortBy={changeSortBy}
+                      //   isForm3Open={isForm3Open}
+                      //   handleClose3={handleClose3}
+                      // />
                     )}
                   </div>
                 ) : (
@@ -1289,12 +1277,12 @@ function ExpandableArray(props) {
                       </select>
                     </div>
                     {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
-                    {isForm3Open && (
-                      <SeeHashTagsPage
-                        changeSortBy={changeSortBy}
-                        isForm3Open={isForm3Open}
-                        handleClose3={handleClose3}
-                      />
+                    {isForm3Open && (<div>aaaaaaaaaaaaaaaaa1</div>
+                      // <SeeHashTagsPage
+                      //   changeSortBy={changeSortBy}
+                      //   isForm3Open={isForm3Open}
+                      //   handleClose3={handleClose3}
+                      // />
                     )}
                   </div>
                 )}

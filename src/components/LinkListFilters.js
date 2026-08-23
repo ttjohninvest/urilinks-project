@@ -291,6 +291,7 @@ function ExpandableArray(props) {
   };
 
   const copyToClipboard = (e) => {
+    alert(1)
     //this.textArea.select();
     const text = textAreaRef.current.innerText;
     console.log("Anchor text:", text);
@@ -300,6 +301,7 @@ function ExpandableArray(props) {
     // I prefer to not show the whole text area selected.
     e.target.focus();
     setCopySuccess("Copied "); // + text);
+    alert(6)
   };
 
   useEffect(() => {

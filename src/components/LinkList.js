@@ -215,11 +215,17 @@ export const LinkList = (props) => {
     if (scrollInterval2.current) return;
 
     scrollInterval2.current = setInterval(() => {
-      document.getElementById("ls2").scrollBy({
+        try {
+       if(!!scrolldownref===true) //auto scroll in the other direction
+         document.getElementById("ls2").scrollBy({
         top: -1, // Scroll 1 pixel each time
         left: 0,
         behavior: "auto",
       });
+       } catch(error) {
+        console.log("error="+error)
+       }
+     
 
       // Stop automatically when reaching the top
       if (document.getElementById("ls2").scrollTop === 0 || document.getElementById("ls2").scrollTop <= 2) {
@@ -229,8 +235,15 @@ export const LinkList = (props) => {
    } catch(error) {
     console.log("error="+error)
   }
-        if(!!scrollupref===true) //auto scroll in the other direction
+
+   try {
+       if(!!scrolldownref===true) //auto scroll in the other direction
+          if(!!scrollupref===true) //auto scroll in the other direction
         scrollupref.current.click()
+       } catch(error) {
+        console.log("error="+error)
+       }
+       
        
         //stopScrolling();
       }

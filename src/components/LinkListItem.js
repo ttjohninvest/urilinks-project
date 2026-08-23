@@ -1014,7 +1014,7 @@ const LinkListItem = (props) => {
             </span>
             </span>
             {props.rt !== "readonly" ? (
-              <span className="ib flexrowzv margin-top-1x">
+              <span className="ib flexrowzv margin-top-2x">
                 <span
                   ref={myRef3}
                   className={`ib font-weight-900- margin-left-11xy1 cursor-pointer`}

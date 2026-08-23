@@ -62,6 +62,7 @@ function ExpandableArray(props) {
 
   const [isForm3Open, setIsForm3Open] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
+  const [aValue, setAValue] = useState(0);
   
 
   const myRef = useRef(null);
@@ -302,6 +303,7 @@ function ExpandableArray(props) {
     //e.target.focus();
     setCopySuccess("Copied "); // + text);
     //alert(6)
+    setAValue(1)
   };
 
   useEffect(() => {

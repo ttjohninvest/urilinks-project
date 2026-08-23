@@ -181,18 +181,18 @@ export const LinkList = (props) => {
         (document.getElementById("ls2").scrollHeight-2 ||  document.getElementById("ls2").scrollHeight+2)
       ) {
         
-  //       try {
-  //   if(!!buttonRef2===true)
-  //   buttonRef2.current.click();
-  //  } catch(error) {
-  //   console.log("error="+error)
-  // }
-  //      try {
-  //      if(!!scrolldownref===true) //auto scroll in the other direction
-  //       scrolldownref.current.click()
-  //      } catch(error) {
-  //       console.log("error="+error)
-  //      }
+        try {
+    if(!!buttonRef2===true)
+    buttonRef2.current.click();
+   } catch(error) {
+    console.log("error="+error)
+  }
+       try {
+       if(!!scrolldownref===true) //auto scroll in the other direction
+        scrolldownref.current.click()
+       } catch(error) {
+        console.log("error="+error)
+       }
         
         
       }

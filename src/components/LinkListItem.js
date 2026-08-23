@@ -944,8 +944,8 @@ const LinkListItem = (props) => {
         )}
         {props.signup.signup === true ? (
           <span className="bg-light-orange height48- height14x flexrowzv2">
-            <span className="ib margin-left-11 margin-right-1">
-            <span className="ib margin-left-11-">
+            <span className="ib margin-left-11 margin-right-1 height14x flexrowzv">
+            <span className="ib">
               Remove link:&nbsp;
             </span>
             <input

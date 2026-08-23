@@ -884,7 +884,7 @@ const LinkListItem = (props) => {
       <div>
        {/* {props.faviconURL} */}
       {/* {props.faviconURL==="https://instagram.com/favicon.ico" ? <img className="" width="20" height="20" src="http://www.google.com/s2/favicons?domain=instagram.com" />:!!props.favicon===false?"":<img className="" width="20" height="20" src={props.faviconURL} />} */}
-      {props.faviconURL==="https://instagram.com/favicon.ico" ? <img className="" width="32" height="32" src="https://www.google.com/s2/favicons?domain=instagram.com" />:<img className="" width="32" height="32" src={props.faviconURL} />}
+      {props.faviconURL==="https://instagram.com/favicon.ico" ? <img className="" width="16" height="16" src="https://www.google.com/s2/favicons?domain=instagram.com" />:<img className="" width="16" height="16" src={props.faviconURL} />}
       </div>
       <div>
       {!!props.yturl && (

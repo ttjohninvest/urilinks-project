@@ -13,6 +13,10 @@ const AddALinkButton = (props) => {
 
   const handleClose = () => {
     setIsDisplayed(false);
+     !!document.querySelector("#before-before-link-summary-id") &&
+      document.querySelector("#before-before-link-summary-id").scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
   const handleDisplay = () => {

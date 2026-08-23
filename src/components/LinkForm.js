@@ -309,7 +309,7 @@ class LinkForm extends React.Component {
          
         </div>
       </form>
-      <button className="button-2w border5- margin-left-11- margin-bottom-1 ib" onClick={() => this.props.handleClose2()}>Cancel</button>
+      <button className="button-2w border5- margin-left-11- margin-bottom-1 ib" onClick={() => this.props.handleClose2()}>Close</button>
       </div>
     );
   }

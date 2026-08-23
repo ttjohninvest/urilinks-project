@@ -959,7 +959,7 @@ const LinkListItem = (props) => {
             />
             <label className="ib" htmlFor={"delete%" + props.id} />
 
-            <span className="ib pointereventsauto- margin-left-11 color-black ">
+            <span className="ib pointereventsauto- margin-left-11 color-black margin-top-2x">
               {!!props.showpublic ? "Make link private" : "Make link public"}
               :&nbsp;
             </span>
@@ -976,7 +976,7 @@ const LinkListItem = (props) => {
                   ? "click to make url private"
                   : "click to make url public"
               }
-              className="ib margin-top-1x"
+              className="ib margin-top-2x"
             />
             <label className="ib" htmlFor={"private%" + props.id} />
 
@@ -1014,7 +1014,7 @@ const LinkListItem = (props) => {
             </span>
             </span>
             {props.rt !== "readonly" ? (
-              <span className="ib flexrowzv margin-top-2x">
+              <span className="ib flexrowzv margin-top-1x">
                 <span
                   ref={myRef3}
                   className={`ib font-weight-900- margin-left-11xy1 cursor-pointer`}
@@ -1028,7 +1028,7 @@ const LinkListItem = (props) => {
                 </span>
 
                 <span
-                  className="ib margin-left-11tx font-weight-900- margin-top-2x"
+                  className="ib margin-left-11tx font-weight-900- margin-top-1x-"
                   title={"This is a selection to your top ten."}
                 >
                   {props.star === undefined

@@ -25,7 +25,9 @@ const AddALinkButton = (props) => {
     }
   };
 
-  return (<div>
+  return (<div
+  style={{'display':'inline'}}
+  >
     <button 
     className={`margin-left-11- height48 button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     onClick={handleDisplay}>

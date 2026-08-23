@@ -995,7 +995,7 @@ const LinkListItem = (props) => {
             <span className="flexrowzv">
             <span
               ref={myRef2}
-              className={`ib font-weight-900- margin-left-11xy1 cursor-pointer`}
+              className={`ib font-weight-900- margin-left-11xy1 cursor-pointer margin-top-2x`}
               //href="#"
 
               data-value={props.id}
@@ -1005,7 +1005,7 @@ const LinkListItem = (props) => {
               Likes:
             </span>
             <span
-              className="ib margin-left-11tx font-weight-900-"
+              className="ib margin-left-11tx font-weight-900- margin-top-2x"
               title={
                 "This is the number of times someone has clicked this link."
               }
@@ -1058,7 +1058,7 @@ const LinkListItem = (props) => {
                 <label htmlFor={"delete%" + props.id} />
               </span>
               <span className="pointereventsnone">
-                <span className="color-black margin-left-11">
+                <span className="color-black margin-left-11 margin-top-1x">
                   Make link private:&nbsp;
                 </span>
                 <input
@@ -1068,35 +1068,12 @@ const LinkListItem = (props) => {
                   value={props.id}
                   //onChange={handleCheckboxPrivate}
                   title="click to make url private"
-                  className="pointereventsnone"
+                  className="pointereventsnone margin-top-1x"
                 />
                 <label htmlFor={"private%" + props.id} />
               </span>
 
-              {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsnone">
-                                      <span className="color-black">
-                                        {!!props.archive
-                                          ? "unarchive it"
-                                          : "archive it"}
-                                        :&nbsp;
-                                      </span>
-                                      <input
-                                       
-                                        type="checkbox"
-                                        id={"archive%" + props.id}
-                                        name={"archive%" + props.id}
-                                        value={props.id}
-                                        // onChange={() =>
-                                        //   handleCheckboxArchive(
-                                        //     !!props.archive,
-                                        //     event,
-                                        //   )
-                                        // }
-                                        title={!!props.archive ?"click to archive it":"click to unarchive it"}
-                                        className="cb1 cursor-pointer pointereventsnone"
-                                      />
-                                      <label htmlFor={"archive%" + props.id} />
-                                    </span>  */}
+            
 
               <span className="margin-left-11xy">
                 {" "}
@@ -1111,9 +1088,9 @@ const LinkListItem = (props) => {
                 </span>
               </span>
 
-              <span className="margin-left-11xy">
+              <span className="ib margin-left-11xy flexrowzv ">
                 {" "}
-                Likes:
+                <span className="ib" >Likes:</span>
                 <span
                   className="ib margin-left-11tx font-weight-900-"
                   title={

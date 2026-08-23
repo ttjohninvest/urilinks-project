@@ -943,7 +943,8 @@ const LinkListItem = (props) => {
           </div>
         )}
         {props.signup.signup === true ? (
-          <span className="bg-light-orange- height48- flexrowzv">
+          <span className="bg-light-orange- height48- flexrowzv2">
+            <span className="ib">
             <span className="ib margin-left-11">
               Remove link:&nbsp;
             </span>
@@ -958,7 +959,9 @@ const LinkListItem = (props) => {
               style={{ cursor: "pointer" }}
             />
             <label className="ib" htmlFor={"delete%" + props.id} />
+            </span>
 
+            <span className="ib">
             <span className="ib pointereventsauto- margin-left-11 color-black margin-top-2x">
               {!!props.showpublic ? "Make link private" : "Make link public"}
               :&nbsp;
@@ -979,8 +982,10 @@ const LinkListItem = (props) => {
               className="ib margin-top-2x"
             />
             <label className="ib" htmlFor={"private%" + props.id} />
+            </span>
 
-            <span className="ib flexrowzv margin-left-11xy margin-top-2x">
+            
+            <span className="ib flexrowzv- margin-left-11xy margin-top-2x">
               <span className="ib">Views:</span>
               <span
                 className="ib margin-left-11tx font-weight-900-"
@@ -992,7 +997,7 @@ const LinkListItem = (props) => {
               </span>
             </span>
 
-            <span className="flexrowzv">
+            <span className="ib flexrowzv-">
             <span
               ref={myRef2}
               className={`ib font-weight-900- margin-left-11xy1 cursor-pointer margin-top-2x`}
@@ -1005,7 +1010,7 @@ const LinkListItem = (props) => {
               Likes:
             </span>
             <span
-              className="ib margin-left-11tx font-weight-900- margin-top-2x"
+              className="ib margin-left-11tx- font-weight-900- margin-top-2x"
               title={
                 "This is the number of times someone has clicked this link."
               }

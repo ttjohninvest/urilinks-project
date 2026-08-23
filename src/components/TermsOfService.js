@@ -1,16 +1,22 @@
-
-import React, {useEffect} from "react"
+import React, { useEffect } from "react";
 
 const TermsOfService = () => {
-      // useEffect(()=>{
-      //   document.title="urilinks (terms)"
-      // },[])
+  // useEffect(()=>{
+  //   document.title="urilinks (terms)"
+  // },[])
 
-return (
-<div className="margin-top-118-">
-    {/* <span className="font-weight-bold">urilinks.com Terms of Service</span> */}
-<pre style={{ whiteSpace: 'pre-wrap', padding: '10px', backgroundColor: '#f8f8f8', border: '1px solid #ddd' }}>
-{`
+  return (
+    <div className="margin-top-118-">
+      {/* <span className="font-weight-bold">urilinks.com Terms of Service</span> */}
+      <pre
+        style={{
+          whiteSpace: "pre-wrap",
+          padding: "10px",
+          backgroundColor: "#f8f8f8",
+          border: "1px solid #ddd",
+        }}
+      >
+        {`
 urilinks.com Terms of Service
 Effective Date: December 23rd 2025
 
@@ -55,13 +61,11 @@ Interfere with the Service or attempt to gain unauthorized access
 Use automated means to access or use the Service
 Intellectual property, the Service and its content are protected by intellectual property laws. You may not copy, reproduce, or distribute any part of the Service without permission.
 
-Disclaimer
-
-YOU ASSUME ALL RISK AND RESPONSIBILITY FOR YOUR DECISION TO USE THE URILINKS SERVICES. THE URILINKS SERVICES AND ALL 
-RELATED SERVICES ARE OFFERED "AS IS" AND URILINKS DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTIES INCLUDING, WITHOUT LIMITATION,
-ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. NEITHER URILINKS NOR ITS RELATED 
-PARTIES AND AFFILIATES ENDORSE OR ARE RESPONSIBLE FOR THE ACCURACY OR RELIABILITY OF ANY INFORMATION, FACT OR OPINION 
-PROVIDED ON OR THROUGH THE URILINKS SERVICES.
+Disclaimer of Warranties
+THIS CODE IS PROVIDED ON AN *AS IS* AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
 
 Limitation of Liability
 urilinks.com is not liable for any damages arising from your use of the Service.
@@ -78,10 +82,10 @@ Creating an account on this website means you agree to these terms of service.
 Contact Us
 If you have questions or concerns, contact me, John, at john@urilinks.com.
 `}
-</pre>
-</div>
-)
-}
+      </pre>
+    </div>
+  );
+};
 
 export default TermsOfService;
 
@@ -191,6 +195,3 @@ The Terms and our Privacy Policy constitute the sole and entire agreement betwee
 All feedback, comments, requests for technical support, and other communications relating to the Services should be directed to: [contact email].
 Thank you for visiting our Website.`
 */
-
-
-

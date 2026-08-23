@@ -1,3 +1,7 @@
+tasks yet to do
+
+see terms of service clickbank example 8/23/2026
+
 ========================================================================================================================
 SALVATION
 I hope you are all blessed. Please say "I call upon the name of Jesus Christ to save me." Please see King James Version of the Holy Bible Romans 10:13 and Acts 2:21 for the wonderful invitation. Also, please see the Salvation part of Mark 16:16: Mark 16:16 (KJV) states: "He that believeth and is baptized shall be saved." Also, please see Galatians 3:27 "For as many of you as have been baptized into Christ have put on Christ." and please see Colossians 1:27: " To whom God would make known what is the riches of the glory of this mystery among the Gentiles; which is Christ in you, the hope of glory". Also, please see the Ethiopian Enuch and Philip story in Acts 8:27 to Acts 8:39: 27 And he arose and went: and, behold, a man of Ethiopia, an eunuch of great authority under Candace queen of the Ethiopians, who had the charge of all her treasure, and had come to Jerusalem for to worship, 28 Was returning, and sitting in his chariot read Esaias the prophet. 29 Then the Spirit said unto Philip, Go near, and join thyself to this chariot. 30 And Philip ran thither to him, and heard him read the prophet Esaias, and said, Understandest thou what thou readest? 31 And he said, How can I, except some man should guide me? And he desired Philip that he would come up and sit with him. 32 The place of the scripture which he read was this, He was led as a sheep to the slaughter; and like a lamb dumb before his shearer, so opened he not his mouth: 33 In his humiliation his judgment was taken away: and who shall declare his generation? for his life is taken from the earth. 34 And the eunuch answered Philip, and said, I pray thee, of whom speaketh the prophet this? of himself, or of some other man? 35 Then Philip opened his mouth, and began at the same scripture, and preached unto him Jesus. 36 And as they went on their way, they came unto a certain water: and the eunuch said, See, here is water; what doth hinder me to be baptized? 37 And Philip said, If thou believest with all thine heart, thou mayest. And he answered and said, I believe that Jesus Christ is the Son of God. 38 And he commanded the chariot to stand still: and they went down both into the water, both Philip and the eunuch; and he baptized him. 39 And when they were come up out of the water, the Spirit of the Lord caught away Philip, that the eunuch saw him no more: and he went on his way rejoicing.
@@ -1901,11 +1905,11 @@ the first long alphanum is the channel id and the second long alphanum is my api
 use it with fetch to get the url to the profile image and then store it in a links field with the others
 my profile picture:
 https://yt3.ggpht.com/Gd79gsY8w8NDssCYCfxzHiPA_9IwjHTf1SajWAL_SDD2hnmIkDzjNco1owfjwTa7lwLDaK9yAQ=s88-c-k-c0x00ffffff-no-rj
-returned in the json from 
+returned in the json from
 https://www.googleapis.com/youtube/v3/channels?part=snippet&id=UCnHe37UMLnVoUlKSfSqC4OQ&fields=items/snippet/thumbnails/default&key=AIzaSyAuDdWM36glULoMAj3EY-65xE2nPKb_p-Y
 Megan Tibbits profile picture
 https://yt3.ggpht.com/xeKmlPnnsV4lOaCJ89vLNakJDX5MNXktyQTkfqFiQLv30-eWMqqgVF-mb48Laj_GV817Yov9k5o=s88-c-k-c0x00ffffff-no-rj
-returned in the json from 
+returned in the json from
 https://www.googleapis.com/youtube/v3/channels?part=snippet&id=UCh0v21OVQWdbpNdMO1dvG2A&fields=items/snippet/thumbnails/default&key=AIzaSyAuDdWM36glULoMAj3EY-65xE2nPKb_p-Y
 
 algorithm to get the channel id from the video id which i have
@@ -1942,3 +1946,9 @@ const regExp = /^._(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]_).\*/;
 const match = url.match(regExp);
 return (match && match[2].length === 11) ? match[2] : null;
 }
+
+============================================================
+terms of service clickbank example
+https://support.clickbank.com/en/articles/10535337-clickbank-client-contract
+
+---

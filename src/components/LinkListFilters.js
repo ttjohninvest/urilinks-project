@@ -6,7 +6,8 @@ import LinkList from "./LinkList";
 import {LinkList3} from "./LinkList3.js";
 import CopyButton from "./CopyButton"
 import HashTagsButton from "./HashTagsButton"
-import AddLinkPage from "./AddlinkPage";
+//import AddLinkPage from "./AddlinkPage";
+import AddALinkButton from "./AddALinkButton";
 import SeeHashTagsPage from "./SeeHashTagsPage.js";
 import SendEmailPage from "./SendEmailPage";
 import ReadMoreSpan from "./ReadMoreSpan";
@@ -42,6 +43,7 @@ import {
   sortByStar,
   sortByFolder,
 } from "../actions/filters";
+
 
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
@@ -893,12 +895,13 @@ function ExpandableArray(props) {
                       >
                         Add A link
                       </button> */}
-                      {isForm2Open && (
+                       {/* <AddALinkButton /> */}
+                      {/* {isForm2Open && (
                         <AddLinkPage
                           isForm2Open={isForm2Open}
                           closeLink={handleClose2}
                         />
-                      )}
+                      )} */}
 
                       {/* <button
                         className={`ib button-2 margin-left-11 ${isMobile() === false ? "" : "margin-top-1"}`}
@@ -1021,19 +1024,20 @@ function ExpandableArray(props) {
                           Email your link
                         </span>
                       </a>
-                      <button
+                      {/* <button
                         className={`ib ${isMobile() === false ? "margin-left-11" : "margin-top-1"} button-2 bg-shade-1`}
                         onClick={addALink}
                         title="Add a link to your page."
                       >
                         Add A link
-                      </button>
-                      {isForm2Open && (
+                      </button> */}
+                      <AddALinkButton />
+                      {/* {isForm2Open && (
                         <AddLinkPage
                           isForm2Open={isForm2Open}
                           handleClose2={handleClose2}
                         />
-                      )}
+                      )} */}
 
                       {/* <button
                         className={`ib button-2 margin-left-11 ${isMobile() === false ? "" : "margin-top-1"}`}
@@ -1289,7 +1293,7 @@ function ExpandableArray(props) {
                         handleClose3={handleClose3}
                       />
                     )} */}
-                    
+
                   </div>
                 )}
               </div>

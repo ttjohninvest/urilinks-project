@@ -953,7 +953,7 @@ const LinkListItem = (props) => {
                   value={props.id}
                   onChange={handleCheckboxDelete}
                   title="click to delete the url"
-                  className="ib margin-top-1x- pointereventsauto"
+                  className="ib margin-top-1x pointereventsauto"
                   style={{ cursor: "pointer" }}
                 />
                 <label htmlFor={"delete%" + props.id} />
@@ -980,7 +980,7 @@ const LinkListItem = (props) => {
                       ? "click to make url private"
                       : "click to make url public"
                   }
-                  className="ib"
+                  className="ib margin-top-1x"
                 />
                 <label htmlFor={"private%" + props.id} />
               {/* </span> */}
@@ -1016,7 +1016,7 @@ const LinkListItem = (props) => {
                                     <span className="ib margin-left-11xy">
                 Views:
                 <span
-                  className="ib margin-left-11tx font-weight-900-"
+                  className="ib margin-left-11tx font-weight-900- margin-top-1x"
                   title={
                     "This is the number of times someone has clicked this link."
                   }
@@ -1060,7 +1060,7 @@ const LinkListItem = (props) => {
                 Likes:
               </span>
               <span
-                className="ib margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                className="ib margin-bottom-xy- ib margin-left-11tx font-weight-900-"
                 title={
                   "This is the number of times someone has clicked this link."
                 }
@@ -1087,7 +1087,7 @@ const LinkListItem = (props) => {
                   </span>
 
                   <span
-                    className="ib margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                    className="ib margin-bottom-xy- ib margin-left-11tx font-weight-900- margin-top-1x"
                     title={"This is a selection to your top ten."}
                   >
                     {props.star === undefined ? "No" : props.star===1?"Yes":"No"}

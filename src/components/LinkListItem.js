@@ -943,7 +943,7 @@ const LinkListItem = (props) => {
           </div>
         )}
         {props.signup.signup === true ? (
-          <span className="bg-light-orange- height48- flexrowzv2">
+          <span className="bg-light-orange- height48- height14x flexrowzv2">
             <span className="ib">
             <span className="ib margin-left-11-">
               Remove link:&nbsp;
@@ -979,7 +979,7 @@ const LinkListItem = (props) => {
                   ? "click to make url private"
                   : "click to make url public"
               }
-              className="ib margin-top-2x-"
+              className="ib margin-top-2x- margin-left-n-14x margin-top-14x"
             />
             <label className="ib" htmlFor={"private%" + props.id} />
             </span>

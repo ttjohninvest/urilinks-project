@@ -1069,7 +1069,7 @@ function ExpandableArray(props) {
                     <div className="border5-">
                       <input
                         title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                        placeholder="search field"
+                        placeholder="1search field"
                         autoFocus
                         id="termid"
                         className={`margin-left-11 width325 searchinput`}
@@ -1188,7 +1188,7 @@ function ExpandableArray(props) {
                     <div className="">
                       <input
                         title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
-                        placeholder="search field"
+                        placeholder="2search field"
                         autoFocus
                         id="termid"
                         className={`margin-left-11 width400 searchinput`}
@@ -1196,8 +1196,9 @@ function ExpandableArray(props) {
                         type="text"
                         //value={this.state.dv}
                         //onChange={(e) => this.setState({ searchTerm: e.target.value })}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        //onKeyDown={handleKeyPress}
+                        
+                        //onChange={(e) => setSearchTerm(e.target.value)}
+                        onKeyDown={handleKeyPress}
                       />
                     </div>
 

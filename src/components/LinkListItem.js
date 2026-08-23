@@ -962,7 +962,7 @@ const LinkListItem = (props) => {
             </span>
 
             <span className="ib margin-right-1">
-            <span className="ib pointereventsauto- margin-left-11- color-black margin-top-2x-">
+            <span className="ib margin-left-11- color-black margin-top-2x-">
               {!!props.showpublic ? "Make link private" : "Make link public"}
               :&nbsp;
             </span>
@@ -979,7 +979,7 @@ const LinkListItem = (props) => {
                   ? "click to make url private"
                   : "click to make url public"
               }
-              className="ib margin-top-2x- margin-left-n-14x margin-top-14x"
+              className="ib margin-top-2x- margin-left-n-14x margin-top-14x pointereventsauto"
             />
             <label className="ib" htmlFor={"private%" + props.id} />
             </span>
@@ -1047,86 +1047,109 @@ const LinkListItem = (props) => {
             ) : null}
           </span>
         ) : (
-          <div>
-            <span className="">
-              <span className="pointereventsnone">
-                <span className="margin-left-11">Remove link:&nbsp;</span>
-                <input
-                  type="checkbox"
-                  id={"delete%" + props.id}
-                  name={"delete%" + props.id}
-                  value={props.id}
-                  //onChange={handleCheckboxDelete}
-                  title="click to remove url"
-                  className="pointereventsnone"
-                />
-                <label htmlFor={"delete%" + props.id} />
-              </span>
-              <span className="pointereventsnone">
-                <span className="color-black margin-left-11 margin-top-1x">
-                  Make link private:&nbsp;
-                </span>
-                <input
-                  type="checkbox"
-                  id={"private%" + props.id}
-                  name={"private%" + props.id}
-                  value={props.id}
-                  //onChange={handleCheckboxPrivate}
-                  title="click to make url private"
-                  className="pointereventsnone margin-top-1x"
-                />
-                <label htmlFor={"private%" + props.id} />
-              </span>
+          <span className="bg-light-orange- height48- height14x flexrowzv2">
+            <span className="ib margin-left-11 margin-right-1 height14x- flexrowzv-">
+            <span className="ib">
+              Remove link:&nbsp;
+            </span>
+            <input
+              type="checkbox"
+              id={"delete%" + props.id}
+              name={"delete%" + props.id}
+              value={props.id}
+              onChange={handleCheckboxDelete}
+              title="click to delete the url"
+              className="ib margin-top-1x- margin-left-n-14x margin-top-14x pointereventsnone"
+              style={{ cursor: "pointer" }}
+            />
+            <label className="ib" htmlFor={"delete%" + props.id} />
+            </span>
+
+            <span className="ib margin-right-1">
+            <span className="ib pointereventsnone margin-left-11- color-black margin-top-2x-">
+              {!!props.showpublic ? "Make link private" : "Make link public"}
+              :&nbsp;
+            </span>
+            <input
+              style={{ cursor: "pointer" }}
+              checked={!!props.showpublic ? "" : "checked"}
+              type="checkbox"
+              id={"private%" + props.id}
+              name={"private%" + props.id}
+              value={props.id}
+              onChange={() => handleCheckboxPrivate(!!props.showpublic, event)}
+              title={
+                !!props.showpublic
+                  ? "click to make url private"
+                  : "click to make url public"
+              }
+              className="ib margin-top-2x- margin-left-n-14x margin-top-14x pointereventsnone"
+            />
+            <label className="ib" htmlFor={"private%" + props.id} />
+            </span>
 
             
-
-              <span className="margin-left-11xy">
-                {" "}
-                Views:
-                <span
-                  className="ib margin-left-11tx font-weight-900-"
-                  title={
-                    "This is the number of times someone has clicked this link."
-                  }
-                >
-                  {props.frequency === undefined ? 0 : props.frequency}
-                </span>
+            <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1">
+              <span className="ib">Views:</span>
+              <span
+                className="ib margin-left-11tx- font-weight-900- pointereventsnone"
+                title={
+                  "This is the number of times someone has clicked this link."
+                }
+              >
+                {props.frequency === undefined ? 0 : props.frequency}
               </span>
-
-              <span className="ib margin-left-11xy flexrowzv ">
-                {" "}
-                <span className="ib" >Likes:</span>
-                <span
-                  className="ib margin-left-11tx font-weight-900-"
-                  title={
-                    "This is the number of times someone has clicked this link."
-                  }
-                >
-                  {props.likes === undefined ? 0 : props.likes}
-                </span>
-              </span>
-
-              {props.rt !== "readonly" && (
-                <span className="margin-left-11xy">
-                  {/* 🧸put in top ten: */}
-                  Star:
-                  <span
-                    className="ib margin-left-11tx font-weight-900-"
-                    title={
-                      "This is the number of times someone has clicked this link."
-                    }
-                  >
-                    {props.star === undefined
-                      ? "No"
-                      : props.star === 1
-                        ? "Yes"
-                        : "No"}
-                    {/* {props.star === undefined ? "No" : "Yes"} */}
-                  </span>
-                </span>
-              )}
             </span>
-          </div>
+
+            <span className="ib flexrowzv- margin-right-1">
+            <span
+              ref={myRef2}
+              className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0 pointereventsnone`}
+              //href="#"
+
+              data-value={props.id}
+              title={"click to like"}
+              onClick={() => storeScrollPosition2(props.likes, event)}
+            >
+              Likes:
+            </span>
+            <span
+              className="ib margin-left-11tx- font-weight-900- margin-top-2x-"
+              title={
+                "This is the number of times someone has clicked this link."
+              }
+            >
+              {props.likes === undefined ? 0 : props.likes}
+            </span>
+            </span>
+            {props.rt !== "readonly" ? (
+              <span className="ib flexrowzv- margin-top-2x-">
+                <span
+                  ref={myRef3}
+                  className={`ib font-weight-900- margin-left-11xy1- cursor-pointer pointereventsnone`}
+                  //href="#"
+
+                  data-value={props.id}
+                  title={"click to select to your top ten"}
+                  onClick={() => storeScrollPosition3(props.star, event)}
+                >
+                  Star:
+                </span>
+
+                <span
+                  className="ib margin-left-11tx- font-weight-900- margin-top-1x-"
+                  title={"This is a selection to your top ten."}
+                >
+                  {props.star === undefined
+                    ? "No"
+                    : props.star === 1
+                      ? "Yes"
+                      : "No"}
+                  {/* {props.star === undefined ? "No" : "Yes"} */}
+                </span>
+              </span>
+            ) : null}
+          </span>
         )}
       </div>
 

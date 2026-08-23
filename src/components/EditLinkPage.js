@@ -16,8 +16,12 @@ export class EditLinkPage extends React.Component {
     this.props.startEditLink(this.props.link.id, link);
 
     //this.props.history.push("/");
+    const text = "Is it ok to refresh the page?";
+    if (confirm(text) == true) {
+       window.location.href = "https://urilinks.com?signup=signup&z=1";
+    }
 
-    window.location.href = "https://urilinks.com?signup=signup";
+    
   };
 
   handleClose4 = () => {

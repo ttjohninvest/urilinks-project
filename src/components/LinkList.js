@@ -28,6 +28,7 @@ import StorageSizes from "./StorageSizes";
 
 const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
+const z = params.get("z");
 
 export const LinkList = (props) => {
   const thelinks = [
@@ -306,6 +307,7 @@ export const LinkList = (props) => {
   // }
   //
   useEffect(() => {
+    if(z!=1)
     props.handleStartScroll(scrollupref.current)
     //scrollupref.current.click()
     // if(props.z2===false)
@@ -381,7 +383,7 @@ export const LinkList = (props) => {
                     return (
                       <div
                         key={link.id + "1"}
-                        className="border-bottom-1t padding-left-1t padding-top-1t padding-bottom-1t"
+                        className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
                       >
                         <LinkListItem
                           rt={rt}

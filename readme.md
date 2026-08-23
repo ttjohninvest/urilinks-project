@@ -701,7 +701,7 @@ set mode to sandbox
 3 SK\_... go into client secret and vercel stripe api and cancel subscription, redeploy each
 in urilinks-project-vercel-stripe-api "whsec_aSLiT5bL5VXNiFBl1mVm4MU0hAPNM2M2" needs to be used, redeploy
 
-----
+---
 
 stripe secret key, stripe update time, see urilinks.com googledocuments for roll it or delete it time so I can keep accepting payments
 test upgrade plan when you get more money in the bank
@@ -1639,13 +1639,13 @@ Problem: database firebase realtime database was blinking and leaving thePlan ke
 
 Solution:
 google cloud service account that I need for urilinks and firebase realtime database is stored in johmcg64@gmail.com
-using urilinks project so I can create the .GOOGLE_APPLICATION_CREDENTIALS_JSON_BASE64 for the stripe webhook project 
+using urilinks project so I can create the .GOOGLE_APPLICATION_CREDENTIALS_JSON_BASE64 for the stripe webhook project
 urilinks-project-vercel-stripe that I use to write to the database. ./Base64 serviceaccount.json outputs the long string
 to put in the environment variable in vercel for the project.
 ========================
 
 firebase billing account in google cloud console
-urilinks-firebase-realtime-database-use, project linked to this billing account: see-my-index-project-7 
+urilinks-firebase-realtime-database-use, project linked to this billing account: see-my-index-project-7
 
 =========================
 how to shutdown windows 11 from cmd window:
@@ -1665,7 +1665,6 @@ title: Your developments
 
 slug: /yourdevelopments
 
-
 to back up firebase realtime database each day (this is happening automatically)
 steps:
 1 go to firebase.google.com
@@ -1676,10 +1675,11 @@ steps:
 6 it is backed up
 
 to restore lost database
+
 1. select the database url
 2. select 3 dots
 3. select import json, and pick the latest json file that was previously exported
-4. select import 
+4. select import
 5. everything is restored good as new
 
 For individual account backup
@@ -1690,7 +1690,6 @@ in notepad++, search for the user id
 make a separate file with the user's data with extension .json for example x.json. you
 don't need this part: "7CzFYQjw2aUhHgCYjS2eDODrfVE2":
 then in the firebase website, select uid that was lost in the database portion (left menu pane), click three dots, select import json, pick file that has user data in json format, select import, all is restored to the latest date and time the whole database was backed up, all is backed up.
-
 
 =====================
 title: hashtag error when do the search
@@ -1721,23 +1720,23 @@ arraysai.SetData(myArrayOfObjects);
 
 // Example query
 arraysai.Ask("Filter records where age is greater than 30").then(result => {
-  console.log(result);
-});   
+console.log(result);
+});
 
 ==================================================================================================================
 source: https://www.requesty.ai/models#explorer
-ai models 
+ai models
 kimi k3 api key rqsty-sk-jukak1MrSG+YnBJvbYaywgJOT6kckCQj6IOaJ/CxOXBKB7ut3GsuuWd9ekYuf56VMdV8GrJAE8iwNX/xPmYEU/K7s68/XCNrHVtdEP7xNgU=
 ==============================================
 STEPS TO USING ANY OF THE LIST OF AI MODELS ON THE INTERET
+
 1. open https://www.requesty.ai/
 2. click start for free button
 3. click model library or Approved
 4. from the model names list click the copy icon
 5. in google.com, paste model name you just copied
 6. click on the company name that supports the model
-7. follow steps to use the model and get responses from the ai
-==================================================================================
+7. # follow steps to use the model and get responses from the ai
 
 ========================================================================
 Current Projects as of 8/2/2026
@@ -1750,36 +1749,37 @@ C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-
 ========================================================================
 amazon.com/snap, ttjohninvest4@gmail.com, 50% off prime delivery about $4.95/month
 =================================================================================
-Yes, the Firebase Realtime Database can store 100,000,000 records, as it has no stated limit on total storage capacity.  The primary constraint is not the number of records but the rate of data ingestion, which is limited to 64 MB per minute for write operations. 
+Yes, the Firebase Realtime Database can store 100,000,000 records, as it has no stated limit on total storage capacity. The primary constraint is not the number of records but the rate of data ingestion, which is limited to 64 MB per minute for write operations.
 
 To handle this volume effectively, you must consider the following limits:
 
-Write Throughput: The total bytes written through simultaneous operations are capped at 64 MB per minute. If your 100 million records are small, you can write them quickly; if they are large, you will hit the bandwidth cap before hitting a record count cap. 
-Concurrent Connections: A single database instance supports up to 200,000 simultaneous connections.  If your 100 million records correspond to unique active users, you would need to shard your data across multiple database instances (up to 1,000 per project) to exceed this connection limit. 
-Query Depth: You cannot listen to or query paths with more than 75 million nodes cumulatively.  For 100 million records, you must structure your data carefully, likely by breaking it into smaller, specific child nodes or using separate listeners for different data segments.
-Storage Pricing: While there is no hard storage cap, the free Spark plan is limited to 1 GB. To store 100 million records (depending on their size), you would need the Blaze plan (pay-as-you-go), which allows for unlimited storage. 
+Write Throughput: The total bytes written through simultaneous operations are capped at 64 MB per minute. If your 100 million records are small, you can write them quickly; if they are large, you will hit the bandwidth cap before hitting a record count cap.
+Concurrent Connections: A single database instance supports up to 200,000 simultaneous connections. If your 100 million records correspond to unique active users, you would need to shard your data across multiple database instances (up to 1,000 per project) to exceed this connection limit.
+Query Depth: You cannot listen to or query paths with more than 75 million nodes cumulatively. For 100 million records, you must structure your data carefully, likely by breaking it into smaller, specific child nodes or using separate listeners for different data segments.
+Storage Pricing: While there is no hard storage cap, the free Spark plan is limited to 1 GB. To store 100 million records (depending on their size), you would need the Blaze plan (pay-as-you-go), which allows for unlimited storage.
 =========================================================================================
 
 STEPS TO USE THE BROWSER AND URILINKS.COM
-three fast clicks on a hashtag will highlight the whole thing, ctrl c will copy it to the clipboard 
- for pasting it into the search field
- ctrl-shift-d saves all open tabs to folder for brave browser: 
- it will save it to NewFolder, so you will need to change the foldername
+three fast clicks on a hashtag will highlight the whole thing, ctrl c will copy it to the clipboard
+for pasting it into the search field
+ctrl-shift-d saves all open tabs to folder for brave browser:
+it will save it to NewFolder, so you will need to change the foldername
 
-steps for other browsers: 
-To copy the URLs of all open tabs at once for bookmarking or sharing, you can use a built-in browser feature or a dedicated extension. 
+steps for other browsers:
+To copy the URLs of all open tabs at once for bookmarking or sharing, you can use a built-in browser feature or a dedicated extension.
 
 Built-in Bookmark Method (No Extensions Required) Most browsers allow you to save all open tabs into a single folder, which you can then copy as a list.
 
-Chrome, Edge, and Firefox: Press Ctrl+Shift+D (Windows/Linux) or Cmd+Shift+D (Mac) to bookmark all tabs into a new folder. 
-Extract URLs: Open the Bookmark Manager (Ctrl+Shift+O in Chrome/Edge, or via the menu in Firefox), select the newly created folder, highlight all bookmarks (Ctrl+A / Cmd+A), and copy them (Ctrl+C / Cmd+C). 
-Paste: Paste the list into a text editor; most browsers paste the URLs as plain text. 
+Chrome, Edge, and Firefox: Press Ctrl+Shift+D (Windows/Linux) or Cmd+Shift+D (Mac) to bookmark all tabs into a new folder.
+Extract URLs: Open the Bookmark Manager (Ctrl+Shift+O in Chrome/Edge, or via the menu in Firefox), select the newly created folder, highlight all bookmarks (Ctrl+A / Cmd+A), and copy them (Ctrl+C / Cmd+C).
+Paste: Paste the list into a text editor; most browsers paste the URLs as plain text.
 Extension Method (Fastest & Most Flexible) Using an extension is the quickest way to copy URLs directly to your clipboard in various formats (plain text, markdown, HTML).
 
-TabCopy: A popular Chrome/Edge extension that copies all tab URLs with one click, allowing you to choose the output format. 
-Copy All Tabs (Free): Another lightweight extension that automatically formats URLs as a list for easy pasting. 
-Firefox Users: The Copy All Tab URLs add-on provides similar functionality specifically for Firefox. 
-----------------------------------------
+TabCopy: A popular Chrome/Edge extension that copies all tab URLs with one click, allowing you to choose the output format.
+Copy All Tabs (Free): Another lightweight extension that automatically formats URLs as a list for easy pasting.
+Firefox Users: The Copy All Tab URLs add-on provides similar functionality specifically for Firefox.
+
+---
 
 ideas
 tritter.com, pocket.com has bookmarks for importing
@@ -1787,8 +1787,6 @@ convert user bookmarks to rss feed for sharing
 https://pinboard.in/tour/
 show new links
 offer an archive checkbox with with remove or make private
-
-
 
 =======================
 programming solved problems
@@ -1799,21 +1797,22 @@ solution truncateString function
 visited icons https://search.brave.com/images?q=visited+icon
 https://search.brave.com/search?q=icon+an+arrow+with+a+circle+at+the+end+indicating+a+click&conversation=096cec8ad3179cb19967e978ecff522d7034
 
-=============
-==============
+# =============
+
 from firebase realtime database calls to firestore calls
-Firebase Realtime Database calls cannot be converted to Firestore calls easily because the two services use fundamentally different data models and APIs.  The Realtime Database stores data as a single large JSON tree using reference-based paths (e.g., /users/123), whereas Firestore organizes data into collections and documents (e.g., users/123) and uses a distinct SDK with different methods for querying and listening. 
+Firebase Realtime Database calls cannot be converted to Firestore calls easily because the two services use fundamentally different data models and APIs. The Realtime Database stores data as a single large JSON tree using reference-based paths (e.g., /users/123), whereas Firestore organizes data into collections and documents (e.g., users/123) and uses a distinct SDK with different methods for querying and listening.
 
-Since there is no automated migration tool provided by Firebase, converting calls requires manual refactoring of your codebase.  Key differences include:
+Since there is no automated migration tool provided by Firebase, converting calls requires manual refactoring of your codebase. Key differences include:
 
-Data Structure: You must map hierarchical JSON structures to Firestore’s document-based schema, often requiring data restructuring to avoid inefficient nesting. 
-API Methods: Realtime Database methods like onValue or orderByChild do not have direct equivalents; they must be replaced with Firestore’s onSnapshot, query, and where clauses. 
-Querying: Firestore supports complex compound queries and indexing, which eliminates the need for the "fan-out" or denormalization patterns often required in the Realtime Database. 
+Data Structure: You must map hierarchical JSON structures to Firestore’s document-based schema, often requiring data restructuring to avoid inefficient nesting.
+API Methods: Realtime Database methods like onValue or orderByChild do not have direct equivalents; they must be replaced with Firestore’s onSnapshot, query, and where clauses.
+Querying: Firestore supports complex compound queries and indexing, which eliminates the need for the "fan-out" or denormalization patterns often required in the Realtime Database.
 
 =================
 
 Speach Recognition Component
-<!-- 
+
+<!--
 import React, { useState, useEffect } from "react";
 
 //import "./index.css";
@@ -1881,10 +1880,9 @@ const SpeachRecognition = (props) => {
      </div>
    </div>
  );
-} 
+}
 export default SpeachRecognition;
 -->
-
 
 ==========================================================================
 Promotions:
@@ -1895,5 +1893,52 @@ linkedin.com account is ttjohninvest4@gmail.com
 I am identified on their as the Chief Executive Officer of urilinks.com
 My name is given as John McGovern
 
-instagram johnsharing
-===========================================================================
+# instagram johnsharing
+
+urilinks.com project tasks
+to access the youtube channel profile picture
+the first long alphanum is the channel id and the second long alphanum is my api key with youtube.com
+use it with fetch to get the url to the profile image and then store it in a links field with the others
+my profile picture:
+https://yt3.ggpht.com/Gd79gsY8w8NDssCYCfxzHiPA_9IwjHTf1SajWAL_SDD2hnmIkDzjNco1owfjwTa7lwLDaK9yAQ=s88-c-k-c0x00ffffff-no-rj
+returned in the json from 
+https://www.googleapis.com/youtube/v3/channels?part=snippet&id=UCnHe37UMLnVoUlKSfSqC4OQ&fields=items/snippet/thumbnails/default&key=AIzaSyAuDdWM36glULoMAj3EY-65xE2nPKb_p-Y
+Megan Tibbits profile picture
+https://yt3.ggpht.com/xeKmlPnnsV4lOaCJ89vLNakJDX5MNXktyQTkfqFiQLv30-eWMqqgVF-mb48Laj_GV817Yov9k5o=s88-c-k-c0x00ffffff-no-rj
+returned in the json from 
+https://www.googleapis.com/youtube/v3/channels?part=snippet&id=UCh0v21OVQWdbpNdMO1dvG2A&fields=items/snippet/thumbnails/default&key=AIzaSyAuDdWM36glULoMAj3EY-65xE2nPKb_p-Y
+
+algorithm to get the channel id from the video id which i have
+const API_KEY = 'AIzaSyAuDdWM36glULoMAj3EY-65xE2nPKb_p-Y';
+const VIDEO_ID = 'YOUR_VIDEO_ID'; //get this value from the Url field in Links/r67gthys6ts543/Url i the database
+
+async function getChannelIdFromVideo(videoId) {
+const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${API_KEY}`;
+
+const response = await fetch(url);
+const data = await response.json();
+
+if (data.items && data.items.length > 0) {
+// The channelId is nested within the snippet object
+return data.items[0].snippet.channelId;
+} else {
+throw new Error('Video not found');
+}
+}
+
+// Usage in React
+useEffect(() => {
+getChannelIdFromVideo(VIDEO_ID)
+.then(channelId => console.log('Channel ID:', channelId))
+.catch(err => console.error(err));
+}, []);
+
+algorithm to get
+https://search.brave.com/search?q=steps+to+access+someones+youtube.com+channel+id+from+react+code&conversation=09792112de7065a256c34d10b2d514e9f093
+
+extract youtube channel id
+function getVideoId(url) {
+const regExp = /^._(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]_).\*/;
+const match = url.match(regExp);
+return (match && match[2].length === 11) ? match[2] : null;
+}

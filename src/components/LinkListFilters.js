@@ -612,7 +612,6 @@ function ExpandableArray(props) {
 
   const handleClose = (x) => {
     setIsFormOpen(false);
-    //window.scrollTo(0, 0);
   };
 
   const handleClick = (event) => {
@@ -1011,7 +1010,9 @@ function ExpandableArray(props) {
                   )}
 
                   {props.signup === true && rt !== "readonly" ? (
-                    <div className="margin-bottom-1">
+                    <div 
+                    id="before-before-link-summary-id"
+                    className="margin-bottom-1">
                       <a
                         target="_blank"
                         id="adlinkid"
@@ -1071,7 +1072,10 @@ function ExpandableArray(props) {
                 </div>
               )}
 
-              <div id="before-before-link-summary-id" className="">
+              <div 
+              //id="before-before-link-summary-id" 
+              className=""
+              >
                 {isMobile() === true ? (
                   <div className="flexcol3a border5-">
                     <div className="border5-">

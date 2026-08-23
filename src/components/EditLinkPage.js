@@ -18,6 +18,7 @@ export class EditLinkPage extends React.Component {
     //this.props.history.push("/");
     const text = "Is it ok to refresh the page?";
     if (confirm(text) == true) {
+      this.props.history.push("/");
        window.location.href = "https://urilinks.com?signup=signup&z=1";
     }
 

@@ -159,11 +159,17 @@ export const LinkList = (props) => {
     if (scrollInterval2.current) return;
 
     scrollInterval2.current = setInterval(() => {
-      document.getElementById("ls2").scrollBy({
+
+      try {
+ document.getElementById("ls2").scrollBy({
         top: 1, // Scroll 1 pixel each time
         left: 0,
         behavior: "auto",
       });
+      } catch(error) {
+        console.log("error="+error)
+      }
+     
 
       console.log(document.getElementById("ls2").scrollTop +
           document.getElementById("ls2").clientHeight)

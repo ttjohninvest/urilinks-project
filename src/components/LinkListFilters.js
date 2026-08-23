@@ -492,17 +492,17 @@ function ExpandableArray(props) {
       });
   };
 
-  const changeSortBy = (sv) => {
-    //alert("sv="+"hashtag")
-    //alert("sv="+sv)
-    setSortBy(sv);
-    //setSortBy("hashtag")
-    handleClose3();
-    !!document.querySelector("#before-before-link-summary-id") &&
-      document.querySelector("#before-before-link-summary-id").scrollIntoView({
-        behavior: "smooth",
-      });
-  };
+  // const changeSortBy = (sv) => {
+  //   //alert("sv="+"hashtag")
+  //   //alert("sv="+sv)
+  //   setSortBy(sv);
+  //   //setSortBy("hashtag")
+  //   //handleClose3();
+  //   !!document.querySelector("#before-before-link-summary-id") &&
+  //     document.querySelector("#before-before-link-summary-id").scrollIntoView({
+  //       behavior: "smooth",
+  //     });
+  // };
 
   const onSortChange = (e) => {
     handleCancelScroll()
@@ -910,7 +910,7 @@ function ExpandableArray(props) {
                       >
                         See Hashtags
                       </button> */}
-                      <HashTagsButton />
+                      <HashTagsButton setSortBy={setSortBy}/>
                     
 
                       {
@@ -1047,7 +1047,7 @@ function ExpandableArray(props) {
                         See Hashtags
                       </button> */}
 
-                      <HashTagsButton />
+                      <HashTagsButton  setSortBy={setSortBy} />
                      
 
                       {

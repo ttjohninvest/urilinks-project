@@ -24,7 +24,6 @@ import {
   decrementTotalStarClickCount,
 } from "../actions/thetotalstars";
 
-
 import { Link, withRouter } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
@@ -53,12 +52,9 @@ import CalendarGoogle from "./CalendarGoogle";
 //   faviconURL,
 // }) => {
 
- 
-
 const LinkListItem = (props) => {
-
   //  const params = new URLSearchParams(window.location.search);
-  
+
   // const rt = params.get("x");
   //alert("rt="+rt)
 
@@ -115,12 +111,11 @@ const LinkListItem = (props) => {
       props.removeLink({ id: event.target.value });
       props.startRemoveLink({ id: event.target.value });
       alert("Link removed.");
-      const x = confirm("Do you want to refresh the menu?")
-      if(x===true){
+      const x = confirm("Do you want to refresh the menu?");
+      if (x === true) {
         props.history.push("/");
         window.location.href = "https://urilinks.com?signup=signup&z=1";
       }
-      
     } else {
       // User clicked Cancel
       document.getElementById("delete%" + event.target.value).checked = false;
@@ -220,58 +215,56 @@ const LinkListItem = (props) => {
     // props.incrementLinkLikesClickCount({ id: x, likes: x1 });
     // window.localStorage.setItem("scrollPosition", window.scrollY);
 
-      let x1 = 0;
+    let x1 = 0;
     if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
     else x1 = likes;
     const x = event.target.getAttribute("data-value"); //x is link id
-    
-    if(x1===0) {
+
+    if (x1 === 0) {
       //alert("going to increment")
       props.incrementLinkLikesClickCount({ id: x, likes: 0 });
-     
-      
-    }
-    else {
+    } else {
       //alert("going to decrement")
       props.decrementLinkLikesClickCount({ id: x, likes: 1 });
     }
 
     window.localStorage.setItem("scrollPosition", window.scrollY);
-
-
   };
 
   const storeScrollPosition3 = (star, event) => {
+    const text =
+      "Please confirm it ok to remove this link from your top ten list?";
+    if (props.filters.sortBy !== "star" || confirm(text) === true) {
+      //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
+      let x1 = 0;
+      if (star === undefined || star === null || star === "NaN") x1 = 0;
+      else x1 = star;
+      const x = event.target.getAttribute("data-value"); //x is link id
+      //alert("storeScrollPosition3, x1="+x1)
+      if (x1 === 0) {
+        //alert("going to increment,id="+x)
+        //alert("going to increment,id="+x+", props.star="+props.star)
+        props.incrementLinkStarClickCount({ id: x, star: 0 });
+        if (props.thetotalstars.totalstars < 10)
+          props.incrementTotalStarClickCount({
+            totalstars: props.thetotalstars.totalstars,
+          });
+        else alert("You have ten of ten stars selected for your top ten.");
+      } else {
+        //alert("going to increment,id="+x)
+        //alert("going to increment,id="+x+", props.star="+props.star)
+        props.decrementLinkStarClickCount({ id: x, star: 1 });
+        if (props.thetotalstars.totalstars > 0)
+          props.decrementTotalStarClickCount({
+            totalstars: props.thetotalstars.totalstars,
+          });
+        else alert("You have zero of ten stars selected for your top ten.");
+      }
 
-    const text = "Please confirm it ok to remove this link from your top ten list?";
-    if (props.filters.sortBy!=="star" || confirm(text) === true) {
-    //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
-    let x1 = 0;
-    if (star === undefined || star === null || star === "NaN") x1 = 0;
-    else x1 = star;
-    const x = event.target.getAttribute("data-value"); //x is link id
-    //alert("storeScrollPosition3, x1="+x1)
-    if(x1===0) {
-      //alert("going to increment,id="+x)
-      //alert("going to increment,id="+x+", props.star="+props.star)
-      props.incrementLinkStarClickCount({ id: x, star: 0 });
-      if(props.thetotalstars.totalstars < 10)
-      props.incrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
-      else alert("You have ten of ten stars selected for your top ten.")
+      window.localStorage.setItem("scrollPosition", window.scrollY);
+    } else {
+      alert("deletion canceled");
     }
-    else {
-      //alert("going to increment,id="+x)
-      //alert("going to increment,id="+x+", props.star="+props.star)
-      props.decrementLinkStarClickCount({ id: x, star: 1 });
-      if(props.thetotalstars.totalstars > 0)
-      props.decrementTotalStarClickCount({totalstars: props.thetotalstars.totalstars });
-      else alert("You have zero of ten stars selected for your top ten.")
-    }
-
-    window.localStorage.setItem("scrollPosition", window.scrollY);
-  } else {
-    alert("deletion canceled")
-  }
   };
 
   const sortit2 = (event) => {
@@ -882,30 +875,39 @@ const LinkListItem = (props) => {
   return (
     <div key={props.index}>
       <div>
-       {/* {props.faviconURL} */}
-      {/* {props.faviconURL==="https://instagram.com/favicon.ico" ? <img className="" width="20" height="20" src="http://www.google.com/s2/favicons?domain=instagram.com" />:!!props.favicon===false?"":<img className="" width="20" height="20" src={props.faviconURL} />} */}
-      {props.faviconURL==="https://instagram.com/favicon.ico" ? <img className="" width="16" height="16" src="https://www.google.com/s2/favicons?domain=instagram.com" />:<img className="" width="16" height="16" src={props.faviconURL} />}
+        {/* {props.faviconURL} */}
+        {/* {props.faviconURL==="https://instagram.com/favicon.ico" ? <img className="" width="20" height="20" src="http://www.google.com/s2/favicons?domain=instagram.com" />:!!props.favicon===false?"":<img className="" width="20" height="20" src={props.faviconURL} />} */}
+        {props.faviconURL === "https://instagram.com/favicon.ico" ? (
+          <img
+            className=""
+            width="16"
+            height="16"
+            src="https://www.google.com/s2/favicons?domain=instagram.com"
+          />
+        ) : (
+          <img className="" width="16" height="16" src={props.faviconURL} />
+        )}
       </div>
       <div>
-      {!!props.yturl && (
-        <a
-          ref={myRef}
-          className=""
-          href={props.Url}
-          //target="_self"
-          target="_blank"
-          data-value={props.id}
-          title={"click to open the webpage: " + props.Url}
-          onClick={() => storeScrollPosition(props.frequency, event)}
-        >
-          <img
-            className="borderRadius10"
-            style={{ width: "325px" }}
-            src={props.yturl}
-          />
-        </a>
-      )}
-</div>
+        {!!props.yturl && (
+          <a
+            ref={myRef}
+            className=""
+            href={props.Url}
+            //target="_self"
+            target="_blank"
+            data-value={props.id}
+            title={"click to open the webpage: " + props.Url}
+            onClick={() => storeScrollPosition(props.frequency, event)}
+          >
+            <img
+              className="borderRadius10"
+              style={{ width: "325px" }}
+              src={props.yturl}
+            />
+          </a>
+        )}
+      </div>
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
       <div className="normal-wrap padding-bottom-11">
@@ -922,7 +924,6 @@ const LinkListItem = (props) => {
           {/* {truncateString(props.description, 80)} */}
           {/* {breakEvery50Chars(props.description)} */}
         </a>
-        
       </div>
 
       <div className="flexrowz">
@@ -942,182 +943,104 @@ const LinkListItem = (props) => {
           </div>
         )}
         {props.signup.signup === true ? (
-          <div className="bg-light-orange height48 flexrowzv">
-            {/* <span className=""> */}
-              {/* <span className="ib pointereventsauto"> */}
-                <span className="ib pointereventsauto margin-left-11">Remove link:&nbsp;</span>
-                <input
-                  type="checkbox"
-                  id={"delete%" + props.id}
-                  name={"delete%" + props.id}
-                  value={props.id}
-                  onChange={handleCheckboxDelete}
-                  title="click to delete the url"
-                  className="ib margin-top-1x pointereventsauto"
-                  style={{ cursor: "pointer" }}
-                />
-                <label htmlFor={"delete%" + props.id} />
-              {/* </span> */}
-              {/* <span className="ib pointereventsauto"> */}
-                <span className="ib pointereventsauto margin-left-11 color-black ">
-                  {!!props.showpublic
-                    ? "Make link private"
-                    : "Make link public"}
-                  :&nbsp;
-                </span>
-                <input
-                  style={{ cursor: "pointer" }}
-                  checked={!!props.showpublic ? "" : "checked"}
-                  type="checkbox"
-                  id={"private%" + props.id}
-                  name={"private%" + props.id}
-                  value={props.id}
-                  onChange={() =>
-                    handleCheckboxPrivate(!!props.showpublic, event)
-                  }
-                  title={
-                    !!props.showpublic
-                      ? "click to make url private"
-                      : "click to make url public"
-                  }
-                  className="ib margin-top-1x"
-                />
-                <label htmlFor={"private%" + props.id} />
-              {/* </span> */}
-              {/* <span className="ib padding-right-11 inline-block-margin-left-1 color-purple pointereventsauto">
-                                      <span className="color-black">
-                                        {!!props.archive
-                                          ? "unarchive it" //+props.r
-                                          : "archive it" //+props.r
-                                          }
-                                        :&nbsp;
-                                      </span>
-                                      <input
-                                      style={{cursor:'pointer'}}
-                                        checked={
-                                          !!props.archive ? "checked" : ""
-                                        }
-                                        type="checkbox"
-                                        id={"archive%" + props.id}
-                                        name={"archive%" + props.id}
-                                        value={props.id}
-                                        onChange={() =>
-                                          handleCheckboxArchive(
-                                            !!props.archive,
-                                            event,
-                                          )
-                                        }
-                                        title={!!props.archive ?"click to archive it":"click to unarchive it"}
-                                        className=""
-                                      />
-                                      <label htmlFor={"archive%" + props.id} />
-                                    </span> */}
+          <span className="bg-light-orange height48 flexrowzv">
+            <span className="ib margin-left-11">
+              Remove link:&nbsp;
+            </span>
+            <input
+              type="checkbox"
+              id={"delete%" + props.id}
+              name={"delete%" + props.id}
+              value={props.id}
+              onChange={handleCheckboxDelete}
+              title="click to delete the url"
+              className="ib margin-top-1x pointereventsauto"
+              style={{ cursor: "pointer" }}
+            />
+            <label className="ib" htmlFor={"delete%" + props.id} />
 
-                                    <span className="ib margin-left-11xy">
-                Views:
-                <span
-                  className="ib margin-left-11tx font-weight-900- margin-top-1x"
-                  title={
-                    "This is the number of times someone has clicked this link."
-                  }
-                >
-                  {props.frequency === undefined ? 0 : props.frequency}
-                </span>
-              </span>
-             {/* <span
-                ref={myRef}
-                className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
-                //href="#"
+            <span className="ib pointereventsauto- margin-left-11 color-black ">
+              {!!props.showpublic ? "Make link private" : "Make link public"}
+              :&nbsp;
+            </span>
+            <input
+              style={{ cursor: "pointer" }}
+              checked={!!props.showpublic ? "" : "checked"}
+              type="checkbox"
+              id={"private%" + props.id}
+              name={"private%" + props.id}
+              value={props.id}
+              onChange={() => handleCheckboxPrivate(!!props.showpublic, event)}
+              title={
+                !!props.showpublic
+                  ? "click to make url private"
+                  : "click to make url public"
+              }
+              className="ib margin-top-1x"
+            />
+            <label className="ib" htmlFor={"private%" + props.id} />
 
-                data-value={props.id}
-                title={"click to see"}
-                onClick={() => storeScrollPosition(props.frequency, event)}
-              >
-                views:
-              </span>
-
+            <span className="ib flexrowzv margin-left-11xy">
+              <span className="ib">Views:</span>
               <span
-                className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                className="ib margin-left-11tx font-weight-900- margin-top-1x"
                 title={
                   "This is the number of times someone has clicked this link."
                 }
               >
                 {props.frequency === undefined ? 0 : props.frequency}
-              </span> */}
-
-
-
-
-              <span
-                ref={myRef2}
-                className={`ib font-weight-900- margin-left-11xy1 cursor-pointer`}
-                //href="#"
-
-                data-value={props.id}
-                title={"click to like"}
-                onClick={() => storeScrollPosition2(props.likes, event)}
-              >
-                Likes:
               </span>
-              <span
-                className="ib margin-left-11tx font-weight-900-"
-                title={
-                  "This is the number of times someone has clicked this link."
-                }
-              >
-                {props.likes === undefined ? 0 : props.likes}
-              </span>
+            </span>
 
+            <span className="flexrowzv">
+            <span
+              ref={myRef2}
+              className={`ib font-weight-900- margin-left-11xy1 cursor-pointer`}
+              //href="#"
 
+              data-value={props.id}
+              title={"click to like"}
+              onClick={() => storeScrollPosition2(props.likes, event)}
+            >
+              Likes:
+            </span>
+            <span
+              className="ib margin-left-11tx font-weight-900-"
+              title={
+                "This is the number of times someone has clicked this link."
+              }
+            >
+              {props.likes === undefined ? 0 : props.likes}
+            </span>
+            </span>
+            {props.rt !== "readonly" ? (
+              <span className="ib flexrowzv">
+                <span
+                  ref={myRef3}
+                  className={`ib font-weight-900- margin-left-11xy1 cursor-pointer`}
+                  //href="#"
 
-
-
-              {props.rt !== "readonly"  ? (
-                <span className="ib flexrowzv">
-                  <span
-                    ref={myRef3}
-                    className={`ib font-weight-900- margin-left-11xy1 cursor-pointer`}
-                    //href="#"
-
-                    data-value={props.id}
-                    title={"click to select to your top ten"}
-                    onClick={() => storeScrollPosition3(props.star, event)}
-                  >
-                     Star:
-                  </span>
-
-                  <span
-                    className="ib margin-left-11tx font-weight-900- margin-top-1x"
-                    title={"This is a selection to your top ten."}
-                  >
-                    {props.star === undefined ? "No" : props.star===1?"Yes":"No"}
-                    {/* {props.star === undefined ? "No" : "Yes"} */}
-                  </span>
+                  data-value={props.id}
+                  title={"click to select to your top ten"}
+                  onClick={() => storeScrollPosition3(props.star, event)}
+                >
+                  Star:
                 </span>
-              ) : (null
-                // <span>
-                //   <span
-                //     ref={myRef3}
-                //     className={`font-weight-900- margin-left-11xy1 cursor-pointer pointereventsnone`}
-                //     //href="#"
 
-                //     data-value={props.id}
-                //     title={"click to select to the top ten"}
-                //     onClick={() => storeScrollPosition3(props.star, event)}
-                //   >
-                //     star:
-                //   </span>
-
-                //   <span
-                //     className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
-                //     title={"This is a selection to the top ten."}
-                //   >
-                //     {props.star === undefined ? 0 : props.star}
-                //   </span>
-                // </span>
-              )}
-            {/* </span> */}
-          </div>
+                <span
+                  className="ib margin-left-11tx font-weight-900- margin-top-1x"
+                  title={"This is a selection to your top ten."}
+                >
+                  {props.star === undefined
+                    ? "No"
+                    : props.star === 1
+                      ? "Yes"
+                      : "No"}
+                  {/* {props.star === undefined ? "No" : "Yes"} */}
+                </span>
+              </span>
+            ) : null}
+          </span>
         ) : (
           <div>
             <span className="">
@@ -1174,8 +1097,8 @@ const LinkListItem = (props) => {
                                       />
                                       <label htmlFor={"archive%" + props.id} />
                                     </span>  */}
-             
-<span className="margin-left-11xy">
+
+              <span className="margin-left-11xy">
                 {" "}
                 Views:
                 <span
@@ -1188,8 +1111,7 @@ const LinkListItem = (props) => {
                 </span>
               </span>
 
-
-<span className="margin-left-11xy">
+              <span className="margin-left-11xy">
                 {" "}
                 Likes:
                 <span
@@ -1202,50 +1124,64 @@ const LinkListItem = (props) => {
                 </span>
               </span>
 
-            {props.rt !== "readonly" && <span className="margin-left-11xy">
-                
-                {/* 🧸put in top ten: */}
-                Star:
-                <span
-                  className="ib margin-left-11tx font-weight-900-"
-                  title={
-                    "This is the number of times someone has clicked this link."
-                  }
-                >
-                  {props.star === undefined ? "No" : props.star===1?"Yes":"No"}
-                  {/* {props.star === undefined ? "No" : "Yes"} */}
+              {props.rt !== "readonly" && (
+                <span className="margin-left-11xy">
+                  {/* 🧸put in top ten: */}
+                  Star:
+                  <span
+                    className="ib margin-left-11tx font-weight-900-"
+                    title={
+                      "This is the number of times someone has clicked this link."
+                    }
+                  >
+                    {props.star === undefined
+                      ? "No"
+                      : props.star === 1
+                        ? "Yes"
+                        : "No"}
+                    {/* {props.star === undefined ? "No" : "Yes"} */}
+                  </span>
                 </span>
-              </span>}
-
-
-           
+              )}
             </span>
           </div>
         )}
       </div>
 
-        {props.signup.signup === true && (
+      {props.signup.signup === true && (
         <div className="flexrow2w2 border5-">
-          <a href={`https://twitter.com/intent/tweet?url=${props.Url}`} className="ib nounderline- cursor-pointer" title="x.com is formerly twiiter.com. Click to share link on x.com." target="_blank">X</a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${props.Url}`}
+            className="ib nounderline- cursor-pointer"
+            title="x.com is formerly twiiter.com. Click to share link on x.com."
+            target="_blank"
+          >
+            X
+          </a>
           {/* <span className="margin-left-11">or</span> */}
-          <a href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`} className="ib margin-left-11 nounderline- cursor-pointer" title="Click to share link on facebook.com."  target="_blank">Facebook</a>
-          
-          
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`}
+            className="ib margin-left-11 nounderline- cursor-pointer"
+            title="Click to share link on facebook.com."
+            target="_blank"
+          >
+            Facebook
+          </a>
+
           {/* <a href={`https://messenger.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Messenger</a>
           <a href={`https://gmail.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Gmail</a>
           <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${props.Url}`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Linkedin</a> */}
           {/* <XShareButton url={props.Url} className='border5' />
           <FBShareButton url={props.Url} className='border5' />
           <MessengerButton  className='border5' /> */}
-      </div>
-       )}
+        </div>
+      )}
 
-        { true && (
+      {true && (
         <div className="flexrow2w2 border5-">
           <span>ad1</span>
-         
-      </div>
-       )}
+        </div>
+      )}
 
       <div className="italicText text-size-10 color-purple margin-top-aa color-black-2">
         <span className="ib padding-left-n-1z-  margin-top-n-15a margin-bottom-abc">
@@ -1258,7 +1194,7 @@ const LinkListItem = (props) => {
         {/* {putinnewlines(props.note)} */}
         {props.note}
       </div>
-     
+
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">
           <MayDoInGoogleDocument />
@@ -1285,7 +1221,7 @@ const mapStateToProps = (state) => ({
   thetotalstars: state.thetotalstars,
   signup: state.signup,
   sortBy: state.sortBy,
-  filters: state.filters
+  filters: state.filters,
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

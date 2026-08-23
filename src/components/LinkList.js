@@ -161,6 +161,7 @@ export const LinkList = (props) => {
     scrollInterval2.current = setInterval(() => {
 
       try {
+        if(!!document.getElementById("ls2")===true)
  document.getElementById("ls2").scrollBy({
         top: 1, // Scroll 1 pixel each time
         left: 0,
@@ -216,7 +217,7 @@ export const LinkList = (props) => {
 
     scrollInterval2.current = setInterval(() => {
         try {
-       if(!!scrolldownref===true) //auto scroll in the other direction
+       if(!!document.getElementById("ls2")===true) //auto scroll in the other direction
          document.getElementById("ls2").scrollBy({
         top: -1, // Scroll 1 pixel each time
         left: 0,
@@ -237,7 +238,7 @@ export const LinkList = (props) => {
   }
 
    try {
-       if(!!scrolldownref===true) //auto scroll in the other direction
+       if(!!scrollupref===true) //auto scroll in the other direction
           if(!!scrollupref===true) //auto scroll in the other direction
         scrollupref.current.click()
        } catch(error) {

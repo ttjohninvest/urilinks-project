@@ -28,7 +28,7 @@ const HashTagsButton = (props) => {
     //alert("sv="+sv)
     props.setSortBy(sv);
     //setSortBy("hashtag")
-    //handleClose3();
+    handleClose();
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",

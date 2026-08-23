@@ -988,9 +988,9 @@ const LinkListItem = (props) => {
 
             
             <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1">
-              <span className="ib">Views:</span>
+              <span className="ib cursor-default">Views:</span>
               <span
-                className="ib margin-left-11tx- font-weight-900-"
+                className="ib margin-left-11tx- font-weight-900- cursor-default"
                 title={
                   "This is the number of times someone has clicked this link."
                 }
@@ -1094,9 +1094,9 @@ const LinkListItem = (props) => {
 
             
             <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1">
-              <span className="ib">Views:</span>
+              <span className="ib cursor-default">Views:</span>
               <span
-                className="ib margin-left-11tx- font-weight-900- pointereventsnone"
+                className="ib margin-left-11tx- font-weight-900- pointereventsnone cursor-default"
                 title={
                   "This is the number of times someone has clicked this link."
                 }

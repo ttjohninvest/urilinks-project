@@ -1050,7 +1050,7 @@ const LinkListItem = (props) => {
           </span>
         ) : (
           <span className="bg-light-orange- height48- height14x flexrowzv2">
-            <span className="ib margin-left-11 margin-right-1 height14x- flexrowzv-">
+          <span className="ib margin-left-11- margin-right-1- height14x- flexrowzv-">
             {/* <span className="ib">
               Remove link:&nbsp;
             </span> */}
@@ -1061,11 +1061,11 @@ const LinkListItem = (props) => {
               value={props.id}
               onChange={handleCheckboxDelete}
               title="click to delete the url"
-              className="ib margin-top-1x- margin-left-n-14x margin-top-14x pointereventsnone"
+              className="ib margin-top-1x- margin-left-n-14x- margin-top-14x pointereventsnone"
               
               style={{'visibility':'hidden'}}
             />
-            <label className="ib pointereventsnone" htmlFor={"delete%" + props.id} >Remove link</label>
+            <label className="ib cursor-pointer- pointereventsnone" htmlFor={"delete%" + props.id} >Remove link</label>
             </span>
 
             <span className="ib margin-right-1">
@@ -1086,10 +1086,10 @@ const LinkListItem = (props) => {
                   ? "click to make url private"
                   : "click to make url public"
               }
-              className="ib margin-top-2x- margin-left-n-14x margin-top-14x pointereventsnone"
+              className="ib margin-top-2x- margin-left-n-14x- margin-top-14x pointereventsnone"
               
             />
-            <label className="ib pointereventsnone" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
+            <label className="ib cursor-pointer- pointereventsnone" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
             </span>
 
             

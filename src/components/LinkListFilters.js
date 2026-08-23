@@ -1078,7 +1078,7 @@ function ExpandableArray(props) {
                         //value={this.state.dv}
                         //onChange={(e) => this.setState({ searchTerm: e.target.value })}
                         //onChange={(e) => setSearchTerm(e.target.value)}
-                        //onKeyDown={handleKeyPress}
+                        onKeyDown={handleKeyPress}
                       />
                     </div>
 

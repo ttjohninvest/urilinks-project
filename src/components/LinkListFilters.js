@@ -822,7 +822,7 @@ function ExpandableArray(props) {
                                   
                                 </span>
                               </button> */}
-                              <CopyButton textToCopy={textAreaRef.current.innerText}/>
+                              <CopyButton textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}/>
                               {copySuccess}
                             </div>
                           </fieldset>
@@ -862,7 +862,7 @@ function ExpandableArray(props) {
                                   
                                 </span>
                               </button> */}
-                              <CopyButton  textToCopy={textAreaRef.current.innerText} />
+                              <CopyButton  textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`} />
                               {/* {copySuccess} */}
                             </div>
                           </fieldset>
@@ -964,7 +964,7 @@ function ExpandableArray(props) {
                                   
                                 </span>
                               </button> */}
-                              <CopyButton  textToCopy={textAreaRef.current.innerText} />
+                              <CopyButton  textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`} />
                               {copySuccess}
                             </div>
                           </div>
@@ -1001,7 +1001,7 @@ function ExpandableArray(props) {
                                 Copy
                                 
                               </button> */}
-                              <CopyButton  textToCopy={textAreaRef.current.innerText} />
+                              <CopyButton  textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`} />
                               {copySuccess}
                             </div>
                           </div>

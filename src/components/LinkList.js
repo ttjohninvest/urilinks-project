@@ -186,8 +186,13 @@ export const LinkList = (props) => {
    } catch(error) {
     console.log("error="+error)
   }
-        if(!!scrolldownref===true) //auto scroll in the other direction
+       try {
+       if(!!scrolldownref===true) //auto scroll in the other direction
         scrolldownref.current.click()
+       } catch(error) {
+        console.log("error="+error)
+       }
+        
         
       }
     }, 20); // Every 20 milliseconds

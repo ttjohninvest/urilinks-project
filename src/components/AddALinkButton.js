@@ -35,7 +35,7 @@ const AddALinkButton = (props) => {
 
  <AddLinkPage
                           
-                          closeLink={handleClose}
+                          handleClose2={handleClose}
                         />
     </div>}
     </div>

@@ -957,18 +957,18 @@ const LinkListItem = (props) => {
               title="click to delete the url"
               className="ib margin-top-1x- margin-left-n-14x margin-top-14x pointereventsauto"
               
-              style={{ 'cursor': "pointer",'visibility':'hidden' }}
+              style={{'visibility':'hidden'}}
             />
-            <label className="ib" htmlFor={"delete%" + props.id} >Remove link</label>
+            <label className="ib cursorpointer" htmlFor={"delete%" + props.id} >Remove link</label>
             </span>
 
             <span className="ib margin-right-1">
-            <span className="ib margin-left-11- color-black margin-top-2x-">
+            {/* <span className="ib margin-left-11- color-black margin-top-2x-">
               {!!props.showpublic ? "Make link private" : "Make link public"}
               :&nbsp;
-            </span>
+            </span> */}
             <input
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer",'visibility':'hidden' }}
               checked={!!props.showpublic ? "" : "checked"}
               type="checkbox"
               id={"private%" + props.id}
@@ -981,8 +981,9 @@ const LinkListItem = (props) => {
                   : "click to make url public"
               }
               className="ib margin-top-2x- margin-left-n-14x margin-top-14x pointereventsauto"
+              
             />
-            <label className="ib" htmlFor={"private%" + props.id} />
+            <label className="ib cursorpointer" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
             </span>
 
             

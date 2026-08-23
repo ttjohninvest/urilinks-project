@@ -1060,7 +1060,7 @@ const LinkListItem = (props) => {
                 Likes:
               </span>
               <span
-                className="ib margin-bottom-xy- ib margin-left-11tx font-weight-900-"
+                className="ib margin-left-11tx font-weight-900-"
                 title={
                   "This is the number of times someone has clicked this link."
                 }
@@ -1073,7 +1073,7 @@ const LinkListItem = (props) => {
 
 
               {props.rt !== "readonly"  ? (
-                <span className="ib">
+                <span className="ib flexrowzv">
                   <span
                     ref={myRef3}
                     className={`ib font-weight-900- margin-left-11xy1 cursor-pointer`}
@@ -1087,7 +1087,7 @@ const LinkListItem = (props) => {
                   </span>
 
                   <span
-                    className="ib margin-bottom-xy- ib margin-left-11tx font-weight-900- margin-top-1x"
+                    className="ib margin-left-11tx font-weight-900- margin-top-1x"
                     title={"This is a selection to your top ten."}
                   >
                     {props.star === undefined ? "No" : props.star===1?"Yes":"No"}

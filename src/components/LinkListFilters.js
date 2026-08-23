@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import {LinkList3} from "./LinkList3.js";
-
+import CopyButton from "./CopyButton"
 import AddLinkPage from "./AddlinkPage";
 import SeeHashTagsPage from "./SeeHashTagsPage.js";
 import SendEmailPage from "./SendEmailPage";
@@ -812,16 +812,17 @@ function ExpandableArray(props) {
                               </a>
                             </div>
                             <div className="margin-bottom-1">
-                              <button
+                              {/* <button
                                 className={`margin-left-11- height48 button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
                                 onClick={()=>copyToClipboard()}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
                                 <span className="ib height48">
                                   Copy
-                                  {/* click to copy your link to share your links */}
+                                  
                                 </span>
-                              </button>
+                              </button> */}
+                              <CopyButton />
                               {copySuccess}
                             </div>
                           </fieldset>
@@ -851,16 +852,17 @@ function ExpandableArray(props) {
                               </a>
                             </div>
                             <div className="margin-bottom-1">
-                              <button
+                              {/* <button
                                 className={`height48 button-2w ib border5- ${isMobile() === false ? "" : "width295 margin-top-1"}`}
                                 onClick={()=>copyToClipboard()}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
                                 <span className="ib height48">
                                   Copy
-                                  {/* click to copy your link to share your links */}
+                                  
                                 </span>
-                              </button>
+                              </button> */}
+                              <CopyButton />
                               {/* {copySuccess} */}
                             </div>
                           </fieldset>
@@ -952,16 +954,17 @@ function ExpandableArray(props) {
                               </a>
                             </div>
                             <div>
-                              <button
+                              {/* <button
                                 className={` height48 button-2w ib margin-right-1 border5- ${isMobile() === false ? "" : "margin-top-1"}`}
                                 onClick={()=>copyToClipboard()}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
                                 <span className="">
                                   Copy
-                                  {/* click to copy your link to share your links */}
+                                  
                                 </span>
-                              </button>
+                              </button> */}
+                              <CopyButton />
                               {copySuccess}
                             </div>
                           </div>
@@ -990,14 +993,15 @@ function ExpandableArray(props) {
                               </a>
                             </div>
                             <div>
-                              <button
+                              {/* <button
                                 className="button-2w height48 ib margin-right-1 border5- pointereventsnone"
                                 onClick={()=>copyToClipboard()}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
                                 Copy
-                                {/* click to copy your link to share your links */}
-                              </button>
+                                
+                              </button> */}
+                              <CopyButton />
                               {copySuccess}
                             </div>
                           </div>

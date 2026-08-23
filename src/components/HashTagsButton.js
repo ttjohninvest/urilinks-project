@@ -23,17 +23,17 @@ const HashTagsButton = (props) => {
     }
   };
 
-  const changeSortBy = (sv) => {
-    //alert("sv="+"hashtag")
-    //alert("sv="+sv)
-    props.setSortBy(sv);
-    //setSortBy("hashtag")
-    handleClose();
-    !!document.querySelector("#before-before-link-summary-id") &&
-      document.querySelector("#before-before-link-summary-id").scrollIntoView({
-        behavior: "smooth",
-      });
-  };
+//   const changeSortBy = (sv) => {
+//     //alert("sv="+"hashtag")
+//     //alert("sv="+sv)
+//     props.setSortBy(sv);
+//     //setSortBy("hashtag")
+//     handleClose(); //this closes the hashtags list
+//     !!document.querySelector("#before-before-link-summary-id") &&
+//       document.querySelector("#before-before-link-summary-id").scrollIntoView({
+//         behavior: "smooth",
+//       });
+//   };
 
   return (
     <div style={{ display: "inline" }}>
@@ -46,7 +46,7 @@ const HashTagsButton = (props) => {
       {isDisplayed === true && (
         <div>
           <SeeHashTagsPage
-            changeSortBy={()=>changeSortBy("hashtag")}
+            changeSortBy={()=>props.changeSortBy("hashtag")}
             handleClose3={() => handleClose()}
           />
         </div>

@@ -959,7 +959,7 @@ const LinkListItem = (props) => {
               
               style={{'visibility':'hidden'}}
             />
-            <label className="ib cursor-pointer margin-bottom-1x" htmlFor={"delete%" + props.id} >Remove link</label>
+            <label className="ib cursor-pointer margin-bottom-1x-" htmlFor={"delete%" + props.id} >Remove link</label>
             </span>
 
             <span className="ib margin-right-1">
@@ -983,7 +983,7 @@ const LinkListItem = (props) => {
               className="ib margin-top-2x- margin-left-n-14x- margin-top-14x pointereventsauto"
               
             />
-            <label className="ib cursor-pointer margin-bottom-1x" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
+            <label className="ib cursor-pointer margin-bottom-1x-" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
             </span>
 
             
@@ -1065,7 +1065,7 @@ const LinkListItem = (props) => {
               
               style={{'visibility':'hidden'}}
             />
-            <label className="ib cursor-pointer- pointereventsnone margin-bottom-1x" htmlFor={"delete%" + props.id} >Remove link</label>
+            <label className="ib cursor-pointer- pointereventsnone margin-bottom-1x-" htmlFor={"delete%" + props.id} >Remove link</label>
             </span>
 
             <span className="ib margin-right-1">
@@ -1089,7 +1089,7 @@ const LinkListItem = (props) => {
               className="ib margin-top-2x- margin-left-n-14x- margin-top-14x pointereventsnone"
               
             />
-            <label className="ib cursor-pointer- pointereventsnone margin-bottom-1x" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
+            <label className="ib cursor-pointer- pointereventsnone margin-bottom-1x-" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
             </span>
 
             

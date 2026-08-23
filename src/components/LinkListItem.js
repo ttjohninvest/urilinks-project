@@ -943,8 +943,8 @@ const LinkListItem = (props) => {
           </div>
         )}
         {props.signup.signup === true ? (
-          <span className="bg-light-orange- height48- height14x flexrowzv2">
-            <span className="ib">
+          <span className="bg-light-orange height48- height14x flexrowzv2">
+            <span className="ib margin-left-11 margin-right-1">
             <span className="ib margin-left-11-">
               Remove link:&nbsp;
             </span>
@@ -961,7 +961,7 @@ const LinkListItem = (props) => {
             <label className="ib" htmlFor={"delete%" + props.id} />
             </span>
 
-            <span className="ib">
+            <span className="ib margin-right-1">
             <span className="ib pointereventsauto- margin-left-11- color-black margin-top-2x-">
               {!!props.showpublic ? "Make link private" : "Make link public"}
               :&nbsp;
@@ -985,7 +985,7 @@ const LinkListItem = (props) => {
             </span>
 
             
-            <span className="ib flexrowzv- margin-left-11xy- margin-top-2x-">
+            <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1">
               <span className="ib">Views:</span>
               <span
                 className="ib margin-left-11tx- font-weight-900-"
@@ -997,7 +997,7 @@ const LinkListItem = (props) => {
               </span>
             </span>
 
-            <span className="ib flexrowzv-">
+            <span className="ib flexrowzv- margin-right-1">
             <span
               ref={myRef2}
               className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0`}

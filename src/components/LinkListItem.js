@@ -955,7 +955,7 @@ const LinkListItem = (props) => {
               value={props.id}
               onChange={handleCheckboxDelete}
               title="click to delete the url"
-              className="ib margin-top-1x- margin-left-n-14x pointereventsauto"
+              className="ib margin-top-1x- margin-left-n-14x margin-top-14x pointereventsauto"
               style={{ cursor: "pointer" }}
             />
             <label className="ib" htmlFor={"delete%" + props.id} />

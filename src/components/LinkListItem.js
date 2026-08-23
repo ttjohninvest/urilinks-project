@@ -942,10 +942,10 @@ const LinkListItem = (props) => {
           </div>
         )}
         {props.signup.signup === true ? (
-          <div className="bg-light-orange flexrowzv">
-            <span className="">
-              <span className="pointereventsauto">
-                <span className="margin-left-11">Remove link:&nbsp;</span>
+          <div className="bg-light-orange height48 flexrowzv">
+            {/* <span className=""> */}
+              <span className="ib pointereventsauto">
+                <span className="ib margin-left-11">Remove link:&nbsp;</span>
                 <input
                   type="checkbox"
                   id={"delete%" + props.id}
@@ -953,13 +953,13 @@ const LinkListItem = (props) => {
                   value={props.id}
                   onChange={handleCheckboxDelete}
                   title="click to delete the url"
-                  className=""
+                  className="ib"
                   style={{ cursor: "pointer" }}
                 />
                 <label htmlFor={"delete%" + props.id} />
               </span>
-              <span className="pointereventsauto">
-                <span className="margin-left-11 color-black ">
+              <span className="ib pointereventsauto">
+                <span className="ib margin-left-11 color-black ">
                   {!!props.showpublic
                     ? "Make link private"
                     : "Make link public"}
@@ -980,7 +980,7 @@ const LinkListItem = (props) => {
                       ? "click to make url private"
                       : "click to make url public"
                   }
-                  className=""
+                  className="ib"
                 />
                 <label htmlFor={"private%" + props.id} />
               </span>
@@ -1013,7 +1013,7 @@ const LinkListItem = (props) => {
                                       <label htmlFor={"archive%" + props.id} />
                                     </span> */}
 
-                                    <span className="margin-left-11xy">
+                                    <span className="ib margin-left-11xy">
                 Views:
                 <span
                   className="ib margin-left-11tx font-weight-900-"
@@ -1050,7 +1050,7 @@ const LinkListItem = (props) => {
 
               <span
                 ref={myRef2}
-                className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
+                className={`ib font-weight-900- margin-left-11xy1 cursor-pointer`}
                 //href="#"
 
                 data-value={props.id}
@@ -1060,7 +1060,7 @@ const LinkListItem = (props) => {
                 Likes:
               </span>
               <span
-                className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                className="ib margin-bottom-xy ib margin-left-11tx font-weight-900-"
                 title={
                   "This is the number of times someone has clicked this link."
                 }
@@ -1073,29 +1073,28 @@ const LinkListItem = (props) => {
 
 
               {props.rt !== "readonly"  ? (
-                <span>
+                <span className="ib">
                   <span
                     ref={myRef3}
-                    className={`font-weight-900- margin-left-11xy1 cursor-pointer`}
+                    className={`ib font-weight-900- margin-left-11xy1 cursor-pointer`}
                     //href="#"
 
                     data-value={props.id}
                     title={"click to select to your top ten"}
                     onClick={() => storeScrollPosition3(props.star, event)}
                   >
-                     {/* <span>🧸put in top ten:</span> */}
                      Star:
                   </span>
 
                   <span
-                    className="margin-bottom-xy ib margin-left-11tx font-weight-900-"
+                    className="ib margin-bottom-xy ib margin-left-11tx font-weight-900-"
                     title={"This is a selection to your top ten."}
                   >
                     {props.star === undefined ? "No" : props.star===1?"Yes":"No"}
                     {/* {props.star === undefined ? "No" : "Yes"} */}
                   </span>
                 </span>
-              ) : (<span></span>
+              ) : (null
                 // <span>
                 //   <span
                 //     ref={myRef3}
@@ -1117,7 +1116,7 @@ const LinkListItem = (props) => {
                 //   </span>
                 // </span>
               )}
-            </span>
+            {/* </span> */}
           </div>
         ) : (
           <div>

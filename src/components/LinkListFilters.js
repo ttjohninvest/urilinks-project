@@ -291,7 +291,7 @@ function ExpandableArray(props) {
   };
 
   const copyToClipboard = (e) => {
-    alert(1)
+    //alert(1)
     //this.textArea.select();
     const text = textAreaRef.current.innerText;
     console.log("Anchor text:", text);
@@ -301,7 +301,7 @@ function ExpandableArray(props) {
     // I prefer to not show the whole text area selected.
     e.target.focus();
     setCopySuccess("Copied "); // + text);
-    alert(6)
+    //alert(6)
   };
 
   useEffect(() => {
@@ -812,7 +812,7 @@ function ExpandableArray(props) {
                             <div className="margin-bottom-1">
                               <button
                                 className={`margin-left-11- height48 button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
-                                onClick={copyToClipboard}
+                                onClick={()=>copyToClipboard()}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
                                 <span className="ib height48">
@@ -851,7 +851,7 @@ function ExpandableArray(props) {
                             <div className="margin-bottom-1">
                               <button
                                 className={`height48 button-2w ib border5- ${isMobile() === false ? "" : "width295 margin-top-1"}`}
-                                onClick={copyToClipboard}
+                                onClick={()=>copyToClipboard()}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
                                 <span className="ib height48">
@@ -952,7 +952,7 @@ function ExpandableArray(props) {
                             <div>
                               <button
                                 className={` height48 button-2w ib margin-right-1 border5- ${isMobile() === false ? "" : "margin-top-1"}`}
-                                onClick={copyToClipboard}
+                                onClick={()=>copyToClipboard()}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
                                 <span className="">
@@ -990,7 +990,7 @@ function ExpandableArray(props) {
                             <div>
                               <button
                                 className="button-2w height48 ib margin-right-1 border5- pointereventsnone"
-                                onClick={copyToClipboard}
+                                onClick={()=>copyToClipboard()}
                                 title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                               >
                                 Copy

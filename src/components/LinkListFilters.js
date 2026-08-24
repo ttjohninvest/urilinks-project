@@ -1159,9 +1159,9 @@ function ExpandableArray(props) {
                           </option>
                            <option
                             value="date"
-                            title="search through the notes"
+                            title="Results appear in descending order"
                           >
-                            Date (Descending Order)
+                            Date (Latest First) 
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
@@ -1268,9 +1268,9 @@ function ExpandableArray(props) {
                           </option>
                            <option
                             value="date"
-                            title="search through the notes"
+                            title="Results appear in descending order"
                           >
-                            Date (Descending Order)
+                            Date (Latest First)
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">

@@ -121,7 +121,7 @@ export const getTheupdatedate = (uid) => {
 ////
         if (snapshot.val() === null) {
           //theplan = "free";
-          dispatch(startAddThetotalstars(zupdatedate))
+          dispatch(startAddTheupdatedate(zupdatedate))
         } else {
           //theplan=snapshot.val();
           //zplan=snapshot.val();

@@ -175,7 +175,7 @@ export const LinkList = (props) => {
       //console.log(document.getElementById("ls2").scrollTop +
       //    document.getElementById("ls2").clientHeight)
       //console.log(document.getElementById("ls2").scrollHeight)
-      if(!!document.getElementById("ls2").scrollTop===true && !!document.getElementById("ls2").clientHeight===true)
+      if(!!document.getElementById("ls2")===true)
       if (
         document.getElementById("ls2").scrollTop +
           document.getElementById("ls2").clientHeight >=
@@ -230,7 +230,7 @@ export const LinkList = (props) => {
      
 
       // Stop automatically when reaching the top
-      if(!!document.getElementById("ls2").scrollTop===true)
+      if(!!document.getElementById("ls2")===true)
       if (document.getElementById("ls2").scrollTop === 0 || document.getElementById("ls2").scrollTop <= 2) {
         try {
     if(!!buttonRef2===true)

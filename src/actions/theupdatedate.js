@@ -65,11 +65,45 @@ export const getTheupdatedate2 = (id) => {
   };
 };
 
+// export const getTheupdatedate = (uid) => {
+//   console.log("actions/getTheupdatedate, uid="+uid);
+//   return (dispatch, getState) => {
+//     //const uid = getState().auth.uid;
+//     console.log("actions/getTheupdatedate, uid=" + uid);
+//     let s;
+//     return database
+//       //.ref(`users/${uid}/theplan/plan`)
+//       .ref(`users/${uid}/theupdatedate`)
+//       .once("value")
+//       .then((snapshot) => {
+       
+//         console.log(
+//           "11 action/getTheupdatedate from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+//         );
+
+//         let zupdatedate={
+//            updatedate:"1"
+//         }
+// ////
+//         if (snapshot.val() === null) {
+//           //theplan = "free";
+//           dispatch(startAddTheupdatedate(zupdatedate))
+//         } else {
+//           //theplan=snapshot.val();
+//           //zplan=snapshot.val();
+//           //console.log("app.js, zplan="+JSON.stringify(zplan))
+//           dispatch(addTheupdatedate(snapshot.val()));
+//         }
+        
+//       });
+//   };
+// };
+
 export const getTheupdatedate = (uid) => {
-  console.log("actions/getTheupdatedate, uid="+uid);
+  console.log("actions/getThetotalstars, uid="+uid);
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
-    console.log("actions/getTheupdatedate, uid=" + uid);
+    console.log("actions/getThetotalstars, uid=" + uid);
     let s;
     return database
       //.ref(`users/${uid}/theplan/plan`)
@@ -82,12 +116,12 @@ export const getTheupdatedate = (uid) => {
         );
 
         let zupdatedate={
-           updatedate:"1"
+           updatedate:0
         }
 ////
         if (snapshot.val() === null) {
           //theplan = "free";
-          dispatch(startAddTheupdatedate(zupdatedate))
+          dispatch(startAddThetotalstars(zupdatedate))
         } else {
           //theplan=snapshot.val();
           //zplan=snapshot.val();

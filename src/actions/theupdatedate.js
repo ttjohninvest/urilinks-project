@@ -49,7 +49,7 @@ export const getTheupdatedate2 = (id) => {
         );
 
         let zupdatedate={
-           updatedate:""
+           updatedate:"2"
         }
 
         if (snapshot.val() === null) {
@@ -82,7 +82,7 @@ export const getTheupdatedate = (uid) => {
         );
 
         let zupdatedate={
-           updatedate:""
+           updatedate:"1"
         }
 ////
         if (snapshot.val() === null) {

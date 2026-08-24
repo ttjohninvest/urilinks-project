@@ -130,10 +130,10 @@ if (signup !== "signup") {
             .dispatch(getTheplan(user.uid))
             .then(() => {
               store
-            .dispatch(getThetotalstars(user.uid))
+            .dispatch(getTheupdatedate(user.uid))
             .then(() => {
               return store
-            .dispatch(getTheupdatedate(user.uid))
+            .dispatch(getThetotalstars(user.uid))
             .then(() => {
               renderApp(store, signup);
             })

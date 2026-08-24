@@ -1159,7 +1159,7 @@ function ExpandableArray(props) {
                           </option>
                            <option
                             value="date"
-                            title="Results appear in descending order"
+                            title="Results appear in date and time descending order"
                           >
                             Date (Latest First) 
                           </option>
@@ -1268,7 +1268,7 @@ function ExpandableArray(props) {
                           </option>
                            <option
                             value="date"
-                            title="Results appear in descending order"
+                            title="Results appear in date and time descending order"
                           >
                             Date (Latest First)
                           </option>

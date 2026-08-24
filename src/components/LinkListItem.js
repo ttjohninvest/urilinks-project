@@ -245,7 +245,7 @@ const LinkListItem = (props) => {
         //alert("going to increment,id="+x)
         //alert("going to increment,id="+x+", props.star="+props.star)
         props.incrementLinkStarClickCount({ id: x, star: 0 });
-        if (props.thetotalstars.totalstars < 10)
+        if (parseInt(props.thetotalstars.totalstars) < 10)
           props.incrementTotalStarClickCount({
             totalstars: props.thetotalstars.totalstars,
           });

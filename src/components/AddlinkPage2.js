@@ -7,6 +7,7 @@ import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
 
 import { connect } from "react-redux";
+
 import EmailSharableLinkForm from "./EmailSharableLinkForm";
 import { startAddLink, emailSharableLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
@@ -152,6 +153,7 @@ export const AddLinkPage2 = (props) => {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
       } else {
+  
         props.history.push("/");
       }
     } else {

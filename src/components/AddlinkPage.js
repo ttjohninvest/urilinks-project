@@ -7,6 +7,7 @@ import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
 
 import { connect } from "react-redux";
+import { startAddTheupdatedate} from "../actions/theupdatedate";  
 import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
@@ -188,6 +189,11 @@ export const AddLinkPage = (props) => {
           setErrorDialog(true);
           console.log("VVVVVVVVVVVVV returned false");
         } else {
+              
+          const datet = Math.trunc(now.getTime());
+                                 props.startAddTheupdatedate({
+                                   updatedate:datet
+                                 })
           props.history.push("/");
           //window.location.reload();
           window.location.href = "https://urilinks.com?signup=signup&z=1"; //stops the scroll on return when z=1

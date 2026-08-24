@@ -664,6 +664,12 @@ function ExpandableArray(props) {
           >
             Internet Links Organizer Dashboard's Home Page 
           </span>
+          <span
+            className={`ib padding-left-n-x margin-top-1`}
+            title=""
+          >
+            By logging in, you can have your own page like this one with your own links. 
+          </span>
         </div>
         <div className="width30menupanep">
           <button

@@ -669,7 +669,7 @@ function ExpandableArray(props) {
             className={`ib- padding-left-n-x margin-top-1 margin-bottom-1`}
             title=""
           >
-            By logging in, you can have your own page like this one with your own links. 
+            By logging in, you are welcome to have your own page like this one with your own links. 
           </div>
           </div>
         </div>

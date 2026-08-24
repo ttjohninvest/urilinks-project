@@ -12,6 +12,7 @@ class EditForm extends React.Component {
     this.state = {
       showpublic: props.link ? props.link.showpublic : 0,
       description: props.link ? props.link.description : "",
+      addescription: !!props.addescription===true ? props.link.addescription : "",
       Url: props.link ? props.link.Url : "",
       AdUrl: !!props.AdUrl ? props.link.AdUrl : "",
       note: props.link ? props.link.note : "",
@@ -32,6 +33,11 @@ class EditForm extends React.Component {
   onDescriptionChange = (e) => {
     const description = e.target.value;
     this.setState(() => ({ description }));
+  };
+
+   onAdDescriptionChange = (e) => {
+    const addescription = e.target.value;
+    this.setState(() => ({ addescription }));
   };
 
   onUrlChange = (e) => {
@@ -176,6 +182,12 @@ class EditForm extends React.Component {
     //const url = new URL(this.state.Url);
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
+
+     let str2 = this.state.AdUrl.trim();
+    if (str2.substring(0, 7) === "http://") {
+    } else if (str2.substring(0, 8) === "https://") {
+    } else str2 = "https://" + str2;
+
     console.log(
       "3 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
     );
@@ -227,7 +239,9 @@ class EditForm extends React.Component {
       this.props.onSubmit({
         showpublic: this.state.showpublic,
         description: this.state.description,
+        addescription: this.state.addescription,
         Url: str,
+        AdUrl: str2,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,
@@ -311,6 +325,17 @@ class EditForm extends React.Component {
               : 2048
           } //"2300"
         ></textarea>
+        <input
+          type="text"
+          placeholder="text"
+          //readOnly={this.props.makereadonly===true?true:false}
+          autoFocus
+          className="text-input"
+          value={this.state.addescription}
+          onChange={this.onAdDescriptionChange}
+          title="Enter the link text for the ad."
+          maxLength="2048"
+        />
          <input
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"

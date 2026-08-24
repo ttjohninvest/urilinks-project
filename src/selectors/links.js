@@ -88,8 +88,8 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             : -1;
         } else if (sortBy === "date") {
            (a.createdAt/1000) > (b.createdAt/1000)
-            ? 1
-            : -1;
+            ? -1
+            : 1;
         } 
         
         else if (sortBy === "views") {

@@ -655,21 +655,21 @@ function ExpandableArray(props) {
       <div className="">
         <div
           className={`website-background-color width30pt
-          } theHeight flexrowzc2 border-b-5font-roboto text-size-16 font-weight-500`}
+          } theHeight flexrowzc2- flexcol3 border-b-5font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
-          <span
+          <div
             className={`ib padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2" : "fleur-de-leah-regular"}`}
             title="Internet Links Organizer Dashboard's Home Page"
           >
             Internet Links Organizer Dashboard's Home Page 
-          </span>
-          <span
+          </div>
+          <div
             className={`ib padding-left-n-x margin-top-1`}
             title=""
           >
             By logging in, you can have your own page like this one with your own links. 
-          </span>
+          </div>
         </div>
         <div className="width30menupanep">
           <button

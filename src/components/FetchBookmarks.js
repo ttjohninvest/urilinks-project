@@ -3144,7 +3144,7 @@ const FetchBookmarks = (props) => {
                       //update database with update date in users/uid/updatedate,
                       //when the page is refreshed the date will go in and everybody that has the shared page will see it
                       //when one sees latest results by date, he will see it at the top
-                       const datet = Math.trunc(now.getTime()/1000);
+                       const datet = Math.trunc(now.getTime());
                        props.startAddTheupdatedate({
                          updatedate:datet
                        })

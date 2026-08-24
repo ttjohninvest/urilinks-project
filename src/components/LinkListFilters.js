@@ -665,12 +665,12 @@ function ExpandableArray(props) {
           >
             Internet Links Organizer Dashboard's Home Page 
           </div>
-          <div
+          {props.signup === false && <div
             className={`ib- padding-left-n-x margin-top-1 margin-bottom-1`}
             title=""
           >
             By logging in, you are welcome to have your own page like this one with your own links. 
-          </div>
+          </div>}
           </div>
         </div>
         <div className="width30menupanep">

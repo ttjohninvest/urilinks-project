@@ -139,7 +139,7 @@ export const SeeHashTagsPage = (props) => {
         behavior: "auto",
       });
 
-      if(!!document.getElementById("ls2").scrollTop===true && !!document.getElementById("ls2").clientHeight===true)
+      if(!!document.getElementById("ls3").scrollTop===true && !!document.getElementById("ls3").clientHeight===true)
       if (
         document.getElementById("ls3").scrollTop +
           document.getElementById("ls3").clientHeight >=
@@ -170,7 +170,7 @@ export const SeeHashTagsPage = (props) => {
       });
 
       // Stop automatically when reaching the top
-      if(!!document.getElementById("ls2").scrollTop===true)
+      if(!!document.getElementById("ls3").scrollTop===true)
        if (document.getElementById("ls3").scrollTop === 0 || document.getElementById("ls3").scrollTop <= 2) {
         buttonRef4.current.click();
          if(!!scrollupref8===true)

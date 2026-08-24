@@ -138,7 +138,7 @@ function ExpandableArray(props) {
         behavior: "auto",
       });
 
-      if(!!document.getElementById("ls2").scrollTop===true && !!document.getElementById("ls2").clientHeight===true)
+      if(!!document.getElementById("ls").scrollTop===true && !!document.getElementById("ls").clientHeight===true)
       if (
         document.getElementById("ls").scrollTop +
           document.getElementById("ls").clientHeight >=

@@ -659,13 +659,13 @@ function ExpandableArray(props) {
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           <div
-            className={`ib padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2" : "fleur-de-leah-regular"}`}
+            className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2" : "fleur-de-leah-regular"}`}
             title="Internet Links Organizer Dashboard's Home Page"
           >
             Internet Links Organizer Dashboard's Home Page 
           </div>
           <div
-            className={`ib padding-left-n-x margin-top-1`}
+            className={`ib- padding-left-n-x margin-top-1`}
             title=""
           >
             By logging in, you can have your own page like this one with your own links. 

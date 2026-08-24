@@ -26,6 +26,11 @@ export default (state = filtersReducerDefaultState, action) => {
         ...state,
         sortBy: 'notetext'
       };
+      case 'SORT_BY_DATETEXT':
+      return {
+        ...state,
+        sortBy: 'date'
+      };
       case 'SORT_BY_HASHTAG':
         return {
           ...state,

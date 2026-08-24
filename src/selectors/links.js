@@ -74,14 +74,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
       })
 
       let arr2 = arr.sort((a, b) => {
-        if (
-          sortBy === "description" 
-          //||
-          //sortBy === "hashtag" ||
-          //sortBy === "notetext" 
-          //||
-          //sortBy === "folder"
-        ) {
+        if (sortBy === "description") {
           return a.description.toLowerCase() > b.description.toLowerCase()
             ? 1
             : -1;
@@ -94,7 +87,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             ? 1
             : -1;
         } else if (sortBy === "date") {
-           a.createdAt < b.createdAt
+           (a.createdAt/1000) < (b.createdAt/1000)
             ? 1
             : -1;
         } 

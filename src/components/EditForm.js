@@ -13,6 +13,7 @@ class EditForm extends React.Component {
       showpublic: props.link ? props.link.showpublic : 0,
       description: props.link ? props.link.description : "",
       Url: props.link ? props.link.Url : "",
+      AdUrl: !!props.AdUrl ? props.link.AdUrl : "",
       note: props.link ? props.link.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link ? moment(props.link.createdAt) : moment(),
@@ -37,6 +38,12 @@ class EditForm extends React.Component {
     const Url = e.target.value;
     this.setState(() => ({ Url }));
   };
+
+   onUrlChange = (e) => {
+    const AdUrl = e.target.value;
+    this.setState(() => ({ AdUrl }));
+  };
+
   onNoteChange = (e) => {
     const note = e.target.value;
     this.setState(() => ({ note }));
@@ -304,6 +311,15 @@ class EditForm extends React.Component {
               : 2048
           } //"2300"
         ></textarea>
+         <input
+          type="text"
+          ////placeholder="Uri/Url Link, example: https://gmail.com"
+          placeholder="Place ad url here like from clickbank.com"
+          className="text-input"
+          value={this.state.AdUrl}
+          onChange={this.onUrlChange2}
+          maxLength="2048"
+        />
         <div>
           <button className="ib button-2w border5-">Save Link</button>
          

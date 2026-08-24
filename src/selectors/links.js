@@ -94,7 +94,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             ? 1
             : -1;
         } else if (sortBy === "date") {
-           parseInt(a.createdAt) < parseInt(b.createdAt)
+           parseInt(a.createdAt) > parseInt(b.createdAt)
             ? 1
             : -1;
         } 

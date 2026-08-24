@@ -7,7 +7,8 @@ import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
-import { startAddLink } from "../actions/links";
+import { startAddLink} from "../actions/links";
+import { startAddTheupdatedate} from "../actions/theupdatedate";
 import { withRouter } from "react-router-dom";
 import moment from "moment";
 import { history } from "../routers/AppRouter";
@@ -3139,6 +3140,15 @@ const FetchBookmarks = (props) => {
                     // setErrorDialog(true);
                     console.log("ERROR, VVVVVVVVVVVVV returned false");
                   } else {
+                    if(loopmax2 > 0) {
+                      //update database with update date in users/uid/updatedate,
+                      //when the page is refreshed the date will go in and everybody that has the shared page will see it
+                      //when one sees latest results by date, he will see it at the top
+                       let zupdatedate={
+           updatedate:now.getTime()
+        }
+                      props.startAddTheupdatedate(zupdatedate)
+                    }
                     console.log("NO ERROR, VVVVVVVVVVVVV returned true");
                     //props.history.push("/");
                     //window.location.reload()
@@ -3294,6 +3304,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   startAddLink: (link) => dispatch(startAddLink(link)),
+  startAddTheupdatedate: (data) => dispatch(startAddTheupdatedate(data)),
 });
 
 export default withRouter(

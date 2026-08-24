@@ -25,6 +25,7 @@ import storageReducer from '../reducers/storage';
 import customeridReducer from '../reducers/customerid';
 import theplanReducer from '../reducers/theplan';
 import thetotalstarsReducer from '../reducers/thetotalstars';
+import theupdatedateReducer from '../reducers/theupdatedate';
 import signupReducer from '../reducers/signup';
 import hasrefreshedReducer from '../reducers/hasrefreshed';//
 import photourlReducer from '../reducers/photourl';
@@ -60,6 +61,7 @@ export default () => {
       customerId: customeridReducer,
       theplan: theplanReducer,
       thetotalstars: thetotalstarsReducer,
+      theupdatedate: theupdatedateReducer,
       signup: signupReducer,
       hasrefreshed: hasrefreshedReducer,
       photourl: photourlReducer,
@@ -74,7 +76,6 @@ export default () => {
       gud: gudReducer,
       links3:links3Reducer,
       bmok:bmokReducer,
-    
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

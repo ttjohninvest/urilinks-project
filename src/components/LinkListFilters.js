@@ -1157,6 +1157,12 @@ function ExpandableArray(props) {
                           >
                             Note Text
                           </option>
+                           <option
+                            value="date"
+                            title="search through the notes"
+                          >
+                            Date (Descending Order)
+                          </option>
                         </optgroup>
                         <optgroup label="Popularity:">
                           {/* <option className="ib"
@@ -1259,6 +1265,12 @@ function ExpandableArray(props) {
                             title="search through the notes"
                           >
                             Note Text
+                          </option>
+                           <option
+                            value="date"
+                            title="search through the notes"
+                          >
+                            Date (Descending Order)
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">

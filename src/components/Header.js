@@ -374,7 +374,7 @@ export const Header = (props) => {
                               <span>🌺 urilinks</span>
                             </h3>
                             
-                            <span className="ib margin-left-11 color-white-1" title="Select Date (Latest First) to be able to see it">Links updated on <span  id="linksupdate" >{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}&nbsp;PST</span></span>
+                            <span className="ib margin-left-11 color-white-1" title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first.">Links updated on <span  id="linksupdate" >{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}&nbsp;PST</span></span>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
                           {/* <img

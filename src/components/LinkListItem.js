@@ -959,7 +959,7 @@ const LinkListItem = (props) => {
               
               style={{'visibility':'hidden'}}
             />
-            <label className="ib cursor-pointer margin-bottom-1x-" htmlFor={"delete%" + props.id} >Remove link</label>
+            <label title="This will remove this link from your list." className="ib cursor-pointer margin-bottom-1x-" htmlFor={"delete%" + props.id} >Remove link</label>
             </span>
 
             <span className="ib margin-right-1">
@@ -983,7 +983,7 @@ const LinkListItem = (props) => {
               className="ib margin-top-2x- margin-left-n-14x- margin-top-14x pointereventsauto"
               
             />
-            <label className="ib cursor-pointer margin-bottom-1x-" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
+            <label title="A private link won't show up in your shared page. It will only be visible to you." className="ib cursor-pointer margin-bottom-1x-" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
             </span>
 
             
@@ -1089,7 +1089,7 @@ const LinkListItem = (props) => {
               className="ib margin-top-2x- margin-left-n-14x- margin-top-14x pointereventsnone"
               
             />
-            <label className="ib cursor-pointer- pointereventsnone margin-bottom-1x-" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
+            <label title="A private link won't show up in your shared page. It will only be visible to you." className="ib cursor-pointer- pointereventsnone margin-bottom-1x-" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
             </span>
 
             

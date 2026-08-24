@@ -11,6 +11,10 @@ export const sortByDate = () => ({
   type: 'SORT_BY_DATE'
 });
 
+export const sortByDateText = () => ({
+  type: 'SORT_BY_DATE'
+});
+
 export const sortByDescription = () => ({
   type: 'SORT_BY_DESCRIPTION'
 });

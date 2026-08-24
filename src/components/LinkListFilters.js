@@ -38,6 +38,7 @@ import {
   setStartDate,
   setEndDate,
   sortByNoteText,
+  sortByDateText,
   sortByViews,
   sortByLikes,
   sortByStar,
@@ -528,25 +529,19 @@ function ExpandableArray(props) {
       if (myRef.current) myRef.current.focus();
       setSortBy("notetext");
       props.sortByNoteText();
-    } else if (e.target.value === "hashtag") {
+    } else if (e.target.value === "date") {
+      window.localStorage.setItem("sortBy", "date");
+      props.setTextFilter("");
+      if (myRef.current) myRef.current.focus();
+      setSortBy("date");
+      props.sortByDateText();
+    }
+    else if (e.target.value === "hashtag") {
       window.localStorage.setItem("sortBy", "hashtag");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
       setSortBy("hashtag");
       props.sortByHashTag();
-      // if (val === "") {
-      //   //window.document.getElementById("termid").value = "#"
-      //   props.setTextFilter("#");
-
-      // } else {
-
-      //   props.setTextFilter(val);
-      // }
-      // if (myRef.current) myRef.current.focus();
-
-      // setSortBy("hashtag");
-
-      // props.sortByHashTag();
     } else if (e.target.value === "hashtag") {
       window.localStorage.setItem("sortBy", "star");
       props.setTextFilter(val);
@@ -1591,7 +1586,18 @@ export class LinkListFilters extends React.Component {
       this.setState({ sortBy: "notetext" });
       this.props.sortByNoteText();
       //this.setState({ sortBy: "notetext" });
-    } else if (e.target.value === "views") {
+    } else if (e.target.value === "date") {
+      window.localStorage.setItem("sortBy", "date");
+      if (this.myRef.current) this.myRef.current.focus();
+      
+      this.props.setDateFilter("");
+     
+      this.setState({ sortBy: "date" });
+      this.props.sortByDateText();
+      
+    }
+    
+    else if (e.target.value === "views") {
       window.localStorage.setItem("sortBy", "views");
       if (this.myRef.current) this.myRef.current.focus();
       //this.props.setTextFilter("");
@@ -1623,7 +1629,7 @@ export class LinkListFilters extends React.Component {
       //this.setState({ sortBy: "notetext" });
     }
   };
-  //
+  
   extractHashtags = (text) => {
     console.log("extractHashTags, text=" + text);
     const regex = /#([a-zA-Z0-9_]+)/g;
@@ -1789,6 +1795,7 @@ export class LinkListFilters extends React.Component {
           sortByDescription={this.props.sortByDescription}
           sortByHashTag={this.props.sortByHashTag}
           sortByNoteText={this.props.sortByNoteText}
+          sortByDateText={this.props.sortByDateText}
           sortByViews={this.props.sortByViews}
           sortByLikes={this.props.sortByLikes}
           sortByStar={this.props.sortByStar}
@@ -1817,7 +1824,7 @@ const mapDispatchToProps = (dispatch) => ({
   sortByHashTag: () => dispatch(sortByHashTag()),
   sortByDescription: () => dispatch(sortByDescription()),
   sortByNoteText: () => dispatch(sortByNoteText()),
-
+  sortByDateText: () => dispatch(sortByDateText()),
   sortByViews: () => dispatch(sortByViews()),
   sortByLikes: () => dispatch(sortByLikes()),
   sortByStar: () => dispatch(sortByStar()),

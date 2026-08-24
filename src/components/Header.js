@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 //import * as firebase from "firebase";
 import * as firebase from "firebase/app";
 import "firebase/auth"; // If using authentication
@@ -372,7 +373,8 @@ export const Header = (props) => {
                             <h3 className="color-white-1 text-size-11">
                               <span>🌺 urilinks</span>
                             </h3>
-                            <span className="ib margin-left-11 color-white-1">Links updated on <span  id="linksupdate" >{props.theupdatedate.updatedate}</span></span>
+                            
+                            <span className="ib margin-left-11 color-white-1">Links updated on <span  id="linksupdate" >{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}</span></span>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
                           {/* <img

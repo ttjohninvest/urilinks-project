@@ -189,7 +189,7 @@ export const AddLinkPage = (props) => {
           setErrorDialog(true);
           console.log("VVVVVVVVVVVVV returned false");
         } else {
-              
+              const now = new Date();
           const datet = Math.trunc(now.getTime());
                                  props.startAddTheupdatedate({
                                    updatedate:datet
@@ -201,7 +201,7 @@ export const AddLinkPage = (props) => {
       } else {
         //alert("isin="+isin)
         alert(
-          "The link was not added because it is alread in the list. If you think that it is not already in the list change the link text to a unique description.",
+          "The link was not added because it is already in the list. Change the link text to a unique description.",
         );
       }
     } else {

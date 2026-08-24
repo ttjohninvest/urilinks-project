@@ -138,6 +138,7 @@ function ExpandableArray(props) {
         behavior: "auto",
       });
 
+      if(!!document.getElementById("ls2").scrollTop===true && !!document.getElementById("ls2").clientHeight===true)
       if (
         document.getElementById("ls").scrollTop +
           document.getElementById("ls").clientHeight >=
@@ -168,6 +169,7 @@ function ExpandableArray(props) {
       });
 
       // Stop automatically when reaching the top
+      if(!!document.getElementById("ls").scrollTop===true)
       if (document.getElementById("ls").scrollTop === 0 || document.getElementById("ls").scrollTop <= 2) {
         buttonRef.current.click();
 

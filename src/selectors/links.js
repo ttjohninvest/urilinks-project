@@ -75,17 +75,24 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
 
       let arr2 = arr.sort((a, b) => {
         if (sortBy === "description") {
-          return a.description.toLowerCase() > b.description.toLowerCase()
-            ? 1
-            : -1;
+          // return a.description.toLowerCase() > b.description.toLowerCase()
+          //   ? 1
+          //   : -1;
+             if(a.description.toLowerCase() > b.description.toLowerCase()) return 1
+            else return -1
         } else if (sortBy === "hashtag") { //the hashtag is in the note
-        a.note.toLowerCase() > b.note.toLowerCase()
-            ? 1
-            : -1;
+        // a.note.toLowerCase() > b.note.toLowerCase()
+        //     ? 1
+        //     : -1;
+             if(a.note.toLowerCase() > b.note.toLowerCase()) return 1
+            else return -1
         } else if (sortBy === "notetext") {
-           a.note.toLowerCase() > b.note.toLowerCase()
-            ? 1
-            : -1;
+          //  a.note.toLowerCase() > b.note.toLowerCase()
+          //   ? 1
+          //   : -1;
+            if(a.note.toLowerCase() > b.note.toLowerCase()) return 1
+            else return -1
+
         } else if (sortBy === "date") {
            
             if((a.createdAt/1000) > (b.createdAt/1000)) return -1

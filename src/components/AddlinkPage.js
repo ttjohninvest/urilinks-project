@@ -255,6 +255,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   startAddLink: (link) => dispatch(startAddLink(link)),
+  startAddTheupdatedate: (data) => dispatch(startAddTheupdatedate(data)),
+
 });
 
 export default withRouter(

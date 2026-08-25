@@ -3,10 +3,10 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
-import {LinkList3} from "./LinkList3.js";
-import honoring from "../assets/honoring/Frank-Caprio.png"
-import CopyButton from "./CopyButton"
-import HashTagsButton from "./HashTagsButton"
+import { LinkList3 } from "./LinkList3.js";
+import honoring from "../assets/honoring/Frank-Caprio.png";
+import CopyButton from "./CopyButton";
+import HashTagsButton from "./HashTagsButton";
 //import AddLinkPage from "./AddlinkPage";
 import AddALinkButton from "./AddALinkButton";
 import SeeHashTagsPage from "./SeeHashTagsPage.js";
@@ -46,7 +46,6 @@ import {
   sortByFolder,
 } from "../actions/filters";
 
-
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
@@ -68,7 +67,6 @@ function ExpandableArray(props) {
   const [isForm3Open, setIsForm3Open] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
   const [aValue, setAValue] = useState(0);
-  
 
   const myRef = useRef(null);
   const scrollInterval = useRef(null);
@@ -76,7 +74,7 @@ function ExpandableArray(props) {
   const useButtons = false; //use buttons in display of categories
 
   const buttonRef = useRef(null);
-   const scrolldownref7 = useRef(null);
+  const scrolldownref7 = useRef(null);
 
   let x = false;
   if (window.localStorage.getItem("hideinformation") === null) {
@@ -139,16 +137,16 @@ function ExpandableArray(props) {
         behavior: "auto",
       });
 
-      if(!!document.getElementById("ls")===true)
-      if (
-        document.getElementById("ls").scrollTop +
-          document.getElementById("ls").clientHeight >=
-        (document.getElementById("ls").scrollHeight-2 ||  document.getElementById("ls").scrollHeight+2)
-      ) {
-        buttonRef.current.click();
-        if(!!scrolldownref7===true)
-        scrolldownref7.current.click()
-      }
+      if (!!document.getElementById("ls") === true)
+        if (
+          document.getElementById("ls").scrollTop +
+            document.getElementById("ls").clientHeight >=
+          (document.getElementById("ls").scrollHeight - 2 ||
+            document.getElementById("ls").scrollHeight + 2)
+        ) {
+          buttonRef.current.click();
+          if (!!scrolldownref7 === true) scrolldownref7.current.click();
+        }
     }, 20); // Every 20 milliseconds
   };
 
@@ -170,12 +168,15 @@ function ExpandableArray(props) {
       });
 
       // Stop automatically when reaching the top
-      if(!!document.getElementById("ls")===true)
-      if (document.getElementById("ls").scrollTop === 0 || document.getElementById("ls").scrollTop <= 2) {
-        buttonRef.current.click();
+      if (!!document.getElementById("ls") === true)
+        if (
+          document.getElementById("ls").scrollTop === 0 ||
+          document.getElementById("ls").scrollTop <= 2
+        ) {
+          buttonRef.current.click();
 
-        //stopScrolling();
-      }
+          //stopScrolling();
+        }
     }, 20); // Every 20 milliseconds
   };
 
@@ -310,7 +311,7 @@ function ExpandableArray(props) {
     //e.target.focus();
     setCopySuccess("Copied "); // + text);
     //alert(6)
-    setAValue(1)
+    setAValue(1);
   };
 
   useEffect(() => {
@@ -451,7 +452,7 @@ function ExpandableArray(props) {
   };
 
   const search = (z) => {
-    handleCancelScroll()
+    handleCancelScroll();
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
@@ -509,7 +510,7 @@ function ExpandableArray(props) {
   };
 
   const onSortChange = (e) => {
-    handleCancelScroll()
+    handleCancelScroll();
     if (
       e.target.value === "none" ||
       e.target.value === undefined ||
@@ -538,8 +539,7 @@ function ExpandableArray(props) {
       if (myRef.current) myRef.current.focus();
       setSortBy("date");
       props.sortByDateText();
-    }
-    else if (e.target.value === "hashtag") {
+    } else if (e.target.value === "hashtag") {
       window.localStorage.setItem("sortBy", "hashtag");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
@@ -660,18 +660,21 @@ function ExpandableArray(props) {
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           <div className="flexcol3">
-          <div
-            className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2" : "fleur-de-leah-regular"}`}
-            title="Internet Links Organizer Dashboard's Home Page"
-          >
-            Internet Links Organizer Dashboard's Home Page 
-          </div>
-          {props.signup === false && <div
-            className={`ib- padding-left-n-x margin-top-1 margin-bottom-1 margin-left-n-7x`}
-            title=""
-          >
-            To make money, you can add a text link ad with each link you have.
-          </div>}
+            <div
+              className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2" : "fleur-de-leah-regular"}`}
+              title="Internet Links Organizer Dashboard's Home Page"
+            >
+              Internet Links Organizer Dashboard's Home Page
+            </div>
+            {props.signup === false && (
+              <div
+                className={`ib- padding-left-n-x margin-top-1 margin-bottom-1 margin-left-n-7x`}
+                title=""
+              >
+                To make money, you can add a text link ad with each link you
+                have.
+              </div>
+            )}
           </div>
         </div>
         <div className="width30menupanep">
@@ -830,7 +833,9 @@ function ExpandableArray(props) {
                                   
                                 </span>
                               </button> */}
-                              <CopyButton textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}/>
+                              <CopyButton
+                                textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                              />
                               {copySuccess}
                             </div>
                           </fieldset>
@@ -870,7 +875,9 @@ function ExpandableArray(props) {
                                   
                                 </span>
                               </button> */}
-                              <CopyButton  textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`} />
+                              <CopyButton
+                                textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                              />
                               {/* {copySuccess} */}
                             </div>
                           </fieldset>
@@ -901,7 +908,7 @@ function ExpandableArray(props) {
                       >
                         Add A link
                       </button> */}
-                       {/* <AddALinkButton /> */}
+                      {/* <AddALinkButton /> */}
                       {/* {isForm2Open && (
                         <AddLinkPage
                           isForm2Open={isForm2Open}
@@ -916,11 +923,10 @@ function ExpandableArray(props) {
                       >
                         See Hashtags
                       </button> */}
-                      <HashTagsButton 
-                      changeSortBy={changeSortBy}
-                      //setSortBy={setSortBy}
+                      <HashTagsButton
+                        changeSortBy={changeSortBy}
+                        //setSortBy={setSortBy}
                       />
-                    
 
                       {
                         //emailForm &&
@@ -971,7 +977,9 @@ function ExpandableArray(props) {
                                   
                                 </span>
                               </button> */}
-                              <CopyButton  textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`} />
+                              <CopyButton
+                                textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                              />
                               {copySuccess}
                             </div>
                           </div>
@@ -1008,7 +1016,9 @@ function ExpandableArray(props) {
                                 Copy
                                 
                               </button> */}
-                              <CopyButton  textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`} />
+                              <CopyButton
+                                textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                              />
                               {copySuccess}
                             </div>
                           </div>
@@ -1018,9 +1028,10 @@ function ExpandableArray(props) {
                   )}
 
                   {props.signup === true && rt !== "readonly" ? (
-                    <div 
-                    id="before-before-link-summary-id"
-                    className="margin-bottom-1">
+                    <div
+                      id="before-before-link-summary-id"
+                      className="margin-bottom-1"
+                    >
                       <a
                         target="_blank"
                         id="adlinkid"
@@ -1056,11 +1067,10 @@ function ExpandableArray(props) {
                         See Hashtags
                       </button> */}
 
-                      <HashTagsButton 
-                      changeSortBy={changeSortBy} 
-                      //setSortBy={setSortBy} 
+                      <HashTagsButton
+                        changeSortBy={changeSortBy}
+                        //setSortBy={setSortBy}
                       />
-                     
 
                       {
                         //emailForm &&
@@ -1080,9 +1090,9 @@ function ExpandableArray(props) {
                 </div>
               )}
 
-              <div 
-              //id="before-before-link-summary-id" 
-              className=""
+              <div
+                //id="before-before-link-summary-id"
+                className=""
               >
                 {isMobile() === true ? (
                   <div className="flexcol3a border5-">
@@ -1168,11 +1178,11 @@ function ExpandableArray(props) {
                           >
                             Note Text
                           </option>
-                           <option
+                          <option
                             value="date"
                             title="Results appear in date and time descending order"
                           >
-                            Date (Latest First) 
+                            Date (Latest First)
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
@@ -1223,7 +1233,7 @@ function ExpandableArray(props) {
                         type="text"
                         //value={this.state.dv}
                         //onChange={(e) => this.setState({ searchTerm: e.target.value })}
-                        
+
                         //onChange={(e) => setSearchTerm(e.target.value)}
                         onKeyDown={handleKeyPress}
                       />
@@ -1277,7 +1287,7 @@ function ExpandableArray(props) {
                           >
                             Note Text
                           </option>
-                           <option
+                          <option
                             value="date"
                             title="Results appear in date and time descending order"
                           >
@@ -1309,7 +1319,7 @@ function ExpandableArray(props) {
                         </optgroup>
                       </select>
                     </div>
-                   
+
                     {/* {isForm3Open && (
                       <SeeHashTagsPage
                         changeSortBy={changeSortBy}
@@ -1317,7 +1327,6 @@ function ExpandableArray(props) {
                         handleClose3={handleClose3}
                       />
                     )} */}
-
                   </div>
                 )}
               </div>
@@ -1326,9 +1335,11 @@ function ExpandableArray(props) {
             <div id="results1" className={`margin-top-18`}>
               {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
-              <LinkList3 av={props.av} ref={childRef} handleStartScroll={handleStartScroll} />
-             
-             
+              <LinkList3
+                av={props.av}
+                ref={childRef}
+                handleStartScroll={handleStartScroll}
+              />
             </div>
           </div>
         </div>
@@ -1339,73 +1350,73 @@ function ExpandableArray(props) {
             style={{ borderRadius: "5px" }}
             className="flexcol3 borderLightOrange widthxy- width100 margin-left-11 margin-right-1 margin-top-n-x2 padding1"
           >
-            <div>
-              Honoring Today:
-            </div>
+            <div>Honoring Today:</div>
             <div className="flexrowzc2">
-<img src={honoring} width="150" height="200" className="ib" />
-<div>Frank Caprio, Compassionate Judge</div>
+              <img src={honoring} width="150" height="200" className="ib" />
+              <div>Frank Caprio, Compassionate Judge</div>
             </div>
             <div>
-            {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
-            🙂 INSTRUCTIONS TO SAVE AND SHARE LINK(S)
-            <br />
-            <br />
-            ✮ Use Bookmarks upload to upload a bookmarks.html file that is less
-            than 100k.
-            <br />
-            <br />
-            ✮ Use Add A Link to add 1 link.
-            <br />
-            <br />
-            ✮ To make money, use the Edit Link link to add a text ad for each link you have to earn commission like from clickbank.com. 
-            For as many links that you have, you can ad a text ad for each one. All of the commission that clickbank
-            has for you will go to you. You will find the Edit Link link with each displayed link.
-            <br />
-            <br />
-            ✮ Use the search field to add word(s) to search for.
-            <br />
-            <br />
-            ✮ Use the drop down list to the right of the search button to select
-            the type of search (hashtag, link text, or note text). if word(s)
-            are entered in the search field, the search will activate.
-            <br />
-            <br />
-            ✮ If you want a link to be findable under two different hashtags,
-            add the hashtag to the note section. The system will not store
-            duplicate link titles.
-            <br />
-            <br />
-            ✮ Use the search button to activate the search.
-            <br />
-            <br />
-            ✮ Use the left pane menu to select a link.
-            <br />
-            <br />
-            ✮ Use the content section to the right of the left pane menu to see
-            left pane menu selections and search results.
-            <br />
-            <br />
-            ✮ In the content section you can click on any of the links and the
-            website will open in a new tab for viewing.
-            <br />
-            <br />
-            ✮ Click copy to copy your sharable link. Paste it were you want.
-            <br />
-            <br />
-            ✮ Click email your link to open up a form to to enter recipient's
-            email address and subject line.
-            <br />
-            <br />
-            ✮ Click the ScrollUp button to start automatic scrolling up.
-            <br />
-            <br />
-            ✮ Click the Stop button to stop automatic scrolling.
-            <br />
-            <br />
-            ✮ Click the ScrollDn button to start automatic scrolling down.
-            <br />
-            <br />
+              {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
+              🙂 URILINKS INSTRUCTIONS TO SAVE AND SHARE LINK(S)
+              <br />
+              <br />
+              ✮ Use Bookmarks upload to upload a bookmarks.html file that is
+              less than 100k.
+              <br />
+              <br />
+              ✮ Use Add A Link to add 1 link.
+              <br />
+              <br />
+              ✮ To make money, use the Edit Link link to add a text ad for each
+              link you have to earn commission like from clickbank.com. For as
+              many links that you have, you can ad a text ad for each one. All
+              of the commission that clickbank has for you will go to you. You
+              will find the Edit Link link with each displayed link.
+              <br />
+              <br />
+              ✮ Use the search field to add word(s) to search for.
+              <br />
+              <br />
+              ✮ Use the drop down list to the right of the search button to
+              select the type of search (hashtag, link text, or note text). if
+              word(s) are entered in the search field, the search will activate.
+              <br />
+              <br />
+              ✮ If you want a link to be findable under two different hashtags,
+              add the hashtag to the note section. The system will not store
+              duplicate link titles.
+              <br />
+              <br />
+              ✮ Use the search button to activate the search.
+              <br />
+              <br />
+              ✮ Use the left pane menu to select a link.
+              <br />
+              <br />
+              ✮ Use the content section to the right of the left pane menu to
+              see left pane menu selections and search results.
+              <br />
+              <br />
+              ✮ In the content section you can click on any of the links and the
+              website will open in a new tab for viewing.
+              <br />
+              <br />
+              ✮ Click copy to copy your sharable link. Paste it were you want.
+              <br />
+              <br />
+              ✮ Click email your link to open up a form to to enter recipient's
+              email address and subject line.
+              <br />
+              <br />
+              ✮ Click the ScrollUp button to start automatic scrolling up.
+              <br />
+              <br />
+              ✮ Click the Stop button to stop automatic scrolling.
+              <br />
+              <br />
+              ✮ Click the ScrollDn button to start automatic scrolling down.
+              <br />
+              <br />
             </div>
           </div>
         )}
@@ -1626,15 +1637,12 @@ export class LinkListFilters extends React.Component {
     } else if (e.target.value === "date") {
       window.localStorage.setItem("sortBy", "date");
       if (this.myRef.current) this.myRef.current.focus();
-      
+
       this.props.setDateFilter("");
-     
+
       this.setState({ sortBy: "date" });
       this.props.sortByDateText();
-      
-    }
-    
-    else if (e.target.value === "views") {
+    } else if (e.target.value === "views") {
       window.localStorage.setItem("sortBy", "views");
       if (this.myRef.current) this.myRef.current.focus();
       //this.props.setTextFilter("");
@@ -1666,7 +1674,7 @@ export class LinkListFilters extends React.Component {
       //this.setState({ sortBy: "notetext" });
     }
   };
-  
+
   extractHashtags = (text) => {
     console.log("extractHashTags, text=" + text);
     const regex = /#([a-zA-Z0-9_]+)/g;

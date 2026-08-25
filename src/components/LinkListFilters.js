@@ -669,7 +669,7 @@ function ExpandableArray(props) {
             className={`ib- padding-left-n-x margin-top-1 margin-bottom-1 margin-left-n-7x`}
             title=""
           >
-            By logging in, you are welcome to have your own page like this one with your own links. 
+            To make money, you can add a text link ad with each link you have.
           </div>}
           </div>
         </div>

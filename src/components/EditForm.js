@@ -325,14 +325,17 @@ class EditForm extends React.Component {
               : 2048
           } //"2300"
         ></textarea>
-        <fieldset>
-    <legend>Your ad section</legend>
+
+        <div className="flexcol3">
+
+        {/* <fieldset >
+    <legend>Your text ad section</legend> */}
         <input
           type="text"
           placeholder="Place ad link text here."
           //readOnly={this.props.makereadonly===true?true:false}
           //autoFocus
-          className="text-input"
+          className="ib text-input"
           value={this.state.addescription}
           onChange={this.onAdDescriptionChange}
           title="Enter the link text for the ad."
@@ -342,12 +345,13 @@ class EditForm extends React.Component {
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="Place ad url here like from clickbank.com"
-          className="text-input"
+          className="ib text-input"
           value={this.state.AdUrl}
           onChange={this.onUrlChange2}
           maxLength="2048"
         />
-        </fieldset>
+        {/* </fieldset> */}
+        </div>
         <div>
           <button className="ib button-2w border5-">Save Link</button>
          

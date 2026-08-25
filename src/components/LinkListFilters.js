@@ -1161,7 +1161,7 @@ function ExpandableArray(props) {
                       >
                         <optgroup label="Find:">
                           <option value="hashtag" title="search by hash tag">
-                            Hash Tag
+                            Hash Tag Search
                           </option>
 
                           <option
@@ -1169,20 +1169,22 @@ function ExpandableArray(props) {
                             value="description"
                             title="search through the uri/url link texts"
                           >
-                            Link Text
+                            Link Text Search
                           </option>
 
                           <option
                             value="notetext"
                             title="search through the notes"
                           >
-                            Note Text
+                            Note Text Search
                           </option>
+                        </optgroup>
+                        <optgroup label="Link Updates:">
                           <option
                             value="date"
                             title="Results appear in date and time descending order"
                           >
-                            Date (Latest First)
+                            Date And Time (Descending Order)
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
@@ -1270,7 +1272,7 @@ function ExpandableArray(props) {
                       >
                         <optgroup label="Find:">
                           <option value="hashtag" title="search by hash tag">
-                            Hash Tag
+                            Hash Tag Search
                           </option>
 
                           <option
@@ -1278,40 +1280,36 @@ function ExpandableArray(props) {
                             value="description"
                             title="search through the uri/url link texts"
                           >
-                            Link Text
+                            Link Text Search
                           </option>
 
                           <option
                             value="notetext"
                             title="search through the notes"
                           >
-                            Note Text
+                            Note Text Search
                           </option>
+                        </optgroup>
+                        <optgroup label="Link Updates:">
                           <option
                             value="date"
                             title="Results appear in date and time descending order"
                           >
-                            Date (Latest First)
+                            Date And Time (Descending Order)
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
-                          {/* <option className="ib"
-                            style={{
-                              borderBottom: "1px solid #dee2e6",
-                              margin: "0.5rem 0",
-                            }}
-                          ></option> */}
                           <option
                             value="views"
                             title="sort views into descending order"
                           >
-                            Views
+                            Views (Descending Order)
                           </option>
                           <option
                             value="likes"
                             title="sort likes into descending order"
                           >
-                            Likes
+                            Likes (Descending Order)
                           </option>
                           <option value="star" title="show your top ten">
                             My Top Ten
@@ -1350,13 +1348,17 @@ function ExpandableArray(props) {
             style={{ borderRadius: "5px" }}
             className="flexcol3 borderLightOrange widthxy- width100 margin-left-11 margin-right-1 margin-top-n-x2 padding1"
           >
-            {props.signup=== false && <div>
-            <div className="margin-bottom-1">Honoring Today:</div>
-            <div className="flexrowzc2">
-              <img src={honoring} width="150" height="200" className="ib" />
-              <div className="margin-bottom-1">Frank Caprio, Compassionate Judge</div>
-            </div>
-            </div>}
+            {props.signup === false && (
+              <div>
+                <div className="margin-bottom-1">Honoring Today:</div>
+                <div className="flexrowzc2">
+                  <img src={honoring} width="150" height="200" className="ib" />
+                  <div className="margin-bottom-1">
+                    Frank Caprio, Compassionate Judge
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div>
               {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
@@ -1381,9 +1383,10 @@ function ExpandableArray(props) {
               <br />
               <br />
               ✮ Use the drop down list to the right of the search button to
-              select the type of search to find or sort by popularity (hashtag, link text, note text
-              or Date Time (Latest First), Views, Likes, My Top Ten). if word(s) are entered in the search
-              field, the search will activate. A selection for popularity, the sort will activate.
+              select the type of search to find or sort by popularity (hashtag,
+              link text, note text or Date Time (Latest First), Views, Likes, My
+              Top Ten). if word(s) are entered in the search field, the search
+              will activate. A selection for popularity, the sort will activate.
               <br />
               <br />
               ✮ If you want a link to be findable under two different hashtags,

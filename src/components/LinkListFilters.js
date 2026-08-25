@@ -1381,8 +1381,8 @@ function ExpandableArray(props) {
               <br />
               <br />
               ✮ Use the drop down list to the right of the search button to
-              select the type of search for find / sort by popularity (hashtag, link text, note text
-               / Date(Latest First), Views, Likes, My Top Ten). if word(s) are entered in the search
+              select the type of search to find / sort by popularity (hashtag, link text, note text
+               / Date Time (Latest First), Views, Likes, My Top Ten). if word(s) are entered in the search
               field, the search will activate. A selection for popularity, the sort will activate.
               <br />
               <br />

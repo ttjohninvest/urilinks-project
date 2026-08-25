@@ -279,7 +279,7 @@ class EditForm extends React.Component {
         )}
         <input
           type="text"
-          placeholder="text"
+          placeholder="Place link link text here."
           //readOnly={this.props.makereadonly===true?true:false}
           autoFocus
           className="text-input"
@@ -325,11 +325,13 @@ class EditForm extends React.Component {
               : 2048
           } //"2300"
         ></textarea>
+        <fieldset>
+    <legend>Your ad section</legend>
         <input
           type="text"
-          placeholder="text"
+          placeholder="Place ad link text here."
           //readOnly={this.props.makereadonly===true?true:false}
-          autoFocus
+          //autoFocus
           className="text-input"
           value={this.state.addescription}
           onChange={this.onAdDescriptionChange}
@@ -345,6 +347,7 @@ class EditForm extends React.Component {
           onChange={this.onUrlChange2}
           maxLength="2048"
         />
+        </fieldset>
         <div>
           <button className="ib button-2w border5-">Save Link</button>
          

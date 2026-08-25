@@ -326,10 +326,12 @@ class EditForm extends React.Component {
           } //"2300"
         ></textarea>
 
+
+<fieldset >
+        <legend>Your text ad section</legend>
         <div className="flexcol3">
 
-        <fieldset >
-        <legend>Your text ad section</legend>
+        
         <input
           type="text"
           placeholder="Place ad link text here."
@@ -350,8 +352,9 @@ class EditForm extends React.Component {
           onChange={this.onUrlChange2}
           maxLength="2048"
         />
-        </fieldset>
+        
         </div>
+        </fieldset>
         <div>
           <button className="ib button-2w border5-">Save Link</button>
          

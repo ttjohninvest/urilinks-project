@@ -1184,7 +1184,7 @@ function ExpandableArray(props) {
                             value="date"
                             title="Results appear in date and time descending order"
                           >
-                            Date And Time (Descending Order)
+                            Date And Time Sort (Descending Order)
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
@@ -1198,13 +1198,13 @@ function ExpandableArray(props) {
                             value="views"
                             title="sort views into descending order"
                           >
-                            Views
+                            Views Sort (Descending Order)
                           </option>
                           <option
                             value="likes"
                             title="sort likes into descending order"
                           >
-                            Likes
+                            Likes Sort (Descending Order)
                           </option>
                           <option value="star" title="show your top ten">
                             My Top Ten
@@ -1295,7 +1295,7 @@ function ExpandableArray(props) {
                             value="date"
                             title="Results appear in date and time descending order"
                           >
-                            Date And Time (Descending Order)
+                            Date And Time Sort (Descending Order)
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
@@ -1303,13 +1303,13 @@ function ExpandableArray(props) {
                             value="views"
                             title="sort views into descending order"
                           >
-                            Views (Descending Order)
+                            Views Sort (Descending Order)
                           </option>
                           <option
                             value="likes"
                             title="sort likes into descending order"
                           >
-                            Likes (Descending Order)
+                            Likes Sort (Descending Order)
                           </option>
                           <option value="star" title="show your top ten">
                             My Top Ten

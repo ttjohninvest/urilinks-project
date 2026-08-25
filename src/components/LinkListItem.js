@@ -1188,7 +1188,7 @@ const LinkListItem = (props) => {
 
       {true && (
         <div className="flexrow2w2 border5-">
-          <span><a href={props.AdUrl} target="_blank">See what is for sale:{props.addescription}</a></span>
+          <span><a href={props.AdUrl} target="_blank"><span className='nounderline color-black'>See what is for sale:</span>{props.addescription}</a></span>
         </div>
       )}
 

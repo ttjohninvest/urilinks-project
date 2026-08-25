@@ -49,7 +49,7 @@ export const Header = (props) => {
   const [email, setEmail] = useState("");
   const [theplan, setTheplan] = useState("");
   const [bmok, setBmok] = useState(false);
-  const [linksUpdateDateTime, setLinksUpdateDateTime] = useState(new Date(props.theupdatedate.updatedate).toLocalString(Intl.DateTimeFormat().resolvedOptions().timeZone))
+  const [linksUpdateDateTime, setLinksUpdateDateTime] = useState(new Date(props.theupdatedate.updatedate).toLocaleDateString(Intl.DateTimeFormat().resolvedOptions().timeZone))
   const ideas = () => {};
 
   const params = new URLSearchParams(window.location.search);

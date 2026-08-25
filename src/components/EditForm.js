@@ -45,7 +45,7 @@ class EditForm extends React.Component {
     this.setState(() => ({ Url }));
   };
 
-   onUrlChange = (e) => {
+   onUrlChange2 = (e) => {
     const AdUrl = e.target.value;
     this.setState(() => ({ AdUrl }));
   };
@@ -328,8 +328,8 @@ class EditForm extends React.Component {
 
         <div className="flexcol3">
 
-        {/* <fieldset >
-    <legend>Your text ad section</legend> */}
+        <fieldset >
+        <legend>Your text ad section</legend>
         <input
           type="text"
           placeholder="Place ad link text here."
@@ -344,13 +344,13 @@ class EditForm extends React.Component {
          <input
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
-          placeholder="Place ad url here like from clickbank.com"
-          className="ib text-input"
+          placeholder="Place ad url here."
+          className="text-input"
           value={this.state.AdUrl}
           onChange={this.onUrlChange2}
           maxLength="2048"
         />
-        {/* </fieldset> */}
+        </fieldset>
         </div>
         <div>
           <button className="ib button-2w border5-">Save Link</button>

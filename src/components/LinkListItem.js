@@ -1195,8 +1195,8 @@ const LinkListItem = (props) => {
       <div className="italicText text-size-10 color-purple margin-top-aa color-black-2">
         <span className="ib padding-left-n-1z-  margin-top-n-15a margin-bottom-abc">
           Link saved on:{" "}
-          {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}&nbsp;pst
-          {/* {Date(props.createdAt).toLocaleString()} */}
+          {/* {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}&nbsp;pst */}
+          {new Date(props.createdAt).toLocaleDateString()+" "+new Date(props.createdAt).toLocaleTimeString()}
         </span>
       </div>
 

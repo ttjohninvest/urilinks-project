@@ -1343,6 +1343,7 @@ function ExpandableArray(props) {
 <img src={honoring} width="150" height="200" className="ib" />
 <div>Frank Caprio, Compassionate Judge</div>
             </div>
+            <div>
             {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
             🙂 INSTRUCTIONS TO SAVE AND SHARE LINK(S)
             <br />
@@ -1402,6 +1403,7 @@ function ExpandableArray(props) {
             ✮ Click the ScrollDn button to start automatic scrolling down.
             <br />
             <br />
+            </div>
           </div>
         )}
         {/*ends third column*/}

@@ -334,8 +334,11 @@ export const LinkList = (props) => {
   // }
   //
   useEffect(() => {
-    if(z!=1)
-    props.handleStartScroll(scrollupref.current)
+    if(z!=1) {
+       stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
+       props.handleStartScroll(scrollupref.current)
+    }
+   
     
   }, []);
 

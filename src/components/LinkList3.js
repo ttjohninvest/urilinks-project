@@ -25,7 +25,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
         // Perform scroll action here
         if(!!v===true) v.click()
         console.log('Auto-scroll executed');
-      }, 10000); // 5 seconds
+      }, 8000); // 5 seconds
     }
   }));
 

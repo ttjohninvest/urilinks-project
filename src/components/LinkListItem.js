@@ -889,7 +889,7 @@ const LinkListItem = (props) => {
   const playInPlace = (videoid, id,Url) => {
     if(videoid!==id) {
       //const v = window.document.getElementById(videoid+id).style.visibility
-      window.document.getElementById(videoid+id).style.visibility='visible'
+      //window.document.getElementById(videoid+id).style.visibility='visible'
   const newStr = Url.replace("watch?v=", "embed/");
   //setInplace(true)
   setUrl2(newStr)

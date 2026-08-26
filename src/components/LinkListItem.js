@@ -942,6 +942,21 @@ const LinkListItem = (props) => {
             </Link>
           </div>
         )}
+         {props.signup.signup === true ? (
+          <div>
+            
+              <span className="" style={{ cursor: "pointer" }}>
+                Play video in place
+              </span>
+            
+          </div>
+        ) : (
+          <div>
+            
+              <span className="">Play video in place</span>
+            
+          </div>
+        )}
         {props.signup.signup === true ? (
           <span className="bg-light-orange- height48- height14x flexrowzv2">
             <span className="ib margin-left-11- margin-right-1- height14x- flexrowzv-">

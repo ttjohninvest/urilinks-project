@@ -53,10 +53,11 @@ export const LinkList = (props) => {
   //  const [mappedData, setMappedData] = useState([])
 
   const myRef = useRef();
-  const scrollupref = useRef();
-  const scrolldownref = useRef();
-  const scrollInterval2 = useRef(null);
-  const buttonRef2 = useRef(null);
+
+  // const scrollupref = useRef();
+  // const scrolldownref = useRef();
+  // const scrollInterval2 = useRef(null);
+  // const buttonRef2 = useRef(null);
 
   const getPlanMax = () => {
     let max = StorageSizes.free;
@@ -148,111 +149,111 @@ export const LinkList = (props) => {
   //     });
   // };
 
-  const startScrollingUp2 = () => {
-     try {
-    if(!!buttonRef2===true)
-    buttonRef2.current.click();
-   } catch(error) {
-    console.log("error="+error)
-  }
-    // Prevent multiple intervals
-    if (scrollInterval2.current) return;
+//   const startScrollingUp2 = () => {
+//      try {
+//     if(!!buttonRef2===true)
+//     buttonRef2.current.click();
+//    } catch(error) {
+//     console.log("error="+error)
+//   }
+//     // Prevent multiple intervals
+//     if (scrollInterval2.current) return;
 
-    scrollInterval2.current = setInterval(() => {
+//     scrollInterval2.current = setInterval(() => {
 
-      try {
-        if(!!document.getElementById("ls2")===true)
- document.getElementById("ls2").scrollBy({
-        top: 1, // Scroll 1 pixel each time
-        left: 0,
-        behavior: "auto",
-      });
-      } catch(error) {
-        console.log("error="+error)
-      }
+//       try {
+//         if(!!document.getElementById("ls2")===true)
+//  document.getElementById("ls2").scrollBy({
+//         top: 1, // Scroll 1 pixel each time
+//         left: 0,
+//         behavior: "auto",
+//       });
+//       } catch(error) {
+//         console.log("error="+error)
+//       }
      
 
-      //console.log(document.getElementById("ls2").scrollTop +
-      //    document.getElementById("ls2").clientHeight)
-      //console.log(document.getElementById("ls2").scrollHeight)
-      if(!!document.getElementById("ls2")===true)
-      if (
-        document.getElementById("ls2").scrollTop +
-          document.getElementById("ls2").clientHeight >=
-        (document.getElementById("ls2").scrollHeight-2 ||  document.getElementById("ls2").scrollHeight+2)
-      ) {
+//       //console.log(document.getElementById("ls2").scrollTop +
+//       //    document.getElementById("ls2").clientHeight)
+//       //console.log(document.getElementById("ls2").scrollHeight)
+//       if(!!document.getElementById("ls2")===true)
+//       if (
+//         document.getElementById("ls2").scrollTop +
+//           document.getElementById("ls2").clientHeight >=
+//         (document.getElementById("ls2").scrollHeight-2 ||  document.getElementById("ls2").scrollHeight+2)
+//       ) {
         
-        try {
-    if(!!buttonRef2===true)
-    buttonRef2.current.click();
-   } catch(error) {
-    console.log("error="+error)
-  }
-       try {
-       if(!!scrolldownref===true) //auto scroll in the other direction
-        scrolldownref.current.click()
-       } catch(error) {
-        console.log("error="+error)
-       }
+//         try {
+//     if(!!buttonRef2===true)
+//     buttonRef2.current.click();
+//    } catch(error) {
+//     console.log("error="+error)
+//   }
+//        try {
+//        if(!!scrolldownref===true) //auto scroll in the other direction
+//         scrolldownref.current.click()
+//        } catch(error) {
+//         console.log("error="+error)
+//        }
         
         
-      }
-    }, 20); // Every 20 milliseconds
+//       }
+//     }, 20); // Every 20 milliseconds
  
-  };
+//   };
 
-  const stopScrolling2 = () => {
-    clearInterval(scrollInterval2.current);
-    scrollInterval2.current = null;
-  };
+//   const stopScrolling2 = () => {
+//     clearInterval(scrollInterval2.current);
+//     scrollInterval2.current = null;
+//   };
 
-  const startScrollingDown2 = () => {
-    try {
-    if(!!buttonRef2===true)
-    buttonRef2.current.click();
-   } catch(error) {
-    console.log("error="+error)
-  }
-    // Prevent multiple intervals
-    if (scrollInterval2.current) return;
+//   const startScrollingDown2 = () => {
+//     try {
+//     if(!!buttonRef2===true)
+//     buttonRef2.current.click();
+//    } catch(error) {
+//     console.log("error="+error)
+//   }
+//     // Prevent multiple intervals
+//     if (scrollInterval2.current) return;
 
-    scrollInterval2.current = setInterval(() => {
-        try {
-       if(!!document.getElementById("ls2")===true) //auto scroll in the other direction
-         document.getElementById("ls2").scrollBy({
-        top: -1, // Scroll 1 pixel each time
-        left: 0,
-        behavior: "auto",
-      });
-       } catch(error) {
-        console.log("error="+error)
-       }
+//     scrollInterval2.current = setInterval(() => {
+//         try {
+//        if(!!document.getElementById("ls2")===true) //auto scroll in the other direction
+//          document.getElementById("ls2").scrollBy({
+//         top: -1, // Scroll 1 pixel each time
+//         left: 0,
+//         behavior: "auto",
+//       });
+//        } catch(error) {
+//         console.log("error="+error)
+//        }
      
 
-      // Stop automatically when reaching the top
-      if(!!document.getElementById("ls2")===true)
-      if (document.getElementById("ls2").scrollTop === 0 || document.getElementById("ls2").scrollTop <= 2) {
-        try {
-    if(!!buttonRef2===true)
-    buttonRef2.current.click();
-   } catch(error) {
-    console.log("error="+error)
-  }
+//       // Stop automatically when reaching the top
+//       if(!!document.getElementById("ls2")===true)
+//       if (document.getElementById("ls2").scrollTop === 0 || document.getElementById("ls2").scrollTop <= 2) {
+//         try {
+//     if(!!buttonRef2===true)
+//     buttonRef2.current.click();
+//    } catch(error) {
+//     console.log("error="+error)
+//   }
 
-   try {
-       if(!!scrollupref===true) //auto scroll in the other direction
-          if(!!scrollupref===true) //auto scroll in the other direction
-        scrollupref.current.click()
-       } catch(error) {
-        console.log("error="+error)
-       }
+//    try {
+//        if(!!scrollupref===true) //auto scroll in the other direction
+//           if(!!scrollupref===true) //auto scroll in the other direction
+//         scrollupref.current.click()
+//        } catch(error) {
+//         console.log("error="+error)
+//        }
        
        
-        //stopScrolling();
-      }
-    }, 20); // Every 20 milliseconds
+//         //stopScrolling();
+//       }
+//     }, 20); // Every 20 milliseconds
    
-  };
+//   };
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -336,7 +337,7 @@ export const LinkList = (props) => {
   useEffect(() => {
     if(z!=1) {
        stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
-       props.handleStartScroll(scrollupref.current)
+       props.handleStartScroll(props.scrollupref.current)
     }
    
     
@@ -354,7 +355,7 @@ export const LinkList = (props) => {
       {props.links.length > 1 && <div className="margin-left-11">
         <button
           id="scrollup1"
-          ref={scrollupref}
+          ref={props.scrollupref}
           title="Click the button to begin auto scroll."
           onClick={startScrollingUp2}
           className="button-2 widthxpx1"
@@ -363,7 +364,7 @@ export const LinkList = (props) => {
         </button>
 
         <button
-          ref={buttonRef2}
+          ref={props.buttonRef2}
           title="Click the button to stop auto scroll."
           onClick={stopScrolling2}
           className="button-2 ib margin-left-11"
@@ -372,7 +373,7 @@ export const LinkList = (props) => {
         </button>
 
         <button
-          ref={scrolldownref}
+          ref={props.scrolldownref}
           title="Click the button to begin auto scroll."
           onClick={startScrollingDown2}
           className="button-2 ib margin-left-11 widthxpx1"

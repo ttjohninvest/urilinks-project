@@ -891,8 +891,8 @@ const LinkListItem = (props) => {
   //setInplace(true)
   setUrl2(newStr)
   setVideoId(id)
-  !!document.querySelector("#ipvideo") &&
-      document.querySelector("#ipvideo").scrollIntoView({
+  !!document.querySelector("#ipvideo"+id) &&
+      document.querySelector("#ipvideo"+id).scrollIntoView({
         behavior: "smooth",
       });
   }
@@ -1242,7 +1242,7 @@ const LinkListItem = (props) => {
       
       {(videoId === props.id) && 
       <div
-      id="ipvideo"
+      //id="ipvideo"
       className="margin-bottom-1z1"
       >
        <BasicIframe 

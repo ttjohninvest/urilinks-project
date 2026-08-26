@@ -75,6 +75,7 @@ const LinkListItem = (props) => {
   const [visityt, setVisityt] = useState("");
   const [inplace, setInplace] = useState(false)
   const [videoId, setVideoId] = useState(0)
+  const [url2, setUrl2] = useState("")
 
   const isityt = (url) => {
     if (url.includes("youtube")) {
@@ -876,8 +877,10 @@ const LinkListItem = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  const playInPlace = (id) => {
+  const playInPlace = (id,Url) => {
+    let newStr = Url.replace("?v=", "/embed/");
   //setInplace(true)
+  setUrl2(newStr)
   setVideoId(id)
   }
 
@@ -953,7 +956,7 @@ const LinkListItem = (props) => {
         )}
          <div>
             
-              <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlace(props.id)}>
+              <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlace(props.id,props.Url)}>
                 Play video in place
               </span>
             
@@ -1221,14 +1224,14 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
 
-      {/* {(videoId === props.id) &&  */}
+      {(videoId === props.id) && 
       <div
       className=""
       >
        <BasicIframe 
-       //src={props.Url} 
+       src={url2} 
        />
-      </div>
+      </div>}
 
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">

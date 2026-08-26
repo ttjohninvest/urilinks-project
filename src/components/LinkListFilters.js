@@ -674,7 +674,7 @@ function ExpandableArray(props) {
                 title=""
               >
                 To make money, you can add a text link ad with each link you
-                have. Please try a user account.
+                have. Please try a user account today.
                  {/* <div>Problem: Software companies organize the internet the way they want.</div>
               <div>Solution: Lets organize the internet the way we want using this tool.</div> */}
               </div>

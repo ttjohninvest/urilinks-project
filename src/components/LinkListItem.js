@@ -896,7 +896,7 @@ const LinkListItem = (props) => {
       document.querySelector("#ipvideo"+id).scrollIntoView({
         behavior: "smooth",
       });
-      
+
   }
    
 
@@ -909,11 +909,10 @@ const LinkListItem = (props) => {
   }
 
   //"ipvideo"+props.id
-  const processVideo = (videoid, id, Url) => {
-    const v = window.document.getElementById("ipvideo"+props.id).style.display
-    alert("v="+v)
-    if(true) {
-       playInPlaceVideo(videoid, id, Url)
+  const processVideo = (videoId, id, Url) => {
+    
+    if(videoId===id) {
+       playInPlaceVideo(videoId, id, Url)
     } else {
        closeInPlaceVideo(videoid, id)
     }

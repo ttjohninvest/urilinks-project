@@ -886,10 +886,8 @@ const LinkListItem = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  const playInPlace = (videoid, id,Url) => {
-    if(videoid!==id) {
-      //const v = window.document.getElementById(videoid+id).style.visibility
-      //window.document.getElementById(videoid+id).style.visibility='visible'
+  const playInPlaceVideo = (videoid, id,Url) => {
+    
   const newStr = Url.replace("watch?v=", "embed/");
   //setInplace(true)
   setUrl2(newStr)
@@ -899,11 +897,28 @@ const LinkListItem = (props) => {
         behavior: "smooth",
       });
     }
-    else {
-    alert("close video, videoid="+videoid+",id="+id)
-     window.document.getElementById("ipvideo"+videoid).style.display='none'
-    }
+   
 
+  }
+
+   const closeInPlaceVideo = (videoid, id) => {
+    
+    alert("close video, videoid="+videoid+",id="+id)
+    //window.document.getElementById("ipvideo"+videoid).style.display='none'
+   
+
+  }
+
+  //"ipvideo"+props.id
+  const processVideo = (videoid, id, Url) => {
+    const v = window.document.getElementById("ipvideo"+props.id).style.display
+    alert("v="+v)
+    if(true) {
+       playInPlaceVideo(videoid, id, Url)
+    } else {
+       closeInPlaceVideo(videoid, id)
+    }
+    
   }
 
   
@@ -980,7 +995,7 @@ const LinkListItem = (props) => {
         )}
          {isityt2(props.Url) && <div>
             
-              <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlace(videoId, props.id,props.Url)}>
+              <span className="" style={{ cursor: "pointer" }} onClick={()=>processVideo(videoId, props.id, props.Url)}>
                 {videoId !== props.id ?'Play video in place':'Close Video'}
               </span>
             
@@ -1249,18 +1264,17 @@ const LinkListItem = (props) => {
       </div>
 
       <div
-      id={"ipvideo"+props.id}
+        id={"ipvideo"+props.id}
       >
-      {(videoId === props.id) && 
-      <div
-     
-      className="margin-bottom-1z1"
-      >
-        <div>{"ipvideo"+props.id}</div>
-       <BasicIframe 
-       src={url2} 
-       />
-      </div>}
+          {(videoId === props.id) && 
+          <div
+            className="margin-bottom-1z1"
+            >
+              <div>{"ipvideo"+props.id}</div>
+              <BasicIframe 
+                src={url2} 
+              />
+          </div>}
       </div>
 
       {/* {props.signup.signup === true && (

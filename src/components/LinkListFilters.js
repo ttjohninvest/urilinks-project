@@ -414,7 +414,7 @@ function ExpandableArray(props) {
   };
 
   const search2 = (z) => {
-    handleCancelScroll()
+    //handleCancelScroll()
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
@@ -453,7 +453,7 @@ function ExpandableArray(props) {
   };
 
   const search = (z) => {
-    handleCancelScroll();
+    //handleCancelScroll();
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");

@@ -357,7 +357,7 @@ export const LinkList = (props) => {
           id="scrollup1"
           ref={props.scrollupref}
           title="Click the button to begin auto scroll."
-          onClick={startScrollingUp2}
+          onClick={props.startScrollingUp2}
           className="button-2 widthxpx1"
         >
           <span>ScrollUp</span>
@@ -366,7 +366,7 @@ export const LinkList = (props) => {
         <button
           ref={props.buttonRef2}
           title="Click the button to stop auto scroll."
-          onClick={stopScrolling2}
+          onClick={props.stopScrolling2}
           className="button-2 ib margin-left-11"
         >
           <span>Stop</span>
@@ -375,7 +375,7 @@ export const LinkList = (props) => {
         <button
           ref={props.scrolldownref}
           title="Click the button to begin auto scroll."
-          onClick={startScrollingDown2}
+          onClick={props.startScrollingDown2}
           className="button-2 ib margin-left-11 widthxpx1"
         >
           <span>ScrollDn</span>

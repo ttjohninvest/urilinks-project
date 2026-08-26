@@ -891,6 +891,7 @@ const LinkListItem = (props) => {
   //setInplace(true)
   setUrl2(newStr)
   setVideoId(id)
+  window.scrollTo(0,200)
   }
 
   

@@ -49,7 +49,7 @@ export const Header = (props) => {
   const [email, setEmail] = useState("");
   const [theplan, setTheplan] = useState("");
   const [bmok, setBmok] = useState(false);
-  const [linksUpdateDateTime, setLinksUpdateDateTime] = useState(new Date(props.theupdatedate.updatedate).toLocaleDateString()+" at "+new Date(props.theupdatedate.updatedate).toLocaleTimeString())
+  const [linksUpdateDateTime, setLinksUpdateDateTime] = useState(new Date(props.theupdatedate.updatedate).toLocaleDateString()+" at "+new Date(props.theupdatedate.updatedate).toLocaleTimeString()+" "+new Date(props.theupdatedate.updatedate).toLocaleDateString(undefined, { weekday: 'long' }))
   const ideas = () => {};
 
   const params = new URLSearchParams(window.location.search);

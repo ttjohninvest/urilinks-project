@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
+import BasicIframe from "./Iframe";
 import visited from "../assets/images/visited-1.png";
 import {
   startRemoveLink,
@@ -38,6 +39,7 @@ import GoogleMapsButton from "./GoogleMapsButton";
 import GoogleEarthButton from "./GoogleEarthButton";
 import AlarmClockButton from "./AlarmClockButton";
 import CalendarGoogle from "./CalendarGoogle";
+
 //import AddToAny from './AddToAny';
 
 //import XShareButton from "./XShareButton"
@@ -1221,13 +1223,7 @@ const LinkListItem = (props) => {
       </div>
 
       <div id={"video"+props.id}>
-        <iframe 
-  src="https://www.example.com" 
-  title="Example Page" 
-  width="600" 
-  height="400" 
-  style="border: none;">
-</iframe>
+       <BasicIframe />
       </div>
 
       {/* {props.signup.signup === true && (

@@ -1225,7 +1225,9 @@ const LinkListItem = (props) => {
       <div
       className=""
       >
-       <BasicIframe src={props.Url} />
+       <BasicIframe 
+       //src={props.Url} 
+       />
       </div>
 
       {/* {props.signup.signup === true && (

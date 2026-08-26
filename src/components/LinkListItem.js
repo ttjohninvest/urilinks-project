@@ -1223,11 +1223,11 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
 
-      <div id={"video"+props.id}
+      {inplace && <div id={"video"+props.id}
       className={`displayname ${inplace===true?'displayblock':''}`}
       >
        <BasicIframe />
-      </div>
+      </div>}
 
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">

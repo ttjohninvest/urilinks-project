@@ -419,6 +419,7 @@ function ExpandableArray(props) {
   };
 
   const search2 = (z) => {
+    stopScrolling2()
     //handleCancelScroll()
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
@@ -459,6 +460,7 @@ function ExpandableArray(props) {
 
   const search = (z) => {
     //handleCancelScroll();
+    stopScrolling2()
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
@@ -516,6 +518,7 @@ function ExpandableArray(props) {
   };
 
   const onSortChange = (e) => {
+    stopScrolling2()
     //handleCancelScroll();
     if (
       e.target.value === "none" ||
@@ -1454,12 +1457,12 @@ function ExpandableArray(props) {
                 ref={childRef}
                 handleStartScroll={handleStartScroll}
                 scrollupref={scrollupref}
-  scrolldownref={scrolldownref}
-  //scrollInterval2={scrollInterval2}
-  buttonRef2={buttonRef2}
-  startScrollingUp2={startScrollingUp2}
-  startScrollingDown2={startScrollingDown2}
-  stopScrolling2={stopScrolling2}
+                scrolldownref={scrolldownref}
+                //scrollInterval2={scrollInterval2}
+                buttonRef2={buttonRef2}
+                startScrollingUp2={startScrollingUp2}
+                startScrollingDown2={startScrollingDown2}
+                stopScrolling2={stopScrolling2}
               />
             </div>
           </div>

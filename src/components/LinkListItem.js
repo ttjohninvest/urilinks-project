@@ -1237,7 +1237,7 @@ const LinkListItem = (props) => {
 
       {(videoId === props.id) && 
       <div
-      className=""
+      className="margin-bottom-1z1"
       >
        <BasicIframe 
        src={url2} 

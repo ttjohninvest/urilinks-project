@@ -901,7 +901,7 @@ const LinkListItem = (props) => {
     }
     else {
     alert("close video, videoid="+videoid+",id="+id)
-     window.document.getElementById("ipvideo"+videoid).style.visibility='hidden'
+     window.document.getElementById("ipvideo"+videoid).style.display='none'
     }
 
   }

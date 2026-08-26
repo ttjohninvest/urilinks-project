@@ -666,14 +666,17 @@ function ExpandableArray(props) {
             >
               Internet Links Organizer Dashboard's Home Page
             </div>
-            {props.signup === false && (
-              <div
+            {props.signup === false && (<div>
+ <div
                 className={`ib- padding-left-n-x margin-top-1 margin-bottom-1 margin-left-n-7x`}
                 title=""
               >
                 To make money, you can add a text link ad with each link you
                 have.
               </div>
+              <div>Please try a user account.</div>
+            </div>
+             
             )}
           </div>
         </div>

@@ -898,7 +898,8 @@ const LinkListItem = (props) => {
       });
     }
     else {
-alert("close video")
+//alert("close video")
+     window.document.getElementById(vidoid+id).innerHTML=null
     }
 
   }

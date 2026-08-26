@@ -890,7 +890,7 @@ const LinkListItem = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  const playInPlaceVideo = (videoid, id,Url) => {
+  const playInPlaceVideo = (videoid, id, Url) => {
   
   const newStr = Url.replace("watch?v=", "embed/");
   //setInplace(true)
@@ -1002,7 +1002,7 @@ const LinkListItem = (props) => {
          {isityt2(props.Url) && <div>
             
               <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}>
-                {videoId !== props.id ?'Play video in place':'Close Video'}
+                Play video in place
               </span>
             
           </div>}

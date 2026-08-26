@@ -886,8 +886,10 @@ const LinkListItem = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  const playInPlace = (vidoid, id,Url) => {
-    if(vidoid!==id) {
+  const playInPlace = (videoid, id,Url) => {
+    if(videoid!==id) {
+      //const v = window.document.getElementById(videoid+id).style.visibility
+      window.document.getElementById(videoid+id).style.visibility='visible'
   const newStr = Url.replace("watch?v=", "embed/");
   //setInplace(true)
   setUrl2(newStr)
@@ -899,7 +901,7 @@ const LinkListItem = (props) => {
     }
     else {
 //alert("close video")
-     window.document.getElementById(vidoid+id).innerHTML=null
+     window.document.getElementById(videoid+id).style.visibility='hidden'
     }
 
   }

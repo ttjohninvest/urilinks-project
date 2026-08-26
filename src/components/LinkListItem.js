@@ -1221,11 +1221,12 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
 
-      {(videoId === props.id) && <div
+      {/* {(videoId === props.id) &&  */}
+      <div
       className=""
       >
        <BasicIframe src={props.Url} />
-      </div>}
+      </div>
 
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">

@@ -900,8 +900,8 @@ const LinkListItem = (props) => {
       });
     }
     else {
-//alert("close video")
-     window.document.getElementById(videoid+id).style.visibility='hidden'
+    alert("close video, videoid="+videoid+",id="+id)
+     //window.document.getElementById(videoid+id).style.visibility='hidden'
     }
 
   }
@@ -1256,7 +1256,7 @@ const LinkListItem = (props) => {
      
       className="margin-bottom-1z1"
       >
-        {/* <div>{"ipvideo"+props.id}</div> */}
+        <div>{"ipvideo"+props.id}</div>
        <BasicIframe 
        src={url2} 
        />

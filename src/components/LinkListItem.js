@@ -90,6 +90,19 @@ const LinkListItem = (props) => {
     setVisityt("");
   };
 
+   const isityt2 = (url) => {
+    let isit=false
+    if (url.includes("youtube")) {
+      //get the id
+      let a = url.split("v=");
+      let b = a[1].split("&");
+      let ytid = b[0];
+      //setVisityt(ytid);
+      isit = true
+    }
+    return isit
+  };
+
   // function Book(BookTitle, BookAuthor, BookPages){
   //   this.title = BookTitle,
   //   this.author = BookAuthor,
@@ -878,11 +891,13 @@ const LinkListItem = (props) => {
   }
 
   const playInPlace = (id,Url) => {
-    let newStr = Url.replace("watch?v=", "embed/");
+  const newStr = Url.replace("watch?v=", "embed/");
   //setInplace(true)
   setUrl2(newStr)
   setVideoId(id)
   }
+
+  
 
   return (
     <div key={props.index}>
@@ -954,13 +969,13 @@ const LinkListItem = (props) => {
             </Link>
           </div>
         )}
-         <div>
+         {isityt2(props.Url) && <div>
             
               <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlace(props.id,props.Url)}>
                 Play video in place
               </span>
             
-          </div>
+          </div>}
         {props.signup.signup === true ? (
           <span className="bg-light-orange- height48- height14x flexrowzv2">
             <span className="ib margin-left-11- margin-right-1- height14x- flexrowzv-">

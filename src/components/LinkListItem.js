@@ -74,6 +74,7 @@ const LinkListItem = (props) => {
   const [sortit1flag, setSortit1flag] = useState([]);
   const [visityt, setVisityt] = useState("");
   const [inplace, setInplace] = useState(false)
+  const [videoId, setVideoId] = useState(0)
 
   const isityt = (url) => {
     if (url.includes("youtube")) {
@@ -875,6 +876,11 @@ const LinkListItem = (props) => {
     return regex.test(navigator.userAgent);
   }
 
+  const playInPlace = (id) => {
+  setInplace(true)
+  setVideoId(id)
+  }
+
   return (
     <div key={props.index}>
       <div>
@@ -948,7 +954,7 @@ const LinkListItem = (props) => {
          {props.signup.signup === true ? (
           <div>
             
-              <span className="" style={{ cursor: "pointer" }}>
+              <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlace(props.id)}>
                 Play video in place
               </span>
             
@@ -1223,10 +1229,10 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
 
-      {inplace && <div id={"video"+props.id}
-      className={`displayname ${inplace===true?'displayblock':''}`}
+      {inplace && <div
+      className="" //{`displayname ${inplace===true?'displayblock':''}`}
       >
-       <BasicIframe />
+       <BasicIframe src={props.Url} videoId={videoId}/>
       </div>}
 
       {/* {props.signup.signup === true && (

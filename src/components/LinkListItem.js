@@ -74,8 +74,12 @@ const LinkListItem = (props) => {
   const [sortit1flag, setSortit1flag] = useState([]);
   const [visityt, setVisityt] = useState("");
   const [inplace, setInplace] = useState(false)
-  const [videoId, setVideoId] = useState(0)
+  const [videoId, setVideoId] = useState("")
   const [url2, setUrl2] = useState("")
+ 
+
+  
+
 
   const isityt = (url) => {
     if (url.includes("youtube")) {
@@ -887,7 +891,7 @@ const LinkListItem = (props) => {
   }
 
   const playInPlaceVideo = (videoid, id,Url) => {
-    
+  
   const newStr = Url.replace("watch?v=", "embed/");
   //setInplace(true)
   setUrl2(newStr)
@@ -912,9 +916,13 @@ const LinkListItem = (props) => {
   const processVideo = (videoId, id, Url) => {
     
     if(videoId===id) {
+       
+       // Correct
+        
        playInPlaceVideo(videoId, id, Url)
     } else {
-       closeInPlaceVideo(videoid, id)
+       
+       closeInPlaceVideo(videoId, id)
     }
     
   }
@@ -1261,10 +1269,14 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
 
+
+
+
+
       <div
         id={"ipvideo"+props.id}
       >
-          {(videoId === props.id) && 
+          {(videoId === props.id) &&
           <div
             className="margin-bottom-1z1"
             >
@@ -1274,6 +1286,14 @@ const LinkListItem = (props) => {
               />
           </div>}
       </div>
+
+
+
+
+
+
+
+
 
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">

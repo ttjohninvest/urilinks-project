@@ -1229,10 +1229,10 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
 
-      {inplace && <div
+      {inplace && (videoId === props.id) && <div
       className="" //{`displayname ${inplace===true?'displayblock':''}`}
       >
-       <BasicIframe src={props.Url} videoId={videoId}/>
+       <BasicIframe src={props.Url} />
       </div>}
 
       {/* {props.signup.signup === true && (

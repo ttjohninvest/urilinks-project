@@ -1360,7 +1360,7 @@ function ExpandableArray(props) {
               </div>
             )}
 
-            <div className="margin-bottom-1">❤️ Benefits for you and me:It is made with love and care. It works. You can make money with text ads. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. You can help charities that I give to like church and mercyships.org. My phone number is 775 559 5740. </div>
+            <div className="margin-bottom-1">❤️ Benefits for you and me:It is made with love and care. It works. You can make money with text ads. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. You can help charities that I give to like church and mercyships.org. My phone number is 775 559 5740, John, Mr McGovern. </div>
 
             <div>
               {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}

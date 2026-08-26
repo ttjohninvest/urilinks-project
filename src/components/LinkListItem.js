@@ -1001,7 +1001,7 @@ const LinkListItem = (props) => {
         )}
          {isityt2(props.Url) && <div>
             
-              <span className="" style={{ cursor: "pointer" }} onClick={()=>processVideo(videoId, props.id, props.Url)}>
+              <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}>
                 {videoId !== props.id ?'Play video in place':'Close Video'}
               </span>
             

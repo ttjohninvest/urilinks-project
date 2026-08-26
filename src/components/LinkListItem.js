@@ -878,7 +878,7 @@ const LinkListItem = (props) => {
   }
 
   const playInPlace = (id,Url) => {
-    let newStr = Url.replace("?v=", "/embed/");
+    let newStr = Url.replace("watch?v=", "embed/");
   //setInplace(true)
   setUrl2(newStr)
   setVideoId(id)

@@ -24,7 +24,7 @@ const CopyButton = (props) => {
     <button 
     className={`margin-left-11- height48 button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     onClick={handleCopy}>
-      {isCopied ? 'Copied!' : 'Copy'}
+      {isCopied ? 'URL Copied' : 'Copy URL'}
     </button>
   );
 };

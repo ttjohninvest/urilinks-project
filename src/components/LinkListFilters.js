@@ -1360,6 +1360,8 @@ function ExpandableArray(props) {
               </div>
             )}
 
+            <div>Benifits: can make money with text ads, has search and sort, the website is user friendy, you can share your links, you can se end poins of links that you have saved.</div>
+
             <div>
               {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
               🙂 URILINKS INSTRUCTIONS TO SAVE AND SHARE LINK(S)

@@ -886,7 +886,8 @@ const LinkListItem = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  const playInPlace = (id,Url) => {
+  const playInPlace = (vidoid, id,Url) => {
+    if(vidoid!==id) {
   const newStr = Url.replace("watch?v=", "embed/");
   //setInplace(true)
   setUrl2(newStr)
@@ -895,6 +896,11 @@ const LinkListItem = (props) => {
       document.querySelector("#ipvideo"+id).scrollIntoView({
         behavior: "smooth",
       });
+    }
+    else {
+alert("close video")
+    }
+
   }
 
   
@@ -971,8 +977,8 @@ const LinkListItem = (props) => {
         )}
          {isityt2(props.Url) && <div>
             
-              <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlace(props.id,props.Url)}>
-                Play video in place
+              <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlace(videoId, props.id,props.Url)}>
+                {videoid !== props.id ?'Play video in place':'Close Video'}
               </span>
             
           </div>}

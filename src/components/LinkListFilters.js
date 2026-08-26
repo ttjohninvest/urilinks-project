@@ -675,6 +675,8 @@ function ExpandableArray(props) {
                 have.
               </div>
               <div>Please try a user account.</div>
+              {/* <div>Problem: Software companies organize the internet the way they want.</div>
+              <div>Solution: Lets organize the internet the way we want using this tool.</div> */}
             </div>
              
             )}
@@ -1385,6 +1387,9 @@ function ExpandableArray(props) {
               <br />
               <br />
               ✮ It has autoscroll.
+              <br />
+              <br />
+              ✮ I you add new links to your page, everybody that has your shared page sees your new links.
               <br />
               <br />
               ✮ Use the search field to add word(s) to search for.

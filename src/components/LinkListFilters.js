@@ -1350,7 +1350,7 @@ function ExpandableArray(props) {
           >
             {props.signup === false && (
               <div>
-                <div className="margin-bottom-1">Honoring Today:</div>
+                <div className="margin-bottom-1">Honoring This Week:</div>
                 <div className="flexrowzc2">
                   <img src={honoring} width="150" height="200" className="ib" />
                   <div className="margin-bottom-1">

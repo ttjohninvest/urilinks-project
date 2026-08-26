@@ -1220,6 +1220,16 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
 
+      <div id={"video"+props.id}>
+        <iframe 
+  src="https://www.example.com" 
+  title="Example Page" 
+  width="600" 
+  height="400" 
+  style="border: none;">
+</iframe>
+      </div>
+
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">
           <MayDoInGoogleDocument />

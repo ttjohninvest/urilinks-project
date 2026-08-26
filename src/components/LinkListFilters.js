@@ -1364,7 +1364,7 @@ function ExpandableArray(props) {
 
             <div>
               {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
-              🙂 URILINKS INSTRUCTIONS TO SAVE, FIND, LOOK AT LINK END-POINTS AND SHARE LINK(S)
+              🙂 URILINKS INSTRUCTIONS TO ORGANIZE, SAVE, FIND, LOOK AT LINK END-POINTS AND SHARE LINK(S)
               <br />
               <br />
               ✮ Use Bookmarks upload to upload a bookmarks.html file that is

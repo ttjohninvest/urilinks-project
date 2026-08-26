@@ -1239,6 +1239,7 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
 
+      
       {(videoId === props.id) && 
       <div
       id="ipvideo"

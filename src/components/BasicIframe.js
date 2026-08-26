@@ -3,14 +3,20 @@ import React from "react";
 const BasicIframe = (props) => {
   return (
     <iframe 
-  width="560" 
-  height="315" 
-  src="https://www.youtube.com/watch?v=BFvjiS5V1tE" //src={props.src} 
-  title="YouTube video player" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  allowFullScreen>
+  src="https://www.example.com" 
+  width="600" 
+  height="400" 
+  title="Example Website">
 </iframe>
+//     <iframe 
+//   width="560" 
+//   height="315" 
+//   src="https://www.youtube.com/watch?v=BFvjiS5V1tE" //src={props.src} 
+//   title="YouTube video player" 
+//   frameBorder="0" 
+//   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+//   allowFullScreen>
+// </iframe>
   );
 };
 

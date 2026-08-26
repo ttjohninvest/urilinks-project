@@ -1222,7 +1222,7 @@ const LinkListItem = (props) => {
       </div>
 
       {(videoId === props.id) && <div
-      className="" //{`displayname ${inplace===true?'displayblock':''}`}
+      className=""
       >
        <BasicIframe src={props.Url} />
       </div>}

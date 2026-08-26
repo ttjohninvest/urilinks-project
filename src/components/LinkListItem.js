@@ -73,6 +73,7 @@ const LinkListItem = (props) => {
   const [data2s, setData2s] = useState([]);
   const [sortit1flag, setSortit1flag] = useState([]);
   const [visityt, setVisityt] = useState("");
+  const [inplace, setInplace] = useState(false)
 
   const isityt = (url) => {
     if (url.includes("youtube")) {
@@ -1222,7 +1223,9 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
 
-      <div id={"video"+props.id}>
+      <div id={"video"+props.id}
+      className={`displayname ${inplace===true?'displayblock':''}`}
+      >
        <BasicIframe />
       </div>
 

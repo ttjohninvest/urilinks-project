@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
-import BasicIframe from "./Iframe";
+import BasicIframe from "./BasicIframe";
 import visited from "../assets/images/visited-1.png";
 import {
   startRemoveLink,

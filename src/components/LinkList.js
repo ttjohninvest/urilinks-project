@@ -336,7 +336,7 @@ export const LinkList = (props) => {
   //
   useEffect(() => {
     if(z!=1) {
-       stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
+       props.stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
        props.handleStartScroll(props.scrollupref.current)
     }
    

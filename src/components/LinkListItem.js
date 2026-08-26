@@ -978,7 +978,7 @@ alert("close video")
          {isityt2(props.Url) && <div>
             
               <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlace(videoId, props.id,props.Url)}>
-                {videoid !== props.id ?'Play video in place':'Close Video'}
+                {videoId !== props.id ?'Play video in place':'Close Video'}
               </span>
             
           </div>}

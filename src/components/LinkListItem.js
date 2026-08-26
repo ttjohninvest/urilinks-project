@@ -1280,7 +1280,7 @@ const LinkListItem = (props) => {
           <div
             className="margin-bottom-1z1"
             >
-              <div>{"ipvideo"+props.id}</div>
+              {/* <div>{"ipvideo"+props.id}</div> */}
               <BasicIframe 
                 src={url2} 
               />

@@ -896,10 +896,9 @@ const LinkListItem = (props) => {
       document.querySelector("#ipvideo"+id).scrollIntoView({
         behavior: "smooth",
       });
-    }
-   
-
+      
   }
+   
 
    const closeInPlaceVideo = (videoid, id) => {
     

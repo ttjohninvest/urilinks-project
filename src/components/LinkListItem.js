@@ -93,11 +93,7 @@ const LinkListItem = (props) => {
    const isityt2 = (url) => {
     let isit=false
     if (url.includes("youtube")) {
-      //get the id
-      let a = url.split("v=");
-      let b = a[1].split("&");
-      let ytid = b[0];
-      //setVisityt(ytid);
+     
       isit = true
     }
     return isit

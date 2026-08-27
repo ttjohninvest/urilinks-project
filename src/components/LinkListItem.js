@@ -895,7 +895,7 @@ const LinkListItem = (props) => {
   const playInPlaceVideo = (videoid, id, Url) => {
 
     alert("calling handleToggle, id="+id)
-    handleToggle({id:props.id})
+    handleToggle({id})
   
   const newStr = Url.replace("watch?v=", "embed/");
   //setInplace(true)
@@ -1287,7 +1287,7 @@ const LinkListItem = (props) => {
             className="margin-bottom-1z1"
             >
               {/* <div>{"ipvideo"+props.id}</div> */}
-              <div>{"props.show="+"'"+props.show+"'"}</div>
+              <div>{"props.show="+props.show}</div>
               <BasicIframe 
                 src={url2} 
               />

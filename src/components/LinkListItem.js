@@ -19,7 +19,8 @@ import {
   decrementLinkLikesClickCount,
   incrementLinkStarClickCount,
   decrementLinkStarClickCount,
-  handleToggle,
+  incrementHandleToggle,
+  decrementHandleToggle,
 } from "../actions/links";
 
 import {
@@ -892,19 +893,29 @@ const LinkListItem = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  const playInPlaceVideo = (videoid, id, Url) => {
-
-    alert("calling handleToggle, id="+id)
-    handleToggle({id:id})
+  //const playInPlaceVideo = (videoid, id, Url) => {
+  const playInPlaceVideo = (id, show, Url, event) => { //id is the link id, show can be 0 or 1, Url is the Url of the video to play
   
   const newStr = Url.replace("watch?v=", "embed/");
-  //setInplace(true)
   setUrl2(newStr)
   setVideoId(id)
   !!document.querySelector("#ipvideo"+id) &&
       document.querySelector("#ipvideo"+id).scrollIntoView({
         behavior: "smooth",
       });
+
+    let x1 = 0;
+    if (show === undefined || show === null || show === "NaN") x1 = 0;
+    else x1 = show;
+    const x = id //x is link id
+
+    if (x1 === 0) {
+      //alert("going to increment")
+      props.incrementHandleToggle({ id: x, show: 0 });
+    } else {
+      //alert("going to decrement")
+      props.decrementHandleToggle({ id: x, show: 1 });
+    }
 
   }
    
@@ -1006,7 +1017,10 @@ const LinkListItem = (props) => {
         )}
          {isityt2(props.Url) && <div>
             
-              <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}>
+              <span className="" style={{ cursor: "pointer" }} 
+              //onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}
+              onClick={()=>playInPlaceVideo(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1
+              >
                 Play video in place
               </span>
              
@@ -1355,8 +1369,10 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(incrementTotalStarClickCount(data)),
   decrementTotalStarClickCount: (data) =>
     dispatch(decrementTotalStarClickCount(data)),
-   handleToggle: (data) =>
-    dispatch(handleToggle(data)),
+  incrementHandleToggle: (data) =>
+    dispatch(incrementHandleToggle(data)),
+  decrementHandleToggle: (data) =>
+    dispatch(decrementHandleToggle(data)),
 });
 
 export default withRouter(

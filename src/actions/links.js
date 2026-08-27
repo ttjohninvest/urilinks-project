@@ -11,30 +11,74 @@ import setHashTags2WithCount from "./hashtags2withcount";
 //   data,
 // });
 
-export const handleToggle2 = (id, updates) => ({
-  type: "UPDATE_LINKS_SHOW",
+export const incrementHandleToggle2 = (id, updates) => ({
+  type: "INCREMENT_UPDATE_LINKS_SHOW",
   id,
   updates,
 });
 
-export const handleToggle = ({ id,linkid } = {}) => {
+export const decrementHandleToggle2 = (id, updates) => ({
+  type: "DECREMENT_UPDATE_LINKS_SHOW",
+  id,
+  updates,
+});
+
+export const incrementHandleToggle = ({ id,show } = {}) => {
   
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/links/${id}`)
-      .update({show:getState().show===0?1:0}) //{showpublic:0}
+      .update({show:parseInt(show)+1}) //{showpublic:0}
       .then(() => {
         //alert("success")
         
-        dispatch(handleToggle2(id,{show:getState().show===0?1:0}));
+        dispatch(incrementHandleToggle2(id,{show:parseInt(show)+1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
       });
   };
 };
+
+export const decrementHandleToggle = ({ id,likes } = {}) => {
+  
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    //update(dbRef, { value: increment(1) });
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({show:parseInt(show)-1}) //{showpublic:0}
+      .then(() => {
+        //alert("success")
+        
+        dispatch(decrementHandleToggle2(id,{show:parseInt(show)-1}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
+
+// export const handleToggle = ({ id,linkid } = {}) => {
+  
+//   return (dispatch, getState) => {
+//     const uid = getState().auth.uid;
+//     //update(dbRef, { value: increment(1) });
+//     return database
+//       .ref(`users/${uid}/links/${id}`)
+//       .update({show:getState().show===0?1:0}) //{showpublic:0}
+//       .then(() => {
+//         //alert("success")
+        
+//         dispatch(handleToggle2(id,{show:getState().show===0?1:0}));
+//       })
+//       .catch((error) => {
+//         console.log("error removing link data in firebase, error=" + error);
+//       });
+//   };
+// };
 
 // ADD_LINK
 export const addLink = (link) => ({

@@ -928,21 +928,7 @@ const LinkListItem = (props) => {
 
   }
 
-  //"ipvideo"+props.id
-  const processVideo = (videoId, id, Url) => {
-    
-    if(videoId===id) {
-       
-       // Correct
-        
-       playInPlaceVideo(videoId, id, Url)
-    } else {
-       
-       closeInPlaceVideo(videoId, id)
-    }
-    
-  }
-
+  
   
 
   return (
@@ -1296,7 +1282,7 @@ const LinkListItem = (props) => {
       <div
         id={"ipvideo"+props.id}
       >
-          {(videoId === props.id) &&
+          {(videoId === props.id) && props.show===1 &&
           <div
             className="margin-bottom-1z1"
             >

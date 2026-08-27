@@ -3,7 +3,15 @@ import { v4 } from "uuid";
 //import { ServerValue } from "../firebase/firebase";
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags";
+import {toggleItemShow} from '../features/toggle'
 import setHashTags2WithCount from "./hashtags2withcount";
+
+export const handleToggle = (id) => {
+  return (dispatch, getState) => {
+   dispatch(toggleItemShow({ id }));
+  };
+    
+  };
 
 // ADD_LINK
 export const addLink = (link) => ({

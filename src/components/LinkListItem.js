@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import BasicIframe from "./BasicIframe";
+import {handleToggle} from "../actions/links"
 import visited from "../assets/images/visited-1.png";
 import {
   startRemoveLink,
@@ -891,6 +892,8 @@ const LinkListItem = (props) => {
   }
 
   const playInPlaceVideo = (videoid, id, Url) => {
+
+    handleToggle(props.id)
   
   const newStr = Url.replace("watch?v=", "embed/");
   //setInplace(true)
@@ -1004,6 +1007,9 @@ const LinkListItem = (props) => {
               <span className="" style={{ cursor: "pointer" }} onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}>
                 Play video in place
               </span>
+              {/* <span className="" style={{ cursor: "pointer" }} onClick={() => handleToggle(props.id)}>
+                Play video in place
+              </span> */}
             
           </div>}
         {props.signup.signup === true ? (

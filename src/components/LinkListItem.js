@@ -28,6 +28,9 @@ import {
   decrementTotalStarClickCount,
 } from "../actions/thetotalstars";
 
+
+
+
 import { Link, withRouter } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
@@ -246,6 +249,8 @@ const LinkListItem = (props) => {
 
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };
+
+  
 
   const storeScrollPosition3 = (star, event) => {
     const text =
@@ -1373,6 +1378,10 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(incrementTotalStarClickCount(data)),
   decrementTotalStarClickCount: (data) =>
     dispatch(decrementTotalStarClickCount(data)),
+  incrementHashtagsIsOpenClickCount: (data) =>
+    dispatch(incrementHashtagsIsOpenClickCount(data)),
+  decrementHashtagsIsOpenClickCount: (data) =>
+    dispatch(decrementHashtagsIsOpenClickCount(data)),
   incrementHandleToggle: (data) => dispatch(incrementHandleToggle(data)),
   decrementHandleToggle: (data) => dispatch(decrementHandleToggle(data)),
 });

@@ -19,6 +19,7 @@ import { startSetLinksFileDate } from "./actions/linksfiledate";
 import { getSettings } from "./actions/settings";
 import { getTheplan, getTheplan2 } from "./actions/theplan";
 import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
+import { getThehashtagsisopen, getThehashtagsisopen2 } from "./actions/thehashtagsisopen";
 import { getTheupdatedate, getTheupdatedate2 } from "./actions/theupdatedate";
 import { login, logout } from "./actions/auth";
 import { setSettings } from "./actions/settings";
@@ -88,10 +89,17 @@ if (signup !== "signup") {
           store
             .dispatch(getThetotalstars2(id))
             .then(() => {
-              return store
+              store
             .dispatch(getTheupdatedate2(id))
             .then(() => {
+               return store
+            .dispatch(getThehashtagsisopen2(id))
+            .then(() => {
               renderApp(store, signup);
+            })
+            .catch((error) => {
+              console.log("thehashtagsisopen, error", error);
+            });
             })
             .catch((error) => {
               console.log("thetotalstars, error", error);
@@ -132,10 +140,17 @@ if (signup !== "signup") {
               store
             .dispatch(getThetotalstars(user.uid))
             .then(() => {
-              return store
+              store
             .dispatch(getTheupdatedate(user.uid))
             .then(() => {
+               return store
+            .dispatch(getThehashtagsisopen(user.uid))
+            .then(() => {
               renderApp(store, signup);
+            })
+            .catch((error) => {
+              console.log("theplan, error", error);
+            });
             })
             .catch((error) => {
               console.log("theplan, error", error);

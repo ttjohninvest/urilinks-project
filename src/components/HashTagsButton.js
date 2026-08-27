@@ -1,5 +1,13 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+
 import SeeHashTagsPage from "./SeeHashTagsPage";
+
+import {
+  incrementHashtagsIsOpenClickCount,
+  decrementHashtagsIsOpenClickCount,
+} from "../actions/thehashtagsisopen";
 
 const HashTagsButton = (props) => {
   const [isDisplayed, setIsDisplayed] = useState(false);
@@ -15,8 +23,34 @@ const HashTagsButton = (props) => {
     setIsDisplayed(false);
   };
 
+  const storeScrollPosition4 = (hashtagsisopen, event) => {
+      // let x1 = 0;
+      // if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
+      // else x1 = likes;
+      // const x = event.target.getAttribute("data-value"); //x is link id
+  
+      // props.incrementLinkLikesClickCount({ id: x, likes: x1 });
+      // window.localStorage.setItem("scrollPosition", window.scrollY);
+  
+      let x1 = 0;
+      if (hashtagsisopen === undefined || hashtagsisopen === null || hashtagsisopen === "NaN") x1 = 0;
+      else x1 = hashtagsisopen;
+      const x = event.target.getAttribute("data-value"); //x is link id
+  
+      if (x1 === 0) {
+        //alert("going to increment")
+        props.incrementHashtagsIsOpenClickCount({ id: x, hashtagsisopen: 0 });
+      } else {
+        //alert("going to decrement")
+        props.decrementHashtagsIsOpenClickCount({ id: x, hashtagsisopen: 1 });
+      }
+  
+      window.localStorage.setItem("scrollPosition", window.scrollY);
+    };
+
   const handleDisplay = () => {
     try {
+      storeScrollPosition4(props.hashtagsisopen, event)
       setIsDisplayed(true);
     } catch (err) {
       console.error("Failed to display:", err);
@@ -45,4 +79,22 @@ const HashTagsButton = (props) => {
   );
 };
 
-export default HashTagsButton;
+//export default HashTagsButton;
+
+const mapStateToProps = (state) => ({
+  
+  signup: state.signup,
+  
+});
+
+const mapDispatchToProps = (dispatch, props) => ({
+  incrementHashtagsIsOpenClickCount: (data) =>
+    dispatch(incrementHashtagsIsOpenClickCount(data)),
+  decrementHashtagsIsOpenClickCount: (data) =>
+    dispatch(decrementHashtagsIsOpenClickCount(data)),
+  
+});
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(HashTagsButton),
+);

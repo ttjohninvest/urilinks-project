@@ -1202,12 +1202,61 @@ function ExpandableArray(props) {
                       }
                     </div>
                   ) : (
-                   <div>
-                      <div className="minWidth- bg-color-4"></div>
+                  <div
+                      id="before-before-link-summary-id"
+                      className="margin-bottom-1"
+                    >
+                      <a
+                        target="_blank"
+                        id="adlinkid"
+                        href="#"
+                        title="Email your sharable link to share with others. Email recipient sees readonly page"
+                        className={`ib flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                        onClick={handleClick}
+                      >
+                        <span className="ib color-white-1">
+                          Email your link
+                        </span>
+                      </a>
+                      {/* <button
+                        className={`ib ${isMobile() === false ? "margin-left-11" : "margin-top-1"} button-2 bg-shade-1`}
+                        onClick={addALink}
+                        title="Add a link to your page."
+                      >
+                        Add A link
+                      </button> */}
+                      <AddALinkButton />
+                      {/* {isForm2Open && (
+                        <AddLinkPage
+                          isForm2Open={isForm2Open}
+                          handleClose2={handleClose2}
+                        />
+                      )} */}
+
+                      {/* <button
+                        className={`ib button-2 margin-left-11 ${isMobile() === false ? "" : "margin-top-1"}`}
+                        onClick={seeHashTags}
+                        title="See hashtags"
+                      >
+                        See Hashtags
+                      </button> */}
+
                       <HashTagsButton
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
                       />
+
+                      {
+                        //emailForm &&
+                        isFormOpen && (
+                          <SendEmailPage
+                            sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
+                            uid={uid}
+                            isFormOpen={isFormOpen}
+                            handleClose={handleClose}
+                          />
+                        )
+                      }
                     </div>
                   )}
                 </div>

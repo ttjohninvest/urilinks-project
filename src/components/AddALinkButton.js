@@ -33,7 +33,7 @@ const AddALinkButton = (props) => {
         className={`${!!props.x===true && props.x === 100?'pointereventsnone':''} margin-left-11 height48 button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"} button-2 bg-shade-1`}
         onClick={handleDisplay}
       >
-        {isDisplayed ? "Displayed!" : "Add A Link"}
+        {isDisplayed ? "Displayed" : "Add A Link"}
       </button>
       {isDisplayed === true && (
         <div>

@@ -65,7 +65,7 @@ const HashTagsButton = (props) => {
         className={`margin-left-11 height48 button-2w- button-2 ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
         onClick={handleDisplay}
       >
-        {isDisplayed ? "Displayed!" : "See HashTags"}
+        {isDisplayed ? "Displayed" : "See HashTags"}
       </button>
       {isDisplayed === true && (
         <div>

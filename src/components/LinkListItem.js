@@ -76,13 +76,9 @@ const LinkListItem = (props) => {
   const [data2s, setData2s] = useState([]);
   const [sortit1flag, setSortit1flag] = useState([]);
   const [visityt, setVisityt] = useState("");
-  const [inplace, setInplace] = useState(false)
-  const [videoId, setVideoId] = useState("")
-  const [url2, setUrl2] = useState("")
- 
-
-  
-
+  const [inplace, setInplace] = useState(false);
+  const [videoId, setVideoId] = useState("");
+  const [url2, setUrl2] = useState("");
 
   const isityt = (url) => {
     if (url.includes("youtube")) {
@@ -97,13 +93,12 @@ const LinkListItem = (props) => {
     setVisityt("");
   };
 
-   const isityt2 = (url) => {
-    let isit=false
+  const isityt2 = (url) => {
+    let isit = false;
     if (url.includes("youtube")) {
-     
-      isit = true
+      isit = true;
     }
-    return isit
+    return isit;
   };
 
   // function Book(BookTitle, BookAuthor, BookPages){
@@ -894,42 +889,41 @@ const LinkListItem = (props) => {
   }
 
   //const playInPlaceVideo = (videoid, id, Url) => {
-  const playInPlaceVideo = (id, show, Url, event) => { //id is the link id, show can be 0 or 1, Url is the Url of the video to play
-  
-  const newStr = Url.replace("watch?v=", "embed/");
-  setUrl2(newStr)
-  setVideoId(id)
-  !!document.querySelector("#ipvideo"+id) &&
-      document.querySelector("#ipvideo"+id).scrollIntoView({
-        behavior: "smooth",
-      });
+  const playInPlaceVideo = (id, show, Url, event) => {
+    //id is the link id, show can be 0 or 1, Url is the Url of the video to play
+
+    const newStr = Url.replace("watch?v=", "embed/");
+    setUrl2(newStr);
+    setVideoId(id);
 
     let x1 = 0;
     if (show === undefined || show === null || show === "NaN") x1 = 0;
     else x1 = show;
-    const x = id //x is link id
+    const x = id; //x is link id
 
     if (x1 === 0) {
       //alert("going to increment")
       props.incrementHandleToggle({ id: x, show: 0 });
+
+      !!document.querySelector("#ipvideo" + id) &&
+        document.querySelector("#ipvideo" + id).scrollIntoView({
+          behavior: "smooth",
+        });
     } else {
       //alert("going to decrement")
       props.decrementHandleToggle({ id: x, show: 1 });
+      
+      !!document.querySelector(id) &&
+        document.querySelector(id).scrollIntoView({
+          behavior: "smooth",
+        });
     }
+  };
 
-  }
-   
-
-   const closeInPlaceVideo = (videoid, id) => {
-    
-    alert("close video, videoid="+videoid+",id="+id)
+  const closeInPlaceVideo = (videoid, id) => {
+    alert("close video, videoid=" + videoid + ",id=" + id);
     //window.document.getElementById("ipvideo"+videoid).style.display='none'
-   
-
-  }
-
-  
-  
+  };
 
   return (
     <div key={props.index}>
@@ -1001,62 +995,74 @@ const LinkListItem = (props) => {
             </Link>
           </div>
         )}
-         {isityt2(props.Url) && <div>
-            
-              <span className="" style={{ cursor: "pointer" }} 
+        {isityt2(props.Url) && (
+          <div>
+            <span
+              className=""
+              style={{ cursor: "pointer" }}
               //onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}
-              onClick={()=>playInPlaceVideo(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1
-              >
-                {props.show===0?'Play video in place':'Close video'}
-              </span>
-             
-            
-          </div>}
+              onClick={() => playInPlaceVideo(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1
+            >
+              {props.show === 0 ? "Play video in place" : "Close video"}
+            </span>
+          </div>
+        )}
         {props.signup.signup === true ? (
           <span className="bg-light-orange- height48- height14x flexrowzv2">
             <span className="ib margin-left-11- margin-right-1- height14x- flexrowzv-">
-            {/* <span className="ib">
+              {/* <span className="ib">
               Remove link:&nbsp;
             </span> */}
-            <input
-              type="checkbox"
-              id={"delete%" + props.id}
-              name={"delete%" + props.id}
-              value={props.id}
-              onChange={handleCheckboxDelete}
-              title="click to delete the url"
-              className="ib margin-top-1x- margin-left-n-14x- margin-top-14x pointereventsauto"
-              
-              style={{'visibility':'hidden'}}
-            />
-            <label title="This will remove this link from your list." className="ib cursor-pointer margin-bottom-1x-" htmlFor={"delete%" + props.id} >Remove link</label>
+              <input
+                type="checkbox"
+                id={"delete%" + props.id}
+                name={"delete%" + props.id}
+                value={props.id}
+                onChange={handleCheckboxDelete}
+                title="click to delete the url"
+                className="ib margin-top-1x- margin-left-n-14x- margin-top-14x pointereventsauto"
+                style={{ visibility: "hidden" }}
+              />
+              <label
+                title="This will remove this link from your list."
+                className="ib cursor-pointer margin-bottom-1x-"
+                htmlFor={"delete%" + props.id}
+              >
+                Remove link
+              </label>
             </span>
 
             <span className="ib margin-right-1">
-            {/* <span className="ib margin-left-11- color-black margin-top-2x-">
+              {/* <span className="ib margin-left-11- color-black margin-top-2x-">
               {!!props.showpublic ? "Make link private" : "Make link public"}
               :&nbsp;
             </span> */}
-            <input
-              style={{ cursor: "pointer",'visibility':'hidden' }}
-              checked={!!props.showpublic ? "" : "checked"}
-              type="checkbox"
-              id={"private%" + props.id}
-              name={"private%" + props.id}
-              value={props.id}
-              onChange={() => handleCheckboxPrivate(!!props.showpublic, event)}
-              title={
-                !!props.showpublic
-                  ? "click to make url private"
-                  : "click to make url public"
-              }
-              className="ib margin-top-2x- margin-left-n-14x- margin-top-14x pointereventsauto"
-              
-            />
-            <label title="A private link won't show up in your shared page. It will only be visible to you." className="ib cursor-pointer margin-bottom-1x-" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
+              <input
+                style={{ cursor: "pointer", visibility: "hidden" }}
+                checked={!!props.showpublic ? "" : "checked"}
+                type="checkbox"
+                id={"private%" + props.id}
+                name={"private%" + props.id}
+                value={props.id}
+                onChange={() =>
+                  handleCheckboxPrivate(!!props.showpublic, event)
+                }
+                title={
+                  !!props.showpublic
+                    ? "click to make url private"
+                    : "click to make url public"
+                }
+                className="ib margin-top-2x- margin-left-n-14x- margin-top-14x pointereventsauto"
+              />
+              <label
+                title="A private link won't show up in your shared page. It will only be visible to you."
+                className="ib cursor-pointer margin-bottom-1x-"
+                htmlFor={"private%" + props.id}
+              >
+                {!!props.showpublic ? "Make link private" : "Make link public"}
+              </label>
             </span>
 
-            
             <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1">
               <span className="ib cursor-default">Views:</span>
               <span
@@ -1070,25 +1076,25 @@ const LinkListItem = (props) => {
             </span>
 
             <span className="ib flexrowzv- margin-right-1">
-            <span
-              ref={myRef2}
-              className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0`}
-              //href="#"
+              <span
+                ref={myRef2}
+                className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0`}
+                //href="#"
 
-              data-value={props.id}
-              title={"click to like"}
-              onClick={() => storeScrollPosition2(props.likes, event)}
-            >
-              Likes:
-            </span>
-            <span
-              className="ib margin-left-11tx- font-weight-900- margin-top-2x-"
-              title={
-                "This is the number of times someone has clicked this link."
-              }
-            >
-              {props.likes === undefined ? 0 : props.likes}
-            </span>
+                data-value={props.id}
+                title={"click to like"}
+                onClick={() => storeScrollPosition2(props.likes, event)}
+              >
+                Likes:
+              </span>
+              <span
+                className="ib margin-left-11tx- font-weight-900- margin-top-2x-"
+                title={
+                  "This is the number of times someone has clicked this link."
+                }
+              >
+                {props.likes === undefined ? 0 : props.likes}
+              </span>
             </span>
             {props.rt !== "readonly" ? (
               <span className="ib flexrowzv- margin-top-2x-">
@@ -1120,49 +1126,59 @@ const LinkListItem = (props) => {
           </span>
         ) : (
           <span className="bg-light-orange- height48- height14x flexrowzv2">
-          <span className="ib margin-left-11- margin-right-1- height14x- flexrowzv-">
-            {/* <span className="ib">
+            <span className="ib margin-left-11- margin-right-1- height14x- flexrowzv-">
+              {/* <span className="ib">
               Remove link:&nbsp;
             </span> */}
-            <input
-              type="checkbox"
-              id={"delete%" + props.id}
-              name={"delete%" + props.id}
-              value={props.id}
-              onChange={handleCheckboxDelete}
-              title="click to delete the url"
-              className="ib margin-top-1x- margin-left-n-14x- margin-top-14x pointereventsnone"
-              
-              style={{'visibility':'hidden'}}
-            />
-            <label className="ib cursor-pointer- pointereventsnone margin-bottom-1x-" htmlFor={"delete%" + props.id} >Remove link</label>
+              <input
+                type="checkbox"
+                id={"delete%" + props.id}
+                name={"delete%" + props.id}
+                value={props.id}
+                onChange={handleCheckboxDelete}
+                title="click to delete the url"
+                className="ib margin-top-1x- margin-left-n-14x- margin-top-14x pointereventsnone"
+                style={{ visibility: "hidden" }}
+              />
+              <label
+                className="ib cursor-pointer- pointereventsnone margin-bottom-1x-"
+                htmlFor={"delete%" + props.id}
+              >
+                Remove link
+              </label>
             </span>
 
             <span className="ib margin-right-1">
-            {/* <span className="ib margin-left-11- color-black margin-top-2x-">
+              {/* <span className="ib margin-left-11- color-black margin-top-2x-">
               {!!props.showpublic ? "Make link private" : "Make link public"}
               :&nbsp;
             </span> */}
-            <input
-              style={{ cursor: "pointer",'visibility':'hidden' }}
-              checked={!!props.showpublic ? "" : "checked"}
-              type="checkbox"
-              id={"private%" + props.id}
-              name={"private%" + props.id}
-              value={props.id}
-              onChange={() => handleCheckboxPrivate(!!props.showpublic, event)}
-              title={
-                !!props.showpublic
-                  ? "click to make url private"
-                  : "click to make url public"
-              }
-              className="ib margin-top-2x- margin-left-n-14x- margin-top-14x pointereventsnone"
-              
-            />
-            <label title="A private link won't show up in your shared page. It will only be visible to you." className="ib cursor-pointer- pointereventsnone margin-bottom-1x-" htmlFor={"private%" + props.id} >{!!props.showpublic ? "Make link private" : "Make link public"}</label>
+              <input
+                style={{ cursor: "pointer", visibility: "hidden" }}
+                checked={!!props.showpublic ? "" : "checked"}
+                type="checkbox"
+                id={"private%" + props.id}
+                name={"private%" + props.id}
+                value={props.id}
+                onChange={() =>
+                  handleCheckboxPrivate(!!props.showpublic, event)
+                }
+                title={
+                  !!props.showpublic
+                    ? "click to make url private"
+                    : "click to make url public"
+                }
+                className="ib margin-top-2x- margin-left-n-14x- margin-top-14x pointereventsnone"
+              />
+              <label
+                title="A private link won't show up in your shared page. It will only be visible to you."
+                className="ib cursor-pointer- pointereventsnone margin-bottom-1x-"
+                htmlFor={"private%" + props.id}
+              >
+                {!!props.showpublic ? "Make link private" : "Make link public"}
+              </label>
             </span>
 
-            
             <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1">
               <span className="ib cursor-default">Views:</span>
               <span
@@ -1176,25 +1192,25 @@ const LinkListItem = (props) => {
             </span>
 
             <span className="ib flexrowzv- margin-right-1">
-            <span
-              ref={myRef2}
-              className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0 pointereventsnone`}
-              //href="#"
+              <span
+                ref={myRef2}
+                className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0 pointereventsnone`}
+                //href="#"
 
-              data-value={props.id}
-              title={"click to like"}
-              onClick={() => storeScrollPosition2(props.likes, event)}
-            >
-              Likes:
-            </span>
-            <span
-              className="ib margin-left-11tx- font-weight-900- margin-top-2x-"
-              title={
-                "This is the number of times someone has clicked this link."
-              }
-            >
-              {props.likes === undefined ? 0 : props.likes}
-            </span>
+                data-value={props.id}
+                title={"click to like"}
+                onClick={() => storeScrollPosition2(props.likes, event)}
+              >
+                Likes:
+              </span>
+              <span
+                className="ib margin-left-11tx- font-weight-900- margin-top-2x-"
+                title={
+                  "This is the number of times someone has clicked this link."
+                }
+              >
+                {props.likes === undefined ? 0 : props.likes}
+              </span>
             </span>
             {props.rt !== "readonly" ? (
               <span className="ib flexrowzv- margin-top-2x-">
@@ -1258,7 +1274,21 @@ const LinkListItem = (props) => {
 
       {true && (
         <div className="flexrow2w2 border5-">
-          <span><a href={!!props.AdUrl===true?props.AdUrl:"https://example.com"} target="_blank"><span className='nounderline color-black'>See what is for sale:</span>{!!props.addescription===true?props.addescription:"nothing yet"}</a></span>
+          <span>
+            <a
+              href={
+                !!props.AdUrl === true ? props.AdUrl : "https://example.com"
+              }
+              target="_blank"
+            >
+              <span className="nounderline color-black">
+                See what is for sale:
+              </span>
+              {!!props.addescription === true
+                ? props.addescription
+                : "nothing yet"}
+            </a>
+          </span>
         </div>
       )}
 
@@ -1266,7 +1296,13 @@ const LinkListItem = (props) => {
         <span className="ib padding-left-n-1z-  margin-top-n-15a margin-bottom-abc">
           Link saved on:{" "}
           {/* {moment(props.createdAt).format("MMMM Do, YYYY, h:mm:ss a")}&nbsp;pst */}
-          {new Date(props.createdAt).toLocaleDateString()+" at "+new Date(props.createdAt).toLocaleTimeString()+" "+new Date(props.createdAt).toLocaleDateString(undefined, { weekday: 'long' })}
+          {new Date(props.createdAt).toLocaleDateString() +
+            " at " +
+            new Date(props.createdAt).toLocaleTimeString() +
+            " " +
+            new Date(props.createdAt).toLocaleDateString(undefined, {
+              weekday: "long",
+            })}
         </span>
       </div>
 
@@ -1275,32 +1311,14 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
 
-
-
-
-
-      <div
-        id={"ipvideo"+props.id}
-      >
-          {(videoId === props.id) && props.show===1 &&
-          <div
-            className="margin-bottom-1z1"
-            >
-              
-              {/* <div>{"props.show="+props.show}</div> */}
-              <BasicIframe 
-                src={url2} 
-              />
-          </div>}
+      <div id={"ipvideo" + props.id}>
+        {videoId === props.id && props.show === 1 && (
+          <div className="margin-bottom-1z1">
+            {/* <div>{"props.show="+props.show}</div> */}
+            <BasicIframe src={url2} />
+          </div>
+        )}
       </div>
-
-
-
-
-
-
-
-
 
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">
@@ -1355,10 +1373,8 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(incrementTotalStarClickCount(data)),
   decrementTotalStarClickCount: (data) =>
     dispatch(decrementTotalStarClickCount(data)),
-  incrementHandleToggle: (data) =>
-    dispatch(incrementHandleToggle(data)),
-  decrementHandleToggle: (data) =>
-    dispatch(decrementHandleToggle(data)),
+  incrementHandleToggle: (data) => dispatch(incrementHandleToggle(data)),
+  decrementHandleToggle: (data) => dispatch(decrementHandleToggle(data)),
 });
 
 export default withRouter(

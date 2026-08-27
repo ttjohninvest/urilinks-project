@@ -53,14 +53,16 @@ export const getThehashtagsisopen2 = (id) => {
            hashtagsisopen:0
         }
 
-        if (snapshot.val() === null) {
-          //theplan = "free";
-          dispatch(startAddThehashtagsisopen(zhashtagsisopen))
-        } else {
-          //theplan=snapshot.val();
-          //zplan=snapshot.val();
-          dispatch(addThehashtagsisopen(snapshot.val()));
-        }
+         dispatch(startAddThehashtagsisopen(zhashtagsisopen)) //always reinitialize it if it was open when the program was closed
+
+        // if (snapshot.val() === null) {
+        //   //theplan = "free";
+        //   dispatch(startAddThehashtagsisopen(zhashtagsisopen))
+        // } else {
+        //   //theplan=snapshot.val();
+        //   //zplan=snapshot.val();
+        //   dispatch(addThehashtagsisopen(snapshot.val()));
+        // }
        
       });
   };
@@ -86,15 +88,17 @@ export const getThehashtagsisopen = (uid) => {
            hashtagsisopen:0
         }
 ////
-        if (snapshot.val() === null) {
-          //theplan = "free";
-          dispatch(startAddThehashtagsisopen(zhashtagsisopen))
-        } else {
-          //theplan=snapshot.val();
-          //zplan=snapshot.val();
-          //console.log("app.js, zplan="+JSON.stringify(zplan))
-          dispatch(addThehashtagsisopen(snapshot.val()));
-        }
+        dispatch(startAddThehashtagsisopen(zhashtagsisopen)) //always reinitialize it if it was open when the program was closed
+
+        // if (snapshot.val() === null) {
+        //   //theplan = "free";
+        //   dispatch(startAddThehashtagsisopen(zhashtagsisopen))
+        // } else {
+        //   //theplan=snapshot.val();
+        //   //zplan=snapshot.val();
+        //   //console.log("app.js, zplan="+JSON.stringify(zplan))
+        //   dispatch(addThehashtagsisopen(snapshot.val()));
+        // }
         
       });
   };

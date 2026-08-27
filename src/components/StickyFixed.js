@@ -3,8 +3,9 @@ import React, {useState, useEffect, useRef} from 'react'
 const StickyFixed = ({ children }) => {
   const [isFixed, setIsFixed] = useState(false);
   const [offset, setOffset] = useState(0);
+  const [thetop, setThetop] = useState(0);
   const ref = useRef(null);
-
+  
   useEffect(() => {
     if (ref.current) {
       setOffset(ref.current.getBoundingClientRect().top);
@@ -13,6 +14,7 @@ const StickyFixed = ({ children }) => {
     const handleScroll = () => {
       if (window.scrollY > offset) {
         setIsFixed(true);
+        setThetop(window.scrollY)
       } else {
         setIsFixed(false);
       }
@@ -30,7 +32,7 @@ const StickyFixed = ({ children }) => {
       //style={{ height: '28px', border: '2px solid red'}}
       />
       {isFixed && (
-        <div style={{ position: 'fixed', top: (-1*offset), zIndex: 99, border: '2px solid green' }}>
+        <div style={{ position: 'fixed', top: thetop, zIndex: 99, border: '2px solid green' }}>
           {children}
         </div>
       )}

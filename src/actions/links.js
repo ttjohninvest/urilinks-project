@@ -3,7 +3,7 @@ import { v4 } from "uuid";
 //import { ServerValue } from "../firebase/firebase";
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags";
-import {toggleItemShow} from '../features/toggle'
+import {toggleItemShow} from '../features/toggle/creatslice'
 import setHashTags2WithCount from "./hashtags2withcount";
 
 export const handleToggle = (id) => {

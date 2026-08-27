@@ -1005,7 +1005,7 @@ function ExpandableArray(props) {
                     </span>
                   )}
 
-                  {props.signup === true && rt !== "readonly" ? (
+                  {props.signup === true || props.signup === false && rt !== "readonly" ? (
                     <div className="">
                       {/*end email is not working in mobile phone*/}
                       {/* <a

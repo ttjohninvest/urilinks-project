@@ -31,14 +31,16 @@ const HashTagsButton = (props) => {
       let x1 = 0;
       if (hashtagsisopen === undefined || hashtagsisopen === null || hashtagsisopen === "NaN") x1 = 0;
       else x1 = hashtagsisopen;
-      const x = event.target.getAttribute("data-value"); //x is link id
+      //const x = event.target.getAttribute("data-value"); //x is link id
   
       if (x1 === 0) {
         //alert("going to increment")
-        props.incrementHashtagsIsOpenClickCount({ id: x, hashtagsisopen: 0 });
+        //props.incrementHashtagsIsOpenClickCount({ id: x, hashtagsisopen: 0 });
+        props.incrementHashtagsIsOpenClickCount({ hashtagsisopen: 0 });
       } else {
         //alert("going to decrement")
-        props.decrementHashtagsIsOpenClickCount({ id: x, hashtagsisopen: 1 });
+        //props.decrementHashtagsIsOpenClickCount({ id: x, hashtagsisopen: 1 });
+        props.decrementHashtagsIsOpenClickCount({ hashtagsisopen: 1 });
       }
   
       window.localStorage.setItem("scrollPosition", window.scrollY);

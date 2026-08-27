@@ -1211,7 +1211,7 @@ function ExpandableArray(props) {
                         id="adlinkid"
                         href="#"
                         title="Email your sharable link to share with others. Email recipient sees readonly page"
-                        className={`ib flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                        className={`pointereventsnone ib flexrowzc2 cursor-default width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                         onClick={handleClick}
                       >
                         <span className="ib color-white-1">
@@ -1225,7 +1225,7 @@ function ExpandableArray(props) {
                       >
                         Add A link
                       </button> */}
-                      <AddALinkButton />
+                      <AddALinkButton x={false}/>
                       {/* {isForm2Open && (
                         <AddLinkPage
                           isForm2Open={isForm2Open}

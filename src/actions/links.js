@@ -599,7 +599,7 @@ export const startSetLinks = (uid) => {
             aval.likes = parseInt(0) 
            if(aval.star === undefined || aval.star === null)
             aval.star = parseInt(0) 
-          if(aval.show === undefined || aval.show === null || aval.show === 1)
+          if(aval.show === undefined || aval.show === null || aval.show === 1) //if the website was closed before the user had a change to close the video this will reset it so Close Video won't be displaying
             aval.show = parseInt(0) 
          
           links2.push({

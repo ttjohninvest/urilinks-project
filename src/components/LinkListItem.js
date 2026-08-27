@@ -19,6 +19,7 @@ import {
   decrementLinkLikesClickCount,
   incrementLinkStarClickCount,
   decrementLinkStarClickCount,
+  handleToggle,
 } from "../actions/links";
 
 import {
@@ -1354,6 +1355,8 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(incrementTotalStarClickCount(data)),
   decrementTotalStarClickCount: (data) =>
     dispatch(decrementTotalStarClickCount(data)),
+   handleToggle: (data) =>
+    dispatch(handleToggle(data)),
 });
 
 export default withRouter(

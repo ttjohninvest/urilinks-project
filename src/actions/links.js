@@ -25,10 +25,12 @@ import setHashTags2WithCount from "./hashtags2withcount";
 //   },
 // });
 
-export const handleToggle = (id) => {
-   type: "UPDATE_LINKS_SHOW",
-   id
-  };
+
+
+  export const handleToggle = (id) => ({
+  type: "UPDATE_LINKS_SHOW",
+  link,
+});
 
 // ADD_LINK
 export const addLink = (link) => ({

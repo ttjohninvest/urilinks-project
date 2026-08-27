@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import BasicIframe from "./BasicIframe";
-import {handleToggle} from "../actions/links"
+
 import visited from "../assets/images/visited-1.png";
 import {
   startRemoveLink,

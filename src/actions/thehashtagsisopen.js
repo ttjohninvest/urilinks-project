@@ -154,7 +154,7 @@ export const decrementHashtagsIsOpenClickCount2 = (thehashtagsisopen) => ({
   thehashtagsisopen,
 });
 
-export const incrementTotalStarClickCount = (x) => {
+export const incrementHashtagsIsOpenClickCount = (x) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     // alert("incrementClickCount, uid="+uid)
@@ -174,7 +174,7 @@ export const incrementTotalStarClickCount = (x) => {
   };
 };
 
-export const decrementTotalStarClickCount = (x) => {
+export const decrementHashtagsIsOpenClickCount = (x) => {
   //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;

@@ -10,9 +10,9 @@ export default (state = linksReducerDefaultState, action) => {
       // action.payload should contain the ID or index of the item to toggle
       return state.map((link) => {
         // Use a unique identifier (like item.id) to find the correct object
-        if (link.id === action.data.id) {
+        if (link.id === action.id) {
           // Create a new object with the toggled property
-          return { ...link, show: link.show===1?0:1};
+          return { ...link, show: action.updates.show===1?0:1};
         }
         return link;
       });

@@ -6,10 +6,35 @@ import setHashTags from "./hashtags";
 //import {toggleItemShow} from '../features/toggle/creatslice'
 import setHashTags2WithCount from "./hashtags2withcount";
 
-  export const handleToggle = (data) => ({
+//   export const handleToggle = (data) => ({
+//   type: "UPDATE_LINKS_SHOW",
+//   data,
+// });
+
+export const handleToggle2 = (id, updates) => ({
   type: "UPDATE_LINKS_SHOW",
-  data,
+  id,
+  updates,
 });
+
+export const handleToggle = ({ id,linkid } = {}) => {
+  
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    //update(dbRef, { value: increment(1) });
+    return database
+      .ref(`users/${uid}/links/${id}`)
+      .update({show:getState().show===0?1:0}) //{showpublic:0}
+      .then(() => {
+        //alert("success")
+        
+        dispatch(handleToggle2(id,{show:getState().show===0?1:0}));
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+  };
+};
 
 // ADD_LINK
 export const addLink = (link) => ({

@@ -5,6 +5,20 @@ const linksReducerDefaultState = [];
 export default (state = linksReducerDefaultState, action) => {
   switch (action.type) {
 
+      case UPDATE_LINKS_SHOW :
+       
+      // action.payload should contain the ID or index of the item to toggle
+      return state.map((link) => {
+        // Use a unique identifier (like item.id) to find the correct object
+        if (link.id === action.id) {
+          // Create a new object with the toggled property
+          return { ...link, show: !link.show };
+        }
+        return link;
+      });
+    
+        
+
       case "DECREMENT_LINK_STAR_COUNT":
        return state.map((link) => {
         if (link.id === action.id) {

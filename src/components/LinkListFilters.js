@@ -1203,8 +1203,14 @@ function ExpandableArray(props) {
                         )
                       }
                     </div>
-                  ) : (
-                    <div className="bg-color-4"></div>
+                  ) : (<div>
+                  <div className="bg-color-4"></div>
+                  <HashTagsButton
+                        changeSortBy={changeSortBy}
+                        //setSortBy={setSortBy}
+                      />
+                  </div>
+                    
                   )}
                 </div>
               )}

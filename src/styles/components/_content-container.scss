@@ -59,8 +59,8 @@
   //width:100%;
   width:675px;
   height: 400vh; //150vh; //112vh;
-  // overflow-y: auto;
-  // overflow-x: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   margin-left: 1rem;
 }
 
@@ -408,7 +408,7 @@ input#option1[type="radio"] {
 }
 
 .sticky-div {
-  position: sticky;
+  position: fixed;
   top: 0;
 }
 

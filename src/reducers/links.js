@@ -5,7 +5,7 @@ const linksReducerDefaultState = [];
 export default (state = linksReducerDefaultState, action) => {
   switch (action.type) {
 
-      case UPDATE_LINKS_SHOW :
+      case "UPDATE_LINKS_SHOW" :
        
       // action.payload should contain the ID or index of the item to toggle
       return state.map((link) => {

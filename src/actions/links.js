@@ -530,6 +530,8 @@ export const startSetLinks = (uid) => {
             aval.likes = parseInt(0) 
            if(aval.star === undefined || aval.star === null)
             aval.star = parseInt(0) 
+          if(aval.show === undefined || aval.show === null)
+            aval.show = parseInt(0) 
          
           links2.push({
             id: childSnapshot.key,

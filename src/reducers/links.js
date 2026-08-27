@@ -12,13 +12,11 @@ export default (state = linksReducerDefaultState, action) => {
         // Use a unique identifier (like item.id) to find the correct object
         if (link.id === action.data.id) {
           // Create a new object with the toggled property
-          return { ...link, show: !!link.show === true ? (link.show===1?0:1):1 };
+          return { ...link, show: link.show===1?0:1};
         }
         return link;
       });
     
-        
-
       case "DECREMENT_LINK_STAR_COUNT":
        return state.map((link) => {
         if (link.id === action.id) {

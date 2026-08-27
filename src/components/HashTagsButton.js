@@ -19,10 +19,6 @@ const HashTagsButton = (props) => {
     return regex.test(navigator.userAgent);
   };
 
-  const handleClose = () => {
-    setIsDisplayed(false);
-  };
-
   const storeScrollPosition4 = (hashtagsisopen, event) => {
       // let x1 = 0;
       // if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
@@ -47,6 +43,13 @@ const HashTagsButton = (props) => {
   
       window.localStorage.setItem("scrollPosition", window.scrollY);
     };
+
+  const handleClose = () => {
+    storeScrollPosition4(props.thehashtagsisopen.hashtagsisopen)
+    setIsDisplayed(false);
+  };
+
+  
 
   const handleDisplay = () => {
     try {
@@ -82,8 +85,9 @@ const HashTagsButton = (props) => {
 //export default HashTagsButton;
 
 const mapStateToProps = (state) => ({
-  
+  thehashtagsisopen: state.thehashtagsisopen,
   signup: state.signup,
+
   
 });
 

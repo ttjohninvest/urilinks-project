@@ -1225,7 +1225,7 @@ function ExpandableArray(props) {
                       >
                         Add A link
                       </button> */}
-                      <AddALinkButton x={false}/>
+                      <AddALinkButton x={100}/>
                       {/* {isForm2Open && (
                         <AddLinkPage
                           isForm2Open={isForm2Open}

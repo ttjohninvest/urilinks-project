@@ -30,7 +30,7 @@ const AddALinkButton = (props) => {
   return (
     <div style={{ display: "inline" }}>
       <button
-        className={`${!!props.x===true && props.x === false?'pointereventsnone':''} margin-left-11 height48 button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"} button-2 bg-shade-1`}
+        className={`${!!props.x===true && props.x === 100?'pointereventsnone':''} margin-left-11 height48 button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"} button-2 bg-shade-1`}
         onClick={handleDisplay}
       >
         {isDisplayed ? "Displayed!" : "Add A Link"}

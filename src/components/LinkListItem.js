@@ -28,9 +28,6 @@ import {
   decrementTotalStarClickCount,
 } from "../actions/thetotalstars";
 
-
-
-
 import { Link, withRouter } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
@@ -249,8 +246,6 @@ const LinkListItem = (props) => {
 
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };
-
-  
 
   const storeScrollPosition3 = (star, event) => {
     const text =
@@ -914,10 +909,14 @@ const LinkListItem = (props) => {
         document.querySelector("#ipvideo" + id).scrollIntoView({
           behavior: "smooth",
         });
+      // !!document.querySelector("#forvideo" + id) &&
+      //   document.querySelector("#forvideo" + id).scrollIntoView({
+      //     behavior: "smooth",
+      //   });
     } else {
       //alert("going to decrement")
       props.decrementHandleToggle({ id: x, show: 1 });
-      
+
       !!document.querySelector(id) &&
         document.querySelector(id).scrollIntoView({
           behavior: "smooth",
@@ -1318,9 +1317,12 @@ const LinkListItem = (props) => {
 
       <div id={"ipvideo" + props.id}>
         {videoId === props.id && props.show === 1 && (
-          <div className="margin-bottom-1z1">
-            {/* <div>{"props.show="+props.show}</div> */}
-            <BasicIframe src={url2} />
+          <div>
+            <div className="height50"></div>
+            <div className="margin-bottom-1z1">
+              {/* <div>{"props.show="+props.show}</div> */}
+              <BasicIframe src={url2} />
+            </div>
           </div>
         )}
       </div>

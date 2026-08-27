@@ -42,7 +42,7 @@ export const incrementHandleToggle = ({ id,show } = {}) => {
   };
 };
 
-export const decrementHandleToggle = ({ id,likes } = {}) => {
+export const decrementHandleToggle = ({ id,show } = {}) => {
   
   return (dispatch, getState) => {
     const uid = getState().auth.uid;

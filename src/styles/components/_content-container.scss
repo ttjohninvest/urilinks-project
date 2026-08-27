@@ -409,7 +409,8 @@ input#option1[type="radio"] {
 
 .sticky-div {
   position: fixed;
-  top: 100;
+  top: -100;
+  z-index:1000;
 }
 
 .scrollable-container {

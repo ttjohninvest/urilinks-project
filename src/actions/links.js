@@ -29,7 +29,7 @@ import setHashTags2WithCount from "./hashtags2withcount";
 
   export const handleToggle = (id) => ({
   type: "UPDATE_LINKS_SHOW",
-  link,
+  id,
 });
 
 // ADD_LINK

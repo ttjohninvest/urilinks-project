@@ -419,7 +419,7 @@ function ExpandableArray(props) {
   };
 
   const search2 = (z) => {
-    stopScrolling2()
+    stopScrolling2();
     //handleCancelScroll()
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
@@ -460,7 +460,7 @@ function ExpandableArray(props) {
 
   const search = (z) => {
     //handleCancelScroll();
-    stopScrolling2()
+    stopScrolling2();
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
@@ -518,7 +518,7 @@ function ExpandableArray(props) {
   };
 
   const onSortChange = (e) => {
-    stopScrolling2()
+    stopScrolling2();
     //handleCancelScroll();
     if (
       e.target.value === "none" ||
@@ -660,57 +660,51 @@ function ExpandableArray(props) {
     setIsForm3Open(false);
   };
 
-   const startScrollingUp2 = () => {
-     try {
-    if(!!buttonRef2===true)
-    buttonRef2.current.click();
-   } catch(error) {
-    console.log("error="+error)
-  }
+  const startScrollingUp2 = () => {
+    try {
+      if (!!buttonRef2 === true) buttonRef2.current.click();
+    } catch (error) {
+      console.log("error=" + error);
+    }
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
     scrollInterval2.current = setInterval(() => {
-
       try {
-        if(!!document.getElementById("ls2")===true)
- document.getElementById("ls2").scrollBy({
-        top: 1, // Scroll 1 pixel each time
-        left: 0,
-        behavior: "auto",
-      });
-      } catch(error) {
-        console.log("error="+error)
+        if (!!document.getElementById("ls2") === true)
+          document.getElementById("ls2").scrollBy({
+            top: 1, // Scroll 1 pixel each time
+            left: 0,
+            behavior: "auto",
+          });
+      } catch (error) {
+        console.log("error=" + error);
       }
-     
 
       //console.log(document.getElementById("ls2").scrollTop +
       //    document.getElementById("ls2").clientHeight)
       //console.log(document.getElementById("ls2").scrollHeight)
-      if(!!document.getElementById("ls2")===true)
-      if (
-        document.getElementById("ls2").scrollTop +
-          document.getElementById("ls2").clientHeight >=
-        (document.getElementById("ls2").scrollHeight-2 ||  document.getElementById("ls2").scrollHeight+2)
-      ) {
-        
-        try {
-    if(!!buttonRef2===true)
-    buttonRef2.current.click();
-   } catch(error) {
-    console.log("error="+error)
-  }
-       try {
-       if(!!scrolldownref===true) //auto scroll in the other direction
-        scrolldownref.current.click()
-       } catch(error) {
-        console.log("error="+error)
-       }
-        
-        
-      }
+      if (!!document.getElementById("ls2") === true)
+        if (
+          document.getElementById("ls2").scrollTop +
+            document.getElementById("ls2").clientHeight >=
+          (document.getElementById("ls2").scrollHeight - 2 ||
+            document.getElementById("ls2").scrollHeight + 2)
+        ) {
+          try {
+            if (!!buttonRef2 === true) buttonRef2.current.click();
+          } catch (error) {
+            console.log("error=" + error);
+          }
+          try {
+            if (!!scrolldownref === true)
+              //auto scroll in the other direction
+              scrolldownref.current.click();
+          } catch (error) {
+            console.log("error=" + error);
+          }
+        }
     }, 20); // Every 20 milliseconds
- 
   };
 
   const stopScrolling2 = () => {
@@ -720,50 +714,51 @@ function ExpandableArray(props) {
 
   const startScrollingDown2 = () => {
     try {
-    if(!!buttonRef2===true)
-    buttonRef2.current.click();
-   } catch(error) {
-    console.log("error="+error)
-  }
+      if (!!buttonRef2 === true) buttonRef2.current.click();
+    } catch (error) {
+      console.log("error=" + error);
+    }
     // Prevent multiple intervals
     if (scrollInterval2.current) return;
 
     scrollInterval2.current = setInterval(() => {
-        try {
-       if(!!document.getElementById("ls2")===true) //auto scroll in the other direction
-         document.getElementById("ls2").scrollBy({
-        top: -1, // Scroll 1 pixel each time
-        left: 0,
-        behavior: "auto",
-      });
-       } catch(error) {
-        console.log("error="+error)
-       }
-     
+      try {
+        if (!!document.getElementById("ls2") === true)
+          //auto scroll in the other direction
+          document.getElementById("ls2").scrollBy({
+            top: -1, // Scroll 1 pixel each time
+            left: 0,
+            behavior: "auto",
+          });
+      } catch (error) {
+        console.log("error=" + error);
+      }
 
       // Stop automatically when reaching the top
-      if(!!document.getElementById("ls2")===true)
-      if (document.getElementById("ls2").scrollTop === 0 || document.getElementById("ls2").scrollTop <= 2) {
-        try {
-    if(!!buttonRef2===true)
-    buttonRef2.current.click();
-   } catch(error) {
-    console.log("error="+error)
-  }
+      if (!!document.getElementById("ls2") === true)
+        if (
+          document.getElementById("ls2").scrollTop === 0 ||
+          document.getElementById("ls2").scrollTop <= 2
+        ) {
+          try {
+            if (!!buttonRef2 === true) buttonRef2.current.click();
+          } catch (error) {
+            console.log("error=" + error);
+          }
 
-   try {
-       if(!!scrollupref===true) //auto scroll in the other direction
-          if(!!scrollupref===true) //auto scroll in the other direction
-        scrollupref.current.click()
-       } catch(error) {
-        console.log("error="+error)
-       }
-       
-       
-        //stopScrolling();
-      }
+          try {
+            if (!!scrollupref === true)
+              if (!!scrollupref === true)
+                //auto scroll in the other direction
+                //auto scroll in the other direction
+                scrollupref.current.click();
+          } catch (error) {
+            console.log("error=" + error);
+          }
+
+          //stopScrolling();
+        }
     }, 20); // Every 20 milliseconds
-   
   };
 
   return (
@@ -782,17 +777,13 @@ function ExpandableArray(props) {
               Internet Links Organizer Dashboard's Home Page
             </div>
             {props.signup === false && (
-              
               <div
- 
                 className={`ib- padding-left-n-x margin-top-1 margin-bottom-1 margin-left-n-7x`}
                 title=""
               >
                 To make money, you can add a text link ad with each link you
                 have. Please try a user account today. Thank you so much.
-                
               </div>
- 
             )}
           </div>
         </div>
@@ -1005,7 +996,8 @@ function ExpandableArray(props) {
                     </span>
                   )}
 
-                  {props.signup === true || props.signup === false && rt !== "readonly" ? (
+                  {props.signup === true ||
+                  (props.signup === false && rt !== "readonly") ? (
                     <div className="">
                       {/*end email is not working in mobile phone*/}
                       {/* <a
@@ -1060,7 +1052,13 @@ function ExpandableArray(props) {
                       }
                     </div>
                   ) : (
-                    <div className="minWidth- bg-color-4"></div>
+                    <div>
+                      <div className="minWidth- bg-color-4"></div>
+                      <HashTagsButton
+                        changeSortBy={changeSortBy}
+                        //setSortBy={setSortBy}
+                      />
+                    </div>
                   )}
                 </div>
               ) : (
@@ -1203,14 +1201,10 @@ function ExpandableArray(props) {
                         )
                       }
                     </div>
-                  ) : (<div>
-                  <div className="bg-color-4"></div>
-                  <HashTagsButton
-                        changeSortBy={changeSortBy}
-                        //setSortBy={setSortBy}
-                      />
-                  </div>
-                    
+                  ) : (
+                    <div>
+                      <div className="bg-color-4"></div>
+                    </div>
                   )}
                 </div>
               )}
@@ -1272,7 +1266,9 @@ function ExpandableArray(props) {
                       </button>
                     </div>
 
-                    <div className={`margin-top-n-1z margin-left-11 border5- margin-top-1`}>
+                    <div
+                      className={`margin-top-n-1z margin-left-11 border5- margin-top-1`}
+                    >
                       <select
                         id="mode"
                         className="select outline-none borderRadius55"
@@ -1492,11 +1488,21 @@ function ExpandableArray(props) {
               </div>
             )}
 
-            <div className="margin-bottom-1">❤️ Benefits: urilinks is a platform for orgainizing links to website content and publishing your own links to website content to a worldwide audience. It is made with love and care. It works. You can make money with text ads. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. My phone number is 775 559 5740, John, Mr McGovern. Please try a user account today. Thank you so much.</div>
+            <div className="margin-bottom-1">
+              ❤️ Benefits: urilinks is a platform for orgainizing links to
+              website content and publishing your own links to website content
+              to a worldwide audience. It is made with love and care. It works.
+              You can make money with text ads. It has search and sort. It is
+              user friendy. You can share your links with one url. You can see
+              end points of links that you have saved. My phone number is 775
+              559 5740, John, Mr McGovern. Please try a user account today.
+              Thank you so much.
+            </div>
 
             <div>
               {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
-              🙂 URILINKS INSTRUCTIONS TO ORGANIZE, SAVE, FIND, LOOK AT LINK END-POINTS AND SHARE PAGE OF LINK(S) WITH URL:
+              🙂 URILINKS INSTRUCTIONS TO ORGANIZE, SAVE, FIND, LOOK AT LINK
+              END-POINTS AND SHARE PAGE OF LINK(S) WITH URL:
               <br />
               <br />
               ✮ Use Bookmarks upload to upload a bookmarks.html file that is
@@ -1516,7 +1522,8 @@ function ExpandableArray(props) {
               ✮ It has autoscroll.
               <br />
               <br />
-              ✮ I you add new links to your page, everybody that has your shared page sees your new links.
+              ✮ I you add new links to your page, everybody that has your shared
+              page sees your new links.
               <br />
               <br />
               ✮ Use the search field to add word(s) to search for.

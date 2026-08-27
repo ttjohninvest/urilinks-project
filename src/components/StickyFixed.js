@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 
 const StickyFixed = ({ children }) => {
   const [isFixed, setIsFixed] = useState(false);
-  const [offset, setOffset] = useState(20);
+  const [offset, setOffset] = useState(-20);
   const ref = useRef(null);
 
   useEffect(() => {

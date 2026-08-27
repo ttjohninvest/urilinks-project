@@ -352,7 +352,7 @@ export const LinkList = (props) => {
           {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`}
         </div>
       )}
-      {props.links.length > 1 && <div className="margin-left-11 sticky-div">
+      {props.links.length > 1 && <div className="margin-left-11 sticky-div-">
         <button
           id="scrollup1"
           ref={props.scrollupref}

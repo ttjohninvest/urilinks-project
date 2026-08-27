@@ -894,6 +894,7 @@ const LinkListItem = (props) => {
 
   const playInPlaceVideo = (videoid, id, Url) => {
 
+    alert("calling handleToggle, id="+id)
     handleToggle({id:props.id})
   
   const newStr = Url.replace("watch?v=", "embed/");

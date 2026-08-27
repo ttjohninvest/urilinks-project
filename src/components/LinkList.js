@@ -355,7 +355,7 @@ export const LinkList = (props) => {
       )}
       {props.links.length > 1 && 
       <StickyFixed>
-      <div className="margin-left-11 margin-top-1 sticky-div-">
+      <div className="margin-left-11 margin-top-n-1u">
         <button
           id="scrollup1"
           ref={props.scrollupref}

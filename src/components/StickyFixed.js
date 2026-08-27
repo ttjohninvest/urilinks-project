@@ -28,14 +28,14 @@ const StickyFixed = ({ children }) => {
       <div 
       style={{ height: '20px', visibility: isFixed ? 'hidden' : 'visible', border: '2px solid red' }} 
       //style={{ height: '28px', border: '2px solid red'}} 
-      >
+      />
       {isFixed && (
         <div style={{ position: 'fixed', top: offset, zIndex: 99, border: '2px solid green' }}>
           {children}
         </div>
       )}
     </div>
-    </div>
+    
   );
 };   
 

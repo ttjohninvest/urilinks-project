@@ -3,6 +3,7 @@ const LIST_ALL_PUBLIC_LINKS_PEOPLE = false; //I commented the code out to fix th
 const DISPLAY_THIS_MANY_LINKS = 400;
 import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
+import StickyFixed from "./StickyFixed";
 import MyInfiniteScroll from "./MyInfiniteScroll";
 import MyInfiniteScroll2 from "./MyInfiniteScroll2";
 import MyInfiniteScroll4 from "./MyInfiniteScroll4";
@@ -352,7 +353,9 @@ export const LinkList = (props) => {
           {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`}
         </div>
       )}
-      {props.links.length > 1 && <div className="margin-left-11 sticky-div">
+      {props.links.length > 1 && 
+      <StickyFixed>
+      <div className="margin-left-11 sticky-div-">
         <button
           id="scrollup1"
           ref={props.scrollupref}
@@ -380,7 +383,9 @@ export const LinkList = (props) => {
         >
           <span>ScrollDn</span>
         </button>
-      </div>}
+      </div>
+      </StickyFixed>
+      }
 
       <div className="border-left-5">
         <div id="before-link-summary-id" className="margin-bottom-5a"></div>

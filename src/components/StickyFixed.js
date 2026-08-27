@@ -27,7 +27,7 @@ const StickyFixed = ({ children }) => {
       <div ref={ref} style={{ height: '20px' }}>{children}</div>
       <div 
       //style={{ height: '20px', visibility: isFixed ? 'hidden' : 'visible' }} 
-      style={{ height: '20px'}} 
+      style={{ height: '25px'}} 
       />
       {isFixed && (
         <div style={{ position: 'fixed', top: offset-467, zIndex: 99 }}>

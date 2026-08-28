@@ -1319,7 +1319,7 @@ const LinkListItem = (props) => {
         {videoId === props.id && props.show === 1 && (
           <div>
             <div className="height50 width100"
-            style={{border:'1px solid red', visibility:"hidden"}}
+            style={{border:'1px solid red'}}
             ></div>
             <div className="margin-bottom-1z1">
               <BasicIframe src={url2} />

@@ -803,8 +803,10 @@ export const startSetLinksNew = (uid) => {
             aval.frequency = parseInt(0) //9999999
           if(aval.likes === undefined || aval.likes === null)
             aval.likes = parseInt(0) 
-           if(aval.star === undefined || aval.star === null  || aval.show === 1 )
+           if(aval.star === undefined || aval.star === null)
             aval.star = parseInt(0) 
+          if(aval.show === undefined || aval.show === null  || aval.show === 1 )
+            aval.show = parseInt(0) 
          
           links2.push({
             id: childSnapshot.key,

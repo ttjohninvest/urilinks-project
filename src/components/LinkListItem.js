@@ -260,20 +260,26 @@ const LinkListItem = (props) => {
       if (x1 === 0) {
         //alert("going to increment,id="+x)
         //alert("going to increment,id="+x+", props.star="+props.star)
-        props.incrementLinkStarClickCount({ id: x, star: 0 });
-        if (parseInt(props.thetotalstars.totalstars) < 10)
-          props.incrementTotalStarClickCount({
+        
+        if (parseInt(props.thetotalstars.totalstars) < 10) {
+           props.incrementLinkStarClickCount({ id: x, star: 0 });
+           props.incrementTotalStarClickCount({
             totalstars: props.thetotalstars.totalstars,
           });
+        }
+         
         else alert("You have ten of ten stars selected for your top ten.");
       } else {
         //alert("going to increment,id="+x)
         //alert("going to increment,id="+x+", props.star="+props.star)
-        props.decrementLinkStarClickCount({ id: x, star: 1 });
-        if (props.thetotalstars.totalstars > 0)
-          props.decrementTotalStarClickCount({
+       
+        if (props.thetotalstars.totalstars > 0) {
+            props.decrementLinkStarClickCount({ id: x, star: 1 });
+           props.decrementTotalStarClickCount({
             totalstars: props.thetotalstars.totalstars,
           });
+        }
+         
         else alert("You have zero of ten stars selected for your top ten.");
       }
 

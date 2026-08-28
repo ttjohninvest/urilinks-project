@@ -803,7 +803,7 @@ export const startSetLinksNew = (uid) => {
             aval.frequency = parseInt(0) //9999999
           if(aval.likes === undefined || aval.likes === null)
             aval.likes = parseInt(0) 
-           if(aval.star === undefined || aval.star === null)
+           if(aval.star === undefined || aval.star === null  || aval.show === 1 )
             aval.star = parseInt(0) 
          
           links2.push({

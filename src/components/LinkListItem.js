@@ -1111,12 +1111,10 @@ const LinkListItem = (props) => {
                   title={"click to select to your top ten"}
                   onClick={() => storeScrollPosition3(props.star, event)}
                 >
-                  
-                  <span>
-                  Is In My Top Ten?:
-                  
-                   
-                   <span
+                  To My Top Ten:
+                </span>
+
+                <span
                   className="ib margin-left-11tx- font-weight-900- margin-top-1x-"
                   title={"This is a selection to your top ten."}
                 >
@@ -1127,9 +1125,7 @@ const LinkListItem = (props) => {
                       : "No"}
                   {/* {props.star === undefined ? "No" : "Yes"} */}
                 </span>
-                </span>
-                </span>
-                </span>
+              </span>
               
             ) : null}
           </span>
@@ -1222,20 +1218,19 @@ const LinkListItem = (props) => {
               </span>
             </span>
             {props.rt !== "readonly" ? (
-              <span className="ib flexrowzv- margin-top-2x-">
+               <span className="ib flexrowzv- margin-top-2x-">
                 <span
                   ref={myRef3}
-                  className={`ib font-weight-900- margin-left-11xy1- cursor-pointer pointereventsnone`}
+                  className={`ib font-weight-900- margin-left-11xy1- cursor-pointer`}
                   //href="#"
 
                   data-value={props.id}
                   title={"click to select to your top ten"}
                   onClick={() => storeScrollPosition3(props.star, event)}
                 >
-                  
-                  <span>
-                  Is In My Top Ten?:
-                
+                  To My Top Ten:
+                </span>
+
                 <span
                   className="ib margin-left-11tx- font-weight-900- margin-top-1x-"
                   title={"This is a selection to your top ten."}
@@ -1246,12 +1241,8 @@ const LinkListItem = (props) => {
                       ? "Yes"
                       : "No"}
                   {/* {props.star === undefined ? "No" : "Yes"} */}
-               
-
-                </span>
                 </span>
               </span>
-                </span>
             ) : null}
           </span>
         )}

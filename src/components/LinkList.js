@@ -355,13 +355,16 @@ export const LinkList = (props) => {
       )}
       {props.links.length > 1 && 
       <StickyFixed>
-      <div className="margin-left-11 margin-top-n-1u">
+      <div className="margin-left-11 margin-top-n-1u"
+      style={{zIndex:99}}
+      >
         <button
           id="scrollup1"
           ref={props.scrollupref}
           title="Click the button to begin auto scroll."
           onClick={props.startScrollingUp2}
           className="button-2 widthxpx1"
+          style={{zIndex:99}}
         >
           <span>ScrollUp</span>
         </button>
@@ -371,6 +374,7 @@ export const LinkList = (props) => {
           title="Click the button to stop auto scroll."
           onClick={props.stopScrolling2}
           className="button-2 ib margin-left-11"
+          style={{zIndex:99}}
         >
           <span>Stop</span>
         </button>
@@ -380,6 +384,7 @@ export const LinkList = (props) => {
           title="Click the button to begin auto scroll."
           onClick={props.startScrollingDown2}
           className="button-2 ib margin-left-11 widthxpx1"
+          style={{zIndex:99}}
         >
           <span>ScrollDn</span>
         </button>

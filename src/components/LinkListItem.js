@@ -1111,6 +1111,8 @@ const LinkListItem = (props) => {
                   title={"click to select to your top ten"}
                   onClick={() => storeScrollPosition3(props.star, event)}
                 >
+                  
+                  <span>
                   Is In My Top Ten?:
 
                     <span
@@ -1123,6 +1125,7 @@ const LinkListItem = (props) => {
                       ? "Yes"
                       : "No"}
                   {/* {props.star === undefined ? "No" : "Yes"} */}
+                </span>
                 </span>
                 </span>
 
@@ -1229,6 +1232,7 @@ const LinkListItem = (props) => {
                   title={"click to select to your top ten"}
                   onClick={() => storeScrollPosition3(props.star, event)}
                 >
+                  <span>
                   Is In My Top Ten?:
 
                   <span
@@ -1241,6 +1245,7 @@ const LinkListItem = (props) => {
                       ? "Yes"
                       : "No"}
                   {/* {props.star === undefined ? "No" : "Yes"} */}
+                </span>
                 </span>
                 </span>
 

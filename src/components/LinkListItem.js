@@ -815,7 +815,7 @@ const LinkListItem = (props) => {
             //here
             data.map((url, index) => {
               //let urlstruct = new URL(url);
-              // console.log("urlstruct.protocol="+urlstruct.protocol); // "https:"
+              // console.log("urlstruct.protocol="+urlstruct.protplayInPlaceVideoocol); // "https:"
               // console.log("urlstruct.hostname="+urlstruct.hostname); // "www.example.com"
               // console.log("urlstruct.port="+urlstruct.port); // "8080"
               // console.log("urlstruct.pathname="+urlstruct.pathname); // "/path/to/page"
@@ -1319,7 +1319,7 @@ const LinkListItem = (props) => {
         {videoId === props.id && props.show === 1 && (
           <div>
             <div className="height50 width100"
-            //style={{border:'1px solid red'}}
+            style={{border:'1px solid red'}}
             ></div>
             <div className="margin-bottom-1z1">
               <BasicIframe src={url2} />

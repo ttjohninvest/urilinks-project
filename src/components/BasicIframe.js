@@ -8,10 +8,11 @@ const BasicIframe = (props) => {
 //   height="400" 
 //   title="Example Website">
 // </iframe>
-    <iframe 
+<div className="margin-right-1 ">
+ <iframe 
   //width="560" 
   //height="315" 
-  className="width100 margin-right-1"
+  className="width100 borderRadius55"
   style={{height:'415px'}}
   src={props.src} 
   title="YouTube video player" 
@@ -19,6 +20,8 @@ const BasicIframe = (props) => {
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
   allowFullScreen>
 </iframe>
+</div>
+   
   );
 };
 

@@ -26,7 +26,7 @@ const StickyFixed = ({ children }) => {
 
   return (
     <div>
-      <div ref={ref} style={{ height: '1px', zIndex:99,
+      <div ref={ref} style={{ height: '30px', zIndex:99,
         //border: '2px solid blue',
          visibility: isFixed ? 'hidden' : 'visible' }}>{children}</div>
       <div 

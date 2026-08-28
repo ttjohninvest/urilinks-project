@@ -12,7 +12,7 @@ const BasicIframe = (props) => {
  <iframe 
   //width="560" 
   //height="315" 
-  className="width100"
+  className="width100 iframe-wrapper"
   style={{height:'415px'}}
   src={props.src} 
   title="YouTube video player" 

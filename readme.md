@@ -1952,3 +1952,5 @@ terms of service clickbank example
 https://support.clickbank.com/en/articles/10535337-clickbank-client-contract
 
 ---
+git credentials manager dialog
+step 1: 

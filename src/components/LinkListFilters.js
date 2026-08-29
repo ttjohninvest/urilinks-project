@@ -46,6 +46,9 @@ import {
   sortByFolder,
 } from "../actions/filters";
 
+import { incrementUsersClickCount } from "./actions/theuserscount";
+ 
+
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
@@ -1932,6 +1935,10 @@ export class LinkListFilters extends React.Component {
   }
 
   componentDidMount() {
+    const x = {
+                userscount:this.props.theuserscount.userscount
+              }
+              this.props.incrementUsersClickCount(x)
     //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 
@@ -2071,7 +2078,7 @@ export class LinkListFilters extends React.Component {
           sortByLikes={this.props.sortByLikes}
           sortByStar={this.props.sortByStar}
           filters={this.props.filters}
-          userscount={this.props.userscount}
+          userscount={this.props.theuserscount.userscount}
         />
       </div>
     );
@@ -2088,7 +2095,7 @@ const mapStateToProps = (state) => ({
   signup: state.signup,
   theplan: state.theplan,
   auth: state.auth,
-  userscount: state.userscount,
+  theuserscount: state.theuserscount,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -2106,6 +2113,7 @@ const mapDispatchToProps = (dispatch) => ({
   sortByDate: () => dispatch(sortByDate()),
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
+  incrementUsersClickCount: (data) => dispatch(incrementUsersClickCount(data)),
 });
-
+//incrementUsersClickCount
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

@@ -19,7 +19,11 @@ import { startSetLinksFileDate } from "./actions/linksfiledate";
 import { getSettings } from "./actions/settings";
 import { getTheplan, getTheplan2 } from "./actions/theplan";
 import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
-import { getTheuserscount, getTheuserscount2,incrementUsersClickCount } from "./actions/theuserscount";
+import { //getTheuserscount, 
+  getTheuserscount2
+  //,incrementUsersClickCount 
+} from "./actions/theuserscount";
+ 
 import { getThehashtagsisopen, getThehashtagsisopen2 } from "./actions/thehashtagsisopen";
 import { getTheupdatedate, getTheupdatedate2 } from "./actions/theupdatedate";
 import { login, logout } from "./actions/auth";
@@ -99,10 +103,10 @@ if (signup !== "signup") {
               return store
             .dispatch(getTheuserscount2(id))
             .then(() => {
-              const x = {
-                userscount:theStore.theuserscount.userscount
-              }
-              incrementUsersClickCount(x)
+              // const x = {
+              //   userscount:theStore.theuserscount.userscount
+              // }
+              // incrementUsersClickCount(x)
               renderApp(store, signup);
             })
             .catch((error) => {

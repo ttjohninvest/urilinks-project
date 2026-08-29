@@ -33,7 +33,7 @@ export const SeeHashTagsPage = (props) => {
       //    if (props.elementRef2.current) {
       //    props.elementRef2.current.scrollIntoView({ behavior: 'smooth' });
       //  }
-       }
+      // }
        
   });
 

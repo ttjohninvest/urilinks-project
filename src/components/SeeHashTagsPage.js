@@ -23,10 +23,13 @@ export const SeeHashTagsPage = (props) => {
       //   behavior: "smooth",
       // });
 
-       if(!!document.querySelector("ef2")===true)
-      document.querySelector("ef2").scrollIntoView({
+       if(!!document.querySelector("ef2")===true) {
+alert(2)
+         document.querySelector("ef2").scrollIntoView({
         behavior: "smooth",
       });
+       }
+     
 
       //  if(!!props.elementRef2===true) {
          

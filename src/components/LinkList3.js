@@ -21,6 +21,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
         clearTimeout(scrollTimeoutRef.current);
       }
 
+       if (props.scrollInterval2.current) return;
        scrollTimeoutRef.current = setTimeout(() => {
         // Perform scroll action here
         if(!!v===true) v.click()

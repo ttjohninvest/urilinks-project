@@ -1519,6 +1519,7 @@ function ExpandableArray(props) {
                 startScrollingUp2={startScrollingUp2}
                 startScrollingDown2={startScrollingDown2}
                 stopScrolling2={stopScrolling2}
+                scrollInterval2={scrollInterval2}
               />
             </div>
           </div>

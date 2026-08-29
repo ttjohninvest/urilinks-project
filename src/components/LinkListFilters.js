@@ -1575,7 +1575,7 @@ function ExpandableArray(props) {
       {fullText.length 
       > charLimit && (
         <button className="link" onClick={() => setIsExpanded(!isExpanded)}>
-          {isExpanded ? "Show less text" : "...Show more text"}
+          {isExpanded ? "Show less benefits text" : "...Show more benefits text"}
         </button>
       )}
     </div>

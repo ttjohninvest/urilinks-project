@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
@@ -20,13 +20,7 @@ const HashTagsButton = (props) => {
   };
 
   const storeScrollPosition4 = (hashtagsisopen, event) => {
-      // let x1 = 0;
-      // if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
-      // else x1 = likes;
-      // const x = event.target.getAttribute("data-value"); //x is link id
-  
-      // props.incrementLinkLikesClickCount({ id: x, likes: x1 });
-      // window.localStorage.setItem("scrollPosition", window.scrollY);
+      
   
       let x1 = 0;
       if (hashtagsisopen === undefined || hashtagsisopen === null || hashtagsisopen === "NaN") x1 = 0;
@@ -75,6 +69,7 @@ const HashTagsButton = (props) => {
       {isDisplayed === true && (
         <div>
           <SeeHashTagsPage
+            elementRef2 = {props.elementRef2}
             changeSortBy={()=>props.changeSortBy("hashtag")}
             handleClose3={() => handleClose()}
           />

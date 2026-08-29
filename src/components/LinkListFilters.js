@@ -69,6 +69,7 @@ function ExpandableArray(props) {
   const [aValue, setAValue] = useState(0);
 
   const myRef = useRef(null);
+  const elementRef2 = useRef(null)
   const scrollInterval = useRef(null);
 
   const scrollupref = useRef();
@@ -1038,6 +1039,7 @@ function ExpandableArray(props) {
                         See Hashtags
                       </button> */}
                       <HashTagsButton
+                        elementRef2={elementRef2}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
                       />
@@ -1058,6 +1060,7 @@ function ExpandableArray(props) {
                     <div>
                       <div className="minWidth- bg-color-4"></div>
                       <HashTagsButton
+                        elementRef2={elementRef2}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
                       />
@@ -1151,6 +1154,7 @@ function ExpandableArray(props) {
 
                   {props.signup === true && rt !== "readonly" ? (
                     <div
+                      ref = {elementRef2}
                       id="before-before-link-summary-id"
                       className="margin-bottom-1"
                     >

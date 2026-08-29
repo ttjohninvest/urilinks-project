@@ -22,6 +22,11 @@ export const SeeHashTagsPage = (props) => {
       // document.querySelector("#before-before-link-summary-id").scrollIntoView({
       //   behavior: "smooth",
       // });
+
+       if(!!props.elementRef2===true)
+       if (props.elementRef2.current) {
+         props.elementRef2.current.scrollIntoView({ behavior: 'smooth' });
+       }
   });
 
   const removeDuplicates = (stringArray) => {

@@ -71,8 +71,10 @@ function ExpandableArray(props) {
   const [activeItem, setActiveItem] = useState(0);
   const [aValue, setAValue] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
+
   const fullText = "❤️ Benefits: urilinks is a platform for orgainizing links to website content and publishing your own links to website content to a worldwide audience. It is made with love and care. It works. You can make money with text ads. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. My phone number is 775 559 5740, John, Mr McGovern. Please try a user account today. Thank you so much.";
   const charLimit = 150;
+  const displayText = isExpanded ? fullText : fullText.slice(0, charLimit);
 
   const myRef = useRef(null);
   const elementRef2 = useRef(null)
@@ -769,7 +771,7 @@ function ExpandableArray(props) {
     }, 20); // Every 20 milliseconds
   };
 
-   const displayText = isExpanded ? fullText : fullText.slice(0, charLimit);
+   
 
   return (
     <div className="bg-white-1">
@@ -1568,8 +1570,9 @@ function ExpandableArray(props) {
 
             <div className="margin-bottom-1 border-bottom-5z padding-bottom-1">
               <div>
-      
-      {displayText.length 
+            <p>{displayText}</p>
+
+      {fullText.length 
       > charLimit && (
         <button onClick={() => setIsExpanded(!isExpanded)}>
           {isExpanded ? "Show less" : "...Show more"}

@@ -17,6 +17,11 @@ export const SeeHashTagsPage = (props) => {
     console.log(
       "SeeHashTagsPage.js, hashtags=" + JSON.stringify(props.hashtags),
     );
+
+      !!document.querySelector("#before-before-link-summary-id") &&
+      document.querySelector("#before-before-link-summary-id").scrollIntoView({
+        behavior: "smooth",
+      });
   });
 
   const removeDuplicates = (stringArray) => {

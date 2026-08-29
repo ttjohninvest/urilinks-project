@@ -23,7 +23,7 @@ export const SeeHashTagsPage = (props) => {
       //   behavior: "smooth",
       // });
 
-       !!document.querySelector("#ef2") &&
+       if(!!document.querySelector("#ef2")===true)
       document.querySelector("#ef2").scrollIntoView({
         behavior: "smooth",
       });

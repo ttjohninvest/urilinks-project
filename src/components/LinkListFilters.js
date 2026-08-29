@@ -46,7 +46,7 @@ import {
   sortByFolder,
 } from "../actions/filters";
 
-import { incrementUsersClickCount } from "./actions/theuserscount";
+import { incrementUsersClickCount } from "../actions/theuserscount";
  
 
 function ExpandableArray(props) {

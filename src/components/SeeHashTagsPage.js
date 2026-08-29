@@ -23,10 +23,13 @@ export const SeeHashTagsPage = (props) => {
       //   behavior: "smooth",
       // });
 
-       if(!!props.elementRef2===true)
-       if (props.elementRef2.current) {
+       if(!!props.elementRef2===true) {
+         alert("1")
+         if (props.elementRef2.current) {
          props.elementRef2.current.scrollIntoView({ behavior: 'smooth' });
        }
+       }
+       
   });
 
   const removeDuplicates = (stringArray) => {

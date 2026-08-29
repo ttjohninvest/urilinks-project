@@ -21,7 +21,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
         clearTimeout(scrollTimeoutRef.current);
       }
 
-       if (props.scrollInterval2.current) return; //stop button not working soln: if the user clicked scrollUp or ScrollDn thei will pevent the auto scroll from starting because it it already scrolling
+       if (props.scrollInterval2.current) return; //stop button not working soln: if the user clicked scrollUp or ScrollDn this will prevent the auto scroll from starting and causing the shuttering because it it already scrolling
        scrollTimeoutRef.current = setTimeout(() => {
         // Perform scroll action here
         if(!!v===true) v.click()

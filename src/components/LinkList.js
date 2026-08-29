@@ -337,7 +337,9 @@ export const LinkList = (props) => {
   //
   useEffect(() => {
     if(z!=1) {
+       //starts automatic scrolling or auto scroll
        //props.stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
+       //check here to see if scroll has started because the user clicked the scollup or scrolldn button
        props.handleStartScroll(props.scrollupref.current)
     }
    

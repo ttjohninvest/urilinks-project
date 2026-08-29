@@ -1154,7 +1154,7 @@ function ExpandableArray(props) {
 
                   {props.signup === true && rt !== "readonly" ? (
                     <div
-                      ref = {elementRef2}
+                      //ref = {elementRef2}
                       id="before-before-link-summary-id"
                       className="margin-bottom-1"
                     >
@@ -1513,6 +1513,11 @@ function ExpandableArray(props) {
               </div>
             </div>
             {/* column 2 is the following div */}
+            <div>
+            <div
+            ref = {elementRef2}
+            ></div>
+            
             <div id="results1" className={`margin-top-18`}>
               {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
@@ -1530,6 +1535,8 @@ function ExpandableArray(props) {
                 scrollInterval2={scrollInterval2}
               />
             </div>
+            </div>
+            
           </div>
         </div>
         {/*begins third column*/}

@@ -785,7 +785,7 @@ function ExpandableArray(props) {
                 {/* To make money, you can add a text link ad with each link you
                 have. Please try a user account today. Thank you so much. */}
                  To make money, you can add a text link ad with each link you
-                have. Can you try my website today? - John 775 559-5740. Thank you so much.
+                have. Can you try my new website today? - John 775 559-5740. Thank you so much.
               </div>
             )}
           </div>

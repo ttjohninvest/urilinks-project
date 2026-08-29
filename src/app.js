@@ -100,7 +100,7 @@ if (signup !== "signup") {
             .dispatch(getTheuserscount2(id))
             .then(() => {
               const x = {
-                userscount:getStore().userscount
+                userscount:theStore.theuserscount.userscount
               }
               incrementUsersClickCount(x)
               renderApp(store, signup);

@@ -1561,7 +1561,7 @@ function ExpandableArray(props) {
               </div>
             )}
 
-            <div className="margin-bottom-1 border-bottom-5z">
+            <div className="margin-bottom-1 border-bottom-5z padding-bottom-1">
               ❤️ Benefits: urilinks is a platform for orgainizing links to
               website content and publishing your own links to website content
               to a worldwide audience. It is made with love and care. It works.

@@ -22,12 +22,17 @@ export const SeeHashTagsPage = (props) => {
       // document.querySelector("#before-before-link-summary-id").scrollIntoView({
       //   behavior: "smooth",
       // });
-alert("1")
-       if(!!props.elementRef2===true) {
+
+       !!document.querySelector("#ef2") &&
+      document.querySelector("#ef2").scrollIntoView({
+        behavior: "smooth",
+      });
+
+      //  if(!!props.elementRef2===true) {
          
-         if (props.elementRef2.current) {
-         props.elementRef2.current.scrollIntoView({ behavior: 'smooth' });
-       }
+      //    if (props.elementRef2.current) {
+      //    props.elementRef2.current.scrollIntoView({ behavior: 'smooth' });
+      //  }
        }
        
   });

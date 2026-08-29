@@ -1154,7 +1154,7 @@ function ExpandableArray(props) {
 
                   {props.signup === true && rt !== "readonly" ? (
                     <div
-                      //ref = {elementRef2}
+                      
                       id="before-before-link-summary-id"
                       className="margin-bottom-1"
                     >
@@ -1514,9 +1514,9 @@ function ExpandableArray(props) {
             </div>
             {/* column 2 is the following div */}
             <div>
-            <div
-            ref = {elementRef2}
-            ></div>
+            <div 
+            id="ef2"
+            ref = {elementRef2}></div>
             
             <div id="results1" className={`margin-top-18`}>
               {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>

@@ -708,6 +708,7 @@ function ExpandableArray(props) {
   };
 
   const stopScrolling2 = () => {
+    scrollupref.current = null
     clearInterval(scrollInterval2.current);
     scrollInterval2.current = null;
   };

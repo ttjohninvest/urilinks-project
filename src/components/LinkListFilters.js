@@ -1570,7 +1570,8 @@ function ExpandableArray(props) {
 
             <div className="margin-bottom-1 border-bottom-5z padding-bottom-1">
               <div>
-            <p>{displayText}</p>
+            {/* <p>{displayText}</p> */}
+            <p>{fullText}</p>
 
       {/* {fullText.length 
       > charLimit && (

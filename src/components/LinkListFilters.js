@@ -1579,8 +1579,11 @@ function ExpandableArray(props) {
               ✮ It has autoscroll.
               <br />
               <br />
-              ✮ I you add new links to your page, everybody that has your shared
+              ✮ If you add new links to your page, everybody that has your shared
               page sees your new links.
+              <br />
+              <br />
+              ✮ Please close Add a Link or the Hashtags window if they are open before doing a search.
               <br />
               <br />
               ✮ Use the search field to add word(s) to search for.

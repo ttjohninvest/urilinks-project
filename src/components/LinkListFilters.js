@@ -1924,12 +1924,11 @@ export class LinkListFilters extends React.Component {
       //const term = window.localStorage.getItem("termid");
       if (term !== "" && term.charAt(0) === "#") {
         this.setState({ sortBy: "hashtag" });
-        window.document.querySelector("#buttonid2").click(); //automatic scroll on website launch commented out becasue it does not work everytime, it shutters and the stop button won't work
-        //handleStartScroll()
+        window.document.querySelector("#buttonid2").click(); //only fills the display, it does not start auto scroll
       } else if (term === "" || term.charAt(0) !== "#") {
         this.setState({ sortBy: "description" });
         //handleStartScroll()
-        window.document.querySelector("#buttonid2").click(); //automatic scroll on website launch commented out becasue it does not work everytime, it shutters and the stop button won't work
+        window.document.querySelector("#buttonid2").click(); //only fills the display, it does not start auto scroll
       }
       //window.scrollTo(0,0)
     } catch (e) {

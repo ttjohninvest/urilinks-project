@@ -776,7 +776,7 @@ function ExpandableArray(props) {
               className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2" : "fleur-de-leah-regular"}`}
               title="Internet Links Organizer Dashboard's Home Page"
             >
-              Internet Links Organizer Dashboard's Home Page
+              {`Internet Links Organizer Dashboard's Home Page (users count: ${props.userscount})`}
             </div>
             {props.signup === false && (
               <div
@@ -2071,6 +2071,7 @@ export class LinkListFilters extends React.Component {
           sortByLikes={this.props.sortByLikes}
           sortByStar={this.props.sortByStar}
           filters={this.props.filters}
+          userscount={this.props.userscount}
         />
       </div>
     );
@@ -2087,6 +2088,7 @@ const mapStateToProps = (state) => ({
   signup: state.signup,
   theplan: state.theplan,
   auth: state.auth,
+  userscount: state.userscount,
 });
 
 const mapDispatchToProps = (dispatch) => ({

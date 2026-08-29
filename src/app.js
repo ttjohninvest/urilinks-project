@@ -19,6 +19,7 @@ import { startSetLinksFileDate } from "./actions/linksfiledate";
 import { getSettings } from "./actions/settings";
 import { getTheplan, getTheplan2 } from "./actions/theplan";
 import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
+import { getTheuserscount, getTheuserscount2,incrementUsersClickCount } from "./actions/theuserscount";
 import { getThehashtagsisopen, getThehashtagsisopen2 } from "./actions/thehashtagsisopen";
 import { getTheupdatedate, getTheupdatedate2 } from "./actions/theupdatedate";
 import { login, logout } from "./actions/auth";
@@ -92,10 +93,21 @@ if (signup !== "signup") {
               store
             .dispatch(getTheupdatedate2(id))
             .then(() => {
-               return store
+               store
             .dispatch(getThehashtagsisopen2(id))
             .then(() => {
+              return store
+            .dispatch(getTheuserscount2(id))
+            .then(() => {
+              const x = {
+                userscount:getStore().userscount
+              }
+              incrementUsersClickCount(x)
               renderApp(store, signup);
+            })
+            .catch((error) => {
+              console.log("thehashtagsisopen, error", error);
+            });
             })
             .catch((error) => {
               console.log("thehashtagsisopen, error", error);

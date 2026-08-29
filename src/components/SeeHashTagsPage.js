@@ -22,9 +22,9 @@ export const SeeHashTagsPage = (props) => {
       // document.querySelector("#before-before-link-summary-id").scrollIntoView({
       //   behavior: "smooth",
       // });
-
+alert("1")
        if(!!props.elementRef2===true) {
-         alert("1")
+         
          if (props.elementRef2.current) {
          props.elementRef2.current.scrollIntoView({ behavior: 'smooth' });
        }

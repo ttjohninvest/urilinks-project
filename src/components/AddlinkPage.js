@@ -219,11 +219,11 @@ export const AddLinkPage = (props) => {
         </div>
       ) : maximumPage === false ? (
         <div className="position-absolute z-index99 opaque100">
-          <div className="page-header">
+          <div className="page-header-2">
             <div className="content-container">
-              <h1 className="page-header__title">
+              <h2 className="page-header__title">
                 <span className="color-purple color-black-2">Add Link</span>
-              </h1>
+              </h2>
             </div>
           </div>
           <div className="content-container-addlink">

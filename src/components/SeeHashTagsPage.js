@@ -206,7 +206,7 @@ export const SeeHashTagsPage = (props) => {
     <div 
     //ref={setNodeRef}
     className="position-absolute z-index99 opaque100">
-      <div className="margin-top-1 margin-left-11">
+      <div className="margin-top-1- margin-left-11">
         <div className="page-header-2">
           <div className="content-container">
             <h2 className="page-header__title borderRadius55">

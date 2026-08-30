@@ -159,10 +159,21 @@ if (signup !== "signup") {
               store
             .dispatch(getTheupdatedate(user.uid))
             .then(() => {
-               return store
+               store
             .dispatch(getThehashtagsisopen(user.uid))
             .then(() => {
+               return store
+            .dispatch(getTheuserscount(user.uid))
+            .then(() => {
+              // const x = {
+              //   userscount:theStore.theuserscount.userscount
+              // }
+              // incrementUsersClickCount(x)
               renderApp(store, signup);
+            })
+            .catch((error) => {
+              console.log("thehashtagsisopen, error", error);
+            });
             })
             .catch((error) => {
               console.log("theplan, error", error);

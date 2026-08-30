@@ -231,6 +231,7 @@ export const Header = (props) => {
     //setEmail("");
     setLinks([]);
     props.startLogout();
+    window.location.href = "https://urilinks.com"
   };
 
   const cancelsubscription = () => {

@@ -263,7 +263,7 @@ export const SeeHashTagsPage = (props) => {
           className={`content-containerht ${
             
             isMobile()===true
-            ?'widthhashtagcolumn':'widthx1'} heightx1 overflowyauto borderLightOrange overflowxhidden`}
+            ?'widthhashtagcolumn':'widthx1'} heightx1 overflowyauto borderLightOrange overflowxhidden padding-bottom-1`}
             //onClick={()=>stopScrolling4()}
         >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>

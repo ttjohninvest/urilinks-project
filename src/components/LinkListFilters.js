@@ -1945,10 +1945,10 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
     console.log("LinkListFilter.js, this.props.theuserscount.userscount="+this.props.theuserscount.userscount)
-    // const x = {
-    //             userscount:this.props.theuserscount.userscount
-    //           }
-    //           this.props.incrementUsersClickCount(x)
+    let x = {
+                userscount:this.props.theuserscount.userscount
+              }
+              this.props.incrementUsersClickCount(x)
     //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 

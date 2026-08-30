@@ -103,10 +103,10 @@ if (signup !== "signup") {
               return store
             .dispatch(getTheuserscount2(id))
             .then(() => {
-              let x = {
-                userscount:theStore.theuserscount.userscount
-              }
-              incrementUsersClickCount(x)
+              // let x = {
+              //   userscount:theStore.theuserscount.userscount
+              // }
+              // incrementUsersClickCount(x)
               renderApp(store, signup);
             })
             .catch((error) => {
@@ -165,10 +165,10 @@ if (signup !== "signup") {
                return store
             .dispatch(getTheuserscount(user.uid))
             .then(() => {
-              let x2 = {
-                userscount:theStore.theuserscount.userscount
-              }
-              incrementUsersClickCount(x2)
+              // let x2 = {
+              //   userscount:theStore.theuserscount.userscount
+              // }
+              // incrementUsersClickCount(x2)
               renderApp(store, signup);
             })
             .catch((error) => {

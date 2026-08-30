@@ -245,7 +245,7 @@ class LinkForm extends React.Component {
               //placeholder=""
               checked={this.state.showpublic === true ? "checked" : ""}
               autoFocus
-              className="ib largerCheckbox"
+              className="ib largerCheckbox outline-none"
               value="show the public" //{this.state.showpublic}
               onChange={this.onShowpublicChange}
               title="check to show the link to the public"
@@ -261,7 +261,7 @@ class LinkForm extends React.Component {
           placeholder="text"
           //readOnly={this.props.makereadonly===true?true:false}
           autoFocus
-          className="text-input"
+          className="text-input outline-none"
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="After the data is entered, click send mail."
@@ -271,7 +271,7 @@ class LinkForm extends React.Component {
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="url"
-          className="text-input"
+          className="text-input outline-none"
           value={this.state.Url}
           onChange={this.onUrlChange}
           maxLength="2048"
@@ -294,7 +294,7 @@ class LinkForm extends React.Component {
         <textarea
           //placeholder="Add a note for your uri/url link (optional)"
           placeholder="Add a note (optional)"
-          className="textarea"
+          className="textarea outline-none"
           value={this.state.note}
           onChange={this.onNoteChange}
           maxLength={

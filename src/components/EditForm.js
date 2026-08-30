@@ -282,7 +282,7 @@ class EditForm extends React.Component {
           placeholder="Place link link text here."
           //readOnly={this.props.makereadonly===true?true:false}
           autoFocus
-          className="text-input"
+          className="text-input outline-none"
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="After the data is entered, click send mail."
@@ -292,7 +292,7 @@ class EditForm extends React.Component {
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="url"
-          className="text-input"
+          className="text-input outline-none"
           value={this.state.Url}
           onChange={this.onUrlChange}
           maxLength="2048"
@@ -315,7 +315,7 @@ class EditForm extends React.Component {
         <textarea
           //placeholder="Add a note for your uri/url link (optional)"
           placeholder="Add a note (optional)"
-          className="textarea"
+          className="textarea outline-none"
           value={this.state.note}
           onChange={this.onNoteChange}
           maxLength={
@@ -337,7 +337,7 @@ class EditForm extends React.Component {
           placeholder="Place ad link text here."
           //readOnly={this.props.makereadonly===true?true:false}
           //autoFocus
-          className="ib text-input"
+          className="ib text-input outline-none"
           value={this.state.addescription}
           onChange={this.onAdDescriptionChange}
           title="Enter the link text for the ad."
@@ -347,7 +347,7 @@ class EditForm extends React.Component {
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="Place ad url here."
-          className="text-input"
+          className="text-input outline-none"
           value={this.state.AdUrl}
           onChange={this.onUrlChange2}
           maxLength="2048"

@@ -42,6 +42,7 @@
     "react-dates": "12.3.0",
     "react-device-detect":"2.2.3",
     "react-dom": "16.8.0",
+    "react-draggable": "4.7.1",
     "react-infinite-scroll-component":"6.1.1",
     "react-modal": "2.2.2",
     "react-redux": "5.0.5",

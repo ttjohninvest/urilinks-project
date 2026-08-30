@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Draggable from 'react-draggable';
 
 import { setTextFilter, sortByHashTag } from "../actions/filters";
 
@@ -12,6 +13,7 @@ export const SeeHashTagsPage = (props) => {
   const buttonRef4 = useRef(null);
   const scrolldownref8 = useRef(null);
   const scrollupref8 = useRef(null)
+  const [nodeRef, setNodeRef] = useState(null);
 
   useEffect(() => {
     console.log(
@@ -200,6 +202,7 @@ export const SeeHashTagsPage = (props) => {
   };
 
   return (
+    <Draggable nodeRef={nodeRef}>
     <div className="position-absolute z-index99 opaque100">
       <div className="margin-top-1 margin-left-11">
         <div className="page-header">
@@ -279,6 +282,7 @@ export const SeeHashTagsPage = (props) => {
         </div>
       </div>
     </div>
+    </Draggable>
   );
 };
 

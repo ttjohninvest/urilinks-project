@@ -787,7 +787,8 @@ function ExpandableArray(props) {
               className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2" : "fleur-de-leah-regular"}`}
               title="Internet Links Organizer Dashboard's Home Page"
             >
-              {`Internet Links Organizer Dashboard's Home Page (users count: ${props.userscount})`}
+              {`Internet Links Organizer Dashboard's Home Page`} 
+              {/* {`Internet Links Organizer Dashboard's Home Page (users count: ${props.userscount})`} */}
             </div>
             {props.signup === false && (
               <div

@@ -33,10 +33,8 @@ export const startAddTheuserscount = (theuserscountData = {}) => {
 };
 
 export const getTheuserscount2 = () => {
-  console.log("actions/getTheuserscount");
+  console.log("actions/getTheuserscount2");
   return (dispatch, getState) => {
-    //const uid = getState().auth.uid;
-    //console.log("actions/getTheuserscount2, uid=" + uid);
     let s;
     return database
      
@@ -54,10 +52,6 @@ export const getTheuserscount2 = () => {
       });
   };
 };
-
-
-
-
 
 // REMOVE_SETTINGS
 export const removeTheuserscount = () => ({

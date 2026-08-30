@@ -21,7 +21,7 @@ import { getTheplan, getTheplan2 } from "./actions/theplan";
 import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
 import { getTheuserscount, 
   getTheuserscount2
-  //,incrementUsersClickCount 
+  ,incrementUsersClickCount 
 } from "./actions/theuserscount";
  
 import { getThehashtagsisopen, getThehashtagsisopen2 } from "./actions/thehashtagsisopen";
@@ -103,10 +103,10 @@ if (signup !== "signup") {
               return store
             .dispatch(getTheuserscount2(id))
             .then(() => {
-              // const x = {
-              //   userscount:theStore.theuserscount.userscount
-              // }
-              // incrementUsersClickCount(x)
+              let x = {
+                userscount:theStore.theuserscount.userscount
+              }
+              incrementUsersClickCount(x)
               renderApp(store, signup);
             })
             .catch((error) => {
@@ -165,10 +165,10 @@ if (signup !== "signup") {
                return store
             .dispatch(getTheuserscount(user.uid))
             .then(() => {
-              // const x = {
-              //   userscount:theStore.theuserscount.userscount
-              // }
-              // incrementUsersClickCount(x)
+              let x2 = {
+                userscount:theStore.theuserscount.userscount
+              }
+              incrementUsersClickCount(x2)
               renderApp(store, signup);
             })
             .catch((error) => {

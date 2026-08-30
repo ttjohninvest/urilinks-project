@@ -514,12 +514,13 @@ function ExpandableArray(props) {
       });
   };
 
-  const changeSortBy = (sv) => {
+  const changeSortBy = (sv,x) => {
     //alert("sv="+"hashtag")
     //alert("sv="+sv)
     setSortBy(sv);
     //setSortBy("hashtag")
     //handleClose3();
+    if(!!x===false)
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",

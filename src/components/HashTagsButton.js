@@ -70,7 +70,7 @@ const HashTagsButton = (props) => {
         <div>
           <SeeHashTagsPage
             elementRef2 = {props.elementRef2}
-            changeSortBy={()=>props.changeSortBy("hashtag")}
+            changeSortBy={()=>props.changeSortBy("hashtag",1)}
             handleClose3={() => handleClose()}
           />
         </div>

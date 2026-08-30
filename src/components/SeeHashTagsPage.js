@@ -130,21 +130,12 @@ export const SeeHashTagsPage = (props) => {
     if (itemId) {
       window.document.getElementById("termid").value = itemId;
 
-      //alert("props.changeSortBy")
-      props.changeSortBy("hashtag");
-      //props.changeSortBy();
-
+      props.changeSortBy("hashtag",1);
+   
       props.setTextFilter(itemId);
 
       props.sortByHashTag();
 
-      // const selectElement = document.getElementById('mode');
-      // selectElement.value = 'hashtag';
-      // selectElement.click()
-
-      //alert(`Clicked item with ID: ${itemId}`)
-      console.log(`Clicked item with ID: ${itemId}`);
-      // Add your logic here, e.g., update state
     }
   };
 
@@ -257,7 +248,7 @@ export const SeeHashTagsPage = (props) => {
               </button>
           </div>
         </div>
-        {uniqueData.length} results
+        {uniqueData.length}{`${uniqueData.length>1? ' hashtags':uniqueData.length===1?' hashtag':' hashtags'}`}
         <div
           id="ls3"
           className={`content-containerht ${

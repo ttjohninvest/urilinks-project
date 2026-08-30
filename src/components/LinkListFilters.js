@@ -108,6 +108,8 @@ function ExpandableArray(props) {
 
   const childRef = useRef(null);
 
+
+
   const handleStartScroll = (v) => {
     if (childRef.current) {
       childRef.current.startAutoScroll(v);
@@ -119,6 +121,8 @@ function ExpandableArray(props) {
       childRef.current.cancelScroll();
     }
   };
+
+  handleCancelScroll()
 
   useEffect(() => {
     

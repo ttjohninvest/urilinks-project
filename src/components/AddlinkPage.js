@@ -226,7 +226,7 @@ export const AddLinkPage = (props) => {
               </h1>
             </div>
           </div>
-          <div className="content-container">
+          <div className="content-container position-absolute z-index99 opaque100">
             <LinkForm
               onSubmit={onSubmit}
               handleClose2={props.handleClose2}

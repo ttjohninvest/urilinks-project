@@ -121,7 +121,7 @@ function ExpandableArray(props) {
   };
 
   useEffect(() => {
-    handleCancelScroll()
+    
     console.log(
       "ZZZZZ, props.mappedDataShort[0]=" +
         JSON.stringify(props.mappedDataShort[0]),

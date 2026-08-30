@@ -116,14 +116,13 @@ function ExpandableArray(props) {
     }
   };
 
-  const handleCancelScroll = () => {
-    if (childRef.current) {
-      childRef.current.cancelScroll();
-    }
-  };
+  // const handleCancelScroll = () => {
+  //   if (childRef.current) {
+  //     childRef.current.cancelScroll();
+  //   }
+  // };
 
-  handleCancelScroll()
-
+  
   useEffect(() => {
     
     console.log(

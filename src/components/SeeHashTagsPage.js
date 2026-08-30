@@ -209,7 +209,7 @@ export const SeeHashTagsPage = (props) => {
   };
 
   return (
-    <div className="position-absolute">
+    <div className="position-absolute z-index99">
       <div className="margin-top-1 margin-left-11">
         <div className="page-header">
           <div className="content-container">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-//import Draggable from 'react-draggable';
+import Draggable from 'react-draggable';
 
 import { setTextFilter, sortByHashTag } from "../actions/filters";
 

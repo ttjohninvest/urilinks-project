@@ -203,9 +203,11 @@ export const SeeHashTagsPage = (props) => {
 
   return (
     <Draggable nodeRef={nodeRef}>
-    <div className="position-absolute z-index99 opaque100">
+    <div 
+    ref={setNodeRef}
+    className="position-absolute z-index99 opaque100">
       <div className="margin-top-1 margin-left-11">
-        <div className="page-header">
+        <div className="page-header-2">
           <div className="content-container">
             <h1 className="page-header__title borderRadius55 padding-bottom-5z1-">
               <span className="color-purple color-black-2">Hashtags</span>

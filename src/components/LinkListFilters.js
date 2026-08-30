@@ -1944,6 +1944,7 @@ export class LinkListFilters extends React.Component {
   }
 
   componentDidMount() {
+    console.log("LinkListFilter.js, this.props.theuserscount.userscount="+this.props.theuserscount.userscount)
     const x = {
                 userscount:this.props.theuserscount.userscount
               }

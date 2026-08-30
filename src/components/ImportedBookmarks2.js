@@ -22,6 +22,14 @@ const ImportedBookmarks2 = (props) => {
     props.setThePayPage(true);
   };
 
+  const handleCancelIt = () => {
+    props.history.push("/");
+    // //window.location.reload();
+    // window.location.href="https://urilinks.com?signup=signup"
+
+    
+  };
+
   const closeThisPage = () => {
     // props.history.push("/");
     // //window.location.reload();
@@ -141,6 +149,7 @@ const ImportedBookmarks2 = (props) => {
                   props.theplan === null ||
                   (!!props.theplan.plan &&
                     props.theplan.plan.replace(/"/g, "") !== "premium" && (
+                      <div>
                       <div className="margin-top-2">
                         <button
                           className="button-style-1- button-2w"
@@ -148,6 +157,15 @@ const ImportedBookmarks2 = (props) => {
                         >
                           go to plans page
                         </button>
+                      </div>
+                      <div className="margin-top-2">
+                        <button
+                          className="button-style-1- button-2w"
+                          onClick={handleCancelIt}
+                        >
+                          Cancel
+                        </button>
+                      </div>
                       </div>
                     ))}
               </div>

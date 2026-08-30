@@ -63,6 +63,16 @@ store.subscribe(() => {
   console.log("A,theStore=" + JSON.stringify(theStore));
 });
 
+ store
+            .dispatch(getTheuserscount2())
+            .then(() => {
+              
+              
+            })
+            .catch((error) => {
+              console.log("thehashtagsisopen, error", error);
+            });
+
 if (signup !== "signup") {
   window.localStorage.setItem("notloggedin", "1");
 
@@ -94,18 +104,19 @@ if (signup !== "signup") {
               store
             .dispatch(getTheupdatedate2(id))
             .then(() => {
-               store
+               return store
             .dispatch(getThehashtagsisopen2(id))
             .then(() => {
-              return store
-            .dispatch(getTheuserscount2())
-            .then(() => {
-              
               renderApp(store, signup);
-            })
-            .catch((error) => {
-              console.log("thehashtagsisopen, error", error);
-            });
+            //   return store
+            // .dispatch(getTheuserscount2())
+            // .then(() => {
+              
+            //   renderApp(store, signup);
+            // })
+            // .catch((error) => {
+            //   console.log("thehashtagsisopen, error", error);
+            // });
             })
             .catch((error) => {
               console.log("thehashtagsisopen, error", error);
@@ -153,18 +164,19 @@ if (signup !== "signup") {
               store
             .dispatch(getTheupdatedate(user.uid))
             .then(() => {
-               store
+               return store
             .dispatch(getThehashtagsisopen(user.uid))
             .then(() => {
-               return store
-            .dispatch(getTheuserscount2())
-            .then(() => {
-              
               renderApp(store, signup);
-            })
-            .catch((error) => {
-              console.log("thehashtagsisopen, error", error);
-            });
+            //    return store
+            // .dispatch(getTheuserscount2())
+            // .then(() => {
+              
+            //   renderApp(store, signup);
+            // })
+            // .catch((error) => {
+            //   console.log("thehashtagsisopen, error", error);
+            // });
             })
             .catch((error) => {
               console.log("theplan, error", error);

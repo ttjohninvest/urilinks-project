@@ -787,8 +787,8 @@ function ExpandableArray(props) {
               className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2" : "fleur-de-leah-regular"}`}
               title="Internet Links Organizer Dashboard's Home Page"
             >
-              {`Internet Links Organizer Dashboard's Home Page`} 
-              {/* {`Internet Links Organizer Dashboard's Home Page (users count: ${props.userscount})`} */}
+              {/* {`Internet Links Organizer Dashboard's Home Page`}  */}
+              {`Internet Links Organizer Dashboard's Home Page (users count: ${props.userscount})`}
             </div>
             {props.signup === false && (
               <div
@@ -1946,10 +1946,10 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
     console.log("LinkListFilter.js, this.props.theuserscount.userscount="+this.props.theuserscount.userscount)
-    let x = {
+    let x3 = {
                 userscount:this.props.theuserscount.userscount
               }
-              this.props.incrementUsersClickCount(x)
+              this.props.incrementUsersClickCount(x3)
     //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 

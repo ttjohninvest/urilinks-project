@@ -46,7 +46,7 @@ export const getTheuserscount2 = (id) => {
         let theuserscount
        
         console.log(
-          "action/getTheuserscount from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+          "11 action/getTheuserscount from db, snapshot.val()=" + JSON.stringify(snapshot.val())
         );
 
         let zuserscount={
@@ -55,7 +55,7 @@ export const getTheuserscount2 = (id) => {
 
         if (snapshot.val() === null) {
           //theplan = "free";
-          dispatch(startAddTheuserscount(zuserscount))
+          //dispatch(startAddTheuserscount(zuserscount))
         } else {
           //theplan=snapshot.val();
           //zplan=snapshot.val();
@@ -88,7 +88,7 @@ export const getTheuserscount = (uid) => {
 ////
         if (snapshot.val() === null) {
           //theplan = "free";
-          dispatch(startAddTheuserscount(zuserscount))
+          //dispatch(startAddTheuserscount(zuserscount))
         } else {
           //theplan=snapshot.val();
           //zplan=snapshot.val();

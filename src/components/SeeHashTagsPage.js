@@ -202,9 +202,9 @@ export const SeeHashTagsPage = (props) => {
   };
 
   return (
-    <Draggable nodeRef={nodeRef}>
+    // <Draggable nodeRef={nodeRef}>
     <div 
-    ref={setNodeRef}
+    //ref={setNodeRef}
     className="position-absolute z-index99 opaque100">
       <div className="margin-top-1 margin-left-11">
         <div className="page-header-2">
@@ -284,7 +284,7 @@ export const SeeHashTagsPage = (props) => {
         </div>
       </div>
     </div>
-    </Draggable>
+    // </Draggable>
   );
 };
 

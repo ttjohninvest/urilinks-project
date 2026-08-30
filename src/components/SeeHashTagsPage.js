@@ -206,13 +206,13 @@ export const SeeHashTagsPage = (props) => {
     <div 
     //ref={setNodeRef}
     className="position-absolute z-index99 opaque100">
-      <div className="margin-top-1- margin-left-11">
-        <div className="page-header-2-">
+      <div className="margin-top-1 margin-left-11">
+        <div className="page-header-2">
           <div className="content-container">
-            <h3 className="page-header__title borderRadius55">
+            <h2 className="page-header__title borderRadius55">
               <span className="color-purple color-black-2">Hashtags</span>
             
-            </h3>
+            </h2>
           </div>
         </div>
         <div>

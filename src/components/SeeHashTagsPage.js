@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Draggable from 'react-draggable';
+//import Draggable from 'react-draggable';
 
 import { setTextFilter, sortByHashTag } from "../actions/filters";
 
@@ -13,7 +13,7 @@ export const SeeHashTagsPage = (props) => {
   const buttonRef4 = useRef(null);
   const scrolldownref8 = useRef(null);
   const scrollupref8 = useRef(null)
-  const [nodeRef, setNodeRef] = useState(null);
+  //const [nodeRef, setNodeRef] = useState(null);
 
   useEffect(() => {
     console.log(

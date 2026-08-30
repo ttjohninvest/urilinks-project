@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Draggable from 'react-draggable';
+//import Draggable from 'react-draggable';
 
 import { setTextFilter, sortByHashTag } from "../actions/filters";
 
@@ -210,7 +210,7 @@ export const SeeHashTagsPage = (props) => {
         <div className="page-header-2">
           <div className="content-container">
             <h1 className="page-header__title borderRadius55 padding-bottom-5z1-">
-              <span className="color-purple color-black-2">Hashtags</span>
+              <span className="color-purple color-black-2">Hasht8ags</span>
             
             </h1>
           </div>

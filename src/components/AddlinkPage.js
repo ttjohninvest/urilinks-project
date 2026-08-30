@@ -218,7 +218,7 @@ export const AddLinkPage = (props) => {
           exceeded)
         </div>
       ) : maximumPage === false ? (
-        <div>
+        <div className="position-absolute z-index99 opaque100">
           <div className="page-header">
             <div className="content-container">
               <h1 className="page-header__title">
@@ -226,7 +226,7 @@ export const AddLinkPage = (props) => {
               </h1>
             </div>
           </div>
-          <div className="content-container-addlink position-absolute z-index99 opaque100">
+          <div className="content-container-addlink">
             <LinkForm
               onSubmit={onSubmit}
               handleClose2={props.handleClose2}

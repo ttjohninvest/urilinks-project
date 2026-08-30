@@ -1611,9 +1611,6 @@ function ExpandableArray(props) {
               page sees your new links.
               <br />
               <br />
-              ✮ Please close the add a link form or the hashtags window if either of them are open or both of them are open before doing a search.
-              <br />
-              <br />
               ✮ Use the search field to add word(s) to search for.
               <br />
               <br />

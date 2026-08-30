@@ -32,33 +32,22 @@ export const startAddTheuserscount = (theuserscountData = {}) => {
   };
 };
 
-export const getTheuserscount2 = (id) => {
+export const getTheuserscount2 = () => {
   console.log("actions/getTheuserscount");
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    console.log("actions/getTheuserscount2, uid=" + uid);
+    //const uid = getState().auth.uid;
+    //console.log("actions/getTheuserscount2, uid=" + uid);
     let s;
     return database
      
       .ref(`users/theuserscount`)
       .once("value")
       .then((snapshot) => {
-        let theuserscount
-       
-        console.log(
-          "11 action/getTheuserscount from db, snapshot.val()=" + JSON.stringify(snapshot.val())
-        );
-
-        let zuserscount={
-           userscount:0
-        }
 
         if (snapshot.val() === null) {
-          //theplan = "free";
-          //dispatch(startAddTheuserscount(zuserscount))
+          
         } else {
-          //theplan=snapshot.val();
-          //zplan=snapshot.val();
+          
           dispatch(addTheuserscount(snapshot.val()));
         }
        
@@ -66,39 +55,6 @@ export const getTheuserscount2 = (id) => {
   };
 };
 
-export const getTheuserscount = (uid) => {
-  console.log("actions/getTheuserscount, uid="+uid);
-  return (dispatch, getState) => {
-    //const uid = getState().auth.uid;
-    console.log("actions/getTheuserscount, uid=" + uid);
-    let s;
-    return database
-      //.ref(`users/${uid}/theplan/plan`)
-      .ref(`users/theuserscount`)
-      .once("value")
-      .then((snapshot) => {
-       
-        console.log(
-          "11 action/getTheuserscount from db, snapshot.val()=" + JSON.stringify(snapshot.val())
-        );
-
-        let zuserscount={
-           userscount:0
-        }
-////
-        if (snapshot.val() === null) {
-          //theplan = "free";
-          //dispatch(startAddTheuserscount(zuserscount))
-        } else {
-          //theplan=snapshot.val();
-          //zplan=snapshot.val();
-          //console.log("app.js, zplan="+JSON.stringify(zplan))
-          dispatch(addTheuserscount(snapshot.val()));
-        }
-        
-      });
-  };
-};
 
 
 

@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import { LinkList3 } from "./LinkList3.js";
-import honoring from "../assets/honoring/Giraffes.png";
+import honoring from "../assets/honoring/christmas-tree.png";
 import CopyButton from "./CopyButton";
 import HashTagsButton from "./HashTagsButton";
 //import AddLinkPage from "./AddlinkPage";
@@ -1569,7 +1569,7 @@ function ExpandableArray(props) {
                 <div className="flexrowzc2">
                   <img src={honoring} width="150" height="200" className="ib" />
                   <div className="margin-bottom-1">
-                    Giraffe, God's loving creation
+                    honoring text
                   </div>
                 </div>
               </div>

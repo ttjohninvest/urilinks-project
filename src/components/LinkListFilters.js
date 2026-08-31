@@ -1953,7 +1953,7 @@ export class LinkListFilters extends React.Component {
     console.log("LinkListFilter.js, this.props.theuserscount.userscount="+this.props.theuserscount.userscount)
     let x3 = {userscount:this.props.theuserscount.userscount}
     console.log("LinkListFilters.js, componentDidMount, this.props.uid="+this.props.uid)
-    if(this.props.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" && this.props.uid !== "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
+    if(this.props.auth.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" && this.props.auth.uid !== "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
       this.props.incrementUsersClickCount(x3)
     //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");

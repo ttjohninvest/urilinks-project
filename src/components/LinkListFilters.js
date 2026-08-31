@@ -1568,7 +1568,7 @@ function ExpandableArray(props) {
                 <div className="flexrowzc2">
                   <img src={honoring} width="150" height="200" className="ib" />
                   <div className="margin-bottom-1">
-                    Frank Caprio, Compassionate Judge
+                    Giraffe, God's loving creation
                   </div>
                 </div>
               </div>

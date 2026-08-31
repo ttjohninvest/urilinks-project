@@ -403,6 +403,15 @@ export const LinkList = (props) => {
         >
           <span>ScrollToTop</span>
         </button>
+         <button
+          ref={props.scrolltobottomref}
+          title="Click the button to begin auto scroll."
+          onClick={props.startScrollToBottom2}
+          className="button-2 ib margin-left-11 widthxpx1"
+          style={{zIndex:99}}
+        >
+          <span>ScrollToBottom</span>
+        </button>
       </div>
       </StickyFixed>
       }

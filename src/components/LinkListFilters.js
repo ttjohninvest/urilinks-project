@@ -83,6 +83,7 @@ function ExpandableArray(props) {
   const scrollupref = useRef();
   const scrolldownref = useRef();
   const scrolltotopref = useRef();
+  const scrolltobottomref = useRef();
   const scrollInterval2 = useRef(null);
   const buttonRef2 = useRef(null);
 
@@ -722,6 +723,55 @@ function ExpandableArray(props) {
     }, 20); // Every 20 milliseconds
   };
 
+  const startScrollToBottom2 = () => {
+    try {
+      if (!!buttonRef2 === true) buttonRef2.current.click();
+    } catch (error) {
+      console.log("error=" + error);
+    }
+    // Prevent multiple intervals
+    if (scrollInterval2.current) return;
+
+    scrollInterval2.current = setInterval(() => {
+      try {
+        if (!!document.getElementById("ls2") === true)
+          document.getElementById("ls2").scrollBy({
+            top: 100, // Scroll 1 pixel each time
+            left: 0,
+            behavior: "auto",
+          });
+      } catch (error) {
+        console.log("error=" + error);
+      }
+
+      //console.log(document.getElementById("ls2").scrollTop +
+      //    document.getElementById("ls2").clientHeight)
+      //console.log(document.getElementById("ls2").scrollHeight)
+      if (!!document.getElementById("ls2") === true)
+        if (
+          document.getElementById("ls2").scrollTop +
+            document.getElementById("ls2").clientHeight >=
+          (document.getElementById("ls2").scrollHeight - 2 ||
+            document.getElementById("ls2").scrollHeight + 2)
+        ) {
+          try {
+            if (!!buttonRef2 === true) buttonRef2.current.click();
+          } catch (error) {
+            console.log("error=" + error);
+          }
+          try {
+            if (!!scrolldownref === true) {
+              //scrolldownref.current.click();
+            }
+             
+             
+          } catch (error) {
+            console.log("error=" + error);
+          }
+        }
+    }, 20); // Every 20 milliseconds
+  };
+
   const stopScrolling2 = () => {
     //scrollupref.current = null
     clearInterval(scrollInterval2.current);
@@ -813,10 +863,11 @@ function ExpandableArray(props) {
 
           try {
             if (!!scrollupref === true)
-              if (!!scrollupref === true)
+              if (!!scrollupref === true) {
                 //auto scroll in the other direction
                 //auto scroll in the other direction
-                scrollupref.current.click();
+                //scrollupref.current.click();
+              }
           } catch (error) {
             console.log("error=" + error);
           }
@@ -1594,11 +1645,13 @@ function ExpandableArray(props) {
                 scrollupref={scrollupref}
                 scrolldownref={scrolldownref}
                 scrolltotopref={scrolltotopref}
+                scrolltobottomref={scrolltobottomref}
                 //scrollInterval2={scrollInterval2}
                 buttonRef2={buttonRef2}
                 startScrollingUp2={startScrollingUp2}
                 startScrollingDown2={startScrollingDown2}
                 startScrollToTop2={startScrollToTop2}
+                startScrollToBottom2={startScrollToBottom2}
                 stopScrolling2={stopScrolling2}
                 scrollInterval2={scrollInterval2}
               />

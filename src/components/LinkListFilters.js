@@ -783,8 +783,47 @@ function ExpandableArray(props) {
     } catch (error) {
       console.log("error=" + error);
     }
-   
-    window.scrollTo(0,0)
+    // Prevent multiple intervals
+    if (scrollInterval2.current) return;
+
+    scrollInterval2.current = setInterval(() => {
+      try {
+        if (!!document.getElementById("ls2") === true)
+          //auto scroll in the other direction
+          document.getElementById("ls2").scrollBy({
+            top: -100, // Scroll 1 pixel each time
+            left: 0,
+            behavior: "auto",
+          });
+      } catch (error) {
+        console.log("error=" + error);
+      }
+
+      // Stop automatically when reaching the top
+      if (!!document.getElementById("ls2") === true)
+        if (
+          document.getElementById("ls2").scrollTop === 0 ||
+          document.getElementById("ls2").scrollTop <= 2
+        ) {
+          try {
+            if (!!buttonRef2 === true) buttonRef2.current.click();
+          } catch (error) {
+            console.log("error=" + error);
+          }
+
+          try {
+            if (!!scrollupref === true)
+              if (!!scrollupref === true)
+                //auto scroll in the other direction
+                //auto scroll in the other direction
+                scrollupref.current.click();
+          } catch (error) {
+            console.log("error=" + error);
+          }
+
+          //stopScrolling();
+        }
+    }, 20); // Every 20 milliseconds
     
   };
 

@@ -24,6 +24,9 @@ export const SendEmailPage = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
+    if(props.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+          max = StorageSizes.mine;
+        else
     if (
       !!props.theplan.plan &&
       props.theplan.plan.replace(/"/g, "") === "free"
@@ -179,6 +182,7 @@ export const SendEmailPage = (props) => {
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
   signup: state.signup,
+  uid:state.uid
 });
 
 const mapDispatchToProps = (dispatch) => ({

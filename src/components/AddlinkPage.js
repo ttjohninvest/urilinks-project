@@ -251,6 +251,7 @@ export const AddLinkPage = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  uid:state.uid,
   theplan: state.theplan,
   signup: state.signup,
   links: state.links,

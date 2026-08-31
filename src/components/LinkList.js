@@ -63,6 +63,9 @@ export const LinkList = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
+    if(props.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+          max = StorageSizes.mine;
+        else
     if (
       !!props.theplan.plan &&
       props.theplan.plan.replace(/"/g, "") === "free"
@@ -448,6 +451,7 @@ const mapStateToProps = (state) => {
   //const visibleLinks2 = selectLinks2(state.links2, state.filters);
 
   return {
+    uid:state.uid,
     theplan: state.theplan,
     linkCount: visibleLinks.length,
     //linkCount2: visibleLinks2.length,

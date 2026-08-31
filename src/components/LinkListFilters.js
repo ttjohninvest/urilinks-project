@@ -82,6 +82,7 @@ function ExpandableArray(props) {
 
   const scrollupref = useRef();
   const scrolldownref = useRef();
+  const scrolltotopref = useRef();
   const scrollInterval2 = useRef(null);
   const buttonRef2 = useRef(null);
 
@@ -776,7 +777,16 @@ function ExpandableArray(props) {
     }, 20); // Every 20 milliseconds
   };
 
+     const startScrollToTop2 = () => {
+    try {
+      if (!!buttonRef2 === true) buttonRef2.current.click();
+    } catch (error) {
+      console.log("error=" + error);
+    }
    
+    window.scrollTo(0,0)
+    
+  };
 
   return (
     <div className="bg-white-1">
@@ -1544,10 +1554,12 @@ function ExpandableArray(props) {
                 handleStartScroll={handleStartScroll}
                 scrollupref={scrollupref}
                 scrolldownref={scrolldownref}
+                scrolltotopref={scrolltotopref}
                 //scrollInterval2={scrollInterval2}
                 buttonRef2={buttonRef2}
                 startScrollingUp2={startScrollingUp2}
                 startScrollingDown2={startScrollingDown2}
+                startScrollToTop2={startScrollToTop2}
                 stopScrolling2={stopScrolling2}
                 scrollInterval2={scrollInterval2}
               />
@@ -1952,7 +1964,7 @@ export class LinkListFilters extends React.Component {
   componentDidMount() {
     console.log("LinkListFilter.js, this.props.theuserscount.userscount="+this.props.theuserscount.userscount)
     let x3 = {userscount:this.props.theuserscount.userscount}
-    console.log("LinkListFilters.js, componentDidMount, this.props.uid="+this.props.uid)
+    console.log("LinkListFilters.js, componentDidMount, this.props.auth.uid="+this.props.auth.uid)
     if(this.props.auth.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" && this.props.auth.uid !== "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
       this.props.incrementUsersClickCount(x3)
     //this.props.setTheHashTagDivHeight(this.state.height);

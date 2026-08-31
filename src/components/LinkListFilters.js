@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import { LinkList3 } from "./LinkList3.js";
-import honoring from "../assets/honoring/Frank-Caprio.png";
+import honoring from "../assets/honoring/Giraffes.png";
 import CopyButton from "./CopyButton";
 import HashTagsButton from "./HashTagsButton";
 //import AddLinkPage from "./AddlinkPage";

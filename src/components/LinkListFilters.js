@@ -1766,6 +1766,12 @@ function ExpandableArray(props) {
               ✮ Click the ScrollDn button to start automatic scrolling down.
               <br />
               <br />
+              ✮ Click the ScrollToTop button to quickly scroll to the top.
+              <br />
+              <br />
+              ✮ Click the ScrollToBott button to quickly scroll to the bottom.
+              <br />
+              <br />
             </div>
           </div>
         )}

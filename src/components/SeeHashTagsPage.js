@@ -163,7 +163,7 @@ export const SeeHashTagsPage = (props) => {
          if(!!scrolldownref8===true)
         scrolldownref8.current.click()
       }
-    }, 20); // Every 20 milliseconds
+    }, 40); // Every 20 milliseconds
   };
 
   const stopScrolling4 = () => {
@@ -192,7 +192,7 @@ export const SeeHashTagsPage = (props) => {
 
         //stopScrolling();
       }
-    }, 20); // Every 20 milliseconds
+    }, 40); // Every 20 milliseconds
   };
 
   const isMobile = () => {

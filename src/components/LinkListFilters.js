@@ -72,7 +72,7 @@ function ExpandableArray(props) {
   const [aValue, setAValue] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const fullText = "❤️ Benefits: urilinks is a platform for orgainizing links to website content and publishing your own links to website content to a worldwide audience. It is made with love and care. It works. You can make money with text ads. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. My phone number is 775 559 5740, John, Mr McGovern. Please try a user account today. Thank you so much.";
+  const fullText = "❤️ Benefits: urilinks is a platform for orgainizing links to website content and publishing your own links to website content to a worldwide audience. It is made with love and care. It works. You can make money with text ads. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. My phone number is 775 559 5740, John, Mr McGovern. Please try a user account today through friendly login. Thank you so much.";
   const charLimit = 225;
   const displayText = isExpanded ? fullText : fullText.slice(0, charLimit);
 

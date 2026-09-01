@@ -24,6 +24,9 @@ export const AddLinkPage2 = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
+     if(props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+              max = StorageSizes.mine;
+            else
     if (
       !!props.theplan.plan &&
       props.theplan.plan.replace(/"/g, "") === "free"
@@ -192,6 +195,7 @@ export const AddLinkPage2 = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  auth:state.auth,
   theplan: state.theplan,
   signup: state.signup,
 });

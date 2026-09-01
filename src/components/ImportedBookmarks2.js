@@ -225,6 +225,7 @@ const ImportedBookmarks2 = (props) => {
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
   links: state.links,
+  auth: state.auth
 });
 
 //export default withRouter(connect(mapStateToProps, undefined)(ImportedBookmarks2));

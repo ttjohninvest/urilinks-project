@@ -14,7 +14,7 @@ const ImportedBookmarks = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if(props.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+    if(props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
           max = StorageSizes.mine;
         else
     if (
@@ -144,7 +144,7 @@ const ImportedBookmarks = (props) => {
 
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
-  uid:state.uid
+  auth:state.auth
 });
 
 export default withRouter(

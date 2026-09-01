@@ -93,7 +93,7 @@ const FetchBookmarks = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if(props.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+    if(props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
       max = StorageSizes.mine;
     else
     if (
@@ -3299,7 +3299,7 @@ const FetchBookmarks = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  uid: state.uid,
+  auth: state.auth,
   url: state.url,
   links: state.links,
   theplan: state.theplan,

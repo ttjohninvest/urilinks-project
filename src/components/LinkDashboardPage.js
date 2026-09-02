@@ -71,7 +71,7 @@ const LinkDashboardPage = (props) => {
   useEffect(()=>{
     //window.onbeforeunload = null;
     props.abc(2)
-    console.log("2, props.refabc="+props.refabc)
+    console.log("2, props.refabc="+JSON.stringify(props.refabc))
   },[])
 
   const setTheHashTagDivHeight = (h) => {
@@ -213,6 +213,7 @@ left column
             
             <LinkListFilters
               abc = {props.abc}
+              abcref = {props.abcref}
               setTheHashTagDivHeight={setTheHashTagDivHeight}
               b={b}
               av={av}

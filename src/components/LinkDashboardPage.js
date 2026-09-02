@@ -71,6 +71,7 @@ const LinkDashboardPage = (props) => {
   useEffect(()=>{
     //window.onbeforeunload = null;
     props.abc(2)
+    console.log("2, props.refabc="+props.refabc)
   },[])
 
   const setTheHashTagDivHeight = (h) => {
@@ -166,7 +167,7 @@ const LinkDashboardPage = (props) => {
 
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     });
 
     if (isMobile() === true)

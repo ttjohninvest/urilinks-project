@@ -59,6 +59,7 @@ export const Header = (props) => {
 
   useEffect(()=>{
     props.abc(1)
+    console.log("1, props.refabc="+props.refabc)
   },[])
 
   function slowScrollDown(distance, duration) {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import Header from '../components/Header';
@@ -12,6 +12,7 @@ export const PrivateRoute = ({
   ...rest
 }) => { 
   
+  const refabc = useRef("refabc")
   const abc = (x) =>{
     console.log("PrivateRoute, abc, x="+x)
   }
@@ -20,8 +21,8 @@ export const PrivateRoute = ({
     <Route {...rest} component={(props) => (
       isAuthenticated ? (
         <div>
-          <Header signup={signup} abc={abc} />
-          <Component {...props} abc={abc}  />
+          <Header signup={signup} abc={abc} refabc={refabc} />
+          <Component {...props} abc={abc}  refabc={refabc} />
         </div>
       ) : (
           <Redirect to="/" />

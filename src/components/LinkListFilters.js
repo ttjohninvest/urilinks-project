@@ -2061,6 +2061,7 @@ export class LinkListFilters extends React.Component {
 
   componentDidMount() {
     this.props.abc(3)
+    console.log("3, this.props.refabc="+this.props.refabc)
     console.log("LinkListFilter.js, this.props.theuserscount.userscount="+this.props.theuserscount.userscount)
     let x3 = {userscount:this.props.theuserscount.userscount}
     console.log("LinkListFilters.js, componentDidMount, this.props.auth.uid="+this.props.auth.uid)

@@ -681,9 +681,9 @@ function ExpandableArray(props) {
       console.log("error=" + error);
     }
     // Prevent multiple intervals
-    if (scrollInterval2.current) return;
+    if (props.scrollInterval2.current) return;
 
-    scrollInterval2.current = setInterval(() => {
+    props.scrollInterval2.current = setInterval(() => {
       try {
         if (!!document.getElementById("ls2") === true)
           document.getElementById("ls2").scrollBy({
@@ -728,9 +728,9 @@ function ExpandableArray(props) {
       console.log("error=" + error);
     }
     // Prevent multiple intervals
-    if (scrollInterval2.current) return;
+    if (props.scrollInterval2.current) return;
 
-    scrollInterval2.current = setInterval(() => {
+    props.scrollInterval2.current = setInterval(() => {
       try {
         if (!!document.getElementById("ls2") === true)
           document.getElementById("ls2").scrollBy({
@@ -781,9 +781,9 @@ function ExpandableArray(props) {
       console.log("error=" + error);
     }
     // Prevent multiple intervals
-    if (scrollInterval2.current) return;
+    if (props.scrollInterval2.current) return;
 
-    scrollInterval2.current = setInterval(() => {
+    props.scrollInterval2.current = setInterval(() => {
       try {
         if (!!document.getElementById("ls2") === true)
           //auto scroll in the other direction
@@ -830,9 +830,9 @@ function ExpandableArray(props) {
       console.log("error=" + error);
     }
     // Prevent multiple intervals
-    if (scrollInterval2.current) return;
+    if (props.scrollInterval2.current) return;
 
-    scrollInterval2.current = setInterval(() => {
+    props.scrollInterval2.current = setInterval(() => {
       try {
         if (!!document.getElementById("ls2") === true)
           //auto scroll in the other direction

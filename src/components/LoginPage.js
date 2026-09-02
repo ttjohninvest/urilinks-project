@@ -59,7 +59,7 @@ const LoginPage = ({ startLogin }) => {
     //count < 20 )
     return (
       <div className="box-layout">
-        <div className="flexrowzc2 borderRadius5">
+        <div className="flexrowzc2 borderRadius5 opacity5">
           <div
             title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface."
             className="box-layout__box"

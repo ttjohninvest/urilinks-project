@@ -62,7 +62,7 @@ const LoginPage = ({ startLogin }) => {
         <div className="flexrowz">
           <div
             title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
-            className="box-layout__box"
+            className="box-layout__box flexrowzc2"
           >
             {/* <h3 className="margin-left-11 box-layout__title">
               HOLY LOVING GOD'S SALVATION INVITATION

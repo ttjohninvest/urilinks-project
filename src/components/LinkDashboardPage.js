@@ -214,6 +214,8 @@ left column
             <LinkListFilters
               abc = {props.abc}
               abcref = {props.abcref}
+              stopScrolling2={props.stopScrolling2}
+              scrollInterval2 = {props.scrollInterval2}
               setTheHashTagDivHeight={setTheHashTagDivHeight}
               b={b}
               av={av}

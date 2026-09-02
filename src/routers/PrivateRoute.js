@@ -10,8 +10,14 @@ export const PrivateRoute = ({
   ...rest
 }) => {
   const abcref = useRef("abcref");
+  const scrollInterval2 = useRef(null);
   const abc = (x) => {
     console.log("PrivateRoute, abc, x=" + x);
+  };
+   const stopScrolling2 = () => {
+    //scrollupref.current = null
+    clearInterval(scrollInterval2.current);
+    scrollInterval2.current = null;
   };
 
   return (
@@ -20,8 +26,8 @@ export const PrivateRoute = ({
       component={(props) =>
         isAuthenticated ? (
           <div>
-            <Header signup={signup} abc={abc} abcref={abcref} />
-            <Component {...props} abc={abc} abcref={abcref} />
+            <Header signup={signup} abc={abc} abcref={abcref} stopScrolling2={stopScrolling2} scrollInterval2 = {scrollInterval2} />
+            <Component {...props} abc={abc} abcref={abcref}  stopScrolling2={stopScrolling2} scrollInterval2 = {scrollInterval2} />
           </div>
         ) : (
           <Redirect to="/" />

@@ -243,6 +243,7 @@ export const Header = (props) => {
     setSignup(false);
     //setEmail("");
     setLinks([]);
+    props.stopScrolling2()
     props.startLogout();
     //window.location.href = "https://urilinks.com"
   };

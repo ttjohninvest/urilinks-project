@@ -84,7 +84,7 @@ function ExpandableArray(props) {
   const scrolldownref = useRef();
   const scrolltotopref = useRef();
   const scrolltobottomref = useRef();
-  const scrollInterval2 = useRef(null);
+  // const scrollInterval2 = useRef(null);
   const buttonRef2 = useRef(null);
 
   const useButtons = false; //use buttons in display of categories
@@ -430,7 +430,7 @@ function ExpandableArray(props) {
   };
 
   const search2 = (z) => {
-    stopScrolling2();
+    props.stopScrolling2();
     //handleCancelScroll()
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
@@ -471,7 +471,7 @@ function ExpandableArray(props) {
 
   const search = (z) => {
     //handleCancelScroll();
-    stopScrolling2();
+    props.stopScrolling2();
     console.log("search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
@@ -532,7 +532,7 @@ function ExpandableArray(props) {
   };
 
   const onSortChange = (e) => {
-    stopScrolling2();
+    props.stopScrolling2();
     //handleCancelScroll();
     if (
       e.target.value === "none" ||
@@ -768,11 +768,11 @@ function ExpandableArray(props) {
     }, 20); // Every 20 milliseconds
   };
 
-  const stopScrolling2 = () => {
-    //scrollupref.current = null
-    clearInterval(scrollInterval2.current);
-    scrollInterval2.current = null;
-  };
+  // const stopScrolling2 = () => {
+  //   //scrollupref.current = null
+  //   clearInterval(scrollInterval2.current);
+  //   scrollInterval2.current = null;
+  // };
 
   const startScrollingDown2 = () => {
     try {
@@ -1647,8 +1647,8 @@ function ExpandableArray(props) {
                   startScrollingDown2={startScrollingDown2}
                   startScrollToTop2={startScrollToTop2}
                   startScrollToBottom2={startScrollToBottom2}
-                  stopScrolling2={stopScrolling2}
-                  scrollInterval2={scrollInterval2}
+                  stopScrolling2={props.stopScrolling2}
+                  scrollInterval2={props.scrollInterval2}
                 />
               </div>
             </div>
@@ -2184,6 +2184,8 @@ export class LinkListFilters extends React.Component {
     return (
       <div>
         <ExpandableArray
+          stopScrolling2={this.props.stopScrolling2}
+          scrollInterval2={this.props.scrollInterval2}
           mappedDataShort={this.props.hashtags}
           mappedDataLong={this.state.mappedDataLong}
           maxLength={this.SHORT_HASHTAG_LENGTH}

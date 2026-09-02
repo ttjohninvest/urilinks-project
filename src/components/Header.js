@@ -57,6 +57,10 @@ export const Header = (props) => {
   const x = params.get("x");
   const x1 = params.get("x1");
 
+  useEffect(()=>{
+    props.abc()
+  },[])
+
   function slowScrollDown(distance, duration) {
     const startingY = window.pageYOffset;
     const targetY = startingY + distance;

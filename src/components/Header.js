@@ -49,7 +49,15 @@ export const Header = (props) => {
   const [email, setEmail] = useState("");
   const [theplan, setTheplan] = useState("");
   const [bmok, setBmok] = useState(false);
-  const [linksUpdateDateTime, setLinksUpdateDateTime] = useState(new Date(props.theupdatedate.updatedate).toLocaleDateString()+" at "+new Date(props.theupdatedate.updatedate).toLocaleTimeString()+" "+new Date(props.theupdatedate.updatedate).toLocaleDateString(undefined, { weekday: 'long' }))
+  const [linksUpdateDateTime, setLinksUpdateDateTime] = useState(
+    new Date(props.theupdatedate.updatedate).toLocaleDateString() +
+      " at " +
+      new Date(props.theupdatedate.updatedate).toLocaleTimeString() +
+      " " +
+      new Date(props.theupdatedate.updatedate).toLocaleDateString(undefined, {
+        weekday: "long",
+      }),
+  );
   const ideas = () => {};
 
   const params = new URLSearchParams(window.location.search);
@@ -57,10 +65,10 @@ export const Header = (props) => {
   const x = params.get("x");
   const x1 = params.get("x1");
 
-  useEffect(()=>{
-    props.abc(1)
-    console.log("1, props.refabc="+JSON.stringify(props.refabc))
-  },[])
+  useEffect(() => {
+    props.abc(1);
+    console.log("1, props.abcref=" + JSON.stringify(props.abcref));
+  }, []);
 
   function slowScrollDown(distance, duration) {
     const startingY = window.pageYOffset;
@@ -380,9 +388,24 @@ export const Header = (props) => {
                             <h3 className="color-white-1 text-size-11">
                               <span>🌺 urilinks</span>
                             </h3>
-                            
+
                             {/* <span className="ib margin-left-11 color-white-1" title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first.">{`${!!props.theupdatedate.updatedate===true ? 'Link(s) updated on ':""}`}<span  id="linksupdate" >{props.links.length > 0 ? <span>{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}<span>&nbsp;pst</span></span>:""}</span></span> */}
-                          <span className="ib margin-left-11 color-white-1" title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first.">{`${!!props.theupdatedate.updatedate===true ? 'Link(s) updated on ':""}`}<span  id="linksupdate" >{props.links.length > 0 ? <span>{linksUpdateDateTime}<span></span></span>:""}</span></span>
+                            <span
+                              className="ib margin-left-11 color-white-1"
+                              title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first."
+                            >
+                              {`${!!props.theupdatedate.updatedate === true ? "Link(s) updated on " : ""}`}
+                              <span id="linksupdate">
+                                {props.links.length > 0 ? (
+                                  <span>
+                                    {linksUpdateDateTime}
+                                    <span></span>
+                                  </span>
+                                ) : (
+                                  ""
+                                )}
+                              </span>
+                            </span>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
                           {/* <img
@@ -820,7 +843,7 @@ export const Header = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  links:state.links,
+  links: state.links,
   theupdatedate: state.theupdatedate,
   settings: state.settings,
   signup: state.signup,
@@ -852,5 +875,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
-
-

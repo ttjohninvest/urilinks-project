@@ -47,7 +47,6 @@ import {
 } from "../actions/filters";
 
 import { incrementUsersClickCount } from "../actions/theuserscount";
- 
 
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
@@ -72,12 +71,13 @@ function ExpandableArray(props) {
   const [aValue, setAValue] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const fullText = "❤️ Benefits: urilinks is a platform for orgainizing links to website content and publishing your own links to website content to a worldwide audience. It is made with love and care. It works. You can make money with text ads. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. My phone number is 775 559 5740, John, administrator. Please try a user account today through friendly login. Thank you so much.";
+  const fullText =
+    "❤️ Benefits: urilinks is a platform for orgainizing links to website content and publishing your own links to website content to a worldwide audience. It is made with love and care. It works. You can make money with text ads. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. My phone number is 775 559 5740, John, administrator. Please try a user account today through friendly login. Thank you so much.";
   const charLimit = 225;
   const displayText = isExpanded ? fullText : fullText.slice(0, charLimit);
 
   const myRef = useRef(null);
-  const elementRef2 = useRef(null)
+  const elementRef2 = useRef(null);
   const scrollInterval = useRef(null);
 
   const scrollupref = useRef();
@@ -110,8 +110,6 @@ function ExpandableArray(props) {
 
   const childRef = useRef(null);
 
-
-
   const handleStartScroll = (v) => {
     if (childRef.current) {
       childRef.current.startAutoScroll(v);
@@ -124,9 +122,7 @@ function ExpandableArray(props) {
   //   }
   // };
 
-  
   useEffect(() => {
-    
     console.log(
       "ZZZZZ, props.mappedDataShort[0]=" +
         JSON.stringify(props.mappedDataShort[0]),
@@ -520,17 +516,19 @@ function ExpandableArray(props) {
       });
   };
 
-  const changeSortBy = (sv,x) => {
+  const changeSortBy = (sv, x) => {
     //alert("sv="+"hashtag")
     //alert("sv="+sv)
     setSortBy(sv);
     //setSortBy("hashtag")
     //handleClose3();
-    if(!!x===false)
-    !!document.querySelector("#before-before-link-summary-id") &&
-      document.querySelector("#before-before-link-summary-id").scrollIntoView({
-        behavior: "smooth",
-      });
+    if (!!x === false)
+      !!document.querySelector("#before-before-link-summary-id") &&
+        document
+          .querySelector("#before-before-link-summary-id")
+          .scrollIntoView({
+            behavior: "smooth",
+          });
   };
 
   const onSortChange = (e) => {
@@ -763,8 +761,6 @@ function ExpandableArray(props) {
             if (!!scrolldownref === true) {
               //scrolldownref.current.click();
             }
-             
-             
           } catch (error) {
             console.log("error=" + error);
           }
@@ -827,7 +823,7 @@ function ExpandableArray(props) {
     }, 20); // Every 20 milliseconds
   };
 
-     const startScrollToTop2 = () => {
+  const startScrollToTop2 = () => {
     try {
       if (!!buttonRef2 === true) buttonRef2.current.click();
     } catch (error) {
@@ -875,7 +871,6 @@ function ExpandableArray(props) {
           //stopScrolling();
         }
     }, 20); // Every 20 milliseconds
-    
   };
 
   return (
@@ -901,8 +896,9 @@ function ExpandableArray(props) {
               >
                 {/* To make money, you can add a text link ad with each link you
                 have. Please try a user account today. Thank you so much. */}
-                 To make money, you can add a text link ad with each link you
-                have. Can you try my new website today? - John 775 559-5740. Thank you so much.
+                To make money, you can add a text link ad with each link you
+                have. Can you try my new website today? - John 775 559-5740.
+                Thank you so much.
               </div>
             )}
           </div>
@@ -1027,7 +1023,11 @@ function ExpandableArray(props) {
                   {/* {props.links.length === 1
                     ? "1 link is displayed."
                     : `${props.links.length} links are displayed.`} */}
-                    {props.links.length===0?'':props.links.length===1?'1 link is displayed':props.links.length+' links are displayed'}
+                  {props.links.length === 0
+                    ? ""
+                    : props.links.length === 1
+                      ? "1 link is displayed"
+                      : props.links.length + " links are displayed"}
                 </div>
               )}
               {isMobile() === true ? (
@@ -1267,11 +1267,8 @@ function ExpandableArray(props) {
                     </span>
                   )}
 
-                 
-
                   {props.signup === true && rt !== "readonly" ? (
                     <div
-                      
                       id="before-before-link-summary-id"
                       className="margin-bottom-1"
                     >
@@ -1328,7 +1325,7 @@ function ExpandableArray(props) {
                       }
                     </div>
                   ) : (
-                  <div
+                    <div
                       id="before-before-link-summary-id"
                       className="margin-bottom-1"
                     >
@@ -1351,7 +1348,7 @@ function ExpandableArray(props) {
                       >
                         Add A link
                       </button> */}
-                      <AddALinkButton x={100}/>
+                      <AddALinkButton x={100} />
                       {/* {isForm2Open && (
                         <AddLinkPage
                           isForm2Open={isForm2Open}
@@ -1631,33 +1628,30 @@ function ExpandableArray(props) {
             </div>
             {/* column 2 is the following div */}
             <div>
-            <div 
-            id="ef2"
-            ref = {elementRef2}></div>
-            
-            <div id="results1" className={`margin-top-18`}>
-              {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
+              <div id="ef2" ref={elementRef2}></div>
+
+              <div id="results1" className={`margin-top-18`}>
+                {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
-              <LinkList3
-                av={props.av}
-                ref={childRef}
-                handleStartScroll={handleStartScroll}
-                scrollupref={scrollupref}
-                scrolldownref={scrolldownref}
-                scrolltotopref={scrolltotopref}
-                scrolltobottomref={scrolltobottomref}
-                //scrollInterval2={scrollInterval2}
-                buttonRef2={buttonRef2}
-                startScrollingUp2={startScrollingUp2}
-                startScrollingDown2={startScrollingDown2}
-                startScrollToTop2={startScrollToTop2}
-                startScrollToBottom2={startScrollToBottom2}
-                stopScrolling2={stopScrolling2}
-                scrollInterval2={scrollInterval2}
-              />
+                <LinkList3
+                  av={props.av}
+                  ref={childRef}
+                  handleStartScroll={handleStartScroll}
+                  scrollupref={scrollupref}
+                  scrolldownref={scrolldownref}
+                  scrolltotopref={scrolltotopref}
+                  scrolltobottomref={scrolltobottomref}
+                  //scrollInterval2={scrollInterval2}
+                  buttonRef2={buttonRef2}
+                  startScrollingUp2={startScrollingUp2}
+                  startScrollingDown2={startScrollingDown2}
+                  startScrollToTop2={startScrollToTop2}
+                  startScrollToBottom2={startScrollToBottom2}
+                  stopScrolling2={stopScrolling2}
+                  scrollInterval2={scrollInterval2}
+                />
+              </div>
             </div>
-            </div>
-            
           </div>
         </div>
         {/*begins third column*/}
@@ -1672,26 +1666,23 @@ function ExpandableArray(props) {
                 <div className="margin-bottom-1">Honoring:</div>
                 <div className="flexrowzc2">
                   <img src={honoring} width="150" height="200" className="ib" />
-                  <div className="margin-bottom-1">
-                    Christmas Tree
-                  </div>
+                  <div className="margin-bottom-1">Christmas Tree</div>
                 </div>
               </div>
             )}
 
             <div className="margin-bottom-1 border-bottom-5z padding-bottom-1-">
               <div>
-            {/* <p>{displayText}</p> */}
-            <p>{fullText}</p>
+                {/* <p>{displayText}</p> */}
+                <p>{fullText}</p>
 
-      {/* {fullText.length 
+                {/* {fullText.length 
       > charLimit && (
         <button className="link" onClick={() => setIsExpanded(!isExpanded)}>
           {isExpanded ? "Show less benefits text" : "...Show more benefits text"}
         </button>
       )} */}
-    </div>
-              
+              </div>
             </div>
 
             <div>
@@ -1717,8 +1708,8 @@ function ExpandableArray(props) {
               ✮ It has autoscroll.
               <br />
               <br />
-              ✮ If you add new links to your page, everybody that has your shared
-              page sees your new links.
+              ✮ If you add new links to your page, everybody that has your
+              shared page sees your new links.
               <br />
               <br />
               ✮ Use the search field to add word(s) to search for.
@@ -2060,13 +2051,22 @@ export class LinkListFilters extends React.Component {
   }
 
   componentDidMount() {
-    this.props.abc(3)
-    console.log("3, this.props.refabc="+JSON.stringify(this.props.refabc))
-    console.log("LinkListFilter.js, this.props.theuserscount.userscount="+this.props.theuserscount.userscount)
-    let x3 = {userscount:this.props.theuserscount.userscount}
-    console.log("LinkListFilters.js, componentDidMount, this.props.auth.uid="+this.props.auth.uid)
-    if(this.props.auth.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" && this.props.auth.uid !== "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
-      this.props.incrementUsersClickCount(x3)
+    this.props.abc(3);
+    console.log("3, this.props.abcref=" + JSON.stringify(this.props.abcref));
+    console.log(
+      "LinkListFilter.js, this.props.theuserscount.userscount=" +
+        this.props.theuserscount.userscount,
+    );
+    let x3 = { userscount: this.props.theuserscount.userscount };
+    console.log(
+      "LinkListFilters.js, componentDidMount, this.props.auth.uid=" +
+        this.props.auth.uid,
+    );
+    if (
+      this.props.auth.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" &&
+      this.props.auth.uid !== "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+    )
+      this.props.incrementUsersClickCount(x3);
     //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");
 

@@ -71,7 +71,7 @@ const LinkDashboardPage = (props) => {
   useEffect(()=>{
     //window.onbeforeunload = null;
     props.abc(2)
-    console.log("2, props.refabc="+JSON.stringify(props.refabc))
+    console.log("2, props.abcref="+JSON.stringify(props.abcref))
   },[])
 
   const setTheHashTagDivHeight = (h) => {

@@ -58,10 +58,10 @@ const LoginPage = ({ startLogin }) => {
   if (true)
     //count < 20 )
     return (
-      <div className="box-layout topbottom0- positionit2- borderRadius5">
-        <div className="flexrowz- flexrowzc2">
+      <div className="box-layout">
+        <div className="flexrowzc2 borderRadius5">
           <div
-            title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface. To see the introduction, click on youtube."
+            title="Thank you. Welcome. This internet tool helps to organize your bookmarks in a friendly user interface."
             className="box-layout__box"
           >
             <h3 className="margin-left-11- box-layout__title">urilinks.com</h3>

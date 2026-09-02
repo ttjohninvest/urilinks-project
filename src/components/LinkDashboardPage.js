@@ -68,9 +68,10 @@ const LinkDashboardPage = (props) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // useEffect(()=>{
-  //   window.onbeforeunload = null;
-  // },[])
+  useEffect(()=>{
+    //window.onbeforeunload = null;
+    props.abc(2)
+  },[])
 
   const setTheHashTagDivHeight = (h) => {
     setHeightOfDiv(h);

@@ -12,8 +12,8 @@ export const PrivateRoute = ({
   ...rest
 }) => { 
   
-  const abc = () =>{
-    console.log("PrivateRoute, abc")
+  const abc = (x) =>{
+    console.log("PrivateRoute, abc, x="+x)
   }
 
   return (
@@ -21,7 +21,7 @@ export const PrivateRoute = ({
       isAuthenticated ? (
         <div>
           <Header signup={signup} abc={abc} />
-          <Component {...props}  />
+          <Component {...props} abc={abc}  />
         </div>
       ) : (
           <Redirect to="/" />

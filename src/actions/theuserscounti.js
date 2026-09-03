@@ -61,9 +61,7 @@ export const getTheuserscounti = (uid) => {
       .ref(`users/${uid}/theuserscounti`)
       .update({userscounti:parseInt(zuserscounti.userscounti)+1}) //{showpublic:0}
       .then(() => {
-        //alert("success")
-        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        //dispatch(incrementUsersClickCounti2({userscounti:parseInt(x.userscounti)+1}));
+        
         dispatch(addTheuserscounti(zuserscounti)); 
        
       })

@@ -21,7 +21,7 @@ import { getTheplan, getTheplan2 } from "./actions/theplan";
 import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
 import { getThesharablelink, getThesharablelink2 } from "./actions/thesharablelink";
 import {getTheuserscount2} from "./actions/theuserscount";
-import {getTheuserscounti2} from "./actions/theuserscounti";
+import {getTheuserscounti, getTheuserscounti2} from "./actions/theuserscounti";
  
 import { getThehashtagsisopen, getThehashtagsisopen2 } from "./actions/thehashtagsisopen";
 import { getTheupdatedate, getTheupdatedate2 } from "./actions/theupdatedate";
@@ -68,15 +68,7 @@ store.subscribe(() => {
  store
             .dispatch(getTheuserscount2())
             .then(() => {
-              store
-            .dispatch(getTheuserscounti2())
-            .then(() => {
               
-              
-            })
-            .catch((error) => {
-              console.log("app.js,theuserscounti, error", error);
-            });
               
             })
             .catch((error) => {
@@ -117,10 +109,18 @@ if (signup !== "signup") {
                store
             .dispatch(getThehashtagsisopen2(id))
             .then(() => {
-             return store
+             store
             .dispatch(getThesharablelink2(id))
             .then(() => {
+              return store
+            .dispatch(getTheuserscounti2(id))
+            .then(() => {
               renderApp(store, signup);
+           
+            })
+            .catch((error) => {
+              console.log("thehashtagsisopen, error", error);
+            });
            
             })
             .catch((error) => {
@@ -177,10 +177,18 @@ if (signup !== "signup") {
                store
             .dispatch(getThehashtagsisopen(user.uid))
             .then(() => {
-              return store
+              store
             .dispatch(getThesharablelink(user.uid))
             .then(() => {
+               return store
+            .dispatch(getTheuserscounti(user.uid))
+            .then(() => {
               renderApp(store, signup);
+            
+            })
+            .catch((error) => {
+              console.log("theplan, error", error);
+            });
             
             })
             .catch((error) => {

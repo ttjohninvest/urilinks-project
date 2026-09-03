@@ -32,6 +32,41 @@ export const startAddTheuserscounti = (theuserscountiData = {}) => {
   };
 };
 
+export const getTheuserscounti = (uid) => {
+  console.log("actions/getTheuserscounti");
+  //const uid = getState().auth.uid;
+  return (dispatch, getState) => {
+    let s;
+    return database
+     
+      .ref(`users/${uid}/theuserscounti`)
+      .once("value")
+      .then((snapshot) => {
+
+         let zuserscounti={
+                   userscounti:0
+                }
+        
+                if (snapshot.val() === null) {
+                  //theplan = "free";
+                  dispatch(startAddTheuserscounti(zuserscounti))
+                } else {
+                  //theplan=snapshot.val();
+                  //zplan=snapshot.val();
+                  dispatch(addTheuserscounti(snapshot.val()));
+                }
+
+        // if (snapshot.val() === null) {
+          
+        // } else {
+          
+        //   dispatch(addTheuserscounti(snapshot.val()));
+        // }
+       
+      });
+  };
+};
+
 export const getTheuserscounti2 = () => {
   console.log("actions/getTheuserscounti2");
   const uid = getState().auth.uid;
@@ -43,12 +78,25 @@ export const getTheuserscounti2 = () => {
       .once("value")
       .then((snapshot) => {
 
-        if (snapshot.val() === null) {
+         let zuserscounti={
+                   userscounti:0
+                }
+        
+                if (snapshot.val() === null) {
+                  //theplan = "free";
+                  dispatch(startAddTheuserscounti(zuserscounti))
+                } else {
+                  //theplan=snapshot.val();
+                  //zplan=snapshot.val();
+                  dispatch(addTheuserscounti(snapshot.val()));
+                }
+
+        // if (snapshot.val() === null) {
           
-        } else {
+        // } else {
           
-          dispatch(addTheuserscounti(snapshot.val()));
-        }
+        //   dispatch(addTheuserscounti(snapshot.val()));
+        // }
        
       });
   };

@@ -52,8 +52,11 @@ export const getTheuserscounti = (uid) => {
                   dispatch(startAddTheuserscounti(zuserscounti))
                 } else {
                   //theplan=snapshot.val();
-                  //zplan=snapshot.val();
-                  dispatch(addTheuserscounti(snapshot.val()));
+                  let zplan=snapshot.val();
+                  zplan.userscounti += 1
+                  
+                  //dispatch(addTheuserscounti(snapshot.val()));
+                  dispatch(addTheuserscounti(zplan));
                 }
 
         // if (snapshot.val() === null) {

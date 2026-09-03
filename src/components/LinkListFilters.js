@@ -939,13 +939,13 @@ function ExpandableArray(props) {
           {/* left column scrollable-div1m for mobile*/}
           <div
             id="ls"
-            className={`${isMobile() === true ? "width30menupane" : "width30menupane2"} scrollable-div1 ${props.signup === false?'bg-gray-1':'bg-white-1'}>`}
+            className={`${isMobile() === true ? "width30menupane" : "width30menupane2"} scrollable-div1>`}
             //onClick={()=>stopScrolling()}
           >
             <div className={`border-right-5`}>
               <div
                 ref={props.ref1}
-                className={`${""} background-white-1 borderradius5`}
+                className={`${""} ${props.signup === false?'bg-gray-1':'bg-white-1'} borderradius5`}
                 title={
                   props.signup === true
                     ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"

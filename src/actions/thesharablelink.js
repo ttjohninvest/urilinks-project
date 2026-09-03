@@ -39,7 +39,6 @@ export const getThesharablelink2 = (id) => {
     console.log("actions/getThesharablelink2, uid=" + uid);
     let s;
     return database
-     
       .ref(`users/${uid}/thesharablelink`)
       .once("value")
       .then((snapshot) => {

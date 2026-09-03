@@ -1954,3 +1954,10 @@ https://support.clickbank.com/en/articles/10535337-clickbank-client-contract
 ---
 git credentials manager dialog
 step 1: 
+
+===============
+use the following to get my bookmarks on x.com
+x.com bearer token:
+my bearer token: AAAAAAAAAAAAAAAAAAAAABmI%2FQEAAAAASOSeZAY3hx2iYzjIRyMhBIE6wkk%3DdhiI2RszQ2GqRVdl8deQwJhP4SSGyCcOolWxAtABt8GhoZNs4o
+my x.com id: 1956822957013241856
+======================================

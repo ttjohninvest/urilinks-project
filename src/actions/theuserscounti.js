@@ -54,7 +54,7 @@ export const getTheuserscounti = (uid) => {
                   //theplan=snapshot.val();
                  
                   zuserscounti.userscounti += 1
-                  console.log("updating userscounti")
+                  console.log("updating userscounti,zuserscounti.userscounti="+zuserscounti.userscounti)
                   incrementUsersClickCounti(uid,zuserscounti) //update the database
                   console.log("zuserscounti="+JSON.stringify(zuserscounti))
                   //dispatch(addTheuserscounti(snapshot.val()));

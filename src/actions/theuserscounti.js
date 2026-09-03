@@ -170,11 +170,14 @@ export const incrementUsersClickCounti = (uid,x) => {
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+        console.log("increment succeeded")
+        console.log("incrementUsersClickCounti, uid="+uid)
+        console.log("incrementUsersClickCounti, x="+JSON.stringify(x))
         dispatch(incrementUsersClickCounti2({userscounti:parseInt(x.userscounti)+1}));
        
       })
       .catch((error) => {
-        console.log("error removing link data in firebase, error=" + error);
+        console.log("incrementUsersClickCounti, error incrementing link data in firebase, error=" + error);
       });
   };
 };

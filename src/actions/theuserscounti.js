@@ -36,7 +36,7 @@ export const getTheuserscounti = (uid) => {
   console.log("actions/getTheuserscounti");
   //const uid = getState().auth.uid;
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
     let s;
     return database
      
@@ -54,16 +54,20 @@ export const getTheuserscounti = (uid) => {
                 } else {
                   //theplan=snapshot.val();
                  
-                  zuserscounti.userscounti += 1
-                  console.log("updating userscounti,zuserscounti.userscounti="+zuserscounti.userscounti)
+                  let x = snapshot.val()
+                  if(x.userscounti===undefined || x.userscounti=== null)
+                    x.userscount = 0
+                else
+                  x.userscounti += 1
+                  console.log("updating userscounti,zuserscounti.userscounti="+JSON.stringify(x))
                   //incrementUsersClickCounti(uid,zuserscounti) //update the database
 
                   return database
       .ref(`users/${uid}/theuserscounti`)
-      .update({userscounti:zuserscounti.userscounti}) //{showpublic:0}
+      .update(x) //{showpublic:0}
       .then(() => {
         
-        dispatch(addTheuserscounti(zuserscounti)); 
+        dispatch(addTheuserscounti(x)); 
        
       })
       .catch((error) => {

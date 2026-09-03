@@ -55,7 +55,7 @@ export const getTheuserscounti = (uid) => {
                  
                   zuserscounti.userscounti += 1
                   console.log("updating userscounti")
-                  incrementUsersClickCounti(zuserscounti) //update the database
+                  incrementUsersClickCounti(uid,zuserscounti) //update the database
                   console.log("zuserscounti="+JSON.stringify(zuserscounti))
                   //dispatch(addTheuserscounti(snapshot.val()));
                   dispatch(addTheuserscounti(zuserscounti)); //update the redux variable, theuserscounti
@@ -159,9 +159,9 @@ export const decrementUsersClickCounti2 = (theuserscounti) => ({
   theuserscounti,
 });
 
-export const incrementUsersClickCounti = (x) => {
+export const incrementUsersClickCounti = (uid,x) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
     // alert("incrementClickCount, uid="+uid)
     //update(dbRef, { value: increment(1) });
     return database

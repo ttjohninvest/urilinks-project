@@ -883,11 +883,11 @@ function ExpandableArray(props) {
         >
           <div className="flexcol3">
             <div
-              className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2- text-size-10" : "fleur-de-leah-regular- text-size-10"}`}
+              className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2- text-size-10-" : "fleur-de-leah-regular- text-size-10-"}`}
               title="Internet Links Organizer Dashboard's Home Page"
             >
               {/* {`Internet Links Organizer Dashboard's Home Page`}  */}
-              {`Internet Links Organizer Dashboard's Home Page (urilinks.com loaded: ${props.userscount} times.), (user's page loaded: ${props.userscounti}) times.`}
+              {`Internet Links Organizer Dashboard's Home Page (urilinks.com seen: ${props.userscount} times.), (user's page seen: ${props.userscounti}) times.`}
             </div>
             {props.signup === false && (
               <div

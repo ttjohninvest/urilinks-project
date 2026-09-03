@@ -44,7 +44,7 @@ export const getTheuserscounti = (uid) => {
       .then((snapshot) => {
 
          let zuserscounti={
-                   userscounti:1
+                   userscounti:0
                 }
         
                 if (snapshot.val() === null) {

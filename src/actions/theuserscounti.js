@@ -55,10 +55,29 @@ export const getTheuserscounti = (uid) => {
                  
                   zuserscounti.userscounti += 1
                   console.log("updating userscounti,zuserscounti.userscounti="+zuserscounti.userscounti)
-                  incrementUsersClickCounti(uid,zuserscounti) //update the database
-                  console.log("zuserscounti="+JSON.stringify(zuserscounti))
-                  //dispatch(addTheuserscounti(snapshot.val()));
-                  dispatch(addTheuserscounti(zuserscounti)); //update the redux variable, theuserscounti
+                  //incrementUsersClickCounti(uid,zuserscounti) //update the database
+
+                  return database
+      .ref(`users/${uid}/theuserscounti`)
+      .update({userscounti:parseInt(x.userscounti)+1}) //{showpublic:0}
+      .then(() => {
+        //alert("success")
+        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+        //dispatch(incrementUsersClickCounti2({userscounti:parseInt(x.userscounti)+1}));
+        dispatch(addTheuserscounti(zuserscounti)); 
+       
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+
+
+
+
+
+                //   console.log("zuserscounti="+JSON.stringify(zuserscounti))
+                //   //dispatch(addTheuserscounti(snapshot.val()));
+                //   dispatch(addTheuserscounti(zuserscounti)); //update the redux variable, theuserscounti
                 }
 
         // if (snapshot.val() === null) {
@@ -168,7 +187,7 @@ export const incrementUsersClickCounti = (uid,x) => {
       .ref(`users/${uid}/theuserscount`)
       .update({userscounti:parseInt(x.userscounti)+1}) //{showpublic:0}
       .then(() => {
-        alert("success")
+        //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
         dispatch(incrementUsersClickCounti2({userscounti:parseInt(x.userscounti)+1}));
        

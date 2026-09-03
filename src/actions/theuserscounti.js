@@ -170,7 +170,7 @@ export const incrementUsersClickCounti = (uid,x) => {
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        console.log("increment succeeded")
+        console.log("incrementUsersClickCounti, increment succeeded")
         console.log("incrementUsersClickCounti, uid="+uid)
         console.log("incrementUsersClickCounti, x="+JSON.stringify(x))
         dispatch(incrementUsersClickCounti2({userscounti:parseInt(x.userscounti)+1}));

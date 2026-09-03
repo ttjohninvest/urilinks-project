@@ -59,7 +59,7 @@ export const getTheuserscounti = (uid) => {
 
                   return database
       .ref(`users/${uid}/theuserscounti`)
-      .update({userscounti:parseInt(zuserscounti.userscounti)+1}) //{showpublic:0}
+      .update({userscounti:zuserscounti.userscounti}) //{showpublic:0}
       .then(() => {
         
         dispatch(addTheuserscounti(zuserscounti)); 

@@ -160,27 +160,29 @@ export const decrementUsersClickCounti2 = (theuserscounti) => ({
 });
 
 export const incrementUsersClickCounti = (uid,x) => {
-//   return (dispatch, getState) => {
-//     //const uid = getState().auth.uid;
-//     // alert("incrementClickCount, uid="+uid)
-//     //update(dbRef, { value: increment(1) });
-//     return database
-//       .ref(`users/${uid}/theuserscounti`)
-//       .update({userscounti:parseInt(x.userscounti)+1}) //{showpublic:0}
-//       .then(() => {
-//         //alert("success")
-//         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-//         console.log("incrementUsersClickCounti, increment succeeded")
-//         console.log("incrementUsersClickCounti, uid="+uid)
-//         console.log("incrementUsersClickCounti, x="+JSON.stringify(x))
-//         dispatch(incrementUsersClickCounti2({userscounti:parseInt(x.userscounti)+1}));
+    console.log("incrementUsersClickCounti called, uid="+uid)
+    console.log("incrementUsersClickCounti called, x="+JSON.stringify(x))
+  return (dispatch, getState) => {
+    //const uid = getState().auth.uid;
+    // alert("incrementClickCount, uid="+uid)
+    //update(dbRef, { value: increment(1) });
+    return database
+      .ref(`users/${uid}/theuserscounti`)
+      .update({userscounti:parseInt(x.userscounti)+1}) //{showpublic:0}
+      .then(() => {
+        //alert("success")
+        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+        console.log("incrementUsersClickCounti, increment succeeded")
+        console.log("incrementUsersClickCounti, uid="+uid)
+        console.log("incrementUsersClickCounti, x="+JSON.stringify(x))
+        dispatch(incrementUsersClickCounti2({userscounti:parseInt(x.userscounti)+1}));
        
-//       })
-//       .catch((error) => {
-//         console.log("incrementUsersClickCounti, error incrementing link data in firebase, error=" + error);
-//       });
-//   };
-console.log("incrementUsersClickCounti called")
+      })
+      .catch((error) => {
+        console.log("incrementUsersClickCounti, error incrementing link data in firebase, error=" + error);
+      });
+  };
+//console.log("incrementUsersClickCounti called")
 };
 
 export const decrementUsersCounti = (x) => {

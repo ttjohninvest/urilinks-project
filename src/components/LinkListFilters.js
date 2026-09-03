@@ -887,7 +887,7 @@ function ExpandableArray(props) {
               title="Internet Links Organizer Dashboard's Home Page"
             >
               {/* {`Internet Links Organizer Dashboard's Home Page`}  */}
-              {`Internet Links Organizer Dashboard's Home Page (total times urilinks.com loaded: ${props.userscount}), (total times urilinks.com loaded for this user account: ${props.userscounti})`}
+              {`Internet Links Organizer Dashboard's Home Page (urilinks.com loaded: ${props.userscount} times.), (user's page loaded: ${props.userscounti}) times.`}
             </div>
             {props.signup === false && (
               <div

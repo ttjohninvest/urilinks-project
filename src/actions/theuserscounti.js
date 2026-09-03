@@ -59,7 +59,7 @@ export const getTheuserscounti = (uid) => {
 
                   return database
       .ref(`users/${uid}/theuserscounti`)
-      .update({userscounti:parseInt(x.userscounti)+1}) //{showpublic:0}
+      .update({userscounti:parseInt(zuserscounti.userscounti)+1}) //{showpublic:0}
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))

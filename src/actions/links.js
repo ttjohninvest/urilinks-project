@@ -126,7 +126,7 @@ export const startAddLink = (linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
-      sharablelink = "",
+      
       show = 0,
       star = 0,
       likes = 0,
@@ -144,7 +144,7 @@ export const startAddLink = (linkData = {}) => {
       faviconURL = "",
     } = linkData;
     const link = {
-      sharablelink,
+      
       show,
       star,
       likes,
@@ -603,8 +603,7 @@ export const startSetLinks = (uid) => {
             aval.star = parseInt(0) 
           if(aval.show === undefined || aval.show === null || aval.show === 1) //if the website was closed before the user had a change to close the video this will reset it so Close Video won't be displaying
             aval.show = parseInt(0) 
-           if(aval.sharablelink === undefined || aval.sharablelink === null ) //if the website was closed before the user had a change to close the video this will reset it so Close Video won't be displaying
-            aval.sharablelink = "https://urilinks.com/dashboard?signup=0&x=readonly&id="+uid
+          
          
           links2.push({
             id: childSnapshot.key,
@@ -811,8 +810,7 @@ export const startSetLinksNew = (uid) => {
             aval.star = parseInt(0) 
           if(aval.show === undefined || aval.show === null  || aval.show === 1 )
             aval.show = parseInt(0) 
-          if(aval.sharablelink === undefined || aval.sharablelink === null ) //if the website was closed before the user had a change to close the video this will reset it so Close Video won't be displaying
-            aval.sharablelink = "https://urilinks.com/dashboard?signup=0&x=readonly&id="+uid
+         
          
           links2.push({
             id: childSnapshot.key,

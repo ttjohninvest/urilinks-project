@@ -19,7 +19,7 @@ import { startSetLinksFileDate } from "./actions/linksfiledate";
 import { getSettings } from "./actions/settings";
 import { getTheplan, getTheplan2 } from "./actions/theplan";
 import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
-import { getThesharablelink, getThesharablelink2 } from "./actions/thetotalstars";
+import { getThesharablelink, getThesharablelink2 } from "./actions/thesharablelink";
 import {getTheuserscount2} from "./actions/theuserscount";
  
 import { getThehashtagsisopen, getThehashtagsisopen2 } from "./actions/thehashtagsisopen";

@@ -54,10 +54,11 @@ export const getTheuserscounti = (uid) => {
                   //theplan=snapshot.val();
                  
                   zuserscounti.userscounti += 1
-                  incrementUsersClickCounti(zuserscounti)
+                  console.log("updating userscounti")
+                  incrementUsersClickCounti(zuserscounti) //update the database
                   console.log("zuserscounti="+JSON.stringify(zuserscounti))
                   //dispatch(addTheuserscounti(snapshot.val()));
-                  dispatch(addTheuserscounti(zuserscounti));
+                  dispatch(addTheuserscounti(zuserscounti)); //update the redux variable, theuserscounti
                 }
 
         // if (snapshot.val() === null) {

@@ -69,8 +69,9 @@ export const getTheuserscounti = (uid) => {
 
 export const getTheuserscounti2 = () => {
   console.log("actions/getTheuserscounti2");
-  const uid = getState().auth.uid;
+  
   return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     let s;
     return database
      

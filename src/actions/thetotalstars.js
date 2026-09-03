@@ -32,6 +32,41 @@ export const startAddThetotalstars = (thetotalstarsData = {}) => {
   };
 };
 
+export const getThetotalstars = (uid) => {
+  console.log("actions/getThetotalstars, uid="+uid);
+  return (dispatch, getState) => {
+    //const uid = getState().auth.uid;
+    console.log("actions/getThetotalstars, uid=" + uid);
+    let s;
+    return database
+      //.ref(`users/${uid}/theplan/plan`)
+      .ref(`users/${uid}/thetotalstars`)
+      .once("value")
+      .then((snapshot) => {
+       
+        console.log(
+          "11 action/getThetotalstars from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+        );
+
+        let ztotalstars={
+           totalstars:0
+        }
+////
+        if (snapshot.val() === null) {
+          //theplan = "free";
+          dispatch(startAddThetotalstars(ztotalstars))
+        } else {
+          //theplan=snapshot.val();
+          //zplan=snapshot.val();
+          //console.log("app.js, zplan="+JSON.stringify(zplan))
+          dispatch(addThetotalstars(snapshot.val()));
+        }
+        
+      });
+  };
+};
+
+
 export const getThetotalstars2 = (id) => {
   console.log("actions/getThetotalstars");
   return (dispatch, getState) => {
@@ -66,39 +101,6 @@ export const getThetotalstars2 = (id) => {
   };
 };
 
-export const getThetotalstars = (uid) => {
-  console.log("actions/getThetotalstars, uid="+uid);
-  return (dispatch, getState) => {
-    //const uid = getState().auth.uid;
-    console.log("actions/getThetotalstars, uid=" + uid);
-    let s;
-    return database
-      //.ref(`users/${uid}/theplan/plan`)
-      .ref(`users/${uid}/thetotalstars`)
-      .once("value")
-      .then((snapshot) => {
-       
-        console.log(
-          "11 action/getThetotalstars from db, snapshot.val()=" + JSON.stringify(snapshot.val())
-        );
-
-        let ztotalstars={
-           totalstars:0
-        }
-////
-        if (snapshot.val() === null) {
-          //theplan = "free";
-          dispatch(startAddThetotalstars(ztotalstars))
-        } else {
-          //theplan=snapshot.val();
-          //zplan=snapshot.val();
-          //console.log("app.js, zplan="+JSON.stringify(zplan))
-          dispatch(addThetotalstars(snapshot.val()));
-        }
-        
-      });
-  };
-};
 
 
 

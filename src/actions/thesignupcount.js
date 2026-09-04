@@ -166,29 +166,29 @@ export const incrementSignupClickCount = (x) => {
 
 
 
-// export const decrementSignupCount = (x) => {
-//   console.log("actions/getThesignupcount");
-//   return (dispatch, getState) => {
-   
-//     database.ref(`users/thesignupcount`)
-//             .update(x) 
-//             .then(() => {
-//               dispatch(addThesignupcount(x));
-//             })
-//             .catch((error) => {
-//               console.log(
-//                 "error removing link data in firebase, error=" + error,
-//               );
-//             });
-        
-//           }
-// }
-
 export const decrementSignupCount = (x) => {
   console.log("actions/decrementSignupCount");
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
    
-    await database.ref(`users/thesignupcount`).update(x) 
-           
-    }
+    database.ref(`users/thesignupcount`)
+            .update(x) 
+            .then(() => {
+              dispatch(addThesignupcount(x));
+            })
+            .catch((error) => {
+              console.log(
+                "error decrementSignupCount, error=" + error,
+              );
+            });
+        
+          }
 }
+
+// export const decrementSignupCount = (x) => {
+//   console.log("actions/decrementSignupCount");
+//   return async (dispatch, getState) => {
+   
+//     await database.ref(`users/thesignupcount`).update(x) 
+           
+//     }
+// }

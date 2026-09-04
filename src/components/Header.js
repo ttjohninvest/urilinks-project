@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
+import { decrementSignupCount } from "../actions/thesignupcount";
 import redarrow from "../assets/images/red-arrow.jpg";
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 
@@ -245,7 +246,11 @@ export const Header = (props) => {
     setLinks([]);
     props.stopScrolling2()
     console.log("logoutit, props.thesignupcount.signupcount="+props.thesignupcount.signupcount)
-    props.startLogout(props.thesignupcount.signupcount);
+    const x = {
+    thesignupcount:props.thesignupcount.signupcount-1
+  }
+    decrementSignupCount(x)
+    props.startLogout();
     //window.location.href = "https://urilinks.com"
   };
 

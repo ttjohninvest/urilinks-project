@@ -250,7 +250,7 @@ export const Header = (props) => {
     thesignupcount:props.thesignupcount.signupcount-1
   }
     decrementSignupCount(x)
-    props.startLogout();
+    //props.startLogout();
     //window.location.href = "https://urilinks.com"
   };
 

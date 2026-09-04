@@ -1961,3 +1961,11 @@ x.com bearer token:
 my bearer token: AAAAAAAAAAAAAAAAAAAAABmI%2FQEAAAAASOSeZAY3hx2iYzjIRyMhBIE6wkk%3DdhiI2RszQ2GqRVdl8deQwJhP4SSGyCcOolWxAtABt8GhoZNs4o
 my x.com id: 1956822957013241856
 ======================================
+
+thesignupcount is the total number of people that have signed up and logged in by clicking login, the number is
+more than the number of signups because it increments by 1 for each login
+
+=============
+code problem: after I commited first git message with signupcount, I lowercase user id appeared in the firebase database
+Thu Sep 3 21:07:37 2026 -0700
+=============

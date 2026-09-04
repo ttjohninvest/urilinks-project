@@ -166,7 +166,7 @@ export const incrementSignupClickCount = (x) => {
 export const decrementSignupCount = (x) => {
   //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
     return (
       database

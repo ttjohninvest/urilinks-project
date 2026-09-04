@@ -1,4 +1,5 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
+import {decrementSignupCount} from "./thesignupcount"
 
 export const login = (uid) => ({
   type: 'LOGIN',
@@ -25,6 +26,7 @@ export const logout = () => {
 };
 
 export const startLogout = () => {
+  decrementSignupCount()
   return () => {
     
     return firebase.auth().signOut();

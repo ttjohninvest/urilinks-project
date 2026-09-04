@@ -185,7 +185,7 @@ export const incrementSignupClickCount = (x) => {
 // }
 
 export const decrementSignupCount = (x) => {
-  console.log("actions/getThesignupcount");
+  console.log("actions/decrementSignupCount");
   return async (dispatch, getState) => {
    
     await database.ref(`users/thesignupcount`).update(x) 

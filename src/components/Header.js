@@ -78,7 +78,7 @@ export const Header = (props) => {
     console.log("logoutit, x="+JSON.stringify(x))
     incrementTotalLoggedOutClickCount(x)
     }
-  }, []);
+  }, [updateLoggedOut]);
 
   function slowScrollDown(distance, duration) {
     const startingY = window.pageYOffset;

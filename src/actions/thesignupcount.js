@@ -165,26 +165,20 @@ export const incrementSignupClickCount = (x) => {
 
 export const decrementSignupCount = (x) => {
   console.log("thesigupcount.js, decrementLinkClickCount, x="+JSON.stringify(x))
+  x.signupcount = x.signupcount-1
+  console.log("thesigupcount.js, decrementLinkClickCount, x="+JSON.stringify(x))
   return (dispatch, getState) => {
-    //const uid = getState().auth.uid;
-    //update(dbRef, { value: increment(1) });
-    return (
-      database
-        .ref(`users/thesignupcount`)
-        //.update({ signupcount: x.signupcount - 1 }) //{showpublic:0}
-        .update({signupcount:4})
+   
+    return database.ref(`users/thesignupcount`).update(x)
         .then(() => {
-          //alert("success")
-          //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+         
           dispatch(
-            decrementSignupClickCount2({
-              signupcount: 4 //x.signupcount - 1,
-            }),
+            decrementSignupClickCount2(x),
           );
         })
         .catch((error) => {
           console.log("error removing link data in firebase, error=" + error);
         })
-    );
+    
   };
 };

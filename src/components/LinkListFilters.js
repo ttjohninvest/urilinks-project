@@ -945,7 +945,7 @@ function ExpandableArray(props) {
             <div className={`border-right-5`}>
               <div
                 ref={props.ref1}
-                className={`${""} ${props.signup === false?'bg-gray-1':'bg-gray-1'} borderradius5`}
+                className={`${""} ${props.signup === false?'bg-white-1':'bg-gray-1'} borderradius5`}
                 title={
                   props.signup === true
                     ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"

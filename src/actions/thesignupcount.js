@@ -163,37 +163,18 @@ export const incrementSignupClickCount = (x) => {
   };
 };
 
-// export const decrementSignupCount = (x) => {
-  
-//   console.log("thesigupcount.js, decrementLinkClickCount, x="+JSON.stringify(x))
- 
-//   return (dispatch, getState) => {
-   
-//      return database
-//             .ref(`users/thesignupcount`)
-//             .update(x) //{showpublic:0}
-//             .then(() => {
-//               dispatch(addThesignupcount(x));
-//             })
-//             .catch((error) => {
-//               console.log(
-//                 "error decrementSignupCount, error=" + error,
-//               );
-//             });
-    
-//   };
-// };
+
 
 
 export const decrementSignupCount = (x) => {
   console.log("actions/getThesignupcount");
   return (dispatch, getState) => {
-    let s;
-    return database
+   
+    database
             .ref(`users/thesignupcount`)
-            .update({signupcount:0}) //{showpublic:0}
+            .update(x) 
             .then(() => {
-              //dispatch(addThesignupcount(x));
+              dispatch(addThesignupcount(x));
             })
             .catch((error) => {
               console.log(

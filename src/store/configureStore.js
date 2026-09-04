@@ -25,6 +25,7 @@ import storageReducer from '../reducers/storage';
 import customeridReducer from '../reducers/customerid';
 import theplanReducer from '../reducers/theplan';
 import thetotalstarsReducer from '../reducers/thetotalstars';
+import thetotalloggedoutReducer from '../reducers/thetotalloggedout';
 import theuserscountReducer from '../reducers/theuserscount';
 import thesignupcountReducer from '../reducers/thesignupcount';
 import theuserscountiReducer from '../reducers/theuserscounti';
@@ -66,6 +67,7 @@ export default () => {
       customerId: customeridReducer,
       theplan: theplanReducer,
       thetotalstars: thetotalstarsReducer,
+      thetotalloggedout: thetotalloggedoutReducer,
       theuserscount: theuserscountReducer,
       thesignupcount: thesignupcountReducer,
       theuserscounti: theuserscountiReducer,

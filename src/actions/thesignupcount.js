@@ -164,16 +164,17 @@ export const incrementSignupClickCount = (x) => {
 };
 
 export const decrementSignupCount = (x) => {
-  console.log("thesigupcount.js, decrementLinkClickCount, x="+JSON.stringify(x))
-  x.signupcount = x.signupcount-1
-  console.log("thesigupcount.js, decrementLinkClickCount, x="+JSON.stringify(x))
+  let v = x
+  v.signupcount = v.signupcount-1
+  console.log("thesigupcount.js, decrementLinkClickCount, v="+JSON.stringify(v))
+ 
   return (dispatch, getState) => {
    
-    return database.ref(`users/thesignupcount`).update(x)
+    return database.ref(`users/thesignupcount`).update(v)
         .then(() => {
          
           dispatch(
-            decrementSignupClickCount2(x),
+            decrementSignupClickCount2(v),
           );
         })
         .catch((error) => {

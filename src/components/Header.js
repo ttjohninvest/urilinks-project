@@ -857,13 +857,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  startLogout: () => {
-    dispatch(startLogout())
-      .then(() => console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSdispatch then"))
-      .catch((error) =>
-        console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error" + error),
-      );
-  },
+  startLogout: (data) => dispatch(startLogout(data)),
   setLinks: (links) => dispatch(setLinks(links)),
   setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),
   startAddPhotourl: (photourl) => dispatch(startAddPhotourl(photourl)),

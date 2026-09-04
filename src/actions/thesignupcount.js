@@ -164,21 +164,21 @@ export const incrementSignupClickCount = (x) => {
 };
 
 export const decrementSignupCount = (x) => {
-  //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)
+  console.log("thesigupcount.js, decrementLinkClickCount, x="+JSON.stringify(x))
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
     return (
       database
         .ref(`users/thesignupcount`)
-        .update({ signupcount: parseInt(x.signupcount) - 1 }) //{showpublic:0}
+        .update({ signupcount: x.signupcount - 1 }) //{showpublic:0}
         //.update({signupcount:4})
         .then(() => {
           //alert("success")
           //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
           dispatch(
             decrementSignupClickCount2({
-              signupcount: parseInt(x.signupcount) - 1,
+              signupcount: x.signupcount - 1,
             }),
           );
         })

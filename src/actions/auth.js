@@ -29,7 +29,9 @@ export const startLogout = (signupcount) => {
   const x = {
     thesignupcount:signupcount
   }
+  console.log("before, startLogout, x="+JSON.stringify(x))
   decrementSignupCount(x)
+  console.log("after decrementSignupCount, startLogout, x="+JSON.stringify(x))
   return () => {
     
     return firebase.auth().signOut();

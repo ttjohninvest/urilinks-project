@@ -39,7 +39,7 @@ import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
-import thetotalloggedout from "../reducers/thetotalloggedout";
+import {decrementTotalLoggedOutClickCount} from "../reducers/thetotalloggedout";
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);

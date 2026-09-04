@@ -244,6 +244,7 @@ export const Header = (props) => {
     //setEmail("");
     setLinks([]);
     props.stopScrolling2()
+    console.log("logoutit, props.thesignupcount.signupcount="+props.thesignupcount.signupcount)
     props.startLogout(props.thesignupcount.signupcount);
     //window.location.href = "https://urilinks.com"
   };

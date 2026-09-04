@@ -191,12 +191,12 @@ export const decrementSignupCount = (x) => {
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/thesignupcount`)
-      .update({signupcount:parseInt(x.signupcount)-1}) //{showpublic:0}
+      .update({signupcount:parseInt(x.signupcount)-0}) //{showpublic:0}
       //.update({totalstars:4}) 
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(decrementSignupClickCount2({signupcount:parseInt(x.signupcount)-1}));
+        dispatch(decrementSignupClickCount2({signupcount:parseInt(x.signupcount)-0}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

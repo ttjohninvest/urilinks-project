@@ -39,7 +39,7 @@ import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
-import {decrementTotalLoggedOutClickCount} from "../actions/thetotalloggedout";
+import {incrementTotalLoggedOutClickCount} from "../actions/thetotalloggedout";
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
@@ -249,7 +249,7 @@ export const Header = (props) => {
       totalloggedout:props.thetotalloggedout.totalloggedout
     }
     console.log("logoutit, x="+JSON.stringify(x))
-    decrementTotalLoggedOutClickCount(x)
+    incrementTotalLoggedOutClickCount(x)
     props.stopScrolling2()
     props.startLogout();
     //window.location.href = "https://urilinks.com"

@@ -228,6 +228,11 @@ export const Header = (props) => {
   };
 
   const logoutit = () => {
+    let x = {
+      totalloggedout:props.thetotalloggedout.totalloggedout
+    }
+    console.log("logoutit, x="+JSON.stringify(x))
+    incrementTotalLoggedOutClickCount(x)
     //sessionStorage.setItem('hasRefreshed', 'false');
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
     props.setHasrefreshed({ hasrefreshed: false });
@@ -245,11 +250,7 @@ export const Header = (props) => {
     setSignup(false);
     //setEmail("");
     setLinks([]);
-    let x = {
-      totalloggedout:props.thetotalloggedout.totalloggedout
-    }
-    console.log("logoutit, x="+JSON.stringify(x))
-    incrementTotalLoggedOutClickCount(x)
+    
     props.stopScrolling2()
     props.startLogout();
     //window.location.href = "https://urilinks.com"

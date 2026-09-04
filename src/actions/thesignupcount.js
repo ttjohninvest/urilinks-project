@@ -163,13 +163,33 @@ export const incrementSignupClickCount = (x) => {
   };
 };
 
-export const decrementSignupCount = (x) => {
+// export const decrementSignupCount = (x) => {
   
-  console.log("thesigupcount.js, decrementLinkClickCount, x="+JSON.stringify(x))
+//   console.log("thesigupcount.js, decrementLinkClickCount, x="+JSON.stringify(x))
  
-  return (dispatch, getState) => {
+//   return (dispatch, getState) => {
    
-     return database
+//      return database
+//             .ref(`users/thesignupcount`)
+//             .update(x) //{showpublic:0}
+//             .then(() => {
+//               dispatch(addThesignupcount(x));
+//             })
+//             .catch((error) => {
+//               console.log(
+//                 "error decrementSignupCount, error=" + error,
+//               );
+//             });
+    
+//   };
+// };
+
+
+export const decrementSignupCount = (x) => {
+  console.log("actions/getThesignupcount");
+  return (dispatch, getState) => {
+    let s;
+    return database
             .ref(`users/thesignupcount`)
             .update(x) //{showpublic:0}
             .then(() => {
@@ -177,9 +197,9 @@ export const decrementSignupCount = (x) => {
             })
             .catch((error) => {
               console.log(
-                "error decrementSignupCount, error=" + error,
+                "error removing link data in firebase, error=" + error,
               );
             });
-    
-  };
-};
+        
+          }
+}

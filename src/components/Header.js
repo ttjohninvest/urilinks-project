@@ -248,6 +248,7 @@ export const Header = (props) => {
     let x = {
       totalloggedout:props.thetotalloggedout.totalloggedout
     }
+    console.log("logoutit, x="+JSON.stringify(x))
     decrementTotalLoggedOutClickCount(x)
     props.stopScrolling2()
     props.startLogout();

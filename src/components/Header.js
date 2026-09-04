@@ -246,7 +246,7 @@ export const Header = (props) => {
     //setEmail("");
     setLinks([]);
     let x = {
-      totalloggedout:props.thetotalloggedout.totalloggedout-1
+      totalloggedout:props.thetotalloggedout.totalloggedout
     }
     decrementTotalLoggedOutClickCount(x)
     props.stopScrolling2()

@@ -25,8 +25,11 @@ export const logout = () => {
   }
 };
 
-export const startLogout = () => {
-  decrementSignupCount()
+export const startLogout = (signupcount) => {
+  const x = {
+    thesignupcount:signupcount
+  }
+  decrementSignupCount(x)
   return () => {
     
     return firebase.auth().signOut();

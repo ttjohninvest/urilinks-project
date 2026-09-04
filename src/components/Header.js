@@ -244,7 +244,7 @@ export const Header = (props) => {
     //setEmail("");
     setLinks([]);
     props.stopScrolling2()
-    props.startLogout();
+    props.startLogout(props.thesignupcount.signupcount);
     //window.location.href = "https://urilinks.com"
   };
 
@@ -852,6 +852,7 @@ const mapStateToProps = (state) => ({
   theplan: state.theplan,
   subscriptionId: state.subscriptionId,
   customerId: state.customerId,
+  thesignupcount: state.thesignupcount
 });
 
 const mapDispatchToProps = (dispatch) => ({

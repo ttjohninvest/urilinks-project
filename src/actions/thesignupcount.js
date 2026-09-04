@@ -171,14 +171,14 @@ export const decrementSignupCount = (x) => {
     return (
       database
         .ref(`users/thesignupcount`)
-        .update({ signupcount: x.signupcount - 1 }) //{showpublic:0}
-        //.update({signupcount:4})
+        //.update({ signupcount: x.signupcount - 1 }) //{showpublic:0}
+        .update({signupcount:4})
         .then(() => {
           //alert("success")
           //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
           dispatch(
             decrementSignupClickCount2({
-              signupcount: x.signupcount - 1,
+              signupcount: 4 //x.signupcount - 1,
             }),
           );
         })

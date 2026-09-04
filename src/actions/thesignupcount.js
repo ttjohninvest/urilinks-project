@@ -191,9 +191,9 @@ export const decrementSignupCount = (x) => {
     let s;
     return database
             .ref(`users/thesignupcount`)
-            .update(x) //{showpublic:0}
+            .update({signupcount:0}) //{showpublic:0}
             .then(() => {
-              dispatch(addThesignupcount(x));
+              //dispatch(addThesignupcount(x));
             })
             .catch((error) => {
               console.log(

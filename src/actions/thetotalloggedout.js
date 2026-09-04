@@ -184,12 +184,12 @@ export const decrementTotalLoggedOutClickCount = (x) => {
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/thetotalloggedout`)
-      .update({totalloggedout:parseInt(x.totalloggedout)-1}) //{showpublic:0}
+      .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
       //.update({totalloggedout:4}) 
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(decrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)-1}));
+        dispatch(decrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

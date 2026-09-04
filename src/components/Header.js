@@ -877,6 +877,7 @@ const mapDispatchToProps = (dispatch) => ({
   startDeleteAccount: (email) => dispatch(startDeleteAccount(email)),
   setTheplan: (theplan) => dispatch(setTheplan(theplan)),
   startAddTheupdatedate: (data) => dispatch(startAddTheupdatedate(data)),
+  incrementTotalLoggedOutClickCount:(data)=>dispatch(incrementTotalLoggedOutClickCount(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -27,7 +27,7 @@ export const logout = () => {
 
 export const startLogout = (signupcount) => {
   const x = {
-    thesignupcount:signupcount
+    thesignupcount:signupcount-1
   }
   console.log("before, startLogout, x="+JSON.stringify(x))
   decrementSignupCount(x)

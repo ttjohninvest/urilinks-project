@@ -21,6 +21,7 @@ import { getTheplan, getTheplan2 } from "./actions/theplan";
 import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
 import { getThesharablelink, getThesharablelink2 } from "./actions/thesharablelink";
 import {getTheuserscount2} from "./actions/theuserscount";
+import {getThesignupcount} from "./actions/thesignupcount";
 import {getTheuserscounti, getTheuserscounti2} from "./actions/theuserscounti";
  
 import { getThehashtagsisopen, getThehashtagsisopen2 } from "./actions/thehashtagsisopen";
@@ -180,10 +181,18 @@ if (signup !== "signup") {
               store
             .dispatch(getThesharablelink(user.uid))
             .then(() => {
-               return store
+               store
             .dispatch(getTheuserscounti(user.uid))
             .then(() => {
+               return store
+            .dispatch(getThesignupcount(user.uid))
+            .then(() => {
               renderApp(store, signup);
+            
+            })
+            .catch((error) => {
+              console.log("theplan, error", error);
+            });
             
             })
             .catch((error) => {

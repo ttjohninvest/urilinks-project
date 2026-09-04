@@ -26,6 +26,7 @@ import customeridReducer from '../reducers/customerid';
 import theplanReducer from '../reducers/theplan';
 import thetotalstarsReducer from '../reducers/thetotalstars';
 import theuserscountReducer from '../reducers/theuserscount';
+import thesignupcountReducer from '../reducers/thesignupcount';
 import theuserscountiReducer from '../reducers/theuserscounti';
 import thesharablelinkReducer from '../reducers/thesharablelink';
 import thehashtagsisopenReducer from '../reducers/thehashtagsisopen';
@@ -66,6 +67,7 @@ export default () => {
       theplan: theplanReducer,
       thetotalstars: thetotalstarsReducer,
       theuserscount: theuserscountReducer,
+      thesignupcount: thesignupcountReducer,
       theuserscounti: theuserscountiReducer,
       thesharablelink: thesharablelinkReducer,
       thehashtagsisopen: thehashtagsisopenReducer,

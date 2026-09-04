@@ -169,16 +169,17 @@ export const decrementSignupCount = (x) => {
  
   return (dispatch, getState) => {
    
-    return database.ref(`users/thesignupcount`).update(x)
-        .then(() => {
-         
-          dispatch(
-            decrementSignupClickCount2(x),
-          );
-        })
-        .catch((error) => {
-          console.log("error removing link data in firebase, error=" + error);
-        })
+     return database
+            .ref(`users/thesignupcount`)
+            .update(x) //{showpublic:0}
+            .then(() => {
+              dispatch(addThesignupcount(x));
+            })
+            .catch((error) => {
+              console.log(
+                "error removing link data in firebase, error=" + error,
+              );
+            });
     
   };
 };

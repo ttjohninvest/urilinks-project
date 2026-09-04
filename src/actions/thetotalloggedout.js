@@ -57,30 +57,10 @@ export const getThetotalloggedout = (uid) => {
           dispatch(startAddThetotalloggedout(ztotalloggedout))
         } else {
           
-          //dispatch(addThetotalloggedout(snapshot.val()));
-          //theplan=snapshot.val();
+          dispatch(addThetotalloggedout(snapshot.val()));
+         
 
-          let x = snapshot.val();
-          if (x.totalloggedout === undefined || x.totalloggedout === null)
-            x.totalloggedout = 0;
-          else x.totalloggedout += 1;
-          console.log(
-            "updating totalloggedout,ztotalloggedout.totalloggedout=" +
-              JSON.stringify(x),
-          );
-          //incrementUsersClickCounti(uid,zuserscounti) //update the database
-
-          return database
-            .ref(`users/thetotalloggedout`)
-            .update(x) //{showpublic:0}
-            .then(() => {
-              dispatch(addThetotalloggedout(x));
-            })
-            .catch((error) => {
-              console.log(
-                "error removing link data in firebase, error=" + error,
-              );
-            });
+          
         }
         
       });

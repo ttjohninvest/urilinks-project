@@ -39,6 +39,7 @@ import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
+import thetotalloggedout from "../reducers/thetotalloggedout";
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
@@ -244,6 +245,10 @@ export const Header = (props) => {
     setSignup(false);
     //setEmail("");
     setLinks([]);
+    let x = {
+      totalloggedout:props.thetotalloggedout.totalloggedout-1
+    }
+    decrementTotalLoggedOutClickCount(x)
     props.stopScrolling2()
     props.startLogout();
     //window.location.href = "https://urilinks.com"
@@ -853,7 +858,8 @@ const mapStateToProps = (state) => ({
   theplan: state.theplan,
   subscriptionId: state.subscriptionId,
   customerId: state.customerId,
-  thesignupcount: state.thesignupcount
+  thesignupcount: state.thesignupcount,
+  thetotalloggedout: state.thetotalloggedout
 });
 
 const mapDispatchToProps = (dispatch) => ({

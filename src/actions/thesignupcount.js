@@ -177,7 +177,7 @@ export const decrementSignupCount = (x) => {
             })
             .catch((error) => {
               console.log(
-                "error removing link data in firebase, error=" + error,
+                "error decrementSignupCount, error=" + error,
               );
             });
     

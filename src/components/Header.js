@@ -51,6 +51,7 @@ export const Header = (props) => {
   const [email, setEmail] = useState("");
   const [theplan, setTheplan] = useState("");
   const [bmok, setBmok] = useState(false);
+   const [updateLoggedOut, setUpdateLoggedOut] = useState(false);
   const [linksUpdateDateTime, setLinksUpdateDateTime] = useState(
     new Date(props.theupdatedate.updatedate).toLocaleDateString() +
       " at " +
@@ -70,6 +71,13 @@ export const Header = (props) => {
   useEffect(() => {
     props.abc(1);
     console.log("1, props.abcref=" + JSON.stringify(props.abcref));
+    if(updateLoggedOut===true) {
+       let x = {
+      totalloggedout:props.thetotalloggedout.totalloggedout
+    }
+    console.log("logoutit, x="+JSON.stringify(x))
+    incrementTotalLoggedOutClickCount(x)
+    }
   }, []);
 
   function slowScrollDown(distance, duration) {
@@ -228,11 +236,8 @@ export const Header = (props) => {
   };
 
   const logoutit = () => {
-    let x = {
-      totalloggedout:props.thetotalloggedout.totalloggedout
-    }
-    console.log("logoutit, x="+JSON.stringify(x))
-    incrementTotalLoggedOutClickCount(x)
+    setUpdateLoggedOut(true)
+   
     //sessionStorage.setItem('hasRefreshed', 'false');
     //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
     props.setHasrefreshed({ hasrefreshed: false });

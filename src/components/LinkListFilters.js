@@ -887,7 +887,7 @@ function ExpandableArray(props) {
               title="Entertainment Console; Internet Links Organizer Dashboard's Home Page"
             >
               {/* {`Internet Links Organizer Dashboard's Home Page`}  */}
-              {`Entertainment Console; Internet Links Organizer Dashboard's Home Page: urilinks.com seen: ${props.userscount} times., your page seen: ${props.userscounti} times.${props.totalloggedout}`}
+              {`Entertainment Console; Internet Links Organizer Dashboard's Home Page: urilinks.com seen: ${props.userscount} times., your page seen: ${props.userscounti} times.${props.signupcount - props.totalloggedout}`}
             </div>
             {props.signup === false && (
               <div
@@ -2209,6 +2209,7 @@ export class LinkListFilters extends React.Component {
           sortByStar={this.props.sortByStar}
           filters={this.props.filters}
           userscount={this.props.theuserscount.userscount}
+          signupcount={this.props.thesignupcount.signupcount}
           userscounti={this.props.theuserscounti.userscounti}
           totalloggedout={this.props.thetotalloggedout.totalloggedout}
         />
@@ -2228,6 +2229,7 @@ const mapStateToProps = (state) => ({
   theplan: state.theplan,
   auth: state.auth,
   theuserscount: state.theuserscount,
+  thesignupcount: state.thesignupcount,
   theuserscounti: state.theuserscounti,
   thetotalloggedout: state.thetotalloggedout,
 });

@@ -1,8 +1,6 @@
 import database from "../firebase/firebase";
 import subscriptionid from "../reducers/subscriptionid";
 
-
-
 // SET_SETTINGS
 export const setTheuserscounti = (theuserscounti) => ({
   type: "SET_THEUSERSCOUNTI",
@@ -10,7 +8,10 @@ export const setTheuserscounti = (theuserscounti) => ({
 });
 
 export const startAddTheuserscounti = (theuserscountiData = {}) => {
-  console.log("startAddTheuserscounti, theuserscountiData=" + JSON.stringify(theuserscountiData));
+  console.log(
+    "startAddTheuserscounti, theuserscountiData=" +
+      JSON.stringify(theuserscountiData),
+  );
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
 
@@ -21,12 +22,10 @@ export const startAddTheuserscounti = (theuserscountiData = {}) => {
         .update(theuserscountiData)
         .then(() => {
           console.log(
-            "in startAddTheplan, just before the call to dispatch to add theplanData to redux"
+            "in startAddTheplan, just before the call to dispatch to add theplanData to redux",
           );
-         
 
           dispatch(addTheuserscounti(theuserscountiData));
-          
         })
     );
   };
@@ -39,93 +38,76 @@ export const getTheuserscounti = (uid) => {
     //const uid = getState().auth.uid;
     let s;
     return database
-     
+
       .ref(`users/${uid}/theuserscounti`)
       .once("value")
       .then((snapshot) => {
+        let zuserscounti = {
+          userscounti: 0,
+        };
 
-         let zuserscounti={
-                   userscounti:0
-                }
-        
-                if (snapshot.val() === null) {
-                  //theplan = "free";
-                  dispatch(startAddTheuserscounti(zuserscounti))
-                } else {
-                  //theplan=snapshot.val();
-                 
-                  let x = snapshot.val()
-                  if(x.userscounti===undefined || x.userscounti=== null)
-                    x.userscount = 0
-                else
-                  x.userscounti += 1
-                  console.log("updating userscounti,zuserscounti.userscounti="+JSON.stringify(x))
-                  //incrementUsersClickCounti(uid,zuserscounti) //update the database
+        if (snapshot.val() === null) {
+          //theplan = "free";
+          dispatch(startAddTheuserscounti(zuserscounti));
+        } else {
+          //theplan=snapshot.val();
 
-                  return database
-      .ref(`users/${uid}/theuserscounti`)
-      .update(x) //{showpublic:0}
-      .then(() => {
-        
-        dispatch(addTheuserscounti(x)); 
-       
-      })
-      .catch((error) => {
-        console.log("error removing link data in firebase, error=" + error);
-      });
+          let x = snapshot.val();
+          if (x.userscounti === undefined || x.userscounti === null)
+            x.userscount = 0;
+          else x.userscounti += 1;
+          console.log(
+            "updating userscounti,zuserscounti.userscounti=" +
+              JSON.stringify(x),
+          );
+          //incrementUsersClickCounti(uid,zuserscounti) //update the database
 
-
-
-
-
-                //   console.log("zuserscounti="+JSON.stringify(zuserscounti))
-                //   //dispatch(addTheuserscounti(snapshot.val()));
-                //   dispatch(addTheuserscounti(zuserscounti)); //update the redux variable, theuserscounti
-                }
-
-        // if (snapshot.val() === null) {
-          
-        // } else {
-          
-        //   dispatch(addTheuserscounti(snapshot.val()));
-        // }
-       
+          return database
+            .ref(`users/${uid}/theuserscounti`)
+            .update(x) //{showpublic:0}
+            .then(() => {
+              dispatch(addTheuserscounti(x));
+            })
+            .catch((error) => {
+              console.log(
+                "error removing link data in firebase, error=" + error,
+              );
+            });
+        }
       });
   };
 };
 
 export const getTheuserscounti2 = () => {
   console.log("actions/getTheuserscounti2");
-  
+
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     let s;
     return database
-     
+
       .ref(`users/${uid}/theuserscounti`)
       .once("value")
       .then((snapshot) => {
+        let zuserscounti = {
+          userscounti: 0,
+        };
 
-         let zuserscounti={
-                   userscounti:0
-                }
-        
-                if (snapshot.val() === null) {
-                  //theplan = "free";
-                  dispatch(startAddTheuserscounti(zuserscounti))
-                } else {
-                  //theplan=snapshot.val();
-                  //zplan=snapshot.val();
-                  dispatch(addTheuserscounti(snapshot.val()));
-                }
+        if (snapshot.val() === null) {
+          //theplan = "free";
+          dispatch(startAddTheuserscounti(zuserscounti));
+        } else {
+          //theplan=snapshot.val();
+          //zplan=snapshot.val();
+          dispatch(addTheuserscounti(snapshot.val()));
+        }
 
         // if (snapshot.val() === null) {
-          
+
         // } else {
-          
+
         //   dispatch(addTheuserscounti(snapshot.val()));
         // }
-       
       });
   };
 };
@@ -165,7 +147,6 @@ export const startEditTheuserscounti = (updates) => {
   };
 };
 
-
 export const addTheuserscounti = (theuserscounti) => ({
   type: "ADD_THEUSERSCOUNTI",
   theuserscounti,
@@ -181,19 +162,22 @@ export const decrementUsersClickCounti2 = (theuserscounti) => ({
   theuserscounti,
 });
 
-export const incrementUsersClickCounti = (uid,x) => {
+export const incrementUsersClickCounti = (uid, x) => {
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
     // alert("incrementClickCount, uid="+uid)
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/theuserscount`)
-      .update({userscounti:parseInt(x.userscounti)+1}) //{showpublic:0}
+      .update({ userscounti: parseInt(x.userscounti) + 1 }) //{showpublic:0}
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(incrementUsersClickCounti2({userscounti:parseInt(x.userscounti)+1}));
-       
+        dispatch(
+          incrementUsersClickCounti2({
+            userscounti: parseInt(x.userscounti) + 1,
+          }),
+        );
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
@@ -218,7 +202,7 @@ export const incrementUsersClickCounti = (uid,x) => {
 //         console.log("incrementUsersClickCounti, uid="+uid)
 //         console.log("incrementUsersClickCounti, x="+JSON.stringify(x))
 //         dispatch(incrementUsersClickCounti2({userscounti:parseInt(x.userscounti)+1}));
-       
+
 //       })
 //       .catch((error) => {
 //         console.log("incrementUsersClickCounti, error incrementing link data in firebase, error=" + error);
@@ -232,17 +216,23 @@ export const decrementUsersCounti = (x) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
-    return database
-      .ref(`users/${uid}/theuserscounti`)
-      .update({userscounti:parseInt(x.userscounti)-1}) //{showpublic:0}
-      //.update({userscounti:4}) 
-      .then(() => {
-        //alert("success")
-        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(decrementUsersClickCounti2({userscounti:parseInt(x.userscounti)-1}));
-      })
-      .catch((error) => {
-        console.log("error removing link data in firebase, error=" + error);
-      });
+    return (
+      database
+        .ref(`users/${uid}/theuserscounti`)
+        .update({ userscounti: parseInt(x.userscounti) - 1 }) //{showpublic:0}
+        //.update({userscounti:4})
+        .then(() => {
+          //alert("success")
+          //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+          dispatch(
+            decrementUsersClickCounti2({
+              userscounti: parseInt(x.userscounti) - 1,
+            }),
+          );
+        })
+        .catch((error) => {
+          console.log("error removing link data in firebase, error=" + error);
+        })
+    );
   };
 };

@@ -1,8 +1,6 @@
 import database from "../firebase/firebase";
 import subscriptionid from "../reducers/subscriptionid";
 
-
-
 // SET_SETTINGS
 export const setThesignupcount = (thesignupcount) => ({
   type: "SET_THESIGNUPCOUNT",
@@ -10,9 +8,12 @@ export const setThesignupcount = (thesignupcount) => ({
 });
 
 export const startAddThesignupcount = (thesignupcountData = {}) => {
-  console.log("startAddThesignupcount, thesignupcountData=" + JSON.stringify(thesignupcountData));
+  console.log(
+    "startAddThesignupcount, thesignupcountData=" +
+      JSON.stringify(thesignupcountData),
+  );
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
 
     return (
       database
@@ -21,12 +22,10 @@ export const startAddThesignupcount = (thesignupcountData = {}) => {
         .update(thesignupcountData)
         .then(() => {
           console.log(
-            "in startAddTheplan, just before the call to dispatch to add theplanData to redux"
+            "in startAddTheplan, just before the call to dispatch to add theplanData to redux",
           );
-         
 
           dispatch(addThesignupcount(thesignupcountData));
-          
         })
     );
   };
@@ -37,18 +36,14 @@ export const getThesignupcount2 = () => {
   return (dispatch, getState) => {
     let s;
     return database
-     
+
       .ref(`users/thesignupcount`)
       .once("value")
       .then((snapshot) => {
-
         if (snapshot.val() === null) {
-          
         } else {
-          
           dispatch(addThesignupcount(snapshot.val()));
         }
-       
       });
   };
 };
@@ -58,18 +53,39 @@ export const getThesignupcount = () => {
   return (dispatch, getState) => {
     let s;
     return database
-     
+
       .ref(`users/thesignupcount`)
       .once("value")
       .then((snapshot) => {
+        let zsignupcount = {
+          signupcount: 0,
+        };
 
         if (snapshot.val() === null) {
-          
+          //theplan = "free";
+          dispatch(startAddThesignupcount(zsignupcount));
         } else {
-          
-          dispatch(addThesignupcount(snapshot.val()));
+          let x = snapshot.val();
+          if (x.signupcount === undefined || x.signupcount === null)
+            x.signupcount = 0;
+          else x.signupcount += 1;
+          console.log(
+            "updating signupcount,zsignupcounti.signupcount=" +
+              JSON.stringify(x),
+          );
+
+          return database
+            .ref(`users/thesignupcount`)
+            .update(x) //{showpublic:0}
+            .then(() => {
+              dispatch(addThesignupcount(x));
+            })
+            .catch((error) => {
+              console.log(
+                "error removing link data in firebase, error=" + error,
+              );
+            });
         }
-       
       });
   };
 };
@@ -109,7 +125,6 @@ export const startEditThesignupcount = (updates) => {
   };
 };
 
-
 export const addThesignupcount = (thesignupcount) => ({
   type: "ADD_THESIGNUPCOUNT",
   thesignupcount,
@@ -132,12 +147,15 @@ export const incrementSignupClickCount = (x) => {
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/thesignupcount`)
-      .update({signupcount:parseInt(x.signupcount)+1}) //{showpublic:0}
+      .update({ signupcount: parseInt(x.signupcount) + 1 }) //{showpublic:0}
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(incrementSignupClickCount2({signupcount:parseInt(x.signupcount)+1}));
-       
+        dispatch(
+          incrementSignupClickCount2({
+            signupcount: parseInt(x.signupcount) + 1,
+          }),
+        );
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
@@ -150,17 +168,23 @@ export const decrementSignupCount = (x) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
-    return database
-      .ref(`users/thesignupcount`)
-      .update({signupcount:parseInt(x.signupcount)-1}) //{showpublic:0}
-      //.update({signupcount:4}) 
-      .then(() => {
-        //alert("success")
-        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(decrementSignupClickCount2({signupcount:parseInt(x.signupcount)-1}));
-      })
-      .catch((error) => {
-        console.log("error removing link data in firebase, error=" + error);
-      });
+    return (
+      database
+        .ref(`users/thesignupcount`)
+        .update({ signupcount: parseInt(x.signupcount) - 1 }) //{showpublic:0}
+        //.update({signupcount:4})
+        .then(() => {
+          //alert("success")
+          //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+          dispatch(
+            decrementSignupClickCount2({
+              signupcount: parseInt(x.signupcount) - 1,
+            }),
+          );
+        })
+        .catch((error) => {
+          console.log("error removing link data in firebase, error=" + error);
+        })
+    );
   };
 };

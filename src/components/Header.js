@@ -285,7 +285,7 @@ const updateItems =  (dispatch, getState) => {
       .then(() => {
         console.log("incrementTotalLoggedOutClickCount success 3")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        //dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+        dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
       })
       .catch((error) => {
         console.log("error incrementTotalLoggedOutClickCount, error=" + error);

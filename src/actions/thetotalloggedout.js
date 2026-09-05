@@ -157,7 +157,7 @@ export const decrementTotalLoggedOutClickCount2 = (thetotalloggedout) => ({
   thetotalloggedout,
 });
 
-export const incrementTotalLoggedOutClickCount = (x) => {
+export const incrementTotalLoggedOutClickCount = async (x) => {
      console.log("incrementTotalLoggedOutClickCount success 1")
   return async (dispatch, getState) => {
      console.log("incrementTotalLoggedOutClickCount success 2")
@@ -173,7 +173,6 @@ export const incrementTotalLoggedOutClickCount = (x) => {
         console.log("incrementTotalLoggedOutClickCount success 3")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
         dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
-       
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

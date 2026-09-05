@@ -238,6 +238,8 @@ export const Header = (props) => {
     }
     // console.log("logoutit, x="+JSON.stringify(x))
     await incrementTotalLoggedOutClickCount(x)
+
+    alert(1)
              
     props.setHasrefreshed({ hasrefreshed: false });
    

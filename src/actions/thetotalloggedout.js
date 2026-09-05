@@ -157,72 +157,72 @@ export const decrementTotalLoggedOutClickCount2 = (thetotalloggedout) => ({
   thetotalloggedout,
 });
 
-// export const incrementTotalLoggedOutClickCount = (x) => {
-//   return (dispatch, getState) => {
-//     //const uid = getState().auth.uid;
-//     // alert("incrementClickCount, uid="+uid)
-//     //update(dbRef, { value: increment(1) });
-//     return database
-//       .ref(`users/thetotalloggedout`)
-//       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
-//       .then(() => {
-//         //alert("success")
-//         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-//         dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
-       
-//       })
-//       .catch((error) => {
-//         console.log("error removing link data in firebase, error=" + error);
-//       });
-//   };
-// };
-
-export const incrementTotalLoggedOutClickCount = (uid) => {
-  console.log("actions/incrementTotalLoggedOutClickCount");
-  //const uid = getState().auth.uid;
+export const incrementTotalLoggedOutClickCount = (x) => {
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
-    let s;
+    // alert("incrementClickCount, uid="+uid)
+    //update(dbRef, { value: increment(1) });
     return database
-
       .ref(`users/thetotalloggedout`)
-      .once("value")
-      .then((snapshot) => {
-        let ztotalloggedout = {
-          totalloggedout: 0,
-        };
-
-        if (snapshot.val() === null) {
-          //theplan = "free";
-          dispatch(startAddThetotalloggedout(ztotalloggedout));
-        } else {
-          //theplan=snapshot.val();
-
-          let x = snapshot.val();
-          if (x.totalloggedout === undefined || x.totalloggedout === null)
-            x.userscount = 0;
-          else x.totalloggedout += 1;
-          console.log(
-            "updating totalloggedout,ztotalloggedout.totalloggedout=" +
-              JSON.stringify(x),
-          );
-          //incrementUsersClickCounti(uid,zuserscounti) //update the database
-
-          return database
-            .ref(`users/${uid}/thetotalloggedout`)
-            .update(x) //{showpublic:0}
-            .then(() => {
-              dispatch(addThetotalloggedout(x));
-            })
-            .catch((error) => {
-              console.log(
-                "error removing link data in firebase, error=" + error,
-              );
-            });
-        }
+      .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
+      .then(() => {
+        console.log("incrementTotalLoggedOutClickCount success")
+        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+        dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+       
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
       });
   };
 };
+
+// export const incrementTotalLoggedOutClickCount = (uid) => {
+//   console.log("actions/incrementTotalLoggedOutClickCount");
+//   //const uid = getState().auth.uid;
+//   return (dispatch, getState) => {
+//     //const uid = getState().auth.uid;
+//     let s;
+//     return database
+
+//       .ref(`users/thetotalloggedout`)
+//       .once("value")
+//       .then((snapshot) => {
+//         let ztotalloggedout = {
+//           totalloggedout: 0,
+//         };
+
+//         if (snapshot.val() === null) {
+//           //theplan = "free";
+//           dispatch(startAddThetotalloggedout(ztotalloggedout));
+//         } else {
+//           //theplan=snapshot.val();
+
+//           let x = snapshot.val();
+//           if (x.totalloggedout === undefined || x.totalloggedout === null)
+//             x.userscount = 0;
+//           else x.totalloggedout += 1;
+//           console.log(
+//             "updating totalloggedout,ztotalloggedout.totalloggedout=" +
+//               JSON.stringify(x),
+//           );
+//           //incrementUsersClickCounti(uid,zuserscounti) //update the database
+
+//           return database
+//             .ref(`users/${uid}/thetotalloggedout`)
+//             .update(x) //{showpublic:0}
+//             .then(() => {
+//               dispatch(addThetotalloggedout(x));
+//             })
+//             .catch((error) => {
+//               console.log(
+//                 "error removing link data in firebase, error=" + error,
+//               );
+//             });
+//         }
+//       });
+//   };
+// };
 
 export const decrementTotalLoggedOutClickCount = (x) => {
   //alert("incrementLinkClickCount, id="+id+", frequency="+frequency)

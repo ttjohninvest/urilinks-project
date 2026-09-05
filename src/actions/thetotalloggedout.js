@@ -158,7 +158,7 @@ export const decrementTotalLoggedOutClickCount2 = (thetotalloggedout) => ({
 });
 
 export const incrementTotalLoggedOutClickCount = (x) => {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     //const uid = getState().auth.uid;
     // alert("incrementClickCount, uid="+uid)
     //update(dbRef, { value: increment(1) });

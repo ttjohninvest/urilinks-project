@@ -164,7 +164,9 @@ export const incrementTotalLoggedOutClickCount = (x) => {
     //const uid = getState().auth.uid;
     // alert("incrementClickCount, uid="+uid)
     //update(dbRef, { value: increment(1) });
-    return database
+    //return 
+    
+    await database
       .ref(`users/thetotalloggedout`)
       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
       .then(() => {

@@ -229,14 +229,15 @@ export const Header = (props) => {
     window.document.getElementById("addlinkid").focus();
   };
 
-  const logoutit = async () => {
+  //const logoutit = async () => {
+    const logoutit = () => {
     //setUpdateLoggedOut(true)
 
-    const x = {
-      totalloggedout: props.thetotalloggedout.totalloggedout + 1,
-    };
-    // console.log("logoutit, x="+JSON.stringify(x))
-    await incrementTotalLoggedOutClickCount(x);
+    // const x = {
+    //   totalloggedout: props.thetotalloggedout.totalloggedout + 1,
+    // };
+    // // console.log("logoutit, x="+JSON.stringify(x))
+    // await incrementTotalLoggedOutClickCount(x);
 
     props.setHasrefreshed({ hasrefreshed: false });
 
@@ -256,7 +257,7 @@ export const Header = (props) => {
 
     props.stopScrolling2();
     props.startLogout();
-    
+
   };
 
   const cancelsubscription = () => {

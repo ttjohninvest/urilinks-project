@@ -1,6 +1,5 @@
 import database from "../firebase/firebase";
 import subscriptionid from "../reducers/subscriptionid";
-import { addThetotalloggedout } from './thetotalloggedout';
 
 
 

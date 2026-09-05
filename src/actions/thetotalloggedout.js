@@ -39,10 +39,6 @@ export const getThetotalloggedout = () => {
       .ref(`users/thetotalloggedout`)
       .once("value")
       .then((snapshot) => {
-       
-        console.log(
-          "11 action/getThetotalloggedout from db, snapshot.val()=" + JSON.stringify(snapshot.val())
-        );
 
         let ztotalloggedout={
            totalloggedout:0
@@ -51,9 +47,7 @@ export const getThetotalloggedout = () => {
         if (snapshot.val() === null) {
           dispatch(startAddThetotalloggedout(ztotalloggedout))
         } else {
-          
-          dispatch(addThetotalloggedout(snapshot.val()));
-                  
+          dispatch(addThetotalloggedout(snapshot.val()));      
         }
         
       });
@@ -66,25 +60,11 @@ export const getThetotalloggedout2 = () => {
   return (dispatch, getState) => {
     
     return database
-     
       .ref(`users/thetotalloggedout`)
       .once("value")
       .then((snapshot) => {
-     
-       
-        console.log(
-          "action/getThetotalloggedout from db, snapshot.val()=" + JSON.stringify(snapshot.val())
-        );
-
-        let ztotalloggedout={
-           totalloggedout:0
-        }
-
         if (snapshot.val() === null) {
-          
-          dispatch(startAddThetotalloggedout(ztotalloggedout))
         } else {
-        
           dispatch(addThetotalloggedout(snapshot.val()));
         }
        

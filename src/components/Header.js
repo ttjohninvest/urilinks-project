@@ -273,13 +273,7 @@ const handleClick = useCallback(() => {
 
 //}
 
-const handleUpdate = useCallback(() => {
-    // setCount(prev => prev + 1);
-    // // Example: Accessing a database reference
-    // if (dbRef) dbRef.increment();
-
-  
-     return (dispatch, getState) => {
+const updateItems =  (dispatch, getState) => {
     
     let x = {
       totalloggedout: props.thetotalloggedout.totalloggedout
@@ -297,9 +291,11 @@ const handleUpdate = useCallback(() => {
         console.log("error incrementTotalLoggedOutClickCount, error=" + error);
       });
   };
+
+const handleUpdate = useCallback(() => {
+    
+     updateItems()
  
-
-
   }, []);
 
 

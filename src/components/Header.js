@@ -40,7 +40,7 @@ import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
-import {addThetotalloggedout} from "../actions/thetotalloggedout";
+import {incrementTotalLoggedOutClickCount} from "../actions/thetotalloggedout";
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);

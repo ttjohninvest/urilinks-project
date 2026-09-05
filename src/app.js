@@ -205,7 +205,7 @@ if (signup !== "signup") {
               
               
               store
-            .dispatch(getThesignupcount())
+            .dispatch(getThesignupcount(theStore.signup))
             .then(() => {
                return store
             .dispatch(getThetotalloggedout())
@@ -214,9 +214,7 @@ if (signup !== "signup") {
             })
             .catch((error) => {
               console.log("theplan, error", error);
-            });
-            
-            
+            });         
             })
             .catch((error) => {
               console.log("theplan, error", error);

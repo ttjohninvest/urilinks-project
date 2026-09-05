@@ -48,7 +48,7 @@ export const getThesignupcount2 = () => {
   };
 };
 
-export const getThesignupcount = () => {
+export const getThesignupcount = (x1) => {
   console.log("actions/getThesignupcount");
   return (dispatch, getState) => {
     let s;
@@ -65,7 +65,9 @@ export const getThesignupcount = () => {
           //theplan = "free";
           dispatch(startAddThesignupcount(zsignupcount));
         } else {
-          let x = snapshot.val();
+           let x = snapshot.val();
+          if(x1 === false) {
+ 
           if (x.signupcount === undefined || x.signupcount === null)
             x.signupcount = 0;
           else x.signupcount += 1;
@@ -85,6 +87,22 @@ export const getThesignupcount = () => {
                 "error removing link data in firebase, error=" + error,
               );
             });
+          }
+          else {
+            return database
+            .ref(`users/thesignupcount`)
+            .update(x) //{showpublic:0}
+            .then(() => {
+              dispatch(addThesignupcount(x));
+            })
+            .catch((error) => {
+              console.log(
+                "error removing link data in firebase, error=" + error,
+              );
+            });
+
+          }
+         
         }
       });
   };

@@ -32,14 +32,10 @@ export const startAddThetotalloggedout = (thetotalloggedoutData = {}) => {
   };
 };
 
-export const getThetotalloggedout = (uid) => {
-  console.log("actions/getThetotalloggedout, uid="+uid);
+export const getThetotalloggedout = () => {
   return (dispatch, getState) => {
-    //const uid = getState().auth.uid;
-    console.log("actions/getThetotalloggedout, uid=" + uid);
-    let s;
+    
     return database
-      //.ref(`users/${uid}/theplan/plan`)
       .ref(`users/thetotalloggedout`)
       .once("value")
       .then((snapshot) => {
@@ -51,16 +47,13 @@ export const getThetotalloggedout = (uid) => {
         let ztotalloggedout={
            totalloggedout:0
         }
-////
+
         if (snapshot.val() === null) {
-          //theplan = "free";
           dispatch(startAddThetotalloggedout(ztotalloggedout))
         } else {
           
           dispatch(addThetotalloggedout(snapshot.val()));
-         
-
-          
+                  
         }
         
       });
@@ -68,18 +61,16 @@ export const getThetotalloggedout = (uid) => {
 };
 
 
-export const getThetotalloggedout2 = (id) => {
+export const getThetotalloggedout2 = () => {
   console.log("actions/getThetotalloggedout");
   return (dispatch, getState) => {
-    //const uid = getState().auth.uid;
-    console.log("actions/getThetotalloggedout2, uid=" + uid);
-    let s;
+    
     return database
      
       .ref(`users/thetotalloggedout`)
       .once("value")
       .then((snapshot) => {
-        let thetotalloggedout
+     
        
         console.log(
           "action/getThetotalloggedout from db, snapshot.val()=" + JSON.stringify(snapshot.val())
@@ -90,11 +81,10 @@ export const getThetotalloggedout2 = (id) => {
         }
 
         if (snapshot.val() === null) {
-          //theplan = "free";
+          
           dispatch(startAddThetotalloggedout(ztotalloggedout))
         } else {
-          //theplan=snapshot.val();
-          //zplan=snapshot.val();
+        
           dispatch(addThetotalloggedout(snapshot.val()));
         }
        

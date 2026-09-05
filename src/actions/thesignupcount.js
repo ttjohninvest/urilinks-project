@@ -34,7 +34,7 @@ export const startAddThesignupcount = (thesignupcountData = {}) => {
 export const getThesignupcount2 = () => {
   console.log("actions/getThesignupcount2");
   return (dispatch, getState) => {
-    let s;
+   
     return database
 
       .ref(`users/thesignupcount`)

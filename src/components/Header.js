@@ -40,7 +40,7 @@ import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
-import { incrementTotalLoggedOutClickCount } from "../actions/thetotalloggedout";
+import { incrementTotalLoggedOutClickCount,incrementTotalLoggedOutClickCount2 } from "../actions/thetotalloggedout";
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
@@ -1029,6 +1029,8 @@ const mapDispatchToProps = (dispatch) => ({
   startAddTheupdatedate: (data) => dispatch(startAddTheupdatedate(data)),
   incrementTotalLoggedOutClickCount: (data) =>
     dispatch(incrementTotalLoggedOutClickCount(data)),
+  incrementTotalLoggedOutClickCount2: (data) =>
+    dispatch(incrementTotalLoggedOutClickCount2(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

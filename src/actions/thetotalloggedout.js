@@ -179,44 +179,38 @@ export const decrementTotalLoggedOutClickCount2 = (thetotalloggedout) => ({
 // };
 
 export const incrementTotalLoggedOutClickCount = (uid) => {
-  //console.log("actions/getThetotalloggedout, uid="+uid);
+  console.log("actions/incrementTotalLoggedOutClickCount");
+  //const uid = getState().auth.uid;
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
-    console.log("actions/getThetotalloggedout, uid=" + uid);
     let s;
     return database
-      //.ref(`users/${uid}/theplan/plan`)
+
       .ref(`users/thetotalloggedout`)
       .once("value")
       .then((snapshot) => {
-       
-        console.log(
-          "11 action/getThetotalloggedout from db, snapshot.val()=" + JSON.stringify(snapshot.val())
-        );
+        let ztotalloggedout = {
+          totalloggedout: 0,
+        };
 
-        let ztotalloggedout={
-           totalloggedout:0
-        }
-////
         if (snapshot.val() === null) {
           //theplan = "free";
-          dispatch(startAddThetotalloggedout(ztotalloggedout))
+          dispatch(startAddThetotalloggedout(ztotalloggedout));
         } else {
-          
-          //dispatch(addThetotalloggedout(snapshot.val()));
+          //theplan=snapshot.val();
 
-           let x = snapshot.val();
-          if (x.userscounti === undefined || x.userscounti === null)
+          let x = snapshot.val();
+          if (x.totalloggedout === undefined || x.totalloggedout === null)
             x.userscount = 0;
-          else x.userscounti += 1;
+          else x.totalloggedout += 1;
           console.log(
-            "updating userscounti,zuserscounti.userscounti=" +
+            "updating totalloggedout,ztotalloggedout.totalloggedout=" +
               JSON.stringify(x),
           );
           //incrementUsersClickCounti(uid,zuserscounti) //update the database
 
           return database
-            .ref(`users/thetotalloggedout`)
+            .ref(`users/${uid}/thetotalloggedout`)
             .update(x) //{showpublic:0}
             .then(() => {
               dispatch(addThetotalloggedout(x));
@@ -226,11 +220,7 @@ export const incrementTotalLoggedOutClickCount = (uid) => {
                 "error removing link data in firebase, error=" + error,
               );
             });
-         
-
-          
         }
-        
       });
   };
 };

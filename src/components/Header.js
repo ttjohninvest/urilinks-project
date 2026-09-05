@@ -232,32 +232,32 @@ export const Header = (props) => {
   const logoutit = () => {
     //setUpdateLoggedOut(true)
     
-       let x = {
-      totalloggedout:props.thetotalloggedout.totalloggedout
-    }
-    console.log("logoutit, x="+JSON.stringify(x))
-    incrementTotalLoggedOutClickCount(x)
+    //    let x = {
+    //   totalloggedout:props.thetotalloggedout.totalloggedout
+    // }
+    // console.log("logoutit, x="+JSON.stringify(x))
+    // incrementTotalLoggedOutClickCount(x)
     
    
     
-    // props.setHasrefreshed({ hasrefreshed: false });
+    props.setHasrefreshed({ hasrefreshed: false });
    
-    // setTheplan2({
-    //   customerId: "",
-    //   plan: "free",
-    //   subscriptionId: "",
-    //   uid: "",
-    // });
-    // setPhotourl("");
-    // setGoogleUserData({});
-    // setBmok2(true);
+    setTheplan2({
+      customerId: "",
+      plan: "free",
+      subscriptionId: "",
+      uid: "",
+    });
+    setPhotourl("");
+    setGoogleUserData({});
+    setBmok2(true);
     
-    // setSignup(false);
+    setSignup(false);
     
-    // setLinks([]);
+    setLinks([]);
     
-    // props.stopScrolling2()
-    // props.startLogout();
+    props.stopScrolling2()
+    props.startLogout();
     
   };
 

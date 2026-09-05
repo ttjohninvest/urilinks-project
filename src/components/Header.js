@@ -280,27 +280,27 @@ const handleClick = useCallback(() => {
 //     }
 // }
 
-const updateItems =  () => {
+// const updateItems =  () => {
 
-  let x = {
-      totalloggedout: props.thetotalloggedout.totalloggedout
-    }
+//   let x = {
+//       totalloggedout: props.thetotalloggedout.totalloggedout
+//     }
 
-    return (dispatch, undefined) => {
+//     return (dispatch, undefined) => {
     
-    database
-      .ref(`users/thetotalloggedout`)
-      .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
-      .then(() => {
-        console.log("incrementTotalLoggedOutClickCount success 3")
-        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
-      })
-      .catch((error) => {
-        console.log("error incrementTotalLoggedOutClickCount, error=" + error);
-      });
-  };
-}
+//     database
+//       .ref(`users/thetotalloggedout`)
+//       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
+//       .then(() => {
+//         console.log("incrementTotalLoggedOutClickCount success 3")
+//         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+//         dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+//       })
+//       .catch((error) => {
+//         console.log("error incrementTotalLoggedOutClickCount, error=" + error);
+//       });
+//   };
+// }
 
 const handleUpdate = useCallback(() => {
     
@@ -311,41 +311,41 @@ const handleUpdate = useCallback(() => {
 
 
 //works:
-  //  const handleUpdate = useCallback(() => {
-  //   // setCount(prev => prev + 1);
-  //   // // Example: Accessing a database reference
-  //   // if (dbRef) dbRef.increment();
+   const handleUpdate = useCallback(() => {
+    // setCount(prev => prev + 1);
+    // // Example: Accessing a database reference
+    // if (dbRef) dbRef.increment();
 
-  //  try {
-  //    //return async (dispatch, getState) => {
-  //    console.log("incrementTotalLoggedOutClickCount success 2")
-  //   //const uid = getState().auth.uid;
-  //   // alert("incrementClickCount, uid="+uid)
-  //   //update(dbRef, { value: increment(1) });
-  //   //return 
-  //   let x = {
-  //     totalloggedout: props.thetotalloggedout.totalloggedout
-  //   }
+   try {
+     //return async (dispatch, getState) => {
+     console.log("incrementTotalLoggedOutClickCount success 2")
+    //const uid = getState().auth.uid;
+    // alert("incrementClickCount, uid="+uid)
+    //update(dbRef, { value: increment(1) });
+    //return 
+    let x = {
+      totalloggedout: props.thetotalloggedout.totalloggedout
+    }
     
-  //   database
-  //     .ref(`users/thetotalloggedout`)
-  //     .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
-  //     .then(() => {
-  //       console.log("incrementTotalLoggedOutClickCount success 3")
-  //       //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-  //       //dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
-  //     })
-  //     .catch((error) => {
-  //       console.log("error incrementTotalLoggedOutClickCount, error=" + error);
-  //     });
-  // //};
+    database
+      .ref(`users/thetotalloggedout`)
+      .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
+      .then(() => {
+        console.log("incrementTotalLoggedOutClickCount success 3")
+        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+        //dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+      })
+      .catch((error) => {
+        console.log("error incrementTotalLoggedOutClickCount, error=" + error);
+      });
+  //};
     
-  // } catch (error) {
-  //   console.error('Update failed:', error);
-  // }
+  } catch (error) {
+    console.error('Update failed:', error);
+  }
 
 
-  // }, []);
+  }, []);
 
 
 

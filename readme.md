@@ -1965,6 +1965,9 @@ my x.com id: 1956822957013241856
 thesignupcount is the total number of people that have signed up and logged in by clicking login, the number is
 more than the number of signups because it increments by 1 for each login
 
+thesignupcount - thetotalloggedout gives the total number of people logged in, redux does not update when the person
+logs out, it is updated when the person logs back in again or it runs through that part of the code in app.js, the second part
+
 =============
 code problem: after I commited first git message with signupcount, I lowercase user id appeared in the firebase database
 Thu Sep 3 21:07:37 2026 -0700

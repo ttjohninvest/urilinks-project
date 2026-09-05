@@ -241,7 +241,7 @@ export const Header = (props) => {
 //   const handleUpdate = async () => {
 //   try {
 //     let x = {
-//       totalloggedout: 6
+//       totalloggedout: props.thetotalloggedout.totalloggedout
 //     }
 //     const userRef = ref(database, 'users/thetotalloggedout');
     

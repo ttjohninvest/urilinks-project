@@ -288,7 +288,7 @@ const updateItems =  () => {
 
     return (dispatch, undefined) => {
     
-    return database
+    database
       .ref(`users/thetotalloggedout`)
       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
       .then(() => {

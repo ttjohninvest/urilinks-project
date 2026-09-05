@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import database from "../firebase/firebase";
 import moment from "moment";
 //import * as firebase from "firebase";
 import * as firebase from "firebase/app";
@@ -39,7 +40,7 @@ import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
-import {incrementTotalLoggedOutClickCount} from "../actions/thetotalloggedout";
+import {addThetotalloggedout} from "../actions/thetotalloggedout";
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
@@ -232,14 +233,24 @@ export const Header = (props) => {
   const logoutit = () => {
     //setUpdateLoggedOut(true)
     
-    //    let x = {
-    //   totalloggedout:props.thetotalloggedout.totalloggedout
-    // }
+       let x = {
+      totalloggedout:props.thetotalloggedout.totalloggedout+1
+    }
     // console.log("logoutit, x="+JSON.stringify(x))
     // incrementTotalLoggedOutClickCount(x)
+
+
+
+    return (dispatch, getState) => {
     
-   
-    
+          return database
+            .ref(`users/thetotalloggedout`)
+            .update(x) //{showpublic:0}
+            .then(() => {
+              dispatch(addThetotalloggedout(x));
+
+
+                
     props.setHasrefreshed({ hasrefreshed: false });
    
     setTheplan2({
@@ -258,6 +269,29 @@ export const Header = (props) => {
     
     props.stopScrolling2()
     props.startLogout();
+
+
+
+
+
+
+            })
+            .catch((error) => {
+              console.log(
+                "error removing link data in firebase, error=" + error,
+              );
+            })
+        
+          }
+  
+
+
+
+
+
+    
+   
+  
     
   };
 

@@ -274,7 +274,7 @@ const handleClick = useCallback(() => {
     // if (dbRef) dbRef.increment();
 
    try {
-     return async (dispatch, getState) => {
+     //return async (dispatch, getState) => {
      console.log("incrementTotalLoggedOutClickCount success 2")
     //const uid = getState().auth.uid;
     // alert("incrementClickCount, uid="+uid)
@@ -284,18 +284,18 @@ const handleClick = useCallback(() => {
       totalloggedout: props.thetotalloggedout.totalloggedout
     }
     
-    await database
+    database
       .ref(`users/thetotalloggedout`)
       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
       .then(() => {
         console.log("incrementTotalLoggedOutClickCount success 3")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+        //dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
       })
       .catch((error) => {
-        console.log("error removing link data in firebase, error=" + error);
+        console.log("error incrementTotalLoggedOutClickCount, error=" + error);
       });
-  };
+  //};
     
   } catch (error) {
     console.error('Update failed:', error);

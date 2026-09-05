@@ -273,7 +273,16 @@ const handleClick = useCallback(() => {
 
 //}
 
-const updateItems =  (dispatch, getState) => {
+// export const loadUser = () => {
+//     return (dispatch, getState) => {
+//         // dispatch and getState are now available here
+//         dispatch({ type: 'USER_LOADED', payload: res.data });
+//     }
+// }
+
+const updateItems =  () => {
+
+    return (dispatch, getState) => {
     
     let x = {
       totalloggedout: props.thetotalloggedout.totalloggedout
@@ -291,6 +300,7 @@ const updateItems =  (dispatch, getState) => {
         console.log("error incrementTotalLoggedOutClickCount, error=" + error);
       });
   };
+}
 
 const handleUpdate = useCallback(() => {
     

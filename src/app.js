@@ -117,10 +117,19 @@ if (signup !== "signup") {
               store
             .dispatch(getTheuserscounti2(id))
             .then(() => {
-                return store
+                 store
+            .dispatch(getThesignupcount())
+            .then(() => {
+               return store
             .dispatch(getThetotalloggedout())
             .then(() => {
               renderApp(store, signup);
+            })
+            .catch((error) => {
+              console.log("theplan, error", error);
+            });
+            
+            
             })
             .catch((error) => {
               console.log("theplan, error", error);
@@ -192,7 +201,10 @@ if (signup !== "signup") {
                store
             .dispatch(getTheuserscounti(user.uid))
             .then(() => {
-               store
+               
+              
+              
+              store
             .dispatch(getThesignupcount())
             .then(() => {
                return store
@@ -209,6 +221,9 @@ if (signup !== "signup") {
             .catch((error) => {
               console.log("theplan, error", error);
             });
+
+
+
             
             })
             .catch((error) => {

@@ -1699,10 +1699,10 @@ function ExpandableArray(props) {
               <br />
               <br />
               ✮ To make money, use the Edit Link link to add a text ad for each
-              link you have to earn commission like from clickbank.com. For as
-              many links that you have, you can ad a text ad for each one. All
-              of the commission that clickbank has for you will go to you. You
-              will find the Edit Link link with each displayed link.
+              link you have to earn commission like from clickbank.com, deep link
+              or your own website. For as many links that you have, you can ad a 
+              text ad for each one. All of the commission that clickbank has for you
+              will go to you. You will find the Edit Link link with each displayed link.
               <br />
               <br />
               ✮ It has autoscroll.

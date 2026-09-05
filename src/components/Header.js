@@ -229,8 +229,30 @@ export const Header = (props) => {
     window.document.getElementById("addlinkid").focus();
   };
 
+  /*
+ await database
+      .ref(`users/thetotalloggedout`)
+      .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
+      .then(() => {
+  */
+
+  const handleUpdate = async () => {
+  try {
+    const userRef = ref(database, 'users/currentUserId');
+    
+    await update(userRef, { 
+      status: 'active', 
+      lastUpdated: new Date().toISOString() 
+    });
+    console.log('Data updated successfully');
+  } catch (error) {
+    console.error('Update failed:', error);
+  }
+};
+
   //const logoutit = async () => {
-    const logoutit = () => {
+    const logoutit = async () => {
+      await handleUpdate()
     //setUpdateLoggedOut(true)
 
     // const x = {

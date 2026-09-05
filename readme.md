@@ -1973,5 +1973,7 @@ code problem: after I commited first git message with signupcount, I lowercase u
 Thu Sep 3 21:07:37 2026 -0700
 code problem: needs realtime count of logged in users, since the code runs through the second part in app.js multiple times when refreshed it currently can't distinguish between the first launch by urilinks.com and subsequent refreshes so it increments the loggedin count, in redux, named by thesignupcount.signupcount multiple times. 
 Soln: it needs to distinguish between the first time, launching urilinks.com and the rest by refreshes so it increments
-thesignupcount.signupcount one time then I can make the subtraction and it will be accurrate.
+thesignupcount.signupcount one time then I can make the subtraction and it will be accurrate and the redux variable thesignupcount
+minum the thetotalloggedout count will be the current number of loggedin users. right now the number is giving the number of times
+people have logged in and logged out
 =============

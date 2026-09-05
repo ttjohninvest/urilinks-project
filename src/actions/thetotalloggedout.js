@@ -1,5 +1,6 @@
 import database from "../firebase/firebase";
 import subscriptionid from "../reducers/subscriptionid";
+import { addThetotalloggedout } from './thetotalloggedout';
 
 
 
@@ -157,22 +158,79 @@ export const decrementTotalLoggedOutClickCount2 = (thetotalloggedout) => ({
   thetotalloggedout,
 });
 
-export const incrementTotalLoggedOutClickCount = (x) => {
+// export const incrementTotalLoggedOutClickCount = (x) => {
+//   return (dispatch, getState) => {
+//     //const uid = getState().auth.uid;
+//     // alert("incrementClickCount, uid="+uid)
+//     //update(dbRef, { value: increment(1) });
+//     return database
+//       .ref(`users/thetotalloggedout`)
+//       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
+//       .then(() => {
+//         //alert("success")
+//         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+//         dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+       
+//       })
+//       .catch((error) => {
+//         console.log("error removing link data in firebase, error=" + error);
+//       });
+//   };
+// };
+
+export const incrementTotalLoggedOutClickCount = (uid) => {
+  //console.log("actions/getThetotalloggedout, uid="+uid);
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
-    // alert("incrementClickCount, uid="+uid)
-    //update(dbRef, { value: increment(1) });
+    console.log("actions/getThetotalloggedout, uid=" + uid);
+    let s;
     return database
+      //.ref(`users/${uid}/theplan/plan`)
       .ref(`users/thetotalloggedout`)
-      .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
-      .then(() => {
-        //alert("success")
-        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+      .once("value")
+      .then((snapshot) => {
        
-      })
-      .catch((error) => {
-        console.log("error removing link data in firebase, error=" + error);
+        console.log(
+          "11 action/getThetotalloggedout from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+        );
+
+        let ztotalloggedout={
+           totalloggedout:0
+        }
+////
+        if (snapshot.val() === null) {
+          //theplan = "free";
+          dispatch(startAddThetotalloggedout(ztotalloggedout))
+        } else {
+          
+          //dispatch(addThetotalloggedout(snapshot.val()));
+
+           let x = snapshot.val();
+          if (x.userscounti === undefined || x.userscounti === null)
+            x.userscount = 0;
+          else x.userscounti += 1;
+          console.log(
+            "updating userscounti,zuserscounti.userscounti=" +
+              JSON.stringify(x),
+          );
+          //incrementUsersClickCounti(uid,zuserscounti) //update the database
+
+          return database
+            .ref(`users/thetotalloggedout`)
+            .update(x) //{showpublic:0}
+            .then(() => {
+              dispatch(addThetotalloggedout(x));
+            })
+            .catch((error) => {
+              console.log(
+                "error removing link data in firebase, error=" + error,
+              );
+            });
+         
+
+          
+        }
+        
       });
   };
 };

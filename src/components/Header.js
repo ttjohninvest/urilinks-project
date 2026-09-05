@@ -234,15 +234,19 @@ export const Header = (props) => {
       .ref(`users/thetotalloggedout`)
       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
       .then(() => {
+
+      })
   */
 
   const handleUpdate = async () => {
   try {
-    const userRef = ref(database, 'users/currentUserId');
+    let x = {
+      totalloggedout: 6
+    }
+    const userRef = ref(database, 'users/thetotalloggedout');
     
     await update(userRef, { 
-      status: 'active', 
-      lastUpdated: new Date().toISOString() 
+      totalloggedout:parseInt(x.totalloggedout)+1
     });
     console.log('Data updated successfully');
   } catch (error) {

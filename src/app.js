@@ -114,10 +114,17 @@ if (signup !== "signup") {
              store
             .dispatch(getThesharablelink2(id))
             .then(() => {
-              return store
+              store
             .dispatch(getTheuserscounti2(id))
             .then(() => {
+                return store
+            .dispatch(getThetotalloggedout())
+            .then(() => {
               renderApp(store, signup);
+            })
+            .catch((error) => {
+              console.log("theplan, error", error);
+            });
            
             })
             .catch((error) => {

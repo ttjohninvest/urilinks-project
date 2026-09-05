@@ -282,13 +282,13 @@ const handleClick = useCallback(() => {
 
 const updateItems =  () => {
 
-    return (dispatch, getState) => {
-    
-    let x = {
+  let x = {
       totalloggedout: props.thetotalloggedout.totalloggedout
     }
+
+    return (dispatch, undefined) => {
     
-    database
+    return database
       .ref(`users/thetotalloggedout`)
       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
       .then(() => {

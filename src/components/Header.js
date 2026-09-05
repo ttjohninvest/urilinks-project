@@ -268,18 +268,19 @@ const handleClick = useCallback(() => {
 
   // }, []);
 
-   const handleUpdate = useCallback(() => {
+
+//return (dispatch, getState) => {
+
+//}
+
+const handleUpdate = useCallback(() => {
     // setCount(prev => prev + 1);
     // // Example: Accessing a database reference
     // if (dbRef) dbRef.increment();
 
-   try {
-     //return async (dispatch, getState) => {
-     console.log("incrementTotalLoggedOutClickCount success 2")
-    //const uid = getState().auth.uid;
-    // alert("incrementClickCount, uid="+uid)
-    //update(dbRef, { value: increment(1) });
-    //return 
+  
+     return (dispatch, getState) => {
+    
     let x = {
       totalloggedout: props.thetotalloggedout.totalloggedout
     }
@@ -295,14 +296,55 @@ const handleClick = useCallback(() => {
       .catch((error) => {
         console.log("error incrementTotalLoggedOutClickCount, error=" + error);
       });
-  //};
-    
-  } catch (error) {
-    console.error('Update failed:', error);
-  }
+  };
+ 
 
 
   }, []);
+
+
+
+//works:
+  //  const handleUpdate = useCallback(() => {
+  //   // setCount(prev => prev + 1);
+  //   // // Example: Accessing a database reference
+  //   // if (dbRef) dbRef.increment();
+
+  //  try {
+  //    //return async (dispatch, getState) => {
+  //    console.log("incrementTotalLoggedOutClickCount success 2")
+  //   //const uid = getState().auth.uid;
+  //   // alert("incrementClickCount, uid="+uid)
+  //   //update(dbRef, { value: increment(1) });
+  //   //return 
+  //   let x = {
+  //     totalloggedout: props.thetotalloggedout.totalloggedout
+  //   }
+    
+  //   database
+  //     .ref(`users/thetotalloggedout`)
+  //     .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
+  //     .then(() => {
+  //       console.log("incrementTotalLoggedOutClickCount success 3")
+  //       //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+  //       //dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+  //     })
+  //     .catch((error) => {
+  //       console.log("error incrementTotalLoggedOutClickCount, error=" + error);
+  //     });
+  // //};
+    
+  // } catch (error) {
+  //   console.error('Update failed:', error);
+  // }
+
+
+  // }, []);
+
+
+
+
+
 
 //   const handleUpdate = async () => {
 //   try {

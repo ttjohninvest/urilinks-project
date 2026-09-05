@@ -247,28 +247,33 @@ export const Header = (props) => {
             .ref(`users/thetotalloggedout`)
             .update(x) //{showpublic:0}
             .then(() => {
-              dispatch(addThetotalloggedout(x));
+
+
+console.log("logoutit, in then")
+
+
+    //           dispatch(addThetotalloggedout(x));
 
 
                 
-    props.setHasrefreshed({ hasrefreshed: false });
+    // props.setHasrefreshed({ hasrefreshed: false });
    
-    setTheplan2({
-      customerId: "",
-      plan: "free",
-      subscriptionId: "",
-      uid: "",
-    });
-    setPhotourl("");
-    setGoogleUserData({});
-    setBmok2(true);
+    // setTheplan2({
+    //   customerId: "",
+    //   plan: "free",
+    //   subscriptionId: "",
+    //   uid: "",
+    // });
+    // setPhotourl("");
+    // setGoogleUserData({});
+    // setBmok2(true);
     
-    setSignup(false);
+    // setSignup(false);
     
-    setLinks([]);
+    // setLinks([]);
     
-    props.stopScrolling2()
-    props.startLogout();
+    // props.stopScrolling2()
+    // props.startLogout();
 
 
 

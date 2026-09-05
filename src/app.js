@@ -166,10 +166,10 @@ if (signup !== "signup") {
       console.log("error", error);
     });
 } else {
-  store.dispatch({
-    type: "SET_SIGNUP",
-    signup: { signup: true },
-  });
+  // store.dispatch({
+  //   type: "SET_SIGNUP",
+  //   signup: { signup: true },
+  // });
 
   //startLogout()
   firebase.auth().onAuthStateChanged((user) => {
@@ -205,12 +205,16 @@ if (signup !== "signup") {
               
               
               store
-            .dispatch(getThesignupcount(theStore.signup))
+            .dispatch(getThesignupcount(theStore.signup.signup))
             .then(() => {
                return store
             .dispatch(getThetotalloggedout())
             .then(() => {
               renderApp(store, signup);
+              store.dispatch({
+    type: "SET_SIGNUP",
+    signup: { signup: true },
+  });
             })
             .catch((error) => {
               console.log("theplan, error", error);

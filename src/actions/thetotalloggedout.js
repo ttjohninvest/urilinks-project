@@ -158,7 +158,9 @@ export const decrementTotalLoggedOutClickCount2 = (thetotalloggedout) => ({
 });
 
 export const incrementTotalLoggedOutClickCount = (x) => {
+     console.log("incrementTotalLoggedOutClickCount success 1")
   return async (dispatch, getState) => {
+     console.log("incrementTotalLoggedOutClickCount success 2")
     //const uid = getState().auth.uid;
     // alert("incrementClickCount, uid="+uid)
     //update(dbRef, { value: increment(1) });
@@ -166,7 +168,7 @@ export const incrementTotalLoggedOutClickCount = (x) => {
       .ref(`users/thetotalloggedout`)
       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
       .then(() => {
-        console.log("incrementTotalLoggedOutClickCount success")
+        console.log("incrementTotalLoggedOutClickCount success 3")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
         dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
        

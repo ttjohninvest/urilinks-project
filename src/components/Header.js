@@ -40,7 +40,7 @@ import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
-import {incrementTotalLoggedOutClickCount} from "../actions/thetotalloggedout";
+import { incrementTotalLoggedOutClickCount } from "../actions/thetotalloggedout";
 
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
@@ -72,7 +72,6 @@ export const Header = (props) => {
   useEffect(() => {
     props.abc(1);
     console.log("1, props.abcref=" + JSON.stringify(props.abcref));
-    
   }, []);
 
   function slowScrollDown(distance, duration) {
@@ -232,17 +231,15 @@ export const Header = (props) => {
 
   const logoutit = async () => {
     //setUpdateLoggedOut(true)
-    
-       let x = {
-      totalloggedout:props.thetotalloggedout.totalloggedout+1
-    }
-    // console.log("logoutit, x="+JSON.stringify(x))
-    await incrementTotalLoggedOutClickCount(x)
 
-    alert(1)
-             
+    const x = {
+      totalloggedout: props.thetotalloggedout.totalloggedout + 1,
+    };
+    // console.log("logoutit, x="+JSON.stringify(x))
+    await incrementTotalLoggedOutClickCount(x);
+
     props.setHasrefreshed({ hasrefreshed: false });
-   
+
     setTheplan2({
       customerId: "",
       plan: "free",
@@ -252,15 +249,14 @@ export const Header = (props) => {
     setPhotourl("");
     setGoogleUserData({});
     setBmok2(true);
-    
+
     setSignup(false);
-    
+
     setLinks([]);
-    
-    props.stopScrolling2()
+
+    props.stopScrolling2();
     props.startLogout();
-
-
+    
   };
 
   const cancelsubscription = () => {
@@ -868,7 +864,7 @@ const mapStateToProps = (state) => ({
   subscriptionId: state.subscriptionId,
   customerId: state.customerId,
   thesignupcount: state.thesignupcount,
-  thetotalloggedout: state.thetotalloggedout
+  thetotalloggedout: state.thetotalloggedout,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -884,7 +880,8 @@ const mapDispatchToProps = (dispatch) => ({
   startDeleteAccount: (email) => dispatch(startDeleteAccount(email)),
   setTheplan: (theplan) => dispatch(setTheplan(theplan)),
   startAddTheupdatedate: (data) => dispatch(startAddTheupdatedate(data)),
-  incrementTotalLoggedOutClickCount:(data)=>dispatch(incrementTotalLoggedOutClickCount(data))
+  incrementTotalLoggedOutClickCount: (data) =>
+    dispatch(incrementTotalLoggedOutClickCount(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

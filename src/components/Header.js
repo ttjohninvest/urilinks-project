@@ -51,7 +51,7 @@ export const Header = (props) => {
   const [email, setEmail] = useState("");
   const [theplan, setTheplan] = useState("");
   const [bmok, setBmok] = useState(false);
-   const [updateLoggedOut, setUpdateLoggedOut] = useState(false);
+  const [updateLoggedOut, setUpdateLoggedOut] = useState(false);
   const [linksUpdateDateTime, setLinksUpdateDateTime] = useState(
     new Date(props.theupdatedate.updatedate).toLocaleDateString() +
       " at " +
@@ -71,14 +71,8 @@ export const Header = (props) => {
   useEffect(() => {
     props.abc(1);
     console.log("1, props.abcref=" + JSON.stringify(props.abcref));
-    if(updateLoggedOut===true) {
-       let x = {
-      totalloggedout:props.thetotalloggedout.totalloggedout
-    }
-    console.log("logoutit, x="+JSON.stringify(x))
-    incrementTotalLoggedOutClickCount(x)
-    }
-  }, [updateLoggedOut]);
+    
+  }, []);
 
   function slowScrollDown(distance, duration) {
     const startingY = window.pageYOffset;
@@ -236,29 +230,35 @@ export const Header = (props) => {
   };
 
   const logoutit = () => {
-    setUpdateLoggedOut(true)
-   
-    //sessionStorage.setItem('hasRefreshed', 'false');
-    //const hasRefreshed = sessionStorage.getItem('hasRefreshed');
-    props.setHasrefreshed({ hasrefreshed: false });
-    //props.setTheplan({subscriptionId:"",plan:"free",customerId:""})
-    setTheplan2({
-      customerId: "",
-      plan: "free",
-      subscriptionId: "",
-      uid: "",
-    });
-    setPhotourl("");
-    setGoogleUserData({});
-    setBmok2(true);
-    //setDisplayname("");
-    setSignup(false);
-    //setEmail("");
-    setLinks([]);
+    //setUpdateLoggedOut(true)
     
-    props.stopScrolling2()
-    props.startLogout();
-    //window.location.href = "https://urilinks.com"
+       let x = {
+      totalloggedout:props.thetotalloggedout.totalloggedout
+    }
+    console.log("logoutit, x="+JSON.stringify(x))
+    incrementTotalLoggedOutClickCount(x)
+    
+   
+    
+    // props.setHasrefreshed({ hasrefreshed: false });
+   
+    // setTheplan2({
+    //   customerId: "",
+    //   plan: "free",
+    //   subscriptionId: "",
+    //   uid: "",
+    // });
+    // setPhotourl("");
+    // setGoogleUserData({});
+    // setBmok2(true);
+    
+    // setSignup(false);
+    
+    // setLinks([]);
+    
+    // props.stopScrolling2()
+    // props.startLogout();
+    
   };
 
   const cancelsubscription = () => {

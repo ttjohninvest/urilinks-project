@@ -230,74 +230,35 @@ export const Header = (props) => {
     window.document.getElementById("addlinkid").focus();
   };
 
-  const logoutit = () => {
+  const logoutit = async () => {
     //setUpdateLoggedOut(true)
     
        let x = {
       totalloggedout:props.thetotalloggedout.totalloggedout+1
     }
     // console.log("logoutit, x="+JSON.stringify(x))
-    // incrementTotalLoggedOutClickCount(x)
-
-
-
-    return (dispatch, getState) => {
-    
-          return database
-            .ref(`users/thetotalloggedout`)
-            .update(x) //{showpublic:0}
-            .then(() => {
-
-
-console.log("logoutit, in then")
-
-
-    //           dispatch(addThetotalloggedout(x));
-
-
-                
-    // props.setHasrefreshed({ hasrefreshed: false });
+    await incrementTotalLoggedOutClickCount(x)
+             
+    props.setHasrefreshed({ hasrefreshed: false });
    
-    // setTheplan2({
-    //   customerId: "",
-    //   plan: "free",
-    //   subscriptionId: "",
-    //   uid: "",
-    // });
-    // setPhotourl("");
-    // setGoogleUserData({});
-    // setBmok2(true);
+    setTheplan2({
+      customerId: "",
+      plan: "free",
+      subscriptionId: "",
+      uid: "",
+    });
+    setPhotourl("");
+    setGoogleUserData({});
+    setBmok2(true);
     
-    // setSignup(false);
+    setSignup(false);
     
-    // setLinks([]);
+    setLinks([]);
     
-    // props.stopScrolling2()
-    // props.startLogout();
+    props.stopScrolling2()
+    props.startLogout();
 
 
-
-
-
-
-            })
-            .catch((error) => {
-              console.log(
-                "error removing link data in firebase, error=" + error,
-              );
-            })
-        
-          }
-  
-
-
-
-
-
-    
-   
-  
-    
   };
 
   const cancelsubscription = () => {

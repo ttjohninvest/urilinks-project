@@ -286,7 +286,7 @@ const handleClick = useCallback(() => {
 //       totalloggedout: props.thetotalloggedout.totalloggedout
 //     }
 
-//     return (dispatch, undefined) => {
+
     
 //     database
 //       .ref(`users/thetotalloggedout`)
@@ -294,19 +294,19 @@ const handleClick = useCallback(() => {
 //       .then(() => {
 //         console.log("incrementTotalLoggedOutClickCount success 3")
 //         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-//         dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+//         //dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
 //       })
 //       .catch((error) => {
 //         console.log("error incrementTotalLoggedOutClickCount, error=" + error);
 //       });
-//   };
+
 // }
 
-const handleUpdate = useCallback(() => {
+// const handleUpdate = useCallback(() => {
     
-     updateItems()
+//      updateItems()
  
-  }, []);
+//   }, []);
 
 
 

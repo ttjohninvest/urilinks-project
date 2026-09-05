@@ -238,25 +238,25 @@ export const Header = (props) => {
       })
   */
 
-  const handleUpdate = async () => {
-  try {
-    let x = {
-      totalloggedout: 6
-    }
-    const userRef = ref(database, 'users/thetotalloggedout');
+//   const handleUpdate = async () => {
+//   try {
+//     let x = {
+//       totalloggedout: 6
+//     }
+//     const userRef = ref(database, 'users/thetotalloggedout');
     
-    await update(userRef, { 
-      totalloggedout:parseInt(x.totalloggedout)+1
-    });
-    console.log('Data updated successfully');
-  } catch (error) {
-    console.error('Update failed:', error);
-  }
-};
+//     await update(userRef, { 
+//       totalloggedout:parseInt(x.totalloggedout)+1
+//     });
+//     console.log('Data updated successfully');
+//   } catch (error) {
+//     console.error('Update failed:', error);
+//   }
+// };
 
   //const logoutit = async () => {
     const logoutit = async () => {
-      await handleUpdate()
+      //await handleUpdate()
     //setUpdateLoggedOut(true)
 
     // const x = {

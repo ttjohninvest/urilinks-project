@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import database from "../firebase/firebase";
 import moment from "moment";
 //import * as firebase from "firebase";
@@ -238,6 +238,52 @@ export const Header = (props) => {
       })
   */
 
+      /*
+const handleClick = useCallback(() => {
+    setCount(prev => prev + 1);
+    // Example: Accessing a database reference
+    if (dbRef) dbRef.increment();
+  }, [dbRef]);
+      */
+
+  const handleUpdate = useCallback(() => {
+    // setCount(prev => prev + 1);
+    // // Example: Accessing a database reference
+    // if (dbRef) dbRef.increment();
+
+     try {
+    let x = {
+      totalloggedout: props.thetotalloggedout.totalloggedout
+    }
+    const userRef = ref(database, 'users/thetotalloggedout');
+    
+    update(userRef, { 
+      totalloggedout:parseInt(x.totalloggedout)+1
+    });
+    console.log('Data updated successfully');
+  } catch (error) {
+    console.error('Update failed:', error);
+  }
+
+
+  }, []);
+
+//   const handleUpdate = async () => {
+//   try {
+//     let x = {
+//       totalloggedout: props.thetotalloggedout.totalloggedout
+//     }
+//     const userRef = ref(database, 'users/thetotalloggedout');
+    
+//     await update(userRef, { 
+//       totalloggedout:parseInt(x.totalloggedout)+1
+//     });
+//     console.log('Data updated successfully');
+//   } catch (error) {
+//     console.error('Update failed:', error);
+//   }
+// };
+
 //   const handleUpdate = async () => {
 //   try {
 //     let x = {
@@ -255,8 +301,8 @@ export const Header = (props) => {
 // };
 
   //const logoutit = async () => {
-    const logoutit = async () => {
-      //await handleUpdate()
+    const logoutit = () => {
+      handleUpdate()
     //setUpdateLoggedOut(true)
 
     // const x = {

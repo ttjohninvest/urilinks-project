@@ -48,7 +48,7 @@ export const getThesignupcount2 = () => {
   };
 };
 
-export const getThesignupcount = (v) => {
+export const getThesignupcount = (z) => {
   console.log("actions/getThesignupcount");
   return (dispatch, getState) => {
     let s;

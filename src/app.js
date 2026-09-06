@@ -227,7 +227,7 @@ if (signup !== "signup") {
                                         .dispatch(getThetotalloggedout())
                                         .then(() => {
                                           return store
-                                            .dispatch(getTheloggedin())
+                                            .dispatch(getTheloggedin(user.uid))
                                             .then(() => {
                                               renderApp(store, signup);
                                             })

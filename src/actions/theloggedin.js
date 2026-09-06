@@ -117,9 +117,9 @@ export const getTheloggedin2 = (id) => {
 // };
 
 export const getTheloggedin = (uid) => {
-  //console.log("actions/getTheloggedin, uid=" + uid);
+  console.log("actions/getTheloggedin, uid=" + uid);
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
     console.log("actions/getTheloggedin, uid=" + uid);
 
     let x = {

@@ -84,24 +84,36 @@ export const Header = (props) => {
       
       // Prevent default to trigger browser confirmation dialog (optional)
 
-       if (event.currentTarget.performance.navigation.type === 1) {
-        return; // It's a reload, do nothing
-      }
-
-      if(props.theloggedin.loggedin === 1) {
-        logoutit()
-      }
+      //  if (event.currentTarget.performance.navigation.type === 1) {
+      //   return; // It's a reload, do nothing
+      // }
+      
+       sessionStorage.setItem('isClosing', 'true');
+      
 
       //event.preventDefault();
       //event.returnValue = '';
     };
+
+    const handleUnload = () => {
+      if (sessionStorage.getItem('isClosing') === 'true') {
+        // Perform cleanup or API call (e.g., logout)
+        // Use navigator.sendBeacon for reliable data transmission
+        console.log('Tab closed');
+        if(props.theloggedin.loggedin === 1) {
+        logoutit()
+      }
+      }
+      sessionStorage.removeItem('isClosing');
+    };
+
     //window.onbeforeunload = null;   
     window.addEventListener('beforeunload', handleWindowClose);
     window.addEventListener('unload', handleWindowClose);
 
     return () => {
       window.removeEventListener('beforeunload', handleWindowClose);
-      window.removeEventListener('unload', handleWindowClose);
+      window.removeEventListener('unload', handleUnload);
     };
 
 

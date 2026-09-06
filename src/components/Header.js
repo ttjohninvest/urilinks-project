@@ -85,9 +85,9 @@ export const Header = (props) => {
       // Prevent default to trigger browser confirmation dialog (optional)
 
 
-      if(props.theloggedin.loggedin === 1) {
-        logoutit()
-      }
+      // if(props.theloggedin.loggedin === 1) {
+      //   logoutit()
+      // }
 
       //event.preventDefault();
       //event.returnValue = '';

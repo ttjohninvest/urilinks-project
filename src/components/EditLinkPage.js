@@ -14,7 +14,7 @@ export class EditLinkPage extends React.Component {
 
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
-    alert("1")
+    //alert("1")
    
     // if (confirm(text) == true) {
        this.props.history.push("/");

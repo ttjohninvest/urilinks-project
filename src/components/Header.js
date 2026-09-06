@@ -72,6 +72,38 @@ export const Header = (props) => {
   useEffect(() => {
     props.abc(1);
     console.log("1, props.abcref=" + JSON.stringify(props.abcref));
+
+
+    
+    const handleWindowClose = (event) => {
+      // Use sendBeacon for reliable background data transmission
+      // navigator.sendBeacon('/api/log-close', JSON.stringify({ reason: 'close' }));
+      
+      // Alternatively, for simple synchronous calls (less reliable):
+      // fetch('/api/log-close', { method: 'POST', body: ... });
+      
+      // Prevent default to trigger browser confirmation dialog (optional)
+
+
+      if(props.theloggedin.loggedin === 1) {
+        logoutit()
+      }
+
+      event.preventDefault();
+      event.returnValue = '';
+    };
+
+    window.addEventListener('beforeunload', handleWindowClose);
+    window.addEventListener('unload', handleWindowClose);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleWindowClose);
+      window.removeEventListener('unload', handleWindowClose);
+    };
+
+
+
+
   }, []);
 
   function slowScrollDown(distance, duration) {
@@ -1051,6 +1083,7 @@ const mapStateToProps = (state) => ({
   customerId: state.customerId,
   thesignupcount: state.thesignupcount,
   thetotalloggedout: state.thetotalloggedout,
+  theloggedin:state.theloggedin,
 });
 
 const mapDispatchToProps = (dispatch) => ({

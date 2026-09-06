@@ -32,6 +32,7 @@ import theuserscountiReducer from '../reducers/theuserscounti';
 import thesharablelinkReducer from '../reducers/thesharablelink';
 import thehashtagsisopenReducer from '../reducers/thehashtagsisopen';
 import theupdatedateReducer from '../reducers/theupdatedate';
+import theloggedinReducer from '../reducers/theloggedin';
 import signupReducer from '../reducers/signup';
 import hasrefreshedReducer from '../reducers/hasrefreshed';//
 import photourlReducer from '../reducers/photourl';
@@ -73,6 +74,7 @@ export default () => {
       theuserscounti: theuserscountiReducer,
       thesharablelink: thesharablelinkReducer,
       thehashtagsisopen: thehashtagsisopenReducer,
+      theloggedin: theloggedinReducer,
       theupdatedate: theupdatedateReducer,
       signup: signupReducer,
       hasrefreshed: hasrefreshedReducer,

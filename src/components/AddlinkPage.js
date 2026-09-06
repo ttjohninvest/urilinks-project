@@ -197,9 +197,10 @@ export const AddLinkPage = (props) => {
                                  props.startAddTheupdatedate({
                                    updatedate:datet
                                  })
-          props.history.push("/"); //0000010
+          //props.history.push("/");
           //window.location.reload();
-          window.location.href = "https://urilinks.com?signup=signup&z=1"; //stops the scroll on return when z=1
+          //window.location.href = "https://urilinks.com?signup=signup&z=1"; //stops the scroll on return when z=1
+          window.location.href = "https://urilinks.com?signup=signup&z=2";
         }
       } else {
         //alert("isin="+isin)

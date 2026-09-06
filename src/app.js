@@ -45,7 +45,7 @@ import {
 import {
   getTheloggedin,
   getTheloggedin2,
-} from "./actions/thehashtagsisopen";
+} from "./actions/theloggedin";
 
 import { getTheupdatedate, getTheupdatedate2 } from "./actions/theupdatedate";
 import { login, logout } from "./actions/auth";

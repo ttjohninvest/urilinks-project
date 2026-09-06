@@ -89,10 +89,10 @@ export const Header = (props) => {
         logoutit()
       }
 
-      event.preventDefault();
-      event.returnValue = '';
+      //event.preventDefault();
+      //event.returnValue = '';
     };
-
+    //window.onbeforeunload = null;   
     window.addEventListener('beforeunload', handleWindowClose);
     window.addEventListener('unload', handleWindowClose);
 

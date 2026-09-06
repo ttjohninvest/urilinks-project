@@ -146,6 +146,78 @@ export const getTheloggedin = (uid) => {
   };
 };
 
+// I might need some of this code to update thesignupcount if it is the first login
+// export const getTheloggedin = (uid) => {
+//   console.log("actions/getTheloggedin, uid=" + uid);
+//   return (dispatch, getState) => {
+//     //const uid = getState().auth.uid;
+//     console.log("actions/getTheloggedin, uid=" + uid);
+
+   
+
+//         return database
+//       //.ref(`users/${uid}/theplan/plan`)
+//       .ref(`users/${uid}/theloggedin`)
+//       .once("value")
+//       .then((snapshot) => {
+
+      
+//         if(snapshot.val()===null || snapshot.val().loggedin === 0) { //if not loggedin because snapshot.val().loggedin is zero, set it to loggedin
+        
+//          return database
+//       //.ref(`users/${uid}/theplan/plan`)
+//       .ref(`users/thesignupcount`)
+//       .once("value")
+//       .then((snapshot) => {
+
+//          let x = {
+//           signupcount:snapshot.val().signupcount+1
+//          }
+ 
+//           return database
+//       .ref(`users/thesignupcount`)
+//       .update(x) //{showpublic:0}
+//       .then(() => {
+//         console.log("getTheloggedin succeeded");
+//         dispatch(addThesignupcount(x));
+//       })
+//       .catch((error) => {
+//         console.log("error getTheloggedin, error=" + error);
+//       });
+
+//       }).catch(()=>{
+
+//       })
+        
+        
+        
+        
+         
+     
+     
+//       } else {
+
+//          let x = {
+//       loggedin: 1,
+//     };
+
+//     return database
+//       .ref(`users/${uid}/theloggedin`)
+//       .update(x) //{showpublic:0}
+//       .then(() => {
+//         console.log("getTheloggedin succeeded");
+//         dispatch(addTheloggedin(x));
+//       })
+//       .catch((error) => {
+//         console.log("error getTheloggedin, error=" + error);
+//       });
+
+//       }
+//     })
+    
+//   };
+// };
+
 
 
 // REMOVE_SETTINGS

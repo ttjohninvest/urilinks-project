@@ -8,17 +8,19 @@ export class EditLinkPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-     hideEditForm : false
+     hideEditForm : false,
+     x:0
     }
   }
 
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
+     this.setState({ x: 1 });
     //alert("1")
    
-    // if (confirm(text) == true) {
-       this.props.history.push("/");
-       window.location.href = "https://urilinks.com?signup=signup&z=1";
+    
+      // this.props.history.push("/");
+      // window.location.href = "https://urilinks.com?signup=signup&z=1";
     //}
 
     

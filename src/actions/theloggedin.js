@@ -1,5 +1,6 @@
 import database from "../firebase/firebase";
 import subscriptionid from "../reducers/subscriptionid";
+import {addThesignupcount} from "./thesignupcount"
 
 // SET_SETTINGS
 export const setTheloggedin = (theloggedin) => ({
@@ -121,34 +122,17 @@ export const getTheloggedin = (uid) => {
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
     console.log("actions/getTheloggedin, uid=" + uid);
-
+    
     let x = {
       loggedin: 1,
     };
 
-    return database
-      .ref(`users/${uid}/theloggedin`)
-      .update(x) //{showpublic:0}
-      .then(() => {
-        console.log("getTheloggedin succeeded");
-        dispatch(addTheloggedin(x));
-      })
-      .catch((error) => {
-        console.log("error getTheloggedin, error=" + error);
-      });
-  };
-};
-
-export const setTheloggedinNow = (uid) => {
-  console.log("actions/getTheloggedin, uid=" + uid);
-  return (dispatch, getState) => {
-    //const uid = getState().auth.uid;
-    console.log("actions/getTheloggedin, uid=" + uid);
-
-    let x = {
-      loggedin: 0,
+      let x2 = {
+      signupcount: 10,
     };
 
+    addThesignupcount(x2)
+
     return database
       .ref(`users/${uid}/theloggedin`)
       .update(x) //{showpublic:0}
@@ -161,6 +145,8 @@ export const setTheloggedinNow = (uid) => {
       });
   };
 };
+
+
 
 // REMOVE_SETTINGS
 export const removeTheloggedin = () => ({

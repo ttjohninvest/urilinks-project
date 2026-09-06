@@ -15,12 +15,14 @@ export class EditLinkPage extends React.Component {
 
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
-    this.props.history.goBack()
+    //this.props.history.goBack()
     //alert("1")
    
     
       // this.props.history.push("/");
-      // window.location.href = "https://urilinks.com?signup=signup&z=1";
+      //window.location.href = "https://urilinks.com?signup=signup&z=1";
+      window.location.href = "https://urilinks.com/dashboard" //?signup=signup&z=1";
+
     //}
 
     

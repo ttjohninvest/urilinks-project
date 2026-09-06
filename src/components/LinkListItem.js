@@ -958,7 +958,6 @@ const LinkListItem = (props) => {
             ref={myRef}
             className=""
             href={props.Url}
-            //target="_self"
             target="_blank"
             data-value={props.id}
             title={"click to open the webpage: " + props.Url}

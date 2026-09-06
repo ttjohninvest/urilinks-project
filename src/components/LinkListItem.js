@@ -69,6 +69,7 @@ const LinkListItem = (props) => {
   const myRef = useRef(null);
   const myRef2 = useRef(null);
   const myRef3 = useRef(null);
+  const myRef4 = useRef(null);
 
   const [s, setS] = useState(1);
   const [s2, setS2] = useState(1);
@@ -955,7 +956,7 @@ const LinkListItem = (props) => {
       <div>
         {!!props.yturl && (
           <a
-            ref={myRef}
+            ref={myRef4}
             className=""
             href={props.Url}
             target="_blank"

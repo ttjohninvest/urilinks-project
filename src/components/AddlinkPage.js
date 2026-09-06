@@ -200,7 +200,7 @@ export const AddLinkPage = (props) => {
           //props.history.push("/");
           //window.location.reload();
           //window.location.href = "https://urilinks.com?signup=signup&z=1"; //stops the scroll on return when z=1
-          window.location.href = "https://urilinks.com?signup=signup&z=2";
+          window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
         }
       } else {
         //alert("isin="+isin)

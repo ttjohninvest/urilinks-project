@@ -221,7 +221,7 @@ if (signup !== "signup") {
                                 .dispatch(getTheuserscounti(user.uid))
                                 .then(() => {
                                   store
-                                    .dispatch(getThesignupcount())
+                                    .dispatch(getThesignupcount(theStore.theloggedin.loggedin))
                                     .then(() => {
                                       store
                                         .dispatch(getThetotalloggedout())

@@ -48,7 +48,7 @@ export const getThesignupcount2 = () => {
   };
 };
 
-export const getThesignupcount = (x) => {
+export const getThesignupcount = (v) => {
   console.log("actions/getThesignupcount");
   return (dispatch, getState) => {
     let s;
@@ -67,6 +67,7 @@ export const getThesignupcount = (x) => {
         } else {
           
           let x = snapshot.val();
+          if(v===0)
           if (x.signupcount === undefined || x.signupcount === null)
             x.signupcount = 0;
           else x.signupcount += 1;

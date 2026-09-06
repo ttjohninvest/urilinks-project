@@ -347,6 +347,32 @@ const handleClick = useCallback(() => {
 
   }, []);
 
+   const handleUpdate2 = useCallback(() => {
+    
+   try {
+    
+    let x = {
+      loggedin: 0
+    }
+    
+    database
+      .ref(`users/${firebase.auth().currentUser.uid}/theloggedin`)
+      .update(x) //{showpublic:0}
+      .then(() => {
+        
+      })
+      .catch((error) => {
+       
+      });
+  //};
+    
+  } catch (error) {
+    console.error('Update failed:', error);
+  }
+
+
+  }, []);
+
 
 
 
@@ -387,6 +413,9 @@ const handleClick = useCallback(() => {
   //const logoutit = async () => {
     const logoutit = () => {
       handleUpdate()
+      
+
+      handleUpdate2()
     //setUpdateLoggedOut(true)
 
     // const x = {

@@ -24,6 +24,7 @@ import database from "../firebase/firebase";
 import redarrow from "../assets/images/red-arrow.jpg";
 //import * as firebase from "firebase";
 import * as firebase from "firebase/app";
+
 import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database

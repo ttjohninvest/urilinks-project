@@ -139,6 +139,29 @@ export const getTheloggedin = (uid) => {
   };
 };
 
+export const setTheloggedinNow = (uid) => {
+  console.log("actions/getTheloggedin, uid=" + uid);
+  return (dispatch, getState) => {
+    //const uid = getState().auth.uid;
+    console.log("actions/getTheloggedin, uid=" + uid);
+
+    let x = {
+      loggedin: 0,
+    };
+
+    return database
+      .ref(`users/${uid}/theloggedin`)
+      .update(x) //{showpublic:0}
+      .then(() => {
+        console.log("getTheloggedin succeeded");
+        dispatch(addTheloggedin(x));
+      })
+      .catch((error) => {
+        console.log("error getTheloggedin, error=" + error);
+      });
+  };
+};
+
 // REMOVE_SETTINGS
 export const removeTheloggedin = () => ({
   type: "REMOVE_THELOGGEDIN",

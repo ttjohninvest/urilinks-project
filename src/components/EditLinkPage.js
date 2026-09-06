@@ -9,13 +9,13 @@ export class EditLinkPage extends React.Component {
     super(props);
     this.state = {
      hideEditForm : false,
-     x:0
+     
     }
   }
 
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
-     this.setState({ x: 1 });
+    this.props.history.goBack()
     //alert("1")
    
     

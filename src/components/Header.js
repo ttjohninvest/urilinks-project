@@ -84,10 +84,13 @@ export const Header = (props) => {
       
       // Prevent default to trigger browser confirmation dialog (optional)
 
+       if (event.currentTarget.performance.navigation.type === 1) {
+        return; // It's a reload, do nothing
+      }
 
-      // if(props.theloggedin.loggedin === 1) {
-      //   logoutit()
-      // }
+      if(props.theloggedin.loggedin === 1) {
+        logoutit()
+      }
 
       //event.preventDefault();
       //event.returnValue = '';

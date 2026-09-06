@@ -8,7 +8,7 @@ import StorageSizes from "./StorageSizes";
 const ImportedBookmarks = (props) => {
   const [max, setMax] = useState(0);
   const goToHomePage = () => {
-    //props.history.push("/"); //0000010 // Navigates back one step in the history
+    props.history.push("/"); //0000010 // Navigates back one step in the history
   };
 
   const getPlanMax = () => {
@@ -46,7 +46,7 @@ const ImportedBookmarks = (props) => {
   }, []);
 
   const returnAndRefresh = () => {
-    //props.history.push("/");//0000010
+    props.history.push("/");//0000010
     //window.location.reload();
     window.location.href = "https://urilinks.com?signup=signup";
   };

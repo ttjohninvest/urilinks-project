@@ -125,7 +125,7 @@ const FetchBookmarks = (props) => {
   };
 
   const handleConfirmNavigation = () => {
-    //history.push("/");//0000010
+    history.push("/");//0000010
     setShowDialog(false);
   };
 
@@ -3240,7 +3240,7 @@ const FetchBookmarks = (props) => {
         });
     } else {
       //handleNavigation()
-      //history.push("/");//0000010
+      history.push("/");//0000010
     }
   }, []);
 

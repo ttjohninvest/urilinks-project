@@ -14,10 +14,10 @@ export class EditLinkPage extends React.Component {
 
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
-
+    alert("1")
    
     // if (confirm(text) == true) {
-       //this.props.history.push("/");
+       this.props.history.push("/");
        window.location.href = "https://urilinks.com?signup=signup&z=1";
     //}
 
@@ -37,7 +37,7 @@ export class EditLinkPage extends React.Component {
     //console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, value="+value)
     this.props.removeLink({ id: this.props.link.id });
     this.props.startRemoveLink({ id: this.props.link.id });
-    //this.props.history.push("/");//0000010
+    this.props.history.push("/");//0000010
     //window.location.reload()
     window.location.href = "https://urilinks.com?signup=signup";
   };

@@ -16,7 +16,7 @@ export const AddSettingsPage = (props) => {
      console.log("in onSubmit, settings="+JSON.stringify())
     
      props.startAddSettings(settings);
-     //props.history.push("/");//0000010
+     props.history.push("/");//0000010
     
      
   };

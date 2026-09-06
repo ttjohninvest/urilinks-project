@@ -130,10 +130,11 @@ export const getTheloggedin = (uid) => {
       .ref(`users/${uid}/theloggedin`)
       .update(x) //{showpublic:0}
       .then(() => {
+        console.log("getTheloggedin succeeded");
         dispatch(addTheloggedin(x));
       })
       .catch((error) => {
-        console.log("error removing link data in firebase, error=" + error);
+        console.log("error getTheloggedin, error=" + error);
       });
   };
 };

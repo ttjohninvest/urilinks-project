@@ -127,11 +127,11 @@ export const getTheloggedin = (uid) => {
       loggedin: 1,
     };
 
-      let x2 = {
-      signupcount: 10,
-    };
+    //   let x2 = {
+    //   signupcount: 10,
+    // };
 
-    addThesignupcount(x2)
+    //addThesignupcount(x2)
 
     return database
       .ref(`users/${uid}/theloggedin`)

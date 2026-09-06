@@ -67,7 +67,7 @@ export const getThesignupcount = (v) => {
         } else {
           
           let x = snapshot.val();
-          if(v===0)
+          if(!!z===true && z!==2)
           if (x.signupcount === undefined || x.signupcount === null)
             x.signupcount = 0;
           else x.signupcount += 1;

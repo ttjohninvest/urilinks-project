@@ -78,6 +78,7 @@ const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
 
 let id = params.get("id");
+let z = params.get("z");
 console.log("1 signup=" + signup);
 console.log("1 id=" + id);
 
@@ -221,7 +222,8 @@ if (signup !== "signup") {
                                 .dispatch(getTheuserscounti(user.uid))
                                 .then(() => {
                                   store
-                                    .dispatch(getThesignupcount(theStore.theloggedin.loggedin))
+                                    //.dispatch(getThesignupcount(theStore.theloggedin.loggedin))
+                                    .dispatch(getThesignupcount(z))
                                     .then(() => {
                                       store
                                         .dispatch(getThetotalloggedout())

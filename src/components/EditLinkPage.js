@@ -20,8 +20,8 @@ export class EditLinkPage extends React.Component {
    
     
       // this.props.history.push("/");
-      //window.location.href = "https://urilinks.com?signup=signup&z=1";
-      window.location.href = "https://urilinks.com/dashboard?signup=signup&z=1";
+      window.location.href = "https://urilinks.com?signup=signup&z=2";
+      //window.location.href = "https://urilinks.com/dashboard?signup=signup&z=2";
 
     //}
 

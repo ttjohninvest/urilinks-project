@@ -18,15 +18,15 @@ export class EditLinkPage extends React.Component {
    
     // if (confirm(text) == true) {
        //this.props.history.push("/");
-       window.location.href = "https://urilinks.com/dashboard?signup=signup&z=1";
+       window.location.href = "https://urilinks.com?signup=signup&z=1";
     //}
 
     
   };
 
   handleClose4 = () => {
-    //this.setState({ hideEditForm: true }); 
-    this.props.history.push("/");
+     
+    //this.props.history.push("/");
     window.location.href="https://urilinks.com?signup=signup&z=1"
   }
   //onRemove = (value,event) => {
@@ -37,7 +37,7 @@ export class EditLinkPage extends React.Component {
     //console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, value="+value)
     this.props.removeLink({ id: this.props.link.id });
     this.props.startRemoveLink({ id: this.props.link.id });
-    this.props.history.push("/");
+    //this.props.history.push("/");//0000010
     //window.location.reload()
     window.location.href = "https://urilinks.com?signup=signup";
   };

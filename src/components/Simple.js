@@ -27,7 +27,7 @@ const Simple = (props) => {
   const [isPremium, setIsPremium] = useState(false);
 
   const goToHomePage = () => {
-    props.history.push("/"); // Navigates back one step in the history
+    props.history.push("/"); //0000010 // Navigates back one step in the history
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const Simple = (props) => {
     if (props.history.action === "POP") {
       console.log("Navigated using back or forward button");
       // Perform actions based on back/forward navigation
-      props.history.push("/");
+      props.history.push("/");//0000010
     }
   }, [props.history.action]);
 
@@ -97,7 +97,7 @@ const Simple = (props) => {
       console.log("Navigated using back or forward button");
       // Perform actions based on back/forward navigation
 
-      props.history.push("/");
+      props.history.push("/");//0000010
     }
   }
 

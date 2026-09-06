@@ -157,7 +157,7 @@ export const AddLinkPage2 = (props) => {
         console.log("VVVVVVVVVVVVV returned false");
       } else {
   
-        props.history.push("/");
+        //props.history.push("/");//0000010
       }
     } else {
       console.log("maximum links reached");

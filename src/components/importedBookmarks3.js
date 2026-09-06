@@ -46,7 +46,7 @@ const ImportedBookmarks = (props) => {
   }, []);
 
   const returnAndRefresh = () => {
-    props.history.push("/");
+    //props.history.push("/");//0000010
     //window.location.reload();
     window.location.href = "https://urilinks.com?signup=signup";
   };

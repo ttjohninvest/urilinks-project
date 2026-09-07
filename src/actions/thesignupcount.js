@@ -49,7 +49,7 @@ export const getThesignupcount2 = () => {
 };
 
 export const getThesignupcount = (z2) => {
-  console.log("actions/getThesignupcount");
+  console.log("actions/getThesignupcount, z2="+z2);
   return (dispatch, getState) => {
     let s;
     return database

@@ -62,7 +62,7 @@ export const getThesignupcount = (z2) => {
         };
 
         if (snapshot.val() === null) {
-          //theplan = "free";
+          
           dispatch(startAddThesignupcount(zsignupcount));
         } else {
           

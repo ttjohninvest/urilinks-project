@@ -2066,10 +2066,11 @@ export class LinkListFilters extends React.Component {
       "LinkListFilters.js, componentDidMount, this.props.auth.uid=" +
         this.props.auth.uid,
     );
-    if (
-      this.props.auth.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" &&
-      this.props.auth.uid !== "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-    )
+    // if (
+    //   this.props.auth.uid !== "D9LSg6elood8Yc5gd5oDMp3JNAQ2" &&
+    //   this.props.auth.uid !== "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+    // )
+    if(true)
       this.props.incrementUsersClickCount(x3);
     //this.props.setTheHashTagDivHeight(this.state.height);
     const morehashtags = window.localStorage.getItem("morehashtags");

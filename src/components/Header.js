@@ -110,7 +110,7 @@ export const Header = (props) => {
 
     //window.onbeforeunload = null;   
     window.addEventListener('beforeunload', handleWindowClose);
-    window.addEventListener('unload', handleWindowClose);
+    window.addEventListener('unload', handleUnload);
 
     return () => {
       window.removeEventListener('beforeunload', handleWindowClose);

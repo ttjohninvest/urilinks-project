@@ -42,10 +42,7 @@ import {
   getThehashtagsisopen2,
 } from "./actions/thehashtagsisopen";
 
-import {
-  getTheloggedin,
-  getTheloggedin2,
-} from "./actions/theloggedin";
+import { getTheloggedin, getTheloggedin2 } from "./actions/theloggedin";
 
 import { getTheupdatedate, getTheupdatedate2 } from "./actions/theupdatedate";
 import { login, logout } from "./actions/auth";
@@ -134,33 +131,44 @@ if (signup !== "signup") {
                         .dispatch(getThesharablelink2(id))
                         .then(() => {
                           store
-                            .dispatch(getTheuserscounti2(id))
+                            .dispatch(getThesignupcount2())
                             .then(() => {
                               store
-                                .dispatch(getThesignupcount2())
+                                .dispatch(getThetotalloggedout2())
                                 .then(() => {
-                                  store
-                                    .dispatch(getThetotalloggedout2())
-                                    .then(() => {
-                                      return store
-                                        .dispatch(getTheloggedin2())
-                                        .then(() => {
-                                          renderApp(store, signup);
-                                        })
-                                        .catch((error) => {
-                                          console.log("theplan, error", error);
-                                        });
-                                    })
-                                    .catch((error) => {
-                                      console.log("theplan, error", error);
-                                    });
+                                  if (id === null) {
+                                    store
+                                      .dispatch(getTheuserscounti2(id))
+                                      .then(() => {
+                                        return store
+                                          .dispatch(getTheloggedin2())
+                                          .then(() => {
+                                            renderApp(store, signup);
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
+                                      })
+                                      .catch((error) => {
+                                        console.log(
+                                          "thehashtagsisopen, error",
+                                          error,
+                                        );
+                                      });
+                                  } else {
+                                    //goes here if shared page was loaded into the browser
+                                    renderApp(store, signup);
+                                  }
                                 })
                                 .catch((error) => {
                                   console.log("theplan, error", error);
                                 });
                             })
                             .catch((error) => {
-                              console.log("thehashtagsisopen, error", error);
+                              console.log("theplan, error", error);
                             });
                         })
                         .catch((error) => {

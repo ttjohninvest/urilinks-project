@@ -65,6 +65,7 @@ export const getTheloggedin2 = (id) => {
     const uid = getState().auth.uid;
     console.log("actions/getTheloggedin2, uid=" + uid);
 
+   
     let x = {
       loggedin: 0,
     };
@@ -78,6 +79,7 @@ export const getTheloggedin2 = (id) => {
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
       });
+   
   };
 };
 

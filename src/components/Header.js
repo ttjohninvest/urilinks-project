@@ -87,7 +87,7 @@ export const Header = (props) => {
       //  if (event.currentTarget.performance.navigation.type === 1) {
       //   return; // It's a reload, do nothing
       // }
-      
+
        sessionStorage.setItem('isClosing', 'true');
       
 
@@ -100,6 +100,7 @@ export const Header = (props) => {
         // Perform cleanup or API call (e.g., logout)
         // Use navigator.sendBeacon for reliable data transmission
         console.log('Tab closed');
+        alert("props.theloggedin.loggedin="+props.theloggedin.loggedin)
         if(props.theloggedin.loggedin === 1) {
         logoutit()
       }

@@ -399,7 +399,7 @@ const handleClick = useCallback(() => {
       .catch((error) => {
         console.log("error incrementTotalLoggedOutClickCount, error=" + error);
       });
-  //};
+  //};//
     
   } catch (error) {
     console.error('Update failed:', error);

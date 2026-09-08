@@ -47,6 +47,7 @@ import { incrementTotalLoggedOutClickCount,incrementTotalLoggedOutClickCount2 } 
 
 import {
   setTextFilter,
+  sortByDescription
   
 } from "../actions/filters";
 
@@ -496,6 +497,7 @@ const handleClick = useCallback(() => {
       uid: "",
     });
     props.setTextFilter("");
+    props.sortByDescription();
     setPhotourl("");
     setGoogleUserData({});
     setBmok2(true);
@@ -1120,6 +1122,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
+  sortByDescription: (text) => dispatch(sortByDescription(text)),
   startLogout: (data) => dispatch(startLogout(data)),
   setLinks: (links) => dispatch(setLinks(links)),
   setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),

@@ -1977,3 +1977,8 @@ thesignupcount.signupcount one time then I can make the subtraction and it will 
 minum the thetotalloggedout count will be the current number of loggedin users. right now the number is giving the number of times
 people have logged in and logged out
 =============
+database
+thetotaluserscount - the total number of times pages are loaded
+thetotalloggedout - the total number of times a user has logged in and logged out
+thesignedupcount - the total number of times a all users have logged in but the number is too big if logged aout of one account and logged into another account becase z2 is not reseting back to null but if user puts urilinks.com<enter> it will reset z2 to null and work, reseting the param to z2 on log out will fix this
+

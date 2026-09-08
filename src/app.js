@@ -76,6 +76,7 @@ const signup = params.get("signup");
 
 let id = params.get("id");
 let z2 = params.get("z2");
+console.log("1 z2=" + z2);
 console.log("1 signup=" + signup);
 console.log("1 id=" + id);
 

@@ -45,6 +45,13 @@ import setSignup from "../actions/signup";
 import Header2 from "./Header2";
 import { incrementTotalLoggedOutClickCount,incrementTotalLoggedOutClickCount2 } from "../actions/thetotalloggedout";
 
+import {
+  setTextFilter,
+  
+} from "../actions/filters";
+
+
+
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
@@ -488,6 +495,7 @@ const handleClick = useCallback(() => {
       subscriptionId: "",
       uid: "",
     });
+    props.setTextFilter("");
     setPhotourl("");
     setGoogleUserData({});
     setBmok2(true);
@@ -1111,6 +1119,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  setTextFilter: (text) => dispatch(setTextFilter(text)),
   startLogout: (data) => dispatch(startLogout(data)),
   setLinks: (links) => dispatch(setLinks(links)),
   setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),

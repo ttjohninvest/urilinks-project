@@ -43,7 +43,7 @@ import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
-import ReactSpeechKit from "ReactSpeechKit"
+//import ReactSpeechKit from "ReactSpeechKit"
 import { incrementTotalLoggedOutClickCount,incrementTotalLoggedOutClickCount2 } from "../actions/thetotalloggedout";
 
 import {
@@ -952,7 +952,7 @@ const handleClick = useCallback(() => {
                     </div>
                   )} */}
 
-                  <ReactSpeechKit />
+                  {/* <ReactSpeechKit /> */}
 
                     {props.signup.signup === true &&
                     //&& isInMeArray(uid)===true

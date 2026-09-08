@@ -952,7 +952,7 @@ const handleClick = useCallback(() => {
                     </div>
                   )} */}
 
-                  {/* <ReactSpeechKit /> */}
+                  {/*// <ReactSpeechKit /> */}
 
                     {props.signup.signup === true &&
                     //&& isInMeArray(uid)===true

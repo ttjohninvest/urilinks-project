@@ -43,7 +43,7 @@ import { setGoogleUserData } from "../actions/googleuserdata";
 import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
-import ReactSpeechKit from "ReactSpeechit"
+import ReactSpeechKit from "ReactSpeechKit"
 import { incrementTotalLoggedOutClickCount,incrementTotalLoggedOutClickCount2 } from "../actions/thetotalloggedout";
 
 import {

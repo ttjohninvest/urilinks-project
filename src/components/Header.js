@@ -8,7 +8,9 @@ import "firebase/auth"; // If using authentication
 import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
 //
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+//import { useSearchParams } from "react-router-dom";
+
 
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
@@ -54,9 +56,9 @@ export const Header = (props) => {
   const [theplan, setTheplan] = useState("");
   const [bmok, setBmok] = useState(false);
   const [updateLoggedOut, setUpdateLoggedOut] = useState(false);
-   const [searchParams, setSearchParams] = useSearchParams({ 
+  //  const [searchParams, setSearchParams] = useSearchParams({ 
    
-  });
+  // });
   const [linksUpdateDateTime, setLinksUpdateDateTime] = useState(
     new Date(props.theupdatedate.updatedate).toLocaleDateString() +
       " at " +
@@ -469,7 +471,7 @@ const handleClick = useCallback(() => {
 
       handleUpdate2()
 
-      setSearchParams({z2:null})
+      //setSearchParams({z2:null})
     //setUpdateLoggedOut(true)
 
     // const x = {

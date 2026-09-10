@@ -80,6 +80,7 @@ const LinkListItem = (props) => {
   const [inplace, setInplace] = useState(false);
   const [videoId, setVideoId] = useState("");
   const [url2, setUrl2] = useState("");
+  const [blb, setBlb] = useState(false)
 
   const isityt = (url) => {
     if (url.includes("youtube")) {
@@ -211,7 +212,7 @@ const LinkListItem = (props) => {
     }
   };
 
-  const storeScrollPosition = (frequency, event) => {
+  const storeScrollPosition = async (frequency, event) => {
     //alert("frequency="+frequency)
     let x1 = 0;
     if (frequency === undefined || frequency === null || frequency === "NaN")
@@ -222,6 +223,27 @@ const LinkListItem = (props) => {
     //alert("storeScrollPosition, event.target.value="+x)
     props.incrementLinkClickCount({ id: x, frequency: x1 });
     window.localStorage.setItem("scrollPosition", window.scrollY);
+
+     try {
+      const response = await fetch(props.Url, { method: 'HEAD', mode: 'no-cors' });
+      
+      // For same-origin links, response.ok is accurate.
+      // For cross-origin 'no-cors', response.type is 'opaque' and status is 0,
+      // so we can't reliably detect 404s without CORS headers enabled on the target.
+      if (!response.ok || response.type === 'opaque') {
+        // link.style.border = '2px solid red';
+        // brokenLinks.push({ url: href, status: response.status });
+        setBlb(true)
+      }
+      else {
+        setBlb(false)
+      }
+    } catch (error) {
+      // link.style.border = '2px solid red';
+      // brokenLinks.push({ url: href, error: error.message });
+    }
+
+
   };
 
   const storeScrollPosition2 = (likes, event) => {
@@ -988,8 +1010,9 @@ const LinkListItem = (props) => {
           {/* {truncateString(props.description, 80)} */}
           {/* {breakEvery50Chars(props.description)} */}
         </a>
+        <span>{blb===true?"blb=true":"blb=false"}</span>
       </div>
-
+      
       <div className="flexrowz">
         {props.signup.signup === true ? (
           <div>

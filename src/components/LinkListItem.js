@@ -224,24 +224,24 @@ const LinkListItem = (props) => {
     props.incrementLinkClickCount({ id: x, frequency: x1 });
     window.localStorage.setItem("scrollPosition", window.scrollY);
 
-     try {
-      const response = await fetch("http://tyuhn.com/", { method: 'HEAD', mode: 'no-cors' });
+    //  try {
+    //   const response = await fetch("http://tyuhn.com/", { method: 'HEAD', mode: 'no-cors' });
       
-      // For same-origin links, response.ok is accurate.
-      // For cross-origin 'no-cors', response.type is 'opaque' and status is 0,
-      // so we can't reliably detect 404s without CORS headers enabled on the target.
-      if (!response.ok || response.type === 'opaque') {
-        // link.style.border = '2px solid red';
-        // brokenLinks.push({ url: href, status: response.status });
-        setBlb(true)
-      }
-      else {
-        setBlb(false)
-      }
-    } catch (error) {
-      // link.style.border = '2px solid red';
-      // brokenLinks.push({ url: href, error: error.message });
-    }
+    //   // For same-origin links, response.ok is accurate.
+    //   // For cross-origin 'no-cors', response.type is 'opaque' and status is 0,
+    //   // so we can't reliably detect 404s without CORS headers enabled on the target.
+    //   if (!response.ok || response.type === 'opaque') {
+    //     // link.style.border = '2px solid red';
+    //     // brokenLinks.push({ url: href, status: response.status });
+    //     setBlb(true)
+    //   }
+    //   else {
+    //     setBlb(false)
+    //   }
+    // } catch (error) {
+    //   // link.style.border = '2px solid red';
+    //   // brokenLinks.push({ url: href, error: error.message });
+    // }
 
 
   };
@@ -1010,7 +1010,7 @@ const LinkListItem = (props) => {
           {/* {truncateString(props.description, 80)} */}
           {/* {breakEvery50Chars(props.description)} */}
         </a>
-        <span>{blb===true?"blb=true":"blb=false"}</span>
+        {/* <span>{blb===true?"blb=true":"blb=false"}</span> */}
       </div>
       
       <div className="flexrowz">

@@ -105,7 +105,7 @@ const LinkListItem = (props) => {
       // brokenLinks.push({ url: href, error: error.message });
     }
     }
-    await a()
+    a()
   },[])
 
   const isityt = (url) => {
@@ -969,7 +969,7 @@ const LinkListItem = (props) => {
 
   return (
     <div key={props.index}>
-      <span>{blb===true?"blb=true":"blb=false"}</span>
+      <span>{blb===true?"The link is broken.":"The link is not broken."}</span>
       <div>
         {/* {props.faviconURL} */}
         {/* {props.faviconURL==="https://instagram.com/favicon.ico" ? <img className="" width="20" height="20" src="http://www.google.com/s2/favicons?domain=instagram.com" />:!!props.favicon===false?"":<img className="" width="20" height="20" src={props.faviconURL} />} */}

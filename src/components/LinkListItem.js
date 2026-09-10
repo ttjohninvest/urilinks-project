@@ -82,31 +82,31 @@ const LinkListItem = (props) => {
   const [url2, setUrl2] = useState("");
   const [blb, setBlb] = useState(false)
 
-  useEffect(()=>{
-    //broken link: "http://tyuhn.com/"
-    const a = async () => {
- try {
-      //const response = await fetch(props.Url, { method: 'HEAD', mode: 'no-cors' });
-      const response = await fetch("http://tyuhn.com/", { method: 'HEAD', mode: 'no-cors' });
+//   useEffect(()=>{
+//     //broken link: "http://tyuhn.com/"
+//     const a = async () => {
+//  try {
+//       //const response = await fetch(props.Url, { method: 'HEAD', mode: 'no-cors' });
+//       const response = await fetch("http://tyuhn.com/", { method: 'HEAD', mode: 'no-cors' });
       
-      // For same-origin links, response.ok is accurate.
-      // For cross-origin 'no-cors', response.type is 'opaque' and status is 0,
-      // so we can't reliably detect 404s without CORS headers enabled on the target.
-      if (!response.ok || response.type === 'opaque') {
-        // link.style.border = '2px solid red';
-        // brokenLinks.push({ url: href, status: response.status });
-        setBlb(true)
-      }
-      else {
-        setBlb(false)
-      }
-    } catch (error) {
-      // link.style.border = '2px solid red';
-      // brokenLinks.push({ url: href, error: error.message });
-    }
-    }
-    a()
-  },[])
+//       // For same-origin links, response.ok is accurate.
+//       // For cross-origin 'no-cors', response.type is 'opaque' and status is 0,
+//       // so we can't reliably detect 404s without CORS headers enabled on the target.
+//       if (!response.ok || response.type === 'opaque') {
+//         // link.style.border = '2px solid red';
+//         // brokenLinks.push({ url: href, status: response.status });
+//         setBlb(true)
+//       }
+//       else {
+//         setBlb(false)
+//       }
+//     } catch (error) {
+//       // link.style.border = '2px solid red';
+//       // brokenLinks.push({ url: href, error: error.message });
+//     }
+//     }
+//     a()
+//   },[])
 
   const isityt = (url) => {
     if (url.includes("youtube")) {
@@ -969,7 +969,7 @@ const LinkListItem = (props) => {
 
   return (
     <div key={props.index}>
-      <span>{blb===true?"The link is broken.":"The link is not broken."}</span>
+      {/* <span>{blb===true?"The link is broken.":"The link is not broken."}</span> */}
       <div>
         {/* {props.faviconURL} */}
         {/* {props.faviconURL==="https://instagram.com/favicon.ico" ? <img className="" width="20" height="20" src="http://www.google.com/s2/favicons?domain=instagram.com" />:!!props.favicon===false?"":<img className="" width="20" height="20" src={props.faviconURL} />} */}

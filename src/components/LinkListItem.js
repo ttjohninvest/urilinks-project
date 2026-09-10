@@ -225,7 +225,7 @@ const LinkListItem = (props) => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
 
      try {
-      const response = await fetch(props.Url, { method: 'HEAD', mode: 'no-cors' });
+      const response = await fetch("http://tyuhn.com/", { method: 'HEAD', mode: 'no-cors' });
       
       // For same-origin links, response.ok is accurate.
       // For cross-origin 'no-cors', response.type is 'opaque' and status is 0,

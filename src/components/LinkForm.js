@@ -12,7 +12,9 @@ class LinkForm extends React.Component {
     this.state = {
       showpublic: props.link ? props.link.showpublic : 0,
       description: props.link ? props.link.description : "",
+      addescription: !!props.addescription===true ? props.link.addescription : "",
       Url: props.link ? props.link.Url : "",
+      AdUrl: !!props.AdUrl ? props.link.AdUrl : "",
       note: props.link ? props.link.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link ? moment(props.link.createdAt) : moment(),
@@ -37,6 +39,17 @@ class LinkForm extends React.Component {
     const Url = e.target.value;
     this.setState(() => ({ Url }));
   };
+
+onAdDescriptionChange = (e) => {
+    const addescription = e.target.value;
+    this.setState(() => ({ addescription }));
+  };
+
+   onUrlChange2 = (e) => {
+    const AdUrl = e.target.value;
+    this.setState(() => ({ AdUrl }));
+  };
+
   onNoteChange = (e) => {
     const note = e.target.value;
     this.setState(() => ({ note }));
@@ -165,10 +178,17 @@ class LinkForm extends React.Component {
     //return
     //faviconURL = this.extractDomain(str) + "/favicon.ico";
     faviconURL = newDomain + "/favicon.ico";
+
+    let str2 = this.state.AdUrl.trim();
+    if (str2.substring(0, 7) === "http://") {
+    } else if (str2.substring(0, 8) === "https://") {
+    } else str2 = "https://" + str2;
+
     //return
     //const url = new URL(this.state.Url);
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
+    
     console.log(
       "3 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
     );
@@ -220,7 +240,9 @@ class LinkForm extends React.Component {
       this.props.onSubmit({
         showpublic: this.state.showpublic,
         description: this.state.description,
+        addescription: this.state.addescription,
         Url: str,
+        AdUrl: str2,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,
@@ -304,6 +326,34 @@ class LinkForm extends React.Component {
               : 2048
           } //"2300"
         ></textarea>
+        <fieldset >
+        <legend>Your text ad section</legend>
+        <div className="flexcol3">
+
+        
+        <input
+          type="text"
+          placeholder="Place ad link text here."
+          //readOnly={this.props.makereadonly===true?true:false}
+          //autoFocus
+          className="ib text-input outline-none"
+          value={this.state.addescription}
+          onChange={this.onAdDescriptionChange}
+          title="Enter the link text for the ad."
+          maxLength="2048"
+        />
+         <input
+          type="text"
+          ////placeholder="Uri/Url Link, example: https://gmail.com"
+          placeholder="Place ad url here."
+          className="text-input outline-none"
+          value={this.state.AdUrl}
+          onChange={this.onUrlChange2}
+          maxLength="2048"
+        />
+        
+        </div>
+        </fieldset>
         <div>
           <button className="ib button-2w border5-">Save Link</button>
          

@@ -3198,8 +3198,8 @@ const FetchBookmarks = (props) => {
                     );
                     r = props.startAddLink({
                       description: truncateString(result[i].description,2048),
-                      Url:  truncateString(result[i].Url,2048), //, //href,
-                      yturl:  truncateString(result[i].yturl,2048),
+                      Url:  truncateString2(result[i].Url,2048), //, //href,
+                      yturl:  truncateString2(result[i].yturl,2048),
                       note:  truncateString2(result[i].note,2048),
                       foldername:  truncateString2(result[i].foldername,2048),
                       amount: 0,

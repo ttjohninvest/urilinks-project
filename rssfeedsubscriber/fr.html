@@ -1,0 +1,35 @@
+<script>
+async function subscribeToFeed(feedUrl) {
+  const email = 'johmcg64@gmail.com'; // Replace with your Feedbin email
+  const password = '123ZXc12%';        // Replace with your Feedbin password
+  
+  // Encode credentials for Basic Auth
+  const credentials = btoa(`${email}:${password}`);
+  
+  try {
+    const response = await fetch('https://api.feedbin.com/v2/subscriptions.json', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Basic ${credentials}`,
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      body: JSON.stringify({
+        feed_url: feedUrl // The input feed URL
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log('Successfully subscribed:', data);
+    return data;
+  } catch (error) {
+    console.error('Subscription failed:', error);
+  }
+}
+
+// Example usage:
+subscribeToFeed('https://feeds.feedburner.com/example');   
+</script>

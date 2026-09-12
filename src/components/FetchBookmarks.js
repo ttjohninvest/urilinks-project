@@ -216,6 +216,14 @@ const FetchBookmarks = (props) => {
     return false;
   };
 
+  function truncateString(str, length) {
+  return str.length > length ? str.slice(0, length) + '...' : str;
+}
+
+  function truncateString2(str, length) {
+  return str.length > length ? str.slice(0, length) : str;
+}
+
   useEffect(() => {
     //const { option } = useParams()
     //props.match.params.option can be either usefoldernames or
@@ -3189,11 +3197,11 @@ const FetchBookmarks = (props) => {
                       "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
                     r = props.startAddLink({
-                      description: result[i].description,
-                      Url: result[i].Url, //, //href,
-                      yturl: result[i].yturl,
-                      note: result[i].note,
-                      foldername: result[i].foldername,
+                      description: truncateString(result[i].description,2048),
+                      Url:  truncateString(result[i].Url,2048), //, //href,
+                      yturl:  truncateString(result[i].yturl,2048),
+                      note:  truncateString2(result[i].note,2048),
+                      foldername:  truncateString2(result[i].foldername,2048),
                       amount: 0,
                       createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                       faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon

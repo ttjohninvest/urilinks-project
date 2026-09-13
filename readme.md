@@ -1982,3 +1982,6 @@ thetotaluserscount - the total number of times pages are loaded
 thetotalloggedout - the total number of times a user has logged in and logged out
 thesignedupcount - the total number of times a all users have logged in but the number is too big if logged aout of one account and logged into another account becase z2 is not reseting back to null but if user puts urilinks.com<enter> it will reset z2 to null and work, reseting the param to z2 on log out will fix this
 
+robots.txt no-index to prevent google from indexing
+
+

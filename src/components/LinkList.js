@@ -371,7 +371,7 @@ export const LinkList = (props) => {
           ref={props.scrollupref}
           title="Click the button to begin auto scroll."
           onClick={props.startScrollingUp2}
-          className="button-2 widthxpx1"
+          className="ib button-2 widthxpx1"
           style={{zIndex:99}}
         >
           <span>ScrollUp</span>
@@ -396,6 +396,7 @@ export const LinkList = (props) => {
         >
           <span>ScrollDn</span>
         </button>
+        {isMobile() === true ?<span className="margin-top-1 margin-left-n-1">
         <button
           ref={props.scrolltotopref}
           title="Click the button to begin auto scroll."
@@ -413,7 +414,27 @@ export const LinkList = (props) => {
           style={{zIndex:99}}
         >
           <span>ScrollToBott</span>
+        </button></span>:<span>
+          <button
+          ref={props.scrolltotopref}
+          title="Click the button to begin auto scroll."
+          onClick={props.startScrollToTop2}
+          className="button-2 ib margin-left-11 widthxpx1"
+          style={{zIndex:99}}
+        >
+          <span>ScrollToTop</span>
         </button>
+         <button
+          ref={props.scrolltobottomref}
+          title="Click the button to begin auto scroll."
+          onClick={props.startScrollToBottom2}
+          className="button-2 ib margin-left-11 widthxpx1"
+          style={{zIndex:99}}
+        >
+          <span>ScrollToBott</span>
+        </button>
+        </span>
+        }
       </div>
       </StickyFixed>
       }

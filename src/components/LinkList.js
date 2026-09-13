@@ -396,7 +396,7 @@ export const LinkList = (props) => {
         >
           <span>ScrollDn</span>
         </button>
-        {isMobile() === true ?<span className="displaynone- margin-top-1 margin-left-n-1">
+        {isMobile() === true ?<span className="displaynone- margin-top-1 margin-left-n-1 margin-bottom-1">
         <button
           ref={props.scrolltotopref}
           title="Click the button to begin auto scroll."

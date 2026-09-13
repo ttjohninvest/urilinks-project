@@ -1,6 +1,7 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 ////
 import React, { useState, useRef, useEffect } from "react";
+import StickyFixed from "./StickyFixed";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import { LinkList3 } from "./LinkList3.js";
@@ -908,6 +909,10 @@ function ExpandableArray(props) {
           </div>
         </div>
         <div className="width30menupanep">
+          <StickyFixed>
+      <div className="margin-left-11 margin-top-n-1u"
+      style={{zIndex:99}}
+      >
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingUp}
@@ -934,6 +939,8 @@ function ExpandableArray(props) {
           >
             ScrollDn
           </button>
+          </div>
+          </StickyFixed>
         </div>
       </div>
 

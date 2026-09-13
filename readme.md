@@ -1985,3 +1985,11 @@ thesignedupcount - the total number of times a all users have logged in but the 
 robots.txt no-index to prevent google from indexing
 
 
+====================================================================
+
+firebase real time database record size:
+(5*2048)+60+28+(2*512)+(2*100)+82=11634, round up: 12000 bytes
+
+====================================================================
+
+

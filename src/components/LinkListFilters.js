@@ -144,17 +144,29 @@ function ExpandableArray(props) {
   }, []);
 
   const startScrollingUp = () => {
-    buttonRef.current.click();
+    try {
+      if (!!buttonRef === true) buttonRef.current.click();
+    } catch (error) {
+      console.log("error=" + error);
+    }
     // Prevent multiple intervals
     if (scrollInterval.current) return;
 
     scrollInterval.current = setInterval(() => {
-      document.getElementById("ls").scrollBy({
-        top: 1, // Scroll 1 pixel each time
-        left: 0,
-        behavior: "auto",
-      });
+      try {
+        if (!!document.getElementById("ls") === true)
+          document.getElementById("ls").scrollBy({
+            top: 1, // Scroll 1 pixel each time
+            left: 0,
+            behavior: "auto",
+          });
+      } catch (error) {
+        console.log("error=" + error);
+      }
 
+      //console.log(document.getElementById("ls2").scrollTop +
+      //    document.getElementById("ls2").clientHeight)
+      //console.log(document.getElementById("ls2").scrollHeight)
       if (!!document.getElementById("ls") === true)
         if (
           document.getElementById("ls").scrollTop +
@@ -162,11 +174,46 @@ function ExpandableArray(props) {
           (document.getElementById("ls").scrollHeight - 2 ||
             document.getElementById("ls").scrollHeight + 2)
         ) {
-          buttonRef.current.click();
-          if (!!scrolldownref7 === true) scrolldownref7.current.click();
+          try {
+            if (!!buttonRef === true) buttonRef.current.click();
+          } catch (error) {
+            console.log("error=" + error);
+          }
+          // try {
+          //   if (!!scrolldownref === true)
+          //     //auto scroll in the other direction
+          //     scrolldownref.current.click();
+          // } catch (error) {
+          //   console.log("error=" + error);
+          // }
         }
     }, 20); // Every 20 milliseconds
   };
+
+  // const startScrollingUpx = () => {
+  //   buttonRef.current.click();
+  //   // Prevent multiple intervals
+  //   if (scrollInterval.current) return;
+
+  //   scrollInterval.current = setInterval(() => {
+  //     document.getElementById("ls").scrollBy({
+  //       top: 1, // Scroll 1 pixel each time
+  //       left: 0,
+  //       behavior: "auto",
+  //     });
+
+  //     if (!!document.getElementById("ls") === true)
+  //       if (
+  //         document.getElementById("ls").scrollTop +
+  //           document.getElementById("ls").clientHeight >=
+  //         (document.getElementById("ls").scrollHeight - 2 ||
+  //           document.getElementById("ls").scrollHeight + 2)
+  //       ) {
+  //         buttonRef.current.click();
+  //         if (!!scrolldownref7 === true) scrolldownref7.current.click();
+  //       }
+  //   }, 20); // Every 20 milliseconds
+  // };
 
   const stopScrolling = () => {
     clearInterval(scrollInterval.current);
@@ -676,6 +723,33 @@ function ExpandableArray(props) {
     setIsForm3Open(false);
   };
 
+  /*
+ const startScrollingUp = () => {
+    buttonRef.current.click();
+    // Prevent multiple intervals
+    if (scrollInterval.current) return;
+
+    scrollInterval.current = setInterval(() => {
+      document.getElementById("ls").scrollBy({
+        top: 1, // Scroll 1 pixel each time
+        left: 0,
+        behavior: "auto",
+      });
+
+      if (!!document.getElementById("ls") === true)
+        if (
+          document.getElementById("ls").scrollTop +
+            document.getElementById("ls").clientHeight >=
+          (document.getElementById("ls").scrollHeight - 2 ||
+            document.getElementById("ls").scrollHeight + 2)
+        ) {
+          buttonRef.current.click();
+          if (!!scrolldownref7 === true) scrolldownref7.current.click();
+        }
+    }, 20); // Every 20 milliseconds
+  };
+  */
+
   const startScrollingUp2 = () => {
     try {
       if (!!buttonRef2 === true) buttonRef2.current.click();
@@ -909,10 +983,10 @@ function ExpandableArray(props) {
           </div>
         </div>
         <div className="width30menupanep">
-          <StickyFixed>
+          {/* <StickyFixed>
       <div className="margin-left-11 margin-top-n-1u"
       style={{zIndex:99}}
-      >
+      > */}
           <button
             title="Click the button to begin auto scroll."
             onClick={startScrollingUp}
@@ -939,8 +1013,8 @@ function ExpandableArray(props) {
           >
             ScrollDn
           </button>
-          </div>
-          </StickyFixed>
+          {/* </div>
+          </StickyFixed> */}
         </div>
       </div>
 

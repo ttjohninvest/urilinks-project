@@ -1041,7 +1041,7 @@ const LinkListItem = (props) => {
         {isityt2(props.Url) && (
           <div>
             <span
-              className=""
+              className="ib margin-left-11 margin-top-1zx"
               style={{ cursor: "pointer" }}
               //onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}
               onClick={() => playInPlaceVideo(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1

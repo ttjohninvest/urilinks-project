@@ -1725,7 +1725,7 @@ function ExpandableArray(props) {
               </div>
             )}
 
-            <div className="margin-bottom-1 border-bottom-5z padding-bottom-1-">
+            <div className="padding-top-1 margin-bottom-1 border-bottom-5z padding-bottom-1-">
               <div>
                 {/* <p>{displayText}</p> */}
                 <p>{fullText}</p>

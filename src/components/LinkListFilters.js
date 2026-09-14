@@ -1089,7 +1089,7 @@ function ExpandableArray(props) {
                     <span>
                       <div className="">
                         <div className="flexcol3">
-                          <fieldset className="flexcol3 width325 padding-bottom-11 margin-bottom-1-">
+                          <fieldset className="flexcol3 width325- padding-bottom-11 margin-bottom-1-">
                             <legend>Your Link:</legend>
                             <div className="text-size-1">
                               <a

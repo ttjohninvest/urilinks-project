@@ -1019,7 +1019,7 @@ function ExpandableArray(props) {
                       //|| s.archive === 1
                     )
                       return null;
-                    else if(index === arr.length+1) {
+                    else if(false && (index === arr.length+1)) {
                       return (
                         <div key={index} className={``}>
                           {!!s.description2 === false ? null : (

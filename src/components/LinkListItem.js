@@ -1106,8 +1106,9 @@ const LinkListItem = (props) => {
               </label>
             </span>
 
-            <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1">
-              <span className="ib cursor-default"  title="The number of users who have viewed the link.">Views:</span>
+            <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1 margin-top-1zx">
+              <span className="ib cursor-default"  title="The number of users who have viewed the link.">
+                Views:</span>
               <span
                 className="ib margin-left-11tx- font-weight-900- cursor-default"
                 title={
@@ -1223,8 +1224,9 @@ const LinkListItem = (props) => {
               </label>
             </span>
 
-            <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1">
-              <span className="ib cursor-default" title="The number of users who have viewed the link.">Views:</span>
+            <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1 margin-top-1zx">
+              <span className="ib cursor-default" title="The number of users who have viewed the link.">
+                Views:</span>
               <span
                 className="ib margin-left-11tx- font-weight-900- pointereventsnone cursor-default"
                 title={

@@ -23,7 +23,7 @@ const StickyFixed = ({ children }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [offset]);
-
+  //532
   return (
     <div>
       <div ref={ref} style={{ height: '30px', zIndex:99,
@@ -35,7 +35,7 @@ const StickyFixed = ({ children }) => {
         height: '20px', visibility: isFixed ? 'hidden' : 'visible' }} 
       ></div>
       {isFixed && (
-        <div {/*532*/}
+        <div 
         style={{ position: 'fixed', top: offset-500, zIndex: 99, 
         //border: '2px solid green' 
         }}>

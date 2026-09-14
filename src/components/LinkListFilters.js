@@ -1329,7 +1329,7 @@ function ExpandableArray(props) {
                         id="adlinkid"
                         href="#"
                         title="Email your sharable link to share with others. Email recipient sees readonly page"
-                        className={`ib flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                        className={`ib margin-top-n-gx flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                         onClick={handleClick}
                       >
                         <span className="ib color-white-1">

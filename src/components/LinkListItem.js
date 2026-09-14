@@ -123,7 +123,7 @@ const LinkListItem = (props) => {
 
   const isityt2 = (url) => {
     let isit = false;
-    if (url.includes("youtube")) {
+    if (!!url && url.includes("youtube")) {
       isit = true;
     }
     return isit;

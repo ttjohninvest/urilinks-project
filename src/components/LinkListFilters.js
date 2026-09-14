@@ -993,7 +993,7 @@ function ExpandableArray(props) {
       <div className="flexrowztt">
         {/* <div> */}
         <div>
-          {/* left column scrollable-div1m for mobile*/}
+          {/* 1st column 1 column */}
           <div
             id="ls"
             className={`${isMobile() === true ? "width30menupane" : "width30menupane2"} scrollable-div1`}
@@ -1066,7 +1066,7 @@ function ExpandableArray(props) {
           </div>
         </div>
 
-        {/*right column code here*/}
+        {/* 2nd column 2 column */}
         <div className="margin-top-n-x">
           <div>
             <div>
@@ -1683,7 +1683,7 @@ function ExpandableArray(props) {
                 )}
               </div>
             </div>
-            {/* 2nd column, column 2 is the following div */}
+            {/* 2nd column, 2 column controls above, the list of links below */}
             <div>
               <div id="ef2" ref={elementRef2}></div>
 
@@ -1711,7 +1711,8 @@ function ExpandableArray(props) {
             </div>
           </div>
         </div>
-        {/*begins third column*/}
+
+        {/*3rd column 3 column */}
 
         {isMobile() === false && (
           <div
@@ -1823,7 +1824,7 @@ function ExpandableArray(props) {
             </div>
           </div>
         )}
-        {/*ends third column*/}
+        {/*ends 3rd column */}
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
+import Emoji from "./Emoji"
 //
 import { Link } from "react-router-dom";
 //import { useSearchParams } from "react-router-dom";

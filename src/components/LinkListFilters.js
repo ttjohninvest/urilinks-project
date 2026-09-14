@@ -1106,16 +1106,7 @@ function ExpandableArray(props) {
                               </a>
                             </div>
                             <div className="margin-bottom-1">
-                              {/* <button
-                                className={`margin-left-11- height48 button-2w ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
-                                onClick={()=>copyToClipboard()}
-                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                              >
-                                <span className="ib height48">
-                                  Copy
-                                  
-                                </span>
-                              </button> */}
+                             
                               <CopyButton
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />

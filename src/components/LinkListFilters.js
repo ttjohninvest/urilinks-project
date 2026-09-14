@@ -1713,7 +1713,7 @@ function ExpandableArray(props) {
           <div className="scrollable-div3">
           <div
             style={{ borderRadius: "5px" }}
-            className="flexcol3 borderLightOrange widthxy- width100- margin-left-11- margin-right-1- margin-top-n-x2 padding1"
+            className="flexcol3 borderLightOrange widthxy- width100- margin-left-11- margin-right-1- margin-top-n-x2 padding1 border-top-1"
           >
             {props.signup === false && (
               <div>
@@ -1725,7 +1725,7 @@ function ExpandableArray(props) {
               </div>
             )}
 
-            <div className="padding-top-1 margin-bottom-1 border-bottom-5z padding-bottom-1- border-top-1">
+            <div className="padding-top-1 margin-bottom-1 border-bottom-5z padding-bottom-1-">
               <div>
                 {/* <p>{displayText}</p> */}
                 <p>{fullText}</p>

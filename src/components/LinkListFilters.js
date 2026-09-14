@@ -1069,7 +1069,7 @@ function ExpandableArray(props) {
         {/* 2nd column 2 column */}
         <div className="margin-top-n-x">
           
-            {/* <div> */}
+            <div className="borderblue">
             
               {isMobile() === true && (
                 <div className="ib margin-left-11 margin-bottom-1">
@@ -1678,12 +1678,12 @@ function ExpandableArray(props) {
                   </div>
                 )}
               </div>
-            {/* </div> */}
+            </div>
             {/* in 2nd column, 2 column controls above, the list of links below */}
             <div className="scrollable-div2">
               <div id="ef2" ref={elementRef2}></div>
 
-              <div id="results1" className={`margin-top-18 border-green`}>
+              <div id="results1" className="margin-top-18 bordergreen">
                 {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
                 <LinkList3

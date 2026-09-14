@@ -599,6 +599,7 @@ const handleClick = useCallback(() => {
 
   return (
     <div className="">
+      {window.screen.height}
       {isMobile() === false ? (
         <div>
           <div id="top">

@@ -1680,10 +1680,10 @@ function ExpandableArray(props) {
               </div>
             {/* </div> */}
             {/* in 2nd column, 2 column controls above, the list of links below */}
-            <div>
+            <div className="scrollable-div2">
               <div id="ef2" ref={elementRef2}></div>
 
-              <div id="results1" className={`margin-top-18 scrollable-div2`}>
+              <div id="results1" className={`margin-top-18`}>
                 {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
                 <LinkList3

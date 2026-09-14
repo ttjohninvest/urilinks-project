@@ -1067,7 +1067,7 @@ function ExpandableArray(props) {
         </div>
 
         {/* 2nd column 2 column */}
-        <div className="margin-top-n-x">
+        <div className="margin-top-n-x scrollable-div2">
           <div>
             <div>
               {/* {isMobile() === true && <span className="ib margin-left-11">
@@ -1715,9 +1715,10 @@ function ExpandableArray(props) {
         {/*3rd column 3 column */}
 
         {isMobile() === false && (
+          <div className="scrollable-div3">
           <div
             style={{ borderRadius: "5px" }}
-            className="flexcol3 borderLightOrange widthxy- width100 margin-left-11 margin-right-1- margin-top-n-x2 padding1"
+            className="flexcol3 borderLightOrange widthxy- width100- margin-left-11 margin-right-1- margin-top-n-x2 padding1"
           >
             {props.signup === false && (
               <div>
@@ -1822,6 +1823,7 @@ function ExpandableArray(props) {
               <br />
               <br />
             </div>
+          </div>
           </div>
         )}
         {/*ends 3rd column */}

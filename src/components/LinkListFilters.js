@@ -1713,7 +1713,7 @@ function ExpandableArray(props) {
           <div className="scrollable-div3">
           <div
             style={{ borderRadius: "5px" }}
-            className={`zindex flexcol3 borderLightOrange ${props.signup === false? 'margin-top-n-x2a':'margin-top-n-x2b'} padding1 border-top-1`}
+            className={`flexcol3 borderLightOrange- ${props.signup === false? 'margin-top-n-x2a':'margin-top-n-x2b'} padding1 border-top-1`}
           >
             {props.signup === false && (
               <div>

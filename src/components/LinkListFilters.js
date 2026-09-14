@@ -1680,7 +1680,7 @@ function ExpandableArray(props) {
               </div>
             </div>
             {/* in 2nd column, 2 column controls above, the list of links below */}
-            <div className="scrollable-div2-">
+            <div className="scrollable-div2">
               <div id="ef2" ref={elementRef2}></div>
 
               <div id="results1" className="margin-top-18 scrollable-div2- width825 bordergreen">

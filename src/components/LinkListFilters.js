@@ -1010,7 +1010,7 @@ function ExpandableArray(props) {
                 }
               >
                 <div>
-                  {props.mappedDataShort.map((s, index) => {
+                  {props.mappedDataShort.map((s, index, arr) => {
                     //have 3 map calls and display the first column then the second column and then the thrid column
                     //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
                     if (
@@ -1019,8 +1019,48 @@ function ExpandableArray(props) {
                       //|| s.archive === 1
                     )
                       return null;
-                    else
+                    else if(index === arr.length+1) {
                       return (
+                        <div key={index} className={``}>
+                          {!!s.description2 === false ? null : (
+                            <div className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z-">
+                              <a
+                                className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
+                                ib margin-top-1 ${
+                                  props.b == 1
+                                    ? "pointereventsauto underline"
+                                    : "pointereventsnone"
+                                }`}
+                                style={{ whiteSpace: "pre-wrap" }}
+                                href="#"
+                                onClick={() =>
+                                  setItNow(index, s.description, event)
+                                }
+                                title={`click to see results`}
+                              >
+                                <span>{s.description2}</span>
+                              </a>
+                              <br />
+
+                              <span
+                                className="ib margin-left-11z"
+                                style={{
+                                  color: "black",
+                                  fontSize: ".9rem",
+                                  textDecoration: "none",
+                                  fontWeight: "normal",
+                                  pointerEvents: "none",
+                                  whiteSpace: "pre-wrap",
+                                }}
+                              >
+                                {s.matchesstring}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      )
+                    }
+                     else return (
                         <div key={index} className={``}>
                           {!!s.description2 === false ? null : (
                             <div className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z">

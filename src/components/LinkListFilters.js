@@ -923,10 +923,10 @@ function ExpandableArray(props) {
   };
 
   return (
-    <div className={`${props.signup === false?'bg-gray-1-':'bg-gray-1-'}`}>
+    <div className={`${props.signup === false?'bg-gray-1':'bg-gray-1'}`}>
       <div className="">
         <div
-          className={`website-background-color- width30pt
+          className={`website-background-color width30pt
           } theHeight flexrowzc2 flexcol3 border-b-5font-roboto text-size-16 font-weight-500`}
           title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >

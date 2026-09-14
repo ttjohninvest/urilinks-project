@@ -1025,7 +1025,7 @@ const LinkListItem = (props) => {
       <div className="flexrowz">
         {props.signup.signup === true ? (
           <div>
-            <Link className="pointereventsauto" to={`/edit/${props.id}`}>
+            <Link className="pointereventsauto margin-top-1zx1" to={`/edit/${props.id}`}>
               <span className="" style={{ cursor: "pointer" }}>
                 Edit link
               </span>
@@ -1033,7 +1033,7 @@ const LinkListItem = (props) => {
           </div>
         ) : (
           <div>
-            <Link className="pointereventsnone" to={`/edit/${props.id}`}>
+            <Link className="pointereventsnone margin-top-1zx1" to={`/edit/${props.id}`}>
               <span className="">Edit link</span>
             </Link>
           </div>
@@ -1041,7 +1041,7 @@ const LinkListItem = (props) => {
         {isityt2(props.Url) && (
           <div>
             <span
-              className="ib margin-left-11 margin-top-1zx"
+              className="ib margin-left-11 margin-top-1zx1"
               style={{ cursor: "pointer" }}
               //onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}
               onClick={() => playInPlaceVideo(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1

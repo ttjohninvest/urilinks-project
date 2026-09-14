@@ -954,6 +954,8 @@ const handleClick = useCallback(() => {
 
                   {/*// <ReactSpeechKit /> */}
 
+                  <Emoji />
+
                     {props.signup.signup === true &&
                     //&& isInMeArray(uid)===true
                     bmok === true ? (

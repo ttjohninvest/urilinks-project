@@ -8,6 +8,7 @@ import "firebase/auth"; // If using authentication
 import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
 import Emoji from "./Emoji"
+import Emoji2 from "./Emoji2"
 //
 import { Link } from "react-router-dom";
 //import { useSearchParams } from "react-router-dom";
@@ -956,6 +957,7 @@ const handleClick = useCallback(() => {
                   {/*// <ReactSpeechKit /> */}
 
                   <Emoji />
+                   <Emoji2 />
 
                     {props.signup.signup === true &&
                     //&& isInMeArray(uid)===true

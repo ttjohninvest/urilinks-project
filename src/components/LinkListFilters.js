@@ -991,7 +991,7 @@ function ExpandableArray(props) {
       </div>
 
       <div className="flexrowztt">
-        {/* <div> */}
+        
         <div>
           {/* 1st column 1 column */}
           <div
@@ -1067,14 +1067,10 @@ function ExpandableArray(props) {
         </div>
 
         {/* 2nd column 2 column */}
-        <div className="margin-top-n-x scrollable-div2">
-          <div>
-            <div>
-              {/* {isMobile() === true && <span className="ib margin-left-11">
-                  {props.links.length} of {maximum} links is stored on the{" "}
-                  {!!props.theplan.plan && props.theplan.plan.replace(/"/g, "")}
-                  {" plan."} 
-                </span>}*/}
+        <div className="margin-top-n-x">
+          
+            {/* <div> */}
+            
               {isMobile() === true && (
                 <div className="ib margin-left-11 margin-bottom-1">
                   {/* {props.links.length === 1
@@ -1682,12 +1678,12 @@ function ExpandableArray(props) {
                   </div>
                 )}
               </div>
-            </div>
-            {/* 2nd column, 2 column controls above, the list of links below */}
+            {/* </div> */}
+            {/* in 2nd column, 2 column controls above, the list of links below */}
             <div>
               <div id="ef2" ref={elementRef2}></div>
 
-              <div id="results1" className={`margin-top-18`}>
+              <div id="results1" className={`margin-top-18 scrollable-div2`}>
                 {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
                 <LinkList3
@@ -1709,7 +1705,7 @@ function ExpandableArray(props) {
                 />
               </div>
             </div>
-          </div>
+          
         </div>
 
         {/*3rd column 3 column */}

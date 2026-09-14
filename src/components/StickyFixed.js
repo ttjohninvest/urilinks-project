@@ -14,7 +14,7 @@ const StickyFixed = ({ children }) => {
     const handleScroll = () => {
       if (window.scrollY > offset) {
         setIsFixed(true);
-        setThetop(window.scrollY)
+        setThetop(window.scrollY+100)
       } else {
         setIsFixed(false);
       }

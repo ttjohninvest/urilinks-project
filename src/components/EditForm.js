@@ -9,7 +9,8 @@ class EditForm extends React.Component {
   constructor(props) {
     super(props);
 
-    //  this.state2 = {
+    //  old one
+    //  this.state = { //this one works, but may need to update the addescription and adUrl to the new one, for some reason the note was not including the hashtag with the new one so i updated the note with the old one
     //       showpublic: props.link ? props.link.showpublic : 0,
     //       description: props.link ? props.link.description : "",
     //       addescription: !!props.addescription===true ? props.link.addescription : "",
@@ -23,6 +24,7 @@ class EditForm extends React.Component {
     //       hashTags: [],
     //     };
 
+    //new one
     this.state = {
       showpublic: props.link ? props.link.showpublic : 0,
       description: props.link ? props.link.description : "",

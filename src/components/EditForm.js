@@ -358,7 +358,7 @@ class EditForm extends React.Component {
           className="ib text-input outline-none"
           value={this.state.addescription}
           onChange={this.onAdDescriptionChange}
-          title="Enter the link text for the ad."
+          title="Enter the link text for the ad. Example: Example For Sale"
           maxLength="2048"
         />
          <input

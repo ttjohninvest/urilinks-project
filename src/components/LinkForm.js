@@ -326,7 +326,7 @@ onAdDescriptionChange = (e) => {
               : 2048
           } //"2300"
         ></textarea>
-        <a href="https://emojidb.org/button-emojis" className="ib margin-left-11 margin-top-1 margin-bottom-1" target="_blank">Emoji Selection Link</a>
+        <a href="https://emojidb.org/button-emojis" className="ib margin-left-11 margin-top-1- margin-bottom-1" target="_blank">Emoji Selection Link</a>
         <fieldset >
         <legend>Your text ad section</legend>
         <div className="flexcol3">

@@ -9,13 +9,27 @@ class EditForm extends React.Component {
   constructor(props) {
     super(props);
 
+    //  this.state2 = {
+    //       showpublic: props.link ? props.link.showpublic : 0,
+    //       description: props.link ? props.link.description : "",
+    //       addescription: !!props.addescription===true ? props.link.addescription : "",
+    //       Url: props.link ? props.link.Url : "",
+    //       AdUrl: !!props.AdUrl ? props.link.AdUrl : "",
+    //       note: props.link ? props.link.note : "",
+    //       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
+    //       createdAt: props.link ? moment(props.link.createdAt) : moment(),
+    //       calendarFocused: false,
+    //       error: "",
+    //       hashTags: [],
+    //     };
+
     this.state = {
       showpublic: props.link ? props.link.showpublic : 0,
       description: props.link ? props.link.description : "",
       addescription: props.link && !!props.link.addescription===true ? props.link.addescription : "",
       Url: props.link && !!props.link.Url === true ? props.link.Url : "",
       AdUrl: props.link && !!props.link.AdUrl ? props.link.AdUrl : "",
-      note: props.link && props.link.note===true ? props.link.note : "",
+      note: props.link ? props.link.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link && !!props.link.createdAt ? moment(props.link.createdAt) : moment(),
       calendarFocused: false,

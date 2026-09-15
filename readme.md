@@ -678,6 +678,7 @@ ecapade.com (available) Entertainment website
 ecapades.com (available) Entertainment website
 mycapade.com (available) Entertainment website
 mycapades.com (available) Entertainment website
+beeznice.com (available) a play on business, :)
 leahandlynn.com
 chilcoot.com available
 tooalooa.com

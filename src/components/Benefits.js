@@ -66,8 +66,7 @@ Internet Links Organizer Dashboard's Usage Page:<br />
 -renews on day of plan selection and yearly renewal and old plan is canceled<br />
 -easy account deletion, no refunds<br />
 <br />
--If you have any questions, comments or concerns, please contact me, John, administrator, at johmcg64@gmail.com<br />
--my phone number is 775 559 5740. I am happy to help you.
+-Please call my tech support line a 775 559 5740 if you need help.<br />
 </div>
 
 </div>)

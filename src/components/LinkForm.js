@@ -182,7 +182,8 @@ onAdDescriptionChange = (e) => {
     let str2 = this.state.AdUrl.trim();
     if (str2.substring(0, 7) === "http://") {
     } else if (str2.substring(0, 8) === "https://") {
-    } else str2 = "https://" + str2;
+    } 
+    //else str2 = "https://" + str2;
 
     //return
     //const url = new URL(this.state.Url);
@@ -346,7 +347,7 @@ onAdDescriptionChange = (e) => {
          <input
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
-          placeholder="Place ad url here."
+          placeholder="Place ad url here. Example: https://example.com or https://www.example.com"
           className="text-input outline-none"
           value={this.state.AdUrl}
           onChange={this.onUrlChange2}

@@ -10,12 +10,12 @@ class EditForm extends React.Component {
     super(props);
 
     //  old one
-    //  this.state = { //this one works, but may need to update the addescription and adUrl to the new one, for some reason the note was not including the hashtag with the new one so i updated the note with the old one
+    //  this.state = { //this one works, for some reason the note was not including the hashtag with the new one so i updated the note with the old one
     //       showpublic: props.link ? props.link.showpublic : 0,
     //       description: props.link ? props.link.description : "",
-    //       addescription: !!props.addescription===true ? props.link.addescription : "",
+    //       addescription: props.link && !!props.link.addescription===true ? props.link.addescription : "",
     //       Url: props.link ? props.link.Url : "",
-    //       AdUrl: !!props.AdUrl ? props.link.AdUrl : "",
+    //       AdUrl: props.link && !!props.link.AdUrl ? props.link.AdUrl : "",
     //       note: props.link ? props.link.note : "",
     //       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
     //       createdAt: props.link ? moment(props.link.createdAt) : moment(),

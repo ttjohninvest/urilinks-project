@@ -923,7 +923,7 @@ function ExpandableArray(props) {
   };
 
   return (
-    <div className={`${props.signup === false?'bg-gray-1':'bg-gray-1'}`}>
+    <div className={`${props.signup === false?'bg-gray-1':'bg-gray-1'} flexrowh`}>
       <div className="">
         <div
           className={`website-background-color width30pt

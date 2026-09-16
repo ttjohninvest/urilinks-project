@@ -12,9 +12,9 @@ class LinkForm extends React.Component {
     this.state = {
       showpublic: props.link ? props.link.showpublic : 0,
       description: props.link ? props.link.description : "",
-      addescription: !!props.addescription===true ? props.link.addescription : "",
+      addescription: props.link ? props.link.addescription : "",
       Url: props.link ? props.link.Url : "",
-      AdUrl: !!props.AdUrl ? props.link.AdUrl : "",
+      AdUrl: props.link ? props.link.AdUrl : "",
       note: props.link ? props.link.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link ? moment(props.link.createdAt) : moment(),

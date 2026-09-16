@@ -1353,8 +1353,12 @@ const LinkListItem = (props) => {
       </div>
 
       <div className="normal-wrap">
-        {/* {putinnewlines(props.note)} */}
+       
         {props.note}
+      </div>
+      <div className="normal-wrap">
+       
+        https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={props.description}
       </div>
 
       <div id={"ipvideo" + props.id}>
@@ -1397,6 +1401,7 @@ const mapStateToProps = (state) => ({
   signup: state.signup,
   sortBy: state.sortBy,
   filters: state.filters,
+  auth: state.auth,
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

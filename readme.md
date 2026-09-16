@@ -6,6 +6,34 @@ they won't help single homeless men
 
 process: instead of going directly to amazon, go through urilinks link
 see what is for sale to get the product from amazon
+netlify.com to host bridge pages for craigslist or review pages which also serves as a bridge page,
+auto generate the review with ai "give me a 500 word or less review on fancy feast"
+bridge page with review example:
+<html>
+<head></head>
+<body>
+<a href="https://www.amazon.com/Fancy-Feast-Purina-Gourmet-Variety/dp/B0H5YZ1MGJ/ref=sr_1_1_sspa?sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"><img src="./fancy-feast-2.avif" /></a>
+<pre>
+A Great Choice for Picky Cats
+
+Fancy Feast cat food has been a reliable choice for cats that enjoy flavorful meals and a variety of textures. 
+One of the things that stands out is the wide selection of flavors and recipes. Whether a cat prefers pâté, 
+grilled varieties, or smaller pieces with gravy, there are many options to choose from.
+
+The food has a strong aroma that seems to appeal to cats, especially those who can be selective about what
+they eat. The different flavors also make it easy to give a cat some variety instead of serving the same 
+meal every day.
+
+Another advantage is convenience. Fancy Feast is widely available in grocery stores, pet stores, and online,
+so it is easy to keep a supply on hand. The individual cans are also convenient for serving fresh portions.
+
+Overall, Fancy Feast offers a good combination of variety, convenience, and flavors that many cats enjoy. 
+For cat owners looking for an accessible wet-food option that can make mealtime more appealing, Fancy Feast 
+is worth considering.
+</pre>
+
+</body>
+</html>
 
 ====================================================
 tasks yet to do

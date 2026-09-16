@@ -47,7 +47,7 @@ export default (state = filtersReducerDefaultState, action) => {
           sortBy: 'likes'
         };
       case 'SORT_BY_STAR':
-        return {
+         return {
           ...state,
           sortBy: 'star'
         };

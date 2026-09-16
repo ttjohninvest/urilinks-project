@@ -1363,10 +1363,10 @@ const LinkListItem = (props) => {
        {
        
        !!props.addescription===true &&
-       <fieldset className="margin-right-1 flexrowxz">
+       <fieldset className="margin-right-1">
         <legend>Sharable Url To Make Money</legend>
 <div className="padding-bottom-1">
-        <div className="margin-bottom-1">
+        <div className="margin-bottom-1 flexrowxz">
            https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={encodeURIComponent(props.description)}&product={encodeURIComponent(props.addescription)}
         </div>
          

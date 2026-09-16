@@ -139,7 +139,9 @@ export const AddLinkPage = (props) => {
   };
 
   const onSubmit = (link) => {
-    console.log("in onSubmit");
+    console.log("AddlinkPage.js, in onSubmit");
+    console.log("AddlinkPage.js, link.addescription = "+link.addescription)
+    console.log("AddlinkPage.js, link.adUrl = "+link.adUrl)
     //if(props.signup.signup === true) {
     const user = firebase.auth().currentUser;
     // if (count < 250 || (count < 10000 && (

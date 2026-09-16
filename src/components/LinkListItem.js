@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import BasicIframe from "./BasicIframe";
+import CopyButton from "./CopyButton";
 
 import visited from "../assets/images/visited-1.png";
 import {
@@ -81,6 +82,7 @@ const LinkListItem = (props) => {
   const [videoId, setVideoId] = useState("");
   const [url2, setUrl2] = useState("");
   const [blb, setBlb] = useState(false)
+  const [copySuccess, setCopySuccess] = useState("");
 
 //   useEffect(()=>{
 //     //broken link: "http://tyuhn.com/"
@@ -1357,8 +1359,10 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
       <div className="normal-wrap">
-       
-        https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={encodeURIComponent(props.description)}&product={encodeURIComponent(props.addescription)}
+       <CopyButton
+          textToCopy={` https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={encodeURIComponent(props.description)}&product={encodeURIComponent(props.addescription)}`}
+       />
+       {copySuccess}
       </div>
 
       <div id={"ipvideo" + props.id}>

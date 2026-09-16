@@ -1325,13 +1325,13 @@ const LinkListItem = (props) => {
           <span>
             <a
               href={
-                !!props.AdUrl === true ? props.AdUrl : "https://example.com"
+                !!props.adUrl === true ? props.adUrl : "https://example.com"
               }
               target="_blank"
               rel="noopener noreferrer sponsored" 
             >
               <span className="nounderline color-black">
-                See what is for sale:
+                See what is for sale:&nbsp;
               </span>
               {!!props.addescription === true
                 ? props.addescription

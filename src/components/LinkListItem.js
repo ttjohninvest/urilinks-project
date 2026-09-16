@@ -1362,7 +1362,8 @@ const LinkListItem = (props) => {
       <div className="normal-wrap margin-top-1">
        {
        
-       !!props.addescription===true && props.idexists === 0 &&
+       !!props.addescription===true && 
+       //props.idexists === 0 &&
        <fieldset className="padding-right-1 margin-right-1">
         <legend>Sharable Url To Make Money</legend>
 <div className="padding-bottom-1">

@@ -1,3 +1,13 @@
+====================================================
+making money
+promotion and marketing:
+tell homeless families about it so they can be helped
+they won't help single homeless men
+
+process: instead of going directly to amazon, go through urilinks link
+see what is for sale to get the product from amazon
+
+====================================================
 tasks yet to do
 
 see terms of service clickbank example 8/23/2026
@@ -1957,8 +1967,9 @@ terms of service clickbank example
 https://support.clickbank.com/en/articles/10535337-clickbank-client-contract
 
 ---
+
 git credentials manager dialog
-step 1: 
+step 1:
 
 ===============
 use the following to get my bookmarks on x.com
@@ -1976,7 +1987,7 @@ logs out, it is updated when the person logs back in again or it runs through th
 =============
 code problem: after I commited first git message with signupcount, I lowercase user id appeared in the firebase database
 Thu Sep 3 21:07:37 2026 -0700
-code problem: needs realtime count of logged in users, since the code runs through the second part in app.js multiple times when refreshed it currently can't distinguish between the first launch by urilinks.com and subsequent refreshes so it increments the loggedin count, in redux, named by thesignupcount.signupcount multiple times. 
+code problem: needs realtime count of logged in users, since the code runs through the second part in app.js multiple times when refreshed it currently can't distinguish between the first launch by urilinks.com and subsequent refreshes so it increments the loggedin count, in redux, named by thesignupcount.signupcount multiple times.
 Soln: it needs to distinguish between the first time, launching urilinks.com and the rest by refreshes so it increments
 thesignupcount.signupcount one time then I can make the subtraction and it will be accurrate and the redux variable thesignupcount
 minum the thetotalloggedout count will be the current number of loggedin users. right now the number is giving the number of times
@@ -1989,12 +2000,9 @@ thesignedupcount - the total number of times a all users have logged in but the 
 
 robots.txt no-index to prevent google from indexing
 
-
 ====================================================================
 
 firebase real time database record size:
-(5*2048)+60+28+(2*512)+(2*100)+82=11634, round up: 12000 bytes
+(5*2048)+60+28+(2*512)+(2\*100)+82=11634, round up: 12000 bytes
 
 ====================================================================
-
-

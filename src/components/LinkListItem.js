@@ -1358,7 +1358,7 @@ const LinkListItem = (props) => {
       </div>
       <div className="normal-wrap">
        
-        https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={props.description}
+        https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={encodeURIComponent(props.description)}
       </div>
 
       <div id={"ipvideo" + props.id}>

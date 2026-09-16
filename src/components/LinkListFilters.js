@@ -142,7 +142,7 @@ function ExpandableArray(props) {
             behavior: "smooth",
           });
 
-          props.setit("1971 Dream Mile - Youtube", undefined);
+          props.setit("1983 Westfield Run - Youtube", undefined);
   }, []);
 
   // const startScrollingUp = () => {

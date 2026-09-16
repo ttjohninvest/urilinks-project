@@ -142,78 +142,78 @@ export const AddLinkPage = (props) => {
     console.log("AddlinkPage.js, in onSubmit");
     console.log("AddlinkPage.js, link.addescription = "+link.addescription)
     console.log("AddlinkPage.js, link.adUrl = "+link.adUrl)
-    alert(1)
-    // const user = firebase.auth().currentUser;
-    // // if (count < 250 || (count < 10000 && (
-    // //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2"
-    // //)
-    // // ) {
-    // //if (count < getPlanMax() && (count < 5000 )) {
-    // if (count < getPlanMax()) {
-    //   //if (count < 10) {
-    //   //if (true) {
-    //   link.showpublic = 1;
-    //   link.foldername = link.description;
-    //   link.yturl = isityt(link.Url);
-    //   console.log("A link.yturl=" + link.yturl);
-    //   let isin = false;
-    //   //don't add the link if the link text is already in the props.links array of jso objects
-    //   props.links.forEach((l) => {
-    //     //alert("l.description="+"'"+l.description+"'"+", link.description="+"'"+link.description+"'")
-    //     let x = !!l.description;
-    //     let x1 = "";
-    //     if (!!x) x1 = l.description.toLowerCase();
+    //alert(1)
+    const user = firebase.auth().currentUser;
+    // if (count < 250 || (count < 10000 && (
+    //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2"
+    //)
+    // ) {
+    //if (count < getPlanMax() && (count < 5000 )) {
+    if (count < getPlanMax()) {
+      //if (count < 10) {
+      //if (true) {
+      link.showpublic = 1;
+      link.foldername = link.description;
+      link.yturl = isityt(link.Url);
+      console.log("A link.yturl=" + link.yturl);
+      let isin = false;
+      //don't add the link if the link text is already in the props.links array of jso objects
+      props.links.forEach((l) => {
+        //alert("l.description="+"'"+l.description+"'"+", link.description="+"'"+link.description+"'")
+        let x = !!l.description;
+        let x1 = "";
+        if (!!x) x1 = l.description.toLowerCase();
 
-    //     let y = !!link.description;
-    //     let x2 = "";
-    //     if (!!y) x2 = link.description.toLowerCase();
+        let y = !!link.description;
+        let x2 = "";
+        if (!!y) x2 = link.description.toLowerCase();
 
-    //     if (!!x && !!y && x1 === x2) {
-    //       //alert("found a match")
-    //       isin = true;
-    //     }
+        if (!!x && !!y && x1 === x2) {
+          //alert("found a match")
+          isin = true;
+        }
 
-    //     //  if(l.description === link.description) {
-    //     //    //alert("found a match,"+l.description+","+link.description)
-    //     //    isin = true
-    //     //     break
-    //     // } else {
-    //     //    //alert("did not find a match,"+l.description+","+link.description)
-    //     //    isin = false
-    //     // }
-    //   });
+        //  if(l.description === link.description) {
+        //    //alert("found a match,"+l.description+","+link.description)
+        //    isin = true
+        //     break
+        // } else {
+        //    //alert("did not find a match,"+l.description+","+link.description)
+        //    isin = false
+        // }
+      });
 
-    //   // if(inin === false) {
-    //   //    alert("did not find a match")
-    //   // }
+      // if(inin === false) {
+      //    alert("did not find a match")
+      // }
 
-    //   if (isin === false) {
-    //     //alert("isin="+isin)
-    //     const r = props.startAddLink(link);
-    //     if (r === false) {
-    //       setErrorDialog(true);
-    //       console.log("VVVVVVVVVVVVV returned false");
-    //     } else {
-    //           const now = new Date();
-    //       const datet = Math.trunc(now.getTime());
-    //                              props.startAddTheupdatedate({
-    //                                updatedate:datet
-    //                              })
-    //       //props.history.push("/");
-    //       //window.location.reload();
-    //       //window.location.href = "https://urilinks.com?signup=signup&z=1"; //stops the scroll on return when z=1
-    //       window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
-    //     }
-    //   } else {
-    //     //alert("isin="+isin)
-    //     alert(
-    //       "The link was not added because it is already in the list. Change the link text to a unique description.",
-    //     );
-    //   }
-    // } else {
-    //   console.log("maximum links reached");
-    //   setMaximumPage(true);
-    // }
+      if (isin === false) {
+        //alert("isin="+isin)
+        const r = props.startAddLink(link);
+        if (r === false) {
+          setErrorDialog(true);
+          console.log("VVVVVVVVVVVVV returned false");
+        } else {
+              const now = new Date();
+          const datet = Math.trunc(now.getTime());
+                                 props.startAddTheupdatedate({
+                                   updatedate:datet
+                                 })
+          //props.history.push("/");
+          //window.location.reload();
+          //window.location.href = "https://urilinks.com?signup=signup&z=1"; //stops the scroll on return when z=1
+          window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
+        }
+      } else {
+        //alert("isin="+isin)
+        alert(
+          "The link was not added because it is already in the list. Change the link text to a unique description.",
+        );
+      }
+    } else {
+      console.log("maximum links reached");
+      setMaximumPage(true);
+    }
   };
 
   return (

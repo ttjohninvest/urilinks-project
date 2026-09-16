@@ -30,7 +30,7 @@ class EditForm extends React.Component {
       description: props.link ? props.link.description : "",
       addescription: props.link && !!props.link.addescription===true ? props.link.addescription : "",
       Url: props.link && !!props.link.Url === true ? props.link.Url : "",
-      AdUrl: props.link && !!props.link.AdUrl ? props.link.AdUrl : "",
+      adUrl: props.link && !!props.link.adUrl ? props.link.adUrl : "",
       note: props.link ? props.link.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link && !!props.link.createdAt ? moment(props.link.createdAt) : moment(),
@@ -62,8 +62,8 @@ class EditForm extends React.Component {
   };
 
    onUrlChange2 = (e) => {
-    const AdUrl = e.target.value;
-    this.setState(() => ({ AdUrl }));
+    const adUrl = e.target.value;
+    this.setState(() => ({ adUrl }));
   };
 
   onNoteChange = (e) => {
@@ -199,7 +199,7 @@ class EditForm extends React.Component {
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
 
-     let str2 = this.state.AdUrl.trim();
+     let str2 = this.state.adUrl.trim();
     if (str2.substring(0, 7) === "http://") {
     } else if (str2.substring(0, 8) === "https://") {
     } 
@@ -258,7 +258,7 @@ class EditForm extends React.Component {
         description: this.state.description,
         addescription: this.state.addescription,
         Url: str,
-        AdUrl: str2,
+        adUrl: str2,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,
@@ -366,7 +366,7 @@ class EditForm extends React.Component {
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="Place ad url here. Example: https://example.com or https://www.example.com"
           className="text-input outline-none"
-          value={this.state.AdUrl}
+          value={this.state.adUrl}
           onChange={this.onUrlChange2}
           maxLength="2048"
         />

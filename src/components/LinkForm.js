@@ -243,7 +243,7 @@ onAdDescriptionChange = (e) => {
         description: this.state.description,
         addescription: this.state.addescription,
         Url: str,
-        AdUrl: str2,
+        adUrl: str2,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,

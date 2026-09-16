@@ -68,6 +68,10 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             if (link.star === 1 ) return true //0 won't work for false here
             else return false
           
+        } else if (sortBy === "ads") {
+          
+            return true
+          
         }
         
         else return true;
@@ -108,6 +112,11 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             return b.likes - a.likes
 
         } else if (sortBy === "star") {
+
+            return true
+            
+
+        } else if (sortBy === "ads") {
 
             return true
             

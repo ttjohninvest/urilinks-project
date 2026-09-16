@@ -51,6 +51,11 @@ export default (state = filtersReducerDefaultState, action) => {
           ...state,
           sortBy: 'star'
         };
+      case 'SORT_BY_ADS':
+      return {
+        ...state,
+        sortBy: 'ads'
+      };
       case 'SORT_BY_FOLDER':
       return {
         ...state,

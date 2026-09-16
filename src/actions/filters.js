@@ -31,6 +31,10 @@ export const sortByStar = () => ({
   type: 'SORT_BY_STAR'
 });
 
+export const sortByAds = () => ({
+  type: 'SORT_BY_ADS'
+});
+
 export const sortByLikes = () => ({
   type: 'SORT_BY_LIKES'
 });

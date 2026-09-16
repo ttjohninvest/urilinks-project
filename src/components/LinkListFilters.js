@@ -46,6 +46,7 @@ import {
   sortByLikes,
   sortByStar,
   sortByFolder,
+  sortByAds,
 } from "../actions/filters";
 
 import { incrementUsersClickCount } from "../actions/theuserscount";
@@ -662,6 +663,18 @@ function ExpandableArray(props) {
       //this.setState({ sortBy: "notetext" });
       setSortBy("star");
       props.sortByStar();
+      //alert("after call to props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
+    }
+    else if (e.target.value === "ads") {
+      window.localStorage.setItem("sortBy", "ads");
+      if (myRef.current) myRef.current.focus();
+      //this.props.setTextFilter("");
+      props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      //this.setState({ sortBy: "notetext" });
+      setSortBy("ads");
+      props.sortByAds();
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
@@ -1558,6 +1571,11 @@ function ExpandableArray(props) {
                             Star (My Top Ten)
                           </option>
                         </optgroup>
+                        <optgroup label="Ads">
+                           <option value="ads" title="show your ads">
+                              Ads
+                           </option>   
+                        </optgroup>
                       </select>
                     </div>
                     {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
@@ -1662,6 +1680,11 @@ function ExpandableArray(props) {
                           <option value="star" title="show your top ten">
                             Star (My Top Ten)
                           </option>
+                        </optgroup>
+                        <optgroup label="Ads">
+                           <option value="ads" title="show your ads">
+                              Ads
+                           </option>   
                         </optgroup>
                       </select>
                     </div>
@@ -2264,6 +2287,7 @@ export class LinkListFilters extends React.Component {
           sortByViews={this.props.sortByViews}
           sortByLikes={this.props.sortByLikes}
           sortByStar={this.props.sortByStar}
+          sortByAds={this.props.sortByAds}
           filters={this.props.filters}
           userscount={this.props.theuserscount.userscount}
           signupcount={this.props.thesignupcount.signupcount}
@@ -2307,6 +2331,7 @@ const mapDispatchToProps = (dispatch) => ({
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   incrementUsersClickCount: (data) => dispatch(incrementUsersClickCount(data)),
+  sortByAds: () => dispatch(sortByAds()),
 });
 //incrementUsersClickCount
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

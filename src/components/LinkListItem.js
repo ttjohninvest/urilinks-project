@@ -1360,19 +1360,26 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
       <div className="normal-wrap margin-top-1">
-       {!!props.addescription===true &&
-       <div className="padding-bottom-1">
-        <div className="margin-bottom-1">
-https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={encodeURIComponent(props.description)}&product={encodeURIComponent(props.addescription)}
+       {
        
+       !!props.addescription===true &&
+       <fieldset>
+        <legend>Sharable Url To Make Money</legend>
+<div className="padding-bottom-1">
+        <div className="margin-bottom-1">
+           https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={encodeURIComponent(props.description)}&product={encodeURIComponent(props.addescription)}
         </div>
          
        <CopySalesButton
           textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.auth.uid}&link=${encodeURIComponent(props.description)}&product=${encodeURIComponent(props.addescription)}`}
        />
        
-       </div>}
-       {/* {copySuccess} */}
+       </div>
+       </fieldset>
+       
+       
+       }
+      
       </div>
 
       <div id={"ipvideo" + props.id}>

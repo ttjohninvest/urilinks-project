@@ -109,6 +109,7 @@ function ExpandableArray(props) {
   const rt = params.get("x");
   const id = params.get("id");
   const z = params.get("z");
+  const thelink = params.get("link")
 
   const childRef = useRef(null);
 
@@ -142,7 +143,11 @@ function ExpandableArray(props) {
             behavior: "smooth",
           });
 
-          props.setit("1983 Westfield Run - Youtube", undefined);
+          if(id !== null && id !== undefined) {
+            if(thelink !== null && thelink !== undefined)
+            props.setit(thelink, undefined);
+          
+          }
   }, []);
 
   // const startScrollingUp = () => {

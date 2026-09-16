@@ -1358,7 +1358,7 @@ const LinkListItem = (props) => {
        
         {props.note}
       </div>
-      <div className="normal-wrap margin-top-1-">
+      <div className="normal-wrap margin-top-1">
        {!!props.addescription===true &&
        <div className="padding-bottom-1">
         <div className="margin-bottom-1">

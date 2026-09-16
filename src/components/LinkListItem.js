@@ -1359,11 +1359,15 @@ const LinkListItem = (props) => {
         {props.note}
       </div>
       <div className="normal-wrap margin-top-1">
-       https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={encodeURIComponent(props.description)}&product={encodeURIComponent(props.addescription)}
+       {!!props.addescription===true &&
+       <div>
+         https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={encodeURIComponent(props.description)}&product={encodeURIComponent(props.addescription)}
+       <br />
        <CopyButton
           textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link=${encodeURIComponent(props.description)}&product=${encodeURIComponent(props.addescription)}`}
        />
-       {copySuccess}
+       </div>}
+       {/* {copySuccess} */}
       </div>
 
       <div id={"ipvideo" + props.id}>

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import BasicIframe from "./BasicIframe";
-import CopyButton from "./CopyButton";
+import CopySalesButton from "./CopySalesButton";
 
 import visited from "../assets/images/visited-1.png";
 import {
@@ -1367,7 +1367,7 @@ https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={enc
        
         </div>
          
-       <CopyButton
+       <CopySalesButton
           textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.auth.uid}&link=${encodeURIComponent(props.description)}&product=${encodeURIComponent(props.addescription)}`}
        />
        

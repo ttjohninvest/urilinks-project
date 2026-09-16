@@ -73,6 +73,8 @@ function ExpandableArray(props) {
   const [activeItem, setActiveItem] = useState(0);
   const [aValue, setAValue] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [idexists, setIdexists] = useState(0);
+
 
   const fullText =
     "❤️ Benefits: urilinks is a platform for orgainizing links to website content and publishing your own links to website content to a worldwide audience. It is made with love and care. It works. You can make money with text ads. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. If you want help, please contact tech support at 775 559 5740. Please try a user account today through friendly login. Thank you so much.";
@@ -149,6 +151,8 @@ function ExpandableArray(props) {
             props.setit(thelink, undefined);
           
           }
+
+          if(id !== null) setIdexists(1)
   }, []);
 
   // const startScrollingUp = () => {
@@ -1708,6 +1712,7 @@ function ExpandableArray(props) {
                 {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
                 <LinkList3
+                  idexists={idexists}
                   av={props.av}
                   ref={childRef}
                   handleStartScroll={handleStartScroll}

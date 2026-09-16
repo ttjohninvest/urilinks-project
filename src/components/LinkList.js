@@ -475,6 +475,7 @@ export const LinkList = (props) => {
                           {...link}
                           index={index}
                           signup={props.signup.signup}
+                          idexists={props.idexists}
                         />
                       </div>
                     );

@@ -1363,7 +1363,7 @@ const LinkListItem = (props) => {
        {
        
        !!props.addescription===true &&
-       <fieldset className="margin-right-1">
+       <fieldset className="padding-right-1 margin-right-1">
         <legend>Sharable Url To Make Money</legend>
 <div className="padding-bottom-1">
         <div className="margin-bottom-1 flexrowxz">

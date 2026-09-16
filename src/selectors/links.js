@@ -21,7 +21,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   else if(links.length === 0) return []
   else {
     
-    let isTextInDescription, isTextInNote;
+    let isTextInDescription, isTextInNote, isTextInAds;
 
     let arr = links.filter((link) => {
       
@@ -70,7 +70,13 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           
         } else if (sortBy === "ads") {
           
-            return true
+            //return true
+              // || sortBy==='date') {
+          if (!!link.addescription === false) return false;
+          isTextInAds = !!link.addescription === true
+             ? true //link.description.toLowerCase().includes(text.toLowerCase())
+            : false;
+          return isTextInAds;
           
         }
         
@@ -118,7 +124,9 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
 
         } else if (sortBy === "ads") {
 
-            return true
+            //return true
+              if(a.addescription.toLowerCase() > b.addescription.toLowerCase()) return 1
+            else return -1
             
 
         }

@@ -141,6 +141,8 @@ function ExpandableArray(props) {
           .scrollIntoView({
             behavior: "smooth",
           });
+
+          props.setit("1971 Dream Mile - Youtube", undefined);
   }, []);
 
   // const startScrollingUp = () => {

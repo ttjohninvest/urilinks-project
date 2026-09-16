@@ -2163,7 +2163,7 @@ export class LinkListFilters extends React.Component {
   // };
 
   setit = (value, event) => {
-    event.preventDefault();
+    if(!!event === true) event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
 
     this.props.sortByDescription();

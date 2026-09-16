@@ -1328,6 +1328,7 @@ const LinkListItem = (props) => {
                 !!props.AdUrl === true ? props.AdUrl : "https://example.com"
               }
               target="_blank"
+              rel="noopener noreferrer" 
             >
               <span className="nounderline color-black">
                 See what is for sale:

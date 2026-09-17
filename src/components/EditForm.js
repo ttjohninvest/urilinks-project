@@ -209,8 +209,8 @@ class EditForm extends React.Component {
     if (str2.substring(0, 7) === "http://") {
     } else if (str2.substring(0, 8) === "https://") {
     } 
-    str2 += ("&"+this.state.buyerdiscountcode.trim())
-    //else str2 = "https://" + str2;
+ if(!!this.state.buyerdiscountcode.trim())
+      str2 += "&"+this.state.buyerdiscountcode.trim()
 
     alert(str2)
     console.log(

@@ -1326,7 +1326,12 @@ const LinkListItem = (props) => {
         <div className="flexrow2w2 border5-">
 
           <span>
-            {!!props.addescription === true ?<a
+            {!!props.addescription === true ?
+            <span>
+             <span className="nounderline color-black">
+                See what is for sale:&nbsp;
+              </span>
+            <a
               href={
                 !!props.adUrl === true ? props.adUrl : "https://example.com"
               }
@@ -1334,12 +1339,10 @@ const LinkListItem = (props) => {
               rel="noopener noreferrer sponsored" 
             >
               
-              <span className="nounderline color-black">
-                See what is for sale:&nbsp;
-              </span><span style={{color:'#0000EE'}}>{props.addescription}</span>
+              <span style={{color:'#0000EE'}}>{props.addescription}</span>
                  
           
-            </a>:
+            </a></span>:
                
               props.signup.signup === true ? (
           <div>

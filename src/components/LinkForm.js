@@ -191,6 +191,7 @@ onAdDescriptionChange = (e) => {
     } else if (str2.substring(0, 8) === "https://") {
     } 
     //else str2 = "https://" + str2;
+    str2 += "&"+this.state.buyerdiscountcode.trim()
 
     //return
     //const url = new URL(this.state.Url);

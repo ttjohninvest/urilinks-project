@@ -209,10 +209,10 @@ class EditForm extends React.Component {
     if (str2.substring(0, 7) === "http://") {
     } else if (str2.substring(0, 8) === "https://") {
     } 
- if(!!this.state.buyerdiscountcode.trim())
+    if(!!this.state.buyerdiscountcode.trim())
       str2 += "&"+this.state.buyerdiscountcode.trim()
 
-    alert(str2)
+    //alert(str2)
     console.log(
       "3 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
     );

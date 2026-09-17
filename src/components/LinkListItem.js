@@ -1338,13 +1338,22 @@ const LinkListItem = (props) => {
                  {props.addescription}
           
             </a>:
-               <div>
+               
+              props.signup.signup === true ? (
+          <div>
             <Link className="ib pointereventsauto margin-top-1zx1" to={`/edit/${props.id}`}>
               <span className="" style={{ cursor: "pointer" }}>
-                nothing yet
+                Nothing Yet
               </span>
             </Link>
           </div>
+        ) : (
+          <div>
+            <Link className="ib pointereventsnone margin-top-1zx1" to={`/edit/${props.id}`}>
+              <span className="">Nothing Yet</span>
+            </Link>
+          </div>
+        )
       
             }
           </span>

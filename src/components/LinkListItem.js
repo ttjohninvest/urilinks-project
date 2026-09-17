@@ -1294,7 +1294,7 @@ const LinkListItem = (props) => {
       {props.signup.signup === true && (
         <div className="flexrow2w2 border5-">
           <span>
-          <span className="ib margin-right-1">Share on</span>
+          <span className="ib margin-right-1">Share link on</span>
           <a
             href={`https://twitter.com/intent/tweet?url=${props.Url}`}
             className="ib nounderline- cursor-pointer"

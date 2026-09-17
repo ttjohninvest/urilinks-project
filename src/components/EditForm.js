@@ -264,7 +264,7 @@ class EditForm extends React.Component {
         description: this.state.description,
         addescription: this.state.addescription,
         Url: str,
-        adUrl: str2+"&7uyhgty", //+this.state.buyerdiscountcode.trim(),
+        adUrl: str2+"&coupon=7uyhgty", //+this.state.buyerdiscountcode.trim(),
         buyerdiscountcode:this.state.buyerdiscountcode.trim(),
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),

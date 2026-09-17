@@ -1,3 +1,7 @@
+urilinks-project-sitemap, incomplete
+update the three environment variables in vercel.com with new SK_LIVE key from stripe on 9/24/2026, so the payment processor works, this has to be done once a week
+
+
 ====================================================
 making money
 promotion and marketing:

@@ -78,7 +78,7 @@ function ExpandableArray(props) {
 
 
   const fullText =
-    "❤️ Benefits: urilinks is a platform for orgainizing links to website content and publishing your own links to website content to a worldwide audience and providing user advertising space to make money. It is made with love and care. It works. You can enter text ads. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. If you want help, please contact tech support at 775 559 5740. Please try a user account today through friendly login. Thank you so much.";
+    "❤️ Benefits: urilinks is a platform for orgainizing links to website content and publishing your own links to website content to a worldwide audience and providing user advertising space to make money. It is made with love and care. It works. You can enter an optional text ad with each link. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. If you want help, please contact tech support at 775 559 5740. Please try a user account today through friendly login. Thank you so much.";
   const charLimit = 225;
   const displayText = isExpanded ? fullText : fullText.slice(0, charLimit);
 

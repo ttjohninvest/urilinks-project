@@ -47,6 +47,7 @@ import {
   sortByStar,
   sortByFolder,
   sortByAds,
+  sortByAdsAlpha,
 } from "../actions/filters";
 
 import { incrementUsersClickCount } from "../actions/theuserscount";
@@ -679,6 +680,17 @@ function ExpandableArray(props) {
       //this.setState({ sortBy: "notetext" });
       setSortBy("ads");
       props.sortByAds();
+      //alert("after call to props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
+    } else if (e.target.value === "adsalpha") {
+      window.localStorage.setItem("sortBy", "adsalpha");
+      if (myRef.current) myRef.current.focus();
+      //this.props.setTextFilter("");
+      props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      //this.setState({ sortBy: "notetext" });
+      setSortBy("adsalpha");
+      props.sortByAdsAlpha();
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
@@ -1576,9 +1588,12 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                         <optgroup label="Ads">
-                           <option value="ads" title="show your ads">
-                              Ads
-                           </option>   
+                           <option value="ads" title="show ads that exist">
+                              Ads (Link Present)
+                           </option>
+                            <option value="adsalpha" title="show ads in descending order">
+                              Ads (Alphabetical Order)
+                           </option>    
                         </optgroup>
                       </select>
                     </div>
@@ -1686,9 +1701,12 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                         <optgroup label="Ads">
-                           <option value="ads" title="show your ads">
-                              Ads
-                           </option>   
+                           <option value="ads" title="show ads that exist">
+                              Ads (Link Present)
+                           </option>
+                            <option value="adsalpha" title="show ads in descending order">
+                              Ads (Alphabetical Order)
+                           </option>    
                         </optgroup>
                       </select>
                     </div>
@@ -2293,6 +2311,7 @@ export class LinkListFilters extends React.Component {
           sortByLikes={this.props.sortByLikes}
           sortByStar={this.props.sortByStar}
           sortByAds={this.props.sortByAds}
+          sortByAdsAlpha={this.props.sortByAdsAlpha}
           filters={this.props.filters}
           userscount={this.props.theuserscount.userscount}
           signupcount={this.props.thesignupcount.signupcount}
@@ -2337,6 +2356,7 @@ const mapDispatchToProps = (dispatch) => ({
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),
   incrementUsersClickCount: (data) => dispatch(incrementUsersClickCount(data)),
   sortByAds: () => dispatch(sortByAds()),
+  sortByAdsAlpha: () => dispatch(sortByAdsAlpha()),
 });
 //incrementUsersClickCount
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

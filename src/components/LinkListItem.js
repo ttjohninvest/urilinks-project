@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import * as firebase from "firebase/app";
 import { connect } from "react-redux";
 import BasicIframe from "./BasicIframe";
 import CopySalesButton from "./CopySalesButton";
@@ -1329,7 +1330,7 @@ const LinkListItem = (props) => {
             {!!props.addescription === true ?
             <span>
              <span className="nounderline color-black">
-                See what is for sale:&nbsp;
+                See what {firebase.auth().currentUser.displayName} has for sale:&nbsp;
               </span>
             <a
               href={
@@ -1349,7 +1350,7 @@ const LinkListItem = (props) => {
             <Link className="ib pointereventsauto nounderline margin-top-1zx1" to={`/edit/${props.id}`}>
               <span className="" style={{ cursor: "pointer" }}>
                 <span className="nounderline color-black">
-                See what is for sale:&nbsp;
+                See what {firebase.auth().currentUser.displayName} has for sale:&nbsp;
               </span><span style={{color:'#0000EE'}}>Nothing Yet</span>
               </span>
             </Link>
@@ -1357,7 +1358,7 @@ const LinkListItem = (props) => {
         ) : (
           <div>
             <span className="nounderline color-black">
-                See what is for sale:&nbsp;
+                See what {firebase.auth().currentUser.displayName} has for sale:&nbsp;
               </span>
               <span className="">Nothing Yet</span>
             

@@ -209,6 +209,7 @@ class EditForm extends React.Component {
     if (str2.substring(0, 7) === "http://") {
     } else if (str2.substring(0, 8) === "https://") {
     } 
+    str2 += "&"+this.state.buyerdiscountcode.trim()
     //else str2 = "https://" + str2;
 
     console.log(
@@ -264,7 +265,7 @@ class EditForm extends React.Component {
         description: this.state.description,
         addescription: this.state.addescription,
         Url: str,
-        adUrl: str2+"&coupon=7uyhgty", //+this.state.buyerdiscountcode.trim(),
+        adUrl: str2,
         buyerdiscountcode:this.state.buyerdiscountcode.trim(),
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),

@@ -1322,8 +1322,9 @@ const LinkListItem = (props) => {
 
      
         <div className="flexrow2w2 border5-">
+
           <span>
-            <a
+            {!!props.addescription === true ?<a
               href={
                 !!props.adUrl === true ? props.adUrl : "https://example.com"
               }
@@ -1333,10 +1334,19 @@ const LinkListItem = (props) => {
               <span className="nounderline color-black">
                 See what is for sale:&nbsp;
               </span>
-              {!!props.addescription === true
-                ? props.addescription
-                : "nothing yet"}
-            </a>
+              
+                 {props.addescription}
+          
+            </a>:
+               <div>
+            <Link className="ib pointereventsauto margin-top-1zx1" to={`/edit/${props.id}`}>
+              <span className="" style={{ cursor: "pointer" }}>
+                nothing yet
+              </span>
+            </Link>
+          </div>
+      
+            }
           </span>
         </div>
       

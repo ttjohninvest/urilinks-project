@@ -263,7 +263,8 @@ these 3 work
 "users": {
 "$uid": {
 ".read": "auth != null",
-".write": "auth != null && auth.uid === $uid"
+".write": "auth != null && auth.uid === $uid",
+".validate": "newData.exists()"
 }
 }
 }

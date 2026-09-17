@@ -1334,9 +1334,9 @@ const LinkListItem = (props) => {
               rel="noopener noreferrer sponsored" 
             >
               
-              <span className="nounderline- color-black">
-                See what is for sale:&nbsp;{props.addescription}
-              </span>
+              <span className="nounderline color-black">
+                See what is for sale:&nbsp;
+              </span><span style={{color:'#0000EE'}}>{props.addescription}</span>
                  
           
             </a>:
@@ -1345,9 +1345,9 @@ const LinkListItem = (props) => {
           <div>
             <Link className="ib pointereventsauto nounderline margin-top-1zx1" to={`/edit/${props.id}`}>
               <span className="" style={{ cursor: "pointer" }}>
-                <span className="nounderline- color-black">
-                See what is for sale:&nbsp;Nothing Yet
-              </span>
+                <span className="nounderline color-black">
+                See what is for sale:&nbsp;
+              </span><span style={{color:'#0000EE'}}>Nothing Yet</span>
               </span>
             </Link>
           </div>

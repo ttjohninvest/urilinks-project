@@ -15,6 +15,7 @@ class LinkForm extends React.Component {
       addescription: props.link ? props.link.addescription : "",
       Url: props.link ? props.link.Url : "",
       AdUrl: props.link ? props.link.AdUrl : "",
+      buyerdiscountcode: props.link && !!props.link.buyerdiscountcode ? props.link.buyerdiscountcode : "",
       note: props.link ? props.link.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link ? moment(props.link.createdAt) : moment(),
@@ -39,6 +40,12 @@ class LinkForm extends React.Component {
     const Url = e.target.value;
     this.setState(() => ({ Url }));
   };
+
+     onBuyerDiscountCode = (e) => {
+    const buyerdiscountcode = e.target.value;
+    this.setState(() => ({ buyerdiscountcode }));
+  };
+
 
 onAdDescriptionChange = (e) => {
     const addescription = e.target.value;
@@ -244,6 +251,7 @@ onAdDescriptionChange = (e) => {
         addescription: this.state.addescription,
         Url: str,
         adUrl: str2,
+        buyerdiscountcode:this.state.buyerdiscountcode.trim(),
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,
@@ -352,6 +360,16 @@ onAdDescriptionChange = (e) => {
           value={this.state.AdUrl}
           onChange={this.onUrlChange2}
           maxLength="2048"
+        />
+
+          <input
+          type="text"
+          ////placeholder="Uri/Url Link, example: https://gmail.com"
+          placeholder="Place buyer discount code here. Please check with the affiliate program documentation, coupon might be a different word; for exampe it might be call affiliatediscountcode. Example: coupon=7yuhtgy"
+          className="text-input outline-none"
+          value={this.state.buyerdiscountcode}
+          onChange={this.onBuyerDiscountCode}
+          maxLength="23"
         />
         
         </div>

@@ -4,6 +4,9 @@ promotion and marketing:
 tell homeless families about it so they can be helped
 they won't help single homeless men
 
+The affiliate process:
+AFFILIATE MARKETER GET'S DISCOUNT CODE, MAKE IT LESS EXPENSIVE FOR CUSTOMER SO THEY ARE INSPIRED TO BUY BY VALUE. IS SAID THEY DON'T USUALLY BUY FOR ALTRUISTIC REASONS.
+
 process: instead of going directly to amazon, go through urilinks link
 see what is for sale to get the product from amazon
 netlify.com to host bridge pages for craigslist or review pages which also serves as a bridge page,

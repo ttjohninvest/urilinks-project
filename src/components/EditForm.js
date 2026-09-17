@@ -31,6 +31,7 @@ class EditForm extends React.Component {
       addescription: props.link && !!props.link.addescription===true ? props.link.addescription : "",
       Url: props.link && !!props.link.Url === true ? props.link.Url : "",
       adUrl: props.link && !!props.link.adUrl ? props.link.adUrl : "",
+      buyerdiscountcode: props.link && !!props.link.buyerdiscountcode ? props.link.buyerdiscountcode : "",
       note: props.link ? props.link.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
       createdAt: props.link && !!props.link.createdAt ? moment(props.link.createdAt) : moment(),
@@ -64,6 +65,11 @@ class EditForm extends React.Component {
    onUrlChange2 = (e) => {
     const adUrl = e.target.value;
     this.setState(() => ({ adUrl }));
+  };
+
+    onBuyerDiscountCode = (e) => {
+    const buyerdiscountcode = e.target.value;
+    this.setState(() => ({ buyerdiscountcode }));
   };
 
   onNoteChange = (e) => {
@@ -259,6 +265,7 @@ class EditForm extends React.Component {
         addescription: this.state.addescription,
         Url: str,
         adUrl: str2,
+        buyerdiscountcode:this.state.buyerdiscountcode.trim(),
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note,
@@ -369,6 +376,15 @@ class EditForm extends React.Component {
           value={this.state.adUrl}
           onChange={this.onUrlChange2}
           maxLength="2048"
+        />
+        <input
+          type="text"
+          ////placeholder="Uri/Url Link, example: https://gmail.com"
+          placeholder="Place buyer discount code here. Please check with the affiliate program documentation, coupon might be a different word; for exampe it might be call affiliatediscountcode. Example: coupon=7yuhtgy"
+          className="text-input outline-none"
+          value={this.state.buyerdiscountcode}
+          onChange={this.onBuyerDiscountCode}
+          maxLength="23"
         />
         
         </div>

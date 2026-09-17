@@ -1293,6 +1293,8 @@ const LinkListItem = (props) => {
 
       {props.signup.signup === true && (
         <div className="flexrow2w2 border5-">
+          <span>
+          <span className="ib margin-right-1">Share on</span>
           <a
             href={`https://twitter.com/intent/tweet?url=${props.Url}`}
             className="ib nounderline- cursor-pointer"
@@ -1301,7 +1303,7 @@ const LinkListItem = (props) => {
           >
             X
           </a>
-          {/* <span className="margin-left-11">or</span> */}
+          <span className="margin-left-11">or</span>
           <a
             href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`}
             className="ib margin-left-11 nounderline- cursor-pointer"
@@ -1310,7 +1312,7 @@ const LinkListItem = (props) => {
           >
             Facebook
           </a>
-
+         </span>
           {/* <a href={`https://messenger.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Messenger</a>
           <a href={`https://gmail.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Gmail</a>
           <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${props.Url}`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Linkedin</a> */}
@@ -1332,7 +1334,7 @@ const LinkListItem = (props) => {
               rel="noopener noreferrer sponsored" 
             >
               
-              <span className="color-black">
+              <span className="nounderline- color-black">
                 See what is for sale:&nbsp;{props.addescription}
               </span>
                  

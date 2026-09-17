@@ -367,7 +367,7 @@ onAdDescriptionChange = (e) => {
           <input
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
-          placeholder="Place buyer discount code here. Please check with the affiliate program documentation, coupon might be a different word; for exampe it might be call affiliatediscountcode. Example: coupon=7yuhtgy"
+          placeholder="(optional field) Place buyer discount code here. Please check with the affiliate program documentation, coupon might be a different word; for exampe it might be call affiliatediscountcode. Example: coupon=7yuhtgy"
           className="text-input outline-none"
           value={this.state.buyerdiscountcode}
           onChange={this.onBuyerDiscountCode}

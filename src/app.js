@@ -4,8 +4,20 @@ import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 import setSignup from "./actions/signup";
-const router = require('./routers/AppRouter').default;
-const Sitemap = require('react-router-sitemap').default;
+/////////////////start
+//put these in express server because it needs fs
+// const router = require('./routers/AppRouter').default;
+// const Sitemap = require('react-router-sitemap').default;
+// function generateSitemap() {
+//   return (
+//     new Sitemap(router)
+//       .build('https://urilinks.com')
+//       .save('./sitemap.xml')
+//   );
+// }
+
+// generateSitemap();
+////////////end
 
 //import configureStore from "./store/configureStore";
 import store from "./store";
@@ -73,15 +85,7 @@ const renderApp = (store) => {
   );
 };
 
-function generateSitemap() {
-  return (
-    new Sitemap(router)
-      .build('https://urilinks.com')
-      .save('./sitemap.xml')
-  );
-}
 
-generateSitemap();
 
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");

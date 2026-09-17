@@ -1332,7 +1332,9 @@ const LinkListItem = (props) => {
               rel="noopener noreferrer sponsored" 
             >
               
-              
+              <span className="nounderline color-black">
+                See what is for sale:&nbsp;
+              </span>
                  {props.addescription}
           
             </a>:

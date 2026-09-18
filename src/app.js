@@ -91,6 +91,7 @@ const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
 
 let id = params.get("id");
+let id2 = id
 let z2 = params.get("z2");
 console.log("1 z2=" + z2);
 console.log("1 signup=" + signup);
@@ -115,32 +116,32 @@ if (signup !== "signup") {
   console.log("app.js, 1st one abc")
   window.localStorage.setItem("notloggedin", "1");
 
-  if (id !== null) {
+  if (id2 !== null) {
     console.log("app.js, 2nd one abc")
-    store.dispatch(login(id));
+    store.dispatch(login(id2));
   } else {
     console.log("app.js, 3rd one abc")
-    id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
-    store.dispatch(login(id));
+    id2 = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
+    store.dispatch(login(id2));
   }
 
   store
-    .dispatch(startSetLinks(id))
+    .dispatch(startSetLinks(id2))
     .then(() => {
       store
-        .dispatch(getTheplan2(id))
+        .dispatch(getTheplan2(id2))
         .then(() => {
           store
-            .dispatch(getThetotalstars2(id))
+            .dispatch(getThetotalstars2(id2))
             .then(() => {
               store
-                .dispatch(getTheupdatedate2(id))
+                .dispatch(getTheupdatedate2(id2))
                 .then(() => {
                   store
-                    .dispatch(getThehashtagsisopen2(id))
+                    .dispatch(getThehashtagsisopen2(id2))
                     .then(() => {
                       store
-                        .dispatch(getThesharablelink2(id))
+                        .dispatch(getThesharablelink2(id2))
                         .then(() => {
                           store
                             .dispatch(getThesignupcount2())
@@ -150,7 +151,7 @@ if (signup !== "signup") {
                                 .then(() => {
                                   if (id === null) {
                                     store
-                                      .dispatch(getTheuserscounti2(id))
+                                      .dispatch(getTheuserscounti2(id2))
                                       .then(() => {
                                         return store
                                           .dispatch(getTheloggedin2())

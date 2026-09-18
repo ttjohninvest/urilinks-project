@@ -36,7 +36,7 @@ const StickyFixed = ({ children }) => {
       ></div>
       {isFixed && (
         <div 
-        style={{ position: 'fixed', top: offset-420, zIndex: 99, 
+        style={{ position: 'fixed', top: offset-430, zIndex: 99, 
         //border: '2px solid green' 
         }}>
           {children}

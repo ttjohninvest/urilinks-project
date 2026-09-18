@@ -413,7 +413,7 @@ export const LinkList = (props) => {
           className="button-2 ib margin-left-11 widthxpx1"
           style={{zIndex:99}}
         >
-          <span>ScrollToBott</span>
+        <span>ScrollToBott</span>
         </button></span>:<span>
           <button
           ref={props.scrolltotopref}

@@ -273,13 +273,15 @@ const LinkListItem = (props) => {
     else x1 = likes;
     const x = event.target.getAttribute("data-value"); //x is link id
 
-    if (x1 === 0) {
-      //alert("going to increment")
-      props.incrementLinkLikesClickCount({ id: x, likes: 0 });
-    } else {
-      //alert("going to decrement")
-      props.decrementLinkLikesClickCount({ id: x, likes: 1 });
-    }
+    props.incrementLinkLikesClickCount({ id: x, likes: x1 });
+
+    // if (x1 === 0) {
+    //   //alert("going to increment")
+    //   props.incrementLinkLikesClickCount({ id: x, likes: 0 });
+    // } else {
+    //   //alert("going to decrement")
+    //   props.decrementLinkLikesClickCount({ id: x, likes: 1 });
+    // }
 
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };

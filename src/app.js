@@ -110,12 +110,16 @@ store
     console.log("app.js,theuserscount, error", error);
   });
 
+console.log("app.js, 0th one")
 if (signup !== "signup") {
+  console.log("app.js, 1st one")
   window.localStorage.setItem("notloggedin", "1");
 
   if (id !== null) {
+    console.log("app.js, 2nd one")
     store.dispatch(login(id));
   } else {
+    console.log("app.js, 3rd one")
     id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
     store.dispatch(login(id));
   }
@@ -203,6 +207,7 @@ if (signup !== "signup") {
       console.log("error", error);
     });
 } else {
+  console.log("app.js, 4th one")
   store.dispatch({
     type: "SET_SIGNUP",
     signup: { signup: true },
@@ -210,7 +215,7 @@ if (signup !== "signup") {
 
   
   firebase.auth().onAuthStateChanged((user) => {
-    console.log("app.js, second one")
+    console.log("app.js, 5th one")
     if (user) {
       console.log("logged in user=" + JSON.stringify(user));
 

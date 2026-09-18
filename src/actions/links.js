@@ -61,6 +61,23 @@ export const decrementHandleToggle = ({ id,show } = {}) => {
   };
 };
 
+export const incrementHandleToggle3 = ({ id,show } = {}) => {
+  
+  return (dispatch, getState) => {
+    
+     dispatch(incrementHandleToggle2(id,{show:parseInt(show)+1}));
+  };
+};
+
+export const decrementHandleToggle3 = ({ id,show } = {}) => {
+  
+  return (dispatch, getState) => {
+    
+   dispatch(decrementHandleToggle2(id,{show:parseInt(show)-1}));
+  };
+};
+
+
 // export const handleToggle = ({ id,linkid } = {}) => {
   
 //   return (dispatch, getState) => {

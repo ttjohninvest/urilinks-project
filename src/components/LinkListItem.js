@@ -23,6 +23,8 @@ import {
   decrementLinkStarClickCount,
   incrementHandleToggle,
   decrementHandleToggle,
+  incrementHandleToggle3,
+  decrementHandleToggle3,
 } from "../actions/links";
 
 import {
@@ -931,6 +933,8 @@ const LinkListItem = (props) => {
 
   //const playInPlaceVideo = (videoid, id, Url) => {
   const playInPlaceVideo = (id, show, Url, event) => {
+
+
     //id is the link id, show can be 0 or 1, Url is the Url of the video to play
     //alert(id+", "+show+", "+Url)
     const newStr = Url.replace("watch?v=", "embed/");
@@ -944,8 +948,11 @@ const LinkListItem = (props) => {
     const x = id; //x is link id
 
     if (x1 === 0) {
-      alert("going to increment, props.show="+props.show)
-      props.incrementHandleToggle({ id: x, show: 0 });
+      //alert("going to increment, props.show="+props.show)
+      // if(uid!=="")
+      // props.incrementHandleToggle({ id: x, show: 0 });
+      // else props.incrementHandleToggle3({ id: x, show: 0 });
+      props.incrementHandleToggle3({ id: x, show: 0 });
 
       !!document.querySelector("#ipvideo" + id) &&
         document.querySelector("#ipvideo" + id).scrollIntoView({
@@ -956,8 +963,11 @@ const LinkListItem = (props) => {
       //     behavior: "smooth",
       //   });
     } else {
-      alert("going to decrement, props.show="+props.show)
-      props.decrementHandleToggle({ id: x, show: 1 });
+      //alert("going to decrement, props.show="+props.show)
+      // if(uid!=="")
+      // props.decrementHandleToggle({ id: x, show: 0 });
+      // else props.decrementHandleToggle3({ id: x, show: 0 });
+      props.decrementHandleToggle3({ id: x, show: 0 });
 
       !!document.querySelector(id) &&
         document.querySelector(id).scrollIntoView({
@@ -1501,6 +1511,8 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(decrementHashtagsIsOpenClickCount(data)),
   incrementHandleToggle: (data) => dispatch(incrementHandleToggle(data)),
   decrementHandleToggle: (data) => dispatch(decrementHandleToggle(data)),
+   incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
+  decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),
 });
 
 export default withRouter(

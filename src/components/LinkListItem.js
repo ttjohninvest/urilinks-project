@@ -1371,7 +1371,7 @@ const LinkListItem = (props) => {
         ) : (
           <div>
             <span className="nounderline color-black">
-                See what {!!firebase.auth().currentUser===true?firebase.auth().currentUser.displayName+" has ":" is "}for sale:&nbsp;
+                See what {!!firebase.auth().currentUser===true?firebase.auth().currentUser.displayName+" has ":" John has "}for sale:&nbsp;
               </span>
               <span className="">Nothing Yet</span>
             

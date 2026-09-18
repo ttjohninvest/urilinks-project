@@ -86,6 +86,8 @@ const LinkListItem = (props) => {
   const [url2, setUrl2] = useState("");
   const [blb, setBlb] = useState(false)
   const [copySuccess, setCopySuccess] = useState("");
+  const [lastClickTime, setLastClickTime] = useState(0);
+  const THRESHOLD = 5000; // ms
 
 //   useEffect(()=>{
 //     //broken link: "http://tyuhn.com/"
@@ -260,21 +262,20 @@ const LinkListItem = (props) => {
   };
 
   const storeScrollPosition2 = (likes, event) => {
-    // let x1 = 0;
-    // if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
-    // else x1 = likes;
-    // const x = event.target.getAttribute("data-value"); //x is link id
+     const now = Date.now();
+    // Only proceed if more than THRESHOLD ms have passed since the last click
+    if (now - lastClickTime > THRESHOLD) {
+      setLastClickTime(now);
+      //console.log('Action executed');
 
-    // props.incrementLinkLikesClickCount({ id: x, likes: x1 });
-    // window.localStorage.setItem("scrollPosition", window.scrollY);
-
-    let x1 = 0;
+       let x1 = 0;
     if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
     else x1 = likes;
     const x = event.target.getAttribute("data-value"); //x is link id
 
     props.incrementLinkLikesClickCount({ id: x, likes: x1 });
 
+    //the following commented out code toggles from 0 to 1 or from 1 to 0 on successive clicks
     // if (x1 === 0) {
     //   //alert("going to increment")
     //   props.incrementLinkLikesClickCount({ id: x, likes: 0 });
@@ -284,6 +285,10 @@ const LinkListItem = (props) => {
     // }
 
     window.localStorage.setItem("scrollPosition", window.scrollY);
+
+    }
+
+   
   };
 
   const storeScrollPosition3 = (star, event) => {

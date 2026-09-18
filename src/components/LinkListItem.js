@@ -1008,7 +1008,7 @@ const LinkListItem = (props) => {
       </div>
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
-       <div id={"ipvideo" + props.id}>
+      {props.signup.signup === true && <div id={"ipvideo" + props.id}>
         {videoId === props.id && props.show === 1 && (
           <div>
             <div className="height50 width100"
@@ -1019,7 +1019,7 @@ const LinkListItem = (props) => {
             </div>
           </div>
         )}
-      </div>
+      </div>}
 
       <div className="normal-wrap padding-bottom-11">
         <a
@@ -1425,7 +1425,7 @@ const LinkListItem = (props) => {
       
       </div>
 
-      {/* <div id={"ipvideo" + props.id}>
+      {props.signup.signup === false && <div id={"ipvideo" + props.id}>
         {videoId === props.id && props.show === 1 && (
           <div>
             <div className="height50 width100"
@@ -1436,7 +1436,7 @@ const LinkListItem = (props) => {
             </div>
           </div>
         )}
-      </div> */}
+      </div>}
 
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">

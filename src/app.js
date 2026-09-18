@@ -110,16 +110,16 @@ store
     console.log("app.js,theuserscount, error", error);
   });
 
-console.log("app.js, 0th one")
+console.log("app.js, 0th one abc")
 if (signup !== "signup") {
-  console.log("app.js, 1st one")
+  console.log("app.js, 1st one abc")
   window.localStorage.setItem("notloggedin", "1");
 
   if (id !== null) {
-    console.log("app.js, 2nd one")
+    console.log("app.js, 2nd one abc")
     store.dispatch(login(id));
   } else {
-    console.log("app.js, 3rd one")
+    console.log("app.js, 3rd one abc")
     id = "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2";
     store.dispatch(login(id));
   }
@@ -207,7 +207,7 @@ if (signup !== "signup") {
       console.log("error", error);
     });
 } else {
-  console.log("app.js, 4th one")
+  console.log("app.js, 4th one abc")
   store.dispatch({
     type: "SET_SIGNUP",
     signup: { signup: true },
@@ -215,8 +215,9 @@ if (signup !== "signup") {
 
   
   firebase.auth().onAuthStateChanged((user) => {
-    console.log("app.js, 5th one")
+    console.log("app.js, 5th one abc")
     if (user) {
+      console.log("app.js, 6th one abc")
       console.log("logged in user=" + JSON.stringify(user));
 
       store.dispatch(login(user.uid));

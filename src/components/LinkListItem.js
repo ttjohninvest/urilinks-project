@@ -1271,7 +1271,7 @@ const LinkListItem = (props) => {
             <span className="ib flexrowzv- margin-right-1">
               <span
                 ref={myRef2}
-                className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0 pointereventsnone margin-top-1zx`}
+                className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0 pointereventsnone- margin-top-1zx`}
                 //href="#"
 
                 data-value={props.id}

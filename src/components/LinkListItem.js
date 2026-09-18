@@ -934,12 +934,12 @@ const LinkListItem = (props) => {
     //id is the link id, show can be 0 or 1, Url is the Url of the video to play
     //alert(id+", "+show+", "+Url)
     const newStr = Url.replace("watch?v=", "embed/");
-    alert(newStr)
+    //alert(newStr)
     setUrl2(newStr);
     setVideoId(id);
 
     let x1 = 0;
-    if (show === undefined || show === null || show === "NaN") x1 = 0;
+    if (show === undefined || show === null || show === "NaN") {}
     else x1 = show;
     const x = id; //x is link id
 
@@ -1010,7 +1010,9 @@ const LinkListItem = (props) => {
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
       <div id={"ipvideo" + props.id}>
-        {videoId === props.id && props.show === 1 && (
+        {videoId === props.id 
+        && (
+        //props.show === 1 && (
           <div>
             <div className="height50 width100"
             //style={{border:'1px solid red'}}

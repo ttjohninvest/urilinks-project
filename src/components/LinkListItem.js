@@ -263,10 +263,11 @@ const LinkListItem = (props) => {
 
   const storeScrollPosition2 = (likes, event) => {
     const text = "Click ok if you are sure?";
-    if (confirm(text) == true) {
+   
      const now = Date.now();
     // Only proceed if more than THRESHOLD ms have passed since the last click
     if (now - lastClickTime > THRESHOLD) {
+       if (confirm(text) == true) {
       setLastClickTime(now);
       //console.log('Action executed');
 
@@ -287,8 +288,8 @@ const LinkListItem = (props) => {
     // }
 
     window.localStorage.setItem("scrollPosition", window.scrollY);
-}
 
+    }
     }
 
    

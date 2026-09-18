@@ -261,7 +261,20 @@ allow read, write;
 
 ---
 
-these 3 work
+these 4 work
+{
+"rules": {
+"users": {
+"$uid": {
+".read": true,
+".write": "auth != null && auth.uid === $uid",
+".validate": "newData.exists()"
+}
+}
+}
+}
+
+
 {
 "rules": {
 "users": {

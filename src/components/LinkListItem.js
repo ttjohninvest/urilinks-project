@@ -1008,6 +1008,19 @@ const LinkListItem = (props) => {
       </div>
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
+       <div id={"ipvideo" + props.id}>
+        {videoId === props.id && props.show === 1 && (
+          <div>
+            <div className="height50 width100"
+            //style={{border:'1px solid red'}}
+            ></div>
+            <div className="margin-bottom-1z1">
+              <BasicIframe src={url2} />
+            </div>
+          </div>
+        )}
+      </div>
+
       <div className="normal-wrap padding-bottom-11">
         <a
           ref={myRef}
@@ -1412,7 +1425,7 @@ const LinkListItem = (props) => {
       
       </div>
 
-      <div id={"ipvideo" + props.id}>
+      {/* <div id={"ipvideo" + props.id}>
         {videoId === props.id && props.show === 1 && (
           <div>
             <div className="height50 width100"
@@ -1423,7 +1436,7 @@ const LinkListItem = (props) => {
             </div>
           </div>
         )}
-      </div>
+      </div> */}
 
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">

@@ -934,6 +934,7 @@ const LinkListItem = (props) => {
     //id is the link id, show can be 0 or 1, Url is the Url of the video to play
     alert(id+", "+show+", "+Url)
     const newStr = Url.replace("watch?v=", "embed/");
+    alert(newStr)
     setUrl2(newStr);
     setVideoId(id);
 
@@ -1008,7 +1009,7 @@ const LinkListItem = (props) => {
       </div>
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
-      {props.signup.signup === true && <div id={"ipvideo" + props.id}>
+      <div id={"ipvideo" + props.id}>
         {videoId === props.id && props.show === 1 && (
           <div>
             <div className="height50 width100"
@@ -1019,7 +1020,7 @@ const LinkListItem = (props) => {
             </div>
           </div>
         )}
-      </div>}
+      </div>
 
       <div className="normal-wrap padding-bottom-11">
         <a
@@ -1425,7 +1426,7 @@ const LinkListItem = (props) => {
       
       </div>
 
-      {props.signup.signup === false && <div id={"ipvideo" + props.id}>
+      {/* <div id={"ipvideo" + props.id}>
         {videoId === props.id && props.show === 1 && (
           <div>
             <div className="height50 width100"
@@ -1436,7 +1437,7 @@ const LinkListItem = (props) => {
             </div>
           </div>
         )}
-      </div>}
+      </div> */}
 
       {/* {props.signup.signup === true && (
         <div className="flexrow2w">

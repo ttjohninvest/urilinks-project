@@ -1011,8 +1011,8 @@ const LinkListItem = (props) => {
 
       <div id={"ipvideo" + props.id}>
         {videoId === props.id 
-        && (
-        //props.show === 1 && (
+        && 
+        props.show === 1 && (
           <div>
             <div className="height50 width100"
             //style={{border:'1px solid red'}}

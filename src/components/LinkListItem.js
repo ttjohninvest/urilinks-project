@@ -1075,7 +1075,7 @@ const LinkListItem = (props) => {
               //onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}
               onClick={() => playInPlaceVideo(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1
             >
-              {props.show === 0 ? "Play video in place" : <span className="lightorangetext">Close video</span>}
+              {props.show === 0 ? "Play video in place" : <span className="font-weight-bold-">Close video</span>}
             </span>
           </div>
         )}

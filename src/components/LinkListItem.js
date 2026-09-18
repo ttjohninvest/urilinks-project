@@ -87,7 +87,7 @@ const LinkListItem = (props) => {
   const [blb, setBlb] = useState(false)
   const [copySuccess, setCopySuccess] = useState("");
   const [lastClickTime, setLastClickTime] = useState(0);
-  const THRESHOLD = 5000; // ms
+  const THRESHOLD = 43200000; // ms
 
 //   useEffect(()=>{
 //     //broken link: "http://tyuhn.com/"
@@ -1162,7 +1162,7 @@ const LinkListItem = (props) => {
                 //href="#"
 
                 data-value={props.id}
-                title={"Click to like if you like it. The number of users who have liked the link."}
+                title={"It shows the number of times likes was clicked."}
                 onClick={() => storeScrollPosition2(props.likes, event)}
               >
                 Likes:

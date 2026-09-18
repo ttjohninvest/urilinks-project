@@ -944,7 +944,7 @@ const LinkListItem = (props) => {
     const x = id; //x is link id
 
     if (x1 === 0) {
-      //alert("going to increment")
+      alert("going to increment, props.show="+props.show)
       props.incrementHandleToggle({ id: x, show: 0 });
 
       !!document.querySelector("#ipvideo" + id) &&
@@ -956,7 +956,7 @@ const LinkListItem = (props) => {
       //     behavior: "smooth",
       //   });
     } else {
-      //alert("going to decrement")
+      alert("going to decrement, props.show="+props.show)
       props.decrementHandleToggle({ id: x, show: 1 });
 
       !!document.querySelector(id) &&

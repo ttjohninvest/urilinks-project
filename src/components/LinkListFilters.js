@@ -1858,7 +1858,7 @@ function ExpandableArray(props) {
               ✮ Click the ScrollToTop button to quickly scroll to the top.
               <br />
               <br />
-              ✮ Click the ScrollToBott button to quickly scroll to the bottom.
+              ✮ Click the ScrollToBottom button to quickly scroll to the bottom.
               <br />
               <br />
             </div>

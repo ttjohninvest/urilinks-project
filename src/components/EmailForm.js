@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
+import StorageSizes from "./StorageSizes"
 
 class EmailForm extends React.Component {
   constructor(props) {
@@ -255,7 +256,7 @@ class EmailForm extends React.Component {
                 value={this.state.email}
                 onChange={this.onEmailChange}
                 title="email to send to"
-                maxLength="1024" //2048
+                maxLength={StorageSizes.email} //"1024" //2048
               />
               <input
                 style={{ outline: "none" }}
@@ -265,7 +266,7 @@ class EmailForm extends React.Component {
                 className="text-input"
                 value={this.state.subject}
                 onChange={this.onSubjectChange}
-                maxLength="100" //2048
+                maxLength={StorageSizes.subject} //"100" //2048
               />
 
               <input
@@ -278,7 +279,7 @@ class EmailForm extends React.Component {
                 value={this.state.description}
                 onChange={this.onDescriptionChange}
                 title="After the data is entered, click send mail."
-                maxLength="1024" //2048
+                maxLength={StorageSizes.body} //"1024" //2048
               />
 
               {/* <input

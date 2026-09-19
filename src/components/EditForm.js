@@ -4,6 +4,7 @@ import React from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
+import StorageSizes from "./StorageSizes";
 
 class EditForm extends React.Component {
   constructor(props) {
@@ -312,7 +313,7 @@ class EditForm extends React.Component {
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="After the data is entered, click send mail."
-          maxLength="100" //2048
+          maxLength={StorageSizes.description} //"100" //2048
         />
         <input
           type="text"
@@ -321,7 +322,7 @@ class EditForm extends React.Component {
           className="text-input outline-none"
           value={this.state.Url}
           onChange={this.onUrlChange}
-          maxLength="2048"
+          maxLength={StorageSizes.url} //"2048"
         />
         {/* <input
           type="text"
@@ -347,8 +348,8 @@ class EditForm extends React.Component {
           maxLength={
             !!this.props.theplan.plan &&
             this.props.theplan.plan.replace(/"/g, "") === "free"
-              ? 1024 //2048
-              : 1024 //2048
+              ? StorageSizes.note //1024 //2048
+              : StorageSizes.note //1024 //2048
           } //"2300"
         ></textarea>
 
@@ -368,7 +369,7 @@ class EditForm extends React.Component {
           value={this.state.addescription}
           onChange={this.onAdDescriptionChange}
           title="Enter the link text for the ad. Example: Example For Sale"
-          maxLength="100" //2048
+          maxLength={StorageSizes.url} //2048
         />
          <input
           type="text"
@@ -377,7 +378,7 @@ class EditForm extends React.Component {
           className="text-input outline-none"
           value={this.state.adUrl}
           onChange={this.onUrlChange2}
-          maxLength="2048"
+          maxLength={StorageSizes.url} //"2048"
         />
         <input
           type="text"

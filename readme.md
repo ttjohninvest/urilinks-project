@@ -1,3 +1,7 @@
+costs, each time the process goes through app.js, it rereads the database and transfers data
+the way to prevent this is to not update the user interface until the next log in so i won't see the spinner.
+the only time I will see the spinner is once when the website,urilinks.com, loads the first time
+
 urilinks-project-sitemap, incomplete
 update the three environment variables in vercel.com with new SK_LIVE key from stripe on 9/24/2026, so the payment processor works, this has to be done once a week
 
@@ -2108,4 +2112,48 @@ bookmark url 2048 (When saving a bookmark, the browser associates this bookmark 
 email length 1024
 email subject line 100
 email body 1024
-=======================================
+
+=================================================================================================================
+COSTS TO USE FIREBASE REALTIME DATABASE AND TO TRANSFER DATA FROM IT TO THE CLIENT BROWSER:
+=================================================================================================================
+Two types of costs: Notice that the numbers below are maximum costs if each user uses up all of the avaiable data
+1) storing data in the firebase realtime database at $5.00/1GB
+first 1GB is free, first 400 users supported are free
+2) transfering data from the firebase realtime database from read operations at $1/GB
+first 10GB is free.
+cost depends on how often user requests data from the database,
+when website it loaded, it loads all 400 links from the firebase realtime database to the browser
+==========================================================================================================
+Amount of storage in the firebase realtime database needed per user:
+----------------------------------------------------------------------------------------------------------
+1)
+6000 bytes/link stored per user
+6000 bytes/link * 400 links stored = 2,400,000 bytes storage requred per user
+===========================================================================================================
+1)
+If user uses all of the data available per month:
+I approximated 416 users to 400 users:
+First GB is free, after this $5.00 per GB stored
+How many users is free? 1GB/2,400,000 = first 400 users are free
+400 users uses 1GB of storage in the firebase realtime database
+How many GB of storage is needed for 100,000 users? 100000/400 = 250GB, at $5.00/GB = 250GB*$5=$1,250/month
+so to store 200,000 users, 1,250/month*2=$2,500/month
+After the first 1 GB is used, it costs $5.00 for next 400 users
+so to support 800 users, it will cost $5.00 / month, to support 1200 users will cost $10 per month
+to support 2,400 users will cost $20/month
+==============================================================================================================
+2)
+Charges for transfering data from firebase realtime database to client browser:
+first 10GB is free, after this
+$1.00 per GB transfered billed per month
+==============================================================================================================
+2) monitor it as the website grows in users by looking at the firebase realtime database usage tab
+==============================================================================================================
+REVENUE/year
+200,000 users paying $15 per year = $3,000,000 / year which will cover the database storage and transfer costs
+==============================================================================================================
+                                         FREE
+6000 users, if all 6000 users stay on the free plan, firebase realtime database is free becuase it is less
+than 1GB
+If all 6000 users' transfer data from database to browser is under 10GB it is free
+===============================================================================================================

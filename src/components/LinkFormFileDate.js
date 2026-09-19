@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
+import StorageSizes from "./StorageSizes";
 
 export default class LinkFormFileDate extends React.Component {
   constructor(props) {
@@ -231,7 +232,7 @@ export default class LinkFormFileDate extends React.Component {
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="Uri, Uniform Resource Identifier"
-          maxLength="2048"
+          maxLength={StorageSizes.description} //"2048"
         />
         <input
           type="text"
@@ -239,6 +240,7 @@ export default class LinkFormFileDate extends React.Component {
           className="text-input"
           value={this.state.Url}
           onChange={this.onUrlChange}
+          maxLength={StorageSizes.url}
         />
         {/* <input
           type="text"
@@ -260,7 +262,7 @@ export default class LinkFormFileDate extends React.Component {
           className="textarea"
           value={this.state.note}
           onChange={this.onNoteChange}
-          maxLength="1024"
+          maxLength={StorageSizes.note} //"1024"
         ></textarea>
         <div>
           <button className="button">Save Uri/Url Link</button>

@@ -4,6 +4,7 @@ import React from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
+import StorageSizes from "./StorageSizes"
 
 class EmailSharableLinkForm extends React.Component {
   constructor(props) {
@@ -264,7 +265,7 @@ class EmailSharableLinkForm extends React.Component {
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="After the data is entered, click send mail."
-          maxLength="1024" //2048
+          maxLength={StorageSizes.body} //"1024" //2048
         />
         <input
           type="text"
@@ -273,7 +274,7 @@ class EmailSharableLinkForm extends React.Component {
           className="text-input"
           value={this.state.Url}
           onChange={this.onUrlChange}
-          maxLength="2048"
+          maxLength={StorageSizes.url} //"2048"
         />
         {/* <input
           type="text"
@@ -299,8 +300,8 @@ class EmailSharableLinkForm extends React.Component {
           maxLength={
             !!this.props.theplan.plan &&
             this.props.theplan.plan.replace(/"/g, "") === "free"
-              ? 1024 //2048
-              : 1024 //2048
+              ? StorageSizes.note //1024 //2048
+              : StorageSizes.note //1024 //2048
           } //"2300"
         ></textarea>
         <div>

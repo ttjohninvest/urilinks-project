@@ -299,7 +299,7 @@ onAdDescriptionChange = (e) => {
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="After the data is entered, click send mail."
-          maxLength={StorageSizes.description} "100" //2048
+          maxLength={StorageSizes.description} //"100" //2048
         />
         <input
           type="text"

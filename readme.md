@@ -2090,7 +2090,8 @@ urilinks.com
 https://www.linkedin.com/in/john-mcgovern-9149b642b/
 
 =======================================
-To find all of the field length like in maxLength, search for 2048
+To find all of the field length like in maxLength, search for 2048, it will show were all the ones that changed
+because they all used to be this size 2048 bytes
 fields and lengths:
 ------when adding a link
 description 100

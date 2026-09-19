@@ -264,7 +264,7 @@ class EmailSharableLinkForm extends React.Component {
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="After the data is entered, click send mail."
-          maxLength="2048"
+          maxLength="1024" //2048
         />
         <input
           type="text"
@@ -299,8 +299,8 @@ class EmailSharableLinkForm extends React.Component {
           maxLength={
             !!this.props.theplan.plan &&
             this.props.theplan.plan.replace(/"/g, "") === "free"
-              ? 2048
-              : 2048
+              ? 1024 //2048
+              : 1024 //2048
           } //"2300"
         ></textarea>
         <div>

@@ -3197,11 +3197,11 @@ const FetchBookmarks = (props) => {
                       "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
                     r = props.startAddLink({
-                      description: truncateString(result[i].description,2048),
+                      description: truncateString(result[i].description,100),
                       Url:  truncateString2(result[i].Url,2048), //, //href,
                       yturl:  truncateString2(result[i].yturl,2048),
-                      note:  truncateString2(result[i].note,2048),
-                      foldername:  truncateString2(result[i].foldername,2048),
+                      note:  truncateString2(result[i].note,1024),
+                      foldername:  truncateString2(result[i].foldername,50),
                       amount: 0,
                       createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                       faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon

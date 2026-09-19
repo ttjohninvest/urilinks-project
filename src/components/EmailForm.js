@@ -255,7 +255,7 @@ class EmailForm extends React.Component {
                 value={this.state.email}
                 onChange={this.onEmailChange}
                 title="email to send to"
-                maxLength="2048"
+                maxLength="1024" //2048
               />
               <input
                 style={{ outline: "none" }}
@@ -265,7 +265,7 @@ class EmailForm extends React.Component {
                 className="text-input"
                 value={this.state.subject}
                 onChange={this.onSubjectChange}
-                maxLength="2048"
+                maxLength="100" //2048
               />
 
               <input
@@ -278,7 +278,7 @@ class EmailForm extends React.Component {
                 value={this.state.description}
                 onChange={this.onDescriptionChange}
                 title="After the data is entered, click send mail."
-                maxLength="2048"
+                maxLength="1024" //2048
               />
 
               {/* <input

@@ -312,7 +312,7 @@ class EditForm extends React.Component {
           value={this.state.description}
           onChange={this.onDescriptionChange}
           title="After the data is entered, click send mail."
-          maxLength="2048"
+          maxLength="100" //2048
         />
         <input
           type="text"
@@ -347,8 +347,8 @@ class EditForm extends React.Component {
           maxLength={
             !!this.props.theplan.plan &&
             this.props.theplan.plan.replace(/"/g, "") === "free"
-              ? 2048
-              : 2048
+              ? 1024 //2048
+              : 1024 //2048
           } //"2300"
         ></textarea>
 
@@ -368,7 +368,7 @@ class EditForm extends React.Component {
           value={this.state.addescription}
           onChange={this.onAdDescriptionChange}
           title="Enter the link text for the ad. Example: Example For Sale"
-          maxLength="2048"
+          maxLength="100" //2048
         />
          <input
           type="text"

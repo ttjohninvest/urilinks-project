@@ -805,7 +805,7 @@ export const startSetLinks = (uid) => {
 // };
 
 export const startSetLinksNew = (uid) => {
-  console.log("startSetLinks");
+  console.log("startSetLinksNew");
   return (dispatch, getState) => {
     const hashtags = [];
 

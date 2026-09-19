@@ -267,7 +267,7 @@ const LinkListItem = (props) => {
      const now = Date.now();
     // Only proceed if more than THRESHOLD ms have passed since the last click
     if (now - lastClickTime > THRESHOLD) {
-       if (confirm(text) == true) {
+       //if (confirm(text) == true) {
       setLastClickTime(now);
       //console.log('Action executed');
 
@@ -289,7 +289,7 @@ const LinkListItem = (props) => {
 
     window.localStorage.setItem("scrollPosition", window.scrollY);
 
-    }
+    //}
     }
 
    

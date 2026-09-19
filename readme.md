@@ -2093,15 +2093,17 @@ https://www.linkedin.com/in/john-mcgovern-9149b642b/
 To find all of the field length like in maxLength, search for 2048, it will show were all the ones that changed
 because they all used to be this size 2048 bytes
 fields and lengths:
-------when adding a link
-description 100
-url 2048
-note 1024
-addescription 100
-adUrl 2048
+------when adding a link one at a time
+link description 100
+link url 2048
+link note 1024
+link addescription 100
+link adUrl 2048
 ------when making bookmarks with browser
-bookmark folder name 50
-bookmark description 100
+bookmark folder name 50 (becomes hashtag)
+bookmark description 100 (this came from the search string and becomes link description)
+bookmark url 2048 (When saving a bookmark, the browser associates this bookmark url with the bookmark description and bookmark folder name, bookmark url becomes link url )
+(notice that after the bookmarks have been uploaded into urilinks, text ads may need to be added individually with Edit Link or by clicking on "Nothing Yet" which appears after "See What is for sale?")
 ------when emailing someone
 email length 1024
 email subject line 100

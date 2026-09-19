@@ -261,6 +261,34 @@ allow read, write;
 
 ---
 
++++++++++++++++++++++++++++++++++++++++++++
+//firebase realtime database rules, 9/18/2026 these work
+
+{
+"rules": {
+"users":{
+"$uid": { 
+  ".read":true,
+  ".write":"$uid === auth.uid",
+  },
+  "links": {
+    ".read":true,
+    ".write": "$uid === auth.uid"
+    "$id": {
+      ".read":true,
+      ".write": "$uid === auth.uid"
+      "frequency": {
+        ".read": true,
+        ".write": true       
+      }
+     }
+  }
+}
+}
+}
+
++++++++++++++++++++++++++++++++++++++++++++
+
 these 4 work
 {
 "rules": {
@@ -2055,3 +2083,8 @@ firebase real time database record size:
 (5*2048)+60+28+(2*512)+(2\*100)+82=11634, round up: 12000 bytes
 
 ====================================================================
+
+linkedin.com
+ttjohninvest4@gmail.com
+urilinks.com
+https://www.linkedin.com/in/john-mcgovern-9149b642b/

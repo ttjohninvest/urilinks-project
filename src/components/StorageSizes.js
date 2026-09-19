@@ -6,7 +6,7 @@ const StorageSizes = {
   premium:400,
   mine:800,
 
-  description:100,
+  description:200,
   url:2048,
   note:1024,
   email:1024,

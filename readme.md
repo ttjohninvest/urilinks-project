@@ -2088,3 +2088,21 @@ linkedin.com
 ttjohninvest4@gmail.com
 urilinks.com
 https://www.linkedin.com/in/john-mcgovern-9149b642b/
+
+=======================================
+To find all of the field length like in maxLength, search for 2048
+fields and lengths:
+------when adding a link
+description 100
+url 2048
+note 1024
+addescription 100
+adUrl 2048
+------when making bookmarks with browser
+bookmark folder name 50
+bookmark description 100
+------when emailing someone
+email length 1024
+email subject line 100
+email body 1024
+=======================================

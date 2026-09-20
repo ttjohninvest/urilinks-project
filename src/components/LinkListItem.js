@@ -162,18 +162,18 @@ const LinkListItem = (props) => {
       // User clicked OK, perform the deletion
       props.removeLink({ id: event.target.value });
       props.startRemoveLink({ id: event.target.value });
-      alert("Link removed.");
-       const x = confirm("Do you want to refresh the menu?");
-      if (x === true) {
+      //alert("Link removed.");
+    //    const x = confirm("Do you want to refresh the menu?");
+    //   if (x === true) {
         
-        //window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
-      }
-    } else {
-      // User clicked Cancel
-      document.getElementById("delete%" + event.target.value).checked = false;
+    //     window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
+    //   }
+    // } else {
+    //   // User clicked Cancel
+    //   document.getElementById("delete%" + event.target.value).checked = false;
       
-      alert("Deletion canceled.");
-    }
+    //   alert("Deletion canceled.");
+    // }
   };
 
   const handleCheckboxPrivate = (x, event) => {

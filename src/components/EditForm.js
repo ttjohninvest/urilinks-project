@@ -378,7 +378,7 @@ class EditForm extends React.Component {
           className="text-input outline-none"
           value={this.state.adUrl}
           onChange={this.onUrlChange2}
-          maxLength={StorageSizes.url} //"2048"
+          maxLength="2048" //{StorageSizes.url} //
         />
         <input
           type="text"

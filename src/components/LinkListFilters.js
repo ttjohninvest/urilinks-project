@@ -114,6 +114,7 @@ function ExpandableArray(props) {
   const id = params.get("id");
   const z = params.get("z");
   const thelink = params.get("link")
+  const linkid =  params.get("p")
 
   const childRef = useRef(null);
 
@@ -140,13 +141,25 @@ function ExpandableArray(props) {
       //   document.querySelector("#results1").scrollIntoView({
       //     behavior: "smooth",
       //   });
-      !!document.querySelector("#before-before-link-summary-id") &&
+      if(linkid!== null) {
+  if(!!document.querySelector("#"+linkid)) {
+
+        document
+          .querySelector("#"+linkid)
+          .scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      } else {
+        if(!!document.querySelector("#before-before-link-summary-id")) {
         document
           .querySelector("#before-before-link-summary-id")
           .scrollIntoView({
             behavior: "smooth",
           });
-
+        }
+      }
+    
           if(id !== null && id !== undefined) {
             if(thelink !== null && thelink !== undefined)
             props.setit(thelink, undefined);

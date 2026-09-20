@@ -341,6 +341,9 @@ export const LinkList = (props) => {
   // }
   //
   useEffect(() => {
+     console.log("AAAAA,z="+z);
+      console.log("AAAAA,z2="+z2);
+      console.log("AAAAA,linkid="+linkid);
     if(z!=1) {
        //starts automatic scrolling or auto scroll
        //props.stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up

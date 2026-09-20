@@ -344,7 +344,7 @@ export const LinkList = (props) => {
      console.log("AAAAA,z="+z);
       console.log("AAAAA,z2="+z2);
       console.log("AAAAA,linkid="+linkid);
-    if(z!=1) {
+    if(z !== "1") {
        //starts automatic scrolling or auto scroll
        //props.stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
        //check here to see if scroll has started because the user clicked the scollup or scrolldn button
@@ -353,17 +353,17 @@ export const LinkList = (props) => {
 
     if (z2 === "2") {
       
-  //    console.log("in z2===2, linkid="+linkid)
-  // if(!!document.querySelector("#"+linkid)) {
-       // console.log("!!document.querySelector('#'+linkid) was TRUE")
+     console.log("in z2===2, linkid="+linkid)
+  if(!!document.querySelector("#"+linkid)) {
+       console.log("!!document.querySelector('#'+linkid) was TRUE")
         document
           .querySelector("#"+linkid)
           .scrollIntoView({
             behavior: "smooth",
           });
-        // } else {
-        //   console.log("!!document.querySelector('#'+linkid) was FALSE")
-        // }
+        } else {
+          console.log("!!document.querySelector('#'+linkid) was FALSE")
+        }
       }
    
     

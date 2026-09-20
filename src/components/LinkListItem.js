@@ -165,8 +165,8 @@ const LinkListItem = (props) => {
       alert("Link removed.");
        const x = confirm("Do you want to refresh the menu?");
       if (x === true) {
-        //props.history.push("/");
-        window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
+        
+        //window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
       }
     } else {
       // User clicked Cancel

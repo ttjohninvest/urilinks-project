@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
+const params = new URLSearchParams(window.location.search);
+const linkid = params.get("p");
+
 export const PublicRoute = ({
   isAuthenticated,
   component: Component,
@@ -9,7 +12,7 @@ export const PublicRoute = ({
 }) => (
     <Route {...rest} component={(props) => (
       isAuthenticated ? (
-        <Redirect to="/dashboard?signup=signup&z2=1" />
+        <Redirect to={`/dashboard?signup=signup&z2=1&p=${linkid}`} />
       ) : (
           <Component {...props} />
         )

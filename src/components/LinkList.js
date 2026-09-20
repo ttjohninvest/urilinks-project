@@ -351,9 +351,9 @@ export const LinkList = (props) => {
        props.handleStartScroll(props.scrollupref.current)
     }
 
-    if (z2 === "1") {
+    if (z2 === "2") {
       
-     console.log("in z2===1, linkid="+linkid)
+     console.log("in z2===2, linkid="+linkid)
   if(!!document.querySelector("#"+linkid)) {
         console.log("!!document.querySelector('#'+linkid) was TRUE")
         document

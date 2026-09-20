@@ -136,6 +136,8 @@ function ExpandableArray(props) {
       "ZZZZZ, props.mappedDataShort[0]=" +
         JSON.stringify(props.mappedDataShort[0]),
     );
+    console.log("ZZZZZ,z="+z);
+      console.log("ZZZZZ,z2="+z2);
     //before-before-link-summary-id
     if (z === 1)
         if(!!document.querySelector("#before-before-link-summary-id")) {

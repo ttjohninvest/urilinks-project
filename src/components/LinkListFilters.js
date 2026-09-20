@@ -137,6 +137,10 @@ function ExpandableArray(props) {
     );
     //before-before-link-summary-id
     if (z === 1)
+       console.log(
+      "1ZZZZZ, props.mappedDataShort[0]=" +
+        JSON.stringify(props.mappedDataShort[0]),
+    );
       // !!document.querySelector("#results1") &&
       //   document.querySelector("#results1").scrollIntoView({
       //     behavior: "smooth",
@@ -150,7 +154,7 @@ function ExpandableArray(props) {
             behavior: "smooth",
           });
         } else {
-          console.log("!!document.querySelector('#'+linkid) did FAILED")
+          console.log("!!document.querySelector('#'+linkid) was FALSE")
         }
       } else {
         if(!!document.querySelector("#before-before-link-summary-id")) {

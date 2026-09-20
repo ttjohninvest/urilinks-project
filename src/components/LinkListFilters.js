@@ -115,7 +115,7 @@ function ExpandableArray(props) {
   const z = params.get("z");
   const thelink = params.get("link")
   const linkid =  params.get("p")
-
+  console.log("linkid="+linkid)
   const childRef = useRef(null);
 
   const handleStartScroll = (v) => {

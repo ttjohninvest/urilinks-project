@@ -20,7 +20,7 @@ export class EditLinkPage extends React.Component {
    
     
        
-      window.location.href = "https://urilinks.com?signup=signup&z2=2";
+      window.location.href = "https://urilinks.com?signup=signup&z2=2&p="+this.props.link.id;
       
 
   

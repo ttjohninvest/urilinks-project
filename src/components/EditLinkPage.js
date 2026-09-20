@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import EditForm from "./EditForm";
 import { startEditLink, startRemoveLink, removeLink } from "../actions/links";
 
@@ -12,14 +13,14 @@ export class EditLinkPage extends React.Component {
      
     }
   }
-
+  
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
     
    
     
-      
-      //window.location.href = "https://urilinks.com?signup=signup&z2=2";
+       
+      window.location.href = "https://urilinks.com?signup=signup&z2=2";
       
 
   
@@ -29,7 +30,7 @@ export class EditLinkPage extends React.Component {
 
   handleClose4 = () => {
      
-    //this.props.history.push("/");
+    
     window.location.href="https://urilinks.com?signup=signup&z=1"
   }
   //onRemove = (value,event) => {

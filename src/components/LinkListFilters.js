@@ -113,6 +113,7 @@ function ExpandableArray(props) {
   const rt = params.get("x");
   const id = params.get("id");
   const z = params.get("z");
+  const z2 = params.get("z2");
   const thelink = params.get("link")
   const linkid =  params.get("p")
   //console.log("linkid="+linkid)
@@ -137,15 +138,19 @@ function ExpandableArray(props) {
     );
     //before-before-link-summary-id
     if (z === 1)
-       console.log(
-      "1ZZZZZ, props.mappedDataShort[0]=" +
-        JSON.stringify(props.mappedDataShort[0]),
-    );
-      // !!document.querySelector("#results1") &&
-      //   document.querySelector("#results1").scrollIntoView({
-      //     behavior: "smooth",
-      //   });
-      if(linkid!== null) {
+        if(!!document.querySelector("#before-before-link-summary-id")) {
+        document
+          .querySelector("#before-before-link-summary-id")
+          .scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      
+        
+
+      if (z2 === 1) {
+      
+     
   if(!!document.querySelector("#"+linkid)) {
         console.log("!!document.querySelector('#'+linkid) was TRUE")
         document
@@ -155,14 +160,6 @@ function ExpandableArray(props) {
           });
         } else {
           console.log("!!document.querySelector('#'+linkid) was FALSE")
-        }
-      } else {
-        if(!!document.querySelector("#before-before-link-summary-id")) {
-        document
-          .querySelector("#before-before-link-summary-id")
-          .scrollIntoView({
-            behavior: "smooth",
-          });
         }
       }
     

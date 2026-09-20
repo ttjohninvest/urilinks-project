@@ -30,6 +30,8 @@ import StorageSizes from "./StorageSizes";
 const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
 const z = params.get("z");
+const z2 = params.get("z2");
+const linkid = params.get("p");
 
 export const LinkList = (props) => {
   const thelinks = [
@@ -345,6 +347,21 @@ export const LinkList = (props) => {
        //check here to see if scroll has started because the user clicked the scollup or scrolldn button
        props.handleStartScroll(props.scrollupref.current)
     }
+
+    if (z2 === "1") {
+      
+     console.log("in z2===1, linkid="+linkid)
+  if(!!document.querySelector("#"+linkid)) {
+        console.log("!!document.querySelector('#'+linkid) was TRUE")
+        document
+          .querySelector("#"+linkid)
+          .scrollIntoView({
+            behavior: "smooth",
+          });
+        } else {
+          console.log("!!document.querySelector('#'+linkid) was FALSE")
+        }
+      }
    
     
   }, []);

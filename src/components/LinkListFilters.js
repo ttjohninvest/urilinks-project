@@ -151,20 +151,20 @@ function ExpandableArray(props) {
       
         
 
-      if (z2 === "1") {
+  //     if (z2 === "1") {
       
-     console.log("in z2===1, linkid="+linkid)
-  if(!!document.querySelector("#"+linkid)) {
-        console.log("!!document.querySelector('#'+linkid) was TRUE")
-        document
-          .querySelector("#"+linkid)
-          .scrollIntoView({
-            behavior: "smooth",
-          });
-        } else {
-          console.log("!!document.querySelector('#'+linkid) was FALSE")
-        }
-      }
+  //    console.log("in z2===1, linkid="+linkid)
+  // if(!!document.querySelector("#"+linkid)) {
+  //       console.log("!!document.querySelector('#'+linkid) was TRUE")
+  //       document
+  //         .querySelector("#"+linkid)
+  //         .scrollIntoView({
+  //           behavior: "smooth",
+  //         });
+  //       } else {
+  //         console.log("!!document.querySelector('#'+linkid) was FALSE")
+  //       }
+  //     }
     
           if(id !== null && id !== undefined) {
             if(thelink !== null && thelink !== undefined)

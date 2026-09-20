@@ -115,7 +115,7 @@ function ExpandableArray(props) {
   const z = params.get("z");
   const thelink = params.get("link")
   const linkid =  params.get("p")
-  console.log("linkid="+linkid)
+  //console.log("linkid="+linkid)
   const childRef = useRef(null);
 
   const handleStartScroll = (v) => {
@@ -143,12 +143,14 @@ function ExpandableArray(props) {
       //   });
       if(linkid!== null) {
   if(!!document.querySelector("#"+linkid)) {
-
+        console.log("!!document.querySelector('#'+linkid) was TRUE")
         document
           .querySelector("#"+linkid)
           .scrollIntoView({
             behavior: "smooth",
           });
+        } else {
+          console.log("!!document.querySelector('#'+linkid) did FAILED")
         }
       } else {
         if(!!document.querySelector("#before-before-link-summary-id")) {

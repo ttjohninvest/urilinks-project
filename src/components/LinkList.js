@@ -353,17 +353,17 @@ export const LinkList = (props) => {
 
     if (z2 === "2") {
       
-     console.log("in z2===2, linkid="+linkid)
-  if(!!document.querySelector("#"+linkid)) {
-        console.log("!!document.querySelector('#'+linkid) was TRUE")
+  //    console.log("in z2===2, linkid="+linkid)
+  // if(!!document.querySelector("#"+linkid)) {
+       // console.log("!!document.querySelector('#'+linkid) was TRUE")
         document
           .querySelector("#"+linkid)
           .scrollIntoView({
             behavior: "smooth",
           });
-        } else {
-          console.log("!!document.querySelector('#'+linkid) was FALSE")
-        }
+        // } else {
+        //   console.log("!!document.querySelector('#'+linkid) was FALSE")
+        // }
       }
    
     

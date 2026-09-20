@@ -151,7 +151,7 @@ function ExpandableArray(props) {
       
         
 
-      if (z2 === 1) {
+      if (z2 === "1") {
       
      console.log("in z2===1, linkid="+linkid)
   if(!!document.querySelector("#"+linkid)) {

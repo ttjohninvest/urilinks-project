@@ -3,6 +3,7 @@ import * as firebase from "firebase/app";
 import { connect } from "react-redux";
 import BasicIframe from "./BasicIframe";
 import CopySalesButton from "./CopySalesButton";
+import StorageSizes from "./StorageSizes";
 
 import visited from "../assets/images/visited-1.png";
 import {
@@ -309,7 +310,7 @@ const LinkListItem = (props) => {
         //alert("going to increment,id="+x)
         //alert("going to increment,id="+x+", props.star="+props.star)
         
-        if (parseInt(props.thetotalstars.totalstars) < 10) {
+        if (parseInt(props.thetotalstars.totalstars) < StorageSizes.starsmaximum) {
            props.incrementLinkStarClickCount({ id: x, star: 0 });
            props.incrementTotalStarClickCount({
             totalstars: props.thetotalstars.totalstars,
@@ -1191,7 +1192,7 @@ const LinkListItem = (props) => {
                   title={"click to select to your top ten"}
                   onClick={() => storeScrollPosition3(props.star, event)}
                 >
-                 Star (My Top Ten):
+                 Star (My Top Twenty):
                 </span>
 
                 <span
@@ -1309,7 +1310,7 @@ const LinkListItem = (props) => {
                   title={"click to select to your top ten"}
                   onClick={() => storeScrollPosition3(props.star, event)}
                 >
-                  Star (My Top Ten):
+                  Star (My Top Twenty):
                 </span>
 
                 <span

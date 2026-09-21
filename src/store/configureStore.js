@@ -11,7 +11,6 @@ import filtersfiledateReducer from '../reducers/filtersfiledate';
 import authReducer from '../reducers/auth';
 import settingsReducer from '../reducers/settings';
 import hashtagsReducer from '../reducers/hashtags';
-import frommenuReducer from '../reducers/fommenu';
 import hashtags2withcountReducer from '../reducers/hashtags2withcount';
 import hashtags2Reducer from '../reducers/hashtags2';
 
@@ -43,7 +42,7 @@ import spReducer from '../reducers/sp';
 import peopleReducer from '../reducers/people';
 import gudReducer from '../reducers/gud';
 import bmokReducer from '../reducers/bmok';
-import formmenuReducer from '../reducers/formmenu';
+import frommenuReducer from '../reducers/frommenu';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -64,7 +63,7 @@ export default () => {
       hashtags2withcountfiledate: hashtags2withcountfiledateReducer,
       notetext: notetextReducer,
       setit: setitReducer,
-      formmenu:formmenuReducer,
+      frommenu:frommenuReducer,
       setitfiledate: setitfiledateReducer,
       url: storageReducer,
       customerId: customeridReducer,

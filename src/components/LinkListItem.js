@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import BasicIframe from "./BasicIframe";
 import CopySalesButton from "./CopySalesButton";
 import StorageSizes from "./StorageSizes";
-import { setFrommenu } from "../actions/frommenu";
 
 import visited from "../assets/images/visited-1.png";
 import {

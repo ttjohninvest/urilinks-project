@@ -966,16 +966,14 @@ const LinkListItem = (props) => {
       // else props.incrementHandleToggle3({ id: x, show: 0 });
       props.incrementHandleToggle3({ id: x, show: 0 });
       
-      if(props.links.length===1) {
- !!document.querySelector("#ipvideo2" + id) &&
-        document.querySelector("#ipvideo2" + id).scrollIntoView({
-          behavior: "smooth",
-        });
-      }else {
+     
  !!document.querySelector("#ipvideo" + id) &&
         document.querySelector("#ipvideo" + id).scrollIntoView({
           behavior: "smooth",
         });
+      
+      if(props.links.length === 1) {
+        scrollTo(0,0)
       }
      
       // !!document.querySelector("#forvideo" + id) &&
@@ -1020,7 +1018,7 @@ const LinkListItem = (props) => {
         )}
       </div>
       <div>
-        <div id={"ipvideo2" + props.id}></div>
+       
         {!!props.yturl && (
           <a
             ref={myRef4}

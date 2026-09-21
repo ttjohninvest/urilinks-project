@@ -943,7 +943,7 @@ const LinkListItem = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  //const playInPlaceVideo = (videoid, id, Url) => {
+
   const playInPlaceVideo = (id, show, Url, event) => {
 
 
@@ -973,16 +973,29 @@ const LinkListItem = (props) => {
       console.log("1 LinkListItem.js, props.id="+props.id)
       console.log("1 LinkListItem.js, show="+show)
 
-      if(0) {      
-      //if( show === 0) {
-      console.log("2 LinkListItem.js, props.links.length="+props.links.length)
+      //if(0) {      
+      if( show === 0) {
+//       console.log("2 LinkListItem.js, props.links.length="+props.links.length)
+//       document.querySelector("").scrollTo({
+//   top: 100,
+//   left: 0,
+//   behavior: 'smooth'
+// });
+
+    if(!!document.querySelector("#ipvideo" + id)) {
+        document.querySelector("#ipvideo" + id).scrollIntoView({
+          behavior: "smooth",
+          block:"start"
+        });
+
+      window.scrollBy({ 
+        top: 100, 
+        behavior: 'smooth' 
+      });
       
       } else {
         console.log("3 LinkListItem.js, props.links.length="+props.links.length)
-        if(!!document.querySelector("#ipvideo" + id)) {
-        document.querySelector("#ipvideo" + id).scrollIntoView({
-          behavior: "smooth",
-        });
+    
       
       }
      //window.scrollTo(0, document.body.scrollHeight)

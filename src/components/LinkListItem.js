@@ -986,8 +986,10 @@ const LinkListItem = (props) => {
 
         if(props.frommenu.frommenu===true) {
           console.log("frommenu")
-          setFrommenu(false)
+          //setFrommenu({frommenu:false})
           //props.ls2element.scrollBy(0,100)
+        } else {
+          alert("frommenu is false")
         }
         
 

@@ -971,20 +971,21 @@ const LinkListItem = (props) => {
       console.log("1 LinkListItem.js, props.links.length="+props.links.length)
       console.log("1 LinkListItem.js, videoId="+videoId)
       console.log("1 LinkListItem.js, props.id="+props.id)
-      console.log("1 LinkListItem.js, props.show="+props.show)
+      console.log("1 LinkListItem.js, show="+show)
 
-      if( videoId === props.id && props.show === 1) {
-      //   console.log("2 LinkListItem.js, props.links.length="+props.links.length)
-      //  window.scrollTo(0, document.body.scrollHeight)
+      //if(0) {      
+      if( show === 1) {
+      console.log("2 LinkListItem.js, props.links.length="+props.links.length)
+      window.scrollTo(0, -100)
       } else {
-//         console.log("3 LinkListItem.js, props.links.length="+props.links.length)
-// if(!!document.querySelector("#ipvideo" + id)) {
-//         document.querySelector("#ipvideo" + id).scrollIntoView({
-//           behavior: "smooth",
-//         });
+        console.log("3 LinkListItem.js, props.links.length="+props.links.length)
+if(!!document.querySelector("#ipvideo" + id)) {
+        document.querySelector("#ipvideo" + id).scrollIntoView({
+          behavior: "smooth",
+        });
       
-//       }
-     window.scrollTo(0, document.body.scrollHeight)
+      }
+     //window.scrollTo(0, document.body.scrollHeight)
 
 
 

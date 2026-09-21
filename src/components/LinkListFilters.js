@@ -6,6 +6,7 @@ import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import { LinkList3 } from "./LinkList3.js";
 import honoring from "../assets/honoring/christmas-tree.png";
+import { setFrommenu } from "../actions/frommenu";
 import CopyButton from "./CopyButton";
 import HashTagsButton from "./HashTagsButton";
 //import AddLinkPage from "./AddlinkPage";
@@ -75,8 +76,6 @@ function ExpandableArray(props) {
   const [aValue, setAValue] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const [idexists, setIdexists] = useState(0);
-  const [frommenu, setFrommenu] = useState(false);
-
 
   const fullText =
     "❤️ Benefits: (urilinks comes with a make money oportunity too) urilinks is a platform for orgainizing links to internet websites and sharing your links to internet users of your choice and providing user advertising space for you to make money by entering an optional text ad with each link. It is made with love and care. It works. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. If you want help, please contact tech support at 775 559 5740. Please try a user account today through friendly login. Thank you so much.";
@@ -740,7 +739,6 @@ function ExpandableArray(props) {
     setActiveItem(index);
     props.setit(ht, e);
     setFrommenu(true)
-
     handleClose3();
 
     // !!document.querySelector("#before-before-link-summary-id") &&

@@ -983,7 +983,7 @@ const LinkListItem = (props) => {
           //block:"start"
         });
 
-        if(props.frommenu===true) {
+        if(props.frommenu.frommenu===true) {
           console.log("frommenu")
           //props.ls2element.scrollBy(0,100)
         }
@@ -1524,6 +1524,7 @@ const mapStateToProps = (state) => ({
   filters: state.filters,
   auth: state.auth,
   links: state.links,
+  frommenu:state.frommenu
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

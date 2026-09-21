@@ -11,7 +11,7 @@ import filtersfiledateReducer from '../reducers/filtersfiledate';
 import authReducer from '../reducers/auth';
 import settingsReducer from '../reducers/settings';
 import hashtagsReducer from '../reducers/hashtags';
-
+import frommenuReducer from '../reducers/frommenu';
 import hashtags2withcountReducer from '../reducers/hashtags2withcount';
 import hashtags2Reducer from '../reducers/hashtags2';
 
@@ -90,6 +90,7 @@ export default () => {
       gud: gudReducer,
       links3:links3Reducer,
       bmok:bmokReducer,
+      frommenu:frommenuReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

@@ -523,7 +523,7 @@ export const LinkList = (props) => {
                           signup={props.signup.signup}
                           idexists={props.idexists}
                           ls2element={document.querySelector("#ls2")}
-                          frommenu={props.frommenu}
+                          
                         />
                       </div>
                     );

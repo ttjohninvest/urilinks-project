@@ -971,7 +971,7 @@ const LinkListItem = (props) => {
       console.log("LinkListItem.js, props.links.length="+props.links.length)
 
       if( videoId === props.id && props.show === 1) {
-        window.scrollTo(0,50)
+       window.scrollTo(0, document.body.scrollHeight)
       } else {
 if(!!document.querySelector("#ipvideo" + id)) {
         document.querySelector("#ipvideo" + id).scrollIntoView({

@@ -973,7 +973,7 @@ const LinkListItem = (props) => {
       console.log("1 LinkListItem.js, videoId="+videoId)
       console.log("1 LinkListItem.js, props.id="+props.id)
       console.log("1 LinkListItem.js, show="+show)
-      console.log("1 LinkListItem.js, frommenu="+props.frommenu)
+      console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
 
           
       if( show === 0) {

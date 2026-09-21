@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import BasicIframe from "./BasicIframe";
 import CopySalesButton from "./CopySalesButton";
 import StorageSizes from "./StorageSizes";
+import { setFrommenu } from "../actions/frommenu";
 
 import visited from "../assets/images/visited-1.png";
 import {
@@ -985,6 +986,7 @@ const LinkListItem = (props) => {
 
         if(props.frommenu.frommenu===true) {
           console.log("frommenu")
+          setFrommenu(false)
           //props.ls2element.scrollBy(0,100)
         }
         

@@ -739,7 +739,7 @@ function ExpandableArray(props) {
     setActiveItem(index);
     props.setit(ht, e);
     alert("about to call setFrommenu")
-    setFrommenu({frommenu:true})
+    props.setFrommenu({frommenu:true})
     handleClose3();
 
     // !!document.querySelector("#before-before-link-summary-id") &&

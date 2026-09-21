@@ -167,7 +167,7 @@ const LinkDashboardPage = (props) => {
     setV1(!v1);
 
     window.scrollTo({
-      top: 0,
+      top: 100,
       behavior: "smooth"
     });
 
@@ -178,25 +178,6 @@ const LinkDashboardPage = (props) => {
         behavior: "smooth",
       });
   };
-
-  //this.setit = this.setit.bind(this);
-  // const setit = (value, event) => {
-  //   event.preventDefault();
-  //   value="Animals"
-  //   console.log("setIt, 3333333333333333333333333 value=" + value);
-
-  //   this.props.sortByHashTag();
-  //   this.props.setTextFilter(value);
-
-  //   window.localStorage.setItem("sortBy", "hashtag");
-  //   window.localStorage.setItem("searchLinks3", value);
-
-  //   //this scrolls the results into view, the first and subsequent result is shown
-  //   !!document.querySelector("#before-before-link-summary-id") &&
-  //     document.querySelector("#before-before-link-summary-id").scrollIntoView({
-  //       behavior: "smooth",
-  //     });
-  // };
 
   useEffect(() => {
     //window.scrollTo(0,0)

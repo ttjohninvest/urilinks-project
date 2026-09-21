@@ -2229,7 +2229,7 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("searchLinks3", value);
 
     this.props.rerenderit();
-    window.scrollTo(0,0)
+    
   };
 
   refreshIt = () => {

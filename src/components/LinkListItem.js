@@ -967,13 +967,15 @@ const LinkListItem = (props) => {
       props.incrementHandleToggle3({ id: x, show: 0 });
       
      
- !!document.querySelector("#ipvideo" + id) &&
-        document.querySelector("#ipvideo" + id).scrollIntoView({
-          behavior: "smooth",
-        });
+ 
       
       if(props.links.length === 1) {
         scrollTo(0,0)
+      } else {
+!!document.querySelector("#ipvideo" + id) &&
+        document.querySelector("#ipvideo" + id).scrollIntoView({
+          behavior: "smooth",
+        });
       }
      
       // !!document.querySelector("#forvideo" + id) &&

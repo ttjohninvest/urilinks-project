@@ -369,6 +369,14 @@ export const LinkList = (props) => {
     
   }, []);
 
+  const goTolinkid = () => {
+     document
+          .querySelector("#"+linkid)
+          .scrollIntoView({
+            behavior: "smooth",
+          });
+  }
+
   
 
   return (
@@ -386,6 +394,16 @@ export const LinkList = (props) => {
       <div className="margin-left-11 margin-top-n-1u"
       style={{zIndex:99}}
       >
+         <button
+          id="linkid"
+          //ref={props.scrollupref}
+          title="Go to linkid."
+          onClick={goTolinkid}
+          className="ib button-2 widthxpx1"
+          style={{zIndex:99}}
+        >
+          <span>p</span>
+        </button>
         <button
           id="scrollup1"
           ref={props.scrollupref}

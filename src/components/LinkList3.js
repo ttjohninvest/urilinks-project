@@ -46,6 +46,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
   startScrollToBottom2={props.startScrollToBottom2}
   stopScrolling2={props.stopScrolling2}
   scrollInterval2={props.scrollInterval2}
+  frommenu={frommenu}
       />
      
     </div>

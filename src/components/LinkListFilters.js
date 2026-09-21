@@ -75,7 +75,7 @@ function ExpandableArray(props) {
   const [aValue, setAValue] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const [idexists, setIdexists] = useState(0);
-  
+  const [frommenu, setFrommenu] = useState(false);
 
 
   const fullText =
@@ -739,6 +739,7 @@ function ExpandableArray(props) {
     props.stopScrolling2()
     setActiveItem(index);
     props.setit(ht, e);
+    setFrommenu(true)
 
     handleClose3();
 
@@ -1751,7 +1752,7 @@ function ExpandableArray(props) {
                   startScrollToBottom2={startScrollToBottom2}
                   stopScrolling2={props.stopScrolling2}
                   scrollInterval2={props.scrollInterval2}
-                  frommenu={props.frommenu}
+              
                 />
               </div>
             </div>
@@ -1911,8 +1912,8 @@ export class LinkListFilters extends React.Component {
       //   !!window.localStorage.getItem("newspaper") === "true" ? true : false,
       foldernamesList: [],
       isToggled: false,
-      searchTerm: "", //,
-      frommenu:false
+      searchTerm: "" //,
+      
     };
 
     this.setit = this.setit.bind(this);
@@ -2232,7 +2233,7 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("searchLinks3", value);
 
     this.props.rerenderit();
-    this.setState({frommenu:true})
+    
   };
 
   refreshIt = () => {
@@ -2325,7 +2326,7 @@ export class LinkListFilters extends React.Component {
           signupcount={this.props.thesignupcount.signupcount}
           userscounti={this.props.theuserscounti.userscounti}
           totalloggedout={this.props.thetotalloggedout.totalloggedout}
-          frommenu={this.state.frommenu}
+        
         />
       </div>
     );

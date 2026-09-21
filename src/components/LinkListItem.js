@@ -983,7 +983,8 @@ const LinkListItem = (props) => {
         });
 
         if(props.frommenu===true) {
-          props.ls2element.scrollBy(0,100)
+          console.log("frommenu")
+          //props.ls2element.scrollBy(0,100)
         }
         
 

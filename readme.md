@@ -2160,4 +2160,4 @@ If all 6000 users' transfer data from database to browser is under 10GB it is fr
 undo these things to put scrolling back to the way it was:
 I put in <ScrollLimit> and it causes the right most thumb to only scroll through to the scrollbuttons.
 I changed .scrollable-div2 from 1600vh to 700px
-I changed .scrollable-div1 from 2404vh to 700px
+I changed .scrollable-div1 from 2404vh to 950px

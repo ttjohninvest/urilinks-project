@@ -571,7 +571,7 @@ function ExpandableArray(props) {
         window.localStorage.setItem("termid", term);
         props.setTextFilter(term);
       }
-      window.location.href = "https://urilinks.com?signup=signup&z=1";
+      
     }
 
     //buttonRef.current.click();

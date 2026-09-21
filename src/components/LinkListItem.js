@@ -974,7 +974,7 @@ const LinkListItem = (props) => {
       console.log("1 LinkListItem.js, show="+show)
 
       //if(0) {      
-      if( show === 1) {
+      if( show === 0) {
       console.log("2 LinkListItem.js, props.links.length="+props.links.length)
       window.scrollTo(0, -100)
       } else {

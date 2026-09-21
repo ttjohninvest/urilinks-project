@@ -968,32 +968,28 @@ const LinkListItem = (props) => {
       
      
  
-      
+      console.log("LinkListItem.js, props.links.length="+props.links.length)
       if(props.links.length === 1) {
         scrollTo(0,0)
       } else {
+
 !!document.querySelector("#ipvideo" + id) &&
         document.querySelector("#ipvideo" + id).scrollIntoView({
           behavior: "smooth",
         });
+
       }
      
-      // !!document.querySelector("#forvideo" + id) &&
-      //   document.querySelector("#forvideo" + id).scrollIntoView({
-      //     behavior: "smooth",
-      //   });
+     
     } else {
-      //alert("going to decrement, props.show="+props.show)
-      // if(uid!=="")
-      // props.decrementHandleToggle({ id: x, show: 0 });
-      // else props.decrementHandleToggle3({ id: x, show: 0 });
-      props.decrementHandleToggle3({ id: x, show: 0 });
       
+      props.decrementHandleToggle3({ id: x, show: 0 });
       
       !!document.querySelector(id) &&
         document.querySelector(id).scrollIntoView({
           behavior: "smooth",
         });
+
     }
   };
 

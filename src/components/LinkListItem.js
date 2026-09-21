@@ -969,6 +969,9 @@ const LinkListItem = (props) => {
      
  
       console.log("1 LinkListItem.js, props.links.length="+props.links.length)
+      console.log("1 LinkListItem.js, videoId="+videoId)
+      console.log("1 LinkListItem.js, props.id="+props.id)
+      console.log("1 LinkListItem.js, props.show="+props.show)
 
       if( videoId === props.id && props.show === 1) {
       //   console.log("2 LinkListItem.js, props.links.length="+props.links.length)

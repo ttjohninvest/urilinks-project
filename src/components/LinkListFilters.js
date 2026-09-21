@@ -739,8 +739,8 @@ function ExpandableArray(props) {
     setActiveItem(index);
     props.setit(ht, e);
     alert("about to call setFrommenu")
-    props.setFrommenu({frommenu:true})
-    //props.setFrommenu(true)
+    //props.setFrommenu({frommenu:true})
+    props.setFrommenu(true)
     alert("called setFrommenu")
     handleClose3();
 

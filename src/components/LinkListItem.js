@@ -981,7 +981,7 @@ const LinkListItem = (props) => {
 //         });
       
 //       }
-     window.scrollTo(0,100)
+     window.scrollTo(0, document.body.scrollHeight)
 
 
 

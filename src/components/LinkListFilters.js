@@ -738,6 +738,7 @@ function ExpandableArray(props) {
     props.stopScrolling2()
     setActiveItem(index);
     props.setit(ht, e);
+    alert("about to call setFrommenu")
     setFrommenu(true)
     handleClose3();
 

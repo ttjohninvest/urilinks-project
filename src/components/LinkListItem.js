@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import BasicIframe from "./BasicIframe";
 import CopySalesButton from "./CopySalesButton";
 import StorageSizes from "./StorageSizes";
+import selectLinks from "../selectors/links";
 
 import visited from "../assets/images/visited-1.png";
 import {
@@ -983,6 +984,7 @@ const LinkListItem = (props) => {
           //block:"start"
         });
 
+        console.log("LinkListItem.js, props.links.length="+props.links.length)
         //if(props.frommenu.frommenu===true) {
           //console.log("frommenu")
           //setFrommenu({frommenu:false})
@@ -1526,7 +1528,7 @@ const mapStateToProps = (state) => ({
   sortBy: state.sortBy,
   filters: state.filters,
   auth: state.auth,
-  links: state.links,
+  links: selectLinks(state.links, state.filters),
 //  frommenu:state.frommenu
 });
 

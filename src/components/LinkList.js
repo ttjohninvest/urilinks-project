@@ -340,34 +340,6 @@ export const LinkList = (props) => {
   //   return <LoadingPage />
   // }
   //
-  useEffect(() => {
-     console.log("AAAAA,z="+z);
-      console.log("AAAAA,z2="+z2);
-      console.log("AAAAA,linkid="+linkid);
-    if(z !== "1") {
-       //starts automatic scrolling or auto scroll
-       //props.stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
-       //check here to see if scroll has started because the user clicked the scollup or scrolldn button
-       props.handleStartScroll(props.scrollupref.current)
-    }
-
-    if (z2 === "1") {
-      
-     console.log("in z2===2, linkid="+linkid)
-  if(!!document.querySelector("#"+linkid)) {
-       console.log("!!document.querySelector('#'+linkid) was TRUE")
-        document
-          .querySelector("#"+linkid)
-          .scrollIntoView({
-            behavior: "smooth",
-          });
-        } else {
-          console.log("!!document.querySelector('#'+linkid) was FALSE")
-        }
-      }
-   
-    
-  }, []);
 
   const goTolinkid = () => {
      document
@@ -376,6 +348,35 @@ export const LinkList = (props) => {
             behavior: "smooth",
           });
   }
+
+  useEffect(() => {
+     console.log("AAAAA,z="+z);
+      console.log("AAAAA,z2="+z2);
+      console.log("AAAAA,linkid="+linkid);
+   
+
+    if (z2 === "1") {
+      
+     console.log("in z2===2, linkid="+linkid)
+  if(!!document.querySelector("#"+linkid)) {
+       console.log("!!document.querySelector('#'+linkid) was TRUE")
+       goTolinkid()
+        } else {
+          console.log("!!document.querySelector('#'+linkid) was FALSE")
+        }
+      } else {
+         if(z !== "1") {
+       //starts automatic scrolling or auto scroll
+       //props.stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
+       //check here to see if scroll has started because the user clicked the scollup or scrolldn button
+       props.handleStartScroll(props.scrollupref.current)
+    }
+      }
+   
+    
+  }, []);
+
+ 
 
   
 

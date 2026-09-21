@@ -343,6 +343,7 @@ export const LinkList = (props) => {
 
   const goTolinkid = () => {
     props.stopScrolling2()
+    window.scrollTo(0,0)
      document
           .querySelector("#"+linkid)
           .scrollIntoView({

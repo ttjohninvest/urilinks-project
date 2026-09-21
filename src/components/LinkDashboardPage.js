@@ -8,6 +8,7 @@ import Simple3 from "./Simple3";
 import Testit from "./Testit";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startLogout } from "../actions/auth";
+import ScrollLimit from "./ScrollLimit"
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 
 import LinkListFileDate from "./LinkListFileDate";

@@ -206,12 +206,19 @@ class EditForm extends React.Component {
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
     //const faviconURL = this.getFavicon(this.state.Url)
 
-     let str2 = this.state.adUrl.trim();
+    let str2 = this.state.adUrl.trim();
     if (str2.substring(0, 7) === "http://") {
     } else if (str2.substring(0, 8) === "https://") {
     } 
     if(!!this.state.buyerdiscountcode.trim())
-      str2 += "&"+this.state.buyerdiscountcode.trim()
+    {
+        if(!str2.includes(this.state.buyerdiscountcode.trim())) {
+            str2 += "&"+this.state.buyerdiscountcode.trim()
+        } else {
+            str2+=""
+        }
+    }
+     
 
     //alert(str2)
     console.log(

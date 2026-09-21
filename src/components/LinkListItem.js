@@ -982,6 +982,11 @@ const LinkListItem = (props) => {
           //block:"start"
         });
 
+        if(props.frommenu===true) {
+          props.ls2element.scrollBy(0,100)
+        }
+        
+
       //document.querySelector("#ipvideo" + id).scrollBy({ 
       // props.ls2element.scrollBy({ 
       //   top: 100, 

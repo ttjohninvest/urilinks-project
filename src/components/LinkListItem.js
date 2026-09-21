@@ -978,15 +978,15 @@ const LinkListItem = (props) => {
 
     if(!!document.querySelector("#ipvideo" + id)) {
         document.querySelector("#ipvideo" + id).scrollIntoView({
-          behavior: "smooth",
-          block:"start"
+          behavior: "smooth"//,
+          //block:"start"
         });
 
-      //document.querySelector("#ipvideo" + id).scrollBy({ 
-      props.ls2element.scrollBy({ 
-        top: -100, 
-        behavior: 'smooth' 
-      });
+      // //document.querySelector("#ipvideo" + id).scrollBy({ 
+      // props.ls2element.scrollBy({ 
+      //   top: -100, 
+      //   behavior: 'smooth' 
+      // });
       
       } else {
         console.log("3 LinkListItem.js, props.links.length="+props.links.length)

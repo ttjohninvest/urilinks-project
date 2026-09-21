@@ -982,7 +982,8 @@ const LinkListItem = (props) => {
           block:"start"
         });
 
-      document.querySelector("#ipvideo" + id).scrollBy({ 
+      //document.querySelector("#ipvideo" + id).scrollBy({ 
+      document.querySelector("ls2").scrollBy({ 
         top: 100, 
         behavior: 'smooth' 
       });

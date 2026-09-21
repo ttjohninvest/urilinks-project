@@ -86,36 +86,36 @@ const LinkListItem = (props) => {
   const [inplace, setInplace] = useState(false);
   const [videoId, setVideoId] = useState("");
   const [url2, setUrl2] = useState("");
-  const [blb, setBlb] = useState(false)
+  const [blb, setBlb] = useState(false);
   const [copySuccess, setCopySuccess] = useState("");
   const [lastClickTime, setLastClickTime] = useState(0);
   const THRESHOLD = 43200000; // ms
 
-//   useEffect(()=>{
-//     //broken link: "http://tyuhn.com/"
-//     const a = async () => {
-//  try {
-//       //const response = await fetch(props.Url, { method: 'HEAD', mode: 'no-cors' });
-//       const response = await fetch("http://tyuhn.com/", { method: 'HEAD', mode: 'no-cors' });
-      
-//       // For same-origin links, response.ok is accurate.
-//       // For cross-origin 'no-cors', response.type is 'opaque' and status is 0,
-//       // so we can't reliably detect 404s without CORS headers enabled on the target.
-//       if (!response.ok || response.type === 'opaque') {
-//         // link.style.border = '2px solid red';
-//         // brokenLinks.push({ url: href, status: response.status });
-//         setBlb(true)
-//       }
-//       else {
-//         setBlb(false)
-//       }
-//     } catch (error) {
-//       // link.style.border = '2px solid red';
-//       // brokenLinks.push({ url: href, error: error.message });
-//     }
-//     }
-//     a()
-//   },[])
+  //   useEffect(()=>{
+  //     //broken link: "http://tyuhn.com/"
+  //     const a = async () => {
+  //  try {
+  //       //const response = await fetch(props.Url, { method: 'HEAD', mode: 'no-cors' });
+  //       const response = await fetch("http://tyuhn.com/", { method: 'HEAD', mode: 'no-cors' });
+
+  //       // For same-origin links, response.ok is accurate.
+  //       // For cross-origin 'no-cors', response.type is 'opaque' and status is 0,
+  //       // so we can't reliably detect 404s without CORS headers enabled on the target.
+  //       if (!response.ok || response.type === 'opaque') {
+  //         // link.style.border = '2px solid red';
+  //         // brokenLinks.push({ url: href, status: response.status });
+  //         setBlb(true)
+  //       }
+  //       else {
+  //         setBlb(false)
+  //       }
+  //     } catch (error) {
+  //       // link.style.border = '2px solid red';
+  //       // brokenLinks.push({ url: href, error: error.message });
+  //     }
+  //     }
+  //     a()
+  //   },[])
 
   const isityt = (url) => {
     if (url.includes("youtube")) {
@@ -166,13 +166,13 @@ const LinkListItem = (props) => {
       //alert("Link removed.");
       //  const x = confirm("Do you want to refresh the menu?");
       // if (x === true) {
-        
+
       //   window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
       // }
     } else {
       // User clicked Cancel
       document.getElementById("delete%" + event.target.value).checked = false;
-      
+
       alert("Deletion canceled.");
     }
   };
@@ -258,43 +258,38 @@ const LinkListItem = (props) => {
     //alert("storeScrollPosition, event.target.value="+x)
     props.incrementLinkClickCount({ id: x, frequency: x1 });
     window.localStorage.setItem("scrollPosition", window.scrollY);
-    
-
-
   };
 
   const storeScrollPosition2 = (likes, event) => {
     const text = "Click ok if you are sure?";
-   
-     const now = Date.now();
+
+    const now = Date.now();
     // Only proceed if more than THRESHOLD ms have passed since the last click
     if (now - lastClickTime > THRESHOLD) {
-       //if (confirm(text) == true) {
+      //if (confirm(text) == true) {
       setLastClickTime(now);
       //console.log('Action executed');
 
-       let x1 = 0;
-    if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
-    else x1 = likes;
-    const x = event.target.getAttribute("data-value"); //x is link id
+      let x1 = 0;
+      if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
+      else x1 = likes;
+      const x = event.target.getAttribute("data-value"); //x is link id
 
-    props.incrementLinkLikesClickCount({ id: x, likes: x1 });
+      props.incrementLinkLikesClickCount({ id: x, likes: x1 });
 
-    //the following commented out code toggles from 0 to 1 or from 1 to 0 on successive clicks
-    // if (x1 === 0) {
-    //   //alert("going to increment")
-    //   props.incrementLinkLikesClickCount({ id: x, likes: 0 });
-    // } else {
-    //   //alert("going to decrement")
-    //   props.decrementLinkLikesClickCount({ id: x, likes: 1 });
-    // }
+      //the following commented out code toggles from 0 to 1 or from 1 to 0 on successive clicks
+      // if (x1 === 0) {
+      //   //alert("going to increment")
+      //   props.incrementLinkLikesClickCount({ id: x, likes: 0 });
+      // } else {
+      //   //alert("going to decrement")
+      //   props.decrementLinkLikesClickCount({ id: x, likes: 1 });
+      // }
 
-    window.localStorage.setItem("scrollPosition", window.scrollY);
+      window.localStorage.setItem("scrollPosition", window.scrollY);
 
-    //}
+      //}
     }
-
-   
   };
 
   const storeScrollPosition3 = (star, event) => {
@@ -310,27 +305,25 @@ const LinkListItem = (props) => {
       if (x1 === 0) {
         //alert("going to increment,id="+x)
         //alert("going to increment,id="+x+", props.star="+props.star)
-        
-        if (parseInt(props.thetotalstars.totalstars) < StorageSizes.starsmaximum) {
-           props.incrementLinkStarClickCount({ id: x, star: 0 });
-           props.incrementTotalStarClickCount({
+
+        if (
+          parseInt(props.thetotalstars.totalstars) < StorageSizes.starsmaximum
+        ) {
+          props.incrementLinkStarClickCount({ id: x, star: 0 });
+          props.incrementTotalStarClickCount({
             totalstars: props.thetotalstars.totalstars,
           });
-        }
-         
-        else alert("You have ten of ten stars selected for your top ten.");
+        } else alert("You have ten of ten stars selected for your top ten.");
       } else {
         //alert("going to increment,id="+x)
         //alert("going to increment,id="+x+", props.star="+props.star)
-       
+
         if (props.thetotalstars.totalstars > 0) {
-            props.decrementLinkStarClickCount({ id: x, star: 1 });
-           props.decrementTotalStarClickCount({
+          props.decrementLinkStarClickCount({ id: x, star: 1 });
+          props.decrementTotalStarClickCount({
             totalstars: props.thetotalstars.totalstars,
           });
-        }
-         
-        else alert("You have zero of ten stars selected for your top ten.");
+        } else alert("You have zero of ten stars selected for your top ten.");
       }
 
       window.localStorage.setItem("scrollPosition", window.scrollY);
@@ -944,10 +937,7 @@ const LinkListItem = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-
   const playInPlaceVideo = (id, show, Url, event) => {
-
-
     //id is the link id, show can be 0 or 1, Url is the Url of the video to play
     //alert(id+", "+show+", "+Url)
     const newStr = Url.replace("watch?v=", "embed/");
@@ -956,71 +946,46 @@ const LinkListItem = (props) => {
     setVideoId(id);
 
     let x1 = 0;
-    if (show === undefined || show === null || show === "NaN") {}
-    else x1 = show;
+    if (show === undefined || show === null || show === "NaN") {
+    } else x1 = show;
     const x = id; //x is link id
 
     if (x1 === 0) {
-      //alert("going to increment, props.show="+props.show)
-      // if(uid!=="")
-      // props.incrementHandleToggle({ id: x, show: 0 });
-      // else props.incrementHandleToggle3({ id: x, show: 0 });
       props.incrementHandleToggle3({ id: x, show: 0 });
-      
-     
- 
-      console.log("1 LinkListItem.js, props.links.length="+props.links.length)
-      console.log("1 LinkListItem.js, videoId="+videoId)
-      console.log("1 LinkListItem.js, props.id="+props.id)
-      console.log("1 LinkListItem.js, show="+show)
+
+      console.log(
+        "1 LinkListItem.js, props.links.length=" + props.links.length,
+      );
+      console.log("1 LinkListItem.js, videoId=" + videoId);
+      console.log("1 LinkListItem.js, props.id=" + props.id);
+      console.log("1 LinkListItem.js, show=" + show);
       //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
 
-          
-      if( show === 0) {
-
-  
-        console.log("LinkListItem.js, props.links.length="+props.links.length)
-        if(props.links.length===1) {
-          
-          props.ls2element.scrollBy(0,100)
-        
+      if (show === 0) {
+        console.log(
+          "LinkListItem.js, props.links.length=" + props.links.length,
+        );
+        if (props.links.length === 1) {
+          props.ls2element.scrollBy(0, 100);
         } else {
-           if(!!document.querySelector("#ipvideo" + id)) {
-        document.querySelector("#ipvideo" + id).scrollIntoView({
-          behavior: "smooth"//,
-          //block:"start"
-        });
-
+          if (!!document.querySelector("#ipvideo" + id)) {
+            document.querySelector("#ipvideo" + id).scrollIntoView({
+              behavior: "smooth", //,
+              //block:"start"
+            });
+          }
         }
-        
-
-      //document.querySelector("#ipvideo" + id).scrollBy({ 
-      // props.ls2element.scrollBy({ 
-      //   top: 100, 
-      //   behavior: 'smooth' 
-      // });
-      
-      } else {
-        console.log("3 LinkListItem.js, props.links.length="+props.links.length)
-    
-      
       }
-     //window.scrollTo(0, document.body.scrollHeight)
 
+      
 
-
-      }
-     
-     
     } else {
-      
-      props.decrementHandleToggle3({ id: x, show: 0 });
-      
+props.decrementHandleToggle3({ id: x, show: 0 });
+
       !!document.querySelector(id) &&
         document.querySelector(id).scrollIntoView({
           behavior: "smooth",
         });
-
     }
   };
 
@@ -1047,7 +1012,6 @@ const LinkListItem = (props) => {
         )}
       </div>
       <div>
-       
         {!!props.yturl && (
           <a
             ref={myRef4}
@@ -1069,12 +1033,11 @@ const LinkListItem = (props) => {
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
       <div id={"ipvideo" + props.id}>
-        {videoId === props.id 
-        && 
-        props.show === 1 && (
+        {videoId === props.id && props.show === 1 && (
           <div>
-            <div className="height50 width100"
-            //style={{border:'1px solid red'}}
+            <div
+              className="height50 width100"
+              //style={{border:'1px solid red'}}
             ></div>
             <div className="margin-bottom-1z1">
               <BasicIframe src={url2} />
@@ -1099,11 +1062,14 @@ const LinkListItem = (props) => {
         </a>
         {/* <span>{blb===true?"blb=true":"blb=false"}</span> */}
       </div>
-      
+
       <div className="flexrowz">
         {props.signup.signup === true ? (
           <div>
-            <Link className="ib pointereventsauto margin-top-1zx1" to={`/edit/${props.id}`}>
+            <Link
+              className="ib pointereventsauto margin-top-1zx1"
+              to={`/edit/${props.id}`}
+            >
               <span className="" style={{ cursor: "pointer" }}>
                 Edit link
               </span>
@@ -1111,7 +1077,10 @@ const LinkListItem = (props) => {
           </div>
         ) : (
           <div>
-            <Link className="ib pointereventsnone margin-top-1zx1" to={`/edit/${props.id}`}>
+            <Link
+              className="ib pointereventsnone margin-top-1zx1"
+              to={`/edit/${props.id}`}
+            >
               <span className="">Edit link</span>
             </Link>
           </div>
@@ -1124,7 +1093,11 @@ const LinkListItem = (props) => {
               //onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}
               onClick={() => playInPlaceVideo(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1
             >
-              {props.show === 0 ? "Play video in place" : <span className="font-weight-bold-">Close video</span>}
+              {props.show === 0 ? (
+                "Play video in place"
+              ) : (
+                <span className="font-weight-bold-">Close video</span>
+              )}
             </span>
           </div>
         )}
@@ -1185,8 +1158,12 @@ const LinkListItem = (props) => {
             </span>
 
             <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1 margin-top-1zx">
-              <span className="ib cursor-default"  title="The number of users who have viewed the link.">
-                Views:</span>
+              <span
+                className="ib cursor-default"
+                title="The number of users who have viewed the link."
+              >
+                Views:
+              </span>
               <span
                 className="ib margin-left-11tx- font-weight-900- cursor-default"
                 title={
@@ -1229,7 +1206,7 @@ const LinkListItem = (props) => {
                   title={"click to select to your top ten"}
                   onClick={() => storeScrollPosition3(props.star, event)}
                 >
-                 Star (My Top Twenty):
+                  Star (My Top Twenty):
                 </span>
 
                 <span
@@ -1244,7 +1221,6 @@ const LinkListItem = (props) => {
                   {/* {props.star === undefined ? "No" : "Yes"} */}
                 </span>
               </span>
-              
             ) : null}
           </span>
         ) : (
@@ -1303,8 +1279,12 @@ const LinkListItem = (props) => {
             </span>
 
             <span className="ib flexrowzv- margin-left-11xy- margin-top-2x- margin-right-1 margin-top-1zx">
-              <span className="ib cursor-default" title="The number of users who have viewed the link.">
-                Views:</span>
+              <span
+                className="ib cursor-default"
+                title="The number of users who have viewed the link."
+              >
+                Views:
+              </span>
               <span
                 className="ib margin-left-11tx- font-weight-900- pointereventsnone cursor-default"
                 title={
@@ -1322,7 +1302,9 @@ const LinkListItem = (props) => {
                 //href="#"
 
                 data-value={props.id}
-                title={"Click to like if you like it. The number of users who have liked the link."}
+                title={
+                  "Click to like if you like it. The number of users who have liked the link."
+                }
                 onClick={() => storeScrollPosition2(props.likes, event)}
               >
                 Likes:
@@ -1337,7 +1319,7 @@ const LinkListItem = (props) => {
               </span>
             </span>
             {props.rt !== "readonly" ? (
-               <span className="ib flexrowzv- margin-top-2x-">
+              <span className="ib flexrowzv- margin-top-2x-">
                 <span
                   ref={myRef3}
                   className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-1zx`}
@@ -1370,25 +1352,25 @@ const LinkListItem = (props) => {
       {props.signup.signup === true && (
         <div className="flexrow2w2 border5-">
           <span>
-          <span className="ib margin-right-1">Share link on</span>
-          <a
-            href={`https://twitter.com/intent/tweet?url=${props.Url}`}
-            className="ib nounderline- cursor-pointer"
-            title="x.com is formerly twiiter.com. Click to share link on x.com."
-            target="_blank"
-          >
-            X
-          </a>
-          <span className="margin-left-11">or</span>
-          <a
-            href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`}
-            className="ib margin-left-11 nounderline- cursor-pointer"
-            title="Click to share link on facebook.com."
-            target="_blank"
-          >
-            Facebook
-          </a>
-         </span>
+            <span className="ib margin-right-1">Share link on</span>
+            <a
+              href={`https://twitter.com/intent/tweet?url=${props.Url}`}
+              className="ib nounderline- cursor-pointer"
+              title="x.com is formerly twiiter.com. Click to share link on x.com."
+              target="_blank"
+            >
+              X
+            </a>
+            <span className="margin-left-11">or</span>
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`}
+              className="ib margin-left-11 nounderline- cursor-pointer"
+              title="Click to share link on facebook.com."
+              target="_blank"
+            >
+              Facebook
+            </a>
+          </span>
           {/* <a href={`https://messenger.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Messenger</a>
           <a href={`https://gmail.com`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Gmail</a>
           <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${props.Url}`} className="ib margin-left-11 nounderline cursor-pointer" target="_blank">Linkedin</a> */}
@@ -1398,52 +1380,53 @@ const LinkListItem = (props) => {
         </div>
       )}
 
-     
-        <div className="flexrow2w2 border5-">
-
-          <span>
-            {!!props.addescription === true ?
+      <div className="flexrow2w2 border5-">
+        <span>
+          {!!props.addescription === true ? (
             <span>
-             <span className="nounderline color-black">
-                See what {firebase.auth().currentUser.displayName} has for sale:&nbsp;
+              <span className="nounderline color-black">
+                See what {firebase.auth().currentUser.displayName} has for
+                sale:&nbsp;
               </span>
-            <a
-              href={
-                !!props.adUrl === true ? props.adUrl : "https://example.com"
-              }
-              target="_blank"
-              rel="noopener noreferrer sponsored" 
-            >
-              
-              <span style={{color:'#0000EE'}}>{props.addescription}</span>
-                 
-          
-            </a></span>:
-               
-              props.signup.signup === true ? (
-          <div>
-            <Link className="ib pointereventsauto nounderline margin-top-1zx1" to={`/edit/${props.id}`}>
-              <span className="" style={{ cursor: "pointer" }}>
-                <span className="nounderline color-black">
-                See what {firebase.auth().currentUser.displayName} has for sale:&nbsp;
-              </span><span style={{color:'#0000EE'}}>Nothing Yet</span>
-              </span>
-            </Link>
-          </div>
-        ) : (
-          <div>
-            <span className="nounderline color-black">
-                See what {!!firebase.auth().currentUser===true?firebase.auth().currentUser.displayName+" has ":" John has "}for sale:&nbsp;
+              <a
+                href={
+                  !!props.adUrl === true ? props.adUrl : "https://example.com"
+                }
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+              >
+                <span style={{ color: "#0000EE" }}>{props.addescription}</span>
+              </a>
+            </span>
+          ) : props.signup.signup === true ? (
+            <div>
+              <Link
+                className="ib pointereventsauto nounderline margin-top-1zx1"
+                to={`/edit/${props.id}`}
+              >
+                <span className="" style={{ cursor: "pointer" }}>
+                  <span className="nounderline color-black">
+                    See what {firebase.auth().currentUser.displayName} has for
+                    sale:&nbsp;
+                  </span>
+                  <span style={{ color: "#0000EE" }}>Nothing Yet</span>
+                </span>
+              </Link>
+            </div>
+          ) : (
+            <div>
+              <span className="nounderline color-black">
+                See what{" "}
+                {!!firebase.auth().currentUser === true
+                  ? firebase.auth().currentUser.displayName + " has "
+                  : " John has "}
+                for sale:&nbsp;
               </span>
               <span className="">Nothing Yet</span>
-            
-          </div>
-        )
-      
-            }
-          </span>
-        </div>
-      
+            </div>
+          )}
+        </span>
+      </div>
 
       <div className="italicText text-size-10 color-purple margin-top-aa color-black-2">
         <span className="ib padding-left-n-1z-  margin-top-n-15a margin-bottom-abc">
@@ -1459,32 +1442,25 @@ const LinkListItem = (props) => {
         </span>
       </div>
 
-      <div className="normal-wrap">
-       
-        {props.note}
-      </div>
+      <div className="normal-wrap">{props.note}</div>
       <div className="normal-wrap margin-top-1">
-       {
-       
-       !!props.addescription===true && 
-       //props.idexists === 0 &&
-       <fieldset className="padding-right-1 margin-right-1">
-        <legend>Sharable Url To Make Money</legend>
-<div className="padding-bottom-1">
-        <div className="margin-bottom-1 flexrowxz">
-           https://urilinks.com/dashboard?signup=0&x=readonly&id={props.auth.uid}&link={encodeURIComponent(props.description)}&product={encodeURIComponent(props.addescription)}
-        </div>
-         
-       <CopySalesButton
-          textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.auth.uid}&link=${encodeURIComponent(props.description)}&product=${encodeURIComponent(props.addescription)}`}
-       />
-       
-       </div>
-       </fieldset>
-       
-       
-       }
-      
+        {!!props.addescription === true && (
+          //props.idexists === 0 &&
+          <fieldset className="padding-right-1 margin-right-1">
+            <legend>Sharable Url To Make Money</legend>
+            <div className="padding-bottom-1">
+              <div className="margin-bottom-1 flexrowxz">
+                https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                {props.auth.uid}&link={encodeURIComponent(props.description)}
+                &product={encodeURIComponent(props.addescription)}
+              </div>
+
+              <CopySalesButton
+                textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.auth.uid}&link=${encodeURIComponent(props.description)}&product=${encodeURIComponent(props.addescription)}`}
+              />
+            </div>
+          </fieldset>
+        )}
       </div>
 
       {/* <div id={"ipvideo" + props.id}>
@@ -1529,7 +1505,7 @@ const mapStateToProps = (state) => ({
   filters: state.filters,
   auth: state.auth,
   links: selectLinks(state.links, state.filters),
-//  frommenu:state.frommenu
+  //  frommenu:state.frommenu
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
@@ -1562,7 +1538,7 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(decrementHashtagsIsOpenClickCount(data)),
   incrementHandleToggle: (data) => dispatch(incrementHandleToggle(data)),
   decrementHandleToggle: (data) => dispatch(decrementHandleToggle(data)),
-   incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
+  incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
   decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),
 });
 

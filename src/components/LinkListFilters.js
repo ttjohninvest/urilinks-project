@@ -740,7 +740,7 @@ function ExpandableArray(props) {
     props.setit(ht, e);
 
     handleClose3();
-    
+
     // !!document.querySelector("#before-before-link-summary-id") &&
     //   document.querySelector("#before-before-link-summary-id").scrollIntoView({
     //     behavior: "smooth",
@@ -2229,6 +2229,7 @@ export class LinkListFilters extends React.Component {
     window.localStorage.setItem("searchLinks3", value);
 
     this.props.rerenderit();
+    window.scrollTo(0,0)
   };
 
   refreshIt = () => {

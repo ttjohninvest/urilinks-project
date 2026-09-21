@@ -348,7 +348,7 @@ export const LinkList = (props) => {
           .scrollIntoView({
             behavior: "smooth",
           });
-     window.scrollTo(0,window.scrollY+10)
+     window.scrollTo(0,window.scrollY)
   }
 
   useEffect(() => {

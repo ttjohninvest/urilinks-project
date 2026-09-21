@@ -166,12 +166,12 @@ const LinkDashboardPage = (props) => {
   const rerenderit = () => {
     setV1(!v1);
 
-    window.scrollTo({
-      top: 100,
-      behavior: "smooth"
-    });
-
-    if (isMobile() === true)
+    if (isMobile() === false) {
+       window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    } else {
       window.scrollTo({
         top: 0,
         left: 100,

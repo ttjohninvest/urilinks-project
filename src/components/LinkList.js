@@ -342,6 +342,7 @@ export const LinkList = (props) => {
   //
 
   const goTolinkid = () => {
+    props.stopScrolling2()
      document
           .querySelector("#"+linkid)
           .scrollIntoView({
@@ -355,23 +356,23 @@ export const LinkList = (props) => {
       console.log("AAAAA,linkid="+linkid);
    
 
-    if (z2 === "1") {
+  //   if (z2 === "1") {
       
-     console.log("in z2===2, linkid="+linkid)
-  if(!!document.querySelector("#"+linkid)) {
-       console.log("!!document.querySelector('#'+linkid) was TRUE")
-       goTolinkid()
-        } else {
-          console.log("!!document.querySelector('#'+linkid) was FALSE")
-        }
-      } else {
+  //    console.log("in z2===2, linkid="+linkid)
+  // if(!!document.querySelector("#"+linkid)) {
+  //      console.log("!!document.querySelector('#'+linkid) was TRUE")
+  //      goTolinkid()
+  //       } else {
+  //         console.log("!!document.querySelector('#'+linkid) was FALSE")
+  //       }
+  //     } else {
          if(z !== "1") {
        //starts automatic scrolling or auto scroll
        //props.stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
        //check here to see if scroll has started because the user clicked the scollup or scrolldn button
        props.handleStartScroll(props.scrollupref.current)
     }
-      }
+     // }
    
     
   }, []);
@@ -398,19 +399,19 @@ export const LinkList = (props) => {
          <button
           id="linkid"
           //ref={props.scrollupref}
-          title="Go to linkid."
+          title="Return to link."
           onClick={goTolinkid}
           className="ib button-2 widthxpx1"
           style={{zIndex:99}}
         >
-          <span>p</span>
+          <span>Return</span>
         </button>
         <button
           id="scrollup1"
           ref={props.scrollupref}
           title="Click the button to begin auto scroll."
           onClick={props.startScrollingUp2}
-          className="ib button-2 widthxpx1"
+          className="ib button-2 widthxpx1 margin-left-11"
           style={{zIndex:99}}
         >
           <span>ScrollUp</span>

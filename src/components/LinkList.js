@@ -522,6 +522,7 @@ export const LinkList = (props) => {
                           index={index}
                           signup={props.signup.signup}
                           idexists={props.idexists}
+                          ls2element={document.querySelector("#ls2")}
                         />
                       </div>
                     );

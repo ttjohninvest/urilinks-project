@@ -739,7 +739,7 @@ function ExpandableArray(props) {
     setActiveItem(index);
     props.setit(ht, e);
     alert("about to call setFrommenu")
-    setFrommenu({frommenu:true})
+    props.setFrommenu({frommenu:true})
     //props.setFrommenu(true)
     alert("called setFrommenu")
     handleClose3();
@@ -2327,7 +2327,7 @@ export class LinkListFilters extends React.Component {
           signupcount={this.props.thesignupcount.signupcount}
           userscounti={this.props.theuserscounti.userscounti}
           totalloggedout={this.props.thetotalloggedout.totalloggedout}
-        
+          setFrommenu={this.props.setFrommenu}
         />
       </div>
     );
@@ -2368,7 +2368,7 @@ const mapDispatchToProps = (dispatch) => ({
   incrementUsersClickCount: (data) => dispatch(incrementUsersClickCount(data)),
   sortByAds: () => dispatch(sortByAds()),
   sortByAdsAlpha: () => dispatch(sortByAdsAlpha()),
-  setFrommenu:(data) => dispatch(setFrommenu(data)),
+  setFrommenu:(data) => dispatch(setFrommenu(data))
 });
 //incrementUsersClickCount
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

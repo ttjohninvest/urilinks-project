@@ -968,7 +968,7 @@ const LinkListItem = (props) => {
       
       if(props.links.length===1) {
  !!document.querySelector("#ipvideo2" + id) &&
-        document.querySelector("#ipvideo" + id).scrollIntoView({
+        document.querySelector("#ipvideo2" + id).scrollIntoView({
           behavior: "smooth",
         });
       }else {

@@ -31,7 +31,7 @@ export class EditLinkPage extends React.Component {
   handleClose4 = () => {
      
     
-    window.location.href="https://urilinks.com?signup=signup&z=1"
+    window.location.href="https://urilinks.com?signup=signup&z=1&p="+this.props.link.id
   }
   //onRemove = (value,event) => {
   onRemove = () => {

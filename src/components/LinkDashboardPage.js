@@ -178,6 +178,7 @@ const LinkDashboardPage = (props) => {
         behavior: "smooth",
       });
   };
+}
 
   useEffect(() => {
     //window.scrollTo(0,0)

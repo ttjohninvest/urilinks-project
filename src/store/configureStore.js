@@ -43,6 +43,7 @@ import spReducer from '../reducers/sp';
 import peopleReducer from '../reducers/people';
 import gudReducer from '../reducers/gud';
 import bmokReducer from '../reducers/bmok';
+import formmenuReducer from '../reducers/formmenu';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -63,6 +64,7 @@ export default () => {
       hashtags2withcountfiledate: hashtags2withcountfiledateReducer,
       notetext: notetextReducer,
       setit: setitReducer,
+      formmenu:formmenuReducer,
       setitfiledate: setitfiledateReducer,
       url: storageReducer,
       customerId: customeridReducer,
@@ -89,8 +91,7 @@ export default () => {
       people: peopleReducer,
       gud: gudReducer,
       links3:links3Reducer,
-      bmok:bmokReducer,
-      frommenu:frommenuReducer,
+      bmok:bmokReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

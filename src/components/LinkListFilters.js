@@ -6,7 +6,7 @@ import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import { LinkList3 } from "./LinkList3.js";
 import honoring from "../assets/honoring/christmas-tree.png";
-//import setFrommenu from "../actions/frommenu";
+import setFrommenu from "../actions/frommenu";
 import CopyButton from "./CopyButton";
 import HashTagsButton from "./HashTagsButton";
 //import AddLinkPage from "./AddlinkPage";
@@ -738,10 +738,10 @@ function ExpandableArray(props) {
     props.stopScrolling2()
     setActiveItem(index);
     props.setit(ht, e);
-    // alert("about to call setFrommenu")
-    // //props.setFrommenu({frommenu:true})
-    // props.setFrommenu(true)
-    // alert("called setFrommenu")
+    alert("about to call setFrommenu")
+    props.setFrommenu({frommenu:true})
+    //props.setFrommenu(true)
+     alert("called setFrommenu")
     handleClose3();
 
     // !!document.querySelector("#before-before-link-summary-id") &&
@@ -2327,7 +2327,7 @@ export class LinkListFilters extends React.Component {
           signupcount={this.props.thesignupcount.signupcount}
           userscounti={this.props.theuserscounti.userscounti}
           totalloggedout={this.props.thetotalloggedout.totalloggedout}
-          //setFrommenu={this.props.setFrommenu}
+          setFrommenu={this.props.setFrommenu}
         />
       </div>
     );
@@ -2368,7 +2368,7 @@ const mapDispatchToProps = (dispatch) => ({
   incrementUsersClickCount: (data) => dispatch(incrementUsersClickCount(data)),
   sortByAds: () => dispatch(sortByAds()),
   sortByAdsAlpha: () => dispatch(sortByAdsAlpha()),
-  //setFrommenu:(data) => dispatch(setFrommenu(data))
+  setFrommenu:(data) => dispatch(setFrommenu(data))
 });
 //incrementUsersClickCount
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

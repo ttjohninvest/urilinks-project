@@ -973,14 +973,8 @@ const LinkListItem = (props) => {
       console.log("1 LinkListItem.js, props.id="+props.id)
       console.log("1 LinkListItem.js, show="+show)
 
-      //if(0) {      
+          
       if( show === 0) {
-//       console.log("2 LinkListItem.js, props.links.length="+props.links.length)
-//       document.querySelector("").scrollTo({
-//   top: 100,
-//   left: 0,
-//   behavior: 'smooth'
-// });
 
     if(!!document.querySelector("#ipvideo" + id)) {
         document.querySelector("#ipvideo" + id).scrollIntoView({
@@ -989,7 +983,7 @@ const LinkListItem = (props) => {
         });
 
       window.scrollBy({ 
-        top: 100, 
+        top: -100, 
         behavior: 'smooth' 
       });
       

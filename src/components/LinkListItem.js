@@ -965,11 +965,19 @@ const LinkListItem = (props) => {
       // props.incrementHandleToggle({ id: x, show: 0 });
       // else props.incrementHandleToggle3({ id: x, show: 0 });
       props.incrementHandleToggle3({ id: x, show: 0 });
-
-      !!document.querySelector("#ipvideo" + id) &&
+      
+      if(props.links.length===1) {
+ !!document.querySelector("#ipvideo2" + id) &&
         document.querySelector("#ipvideo" + id).scrollIntoView({
           behavior: "smooth",
         });
+      }else {
+ !!document.querySelector("#ipvideo" + id) &&
+        document.querySelector("#ipvideo" + id).scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+     
       // !!document.querySelector("#forvideo" + id) &&
       //   document.querySelector("#forvideo" + id).scrollIntoView({
       //     behavior: "smooth",
@@ -980,7 +988,8 @@ const LinkListItem = (props) => {
       // props.decrementHandleToggle({ id: x, show: 0 });
       // else props.decrementHandleToggle3({ id: x, show: 0 });
       props.decrementHandleToggle3({ id: x, show: 0 });
-
+      
+      
       !!document.querySelector(id) &&
         document.querySelector(id).scrollIntoView({
           behavior: "smooth",
@@ -1011,6 +1020,7 @@ const LinkListItem = (props) => {
         )}
       </div>
       <div>
+        <div id={"ipvideo2" + props.id}></div>
         {!!props.yturl && (
           <a
             ref={myRef4}
@@ -1491,6 +1501,7 @@ const mapStateToProps = (state) => ({
   sortBy: state.sortBy,
   filters: state.filters,
   auth: state.auth,
+  links: state.links,
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

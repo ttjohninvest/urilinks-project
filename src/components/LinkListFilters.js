@@ -740,10 +740,11 @@ function ExpandableArray(props) {
     props.setit(ht, e);
 
     handleClose3();
-    !!document.querySelector("#before-before-link-summary-id") &&
-      document.querySelector("#before-before-link-summary-id").scrollIntoView({
-        behavior: "smooth",
-      });
+    
+    // !!document.querySelector("#before-before-link-summary-id") &&
+    //   document.querySelector("#before-before-link-summary-id").scrollIntoView({
+    //     behavior: "smooth",
+    //   });
   };
 
   const seeHashTags = () => {

@@ -969,14 +969,13 @@ const LinkListItem = (props) => {
      
  
       console.log("LinkListItem.js, props.links.length="+props.links.length)
-      if(props.links.length === 1) {
-        scrollTo(0,0)
-      } else {
+     
 
-!!document.querySelector("#ipvideo" + id) &&
+if(!!document.querySelector("#ipvideo" + id)) {
         document.querySelector("#ipvideo" + id).scrollIntoView({
           behavior: "smooth",
         });
+      
 
       }
      

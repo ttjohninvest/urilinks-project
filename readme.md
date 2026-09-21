@@ -2162,3 +2162,5 @@ I put in <ScrollLimit> and it causes the right most thumb to only scroll through
 I changed .scrollable-div2 from 1600vh to 700px
 I changed .scrollable-div1 from 2404vh to 970px
 I added overflow-y: auto; to .scrollable-div2
+I removed scrollable-div2 from LinkListFilters.js it came before <LinkList3 />
+I changed 2000px to 750px in .scrollable-div1c

@@ -1,5 +1,6 @@
-export const setFrommenu = (frommenu) => ({
+const setFrommenu = (frommenu) => ({
   type: "SET_FROMMENU",
   frommenu,
 });
 
+export default setFrommenu;

@@ -6,7 +6,7 @@ import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import { LinkList3 } from "./LinkList3.js";
 import honoring from "../assets/honoring/christmas-tree.png";
-import { setFrommenu } from "../actions/frommenu";
+import setFrommenu from "../actions/frommenu";
 import CopyButton from "./CopyButton";
 import HashTagsButton from "./HashTagsButton";
 //import AddLinkPage from "./AddlinkPage";
@@ -740,6 +740,8 @@ function ExpandableArray(props) {
     props.setit(ht, e);
     alert("about to call setFrommenu")
     props.setFrommenu({frommenu:true})
+    //props.setFrommenu(true)
+    alert("called setFrommenu")
     handleClose3();
 
     // !!document.querySelector("#before-before-link-summary-id") &&

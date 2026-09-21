@@ -972,7 +972,7 @@ const LinkListItem = (props) => {
       console.log("1 LinkListItem.js, videoId="+videoId)
       console.log("1 LinkListItem.js, props.id="+props.id)
       console.log("1 LinkListItem.js, show="+show)
-      console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
+      //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
 
           
       if( show === 0) {
@@ -984,7 +984,7 @@ const LinkListItem = (props) => {
         });
 
         //if(props.frommenu.frommenu===true) {
-          console.log("frommenu")
+          //console.log("frommenu")
           //setFrommenu({frommenu:false})
           //props.ls2element.scrollBy(0,100)
         //} else {

@@ -206,16 +206,7 @@ left column
               rerenderit={rerenderit}
             />
 
-          {/* {props.links.length > 0 ? (
-            <LinkListFilters
-              setTheHashTagDivHeight={setTheHashTagDivHeight}
-              b={b}
-              av={av}
-              rerenderit={rerenderit}
-            />
-          ) :  <Simple3 />
-          
-          } */}
+      
         </div>
 
         {/* <div className="border2black">

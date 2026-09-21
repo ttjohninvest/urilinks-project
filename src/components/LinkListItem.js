@@ -978,20 +978,20 @@ const LinkListItem = (props) => {
           
       if( show === 0) {
 
-    if(!!document.querySelector("#ipvideo" + id)) {
+  
+        console.log("LinkListItem.js, props.links.length="+props.links.length)
+        if(props.links.length===1) {
+          
+          props.ls2element.scrollBy(0,100)
+        
+        } else {
+           if(!!document.querySelector("#ipvideo" + id)) {
         document.querySelector("#ipvideo" + id).scrollIntoView({
           behavior: "smooth"//,
           //block:"start"
         });
 
-        console.log("LinkListItem.js, props.links.length="+props.links.length)
-        //if(props.frommenu.frommenu===true) {
-          //console.log("frommenu")
-          //setFrommenu({frommenu:false})
-          //props.ls2element.scrollBy(0,100)
-        //} else {
-        //  alert("frommenu is false")
-        //}
+        }
         
 
       //document.querySelector("#ipvideo" + id).scrollBy({ 

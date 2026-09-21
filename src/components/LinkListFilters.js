@@ -2366,6 +2366,7 @@ const mapDispatchToProps = (dispatch) => ({
   incrementUsersClickCount: (data) => dispatch(incrementUsersClickCount(data)),
   sortByAds: () => dispatch(sortByAds()),
   sortByAdsAlpha: () => dispatch(sortByAdsAlpha()),
+  setFrommenu:(data) => dispatch(setFrommenu(data)),
 });
 //incrementUsersClickCount
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

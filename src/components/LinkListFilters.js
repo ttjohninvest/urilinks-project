@@ -735,6 +735,7 @@ function ExpandableArray(props) {
   };
 
   const setItNow = (index, ht, e) => {
+    props.stopScrolling2()
     setActiveItem(index);
     props.setit(ht, e);
 

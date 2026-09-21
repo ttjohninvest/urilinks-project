@@ -342,15 +342,19 @@ export const LinkList = (props) => {
   //
 
   const goTolinkid = () => {
-    props.stopScrolling2()
-    window.scrollTo(0,0)
-     document
-          .querySelector("#"+linkid)
-          .scrollIntoView({
-            behavior: "smooth",
-          });
-     window.scrollTo(0,window.scrollY) //without this statement, it will put the link near the top with the scroll control buttons
-  }
+      if(linkid !== null) {
+          props.stopScrolling2()
+          window.scrollTo(0,0)
+          document
+                .querySelector("#"+linkid)
+                .scrollIntoView({
+                  behavior: "smooth",
+                });
+          params.delete("p");
+          window.scrollTo(0,window.scrollY) //without this statement, it will put the link near the top with the scroll control buttons
+      
+        }
+    }
 
   useEffect(() => {
      console.log("AAAAA,z="+z);

@@ -202,6 +202,7 @@ const LinkDashboardPage = (props) => {
   }, []);
 
   return (
+    <ScrollLimit>
     <div className="flexrowh">
       <div id="very-top-id" className="website-background-color">
         {/* <div className="border2black">
@@ -239,6 +240,7 @@ right column
         </div> */}
       </div>
     </div>
+    </ScrollLimit>
   );
 };
 

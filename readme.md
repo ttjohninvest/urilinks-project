@@ -2164,4 +2164,4 @@ I changed .scrollable-div1 from 2404vh to 970px
 I added overflow-y: auto; to .scrollable-div2
 I removed scrollable-div2 from LinkListFilters.js it came before <LinkList3 />
 I changed 2000px to 590px in .scrollable-div1c
-I changed .scrollable-div3 from 2404vh to 590px
+I changed .scrollable-div3 from 2404vh to 970px

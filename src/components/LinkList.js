@@ -348,7 +348,7 @@ export const LinkList = (props) => {
           .scrollIntoView({
             behavior: "smooth",
           });
-     window.scrollTo(0,window.scrollY)
+     window.scrollTo(0,window.scrollY) //without this statement, it will put the link near the top with the scroll control buttons
   }
 
   useEffect(() => {

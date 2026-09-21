@@ -983,10 +983,10 @@ const LinkListItem = (props) => {
         });
 
       //document.querySelector("#ipvideo" + id).scrollBy({ 
-      props.ls2element.scrollBy({ 
-        top: 100, 
-        behavior: 'smooth' 
-      });
+      // props.ls2element.scrollBy({ 
+      //   top: 100, 
+      //   behavior: 'smooth' 
+      // });
       
       } else {
         console.log("3 LinkListItem.js, props.links.length="+props.links.length)

@@ -511,15 +511,15 @@ const handleClick = useCallback(() => {
     //alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
     try {
       if (
-        confirm("Press Cancel to cancel the deletion of your account.") == true
+        confirm("***WARNING*** PLEASE READ!! Press Cancel to abort the deletion of your account.") == true
       ) {
         //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
         //if(true) {
           if (
-        confirm("Press Cancel to cancel the deletion of your account.") == true
+        confirm("***WARNING*** PLEASE READ!! Press Cancel to abort the deletion of your account.") == true
       ) {
          if (
-        confirm("Press Cancel to cancel the deletion of your account.") == true
+        confirm("***WARNING*** PLEASE READ!! Press Cancel to abort the deletion of your account.") == true
       ) {
         if (
           !!props.theplan.plan &&

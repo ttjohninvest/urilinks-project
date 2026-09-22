@@ -965,7 +965,8 @@ const LinkListItem = (props) => {
         console.log(
           "LinkListItem.js, props.links.length=" + props.links.length,
         );
-        if (props.links.length === 1) {
+        //if (props.links.length === 1) {
+        if(true) {
           //props.ls2element.scrollBy(0, -300);
           //props.ls2element.scrollTo(0,document.body.scrollHeight)
            if (!!document.querySelector("#ipvideo" + id)) {
@@ -975,7 +976,7 @@ const LinkListItem = (props) => {
             });
 
             //props.bottomElementRef.current.scrollBy(0,100)
-            props.scrollToBottom()
+            //props.scrollToBottom()
           }
         } else {
           if (!!document.querySelector("#ipvideo" + id)) {
@@ -1514,8 +1515,8 @@ const mapStateToProps = (state) => ({
   sortBy: state.sortBy,
   filters: state.filters,
   auth: state.auth,
-  links: selectLinks(state.links, state.filters),
-  //  frommenu:state.frommenu
+  //links: selectLinks(state.links, state.filters), //this is used to get went 1 link is displayed for fixing the scrolling see code in playInPlaceVideo()
+  
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

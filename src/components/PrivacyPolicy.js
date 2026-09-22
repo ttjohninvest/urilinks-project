@@ -34,7 +34,10 @@ To comply with laws or law enforcement
 To protect my rights and interests
 
 5. DATA SECURITY
-I use reasonable security measures to protect your info.
+I use reasonable security measures to protect your information.
+urilinks does not store your credit card information.
+The payment processor for the plans is stripe.com. They are PCI DSS compliant.
+urilinks uses https encryption so credit card information is secure over the internet.
 
 6. YOUR RIGHTS
 You can:

@@ -2165,3 +2165,24 @@ I added overflow-y: auto; to .scrollable-div2
 I removed scrollable-div2 from LinkListFilters.js it came before <LinkList3 />
 I changed 2000px to 610px in .scrollable-div1c
 I changed .scrollable-div3 from 2404vh to 970px
+
+============================================================================================
+delete acct in Header.js is pressed, Code i need to delete user uid from firebase realtime database authentication menu item
+package.json: "firebase-admin":"8.0.0",
+
+import database from "../firebase/firebase";
+import admin from 'firebase-admin';
+
+//const serviceAccount = require('./path/to/serviceAccountKey.json'); //I need a .json file from google cloud IAM Admin
+//firebase-adminsdk-fbsvc@urilinks-2f721.iam.gserviceaccount.com
+// admin.initializeApp({
+//   //credential: admin.credential.cert("serviceaccount.json")
+// credential: admin.credential.cert("firebase-adminsdk-fbsvc@urilinks-2f721.iam.gserviceaccount.com")
+// });
+
+<!-- export const startDeleteAccount = () => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid; -->
+
+    //await admin.auth().deleteUser(uid);
+==================================================================================================================

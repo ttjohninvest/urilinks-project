@@ -967,7 +967,12 @@ const LinkListItem = (props) => {
         );
         if (props.links.length === 1) {
           //props.ls2element.scrollBy(0, -300);
-          props.ls2element.scrollTo(0,document.body.scrollHeight)
+          //props.ls2element.scrollTo(0,document.body.scrollHeight)
+           if (!!document.querySelector("#ipvideo" + id)) {
+            document.querySelector("#ipvideo" + id).scrollIntoView({
+              behavior: "smooth", //,
+              //block:"start"
+            });
 
         } else {
           if (!!document.querySelector("#ipvideo" + id)) {

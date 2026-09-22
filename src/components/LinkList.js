@@ -387,9 +387,9 @@ export const LinkList = (props) => {
 
  
 const scrollToBottom = () => {
-    if (scrollContainerRef.current) {
+    if (bottomElementRef.current) {
       // 'smooth' behavior is supported in most modern browsers
-      scrollContainerRef.current.scrollIntoView({ behavior: 'smooth' });
+      bottomElementRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
   

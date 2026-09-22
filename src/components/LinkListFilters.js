@@ -1060,14 +1060,14 @@ function ExpandableArray(props) {
         <div
           className={`website-background-color width30pt
           } theHeight flexrowzc2 flexcol3 border-b-5font-roboto text-size-16 font-weight-500`}
-          title="You are welcome to use this Internet Links Organizer Dashboard to add, view, delete and share your links with others." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
+          title="Welcome, Entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press fiendly login to sign up." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
         >
           <div className="flexcol3">
             <div
               className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2- text-size-10-" : "fleur-de-leah-regular- text-size-10-"}`}
-              title="Entertainment console; Internet Links Organizer Dashboard's Home Page"
+              title="Welcome, Entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press fiendly login to sign up."
             >
-                 {`Entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families)`}
+                 {`Welcome, Entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press fiendly login to sign up.`}
 
             
             </div>

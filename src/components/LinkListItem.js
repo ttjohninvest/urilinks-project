@@ -953,18 +953,14 @@ const LinkListItem = (props) => {
     if (x1 === 0) {
       props.incrementHandleToggle3({ id: x, show: 0 });
 
-      console.log(
-        "1 LinkListItem.js, props.links.length=" + props.links.length,
-      );
+     
       console.log("1 LinkListItem.js, videoId=" + videoId);
       console.log("1 LinkListItem.js, props.id=" + props.id);
       console.log("1 LinkListItem.js, show=" + show);
       //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
 
       if (show === 0) {
-        console.log(
-          "LinkListItem.js, props.links.length=" + props.links.length,
-        );
+       
         //if (props.links.length === 1) {
         if(true) {
           //props.ls2element.scrollBy(0, -300);

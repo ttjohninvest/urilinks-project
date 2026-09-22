@@ -941,11 +941,11 @@ const LinkListItem = (props) => {
     //id is the link id, show can be 0 or 1, Url is the Url of the video to play
     //alert(id+", "+show+", "+Url)
     let newStr=Url
-    if(Url.includes("short") || Url.includes("watch?v=")) {
+    if(Url.includes("shorts") || Url.includes("watch?v=")) {
     
-      if(Url.includes("short")) {
-        console.log("short")
-         newStr = Url.replace("/short/", "/embed/");
+      if(Url.includes("shorts")) {
+        console.log("shorts")
+         newStr = Url.replace("shorts", "embed");
       }
      
     else if(Url.includes("watch?v=")) {

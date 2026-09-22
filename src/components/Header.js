@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
+import { removeAllData } from "../actions/links";
 
 import redarrow from "../assets/images/red-arrow.jpg";
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
@@ -482,15 +483,6 @@ const handleClick = useCallback(() => {
 
       handleUpdate2()
 
-      //setSearchParams({z2:null})
-    //setUpdateLoggedOut(true)
-
-    // const x = {
-    //   totalloggedout: props.thetotalloggedout.totalloggedout + 1,
-    // };
-    // // console.log("logoutit, x="+JSON.stringify(x))
-    // await incrementTotalLoggedOutClickCount(x);
-
     props.setHasrefreshed({ hasrefreshed: false });
 
     setTheplan2({
@@ -511,6 +503,7 @@ const handleClick = useCallback(() => {
 
     props.stopScrolling2();
     props.startLogout();
+    props.removeAllData()
 
   };
 
@@ -523,6 +516,9 @@ const handleClick = useCallback(() => {
         //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
         //if(true) {
           if (
+        confirm("Press Cancel to cancel the deletion of your account.") == true
+      ) {
+         if (
         confirm("Press Cancel to cancel the deletion of your account.") == true
       ) {
         if (
@@ -557,6 +553,7 @@ const handleClick = useCallback(() => {
               console.log("cancel subscription error=" + error);
             });
         }
+      }
       }
       } else {
         alert("Canceled the deletion of the account");
@@ -1153,6 +1150,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(incrementTotalLoggedOutClickCount(data)),
   incrementTotalLoggedOutClickCount2: (data) =>
     dispatch(incrementTotalLoggedOutClickCount2(data)),
+  removeAllData: (data) => dispatch(removeAllData(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

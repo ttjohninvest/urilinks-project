@@ -53,10 +53,12 @@ import {
 
 import { incrementUsersClickCount } from "../actions/theuserscount";
 
-import {
-  incrementHandleToggle3,
-  decrementHandleToggle3,
-} from "../actions/links";
+// import {
+//   incrementHandleToggle3,
+//   decrementHandleToggle3,
+// } from "../actions/links";
+
+  
 
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
@@ -1005,16 +1007,15 @@ function ExpandableArray(props) {
       } else x1 = show;
       const x = id; //x is link id
   
-      if (x1 === 0) {
-        props.incrementHandleToggle3({ id: x, show: 0 });
+      if (x1 === 1) {
+        //props.incrementHandleToggle3({ id: x, show: 0 });
   
-       
-        console.log("1 LinkListItem.js, videoId=" + videoId);
-        console.log("1 LinkListItem.js, props.id=" + props.id);
-        console.log("1 LinkListItem.js, show=" + show);
+        // console.log("1 LinkListItem.js, videoId=" + videoId);
+        // console.log("1 LinkListItem.js, props.id=" + props.id);
+        // console.log("1 LinkListItem.js, show=" + show);
         //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
   
-        if (show === 0) {
+        if (show === 1) {
          
           //if (props.links.length === 1) {
           if(true) {
@@ -1042,7 +1043,7 @@ function ExpandableArray(props) {
         
   
       } else {
-  props.decrementHandleToggle3({ id: x, show: 0 });
+  //props.decrementHandleToggle3({ id: x, show: 1 });
   
         !!document.querySelector(id) &&
           document.querySelector(id).scrollIntoView({
@@ -2416,8 +2417,8 @@ export class LinkListFilters extends React.Component {
           userscounti={this.props.theuserscounti.userscounti}
           totalloggedout={this.props.thetotalloggedout.totalloggedout}
           //setFrommenu={this.props.setFrommenu}
-          incrementHandleToggle3={this.props.incrementHandleToggle3}
-          decrementHandleToggle3={this.props.decrementHandleToggle3}
+          // incrementHandleToggle3={this.props.incrementHandleToggle3}
+          // decrementHandleToggle3={this.props.decrementHandleToggle3}
         />
       </div>
     );
@@ -2459,8 +2460,8 @@ const mapDispatchToProps = (dispatch) => ({
   sortByAds: () => dispatch(sortByAds()),
   sortByAdsAlpha: () => dispatch(sortByAdsAlpha()),
   //setFrommenu:(data) => dispatch(setFrommenu(data))
-  incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
-  decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),
+  // incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
+  // decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),
 });
 //incrementUsersClickCount
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

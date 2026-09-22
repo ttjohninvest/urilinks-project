@@ -1021,6 +1021,25 @@ const LinkListItem = (props) => {
   //   //window.document.getElementById("ipvideo"+videoid).style.display='none'
   // };
 
+  const abc = (id,show,Url) => {
+    if(show === 0) {
+
+      props.incrementHandleToggle3({ id: id, show: 0 })
+      show = 1
+      props.playInPlaceVideo(id, show, Url)
+      
+    }
+    else {
+
+      props.decrementHandleToggle3({ id: id, show: 1 })
+      show = 0
+      props.playInPlaceVideo(id, show, Url)
+
+    }
+
+    
+  }
+
   return (
     <div key={props.index}>
       {/* <span>{blb===true?"The link is broken.":"The link is not broken."}</span> */}
@@ -1118,7 +1137,7 @@ const LinkListItem = (props) => {
               className="ib margin-left-11 margin-top-1zx1"
               style={{ cursor: "pointer" }}
               //onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}
-              onClick={() => props.playInPlaceVideo(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1
+              onClick={() => abc(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1
             >
               {props.show === 0 ? (
                 "Play video in place"

@@ -56,6 +56,7 @@ export const LinkList = (props) => {
   //  const [mappedData, setMappedData] = useState([])
 
   const myRef = useRef();
+  const bottomElementRef = useRef();
 
   // const scrollupref = useRef();
   // const scrolldownref = useRef();
@@ -491,6 +492,7 @@ export const LinkList = (props) => {
         <div>
           {selectedOption === "option1" && (
             <div
+              ref={bottomElementRef}
               id="ls2"
               className={`${isMobile() === true ? "scrollable-div2content" : "scrollable-div1c"}`}
               //onClick={()=>stopScrolling2()}
@@ -522,7 +524,7 @@ export const LinkList = (props) => {
                           index={index}
                           signup={props.signup.signup}
                           idexists={props.idexists}
-                          ls2element={document.querySelector("#ls2")}
+                          bottomElementRef={bottomElementRef}
                           
                         />
                       </div>

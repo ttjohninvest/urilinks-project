@@ -973,6 +973,8 @@ const LinkListItem = (props) => {
               behavior: "smooth", //,
               //block:"start"
             });
+
+            props.bottomElementRef.current.scrollBy(0,100)
           }
         } else {
           if (!!document.querySelector("#ipvideo" + id)) {

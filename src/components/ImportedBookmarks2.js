@@ -45,6 +45,12 @@ const ImportedBookmarks2 = (props) => {
     document.title = oldTitle;
   };
 
+  const returnAndRefresh = () => {
+    props.history.push("/");//0000010
+    //window.location.reload();
+    window.location.href = "https://urilinks.com?signup=signup";
+  };
+
   return (
     <div className="container2 positionit">
       <div className="flexcol">
@@ -161,9 +167,10 @@ const ImportedBookmarks2 = (props) => {
                       <div className="margin-top-2">
                         <button
                           className="button-style-1- button-2w"
-                          onClick={handleCancelIt}
+                          //onClick={handleCancelIt}
+                          onClick={returnAndRefresh}
                         >
-                          Cancel
+                          Don't go to plans Page
                         </button>
                       </div>
                       </div>

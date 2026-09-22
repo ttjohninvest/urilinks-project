@@ -1823,6 +1823,7 @@ function ExpandableArray(props) {
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
                 <LinkList3
                   videoId={videoId}
+                  url2={url2}
                   playInPlaceVideo={playInPlaceVideo}
                   idexists={idexists}
                   av={props.av}

@@ -973,7 +973,7 @@ const LinkListItem = (props) => {
               behavior: "smooth", //,
               //block:"start"
             });
-
+          }
         } else {
           if (!!document.querySelector("#ipvideo" + id)) {
             document.querySelector("#ipvideo" + id).scrollIntoView({

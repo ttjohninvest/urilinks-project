@@ -977,80 +977,80 @@ function ExpandableArray(props) {
     }, 20); // Every 20 milliseconds
   };
 
-    const playInPlaceVideo = (id, show, Url, event) => {
-      //id is the link id, show can be 0 or 1, Url is the Url of the video to play
-      //alert(id+", "+show+", "+Url)
-      let newStr=Url
-      if(Url.includes("shorts") || Url.includes("watch?v=")) {
+  //   const playInPlaceVideo = (id, show, Url, event) => {
+  //     //id is the link id, show can be 0 or 1, Url is the Url of the video to play
+  //     //alert(id+", "+show+", "+Url)
+  //     let newStr=Url
+  //     if(Url.includes("shorts") || Url.includes("watch?v=")) {
       
-        if(Url.includes("shorts")) {
-          console.log("shorts")
-           newStr = Url.replace("shorts", "embed");
-        }
+  //       if(Url.includes("shorts")) {
+  //         console.log("shorts")
+  //          newStr = Url.replace("shorts", "embed");
+  //       }
        
-      else if(Url.includes("watch?v=")) {
-        console.log("watch?v=")
-         newStr = Url.replace("watch?v=", "embed/");
-      }
+  //     else if(Url.includes("watch?v=")) {
+  //       console.log("watch?v=")
+  //        newStr = Url.replace("watch?v=", "embed/");
+  //     }
   
-      }
+  //     }
       
       
-      //alert(newStr)
-      console.log("playInPlaceVideo, newStr="+newStr)
-      //alert(1)
-      setUrl2(newStr);
-      setVideoId(id);
+  //     //alert(newStr)
+  //     console.log("playInPlaceVideo, newStr="+newStr)
+  //     //alert(1)
+  //     setUrl2(newStr);
+  //     setVideoId(id);
   
-      let x1 = 0;
-      if (show === undefined || show === null || show === "NaN") {
-      } else x1 = show;
-      const x = id; //x is link id
+  //     let x1 = 0;
+  //     if (show === undefined || show === null || show === "NaN") {
+  //     } else x1 = show;
+  //     const x = id; //x is link id
   
-      if (x1 === 1) {
-        //props.incrementHandleToggle3({ id: x, show: 0 });
+  //     if (x1 === 1) {
+  //       //props.incrementHandleToggle3({ id: x, show: 0 });
   
-        // console.log("1 LinkListItem.js, videoId=" + videoId);
-        // console.log("1 LinkListItem.js, props.id=" + props.id);
-        // console.log("1 LinkListItem.js, show=" + show);
-        //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
+  //       // console.log("1 LinkListItem.js, videoId=" + videoId);
+  //       // console.log("1 LinkListItem.js, props.id=" + props.id);
+  //       // console.log("1 LinkListItem.js, show=" + show);
+  //       //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
   
-        if (show === 1) {
+  //       if (show === 1) {
          
-          //if (props.links.length === 1) {
-          if(true) {
-            //props.ls2element.scrollBy(0, -300);
-            //props.ls2element.scrollTo(0,document.body.scrollHeight)
-             if (!!document.querySelector("#ipvideo" + id)) {
-              document.querySelector("#ipvideo" + id).scrollIntoView({
-                behavior: "smooth", //,
-                //block:"start"
-              });
+  //         //if (props.links.length === 1) {
+  //         if(true) {
+  //           //props.ls2element.scrollBy(0, -300);
+  //           //props.ls2element.scrollTo(0,document.body.scrollHeight)
+  //            if (!!document.querySelector("#ipvideo" + id)) {
+  //             document.querySelector("#ipvideo" + id).scrollIntoView({
+  //               behavior: "smooth", //,
+  //               //block:"start"
+  //             });
   
-              //props.bottomElementRef.current.scrollBy(0,100)
-              //props.scrollToBottom()
-            }
-          } else {
-            if (!!document.querySelector("#ipvideo" + id)) {
-              document.querySelector("#ipvideo" + id).scrollIntoView({
-                behavior: "smooth", //,
-                //block:"start"
-              });
-            }
-          }
-        }
+  //             //props.bottomElementRef.current.scrollBy(0,100)
+  //             //props.scrollToBottom()
+  //           }
+  //         } else {
+  //           if (!!document.querySelector("#ipvideo" + id)) {
+  //             document.querySelector("#ipvideo" + id).scrollIntoView({
+  //               behavior: "smooth", //,
+  //               //block:"start"
+  //             });
+  //           }
+  //         }
+  //       }
   
         
   
-      } else {
-  //props.decrementHandleToggle3({ id: x, show: 1 });
+  //     } else {
+  // //props.decrementHandleToggle3({ id: x, show: 1 });
   
-        !!document.querySelector(id) &&
-          document.querySelector(id).scrollIntoView({
-            behavior: "smooth",
-          });
-      }
-    };
+  //       !!document.querySelector(id) &&
+  //         document.querySelector(id).scrollIntoView({
+  //           behavior: "smooth",
+  //         });
+  //     }
+  //   };
   
 
   return (
@@ -1823,9 +1823,9 @@ function ExpandableArray(props) {
                 {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
                 <LinkList3
-                  videoId={videoId}
-                  url2={url2}
-                  playInPlaceVideo={playInPlaceVideo}
+                  // videoId={videoId}
+                  // url2={url2}
+                  // playInPlaceVideo={playInPlaceVideo}
                   idexists={idexists}
                   av={props.av}
                   ref={childRef}

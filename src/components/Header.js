@@ -522,6 +522,9 @@ const handleClick = useCallback(() => {
       ) {
         //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
         //if(true) {
+          if (
+        confirm("Press Cancel to cancel the deletion of your account.") == true
+      ) {
         if (
           !!props.theplan.plan &&
           props.theplan.plan.replace(/"/g, "") === "free"
@@ -554,6 +557,7 @@ const handleClick = useCallback(() => {
               console.log("cancel subscription error=" + error);
             });
         }
+      }
       } else {
         alert("Canceled the deletion of the account");
         console.log("Canceled the Deletion of the Account");
@@ -561,6 +565,7 @@ const handleClick = useCallback(() => {
     } catch (error) {
       alert("an error occurred: 10002222");
       console.log("an error occurred: 10002222, error=" + error);
+    
     }
     //
   };

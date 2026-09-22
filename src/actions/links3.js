@@ -39,6 +39,7 @@ export const startAddLink3 = (linkData = {}) => {
     //return false;
 
     console.log("startAddLink, link=" + JSON.stringify(link));
+    if(link !== null && link !== undefined && link !== "")
     return database
       .ref(`users/${uid}/links`)
       .push(link)
@@ -67,7 +68,7 @@ export const removeLink3 = ({ id } = {}) => ({
 export const startRemoveLink3 = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-
+if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .remove()
@@ -90,7 +91,7 @@ export const editLink3 = (id, updates) => ({
 export const startEditLink3 = (id, updates) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-
+if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update(updates)

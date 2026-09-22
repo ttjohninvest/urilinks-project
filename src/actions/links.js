@@ -28,6 +28,7 @@ export const incrementHandleToggle = ({ id,show } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
+    if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({show:parseInt(show)+1}) //{showpublic:0}
@@ -47,6 +48,7 @@ export const decrementHandleToggle = ({ id,show } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
+    if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({show:parseInt(show)-1}) //{showpublic:0}
@@ -189,6 +191,7 @@ export const startAddLink = (linkData = {}) => {
     //return false;
 
     console.log("startAddLink, link=" + JSON.stringify(link));
+    if(link !== null && link !== undefined && link !== "")
     return database
       .ref(`users/${uid}/links`)
       .push(link)
@@ -278,7 +281,7 @@ export const archiveLink2 = (id, updates) => ({
 export const startRemoveLink = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-
+if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .remove()
@@ -294,7 +297,7 @@ export const startRemoveLink = ({ id } = {}) => {
 export const startPrivateLink = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-
+if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({showpublic:0})
@@ -313,6 +316,7 @@ export const incrementLinkClickCount = ({ id,frequency } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
+    if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({frequency:parseInt(frequency)+1}) //{showpublic:0}
@@ -332,6 +336,7 @@ export const incrementLinkLikesClickCount = ({ id,likes } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
+    if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({likes:parseInt(likes)+1}) //{showpublic:0}
@@ -351,6 +356,7 @@ export const decrementLinkLikesClickCount = ({ id,likes } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
+    if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({likes:parseInt(likes)-1}) //{showpublic:0}
@@ -372,6 +378,7 @@ export const incrementLinkStarClickCount = ({ id,star } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
+    if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({star:parseInt(star)+1}) //{showpublic:0}
@@ -393,6 +400,7 @@ export const decrementLinkStarClickCount = ({ id,star } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
+    if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({star:parseInt(star)-1}) //{showpublic:0}
@@ -410,7 +418,7 @@ export const decrementLinkStarClickCount = ({ id,star } = {}) => {
 export const startPrivateLink2 = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-
+if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({showpublic:1})
@@ -426,7 +434,7 @@ export const startPrivateLink2 = ({ id } = {}) => {
 export const startArchiveLink = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-
+if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({archive:0})
@@ -442,7 +450,7 @@ export const startArchiveLink = ({ id } = {}) => {
 export const startArchiveLink2 = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-
+if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update({archive:1})
@@ -469,7 +477,7 @@ export const editLink = (id, updates) => ({
 export const startEditLink = (id, updates) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-
+if(id !== null && id !== undefined && id !== "")
     return database
       .ref(`users/${uid}/links/${id}`)
       .update(updates)

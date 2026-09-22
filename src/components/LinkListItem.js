@@ -89,6 +89,7 @@ const LinkListItem = (props) => {
   const [blb, setBlb] = useState(false);
   const [copySuccess, setCopySuccess] = useState("");
   const [lastClickTime, setLastClickTime] = useState(0);
+  const [showvideo, setShowvideo] = useState(0);
   const THRESHOLD = 43200000; // ms
 
   //   useEffect(()=>{
@@ -1026,13 +1027,15 @@ const LinkListItem = (props) => {
 
       props.incrementHandleToggle3({ id: id, show: 0 })
       show = 1
+      setShowvideo(1)
       props.playInPlaceVideo(id, show, Url)
-      
+
     }
     else {
 
       props.decrementHandleToggle3({ id: id, show: 1 })
       show = 0
+      setShowvideo(0)
       props.playInPlaceVideo(id, show, Url)
 
     }
@@ -1079,7 +1082,7 @@ const LinkListItem = (props) => {
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
       <div id={"ipvideo" + props.id}>
-        {props.videoId === props.id && props.show === 1 && (
+        {props.videoId === props.id && showvideo === 1 && (
           <div>
             <div
               className="height50 width100"

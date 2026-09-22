@@ -944,10 +944,12 @@ const LinkListItem = (props) => {
     if(Url.includes("short") || Url.includes("watch?v=")) {
     
       if(Url.includes("short")) {
-         newStr = Url.replace("short", "embed");
+        console.log("short")
+         newStr = Url.replace("/short/", "/embed/");
       }
      
     else if(Url.includes("watch?v=")) {
+      console.log("watch?v=")
        newStr = Url.replace("watch?v=", "embed/");
     }
 

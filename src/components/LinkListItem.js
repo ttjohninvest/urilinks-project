@@ -942,6 +942,8 @@ const LinkListItem = (props) => {
     //alert(id+", "+show+", "+Url)
     const newStr = Url.replace("watch?v=", "embed/");
     //alert(newStr)
+    console.log("playInPlaceVideo, newStr="+newStr)
+    alert(1)
     setUrl2(newStr);
     setVideoId(id);
 

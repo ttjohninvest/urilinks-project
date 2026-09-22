@@ -384,14 +384,6 @@ export const LinkList = (props) => {
    
     
   }, []);
-
- 
-const scrollToBottom = () => {
-    if (bottomElementRef.current) {
-      // 'smooth' behavior is supported in most modern browsers
-      bottomElementRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
   
 
   return (
@@ -532,8 +524,8 @@ const scrollToBottom = () => {
                           index={index}
                           signup={props.signup.signup}
                           idexists={props.idexists}
-                          scrollToBottom={scrollToBottom}
                           
+                          playInPlaceVideo={props.playInPlaceVideo}
                         />
                       </div>
                     );

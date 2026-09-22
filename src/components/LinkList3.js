@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import LinkList from "./LinkList"
+
 
 export const LinkList3 = React.forwardRef((props, ref) => {
     const scrollTimeoutRef = useRef(null);
-
+    
+    
     // Expose the cancel method to the parent
   React.useImperativeHandle(ref, () => ({
     
@@ -30,10 +32,20 @@ export const LinkList3 = React.forwardRef((props, ref) => {
     }
   }));
 
+
+
+
+
+
+
+
+
    return (
     <div>
       
-      <LinkList av={props.av} handleStartScroll={props.handleStartScroll} 
+      <LinkList 
+      playInPlaceVideo={props.playInPlaceVideo}
+      av={props.av} handleStartScroll={props.handleStartScroll} 
         scrollupref={props.scrollupref}
   scrolldownref={props.scrolldownref}
   scrolltotopref={props.scrolltotopref}

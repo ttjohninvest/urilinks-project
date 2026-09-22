@@ -84,8 +84,8 @@ const LinkListItem = (props) => {
   const [sortit1flag, setSortit1flag] = useState([]);
   const [visityt, setVisityt] = useState("");
   const [inplace, setInplace] = useState(false);
-  const [videoId, setVideoId] = useState("");
-  const [url2, setUrl2] = useState("");
+  //const [videoId, setVideoId] = useState("");
+  //const [url2, setUrl2] = useState("");
   const [blb, setBlb] = useState(false);
   const [copySuccess, setCopySuccess] = useState("");
   const [lastClickTime, setLastClickTime] = useState(0);
@@ -937,81 +937,84 @@ const LinkListItem = (props) => {
     return regex.test(navigator.userAgent);
   }
 
-  const playInPlaceVideo = (id, show, Url, event) => {
-    //id is the link id, show can be 0 or 1, Url is the Url of the video to play
-    //alert(id+", "+show+", "+Url)
-    let newStr=Url
-    if(Url.includes("shorts") || Url.includes("watch?v=")) {
+//   const playInPlaceVideo = (id, show, Url, event) => {
+//     //id is the link id, show can be 0 or 1, Url is the Url of the video to play
+//     //alert(id+", "+show+", "+Url)
+//     let newStr=Url
+//     if(Url.includes("shorts") || Url.includes("watch?v=")) {
     
-      if(Url.includes("shorts")) {
-        console.log("shorts")
-         newStr = Url.replace("shorts", "embed");
-      }
+//       if(Url.includes("shorts")) {
+//         console.log("shorts")
+//          newStr = Url.replace("shorts", "embed");
+//       }
      
-    else if(Url.includes("watch?v=")) {
-      console.log("watch?v=")
-       newStr = Url.replace("watch?v=", "embed/");
-    }
+//     else if(Url.includes("watch?v=")) {
+//       console.log("watch?v=")
+//        newStr = Url.replace("watch?v=", "embed/");
+//     }
 
-    }
+//     }
     
     
-    //alert(newStr)
-    console.log("playInPlaceVideo, newStr="+newStr)
-    //alert(1)
-    setUrl2(newStr);
-    setVideoId(id);
+//     //alert(newStr)
+//     console.log("playInPlaceVideo, newStr="+newStr)
+//     //alert(1)
+//     setUrl2(newStr);
+//     setVideoId(id);
 
-    let x1 = 0;
-    if (show === undefined || show === null || show === "NaN") {
-    } else x1 = show;
-    const x = id; //x is link id
+//     let x1 = 0;
+//     if (show === undefined || show === null || show === "NaN") {
+//     } else x1 = show;
+//     const x = id; //x is link id
 
-    if (x1 === 0) {
-      props.incrementHandleToggle3({ id: x, show: 0 });
+//     if (x1 === 0) {
+//       props.incrementHandleToggle3({ id: x, show: 0 });
 
      
-      console.log("1 LinkListItem.js, videoId=" + videoId);
-      console.log("1 LinkListItem.js, props.id=" + props.id);
-      console.log("1 LinkListItem.js, show=" + show);
-      //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
+//       console.log("1 LinkListItem.js, videoId=" + videoId);
+//       console.log("1 LinkListItem.js, props.id=" + props.id);
+//       console.log("1 LinkListItem.js, show=" + show);
+//       //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
 
-      if (show === 0) {
+//       if (show === 0) {
        
-        //if (props.links.length === 1) {
-        if(true) {
-          //props.ls2element.scrollBy(0, -300);
-          //props.ls2element.scrollTo(0,document.body.scrollHeight)
-           if (!!document.querySelector("#ipvideo" + id)) {
-            document.querySelector("#ipvideo" + id).scrollIntoView({
-              behavior: "smooth", //,
-              //block:"start"
-            });
+//         //if (props.links.length === 1) {
+//         if(true) {
+//           //props.ls2element.scrollBy(0, -300);
+//           //props.ls2element.scrollTo(0,document.body.scrollHeight)
+//            if (!!document.querySelector("#ipvideo" + id)) {
+//             document.querySelector("#ipvideo" + id).scrollIntoView({
+//               behavior: "smooth", //,
+//               //block:"start"
+//             });
 
-            //props.bottomElementRef.current.scrollBy(0,100)
-            //props.scrollToBottom()
-          }
-        } else {
-          if (!!document.querySelector("#ipvideo" + id)) {
-            document.querySelector("#ipvideo" + id).scrollIntoView({
-              behavior: "smooth", //,
-              //block:"start"
-            });
-          }
-        }
-      }
+//             //props.bottomElementRef.current.scrollBy(0,100)
+//             //props.scrollToBottom()
+//           }
+//         } else {
+//           if (!!document.querySelector("#ipvideo" + id)) {
+//             document.querySelector("#ipvideo" + id).scrollIntoView({
+//               behavior: "smooth", //,
+//               //block:"start"
+//             });
+//           }
+//         }
+//       }
 
       
 
-    } else {
-props.decrementHandleToggle3({ id: x, show: 0 });
+//     } else {
+// props.decrementHandleToggle3({ id: x, show: 0 });
 
-      !!document.querySelector(id) &&
-        document.querySelector(id).scrollIntoView({
-          behavior: "smooth",
-        });
-    }
-  };
+//       !!document.querySelector(id) &&
+//         document.querySelector(id).scrollIntoView({
+//           behavior: "smooth",
+//         });
+//     }
+//   };
+
+
+
 
   const closeInPlaceVideo = (videoid, id) => {
     alert("close video, videoid=" + videoid + ",id=" + id);
@@ -1115,7 +1118,7 @@ props.decrementHandleToggle3({ id: x, show: 0 });
               className="ib margin-left-11 margin-top-1zx1"
               style={{ cursor: "pointer" }}
               //onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}
-              onClick={() => playInPlaceVideo(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1
+              onClick={() => props.playInPlaceVideo(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1
             >
               {props.show === 0 ? (
                 "Play video in place"

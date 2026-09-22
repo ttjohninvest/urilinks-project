@@ -53,6 +53,11 @@ import {
 
 import { incrementUsersClickCount } from "../actions/theuserscount";
 
+import {
+  incrementHandleToggle3,
+  decrementHandleToggle3,
+} from "../actions/links";
+
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
@@ -76,6 +81,9 @@ function ExpandableArray(props) {
   const [aValue, setAValue] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const [idexists, setIdexists] = useState(0);
+  const [url2, setUrl2] = useState("");
+  const [videoId, setVideoId] = useState("");
+
 
   const fullText =
     "❤️ Benefits: (urilinks comes with a make money oportunity too) urilinks is a platform for orgainizing links to internet websites and sharing your links to internet users of your choice and providing user advertising space for you to make money by entering an optional text ad with each link. It is made with love and care. It works. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. If you want help, please contact tech support at 775 559 5740. Please try a user account today through friendly login. Thank you so much.";
@@ -967,6 +975,83 @@ function ExpandableArray(props) {
     }, 20); // Every 20 milliseconds
   };
 
+    const playInPlaceVideo = (id, show, Url, event) => {
+      //id is the link id, show can be 0 or 1, Url is the Url of the video to play
+      //alert(id+", "+show+", "+Url)
+      let newStr=Url
+      if(Url.includes("shorts") || Url.includes("watch?v=")) {
+      
+        if(Url.includes("shorts")) {
+          console.log("shorts")
+           newStr = Url.replace("shorts", "embed");
+        }
+       
+      else if(Url.includes("watch?v=")) {
+        console.log("watch?v=")
+         newStr = Url.replace("watch?v=", "embed/");
+      }
+  
+      }
+      
+      
+      //alert(newStr)
+      console.log("playInPlaceVideo, newStr="+newStr)
+      //alert(1)
+      setUrl2(newStr);
+      setVideoId(id);
+  
+      let x1 = 0;
+      if (show === undefined || show === null || show === "NaN") {
+      } else x1 = show;
+      const x = id; //x is link id
+  
+      if (x1 === 0) {
+        props.incrementHandleToggle3({ id: x, show: 0 });
+  
+       
+        console.log("1 LinkListItem.js, videoId=" + videoId);
+        console.log("1 LinkListItem.js, props.id=" + props.id);
+        console.log("1 LinkListItem.js, show=" + show);
+        //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
+  
+        if (show === 0) {
+         
+          //if (props.links.length === 1) {
+          if(true) {
+            //props.ls2element.scrollBy(0, -300);
+            //props.ls2element.scrollTo(0,document.body.scrollHeight)
+             if (!!document.querySelector("#ipvideo" + id)) {
+              document.querySelector("#ipvideo" + id).scrollIntoView({
+                behavior: "smooth", //,
+                //block:"start"
+              });
+  
+              //props.bottomElementRef.current.scrollBy(0,100)
+              //props.scrollToBottom()
+            }
+          } else {
+            if (!!document.querySelector("#ipvideo" + id)) {
+              document.querySelector("#ipvideo" + id).scrollIntoView({
+                behavior: "smooth", //,
+                //block:"start"
+              });
+            }
+          }
+        }
+  
+        
+  
+      } else {
+  props.decrementHandleToggle3({ id: x, show: 0 });
+  
+        !!document.querySelector(id) &&
+          document.querySelector(id).scrollIntoView({
+            behavior: "smooth",
+          });
+      }
+    };
+  
+
   return (
     <div className="flexrowh-">
     <div className={`${props.signup === false?'bg-gray-1':'bg-gray-1'}`}>
@@ -1737,6 +1822,7 @@ function ExpandableArray(props) {
                 {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
                 <LinkList3
+                  playInPlaceVideo={playInPlaceVideo}
                   idexists={idexists}
                   av={props.av}
                   ref={childRef}
@@ -2328,6 +2414,8 @@ export class LinkListFilters extends React.Component {
           userscounti={this.props.theuserscounti.userscounti}
           totalloggedout={this.props.thetotalloggedout.totalloggedout}
           //setFrommenu={this.props.setFrommenu}
+          incrementHandleToggle3={this.props.incrementHandleToggle3}
+          decrementHandleToggle3={this.props.decrementHandleToggle3}
         />
       </div>
     );
@@ -2369,6 +2457,8 @@ const mapDispatchToProps = (dispatch) => ({
   sortByAds: () => dispatch(sortByAds()),
   sortByAdsAlpha: () => dispatch(sortByAdsAlpha()),
   //setFrommenu:(data) => dispatch(setFrommenu(data))
+  incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
+  decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),
 });
 //incrementUsersClickCount
 export default connect(mapStateToProps, mapDispatchToProps)(LinkListFilters);

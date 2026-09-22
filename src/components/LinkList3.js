@@ -44,6 +44,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
     <div>
       
       <LinkList 
+      videoId={props.videoId}
       playInPlaceVideo={props.playInPlaceVideo}
       av={props.av} handleStartScroll={props.handleStartScroll} 
         scrollupref={props.scrollupref}

@@ -1016,10 +1016,10 @@ const LinkListItem = (props) => {
 
 
 
-  const closeInPlaceVideo = (videoid, id) => {
-    alert("close video, videoid=" + videoid + ",id=" + id);
-    //window.document.getElementById("ipvideo"+videoid).style.display='none'
-  };
+  // const closeInPlaceVideo = (videoid, id) => {
+  //   alert("close video, videoid=" + videoid + ",id=" + id);
+  //   //window.document.getElementById("ipvideo"+videoid).style.display='none'
+  // };
 
   return (
     <div key={props.index}>
@@ -1060,7 +1060,7 @@ const LinkListItem = (props) => {
       {/* <ol id={"uldata" + props.id} start="0"></ol> */}
 
       <div id={"ipvideo" + props.id}>
-        {videoId === props.id && props.show === 1 && (
+        {props.videoId === props.id && props.show === 1 && (
           <div>
             <div
               className="height50 width100"

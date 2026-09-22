@@ -57,6 +57,7 @@ export const LinkList = (props) => {
 
   const myRef = useRef();
   const bottomElementRef = useRef();
+  const scrollContainerRef = useRef(null);
 
   // const scrollupref = useRef();
   // const scrolldownref = useRef();
@@ -385,7 +386,12 @@ export const LinkList = (props) => {
   }, []);
 
  
-
+const scrollToBottom = () => {
+    if (bottomElementRef.current) {
+      // 'smooth' behavior is supported in most modern browsers
+      bottomElementRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
 
   return (
@@ -489,10 +495,12 @@ export const LinkList = (props) => {
       <div className="border-left-5">
         <div id="before-link-summary-id" className="margin-bottom-5a"></div>
 
-        <div>
+        <div 
+        //ref={scrollContainerRef}
+        >
           {selectedOption === "option1" && (
             <div
-              ref={bottomElementRef}
+              ref={scrollContainerRef}
               id="ls2"
               className={`${isMobile() === true ? "scrollable-div2content" : "scrollable-div1c"}`}
               //onClick={()=>stopScrolling2()}
@@ -524,13 +532,14 @@ export const LinkList = (props) => {
                           index={index}
                           signup={props.signup.signup}
                           idexists={props.idexists}
-                          bottomElementRef={bottomElementRef}
+                          scrollToBottom={scrollToBottom}
                           
                         />
                       </div>
                     );
                 })
               )}
+             <div ref={bottomElementRef} />
             </div>
           )}
         </div>

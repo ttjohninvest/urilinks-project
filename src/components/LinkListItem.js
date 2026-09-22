@@ -974,7 +974,8 @@ const LinkListItem = (props) => {
               //block:"start"
             });
 
-            props.bottomElementRef.current.scrollBy(0,100)
+            //props.bottomElementRef.current.scrollBy(0,100)
+            props.scrollToBottom()
           }
         } else {
           if (!!document.querySelector("#ipvideo" + id)) {

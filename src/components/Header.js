@@ -864,9 +864,9 @@ const handleClick = useCallback(() => {
                             <span
                               //title="the basic plan for $4.99/year stores up to 100 links. The standard plan for $9.99/year stores up to 200 links. The premium plan for $14.99/year stores up to 400 links."
                               className="ib text-size-11 color-white-1 color-black-2- color-blue-1-"
-                              title="Thank you. All credit card processing is handled through stripe.com and it is very safe.  Please click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links). I hope you enjoyment and the best."
+                              title="Thank you. All credit card processing is handled through stripe.com and they comply with PCI DSS. It is very secure.  Please click to see plans, basic ($4.99/year stores up to 100 links), standard ($9.99/year stores up to 200 links) or premium ($14.99/year stores up to 400 links). I hope you enjoyment and the best."
                             >
-                              😎 subscribe (stripe.com)
+                              😎 plans (stripe.com)
                             </span>
                           </Link>
                         </div>

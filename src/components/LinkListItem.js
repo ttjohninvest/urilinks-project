@@ -94,7 +94,7 @@ const LinkListItem = (props) => {
   //const [xadmessage, setXadmessage] = useState("Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ "to help this seller make money from commission:")
   const THRESHOLD = 43200000; // ms
 
-  const xadmessage = "Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ " to help this seller make money from commission:"
+  const xdotcomadmessage = "Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ " to help this seller make money from commission:"
 
   //   useEffect(()=>{
   //     //broken link: "http://tyuhn.com/"
@@ -1458,7 +1458,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
 <span>
             ,<span className="ib margin-left-11 margin-right-1">Please forward sales link to</span>
             <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(xadmessage)}&url=${props.adUrl}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(xdotcomadmessage)}&url=${props.adUrl}`}
               className="ib nounderline- cursor-pointer"
               title="Click to forward link to x.com."
               target="_blank"

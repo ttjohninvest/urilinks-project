@@ -1252,7 +1252,7 @@ function ExpandableArray(props) {
                              
                               <CopyButton2
                                 readonly={readonly}
-                                accountpagename={firebase.auth().currentUser.displayName}
+                                accountpagename={`${firebase.auth().currentUser.displayName?firebase.auth().currentUser.displayName:"John"}`}v
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
                               {/* {copySuccess} */}
@@ -1296,7 +1296,7 @@ function ExpandableArray(props) {
                               </button> */}
                               <CopyButton2
                                 readonly={readonly}
-                                accountpagename={firebase.auth().currentUser.displayName}
+                                accountpagename={`${firebase.auth().currentUser.displayName?firebase.auth().currentUser.displayName:"John"}`}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
                               {/* {copySuccess} */}
@@ -1409,7 +1409,7 @@ function ExpandableArray(props) {
                               </button> */}
                               <CopyButton2
                                 readonly={readonly}
-                                accountpagename={firebase.auth().currentUser.displayName}
+                                accountpagename={`${firebase.auth().currentUser.displayName?firebase.auth().currentUser.displayName:"John"}`}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
                               {/* {copySuccess} */}
@@ -1450,7 +1450,7 @@ function ExpandableArray(props) {
                               </button> */}
                               <CopyButton2
                                 readonly={readonly}
-                                accountpagename={firebase.auth().currentUser.displayName}
+                                accountpagename={`${firebase.auth().currentUser.displayName?firebase.auth().currentUser.displayName:"John"}`}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
                               {/* {copySuccess} */}

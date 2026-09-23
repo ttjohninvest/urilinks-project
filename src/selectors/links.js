@@ -90,7 +90,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
           
         } else if (sortBy === "productsalpha") {
           
-            //return true
+             //return true
               // || sortBy==='date') {
           if (!!link.addescription === false) return false;
           isTextInAds = !!link.addescription === true
@@ -150,6 +150,13 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             
 
         } else if (sortBy === "adsalpha") {
+
+            
+              if(a.addescription.toLowerCase() > b.addescription.toLowerCase()) return 1
+            else return -1
+            
+
+        } else if (sortBy === "productsalpha") {
 
             
               if(a.addescription.toLowerCase() > b.addescription.toLowerCase()) return 1

@@ -1442,7 +1442,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
         <span>
           {!!props.addescription === true ? (
             <span>
-              <span className="ib padding-left-1 padding-right-11 bg-color-1w borderRadius11 nounderline color-black">
+              <span className="ib bg-color-1w borderRadius11 nounderline color-black">
                 See what {firebase.auth().currentUser.displayName} has for
                 sale:&nbsp;
               </span>
@@ -1453,7 +1453,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                 target="_blank"
                 rel="noopener noreferrer sponsored"
               >
-                <span className={`ib padding-left-1 padding-right-11 borderRadius11 ${theSortBy === 1?'bg-color-1w':'bg-color-1w'}`} style={{ color: "#0000EE"}}>{props.addescription}</span>
+                <span className={`ib margin-left-11 padding-left-1 padding-right-11 borderRadius11 ${theSortBy === 1?'bg-color-1w':'bg-color-1w'}`} style={{ color: "#0000EE"}}>{props.addescription}</span>
               </a>
 
 
@@ -1486,7 +1486,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                 to={`/edit/${props.id}`}
               >
                 <span className="" style={{ cursor: "pointer" }}>
-                  <span className="ib padding-left-1 padding-right-11 bg-color-1w borderRadius11 nounderline color-black">
+                  <span className="ib bg-color-1w borderRadius11 nounderline color-black">
                     See what {firebase.auth().currentUser.displayName} has for
                     sale:&nbsp;
                   </span>
@@ -1496,7 +1496,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
             </div>
           ) : (
             <div>
-              <span className="ib padding-left-1 padding-right-11 bg-color-1w borderRadius11 nounderline color-black">
+              <span className="ib bg-color-1w borderRadius11 nounderline color-black">
                 See what{" "}
                 {!!firebase.auth().currentUser === true
                   ? firebase.auth().currentUser.displayName + " has "

@@ -90,6 +90,8 @@ const LinkListItem = (props) => {
   const [copySuccess, setCopySuccess] = useState("");
   const [lastClickTime, setLastClickTime] = useState(0);
   const [showvideo, setShowvideo] = useState(0);
+ 
+  const [xadmessage, setXadmessage] = useState("Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ "to help this seller make money from commission:")
   const THRESHOLD = 43200000; // ms
 
   //   useEffect(()=>{
@@ -1452,9 +1454,9 @@ props.decrementHandleToggle3({ id: x, show: 1 });
 
 
 <span>
-            ,<span className="ib margin-left-11 margin-right-1">Please forward link to</span>
+            ,<span className="ib margin-left-11 margin-right-1">Please forward sales link to</span>
             <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('Please buy x from y to help this homeless family make money from commission:')}url=${props.adUrl}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(xadmessage)}url=${props.adUrl}`}
               className="ib nounderline- cursor-pointer"
               title="Click to forward link to x.com."
               target="_blank"

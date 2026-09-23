@@ -507,6 +507,33 @@ const handleClick = useCallback(() => {
 
   };
 
+   const dlogoutit = () => {
+      
+
+    props.setHasrefreshed({ hasrefreshed: false });
+
+    setTheplan2({
+      customerId: "",
+      plan: "free",
+      subscriptionId: "",
+      uid: "",
+    });
+    props.setTextFilter("");
+    props.sortByDescription();
+    setPhotourl("");
+    setGoogleUserData({});
+    setBmok2(true);
+
+    setSignup(false);
+
+    setLinks([]);
+
+    props.stopScrolling2();
+    props.startLogout();
+    
+
+  };
+
   const cancelsubscription = () => {
     //alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
     try {
@@ -527,7 +554,7 @@ const handleClick = useCallback(() => {
         ) {
           console.log("cancelsubscription, free plan part")
           props.startDeleteAccount();
-          logoutit();
+          dlogoutit();
         } else {
           console.log("cancelsubscription, free plan part")
           //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)

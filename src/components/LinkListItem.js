@@ -96,7 +96,8 @@ const LinkListItem = (props) => {
   //const [xadmessage, setXadmessage] = useState("Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ "to help this seller make money from commission:")
   const THRESHOLD = 43200000; // ms
 
-  const xdotcomadmessage = "Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ " to help this seller make money from commission:"
+  const xdotcomadmessage = "Please buy "+props.addescription+" from "+ !!firebase.auth().currentUser?firebase.auth().currentUser.displayName:"John"+" to help this seller make money from commission:"
+
 
   //   useEffect(()=>{
   //     //broken link: "http://tyuhn.com/"

@@ -87,6 +87,16 @@ export const startDeleteAccount = () => {
       .then(() => {
         //alert("success")
         console.log("account "+uid+ " deleted")
+        return database
+      .ref(`users/${uid}/theloggedin`)
+      .remove() //{showpublic:0}
+      .then(() => {
+        //alert("success")
+        
+      })
+      .catch((error) => {
+        console.log("error deleting account "+uid+", error=" + error);
+      });
       })
       .catch((error) => {
         console.log("error deleting account "+uid+", error=" + error);

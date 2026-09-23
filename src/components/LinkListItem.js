@@ -1402,7 +1402,8 @@ props.decrementHandleToggle3({ id: x, show: 1 });
       {props.signup.signup === true && (
         <div className="flexrow2w2 border5-">
           <span>
-            <span className="ib margin-right-1">Share link on</span>
+            <span className="ib margin-right-1">Share link on
+            </span>
             <a
               href={`https://twitter.com/intent/tweet?url=${props.Url}`}
               className="ib nounderline- cursor-pointer"
@@ -1411,7 +1412,8 @@ props.decrementHandleToggle3({ id: x, show: 1 });
             >
               X
             </a>
-            <span className="margin-left-11">or</span>
+            <span className="margin-left-11">or
+            </span>
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`}
               className="ib margin-left-11 nounderline- cursor-pointer"
@@ -1447,6 +1449,29 @@ props.decrementHandleToggle3({ id: x, show: 1 });
               >
                 <span style={{ color: "#0000EE" }}>{props.addescription}</span>
               </a>
+
+//here
+<span>
+            <span className="ib margin-right-1">Share link on</span>
+            <a
+              href={`https://twitter.com/intent/tweet?url=${props.adUrl}`}
+              className="ib nounderline- cursor-pointer"
+              title="x.com is formerly twiiter.com. Click to share link on x.com."
+              target="_blank"
+            >
+              X
+            </a>
+            <span className="margin-left-11">or
+            </span>
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${props.adUrl}`}
+              className="ib margin-left-11 nounderline- cursor-pointer"
+              title="Click to share link on facebook.com."
+              target="_blank"
+            >
+              Facebook
+            </a>
+          </span>
             </span>
           ) : props.signup.signup === true ? (
             <div>

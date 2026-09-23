@@ -524,6 +524,7 @@ export const LinkList = (props) => {
                           index={index}
                           signup={props.signup.signup}
                           idexists={props.idexists}
+                          theSortBy={props.theSortBy}
                           // videoId={props.videoId}
                           // playInPlaceVideo={props.playInPlaceVideo}
                         />

@@ -44,6 +44,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
     <div>
       
       <LinkList 
+      theSortBy = {props.theSortBy}
       videoId={props.videoId}
       url2={props.url2}
       playInPlaceVideo={props.playInPlaceVideo}

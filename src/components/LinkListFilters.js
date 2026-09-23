@@ -1848,6 +1848,7 @@ function ExpandableArray(props) {
                   // videoId={videoId}
                   // url2={url2}
                   // playInPlaceVideo={playInPlaceVideo}
+                  theSortBy={sortBy}
                   idexists={idexists}
                   av={props.av}
                   ref={childRef}

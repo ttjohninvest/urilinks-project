@@ -90,6 +90,8 @@ const LinkListItem = (props) => {
   const [copySuccess, setCopySuccess] = useState("");
   const [lastClickTime, setLastClickTime] = useState(0);
   const [showvideo, setShowvideo] = useState(0);
+
+  const theSortBy = props.theSortBy==="adsaplpha" || props.theSortBy === "productsalpha"?1:0
  
   //const [xadmessage, setXadmessage] = useState("Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ "to help this seller make money from commission:")
   const THRESHOLD = 43200000; // ms
@@ -1451,7 +1453,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                 target="_blank"
                 rel="noopener noreferrer sponsored"
               >
-                <span className="ib padding-left-1 padding-right-1 borderRadius11" style={{ color: "#0000EE", backgroundColor:"green" }}>{props.addescription}</span>
+                <span className={`ib padding-left-1 padding-right-11 borderRadius11 ${theSortBy === 1?'text-color-green':'text-color-black'}`} style={{ color: "#0000EE"}}>{props.addescription}</span>
               </a>
 
 

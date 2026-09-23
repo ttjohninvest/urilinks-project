@@ -76,7 +76,25 @@ export const startDeleteAccount = () => {
   //   const uid = getState().auth.uid;
 
    
-    removeAllData()
+    //removeAllData()
+
+    return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    //update(dbRef, { value: increment(1) });
+    if(id !== null && id !== undefined && id !== "")
+    return database
+      .ref(`users/${uid}`)
+      .update(null) //{showpublic:0}
+      .then(() => {
+        //alert("success")
+        console.log("account "+uid+ " deleted")
+        
+       
+      })
+      .catch((error) => {
+        console.log("error deleting account "+uid+", error=" + error);
+      });
+  };
 
     //if the uid is "" then the entire database of users, will be erased without the following if condition
     // if(!!uid !== false && uid.length===28) //user id's have 28 characters (numbers and letters). The protects the database.

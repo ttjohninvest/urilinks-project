@@ -96,7 +96,13 @@ const LinkListItem = (props) => {
   //const [xadmessage, setXadmessage] = useState("Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ "to help this seller make money from commission:")
   const THRESHOLD = 43200000; // ms
 
-  const xdotcomadmessage = "Please buy "+props.addescription+" from "+ !!firebase.auth().currentUser?firebase.auth().currentUser.displayName:"John"+" to help this seller make money from commission:"
+  let xdotcomadmessage=""
+  if(!!firebase.auth().currentUser) {
+    xdotcomadmessage = "Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+" to help this seller make money from commission:"
+  } else {
+    xdotcomadmessage = "Please buy "+props.addescription+" from John "+"to help this seller make money from commission:"
+  }
+  
 
 
   //   useEffect(()=>{

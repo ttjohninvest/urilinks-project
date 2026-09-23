@@ -83,7 +83,7 @@ export const startDeleteAccount = () => {
     console.log("startDeleteAccount, uid="+uid)
     return database
       .ref(`users/${uid}`)
-      .update(null) //{showpublic:0}
+      .remove() //{showpublic:0}
       .then(() => {
         //alert("success")
         console.log("account "+uid+ " deleted")

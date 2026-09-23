@@ -1497,7 +1497,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                     See what {firebase.auth().currentUser.displayName} has for
                     sale:&nbsp;
                   </span>
-                  <span style={{ color: "#0000EE" }}>Nothing Yet</span>
+                  <span className="underline" style={{ color: "#0000EE" }}>Nothing Yet</span>
                 </span>
               </Link>
             </div>

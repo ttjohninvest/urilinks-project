@@ -1451,7 +1451,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                 target="_blank"
                 rel="noopener noreferrer sponsored"
               >
-                <span className="ib" style={{ color: "#0000EE", backgroundColor:"green" }}>{props.addescription}</span>
+                <span className="ib padding-left-1 padding-right-1 borderRadius11" style={{ color: "#0000EE", backgroundColor:"green" }}>{props.addescription}</span>
               </a>
 
 

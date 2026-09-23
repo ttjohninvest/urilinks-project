@@ -88,6 +88,16 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             : false;
           return isTextInAds;
           
+        } else if (sortBy === "productsalpha") {
+          
+            //return true
+              // || sortBy==='date') {
+          if (!!link.addescription === false) return false;
+          isTextInAds = !!link.addescription === true
+             ? true //link.description.toLowerCase().includes(text.toLowerCase())
+            : false;
+          return isTextInAds;
+          
         }
         
         else return true;

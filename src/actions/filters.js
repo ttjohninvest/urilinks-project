@@ -39,6 +39,10 @@ export const sortByAdsAlpha = () => ({
   type: 'SORT_BY_ADSALPHA'
 });
 
+export const sortByProductsAlpha = () => ({
+  type: 'SORT_BY_PRODUCTSALPHA'
+});
+
 export const sortByLikes = () => ({
   type: 'SORT_BY_LIKES'
 });

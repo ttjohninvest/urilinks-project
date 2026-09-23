@@ -61,6 +61,11 @@ export default (state = filtersReducerDefaultState, action) => {
         ...state,
         sortBy: 'adsalpha'
       };
+      case 'SORT_BY_PRODUCTSALPHA':
+      return {
+        ...state,
+        sortBy: 'productsalpha'
+      };
       case 'SORT_BY_FOLDER':
       return {
         ...state,

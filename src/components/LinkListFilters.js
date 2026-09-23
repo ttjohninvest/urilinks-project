@@ -49,6 +49,7 @@ import {
   sortByFolder,
   sortByAds,
   sortByAdsAlpha,
+  sortByProductsAlpha,
 } from "../actions/filters";
 
 import { incrementUsersClickCount } from "../actions/theuserscount";
@@ -705,6 +706,17 @@ function ExpandableArray(props) {
       //this.setState({ sortBy: "notetext" });
       setSortBy("adsalpha");
       props.sortByAdsAlpha();
+      //alert("after call to props.sortByViews()")
+      //this.setState({ sortBy: "notetext" });
+    } else if (e.target.value === "productsalpha") {
+      window.localStorage.setItem("sortBy", "productsalpha");
+      if (myRef.current) myRef.current.focus();
+      //this.props.setTextFilter("");
+      props.setTextFilter("");
+      //window.localStorage.setItem("sortBy", "notetext");
+      //this.setState({ sortBy: "notetext" });
+      setSortBy("productsalpha");
+      props.sortByProductsAlpha();
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
@@ -1688,6 +1700,11 @@ function ExpandableArray(props) {
                               Ads (Alphabetical Order)
                            </option>    
                         </optgroup>
+                        <optgroup label="Show products for Sale">
+                            <option value="productsalpha" title="show products in alphbetical order">
+                              Products (Alphabetical Order)
+                           </option>    
+                        </optgroup>
                       </select>
                     </div>
                     {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
@@ -1799,6 +1816,11 @@ function ExpandableArray(props) {
                            </option>
                             <option value="adsalpha" title="show ads in descending order">
                               Ads (Alphabetical Order)
+                           </option>    
+                        </optgroup>
+                         <optgroup label="Show products for Sale">
+                            <option value="productsalpha" title="show products in alphbetical order">
+                              Products (Alphabetical Order)
                            </option>    
                         </optgroup>
                       </select>
@@ -2411,6 +2433,7 @@ export class LinkListFilters extends React.Component {
           sortByStar={this.props.sortByStar}
           sortByAds={this.props.sortByAds}
           sortByAdsAlpha={this.props.sortByAdsAlpha}
+          sortByProductsAlpha={this.props.sortByProductsAlpha}
           filters={this.props.filters}
           userscount={this.props.theuserscount.userscount}
           signupcount={this.props.thesignupcount.signupcount}
@@ -2459,6 +2482,7 @@ const mapDispatchToProps = (dispatch) => ({
   incrementUsersClickCount: (data) => dispatch(incrementUsersClickCount(data)),
   sortByAds: () => dispatch(sortByAds()),
   sortByAdsAlpha: () => dispatch(sortByAdsAlpha()),
+  sortByProductsAlpha: () => dispatch(sortByProductsAlpha()),
   //setFrommenu:(data) => dispatch(setFrommenu(data))
   // incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
   // decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),

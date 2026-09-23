@@ -1104,7 +1104,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
       <div className="normal-wrap padding-bottom-11">
         <a
           ref={myRef}
-          className={`ib bg-color-1w borderRadius11 text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
+          className={`ib bg-color-1w- borderRadius11- text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
           href={props.Url}
           target="_blank"
           data-value={props.id}

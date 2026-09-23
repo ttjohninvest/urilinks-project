@@ -1450,13 +1450,13 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                 <span style={{ color: "#0000EE" }}>{props.addescription}</span>
               </a>
 
-//here
+
 <span>
-            <span className="ib margin-right-1">Share link on</span>
+            ,<span className="ib margin-left-11 margin-right-1">Please forward link to</span>
             <a
-              href={`https://twitter.com/intent/tweet?url=${props.adUrl}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('Please buy x from y to help this homeless family make money from commission:')}url=${props.adUrl}`}
               className="ib nounderline- cursor-pointer"
-              title="x.com is formerly twiiter.com. Click to share link on x.com."
+              title="Click to forward link to x.com."
               target="_blank"
             >
               X
@@ -1466,7 +1466,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${props.adUrl}`}
               className="ib margin-left-11 nounderline- cursor-pointer"
-              title="Click to share link on facebook.com."
+              title="Click to forward link to facebook.com."
               target="_blank"
             >
               Facebook

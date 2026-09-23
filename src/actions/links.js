@@ -63,26 +63,26 @@ export const decrementHandleToggle = ({ id,show } = {}) => {
   };
 };
 
-export const removeAllData = ({ id } = {}) => {
+// export const removeAllData = ({ id } = {}) => {
   
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    //update(dbRef, { value: increment(1) });
-    if(id !== null && id !== undefined && id !== "")
-    return database
-      .ref(`users/${uid}`)
-      .update(null) //{showpublic:0}
-      .then(() => {
-        //alert("success")
-        console.log("account "+uid+ " deleted")
+//   return (dispatch, getState) => {
+//     const uid = getState().auth.uid;
+//     //update(dbRef, { value: increment(1) });
+//     if(id !== null && id !== undefined && id !== "")
+//     return database
+//       .ref(`users/${uid}`)
+//       .update(null) //{showpublic:0}
+//       .then(() => {
+//         //alert("success")
+//         console.log("account "+uid+ " deleted")
         
        
-      })
-      .catch((error) => {
-        console.log("error deleting account "+uid+", error=" + error);
-      });
-  };
-};
+//       })
+//       .catch((error) => {
+//         console.log("error deleting account "+uid+", error=" + error);
+//       });
+//   };
+// };
 
 export const incrementHandleToggle3 = ({ id,show } = {}) => {
   

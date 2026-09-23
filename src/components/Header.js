@@ -525,9 +525,11 @@ const handleClick = useCallback(() => {
           !!props.theplan.plan &&
           props.theplan.plan.replace(/"/g, "") === "free"
         ) {
+          console.log("cancelsubscription, free plan part")
           props.startDeleteAccount();
           logoutit();
         } else {
+          console.log("cancelsubscription, free plan part")
           //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
           const theemail = {
             email: props.email,

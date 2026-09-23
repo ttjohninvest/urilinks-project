@@ -26,7 +26,7 @@ const CopyButton = (props) => {
     onClick={handleCopy}>
       {/* {isCopied ? 'URL Copied' : 'Copy Sharable URL to Your Page.'} */}
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}
-      {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url for "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`}
+      {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`}
     </button>
   );
 };

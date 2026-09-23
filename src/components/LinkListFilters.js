@@ -1250,6 +1250,7 @@ function ExpandableArray(props) {
                             <div className="margin-bottom-1">
                              
                               <CopyButton
+                                accountpagename={firebase.auth().currentUser.displayName}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
                               {copySuccess}
@@ -1292,6 +1293,7 @@ function ExpandableArray(props) {
                                 </span>
                               </button> */}
                               <CopyButton
+                                accountpagename={firebase.auth().currentUser.displayName}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
                               {/* {copySuccess} */}
@@ -1403,6 +1405,7 @@ function ExpandableArray(props) {
                                 </span>
                               </button> */}
                               <CopyButton
+                                accountpagename={firebase.auth().currentUser.displayName}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
                               {copySuccess}
@@ -1442,6 +1445,7 @@ function ExpandableArray(props) {
                                 
                               </button> */}
                               <CopyButton
+                                accountpagename={firebase.auth().currentUser.displayName}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
                               {copySuccess}

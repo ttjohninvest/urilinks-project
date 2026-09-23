@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
-import { removeAllData } from "../actions/links";
+
 
 import redarrow from "../assets/images/red-arrow.jpg";
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
@@ -503,7 +503,7 @@ const handleClick = useCallback(() => {
 
     props.stopScrolling2();
     props.startLogout();
-    props.removeAllData()
+    
 
   };
 

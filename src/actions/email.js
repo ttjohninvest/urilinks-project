@@ -1,5 +1,6 @@
 
 import database from "../firebase/firebase";
+import { removeAllData } from "./links";
 
 export const getEmail = () => {
   console.log("actions/getEmail")
@@ -74,16 +75,19 @@ export const startDeleteAccount = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
 
+   
+    removeAllData()
+
     //if the uid is "" then the entire database of users, will be erased without the following if condition
-    if(!!uid !== false && uid.length===28) //user id's have 28 characters (numbers and letters). The protects the database.
-     return database
-      .ref(`users/${uid}`)
-      .remove()
-      .then(() => {
-        dispatch(removeAccount());
-      }).catch(()=>{
-        console.log("in actions/email.js, failed to remove the user account,"+uid+", from the firebase realtime database")
-      })
+    // if(!!uid !== false && uid.length===28) //user id's have 28 characters (numbers and letters). The protects the database.
+    //  return database
+    //   .ref(`users/${uid}`)
+    //   .remove()
+    //   .then(() => {
+    //     dispatch(removeAccount());
+    //   }).catch(()=>{
+    //     console.log("in actions/email.js, failed to remove the user account,"+uid+", from the firebase realtime database")
+    //   })
 
       
   };

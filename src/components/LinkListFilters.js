@@ -7,7 +7,7 @@ import LinkList from "./LinkList";
 import { LinkList3 } from "./LinkList3.js";
 import honoring from "../assets/honoring/christmas-tree.png";
 //import setFrommenu from "../actions/frommenu";
-import CopyButton from "./CopyButton";
+import CopyButton2 from "./CopyButton2";
 import HashTagsButton from "./HashTagsButton";
 //import AddLinkPage from "./AddlinkPage";
 import AddALinkButton from "./AddALinkButton";
@@ -122,6 +122,7 @@ function ExpandableArray(props) {
   const params = new URLSearchParams(window.location.search);
   const signup = params.get("signup");
   const rt = params.get("x");
+  const readonly = (rt==="readonly"?true:false)
   const id = params.get("id");
   const z = params.get("z");
   const z2 = params.get("z2");
@@ -1249,11 +1250,12 @@ function ExpandableArray(props) {
                             </div>
                             <div className="margin-bottom-1">
                              
-                              <CopyButton
+                              <CopyButton2
+                                readonly={readonly}
                                 accountpagename={firebase.auth().currentUser.displayName}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
-                              {copySuccess}
+                              {/* {copySuccess} */}
                             </div>
                           </fieldset>
                         </div>
@@ -1292,7 +1294,8 @@ function ExpandableArray(props) {
                                   
                                 </span>
                               </button> */}
-                              <CopyButton
+                              <CopyButton2
+                                readonly={readonly}
                                 accountpagename={firebase.auth().currentUser.displayName}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
@@ -1404,11 +1407,12 @@ function ExpandableArray(props) {
                                   
                                 </span>
                               </button> */}
-                              <CopyButton
+                              <CopyButton2
+                                readonly={readonly}
                                 accountpagename={firebase.auth().currentUser.displayName}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
-                              {copySuccess}
+                              {/* {copySuccess} */}
                             </div>
                           </div>
                         </div>
@@ -1444,11 +1448,12 @@ function ExpandableArray(props) {
                                 Copy
                                 
                               </button> */}
-                              <CopyButton
+                              <CopyButton2
+                                readonly={readonly}
                                 accountpagename={firebase.auth().currentUser.displayName}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
-                              {copySuccess}
+                              {/* {copySuccess} */}
                             </div>
                           </div>
                         </div>

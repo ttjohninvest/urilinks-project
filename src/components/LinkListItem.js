@@ -1453,7 +1453,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                 target="_blank"
                 rel="noopener noreferrer sponsored"
               >
-                <span className={`ib padding-left-1 padding-right-11 borderRadius11 ${theSortBy === 1?'text-color-green':'text-color-black'}`} style={{ color: "#0000EE"}}>{props.addescription}</span>
+                <span className={`ib padding-left-1 padding-right-11 borderRadius11 ${theSortBy === 1?'bg-color-1w':'bg-color-1w'}`} style={{ color: "#0000EE"}}>{props.addescription}</span>
               </a>
 
 

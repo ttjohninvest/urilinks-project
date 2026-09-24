@@ -211,8 +211,8 @@ export const Header = (props) => {
   const setGoogleUserDatadb = (gud) => {
     console.log("setGoogleUserDatadb, Header.js, gud=" + gud);
     ////put the photoURL in the database
-    //props.startAddGoogleUserData({ gud: gud });
-    props.startAddGoogleUserData(gud);
+    props.startAddGoogleUserData({ gud: gud });
+    //props.startAddGoogleUserData(gud);
     console.log("Header.js, done calling startGoogleUserData");
   };
 

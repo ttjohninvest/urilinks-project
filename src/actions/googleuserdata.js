@@ -44,8 +44,8 @@ export const startAddGoogleUserData = (gud = {}) => {
       .then((snapshot) => { //1
         console.log("startAddGoogleUserData, snapshot.val()="+JSON.stringify(snapshot.val()))
         console.log("startAddGoogleUserData, snapshot.val().theatname="+snapshot.val().theatname)
-         console.log("startAddGoogleUserData, gud2.theatname="+gud2.theatname)
-        if(snapshot.val().theatname !== gud2.theatname) {
+         console.log("startAddGoogleUserData, gud2.gud.theatname="+gud2.gud.theatname)
+        if(snapshot.val().theatname !== gud2.gud.theatname) {
             console.log("!==, startAddGoogleUserData")
             return database
               .ref(`users/${uid}/gud`)
@@ -61,17 +61,17 @@ export const startAddGoogleUserData = (gud = {}) => {
   } else {
     //apend the guid to the user name
     //
-    console.log("!==, startAddGoogleUserData")
-    gud2.theatname = gud2.theatname+v4()
-    console.log("!==, startAddGoogleUserData, gud2.theatname="+gud2.theatname)
+    console.log("===, startAddGoogleUserData")
+    gud2.gud.theatname = gud2.gud.theatname+v4()
+    console.log("!==, startAddGoogleUserData, gud2.gud.theatname="+gud2.gud.theatname)
     return database
               .ref(`users/${uid}/gud`)
-              .update(gud)
+              .update(gud2)
               .then(() => { //2
                console.log("actions/gud.js, startAddGoogleUserData, just before the call to dispatch to add google user Data to redux, gud="+JSON.stringify(gud))
               dispatch(
                 addGoogleUserData({
-                ...gud,
+                ...gud2,
               }))
             }) //2
   }

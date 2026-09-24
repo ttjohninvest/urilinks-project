@@ -44,6 +44,7 @@ export const startAddGoogleUserData = (gud = {}) => {
       .then((snapshot) => { //1
         console.log("startAddGoogleUserData, snapshot.val()="+JSON.stringify(snapshot.val()))
         console.log("startAddGoogleUserData, snapshot.val().theatname="+snapshot.val().theatname)
+         console.log("startAddGoogleUserData, gud2.theatname="+gud2.theatname)
         if(snapshot.val().theatname !== gud2.theatname) {
             console.log("!==, startAddGoogleUserData")
             return database

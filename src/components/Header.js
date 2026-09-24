@@ -636,7 +636,7 @@ const handleClick = useCallback(() => {
     //   window.open("https://urilinks.com/displayhashtags", "_blank");   //window.location.href = "https://urilinks.com/displayhashtags"
     // else window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank"); //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
     //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
-    window.open("https://urilinks.com/otherpage?id="+id+"&signup=signup", "_blank");
+    window.open("https://urilinks.com/other?id="+id+"&signup=signup", "_blank");
   };
 
   return (

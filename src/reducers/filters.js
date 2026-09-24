@@ -36,6 +36,11 @@ export default (state = filtersReducerDefaultState, action) => {
           ...state,
           sortBy: 'hashtag'
         };
+      case 'SORT_BY_OTHERS':
+        return {
+          ...state,
+          sortBy: 'others'
+        };
       case 'SORT_BY_VIEWS':
         return {
           ...state,

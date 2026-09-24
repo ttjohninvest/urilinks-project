@@ -56,6 +56,10 @@ export const sortByHashTag = () => ({
   type: 'SORT_BY_HASHTAG'
 });
 
+export const sortByOthers = () => ({
+  type: 'SORT_BY_OTHERS'
+});
+
 export const sortByAmount = () => ({
   type: 'SORT_BY_AMOUNT'
 });

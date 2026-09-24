@@ -884,6 +884,23 @@ const handleClick = useCallback(() => {
                      
                       <span
                          // href="#"
+                          onClick={()=>otherPage("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")}
+                          className="color-white-1 color-black-2- cursor-pointer text-size-11"
+                          title="Click to see the other page."
+                        >
+                           XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+                        </span>
+                        
+                    </div>}
+
+                      {props.signup.signup === true && <div>
+                      
+
+                      
+
+                     
+                      <span
+                         // href="#"
                           onClick={()=>otherPage("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1")}
                           className="color-white-1 color-black-2- cursor-pointer text-size-11"
                           title="Click to see the other page."

@@ -52,13 +52,6 @@ const AppRouter = (props) => (
           componentProps={{ theValue: true }}
         />
 
-          <PrivateRoute
-          path="/other/:id3"
-          signup={props.signup}
-          component={LinkDashboardPage}
-          componentProps={{ theValue: true }}
-        />
-
          <PrivateRoute
           path="/displayhashtags"
           signup={props.signup}

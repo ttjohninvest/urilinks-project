@@ -110,7 +110,7 @@ export const getTheothersisopen = (uid) => {
 
 // REMOVE_SETTINGS
 export const removeTheothersisopen = () => ({
-  type: "REMOVE_THEHASHTAGSISOPEN",
+  type: "REMOVE_THEOTHERSISOPEN",
 });
 
 export const startRemoveTheothersisopen = () => {
@@ -127,7 +127,7 @@ export const startRemoveTheothersisopen = () => {
 
 // EDIT_LINK
 export const editTheothersisopen = (updates) => ({
-  type: "EDIT_THEHASHTAGSISOPEN",
+  type: "EDIT_THEOTHERSISOPEN",
   updates,
 });
 

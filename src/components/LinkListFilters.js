@@ -146,6 +146,7 @@ function ExpandableArray(props) {
   // };
 
   useEffect(() => {
+    console.log("ExpandableArray, user ids="+JSON.stringify(props.users))
     console.log(
       "ZZZZZ, props.mappedDataShort[0]=" +
         JSON.stringify(props.mappedDataShort[0]),
@@ -2459,6 +2460,7 @@ export class LinkListFilters extends React.Component {
           signupcount={this.props.thesignupcount.signupcount}
           userscounti={this.props.theuserscounti.userscounti}
           totalloggedout={this.props.thetotalloggedout.totalloggedout}
+          users={this.props.users}
           //setFrommenu={this.props.setFrommenu}
           // incrementHandleToggle3={this.props.incrementHandleToggle3}
           // decrementHandleToggle3={this.props.decrementHandleToggle3}
@@ -2482,6 +2484,7 @@ const mapStateToProps = (state) => ({
   thesignupcount: state.thesignupcount,
   theuserscounti: state.theuserscounti,
   thetotalloggedout: state.thetotalloggedout,
+  users: state.users,
 });
 
 const mapDispatchToProps = (dispatch) => ({

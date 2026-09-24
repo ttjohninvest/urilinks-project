@@ -22,6 +22,7 @@ export const startSetUsers = (uid) => {
           console.log(
             "tt,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
           );
+
           // console.log(
           //   "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           // );
@@ -29,6 +30,7 @@ export const startSetUsers = (uid) => {
           users2.push({
             id: childSnapshot.key
           });
+          
         });
         console.log("435634, startSetUsers, about to call dispatch(setUsers(users)),users2="+JSON.stringify(users2))
         dispatch(setUsers(users2)); //links2[0].showpublic

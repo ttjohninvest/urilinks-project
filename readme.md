@@ -2186,3 +2186,17 @@ import admin from 'firebase-admin';
 
     //await admin.auth().deleteUser(uid);
 ==================================================================================================================
+How to make a shorter sharable link
+One, store each user's username in Firebase. 
+2, create a React route like link slash colon username. 
+3, when someone visits urilinks.com slash link slash John, React captures 'John' from the URL. 
+4, look up John in Firebase. 
+5, retrieve that user's saved links. 
+6, display them on their public page. 
+7, configure hosting to rewrite link slash anything to your React app.
+8, test a short URL like urilinks.com/link/john
+
+9, urilinks.com/link/uid/john or
+10 urilinks.com/link/john42, store unique 42 into gud with the displayName from google.com
+https://urilinks.com/dashboard?signup=0&x=readonly&id=D9LSg6elood8Yc5gd5oDMp3JNAQ2
+

@@ -17,15 +17,16 @@ export const startSetUsers = (uid) => {
         const users2 = [];
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
+    //      snapshot.forEach((childSnapshot) => {
+    //     const userId = childSnapshot.key; // This is the User ID
+    //     console.log("User ID:", userId);
+    // });
         snapshot.forEach((childSnapshot) => {
-          console.log("tt,childSnapshot=" + JSON.stringify(childSnapshot));
+          
           console.log(
             "tt,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
           );
-          console.log(
-            "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
-          );
-          
+         
           users2.push({
             id: childSnapshot.key
           });

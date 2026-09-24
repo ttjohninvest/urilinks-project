@@ -1,5 +1,6 @@
 
 import database from "../firebase/firebase";
+import {v4} from "uuid"
 
 export const getGoogleUserData = () => {
   console.log("actions/getGoogleUserData")
@@ -30,25 +31,69 @@ export const addGoogleUserData = (gud) => ({
   gud,
 });
 
-
 export const startAddGoogleUserData = (gud = {}) => {
+  const gud2 = gud
+  console.log("startAddGoogleUserData, gud2="+JSON.stringify(gud2))
   console.log("actions/photourl.js, startAddPhotourl, photourl="+JSON.stringify(gud))
-  return (dispatch, getState) => {
+  return (dispatch, getState) => { //0
     const uid = getState().auth.uid;
   
+    database
+      .ref(`users/${uid}/gud/gud/theatname`)
+      .once("value")
+      .then((snapshot) => { //1
+        console.log("startAddGoogleUserData, snapshot.val()="+snapshot.val())
+        if(snapshot.val() !== gud2.theatname) {
+          
+            return database
+              .ref(`users/${uid}/gud`)
+              .update(gud2)
+              .then(() => { //2
+               console.log("actions/gud.js, startAddGoogleUserData, just before the call to dispatch to add google user Data to redux, gud="+JSON.stringify(gud))
+              dispatch(
+                addGoogleUserData({
+                ...gud2,
+              }))
+            }) //2
+
+  } else {
+    //apend the guid to the user name
+    //
+    gud2.theatname = gud2.theatname+v4()
     return database
-      .ref(`users/${uid}/gud`)
-      .update(gud)
-      .then(() => {
-        console.log("actions/gud.js, startAddGoogleUserData, just before the call to dispatch to add google user Data to redux, gud="+JSON.stringify(gud))
-        dispatch(
-          addGoogleUserData({
-            ...gud,
-          })
-        );
-      });
-  };
-};
+              .ref(`users/${uid}/gud`)
+              .update(gud)
+              .then(() => { //2
+               console.log("actions/gud.js, startAddGoogleUserData, just before the call to dispatch to add google user Data to redux, gud="+JSON.stringify(gud))
+              dispatch(
+                addGoogleUserData({
+                ...gud,
+              }))
+            }) //2
+  }
+  }) //1
+} //0
+}
+
+
+// export const startAddGoogleUserData = (gud = {}) => {
+//   console.log("actions/photourl.js, startAddPhotourl, photourl="+JSON.stringify(gud))
+//   return (dispatch, getState) => {
+//     const uid = getState().auth.uid;
+  
+//     return database
+//       .ref(`users/${uid}/gud`)
+//       .update(gud)
+//       .then(() => {
+//         console.log("actions/gud.js, startAddGoogleUserData, just before the call to dispatch to add google user Data to redux, gud="+JSON.stringify(gud))
+//         dispatch(
+//           addGoogleUserData({
+//             ...gud,
+//           })
+//         );
+//       });
+//   };
+// };
 
 export const removeGoogleUserData = () => ({
   type: "REMOVE_GOOGLEUSERDATA",

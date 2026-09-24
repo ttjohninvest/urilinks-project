@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { v4 } from "uuid";
 import { connect } from "react-redux";
+import {withRouter} from "react-router-dom"
 //import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
 import DisplayHashtags from "./DisplayHashtags";
@@ -14,6 +15,7 @@ import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 import LinkListFileDate from "./LinkListFileDate";
 import LinkListFiltersFileDate from "./LinkListFiltersFileDate";
 import { useSelector } from "react-redux";
+import LinkDashboardPage from './LinkDashboardPage';
 
 //  const logoutit = () => {
 //       //sessionStorage.setItem('hasRefreshed', 'false');
@@ -182,6 +184,8 @@ const LinkDashboardPage = (props) => {
 
   useEffect(() => {
     //window.scrollTo(0,0)
+    const { id3 } = this.props.match.params;
+    console.log("LinkDashboardPage, User ID:"+id3)
   }, []);
 
   return (
@@ -234,4 +238,4 @@ const mapDispatchToProps = (dispatch) => ({
   setHasrefreshed: (hasrefreshed) => dispatch(setHasrefreshed(hasrefreshed)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LinkDashboardPage);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LinkDashboardPage));

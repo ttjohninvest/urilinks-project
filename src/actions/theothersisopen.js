@@ -5,7 +5,7 @@ import subscriptionid from "../reducers/subscriptionid";
 
 // SET_SETTINGS
 export const setTheothersisopen = (theothersisopen) => ({
-  type: "SET_THEOTHERSISOPEN",
+  type: "SET_THEHASHTAGSISOPEN",
   theothersisopen,
 });
 
@@ -26,7 +26,6 @@ export const startAddTheothersisopen = (theothersisopenData = {}) => {
          
 
           dispatch(addTheothersisopen(theothersisopenData));
-          //dispatch(setTheothersisopen(theothersisopenData));
           
         })
     );
@@ -47,7 +46,7 @@ export const getTheothersisopen2 = (id) => {
         let theothersisopen
        
         console.log(
-          "action/getTheothersisopen2 from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+          "action/getTheothersisopen from db, snapshot.val()=" + JSON.stringify(snapshot.val())
         );
 
         let zothersisopen={
@@ -58,7 +57,7 @@ export const getTheothersisopen2 = (id) => {
 
         // if (snapshot.val() === null) {
         //   //theplan = "free";
-        //   dispatch(startAddTheothersisopen(zothersisopen))
+        //   dispatch(startAddTheothersisopen(zhashtagsisopen))
         // } else {
         //   //theplan=snapshot.val();
         //   //zplan=snapshot.val();
@@ -93,7 +92,7 @@ export const getTheothersisopen = (uid) => {
 
         // if (snapshot.val() === null) {
         //   //theplan = "free";
-        //   dispatch(startAddTheothersisopen(zothersisopen))
+        //   dispatch(startAddTheothersisopen(zhashtagsisopen))
         // } else {
         //   //theplan=snapshot.val();
         //   //zplan=snapshot.val();

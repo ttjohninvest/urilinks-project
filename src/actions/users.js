@@ -1,3 +1,5 @@
+import database from "../firebase/firebase";
+
 export const setUsers = (users) => ({
   type: "SET_USERS",
   users,

@@ -34,15 +34,15 @@ export const addGoogleUserData = (gud) => ({
 export const startAddGoogleUserData = (gud = {}) => {
   const gud2 = gud
   console.log("startAddGoogleUserData, gud2="+JSON.stringify(gud2))
-  console.log("actions/photourl.js, startAddPhotourl, photourl="+JSON.stringify(gud))
+
   return (dispatch, getState) => { //0
     const uid = getState().auth.uid;
   
     database
-      .ref(`users/${uid}/gud/gud/theatname`)
+      .ref(`users/${uid}/gud/gud`)
       .once("value")
       .then((snapshot) => { //1
-        console.log("startAddGoogleUserData, snapshot.val()="+snapshot.val())
+        console.log("startAddGoogleUserData, snapshot.val()="+JSON.stringify(snapshot.val()))
         if(snapshot.val() !== gud2.theatname) {
           
             return database

@@ -51,8 +51,9 @@ const AppRouter = (props) => (
           component={LinkDashboardPage}
           componentProps={{ theValue: true }}
         />
-        <PrivateRoute
-          path="/dashboard/:id3"
+
+          <PrivateRoute
+          path="/other/:id3"
           signup={props.signup}
           component={LinkDashboardPage}
           componentProps={{ theValue: true }}
@@ -147,12 +148,7 @@ const AppRouter = (props) => (
           signup={props.signup}
           component={EditLinkPage}
         />
-         <PrivateRoute
-          path="/other/:id3"
-          signup={props.signup}
-          component={LinkDashboardPage}
-          componentProps={{ theValue: true }}
-        />
+       
          {/* <PrivateRoute
           path="/other2/:id"
           signup={props.signup}

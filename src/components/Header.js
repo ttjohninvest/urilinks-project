@@ -628,6 +628,17 @@ const handleClick = useCallback(() => {
     window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank");
   };
 
+  const otherPage = (id, event) => {
+    
+    event.preventDefault();
+    console.log("otherPage, id="+id)
+    // if(uid==="XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
+    //   window.open("https://urilinks.com/displayhashtags", "_blank");   //window.location.href = "https://urilinks.com/displayhashtags"
+    // else window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank"); //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
+    //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
+    window.open("https://urilinks.com/otherpage?id="+id+"&signup=signup", "_blank");
+  };
+
   return (
     <div className="">
       
@@ -865,7 +876,23 @@ const handleClick = useCallback(() => {
                         </a>
                     </div> */}
 
-                     {props.signup.signup === true && <div>
+                    {props.signup.signup === true && <div>
+                      
+
+                      
+
+                     
+                      <span
+                          onClick={()=>otherPage("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1")}
+                          className="color-white-1 color-black-2- cursor-pointer text-size-11"
+                          title="Click to see your hashtags."
+                        >
+                           W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+                        </span>
+                        
+                    </div>}
+
+                     {/* {props.signup.signup === true && <div>
                       <Link
                         id="other"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
@@ -897,7 +924,7 @@ const handleClick = useCallback(() => {
                           W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
                         </span>
                       </Link>
-                    </div>}
+                    </div>} */}
 
                     <div>
                       <Link

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
@@ -86,7 +85,8 @@ const renderApp = (store) => {
   );
 };
 
-const { id3 } = useParams();
+//const { id3 } = useParams();
+let id3 = null
 
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");

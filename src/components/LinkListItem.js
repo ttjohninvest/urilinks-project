@@ -1450,7 +1450,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
           {!!props.addescription === true ? (
             <span>
               <span className="ib bg-color-1w borderRadius11- nounderline color-black">
-                See what {firebase.auth().currentUser.displayName} has for
+                See what {props.signup.signup === true?firebase.auth().currentUser.displayName:"John"} has for
                 sale:&nbsp;
               </span>
               <a

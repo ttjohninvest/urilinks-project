@@ -20,19 +20,19 @@ export const startSetUsers = (uid) => {
         snapshot.forEach((childSnapshot) => {
           //console.log("tt,childSnapshot=" + JSON.stringify(childSnapshot));
           console.log(
-            "tt,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+            "startSetUsers,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
           );
 
-          // console.log(
-          //   "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
-          // );
+          console.log(
+            "startSetUsers,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+          );
           
           users2.push({
             uid: childSnapshot.key
           });
           
         });
-        console.log("435634, startSetUsers, about to call dispatch(setUsers(users)),users2="+JSON.stringify(users2))
+        console.log("startSetUsers, about to call dispatch(setUsers(users)),users2="+JSON.stringify(users2))
         dispatch(setUsers(users2)); //links2[0].showpublic
 
       })

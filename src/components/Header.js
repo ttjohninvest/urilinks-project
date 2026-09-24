@@ -884,10 +884,10 @@ const handleClick = useCallback(() => {
 
                     {props.signup.signup === true && <div>
                       <Link
-                        id="other"
+                        id="other2"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
                         //to="/other/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-                        to="/other"
+                        to="/other2"
                         target="_blank"
                       >
                         <span

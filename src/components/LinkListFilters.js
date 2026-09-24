@@ -2286,8 +2286,8 @@ export class LinkListFilters extends React.Component {
   }
 
   componentDidMount() {
-    this.props.abc(3);
-    console.log("3, this.props.abcref=" + JSON.stringify(this.props.abcref));
+    //this.props.abc(3);
+    //console.log("3, this.props.abcref=" + JSON.stringify(this.props.abcref));
     console.log(
       "LinkListFilter.js, this.props.theuserscount.userscount=" +
         this.props.theuserscount.userscount,

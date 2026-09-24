@@ -71,8 +71,8 @@ const LinkDashboardPage = (props) => {
 
   useEffect(()=>{
     //window.onbeforeunload = null;
-    props.abc(2)
-    console.log("2, props.abcref="+JSON.stringify(props.abcref))
+    //props.abc(2)
+    //console.log("2, props.abcref="+JSON.stringify(props.abcref))
   },[])
 
   const setTheHashTagDivHeight = (h) => {
@@ -196,8 +196,8 @@ left column
 
             
             <LinkListFilters
-              abc = {props.abc}
-              abcref = {props.abcref}
+              //abc = {props.abc}
+              //abcref = {props.abcref}
               stopScrolling2={props.stopScrolling2}
               scrollInterval2 = {props.scrollInterval2}
               setTheHashTagDivHeight={setTheHashTagDivHeight}

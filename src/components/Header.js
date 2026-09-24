@@ -88,8 +88,8 @@ export const Header = (props) => {
   const x1 = params.get("x1");
 
   useEffect(() => {
-    props.abc(1);
-    console.log("1, props.abcref=" + JSON.stringify(props.abcref));
+    //props.abc(1);
+    //console.log("1, props.abcref=" + JSON.stringify(props.abcref));
 
 
     

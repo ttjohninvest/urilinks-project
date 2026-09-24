@@ -57,6 +57,11 @@ import {
   getThehashtagsisopen2,
 } from "./actions/thehashtagsisopen";
 
+import {
+  getTheothersisopen,
+  getTheothersisopen2,
+} from "./actions/theothersisopen";
+
 import { getTheloggedin, getTheloggedin2 } from "./actions/theloggedin";
 
 import { getTheupdatedate, getTheupdatedate2 } from "./actions/theupdatedate";
@@ -162,10 +167,20 @@ if (signup !== "signup") {
                                         store
                                           .dispatch(getTheloggedin2())
                                           .then(() => {
-                                             return store
+                                             store
                                           .dispatch(startSetUsers())
                                           .then(() => {
+                                             return store
+                                          .dispatch(getTheothersisopen2(id2))
+                                          .then(() => {
                                             renderApp(store, signup);
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
                                           })
                                           .catch((error) => {
                                             console.log(
@@ -272,10 +287,20 @@ if (signup !== "signup") {
                                           store
                                             .dispatch(getTheloggedin(user.uid))
                                             .then(() => {
-                                              return store
+                                              store
                                             .dispatch(startSetUsers(user.uid))
                                             .then(() => {
+                                              return store
+                                            .dispatch(getTheothersisopen(user.uid))
+                                            .then(() => {
                                               renderApp(store, signup);
+                                            })
+                                            .catch((error) => {
+                                              console.log(
+                                                "theplan, error",
+                                                error,
+                                              );
+                                            });
                                             })
                                             .catch((error) => {
                                               console.log(

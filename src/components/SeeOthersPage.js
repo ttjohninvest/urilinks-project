@@ -88,16 +88,16 @@ export const SeeOthersPage = (props) => {
 
     // Extract data from data attributes
     const itemId = clickedElement.dataset.itemId;
+    console.log("handleClick, itemId="+itemId)
+    // const myArray = itemId.split(":")
 
-    const myArray = itemId.split(":")
+    // //if (itemId) {
+    // if (myArray[1]) {
 
-    //if (itemId) {
-    if (myArray[1]) {
+    //   //otherPage(itemId)
+    //   otherPage(myArray[1])
 
-      //otherPage(itemId)
-      otherPage(myArray[1])
-
-    }
+    // }
   };
 
   const startScrollingUp4 = () => {

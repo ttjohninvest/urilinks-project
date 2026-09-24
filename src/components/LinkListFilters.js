@@ -1342,18 +1342,12 @@ function ExpandableArray(props) {
                         />
                       )} */}
 
-                      {/* <button
-                        className={`ib button-2 margin-left-11 ${isMobile() === false ? "" : "margin-top-1"}`}
-                        onClick={seeHashTags}
-                        title="See hashtags"
-                      >
-                        See Hashtags
-                      </button> */}
-                     <HashTagsButton
+                    
+                     {/* <HashTagsButton
                         elementRef2={elementRef2}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      />
+                      /> */}
 
                       <OthersButton
                         elementRef20={elementRef20}

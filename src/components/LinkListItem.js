@@ -1489,11 +1489,11 @@ props.decrementHandleToggle3({ id: x, show: 1 });
           ) : props.signup.signup === true ? (
             <div>
               <Link
-                className="ib padding-left-1 padding-right-11 bg-color-1w pointereventsauto nounderline margin-top-1zx1"
+                className="ib padding-left-1- padding-right-11 bg-color-1w pointereventsauto nounderline margin-top-1zx1"
                 to={`/edit/${props.id}`}
               >
                 <span className="" style={{ cursor: "pointer" }}>
-                  <span className="ib bg-color-1w borderRadius11- nounderline color-black">
+                  <span className="ib bg-color-1w borderRadius11 nounderline color-black">
                     See what {firebase.auth().currentUser.displayName} has for
                     sale:&nbsp;
                   </span>

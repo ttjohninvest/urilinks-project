@@ -240,6 +240,7 @@ export const Header = (props) => {
       const gud = {
         photourl: purl,
         displayname: dn,
+        theatname: "@"+dn.replace(/\s+/g, ""),
         email: user.email,
         uid: user.uid,
       };

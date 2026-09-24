@@ -1493,7 +1493,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                 to={`/edit/${props.id}`}
               >
                 <span className="" style={{ cursor: "pointer" }}>
-                  <span className="ib bg-color-1w borderRadius11 nounderline color-black">
+                  <span className="ib bg-color-1w- borderRadius11 nounderline color-black">
                     See what {firebase.auth().currentUser.displayName} has for
                     sale:&nbsp;
                   </span>
@@ -1503,7 +1503,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
             </div>
           ) : (
             <div>
-              <span className="ib bg-color-1w borderRadius11- nounderline color-black">
+              <span className="ib bg-color-1w- borderRadius11- nounderline color-black">
                 See what{" "}
                 {!!firebase.auth().currentUser === true
                   ? firebase.auth().currentUser.displayName + " has "

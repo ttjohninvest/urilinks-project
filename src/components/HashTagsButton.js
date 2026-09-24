@@ -49,7 +49,7 @@ const HashTagsButton = (props) => {
 
   const handleDisplay = () => {
     try {
-      storeScrollPosition4(props.hashtagsisopen, event)
+      storeScrollPosition4(props.thehashtagsisopen.hashtagsisopen, event)
       setIsDisplayed(true);
     } catch (err) {
       console.error("Failed to display:", err);

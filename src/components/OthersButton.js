@@ -19,7 +19,7 @@ const OthersButton = (props) => {
     return regex.test(navigator.userAgent);
   };
 
-  const storeScrollPosition4 = (hashtagsisopen, event) => {
+  const storeScrollPosition4 = (othersisopen, event) => {
       
   
       let x1 = 0;
@@ -49,7 +49,7 @@ const OthersButton = (props) => {
 
   const handleDisplay = () => {
     try {
-      storeScrollPosition4(props.othersisopen, event)
+      storeScrollPosition4(props.theothersisopen.othersisopen, event)
       setIsDisplayed(true);
     } catch (err) {
       console.error("Failed to display:", err);
@@ -68,8 +68,8 @@ const OthersButton = (props) => {
       </button>
       {isDisplayed === true && (
         <div>
-          <SeeOthersPage
-            elementRef20 = {props.elementRef20}
+          <SeeHashTagsPage
+            elementRef2 = {props.elementRef2}
             changeSortBy={()=>props.changeSortBy("others",1)}
             handleClose3={() => handleClose()}
           />

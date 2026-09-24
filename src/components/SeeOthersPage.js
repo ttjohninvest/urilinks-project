@@ -88,7 +88,7 @@ export const SeeOthersPage = (props) => {
     // Extract data from data attributes
     const itemId = clickedElement.dataset.itemId;
 
-    const myArray = text.split(":")
+    const myArray = itemId.split(":")
 
     //if (itemId) {
     if (myArray[1]) {

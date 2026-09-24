@@ -882,13 +882,14 @@ const handleClick = useCallback(() => {
                       
 
                      
-                      <span
+                      <a
+                          href="#"
                           onClick={()=>otherPage("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1")}
                           className="color-white-1 color-black-2- cursor-pointer text-size-11"
-                          title="Click to see your hashtags."
+                          title="Click to see the other page."
                         >
                            W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
-                        </span>
+                        </a>
                         
                     </div>}
 

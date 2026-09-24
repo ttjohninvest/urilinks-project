@@ -887,7 +887,7 @@ const handleClick = useCallback(() => {
                         id="other2"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
                         //to="/other/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-                        to="/other2"
+                        to="/other"
                         target="_blank"
                       >
                         <span

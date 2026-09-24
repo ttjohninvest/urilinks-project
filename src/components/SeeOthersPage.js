@@ -230,7 +230,8 @@ export const SeeOthersPage = (props) => {
               (item, index) =>
                 !!item && (
                   <li key={index} data-item-id={item.gud.uid}>
-                    {item.gud.displayname}
+                    <span><span>{item.gud.theatname}</span><span>,</span><span>{item.gud.displayname}</span></span>
+                    {/* {item.gud.displayname} */}
                     {/* {item.gud.theatname} */}
                     {/* {item.gud.displayname},{item.gud.theatname} */}
                   </li>

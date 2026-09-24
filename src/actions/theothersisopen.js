@@ -47,7 +47,7 @@ export const getTheothersisopen2 = (id) => {
         let theothersisopen
        
         console.log(
-          "action/getTheothersisopen from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+          "action/getTheothersisopen2 from db, snapshot.val()=" + JSON.stringify(snapshot.val())
         );
 
         let zothersisopen={

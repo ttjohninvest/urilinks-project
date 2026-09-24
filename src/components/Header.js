@@ -865,7 +865,7 @@ const handleClick = useCallback(() => {
                         </a>
                     </div> */}
 
-                     {props.signup.signup === false && <div>
+                     {props.signup.signup === true && <div>
                       <Link
                         id="other"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "

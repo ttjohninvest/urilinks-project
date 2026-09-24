@@ -74,6 +74,17 @@ export const SeeOthersPage = (props) => {
     
   }, []);
 
+   const otherPage = (id, event) => {
+    
+    //event.preventDefault();
+    console.log("otherPage, id="+id)
+    // if(uid==="XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
+    //   window.open("https://urilinks.com/displayhashtags", "_blank");   //window.location.href = "https://urilinks.com/displayhashtags"
+    // else window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank"); //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
+    //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
+    window.open("https://urilinks.com/dashboard?signup=0&x=readonly&id="+id, "_blank");
+  };
+
   const handleClick = () => {
     // Identify the clicked element
     const clickedElement = event.target;
@@ -84,11 +95,13 @@ export const SeeOthersPage = (props) => {
     if (itemId) {
       window.document.getElementById("termid").value = itemId;
 
-      props.changeSortBy("others",1);
+      // props.changeSortBy("others",1);
    
-      props.setTextFilter(itemId); //user id, 28 characters
+      // props.setTextFilter(itemId); //user id, 28 characters
 
-      props.sortByOthers();
+      // props.sortByOthers();
+
+      otherPage(itemId)
 
     }
   };

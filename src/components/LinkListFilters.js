@@ -1894,7 +1894,8 @@ function ExpandableArray(props) {
               <div>
                 
                 <div className="flexrowzc2">
-                  <img src={honoring} width="150" height="200" className="ib" />
+                  {/* <img src={honoring} width="150" height="200" className="ib" /> Christmas tree came out right with this one */}
+                  <img src={honoring} width="250" height="200" className="ib" />
                   <div className="margin-bottom-1">Today, Honoring:</div>
                   {/* <div className="margin-bottom-1">Christmas Tree</div> */}
                   <div className="margin-bottom-1">Curtis Stone, 1948 United States Oympian</div>

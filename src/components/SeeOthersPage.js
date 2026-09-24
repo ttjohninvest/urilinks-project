@@ -79,7 +79,7 @@ export const SeeOthersPage = (props) => {
     
     console.log("otherPage, id="+id)
     
-    //window.open("https://urilinks.com/dashboard?signup=0&x=readonly&id="+id, "_blank");
+    window.open("https://urilinks.com/dashboard?signup=0&x=readonly&id="+id, "_blank");
   };
 
   const handleClick = () => {

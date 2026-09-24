@@ -63,7 +63,7 @@ export const startAddGoogleUserData = (gud = {}) => {
     //
     console.log("===, startAddGoogleUserData")
     gud2.gud.theatname = gud2.gud.theatname+v4()
-    console.log("!==, startAddGoogleUserData, gud2.gud.theatname="+gud2.gud.theatname)
+    console.log("startAddGoogleUserData, gud2.gud.theatname="+gud2.gud.theatname)
     return database
               .ref(`users/${uid}/gud`)
               .update(gud2)

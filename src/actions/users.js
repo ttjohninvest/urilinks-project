@@ -3,8 +3,8 @@ export const setUsers = (users) => ({
   users,
 });
 
-export const startSetOtherUsers = (uid) => {
-  console.log("startSetOtherUsers");
+export const startSetUsers = (uid) => {
+  console.log("startSetUsers");
   return (dispatch, getState) => {
     const hashtags = [];
 

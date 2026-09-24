@@ -89,13 +89,13 @@ export const SeeOthersPage = (props) => {
     // Extract data from data attributes
     const itemId = clickedElement.dataset.itemId;
 
-    //const myArray = itemId.split(":")
+    const myArray = itemId.split(":")
 
-    if (itemId) {
-    //if (myArray[1]) {
+    //if (itemId) {
+    if (myArray[1]) {
 
-      otherPage(itemId)
-      //otherPage(myArray[1])
+      //otherPage(itemId)
+      otherPage(myArray[1])
 
     }
   };
@@ -226,9 +226,9 @@ export const SeeOthersPage = (props) => {
              {uniqueData.map(
               (item, index) =>
                 !!item && (
-                  <li key={index} data-item-id={item.uid}>
-                    {/* {item.displayname}:{item.uid} */}
-                    {item.uid}
+                  <li key={index} data-item-id={item.gud.uid}>
+                    {item.gud.displayname}:{item.gud.uid}
+                    {/* {item.uid} */}
                   </li>
                 ),
             )}

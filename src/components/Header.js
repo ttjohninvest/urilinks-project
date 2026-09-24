@@ -869,7 +869,8 @@ const handleClick = useCallback(() => {
                       <Link
                         id="other"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
-                        to="/other/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+                        //to="/other/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+                        to="/other"
                         target="_blank"
                       >
                         <span
@@ -879,8 +880,24 @@ const handleClick = useCallback(() => {
                           XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
                         </span>
                       </Link>
-                    </div>}
+                    </div>} 
 
+                    {props.signup.signup === true && <div>
+                      <Link
+                        id="other"
+                        className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
+                        //to="/other/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+                        to="/other"
+                        target="_blank"
+                      >
+                        <span
+                          className="ib- color-white-1 color-black-2- cursor-pointer text-size-11"
+                          title="other"
+                        >
+                          W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
+                        </span>
+                      </Link>
+                    </div>}
 
                     <div>
                       <Link

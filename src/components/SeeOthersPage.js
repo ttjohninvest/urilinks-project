@@ -227,7 +227,8 @@ export const SeeOthersPage = (props) => {
               (item, index) =>
                 !!item && (
                   <li key={index} data-item-id={item.gud.uid}>
-                    {item.gud.displayname}:{item.gud.uid}
+                    {item.gud.displayname}
+                    {/* {item.gud.displayname}:{item.gud.uid} */}
                     {/* {item.uid} */}
                   </li>
                 ),

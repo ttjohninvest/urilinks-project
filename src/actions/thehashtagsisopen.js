@@ -5,7 +5,7 @@ import subscriptionid from "../reducers/subscriptionid";
 
 // SET_SETTINGS
 export const setThehashtagsisopen = (thehashtagsisopen) => ({
-  type: "SET_THETHEHASHTAGSISOPEN",
+  type: "SET_THEHASHTAGSISOPEN",
   thehashtagsisopen,
 });
 
@@ -154,7 +154,7 @@ export const incrementHashtagsIsOpenClickCount2 = (thehashtagsisopen) => ({
 });
 
 export const decrementHashtagsIsOpenClickCount2 = (thehashtagsisopen) => ({
-  type: "DECREMENT_TOTAL_STAR_COUNT",
+  type: "DECREMENT_HASHTAGS_ISOPEN_COUNT",
   thehashtagsisopen,
 });
 
@@ -190,7 +190,7 @@ export const decrementHashtagsIsOpenClickCount = (x) => {
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(decrementTotalStarClickCount2({hashtagsisopen:parseInt(x.hashtagsisopen)-1}));
+        dispatch(decrementHashtagsIsOpenClickCount2({hashtagsisopen:parseInt(x.hashtagsisopen)-1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

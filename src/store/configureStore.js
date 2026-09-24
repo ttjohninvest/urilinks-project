@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import linksReducer from '../reducers/links';
+import usersReducer from '../reducers/users';
 import links2Reducer from '../reducers/links2';
 import links3Reducer from '../reducers/links3';
 import linksReducerAll from '../reducers/linksall';
@@ -30,6 +31,7 @@ import thesignupcountReducer from '../reducers/thesignupcount';
 import theuserscountiReducer from '../reducers/theuserscounti';
 import thesharablelinkReducer from '../reducers/thesharablelink';
 import thehashtagsisopenReducer from '../reducers/thehashtagsisopen';
+import theothersisopenReducer from '../reducers/theothersisopen';
 import theupdatedateReducer from '../reducers/theupdatedate';
 import theloggedinReducer from '../reducers/theloggedin';
 import signupReducer from '../reducers/signup';
@@ -50,6 +52,7 @@ export default () => {
   const store = createStore(
     combineReducers({
       links: linksReducer,
+      users: usersReducer,
       linksall: linksReducerAll,
       filters: filtersReducer,
       linksfiledate: linksfiledateReducer,
@@ -75,6 +78,7 @@ export default () => {
       theuserscounti: theuserscountiReducer,
       thesharablelink: thesharablelinkReducer,
       thehashtagsisopen: thehashtagsisopenReducer,
+      theothersisopen: theothersisopenReducer,
       theloggedin: theloggedinReducer,
       theupdatedate: theupdatedateReducer,
       signup: signupReducer,

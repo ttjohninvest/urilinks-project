@@ -33,6 +33,7 @@ import { startSetLinksFileDate } from "./actions/linksfiledate";
 import { getSettings } from "./actions/settings";
 import { getTheplan, getTheplan2 } from "./actions/theplan";
 import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
+import { startSetUsers } from "./actions/users";
 import {
   getThetotalloggedout,
   getThetotalloggedout2,
@@ -158,10 +159,20 @@ if (signup !== "signup") {
                                     store
                                       .dispatch(getTheuserscounti2(id2))
                                       .then(() => {
-                                        return store
+                                        store
                                           .dispatch(getTheloggedin2())
                                           .then(() => {
+                                             return store
+                                          .dispatch(startSetUsers())
+                                          .then(() => {
                                             renderApp(store, signup);
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
                                           })
                                           .catch((error) => {
                                             console.log(
@@ -258,10 +269,20 @@ if (signup !== "signup") {
                                       store
                                         .dispatch(getThetotalloggedout())
                                         .then(() => {
-                                          return store
+                                          store
                                             .dispatch(getTheloggedin(user.uid))
                                             .then(() => {
+                                              return store
+                                            .dispatch(startSetUsers(user.uid))
+                                            .then(() => {
                                               renderApp(store, signup);
+                                            })
+                                            .catch((error) => {
+                                              console.log(
+                                                "theplan, error",
+                                                error,
+                                              );
+                                            });
                                             })
                                             .catch((error) => {
                                               console.log(

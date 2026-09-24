@@ -10,6 +10,7 @@ import honoring from "../assets/honoring/christmas-tree.png";
 //import setFrommenu from "../actions/frommenu";
 import CopyButton2 from "./CopyButton2";
 import HashTagsButton from "./HashTagsButton";
+import OthersButton from "./OthersButton";
 //import AddLinkPage from "./AddlinkPage";
 import AddALinkButton from "./AddALinkButton";
 import SeeHashTagsPage from "./SeeHashTagsPage.js";
@@ -1346,7 +1347,13 @@ function ExpandableArray(props) {
                       >
                         See Hashtags
                       </button> */}
-                      <HashTagsButton
+                     <HashTagsButton
+                        elementRef2={elementRef2}
+                        changeSortBy={changeSortBy}
+                        //setSortBy={setSortBy}
+                      />
+
+                      <OthersButton
                         elementRef2={elementRef2}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}

@@ -5,8 +5,8 @@ import StickyFixed from "./StickyFixed";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
 import { LinkList3 } from "./LinkList3.js";
-//import honoring from "../assets/honoring/christmas-tree.png";
-import honoring from "../assets/honoring/CurtisStone.png";
+import honoring from "../assets/honoring/christmas-tree.png";
+//import honoring from "../assets/honoring/CurtisStone.png";
 //import setFrommenu from "../actions/frommenu";
 import CopyButton2 from "./CopyButton2";
 import HashTagsButton from "./HashTagsButton";
@@ -1895,10 +1895,10 @@ function ExpandableArray(props) {
                 
                 <div className="flexrowzc2">
                   {/* <img src={honoring} width="150" height="200" className="ib" /> Christmas tree came out right with this one */}
-                  <img src={honoring} width="250" height="200" className="ib" />
+                  <img src={honoring} width="150" height="200" className="ib" />
                   <div className="margin-bottom-1">Today, Honoring:</div>
-                  {/* <div className="margin-bottom-1">Christmas Tree</div> */}
-                  <div className="margin-bottom-1">Curtis Stone, 1948 United States Oympian</div>
+                  <div className="margin-bottom-1">Christmas Tree</div>
+                  {/* <div className="margin-bottom-1">Curtis Stone, 1948 United States Olympian</div> */}
                 </div>
               </div>
             )}

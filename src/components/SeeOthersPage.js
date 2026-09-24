@@ -88,9 +88,13 @@ export const SeeOthersPage = (props) => {
     // Extract data from data attributes
     const itemId = clickedElement.dataset.itemId;
 
-    if (itemId) {
+    const myArray = text.split(":")
 
-      otherPage(itemId)
+    //if (itemId) {
+    if (myArray[1]) {
+
+      //otherPage(itemId)
+      otherPage(myArray[1])
 
     }
   };
@@ -230,7 +234,7 @@ export const SeeOthersPage = (props) => {
               (item, index) =>
                 !!item && (
                   <li key={index} data-item-id={item.uid}>
-                    {item.displayname}{item.uid}
+                    {item.displayname}:{item.uid}
                   </li>
                 ),
             )}

@@ -1343,11 +1343,11 @@ function ExpandableArray(props) {
                       )} */}
 
                     
-                     {/* <HashTagsButton
+                     <HashTagsButton
                         elementRef2={elementRef2}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      /> */}
+                      />
 
                        <OthersButton
                         elementRef20={elementRef20}
@@ -1370,11 +1370,11 @@ function ExpandableArray(props) {
                   ) : (
                     <div>
                       <div className="minWidth- bg-color-4"></div>
-                      {/* <HashTagsButton
+                      <HashTagsButton
                         elementRef2={elementRef2}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      /> */}
+                      />
                        <OthersButton
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
@@ -1504,10 +1504,10 @@ function ExpandableArray(props) {
 
                      
 
-                      {/* <HashTagsButton
+                      <HashTagsButton
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      /> */}
+                      />
 
                        <OthersButton
                         elementRef20={elementRef20}
@@ -1561,10 +1561,10 @@ function ExpandableArray(props) {
 
                      
 
-                      {/* <HashTagsButton
+                      <HashTagsButton
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      /> */}
+                      />
 
                        <OthersButton
                         elementRef20={elementRef20}

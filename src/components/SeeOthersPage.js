@@ -74,14 +74,10 @@ export const SeeOthersPage = (props) => {
     
   }, []);
 
-   const otherPage = (id, event) => {
+   const otherPage = (id) => {
     
-    //event.preventDefault();
     console.log("otherPage, id="+id)
-    // if(uid==="XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
-    //   window.open("https://urilinks.com/displayhashtags", "_blank");   //window.location.href = "https://urilinks.com/displayhashtags"
-    // else window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank"); //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
-    //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
+    
     window.open("https://urilinks.com/dashboard?signup=0&x=readonly&id="+id, "_blank");
   };
 
@@ -93,13 +89,6 @@ export const SeeOthersPage = (props) => {
     const itemId = clickedElement.dataset.itemId;
 
     if (itemId) {
-      window.document.getElementById("termid").value = itemId;
-
-      // props.changeSortBy("others",1);
-   
-      // props.setTextFilter(itemId); //user id, 28 characters
-
-      // props.sortByOthers();
 
       otherPage(itemId)
 

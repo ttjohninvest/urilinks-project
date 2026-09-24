@@ -4,6 +4,14 @@ const theothersisopenReducerDefaultState = {
 
 export default (state = theothersisopenReducerDefaultState, action) => {
   switch (action.type) {
+    
+      case "SET_THEOTHERSISOPEN":
+      
+        //return { ...state, theplan: action.theplan };
+        return {
+        ...action.theothersisopen
+      }
+    
     case "ADD_THEOTHERSISOPEN":
       
         //return { ...state, theplan: action.theplan };

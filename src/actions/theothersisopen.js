@@ -25,7 +25,8 @@ export const startAddTheothersisopen = (theothersisopenData = {}) => {
           );
          
 
-          dispatch(addTheothersisopen(theothersisopenData));
+          //dispatch(addTheothersisopen(theothersisopenData));
+          dispatch(setTheothersisopen(theothersisopenData));
           
         })
     );

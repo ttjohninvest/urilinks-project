@@ -68,7 +68,7 @@ const OthersButton = (props) => {
       </button>
       {isDisplayed === true && (
         <div>
-          <SeeHashTagsPage
+          <SeeOthersPage
             elementRef2 = {props.elementRef2}
             changeSortBy={()=>props.changeSortBy("others",1)}
             handleClose3={() => handleClose()}

@@ -184,7 +184,7 @@ const LinkDashboardPage = (props) => {
 
   useEffect(() => {
     //window.scrollTo(0,0)
-    const { id3 } = this.props.match.params;
+    const { id3 } = props.match.params;
     console.log("LinkDashboardPage, User ID:"+id3)
   }, []);
 

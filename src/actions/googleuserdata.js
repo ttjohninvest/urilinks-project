@@ -43,8 +43,9 @@ export const startAddGoogleUserData = (gud = {}) => {
       .once("value")
       .then((snapshot) => { //1
         console.log("startAddGoogleUserData, snapshot.val()="+JSON.stringify(snapshot.val()))
-        if(snapshot.val() !== gud2.theatname) {
-          
+        console.log("startAddGoogleUserData, snapshot.val().theatname="+snapshot.val().theatname)
+        if(snapshot.val().theatname !== gud2.theatname) {
+            console.log("!==, startAddGoogleUserData")
             return database
               .ref(`users/${uid}/gud`)
               .update(gud2)
@@ -59,7 +60,9 @@ export const startAddGoogleUserData = (gud = {}) => {
   } else {
     //apend the guid to the user name
     //
+    console.log("!==, startAddGoogleUserData")
     gud2.theatname = gud2.theatname+v4()
+    console.log("!==, startAddGoogleUserData, gud2.theatname="+gud2.theatname)
     return database
               .ref(`users/${uid}/gud`)
               .update(gud)

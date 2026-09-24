@@ -1897,7 +1897,7 @@ function ExpandableArray(props) {
                   <img src={honoring} width="150" height="200" className="ib" />
                   <div className="margin-bottom-1">Today, Honoring:</div>
                   {/* <div className="margin-bottom-1">Christmas Tree</div> */}
-                  <div className="margin-bottom-1">Curtis Stone, 1948 United Staes Oympian</div>
+                  <div className="margin-bottom-1">Curtis Stone, 1948 United States Oympian</div>
                 </div>
               </div>
             )}

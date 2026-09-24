@@ -229,7 +229,7 @@ export const SeeOthersPage = (props) => {
              {uniqueData.map(
               (item, index) =>
                 !!item && (
-                  <li key={index} data-item-id={item.gud.uid}>
+                  <li key={index} data-item-id={item.uid}>
                     <span><span>{item.gud.theatname}</span><span>,</span><span>{item.gud.displayname}</span></span>
                     {/* {item.gud.displayname} */}
                     {/* {item.gud.theatname} */}

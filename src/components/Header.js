@@ -860,17 +860,17 @@ const handleClick = useCallback(() => {
                           className="color-white-1 color-black-2- cursor-pointer text-size-11"
                           title="Click to see your hashtags."
                         >
-                          👑 hashtags
+                           hashtags
                         </span>
                         </a>
                     </div> */}
 
-                     <div>
+                     {props.signup.signup === false && <div>
                       <Link
-                        id="other/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+                        id="other"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
-                        to="/other"
-                        target="_blank"
+                        to="/other/XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+                        //target="_blank"
                       >
                         <span
                           className="ib- color-white-1 color-black-2- cursor-pointer text-size-11"
@@ -879,7 +879,7 @@ const handleClick = useCallback(() => {
                           XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
                         </span>
                       </Link>
-                    </div>
+                    </div>}
 
 
                     <div>

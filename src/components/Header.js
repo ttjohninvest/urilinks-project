@@ -630,7 +630,7 @@ const handleClick = useCallback(() => {
 
   const otherPage = (id, event) => {
     
-    event.preventDefault();
+    //event.preventDefault();
     console.log("otherPage, id="+id)
     // if(uid==="XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
     //   window.open("https://urilinks.com/displayhashtags", "_blank");   //window.location.href = "https://urilinks.com/displayhashtags"
@@ -882,14 +882,14 @@ const handleClick = useCallback(() => {
                       
 
                      
-                      <a
-                          href="#"
+                      <span
+                         // href="#"
                           onClick={()=>otherPage("W4XCM1PRqtZeAzCZ0ALlEFrIwaw1")}
                           className="color-white-1 color-black-2- cursor-pointer text-size-11"
                           title="Click to see the other page."
                         >
                            W4XCM1PRqtZeAzCZ0ALlEFrIwaw1
-                        </a>
+                        </span>
                         
                     </div>}
 

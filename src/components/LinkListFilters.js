@@ -1349,11 +1349,11 @@ function ExpandableArray(props) {
                         //setSortBy={setSortBy}
                       />
 
-                       <OthersButton
+                       {readonly===false && <OthersButton
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      />
+                      />}
 
                       {
                         //emailForm &&
@@ -1375,11 +1375,11 @@ function ExpandableArray(props) {
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
                       />
-                       <OthersButton
+                        {readonly===false && <OthersButton
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      />
+                      />}
                     </div>
                   )}
                 </div>
@@ -1509,11 +1509,11 @@ function ExpandableArray(props) {
                         //setSortBy={setSortBy}
                       />
 
-                       <OthersButton
+                        {readonly===false && <OthersButton
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      />
+                      />}
 
                       {
                         //emailForm &&
@@ -1566,11 +1566,11 @@ function ExpandableArray(props) {
                         //setSortBy={setSortBy}
                       />
 
-                       <OthersButton
+                       {readonly===false &&  <OthersButton
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      />
+                      />}
 
                       {
                         //emailForm &&

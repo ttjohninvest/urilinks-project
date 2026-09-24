@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
+import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
@@ -85,13 +86,16 @@ const renderApp = (store) => {
   );
 };
 
-
+const { id3 } = useParams();
 
 const params = new URLSearchParams(window.location.search);
 const signup = params.get("signup");
 
+let id2;
 let id = params.get("id");
-let id2 = id
+if(id3===null)
+id2 = id
+else id2 = id3
 let z2 = params.get("z2");
 console.log("1 z2=" + z2);
 console.log("1 signup=" + signup);

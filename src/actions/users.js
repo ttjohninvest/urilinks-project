@@ -28,7 +28,8 @@ export const startSetUsers = (uid) => {
           );
           
           users2.push({
-            uid: childSnapshot.key
+            //uid: childSnapshot.key
+            gud:childSnapshot.val().gud.gud
           });
           
         });

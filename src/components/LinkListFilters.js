@@ -97,6 +97,7 @@ function ExpandableArray(props) {
 
   const myRef = useRef(null);
   const elementRef2 = useRef(null);
+  const elementRef20 = useRef(null);
   const scrollInterval = useRef(null);
 
   const scrollupref = useRef();
@@ -1355,7 +1356,7 @@ function ExpandableArray(props) {
                       />
 
                       <OthersButton
-                        elementRef2={elementRef2}
+                        elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
                       />

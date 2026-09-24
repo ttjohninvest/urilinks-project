@@ -17,7 +17,7 @@ export const SeeOthersPage = (props) => {
 
   useEffect(() => {
     console.log(
-      "SeeHashTagsPage.js, hashtags=" + JSON.stringify(props.hashtags),
+      "SeeOthersPage.js, users=" + JSON.stringify(props.users),
     );
 
   });

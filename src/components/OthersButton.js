@@ -2,12 +2,12 @@ import React, { useState,useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import SeeHashTagsPage from "./SeeHashTagsPage";
+import SeeOthersPage from "./SeeOthersPage";
 
 import {
-  incrementHashtagsIsOpenClickCount,
-  decrementHashtagsIsOpenClickCount,
-} from "../actions/thehashtagsisopen";
+  incrementOthersIsOpenClickCount,
+  decrementOthersIsOpenClickCount,
+} from "../actions/theothersisopen";
 
 const OthersButton = (props) => {
   const [isDisplayed, setIsDisplayed] = useState(false);
@@ -64,12 +64,13 @@ const OthersButton = (props) => {
         className={`margin-left-11 height48 button-2w- button-2 ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
         onClick={handleDisplay}
       >
-        {isDisplayed ? "Displayed" : "See Others"}
+        {/* {isDisplayed ? "Displayed" : "See Others"} */}
+         {isDisplayed ? "2" : "1"}
       </button>
       {isDisplayed === true && (
         <div>
           <SeeOthersPage
-            elementRef2 = {props.elementRef2}
+            elementRef20 = {props.elementRef20}
             changeSortBy={()=>props.changeSortBy("others",1)}
             handleClose3={() => handleClose()}
           />

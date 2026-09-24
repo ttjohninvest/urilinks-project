@@ -27,8 +27,7 @@ export const startSetUsers = (uid) => {
           );
           
           users2.push({
-            id: childSnapshot.key,
-            ...aval //...childSnapshot.val(),
+            id: childSnapshot.key
           });
         });
         console.log("435634, startSetUsers, about to call dispatch(setUsers(users)),users2="+JSON.stringify(users2))

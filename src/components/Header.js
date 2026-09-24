@@ -245,7 +245,7 @@ export const Header = (props) => {
         email: user.email,
         uid: user.uid,
       };
-      alert("gud="+JSON.stringify(gud))
+      console.log("Header.js, useEffect, gud="+JSON.stringify(gud))
       setPhotoURL(purl);
       setPhotoURLdb(purl);
 

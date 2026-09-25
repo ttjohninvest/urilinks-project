@@ -1533,6 +1533,11 @@ function ExpandableArray(props) {
                     changeSortBy={changeSortBy}
                     setSortBy={setSortBy}
                     />
+                    <OthersButton
+                         elementRef20={elementRef20}
+                         changeSortBy={changeSortBy}
+                        //setSortBy={setSortBy}
+                     />
                     
                   </div>
                     // <div

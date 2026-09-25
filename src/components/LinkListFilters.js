@@ -1505,10 +1505,10 @@ function ExpandableArray(props) {
 
                      
 
-                      <HashTagsButton
+                      {/* <HashTagsButton
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      />
+                      /> */}
 
                         {readonly===false && <OthersButton
                         elementRef20={elementRef20}

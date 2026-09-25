@@ -67,10 +67,10 @@ export const getThetotalstars = (uid) => {
 };
 
 
-export const getThetotalstars2 = (id) => {
+export const getThetotalstars2 = (uid) => {
   console.log("actions/getThetotalstars");
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
     console.log("actions/getThetotalstars2, uid=" + uid);
     let s;
     return database

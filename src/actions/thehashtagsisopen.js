@@ -32,10 +32,10 @@ export const startAddThehashtagsisopen = (thehashtagsisopenData = {}) => {
   };
 };
 
-export const getThehashtagsisopen2 = (id) => {
-  console.log("actions/getThehashtagsisopen");
+export const getThehashtagsisopen2 = (uid) => {
+  console.log("actions/getThehashtagsisopen2");
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
     console.log("actions/getThehashtagsisopen2, uid=" + uid);
     let s;
     return database
@@ -46,7 +46,7 @@ export const getThehashtagsisopen2 = (id) => {
         let thehashtagsisopen
        
         console.log(
-          "action/getThehashtagsisopen from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+          "action/getThehashtagsisopen2 from db, snapshot.val()=" + JSON.stringify(snapshot.val())
         );
 
         let zhashtagsisopen={

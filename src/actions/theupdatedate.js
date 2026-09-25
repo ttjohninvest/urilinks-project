@@ -32,10 +32,10 @@ export const startAddTheupdatedate = (theupdatedateData = {}) => {
   };
 };
 
-export const getTheupdatedate2 = (id) => {
-  console.log("actions/getTheupdatedate");
+export const getTheupdatedate2 = (uid) => {
+  console.log("actions/getTheupdatedate2");
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
     console.log("actions/getTheupdatedate2, uid=" + uid);
     let s;
     return database
@@ -46,7 +46,7 @@ export const getTheupdatedate2 = (id) => {
         let theupdatedate
        
         console.log(
-          "action/getTheupdatedate from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+          "action/getTheupdatedate2 from db, snapshot.val()=" + JSON.stringify(snapshot.val())
         );
 
         let zupdatedate={

@@ -111,8 +111,8 @@ let x10 = params.get("x");
 
 if(x10 === "readonly") {
   console.log("app.js, other page")
-  return
-}
+  
+} else {
 
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
@@ -367,4 +367,6 @@ if (signup !== "signup") {
   });
 }
 
+
 ReactDOM.render(<LoadingPage />, document.getElementById("app"));
+}

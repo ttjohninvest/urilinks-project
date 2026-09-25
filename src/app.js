@@ -128,8 +128,9 @@ console.log("app.js, 0th one abc")
 if(x10 === "readonly") {
   console.log("app.js, other page, id="+id)
   //read this users header information form gud
+  store.dispatch(login(id));
    renderApp(store, signup);
-   
+
 } else {
 
 if (signup !== "signup") {

@@ -1307,12 +1307,12 @@ function ExpandableArray(props) {
                             </div>
                           </fieldset>
                            {/* {props.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" &&  */}
-                           <OthersButton
+                           {/* <OthersButton
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //uid={props.uid}
                         //setSortBy={setSortBy}
-                      />
+                      /> */}
                       {/* } */}
 
                         </div>}
@@ -1458,6 +1458,8 @@ function ExpandableArray(props) {
                                 {props.uid}
                               </a>
                             </div>
+                          
+                          <div className="flexrowz">
                             <div>
                               {/* <button
                                 className="button-2w height48 ib margin-right-1 border5- pointereventsnone"
@@ -1474,7 +1476,15 @@ function ExpandableArray(props) {
                               />
                               {/* {copySuccess} */}
                             </div>
+                            <OthersButton
+                        elementRef20={elementRef20}
+                        changeSortBy={changeSortBy}
+                        //uid={props.uid}
+                        //setSortBy={setSortBy}
+                      />
                           </div>
+                          </div>
+
                         </div>}
                       </div>
                     </span>

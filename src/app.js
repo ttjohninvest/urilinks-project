@@ -99,20 +99,15 @@ const signup = params.get("signup");
 
 let id2;
 let id = params.get("id");
-if(id3===null)
+//if(id3===null)
 id2 = id
-else id2 = id3
+//else id2 = id3
 let z2 = params.get("z2");
 console.log("1 z2=" + z2);
 console.log("1 signup=" + signup);
 console.log("1 id=" + id);
 
 let x10 = params.get("x");
-
-if(x10 === "readonly") {
-  console.log("app.js, other page")
-  
-} else {
 
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
@@ -129,6 +124,13 @@ store
   });
 
 console.log("app.js, 0th one abc")
+
+if(x10 === "readonly") {
+  console.log("app.js, other page, id="+id)
+  //read this users header information form gud
+   renderApp(store, signup);
+   
+} else {
 
 if (signup !== "signup") {
   console.log("app.js, 1st one abc")
@@ -368,5 +370,6 @@ if (signup !== "signup") {
 }
 
 
-ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 }
+ReactDOM.render(<LoadingPage />, document.getElementById("app"));
+

@@ -1376,11 +1376,11 @@ function ExpandableArray(props) {
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
                       />
-                        {readonly===false && <OthersButton
+                        {/* {readonly===false && <OthersButton
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      />}
+                      />} */}
                     </div>
                   )}
                 </div>
@@ -1528,7 +1528,13 @@ function ExpandableArray(props) {
                         )
                       }
                     </div>
-                  ) : ( <div></div>
+                  ) : ( <div>
+                      <HashTagsButton
+                    changeSortBy={changeSortBy}
+                    setSortBy={setSortBy}
+                    />
+                    
+                  </div>
                     // <div
                     //   id="before-before-link-summary-id"
                     //   className="margin-bottom-1"
@@ -1985,7 +1991,7 @@ function ExpandableArray(props) {
               ✮ Click copy to copy your sharable link. Paste it were you want.
               <br />
               <br />
-              ✮ Click email your link to open up a form to to enter recipient's
+              ✮ Click email your link to open up a form to enter recipient's
               email address and subject line.
               <br />
               <br />

@@ -86,6 +86,7 @@ export const Header = (props) => {
   const signup = params.get("signup");
   const x = params.get("x");
   const x1 = params.get("x1");
+  const dn = params.get("dn");
 
   useEffect(() => {
     //props.abc(1);
@@ -719,6 +720,7 @@ const handleClick = useCallback(() => {
                                 )}
                               </span>
                             </span>
+                            <span>{dn!==null?dn:""}</span>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
                           {/* <img

@@ -46,10 +46,10 @@ export const startAddTheplan = (theplanData = {}) => {
   };
 };
 
-export const getTheplan2 = (id) => {
+export const getTheplan2 = (uid) => {
   console.log("actions/getTheplan");
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
     console.log("actions/getTheplan2, uid=" + uid);
     let s;
     return database

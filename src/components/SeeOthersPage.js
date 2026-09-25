@@ -27,25 +27,6 @@ export const SeeOthersPage = (props) => {
   // };
 
   useEffect(() => {
-    // const stringArray = props.hashtags.map(obj => obj.matchesstring);
-
-    // console.log("DisplayHashtags.js, stringArray="+JSON.stringify(stringArray))
-
-    // let i = 0
-    // let str=""
-    // let htsArray = []
-    // let htsArray2 = [] //holds an array of individual hashtags
-    // stringArray.forEach((str)=>{
-    //   htsArray=str.match(/#\w+/g) || [];
-    //   console.log("DisplayHashtags.js, htsArray="+JSON.stringify(htsArray))
-    //   htsArray.forEach((str2)=>{
-    //     htsArray2[i++] = str2
-    //   })
-
-    // })
-
-    //  console.log("DisplayHashtags.js, hashtags should be individual strings now")
-    // console.log("DisplayHashtags.js, htsArray2="+JSON.stringify(htsArray2))
 
      const array3 = props.users.sort((a, b) => {
       const valA = a.gud.displayname.toLowerCase();
@@ -55,15 +36,6 @@ export const SeeOthersPage = (props) => {
       return 0;
     })
 
-    // console.log("DisplayHashtags.js, should be in sorted order now")
-    // console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray3))
-
-    // const htsArray4 = removeDuplicates(htsArray3)
-    //  console.log("DisplayHashtags.js, duplicates should be removed now")
-    // console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray4))
-
-    // //htsArray4 contains the sorted array of individual hashtags
-    //setUniqueData(htsArray4);
     //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
     console.log("setUniqueData, props.users=" + JSON.stringify(array3));
     //setUniqueData(props.users);
@@ -226,7 +198,7 @@ export const SeeOthersPage = (props) => {
               if (props.auth.uid !== item.gud.uid) {
                 return (
                   <li key={index} data-item-id={item.gud.uid}>
-                    {item.gud.theatname + ", " + item.gud.displayname}
+                    { item.gud.displayname + ", " + item.gud.theatname}
                   </li>
                 )
               } else {

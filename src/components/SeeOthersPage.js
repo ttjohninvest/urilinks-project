@@ -72,7 +72,7 @@ export const SeeOthersPage = (props) => {
     const array3 = itemId.split(";")
     console.log("handleClick, itemId=" + itemId);
 
-    const email = encrypt(array[3], "125434")
+    const email = encrypt(array3[3], "125434")
 
     if (array3[0]) {
       otherPage(array3[0], array3[1], array3[2], email);

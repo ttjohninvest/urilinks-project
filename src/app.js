@@ -107,6 +107,13 @@ console.log("1 z2=" + z2);
 console.log("1 signup=" + signup);
 console.log("1 id=" + id);
 
+let x10 = params.get("x");
+
+if(x10 === "readonly") {
+  console.log("app.js, other page")
+  return
+}
+
 let theStore = store.getState();
 //console.log("theStore.theplan="+JSON.stringify(theStore.theplan))
 console.log("theStore.theplan.plan=" + theStore.theplan.plan);

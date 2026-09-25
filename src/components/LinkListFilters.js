@@ -1782,10 +1782,10 @@ function ExpandableArray(props) {
                       </button>
                     </div>
 
-                      <HashTagsButton
+                      {readonly === false && props.signup === true && <HashTagsButton
                     changeSortBy={changeSortBy}
                     setSortBy={setSortBy}
-                    />
+                    />}
                     </div>
 
                     <div className={`margin-left-11 margin-top-1`}>

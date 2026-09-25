@@ -98,7 +98,7 @@ export const Header = (props) => {
     );
 }
 
-const z11 = decrypt(z10, "125434")
+const z11 = decrypt(z10, process.env.KEY)
 
   useEffect(() => {
     //props.abc(1);

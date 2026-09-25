@@ -71,7 +71,7 @@ export const SeeOthersPage = (props) => {
     const itemId = clickedElement.dataset.itemId;
     const array3 = itemId.split(";")
     console.log("handleClick, itemId=" + itemId);
-
+    console.log("handleClick, process.env.KEY="+process.env.KEY)
     const email = encrypt(array3[3], process.env.KEY)//"125434")
 
     if (array3[0]) {

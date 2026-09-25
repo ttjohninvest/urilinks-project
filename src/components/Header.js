@@ -87,6 +87,7 @@ export const Header = (props) => {
   const x = params.get("x");
   const x1 = params.get("x1");
   const dn = params.get("dn");
+  const purl = params.get("purl");
 
   useEffect(() => {
     //props.abc(1);
@@ -720,7 +721,16 @@ const handleClick = useCallback(() => {
                                 )}
                               </span>
                             </span>
-                            <span className="color-white-1 cursor-pointer"><span>{dn!==null?",":""}</span> {dn!==null?dn+"'s links page":""}</span>
+                            <span className="color-white-1 cursor-pointer"><span>{dn!==null?",":""}</span><span>{dn!==null?
+                            <img
+                          src={purl}
+                          width="32"
+                          height="32"
+                          style={{ borderRadius: "50%" }}
+                          className="ib- margin-bottom-11-"
+                          title=""
+                          alt="picture"
+                        />:""}</span>{dn!==null?dn+"'s links page":""}</span>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
                           {/* <img

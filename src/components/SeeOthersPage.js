@@ -42,11 +42,11 @@ export const SeeOthersPage = (props) => {
     setUniqueData(array3);
   }, []);
 
-  const otherPage = (id,dn) => {
+  const otherPage = (id,dn,purl) => {
     console.log("otherPage, id=" + id);
 
     window.open(
-      "https://urilinks.com/dashboard?signup=0&x=readonly&id=" + id +"&dn="+dn,
+      "https://urilinks.com/dashboard?signup=0&x=readonly&id=" + id +"&dn="+dn+"&purl"+purl,
       "_blank",
     );
   };
@@ -61,7 +61,7 @@ export const SeeOthersPage = (props) => {
     console.log("handleClick, itemId=" + itemId);
 
     if (array3[0]) {
-      otherPage(array3[0], array3[1]);
+      otherPage(array3[0], array3[1], array3[2]);
     }
 
     // props.changeSortBy("others",1);
@@ -198,7 +198,7 @@ export const SeeOthersPage = (props) => {
             {uniqueData.map((item, index) => {
               if (props.auth.uid !== item.gud.uid) {
                 return (
-                  <li key={index} data-item-id={item.gud.uid+":"+item.gud.displayname}>
+                  <li key={index} data-item-id={item.gud.uid+":"+item.gud.displayname+":"+item.gud.photourl}>
                     { item.gud.displayname + ", " + item.gud.theatname}
                   </li>
                 )

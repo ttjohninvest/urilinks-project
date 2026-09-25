@@ -666,11 +666,12 @@ const handleClick = useCallback(() => {
                 <div className="">
                   <div className="flexrow2w">
                     <div className="flexrowzl1">
-                      <Link
-                        className="nounderline color-white-1 cursor-pointer pointereventsnone"
+                      {/* <Link
+                        className="nounderline color-white-1 cursor-default"
                         to="/dashboard?signup=signup"
                         title=""
-                      >
+                      > */}
+                      <span className="nounderline color-white-1 cursor-default">
                         <header className="margin-left-11 solid padding-bottom-1m header1">
                           <img
                             className="rounded-full-1 thumbnail-"
@@ -756,7 +757,8 @@ const handleClick = useCallback(() => {
                           </span>
                         </span>
                         </header>
-                      </Link>
+                      {/* </Link> */}
+                      </span>
 
                       {/* <div className="margin-left-118 margin-top-1">
                       <img src={signature} className="minwidth" />

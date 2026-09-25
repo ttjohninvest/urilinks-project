@@ -720,7 +720,7 @@ const handleClick = useCallback(() => {
                                 )}
                               </span>
                             </span>
-                            <span className="color-white-1 cursor-pointer">, {dn!==null?dn+"'s page":""}</span>
+                            <span className="color-white-1 cursor-pointer">, {dn!==null?dn+"'s links page":""}</span>
                           </span>
                           {/* <h3 className="color-white-1">urilinks</h3> */}
                           {/* <img

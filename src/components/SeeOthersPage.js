@@ -44,6 +44,7 @@ export const SeeOthersPage = (props) => {
 
   const otherPage = (id,dn,purl) => {
     console.log("otherPage, id=" + id);
+    console.log("otherPage, purl="+purl)
 
     window.open(
       "https://urilinks.com/dashboard?signup=0&x=readonly&id=" + id +"&dn="+dn+"&purl="+purl,

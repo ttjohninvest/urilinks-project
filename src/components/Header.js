@@ -721,28 +721,27 @@ const handleClick = useCallback(() => {
                                 )}
                               </span>
                             </span>
-                            <span className="ib flexrowz">
-                            <span className="ib color-white-1 cursor-pointer"><span>{dn!==null?",":""}</span><span>{dn!==null?
+                            <span className="ib flexrowz cursor-pointer color-white-1">
                             
-                            <span className="ib"><img
-                          src={purl2}
-                          width="32"
-                          height="32"
-                          style={{ borderRadius: "50%" }}
-                          className="ib- margin-bottom-11-"
-                          title=""
-                          alt="picture"
-                        /></span>:""}</span><span className="ib">{dn!==null?dn+"'s links page":""}</span></span>
+                              <span>{dn!==null?",":""}
+                              </span>
+                          
+                            <span className="ib">{dn!==null?dn+"'s links page":""}
+                            </span>
+
+                             <span className="ib">{dn!==null?
+                                  <img
+                                src={purl2}
+                                width="32"
+                                height="32"
+                                style={{ borderRadius: "50%" }}
+                                className="ib- margin-bottom-11-"
+                                title=""
+                                alt="picture"
+                              />:""}
+                              </span>
                           </span>
-                          </span>
-                          {/* <h3 className="color-white-1">urilinks</h3> */}
-                          {/* <img
-                      className=""
-                      src={logo2}
-                      width="60"
-                      height="35"
-                      alt="urilinks logo"
-                    /> */}
+                        
                         </header>
                       </Link>
 

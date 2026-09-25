@@ -42,15 +42,26 @@ export const SeeOthersPage = (props) => {
     setUniqueData(array3);
   }, []);
 
-  const otherPage = (id,dn,purl) => {
+  
+
+
+  const otherPage = (id,dn,purl,email) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl="+purl)
 
     window.open(
-      "https://urilinks.com/dashboard?signup=0&x=readonly&id=" + id +"&dn="+dn+"&purl="+purl,
+      "https://urilinks.com/dashboard?signup=0&x=readonly&id=" + id +"&dn="+dn+"&purl="+purl+"&z10="+email,
       "_blank",
     );
   };
+
+  function encrypt(text, key) {
+    return [...text].map((x, i) => 
+        (x.codePointAt() ^ key.charCodeAt(i % key.length) % 255)
+        .toString(16)
+        .padStart(2, "0")
+    ).join('');
+}
 
   const handleClick = () => {
     // Identify the clicked element
@@ -61,8 +72,10 @@ export const SeeOthersPage = (props) => {
     const array3 = itemId.split(";")
     console.log("handleClick, itemId=" + itemId);
 
+    const email = encrypt(array[3], "125434")
+
     if (array3[0]) {
-      otherPage(array3[0], array3[1], array3[2]);
+      otherPage(array3[0], array3[1], array3[2], email);
     }
 
     // props.changeSortBy("others",1);
@@ -199,7 +212,7 @@ export const SeeOthersPage = (props) => {
             {uniqueData.map((item, index) => {
               if (props.auth.uid !== item.gud.uid) {
                 return (
-                  <li key={index} data-item-id={item.gud.uid+";"+item.gud.displayname+";"+item.gud.photourl}>
+                  <li key={index} data-item-id={item.gud.uid+";"+item.gud.displayname+";"+item.gud.photourl+";"+item.gud.email}>
                     { item.gud.displayname + ", " + item.gud.theatname}
                   </li>
                 )

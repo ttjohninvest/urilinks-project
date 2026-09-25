@@ -88,6 +88,17 @@ export const Header = (props) => {
   const x1 = params.get("x1");
   const dn = params.get("dn");
   const purl2 = params.get("purl");
+  const z10 = params.get("z10");
+
+  function decrypt(text, key) {
+    if(text === null) return null
+    return String.fromCharCode(...text.match(/.{1,2}/g)
+        .map((e, i) => 
+            parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
+    );
+}
+
+const z11 = decrypt(z10, "125434")
 
   useEffect(() => {
     //props.abc(1);
@@ -738,7 +749,7 @@ const handleClick = useCallback(() => {
                                 height="32"
                                 style={{ borderRadius: "50%" }}
                                 className="ib- margin-bottom-11- profile-picture-ring"
-                                title=""
+                                title={z10!==null?z10:""}
                                 alt="picture"
                               />:""}
                               </span>

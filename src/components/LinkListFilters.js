@@ -1234,7 +1234,7 @@ function ExpandableArray(props) {
                   {props.signup === true && (
                     <span>
                       <div className="">
-                        <div className="flexcol3">
+                         {readonly===false && <div className="flexcol3">
                           <fieldset className="flexcol3 width325- padding-bottom-11 margin-bottom-1-">
                             <legend>Your Link:</legend>
                             <div className="text-size-1">
@@ -1262,14 +1262,14 @@ function ExpandableArray(props) {
                               {/* {copySuccess} */}
                             </div>
                           </fieldset>
-                        </div>
+                        </div>}
                       </div>
                     </span>
                   )}
                   {props.signup === false && (
                     <span>
                       <div className="">
-                        <div className="flexcol3">
+                         {readonly===false && <div className="flexcol3">
                           <fieldset className="flexcol3 width325- padding-bottom-11 margin-bottom-1-">
                             <legend>Your Link:</legend>
                             <div className="text-size-1">
@@ -1306,7 +1306,7 @@ function ExpandableArray(props) {
                               {/* {copySuccess} */}
                             </div>
                           </fieldset>
-                        </div>
+                        </div>}
                       </div>
                     </span>
                   )}
@@ -1389,7 +1389,7 @@ function ExpandableArray(props) {
                   {props.signup === true && (
                     <span>
                       <div className="margin-bottom-123">
-                        <div className="flexrow2cv2">
+                         {readonly===false && <div className="flexrow2cv2">
                           <div className="flexcol3 text-size-1 textLeft- margin-top-1- margin-bottom-1">
                             <div>
                               <a
@@ -1425,14 +1425,14 @@ function ExpandableArray(props) {
                               {/* {copySuccess} */}
                             </div>
                           </div>
-                        </div>
+                        </div>}
                       </div>
                     </span>
                   )}
                   {props.signup === false && (
                     <span>
                       <div className="margin-bottom-123">
-                        <div className="flexrow2cv2">
+                         {readonly===false && <div className="flexrow2cv2">
                           <div className="flexcol3 text-size-1 textLeft- margin-top-1- margin-bottom-1">
                             <div>
                               <a
@@ -1466,7 +1466,7 @@ function ExpandableArray(props) {
                               {/* {copySuccess} */}
                             </div>
                           </div>
-                        </div>
+                        </div>}
                       </div>
                     </span>
                   )}

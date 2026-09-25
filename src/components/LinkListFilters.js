@@ -1622,7 +1622,9 @@ function ExpandableArray(props) {
                 className=""
               >
                 {isMobile() === true ? (
+
                   <div className="flexcol3a border5-">
+                    
                     <div className="border5-">
                       <input
                         title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
@@ -1675,6 +1677,7 @@ function ExpandableArray(props) {
                         Search
                       </button>
                     </div>
+                    
 
                     <div
                       className={`margin-top-n-1z margin-left-11 border5- margin-top-1`}
@@ -1682,7 +1685,7 @@ function ExpandableArray(props) {
                       <select
                         id="mode"
                         className="select outline-none borderRadius55"
-                        style={{display:'block'}}
+                        
                         //value={this.state.sortBy}
                         value={sortBy}
                         //value={this.props.filters.sortBy}
@@ -1768,6 +1771,7 @@ function ExpandableArray(props) {
                     )} */}
                   </div>
                 ) : (
+                  <div>
                   <div className="flexrowzv margin-top-1t1 margin-bottom-1">
                     <div className="">
                       <input
@@ -1809,12 +1813,12 @@ function ExpandableArray(props) {
                     setSortBy={setSortBy}
                     />
                     </div>
-
+</div>
                     <div className={`margin-left-11 margin-top-1`}>
                       <select
                         id="mode"
                         className="select outline-none borderRadius55"
-                        style={{display:'block'}}
+                        
                         ////value={this.state.sortBy}
                         value={sortBy}
                         //value={this.props.filters.sortBy}

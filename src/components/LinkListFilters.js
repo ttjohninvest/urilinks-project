@@ -1476,7 +1476,9 @@ function ExpandableArray(props) {
                               />
                               {/* {copySuccess} */}
                             </div>
-                            <OthersButton
+                            {/* <OthersButton below Appears on home page as example page, not logged in */}
+                            {/* Purpose of the button being here is because it lets other people know they can see other peoples public links on the internet */}
+                            <OthersButton 
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //uid={props.uid}

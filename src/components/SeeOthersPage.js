@@ -58,7 +58,7 @@ export const SeeOthersPage = (props) => {
 
     // Extract data from data attributes
     const itemId = clickedElement.dataset.itemId;
-    const array3 = itemId.split(":")
+    const array3 = itemId.split(";")
     console.log("handleClick, itemId=" + itemId);
 
     if (array3[0]) {
@@ -199,7 +199,7 @@ export const SeeOthersPage = (props) => {
             {uniqueData.map((item, index) => {
               if (props.auth.uid !== item.gud.uid) {
                 return (
-                  <li key={index} data-item-id={item.gud.uid+":"+item.gud.displayname+":"+item.gud.photourl}>
+                  <li key={index} data-item-id={item.gud.uid+";"+item.gud.displayname+";"+item.gud.photourl}>
                     { item.gud.displayname + ", " + item.gud.theatname}
                   </li>
                 )

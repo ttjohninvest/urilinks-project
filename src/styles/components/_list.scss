@@ -523,18 +523,16 @@ input[type="checkbox"] {
 }
 
 .profile-picture-ring {
-  /* 1. Make the image circular */
+  
   border-radius: 50%;
   
-  /* 2. Define dimensions */
+  
   width: 32px;
   height: 32px;
-  object-fit: cover; /* Ensures image covers the area without distortion */
+  object-fit: cover; 
   
-  /* 3. Create the white ring using box-shadow */
-  /* box-shadow: offset-x offset-y blur spread color */
   box-shadow: 0 0 0 5px white; 
-  /* The '5px' spread value determines the ring's thickness */
+
 }   
 
 .padding-top-1t {

@@ -1155,7 +1155,7 @@ const handleClick = useCallback(() => {
                           width="32"
                           height="32"
                           style={{ borderRadius: "50%" }}
-                          className="ib- margin-bottom-11-"
+                          className="ib- margin-bottom-11- profile-picture-ring"
                           title={name + ", " + email + ", " + theplan}
                           alt="example"
                         />

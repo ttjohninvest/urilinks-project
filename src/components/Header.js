@@ -731,7 +731,7 @@ const handleClick = useCallback(() => {
                             <span className="ib">{dn!==null?dn+"'s links page":""}
                             </span>
 
-                             <span className="ib">{dn!==null?
+                             <span className="ib padding-top7x margin-left-11">{dn!==null?
                                   <img
                                 src={purl2}
                                 width="32"

@@ -98,7 +98,7 @@ export const Header = (props) => {
     );
 }
 
-const z11 = decrypt(z10, process.env.REACT_APP_EKEY)
+const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
 
   useEffect(() => {
     //props.abc(1);

@@ -391,7 +391,7 @@ export const LinkList = (props) => {
      
 
       {isMobile() === false && (
-        <div className="ib margin-left-11 margin-bottom-1">
+        <div className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
           {/* {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`} */}
           {props.links.length===0?props.links.length+' links found.':props.links.length===1?'1 link found.':props.links.length+' links found.'}
         </div>

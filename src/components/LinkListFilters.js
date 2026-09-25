@@ -1306,12 +1306,14 @@ function ExpandableArray(props) {
                               {/* {copySuccess} */}
                             </div>
                           </fieldset>
-                           {props.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" && <OthersButton
+                           {/* {props.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" &&  */}
+                           <OthersButton
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //uid={props.uid}
                         //setSortBy={setSortBy}
-                      />}
+                      />
+                      {/* } */}
 
                         </div>}
                       </div>

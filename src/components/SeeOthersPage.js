@@ -228,12 +228,19 @@ export const SeeOthersPage = (props) => {
 
              {uniqueData.map(
               (item, index) =>
+              {
+                 if(props.auth.uid !== item.gud.uid) {
                 !!item && (
                   <li key={index} data-item-id={item.gud.uid}>
+                    if(props.auth.uid !== item.gud.uid)
                      {item.gud.theatname+", "+item.gud.displayname}
                    
                   </li>
-                ),
+                )
+              } else {
+                <li></li>
+              }
+              }
             )}
           </ul>
         </div>
@@ -246,6 +253,7 @@ export const SeeOthersPage = (props) => {
 const mapStateToProps = (state) => ({
   //hashtags: state.hashtags,
   users:state.users,
+  auth: state.auth,
 });
 
 const mapDispatchToProps = (dispatch) => ({

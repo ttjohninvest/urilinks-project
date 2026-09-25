@@ -1528,63 +1528,63 @@ function ExpandableArray(props) {
                         )
                       }
                     </div>
-                  ) : (
-                    <div
-                      id="before-before-link-summary-id"
-                      className="margin-bottom-1"
-                    >
-                      <a
-                        target="_blank"
-                        id="adlinkid"
-                        href="#"
-                        title="Email your sharable link to share with others. Email recipient sees readonly page"
-                        className={`ib margin-top-n-gx1 pointereventsnone flexrowzc2 cursor-default width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
-                        onClick={handleClick}
-                      >
-                        <span className="ib color-white-1">
-                          Email your link
-                        </span>
-                      </a>
-                      {/* <button
-                        className={`ib ${isMobile() === false ? "margin-left-11" : "margin-top-1"} button-2 bg-shade-1`}
-                        onClick={addALink}
-                        title="Add a link to your page."
-                      >
-                        Add A link
-                      </button> */}
-                      <AddALinkButton x={100} />
-                      {/* {isForm2Open && (
-                        <AddLinkPage
-                          isForm2Open={isForm2Open}
-                          handleClose2={handleClose2}
-                        />
-                      )} */}
+                  ) : ( <div></div>
+                    // <div
+                    //   id="before-before-link-summary-id"
+                    //   className="margin-bottom-1"
+                    // >
+                    //   <a
+                    //     target="_blank"
+                    //     id="adlinkid"
+                    //     href="#"
+                    //     title="Email your sharable link to share with others. Email recipient sees readonly page"
+                    //     className={`ib margin-top-n-gx1 pointereventsnone flexrowzc2 cursor-default width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                    //     onClick={handleClick}
+                    //   >
+                    //     <span className="ib color-white-1">
+                    //       Email your link
+                    //     </span>
+                    //   </a>
+                    //   {/* <button
+                    //     className={`ib ${isMobile() === false ? "margin-left-11" : "margin-top-1"} button-2 bg-shade-1`}
+                    //     onClick={addALink}
+                    //     title="Add a link to your page."
+                    //   >
+                    //     Add A link
+                    //   </button> */}
+                    //   <AddALinkButton x={100} />
+                    //   {/* {isForm2Open && (
+                    //     <AddLinkPage
+                    //       isForm2Open={isForm2Open}
+                    //       handleClose2={handleClose2}
+                    //     />
+                    //   )} */}
 
                      
 
-                      <HashTagsButton
-                        changeSortBy={changeSortBy}
-                        //setSortBy={setSortBy}
-                      />
+                    //   <HashTagsButton
+                    //     changeSortBy={changeSortBy}
+                    //     //setSortBy={setSortBy}
+                    //   />
 
-                       {readonly===false &&  <OthersButton
-                        elementRef20={elementRef20}
-                        changeSortBy={changeSortBy}
-                        //setSortBy={setSortBy}
-                      />}
+                    //    {readonly===false &&  <OthersButton
+                    //     elementRef20={elementRef20}
+                    //     changeSortBy={changeSortBy}
+                    //     //setSortBy={setSortBy}
+                    //   />}
 
-                      {
-                        //emailForm &&
-                        isFormOpen && (
-                          <SendEmailPage
-                            sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
-                            uid={uid}
-                            isFormOpen={isFormOpen}
-                            handleClose={handleClose}
-                          />
-                        )
-                      }
-                    </div>
+                    //   {
+                    //     //emailForm &&
+                    //     isFormOpen && (
+                    //       <SendEmailPage
+                    //         sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
+                    //         uid={uid}
+                    //         isFormOpen={isFormOpen}
+                    //         handleClose={handleClose}
+                    //       />
+                    //     )
+                    //   }
+                    // </div>
                   )}
                 </div>
               )}

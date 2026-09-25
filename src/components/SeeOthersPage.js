@@ -47,13 +47,13 @@ export const SeeOthersPage = (props) => {
     //  console.log("DisplayHashtags.js, hashtags should be individual strings now")
     // console.log("DisplayHashtags.js, htsArray2="+JSON.stringify(htsArray2))
 
-    //  const htsArray3 = htsArray2.sort((a, b) => {
-    //   const valA = a.toLowerCase();
-    //   const valB = b.toLowerCase();
-    //   if (valA < valB) return -1;
-    //   if (valA > valB) return 1;
-    //   return 0;
-    // })
+     const array3 = props.users.sort((a, b) => {
+      const valA = a.gud.displayname.toLowerCase();
+      const valB = b.gud.displayname.toLowerCase();
+      if (valA < valB) return -1;
+      if (valA > valB) return 1;
+      return 0;
+    })
 
     // console.log("DisplayHashtags.js, should be in sorted order now")
     // console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray3))
@@ -64,8 +64,10 @@ export const SeeOthersPage = (props) => {
 
     // //htsArray4 contains the sorted array of individual hashtags
     //setUniqueData(htsArray4);
-    console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
-    setUniqueData(props.users);
+    //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
+    console.log("setUniqueData, props.users=" + JSON.stringify(array3));
+    //setUniqueData(props.users);
+    setUniqueData(array3);
   }, []);
 
   const otherPage = (id) => {
@@ -93,7 +95,7 @@ export const SeeOthersPage = (props) => {
 
     // props.setTextFilter("");
 
-    // props.sortByOthers();
+    // props.sortByOthers(); 
   };
 
   const startScrollingUp4 = () => {

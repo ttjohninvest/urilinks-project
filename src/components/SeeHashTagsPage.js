@@ -129,7 +129,7 @@ export const SeeHashTagsPage = (props) => {
     // Extract data from data attributes
     const itemId = clickedElement.dataset.itemId;
 
-    if (itemId) {
+    if (itemId) { //this is for click and display within the hashtags dialog
       window.document.getElementById("termid").value = itemId;
 
       props.changeSortBy("hashtag",1);
@@ -263,14 +263,6 @@ export const SeeHashTagsPage = (props) => {
             //onClick={()=>stopScrolling4()}
         >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
-            {/* {uniqueData.map(
-              (item, index) =>
-                !!item.matchesstring && (
-                  <li key={index} data-item-id={item.matchesstring}>
-                    {item.matchesstring}
-                  </li>
-                ),
-            )} */}
 
              {uniqueData.map(
               (item, index) =>

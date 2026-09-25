@@ -140,6 +140,7 @@ if (signup !== "signup") {
     store.dispatch(login(id2));
   }
 
+  try {
   store
     .dispatch(startSetLinks(id2))
     .then(() => {
@@ -242,6 +243,9 @@ if (signup !== "signup") {
     .catch((error) => {
       console.log("error", error);
     });
+  } catch(e) {
+    console.log("app.js part 1, error="+e)
+  }
 } else {
   console.log("app.js, 4th one abc")
   store.dispatch({
@@ -249,7 +253,7 @@ if (signup !== "signup") {
     signup: { signup: true },
   });
 
-  
+  try {
   firebase.auth().onAuthStateChanged((user) => {
     console.log("app.js, 5th one abc")
     if (user) {
@@ -362,6 +366,9 @@ if (signup !== "signup") {
       history.push("/");
     }
   });
+  } catch(e) {
+    console.log("app.js part 2, error="+e)
+  }
 }
 
 

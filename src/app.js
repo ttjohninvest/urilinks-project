@@ -128,8 +128,108 @@ console.log("app.js, 0th one abc")
 if(x10 === "readonly") {
   console.log("app.js, other page, id="+id)
   //read this users header information form gud
-  store.dispatch(login(id));
-   renderApp(store, signup);
+  store
+    .dispatch(startSetLinks(id2))
+    .then(() => {
+      store
+        .dispatch(getTheplan2(id2))
+        .then(() => {
+          store
+            .dispatch(getThetotalstars2(id2))
+            .then(() => {
+              store
+                .dispatch(getTheupdatedate2(id2))
+                .then(() => {
+                  store
+                    .dispatch(getThehashtagsisopen2(id2))
+                    .then(() => {
+                      store
+                        .dispatch(getThesharablelink2(id2))
+                        .then(() => {
+                          store
+                            .dispatch(getThesignupcount2())
+                            .then(() => {
+                              store
+                                .dispatch(getThetotalloggedout2())
+                                .then(() => {
+                                  if (id === null) {
+                                    store
+                                      .dispatch(getTheuserscounti2(id2))
+                                      .then(() => {
+                                        store
+                                          .dispatch(getTheloggedin2())
+                                          .then(() => {
+                                             store
+                                          .dispatch(startSetUsers())
+                                          .then(() => {
+                                             return store
+                                          .dispatch(getTheothersisopen2(id2))
+                                          .then(() => {
+                                            renderApp(store, signup);
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
+                                      })
+                                      .catch((error) => {
+                                        console.log(
+                                          "thehashtagsisopen, error",
+                                          error,
+                                        );
+                                      });
+                                  } else {
+                                    //goes here if shared page was loaded into the browser
+                                    renderApp(store, signup);
+                                  }
+                                })
+                                .catch((error) => {
+                                  console.log("theplan, error", error);
+                                });
+                            })
+                            .catch((error) => {
+                              console.log("theplan, error", error);
+                            });
+                        })
+                        .catch((error) => {
+                          console.log("thehashtagsisopen, error", error);
+                        });
+                    })
+                    .catch((error) => {
+                      console.log("thehashtagsisopen, error", error);
+                    });
+                })
+                .catch((error) => {
+                  console.log("thetotalstars, error", error);
+                });
+            })
+            .catch((error) => {
+              console.log("thetotalstars, error", error);
+            });
+        })
+        .catch((error) => {
+          console.log("theplan, error", error);
+        });
+    })
+    .catch((error) => {
+      console.log("error", error);
+    });
 
 } else {
 

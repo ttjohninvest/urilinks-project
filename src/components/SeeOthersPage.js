@@ -232,7 +232,7 @@ export const SeeOthersPage = (props) => {
                  if(props.auth.uid !== item.gud.uid) {
                 !!item && (
                   <li key={index} data-item-id={item.gud.uid}>
-                    if(props.auth.uid !== item.gud.uid)
+                    
                      {item.gud.theatname+", "+item.gud.displayname}
                    
                   </li>

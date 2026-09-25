@@ -706,7 +706,7 @@ const handleClick = useCallback(() => {
 
                             {/* <span className="ib margin-left-11 color-white-1" title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first.">{`${!!props.theupdatedate.updatedate===true ? 'Link(s) updated on ':""}`}<span  id="linksupdate" >{props.links.length > 0 ? <span>{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}<span>&nbsp;pst</span></span>:""}</span></span> */}
                             <span
-                              className="ib margin-left-11 color-white-1"
+                              className="ib flexrowzv margin-left-11 color-white-1"
                               title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first."
                             >
                               {`${!!props.theupdatedate.updatedate === true ? "Link(s) updated on " : ""}`}
@@ -721,7 +721,8 @@ const handleClick = useCallback(() => {
                                 )}
                               </span>
                             </span>
-                            <span className="ib flexrowz cursor-pointer color-white-1">
+
+                            {/* <span className="ib flexrowzv cursor-pointer color-white-1"> */}
                             
                               <span>{dn!==null?",":""}
                               </span>
@@ -740,8 +741,8 @@ const handleClick = useCallback(() => {
                                 alt="picture"
                               />:""}
                               </span>
-                          </span>
-                        
+                          {/* </span> */}
+                        </span>
                         </header>
                       </Link>
 

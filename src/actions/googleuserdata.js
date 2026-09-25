@@ -60,7 +60,7 @@ export const startAddGoogleUserData = (gud = {}) => {
             }) //2
 
   } else {
-    //apend the guid to the user name
+    //append the guid to the user name
     //
     console.log("===, startAddGoogleUserData")
     gud2.gud.theatname = gud2.gud.theatname+v4()

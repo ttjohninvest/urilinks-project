@@ -1815,7 +1815,7 @@ function ExpandableArray(props) {
                         id="mode"
                         className="select outline-none borderRadius55"
                         style={{display:'block'}}
-                        //value={this.state.sortBy}
+                        ////value={this.state.sortBy}
                         value={sortBy}
                         //value={this.props.filters.sortBy}
                         //value={window.localStorage.getItem("sortBy")}

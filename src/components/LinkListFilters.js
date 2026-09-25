@@ -1635,10 +1635,7 @@ function ExpandableArray(props) {
                       </button>
                     </div>
 
-                       <HashTagsButton
-                    changeSortBy={changeSortBy}
-                    setSortBy={setSortBy}
-                    />
+                     
 
                     <div
                       className={`margin-right-1 margin-left-11 margin-top-1 border5-`}
@@ -1767,6 +1764,7 @@ function ExpandableArray(props) {
                       />
                     </div>
 
+                    <div className="flexrowz">
                     <div
                       //className=`margin-left-11 ${this.isMobile()?"margin-right-1"`
                       className={`margin-left-11`}
@@ -1782,6 +1780,12 @@ function ExpandableArray(props) {
                       >
                         Search
                       </button>
+                    </div>
+
+                      <HashTagsButton
+                    changeSortBy={changeSortBy}
+                    setSortBy={setSortBy}
+                    />
                     </div>
 
                     <div className={`margin-left-11 margin-top-1`}>

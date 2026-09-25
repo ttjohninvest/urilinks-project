@@ -230,15 +230,15 @@ export const SeeOthersPage = (props) => {
               (item, index) =>
               {
                  if(props.auth.uid !== item.gud.uid) {
-                !!item && (
-                  <li key={index} data-item-id={item.gud.uid}>
+                
+                  return <li key={index} data-item-id={item.gud.uid}>
                     
                      {item.gud.theatname+", "+item.gud.displayname}
                    
                   </li>
-                )
+                
               } else {
-                <li></li>
+                return null
               }
               }
             )}

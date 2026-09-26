@@ -18,9 +18,11 @@ const FollowButton = (props) => {
 
   const handleFollow = async () => {
     try {
-      alert(id+", "+id2)
+      //alert(id+", "+id2)
       //add the id2 to Followers Array in id record
+      console.log("before call to startAddFollower"+id+", "+id2)
       startAddFollower(id,{uid:id2})
+      console.log("after call to startAddFollower"+id+", "+id2)
       setIsFollowed(true);
       setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
     } catch (err) {

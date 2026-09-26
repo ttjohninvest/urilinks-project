@@ -1173,7 +1173,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
     
   // }
 
-  if (!screenedValue) return <div>Loading...</div>;
+  //if (!screenedValue) return <div>Loading...</div>;
 
   return (
     <div key={props.index}>

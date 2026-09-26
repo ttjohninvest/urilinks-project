@@ -51,7 +51,7 @@ const CatFetcher = () => {
           To Get New Image
         </button>
       </div>
-      <div className="flexrow3z">
+      <div className="flexrow3z1">
         <ul>
           {data.map((kitty, index) => {
             //return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>

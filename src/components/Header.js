@@ -726,7 +726,7 @@ const handleClick = useCallback(() => {
 
                             {/* <span className="ib margin-left-11 color-white-1" title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first.">{`${!!props.theupdatedate.updatedate===true ? 'Link(s) updated on ':""}`}<span  id="linksupdate" >{props.links.length > 0 ? <span>{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}<span>&nbsp;pst</span></span>:""}</span></span> */}
                             
-                            {ni !== "1" && <span
+                            {ni !== "1" && ni !== "2" && <span
                               className="ib margin-left-11 color-white-1 padding-top5x"
                               title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first."
                             >
@@ -1099,7 +1099,7 @@ const handleClick = useCallback(() => {
                         </Link>
                       </div>
                     ) : (
-                      ni==="1"?<div></div>:
+                      ni === "1" || ni === "2" ?<div></div>:
                       <div className="pointereventsnone margin-right-1 hide-">
                         <Link
                           id="uploadbookmarksfile"
@@ -1123,7 +1123,7 @@ const handleClick = useCallback(() => {
                       </div>
                     )}
 
-                    {props.signup.signup === false && x !== "readonly" && ni !== "1" && (
+                    {props.signup.signup === false && x !== "readonly" && ni !== "1" && ni !== "2" && (
                       <div
                         className="color-white-1 color-black-2- margin-right-1"
                         title="Please use it for good. Bookmarks for internet pages, urls/links"

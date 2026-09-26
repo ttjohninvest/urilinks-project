@@ -1,24 +1,17 @@
-function isFacebookPost(url) {
-  // Check if string is valid and contains facebook.com
-  if (!url || !url.includes('facebook.com')) {
-    return false;
+const apiKey = 'live_473mu8T7DeX3X9XRmvowwOkAPJMmfSq9ToTm8p3fV3erRUbux4KVXa5qwEdWx9ta';
+
+fetch("https://api.thecatapi.com/v1/images/search?limit=2&breed_ids=abys&include_breeds=1", {
+  method: 'GET',
+  headers: {
+    'Authorization': `Bearer ${apiKey}`,
+    'Content-Type': 'application/json'
   }
-  return true
-
-  // try {
-  //   const parsedUrl = new URL(url);
-  //   // Check if host is facebook.com or www.facebook.com
-  //   if (!['facebook.com', 'www.facebook.com'].includes(parsedUrl.hostname)) {
-  //     return false;
-  //   }
-
-  //   // Check for common post path patterns
-  //   // Matches: /posts/123, /permalink/123, /photo/?fbid=123, /videos/123
-  //   const postPathPattern = /(\/posts\/|\/permalink\/|\/photo\?|\/videos\/|\/video\?)/i;
-  //   return postPathPattern.test(parsedUrl.pathname);
-  // } catch (e) {
-  //   return false;
-  // }
-}
-
-console.log(isFacebookPost("https://www.facebook.com/photo/?fbid=122098550787463882"))
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+})
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));   

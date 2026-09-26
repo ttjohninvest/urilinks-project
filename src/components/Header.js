@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import database from "../firebase/firebase";
+import CatFetcher from "./CatFetcher";
 import moment from "moment";
 //import * as firebase from "firebase";
 import * as firebase from "firebase/app";
@@ -657,6 +658,8 @@ const handleClick = useCallback(() => {
 
   return (
     <div className="">
+
+      <CatFetcher />
       
       {isMobile() === false ? (
         <div>

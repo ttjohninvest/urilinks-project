@@ -186,52 +186,52 @@ function isFacebookPost(url) {
 
   }
 
-  let postTypeRef = useRef(null)
+//   let postTypeRef = useRef(null)
 
    
 
-    if(getPostType(props.Url) === 0) {
-    postTypeRef = 0
-    } else if(getPostType(props.Url) === 1) {
-postTypeRef = 1
-    } else if(getPostType(props.Url) === 2) {
-postTypeRef = 2
-    } else if(getPostType(props.Url) === 3) {
-postTypeRef = 3
-    } else if(getPostType(props.Url) === 4) {
-postTypeRef = 4
-    } else if(getPostType(props.Url) === 5) {
-postTypeRef = 5
-    } else if(getPostType(props.Url) === 6) {
-postTypeRef = 6
-    } else if(getPostType(props.Url) === 7) {
-postTypeRef = 7
-    } else {
-postTypeRef = 8
-    }
-
-
-//    useEffect(() => {
-
 //     if(getPostType(props.Url) === 0) {
-//     setScreenedValue(0);
+//     postTypeRef = 0
 //     } else if(getPostType(props.Url) === 1) {
-// setScreenedValue(1);
+// postTypeRef = 1
 //     } else if(getPostType(props.Url) === 2) {
-// setScreenedValue(2);
+// postTypeRef = 2
 //     } else if(getPostType(props.Url) === 3) {
-// setScreenedValue(3);
+// postTypeRef = 3
 //     } else if(getPostType(props.Url) === 4) {
-// setScreenedValue(4);
+// postTypeRef = 4
 //     } else if(getPostType(props.Url) === 5) {
-// setScreenedValue(5);
+// postTypeRef = 5
 //     } else if(getPostType(props.Url) === 6) {
-// setScreenedValue(6);
+// postTypeRef = 6
 //     } else if(getPostType(props.Url) === 7) {
-// setScreenedValue(7);
+// postTypeRef = 7
 //     } else {
-// setScreenedValue(8);
+// postTypeRef = 8
 //     }
+
+
+   useEffect(() => {
+
+    if(getPostType(props.Url) === 0) {
+    setScreenedValue(0);
+    } else if(getPostType(props.Url) === 1) {
+setScreenedValue(1);
+    } else if(getPostType(props.Url) === 2) {
+setScreenedValue(2);
+    } else if(getPostType(props.Url) === 3) {
+setScreenedValue(3);
+    } else if(getPostType(props.Url) === 4) {
+setScreenedValue(4);
+    } else if(getPostType(props.Url) === 5) {
+setScreenedValue(5);
+    } else if(getPostType(props.Url) === 6) {
+setScreenedValue(6);
+    } else if(getPostType(props.Url) === 7) {
+setScreenedValue(7);
+    } else {
+setScreenedValue(8);
+    }
 
 // FacebookEmbed,
 // InstagramEmbed,
@@ -1194,7 +1194,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
         )}
       </div>
       
-      {postTypeRef === 0 ?<div>
+      {screenedValue === 0 ?<div>
 <FacebookEmbed url={props.Url} width="200" height="200" />
       </div> :
       
@@ -1236,7 +1236,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
         )}
       </div>
 
-      {postTypeRef !== 0 
+      {screenedValue !== 0 
       && 
       <div className="normal-wrap padding-bottom-11">
         

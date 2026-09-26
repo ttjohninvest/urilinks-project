@@ -24,6 +24,7 @@ const FollowButton = (props) => {
   };
 
   return (
+    <div className="margin-left-11">
     <button 
     className={`ib height48 button-2w ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     onClick={handleFollow}>
@@ -32,6 +33,7 @@ const FollowButton = (props) => {
       {/* {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`} */}
     {`${isFollowed?"Followed":(props.readonly)?"Follow":"Follow" }`}
     </button>
+    </div>
   );
 };
 

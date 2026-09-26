@@ -27,6 +27,7 @@ export const startSetUsers = (uid) => {
             "startSetUsers,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           );
           
+          if(!!childSnapshot.val().gud === true)
           users2.push({
             //uid: childSnapshot.key
             gud:childSnapshot.val().gud.gud

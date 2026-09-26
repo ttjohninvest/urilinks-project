@@ -225,14 +225,14 @@ export const SeeOthersPage = (props) => {
         </div>
       </div>
     </div>
-    // </Draggable>
+    
   );
 };
 
 const mapStateToProps = (state) => ({
   //hashtags: state.hashtags,
   users: state.users,
-  auth: state.auth,
+  auth:state.auth
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -9,6 +9,7 @@ import honoring from "../assets/honoring/christmas-tree.png";
 //import honoring from "../assets/honoring/CurtisStone.png";
 //import setFrommenu from "../actions/frommenu";
 //import KittiesButton from "./KittiesButton.js";
+import Constants from "./Constants"
 import CopyButton2 from "./CopyButton2";
 import HashTagsButton from "./HashTagsButton";
 import OthersButton from "./OthersButton";
@@ -1434,12 +1435,12 @@ function ExpandableArray(props) {
                                         changeSortBy={changeSortBy}
                                         //setSortBy={setSortBy}
                                       />
-                                      <button
+                                      {Constants.CATS === true && <button
                                         onClick={handlerCats}
                                         className="button-2 margin-left-11"
                                       >
-                                        cats
-                                      </button>
+                                        Cats
+                                      </button>}
                                     </div>
                                   )}
                                 </div>
@@ -1499,12 +1500,12 @@ function ExpandableArray(props) {
                                   //setSortBy={setSortBy}
                                 />
 
-                                <button
+                                 {Constants.CATS === true && <button
                                   onClick={handlerCats}
                                   className="button-2 margin-left-11"
                                 >
-                                  cats
-                                </button>
+                                  Cats
+                                </button>}
                               </div>
                             </div>
                           </div>

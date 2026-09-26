@@ -7,16 +7,13 @@ const DogFetcher = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://dog.ceo/api/breeds/image/random",
-        {
-          method: "GET",
-          headers: {
-            //Authorization: `Bearer ${API_KEY}`,
-            "Content-Type": "application/json",
-          },
+      const response = await fetch("https://dog.ceo/api/breeds/image/random", {
+        method: "GET",
+        headers: {
+          //Authorization: `Bearer ${API_KEY}`,
+          "Content-Type": "application/json",
         },
-      );
+      });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -49,23 +46,16 @@ const DogFetcher = () => {
         </button>
       </div>
       <div className="flexrow3z1">
-        <ul>
-          {data.map((doggie, index) => {
-            //return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>
-            return (
-              <li key={index}>
-                <img
-                  src={doggie.message}
-                  style={{
-                    width: "600px",
-                    height: "600px",
-                    objectFit: "contain",
-                  }}
-                />
-              </li>
-            );
-          })}
-        </ul>
+        <div key="1">
+          <img
+            src={data.message}
+            style={{
+              width: "600px",
+              height: "600px",
+              objectFit: "contain",
+            }}
+          />
+        </div>
       </div>
     </div>
   );

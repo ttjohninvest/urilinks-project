@@ -42,8 +42,8 @@ const CatFetcher = () => {
 
   return (
     <div>
-      <h2>{data.title}</h2>
-      <p>{data.body}</p>
+      <h2>{data[0].url}</h2>
+      <p>{data[0].id}</p>
     </div>
   );
 };

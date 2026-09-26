@@ -187,7 +187,7 @@ function isFacebookPost(url) {
 
   let postTypeRef = useRef(null)
 
-   useEffect(() => {
+   
 
     if(getPostType(props.Url) === 0) {
     postTypeRef = 0
@@ -246,7 +246,7 @@ postTypeRef = 8
 
 
     
-  }, []);
+  
 
   const isityt = (url) => {
     if (url.includes("youtube")) {

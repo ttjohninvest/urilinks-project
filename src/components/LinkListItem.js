@@ -8,6 +8,18 @@ import selectLinks from "../selectors/links";
 
 import visited from "../assets/images/visited-1.png";
 import {
+FacebookEmbed,
+InstagramEmbed,
+LinkedInEmbed,
+PinterestEmbed,
+TikTokEmbed,
+XEmbed,
+YouTubeEmbed,
+PlaceholderEmbed
+} from "react-social-media-embed"
+
+
+import {
   startRemoveLink,
   removeLink,
   privateLink,
@@ -90,6 +102,7 @@ const LinkListItem = (props) => {
   const [copySuccess, setCopySuccess] = useState("");
   const [lastClickTime, setLastClickTime] = useState(0);
   const [showvideo, setShowvideo] = useState(0);
+  const [screenedValue, setScreenedValue] = useState(null);
 
   const theSortBy = props.theSortBy==="adsaplpha" || props.theSortBy === "productsalpha"?1:0
  
@@ -130,6 +143,110 @@ const LinkListItem = (props) => {
   //     }
   //     a()
   //   },[])
+
+  /*
+FacebookEmbed,
+InstagramEmbed,
+LinkedInEmbed,
+PinterestEmbed,
+TikTokEmbed,
+XEmbed,
+YouTubeEmbed,
+PlaceholderEmbed
+  */
+
+function isFacebookPost(url) {
+  // Check if string is valid and contains facebook.com
+  if (!url || !url.includes('facebook.com')) {
+    return false;
+  }
+
+  try {
+    const parsedUrl = new URL(url);
+    // Check if host is facebook.com or www.facebook.com
+    if (!['facebook.com', 'www.facebook.com'].includes(parsedUrl.hostname)) {
+      return false;
+    }
+
+    // Check for common post path patterns
+    // Matches: /posts/123, /permalink/123, /photo/?fbid=123, /videos/123
+    const postPathPattern = /(\/posts\/|\/permalink\/|\/photo\?|\/videos\/|\/video\?)/i;
+    return postPathPattern.test(parsedUrl.pathname);
+  } catch (e) {
+    return false;
+  }
+}
+
+  const getPostType=(url)=>{
+
+    if(isFacebookPost(url)===true) return 0
+    
+    return 8
+
+  }
+
+  const postTypeRef = useRef(null)
+
+   useEffect(() => {
+
+    if(getPostType(props.Url) === 0) {
+    postTypeRef = 0
+    } else if(getPostType(props.Url) === 1) {
+postTypeRef = 1
+    } else if(getPostType(props.Url) === 2) {
+postTypeRef = 2
+    } else if(getPostType(props.Url) === 3) {
+postTypeRef = 3
+    } else if(getPostType(props.Url) === 4) {
+postTypeRef = 4
+    } else if(getPostType(props.Url) === 5) {
+postTypeRef = 5
+    } else if(getPostType(props.Url) === 6) {
+postTypeRef = 6
+    } else if(getPostType(props.Url) === 7) {
+postTypeRef = 7
+    } else {
+postTypeRef = 8
+    }
+
+
+//    useEffect(() => {
+
+//     if(getPostType(props.Url) === 0) {
+//     setScreenedValue(0);
+//     } else if(getPostType(props.Url) === 1) {
+// setScreenedValue(1);
+//     } else if(getPostType(props.Url) === 2) {
+// setScreenedValue(2);
+//     } else if(getPostType(props.Url) === 3) {
+// setScreenedValue(3);
+//     } else if(getPostType(props.Url) === 4) {
+// setScreenedValue(4);
+//     } else if(getPostType(props.Url) === 5) {
+// setScreenedValue(5);
+//     } else if(getPostType(props.Url) === 6) {
+// setScreenedValue(6);
+//     } else if(getPostType(props.Url) === 7) {
+// setScreenedValue(7);
+//     } else {
+// setScreenedValue(8);
+//     }
+
+// FacebookEmbed,
+// InstagramEmbed,
+// LinkedInEmbed,
+// PinterestEmbed,
+// TikTokEmbed,
+// XEmbed,
+// YouTubeEmbed,
+// PlaceholderEmbed
+
+
+
+
+
+    
+  }, []);
 
   const isityt = (url) => {
     if (url.includes("youtube")) {
@@ -1056,6 +1173,8 @@ props.decrementHandleToggle3({ id: x, show: 1 });
     
   // }
 
+  if (!screenedValue) return <div>Loading...</div>;
+
   return (
     <div key={props.index}>
       {/* <span>{blb===true?"The link is broken.":"The link is not broken."}</span> */}
@@ -1073,7 +1192,13 @@ props.decrementHandleToggle3({ id: x, show: 1 });
           <img className="" width="16" height="16" src={props.faviconURL} />
         )}
       </div>
+      
+      {postTypeRef === 0 ?<div>
+<FacebookEmbed url={props.Url} width="200" height="200" />
+      </div> :
+      
       <div>
+
         {!!props.yturl && (
           <a
             ref={myRef4}
@@ -1091,8 +1216,10 @@ props.decrementHandleToggle3({ id: x, show: 1 });
             />
           </a>
         )}
-      </div>
-      {/* <ol id={"uldata" + props.id} start="0"></ol> */}
+      </div>}
+
+
+      
 
       <div id={"ipvideo" + props.id}>
         {videoId === props.id && props.show === 1 && (
@@ -1108,7 +1235,10 @@ props.decrementHandleToggle3({ id: x, show: 1 });
         )}
       </div>
 
+      {postTypeRef !== 0 
+      && 
       <div className="normal-wrap padding-bottom-11">
+        
         <a
           ref={myRef}
           className={`ib bg-color-1w- borderRadius11- text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
@@ -1119,11 +1249,10 @@ props.decrementHandleToggle3({ id: x, show: 1 });
           onClick={() => storeScrollPosition(props.frequency, event)}
         >
           {props.description}
-          {/* {truncateString(props.description, 80)} */}
-          {/* {breakEvery50Chars(props.description)} */}
+          
         </a>
-        {/* <span>{blb===true?"blb=true":"blb=false"}</span> */}
-      </div>
+        
+      </div>}
 
       <div className="flexrowz">
         {props.signup.signup === true ? (

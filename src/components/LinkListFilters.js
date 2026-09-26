@@ -1363,12 +1363,15 @@ function ExpandableArray(props) {
                         //setSortBy={setSortBy}
                       /> */}
 
-                       {readonly===false && <OthersButton
+                       {readonly===false && <div><OthersButton
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //uid={props.uid}
                         //setSortBy={setSortBy}
-                      />}
+                      />
+                                            <button onClick={handlerCats} className="button-2 margin-left-11">cats</button>
+</div>
+                      }
 
                       {
                         //emailForm &&
@@ -1489,8 +1492,8 @@ function ExpandableArray(props) {
                         //uid={props.uid}
                         //setSortBy={setSortBy}
                       />
-                      {/* <KittiesButton /> */}
-                      <button onClick={handlerCats} >cats</button>
+                      
+                      <button onClick={handlerCats} className="button-2 margin-left-11">cats</button>
                           </div>
                           </div>
 
@@ -1538,11 +1541,14 @@ function ExpandableArray(props) {
                         //setSortBy={setSortBy}
                       /> */}
 
-                        {readonly===false && <OthersButton
+                        {readonly===false && <div><OthersButton
                         elementRef20={elementRef20}
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
-                      />}
+                      />
+                       <button onClick={handlerCats} className="button-2 margin-left-11">cats</button>
+</div>
+                      }
 
                       {
                         //emailForm &&

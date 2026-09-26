@@ -1250,7 +1250,6 @@ function ExpandableArray(props) {
                                   v
                                   textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                 />
-                                3{/* {copySuccess} */}
                               </div>
                             </fieldset>
                           </div>
@@ -1296,7 +1295,6 @@ function ExpandableArray(props) {
                                   accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
                                   textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                 />
-                                4{/* {copySuccess} */}
                               </div>
                             </fieldset>
                             {/* {props.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2" &&  */}
@@ -1358,7 +1356,6 @@ function ExpandableArray(props) {
                             //uid={props.uid}
                             //setSortBy={setSortBy}
                           />
-                          {/* <button onClick={handlerCats} className="button-2 margin-left-11">2cats</button> */}
                         </div>
                       )}
 
@@ -1441,7 +1438,7 @@ function ExpandableArray(props) {
                                         onClick={handlerCats}
                                         className="button-2 margin-left-11"
                                       >
-                                        1cats
+                                        cats
                                       </button>
                                     </div>
                                   )}
@@ -1492,7 +1489,6 @@ function ExpandableArray(props) {
                                     accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
                                     textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                   />
-                                  2{/* {copySuccess} */}
                                 </div>
                                 {/* <OthersButton below Appears on home page as example page, not logged in */}
                                 {/* Purpose of the button being here is because it lets other people know they can see other peoples public links on the internet */}
@@ -1507,7 +1503,7 @@ function ExpandableArray(props) {
                                   onClick={handlerCats}
                                   className="button-2 margin-left-11"
                                 >
-                                  3cats
+                                  cats
                                 </button>
                               </div>
                             </div>

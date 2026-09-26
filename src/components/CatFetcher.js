@@ -8,8 +8,7 @@ const CatFetcher = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  const fetchData = async () => {
       try {
         const response = await fetch(
           "https://api.thecatapi.com/v1/images/search?limit=1&breed_ids=abys&include_breeds=1",
@@ -34,8 +33,13 @@ const CatFetcher = () => {
       }
     };
 
+  useEffect(() => {
     fetchData();
   }, []); // Empty dependency array ensures this runs only once on mount
+
+const getNewImage=()=>{
+  fetchData()
+}
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -49,6 +53,7 @@ const CatFetcher = () => {
         return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>
       })}
       </ul>
+      <button onClick={getVewImage}>click</button>
     </div>
   );
 };

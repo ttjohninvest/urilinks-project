@@ -156,12 +156,15 @@ PlaceholderEmbed
   */
 
 function isFacebookPost(url) {
-  return false
+  //return false
   // Check if string is valid and contains facebook.com
-  if (!url || !url.includes('facebook.com')) {
-    return false;
-  }
-  return true
+  // if (!url || !url.includes('facebook.com')) {
+  //   return false;
+  // }
+  // return true
+
+  if(url.includes("facebook.com/photo/?fbid")) return true
+  return false
 
   //try {
   //   const parsedUrl = new URL(url);
@@ -181,7 +184,7 @@ function isFacebookPost(url) {
 
   const getPostType=(url)=>{
 
-    //if(isFacebookPost(url)===true) return 0
+    if(isFacebookPost(url)===true) return 0
     
     return 8
 

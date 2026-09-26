@@ -1069,6 +1069,10 @@ function ExpandableArray(props) {
   //         });
   //     }
   //   };
+
+  const handlerCats = () => {
+    window.open("/cats","_blank")
+  }
   
 
   return (
@@ -1486,6 +1490,7 @@ function ExpandableArray(props) {
                         //setSortBy={setSortBy}
                       />
                       {/* <KittiesButton /> */}
+                      <button onClick={handlerCats} >cats</button>
                           </div>
                           </div>
 

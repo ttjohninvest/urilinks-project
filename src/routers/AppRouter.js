@@ -1,6 +1,7 @@
 import React from "react";
 import { Router, Route, Switch, Link, NavLink } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
+import CatFetcher from "./../components/CatFetcher";
 import LinkDashboardPage from "../components/LinkDashboardPage";
 import LinkSettingsPage from "../components/LinkSettingsPage";
 import LinkHashtagsPage from "../components/LinkHashtagsPage";
@@ -32,6 +33,7 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import FetchBookmarks from "../components/FetchBookmarks";
 import AddLinkPageFileDate from "../components/AddLinkPageFileDate";
+import CatFetcher from './../components/CatFetcher';
 
 export const history = createHistory();
 
@@ -116,6 +118,12 @@ const AppRouter = (props) => (
         signup={props.signup} 
         x1="usage"
         component={Benefits} />
+
+        <PrivateRoute 
+        path="/cats" 
+        signup={props.signup} 
+        x1="usage"
+        component={CatFetcher} />
 
          <PrivateRoute 
         path="/shortcuts" 

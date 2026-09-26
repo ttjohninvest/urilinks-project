@@ -4,7 +4,7 @@ const FollowButton = (props) => {
   const [isFollowed, setIsFollowed] = useState(false);
   //const textToCopy = "text being copied to the clipboard";
     const params = new URLSearchParams(window.location.search);
-    const z10 = params.get("z10");
+    const id = params.get("id");
 
 
     const isMobile = () => {
@@ -15,7 +15,7 @@ const FollowButton = (props) => {
 
   const handleFollow = async () => {
     try {
-      alert(z10)
+      alert(id)
       setIsFollowed(true);
       setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
     } catch (err) {

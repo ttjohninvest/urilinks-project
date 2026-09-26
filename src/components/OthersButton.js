@@ -69,6 +69,7 @@ const OthersButton = (props) => {
       {isDisplayed === true && (
         <div>
           <SeeOthersPage
+            uid={props.uid}
             elementRef2 = {props.elementRef2}
             changeSortBy={()=>props.changeSortBy("others",1)}
             handleClose3={() => handleClose()}

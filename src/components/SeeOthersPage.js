@@ -50,7 +50,7 @@ export const SeeOthersPage = (props) => {
     console.log("otherPage, purl="+purl)
 
     window.open(
-      "https://urilinks.com/dashboard?signup=0&x=readonly&id=" + id +"&dn="+dn+"&purl="+purl+"&z10="+email,
+      "https://urilinks.com/dashboard?signup=0&x=readonly&id2="+props.uid+"&id=" + id +"&dn="+dn+"&purl="+purl+"&z10="+email,
       "_blank",
     );
   };

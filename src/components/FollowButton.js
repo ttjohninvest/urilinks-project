@@ -6,6 +6,7 @@ const FollowButton = (props) => {
   //const textToCopy = "text being copied to the clipboard";
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
+    const id2 = params.get("id2");
 
 
     const isMobile = () => {
@@ -16,7 +17,7 @@ const FollowButton = (props) => {
 
   const handleFollow = async () => {
     try {
-      alert(id+", "+props.auth.uid)
+      alert(id+", "+id2)
       setIsFollowed(true);
       setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
     } catch (err) {
@@ -25,7 +26,7 @@ const FollowButton = (props) => {
   };
 
   return (
-    <div className="margin-left-11">
+    <div className="margin-left-11-">
     <button 
     className={`ib height48 button-2w ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     onClick={handleFollow}>
@@ -39,9 +40,9 @@ const FollowButton = (props) => {
 };
 
 //export default FollowButton;
-const mapStateToProps = (state) => ({
+// const mapStateToProps = (state) => ({
   
-  auth: state.auth,
+//   auth: state.auth,
   
-});
-export default connect(mapStateToProps, undefined)(FollowButton);
+// });
+export default connect(undefined, undefined)(FollowButton);

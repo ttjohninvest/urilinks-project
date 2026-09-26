@@ -1,16 +1,24 @@
-const data = [
-  { id: 1, name: '#apple' },
-  { id: 2, name: '#banana' },
-  { id: 3, name: '#apple' },
-  { id: 4, name: '#cherry' },
-  { id: 5, name: '#banana' }
-];
+function isFacebookPost(url) {
+  // Check if string is valid and contains facebook.com
+  if (!url || !url.includes('facebook.com')) {
+    return false;
+  }
+  return true
 
-const uniqueData = data.filter((value, index, array) => {
-  // Returns the first index where the name matches
-  const firstIndex = array.findIndex(item => item.name === value.name);
-  // Keep the item only if it is the first occurrence
-  return firstIndex === index;
-});
+  // try {
+  //   const parsedUrl = new URL(url);
+  //   // Check if host is facebook.com or www.facebook.com
+  //   if (!['facebook.com', 'www.facebook.com'].includes(parsedUrl.hostname)) {
+  //     return false;
+  //   }
 
-console.log(uniqueData);
+  //   // Check for common post path patterns
+  //   // Matches: /posts/123, /permalink/123, /photo/?fbid=123, /videos/123
+  //   const postPathPattern = /(\/posts\/|\/permalink\/|\/photo\?|\/videos\/|\/video\?)/i;
+  //   return postPathPattern.test(parsedUrl.pathname);
+  // } catch (e) {
+  //   return false;
+  // }
+}
+
+console.log(isFacebookPost("https://www.facebook.com/photo/?fbid=122098550787463882"))

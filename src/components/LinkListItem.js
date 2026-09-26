@@ -160,21 +160,22 @@ function isFacebookPost(url) {
   if (!url || !url.includes('facebook.com')) {
     return false;
   }
+  return true
 
-  try {
-    const parsedUrl = new URL(url);
-    // Check if host is facebook.com or www.facebook.com
-    if (!['facebook.com', 'www.facebook.com'].includes(parsedUrl.hostname)) {
-      return false;
-    }
+  // try {
+  //   const parsedUrl = new URL(url);
+  //   // Check if host is facebook.com or www.facebook.com
+  //   if (!['facebook.com', 'www.facebook.com'].includes(parsedUrl.hostname)) {
+  //     return false;
+  //   }
 
-    // Check for common post path patterns
-    // Matches: /posts/123, /permalink/123, /photo/?fbid=123, /videos/123
-    const postPathPattern = /(\/posts\/|\/permalink\/|\/photo\?|\/videos\/|\/video\?)/i;
-    return postPathPattern.test(parsedUrl.pathname);
-  } catch (e) {
-    return false;
-  }
+  //   // Check for common post path patterns
+  //   // Matches: /posts/123, /permalink/123, /photo/?fbid=123, /videos/123
+  //   const postPathPattern = /(\/posts\/|\/permalink\/|\/photo\?|\/videos\/|\/video\?)/i;
+  //   return postPathPattern.test(parsedUrl.pathname);
+  // } catch (e) {
+  //   return false;
+  // }
 }
 
   const getPostType=(url)=>{

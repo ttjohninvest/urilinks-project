@@ -1446,7 +1446,7 @@ function ExpandableArray(props) {
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
                       />
-                       {/* <button onClick={handlerCats} className="button-2 margin-left-11">1cats</button> */}
+                       <button onClick={handlerCats} className="button-2 margin-left-11">1cats</button>
 </div>
                       }
 

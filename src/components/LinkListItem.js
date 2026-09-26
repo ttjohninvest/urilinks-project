@@ -163,7 +163,7 @@ function isFacebookPost(url) {
   // }
   // return true
 
-  if(url.includes("facebook.com/photo/?fbid")) return true
+  if(url.includes("facebook.com/photo/?fbid=122098550787463882")) return true
   return false
 
   //try {

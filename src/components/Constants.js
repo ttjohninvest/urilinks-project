@@ -1,7 +1,8 @@
 
 const Constants = {
   
-  CATS:true
+  CATS:true,
+  DOGS:true
 
 };
 Object.freeze(Constants); // Prevents accidental modification of values 

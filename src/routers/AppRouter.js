@@ -2,6 +2,7 @@ import React from "react";
 import { Router, Route, Switch, Link, NavLink } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 import CatFetcher from "./../components/CatFetcher";
+import DogFetcher from "./../components/DogFetcher";
 import LinkDashboardPage from "../components/LinkDashboardPage";
 import LinkSettingsPage from "../components/LinkSettingsPage";
 import LinkHashtagsPage from "../components/LinkHashtagsPage";
@@ -124,6 +125,12 @@ const AppRouter = (props) => (
         signup={props.signup} 
         x1="usage"
         component={CatFetcher} />
+
+         <PrivateRoute 
+        path="/dogs" 
+        signup={props.signup} 
+        x1="usage"
+        component={DogFetcher} />
 
          <PrivateRoute 
         path="/shortcuts" 

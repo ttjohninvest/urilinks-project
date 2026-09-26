@@ -1066,6 +1066,11 @@ function ExpandableArray(props) {
     window.open("/cats?ni=1", "_self");
   };
 
+  const handlerDogs = () => {
+    //window.open("/cats?ni=1", "_blank");
+    window.open("/dogs?ni=2", "_self");
+  };
+
   return (
     <div className="flexrowh-">
       <div className={`${props.signup === false ? "bg-gray-1" : "bg-gray-1"}`}>
@@ -1442,6 +1447,12 @@ function ExpandableArray(props) {
                                       >
                                         Cats
                                       </button>}
+                                       {Constants.DOGS === true && <button
+                                        onClick={handlerDogs}
+                                        className="button-2 margin-left-11"
+                                      >
+                                        Cats
+                                      </button>}
                                     </div>
                                   )}
                                 </div>
@@ -1506,6 +1517,12 @@ function ExpandableArray(props) {
                                   className="button-2 margin-left-11"
                                 >
                                   Cats
+                                </button>}
+                                 {Constants.DOGS === true && <button
+                                  onClick={handlerDogs}
+                                  className="button-2 margin-left-11"
+                                >
+                                  Dogs
                                 </button>}
                               </div>
                             </div>

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const API_KEY =
-  "live_473mu8T7DeX3X9XRmvowwOkAPJMmfSq9ToTm8p3fV3erRUbux4KVXa5qwEdWx9ta";
-
-const CatFetcher = () => {
+const DogFetcher = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,11 +8,11 @@ const CatFetcher = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://api.thecatapi.com/v1/images/search?limit=1&breed_ids=abys&include_breeds=1",
+        "https://dog.ceo/api/breeds/image/random",
         {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${API_KEY}`,
+            //Authorization: `Bearer ${API_KEY}`,
             "Content-Type": "application/json",
           },
         },
@@ -53,12 +50,12 @@ const CatFetcher = () => {
       </div>
       <div className="flexrow3z1">
         <ul>
-          {data.map((kitty, index) => {
+          {data.map((doggie, index) => {
             //return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>
             return (
-              <li key={kitty.id}>
+              <li key={index}>
                 <img
-                  src={kitty.url}
+                  src={doggie.message}
                   style={{
                     width: "600px",
                     height: "600px",
@@ -74,4 +71,4 @@ const CatFetcher = () => {
   );
 };
 
-export default CatFetcher;
+export default DogFetcher;

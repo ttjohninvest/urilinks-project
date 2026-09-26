@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
+import { startAddFollower } from "../actions/followers";
 
 const FollowButton = (props) => {
   const [isFollowed, setIsFollowed] = useState(false);
@@ -18,6 +19,8 @@ const FollowButton = (props) => {
   const handleFollow = async () => {
     try {
       alert(id+", "+id2)
+      //add the id2 to Followers Array in id record
+      startAddFollower(id,{uid:id2})
       setIsFollowed(true);
       setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
     } catch (err) {
@@ -26,7 +29,7 @@ const FollowButton = (props) => {
   };
 
   return (
-    <div className="margin-left-11-">
+    <div className="margin-left-11- margin-top-1">
     <button 
     className={`ib height48 button-2w ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     onClick={handleFollow}>

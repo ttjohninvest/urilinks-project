@@ -950,6 +950,7 @@ const handleClick = useCallback(() => {
                       </Link>
                     </div>} */}
 
+                    {ni!=="1" && 
                     <div>
                       <Link
                         id="termsandprivacy"
@@ -964,7 +965,7 @@ const handleClick = useCallback(() => {
                           ❒ kind terms
                         </span>
                       </Link>
-                    </div>
+                    </div>}
                     {!!props.theplan.plan &&
                       props.theplan.plan.replace(/"/g, "") !== "premium" &&
                       props.signup.signup === true &&
@@ -1098,7 +1099,7 @@ const handleClick = useCallback(() => {
                         </Link>
                       </div>
                     ) : (
-                      // <div></div>
+                      ni==="1"?<div></div>:
                       <div className="pointereventsnone margin-right-1 hide-">
                         <Link
                           id="uploadbookmarksfile"

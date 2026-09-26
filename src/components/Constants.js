@@ -1,7 +1,7 @@
 
 const Constants = {
   
-  CATS:false
+  CATS:true
 
 };
 Object.freeze(Constants); // Prevents accidental modification of values 

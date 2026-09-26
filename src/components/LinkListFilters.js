@@ -1062,7 +1062,7 @@ function ExpandableArray(props) {
   //   };
 
   const handlerCats = () => {
-    //window.open("/cats?ni=1", "_blank");
+    //window.open("/cats?ni=1", "_blank"); //opens react component in new browser tab using window.open("/cats") using AppRouter.js and PrivateRoute.js
     window.open("/cats?ni=1", "_self");
   };
 
@@ -1788,6 +1788,7 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                       </select>
+                      1
                     </div>
                     {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
                     {/* {isForm3Open && (
@@ -1920,6 +1921,7 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                       </select>
+                      2
                     </div>
 
                     {/* {isForm3Open && (

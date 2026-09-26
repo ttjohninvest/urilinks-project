@@ -51,13 +51,12 @@ const getNewImage=()=>{
       {data.map((kitty, index)=>{
         //return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>
         return <li key={kitty.id}><img src={kitty.url}  style={{ 
-    width: "400px", 
-    height: "400px", 
+    width: "600px", 
+    height: "600px", 
     objectFit: "contain" 
   }} /></li>
       })}
       </ul>
-      <button onClick={getNewImage}>click</button>
     </div>
   );
 };

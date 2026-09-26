@@ -1062,7 +1062,8 @@ function ExpandableArray(props) {
   //   };
 
   const handlerCats = () => {
-    window.open("/cats?ni=1", "_blank");
+    //window.open("/cats?ni=1", "_blank");
+    window.open("/cats?ni=1", "_self");
   };
 
   return (

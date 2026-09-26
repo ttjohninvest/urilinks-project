@@ -1264,6 +1264,7 @@ function ExpandableArray(props) {
                                 accountpagename={`${props.signup === true?firebase.auth().currentUser.displayName:"John"}`}v
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
+                              3
                               {/* {copySuccess} */}
                             </div>
                           </fieldset>
@@ -1308,6 +1309,7 @@ function ExpandableArray(props) {
                                 accountpagename={`${props.signup === true?firebase.auth().currentUser.displayName:"John"}`}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
+                              4
                               {/* {copySuccess} */}
                             </div>
                           </fieldset>
@@ -1369,7 +1371,7 @@ function ExpandableArray(props) {
                         //uid={props.uid}
                         //setSortBy={setSortBy}
                       />
-                                            <button onClick={handlerCats} className="button-2 margin-left-11">2cats</button>
+                                            {/* <button onClick={handlerCats} className="button-2 margin-left-11">2cats</button> */}
 </div>
                       }
 
@@ -1439,6 +1441,7 @@ function ExpandableArray(props) {
                                 accountpagename={`${props.signup === true?firebase.auth().currentUser.displayName:"John"}`}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
+                              1
                               {/* {copySuccess} */}
                             </div>
                           </div>
@@ -1482,6 +1485,7 @@ function ExpandableArray(props) {
                                 accountpagename={`${props.signup === true?firebase.auth().currentUser.displayName:"John"}`}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
+                              2
                               {/* {copySuccess} */}
                             </div>
                             {/* <OthersButton below Appears on home page as example page, not logged in */}
@@ -1546,7 +1550,7 @@ function ExpandableArray(props) {
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
                       />
-                       <button onClick={handlerCats} className="button-2 margin-left-11">1cats</button>
+                       {/* <button onClick={handlerCats} className="button-2 margin-left-11">1cats</button> */}
 </div>
                       }
 

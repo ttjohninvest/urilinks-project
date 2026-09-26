@@ -44,5 +44,5 @@ const FollowButton = (props) => {
   
 //   auth: state.auth,
   
-// });
+// });//
 export default connect(undefined, undefined)(FollowButton);

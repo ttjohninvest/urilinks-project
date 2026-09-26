@@ -1451,7 +1451,7 @@ function ExpandableArray(props) {
                                         onClick={handlerDogs}
                                         className="button-2 margin-left-11"
                                       >
-                                        Cats
+                                        Dogs
                                       </button>}
                                     </div>
                                   )}

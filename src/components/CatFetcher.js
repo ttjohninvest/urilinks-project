@@ -12,7 +12,7 @@ const CatFetcher = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.thecatapi.com/v1/images/search?limit=2&breed_ids=abys&include_breeds=1",
+          "https://api.thecatapi.com/v1/images/search?limit=1&breed_ids=abys&include_breeds=1",
           {
             method: "GET",
             headers: {

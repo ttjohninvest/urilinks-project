@@ -45,7 +45,7 @@ const CatFetcher = () => {
 
   return (
     <div>
-      <button onClick={getNewImage} className="ib button-2 button-container">To Get New Image</button>
+      <button onClick={getNewImage} className="ib button-2 button-container outine-none">To Get New Image</button>
       <ul>
         {data.map((kitty, index) => {
           //return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>

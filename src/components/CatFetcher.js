@@ -42,8 +42,13 @@ const CatFetcher = () => {
 
   return (
     <div>
-      <h2>{data[0].url}</h2>
-      <p>{data[0].id}</p>
+      {/* <h2>{data[0].url}</h2>
+      <p>{data[0].id}</p> */}
+      <ul>
+      {data.map((kitty, index)=>{
+        return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>
+      })}
+      </ul>
     </div>
   );
 };

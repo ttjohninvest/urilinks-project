@@ -185,7 +185,7 @@ function isFacebookPost(url) {
 
   }
 
-  const postTypeRef = useRef(null)
+  let postTypeRef = useRef(null)
 
    useEffect(() => {
 

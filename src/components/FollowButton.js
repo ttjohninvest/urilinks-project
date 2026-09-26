@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from "react-redux";
 
 const FollowButton = (props) => {
   const [isFollowed, setIsFollowed] = useState(false);
@@ -15,7 +16,7 @@ const FollowButton = (props) => {
 
   const handleFollow = async () => {
     try {
-      alert(id)
+      alert(id+", "+props.auth.uid)
       setIsFollowed(true);
       setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
     } catch (err) {
@@ -37,4 +38,10 @@ const FollowButton = (props) => {
   );
 };
 
-export default FollowButton;
+//export default FollowButton;
+const mapStateToProps = (state) => ({
+  
+  auth: state.auth,
+  
+});
+export default connect(mapStateToProps, undefined)(FollowButton);

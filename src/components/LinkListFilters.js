@@ -1441,7 +1441,17 @@ function ExpandableArray(props) {
                                 accountpagename={`${props.signup === true?firebase.auth().currentUser.displayName:"John"}`}
                                 textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
                               />
-                              1
+                                 {readonly===false && <div><OthersButton
+                        elementRef20={elementRef20}
+                        changeSortBy={changeSortBy}
+                        //setSortBy={setSortBy}
+                      />
+                       {/* <button onClick={handlerCats} className="button-2 margin-left-11">1cats</button> */}
+</div>
+                      }
+
+
+                              
                               {/* {copySuccess} */}
                             </div>
                           </div>
@@ -1545,14 +1555,7 @@ function ExpandableArray(props) {
                         //setSortBy={setSortBy}
                       /> */}
 
-                        {readonly===false && <div><OthersButton
-                        elementRef20={elementRef20}
-                        changeSortBy={changeSortBy}
-                        //setSortBy={setSortBy}
-                      />
-                       {/* <button onClick={handlerCats} className="button-2 margin-left-11">1cats</button> */}
-</div>
-                      }
+                     
 
                       {
                         //emailForm &&

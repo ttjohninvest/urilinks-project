@@ -123,6 +123,7 @@ function ExpandableArray(props) {
   const [isToggled, setIsToggled] = useState(x);
 
   const params = new URLSearchParams(window.location.search);
+  
   const signup = params.get("signup");
   const rt = params.get("x");
   const readonly = rt === "readonly" ? true : false;

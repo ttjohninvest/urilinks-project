@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 const FollowButton = (props) => {
   const [isFollowed, setIsFollowed] = useState(false);
   //const textToCopy = "text being copied to the clipboard";
+    const params = new URLSearchParams(window.location.search);
+    const z10 = params.get("z10");
+
 
     const isMobile = () => {
     const regex =
@@ -12,7 +15,7 @@ const FollowButton = (props) => {
 
   const handleFollow = async () => {
     try {
-      
+      alert(z10)
       setIsFollowed(true);
       setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
     } catch (err) {
@@ -27,7 +30,7 @@ const FollowButton = (props) => {
       {/* {isCopied ? 'URL Copied' : 'Copy Sharable URL to Your Page.'} */}
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}
       {/* {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`} */}
-    {`${isFollowed?"Followed":(props.readonly)?"Follow 1":"Follow 2" }`}
+    {`${isFollowed?"Followed":(props.readonly)?"Follow":"Follow" }`}
     </button>
   );
 };

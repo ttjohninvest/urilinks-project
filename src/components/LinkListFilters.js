@@ -13,6 +13,7 @@ import Constants from "./Constants"
 import CopyButton2 from "./CopyButton2";
 import HashTagsButton from "./HashTagsButton";
 import OthersButton from "./OthersButton";
+import FollowButton from "./FollowButton"
 //import AddLinkPage from "./AddlinkPage";
 import AddALinkButton from "./AddALinkButton";
 import SeeHashTagsPage from "./SeeHashTagsPage.js";
@@ -132,6 +133,7 @@ function ExpandableArray(props) {
   const linkid = params.get("p");
   //console.log("linkid="+linkid)
   const childRef = useRef(null);
+  const z10 = params.get("z10");
 
   const handleStartScroll = (v) => {
     if (childRef.current) {
@@ -1788,7 +1790,7 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                       </select>
-                      1
+                      
                     </div>
                     {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
                     {/* {isForm3Open && (
@@ -1921,7 +1923,7 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                       </select>
-                      2
+                      {z10 !== null && <FollowButton />}
                     </div>
 
                     {/* {isForm3Open && (

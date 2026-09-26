@@ -168,12 +168,12 @@ export const startAddFollower = (uid,linkData = {}) => {
     //const uid = getState().auth.uid;
     const {
       
-      followerid = "",
+      follower = "",
      
     } = linkData;
     const link = {
       
-      followerid,
+      follower,
       
     };
 

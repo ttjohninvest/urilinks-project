@@ -173,38 +173,29 @@ export const startAddFollower2 = (uid,linkData = {}) => {
 export const startAddFollower = (uid,linkData = {}) => {
   return (dispatch, getState) => {
     console.log("startAddFollower") //, follower=" + JSON.stringify(link));
-//     return new Promise((resolve, reject) => {
-//     // Simulate asynchronous operation
-//     const success = true;
 
-//     if (success) {
-//       resolve("Data loaded successfully");
-//     } else {
-//       reject(new Error("Failed to load data"));
-//     }
-//   });
    
-    const {
+    // const {
       
-      follower = "",
+    //   follower = "",
      
-    } = linkData;
-    const link = {
+    // } = linkData;
+    // const link = {
       
-      follower,
+    //   follower,
       
-    };
+    // };
 
-    console.log("startAddFollower, follower=" + JSON.stringify(link));
-    if(link !== null && link !== undefined && link !== "")
+    console.log("startAddFollower, follower=" + JSON.stringify(linkData));
+    if(linkData !== null && linkData !== undefined && linkData !== "")
     return database
       .ref(`users/${uid}/followers`) //m8... coming in, D9... is following m8...
-      .push(link)
+      .push(linkData)
       .then((ref) => {
         dispatch(
           addFollower({
             id: ref.key,
-            ...link,
+            ...linkData,
           }),
         );
         return true;

@@ -619,8 +619,8 @@ export const startSetFollowers = (uid) => {
           
          
           links2.push({
-            id: childSnapshot.key
-            ...childSnapshot.val(),
+            id: childSnapshot.key,
+            ...childSnapshot.val()
           });
         });
         console.log("1234567, startSetFollowers, about to call dispatch(setFollowers(links)),links2="+JSON.stringify(links2))

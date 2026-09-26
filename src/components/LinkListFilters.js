@@ -1369,7 +1369,7 @@ function ExpandableArray(props) {
                         //uid={props.uid}
                         //setSortBy={setSortBy}
                       />
-                                            <button onClick={handlerCats} className="button-2 margin-left-11">cats</button>
+                                            <button onClick={handlerCats} className="button-2 margin-left-11">2cats</button>
 </div>
                       }
 
@@ -1493,7 +1493,7 @@ function ExpandableArray(props) {
                         //setSortBy={setSortBy}
                       />
                       
-                      <button onClick={handlerCats} className="button-2 margin-left-11">cats</button>
+                      <button onClick={handlerCats} className="button-2 margin-left-11">3cats</button>
                           </div>
                           </div>
 
@@ -1546,7 +1546,7 @@ function ExpandableArray(props) {
                         changeSortBy={changeSortBy}
                         //setSortBy={setSortBy}
                       />
-                       <button onClick={handlerCats} className="button-2 margin-left-11">cats</button>
+                       <button onClick={handlerCats} className="button-2 margin-left-11">1cats</button>
 </div>
                       }
 

@@ -33,7 +33,7 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import FetchBookmarks from "../components/FetchBookmarks";
 import AddLinkPageFileDate from "../components/AddLinkPageFileDate";
-import CatFetcher from './../components/CatFetcher';
+
 
 export const history = createHistory();
 

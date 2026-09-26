@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-const API_KEY = "live_473mu8T7DeX3X9XRmvowwOkAPJMmfSq9ToTm8p3fV3erRUbux4KVXa5qwEdWx9ta";
+const API_KEY =
+  "live_473mu8T7DeX3X9XRmvowwOkAPJMmfSq9ToTm8p3fV3erRUbux4KVXa5qwEdWx9ta";
 
 const CatFetcher = () => {
   const [data, setData] = useState(null);
@@ -45,24 +46,30 @@ const CatFetcher = () => {
 
   return (
     <div>
-      <button onClick={getNewImage} className="ib button-2 button-container outine-none">To Get New Image</button>
-      <ul>
-        {data.map((kitty, index) => {
-          //return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>
-          return (<div className="flexrow3z">
-            <li key={kitty.id}>
-              <img
-                src={kitty.url}
-                style={{
-                  width: "600px",
-                  height: "600px",
-                  objectFit: "contain",
-                }}
-              />
-            </li>
-          </div>);
-        })}
-      </ul>
+      <div className="button-container">
+        <button onClick={getNewImage} className="ib button-2 outine-none">
+          To Get New Image
+        </button>
+      </div>
+      <div className="flexrow3z">
+        <ul>
+          {data.map((kitty, index) => {
+            //return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>
+            return (
+              <li key={kitty.id}>
+                <img
+                  src={kitty.url}
+                  style={{
+                    width: "600px",
+                    height: "600px",
+                    objectFit: "contain",
+                  }}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };

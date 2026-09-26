@@ -8,6 +8,7 @@ import { LinkList3 } from "./LinkList3.js";
 import honoring from "../assets/honoring/christmas-tree.png";
 //import honoring from "../assets/honoring/CurtisStone.png";
 //import setFrommenu from "../actions/frommenu";
+//import KittiesButton from "./KittiesButton.js";
 import CopyButton2 from "./CopyButton2";
 import HashTagsButton from "./HashTagsButton";
 import OthersButton from "./OthersButton";
@@ -1484,6 +1485,7 @@ function ExpandableArray(props) {
                         //uid={props.uid}
                         //setSortBy={setSortBy}
                       />
+                      {/* <KittiesButton /> */}
                           </div>
                           </div>
 

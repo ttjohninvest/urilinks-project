@@ -162,7 +162,7 @@ function isFacebookPost(url) {
   }
   return true
 
-  // try {
+  //try {
   //   const parsedUrl = new URL(url);
   //   // Check if host is facebook.com or www.facebook.com
   //   if (!['facebook.com', 'www.facebook.com'].includes(parsedUrl.hostname)) {
@@ -232,6 +232,8 @@ setScreenedValue(7);
     } else {
 setScreenedValue(8);
     }
+
+  },[screenedValue])
 
 // FacebookEmbed,
 // InstagramEmbed,

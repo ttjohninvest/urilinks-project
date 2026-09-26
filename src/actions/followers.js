@@ -166,7 +166,7 @@ export const addFollower = (follower) => ({
 
 export const startAddFollower2 = (uid,linkData = {}) => {
  
-    console.log("startAddFollower2, follower="+uid+", linkData=" + JSON.stringify(link));
+    console.log("startAddFollower2, follower="+uid+", linkData=" + JSON.stringify(linkData));
 
 }
 

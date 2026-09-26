@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
-import { startAddFollower } from "../actions/followers";
+import { startAddFollower, startAddFollower2 } from "../actions/followers";
 
 const FollowButton = (props) => {
   const [isFollowed, setIsFollowed] = useState(false);
@@ -20,9 +20,9 @@ const FollowButton = (props) => {
     try {
       //alert(id+", "+id2)
       //add the id2 to Followers Array in id record
-      console.log("before call to startAddFollower"+id+", "+id2)
-      startAddFollower(id,{uid:id2})
-      console.log("after call to startAddFollower"+id+", "+id2)
+      console.log("before call to startAddFollower="+id+", "+id2)
+      startAddFollower2(id,{uid:id2})
+      console.log("after call to startAddFollower="+id+", "+id2)
       setIsFollowed(true);
       setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
     } catch (err) {

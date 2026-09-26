@@ -163,49 +163,56 @@ export const addFollower = (follower) => ({
   follower,
 });
 
+
+export const startAddFollower2 = (uid,linkData = {}) => {
+ 
+    console.log("startAddFollower2, follower="+uid+", linkData=" + JSON.stringify(link));
+
+}
+
 export const startAddFollower = (uid,linkData = {}) => {
   return (dispatch, getState) => {
     console.log("startAddFollower") //, follower=" + JSON.stringify(link));
-    return new Promise((resolve, reject) => {
-    // Simulate asynchronous operation
-    const success = true;
+//     return new Promise((resolve, reject) => {
+//     // Simulate asynchronous operation
+//     const success = true;
 
-    if (success) {
-      resolve("Data loaded successfully");
-    } else {
-      reject(new Error("Failed to load data"));
-    }
-  });
+//     if (success) {
+//       resolve("Data loaded successfully");
+//     } else {
+//       reject(new Error("Failed to load data"));
+//     }
+//   });
    
-    // const {
+    const {
       
-    //   follower = "",
+      follower = "",
      
-    // } = linkData;
-    // const link = {
+    } = linkData;
+    const link = {
       
-    //   follower,
+      follower,
       
-    // };
+    };
 
-    //console.log("startAddFollower, follower=" + JSON.stringify(link));
-    // if(link !== null && link !== undefined && link !== "")
-    // return database
-    //   .ref(`users/${uid}/followers`) //m8... coming in, D9... is following m8...
-    //   .push(link)
-    //   .then((ref) => {
-    //     dispatch(
-    //       addFollower({
-    //         id: ref.key,
-    //         ...link,
-    //       }),
-    //     );
-    //     return true;
-    //   })
-    //   .catch((error) => {
-    //     console.log("error adding link data in firebase, error=" + error);
-    //     return false;
-    //   });
+    console.log("startAddFollower, follower=" + JSON.stringify(link));
+    if(link !== null && link !== undefined && link !== "")
+    return database
+      .ref(`users/${uid}/followers`) //m8... coming in, D9... is following m8...
+      .push(link)
+      .then((ref) => {
+        dispatch(
+          addFollower({
+            id: ref.key,
+            ...link,
+          }),
+        );
+        return true;
+      })
+      .catch((error) => {
+        console.log("error adding link data in firebase, error=" + error);
+        return false;
+      });
   };
 };
 

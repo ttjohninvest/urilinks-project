@@ -45,11 +45,11 @@ const CatFetcher = () => {
 
   return (
     <div>
-      <button onClick={getNewImage} className="button-2">To Get New Image</button>
+      <button onClick={getNewImage} className="ib button-2 button-container">To Get New Image</button>
       <ul>
         {data.map((kitty, index) => {
           //return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>
-          return (
+          return (<div className="flexrow3z">
             <li key={kitty.id}>
               <img
                 src={kitty.url}
@@ -60,7 +60,7 @@ const CatFetcher = () => {
                 }}
               />
             </li>
-          );
+          </div>);
         })}
       </ul>
     </div>

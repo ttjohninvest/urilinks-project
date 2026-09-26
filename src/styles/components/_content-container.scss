@@ -225,6 +225,12 @@
   word-wrap: break-word;
 }
 
+.button-container {
+  margin-top:2rem;
+  display: flex;
+  justify-content: center;
+}
+
 .flexrowtfw {
   display: flex;
   flex-direction: row;
@@ -247,6 +253,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.flexrow3z {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
 }
 

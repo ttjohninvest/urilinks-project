@@ -53,7 +53,7 @@ const getNewImage=()=>{
         return <li key={kitty.id}><img src={kitty.url} width={kitty.width} height={kitty.height} /></li>
       })}
       </ul>
-      <button onClick={getVewImage}>click</button>
+      <button onClick={getNewImage}>click</button>
     </div>
   );
 };

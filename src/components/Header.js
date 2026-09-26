@@ -90,6 +90,9 @@ export const Header = (props) => {
   const dn = params.get("dn");
   const purl2 = params.get("purl");
   const z10 = params.get("z10");
+  const ni = params.get("ni");
+
+
 
   function decrypt(text, key) {
     if(text === null) return null
@@ -1119,7 +1122,7 @@ const handleClick = useCallback(() => {
                       </div>
                     )}
 
-                    {props.signup.signup === false && x !== "readonly" && (
+                    {props.signup.signup === false && x !== "readonly" && ni !== "1" && (
                       <div
                         className="color-white-1 color-black-2- margin-right-1"
                         title="Please use it for good. Bookmarks for internet pages, urls/links"

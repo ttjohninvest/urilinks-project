@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const API_KEY = "live_473mu8T7DeX3X9XRmvowwOkAPJMmfSq9ToTm8p3fV3erRUbux4KVXa5qwEdWx9ta";
+
 
 const CatFetcher = () => {
   const [data, setData] = useState(null);
@@ -10,11 +10,11 @@ const CatFetcher = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://api.thecatapi.com/v1/images/search?limit=1&breed_ids=abys&include_breeds=1",
+       
+        "https://pixabay.com/api?key=7598310-81660a23d27af589293242cb8&q=flowers",
         {
           method: "GET",
           headers: {
-            //Authorization: `Bearer ${API_KEY}`,
             "Content-Type": "application/json",
           },
         },

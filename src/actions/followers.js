@@ -165,36 +165,47 @@ export const addFollower = (follower) => ({
 
 export const startAddFollower = (uid,linkData = {}) => {
   return (dispatch, getState) => {
-    //const uid = getState().auth.uid;
-    const {
-      
-      follower = "",
-     
-    } = linkData;
-    const link = {
-      
-      follower,
-      
-    };
+    console.log("startAddFollower") //, follower=" + JSON.stringify(link));
+    return new Promise((resolve, reject) => {
+    // Simulate asynchronous operation
+    const success = true;
 
-    console.log("startAddFollower, follower=" + JSON.stringify(link));
-    if(link !== null && link !== undefined && link !== "")
-    return database
-      .ref(`users/${uid}/followers`) //m8... coming in, D9... is following m8...
-      .push(link)
-      .then((ref) => {
-        dispatch(
-          addFollower({
-            id: ref.key,
-            ...link,
-          }),
-        );
-        return true;
-      })
-      .catch((error) => {
-        console.log("error adding link data in firebase, error=" + error);
-        return false;
-      });
+    if (success) {
+      resolve("Data loaded successfully");
+    } else {
+      reject(new Error("Failed to load data"));
+    }
+  });
+   
+    // const {
+      
+    //   follower = "",
+     
+    // } = linkData;
+    // const link = {
+      
+    //   follower,
+      
+    // };
+
+    //console.log("startAddFollower, follower=" + JSON.stringify(link));
+    // if(link !== null && link !== undefined && link !== "")
+    // return database
+    //   .ref(`users/${uid}/followers`) //m8... coming in, D9... is following m8...
+    //   .push(link)
+    //   .then((ref) => {
+    //     dispatch(
+    //       addFollower({
+    //         id: ref.key,
+    //         ...link,
+    //       }),
+    //     );
+    //     return true;
+    //   })
+    //   .catch((error) => {
+    //     console.log("error adding link data in firebase, error=" + error);
+    //     return false;
+    //   });
   };
 };
 

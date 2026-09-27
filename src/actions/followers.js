@@ -163,13 +163,14 @@ export const emailSharableLink = (linkData = {}) => {
 };
 
 
-export const startAddFollower=(uid) =>{
+export const startAddFollower=(uid,followingData={}) =>{
     
     console.log("startAddFoller, uid="+uid)
-  database.ref('users/'+uid+'/following').set({
-    username: "john",
-    email: "em"
-  }, function(error) {
+//   database.ref('users/'+uid+'/following').set({
+//     username: "john",
+//     email: "em"
+//   }, function(error) {
+database.ref('users/'+uid+'/following').set(followingData, function(error) {
     if (error) {
       // The write failed...
       console.log("Data could not be saved." + error);

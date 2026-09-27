@@ -45,10 +45,10 @@ return uArray
     //a.gud.uid, b.gud.uid
     //props.users=[]
 
-     const array1 = removeduplicates(props.users, props.following)
+     //const array1 = removeduplicates(props.users, props.following)
 
 
-      const array3 = array1.sort((a, b) => {
+      const array3 = array3.sort((a, b) => {
       const valA = a.gud.displayname.toLowerCase();
       const valB = b.gud.displayname.toLowerCase();
       if (valA < valB) return -1;

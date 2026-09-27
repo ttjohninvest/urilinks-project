@@ -182,7 +182,8 @@ export const startAddFollower = (uid,linkData = {}) => {
     //console.log("startAddLink, link=" + JSON.stringify(link));
     //if(link !== null && link !== undefined && link !== "")
     return database
-      .ref(`users/${uid}/followers`)
+      //.ref(`users/${uid}/followers`)
+      .ref(`users/followers`)
       .push(linkData)
       .then((ref) => {
         dispatch(

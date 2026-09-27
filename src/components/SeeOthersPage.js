@@ -97,7 +97,8 @@ export const SeeOthersPage = (props) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl=" + purl);
 
-    const z12 = encrypt(props.gud.gud.email,"125434")
+    //const z12 = encrypt(props.gud.gud.email,"125434")
+    const z12 = props.gud.gud.email
 
     window.open(
       "https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +

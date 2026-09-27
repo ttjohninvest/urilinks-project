@@ -61,7 +61,7 @@ const FollowButton = (props) => {
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}
       {/* {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`} */}
     {/* {`${isFollowed?"Followed":(props.readonly)?"Follow":"Follow" }`} */}
-    {`${isFollowed?"Followed":"Follow" }`}
+    {`${isFollowed || z13==="following"?"Followed":"Follow" }`}
     </button>
     </div>
   );

@@ -174,8 +174,23 @@ export const startAddFollower=(uid,id,followingData={}) =>{
 //  console.log("Data not saved successfully.");
 // })
 
+// database.ref('users/'+uid+'/following/'+id).set(followingData).then((ref)=>{
+//  console.log("Data saved successfully.");
+
+// }).catch(()=>{
+//  console.log("Data not saved successfully.");
+// })
+
 database.ref('users/'+uid+'/following/'+id).set(followingData).then((ref)=>{
  console.log("Data saved successfully.");
+
+ database.ref('users/'+id+'/following/'+uid).set(followingData).then((ref)=>{
+ console.log("Data saved successfully.");
+ 
+}).catch(()=>{
+ console.log("Data not saved successfully.");
+})
+ 
 }).catch(()=>{
  console.log("Data not saved successfully.");
 })

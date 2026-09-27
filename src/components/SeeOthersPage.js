@@ -65,7 +65,7 @@ const resultArray = array1.map(item => ({
     // Map array1 to a new array with the match flag
     const resultArray = array1.map((item) => ({
       ...item,
-      isMatch: array2.some((item2) => item.gud.uid === item2.uid), //idSet.has(item.id)
+      isMatch: array2.some((item2) => item.gud.uid === item2.uid)
     }));
 
     return resultArray;
@@ -278,7 +278,7 @@ const resultArray = array1.map(item => ({
         >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
             {uniqueData.map((item, index) => {
-              if (props.auth.uid !== item.gud.uid) {
+              if (props.auth.uid !== item.gud.uid) { //no need to display the logged in user's page
                 return (
                   <li
                     key={index}

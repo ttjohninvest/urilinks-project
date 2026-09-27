@@ -27,56 +27,27 @@ export const SeeOthersPage = (props) => {
   // };
 
   //                        props.users, props.following
-  const removeduplicates = (array1, array2) => {
-    // Filter array1 to keep only items NOT found in array2 by ID
-    const uArray = array1.filter(
-      (item) => !array2.some((other) => other.uid === item.gud.uid),
-    );
+  // const removeduplicates = (array1, array2) => {
+  //   // Filter array1 to keep only items NOT found in array2 by ID
+  //   const uArray = array1.filter(
+  //     (item) => !array2.some((other) => other.uid === item.gud.uid),
+  //   );
 
-    //console.log(uniqueArray);
-    // Output: [{ id: 1, name: 'Alice' }, { id: 3, name: 'Charlie' }]
-    return uArray;
-  };
-
-  /*
-const array1 = [
-  { id: 1, name: 'A' },
-  { id: 2, name: 'B' },
-  { id: 3, name: 'C' }
-];
-
-const array2 = [2, 4, 6]; // IDs to check against
-
-// Create a Set for O(1) lookups
-//const idSet = new Set(array2);
-
-// Map array1 to a new array with the match flag
-const resultArray = array1.map(item => ({
-  ...item,
-  isMatch: array2.some(item2 => item.gud.uid === item2.uid) //idSet.has(item.id)
-}));
-
-  */
-  //props.users, props.following
-
-
-//array2.some((item2) => item.gud.uid === item2.uid)
-  // const annotatearray = (array1, array2) => {
-    
-  //   const resultArray = array1.map((item) => ({
-  //     ...item,
-  //     isMatch: true 
-  //   }));
-
-  //   return resultArray;
+   
+  //   return uArray;
   // };
 
+  const a = (item2, item) => {
+    if(array2.some((item2) => item2.uid === item.gud.uid))
+      return "following"
+    else return "not following"
+  }
+
+  //props.users, props.following
   const annotatearray = (array1, array2) => {
   const resultArray = array1.map((item) => ({
     ...item,
-    isMatch: array2.some(
-      (item2) => item2.uid === item.gud.uid
-    )
+    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"following":"not following"
   }));
 
   return resultArray;
@@ -303,7 +274,7 @@ const resultArray = array1.map(item => ({
                       item.gud.email
                     }
                   >
-                    {item.isMatch===true?"following":"not following" +
+                    {item.isMatch+
                       ", " +
                       item.gud.displayname +
                       ", " +

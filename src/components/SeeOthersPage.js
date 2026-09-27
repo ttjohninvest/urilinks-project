@@ -65,7 +65,7 @@ const resultArray = array1.map(item => ({
     // Map array1 to a new array with the match flag
     const resultArray = array1.map((item) => ({
       ...item,
-      isMatch: true //array2.some((item2) => item.gud.uid === item2.uid)
+      isMatch: false //array2.some((item2) => item.gud.uid === item2.uid)
     }));
 
     return resultArray;

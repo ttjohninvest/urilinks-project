@@ -162,19 +162,19 @@ export const emailSharableLink = (linkData = {}) => {
   };
 };
 
-export const startAddFollower = async (linkData = {}) => {
+export const startAddFollower = async (followingData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
-    const {
+    // const {
       
-      follower = 0,
+    //   following = 0,
       
-    } = linkData;
-    const link = {
+    // } = followingData;
+    // const link = {
       
-      follower,
+    //   following,
       
-    };
+    // };
 
     //////
     //return false;
@@ -182,13 +182,13 @@ export const startAddFollower = async (linkData = {}) => {
     //console.log("startAddLink, link=" + JSON.stringify(link));
     //if(link !== null && link !== undefined && link !== "")
     return database
-      .ref(`users/${uid}/followers`)
-      .push(link)
+      .ref(`users/${uid}/following`)
+      .push(followingData)
       .then((ref) => {
         dispatch(
           addFollower({
             id: ref.key,
-            ...link,
+            ...followingData,
           }),
         );
         return true;

@@ -93,12 +93,13 @@ export const SeeOthersPage = (props) => {
       .join("");
   }
 
-  const otherPage = (id, dn, purl, email) => {
+  const otherPage = (id, dn, purl, email,theemail2) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl=" + purl);
     //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
     //const z12 = encrypt(props.gud.gud.email,"125434")
-    const z12 = props.email
+    //const z12 = props.email
+    const z12 = theemail2
     //alert(props.email)
 
     window.open(
@@ -133,6 +134,7 @@ export const SeeOthersPage = (props) => {
     const email = encrypt(array3[3], "125434");
     console.log("SeeOthersPage, array3[4]="+array3[4])
     const theemail2 = encrypt(array3[4], "125434");
+    console.log("SeeOthersPage,theemail2="+theemail2)
 
     if (array3[0]) {
       otherPage(array3[0], array3[1], array3[2], email, theemail2);

@@ -83,9 +83,21 @@ export const SeeOthersPage = (props) => {
     setUniqueData(array3);
   }, []);
 
+  function encrypt(text, key) {
+    return [...text]
+      .map((x, i) =>
+        (x.codePointAt() ^ (key.charCodeAt(i % key.length) % 255))
+          .toString(16)
+          .padStart(2, "0"),
+      )
+      .join("");
+  }
+
   const otherPage = (id, dn, purl, email) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl=" + purl);
+
+    const z12 = encrypt(props.gud.gud.email,"125434")
 
     window.open(
       "https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
@@ -97,20 +109,14 @@ export const SeeOthersPage = (props) => {
         "&purl=" +
         purl +
         "&z10=" +
-        email,
+        email +
+        "&z12=" +
+        z12,
       "_blank",
     );
   };
 
-  function encrypt(text, key) {
-    return [...text]
-      .map((x, i) =>
-        (x.codePointAt() ^ (key.charCodeAt(i % key.length) % 255))
-          .toString(16)
-          .padStart(2, "0"),
-      )
-      .join("");
-  }
+  
 
   const handleClick = () => {
     // Identify the clicked element
@@ -297,6 +303,7 @@ const mapStateToProps = (state) => ({
   users: state.users,
   auth: state.auth,
   following: state.following,
+  gud:state.gud
 });
 
 const mapDispatchToProps = (dispatch) => ({

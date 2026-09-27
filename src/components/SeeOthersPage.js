@@ -48,22 +48,22 @@ return uArray
      //const array1 = removeduplicates(props.users, props.following)
 
 
-      const array3 = array3.sort((a, b) => {
-      const valA = a.gud.displayname.toLowerCase();
-      const valB = b.gud.displayname.toLowerCase();
-      if (valA < valB) return -1;
-      if (valA > valB) return 1;
-      return 0;
-    })
-
-
-    //  const array3 = props.users.sort((a, b) => {
+    //   const array3 = array1.sort((a, b) => {
     //   const valA = a.gud.displayname.toLowerCase();
     //   const valB = b.gud.displayname.toLowerCase();
     //   if (valA < valB) return -1;
     //   if (valA > valB) return 1;
     //   return 0;
     // })
+
+
+     const array3 = props.users.sort((a, b) => {
+      const valA = a.gud.displayname.toLowerCase();
+      const valB = b.gud.displayname.toLowerCase();
+      if (valA < valB) return -1;
+      if (valA > valB) return 1;
+      return 0;
+    })
 
     //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
     console.log("setUniqueData, props.users=" + JSON.stringify(array3));

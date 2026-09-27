@@ -645,7 +645,7 @@ export const startSetFollowing = (uid) => {
           );
            
           following.push({
-            id: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+            uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
             ...childSnapshot.val()
           });
         });

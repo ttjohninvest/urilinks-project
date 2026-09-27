@@ -30,7 +30,7 @@ export const SeeOthersPage = (props) => {
 
   // Filter array1 to keep only items NOT found in array2 by ID
 const uArray = array1.filter(item => 
-  !array2.some(other => other.id === item.gud.uid)
+  !array2.some(other => other.uid === item.gud.uid)
 );
 
 //console.log(uniqueArray); 

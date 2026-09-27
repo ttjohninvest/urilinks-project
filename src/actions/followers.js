@@ -163,8 +163,10 @@ export const emailSharableLink = (linkData = {}) => {
 };
 
 
-export const startAddFollower=(l) =>{
-  database.ref('users').set({
+export const startAddFollower=(uid) =>{
+    
+    console.log("startAddFoller, uid="+uid)
+  database.ref('users/'+uid+'/following').set({
     username: "john",
     email: "em"
   }, function(error) {

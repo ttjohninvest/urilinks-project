@@ -33,11 +33,13 @@ const FollowButton = (props) => {
       //alert(id+", "+id2)
       //add the id2 to Followers Array in id record
       console.log("before call to startAddFollower="+id+", "+id2)
+      if(isFollowed === false) { //so can not press multiple times, protects db from duplicates being stored
       startAddFollower(id2,{uid:id,email:theemail})
       //startAddFollower(id2)
       console.log("after call to startAddFollower="+id+", "+id2)
       setIsFollowed(true);
-      setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
+      //setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
+      }
     } catch (err) {
       console.error('Failed to Follow:', err);
     }
@@ -51,7 +53,8 @@ const FollowButton = (props) => {
       {/* {isCopied ? 'URL Copied' : 'Copy Sharable URL to Your Page.'} */}
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}
       {/* {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`} */}
-    {`${isFollowed?"Followed":(props.readonly)?"Follow":"Follow" }`}
+    {/* {`${isFollowed?"Followed":(props.readonly)?"Follow":"Follow" }`} */}
+    {`${isFollowed?"Followed":"Follow" }`}
     </button>
     </div>
   );

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 
-import { startSetFollowing } from "../actions/following";
+import { startSetFollowing } from "./actions/following";
 
 import setSignup from "./actions/signup";
 /////////////////start

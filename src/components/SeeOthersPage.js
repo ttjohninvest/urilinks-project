@@ -26,15 +26,44 @@ export const SeeOthersPage = (props) => {
   //   return [...new Set(lcStringArray)];
   // };
 
+  const removeduplicates = (array1, array2) => {
+
+  // Filter array1 to keep only items NOT found in array2 by ID
+const uArray = array1.filter(item => 
+  !array2.some(other => other.uid === item.gud.uid)
+);
+
+//console.log(uniqueArray); 
+// Output: [{ id: 1, name: 'Alice' }, { id: 3, name: 'Charlie' }]
+return uArray
+
+  }
+
   useEffect(() => {
 
-     const array3 = props.users.sort((a, b) => {
+    //props.following=[{id:uy7,uid:7894}]
+    //a.gud.uid, b.gud.uid
+    //props.users=[]
+
+     const array1 = removeduplicates(props.users, props.following)
+
+
+      const array3 = array1.sort((a, b) => {
       const valA = a.gud.displayname.toLowerCase();
       const valB = b.gud.displayname.toLowerCase();
       if (valA < valB) return -1;
       if (valA > valB) return 1;
       return 0;
     })
+
+
+    //  const array3 = props.users.sort((a, b) => {
+    //   const valA = a.gud.displayname.toLowerCase();
+    //   const valB = b.gud.displayname.toLowerCase();
+    //   if (valA < valB) return -1;
+    //   if (valA > valB) return 1;
+    //   return 0;
+    // })
 
     //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
     console.log("setUniqueData, props.users=" + JSON.stringify(array3));
@@ -232,7 +261,8 @@ export const SeeOthersPage = (props) => {
 const mapStateToProps = (state) => ({
   //hashtags: state.hashtags,
   users: state.users,
-  auth:state.auth
+  auth:state.auth,
+  following:state.following
 });
 
 const mapDispatchToProps = (dispatch) => ({

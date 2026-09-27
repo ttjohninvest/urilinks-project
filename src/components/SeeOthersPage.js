@@ -131,9 +131,10 @@ export const SeeOthersPage = (props) => {
     //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
     //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
     const email = encrypt(array3[3], "125434");
+    const theemail2 = encrypt(array3[4], "125434");
 
     if (array3[0]) {
-      otherPage(array3[0], array3[1], array3[2], email);
+      otherPage(array3[0], array3[1], array3[2], email, theemail2);
     }
 
     // props.changeSortBy("others",1);
@@ -279,7 +280,9 @@ export const SeeOthersPage = (props) => {
                       ";" +
                       item.gud.photourl +
                       ";" +
-                      item.gud.email
+                      item.gud.email +
+                      ";" +
+                      props.email
                     }
                   >
                     {item.isMatch+

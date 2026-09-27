@@ -16,12 +16,13 @@ const FollowButton = (props) => {
     return regex.test(navigator.userAgent);
   };
 
-  const handleFollow = async () => {
+  const handleFollow = () => {
     try {
       //alert(id+", "+id2)
       //add the id2 to Followers Array in id record
       console.log("before call to startAddFollower="+id+", "+id2)
-      await startAddFollower({uid:id})
+      //startAddFollower({uid:id})
+      startAddFollower()
       console.log("after call to startAddFollower="+id+", "+id2)
       setIsFollowed(true);
       setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds

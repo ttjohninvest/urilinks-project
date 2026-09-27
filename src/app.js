@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 
-import { startSetFollowing } from "./actions/following";
+import { startSetFollowing, startSetFollower } from "./actions/following";
 
 import setSignup from "./actions/signup";
 /////////////////start
@@ -182,10 +182,20 @@ if (signup !== "signup") {
                                              store
                                           .dispatch(getTheothersisopen2(id2))
                                           .then(() => {
-                                                return store
+                                                store
                                           .dispatch(startSetFollowing(id2))
                                           .then(() => {
+                                             return store
+                                          .dispatch(startSetFollower(id2))
+                                          .then(() => {
                                             renderApp(store, signup);
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
                                           })
                                           .catch((error) => {
                                             console.log(
@@ -315,10 +325,20 @@ if (signup !== "signup") {
                                               store
                                             .dispatch(getTheothersisopen(user.uid))
                                             .then(() => {
-                                                return store
+                                                store
                                           .dispatch(startSetFollowing(user.uid))
                                           .then(() => {
+                                             return store
+                                          .dispatch(startSetFollower(user.uid))
+                                          .then(() => {
                                             renderApp(store, signup);
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
                                           })
                                           .catch((error) => {
                                             console.log(

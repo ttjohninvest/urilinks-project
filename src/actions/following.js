@@ -523,6 +523,11 @@ export const setFollowing = (following) => ({
   following,
 });
 
+export const setFollower = (follower) => ({
+  type: "SET_FOLLOWER",
+  follower,
+});
+
 export const addFollowing = (following) => ({
   type: "ADD_FOLLOWING",
   following,
@@ -666,6 +671,41 @@ export const startSetFollowing = (uid) => {
         });
         console.log("1234567, startSetFollowing, about to call dispatch(setFollowers(following)),following="+JSON.stringify(following))
         dispatch(setFollowing(following)); //links2[0].showpublic
+
+       
+      })
+      .catch((error) => console.log("startSetFollowing, error=" + error));
+  };
+};
+
+export const startSetFollower = (uid) => {
+  console.log("startSetFollower, uid="+uid);
+  return (dispatch, getState) => {
+    
+
+    return database
+      .ref(`users/${uid}/follower`)
+      .once("value")
+      .then((snapshot) => {
+        const follower = [];
+
+        //console.log("snapshot=" + JSON.stringify(snapshot));
+        snapshot.forEach((childSnapshot) => {
+          console.log("tt,childSnapshot=" + JSON.stringify(childSnapshot));
+          console.log(
+            "tt,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+          );
+          console.log(
+            "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+          );
+           
+          follower.push({
+            uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+            ...childSnapshot.val()
+          });
+        });
+        console.log("1234567, startSetFollower, about to call dispatch(setFollowers(following)),follower="+JSON.stringify(follower))
+        dispatch(setFollower(follower)); //links2[0].showpublic
 
        
       })

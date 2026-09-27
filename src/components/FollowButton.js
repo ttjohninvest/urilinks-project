@@ -20,6 +20,7 @@ const FollowButton = (props) => {
      const z10 = params.get("z10");
 
      const theemail = decrypt(z10, "125434") 
+     //const theemail2 = decrypt(z10, "125434") 
 
 
     const isMobile = () => {
@@ -35,7 +36,7 @@ const FollowButton = (props) => {
       console.log("before call to startAddFollower="+id+", "+id2)
       if(isFollowed === false) { //so can not press multiple times, protects db from duplicates being stored
       //startAddFollower(id2,id,{uid:id,email:theemail})
-      startAddFollower(id2,id,{email:theemail})
+      startAddFollower(id2,id,{email:theemail},{email:props.gud.gud.email})
       //startAddFollower(id2)
       console.log("after call to startAddFollower="+id+", "+id2)
       setIsFollowed(true);
@@ -62,9 +63,9 @@ const FollowButton = (props) => {
 };
 
 //export default FollowButton;
-// const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
   
-//   auth: state.auth,
+  gud: state.gud,
   
-// });//
-export default connect(undefined, undefined)(FollowButton);
+});//
+export default connect(mapStateToProps, undefined)(FollowButton);

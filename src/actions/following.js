@@ -163,7 +163,7 @@ export const emailSharableLink = (linkData = {}) => {
 };
 
 
-export const startAddFollower=(uid,id,followingData={}) =>{
+export const startAddFollower=(uid,id,followingData={},followingData2={}) =>{
     
     console.log("startAddFoller, uid="+uid)
 
@@ -184,7 +184,7 @@ export const startAddFollower=(uid,id,followingData={}) =>{
 database.ref('users/'+uid+'/following/'+id).set(followingData).then((ref)=>{
  console.log("Data saved successfully.");
 
- database.ref('users/'+id+'/following/'+uid).set(followingData).then((ref)=>{
+ database.ref('users/'+id+'/follower/'+uid).set(followingData2).then((ref)=>{
  console.log("Data saved successfully.");
  
 }).catch(()=>{

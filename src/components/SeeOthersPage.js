@@ -28,17 +28,15 @@ export const SeeOthersPage = (props) => {
 
   //                        props.users, props.following
   const removeduplicates = (array1, array2) => {
+    // Filter array1 to keep only items NOT found in array2 by ID
+    const uArray = array1.filter(
+      (item) => !array2.some((other) => other.uid === item.gud.uid),
+    );
 
-  // Filter array1 to keep only items NOT found in array2 by ID
-const uArray = array1.filter(item => 
-  !array2.some(other => other.uid === item.gud.uid)
-);
-
-//console.log(uniqueArray); 
-// Output: [{ id: 1, name: 'Alice' }, { id: 3, name: 'Charlie' }]
-return uArray
-
-  }
+    //console.log(uniqueArray);
+    // Output: [{ id: 1, name: 'Alice' }, { id: 3, name: 'Charlie' }]
+    return uArray;
+  };
 
   /*
 const array1 = [
@@ -59,26 +57,27 @@ const resultArray = array1.map(item => ({
 }));
 
   */
-//props.users, props.following
-  const annotateArray = (array1, array2) => {
-    // Map array1 to a new array with the match flag
-const resultArray = array1.map(item => ({
-  ...item,
-  isMatch: array2.some(item2 => item.gud.uid === item2.uid) //idSet.has(item.id)
-}));
+  //props.users, props.following
 
-return resultArray
-  }
+
+
+  const annotatearray = (array1, array2) => {
+    // Map array1 to a new array with the match flag
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch: array2.some((item2) => item.gud.uid === item2.uid), //idSet.has(item.id)
+    }));
+
+    return resultArray;
+  };
 
   useEffect(() => {
-
     //props.following=[{id:uy7,uid:7894}]
     //a.gud.uid, b.gud.uid
     //props.users=[]
 
-     //const array1 = removeduplicates(props.users, props.following)
-     const array1 = annotatearray(props.users, props.following)
-
+    //const array1 = removeduplicates(props.users, props.following)
+    const array1 = annotatearray(props.users, props.following);
 
     //   const array3 = array1.sort((a, b) => {
     //   const valA = a.gud.displayname.toLowerCase();
@@ -88,14 +87,13 @@ return resultArray
     //   return 0;
     // })
 
-
-     const array3 = array1.sort((a, b) => {
+    const array3 = array1.sort((a, b) => {
       const valA = a.gud.displayname.toLowerCase();
       const valB = b.gud.displayname.toLowerCase();
       if (valA < valB) return -1;
       if (valA > valB) return 1;
       return 0;
-    })
+    });
 
     //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
     console.log("setUniqueData, props.users=" + JSON.stringify(array3));
@@ -103,26 +101,34 @@ return resultArray
     setUniqueData(array3);
   }, []);
 
-  
-
-
-  const otherPage = (id,dn,purl,email) => {
+  const otherPage = (id, dn, purl, email) => {
     console.log("otherPage, id=" + id);
-    console.log("otherPage, purl="+purl)
+    console.log("otherPage, purl=" + purl);
 
     window.open(
-      "https://urilinks.com/dashboard?signup=0&x=readonly&id2="+props.uid+"&id=" + id +"&dn="+dn+"&purl="+purl+"&z10="+email,
+      "https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+        props.uid +
+        "&id=" +
+        id +
+        "&dn=" +
+        dn +
+        "&purl=" +
+        purl +
+        "&z10=" +
+        email,
       "_blank",
     );
   };
 
   function encrypt(text, key) {
-    return [...text].map((x, i) => 
-        (x.codePointAt() ^ key.charCodeAt(i % key.length) % 255)
-        .toString(16)
-        .padStart(2, "0")
-    ).join('');
-}
+    return [...text]
+      .map((x, i) =>
+        (x.codePointAt() ^ (key.charCodeAt(i % key.length) % 255))
+          .toString(16)
+          .padStart(2, "0"),
+      )
+      .join("");
+  }
 
   const handleClick = () => {
     // Identify the clicked element
@@ -130,11 +136,11 @@ return resultArray
 
     // Extract data from data attributes
     const itemId = clickedElement.dataset.itemId;
-    const array3 = itemId.split(";")
+    const array3 = itemId.split(";");
     console.log("handleClick, itemId=" + itemId);
     //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
     //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
-    const email = encrypt(array3[3], "125434")
+    const email = encrypt(array3[3], "125434");
 
     if (array3[0]) {
       otherPage(array3[0], array3[1], array3[2], email);
@@ -144,7 +150,7 @@ return resultArray
 
     // props.setTextFilter("");
 
-    // props.sortByOthers(); 
+    // props.sortByOthers();
   };
 
   const startScrollingUp4 = () => {
@@ -262,8 +268,8 @@ return resultArray
             </button>
           </div>
         </div>
-        {uniqueData.length-1}
-        {`${(uniqueData.length-1) > 1 ? " others" : uniqueData.length === 1 ? " others" : " others"}`}
+        {uniqueData.length - 1}
+        {`${uniqueData.length - 1 > 1 ? " others" : uniqueData.length === 1 ? " others" : " others"}`}
         <div
           id="ls3"
           className={`content-containerht ${
@@ -274,10 +280,25 @@ return resultArray
             {uniqueData.map((item, index) => {
               if (props.auth.uid !== item.gud.uid) {
                 return (
-                  <li key={index} data-item-id={item.gud.uid+";"+item.gud.displayname+";"+item.gud.photourl+";"+item.gud.email}>
-                    { item.isMatch+", "+ item.gud.displayname + ", " + item.gud.theatname}
+                  <li
+                    key={index}
+                    data-item-id={
+                      item.gud.uid +
+                      ";" +
+                      item.gud.displayname +
+                      ";" +
+                      item.gud.photourl +
+                      ";" +
+                      item.gud.email
+                    }
+                  >
+                    {item.isMatch +
+                      ", " +
+                      item.gud.displayname +
+                      ", " +
+                      item.gud.theatname}
                   </li>
-                )
+                );
               } else {
                 return null;
               }
@@ -286,15 +307,14 @@ return resultArray
         </div>
       </div>
     </div>
-    
   );
 };
 
 const mapStateToProps = (state) => ({
   //hashtags: state.hashtags,
   users: state.users,
-  auth:state.auth,
-  following:state.following
+  auth: state.auth,
+  following: state.following,
 });
 
 const mapDispatchToProps = (dispatch) => ({

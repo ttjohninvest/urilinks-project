@@ -19,6 +19,8 @@ const FollowButton = (props) => {
     const id2 = params.get("id2");
      const z10 = params.get("z10");
      const z12 = params.get("z12");
+     const z13 = params.get("z13");
+     if(z13==="following") setIsFollowed(true)
 
 
      const theemail = decrypt(z10, "125434") 

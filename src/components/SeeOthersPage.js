@@ -93,7 +93,7 @@ export const SeeOthersPage = (props) => {
       .join("");
   }
 
-  const otherPage = (id, dn, purl, email,theemail2) => {
+  const otherPage = (id, dn, purl, email,theemail2, isMatch) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl=" + purl);
     //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
@@ -114,7 +114,9 @@ export const SeeOthersPage = (props) => {
         "&z10=" +
         email +
         "&z12=" +
-        z12,
+        z12 +
+        "&z13=" +
+        isMatch,
       "_blank",
     );
   };
@@ -135,9 +137,10 @@ export const SeeOthersPage = (props) => {
     console.log("SeeOthersPage, array3[4]="+array3[4])
     const theemail2 = encrypt(array3[4], "125434");
     console.log("SeeOthersPage,theemail2="+theemail2)
+    const isMatch = array3[5]
 
     if (array3[0]) {
-      otherPage(array3[0], array3[1], array3[2], email, theemail2);
+      otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
     }
 
     // props.changeSortBy("others",1);
@@ -285,7 +288,9 @@ export const SeeOthersPage = (props) => {
                       ";" +
                       item.gud.email +
                       ";" +
-                      props.email
+                      props.email+
+                      ";" +
+                      item.isMatch 
                     }
                   >
                     {item.isMatch+

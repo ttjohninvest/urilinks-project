@@ -96,9 +96,10 @@ export const SeeOthersPage = (props) => {
   const otherPage = (id, dn, purl, email) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl=" + purl);
-    alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
+    //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
     //const z12 = encrypt(props.gud.gud.email,"125434")
-    const z12 = props.gud.gud.email
+    const z12 = props.email
+    alert(props.email)
 
     window.open(
       "https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +

@@ -165,16 +165,16 @@ export const emailSharableLink = (linkData = {}) => {
 export const startAddFollower = (uid,linkData = {}) => {
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
-    // const {
+    const {
       
-    //   follower = linkData.uid,
+      follower = 0,
       
-    // } = linkData;
-    // const link = {
+    } = linkData;
+    const link = {
       
-    //   follower,
+      follower,
       
-    // };
+    };
 
     //////
     //return false;
@@ -184,12 +184,12 @@ export const startAddFollower = (uid,linkData = {}) => {
     return database
       //.ref(`users/${uid}/followers`)
       .ref(`users/followers`)
-      .push(linkData)
+      .push(link)
       .then((ref) => {
         dispatch(
           addFollower({
             id: ref.key,
-            ...linkData,
+            ...link,
           }),
         );
         return true;

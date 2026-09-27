@@ -60,16 +60,27 @@ const resultArray = array1.map(item => ({
   //props.users, props.following
 
 
+//array2.some((item2) => item.gud.uid === item2.uid)
+  // const annotatearray = (array1, array2) => {
+    
+  //   const resultArray = array1.map((item) => ({
+  //     ...item,
+  //     isMatch: true 
+  //   }));
+
+  //   return resultArray;
+  // };
 
   const annotatearray = (array1, array2) => {
-    // Map array1 to a new array with the match flag
-    const resultArray = array1.map((item) => ({
-      ...item,
-      isMatch: false //array2.some((item2) => item.gud.uid === item2.uid)
-    }));
+  const resultArray = array1.map((item) => ({
+    ...item,
+    isMatch: array2.some(
+      (item2) => item2.uid === item.gud.uid
+    )
+  }));
 
-    return resultArray;
-  };
+  return resultArray;
+};
 
   useEffect(() => {
     //props.following=[{id:uy7,uid:7894}]

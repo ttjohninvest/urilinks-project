@@ -34,7 +34,7 @@ const FollowButton = (props) => {
       //add the id2 to Followers Array in id record
       console.log("before call to startAddFollower="+id+", "+id2)
       if(isFollowed === false) { //so can not press multiple times, protects db from duplicates being stored
-      startAddFollower(id2,{uid:id,email:theemail})
+      startAddFollower(id2,id,{uid:id,email:theemail})
       //startAddFollower(id2)
       console.log("after call to startAddFollower="+id+", "+id2)
       setIsFollowed(true);

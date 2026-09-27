@@ -618,15 +618,15 @@ const isInOkArray = (uid) => {
 };
 
 export const startSetFollowing = (uid) => {
-  console.log("startSetFollowing");
+  console.log("startSetFollowing, uid="+uid);
   return (dispatch, getState) => {
-    const hashtags = [];
+    
 
     return database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
-        const links2 = [];
+        const following = [];
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
@@ -637,20 +637,18 @@ export const startSetFollowing = (uid) => {
           console.log(
             "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           );
-         
-          
-         
-          links2.push({
+           
+          following.push({
             id: childSnapshot.key,
             ...childSnapshot.val()
           });
         });
         console.log("1234567, startSetFollowers, about to call dispatch(setFollowers(links)),links2="+JSON.stringify(links2))
-        dispatch(setFollowing(links2)); //links2[0].showpublic
+        dispatch(setFollowing(following)); //links2[0].showpublic
 
        
       })
-      .catch((error) => console.log("error=" + error));
+      .catch((error) => console.log("startSetFollowing, error=" + error));
   };
 };
 

@@ -19,9 +19,9 @@ const FollowButton = (props) => {
     const id2 = params.get("id2");
      const z10 = params.get("z10");
      const z12 = params.get("z12");
-     const z13 = params.get("z13");
-     //if(z13==="following") setIsFollowed(true)
-     console.log("FollowButton, z13="+z13)
+     const isFollowing = params.get("isFollowing");
+    
+     console.log("FollowButton, isFollowing="+isFollowing)
 
 
      const theemail = decrypt(z10, "125434") 
@@ -61,7 +61,7 @@ const FollowButton = (props) => {
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}
       {/* {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`} */}
     {/* {`${isFollowed?"Followed":(props.readonly)?"Follow":"Follow" }`} */}
-    {`${isFollowed || z13==="following"?"Followed":"Follow" }`}
+    {`${isFollowed || isFollowing==="following"?"Followed":"Follow" }`}
     </button>
     </div>
   );

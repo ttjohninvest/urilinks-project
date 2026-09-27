@@ -115,7 +115,7 @@ export const SeeOthersPage = (props) => {
         email +
         "&z12=" +
         z12 +
-        "&z13=" +
+        "&isFollowing=" +
         isMatch,
       "_blank",
     );

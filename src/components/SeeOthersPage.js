@@ -96,7 +96,7 @@ export const SeeOthersPage = (props) => {
   const otherPage = (id, dn, purl, email) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl=" + purl);
-    alert("props.gud="+JSON.stringify(props.gud))
+    alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
     //const z12 = encrypt(props.gud.gud.email,"125434")
     const z12 = props.gud.gud.email
 

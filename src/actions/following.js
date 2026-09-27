@@ -184,15 +184,15 @@ export const startAddFollower=(uid,id,followingData={},followingData2={}) =>{
 database.ref('users/'+uid+'/following/'+id).set(followingData).then((ref)=>{
  console.log("Data saved successfully.");
 
- database.ref('users/'+id+'/following/'+uid).set(followingData2).then((ref)=>{
+ database.ref('users/'+id+'/follower/'+uid).set(followingData2).then((ref)=>{
  console.log("Data saved successfully.");
  
-}).catch(()=>{
- console.log("Data not saved successfully.");
+}).catch((error)=>{
+ console.log("Data not saved successfully1,error="+error);
 })
  
-}).catch(()=>{
- console.log("Data not saved successfully.");
+}).catch((error)=>{
+ console.log("Data not saved successfully2,error="+error);
 })
 
 

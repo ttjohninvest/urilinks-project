@@ -31,16 +31,16 @@ const FollowButton = (props) => {
 
   const handleFollow = () => {
     try {
-      alert(props.gud.gud.email)
-      // console.log("before call to startAddFollower="+id+", "+id2)
-      // if(isFollowed === false) { //so can not press multiple times, protects db from duplicates being stored
+      //alert(props.gud.gud.email)
+      console.log("before call to startAddFollower="+id+", "+id2)
+      if(isFollowed === false) { //so can not press multiple times, protects db from duplicates being stored
      
-      // startAddFollower(id2,id,{email:theemail},{email:props.gud.gud.email})
+      startAddFollower(id2,id,{email:theemail},{email:"a@a.com"})
      
-      // console.log("after call to startAddFollower="+id+", "+id2)
-      // setIsFollowed(true);
-      // //setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
-      //}
+      console.log("after call to startAddFollower="+id+", "+id2)
+      setIsFollowed(true);
+      //setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
+      }
     } catch (err) {
       console.error('Failed to Follow:', err);
     }

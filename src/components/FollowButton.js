@@ -21,7 +21,7 @@ const FollowButton = (props) => {
       //alert(id+", "+id2)
       //add the id2 to Followers Array in id record
       console.log("before call to startAddFollower="+id+", "+id2)
-      startAddFollower(id,{uid:id2})
+      startAddFollower(id2,{uid:id})
       console.log("after call to startAddFollower="+id+", "+id2)
       setIsFollowed(true);
       setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
@@ -33,7 +33,7 @@ const FollowButton = (props) => {
   return (
     <div className="margin-left-11- margin-top-1">
     <button 
-    className={`ib pointereventsnone height48 button-2w ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+    className={`ib pointereventsnone- height48 button-2w ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     onClick={handleFollow}>
       {/* {isCopied ? 'URL Copied' : 'Copy Sharable URL to Your Page.'} */}
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}

@@ -292,7 +292,7 @@ const resultArray = array1.map(item => ({
                       item.gud.email
                     }
                   >
-                    {item.isMatch +
+                    {item.isMatch===true?"following":"not following" +
                       ", " +
                       item.gud.displayname +
                       ", " +

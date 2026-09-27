@@ -131,6 +131,7 @@ export const SeeOthersPage = (props) => {
     //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
     //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
     const email = encrypt(array3[3], "125434");
+    console.log("SeeOthersPage, array3[4]="+array3[4])
     const theemail2 = encrypt(array3[4], "125434");
 
     if (array3[0]) {

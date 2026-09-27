@@ -162,43 +162,59 @@ export const emailSharableLink = (linkData = {}) => {
   };
 };
 
-export const startAddFollower = async (followingData = {}) => {
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    // const {
-      
-    //   following = 0,
-      
-    // } = followingData;
-    // const link = {
-      
-    //   following,
-      
-    // };
 
-    //////
-    //return false;
+function startAddFollower(l) {
+  database.ref('users').set({
+    username: "john",
+    email: "em"
+  }, function(error) {
+    if (error) {
+      // The write failed...
+      console.log("Data could not be saved." + error);
+    } else {
+      // Data saved successfully!
+      console.log("Data saved successfully.");
+    }
+  });
+}   
 
-    //console.log("startAddLink, link=" + JSON.stringify(link));
-    //if(link !== null && link !== undefined && link !== "")
-    return database
-      .ref(`users/${uid}/following`)
-      .push(followingData)
-      .then((ref) => {
-        dispatch(
-          addFollower({
-            id: ref.key,
-            ...followingData,
-          }),
-        );
-        return true;
-      })
-      .catch((error) => {
-        console.log("error adding link data in firebase, error=" + error);
-        return false;
-      });
-  };
-};
+// export const startAddFollower = async (followingData = {}) => {
+//   return (dispatch, getState) => {
+//     const uid = getState().auth.uid;
+//     // const {
+      
+//     //   following = 0,
+      
+//     // } = followingData;
+//     // const link = {
+      
+//     //   following,
+      
+//     // };
+
+//     //////
+//     //return false;
+
+//     //console.log("startAddLink, link=" + JSON.stringify(link));
+//     //if(link !== null && link !== undefined && link !== "")
+//     return database
+//       .ref(`users/${uid}/following`)
+//       .push(followingData)
+//       .then((ref) => {
+//         dispatch(
+//           addFollower({
+//             id: ref.key,
+//             ...followingData,
+//           }),
+//         );
+//         return true;
+//       })
+//       .catch((error) => {
+//         console.log("error adding link data in firebase, error=" + error);
+//         return false;
+//       });
+//   };
+// };
 
 // REMOVE_LINK
 export const removeLink = ({ id } = {}) => ({

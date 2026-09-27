@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
-import { startAddFollower, startAddFollower2 } from "../actions/followers";
+import { startAddFollower } from "../actions/following";
 
 const FollowButton = (props) => {
   const [isFollowed, setIsFollowed] = useState(false);

@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import linksReducer from '../reducers/links';
-import followersReducer from '../reducers/followers';
+import followingReducer from '../reducers/following';
 import usersReducer from '../reducers/users';
 import links2Reducer from '../reducers/links2';
 import links3Reducer from '../reducers/links3';
@@ -53,7 +53,7 @@ export default () => {
   const store = createStore(
     combineReducers({
       links: linksReducer,
-      followers: followersReducer,
+      following: followingReducer,
       users: usersReducer,
       linksall: linksReducerAll,
       filters: filtersReducer,

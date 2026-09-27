@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 
+import { startSetFollowing } from "../actions/following";
+
 import setSignup from "./actions/signup";
 /////////////////start
 //put these in express server because it needs fs
@@ -177,10 +179,20 @@ if (signup !== "signup") {
                                              store
                                           .dispatch(startSetUsers())
                                           .then(() => {
-                                             return store
+                                             store
                                           .dispatch(getTheothersisopen2(id2))
                                           .then(() => {
+                                                return store
+                                          .dispatch(startSetFollowing(id2))
+                                          .then(() => {
                                             renderApp(store, signup);
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
                                           })
                                           .catch((error) => {
                                             console.log(
@@ -300,10 +312,20 @@ if (signup !== "signup") {
                                               store
                                             .dispatch(startSetUsers(user.uid))
                                             .then(() => {
-                                              return store
+                                              store
                                             .dispatch(getTheothersisopen(user.uid))
                                             .then(() => {
-                                              renderApp(store, signup);
+                                                return store
+                                          .dispatch(startSetFollowing(user.uid))
+                                          .then(() => {
+                                            renderApp(store, signup);
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
                                             })
                                             .catch((error) => {
                                               console.log(

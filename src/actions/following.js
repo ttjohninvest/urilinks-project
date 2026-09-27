@@ -497,9 +497,14 @@ if(id !== null && id !== undefined && id !== "")
 };
 
 
-export const addFollowers = (followers) => ({
-  type: "ADD_FOLLOWER",
-  followers,
+export const setFollowing = (following) => ({
+  type: "SET_FOLLOWING",
+  following,
+});
+
+export const addFollowing = (following) => ({
+  type: "ADD_FOLLOWING",
+  following,
 });
 
 
@@ -612,13 +617,13 @@ const isInOkArray = (uid) => {
   return val;
 };
 
-export const startSetFollowers = (uid) => {
-  console.log("startSetFollowers");
+export const startSetFollowing = (uid) => {
+  console.log("startSetFollowing");
   return (dispatch, getState) => {
     const hashtags = [];
 
     return database
-      .ref(`users/${uid}/followers`)
+      .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
         const links2 = [];
@@ -641,7 +646,7 @@ export const startSetFollowers = (uid) => {
           });
         });
         console.log("1234567, startSetFollowers, about to call dispatch(setFollowers(links)),links2="+JSON.stringify(links2))
-        dispatch(setFollowers(links2)); //links2[0].showpublic
+        dispatch(setFollowing(links2)); //links2[0].showpublic
 
        
       })

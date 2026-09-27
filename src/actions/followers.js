@@ -170,15 +170,26 @@ export const startAddFollower=(uid,followingData={}) =>{
 //     username: "john",
 //     email: "em"
 //   }, function(error) {
-database.ref('users/'+uid+'/following').set(followingData, function(error) {
-    if (error) {
-      // The write failed...
-      console.log("Data could not be saved." + error);
-    } else {
-      // Data saved successfully!
-      console.log("Data saved successfully.");
-    }
-  });
+//database.ref('users/'+uid+'/following').set(followingData, function(error) {
+// database.ref('users/'+uid+'/following').set(followingData, function(error) {
+//     if (error) {
+//       // The write failed...
+//       console.log("Data could not be saved." + error);
+//     } else {
+//       // Data saved successfully!
+//       console.log("Data saved successfully.");
+//     }
+//   });
+
+database.ref('users/'+uid+'/following').push(followingData).then(()=>{
+ console.log("Data saved successfully.");
+}).catch(()=>{
+ console.log("Data not saved successfully.");
+})
+
+
+
+
 }   
 
 // export const startAddFollower = async (followingData = {}) => {

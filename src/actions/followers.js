@@ -167,22 +167,14 @@ export const startAddFollower=(uid,followingData={}) =>{
     
     console.log("startAddFoller, uid="+uid)
 
-return (dispatch, getState) => {
+
 database.ref('users/'+uid+'/following').push(followingData).then((ref)=>{
  console.log("Data saved successfully.");
-  dispatch(
-          addFollower({
-            id: ref.key,
-            ...followingData,
-          }),
-        );
-        return true;
-
 }).catch(()=>{
  console.log("Data not saved successfully.");
 })
 
-}
+
 
 
 }   

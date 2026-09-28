@@ -271,9 +271,9 @@ class EmailForm extends React.Component {
 
               <input
                 style={{ outline: "none", backgroundColor: "#fbbf77" }}
-                readonly="readonly"
+                readonly={`${this.props.isreadonly===false}?"":"readonly"`}
                 type="text"
-                placeholder="public link to our page"
+                placeholder="public link to my page"
                 autoFocus
                 className="text-input"
                 value={this.state.description}

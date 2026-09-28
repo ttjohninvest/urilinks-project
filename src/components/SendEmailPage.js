@@ -168,6 +168,7 @@ export const SendEmailPage = (props) => {
         </div>
         <div className="content-container">
           <EmailForm
+            isreadonly={props.isreadonly}
             onSubmit={onSubmit}
             makereadonly={false}
             isFormOpen={props.isFormOpen}

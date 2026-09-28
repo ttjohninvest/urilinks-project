@@ -1378,6 +1378,7 @@ function ExpandableArray(props) {
                         //emailForm &&
                         isFormOpen && (
                           <SendEmailPage
+                            isreadonly={true}
                             sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
                             uid={uid}
                             isFormOpen={isFormOpen}
@@ -1585,6 +1586,7 @@ function ExpandableArray(props) {
                         //emailForm &&
                         isFormOpen && (
                           <SendEmailPage
+                            isreadonly={true}
                             sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
                             uid={uid}
                             isFormOpen={isFormOpen}

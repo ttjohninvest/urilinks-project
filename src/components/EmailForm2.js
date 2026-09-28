@@ -262,7 +262,8 @@ class EmailForm2 extends React.Component {
                 
                 autoFocus
                 className="text-input"
-                value={this.state.email}
+                //value={this.state.email}
+                value={this.props.recipientemail}
                 onChange={this.onEmailChange}
                 title="email to send to"
                 maxLength={StorageSizes.email} //"1024" //2048

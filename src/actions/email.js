@@ -2,6 +2,32 @@
 import database from "../firebase/firebase";
 import { removeAllData } from "./links";
 
+
+export const getFollowerEmail = (uid,id) => {
+  console.log("actions/getFollowerEmail")
+  console.log("follower uid="+uid)
+        console.log("follower id="+id)
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+  console.log("actions/getEmail, uid="+uid)
+  let s
+   return database
+      .ref(`users/${uid}/follower/${id}`)
+      .once("value")
+      .then((snapshot) => {
+        
+       let email
+        console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
+        email = snapshot.val()
+        
+        console.log("follower email="+JSON.stringify(email))
+
+        //SendEmail()
+       
+      })
+    }
+};
+
 export const getEmail = () => {
   console.log("actions/getEmail")
   return (dispatch, getState) => {

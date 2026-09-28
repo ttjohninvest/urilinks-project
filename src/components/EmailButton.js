@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
-//import { startAddFollower } from "../actions/following";
+import { getFollowerEmail } from "../actions/email";
 
 
 function decrypt(text, key) {
@@ -36,6 +36,7 @@ const EmailButton = (props) => {
 
   const handleEmail = () => {
     try {
+        getFollowerEmail(undefined,id)
     //   //alert(props.gud.gud.email)
     //   console.log("before call to startAddFollower="+id+", "+id2)
     //   if(isFollowed === false) { //so can not press multiple times, protects db from duplicates being stored

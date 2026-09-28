@@ -36,7 +36,7 @@ const EmailButton = (props) => {
 
   const handleEmail = () => {
     try {
-        getFollowerEmail(undefined,id)
+        getFollowerEmail(id2,id)
     //   //alert(props.gud.gud.email)
     //   console.log("before call to startAddFollower="+id+", "+id2)
     //   if(isFollowed === false) { //so can not press multiple times, protects db from duplicates being stored

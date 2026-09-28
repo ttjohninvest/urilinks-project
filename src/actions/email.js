@@ -8,7 +8,7 @@ export const getFollowerEmail = (uid,id) => {
   console.log("follower uid="+uid)
         console.log("follower id="+id)
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
+    //const uid = getState().auth.uid;
   console.log("actions/getEmail, uid="+uid)
   let s
    return database

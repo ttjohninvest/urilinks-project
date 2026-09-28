@@ -58,6 +58,7 @@ export const SendEmailPage = (props) => {
   };
 
   useEffect(() => {
+    console.log("SendEmailPage, isFormOpen="+props.isFormOpen)
     console.log("getPlanMax()=" + getPlanMax());
     const fetchData = async () => {
       try {

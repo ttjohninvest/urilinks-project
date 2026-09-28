@@ -1933,7 +1933,7 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                       </select>
-                      {z10 !== null && <div><FollowButton /><EmailButton /></div>}
+                      {z10 !== null && <div className="flexrowz"><FollowButton /><EmailButton /></div>}
                     </div>
 
                     {/* {isForm3Open && (

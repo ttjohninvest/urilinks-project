@@ -6,8 +6,8 @@ import { removeAllData } from "./links";
 export const getFollowerEmail = (uid,id) => {
   console.log("actions/getFollowerEmail")
   console.log("user uid="+uid)
-        console.log("follower of uid id="+id)
-  return (dispatch, getState) => {
+        console.log("follower of user uid id="+id)
+  
     //const uid = getState().auth.uid;
    console.log("about to call the datbase to get follower email address")
    return database
@@ -28,7 +28,7 @@ export const getFollowerEmail = (uid,id) => {
       }).catch((e)=>{
         console.log("database read error, e ="+JSON.stringify(e))
       })
-    }
+    
 };
 
 export const getEmail = () => {

@@ -1541,6 +1541,13 @@ function ExpandableArray(props) {
                                   //uid={props.uid}
                                   //setSortBy={setSortBy}
                                 />
+                                 <FollowerButton
+                                        email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
+                                        uid={props.uid}
+                                        elementRef20={elementRef20}
+                                        changeSortBy={changeSortBy}
+                                        //setSortBy={setSortBy}
+                                      />
 
                                  {Constants.CATS === true && <button
                                   onClick={handlerCats}

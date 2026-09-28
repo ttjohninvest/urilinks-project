@@ -3,6 +3,20 @@ import { connect } from "react-redux";
 import { Route, Redirect, withRouter } from "react-router-dom";
 import Header from "../components/Header";
 
+const params = new URLSearchParams(window.location.search);
+const x10 = params.get("x10");
+//let x13 = params.get("x13");
+
+ function decrypt(text, key) {
+    if(text === null) return null
+    return String.fromCharCode(...text.match(/.{1,2}/g)
+        .map((e, i) => 
+            parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
+    );
+}
+
+const recipientemail = decrypt(z10, "125434") 
+
 export const PrivateRoute = ({
   signup,
   isAuthenticated,
@@ -31,7 +45,7 @@ export const PrivateRoute = ({
             //abc={abc} 
             // abcref={abcref} 
             stopScrolling2={stopScrolling2} scrollInterval2={scrollInterval2} />
-            <Component {...props} isFormOpen={true} isreadonly={false}
+            <Component {...props} isFormOpen={true} isreadonly={false} recipientemail={recipientemail}
             //abc={abc} 
             //abcref={abcref}  
             stopScrolling2={stopScrolling2} scrollInterval2={scrollInterval2} />

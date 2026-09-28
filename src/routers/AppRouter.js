@@ -3,6 +3,7 @@ import { Router, Route, Switch, Link, NavLink } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 import CatFetcher from "./../components/CatFetcher";
 import DogFetcher from "./../components/DogFetcher";
+import SendEmailPage from "../components/SendEmailPage";
 import LinkDashboardPage from "../components/LinkDashboardPage";
 import LinkSettingsPage from "../components/LinkSettingsPage";
 import LinkHashtagsPage from "../components/LinkHashtagsPage";
@@ -34,6 +35,7 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import FetchBookmarks from "../components/FetchBookmarks";
 import AddLinkPageFileDate from "../components/AddLinkPageFileDate";
+import SendEmailPage from "../components/SendEmailPage";
 
 
 export const history = createHistory();
@@ -131,6 +133,12 @@ const AppRouter = (props) => (
         signup={props.signup} 
         x1="usage"
         component={DogFetcher} />
+
+        <PrivateRoute 
+        path="/openemailform" 
+        signup={props.signup} 
+        x1="usage"
+        component={SendEmailPage} />
 
          <PrivateRoute 
         path="/shortcuts" 

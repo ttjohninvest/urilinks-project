@@ -40,7 +40,8 @@ const EmailButton = (props) => {
   const handleEmail = () => {
     try {
         //getFollowerEmail(id2,id)
-        setSend(true)
+        //setSend(true)
+        window.open("/openemailform","_blank")
     
     } catch (err) {
       console.error('Failed to Email:', err);
@@ -57,12 +58,16 @@ const EmailButton = (props) => {
       {/* {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`} */}
     {/* {`${isFollowed?"Followed":(props.readonly)?"Follow":"Follow" }`} */}
     {`${isEmailed ?"Emailed":"Email" }`}
-    </button>: <SendEmailPage
-                                sharablelink=""
-                                uid={id2}
-                                isFormOpen={false} //{isFormOpen}
-                                handleClose={()=>{}} //{handleClose}
-    />}
+    </button>: <div></div>
+    
+    // <SendEmailPage
+    //                             sharablelink=""
+    //                             uid={id2}
+    //                             isFormOpen={false} //{isFormOpen}
+    //                             handleClose={()=>{}} //{handleClose}
+    // />
+    
+    }
     </div>
   );
 };

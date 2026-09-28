@@ -14,6 +14,7 @@ import CopyButton2 from "./CopyButton2";
 import HashTagsButton from "./HashTagsButton";
 import OthersButton from "./OthersButton";
 import FollowButton from "./FollowButton"
+import EmailButton from "./EmailButton"
 //import AddLinkPage from "./AddlinkPage";
 import AddALinkButton from "./AddALinkButton";
 import SeeHashTagsPage from "./SeeHashTagsPage.js";
@@ -1932,7 +1933,7 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                       </select>
-                      {z10 !== null && <FollowButton />}
+                      {z10 !== null && <div><FollowButton /><EmailButton /></div>}
                     </div>
 
                     {/* {isForm3Open && (

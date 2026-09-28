@@ -1,7 +1,12 @@
 .content-container {
   margin: 0 auto;
   padding: 0 $m-size;
-  max-width: 100rem;
+  min-width: 100%;
+}
+.content-container-9x {
+  margin: 0 auto;
+  padding: 0 0;
+  min-width: 100%;
 }
 
 .content-container-addlink {

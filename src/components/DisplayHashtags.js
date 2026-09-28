@@ -185,6 +185,7 @@ function ExpandableArray(props) {
           document.getElementById("ls").clientHeight >=
         document.getElementById("ls").scrollHeight
       ) {
+         if(!!buttonRef===true && !!buttonRef.current === true)
         buttonRef.current.click();
       }
     }, 20); // Every 20 milliseconds
@@ -208,6 +209,7 @@ function ExpandableArray(props) {
 
       // Stop automatically when reaching the top
       if (document.getElementById("ls").scrollTop === 0) {
+         if(!!buttonRef===true && !!buttonRef.current === true)
         buttonRef.current.click();
 
         //stopScrolling();

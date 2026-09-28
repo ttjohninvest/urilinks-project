@@ -151,6 +151,7 @@ export const SeeFollowerPage = (props) => {
   };
 
   const startScrollingUp4 = () => {
+     if(!!buttonRef4===true && !!buttonRef4.current === true)
     buttonRef4.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
@@ -169,8 +170,9 @@ export const SeeFollowerPage = (props) => {
           (document.getElementById("ls3").scrollHeight - 2 ||
             document.getElementById("ls3").scrollHeight + 2)
         ) {
+             if(!!buttonRef4===true && !!buttonRef4.current === true)
           buttonRef4.current.click();
-          if (!!scrolldownref8 === true) scrolldownref8.current.click();
+          if (!!scrolldownref8 === true && !!scrolldownref8.current===true) scrolldownref8.current.click();
         }
     }, 40); // Every 20 milliseconds
   };
@@ -181,6 +183,7 @@ export const SeeFollowerPage = (props) => {
   };
 
   const startScrollingDown4 = () => {
+     if(!!buttonRef4===true && !!buttonRef4.current === true)
     buttonRef4.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
@@ -198,8 +201,9 @@ export const SeeFollowerPage = (props) => {
           document.getElementById("ls3").scrollTop === 0 ||
           document.getElementById("ls3").scrollTop <= 2
         ) {
+             if(!!buttonRef4===true && !!buttonRef4.current === true)
           buttonRef4.current.click();
-          if (!!scrollupref8 === true) scrollupref8.current.click();
+          if (!!scrollupref8 === true && !!scrollupref8.current===true) scrollupref8.current.click();
 
           //stopScrolling();
         }

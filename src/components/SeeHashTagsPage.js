@@ -142,6 +142,7 @@ export const SeeHashTagsPage = (props) => {
   };
 
   const startScrollingUp4 = () => {
+     if(!!buttonRef4===true && !!buttonRef4.current === true)
     buttonRef4.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
@@ -159,8 +160,9 @@ export const SeeHashTagsPage = (props) => {
           document.getElementById("ls3").clientHeight >=
         (document.getElementById("ls3").scrollHeight-2 ||  document.getElementById("ls3").scrollHeight+2)
       ) {
+         if(!!buttonRef4===true && !!buttonRef4.current === true)
         buttonRef4.current.click();
-         if(!!scrolldownref8===true)
+         if(!!scrolldownref8===true && !!scrolldownref8.current===true)
         scrolldownref8.current.click()
       }
     }, 40); // Every 20 milliseconds
@@ -172,6 +174,7 @@ export const SeeHashTagsPage = (props) => {
   };
 
   const startScrollingDown4 = () => {
+     if(!!buttonRef4===true && !!buttonRef4.current === true)
     buttonRef4.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
@@ -186,8 +189,9 @@ export const SeeHashTagsPage = (props) => {
       // Stop automatically when reaching the top
       if(!!document.getElementById("ls3")===true)
        if (document.getElementById("ls3").scrollTop === 0 || document.getElementById("ls3").scrollTop <= 2) {
+         if(!!buttonRef4===true && !!buttonRef4.current === true)
         buttonRef4.current.click();
-         if(!!scrollupref8===true)
+         if(!!scrollupref8===true && !!scrollupref8.current===true)
         scrollupref8.current.click()
 
         //stopScrolling();

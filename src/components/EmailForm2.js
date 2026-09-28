@@ -283,8 +283,8 @@ class EmailForm2 extends React.Component {
                 style={{ outline: "none", backgroundColor: this.props.isreadonly===true?"#fbbf77":"white" }}
                
                 type="text"
-                placeholder="public link to my page"
-                autoFocus
+                placeholder="for body of email"
+                
                 className="text-input"
                 value={this.state.description}
                 onChange={this.onDescriptionChange}

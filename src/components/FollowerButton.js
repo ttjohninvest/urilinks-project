@@ -64,7 +64,7 @@ const FollowerButton = (props) => {
         className={`margin-left-11 height48 button-2w- button-2 ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
         onClick={handleDisplay}
       >
-        {isDisplayed ? "Displayed" : "Following"}
+        {isDisplayed ? "Displayed" : "Followers"}
       </button>
       {isDisplayed === true && (
         <div>
@@ -72,7 +72,7 @@ const FollowerButton = (props) => {
             email={props.email}
             uid={props.uid}
             elementRef2 = {props.elementRef2}
-            changeSortBy={()=>props.changeSortBy("others",1)}
+            changeSortBy={()=>props.changeSortBy("follower",1)}
             handleClose3={() => handleClose()}
           />
         </div>

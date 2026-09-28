@@ -798,7 +798,7 @@ function ExpandableArray(props) {
 
   const startScrollingUp2 = () => {
     try {
-      if (!!buttonRef2 === true) buttonRef2.current.click();
+      if (!!buttonRef2 === true && !!buttonRef2.current === true) buttonRef2.current.click();
     } catch (error) {
       console.log("error=" + error);
     }
@@ -828,7 +828,7 @@ function ExpandableArray(props) {
             document.getElementById("ls2").scrollHeight + 2)
         ) {
           try {
-            if (!!buttonRef2 === true) buttonRef2.current.click();
+            if (!!buttonRef2 === true && !!buttonRef2.current===true) buttonRef2.current.click();
           } catch (error) {
             console.log("error=" + error);
           }

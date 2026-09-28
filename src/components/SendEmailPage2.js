@@ -150,7 +150,7 @@ export const SendEmailPage2 = (props) => {
     const uri = encodeURIComponent(body);
     //const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&to=${toemail}&body=${body}${uri}&tf=cm`
     
-    if(false) {
+    if(true) {
     const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&from=${fromemail}&to=${toemail}&body=${uri}&tf=cm`;
     } else {
        alert("This user is not receiving emails")

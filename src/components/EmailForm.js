@@ -20,17 +20,22 @@ class EmailForm extends React.Component {
       calendarFocused: false,
       error: "",
       hashTags: [],
+      isreadonly:false
     };
   }
 
   componentDidMount() {
     console.log("EmailForm, this.props.isreadonly="+this.props.isreadonly)
+    if(this.props.isreadonly===false)
+      this.setState(() => ({ isreadonly:false }))
+    else this.setState(() => ({ isreadonly:true }))
   }
 
   onShowpublicChange = (e) => {
     const showpublic = e.target.checked;
     console.log("onShowpublicChange, showpublic=" + showpublic);
     this.setState(() => ({ showpublic }));
+    
   };
 
   onDescriptionChange = (e) => {
@@ -276,7 +281,8 @@ class EmailForm extends React.Component {
               <input
                 //style={{ outline: "none", backgroundColor: "#fbbf77" }}
                 style={{ outline: "none", backgroundColor: this.props.isreadonly===true?"#fbbf77":"white" }}
-                readonly={`${this.props.isreadonly===false?"false":"true"}`} //{false} 
+                //readonly={`${this.props.isreadonly===false?"false":"true"}`} //{false} 
+                readonly={this.state.isreadonly}
                 type="text"
                 placeholder="public link to my page"
                 autoFocus

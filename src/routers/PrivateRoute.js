@@ -44,7 +44,7 @@ export const PrivateRoute = ({
         isAuthenticated ? (
           <div>
             <Header signup={signup} 
-            //abc={abc} 
+            ////abc={abc} 
             // abcref={abcref} 
             stopScrolling2={stopScrolling2} scrollInterval2={scrollInterval2} />
             <Component {...props} isFormOpen={true} isreadonly={false} 

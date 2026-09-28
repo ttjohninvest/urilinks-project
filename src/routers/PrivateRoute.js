@@ -3,19 +3,20 @@ import { connect } from "react-redux";
 import { Route, Redirect, withRouter } from "react-router-dom";
 import Header from "../components/Header";
 
-const params = new URLSearchParams(window.location.search);
-const z10 = params.get("z10");
-//let z12 = params.get("z12");
+// const params = new URLSearchParams(window.location.search);
+// const z10 = params.get("z10"); //recipent email
+// //let z12 = params.get("z12"); //sender email
 
- function decrypt(text, key) {
-    if(text === null) return null
-    return String.fromCharCode(...text.match(/.{1,2}/g)
-        .map((e, i) => 
-            parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
-    );
-}
+//  function decrypt(text, key) {
+//     if(text === null) return null
+//     return String.fromCharCode(...text.match(/.{1,2}/g)
+//         .map((e, i) => 
+//             parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
+//     );
+// }
 
-const recipientemail = decrypt(z10, "125434") 
+// const recipientemail = decrypt(z10, "125434") 
+const recipientemail = "johmcg64@gmail.com"
 
 export const PrivateRoute = ({
   signup,

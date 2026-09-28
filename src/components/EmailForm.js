@@ -23,6 +23,10 @@ class EmailForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    console.log("EmailForm, this.props.isreadonly="+this.props.isreadonly)
+  }
+
   onShowpublicChange = (e) => {
     const showpublic = e.target.checked;
     console.log("onShowpublicChange, showpublic=" + showpublic);

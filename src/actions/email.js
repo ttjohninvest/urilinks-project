@@ -5,12 +5,11 @@ import { removeAllData } from "./links";
 
 export const getFollowerEmail = (uid,id) => {
   console.log("actions/getFollowerEmail")
-  console.log("follower uid="+uid)
-        console.log("follower id="+id)
+  console.log("user uid="+uid)
+        console.log("follower of uid id="+id)
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
-  console.log("actions/getEmail, uid="+uid)
-  let s
+ 
    return database
       .ref(`users/${uid}/follower/${id}`)
       .once("value")
@@ -19,8 +18,10 @@ export const getFollowerEmail = (uid,id) => {
        let email
         console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
         email = snapshot.val()
+
+        console.log("2 follower email="+JSON.stringify(snapshot.val()))
         
-        console.log("follower email="+JSON.stringify(email))
+        console.log("2 follower email="+JSON.stringify(email))
 
         //SendEmail()
        

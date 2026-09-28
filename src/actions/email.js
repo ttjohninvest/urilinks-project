@@ -17,11 +17,10 @@ export const getFollowerEmail = (uid,id) => {
         
        let email
         console.log("action/getSettings from db, snapshot.val()="+JSON.stringify(snapshot.val()))
-        email = snapshot.val()
+        email = snapshot.val().email
 
-        console.log("2 follower email="+JSON.stringify(snapshot.val()))
         
-        console.log("2 follower email="+JSON.stringify(email))
+        console.log("2 follower email="+email) //this is the email to mail to
 
         //SendEmail()
        

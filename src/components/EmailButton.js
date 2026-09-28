@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { getFollowerEmail } from "../actions/email";
+import SendEmailPage from './SendEmailPage';
+import SendEmailPage from './SendEmailPage';
 
 
 function decrypt(text, key) {
@@ -13,6 +15,7 @@ function decrypt(text, key) {
 
 const EmailButton = (props) => {
   const [isEmailed, setIsEmailed] = useState(false);
+  const [send, setSend] = useState(false)
   //const textToCopy = "text being copied to the clipboard";
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
@@ -36,18 +39,9 @@ const EmailButton = (props) => {
 
   const handleEmail = () => {
     try {
-        getFollowerEmail(id2,id)
-    //   //alert(props.gud.gud.email)
-    //   console.log("before call to startAddFollower="+id+", "+id2)
-    //   if(isFollowed === false) { //so can not press multiple times, protects db from duplicates being stored
-     
-    //   //startAddFollower(id2,id,{email:theemail},{email:z12}) //id is the one being followed
-    //   startAddFollower(id2,id,{email:theemail},{email:theemail2}) //id is the one being followed
-     
-    //   console.log("after call to startAddFollower="+id+", "+id2)
-    //   setIsFollowed(true);
-    //   //setTimeout(() => setIsFollowed(false), 2000); // Reset after 2 seconds
-    //   }
+        //getFollowerEmail(id2,id)
+        setSend(true)
+    
     } catch (err) {
       console.error('Failed to Email:', err);
     }
@@ -55,7 +49,7 @@ const EmailButton = (props) => {
 
   return (
     <div className="margin-left-11 margin-top-1">
-    <button 
+    {send === false ? <button 
     className={`ib pointereventsnone- height48 button-2w ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     onClick={handleEmail}>
       {/* {isCopied ? 'URL Copied' : 'Copy Sharable URL to Your Page.'} */}
@@ -63,7 +57,12 @@ const EmailButton = (props) => {
       {/* {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`} */}
     {/* {`${isFollowed?"Followed":(props.readonly)?"Follow":"Follow" }`} */}
     {`${isEmailed ?"Emailed":"Email" }`}
-    </button>
+    </button>: <SendEmailPage
+                                sharablelink=""
+                                uid={id2}
+                                isFormOpen={false} //{isFormOpen}
+                                handleClose={()=>{}} //{handleClose}
+    />}
     </div>
   );
 };

@@ -256,7 +256,7 @@ class EmailForm2 extends React.Component {
               )}
 
               <input
-                style={{ outline: "none" }}
+                style={{ outline: "none", backgroundColor: "#fbbf77" }}
                 type="text"
                 placeholder="enter your recipient's email address"
                 readonly="readonly"

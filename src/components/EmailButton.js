@@ -12,7 +12,7 @@ function decrypt(text, key) {
 }
 
 const EmailButton = (props) => {
-  const [isFollowed, setIsFollowed] = useState(false);
+  const [isEmailed, setIsEmailed] = useState(false);
   //const textToCopy = "text being copied to the clipboard";
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");

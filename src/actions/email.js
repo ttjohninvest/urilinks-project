@@ -25,6 +25,8 @@ export const getFollowerEmail = (uid,id) => {
 
         //SendEmail()
        
+      }).catch((e)=>{
+        console.log("database read error, e ="+JSON.stringify(e))
       })
     }
 };

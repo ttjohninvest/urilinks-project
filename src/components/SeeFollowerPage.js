@@ -39,8 +39,8 @@ export const SeeFollowerPage = (props) => {
 
   const a = (item2, item) => {
     if(array2.some((item2) => item2.uid === item.gud.uid))
-      return "follower"
-    else return "not follower"
+      return "Is a follower"
+    else return "Is not a follower"
   }
 
   //props.users, props.following

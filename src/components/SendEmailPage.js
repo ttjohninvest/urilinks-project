@@ -171,7 +171,7 @@ export const SendEmailPage = (props) => {
             makereadonly={false}
             isFormOpen={props.isFormOpen}
             handleClose={props.handleClose}
-            sharablelink={props.sharablelink}
+            sharablelink="" //{props.sharablelink}
           />
         </div>
       </div>

@@ -12,7 +12,7 @@ class EmailForm extends React.Component {
       email: "",
       subject: "",
       showpublic: props.link ? props.link.showpublic : 0,
-      description: props.sharablelink ? props.sharablelink : "", //props.link ? props.link.description : "",
+      description: !!props.sharablelink ? props.sharablelink : "", //props.link ? props.link.description : "",
       Url: props.link ? props.link.Url : "",
       note: props.link ? props.link.note : "",
       amount: 0, //props.link ? (props.link.amount / 100).toString() : "",

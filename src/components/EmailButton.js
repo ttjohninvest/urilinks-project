@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { getFollowerEmail } from "../actions/email";
 import SendEmailPage from './SendEmailPage';
-import SendEmailPage from './SendEmailPage';
+
 
 
 function decrypt(text, key) {

@@ -41,6 +41,11 @@ export default (state = filtersReducerDefaultState, action) => {
           ...state,
           sortBy: 'others'
         };
+        case 'SORT_BY_FOLLOWER':
+        return {
+          ...state,
+          sortBy: 'follower'
+        };
       case 'SORT_BY_VIEWS':
         return {
           ...state,

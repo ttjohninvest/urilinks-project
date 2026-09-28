@@ -2,14 +2,14 @@ import React, { useState,useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import SeeOthersPage from "./SeeOthersPage";
+import SeeFollowerPage from "./SeeFollowerPage";
 
 import {
   incrementOthersIsOpenClickCount,
   decrementOthersIsOpenClickCount,
 } from "../actions/theothersisopen";
 
-const OthersButton = (props) => {
+const FollowerButton = (props) => {
   const [isDisplayed, setIsDisplayed] = useState(false);
   //const textToCopy = "text being copied to the clipboard";
 
@@ -68,7 +68,7 @@ const OthersButton = (props) => {
       </button>
       {isDisplayed === true && (
         <div>
-          <SeeOthersPage
+          <SeeFollowerPage
             email={props.email}
             uid={props.uid}
             elementRef2 = {props.elementRef2}
@@ -99,5 +99,5 @@ const mapDispatchToProps = (dispatch, props) => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(OthersButton),
+  connect(mapStateToProps, mapDispatchToProps)(FollowerButton),
 );

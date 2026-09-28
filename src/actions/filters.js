@@ -60,6 +60,10 @@ export const sortByOthers = () => ({
   type: 'SORT_BY_OTHERS'
 });
 
+export const sortByFollower = () => ({
+  type: 'SORT_BY_FOLLOWER'
+});
+
 export const sortByAmount = () => ({
   type: 'SORT_BY_AMOUNT'
 });

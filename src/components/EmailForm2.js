@@ -231,6 +231,7 @@ class EmailForm2 extends React.Component {
       this.setState(() => ({ error: "" }));
 
       this.props.onSubmit({
+        fromemail: this.props.senderemail,
         email: this.state.email,
         subject: this.state.subject,
         showpublic: this.state.showpublic,

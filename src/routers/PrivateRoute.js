@@ -5,7 +5,7 @@ import Header from "../components/Header";
 
 const params = new URLSearchParams(window.location.search);
 const z10 = params.get("z10"); //recipent email
-// //let z12 = params.get("z12"); //sender email
+const z12 = params.get("z12"); //sender email
 
  function decrypt(text, key) {
     if(text === null) return null
@@ -16,6 +16,7 @@ const z10 = params.get("z10"); //recipent email
 }
 
 const recipientemail = decrypt(z10, "125434") 
+const senderemail = decrypt(z12, "125434") 
 //const recipientemail = "johmcg64@gmail.com"
 
 export const PrivateRoute = ({
@@ -46,7 +47,7 @@ export const PrivateRoute = ({
             //abc={abc} 
             // abcref={abcref} 
             stopScrolling2={stopScrolling2} scrollInterval2={scrollInterval2} />
-            <Component {...props} isFormOpen={true} isreadonly={false} recipientemail={recipientemail}
+            <Component {...props} isFormOpen={true} isreadonly={false} senderemail={senderemail} recipientemail={recipientemail}
             //abc={abc} 
             //abcref={abcref}  
             stopScrolling2={stopScrolling2} scrollInterval2={scrollInterval2} />

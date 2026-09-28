@@ -31,7 +31,7 @@ export const PrivateRoute = ({
             //abc={abc} 
             // abcref={abcref} 
             stopScrolling2={stopScrolling2} scrollInterval2={scrollInterval2} />
-            <Component {...props} isFormOpen={false}
+            <Component {...props} isFormOpen={true}
             //abc={abc} 
             //abcref={abcref}  
             stopScrolling2={stopScrolling2} scrollInterval2={scrollInterval2} />

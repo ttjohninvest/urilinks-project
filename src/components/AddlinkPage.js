@@ -224,7 +224,7 @@ export const AddLinkPage = (props) => {
           exceeded)
         </div>
       ) : maximumPage === false ? (
-        <div className="position-absolute z-index99 opaque100">
+        <div className="position-absolute- z-index99 opaque100">
           <div className="page-header-2">
             <div className="content-container">
               <h2 className="page-header__title">

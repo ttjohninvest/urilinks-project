@@ -4,7 +4,7 @@ import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 import StorageSizes from "./StorageSizes"
 
-class EmailForm extends React.Component {
+class EmailForm2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -281,8 +281,6 @@ class EmailForm extends React.Component {
               <input
                 //style={{ outline: "none", backgroundColor: "#fbbf77" }}
                 style={{ outline: "none", backgroundColor: this.props.isreadonly===true?"#fbbf77":"white" }}
-                
-                readonly="readonly"
                
                 type="text"
                 placeholder="public link to my page"
@@ -350,4 +348,4 @@ const mapStateToProps = (state) => ({
   theplan: state.theplan,
 });
 
-export default connect(mapStateToProps, undefined)(EmailForm);
+export default connect(mapStateToProps, undefined)(EmailForm2);

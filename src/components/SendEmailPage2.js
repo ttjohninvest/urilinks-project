@@ -7,7 +7,7 @@ import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
 import { connect } from "react-redux";
 import EmailSharableLinkForm from "./EmailSharableLinkForm";
-import EmailForm from "./EmailForm";
+import EmailForm2 from "./EmailForm2";
 import { startAddLink, emailSharableLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
 import TeirsPayment3 from "./TeirsPayment3";
@@ -167,7 +167,7 @@ export const SendEmailPage = (props) => {
           </div>
         </div>
         <div className="content-container">
-          <EmailForm
+          <EmailForm2
             isreadonly={props.isreadonly}
             onSubmit={onSubmit}
             makereadonly={false}

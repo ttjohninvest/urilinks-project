@@ -3,7 +3,7 @@ import { Router, Route, Switch, Link, NavLink } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 import CatFetcher from "./../components/CatFetcher";
 import DogFetcher from "./../components/DogFetcher";
-import SendEmailPage from "../components/SendEmailPage";
+import SendEmailPage2 from "../components/SendEmailPage2";
 import LinkDashboardPage from "../components/LinkDashboardPage";
 import LinkSettingsPage from "../components/LinkSettingsPage";
 import LinkHashtagsPage from "../components/LinkHashtagsPage";
@@ -138,7 +138,7 @@ const AppRouter = (props) => (
         path="/openemailform" 
         signup={props.signup} 
         x1="usage"
-        component={SendEmailPage} />
+        component={SendEmailPage2} />
 
          <PrivateRoute 
         path="/shortcuts" 

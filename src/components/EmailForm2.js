@@ -259,7 +259,7 @@ class EmailForm2 extends React.Component {
                 style={{ outline: "none" }}
                 type="text"
                 placeholder="enter your recipient's email address"
-                
+                readonly="readonly"
                 autoFocus
                 className="text-input"
                 //value={this.state.email}

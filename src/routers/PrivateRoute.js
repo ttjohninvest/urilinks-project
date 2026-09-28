@@ -4,8 +4,8 @@ import { Route, Redirect, withRouter } from "react-router-dom";
 import Header from "../components/Header";
 
 const params = new URLSearchParams(window.location.search);
-const x10 = params.get("x10");
-//let x13 = params.get("x13");
+const z10 = params.get("z10");
+//let z12 = params.get("z12");
 
  function decrypt(text, key) {
     if(text === null) return null

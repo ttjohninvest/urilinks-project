@@ -226,6 +226,7 @@ function ExpandableArray(props) {
   // };
 
   const startScrollingUp = () => {
+     if(!!buttonRef===true && !!buttonRef.current === true)
     buttonRef.current.click();
     // Prevent multiple intervals
     if (scrollInterval.current) return;
@@ -245,7 +246,7 @@ function ExpandableArray(props) {
             document.getElementById("ls").scrollHeight + 2)
         ) {
           buttonRef.current.click();
-          if (!!scrolldownref7 === true) scrolldownref7.current.click();
+          if (!!scrolldownref7 === true && !!scrolldownref7.current===true) scrolldownref7.current.click();
         }
     }, 20); // Every 20 milliseconds
   };
@@ -256,6 +257,7 @@ function ExpandableArray(props) {
   };
 
   const startScrollingDown = () => {
+    if(!!buttonRef===true && !!buttonRef.current === true)
     buttonRef.current.click();
     // Prevent multiple intervals
     if (scrollInterval.current) return;
@@ -273,6 +275,7 @@ function ExpandableArray(props) {
           document.getElementById("ls").scrollTop === 0 ||
           document.getElementById("ls").scrollTop <= 2
         ) {
+          if( !!buttonRef===true && !!buttonRef.current === true)
           buttonRef.current.click();
 
           //stopScrolling();
@@ -833,7 +836,7 @@ function ExpandableArray(props) {
             console.log("error=" + error);
           }
           try {
-            if (!!scrolldownref === true)
+            if (!!scrolldownref === true && !!scrolldownref.current === true)
               //auto scroll in the other direction
               scrolldownref.current.click();
           } catch (error) {
@@ -845,7 +848,8 @@ function ExpandableArray(props) {
 
   const startScrollToBottom2 = () => {
     try {
-      if (!!buttonRef2 === true) buttonRef2.current.click();
+      if(!!buttonRef2===true && !!buttonRef2.current === true) 
+        buttonRef2.current.click();
     } catch (error) {
       console.log("error=" + error);
     }
@@ -875,7 +879,8 @@ function ExpandableArray(props) {
             document.getElementById("ls2").scrollHeight + 2)
         ) {
           try {
-            if (!!buttonRef2 === true) buttonRef2.current.click();
+            if(!!buttonRef2===true && !!buttonRef2.current === true)  
+              buttonRef2.current.click();
           } catch (error) {
             console.log("error=" + error);
           }
@@ -898,7 +903,8 @@ function ExpandableArray(props) {
 
   const startScrollingDown2 = () => {
     try {
-      if (!!buttonRef2 === true) buttonRef2.current.click();
+      if(!!buttonRef2===true && !!buttonRef2.current === true)  
+        buttonRef2.current.click();
     } catch (error) {
       console.log("error=" + error);
     }
@@ -925,7 +931,8 @@ function ExpandableArray(props) {
           document.getElementById("ls2").scrollTop <= 2
         ) {
           try {
-            if (!!buttonRef2 === true) buttonRef2.current.click();
+           if(!!buttonRef2===true && !!buttonRef2.current === true) 
+              buttonRef2.current.click();
           } catch (error) {
             console.log("error=" + error);
           }
@@ -935,6 +942,7 @@ function ExpandableArray(props) {
               if (!!scrollupref === true)
                 //auto scroll in the other direction
                 //auto scroll in the other direction
+                 if(!!scrollupref===true && !!scrollupref.current === true)
                 scrollupref.current.click();
           } catch (error) {
             console.log("error=" + error);
@@ -947,7 +955,8 @@ function ExpandableArray(props) {
 
   const startScrollToTop2 = () => {
     try {
-      if (!!buttonRef2 === true) buttonRef2.current.click();
+       if(!!buttonRef2===true && !!buttonRef2.current === true)
+        buttonRef2.current.click();
     } catch (error) {
       console.log("error=" + error);
     }
@@ -974,7 +983,7 @@ function ExpandableArray(props) {
           document.getElementById("ls2").scrollTop <= 2
         ) {
           try {
-            if (!!buttonRef2 === true) buttonRef2.current.click();
+            if (!!buttonRef2 === true && !!buttonRef2.current === true) buttonRef2.current.click();
           } catch (error) {
             console.log("error=" + error);
           }

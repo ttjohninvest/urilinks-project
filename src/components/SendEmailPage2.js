@@ -13,7 +13,7 @@ import { withRouter } from "react-router-dom";
 import TeirsPayment3 from "./TeirsPayment3";
 import StorageSizes from "./StorageSizes";
 //uiuhff
-export const SendEmailPage = (props) => {
+export const SendEmailPage2 = (props) => {
   const [count, setCount] = useState(0);
   const [userId, setUserId] = useState("");
   const [maximumPage, setMaximumPage] = useState(false);
@@ -142,7 +142,7 @@ export const SendEmailPage = (props) => {
     const user = firebase.auth().currentUser;
     const uid = emaildata.uid;
     const fromemail = emaildata.fromemail;
-    const toemail = emaildata.email;
+    const toemail = props.recipientemail //emaildata.email;
     const subject = emaildata.subject;
     const body = emaildata.description;
     //alert(body)
@@ -195,5 +195,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(SendEmailPage),
+  connect(mapStateToProps, mapDispatchToProps)(SendEmailPage2),
 );

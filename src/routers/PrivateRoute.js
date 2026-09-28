@@ -19,6 +19,9 @@ const recipientemail = decrypt(z10, "125434")
 //const senderemail = decrypt(z12, "125434") 
 //const recipientemail = "johmcg64@gmail.com"
 
+console.log("PrivateRoute, z10="+z10)
+console.log("PrivateRoute, recipientemail="+recipientemail)
+
 export const PrivateRoute = ({
   signup,
   isAuthenticated,

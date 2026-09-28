@@ -17,10 +17,10 @@ const EmailButton = (props) => {
   const [isEmailed, setIsEmailed] = useState(false);
   const [send, setSend] = useState(false)
   //const textToCopy = "text being copied to the clipboard";
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    const id2 = params.get("id2");
-    const z10 = params.get("z10");
+    // const params = new URLSearchParams(window.location.search);
+    // const id = params.get("id");
+    // const id2 = params.get("id2");
+    // const z10 = params.get("z10");
     //  const z12 = params.get("z12");
      //const isEmailing = params.get("isEmailing");
     
@@ -41,7 +41,7 @@ const EmailButton = (props) => {
     try {
         //getFollowerEmail(id2,id)
         //setSend(true)
-        window.open("/openemailform?z10="+z10,"_blank")
+        window.open("/openemailform?z10="+props.z10,"_blank")
     
     } catch (err) {
       console.error('Failed to Email:', err);

@@ -11,7 +11,7 @@ export const getFollowerEmail = (uid,id) => {
     //const uid = getState().auth.uid;
    console.log("about to call the datbase to get follower email address")
    return database
-      .ref(`users/${uid}/follower/${id}`)
+      .ref(`users/${uid}/follower/D9LSg6elood8Yc5gd5oDMp3JNAQ2`) //${id}`)
       .once("value")
       .then((snapshot) => {
         

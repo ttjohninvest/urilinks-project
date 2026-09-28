@@ -35,7 +35,7 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import FetchBookmarks from "../components/FetchBookmarks";
 import AddLinkPageFileDate from "../components/AddLinkPageFileDate";
-import SendEmailPage from "../components/SendEmailPage";
+
 
 
 export const history = createHistory();

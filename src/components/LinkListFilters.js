@@ -13,6 +13,7 @@ import Constants from "./Constants"
 import CopyButton2 from "./CopyButton2";
 import HashTagsButton from "./HashTagsButton";
 import OthersButton from "./OthersButton";
+import FollowerButton from "./FollowerButton";
 import FollowButton from "./FollowButton"
 import EmailButton from "./EmailButton"
 //import AddLinkPage from "./AddlinkPage";
@@ -1373,7 +1374,7 @@ function ExpandableArray(props) {
                       {readonly === false && (
                         <div>
                           <OthersButton
-                            email={firebase.auth().currentUser.email}
+                            email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
                             uid={props.uid}
                             elementRef20={elementRef20}
                             changeSortBy={changeSortBy}
@@ -1455,7 +1456,14 @@ function ExpandableArray(props) {
                                   {readonly === false && (
                                     <div>
                                       <OthersButton
-                                        email={firebase.auth().currentUser.email}
+                                        email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
+                                        uid={props.uid}
+                                        elementRef20={elementRef20}
+                                        changeSortBy={changeSortBy}
+                                        //setSortBy={setSortBy}
+                                      />
+                                       <FollowerButton
+                                        email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
                                         uid={props.uid}
                                         elementRef20={elementRef20}
                                         changeSortBy={changeSortBy}

@@ -293,6 +293,28 @@ export const archiveLink2 = (id, updates) => ({
   updates,
 });
 
+export const startDeleteFollowing = (id2, id) => {
+  //const uid = getState().auth.uid;
+  if (id !== null && id !== undefined && id !== "")
+    database
+      .ref(`users/${id2}/following/${id}`)
+      .remove()
+      .then(() => {
+        return database
+          .ref(`users/${id}/follower/${id2}`)
+          .remove()
+          .then(() => {
+            //dispatch(removeLink({ id }));
+          })
+          .catch((error) => {
+            console.log("error removing following data in firebase, error=" + error);
+          });
+      })
+      .catch((error) => {
+        console.log("error removing link data in firebase, error=" + error);
+      });
+};
+
 export const startRemoveLink = ({ id } = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;

@@ -15,6 +15,7 @@ import HashTagsButton from "./HashTagsButton";
 import OthersButton from "./OthersButton";
 import FollowerButton from "./FollowerButton";
 import FollowButton from "./FollowButton"
+import UnFollowButton from "./UnFollowButton"
 import EmailButton from "./EmailButton"
 //import AddLinkPage from "./AddlinkPage";
 import AddALinkButton from "./AddALinkButton";
@@ -139,6 +140,9 @@ function ExpandableArray(props) {
   const z10 = params.get("z10");
   const isFollower = params.get("isFollower");
   console.log("ExpanableArray, isFollower = "+ isFollower)
+  const isFollowing = params.get("isFollowing");
+  console.log("ExpanableArray, isFollowing = "+ isFollowing)
+
 
   const handleStartScroll = (v) => {
     if (childRef.current) {
@@ -1964,7 +1968,8 @@ function ExpandableArray(props) {
                       {
                         z10 !== null && <div className="flexrowz">
                         
-                        {!!isFollower !== true && <FollowButton />}
+                        {!!isFollower !== true &&  <FollowButton />}
+                        {!!isFollowing === true && isFollowing !== "is following" ? <FollowButton />:<UnFollowButton />}
                         
                         {!!isFollower === true && isFollower === "is a follower of" && <EmailButton z10={z10} />}
                         

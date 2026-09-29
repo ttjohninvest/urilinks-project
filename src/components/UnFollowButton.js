@@ -53,7 +53,10 @@ const UnFollowButton = (props) => {
       
       //startAddFollower(id2,id,{email:theemail},{email:theemail2}) //id is the one being followed
       startDeleteFollowing(id2,id).then((val)=>{
-        alert(val)
+        //alert(val)
+        setIsUnFollowing(true)
+      }).catch((error)=>{
+
       })
      
       console.log("after call to startDeleteFollowing="+id+", "+id2)
@@ -75,7 +78,7 @@ const UnFollowButton = (props) => {
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}
       {/* {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`} */}
     {/* {`${isFollowed?"Followed":(props.readonly)?"Follow":"Follow" }`} */}
-    {`${isUnFollowed || isUnFollowing==="following"?"UnFollowed":"UnFollow" }`}
+    {`${!!isUnFollowed || isUnFollowing===true?"UnFollowed":"UnFollow" }`}
     </button>
     </div>
   );

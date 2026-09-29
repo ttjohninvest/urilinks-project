@@ -109,6 +109,7 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
     //console.log("1, props.abcref=" + JSON.stringify(props.abcref));
 
     console.log("Header.js, follower ids="+JSON.stringify(props.follower))
+    console.log("Header.js, following ids="+JSON.stringify(props.following))
     
     const handleWindowClose = (event) => {
 

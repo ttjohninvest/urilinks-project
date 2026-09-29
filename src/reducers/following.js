@@ -23,6 +23,7 @@ export default (state = followingReducerDefaultState, action) => {
       });
     case "SET_FOLLOWING":
       return action.following;
+      
      case "SET_NEW_FOLLOWING_LINKS":
       return action.newfollowinglinks;
     

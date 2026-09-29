@@ -748,7 +748,8 @@ export const startSetFollowingNewLinks = (uid) => {
   
   return (dispatch, getState) => {
     //const newlinks3 = [];
-     const Promises = []
+    const newlinks = [];
+    const Promises = []
     return database
       .ref(`users/${uid}/following`)
       .once("value")
@@ -794,11 +795,11 @@ export const startSetFollowingNewLinks = (uid) => {
             .catch((error) =>
               console.log("startSetFollowingNewLinks, error=" + error),
             ));
-          console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))
+          //console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))
           newlinks4=newlinks3
         }) //forEach
 
-          console.log("4 startSetFollowingNewLinks, newlinks3="+JSON.stringify(newlinks3))
+          console.log("4 startSetFollowingNewLinks, newlinks4="+JSON.stringify(newlinks4))
           Promise.all(Promises).then(()=>{
              dispatch(setNewFollowingLinks(newlinks4));
           })

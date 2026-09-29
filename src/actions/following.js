@@ -744,14 +744,16 @@ export const startSetFollowingNewLinks = (uid) => {
 
         newlinks.forEach((childSnapshot2) => {
            console.log("newlinks,childSnapshot2.uid=" + JSON.stringify(childSnapshot2.uid));
+           console.log("newlinks,childSnapshot2.email=" + JSON.stringify(childSnapshot2.email));
           return database
       .ref(`users/${childSnapshot2.uid}/newlinks`)
       .once("value")
       .then((childSnapshot3) => {
         const newlinks3 = []
 
-          console.log("newlinks3,childSnapshot3.key=" + JSON.stringify(childSnapshot3.key));
+          // console.log("newlinks3,childSnapshot3.key=" + JSON.stringify(childSnapshot3.key));
           console.log("newlinks3,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
+          // console.log("newlinks3,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
 
         //dispatch(setNewLinks(newlinks2)); //links2[0].showpublic
       }).catch((error) => console.log("startSetFollowingNewLinks, error=" + error));

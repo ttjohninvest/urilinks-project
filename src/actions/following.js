@@ -751,9 +751,9 @@ export const startSetFollowingNewLinks = (uid) => {
       .then((childSnapshot3) => {
         const newlinks3 = []
 
-          // console.log("newlinks3,childSnapshot3.key=" + JSON.stringify(childSnapshot3.key));
+          console.log("newlinks3,childSnapshot3.key=" + JSON.stringify(childSnapshot3.key));
           console.log("newlinks3,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
-          // console.log("newlinks3,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
+          console.log("newlinks3,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
 
         //dispatch(setNewLinks(newlinks2)); //links2[0].showpublic
       }).catch((error) => console.log("startSetFollowingNewLinks, error=" + error));

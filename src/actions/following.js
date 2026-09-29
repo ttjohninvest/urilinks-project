@@ -747,12 +747,13 @@ export const startSetFollowingNewLinks = (uid) => {
   console.log("startSetFollowingNewLinks, uid=" + uid);
   
   return (dispatch, getState) => {
+    const newlinks3 = [];
     return database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
         const newlinks = [];
-        const newlinks3 = [];
+        
         console.log("newlinks,snapshot=" + JSON.stringify(snapshot));
 
         snapshot.forEach((childSnapshot) => {
@@ -784,6 +785,7 @@ export const startSetFollowingNewLinks = (uid) => {
                 uid: childSnapshot2.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
                 newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
               });
+
               console.log("1 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
               dispatch(setNewFollowingLinks(newlinks3));
             })
@@ -791,7 +793,9 @@ export const startSetFollowingNewLinks = (uid) => {
               console.log("startSetFollowingNewLinks, error=" + error),
             );
         });
-         console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+          console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+               dispatch(setNewFollowingLinks(newlinks3));
+        // console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
       // dispatch(setNewFollowingLinks(newlinks3));
       })
       .catch((error) =>

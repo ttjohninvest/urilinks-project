@@ -1969,7 +1969,7 @@ function ExpandableArray(props) {
                         z10 !== null && <div className="flexrowz">
                         
                          {/* {!!isFollower !== true &&  <FollowButton />} */}
-                        {!!isFollowing === true && isFollowing !== "is following" ? <FollowButton />:<UnFollowButton />}
+                        {!!isFollowing === true && isFollowing !== "is following" ? <FollowButton />:!!isFollower !== true?"":<UnFollowButton />}
                        
                         {!!isFollower === true && isFollower === "is a follower of" && <EmailButton z10={z10} />}
                         

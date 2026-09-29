@@ -217,6 +217,11 @@ export const startAddLink = (linkData = {}) => {
       .ref(`users/${uid}/links`)
       .push(link)
       .then((ref) => {
+
+       return database
+      .ref(`users/${uid}/newlinks`)
+      .set({newlinks:"yes"})
+      .then((ref) => {
         dispatch(
           addLink({
             id: ref.key,
@@ -224,6 +229,16 @@ export const startAddLink = (linkData = {}) => {
           }),
         );
         return true;
+      })
+      
+      .catch((error) => {
+        console.log("error adding link data in firebase, error=" + error);
+        return false;
+      });
+
+
+
+      
       })
       .catch((error) => {
         console.log("error adding link data in firebase, error=" + error);

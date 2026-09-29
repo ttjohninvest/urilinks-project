@@ -299,9 +299,14 @@ export const SeeFollowerPage = (props) => {
                   >
                     {item.isMatch+
                       ", " +
+                      props.email +
+                      ", " +
                       item.gud.displayname +
                       ", " +
-                      item.gud.theatname}
+                      item.gud.theatname
+                      
+                      
+                      }
                   </li>
                 );
               } else {

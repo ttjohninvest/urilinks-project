@@ -297,7 +297,9 @@ export const SeeOthersPage = (props) => {
                       item.isMatch 
                     }
                   >
-                    {item.isMatch+
+                    {item.isMatch + 
+                    ", " +
+                    props.email +
                       ", " +
                       item.gud.displayname +
                       ", " +

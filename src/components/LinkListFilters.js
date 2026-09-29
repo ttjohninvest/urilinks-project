@@ -1966,7 +1966,9 @@ function ExpandableArray(props) {
                         
                         {!!isFollower !== true && <FollowButton />}
                         
-                        <EmailButton z10={z10} /></div>
+                        {!!isFollower === true && isFollower === "is a follower of" && <EmailButton z10={z10} />}
+                        
+                        </div>
                       }
                     </div>
 

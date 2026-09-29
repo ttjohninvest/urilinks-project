@@ -108,11 +108,11 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
     //props.abc(1);
     //console.log("1, props.abcref=" + JSON.stringify(props.abcref));
 
-
+    console.log("Header.js, follower ids="+JSON.stringify(props.follower))
     
     const handleWindowClose = (event) => {
 
-      console.log("Header.js, following ids="+JSON.stringify(props.following))
+      
 
 
       // Use sendBeacon for reliable background data transmission
@@ -1246,6 +1246,7 @@ const mapStateToProps = (state) => ({
   thetotalloggedout: state.thetotalloggedout,
   theloggedin:state.theloggedin,
   following:state.following,
+  follower:state.follower,
 });
 
 const mapDispatchToProps = (dispatch) => ({

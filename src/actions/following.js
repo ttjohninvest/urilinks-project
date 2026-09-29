@@ -750,7 +750,8 @@ export const startSetFollowingNewLinks = (uid) => {
     //const newlinks3 = [];
     const newlinks = [];
     const Promises = []
-    Promises.push(database
+    //Promises.push(
+      database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
@@ -768,7 +769,7 @@ export const startSetFollowingNewLinks = (uid) => {
         })
       .catch((error) =>
         console.log("startSetFollowingNewLinks, error=" + error),
-      ))
+      )
 
         console.log("newlinks=" + JSON.stringify(newlinks));
 
@@ -776,7 +777,7 @@ export const startSetFollowingNewLinks = (uid) => {
         const newlinks3 = []
         newlinks.forEach((rec) => {
          
-          Promises.push(database
+          database
             .ref(`users/${rec.uid}/newlinks`)
             .once("value")
             .then((childSnapshot3) => {
@@ -791,15 +792,15 @@ export const startSetFollowingNewLinks = (uid) => {
             })
             .catch((error) =>
               console.log("startSetFollowingNewLinks, error=" + error),
-            ));
+            );
           console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3)) //newlinks3 is [] when it gets to here
           //newlinks4=newlinks3
         }) //forEach
 
           console.log("4 startSetFollowingNewLinks, newlinks3="+JSON.stringify(newlinks3))
-          Promise.all(Promises).then(()=>{
+          //Promise.all(Promises).then(()=>{
              dispatch(setNewFollowingLinks(newlinks3));
-          })
+          //})
       
 
     

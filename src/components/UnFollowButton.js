@@ -56,7 +56,7 @@ const UnFollowButton = (props) => {
         //alert(val)
         setIsUnFollowing(true)
       }).catch((error)=>{
-
+        console.log("Unfollowing failed error, error="+error)
       })
      
       console.log("after call to startDeleteFollowing="+id+", "+id2)

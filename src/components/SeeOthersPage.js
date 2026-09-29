@@ -47,7 +47,7 @@ export const SeeOthersPage = (props) => {
   const annotatearray = (array1, array2) => {
   const resultArray = array1.map((item) => ({
     ...item,
-    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"Is following ":"Is not following "
+    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"is following ":"is not following "
   }));
 
   return resultArray;
@@ -281,7 +281,7 @@ export const SeeOthersPage = (props) => {
             {uniqueData.map((item, index) => {
               if (props.auth.uid !== item.gud.uid) { //no need to display the logged in user's page
                 return (
-                  <li className={`${item.isMatch==="Is following "?'bg-color-1 color-white-1':''}`}
+                  <li className={`${item.isMatch==="is following "?'bg-color-1 color-white-1':''}`}
                     key={index}
                     data-item-id={
                       item.gud.uid +
@@ -297,7 +297,10 @@ export const SeeOthersPage = (props) => {
                       item.isMatch 
                     }
                   >
-                    {item.isMatch + 
+                    {
+                    props.email + 
+                    " " +
+                    item.isMatch + 
                     " " +
                     item.gud.email +
                       ", " +

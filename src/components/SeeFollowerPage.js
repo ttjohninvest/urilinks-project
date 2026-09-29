@@ -39,15 +39,15 @@ export const SeeFollowerPage = (props) => {
 
   const a = (item2, item) => {
     if(array2.some((item2) => item2.uid === item.gud.uid))
-      return "Is a follower"
-    else return "Is not a follower"
+      return "is a follower of "
+    else return "is not a follower of "
   }
 
   //props.users, props.following
   const annotatearray = (array1, array2) => {
   const resultArray = array1.map((item) => ({
     ...item,
-    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"Is a follower of ":"Is not a follower of "
+    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"is a follower of ":"is not a follower of "
   }));
 
   return resultArray;
@@ -281,7 +281,7 @@ export const SeeFollowerPage = (props) => {
             {uniqueData.map((item, index) => {
               if (props.auth.uid !== item.gud.uid) { //no need to display the logged in user's page
                 return (
-                  <li className={`${item.isMatch==="Is a follower of "?'bg-color-1 color-white-1':''}`}
+                  <li className={`${item.isMatch==="is a follower of "?'bg-color-1 color-white-1':''}`}
                     key={index}
                     data-item-id={
                       item.gud.uid +
@@ -297,7 +297,10 @@ export const SeeFollowerPage = (props) => {
                       item.isMatch 
                     }
                   >
-                    {item.isMatch+
+                    {
+                    props.email+
+                      " " +
+                    item.isMatch+
                       " " +
                       item.gud.email +
                       ", " +

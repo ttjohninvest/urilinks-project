@@ -664,12 +664,12 @@ export const startSetFollowing = (uid) => {
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          console.log("tt,childSnapshot=" + JSON.stringify(childSnapshot));
+          console.log("startSetFollowing,childSnapshot=" + JSON.stringify(childSnapshot));
           console.log(
-            "tt,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+            "startSetFollowing,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
           );
           console.log(
-            "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+            "startSetFollowing,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           );
 
           following.push({
@@ -700,10 +700,10 @@ export const startSetFollower = (uid) => {
         snapshot.forEach((childSnapshot) => {
           console.log("tt,childSnapshot=" + JSON.stringify(childSnapshot));
           console.log(
-            "tt,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+            "startSetFollower,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
           );
           console.log(
-            "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+            "startSetFollower,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           );
 
           follower.push({

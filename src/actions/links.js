@@ -230,7 +230,7 @@ export const startAddLink = (linkData = {}) => {
         );
         return true;
       })
-      
+
       .catch((error) => {
         console.log("error adding link data in firebase, error=" + error);
         return false;
@@ -654,12 +654,12 @@ export const startSetLinks = (uid) => {
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          console.log("tt,childSnapshot=" + JSON.stringify(childSnapshot));
+          console.log("startSetLinks,childSnapshot=" + JSON.stringify(childSnapshot));
           console.log(
-            "tt,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+            "startSetLinks,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
           );
           console.log(
-            "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+            "startSetLinks,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           );
           let aval = childSnapshot.val()
           if(aval.frequency === undefined || aval.frequency === null)
@@ -861,12 +861,12 @@ export const startSetLinksNew = (uid) => {
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          console.log("tt,childSnapshot=" + JSON.stringify(childSnapshot));
+          console.log("startSetLinksNew,childSnapshot=" + JSON.stringify(childSnapshot));
           console.log(
-            "tt,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+            "startSetLinksNew,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
           );
           console.log(
-            "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+            "startSetLinksNew,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           );
           let aval = childSnapshot.val()
           if(aval.frequency === undefined || aval.frequency === null)

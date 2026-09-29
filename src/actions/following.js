@@ -766,12 +766,7 @@ export const startSetFollowingNewLinks = (uid) => {
           });
         });
 
-        })
-      .catch((error) =>
-        console.log("startSetFollowingNewLinks, error=" + error),
-      )
-
-        console.log("newlinks=" + JSON.stringify(newlinks));
+         console.log("newlinks=" + JSON.stringify(newlinks));
 
        
         const newlinks3 = []
@@ -801,6 +796,15 @@ export const startSetFollowingNewLinks = (uid) => {
           //Promise.all(Promises).then(()=>{
              dispatch(setNewFollowingLinks(newlinks3));
           //})
+
+        })
+      .catch((error) =>
+        console.log("startSetFollowingNewLinks, error=" + error),
+      )
+
+       
+
+        
       
 
     

@@ -748,7 +748,8 @@ export const startSetFollowingNewLinks = (uid) => {
   
   return (dispatch, getState) => {
     let newlinks3 = [];
-    return database
+     const Promises = []
+    Promises.push(database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
@@ -765,7 +766,7 @@ export const startSetFollowingNewLinks = (uid) => {
 
         console.log("newlinks=" + JSON.stringify(newlinks));
 
-        const Promises = []
+       
 
         newlinks.forEach((childSnapshot2) => {
           console.log(
@@ -800,7 +801,23 @@ export const startSetFollowingNewLinks = (uid) => {
 
 
         });
-          Promise.all(Promises).then(()=>{
+      //     Promise.all(Promises).then(()=>{
+      //        dispatch(setNewFollowingLinks(newlinks3));
+      //     })
+
+      //     //console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+      //          //dispatch(setNewFollowingLinks(newlinks3));
+      //   // console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+      // // dispatch(setNewFollowingLinks(newlinks3));
+      // console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+      
+
+      })
+      .catch((error) =>
+        console.log("startSetFollowingNewLinks, error=" + error),
+      ))
+
+       Promise.all(Promises).then(()=>{
              dispatch(setNewFollowingLinks(newlinks3));
           })
 
@@ -809,12 +826,6 @@ export const startSetFollowingNewLinks = (uid) => {
         // console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
       // dispatch(setNewFollowingLinks(newlinks3));
       console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
-      
-
-      })
-      .catch((error) =>
-        console.log("startSetFollowingNewLinks, error=" + error),
-      );
       
   };
 };

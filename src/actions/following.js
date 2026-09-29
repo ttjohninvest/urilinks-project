@@ -748,38 +748,17 @@ export const startSetFollowingNewLinks = (uid) => {
       .ref(`users/${childSnapshot2.uid}/newlinks`)
       .once("value")
       .then((childSnapshot3) => {
-        const newlinks2 = [];
+        const newlinks3 = []
 
-       
-          console.log("newlinks2,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
+          console.log("newlinks3,childSnapshot3.key=" + JSON.stringify(childSnapshot3.key));
+          console.log("newlinks3,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
 
-          // console.log(
-          //   "newlinks,snapshot2.key=" + JSON.stringify(snapshot2.key),
-          // );
-          // console.log(
-          //   "newlinks,childSnapshot.val()=" + JSON.stringify(snapshot2.val()),
-          // );
+        //dispatch(setNewLinks(newlinks2)); //links2[0].showpublic
+      }).catch((error) => console.log("startSetFollowingNewLinks, error=" + error));
+    });
 
-          // newlinks.push({
-          //   uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
-          //   ...childSnapshot.val(),
-          // });
-        
-        // console.log(
-        //   "1234567, startSetFollowing, about to call dispatch(setFollowers(following)),following=" +
-        //     JSON.stringify(newlinks),
-        // );
         // dispatch(setNewLinks(newlinks)); //links2[0].showpublic
-      })
-      .catch((error) => console.log("startSetFollowingNewLinks, error=" + error));
-        });
-        // console.log(
-        //   "1234567, startSetFollowing, about to call dispatch(setFollowers(following)),following=" +
-        //     JSON.stringify(newlinks),
-        // );
-        // dispatch(setNewLinks(newlinks)); //links2[0].showpublic
-      })
-      .catch((error) => console.log("startSetFollowingNewLinks, error=" + error));
+      }).catch((error) => console.log("startSetFollowingNewLinks, error=" + error));
   };
 };
 

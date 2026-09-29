@@ -747,9 +747,9 @@ export const startSetFollowingNewLinks = (uid) => {
   console.log("startSetFollowingNewLinks, uid=" + uid);
   
   return (dispatch, getState) => {
-    let newlinks3 = [];
+    const newlinks3 = [];
      const Promises = []
-    Promises.push(database
+    return database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
@@ -777,6 +777,7 @@ export const startSetFollowingNewLinks = (uid) => {
               JSON.stringify(childSnapshot2.email),
           );
 
+          //const Promises = []
           Promises.push(database
             .ref(`users/${childSnapshot2.uid}/newlinks`)
             .once("value")
@@ -800,10 +801,10 @@ export const startSetFollowingNewLinks = (uid) => {
             ));
 
 
-        });
-      //     Promise.all(Promises).then(()=>{
-      //        dispatch(setNewFollowingLinks(newlinks3));
-      //     })
+        })
+          Promise.all(Promises).then(()=>{
+             dispatch(setNewFollowingLinks(newlinks3));
+          })
 
       //     //console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
       //          //dispatch(setNewFollowingLinks(newlinks3));
@@ -815,11 +816,9 @@ export const startSetFollowingNewLinks = (uid) => {
       })
       .catch((error) =>
         console.log("startSetFollowingNewLinks, error=" + error),
-      ))
+      )
 
-       Promise.all(Promises).then(()=>{
-             dispatch(setNewFollowingLinks(newlinks3));
-          })
+       
 
           //console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
                //dispatch(setNewFollowingLinks(newlinks3));

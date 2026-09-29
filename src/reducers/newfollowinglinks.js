@@ -5,7 +5,9 @@ const newfollowinglinksReducerDefaultState = [];
 export default (state = newfollowinglinksReducerDefaultState, action) => {
   switch (action.type) {
 
-   
+    case "SET_NEW_FOLLOWING_LINKS":
+      return action.newfollowinglinks;
+    
     case "ADD_NEW_FOLLOWING_LINKS":
       return [...state, action.newfollowinglinks];
     case "REMOVE_NEW_FOLLOWING_LINKS":
@@ -22,9 +24,7 @@ export default (state = newfollowinglinksReducerDefaultState, action) => {
         }
       });
       
-     case "SET_NEW_FOLLOWING_LINKS":
-      return action.newfollowinglinks;
-    
+   
     default:
       return state;
   }

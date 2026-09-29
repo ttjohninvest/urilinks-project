@@ -791,18 +791,18 @@ export const startSetFollowingNewLinks = (uid) => {
               });
               //return true
               console.log("2 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))
-              dispatch(setNewFollowingLinks(newlinks3));
+              
             })
             .catch((error) =>
               console.log("startSetFollowingNewLinks, error=" + error),
             ));
-          //console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))
+          console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))
           //newlinks4=newlinks3
         }) //forEach
 
-          //console.log("4 startSetFollowingNewLinks, newlinks4="+JSON.stringify(newlinks4))
+          console.log("4 startSetFollowingNewLinks, newlinks3="+JSON.stringify(newlinks3))
           Promise.all(Promises).then(()=>{
-             dispatch(setNewFollowingLinks(newlinks4));
+             dispatch(setNewFollowingLinks(newlinks3));
           })
       
 

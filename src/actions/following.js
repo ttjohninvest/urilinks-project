@@ -765,6 +765,8 @@ export const startSetFollowingNewLinks = (uid) => {
 
         console.log("newlinks=" + JSON.stringify(newlinks));
 
+        const Promises = []
+
         newlinks.forEach((childSnapshot2) => {
           console.log(
             "newlinks,childSnapshot2.uid=" + JSON.stringify(childSnapshot2.uid),
@@ -774,29 +776,41 @@ export const startSetFollowingNewLinks = (uid) => {
               JSON.stringify(childSnapshot2.email),
           );
 
-          return database
+          Promises.push(database
             .ref(`users/${childSnapshot2.uid}/newlinks`)
             .once("value")
             .then((childSnapshot3) => {
 
               console.log("0 startSetFollowingNewLinks,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
+    
+              
+
 
               newlinks3.push({ //all of these uids are following the logged in user
                 uid: childSnapshot2.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
                 newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
               });
 
-              console.log("1 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
-              dispatch(setNewFollowingLinks(newlinks3));
+              // console.log("1 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+              // dispatch(setNewFollowingLinks(newlinks3));
             })
             .catch((error) =>
               console.log("startSetFollowingNewLinks, error=" + error),
-            );
+            ));
+
+
         });
+          Promise.all(Promises).then(()=>{
+             dispatch(setNewFollowingLinks(newlinks3));
+          })
+
           //console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
                //dispatch(setNewFollowingLinks(newlinks3));
         // console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
       // dispatch(setNewFollowingLinks(newlinks3));
+      console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+      
+
       })
       .catch((error) =>
         console.log("startSetFollowingNewLinks, error=" + error),

@@ -733,14 +733,15 @@ export const startSetFollowingNewLinks = (uid) => {
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
+           console.log("newlinks,childSnapshot.key=" + JSON.stringify(childSnapshot.key));
           return database
       .ref(`users/${childSnapshot.key}/newlinks`)
       .once("value")
-      .then((snapshot2) => {
+      .then((childSnapshot2) => {
         const newlinks = [];
 
        
-          console.log("newlinks,snapshot2.val()=" + JSON.stringify(snapshot2.val()));
+          console.log("newlinks,childSnapshot2.val()=" + JSON.stringify(childSnapshot2.val()));
 
           // console.log(
           //   "newlinks,snapshot2.key=" + JSON.stringify(snapshot2.key),

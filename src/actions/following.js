@@ -742,37 +742,37 @@ export const startSetFollowingNewLinks = (uid) => {
 
           console.log("newlinks=" + JSON.stringify(newlinks));
 
-      //   snapshot.forEach((childSnapshot) => {
-      //      console.log("newlinks,childSnapshot.key=" + JSON.stringify(childSnapshot.key));
-      //     return database
-      // .ref(`users/${childSnapshot.key}/newlinks`)
-      // .once("value")
-      // .then((childSnapshot2) => {
-      //   const newlinks = [];
+        newlinks.forEach((childSnapshot2) => {
+           console.log("newlinks,childSnapshot2.uid=" + JSON.stringify(childSnapshot.uid));
+          return database
+      .ref(`users/${childSnapshot2.uid}/newlinks`)
+      .once("value")
+      .then((childSnapshot3) => {
+        const newlinks2 = [];
 
        
-      //     console.log("newlinks,childSnapshot2.val()=" + JSON.stringify(childSnapshot2.val()));
+          console.log("newlinks2,childSnapshot2.val()=" + JSON.stringify(childSnapshot3.val()));
 
-      //     // console.log(
-      //     //   "newlinks,snapshot2.key=" + JSON.stringify(snapshot2.key),
-      //     // );
-      //     // console.log(
-      //     //   "newlinks,childSnapshot.val()=" + JSON.stringify(snapshot2.val()),
-      //     // );
+          // console.log(
+          //   "newlinks,snapshot2.key=" + JSON.stringify(snapshot2.key),
+          // );
+          // console.log(
+          //   "newlinks,childSnapshot.val()=" + JSON.stringify(snapshot2.val()),
+          // );
 
-      //     // newlinks.push({
-      //     //   uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
-      //     //   ...childSnapshot.val(),
-      //     // });
+          // newlinks.push({
+          //   uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+          //   ...childSnapshot.val(),
+          // });
         
-      //   // console.log(
-      //   //   "1234567, startSetFollowing, about to call dispatch(setFollowers(following)),following=" +
-      //   //     JSON.stringify(newlinks),
-      //   // );
-      //   // dispatch(setNewLinks(newlinks)); //links2[0].showpublic
-      // })
-      // .catch((error) => console.log("startSetFollowingNewLinks, error=" + error));
-      //   });
+        // console.log(
+        //   "1234567, startSetFollowing, about to call dispatch(setFollowers(following)),following=" +
+        //     JSON.stringify(newlinks),
+        // );
+        // dispatch(setNewLinks(newlinks)); //links2[0].showpublic
+      })
+      .catch((error) => console.log("startSetFollowingNewLinks, error=" + error));
+        });
         // console.log(
         //   "1234567, startSetFollowing, about to call dispatch(setFollowers(following)),following=" +
         //     JSON.stringify(newlinks),

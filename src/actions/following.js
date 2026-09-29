@@ -793,8 +793,8 @@ export const startSetFollowingNewLinks = (uid) => {
               console.log("startSetFollowingNewLinks, error=" + error),
             );
         });
-          console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
-               dispatch(setNewFollowingLinks(newlinks3));
+          //console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+               //dispatch(setNewFollowingLinks(newlinks3));
         // console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
       // dispatch(setNewFollowingLinks(newlinks3));
       })

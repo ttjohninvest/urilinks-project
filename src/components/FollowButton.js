@@ -24,8 +24,17 @@ const FollowButton = (props) => {
      console.log("FollowButton, isFollowing="+isFollowing)
 
 
-     const theemail = decrypt(z10, "125434") 
-     const theemail2 = decrypt(z12, "125434") 
+     let theemail
+     let theemail2 
+
+     if(!!z10 && !!z12) {
+       theemail = decrypt(z10, "125434") 
+       theemail2 = decrypt(z12, "125434") 
+     } else {
+       theemail = ""
+       theemail2 = ""
+     }
+     
 
 
     const isMobile = () => {
@@ -41,7 +50,7 @@ const FollowButton = (props) => {
       if(isFollowed === false) { //so can not press multiple times, protects db from duplicates being stored
      
       //startAddFollower(id2,id,{email:theemail},{email:z12}) //id is the one being followed
-      startAddFollower(id2,id,{email:theemail,receiveemailok:1},{email:theemail2,receiveemailok:1}) //id is the one being followed
+      startAddFollower(id2,id,{email:theemail},{email:theemail2}) //id is the one being followed
      
       console.log("after call to startAddFollower="+id+", "+id2)
       setIsFollowed(true);

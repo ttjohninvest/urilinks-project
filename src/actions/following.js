@@ -751,7 +751,7 @@ export const startSetFollowingNewLinks = (uid) => {
         const newlinks2 = [];
 
        
-          console.log("newlinks2,childSnapshot2.val()=" + JSON.stringify(childSnapshot3.val()));
+          console.log("newlinks2,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
 
           // console.log(
           //   "newlinks,snapshot2.key=" + JSON.stringify(snapshot2.key),

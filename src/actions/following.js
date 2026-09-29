@@ -777,28 +777,20 @@ export const startSetFollowingNewLinks = (uid) => {
             .ref(`users/${childSnapshot2.uid}/newlinks`)
             .once("value")
             .then((childSnapshot3) => {
-              console.log("newlinks3,childSnapshot2.uid=" + childSnapshot3.uid);
-              console.log(
-                "newlinks3,childSnapshot3.key=" +
-                  JSON.stringify(childSnapshot3.key),
-              );
-              console.log(
-                "newlinks3,childSnapshot3.val()=" +
-                  JSON.stringify(childSnapshot3.val()),
-              );
 
               newlinks3.push({ //all of these uids are following the logged in user
-                uid: childSnapshot3.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+                uid: childSnapshot2.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
                 ...childSnapshot3.val(), //this is {"newlinks":"yes"}
               });
               console.log("1 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+              dispatch(setNewFollowingLinks(newlinks3));
             })
             .catch((error) =>
               console.log("startSetFollowingNewLinks, error=" + error),
             );
         });
          console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
-      dispatch(setNewFollowingLinks(newlinks3));
+      // dispatch(setNewFollowingLinks(newlinks3));
       })
       .catch((error) =>
         console.log("startSetFollowingNewLinks, error=" + error),

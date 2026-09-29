@@ -45,12 +45,9 @@ const UnFollowButton = (props) => {
 
   const handleUnFollow = () => {
     try {
-      if(theemail==="" || theemail2 === "") {
-        alert("Please try again.")
-        return
-      }
+    
       //alert(props.gud.gud.email)
-      console.log("before call to startAddFollower="+id+", "+id2)
+      console.log("before call to startDeleteFollowing="+id+", "+id2)
       if(isUnFollowing === false) { //so can not press multiple times, protects db from duplicates being stored
      
       
@@ -70,7 +67,7 @@ const UnFollowButton = (props) => {
     <div className="margin-left-11- margin-top-1">
     <button 
     className={`ib pointereventsnone- height48 button-2w ${isMobile() === false ? "" : "width295 margin-top-1"}`}
-    title="Press to follow."
+    title="Press to unfollow."
     onClick={handleUnFollow}>
       {/* {isCopied ? 'URL Copied' : 'Copy Sharable URL to Your Page.'} */}
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}

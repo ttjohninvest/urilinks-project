@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 
-import { startSetFollowing, startSetFollower } from "./actions/following";
+import { startSetFollowing, startSetFollower, startSetFollowingNewLinks } from "./actions/following";
 
 import setSignup from "./actions/signup";
 /////////////////start
@@ -185,10 +185,20 @@ if (signup !== "signup") {
                                                 store
                                           .dispatch(startSetFollowing(id2))
                                           .then(() => {
-                                             return store
+                                             store
                                           .dispatch(startSetFollower(id2))
                                           .then(() => {
+                                            return store
+                                          .dispatch(startSetFollowingNewLinks(id2))
+                                          .then(() => {
                                             renderApp(store, signup);
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
                                           })
                                           .catch((error) => {
                                             console.log(
@@ -331,7 +341,17 @@ if (signup !== "signup") {
                                              return store
                                           .dispatch(startSetFollower(user.uid))
                                           .then(() => {
+                                             return store
+                                          .dispatch(startSetFollowingNewLinks(user.uid))
+                                          .then(() => {
                                             renderApp(store, signup);
+                                          })
+                                          .catch((error) => {
+                                            console.log(
+                                              "theplan, error",
+                                              error,
+                                            );
+                                          });
                                           })
                                           .catch((error) => {
                                             console.log(

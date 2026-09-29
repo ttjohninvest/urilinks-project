@@ -698,7 +698,7 @@ export const startSetFollower = (uid) => {
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          console.log("tt,childSnapshot=" + JSON.stringify(childSnapshot));
+          console.log("startSetFollower,childSnapshot=" + JSON.stringify(childSnapshot));
           console.log(
             "startSetFollower,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
           );
@@ -873,12 +873,12 @@ export const startSetLinksNew = (uid) => {
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          console.log("tt,childSnapshot=" + JSON.stringify(childSnapshot));
+          console.log("startSetLinksNew,childSnapshot=" + JSON.stringify(childSnapshot));
           console.log(
-            "tt,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+            "startSetLinksNew,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
           );
           console.log(
-            "tt,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+            "startSetLinksNew,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
           );
           let aval = childSnapshot.val();
           if (aval.frequency === undefined || aval.frequency === null)

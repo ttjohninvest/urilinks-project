@@ -226,7 +226,7 @@ export const SeeOthersPage = (props) => {
         <div className="page-header-2">
           <div className="content-container">
             <h2 className="page-header__title borderRadius55">
-              <span className="color-purple color-black-2">Users</span>
+              <span className="color-purple color-black-2">YourFollowing</span>
             </h2>
           </div>
         </div>

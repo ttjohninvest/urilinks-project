@@ -295,7 +295,7 @@ export const archiveLink2 = (id, updates) => ({
 
 export const startDeleteFollowing = (id2, id) => {
   //const uid = getState().auth.uid;
-  if (id !== null && id !== undefined && id !== "")
+  if (id !== null && id !== undefined && id !== "" && id2 !== null && id2 !== undefined && id2 !== "")
     database
       .ref(`users/${id2}/following/${id}`)
       .remove()

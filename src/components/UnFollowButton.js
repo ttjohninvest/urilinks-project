@@ -52,7 +52,9 @@ const UnFollowButton = (props) => {
      
       
       //startAddFollower(id2,id,{email:theemail},{email:theemail2}) //id is the one being followed
-      startDeleteFollowing(id2,id)
+      startDeleteFollowing(id2,id).then((val)=>{
+        alert(val)
+      })
      
       console.log("after call to startDeleteFollowing="+id+", "+id2)
       setIsUnFollowing(true);

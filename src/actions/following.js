@@ -304,11 +304,13 @@ export const startDeleteFollowing = (id2, id) => {
           .ref(`users/${id}/follower/${id2}`)
           .remove()
           .then(() => {
-            alert("Unfollowed")
+            //alert("Unfollowed")
+            return "success" //snapshot.val()
             //dispatch(removeLink({ id }));
           })
           .catch((error) => {
-            alert("Not unfollowed")
+            //alert("Not unfollowed")
+            return "failed"
             console.log("error removing following data in firebase, error=" + error);
           });
       })

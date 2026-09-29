@@ -276,16 +276,12 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
       setGoogleUserDatadb(gud);
       //setEmaildb(user.email);
       setUid(gud.uid);
+      setName(gud.displayname)
       // setName(
       //   user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-      //     ? "example medical provider's profile image"
-      //     : gud.displayname,
+      //     ? gud.displayname+" 1, XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+      //     : gud.displayname+" 2, "
       // );
-      setName(
-        user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-          ? gud.displayname+" 1, XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-          : gud.displayname+" 2, "
-      );
       setEmail(user.email);
       if (props.theplan.plan === "basic") setTheplan("on basic plan");
       else if (props.theplan.plan === "standard")

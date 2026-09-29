@@ -750,7 +750,7 @@ export const startSetFollowingNewLinks = (uid) => {
     //const newlinks3 = [];
     const newlinks = [];
     const Promises = []
-    return database
+    Promises.push(database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
@@ -765,28 +765,24 @@ export const startSetFollowingNewLinks = (uid) => {
           });
         });
 
+        })
+      .catch((error) =>
+        console.log("startSetFollowingNewLinks, error=" + error),
+      ))
+
         console.log("newlinks=" + JSON.stringify(newlinks));
 
        
         const newlinks3 = []
-        let newlinks4 = []
-        newlinks.forEach((childSnapshot2) => {
-          console.log(
-            "newlinks,childSnapshot2.uid=" + JSON.stringify(childSnapshot2.uid),
-          );
-          console.log(
-            "newlinks,childSnapshot2.email=" +
-              JSON.stringify(childSnapshot2.email),
-          );
-
-          //const Promises = []
+        newlinks.forEach((rec) => {
+         
           Promises.push(database
-            .ref(`users/${childSnapshot2.uid}/newlinks`)
+            .ref(`users/${rec.uid}/newlinks`)
             .once("value")
             .then((childSnapshot3) => {
 
               newlinks3.push({ //all of these uids are following the logged in user
-                uid: childSnapshot2.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+                uid: rec.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
                 newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
               });
               //return true
@@ -796,7 +792,7 @@ export const startSetFollowingNewLinks = (uid) => {
             .catch((error) =>
               console.log("startSetFollowingNewLinks, error=" + error),
             ));
-          console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))
+          console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3)) //newlinks3 is [] when it gets to here
           //newlinks4=newlinks3
         }) //forEach
 
@@ -806,21 +802,89 @@ export const startSetFollowingNewLinks = (uid) => {
           })
       
 
-      })
-      .catch((error) =>
-        console.log("startSetFollowingNewLinks, error=" + error),
-      )
-
-       
-
-          //console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
-               //dispatch(setNewFollowingLinks(newlinks3));
-        // console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
-      // dispatch(setNewFollowingLinks(newlinks3));
-      console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+    
       
   };
 };
+
+// export const startSetFollowingNewLinks = (uid) => {
+//   console.log("startSetFollowingNewLinks, uid=" + uid);
+  
+//   return (dispatch, getState) => {
+//     //const newlinks3 = [];
+//     const newlinks = [];
+//     const Promises = []
+//     return database
+//       .ref(`users/${uid}/following`)
+//       .once("value")
+//       .then((snapshot) => {
+        
+        
+//         console.log("newlinks,snapshot=" + JSON.stringify(snapshot));
+
+//         snapshot.forEach((childSnapshot) => {
+//           newlinks.push({
+//             uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+//             ...childSnapshot.val(),
+//           });
+//         });
+
+//         console.log("newlinks=" + JSON.stringify(newlinks));
+
+       
+//         const newlinks3 = []
+//         let newlinks4 = []
+//         newlinks.forEach((childSnapshot2) => {
+//           console.log(
+//             "newlinks,childSnapshot2.uid=" + JSON.stringify(childSnapshot2.uid),
+//           );
+//           console.log(
+//             "newlinks,childSnapshot2.email=" +
+//               JSON.stringify(childSnapshot2.email),
+//           );
+
+//           //const Promises = []
+//           Promises.push(database
+//             .ref(`users/${childSnapshot2.uid}/newlinks`)
+//             .once("value")
+//             .then((childSnapshot3) => {
+
+//               newlinks3.push({ //all of these uids are following the logged in user
+//                 uid: childSnapshot2.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+//                 newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
+//               });
+//               //return true
+//               console.log("2 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))
+              
+//             })
+//             .catch((error) =>
+//               console.log("startSetFollowingNewLinks, error=" + error),
+//             ));
+//           console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3)) //newlinks3 is [] when it gets to here
+//           //newlinks4=newlinks3
+//         }) //forEach
+
+//           console.log("4 startSetFollowingNewLinks, newlinks3="+JSON.stringify(newlinks3))
+//           Promise.all(Promises).then(()=>{
+//              dispatch(setNewFollowingLinks(newlinks3));
+//           })
+      
+
+//       })
+//       .catch((error) =>
+//         console.log("startSetFollowingNewLinks, error=" + error),
+//       )
+
+       
+
+//           //console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+//                //dispatch(setNewFollowingLinks(newlinks3));
+//         // console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+//       // dispatch(setNewFollowingLinks(newlinks3));
+//       console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+      
+//   };
+// };
 
 // export const startSetLinksNew =  (uid) => {
 //   console.log("startSetLinks");

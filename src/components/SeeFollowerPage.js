@@ -37,13 +37,13 @@ export const SeeFollowerPage = (props) => {
   //   return uArray;
   // };
 
-  const a = (item2, item) => {
-    if(array2.some((item2) => item2.uid === item.gud.uid))
-      return "is a follower of "
-    else return "is not a follower of "
-  }
+//   const a = (item2, item) => {
+//     if(array2.some((item2) => item2.uid === item.gud.uid))
+//       return "is a follower of "
+//     else return "is not a follower of "
+//   }
 
-  //props.users, props.following
+  //props.users, props.follower (followers from the database)
   const annotatearray = (array1, array2) => {
   const resultArray = array1.map((item) => ({
     ...item,
@@ -58,7 +58,7 @@ export const SeeFollowerPage = (props) => {
     //a.gud.uid, b.gud.uid
     //props.users=[]
 
-    //const array1 = removeduplicates(props.users, props.following)
+    //const array1 = removeduplicates(props.users, props.follower)
     const array1 = annotatearray(props.users, props.follower);
 
     //   const array3 = array1.sort((a, b) => {

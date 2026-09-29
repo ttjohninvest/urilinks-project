@@ -299,7 +299,7 @@ export const SeeFollowerPage = (props) => {
                   >
                     {item.isMatch+
                       ", " +
-                      props.email +
+                      item.gud.email +
                       ", " +
                       item.gud.displayname +
                       ", " +

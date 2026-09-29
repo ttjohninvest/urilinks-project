@@ -45,6 +45,10 @@ const FollowButton = (props) => {
 
   const handleFollow = () => {
     try {
+      if(theemail==="" || theemail2 === "") {
+        alert("Please try again.")
+        return
+      }
       //alert(props.gud.gud.email)
       console.log("before call to startAddFollower="+id+", "+id2)
       if(isFollowed === false) { //so can not press multiple times, protects db from duplicates being stored

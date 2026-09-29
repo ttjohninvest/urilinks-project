@@ -778,9 +778,11 @@ export const startSetFollowingNewLinks = (uid) => {
             .once("value")
             .then((childSnapshot3) => {
 
+              console.log("0 startSetFollowingNewLinks,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
+
               newlinks3.push({ //all of these uids are following the logged in user
                 uid: childSnapshot2.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
-                ...childSnapshot3.val(), //this is {"newlinks":"yes"}
+                newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
               });
               console.log("1 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
               dispatch(setNewFollowingLinks(newlinks3));

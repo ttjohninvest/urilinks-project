@@ -47,7 +47,7 @@ export const SeeFollowerPage = (props) => {
   const annotatearray = (array1, array2) => {
   const resultArray = array1.map((item) => ({
     ...item,
-    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"follower":"not follower"
+    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"Is a follower: ":"Is not a follower: "
   }));
 
   return resultArray;

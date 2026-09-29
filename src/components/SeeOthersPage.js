@@ -47,7 +47,7 @@ export const SeeOthersPage = (props) => {
   const annotatearray = (array1, array2) => {
   const resultArray = array1.map((item) => ({
     ...item,
-    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"following":"not following"
+    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"Is following: ":"Is not following: "
   }));
 
   return resultArray;

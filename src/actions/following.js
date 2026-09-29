@@ -747,7 +747,7 @@ export const startSetFollowingNewLinks = (uid) => {
   console.log("startSetFollowingNewLinks, uid=" + uid);
   
   return (dispatch, getState) => {
-    const newlinks3 = [];
+    let newlinks3 = [];
     return database
       .ref(`users/${uid}/following`)
       .once("value")

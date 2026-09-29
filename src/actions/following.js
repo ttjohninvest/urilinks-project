@@ -791,7 +791,7 @@ export const startSetFollowingNewLinks = (uid) => {
                 newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
               });
 
-              // console.log("1 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+              console.log("1 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
               // dispatch(setNewFollowingLinks(newlinks3));
             })
             .catch((error) =>

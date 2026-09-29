@@ -111,6 +111,10 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
 
     
     const handleWindowClose = (event) => {
+
+      console.log("Header.js, following ids="+JSON.stringify(props.following))
+
+
       // Use sendBeacon for reliable background data transmission
       // navigator.sendBeacon('/api/log-close', JSON.stringify({ reason: 'close' }));
       
@@ -1241,6 +1245,7 @@ const mapStateToProps = (state) => ({
   thesignupcount: state.thesignupcount,
   thetotalloggedout: state.thetotalloggedout,
   theloggedin:state.theloggedin,
+  following:state.following,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -283,8 +283,8 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
       // );
       setName(
         user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-          ? gud.displayname
-          : gud.displayname,
+          ? gud.displayname+" 1, XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+          : gud.displayname+" 2, "
       );
       setEmail(user.email);
       if (props.theplan.plan === "basic") setTheplan("on basic plan");

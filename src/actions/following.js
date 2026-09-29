@@ -772,7 +772,7 @@ export const startSetFollowingNewLinks = (uid) => {
         const newlinks3 = []
         newlinks.forEach((rec) => {
          
-          database
+          return database
             .ref(`users/${rec.uid}/newlinks`)
             .once("value")
             .then((childSnapshot3) => {

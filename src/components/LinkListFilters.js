@@ -138,6 +138,7 @@ function ExpandableArray(props) {
   const childRef = useRef(null);
   const z10 = params.get("z10");
   const isFollower = params.get("isFollower");
+  console.log("ExpanableArray, isFollower = "+ isFollower)
 
   const handleStartScroll = (v) => {
     if (childRef.current) {

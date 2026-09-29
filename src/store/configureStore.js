@@ -56,6 +56,7 @@ export default () => {
       links: linksReducer,
       following: followingReducer,
       follower: followerReducer,
+      newfollowinglinks: followingReducer,
       users: usersReducer,
       linksall: linksReducerAll,
       filters: filtersReducer,

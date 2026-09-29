@@ -295,7 +295,14 @@ export const archiveLink2 = (id, updates) => ({
 
 export const startDeleteFollowing = (id2, id) => {
   //const uid = getState().auth.uid;
-  if (id !== null && id !== undefined && id !== "" && id2 !== null && id2 !== undefined && id2 !== "")
+  if (
+    id !== null &&
+    id !== undefined &&
+    id !== "" &&
+    id2 !== null &&
+    id2 !== undefined &&
+    id2 !== ""
+  )
     return database
       .ref(`users/${id2}/following/${id}`)
       .remove()
@@ -305,13 +312,15 @@ export const startDeleteFollowing = (id2, id) => {
           .remove()
           .then(() => {
             //alert("Unfollowed")
-            return "success" //snapshot.val()
+            return "success"; //snapshot.val()
             //dispatch(removeLink({ id }));
           })
           .catch((error) => {
             //alert("Not unfollowed")
-            return "failed"
-            console.log("error removing following data in firebase, error=" + error);
+            return "failed";
+            console.log(
+              "error removing following data in firebase, error=" + error,
+            );
           });
       })
       .catch((error) => {
@@ -538,6 +547,11 @@ export const setFollowing = (following) => ({
   following,
 });
 
+export const setNewFollowingLinks = (newfollowinglinks) => ({
+  type: "SET_NEW_FOLLOWING_LINKS",
+  newfollowinglinks,
+});
+
 export const setFollower = (follower) => ({
   type: "SET_FOLLOWER",
   follower,
@@ -664,12 +678,16 @@ export const startSetFollowing = (uid) => {
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          console.log("startSetFollowing,childSnapshot=" + JSON.stringify(childSnapshot));
           console.log(
-            "startSetFollowing,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+            "startSetFollowing,childSnapshot=" + JSON.stringify(childSnapshot),
           );
           console.log(
-            "startSetFollowing,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+            "startSetFollowing,childSnapshot.key=" +
+              JSON.stringify(childSnapshot.key),
+          );
+          console.log(
+            "startSetFollowing,childSnapshot.val()=" +
+              JSON.stringify(childSnapshot.val()),
           );
 
           following.push({
@@ -698,12 +716,16 @@ export const startSetFollower = (uid) => {
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          console.log("startSetFollower,childSnapshot=" + JSON.stringify(childSnapshot));
           console.log(
-            "startSetFollower,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+            "startSetFollower,childSnapshot=" + JSON.stringify(childSnapshot),
           );
           console.log(
-            "startSetFollower,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+            "startSetFollower,childSnapshot.key=" +
+              JSON.stringify(childSnapshot.key),
+          );
+          console.log(
+            "startSetFollower,childSnapshot.val()=" +
+              JSON.stringify(childSnapshot.val()),
           );
 
           follower.push({
@@ -721,46 +743,65 @@ export const startSetFollower = (uid) => {
   };
 };
 
-
 export const startSetFollowingNewLinks = (uid) => {
   console.log("startSetFollowingNewLinks, uid=" + uid);
+  
   return (dispatch, getState) => {
     return database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
         const newlinks = [];
-
+        const newlinks3 = [];
         console.log("newlinks,snapshot=" + JSON.stringify(snapshot));
 
-         snapshot.forEach((childSnapshot) => {
-        newlinks.push({
-         uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
-         ...childSnapshot.val(),
-      });
-         })
+        snapshot.forEach((childSnapshot) => {
+          newlinks.push({
+            uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+            ...childSnapshot.val(),
+          });
+        });
 
-          console.log("newlinks=" + JSON.stringify(newlinks));
+        console.log("newlinks=" + JSON.stringify(newlinks));
 
         newlinks.forEach((childSnapshot2) => {
-           console.log("newlinks,childSnapshot2.uid=" + JSON.stringify(childSnapshot2.uid));
-           console.log("newlinks,childSnapshot2.email=" + JSON.stringify(childSnapshot2.email));
+          console.log(
+            "newlinks,childSnapshot2.uid=" + JSON.stringify(childSnapshot2.uid),
+          );
+          console.log(
+            "newlinks,childSnapshot2.email=" +
+              JSON.stringify(childSnapshot2.email),
+          );
+
           return database
-      .ref(`users/${childSnapshot2.uid}/newlinks`)
-      .once("value")
-      .then((childSnapshot3) => {
-        const newlinks3 = []
+            .ref(`users/${childSnapshot2.uid}/newlinks`)
+            .once("value")
+            .then((childSnapshot3) => {
+              console.log("newlinks3,childSnapshot2.uid=" + childSnapshot3.uid);
+              console.log(
+                "newlinks3,childSnapshot3.key=" +
+                  JSON.stringify(childSnapshot3.key),
+              );
+              console.log(
+                "newlinks3,childSnapshot3.val()=" +
+                  JSON.stringify(childSnapshot3.val()),
+              );
 
-          console.log("newlinks3,childSnapshot3.key=" + JSON.stringify(childSnapshot3.key));
-          console.log("newlinks3,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
-          console.log("newlinks3,childSnapshot3.val()=" + JSON.stringify(childSnapshot3.val()));
-
-        //dispatch(setNewLinks(newlinks2)); //links2[0].showpublic
-      }).catch((error) => console.log("startSetFollowingNewLinks, error=" + error));
-    });
-
-        // dispatch(setNewLinks(newlinks)); //links2[0].showpublic
-      }).catch((error) => console.log("startSetFollowingNewLinks, error=" + error));
+              newlinks3.push({ //all of these uids are following the logged in user
+                uid: childSnapshot3.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+                ...childSnapshot3.val(), //this is {"newlinks":"yes"}
+              });
+            })
+            .catch((error) =>
+              console.log("startSetFollowingNewLinks, error=" + error),
+            );
+        });
+      dispatch(setNewFollowingLinks(newlinks3));
+      })
+      .catch((error) =>
+        console.log("startSetFollowingNewLinks, error=" + error),
+      );
+      
   };
 };
 
@@ -865,12 +906,16 @@ export const startSetLinksNew = (uid) => {
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          console.log("startSetLinksNew,childSnapshot=" + JSON.stringify(childSnapshot));
           console.log(
-            "startSetLinksNew,childSnapshot.key=" + JSON.stringify(childSnapshot.key),
+            "startSetLinksNew,childSnapshot=" + JSON.stringify(childSnapshot),
           );
           console.log(
-            "startSetLinksNew,childSnapshot.val()=" + JSON.stringify(childSnapshot.val()),
+            "startSetLinksNew,childSnapshot.key=" +
+              JSON.stringify(childSnapshot.key),
+          );
+          console.log(
+            "startSetLinksNew,childSnapshot.val()=" +
+              JSON.stringify(childSnapshot.val()),
           );
           let aval = childSnapshot.val();
           if (aval.frequency === undefined || aval.frequency === null)

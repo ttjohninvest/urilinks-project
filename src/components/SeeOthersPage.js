@@ -208,7 +208,7 @@ export const SeeOthersPage = (props) => {
        
         if (array3[0]) {
         otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
-        window.location.href="https://urilinks.com?signup=signup&z2=1"
+        //window.location.href="https://urilinks.com?signup=signup&z2=1"
         }
         //alert("set it back to no success, uid="+array3[0]+", props.auth.uid="+props.auth.uid)
         

@@ -60,7 +60,7 @@ export const SeeOthersPage = (props) => {
   const annotatearray2 = (array1, array2) => {
     const resultArray = array1.map((item) => ({
       ...item,
-      isMatch: "yes", //array2.some((item2) => (!!item2.newlinks===true && (item2.newlinks.newlinks === "yes"))?"yes":"no")
+      isMatch: array2.some((item2) => (!!item2.newlinks===true && (item2.newlinks.newlinks === "yes"))?"yes":"no")
     }));
 
     return resultArray;

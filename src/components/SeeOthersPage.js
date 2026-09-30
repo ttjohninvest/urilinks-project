@@ -179,7 +179,7 @@ export const SeeOthersPage = (props) => {
         z12 +
         "&isFollowing=" +
         isMatch,
-      "_blank",
+      "_self", //"_blank"
     );
   };
 

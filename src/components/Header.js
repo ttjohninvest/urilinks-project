@@ -33,7 +33,7 @@ import signature from "../assets/images/signature.png";
 
 //import { getAuth } from "firebase";
 import XShareButton from "./XShareButton";
-import Dropdown from "./Dropdown";
+//import Dropdown from "./Dropdown";
 import setHasrefreshed from "../actions/hasrefreshed";
 import { startAddPhotourl } from "../actions/photourl";
 import { startAddBmok } from "../actions/bmok";

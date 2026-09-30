@@ -733,10 +733,7 @@ export const startSetFollower = (uid) => {
             ...childSnapshot.val(),
           });
         });
-        console.log(
-          "1234567, startSetFollower, about to call dispatch(setFollowers(following)),follower=" +
-            JSON.stringify(follower),
-        );
+        
         dispatch(setFollower(follower)); //links2[0].showpublic
       })
       .catch((error) => console.log("startSetFollowing, error=" + error));

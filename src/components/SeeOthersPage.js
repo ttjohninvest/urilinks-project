@@ -281,7 +281,7 @@ export const SeeOthersPage = (props) => {
             {uniqueData.map((item, index) => {
               if (props.auth.uid !== item.gud.uid) { //no need to display the logged in user's page
                 return (
-                  <li className={`${item.isMatch==="is following "?'bg-color-1 color-white-1':''}`}
+                  <li className={`${item.isMatch==="is following "?'bg-color-1 color-white-1':'bg-color-1w color-black-3'}`}
                     key={index}
                     data-item-id={
                       item.gud.uid +

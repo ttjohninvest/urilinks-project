@@ -312,8 +312,10 @@ export const startAddLink2 = (uid,linkData = {}) => {
             id: ref.key,
             ...link,
           }),
+          
         );
-        return true;
+        //return true;
+        return "success"
       })
 
       .catch((error) => {

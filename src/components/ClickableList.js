@@ -19,13 +19,13 @@ function ClickableList(props) {
   return (
     <div>
       <ul>
-        {items.map((newfollowinglinks) => (
+        {newfollowinglinks.map((nl) => (
           <li 
-            key={newfollowinglinks.uid} 
-            onClick={() => handleItemClick(newfollowinglinks)}
+            key={nl.uid} 
+            onClick={() => handleItemClick(nl)}
             //style={{ cursor: 'pointer', color: selectedItem === item ? 'blue' : 'black' }}
           >
-            {newfollowinglinks.uid+", "+newfollowinglinks.newlinks}
+            {nl.uid+", "+nl.newlinks}
           </li>
         ))}
       </ul>

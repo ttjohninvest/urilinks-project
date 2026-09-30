@@ -818,8 +818,8 @@ export const startSetFollowingNewLinks = (uid) => {
   return (dispatch, getState) => {
     //const newlinks3 = [];
     const newlinks = [];
-    const Promises = []
-    return database
+    const promises = []
+    database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
@@ -849,8 +849,7 @@ export const startSetFollowingNewLinks = (uid) => {
           );
 
           //const Promises = []
-          //Promises.push(
-            database
+          promises.push(database
             .ref(`users/${rec.uid}/newlinks`)
             .once("value")
             .then((childSnapshot3) => {
@@ -865,17 +864,16 @@ export const startSetFollowingNewLinks = (uid) => {
             })
             .catch((error) =>
               console.log("startSetFollowingNewLinks, error=" + error),
-            )
-          //);
+            ));
           //newlinks3 is [] when it gets to here
           console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3)) 
          
         }) //forEach
 
           console.log("4 startSetFollowingNewLinks, newlinks3="+JSON.stringify(newlinks3))
-          //Promise.all(Promises).then(()=>{
+          return Promise.all(promises).then(()=>{
              dispatch(setNewFollowingLinks(newlinks3));
-         // })
+         })
       
 
       })

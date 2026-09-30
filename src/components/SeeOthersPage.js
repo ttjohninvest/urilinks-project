@@ -208,7 +208,7 @@ export const SeeOthersPage = (props) => {
       }
 
       setitbacktono(array3[0]).then(()=>{
-        alert("set it back to no success")
+        alert("set it back to no success, uid="+array3[0]+", props.auth.uid"+props.auth.uid)
       }).catch((e)=>{
         alert("something went wrong")
       }) //array3[0] is the id of the user

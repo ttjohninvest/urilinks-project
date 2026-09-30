@@ -37,11 +37,11 @@ export const SeeOthersPage = (props) => {
   //   return uArray;
   // };
 
-  const a = (item2, item) => {
-    if(array2.some((item2) => item2.uid === item.gud.uid))
-      return "You are following "
-    else return "You are not following "
-  }
+  // const a = (item2, item) => {
+  //   if(array2.some((item2) => item2.uid === item.gud.uid))
+  //     return "You are following "
+  //   else return "You are not following "
+  // }
 
   //props.users, props.following
   const annotatearray = (array1, array2) => {
@@ -303,10 +303,10 @@ export const SeeOthersPage = (props) => {
                     item.isMatch + 
                     " " +
                     item.gud.email +
-                      ", " +
-                      item.gud.displayname +
-                      ", " +
-                      item.gud.theatname}
+                    ", " +
+                    item.gud.displayname +
+                    ", " +
+                    item.gud.theatname}
                   </li>
                 );
               } else {

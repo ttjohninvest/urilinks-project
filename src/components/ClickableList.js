@@ -13,6 +13,25 @@ function ClickableList(props) {
     //setSelectedItem(newfollowinglinks);
     console.log(`Clicked: ${newfollowinglinks.uid}, ${newfollowinglinks.newlinks}`);
     alert(`Clicked: ${newfollowinglinks.uid}, ${newfollowinglinks.newlinks}`)
+    /*
+window.open(
+      "https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+        props.auth.uid +
+        "&id=" +
+        newfollowinglinks.uid +
+        "&dn=" +
+        dn +
+        "&purl=" +
+        purl +
+        "&z10=" +
+        email +
+        "&z12=" +
+        z12 +
+        "&isFollowing=" +
+        isMatch,
+      "_blank",
+    );
+    */
   };
 
   // Step 3 & 4: Render and attach onClick

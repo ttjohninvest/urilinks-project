@@ -783,7 +783,15 @@ const handleClick = useCallback(() => {
                               <span>🌺 urilinks</span>
                             </h3>
 
-                            <ClickableList />
+                            {/* <ClickableList /> */}
+                            <OthersButton
+                              email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
+                              uid={props.auth.uid}
+                              //elementRef20={elementRef20}
+                              //changeSortBy={changeSortBy}
+                                                        //uid={props.uid}
+                                                        //setSortBy={setSortBy}
+                                                      />
 
                             {/* <span onClick={()=>goToPage(props.newfollowinglinks)}></span> */}
 

@@ -73,7 +73,7 @@ export const SeeOthersPage = (props) => {
     if (props.whichone === 1) {
       //newlinks:"yes"
 
-      const array1 = props.users //annotatearray2(props.users, props.newfollowinglinks);
+      const array1 = annotatearray2(props.users, props.newfollowinglinks);
 
       //   const array3 = array1.sort((a, b) => {
       //   const valA = a.gud.displayname.toLowerCase();

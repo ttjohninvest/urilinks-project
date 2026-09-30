@@ -743,83 +743,15 @@ export const startSetFollower = (uid) => {
   };
 };
 
-// export const startSetFollowingNewLinks = (uid) => {
-//   console.log("startSetFollowingNewLinks, uid=" + uid);
-  
-//   return (dispatch, getState) => {
-//     //const newlinks3 = [];
-//     const newlinks = [];
-//     const Promises = []
-//     //Promises.push(
-//       database
-//       .ref(`users/${uid}/following`)
-//       .once("value")
-//       .then((snapshot) => {
-        
-        
-//         console.log("newlinks,snapshot=" + JSON.stringify(snapshot));
-
-//         snapshot.forEach((childSnapshot) => {
-//           newlinks.push({
-//             uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
-//             ...childSnapshot.val(),
-//           });
-//         });
-
-//          console.log("newlinks=" + JSON.stringify(newlinks));
-
-       
-//         const newlinks3 = []
-//         newlinks.forEach((rec) => {
-         
-//           return database
-//             .ref(`users/${rec.uid}/newlinks`)
-//             .once("value")
-//             .then((childSnapshot3) => {
-
-//               newlinks3.push({ //all of these uids are following the logged in user
-//                 uid: rec.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
-//                 newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
-//               });
-//               //return true
-//               console.log("2 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))
-              
-//             })
-//             .catch((error) =>
-//               console.log("startSetFollowingNewLinks, error=" + error),
-//             );
-//           console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3)) //newlinks3 is [] when it gets to here
-//           //newlinks4=newlinks3
-//         }) //forEach
-
-//           console.log("4 startSetFollowingNewLinks, newlinks3="+JSON.stringify(newlinks3))
-//           //Promise.all(Promises).then(()=>{
-//              dispatch(setNewFollowingLinks(newlinks3));
-//           //})
-
-//         })
-//       .catch((error) =>
-//         console.log("startSetFollowingNewLinks, error=" + error),
-//       )
-
-       
-
-        
-      
-
-    
-      
-//   };
-// };
-
 export const startSetFollowingNewLinks = (uid) => {
   console.log("startSetFollowingNewLinks, uid=" + uid);
   
   return (dispatch, getState) => {
     //const newlinks3 = [];
     const newlinks = [];
-    const promises = []
-    database
+    const Promises = []
+    
+      return database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
@@ -834,22 +766,13 @@ export const startSetFollowingNewLinks = (uid) => {
           });
         });
 
-        console.log("newlinks=" + JSON.stringify(newlinks));
+         console.log("newlinks=" + JSON.stringify(newlinks));
 
        
         const newlinks3 = []
-       
         newlinks.forEach((rec) => {
-          console.log(
-            "newlinks,rec.uid=" + JSON.stringify(rec.uid),
-          );
-          console.log(
-            "newlinks,rec.email=" +
-              JSON.stringify(rec.email),
-          );
-
-          //const Promises = []
-          promises.push(database
+         
+          return database
             .ref(`users/${rec.uid}/newlinks`)
             .once("value")
             .then((childSnapshot3) => {
@@ -864,33 +787,110 @@ export const startSetFollowingNewLinks = (uid) => {
             })
             .catch((error) =>
               console.log("startSetFollowingNewLinks, error=" + error),
-            ));
-          //newlinks3 is [] when it gets to here
-          console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3)) 
-         
+            );
+          console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3)) //newlinks3 is [] when it gets to here
+          //newlinks4=newlinks3
         }) //forEach
 
           console.log("4 startSetFollowingNewLinks, newlinks3="+JSON.stringify(newlinks3))
-          return Promise.all(promises).then(()=>{
-             dispatch(setNewFollowingLinks(newlinks3));
-         })
-      
+          //Promise.all(Promises).then(()=>{
+             //dispatch(setNewFollowingLinks(newlinks3));
+          //})
 
-      })
+        })
       .catch((error) =>
         console.log("startSetFollowingNewLinks, error=" + error),
       )
 
        
 
-          //console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
-               //dispatch(setNewFollowingLinks(newlinks3));
-        // console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
-      // dispatch(setNewFollowingLinks(newlinks3));
-      console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+        
+      
+
+    
       
   };
 };
+
+// export const startSetFollowingNewLinks = (uid) => {
+//   console.log("startSetFollowingNewLinks, uid=" + uid);
+  
+//   return (dispatch, getState) => {
+//     //const newlinks3 = [];
+//     const newlinks = [];
+//     const promises = []
+//     database
+//       .ref(`users/${uid}/following`)
+//       .once("value")
+//       .then((snapshot) => {
+        
+        
+//         console.log("newlinks,snapshot=" + JSON.stringify(snapshot));
+
+//         snapshot.forEach((childSnapshot) => {
+//           newlinks.push({
+//             uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+//             ...childSnapshot.val(),
+//           });
+//         });
+
+//         console.log("newlinks=" + JSON.stringify(newlinks));
+
+       
+//         const newlinks3 = []
+       
+//         newlinks.forEach((rec) => {
+//           console.log(
+//             "newlinks,rec.uid=" + JSON.stringify(rec.uid),
+//           );
+//           console.log(
+//             "newlinks,rec.email=" +
+//               JSON.stringify(rec.email),
+//           );
+
+//           //const Promises = []
+//           promises.push(database
+//             .ref(`users/${rec.uid}/newlinks`)
+//             .once("value")
+//             .then((childSnapshot3) => {
+
+//               newlinks3.push({ //all of these uids are following the logged in user
+//                 uid: rec.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+//                 newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
+//               });
+//               //return true
+//               console.log("2 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))
+              
+//             })
+//             .catch((error) =>
+//               console.log("startSetFollowingNewLinks, error=" + error),
+//             ));
+//           //newlinks3 is [] when it gets to here
+//           console.log("3 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3)) 
+         
+//         }) //forEach
+
+//           console.log("4 startSetFollowingNewLinks, newlinks3="+JSON.stringify(newlinks3))
+//           return Promise.all(promises).then(()=>{
+//              dispatch(setNewFollowingLinks(newlinks3));
+//          })
+      
+
+//       })
+//       .catch((error) =>
+//         console.log("startSetFollowingNewLinks, error=" + error),
+//       )
+
+       
+
+//           //console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+//                //dispatch(setNewFollowingLinks(newlinks3));
+//         // console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+//       // dispatch(setNewFollowingLinks(newlinks3));
+//       console.log("2 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3));
+      
+//   };
+// };
 
 // export const startSetLinksNew =  (uid) => {
 //   console.log("startSetLinks");

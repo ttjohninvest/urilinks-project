@@ -297,40 +297,38 @@ export const startAddLink2 = (uid,linkData = {}) => {
     //return false;
     console.log("startAddLink2, uid=" + uid);
     console.log("startAddLink2, link=" + JSON.stringify(link));
-    if(link !== null && link !== undefined && link !== "")
-    return database
-      .ref(`users/${uid}/links`)
-      .push(link)
-      .then((ref) => {
+    // if(link !== null && link !== undefined && link !== "")
+    // return database
+    //   .ref(`users/${uid}/links`)
+    //   .push(link)
+    //   .then((ref) => {
 
-       return database
-      .ref(`users/${uid}/newlinks`)
-      .set({newlinks:"yes"})
-      .then((ref) => {
-        dispatch(
-          addLink({
-            id: ref.key,
-            ...link,
-          }),
+    //    return database
+    //   .ref(`users/${uid}/newlinks`)
+    //   .set({newlinks:"yes"})
+    //   .then((ref) => {
+    //     dispatch(
+    //       addLink({
+    //         id: ref.key,
+    //         ...link,
+    //       }),
           
-        );
-        //return true;
-        return "success"
-      })
-
-      .catch((error) => {
-        console.log("error adding link data in firebase, error=" + error);
-        return false;
-      });
+    //     );
+    //     //return true;
+    //     return "success"
+    //   }).catch((error) => {
+    //     console.log("error adding link data in firebase, error=" + error);
+    //     return false;
+    //   });
 
 
 
       
-      })
-      .catch((error) => {
-        console.log("error adding link data in firebase, error=" + error);
-        return false;
-      });
+    //   })
+    //   .catch((error) => {
+    //     console.log("error adding link data in firebase, error=" + error);
+    //     return false;
+    //   });
   };
 };
 

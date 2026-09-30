@@ -793,7 +793,8 @@ export const startSetFollowingNewLinks = (uid) => {
         }) //forEach
 
           console.log("4 startSetFollowingNewLinks, newlinks3="+JSON.stringify(newlinks3))
-          return Promise.all(promises).then(()=>{
+          //return 
+          Promise.all(promises).then(()=>{
              dispatch(setNewFollowingLinks(newlinks3));
           })
 

@@ -249,7 +249,7 @@ export const startAddLink = (linkData = {}) => {
 
 export const startAddLink2 = (uid,linkData = {}) => {
   //return (dispatch, getState) => {
-    const uid2 = getState().auth.uid;
+    //const uid2 = getState().auth.uid;
     const {
       
       show = 0,

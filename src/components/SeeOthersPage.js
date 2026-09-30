@@ -17,6 +17,8 @@ export const SeeOthersPage = (props) => {
 
   useEffect(() => {
     console.log("SeeOthersPage.js, users=" + JSON.stringify(props.users));
+    console.log("SeeOthersPage, useEffect, whichone="+props.whichone) //1 from Header, OthersButton, to display new links ready list from
+    //the ones you are following {newlinks:"yes"} in the database, 2 comes from OthersButton in LinkListFilters.js
   });
 
   //   const removeDuplicates = (stringArray) => {
@@ -53,12 +55,50 @@ export const SeeOthersPage = (props) => {
   return resultArray;
 };
 
-  useEffect(() => {
-    //props.following=[{id:uy7,uid:7894}]
-    //a.gud.uid, b.gud.uid
-    //props.users=[]
+const annotatearray2 = (array1, array2) => {
+  const resultArray = array1.map((item) => ({
+    ...item,
+    isMatch: array2.some((item2) => item2.newlinks.newlinks === "yes")?"yes":"no"
+  }));
 
-    //const array1 = removeduplicates(props.users, props.following)
+  return resultArray;
+};
+
+
+  useEffect(() => {
+    
+    //use the following to get a better uniqueData array, for display of the list, this is the new links ready list
+    //props.newfollowinglinks [{uid:"D9...", newlinks:{newlinks:"yes"}},{uid:"c7z...", newlinks:{newlinks:"yes"}}]
+
+    if(props.whichone === 1) { //newlinks:"yes"
+
+      const array1 = annotatearray2(props.users, props.newfollowinglinks);
+
+    //   const array3 = array1.sort((a, b) => {
+    //   const valA = a.gud.displayname.toLowerCase();
+    //   const valB = b.gud.displayname.toLowerCase();
+    //   if (valA < valB) return -1;
+    //   if (valA > valB) return 1;
+    //   return 0;
+    // })
+
+    const array3 = array1.sort((a, b) => {
+      const valA = a.gud.displayname.toLowerCase();
+      const valB = b.gud.displayname.toLowerCase();
+      if (valA < valB) return -1;
+      if (valA > valB) return 1;
+      return 0;
+    });
+
+    //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
+    console.log("setUniqueData, props.users=" + JSON.stringify(array3));
+    //setUniqueData(props.users);
+    setUniqueData(array3);
+
+
+      // setUniqueData(array3);
+    } else if(whichone === 2) {
+      //const array1 = removeduplicates(props.users, props.following)
     const array1 = annotatearray(props.users, props.following);
 
     //   const array3 = array1.sort((a, b) => {
@@ -81,6 +121,9 @@ export const SeeOthersPage = (props) => {
     console.log("setUniqueData, props.users=" + JSON.stringify(array3));
     //setUniqueData(props.users);
     setUniqueData(array3);
+    }
+    
+
   }, []);
 
   function encrypt(text, key) {
@@ -281,7 +324,16 @@ export const SeeOthersPage = (props) => {
             {uniqueData.map((item, index) => {
               if (props.auth.uid !== item.gud.uid) { //no need to display the logged in user's page
                 return (
-                  <li className={`${item.isMatch==="is following "?'bg-color-1 color-white-1':'bg-color-1w color-black-3'}`}
+                  <li className={`${
+                    
+                    item.whichone === 2 ?(item.isMatch==="is following "?'bg-color-1 color-white-1':'bg-color-1w color-black-3'):
+                    item.whichone === 1 ?item.isMatch==="yes":"no"
+                  
+                  
+                  }
+                    
+                    
+                    `}
                     key={index}
                     data-item-id={
                       item.gud.uid +
@@ -325,7 +377,8 @@ const mapStateToProps = (state) => ({
   users: state.users,
   auth: state.auth,
   following: state.following,
-  gud:state.gud
+  gud:state.gud,
+  newfollowinglinks: state.newfollowinglinks,
 });
 
 const mapDispatchToProps = (dispatch) => ({

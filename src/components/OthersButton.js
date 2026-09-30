@@ -56,8 +56,6 @@ const OthersButton = (props) => {
     }
   };
 
-
-
   return (
     <div style={{ display: "inline" }}>
       <button
@@ -70,6 +68,7 @@ const OthersButton = (props) => {
       {isDisplayed === true && (
         <div>
           <SeeOthersPage
+            whichone = {props.whichone}
             email={props.email}
             uid={props.uid}
             elementRef2 = {props.elementRef2}

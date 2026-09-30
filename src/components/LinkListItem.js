@@ -482,11 +482,11 @@ function isFacebookPost(url) {
       alert("uid="+id2+", link="+JSON.stringify(link))
       console.log("LinkListItem, storeScrollPosition4, link="+JSON.stringify(link))
       startAddLink2(id2,link)
-      // .then((r)=>{
-      //   alert(r)
-      // }).catch((e)=>{
-      //   alert("something went wrong, e="+e)
-      // })
+      .then((r)=>{
+        alert(r)
+      }).catch((e)=>{
+        alert("something went wrong, e="+e)
+      })
       //const x = event.target.getAttribute("data-value"); //x is link id
     }
      

@@ -248,8 +248,8 @@ export const startAddLink = (linkData = {}) => {
 };
 
 export const startAddLink2 = (uid,linkData = {}) => {
-  return (dispatch, getState) => {
-    //const uid = getState().auth.uid;
+  //return (dispatch, getState) => {
+    const uid2 = getState().auth.uid;
     const {
       
       show = 0,
@@ -302,24 +302,24 @@ export const startAddLink2 = (uid,linkData = {}) => {
       .ref(`users/${uid}/links`)
       .push(link)
       .then((ref) => {
-return "success"
-    //    return database
-    //   .ref(`users/${uid}/newlinks`)
-    //   .set({newlinks:"yes"})
-    //   .then((ref) => {
-    //     dispatch(
-    //       addLink({
-    //         id: ref.key,
-    //         ...link,
-    //       }),
+
+       return database
+      .ref(`users/${uid}/newlinks`)
+      .set({newlinks:"yes"})
+      .then((ref) => {
+        // dispatch(
+        //   addLink({
+        //     id: ref.key,
+        //     ...link,
+        //   }),
           
-    //     );
-    //     //return true;
-    //     return "success"
-    //   }).catch((error) => {
-    //     console.log("error adding link data in firebase, error=" + error);
-    //     return false;
-    //   });
+        // );
+        //return true;
+        return "success"
+      }).catch((error) => {
+        console.log("error adding link data in firebase, error=" + error);
+        return false;
+      });
 
 
 
@@ -329,7 +329,7 @@ return "success"
         console.log("error adding link data in firebase, error=" + error);
         return false;
       });
-  };
+  //};
 };
 
 // REMOVE_LINK

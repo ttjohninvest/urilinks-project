@@ -97,7 +97,7 @@ const annotatearray2 = (array1, array2) => {
 
 
       // setUniqueData(array3);
-    } else if(whichone === 2) {
+    } else if(props.whichone === 2) {
       //const array1 = removeduplicates(props.users, props.following)
     const array1 = annotatearray(props.users, props.following);
 

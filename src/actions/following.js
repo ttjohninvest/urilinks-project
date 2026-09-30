@@ -783,7 +783,7 @@ export const startSetFollowingNewLinks = (uid) => {
               //   newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
               // });
               newlinks3.push({ //all of these uids are following the logged in user
-                uid: 1
+                uid: rec.uid
               });
               //return true
               console.log("2 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))

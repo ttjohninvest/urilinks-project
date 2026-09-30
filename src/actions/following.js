@@ -751,7 +751,7 @@ export const startSetFollowingNewLinks = (uid) => {
     const newlinks = [];
     const promises = []
     
-      database
+     return database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {

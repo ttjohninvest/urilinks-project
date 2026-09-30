@@ -786,6 +786,7 @@ const handleClick = useCallback(() => {
 
                             {/* <ClickableList /> */}
                             <OthersButton
+                              buttonText = {"Notifications"}
                               email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
                               uid={props.auth.uid}
                               //elementRef20={elementRef20}

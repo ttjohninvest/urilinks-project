@@ -61,11 +61,11 @@ const OthersButton = (props) => {
   return (
     <div style={{ display: "inline" }}>
       <button
-        title="See the ones you are following."
+        title={`${props.buttonText==="Notifications"?"These are ones that you are following that have new links ready for you to see.":"See the ones you are following."}`}
         className={`margin-left-11 height48 button-2w- button-2 ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
         onClick={handleDisplay}
       >
-        {isDisplayed ? "Displayed" : "Following"}
+        {isDisplayed ? "Displayed" : props.buttonText}
       </button>
       {isDisplayed === true && (
         <div>

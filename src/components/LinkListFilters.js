@@ -1380,6 +1380,7 @@ function ExpandableArray(props) {
                       {readonly === false && (
                         <div>
                           <OthersButton
+                            buttonText={"Following"}
                             email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
                             uid={props.uid}
                             elementRef20={elementRef20}
@@ -1462,6 +1463,7 @@ function ExpandableArray(props) {
                                   {readonly === false && (
                                     <div>
                                       <OthersButton
+                                        buttonText={"Following"}
                                         email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
                                         uid={props.uid}
                                         elementRef20={elementRef20}
@@ -1540,6 +1542,7 @@ function ExpandableArray(props) {
                                 {/* <OthersButton below Appears on home page as example page, not logged in */}
                                 {/* Purpose of the button being here is because it lets other people know they can see other peoples public links on the internet */}
                                 <OthersButton
+                                  buttonText={"Following"}
                                   email={!!firebase.auth().currentUser===true?firebase.auth().currentUser.email:""}
                                   uid={props.uid}
                                   elementRef20={elementRef20}

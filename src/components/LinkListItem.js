@@ -1545,14 +1545,6 @@ props.decrementHandleToggle3({ id: x, show: 1 });
               >
                 I want this link
               </span>
-              <span
-                className="ib margin-left-11tx- font-weight-900- margin-top-2x-"
-                title={
-                  "This is the number of times someone has clicked this link."
-                }
-              >
-                {props.likes === undefined ? 0 : props.likes}
-              </span>
             </span>)}
 
 

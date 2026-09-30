@@ -248,7 +248,7 @@ export const startAddLink = (linkData = {}) => {
 };
 
 export const startAddLink2 = (uid,linkData = {}) => {
-  return (dispatch, getState) => {
+  //return (dispatch, getState) => {
     //const uid = getState().auth.uid;
     const {
       
@@ -329,7 +329,7 @@ export const startAddLink2 = (uid,linkData = {}) => {
     //     console.log("error adding link data in firebase, error=" + error);
     //     return false;
     //   });
-  };
+  //};
 };
 
 // REMOVE_LINK

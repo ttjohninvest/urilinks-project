@@ -105,6 +105,9 @@ const LinkListItem = (props) => {
   const [showvideo, setShowvideo] = useState(0);
   const [screenedValue, setScreenedValue] = useState(null);
 
+    const params = new URLSearchParams(window.location.search);
+    const id2 = params.get("id2");
+
   const theSortBy = props.theSortBy==="adsaplpha" || props.theSortBy === "productsalpha"?1:0
  
   //const [xadmessage, setXadmessage] = useState("Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ "to help this seller make money from commission:")
@@ -478,7 +481,7 @@ function isFacebookPost(url) {
       //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
       alert("uid="+props.auth.uid+", link="+JSON.stringify(link))
       console.log("LinkListItem, storeScrollPosition4, link="+JSON.stringify(link))
-      startAddLink2(props.auth.uid,link)
+      startAddLink2(id2,link)
       //const x = event.target.getAttribute("data-value"); //x is link id
     }
      

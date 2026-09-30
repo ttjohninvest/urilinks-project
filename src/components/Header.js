@@ -783,8 +783,8 @@ const handleClick = useCallback(() => {
                               <span>🌺 urilinks</span>
                             </h3>
 
-                            <ClickableList newfollowinglinks={props.newfollowinglinks} />
-                            
+                            <ClickableList />
+
                             {/* <span onClick={()=>goToPage(props.newfollowinglinks)}></span> */}
 
                             {/* <div>{props.newfollowinglinks.map((n)=>{

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import database from "../firebase/firebase";
+import ClickableList from "./ClickableList";
 
 import moment from "moment";
 //import * as firebase from "firebase";
@@ -78,6 +79,7 @@ const useClickOutside = (ref, handler) => {
 
 
 //import { useClickOutside } from './useClickOutside';
+import { setNewFollowingLinks } from './../actions/following';
 
 const Dropdown = ({ trigger, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -710,6 +712,12 @@ const handleClick = useCallback(() => {
     window.open("https://urilinks.com/dashboard?signup=0&x=readonly&id="+id, "_blank");
   };
 
+  const goToPage = (newfollowinglinks) => {
+
+
+
+  }
+
   return (
     <div className="">
 
@@ -774,9 +782,14 @@ const handleClick = useCallback(() => {
                             <h3 className="ib color-white-1 text-size-11">
                               <span>🌺 urilinks</span>
                             </h3>
-                            <div>{props.newfollowinglinks.map((n)=>{
+
+                            <ClickableList newfollowinglinks={props.newfollowinglinks} />
+                            
+                            {/* <span onClick={()=>goToPage(props.newfollowinglinks)}></span> */}
+
+                            {/* <div>{props.newfollowinglinks.map((n)=>{
                               return <div>{n.newlinks+", "+n.uid}</div>
-                            })}</div>
+                            })}</div> */}
 
                             {/* <span className="ib margin-left-11 color-white-1" title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first.">{`${!!props.theupdatedate.updatedate===true ? 'Link(s) updated on ':""}`}<span  id="linksupdate" >{props.links.length > 0 ? <span>{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}<span>&nbsp;pst</span></span>:""}</span></span> */}
                             
@@ -1289,6 +1302,7 @@ const handleClick = useCallback(() => {
 
 const mapStateToProps = (state) => ({
   links: state.links,
+  auth:state.auth,
   theupdatedate: state.theupdatedate,
   settings: state.settings,
   signup: state.signup,

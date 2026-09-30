@@ -166,6 +166,8 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
     console.log("Header.js, follower ids="+JSON.stringify(props.follower))
     console.log("Header.js, following ids="+JSON.stringify(props.following))
     console.log("Header.js, newfollowinglinks ids="+JSON.stringify(props.newfollowinglinks))
+    console.log("Header.js, props.users="+JSON.stringify(props.users))
+
     
     const handleWindowClose = (event) => {
 
@@ -1327,6 +1329,7 @@ const mapStateToProps = (state) => ({
   following:state.following,
   follower:state.follower,
   newfollowinglinks:state.newfollowinglinks,
+  users:state.users,
 });
 
 const mapDispatchToProps = (dispatch) => ({

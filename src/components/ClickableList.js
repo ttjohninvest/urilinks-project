@@ -4,30 +4,32 @@ import { connect } from "react-redux";
 function ClickableList(props) {
   // Step 1: Define state and data
   const [selectedItem, setSelectedItem] = useState(null);
+  const [newfollowinglinks, setNewfollowinglinks] = useState( props.newfollowinglinks)
   //const items = ['Apple', 'Banana', 'Cherry'];
-  const items = props.newfollowinglinks;
+
 
   // Step 2: Define the click handler
-  const handleItemClick = (item) => {
-    setSelectedItem(item);
-    console.log(`Clicked: ${item.uid} ${item.newlinks}`);
+  const handleItemClick = (newfollowinglinks) => {
+    //setSelectedItem(newfollowinglinks);
+    console.log(`Clicked: ${newfollowinglinks.uid}, ${newfollowinglinks.newlinks}`);
+    alert(`Clicked: ${newfollowinglinks.uid}, ${newfollowinglinks.newlinks}`)
   };
 
   // Step 3 & 4: Render and attach onClick
   return (
     <div>
       <ul>
-        {items.map((item) => (
+        {items.map((newfollowinglinks) => (
           <li 
-            key={item.uid} 
-            onClick={() => handleItemClick(item)}
+            key={newfollowinglinks.uid} 
+            onClick={() => handleItemClick(newfollowinglinks)}
             //style={{ cursor: 'pointer', color: selectedItem === item ? 'blue' : 'black' }}
           >
-            {item}
+            {newfollowinglinks.uid+", "+newfollowinglinks.newlinks}
           </li>
         ))}
       </ul>
-      {selectedItem && <p>You selected: {selectedItem}</p>}
+      {/* {selectedItem && <p>You selected: {selectedItem}</p>} */}
     </div>
   );
 }

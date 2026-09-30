@@ -49,7 +49,7 @@ export const SeeOthersPage = (props) => {
     const resultArray = array1.map((item) => ({
       ...item,
       isMatch:
-        array2.some((item2) => item2.uid === item.gud.uid) === true
+        array2.some((item2) => item.gud.uid === item2.uid) === true
           ? "is following "
           : "is not following ",
     }));
@@ -64,6 +64,9 @@ export const SeeOthersPage = (props) => {
         array2.some((item2) => item2.uid === item.gud.uid) === true
           ? "is following "
           : "is not following ",
+      newlinks: array3.some((item3) => (item.gud.uid === item3.uid) && (!!item3.newlinks === true && item3.newlinks.newlinks==="yes")) === true
+          ? "yes"
+          : "no",
     }));
 
     return resultArray;
@@ -86,7 +89,9 @@ export const SeeOthersPage = (props) => {
       //   return 0;
       // })
 
-      const array3 = array1.sort((a, b) => {
+      let array3 = []
+      if(array1.length > 1)
+      array3 = array1.sort((a, b) => {
         const valA = a.gud.displayname.toLowerCase();
         const valB = b.gud.displayname.toLowerCase();
         if (valA < valB) return -1;
@@ -112,7 +117,10 @@ export const SeeOthersPage = (props) => {
       //   return 0;
       // })
 
-      const array3 = array1.sort((a, b) => {
+
+      let array3 = []
+      if(array1.length > 1)
+      array3 = array1.sort((a, b) => {
         const valA = a.gud.displayname.toLowerCase();
         const valB = b.gud.displayname.toLowerCase();
         if (valA < valB) return -1;
@@ -327,8 +335,8 @@ export const SeeOthersPage = (props) => {
                 //no need to display the logged in user's page
 
                 if (props.whichone === 1) {
-                  // if(item.isMatch !== "yes") return null
-                  // else 
+                  if(item.newlinks !== "yes") return null
+                  else 
                     return (
                     <li
                       className={`${

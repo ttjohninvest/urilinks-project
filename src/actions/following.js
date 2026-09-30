@@ -752,7 +752,7 @@ export const startSetFollowingNewLinks = (uid) => {
     const promises = []
     const newlinks3 = []
 
-     promises.push(database
+    return database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
@@ -778,9 +778,12 @@ export const startSetFollowingNewLinks = (uid) => {
             .once("value")
             .then((childSnapshot3) => {
 
+              // newlinks3.push({ //all of these uids are following the logged in user
+              //   uid: rec.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+              //   newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
+              // });
               newlinks3.push({ //all of these uids are following the logged in user
-                uid: rec.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
-                newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
+                uid: 1
               });
               //return true
               console.log("2 startSetFollowingNewLinks, newLinks3="+JSON.stringify(newlinks3))
@@ -795,16 +798,16 @@ export const startSetFollowingNewLinks = (uid) => {
 
           console.log("4 startSetFollowingNewLinks, newlinks3="+JSON.stringify(newlinks3))
           //return 
-         
+          return Promise.all(promises).then(()=>{
+             dispatch(setNewFollowingLinks(newlinks3));
+          })
 
         })
       .catch((error) =>
         console.log("startSetFollowingNewLinks, error=" + error),
-      ))
+      )
 
-       return Promise.all(promises).then(()=>{
-             dispatch(setNewFollowingLinks(newlinks3));
-          })
+      
 
       
   };

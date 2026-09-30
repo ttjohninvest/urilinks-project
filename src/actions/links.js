@@ -332,6 +332,7 @@ export const startAddLink2 = (uid,linkData = {}) => {
         //return true;
         return "success"
       }).catch((error) => {
+        alert("error adding link data in firebase, error=" + error)
         console.log("error adding link data in firebase, error=" + error);
         return false;
       });

@@ -785,7 +785,7 @@ const handleClick = useCallback(() => {
                             </h3>
 
                             {/* <ClickableList /> */}
-                            {x !== "readonly" && <div className="flexrowz"><OthersButton
+                            {x !== "readonly" && <OthersButton
                               buttonText = {"New Links Ready"}
                               email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
                               uid={props.auth.uid}
@@ -793,7 +793,7 @@ const handleClick = useCallback(() => {
                               //changeSortBy={changeSortBy}
                                                         //uid={props.uid}
                                                         //setSortBy={setSortBy}
-                                                      /><div id="numberofnotificationsready" className="margin-left-11">{"4"}</div></div>}
+                                                      />}
 
                             {/* <span onClick={()=>goToPage(props.newfollowinglinks)}></span> */}
 

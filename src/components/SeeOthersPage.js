@@ -326,8 +326,8 @@ const annotatearray2 = (array1, array2) => {
                 return (
                   <li className={`${
                     
-                    item.whichone === 2 ?(item.isMatch==="is following "?'bg-color-1 color-white-1':'bg-color-1w color-black-3'):
-                    item.whichone === 1 ?item.isMatch==="yes":"no"
+                    props.whichone === 2 ?(item.isMatch==="is following "?'bg-color-1 color-white-1':'bg-color-1w color-black-3'):
+                    props.whichone === 1 ?item.isMatch==="yes":"no"
                   
                   
                   }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import database from "../firebase/firebase";
 
 import moment from "moment";
@@ -58,6 +58,58 @@ import {
 
 
 
+const useClickOutside = (ref, handler) => {
+  useEffect(() => {
+    const listener = (event) => {
+      if (!ref.current || ref.current.contains(event.target)) {
+        return;
+      }
+      handler(event);
+    };
+    document.addEventListener("mousedown", listener);
+    document.addEventListener("touchstart", listener);
+    return () => {
+      document.removeEventListener("mousedown", listener);
+      document.removeEventListener("touchstart", listener);
+    };
+  }, [ref, handler]);
+};
+
+
+
+//import { useClickOutside } from './useClickOutside';
+
+const Dropdown = ({ trigger, children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleDropdown = () => setIsOpen(!isOpen);
+  const closeDropdown = () => setIsOpen(false);
+
+  // Close when clicking outside
+  useClickOutside(dropdownRef, closeDropdown);
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      {/* Trigger Element */}
+      <div onClick={toggleDropdown} className="cursor-pointer">
+        {trigger}
+      </div>
+
+      {/* Dropdown Menu */}
+      {isOpen && (
+        <div className="absolute top-full left-0 mt-1 bg-white shadow-lg rounded z-10 min-w-max">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+
+
+
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
@@ -113,9 +165,6 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
     console.log("Header.js, newfollowinglinks ids="+JSON.stringify(props.newfollowinglinks))
     
     const handleWindowClose = (event) => {
-
-      
-
 
       // Use sendBeacon for reliable background data transmission
       // navigator.sendBeacon('/api/log-close', JSON.stringify({ reason: 'close' }));
@@ -664,7 +713,7 @@ const handleClick = useCallback(() => {
   return (
     <div className="">
 
-      
+      <Dropdown><ul><li>a</li><li>b</li></ul></Dropdown>
       
       {isMobile() === false ? (
         <div>

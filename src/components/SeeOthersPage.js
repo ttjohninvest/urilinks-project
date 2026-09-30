@@ -58,7 +58,7 @@ export const SeeOthersPage = (props) => {
 const annotatearray2 = (array1, array2) => {
   const resultArray = array1.map((item) => ({
     ...item,
-    isMatch: array2.some((item2) => (!!item2.newlinks===true && (item2.newlinks.newlinks === "yes"))?"yes":"no")
+    isMatch: "yes"//array2.some((item2) => (!!item2.newlinks===true && (item2.newlinks.newlinks === "yes"))?"yes":"no")
   }));
 
   return resultArray;
@@ -326,8 +326,9 @@ const annotatearray2 = (array1, array2) => {
                 return (
                   <li className={`${
                     
-                    props.whichone === 2 ?(item.isMatch==="is following "?'bg-color-1 color-white-1':'bg-color-1w color-black-3'):
-                    props.whichone === 1 ?item.isMatch==="yes":"no"
+                    (props.whichone === 2 && item.isMatch==="is following " ?'bg-color-1 color-white-1':'bg-color-1w color-black-3')
+                    (props.whichone === 1 && item.isMatch==="yes" ?'yes':'no')
+                   
                   
                   
                   }

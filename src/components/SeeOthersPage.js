@@ -64,7 +64,7 @@ export const SeeOthersPage = (props) => {
         array2.some((item2) => item2.uid === item.gud.uid) === true
           ? "is following "
           : "is not following ",
-      newlinks: array3.some((item3) => (item.gud.uid === item3.uid) && (!!item3.newlinks === true && item3.newlinks.newlinks==="yes")) === true
+      newlinks: array3.some((item3) => (item.gud.uid === item3.uid) && (!!item3.newlinks === true && item3.newlinks ==="yes")) === true
           ? "yes"
           : "no",
     }));

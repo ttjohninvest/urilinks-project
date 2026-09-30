@@ -5,6 +5,7 @@ import BasicIframe from "./BasicIframe";
 import CopySalesButton from "./CopySalesButton";
 import StorageSizes from "./StorageSizes";
 import selectLinks from "../selectors/links";
+import startAddLink from "../actions/links";
 
 import visited from "../assets/images/visited-1.png";
 import {
@@ -468,6 +469,17 @@ function isFacebookPost(url) {
     } else {
       alert("deletion canceled");
     }
+  };
+
+  const storeScrollPosition4 = (link, event) => {
+    const text =
+      "Please confirm it ok to save this link to your list?";
+    if (confirm(text) === true) {
+      //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
+      startAddLink(link)
+      //const x = event.target.getAttribute("data-value"); //x is link id
+    }
+     
   };
 
   const sortit2 = (event) => {
@@ -1517,6 +1529,33 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                 {props.likes === undefined ? 0 : props.likes}
               </span>
             </span>
+
+
+            {props.rt === "readonly" && (<span className="ib flexrowzv- margin-right-1">
+              <span
+                ref={myRef2}
+                className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0 pointereventsnone- margin-top-1zx`}
+                //href="#"
+
+                //data-value={props.id}
+                title={
+                  "Click to like if you like it. The number of users who have liked the link."
+                }
+                onClick={() => storeScrollPosition4(props.link, event)}
+              >
+                I want this link
+              </span>
+              <span
+                className="ib margin-left-11tx- font-weight-900- margin-top-2x-"
+                title={
+                  "This is the number of times someone has clicked this link."
+                }
+              >
+                {props.likes === undefined ? 0 : props.likes}
+              </span>
+            </span>)}
+
+
             {props.rt !== "readonly" ? (
               <span className="ib flexrowzv- margin-top-2x-">
                 <span

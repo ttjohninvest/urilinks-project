@@ -207,8 +207,8 @@ export const SeeOthersPage = (props) => {
         if (array3[0]) {
         otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
         }
-        alert("set it back to no success, uid="+array3[0]+", props.auth.uid="+props.auth.uid)
-        //window.location.href="https://urilinks.com?signup=signup&z2=1"
+        //alert("set it back to no success, uid="+array3[0]+", props.auth.uid="+props.auth.uid)
+        window.location.href="https://urilinks.com?signup=signup&z2=1"
       }).catch((e)=>{
         alert("SeeOthersPage.js, setitbacktono(), something went wrong")
       }) //array3[0] is the id of the user

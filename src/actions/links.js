@@ -295,8 +295,8 @@ export const startAddLink2 = (uid,linkData = {}) => {
 
     //////
     //return false;
-
-    console.log("startAddLink, link=" + JSON.stringify(link));
+    console.log("startAddLink2, uid=" + uid);
+    console.log("startAddLink2, link=" + JSON.stringify(link));
     if(link !== null && link !== undefined && link !== "")
     return database
       .ref(`users/${uid}/links`)

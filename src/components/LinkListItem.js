@@ -476,10 +476,10 @@ function isFacebookPost(url) {
 
   const storeScrollPosition4 = (link, event) => {
      const text =
-       "Please confirm it ok to save this link to your list?";
+       "Please confirm that it's ok to save this link to your list?";
     if (confirm(text) === true) {
       //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
-      alert("uid="+id2+", link="+JSON.stringify(link))
+      //alert("uid="+id2+", link="+JSON.stringify(link))
       console.log("LinkListItem, storeScrollPosition4, link="+JSON.stringify(link))
       startAddLink2(id2,link)
       .then((r)=>{

@@ -785,7 +785,7 @@ const handleClick = useCallback(() => {
                             </h3>
 
                             {/* <ClickableList /> */}
-                            <OthersButton
+                            {x !== "readonly" && <OthersButton
                               buttonText = {"Notifications"}
                               email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
                               uid={props.auth.uid}
@@ -793,7 +793,7 @@ const handleClick = useCallback(() => {
                               //changeSortBy={changeSortBy}
                                                         //uid={props.uid}
                                                         //setSortBy={setSortBy}
-                                                      />
+                                                      />}
 
                             {/* <span onClick={()=>goToPage(props.newfollowinglinks)}></span> */}
 

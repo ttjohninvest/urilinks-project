@@ -1792,7 +1792,7 @@ function ExpandableArray(props) {
                             value="date"
                             title="Results appear in date and time descending order"
                           >
-                            Date And Time Sort (Descending Order)
+                            Date And Time Sort (Descending Order) Default
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">
@@ -1931,7 +1931,7 @@ function ExpandableArray(props) {
                             value="date"
                             title="Results appear in date and time descending order"
                           >
-                            Date And Time Sort (Descending Order)
+                            Date And Time Sort (Descending Order) Default
                           </option>
                         </optgroup>
                         <optgroup label="Popularity:">

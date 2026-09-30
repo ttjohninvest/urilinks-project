@@ -17,7 +17,7 @@ export const SeeOthersPage = (props) => {
 
   useEffect(() => {
     console.log("SeeOthersPage.js, users=" + JSON.stringify(props.users));
-    console.log("SeeOthersPage, useEffect, whichone="+props.whichone) //1 from Header, OthersButton, to display new links ready list from
+    console.log("SeeOthersPage, useEffect, whichone=" + props.whichone); //1 from Header, OthersButton, to display new links ready list from
     //the ones you are following {newlinks:"yes"} in the database, 2 comes from OthersButton in LinkListFilters.js
   });
 
@@ -35,7 +35,6 @@ export const SeeOthersPage = (props) => {
   //     (item) => !array2.some((other) => other.uid === item.gud.uid),
   //   );
 
-   
   //   return uArray;
   // };
 
@@ -47,83 +46,82 @@ export const SeeOthersPage = (props) => {
 
   //props.users, props.following
   const annotatearray = (array1, array2) => {
-  const resultArray = array1.map((item) => ({
-    ...item,
-    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"is following ":"is not following "
-  }));
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? "is following "
+          : "is not following ",
+    }));
 
-  return resultArray;
-};
+    return resultArray;
+  };
 
-const annotatearray2 = (array1, array2) => {
-  const resultArray = array1.map((item) => ({
-    ...item,
-    isMatch: "yes"//array2.some((item2) => (!!item2.newlinks===true && (item2.newlinks.newlinks === "yes"))?"yes":"no")
-  }));
+  const annotatearray2 = (array1, array2) => {
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch: "yes", //array2.some((item2) => (!!item2.newlinks===true && (item2.newlinks.newlinks === "yes"))?"yes":"no")
+    }));
 
-  return resultArray;
-};
-
+    return resultArray;
+  };
 
   useEffect(() => {
-    
     //use the following to get a better uniqueData array, for display of the list, this is the new links ready list
     //props.newfollowinglinks [{uid:"D9...", newlinks:{newlinks:"yes"}},{uid:"c7z...", newlinks:{newlinks:"yes"}}]
 
-    if(props.whichone === 1) { //newlinks:"yes"
+    if (props.whichone === 1) {
+      //newlinks:"yes"
 
       const array1 = annotatearray2(props.users, props.newfollowinglinks);
 
-    //   const array3 = array1.sort((a, b) => {
-    //   const valA = a.gud.displayname.toLowerCase();
-    //   const valB = b.gud.displayname.toLowerCase();
-    //   if (valA < valB) return -1;
-    //   if (valA > valB) return 1;
-    //   return 0;
-    // })
+      //   const array3 = array1.sort((a, b) => {
+      //   const valA = a.gud.displayname.toLowerCase();
+      //   const valB = b.gud.displayname.toLowerCase();
+      //   if (valA < valB) return -1;
+      //   if (valA > valB) return 1;
+      //   return 0;
+      // })
 
-    const array3 = array1.sort((a, b) => {
-      const valA = a.gud.displayname.toLowerCase();
-      const valB = b.gud.displayname.toLowerCase();
-      if (valA < valB) return -1;
-      if (valA > valB) return 1;
-      return 0;
-    });
+      const array3 = array1.sort((a, b) => {
+        const valA = a.gud.displayname.toLowerCase();
+        const valB = b.gud.displayname.toLowerCase();
+        if (valA < valB) return -1;
+        if (valA > valB) return 1;
+        return 0;
+      });
 
-    //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
-    console.log("setUniqueData, props.users=" + JSON.stringify(array3));
-    //setUniqueData(props.users);
-    setUniqueData(array3);
-
+      //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
+      console.log("setUniqueData, props.users=" + JSON.stringify(array3));
+      //setUniqueData(props.users);
+      setUniqueData(array3);
 
       // setUniqueData(array3);
-    } else if(props.whichone === 2) {
+    } else if (props.whichone === 2) {
       //const array1 = removeduplicates(props.users, props.following)
-    const array1 = annotatearray(props.users, props.following);
+      const array1 = annotatearray(props.users, props.following);
 
-    //   const array3 = array1.sort((a, b) => {
-    //   const valA = a.gud.displayname.toLowerCase();
-    //   const valB = b.gud.displayname.toLowerCase();
-    //   if (valA < valB) return -1;
-    //   if (valA > valB) return 1;
-    //   return 0;
-    // })
+      //   const array3 = array1.sort((a, b) => {
+      //   const valA = a.gud.displayname.toLowerCase();
+      //   const valB = b.gud.displayname.toLowerCase();
+      //   if (valA < valB) return -1;
+      //   if (valA > valB) return 1;
+      //   return 0;
+      // })
 
-    const array3 = array1.sort((a, b) => {
-      const valA = a.gud.displayname.toLowerCase();
-      const valB = b.gud.displayname.toLowerCase();
-      if (valA < valB) return -1;
-      if (valA > valB) return 1;
-      return 0;
-    });
+      const array3 = array1.sort((a, b) => {
+        const valA = a.gud.displayname.toLowerCase();
+        const valB = b.gud.displayname.toLowerCase();
+        if (valA < valB) return -1;
+        if (valA > valB) return 1;
+        return 0;
+      });
 
-    //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
-    console.log("setUniqueData, props.users=" + JSON.stringify(array3));
-    //setUniqueData(props.users);
-    setUniqueData(array3);
+      //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
+      console.log("setUniqueData, props.users=" + JSON.stringify(array3));
+      //setUniqueData(props.users);
+      setUniqueData(array3);
     }
-    
-
   }, []);
 
   function encrypt(text, key) {
@@ -136,13 +134,13 @@ const annotatearray2 = (array1, array2) => {
       .join("");
   }
 
-  const otherPage = (id, dn, purl, email,theemail2, isMatch) => {
+  const otherPage = (id, dn, purl, email, theemail2, isMatch) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl=" + purl);
     //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
     //const z12 = encrypt(props.gud.gud.email,"125434")
     //const z12 = props.email
-    const z12 = theemail2
+    const z12 = theemail2;
     //alert(props.email)
 
     window.open(
@@ -164,8 +162,6 @@ const annotatearray2 = (array1, array2) => {
     );
   };
 
-  
-
   const handleClick = () => {
     // Identify the clicked element
     const clickedElement = event.target;
@@ -177,10 +173,10 @@ const annotatearray2 = (array1, array2) => {
     //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
     //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
     const email = encrypt(array3[3], "125434");
-    console.log("SeeOthersPage, array3[4]="+array3[4])
+    console.log("SeeOthersPage, array3[4]=" + array3[4]);
     const theemail2 = encrypt(array3[4], "125434");
-    console.log("SeeOthersPage,theemail2="+theemail2)
-    const isMatch = array3[5]
+    console.log("SeeOthersPage,theemail2=" + theemail2);
+    const isMatch = array3[5];
 
     if (array3[0]) {
       otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
@@ -194,8 +190,8 @@ const annotatearray2 = (array1, array2) => {
   };
 
   const startScrollingUp4 = () => {
-     if(!!buttonRef4===true && !!buttonRef4.current === true)
-    buttonRef4.current.click();
+    if (!!buttonRef4 === true && !!buttonRef4.current === true)
+      buttonRef4.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
 
@@ -213,9 +209,10 @@ const annotatearray2 = (array1, array2) => {
           (document.getElementById("ls3").scrollHeight - 2 ||
             document.getElementById("ls3").scrollHeight + 2)
         ) {
-           if(!!buttonRef4===true && !!buttonRef4.current === true)
-          buttonRef4.current.click();
-          if (!!scrolldownref8 === true && !!scrolldownref8.current===true) scrolldownref8.current.click();
+          if (!!buttonRef4 === true && !!buttonRef4.current === true)
+            buttonRef4.current.click();
+          if (!!scrolldownref8 === true && !!scrolldownref8.current === true)
+            scrolldownref8.current.click();
         }
     }, 40); // Every 20 milliseconds
   };
@@ -226,8 +223,8 @@ const annotatearray2 = (array1, array2) => {
   };
 
   const startScrollingDown4 = () => {
-     if(!!buttonRef4===true && !!buttonRef4.current === true)
-    buttonRef4.current.click();
+    if (!!buttonRef4 === true && !!buttonRef4.current === true)
+      buttonRef4.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
 
@@ -244,9 +241,10 @@ const annotatearray2 = (array1, array2) => {
           document.getElementById("ls3").scrollTop === 0 ||
           document.getElementById("ls3").scrollTop <= 2
         ) {
-           if(!!buttonRef4===true && !!buttonRef4.current === true)
-          buttonRef4.current.click();
-          if (!!scrollupref8 === true && !!scrollupref8.current===true) scrollupref8.current.click();
+          if (!!buttonRef4 === true && !!buttonRef4.current === true)
+            buttonRef4.current.click();
+          if (!!scrollupref8 === true && !!scrollupref8.current === true)
+            scrollupref8.current.click();
 
           //stopScrolling();
         }
@@ -322,87 +320,76 @@ const annotatearray2 = (array1, array2) => {
         >
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
             {uniqueData.map((item, index) => {
-              if (props.auth.uid !== item.gud.uid) { //no need to display the logged in user's page
-                
-                if(props.whichone===1){
-return (
-                  <li className={`${
-                    
-                  
-                    (props.whichone === 1 && item.isMatch==="yes" ?'yes':'no')
-                   
-                  }
-                    
-                    
+              if (props.auth.uid !== item.gud.uid) {
+                //no need to display the logged in user's page
+
+                if (props.whichone === 1) {
+                  if(item.isMatch !== "yes") return null
+                  else return (
+                    <li
+                      className=""
+                      key={index}
+                      data-item-id={
+                        item.gud.uid +
+                        ";" +
+                        item.gud.displayname +
+                        ";" +
+                        item.gud.photourl +
+                        ";" +
+                        item.gud.email +
+                        ";" +
+                        props.email +
+                        ";" +
+                        item.isMatch
+                      }
+                    >
+                      {props.email +
+                        " " +
+                        item.isMatch +
+                        " " +
+                        item.gud.email +
+                        ", " +
+                        item.gud.displayname +
+                        ", " +
+                        item.gud.theatname}
+                    </li>
+                  );
+                } else if (props.whichone === 2) {
+                  return (
+                    <li
+                      className={`${
+                        props.whichone === 2 && item.isMatch === "is following "
+                          ? "bg-color-1 color-white-1"
+                          : "bg-color-1w color-black-3"
+                      }
                     `}
-                    key={index}
-                    data-item-id={
-                      item.gud.uid +
-                      ";" +
-                      item.gud.displayname +
-                      ";" +
-                      item.gud.photourl +
-                      ";" +
-                      item.gud.email +
-                      ";" +
-                      props.email+
-                      ";" +
-                      item.isMatch 
-                    }
-                  >
-                    {
-                    props.email + 
-                    " " +
-                    item.isMatch + 
-                    " " +
-                    item.gud.email +
-                    ", " +
-                    item.gud.displayname +
-                    ", " +
-                    item.gud.theatname}
-                  </li>
-                );
-                } else if(props.whichone===2) {
-return (
-                  <li className={`${
-                    
-                    (props.whichone === 2 && item.isMatch==="is following " ?'bg-color-1 color-white-1':'bg-color-1w color-black-3')
-                 
-                   
-                  }
-                    
-                    
-                    `}
-                    key={index}
-                    data-item-id={
-                      item.gud.uid +
-                      ";" +
-                      item.gud.displayname +
-                      ";" +
-                      item.gud.photourl +
-                      ";" +
-                      item.gud.email +
-                      ";" +
-                      props.email+
-                      ";" +
-                      item.isMatch 
-                    }
-                  >
-                    {
-                    props.email + 
-                    " " +
-                    item.isMatch + 
-                    " " +
-                    item.gud.email +
-                    ", " +
-                    item.gud.displayname +
-                    ", " +
-                    item.gud.theatname}
-                  </li>
-                );
+                      key={index}
+                      data-item-id={
+                        item.gud.uid +
+                        ";" +
+                        item.gud.displayname +
+                        ";" +
+                        item.gud.photourl +
+                        ";" +
+                        item.gud.email +
+                        ";" +
+                        props.email +
+                        ";" +
+                        item.isMatch
+                      }
+                    >
+                      {props.email +
+                        " " +
+                        item.isMatch +
+                        " " +
+                        item.gud.email +
+                        ", " +
+                        item.gud.displayname +
+                        ", " +
+                        item.gud.theatname}
+                    </li>
+                  );
                 }
-                
-                
               } else {
                 return null;
               }
@@ -419,7 +406,7 @@ const mapStateToProps = (state) => ({
   users: state.users,
   auth: state.auth,
   following: state.following,
-  gud:state.gud,
+  gud: state.gud,
   newfollowinglinks: state.newfollowinglinks,
 });
 

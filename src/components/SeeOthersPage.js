@@ -323,14 +323,14 @@ const annotatearray2 = (array1, array2) => {
           <ul className="liststylenone cursor-pointer" onClick={handleClick}>
             {uniqueData.map((item, index) => {
               if (props.auth.uid !== item.gud.uid) { //no need to display the logged in user's page
-                return (
+                
+                if(props.whichone===1){
+return (
                   <li className={`${
                     
-                    (props.whichone === 2 && item.isMatch==="is following " ?'bg-color-1 color-white-1':'bg-color-1w color-black-3')
+                  
                     (props.whichone === 1 && item.isMatch==="yes" ?'yes':'no')
                    
-                  
-                  
                   }
                     
                     
@@ -362,6 +362,47 @@ const annotatearray2 = (array1, array2) => {
                     item.gud.theatname}
                   </li>
                 );
+                } else if(props.whichone===2) {
+return (
+                  <li className={`${
+                    
+                    (props.whichone === 2 && item.isMatch==="is following " ?'bg-color-1 color-white-1':'bg-color-1w color-black-3')
+                 
+                   
+                  }
+                    
+                    
+                    `}
+                    key={index}
+                    data-item-id={
+                      item.gud.uid +
+                      ";" +
+                      item.gud.displayname +
+                      ";" +
+                      item.gud.photourl +
+                      ";" +
+                      item.gud.email +
+                      ";" +
+                      props.email+
+                      ";" +
+                      item.isMatch 
+                    }
+                  >
+                    {
+                    props.email + 
+                    " " +
+                    item.isMatch + 
+                    " " +
+                    item.gud.email +
+                    ", " +
+                    item.gud.displayname +
+                    ", " +
+                    item.gud.theatname}
+                  </li>
+                );
+                }
+                
+                
               } else {
                 return null;
               }

@@ -73,7 +73,7 @@ export const SeeOthersPage = (props) => {
     if (props.whichone === 1) {
       //newlinks:"yes"
 
-      const array1 = annotatearray2(props.users, props.newfollowinglinks);
+      const array1 = props.users //annotatearray2(props.users, props.newfollowinglinks);
 
       //   const array3 = array1.sort((a, b) => {
       //   const valA = a.gud.displayname.toLowerCase();
@@ -324,8 +324,9 @@ export const SeeOthersPage = (props) => {
                 //no need to display the logged in user's page
 
                 if (props.whichone === 1) {
-                  if(item.isMatch !== "yes") return null
-                  else return (
+                  // if(item.isMatch !== "yes") return null
+                  // else 
+                    return (
                     <li
                       className=""
                       key={index}

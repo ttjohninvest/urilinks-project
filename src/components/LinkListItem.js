@@ -5,7 +5,7 @@ import BasicIframe from "./BasicIframe";
 import CopySalesButton from "./CopySalesButton";
 import StorageSizes from "./StorageSizes";
 import selectLinks from "../selectors/links";
-import {startAddLink} from "../actions/links";
+import {startAddLink2} from "../actions/links";
 
 import visited from "../assets/images/visited-1.png";
 import {

@@ -209,6 +209,7 @@ export const SeeOthersPage = (props) => {
 
       setitbacktono(array3[0]).then(()=>{
         alert("set it back to no success, uid="+array3[0]+", props.auth.uid="+props.auth.uid)
+        window.location.href="https://urilinks.com?signup=signup&z2=1"
       }).catch((e)=>{
         alert("something went wrong")
       }) //array3[0] is the id of the user

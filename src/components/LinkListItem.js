@@ -1551,7 +1551,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                 title={
                   "Click to like if you like it. The number of users who have liked the link."
                 }
-                onClick={() => storeScrollPosition4(props.link, event)}
+                onClick={() => storeScrollPosition4(props.link, event)} //is passed in
               >
                 I want this link
               </span>

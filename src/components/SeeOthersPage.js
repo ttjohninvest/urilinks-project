@@ -57,10 +57,13 @@ export const SeeOthersPage = (props) => {
     return resultArray;
   };
 
-  const annotatearray2 = (array1, array2) => {
+  const annotatearray2 = (array1, array2, array3) => {
     const resultArray = array1.map((item) => ({
       ...item,
-      isMatch: array2.length > 0 ? array2.some((item2) => (!!item2.newlinks===true && (item2.newlinks.newlinks === "yes"))?"yes":"no"):"no"
+      isMatch:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? "is following "
+          : "is not following ",
     }));
 
     return resultArray;
@@ -73,7 +76,7 @@ export const SeeOthersPage = (props) => {
     if (props.whichone === 1) {
       //newlinks:"yes"
 
-      const array1 = props.users //annotatearray2(props.users, props.newfollowinglinks);, [gud:{... uid:"D9..."}]
+      const array1 = annotatearray2(props.users, props.following, props.newfollowinglinks); //, [gud:{... uid:"D9..."}]
 
       //   const array3 = array1.sort((a, b) => {
       //   const valA = a.gud.displayname.toLowerCase();
@@ -329,8 +332,8 @@ export const SeeOthersPage = (props) => {
                     return (
                     <li
                       className={`${
-                        props.whichone === 2 && item.isMatch === "yes"
-                          ? "bg-color-1- color-white-1- bg-color-1w color-black-3"
+                        props.whichone === 1 && item.isMatch === "is following "
+                          ? "bg-color-1 color-white-1"
                           : "bg-color-1w color-black-3"
                       }
                     `}
@@ -346,12 +349,12 @@ export const SeeOthersPage = (props) => {
                         ";" +
                         props.email +
                         ";" +
-                        "yes" //item.isMatch
+                        item.isMatch
                       }
                     >
                       {props.email +
                         " " +
-                        "yes" + //item.isMatch +
+                        item.isMatch +
                         " " +
                         item.gud.email +
                         ", " +

@@ -247,6 +247,21 @@ export const startAddLink = (linkData = {}) => {
   };
 };
 
+export const setitbacktono = (uid) => {
+   return database
+      .ref(`users/${uid}/newlinks`)
+      .set({newlinks:"no"})
+      .then((ref) => {
+        return "success"
+        //return true;
+      })
+      .catch((error) => {
+        console.log("error adding link data in firebase, error=" + error);
+        return false;
+      });
+
+}
+
 export const startAddLink2 = (uid,linkData = {}) => {
   //return (dispatch, getState) => {
     //const uid2 = getState().auth.uid;

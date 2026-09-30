@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 //import Draggable from 'react-draggable';
 
 import { setTextFilter, sortByOthers } from "../actions/filters";
+import {setitbacktono} from "../actions/links"
 
 export const SeeOthersPage = (props) => {
   //const [count, setCount] = useState(0);
@@ -64,7 +65,13 @@ export const SeeOthersPage = (props) => {
         array2.some((item2) => item2.uid === item.gud.uid) === true
           ? "is following "
           : "is not following ",
-      newlinks: array3.some((item3) => (item.gud.uid === item3.uid) && (!!item3.newlinks === true && item3.newlinks ==="yes")) === true
+      newlinks:
+        array3.some(
+          (item3) =>
+            item.gud.uid === item3.uid &&
+            !!item3.newlinks === true &&
+            item3.newlinks === "yes",
+        ) === true
           ? "yes"
           : "no",
     }));
@@ -79,7 +86,11 @@ export const SeeOthersPage = (props) => {
     if (props.whichone === 1) {
       //newlinks:"yes"
 
-      const array1 = annotatearray2(props.users, props.following, props.newfollowinglinks); //, [gud:{... uid:"D9..."}]
+      const array1 = annotatearray2(
+        props.users,
+        props.following,
+        props.newfollowinglinks,
+      ); //, [gud:{... uid:"D9..."}]
 
       //   const array3 = array1.sort((a, b) => {
       //   const valA = a.gud.displayname.toLowerCase();
@@ -89,15 +100,15 @@ export const SeeOthersPage = (props) => {
       //   return 0;
       // })
 
-      let array3 = []
-      if(array1.length > 1)
-      array3 = array1.sort((a, b) => {
-        const valA = a.gud.displayname.toLowerCase();
-        const valB = b.gud.displayname.toLowerCase();
-        if (valA < valB) return -1;
-        if (valA > valB) return 1;
-        return 0;
-      });
+      let array3 = [];
+      if (array1.length > 1)
+        array3 = array1.sort((a, b) => {
+          const valA = a.gud.displayname.toLowerCase();
+          const valB = b.gud.displayname.toLowerCase();
+          if (valA < valB) return -1;
+          if (valA > valB) return 1;
+          return 0;
+        });
 
       //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
       console.log("setUniqueData, props.users=" + JSON.stringify(array3));
@@ -117,16 +128,15 @@ export const SeeOthersPage = (props) => {
       //   return 0;
       // })
 
-
-      let array3 = []
-      if(array1.length > 1)
-      array3 = array1.sort((a, b) => {
-        const valA = a.gud.displayname.toLowerCase();
-        const valB = b.gud.displayname.toLowerCase();
-        if (valA < valB) return -1;
-        if (valA > valB) return 1;
-        return 0;
-      });
+      let array3 = [];
+      if (array1.length > 1)
+        array3 = array1.sort((a, b) => {
+          const valA = a.gud.displayname.toLowerCase();
+          const valB = b.gud.displayname.toLowerCase();
+          if (valA < valB) return -1;
+          if (valA > valB) return 1;
+          return 0;
+        });
 
       //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
       console.log("setUniqueData, props.users=" + JSON.stringify(array3));
@@ -173,31 +183,67 @@ export const SeeOthersPage = (props) => {
     );
   };
 
-  const handleClick = () => {
+  const handleClick = (v) => {
     // Identify the clicked element
-    const clickedElement = event.target;
+    if (v === 1) {
+      //1 mean pressed from Header.js
 
-    // Extract data from data attributes
-    const itemId = clickedElement.dataset.itemId;
-    const array3 = itemId.split(";");
-    console.log("handleClick, itemId=" + itemId);
-    //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
-    //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
-    const email = encrypt(array3[3], "125434");
-    console.log("SeeOthersPage, array3[4]=" + array3[4]);
-    const theemail2 = encrypt(array3[4], "125434");
-    console.log("SeeOthersPage,theemail2=" + theemail2);
-    const isMatch = array3[5];
+      //I need to set newlinks back to no because the person has seen the shared link
+      const clickedElement = event.target;
 
-    if (array3[0]) {
-      otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
+      // Extract data from data attributes
+      const itemId = clickedElement.dataset.itemId;
+      const array3 = itemId.split(";");
+      console.log("handleClick, itemId=" + itemId);
+      //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
+      //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
+      const email = encrypt(array3[3], "125434");
+      console.log("SeeOthersPage, array3[4]=" + array3[4]);
+      const theemail2 = encrypt(array3[4], "125434");
+      console.log("SeeOthersPage,theemail2=" + theemail2);
+      const isMatch = array3[5];
+
+      if (array3[0]) {
+        otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
+      }
+
+      setitbacktono(array3[0]).then(()=>{
+        alert("set it back to no success")
+      }).catch((e)=>{
+        alert("something went wrong")
+      }) //array3[0] is the id of the user
+
+      // props.changeSortBy("others",1);
+
+      // props.setTextFilter("");
+
+      // props.sortByOthers();
+    } else if (v === 2) {
+      //2 mean pressed from LinkListFilters.js
+      const clickedElement = event.target;
+
+      // Extract data from data attributes
+      const itemId = clickedElement.dataset.itemId;
+      const array3 = itemId.split(";");
+      console.log("handleClick, itemId=" + itemId);
+      //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
+      //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
+      const email = encrypt(array3[3], "125434");
+      console.log("SeeOthersPage, array3[4]=" + array3[4]);
+      const theemail2 = encrypt(array3[4], "125434");
+      console.log("SeeOthersPage,theemail2=" + theemail2);
+      const isMatch = array3[5];
+
+      if (array3[0]) {
+        otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
+      }
+
+      // props.changeSortBy("others",1);
+
+      // props.setTextFilter("");
+
+      // props.sortByOthers();
     }
-
-    // props.changeSortBy("others",1);
-
-    // props.setTextFilter("");
-
-    // props.sortByOthers();
   };
 
   const startScrollingUp4 = () => {
@@ -329,89 +375,187 @@ export const SeeOthersPage = (props) => {
             isMobile() === true ? "widthhashtagcolumn" : "widthx1"
           } heightx1 overflowyauto borderLightOrange overflowxhidden padding-bottom-1`}
         >
-          <ul className="liststylenone cursor-pointer" onClick={handleClick}>
-            {uniqueData.map((item, index) => {
-              if (props.auth.uid !== item.gud.uid) { //this removes the logged in user from the output list
-                //no need to display the logged in user's page
+          {props.whichone === 1 ? (
+            <ul
+              className="liststylenone cursor-pointer"
+              onClick={() => handleClick(1)}
+            >
+              {uniqueData.map((item, index) => {
+                if (props.auth.uid !== item.gud.uid) {
+                  //this removes the logged in user from the output list
+                  //no need to display the logged in user's page
 
-                if (props.whichone === 1) {
-                  if(item.newlinks !== "yes") return null
-                  else 
+                  if (props.whichone === 1) {
+                    if (item.newlinks !== "yes") return null;
+                    else
+                      return (
+                        <li
+                          className={`${
+                            props.whichone === 1 &&
+                            item.isMatch === "is following "
+                              ? "bg-color-1 color-white-1"
+                              : "bg-color-1w color-black-3"
+                          }
+                    `}
+                          key={index}
+                          data-item-id={
+                            item.gud.uid +
+                            ";" +
+                            item.gud.displayname +
+                            ";" +
+                            item.gud.photourl +
+                            ";" +
+                            item.gud.email +
+                            ";" +
+                            props.email +
+                            ";" +
+                            item.isMatch
+                          }
+                        >
+                          {props.email +
+                            " " +
+                            item.isMatch +
+                            " " +
+                            item.gud.email +
+                            ", " +
+                            item.gud.displayname +
+                            ", " +
+                            item.gud.theatname}
+                        </li>
+                      );
+                  } else if (props.whichone === 2) {
                     return (
-                    <li
-                      className={`${
-                        props.whichone === 1 && item.isMatch === "is following "
-                          ? "bg-color-1 color-white-1"
-                          : "bg-color-1w color-black-3"
-                      }
+                      <li
+                        className={`${
+                          props.whichone === 2 &&
+                          item.isMatch === "is following "
+                            ? "bg-color-1 color-white-1"
+                            : "bg-color-1w color-black-3"
+                        }
                     `}
-                      key={index}
-                      data-item-id={
-                        item.gud.uid +
-                        ";" +
-                        item.gud.displayname +
-                        ";" +
-                        item.gud.photourl +
-                        ";" +
-                        item.gud.email +
-                        ";" +
-                        props.email +
-                        ";" +
-                        item.isMatch
-                      }
-                    >
-                      {props.email +
-                        " " +
-                        item.isMatch +
-                        " " +
-                        item.gud.email +
-                        ", " +
-                        item.gud.displayname +
-                        ", " +
-                        item.gud.theatname}
-                    </li>
-                  );
-                } else if (props.whichone === 2) {
-                  return (
-                    <li
-                      className={`${
-                        props.whichone === 2 && item.isMatch === "is following "
-                          ? "bg-color-1 color-white-1"
-                          : "bg-color-1w color-black-3"
-                      }
-                    `}
-                      key={index}
-                      data-item-id={
-                        item.gud.uid +
-                        ";" +
-                        item.gud.displayname +
-                        ";" +
-                        item.gud.photourl +
-                        ";" +
-                        item.gud.email +
-                        ";" +
-                        props.email +
-                        ";" +
-                        item.isMatch
-                      }
-                    >
-                      {props.email +
-                        " " +
-                        item.isMatch +
-                        " " +
-                        item.gud.email +
-                        ", " +
-                        item.gud.displayname +
-                        ", " +
-                        item.gud.theatname}
-                    </li>
-                  );
+                        key={index}
+                        data-item-id={
+                          item.gud.uid +
+                          ";" +
+                          item.gud.displayname +
+                          ";" +
+                          item.gud.photourl +
+                          ";" +
+                          item.gud.email +
+                          ";" +
+                          props.email +
+                          ";" +
+                          item.isMatch
+                        }
+                      >
+                        {props.email +
+                          " " +
+                          item.isMatch +
+                          " " +
+                          item.gud.email +
+                          ", " +
+                          item.gud.displayname +
+                          ", " +
+                          item.gud.theatname}
+                      </li>
+                    );
+                  }
+                } else {
+                  return null;
                 }
-              } else {
-                return null;
-              }
-            })}
-          </ul>
+              })}
+            </ul>
+          ) : (
+            <ul
+              className="liststylenone cursor-pointer"
+              onClick={() => handleClick(2)}
+            >
+              {uniqueData.map((item, index) => {
+                if (props.auth.uid !== item.gud.uid) {
+                  //this removes the logged in user from the output list
+                  //no need to display the logged in user's page
+
+                  if (props.whichone === 1) {
+                    if (item.newlinks !== "yes") return null;
+                    else
+                      return (
+                        <li
+                          className={`${
+                            props.whichone === 1 &&
+                            item.isMatch === "is following "
+                              ? "bg-color-1 color-white-1"
+                              : "bg-color-1w color-black-3"
+                          }
+                    `}
+                          key={index}
+                          data-item-id={
+                            item.gud.uid +
+                            ";" +
+                            item.gud.displayname +
+                            ";" +
+                            item.gud.photourl +
+                            ";" +
+                            item.gud.email +
+                            ";" +
+                            props.email +
+                            ";" +
+                            item.isMatch
+                          }
+                        >
+                          {props.email +
+                            " " +
+                            item.isMatch +
+                            " " +
+                            item.gud.email +
+                            ", " +
+                            item.gud.displayname +
+                            ", " +
+                            item.gud.theatname}
+                        </li>
+                      );
+                  } else if (props.whichone === 2) {
+                    return (
+                      <li
+                        className={`${
+                          props.whichone === 2 &&
+                          item.isMatch === "is following "
+                            ? "bg-color-1 color-white-1"
+                            : "bg-color-1w color-black-3"
+                        }
+                    `}
+                        key={index}
+                        data-item-id={
+                          item.gud.uid +
+                          ";" +
+                          item.gud.displayname +
+                          ";" +
+                          item.gud.photourl +
+                          ";" +
+                          item.gud.email +
+                          ";" +
+                          props.email +
+                          ";" +
+                          item.isMatch
+                        }
+                      >
+                        {props.email +
+                          " " +
+                          item.isMatch +
+                          " " +
+                          item.gud.email +
+                          ", " +
+                          item.gud.displayname +
+                          ", " +
+                          item.gud.theatname}
+                      </li>
+                    );
+                  }
+                } else {
+                  return null;
+                }
+              })}
+            </ul>
+          )}
         </div>
       </div>
     </div>

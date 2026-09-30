@@ -328,7 +328,12 @@ export const SeeOthersPage = (props) => {
                   // else 
                     return (
                     <li
-                      className=""
+                      className={`${
+                        props.whichone === 2 && item.isMatch === "yes"
+                          ? "bg-color-1- color-white-1- bg-color-1w color-black-3"
+                          : "bg-color-1w color-black-3"
+                      }
+                    `}
                       key={index}
                       data-item-id={
                         item.gud.uid +

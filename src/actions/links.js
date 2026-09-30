@@ -247,6 +247,91 @@ export const startAddLink = (linkData = {}) => {
   };
 };
 
+export const startAddLink2 = (uid,linkData = {}) => {
+  return (dispatch, getState) => {
+    //const uid = getState().auth.uid;
+    const {
+      
+      show = 0,
+      star = 0,
+      likes = 0,
+      frequency = 0,
+      archive = 0,
+      showpublic = 1,
+      longname = "",
+      description = "",
+      addescription = "",
+      Url = "",
+      adUrl = "",
+      buyerdiscountcode = "",
+      yturl = "",
+      note = "",
+      foldername = "",
+      amount = 0,
+      createdAt = 0,
+      faviconURL = "",
+    } = linkData;
+    const link = {
+      
+      show,
+      star,
+      likes,
+      frequency,
+      archive,
+      showpublic,
+      longname,
+      description,
+      addescription,
+      Url,
+      adUrl,
+      buyerdiscountcode,
+      yturl,
+      note,
+      foldername,
+      amount,
+      createdAt,
+      faviconURL,
+    };
+
+    //////
+    //return false;
+
+    console.log("startAddLink, link=" + JSON.stringify(link));
+    if(link !== null && link !== undefined && link !== "")
+    return database
+      .ref(`users/${uid}/links`)
+      .push(link)
+      .then((ref) => {
+
+       return database
+      .ref(`users/${uid}/newlinks`)
+      .set({newlinks:"yes"})
+      .then((ref) => {
+        dispatch(
+          addLink({
+            id: ref.key,
+            ...link,
+          }),
+        );
+        return true;
+      })
+
+      .catch((error) => {
+        console.log("error adding link data in firebase, error=" + error);
+        return false;
+      });
+
+
+
+      
+      })
+      .catch((error) => {
+        console.log("error adding link data in firebase, error=" + error);
+        return false;
+      });
+  };
+};
+
 // REMOVE_LINK
 export const removeLink = ({ id } = {}) => ({
   type: "REMOVE_LINK",

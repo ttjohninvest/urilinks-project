@@ -3323,6 +3323,4 @@ const mapDispatchToProps = (dispatch) => ({
   startAddTheupdatedate: (data) => dispatch(startAddTheupdatedate(data)),
 });
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks),
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks));

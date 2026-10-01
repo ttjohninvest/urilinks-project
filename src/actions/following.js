@@ -683,7 +683,7 @@ export const startSetFollowing = (uid) => {
           console.log("startSetFollowing,childSnapshot=" + JSON.stringify(childSnapshot))
           
           following.push({
-            uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+            uid: childSnapshot.key,
             ...childSnapshot.val(),
           });
         });
@@ -692,7 +692,7 @@ export const startSetFollowing = (uid) => {
       }).catch((error) => console.log("startSetFollowing, error=" + error)))
 
       return Promise.all(promises).then(()=>{
-        console.log("startSetFollowing, following="+JSON.stringify(following))
+        console.log("done, startSetFollowing, following="+JSON.stringify(following))
         dispatch(setFollowing(following));
       })
   };

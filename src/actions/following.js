@@ -669,39 +669,32 @@ const isInOkArray = (uid) => {
 
 export const startSetFollowing = (uid) => {
   console.log("startSetFollowing, uid=" + uid);
+  const promises=[]
+  const following = [];
   return (dispatch, getState) => {
-    return database
+    promises.push(database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
-        const following = [];
+        
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          console.log(
-            "startSetFollowing,childSnapshot=" + JSON.stringify(childSnapshot),
-          );
-          console.log(
-            "startSetFollowing,childSnapshot.key=" +
-              JSON.stringify(childSnapshot.key),
-          );
-          console.log(
-            "startSetFollowing,childSnapshot.val()=" +
-              JSON.stringify(childSnapshot.val()),
-          );
-
+          console.log("startSetFollowing,childSnapshot=" + JSON.stringify(childSnapshot))
+          
           following.push({
             uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
             ...childSnapshot.val(),
           });
         });
-        console.log(
-          "1234567, startSetFollowing, about to call dispatch(setFollowers(following)),following=" +
-            JSON.stringify(following),
-        );
-        dispatch(setFollowing(following)); //links2[0].showpublic
+       
+        //dispatch(setFollowing(following)); //links2[0].showpublic
+      }).catch((error) => console.log("startSetFollowing, error=" + error)))
+
+      return Promise.all(promises).then(()=>{
+        console.log("startSetFollowing, following="+JSON.stringify(following))
+        dispatch(setFollowing(following));
       })
-      .catch((error) => console.log("startSetFollowing, error=" + error));
   };
 };
 

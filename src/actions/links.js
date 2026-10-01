@@ -219,7 +219,7 @@ export const startAddLink = (v, linkData = {}) => {
 
           //get following users link ids and put a "yes" in each one
 
-          v.forEach((u) => {
+          v.forEach((u) => { //v is the followers array that was passed in
               console.log("uid="+uid)
               //console.log("u.gud.uid="+u.uid)
               //console.log("u.gud.uid="+u.gud.uid)

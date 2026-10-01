@@ -218,9 +218,9 @@ export const startAddLink = (v, linkData = {}) => {
 
           v.forEach((u) => {
               console.log("uid="+uid)
-              console.log("u.gud.uid="+u.gud.uid)
+              console.log("u.gud.uid="+u.uid)
               database
-                .ref(`users/${uid}/${u.gud.uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
+                .ref(`users/${uid}/${u.uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
                 .set({ newlinks: "yes" })
                 .then((ref) => {})
                 .catch((error) => {

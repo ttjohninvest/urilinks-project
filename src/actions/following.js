@@ -745,15 +745,17 @@ export const startSetFollowingNewLinks = (uid) => {
 
   return (dispatch, getState) => {
     //const newlinks3 = [];
-    const newlinks = [];
-    const promises = [];
-    const newlinks3 = [];
-
+    
     return database
       .ref(`users/${uid}/following`)
       .once("value")
       .then((snapshot) => {
         console.log("newlinks,snapshot=" + JSON.stringify(snapshot));
+
+        const newlinks = [];
+        const promises = [];
+        const newlinks3 = [];
+
 
         snapshot.forEach((childSnapshot) => {
           newlinks.push({
@@ -767,6 +769,7 @@ export const startSetFollowingNewLinks = (uid) => {
         );
 
         newlinks.forEach((rec) => {
+          
           promises.push(
             database
               .ref(`users/${uid}/${rec.uid}/newlinks`)
@@ -803,6 +806,7 @@ export const startSetFollowingNewLinks = (uid) => {
         return Promise.all(promises).then(() => {
           dispatch(setNewFollowingLinks(newlinks3));
         });
+
       })
       .catch((error) =>
         console.log("startSetFollowingNewLinks, error=" + error),

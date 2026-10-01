@@ -179,40 +179,10 @@ if (signup !== "signup") {
                                              store
                                           .dispatch(startSetUsers())
                                           .then(() => {
-                                             store
+                                             return store
                                           .dispatch(getTheothersisopen2(id2))
                                           .then(() => {
-                                                store
-                                          .dispatch(startSetFollowing(id2))
-                                          .then(() => {
-                                             store
-                                          .dispatch(startSetFollower(id2))
-                                          .then(() => {
-                                            return store
-                                          .dispatch(startSetFollowingNewLinks(id2))
-                                          .then(() => {
-                                            renderApp(store, signup);
-                                          })
-                                          .catch((error) => {
-                                            console.log(
-                                              "theplan, error",
-                                              error,
-                                            );
-                                          });
-                                          })
-                                          .catch((error) => {
-                                            console.log(
-                                              "theplan, error",
-                                              error,
-                                            );
-                                          });
-                                          })
-                                          .catch((error) => {
-                                            console.log(
-                                              "theplan, error",
-                                              error,
-                                            );
-                                          });
+                                              renderApp(store, signup);
                                           })
                                           .catch((error) => {
                                             console.log(
@@ -335,37 +305,7 @@ if (signup !== "signup") {
                                               store
                                             .dispatch(getTheothersisopen(user.uid))
                                             .then(() => {
-                                                store
-                                          .dispatch(startSetFollowing(user.uid))
-                                          .then(() => {
-                                             return store
-                                          .dispatch(startSetFollower(user.uid))
-                                          .then(() => {
-                                             return store
-                                          .dispatch(startSetFollowingNewLinks(user.uid))
-                                          .then(() => {
-                                            renderApp(store, signup);
-                                          })
-                                          .catch((error) => {
-                                            console.log(
-                                              "theplan, error",
-                                              error,
-                                            );
-                                          });
-                                          })
-                                          .catch((error) => {
-                                            console.log(
-                                              "theplan, error",
-                                              error,
-                                            );
-                                          });
-                                          })
-                                          .catch((error) => {
-                                            console.log(
-                                              "theplan, error",
-                                              error,
-                                            );
-                                          });
+                                              renderApp(store, signup);
                                             })
                                             .catch((error) => {
                                               console.log(

@@ -266,7 +266,7 @@ export const startAddLink = (usersfollowing, linkData = {}) => {
 
 export const setitbacktono = (uid,uid2) => {
    return database
-      .ref(`users/${uid}/${uid2}/newlinks`)
+      .ref(`users/${uid2}/${uid}/newlinks`)
       //.remove()
       .set({newlinks:"no"})
       .then((ref) => {

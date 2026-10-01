@@ -228,7 +228,7 @@ export const startAddLink = (v, linkData = {}) => {
 
        //get following users link ids and put a "yes" in each one
 
-       usersfollowing.forEach((u)=>{
+       v.forEach((u)=>{
 
            promises.push(database
       .ref(`users/${uid}/${u.uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time

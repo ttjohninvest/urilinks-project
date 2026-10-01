@@ -203,7 +203,7 @@ export const SeeOthersPage = (props) => {
       console.log("SeeOthersPage,theemail2=" + theemail2);
       const isMatch = array3[5];
 
-       setitbacktono(array3[0]).then(()=>{
+       setitbacktono(array3[0],props.auth.uid).then(()=>{
         
        
         if (array3[0]) {

@@ -155,9 +155,11 @@ export const emailSharableLink = (linkData = {}) => {
 };
 
 export const startAddLink = (v, linkData = {}) => {
+  
   console.log("link.js, startAddLink(v, linkData = {}), v="+JSON.stringify(v))
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
+    console.log("link.js, startAddLink(v, linkData = {}), uid="+uid)
     const {
       show = 0,
       star = 0,

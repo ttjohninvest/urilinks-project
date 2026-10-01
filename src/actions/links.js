@@ -225,7 +225,7 @@ export const startAddLink = (v, linkData = {}) => {
               //console.log("u.gud.uid="+u.gud.uid)
               console.log("u.uid="+u.uid)
               promises.push(database
-                .ref(`users/${uid}/${u.uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
+                .ref(`users/${u.uid}/following/${uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
                 .set({ newlinks: "yes" })
                 .then((ref) => {})
                 .catch((error) => {

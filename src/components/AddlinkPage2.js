@@ -201,7 +201,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  startAddLink: (link) => dispatch(startAddLink(link)),
+  startAddLink: (v,link) => dispatch(startAddLink(v,link)),
 });
 
 export default withRouter(

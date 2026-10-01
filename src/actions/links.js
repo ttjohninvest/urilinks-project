@@ -162,7 +162,7 @@ export const emailSharableLink = (linkData = {}) => {
   };
 };
 
-export const startAddLink = (usersfollowing, linkData = {}) => {
+export const startAddLink = (v, linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {

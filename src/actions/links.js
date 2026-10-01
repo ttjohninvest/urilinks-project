@@ -155,6 +155,7 @@ export const emailSharableLink = (linkData = {}) => {
 };
 
 export const startAddLink = (v, linkData = {}) => {
+  console.log("link.js, startAddLink(v, linkData = {}), v="+JSON.stringify(v))
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
@@ -236,7 +237,7 @@ export const startAddLink = (v, linkData = {}) => {
         .catch((error) => {
           console.log("error adding link data in firebase, error=" + error);
           return false;
-        });
+        })
 
     return Promise.all(promises).then(() => {});
   };

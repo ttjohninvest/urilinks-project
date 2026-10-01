@@ -778,24 +778,21 @@ export const startSetFollowingNewLinks = (uid) => {
                   "1 startSetFollowingNewLinks, childSnapshot3=" +
                     JSON.stringify(childSnapshot3),
                 );
-                // newlinks3.push({ //all of these uids are following the logged in user
-                //   uid: rec.uid, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
-                //   newlinks: childSnapshot3.val(), //this is {"newlinks":"yes"}
-                // });
+                
                 newlinks3.push({
                   //all of these uids are following the logged in user
                   uid: rec.uid,
                   ...childSnapshot3.val(),
                 });
-                //return true
+                
                 console.log(
                   "2 startSetFollowingNewLinks, newLinks3=" +
                     JSON.stringify(newlinks3),
                 );
               })
               .catch((error) =>
-                console.log("startSetFollowingNewLinks, error=" + error),
-              ),
+                console.log("startSetFollowingNewLinks, error=" + error)
+              )
           )
         }) //forEach
 

@@ -217,7 +217,8 @@ export const startAddLink = (v, linkData = {}) => {
           //get following users link ids and put a "yes" in each one
 
           v.forEach((u) => {
-            
+              console.log("uid="+uid)
+              console.log("u.gud.uid="+u.gud.uid)
               database
                 .ref(`users/${uid}/${u.gud.uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
                 .set({ newlinks: "yes" })

@@ -3180,6 +3180,7 @@ const FetchBookmarks = (props) => {
                       setResult(result);
                     }
                   }
+                  alert("right here stop")
                 } else {
                   //not logged in page, first example page
 
@@ -3247,8 +3248,8 @@ const FetchBookmarks = (props) => {
           }
         });
     } else {
-      //handleNavigation()
-      history.push("/");//0000010
+      
+      history.push("/");
     }
   }, []);
 

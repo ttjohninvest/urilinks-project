@@ -785,7 +785,7 @@ export const startSetFollowingNewLinks = (uid) => {
                 newlinks3.push({
                   //all of these uids are following the logged in user
                   uid: rec.uid,
-                  ...rec.val(),
+                  ...childSnapshot3.val(),
                 });
                 
                 console.log(
@@ -799,11 +799,12 @@ export const startSetFollowingNewLinks = (uid) => {
           )
         }) //forEach
 
-        console.log(
-          "4 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3),
-        );
+       
        
         return Promise.all(promises).then(() => {
+           console.log(
+          "4 startSetFollowingNewLinks, newlinks3=" + JSON.stringify(newlinks3),
+        );
           dispatch(setNewFollowingLinks(newlinks3));
         });
 

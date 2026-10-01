@@ -769,7 +769,7 @@ export const startSetFollowingNewLinks = (uid) => {
         );
 
         newlinks.forEach((rec) => {
-          
+
           promises.push(
             database
               .ref(`users/${uid}/${rec.uid}/newlinks`)
@@ -785,7 +785,7 @@ export const startSetFollowingNewLinks = (uid) => {
                 newlinks3.push({
                   //all of these uids are following the logged in user
                   uid: rec.uid,
-                  ...childSnapshot3.val(),
+                  ...rec.val(),
                 });
                 
                 console.log(

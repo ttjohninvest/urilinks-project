@@ -190,7 +190,7 @@ export const AddLinkPage = (props) => {
       if (isin === false) {
         //alert("isin="+isin)
         //const r = props.startAddLink(props.following,link);
-        const r = props.startAddLink(props.users,link);
+        const r = props.startAddLink(props.follower,link);
         //const r = props.startAddLink(props.newfollowinglinks,link);
         if (r === false) {
           setErrorDialog(true);
@@ -262,6 +262,7 @@ const mapStateToProps = (state) => ({
   links: state.links,
   newfollowinglinks: state.newfollowinglinks,
   following: state.following,
+  follower: state.follower,
   users:state.users,
   //following: state.following, //following users of props.auth.uid (loggedin user)
 });

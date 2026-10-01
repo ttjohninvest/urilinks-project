@@ -59,6 +59,9 @@ export const SeeOthersPage = (props) => {
   };
 
   const annotatearray2 = (array1, array2, array3) => {
+    console.log("SeeOtherPage.js, annotatearray2(), array1="+JSON.stringify(array1))
+    console.log("SeeOtherPage.js, annotatearray2(), array2="+JSON.stringify(array2))
+    console.log("SeeOtherPage.js, annotatearray2(), array3="+JSON.stringify(array2))
     const resultArray = array1.map((item) => ({
       ...item,
       isMatch:
@@ -76,6 +79,7 @@ export const SeeOthersPage = (props) => {
           : "no",
     }));
 
+    console.log("SeeOtherPage.js, annotatearray2(), resultArray="+JSON.stringify(resultArray))
     return resultArray;
   };
 
@@ -203,7 +207,8 @@ export const SeeOthersPage = (props) => {
       console.log("SeeOthersPage,theemail2=" + theemail2);
       const isMatch = array3[5];
 
-       setitbacktono(array3[0],props.auth.uid).then(()=>{
+       console.log("SeeOtherPage.js, handleClick(1), array3="+JSON.stringify(array3))
+       setitbacktono(array3[0],props.auth.uid).then(()=>{ //it is newlinks
         
        
         if (array3[0]) {

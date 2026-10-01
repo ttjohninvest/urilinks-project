@@ -162,7 +162,7 @@ export const emailSharableLink = (linkData = {}) => {
   };
 };
 
-export const startAddLink = (linkData = {}) => {
+export const startAddLink = (usersfollowing, linkData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
@@ -210,31 +210,43 @@ export const startAddLink = (linkData = {}) => {
 
     //////
     //return false;
-
+    const promises = []
     console.log("startAddLink, link=" + JSON.stringify(link));
     if(link !== null && link !== undefined && link !== "")
     return database
       .ref(`users/${uid}/links`)
       .push(link)
       .then((ref) => {
-
-       return database
-      .ref(`users/${uid}/newlinks`)
-      .set({newlinks:"yes"})
-      .then((ref) => {
-        dispatch(
+       
+         dispatch(
           addLink({
             id: ref.key,
             ...link,
           }),
         );
-        return true;
+
+
+       //get following users link ids and put a "yes" in each one
+
+       usersfollowing.forEach((u)=>{
+
+           promises.push(database
+      .ref(`users/${uid}/${u.uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
+      .set({newlinks:"yes"})
+      .then((ref) => {
+       
+       
       })
 
       .catch((error) => {
         console.log("error adding link data in firebase, error=" + error);
         return false;
-      });
+      }));
+
+       })
+
+
+      
 
 
 
@@ -244,6 +256,11 @@ export const startAddLink = (linkData = {}) => {
         console.log("error adding link data in firebase, error=" + error);
         return false;
       });
+
+
+      return Promise.all(promises).then(()=>{
+
+      })
   };
 };
 

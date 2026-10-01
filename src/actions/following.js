@@ -762,9 +762,9 @@ export const startSetFollowingNewLinks = (uid) => {
           });
         });
 
-        // console.log(
-        //   "startSetFollowingNewLinks,newlinks=" + JSON.stringify(newlinks),
-        // );
+        console.log(
+          "startSetFollowingNewLinks, after snapshot.forEach, newlinks=" + JSON.stringify(newlinks),
+        );
 
         newlinks.forEach((rec) => {
           promises.push(

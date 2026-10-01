@@ -201,7 +201,7 @@ export const startAddLink = (v, linkData = {}) => {
     //////
     //return false;
     const promises = [];
-    console.log("startAddLink, link=" + JSON.stringify(link));
+    console.log("1startAddLink, link=" + JSON.stringify(link));
     if (link !== null && link !== undefined && link !== "")
       return database
         .ref(`users/${uid}/links`)
@@ -218,7 +218,8 @@ export const startAddLink = (v, linkData = {}) => {
 
           v.forEach((u) => {
               console.log("uid="+uid)
-              console.log("u.gud.uid="+u.uid)
+              //console.log("u.gud.uid="+u.uid)
+              console.log("u.uid="+u.uid)
               database
                 .ref(`users/${uid}/${u.uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
                 .set({ newlinks: "yes" })

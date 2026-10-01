@@ -793,9 +793,11 @@ export const startSetFollowingNewLinks = (uid) => {
           console.log("newlinks,snapshot=" + JSON.stringify(snapshot));
 
           snapshot.forEach((childSnapshot) => {
+            if(!!childSnapshot.val().newlinks===true)
             newlinks.push({
               uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
-              ...childSnapshot.val(),
+              //...childSnapshot.val(),
+              newlinks:childSnapshot.val().newlinks.newlinks
             });
           });
         })

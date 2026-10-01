@@ -190,8 +190,8 @@ export const AddLinkPage = (props) => {
       if (isin === false) {
         //alert("isin="+isin)
         //const r = props.startAddLink(props.following,link);
+        const r = props.startAddLink(props.users,link);
         //const r = props.startAddLink(props.newfollowinglinks,link);
-        const r = props.startAddLink(props.newfollowinglinks,link);
         if (r === false) {
           setErrorDialog(true);
           console.log("VVVVVVVVVVVVV returned false");

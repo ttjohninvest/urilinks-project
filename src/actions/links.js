@@ -219,17 +219,17 @@ export const startAddLink = (v, linkData = {}) => {
           v.forEach((u) => {
               console.log("uid="+uid)
               //console.log("u.gud.uid="+u.uid)
-              console.log("u.uid="+u.uid)
-              // database
-              //   .ref(`users/${uid}/${u.uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
-              //   .set({ newlinks: "yes" })
-              //   .then((ref) => {})
-              //   .catch((error) => {
-              //     console.log(
-              //       "error adding link data in firebase, error=" + error,
-              //     );
-              //     return false;
-              //   })
+              console.log("u.gud.uid="+u.gud.uid)
+              promises.push(database
+                .ref(`users/${uid}/${u.gud.uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time
+                .set({ newlinks: "yes" })
+                .then((ref) => {})
+                .catch((error) => {
+                  console.log(
+                    "error adding link data in firebase, error=" + error,
+                  );
+                  return false;
+                }))
               })
         })
         .catch((error) => {
@@ -237,7 +237,7 @@ export const startAddLink = (v, linkData = {}) => {
           return false;
         });
 
-    //return Promise.all(promises).then(() => {});
+    return Promise.all(promises).then(() => {});
   };
 };
 

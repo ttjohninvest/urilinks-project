@@ -764,7 +764,7 @@ export const startSetFollowingNewLinks = (uid) => {
           });
         });
 
-         console.log("newlinks=" + JSON.stringify(newlinks));
+         console.log("startSetFollowingNewLinks,newlinks=" + JSON.stringify(newlinks));
 
        
         

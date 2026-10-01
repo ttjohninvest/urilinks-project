@@ -771,7 +771,7 @@ export const startSetFollowingNewLinks = (uid) => {
         newlinks.forEach((rec) => {
          
           promises.push(database
-            .ref(`users/${rec.uid}/newlinks`)
+            .ref(`users/${uid}/${rec.uid}/newlinks`)
             .once("value")
             .then((childSnapshot3) => {
 

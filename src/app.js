@@ -371,7 +371,7 @@ if (signup !== "signup") {
                                                             ),
                                                           )
                                                           .then(() => {
-                                                            return store
+                                                            store
                                                               .dispatch(
                                                                 startSetFollower(
                                                                   user.uid,

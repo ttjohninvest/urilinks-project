@@ -58,10 +58,11 @@ export const SeeOthersPage = (props) => {
     return resultArray;
   };
 
+  //users, following, newfollowinglinks with newlinks:yes or newlinks:no
   const annotatearray2 = (array1, array2, array3) => {
     console.log("SeeOtherPage.js, annotatearray2(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
     console.log("SeeOtherPage.js, annotatearray2(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
-    console.log("SeeOtherPage.js, annotatearray2(), array3="+JSON.stringify(array2)) //props.newfollowingusers [{uid:}] 
+    console.log("SeeOtherPage.js, annotatearray2(), array3="+JSON.stringify(array3)) //props.newfollowingusers [{uid:, newlinks:"yes"}] 
     const resultArray = array1.map((item) => ({
       ...item,
       isMatch:

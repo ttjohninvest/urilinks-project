@@ -782,6 +782,7 @@ export const startSetFollowingNewLinks = (uid) => {
                     JSON.stringify(childSnapshot3),
                 );
                 
+                if(childSnapshot3 !== null) {
                 newlinks3.push({
                   //all of these uids are following the logged in user
                   uid: rec.uid,
@@ -792,6 +793,7 @@ export const startSetFollowingNewLinks = (uid) => {
                   "2 startSetFollowingNewLinks, newLinks3=" +
                     JSON.stringify(newlinks3),
                 );
+              }
               })
               .catch((error) =>
                 console.log("startSetFollowingNewLinks, error=" + error)

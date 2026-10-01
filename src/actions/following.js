@@ -700,38 +700,69 @@ export const startSetFollowing = (uid) => {
 
 export const startSetFollower = (uid) => {
   console.log("startSetFollower, uid=" + uid);
+  const promises=[]
+  const follower = [];
   return (dispatch, getState) => {
-    return database
+    promises.push(database
       .ref(`users/${uid}/follower`)
       .once("value")
       .then((snapshot) => {
-        const follower = [];
+        
 
         //console.log("snapshot=" + JSON.stringify(snapshot));
         snapshot.forEach((childSnapshot) => {
-          console.log(
-            "startSetFollower,childSnapshot=" + JSON.stringify(childSnapshot),
-          );
-          console.log(
-            "startSetFollower,childSnapshot.key=" +
-              JSON.stringify(childSnapshot.key),
-          );
-          console.log(
-            "startSetFollower,childSnapshot.val()=" +
-              JSON.stringify(childSnapshot.val()),
-          );
-
+          console.log("startSetFollowing,childSnapshot=" + JSON.stringify(childSnapshot))
+          
           follower.push({
-            uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+            uid: childSnapshot.key,
             ...childSnapshot.val(),
           });
         });
+       
+        //dispatch(setFollowing(following)); //links2[0].showpublic
+      }).catch((error) => console.log("startSetFollower, error=" + error)))
 
-        dispatch(setFollower(follower)); //links2[0].showpublic
+      return Promise.all(promises).then(()=>{
+        console.log("done, startSetFollower, follower="+JSON.stringify(follower))
+        dispatch(setFollower(follower));
       })
-      .catch((error) => console.log("startSetFollowing, error=" + error));
   };
 };
+
+// export const startSetFollower = (uid) => {
+//   console.log("startSetFollower, uid=" + uid);
+//   return (dispatch, getState) => {
+//     return database
+//       .ref(`users/${uid}/follower`)
+//       .once("value")
+//       .then((snapshot) => {
+//         const follower = [];
+
+//         //console.log("snapshot=" + JSON.stringify(snapshot));
+//         snapshot.forEach((childSnapshot) => {
+//           console.log(
+//             "startSetFollower,childSnapshot=" + JSON.stringify(childSnapshot),
+//           );
+//           console.log(
+//             "startSetFollower,childSnapshot.key=" +
+//               JSON.stringify(childSnapshot.key),
+//           );
+//           console.log(
+//             "startSetFollower,childSnapshot.val()=" +
+//               JSON.stringify(childSnapshot.val()),
+//           );
+
+//           follower.push({
+//             uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
+//             ...childSnapshot.val(),
+//           });
+//         });
+
+//         dispatch(setFollower(follower)); //links2[0].showpublic
+//       })
+//       .catch((error) => console.log("startSetFollowing, error=" + error));
+//   };
+// };
 
 export const startSetFollowingNewLinks = (uid) => {
   console.log("startSetFollowingNewLinks, uid=" + uid);

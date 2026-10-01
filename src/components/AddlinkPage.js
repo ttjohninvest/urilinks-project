@@ -189,7 +189,8 @@ export const AddLinkPage = (props) => {
 
       if (isin === false) {
         //alert("isin="+isin)
-        const r = props.startAddLink(props.following,link);
+        //const r = props.startAddLink(props.following,link);
+        const r = props.startAddLink(props.newfollowinglinks,link);
         if (r === false) {
           setErrorDialog(true);
           console.log("VVVVVVVVVVVVV returned false");
@@ -258,7 +259,8 @@ const mapStateToProps = (state) => ({
   theplan: state.theplan,
   signup: state.signup,
   links: state.links,
-  following: state.following, //following users of props.auth.uid (loggedin user)
+  newfollowinglinks: state.newfollowinglinks,
+  //following: state.following, //following users of props.auth.uid (loggedin user)
 });
 
 const mapDispatchToProps = (dispatch) => ({

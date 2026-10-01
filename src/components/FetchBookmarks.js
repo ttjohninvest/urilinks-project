@@ -3130,7 +3130,7 @@ const FetchBookmarks = (props) => {
                     console.log(
                       "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
-                    r = props.startAddLink(props.users,{
+                    r = props.startAddLink(props.following,{
                       description: result[i].description,
                       Url: result[i].Url, //, //href,
                       yturl: result[i].yturl,
@@ -3196,7 +3196,7 @@ const FetchBookmarks = (props) => {
                     console.log(
                       "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
-                    r = props.startAddLink(props.users,{
+                    r = props.startAddLink(props.following,{
                       description: truncateString(result[i].description, StorageSizes.description), //100), //2048
                       Url:  truncateString2(result[i].Url, StorageSizes.url), //2048), //, //href,
                       yturl:  truncateString2(result[i].yturl, StorageSizes.url), //2048),
@@ -3312,6 +3312,7 @@ const mapStateToProps = (state) => ({
   links: state.links,
   theplan: state.theplan,
   signup: state.signup,
+  following: state.following,
   newfollowinglinks: state.newfollowinglinks,
   users:state.users,
 });

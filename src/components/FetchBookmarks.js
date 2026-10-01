@@ -23,6 +23,7 @@ import Simple from "./Simple";
 import StorageSizes from "./StorageSizes";
 
 const FetchBookmarks = (props) => {
+  console.log("FetchBookmarks(), props.following="+JSON.stringify(props.following))
   const [data, setData] = useState(null);
   const [result, setResult] = useState([]);
   const [result2, setResult2] = useState([]);

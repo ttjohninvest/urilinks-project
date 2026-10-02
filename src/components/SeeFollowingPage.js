@@ -338,7 +338,7 @@ export const SeeFollowingPage = (props) => {
         <div className="page-header-2">
           <div className="content-container">
             <h2 className="page-header__title borderRadius55">
-              <span className="color-purple color-black-2">Your Following</span>
+              <span className="color-purple color-black-2">{props.whichone===1?"Link update notification(s)":"You are following"}</span>
             </h2>
           </div>
         </div>

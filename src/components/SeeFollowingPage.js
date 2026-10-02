@@ -391,7 +391,7 @@ export const SeeFollowingPage = (props) => {
         >
           {props.whichone === 1 ? (
             <ul
-              className="liststylenone cursor-pointer"
+              className="liststylenone cursor-pointer interline"
               onClick={() => handleClick(1)}
             >
               {uniqueData.map((item, index) => {
@@ -481,7 +481,7 @@ export const SeeFollowingPage = (props) => {
             </ul>
           ) : (
             <ul
-              className="liststylenone cursor-pointer"
+              className="liststylenone cursor-pointer interline"
               onClick={() => handleClick(2)}
             >
               {uniqueData.map((item, index) => {

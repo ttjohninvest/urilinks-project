@@ -277,7 +277,7 @@ export const SeeFollowerPage = (props) => {
             isMobile() === true ? "widthhashtagcolumn" : "widthx1"
           } heightx1 overflowyauto borderLightOrange overflowxhidden padding-bottom-1`}
         >
-          <ul className="liststylenone cursor-pointer" onClick={handleClick}>
+          <ul className="liststylenone cursor-pointer interline" onClick={handleClick}>
             {uniqueData.map((item, index) => {
               if (props.auth.uid !== item.gud.uid) { //no need to display the logged in user's page
                 return (

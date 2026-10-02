@@ -194,6 +194,11 @@
   float: left;
 }
 
+ul.interline {
+  display: grid;
+  gap: 10px;
+}   
+
 .grid-container5 {
   display: grid;
   place-items: center;

@@ -72,7 +72,7 @@ export const SeeFollowingPage = (props) => {
       newlinks:
         array3.some(
           (item3) =>
-            item.gud.uid === item3.uid &&
+            item3.uid === item.gud.uid &&
             !!item3.newlinks === true &&
             item3.newlinks === "yes",
         ) === true
@@ -97,26 +97,22 @@ export const SeeFollowingPage = (props) => {
         props.newfollowinglinks,
       ); //, [gud:{... uid:"D9..."}]
 
-      //   const array3 = array1.sort((a, b) => {
-      //   const valA = a.gud.displayname.toLowerCase();
-      //   const valB = b.gud.displayname.toLowerCase();
-      //   if (valA < valB) return -1;
-      //   if (valA > valB) return 1;
-      //   return 0;
-      // })
-
       let array3 = [];
-      if (array1.length > 1)
-        array3 = array1.sort((a, b) => {
+      if (array1.length > 1) {
+ array3 = array1.sort((a, b) => {
           const valA = a.gud.displayname.toLowerCase();
           const valB = b.gud.displayname.toLowerCase();
           if (valA < valB) return -1;
           if (valA > valB) return 1;
           return 0;
         });
+      } else {
+        array3=array1
+      }
+       
 
       //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
-      console.log("setUniqueData, props.users=" + JSON.stringify(array3));
+      console.log("whichone=1,setUniqueData, props.users=" + JSON.stringify(array3));
       //setUniqueData(props.users);
       setUniqueData(array3);
 
@@ -134,17 +130,21 @@ export const SeeFollowingPage = (props) => {
       // })
 
       let array3 = [];
-      if (array1.length > 1)
-        array3 = array1.sort((a, b) => {
+      if (array1.length > 1) {
+          array3 = array1.sort((a, b) => {
           const valA = a.gud.displayname.toLowerCase();
           const valB = b.gud.displayname.toLowerCase();
           if (valA < valB) return -1;
           if (valA > valB) return 1;
           return 0;
         });
+      } else {
+        array3=array1
+      }
+       
 
       //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
-      console.log("setUniqueData, props.users=" + JSON.stringify(array3));
+      console.log("whichone=2,setUniqueData, props.users=" + JSON.stringify(array3));
       //setUniqueData(props.users);
       setUniqueData(array3);
     }
@@ -580,8 +580,8 @@ const mapStateToProps = (state) => ({
   //hashtags: state.hashtags,
   users: state.users,
   auth: state.auth,
-  following: state.following,
   gud: state.gud,
+  following: state.following,
   newfollowinglinks: state.newfollowinglinks,
 });
 

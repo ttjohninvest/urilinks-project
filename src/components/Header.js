@@ -787,7 +787,7 @@ const handleClick = useCallback(() => {
                             </h3>
 
                             {/* <ClickableList /> */}
-                            {props.signup.signup === false && x !== "readonly" && ni !== "1" && ni !== "2" && <OthersButton
+                            {props.signup.signup === true && x !== "readonly" && ni !== "1" && ni !== "2" && <OthersButton
                               whichone={1}
                               buttonText = {"New Links Ready"}
                               email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}

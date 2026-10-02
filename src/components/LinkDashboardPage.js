@@ -44,7 +44,7 @@ const LinkDashboardPage = (props) => {
   };
 
   useEffect(() => {
-    
+    console.log("LinkDashboardPage.js, UseEffect, following="+JSON.stringify(props.following))
     // const handleTabClose = (event) => {
     //   //event.preventDefault();
     //   // Optional: Set a custom message (though modern browsers may ignore it)
@@ -226,7 +226,9 @@ const mapStateToProps = (state) => ({
   settings: state.settings,
   hasrefreshed: state.hasrefreshed,
   links: state.links,
-  signup: state.signup
+  signup: state.signup,
+  following:state.following,
+
 });
 
 const mapDispatchToProps = (dispatch) => ({

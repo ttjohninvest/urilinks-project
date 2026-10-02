@@ -16,7 +16,7 @@ export const SeeFollowerPage = (props) => {
   //const [nodeRef, setNodeRef] = useState(null);
 
   useEffect(() => {
-    console.log("SeeOthersPage.js, users=" + JSON.stringify(props.users));
+    console.log("SeeFollowingPage.js, users=" + JSON.stringify(props.users));
   });
 
   //   const removeDuplicates = (stringArray) => {
@@ -58,8 +58,8 @@ export const SeeFollowerPage = (props) => {
     //a.gud.uid, b.gud.uid
     //props.users=[]
 
-    //const array1 = removeduplicates(props.users, props.follower)
-    const array1 = annotatearray(props.users, props.follower);
+    //const array1 = removeduplicates(props.users, props.newfollowinglinks)
+    const array1 = annotatearray(props.users, props.newfollowinglinks);
 
     //   const array3 = array1.sort((a, b) => {
     //   const valA = a.gud.displayname.toLowerCase();
@@ -328,6 +328,7 @@ const mapStateToProps = (state) => ({
   users: state.users,
   auth: state.auth,
   follower: state.follower,
+  newfollowinglinks: state.newfollowinglinks,
   gud:state.gud
 });
 

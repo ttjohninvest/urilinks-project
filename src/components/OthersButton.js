@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import SeeOthersPage from "./SeeOthersPage";
+import SeeFollowingPage from "./SeeFollowingPage";
 
 import {
   incrementOthersIsOpenClickCount,
@@ -67,7 +67,7 @@ const OthersButton = (props) => {
       </button>
       {isDisplayed === true && (
         <div>
-          <SeeOthersPage
+          <SeeFollowingPage
             whichone = {props.whichone}
             email={props.email}
             uid={props.uid}

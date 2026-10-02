@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import { setTextFilter, sortByOthers } from "../actions/filters";
 import {setitbacktono} from "../actions/links"
 
-export const SeeOthersPage = (props) => {
+export const SeeFollowingPage = (props) => {
   //const [count, setCount] = useState(0);
   const [uniqueData, setUniqueData] = useState([]);
 
@@ -17,8 +17,8 @@ export const SeeOthersPage = (props) => {
   //const [nodeRef, setNodeRef] = useState(null);
 
   useEffect(() => {
-    console.log("SeeOthersPage.js, users=" + JSON.stringify(props.users));
-    console.log("SeeOthersPage, useEffect, whichone=" + props.whichone); //1 from Header, OthersButton, to display new links ready list from
+    console.log("SeeFollowingPage.js, users=" + JSON.stringify(props.users));
+    console.log("SeeFollowingPage, useEffect, whichone=" + props.whichone); //1 from Header, OthersButton, to display new links ready list from
     //the ones you are following {newlinks:"yes"} in the database, 2 comes from OthersButton in LinkListFilters.js
   });
 
@@ -203,9 +203,9 @@ export const SeeOthersPage = (props) => {
       //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
       //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
       const email = encrypt(array3[3], "125434");
-      console.log("SeeOthersPage, array3[4]=" + array3[4]);
+      console.log("SeeFollowingPage, array3[4]=" + array3[4]);
       const theemail2 = encrypt(array3[4], "125434");
-      console.log("SeeOthersPage,theemail2=" + theemail2);
+      console.log("SeeFollowingPage,theemail2=" + theemail2);
       const isMatch = array3[5];
 
        console.log("SeeOtherPage.js, handleClick(1), array3="+JSON.stringify(array3))
@@ -220,7 +220,7 @@ export const SeeOthersPage = (props) => {
         //alert("set it back to no success, uid="+array3[0]+", props.auth.uid="+props.auth.uid)
         
       }).catch((e)=>{
-        alert("SeeOthersPage.js, setitbacktono(), something went wrong")
+        alert("SeeFollowingPage.js, setitbacktono(), something went wrong")
       }) //array3[0] is the id of the user
 
       
@@ -243,9 +243,9 @@ export const SeeOthersPage = (props) => {
       //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
       //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
       const email = encrypt(array3[3], "125434");
-      console.log("SeeOthersPage, array3[4]=" + array3[4]);
+      console.log("SeeFollowingPage, array3[4]=" + array3[4]);
       const theemail2 = encrypt(array3[4], "125434");
-      console.log("SeeOthersPage,theemail2=" + theemail2);
+      console.log("SeeFollowingPage,theemail2=" + theemail2);
       const isMatch = array3[5];
 
       if (array3[0]) {
@@ -591,5 +591,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(SeeOthersPage),
+  connect(mapStateToProps, mapDispatchToProps)(SeeFollowingPage),
 );

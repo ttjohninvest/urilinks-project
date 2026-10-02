@@ -2203,3 +2203,9 @@ One, store each user's username in Firebase.
 10 urilinks.com/link/john42, store unique 42 into gud with the displayName from google.com
 https://urilinks.com/dashboard?signup=0&x=readonly&id=D9LSg6elood8Yc5gd5oDMp3JNAQ2
 
+=====================================================================================================
+how to find a string recursively through folders and files *.js, all *.*
+findstr /s /i /m "annotatearray2" *.js
+=====================================================================================================
+
+=====================================================================================================

@@ -56,7 +56,7 @@ export const SeeFollowingPage = (props) => {
           ? "is following "
           : "is not following ",
     }));
-
+     console.log("SeeFollowingPage.js, annotatearray(), resultArray="+JSON.stringify(resultArray))
     return resultArray;
   };
 
@@ -121,7 +121,7 @@ export const SeeFollowingPage = (props) => {
       // setUniqueData(array3);
     } else if (props.whichone === 2) {
       //const array1 = removeduplicates(props.users, props.following)
-      const array1 = annotatearray(props.users, props.following);
+      const array1 = annotatearray(props.users, props.following); //has is following information and newlinks:yes information
 
       //   const array3 = array1.sort((a, b) => {
       //   const valA = a.gud.displayname.toLowerCase();

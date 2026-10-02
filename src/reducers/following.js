@@ -5,12 +5,14 @@ const followingReducerDefaultState = [];
 export default (state = followingReducerDefaultState, action) => {
   switch (action.type) {
 
-   
-    case "ADD_FOLLOWING":
+    case "SET_NEW_FOLLOWING":
+      return action.following;
+    
+    case "ADD_NEW_FOLLOWING":
       return [...state, action.following];
-    case "REMOVE_FOLLOWING":
+    case "REMOVE_NEW_FOLLOWING":
       return state.filter(({ id }) => id !== action.id);
-    case "EDIT_FOLLOWING":
+    case "EDIT_NEW_FOLLOWING":
       return state.map((following) => {
         if (following.id === action.id) {
           return {
@@ -21,12 +23,8 @@ export default (state = followingReducerDefaultState, action) => {
           return following;
         }
       });
-    case "SET_FOLLOWING":
-      return action.following;
       
-     case "SET_NEW_FOLLOWING_LINKS":
-      return action.newfollowinglinks;
-    
+   
     default:
       return state;
   }

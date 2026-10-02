@@ -543,7 +543,7 @@ export const startEditLink = (id, updates) => {
 };
 
 export const setFollowing = (following) => ({
-  type: "SET_FOLLOWING",
+  type: "SET_NEW_FOLLOWING",
   following,
 });
 

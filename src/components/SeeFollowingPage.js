@@ -52,7 +52,7 @@ export const SeeFollowingPage = (props) => {
     const resultArray = array1.map((item) => ({
       ...item,
       isMatch:
-        array2.some((item2) => item.gud.uid === item2.uid) === true
+        array2.some((item2) => item2.uid === item.gud.uid) === true
           ? "is following "
           : "is not following ",
     }));

@@ -688,17 +688,13 @@ export const startSetFollowing = (uid) => {
               uid: childSnapshot.key,
               ...childSnapshot.val(),
             });
+            console.log("following.js, startSetFollowing(), following=" + JSON.stringify(following));
           });
 
-          //dispatch(setFollowing(following)); //links2[0].showpublic
-        })
-        .catch((error) => console.log("startSetFollowing, error=" + error)),
-    );
+        }).catch((error) => console.log("startSetFollowing, error=" + error)))
 
     return Promise.all(promises).then(() => {
-      console.log(
-        "done, startSetFollowing, following=" + JSON.stringify(following),
-      );
+      console.log("done, startSetFollowing, following=" + JSON.stringify(following))
       dispatch(setFollowing(following));
     });
   };

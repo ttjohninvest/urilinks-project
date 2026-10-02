@@ -724,9 +724,7 @@ export const startSetFollower = (uid) => {
           });
 
           //dispatch(setFollowing(following)); //links2[0].showpublic
-        })
-        .catch((error) => console.log("startSetFollower, error=" + error)),
-    );
+        }).catch((error) => console.log("startSetFollower, error=" + error)))
 
     return Promise.all(promises).then(() => {
       console.log(
@@ -792,8 +790,8 @@ export const startSetFollowingNewLinks = (uid) => {
             if(!!childSnapshot.val().newlinks===true)
             newlinks.push({
               uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
-              //...childSnapshot.val(),
-              newlinks:childSnapshot.val().newlinks.newlinks
+              ...childSnapshot.val()
+              //newlinks:childSnapshot.val().newlinks.newlinks
             });
           });
         })

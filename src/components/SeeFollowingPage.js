@@ -211,7 +211,7 @@ export const SeeFollowingPage = (props) => {
       const isMatch = array3[5];
 
        console.log("SeeOtherPage.js, handleClick(1), array3="+JSON.stringify(array3))
-       alert("handleClick(), array[0]="+array3[0]+", props.auth.uid="+props.auth.uid)
+       //alert("handleClick(), array[0]="+array3[0]+", props.auth.uid="+props.auth.uid)
        setitbacktono(array3[0],props.auth.uid).then(()=>{ //it is newlinks
         
        

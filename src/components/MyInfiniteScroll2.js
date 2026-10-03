@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 //import {useDispatch} from 'react-redux'
-//import * as firebase from "firebase";
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
-
+import * as firebase from "firebase";
 import { connect } from "react-redux";
 import InfiniteScroll from "react-infinite-scroll-component";
 import selectLinks from "../selectors/links";
@@ -14,7 +10,7 @@ import { startSetLinks3 } from "../actions/links3";
 import MyInfiniteScroll3 from "./MyInfiniteScroll3";
 import printerImage from "../assets/images/printer_image.png";
 import { getShowPublic } from "./../actions/sp";
-
+//
 const E2 = (props) => {
   console.log("E2E@E@, an=" + props.an);
   //const dispatch = useDispatch() //it is saying the useDispatch is not a function

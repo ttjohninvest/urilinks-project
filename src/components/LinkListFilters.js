@@ -15,6 +15,8 @@ import HashTagsButton from "./HashTagsButton";
 import OthersButton from "./OthersButton";
 import FollowerButton from "./FollowerButton";
 import FollowButton from "./FollowButton"
+import ChatButton from "./ChatButton"
+//import ChatComponent from "./ChatComponent"
 import UnFollowButton from "./UnFollowButton"
 import EmailButton from "./EmailButton"
 //import AddLinkPage from "./AddlinkPage";
@@ -63,7 +65,8 @@ import {
 import { incrementUsersClickCount } from "../actions/theuserscount";
 
 // import {
-//   incrementHandleToggle3,
+// import ChatComponent from './ChatComponent';
+  incrementHandleToggle3,
 //   decrementHandleToggle3,
 // } from "../actions/links";
 
@@ -1975,7 +1978,7 @@ function ExpandableArray(props) {
                         z10 !== null && <div className="flexrowz">
                         
                          {/* {!!isFollower !== true &&  <FollowButton />} */}
-                        {!!isFollowing === true && isFollowing !== "is following" ? <FollowButton />:!!isFollower === true?null:<UnFollowButton />}
+                        {!!isFollowing === true && isFollowing !== "is following" ? <div><FollowButton /><ChatButton /></div>:!!isFollower === true?null:<UnFollowButton />}
                        
                         {!!isFollower === true && isFollower === "is a follower of" && <EmailButton z10={z10} />}
                         

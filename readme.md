@@ -884,6 +884,7 @@ express server api to convert the bookmarks.html file into json so that I can pr
 in FetchBookmarks.js and convert all of the folder names into hashtags
 
 expenses for urilinks.com:
+openai.com, chatgpt help: first month from 10/2/2026 to 11/2/2026 free and $20 each month after that
 amazon.com/snap food orders, have prime $4.95/month so delivery is always free first month free from 8/4/2026 to 9/4/2026
 platform.openai.com, access to gpt-3.5-turbo, I paid $5.00 on 3/10/2026. It does not automatically recharge.
 cheapnames.com $12.99/year for urllynk.com due on 12/24/2026

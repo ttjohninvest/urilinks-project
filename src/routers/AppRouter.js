@@ -3,6 +3,7 @@ import { Router, Route, Switch, Link, NavLink } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 import CatFetcher from "./../components/CatFetcher";
 import DogFetcher from "./../components/DogFetcher";
+import ChatComponent from "./../components/ChatComponent";
 import SendEmailPage2 from "../components/SendEmailPage2";
 import LinkDashboardPage from "../components/LinkDashboardPage";
 import LinkSettingsPage from "../components/LinkSettingsPage";
@@ -133,6 +134,13 @@ const AppRouter = (props) => (
         signup={props.signup} 
         x1="usage"
         component={DogFetcher} />
+
+          <PrivateRoute 
+        path="/chat" 
+        signup={props.signup} 
+        x1="usage"
+        component={ChatComponent} />
+
 
         <PrivateRoute 
         path="/openemailform" 

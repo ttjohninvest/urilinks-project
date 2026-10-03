@@ -2207,5 +2207,52 @@ https://urilinks.com/dashboard?signup=0&x=readonly&id=D9LSg6elood8Yc5gd5oDMp3JNA
 how to find a string recursively through folders and files *.js, all *.*
 findstr /s /i /m "annotatearray2" *.js
 =====================================================================================================
-
+../react-firechat is a small chat application
 =====================================================================================================
+windows 11 commands
+to change system environment variable
+windows key + R
+sysdm.cpl <enter>
+clk advanced
+clk environment variables
+
+-------
+to start a local react application on a different port
+set PORT=3001; npm start
+
+---------
+heroku old environment variable names
+Config Vars
+Key	Value	Actions
+FIREBASE_API_KEY
+AIzaSyAINLPeQOiCoc8UeMYrbSbQnmb7ctz_lg4
+Edit Delete
+FIREBASE_AUTH_DOMAIN
+urilinks-2f721.firebaseapp.com
+Edit Delete
+FIREBASE_DATABASE_URL
+https://urilinks-2f721-default-rtdb.firebaseio.com
+Edit Delete
+FIREBASE_MESSAGING_SENDER_ID
+947992055504
+Edit Delete
+FIREBASE_PROJECT_ID
+urilinks-2f721
+Edit Delete
+FIREBASE_STORAGE_BUCKET
+urilinks-2f721.firebasestorage.app
+Edit Delete
+REACT_APP_EKEY
+125434
+Edit Delete
+KEY
+-------------------------------------
+
+to build urilinks.com locally with node 16.20.2, local build of urilinks.com
+npm run build:dev, this puts environment variables into webpack build
+npm run start
+refresh browser on http://localhost:3000
+
+---------------------------------------------------------
+
+

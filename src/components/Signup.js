@@ -1,8 +1,7 @@
 // import React, { useState, useEffect, useRef } from "react";
 // import database from "../firebase/firebase";
-
-
-import React, {useEffect} from "react";
+import Constants from "./Constants"
+import React, { useEffect } from "react";
 //import { Provider } from "react-redux";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
@@ -13,23 +12,31 @@ import { withRouter } from "react-router-dom";
 //import { getTheplan } from "../actions/theplan";
 //import { login, logout } from "../actions/auth";
 //import AppRouter, { history } from "../routers/AppRouter";
-import  setSignup  from "../actions/signup";
+import setSignup from "../actions/signup";
 //import LoadingPage from "./LoadingPage";
 
-
 export const Signup = (props) => {
-useEffect(()=>{
-  console.log("in Signup")
-  props.setSignup({signup:true})
-  window.location.href="https://urilinks.com?signup=signup"
+
+  //   const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+  let baseUrl = ""
   
-},[])
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
 
-  return (
-    <div>
+  useEffect(() => {
+    console.log("in Signup");
+    props.setSignup({ signup: true });
+    window.location.href = baseUrl + "?signup=signup";
+  }, []);
 
-    </div>
-  );
+  return <div></div>;
 };
 
 const mapStateToProps = (state) => {

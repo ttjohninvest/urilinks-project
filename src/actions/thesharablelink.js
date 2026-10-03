@@ -1,5 +1,22 @@
+import Constants from "./../components/Constants"
 import database from "../firebase/firebase";
 import subscriptionid from "../reducers/subscriptionid";
+
+
+
+  // const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+   let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+  
 
 
 
@@ -10,7 +27,10 @@ export const setThesharablelink = (thesharablelink) => ({
 });
 
 export const startAddThesharablelink = (thesharablelinkData = {}) => {
-  console.log("startAddThesharablelink, thesharablelinkData=" + JSON.stringify(thesharablelinkData));
+  console.log(
+    "startAddThesharablelink, thesharablelinkData=" +
+      JSON.stringify(thesharablelinkData),
+  );
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
 
@@ -21,12 +41,10 @@ export const startAddThesharablelink = (thesharablelinkData = {}) => {
         .update(thesharablelinkData)
         .then(() => {
           console.log(
-            "in startAddTheplan, just before the call to dispatch to add theplanData to redux"
+            "in startAddTheplan, just before the call to dispatch to add theplanData to redux",
           );
-         
 
           dispatch(addThesharablelink(thesharablelinkData));
-          
         })
     );
   };
@@ -42,65 +60,64 @@ export const getThesharablelink2 = (uid) => {
       .ref(`users/${uid}/thesharablelink`)
       .once("value")
       .then((snapshot) => {
-        let thesharablelink
-       
+        let thesharablelink;
+
         console.log(
-          "action/getThesharablelink2 from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+          "action/getThesharablelink2 from db, snapshot.val()=" +
+            JSON.stringify(snapshot.val()),
         );
 
-        let zsharablelink={
-           sharablelink:"https://urilinks.com/dashboard?signup=0&x=readonly&id="+uid
-        }
+        let zsharablelink = {
+          sharablelink:
+            baseUrl+"/dashboard?signup=0&x=readonly&id=" + uid,
+        };
 
         if (snapshot.val() === null) {
           //theplan = "free";
-          dispatch(startAddThesharablelink(zsharablelink))
+          dispatch(startAddThesharablelink(zsharablelink));
         } else {
           //theplan=snapshot.val();
           //zplan=snapshot.val();
           dispatch(addThesharablelink(snapshot.val()));
         }
-       
       });
   };
 };
 
 export const getThesharablelink = (uid) => {
-  console.log("actions/getThesharablelink, uid="+uid);
+  console.log("actions/getThesharablelink, uid=" + uid);
   return (dispatch, getState) => {
     //const uid = getState().auth.uid;
     console.log("actions/getThesharablelink, uid=" + uid);
     let s;
-    return database
-      //.ref(`users/${uid}/theplan/plan`)
-      .ref(`users/${uid}/thesharablelink`)
-      .once("value")
-      .then((snapshot) => {
-       
-        console.log(
-          "11 action/getThesharablelink from db, snapshot.val()=" + JSON.stringify(snapshot.val())
-        );
+    return (
+      database
+        //.ref(`users/${uid}/theplan/plan`)
+        .ref(`users/${uid}/thesharablelink`)
+        .once("value")
+        .then((snapshot) => {
+          console.log(
+            "11 action/getThesharablelink from db, snapshot.val()=" +
+              JSON.stringify(snapshot.val()),
+          );
 
-        let zsharablelink={
-           sharablelink:"https://urilinks.com/dashboard?signup=0&x=readonly&id="+uid
-        }
-////
-        if (snapshot.val() === null) {
-          //theplan = "free";
-          dispatch(startAddThesharablelink(zsharablelink))
-        } else {
-          //theplan=snapshot.val();
-          //zplan=snapshot.val();
-          //console.log("app.js, zplan="+JSON.stringify(zplan))
-          dispatch(addThesharablelink(snapshot.val()));
-        }
-        
-      });
+          let zsharablelink = {
+            sharablelink: baseUrl + "/dashboard?signup=0&x=readonly&id=" + uid,
+          };
+          ////
+          if (snapshot.val() === null) {
+            //theplan = "free";
+            dispatch(startAddThesharablelink(zsharablelink));
+          } else {
+            //theplan=snapshot.val();
+            //zplan=snapshot.val();
+            //console.log("app.js, zplan="+JSON.stringify(zplan))
+            dispatch(addThesharablelink(snapshot.val()));
+          }
+        })
+    );
   };
 };
-
-
-
 
 // REMOVE_SETTINGS
 export const removeThesharablelink = () => ({
@@ -137,7 +154,6 @@ export const startEditThesharablelink = (updates) => {
   };
 };
 
-
 export const addThesharablelink = (thesharablelink) => ({
   type: "ADD_THESHARABLELINK",
   thesharablelink,
@@ -160,12 +176,15 @@ export const incrementSharableLinkClickCount = (x) => {
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/thesharablelink`)
-      .update({sharablelink:parseInt(x.sharablelink)+1}) //{showpublic:0}
+      .update({ sharablelink: parseInt(x.sharablelink) + 1 }) //{showpublic:0}
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(incrementSharableLinkClickCount2({sharablelink:parseInt(x.sharablelink)+1}));
-       
+        dispatch(
+          incrementSharableLinkClickCount2({
+            sharablelink: parseInt(x.sharablelink) + 1,
+          }),
+        );
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);
@@ -178,17 +197,23 @@ export const decrementSharableLinkClickCount = (x) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
-    return database
-      .ref(`users/${uid}/thesharablelink`)
-      .update({sharablelink:parseInt(x.sharablelink)-1}) //{showpublic:0}
-      //.update({sharablelink:4}) 
-      .then(() => {
-        //alert("success")
-        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(decrementSharableLinkClickCount2({sharablelink:parseInt(x.sharablelink)-1}));
-      })
-      .catch((error) => {
-        console.log("error removing link data in firebase, error=" + error);
-      });
+    return (
+      database
+        .ref(`users/${uid}/thesharablelink`)
+        .update({ sharablelink: parseInt(x.sharablelink) - 1 }) //{showpublic:0}
+        //.update({sharablelink:4})
+        .then(() => {
+          //alert("success")
+          //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+          dispatch(
+            decrementSharableLinkClickCount2({
+              sharablelink: parseInt(x.sharablelink) - 1,
+            }),
+          );
+        })
+        .catch((error) => {
+          console.log("error removing link data in firebase, error=" + error);
+        })
+    );
   };
 };

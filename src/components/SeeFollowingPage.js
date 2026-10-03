@@ -1,3 +1,4 @@
+import Constants from "./Constants"
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -5,6 +6,8 @@ import { withRouter } from "react-router-dom";
 
 import { setTextFilter, sortByOthers } from "../actions/filters";
 import {setitbacktono} from "../actions/links"
+
+
 
 export const SeeFollowingPage = (props) => {
   //const [count, setCount] = useState(0);
@@ -15,6 +18,20 @@ export const SeeFollowingPage = (props) => {
   const scrolldownref8 = useRef(null);
   const scrollupref8 = useRef(null);
   //const [nodeRef, setNodeRef] = useState(null);
+
+  // const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+  let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
 
   useEffect(() => {
     console.log("SeeFollowingPage.js, users=" + JSON.stringify(props.users));
@@ -172,7 +189,8 @@ export const SeeFollowingPage = (props) => {
     //alert(props.email)
 
     window.open(
-      "https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+      //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+      baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
         props.uid +
         "&id=" +
         id +

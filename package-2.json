@@ -8,12 +8,12 @@
   "node": "26.10.0"
 },
   "scripts": {
-    "build:dev": "webpack --env development",
-    "build:prod": "webpack --env production",
-    "dev-server": "webpack-dev-server",
-    "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
-    "start": "cross-env NODE_ENV=development node server/server.js",
-    "heroku-postbuild": "npm run build:prod"
+     "build:dev": "cross-env NODE_ENV=development webpack",
+  "build:prod": "cross-env NODE_ENV=production webpack --env production",
+  "dev-server": "cross-env NODE_ENV=development webpack-dev-server",
+  "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
+  "start": "node server/server.js",
+  "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
     "babel-cli": "6.24.1",

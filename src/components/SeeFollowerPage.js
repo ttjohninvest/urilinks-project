@@ -1,3 +1,4 @@
+import Constants from "./Constants"
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -14,6 +15,21 @@ export const SeeFollowerPage = (props) => {
   const scrolldownref8 = useRef(null);
   const scrollupref8 = useRef(null);
   //const [nodeRef, setNodeRef] = useState(null);
+
+  //   const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+  let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
+
 
   useEffect(() => {
     console.log("SeeFollowingPage.js, users=" + JSON.stringify(props.users));
@@ -33,25 +49,27 @@ export const SeeFollowerPage = (props) => {
   //     (item) => !array2.some((other) => other.uid === item.gud.uid),
   //   );
 
-   
   //   return uArray;
   // };
 
-//   const a = (item2, item) => {
-//     if(array2.some((item2) => item2.uid === item.gud.uid))
-//       return "is a follower of "
-//     else return "is not a follower of "
-//   }
+  //   const a = (item2, item) => {
+  //     if(array2.some((item2) => item2.uid === item.gud.uid))
+  //       return "is a follower of "
+  //     else return "is not a follower of "
+  //   }
 
   //props.users, props.follower (followers from the database)
   const annotatearray = (array1, array2) => {
-  const resultArray = array1.map((item) => ({
-    ...item,
-    isMatch: array2.some((item2) => item2.uid === item.gud.uid) === true?"is a follower of ":"is not a follower of "
-  }));
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? "is a follower of "
+          : "is not a follower of ",
+    }));
 
-  return resultArray;
-};
+    return resultArray;
+  };
 
   useEffect(() => {
     //props.following=[{id:uy7,uid:7894}]
@@ -93,17 +111,18 @@ export const SeeFollowerPage = (props) => {
       .join("");
   }
 
-  const otherPage = (id, dn, purl, email,theemail2, isMatch) => {
+  const otherPage = (id, dn, purl, email, theemail2, isMatch) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl=" + purl);
     //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
     //const z12 = encrypt(props.gud.gud.email,"125434")
     //const z12 = props.email
-    const z12 = theemail2
+    const z12 = theemail2;
     //alert(props.email)
 
     window.open(
-      "https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+      baseUrl +
+        "/dashboard?signup=0&x=readonly&id2=" +
         props.uid +
         "&id=" +
         id +
@@ -121,8 +140,6 @@ export const SeeFollowerPage = (props) => {
     );
   };
 
-  
-
   const handleClick = () => {
     // Identify the clicked element
     const clickedElement = event.target;
@@ -134,10 +151,10 @@ export const SeeFollowerPage = (props) => {
     //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
     //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
     const email = encrypt(array3[3], "125434");
-    console.log("SeeFollowerPage, array3[4]="+array3[4])
+    console.log("SeeFollowerPage, array3[4]=" + array3[4]);
     const theemail2 = encrypt(array3[4], "125434");
-    console.log("SeeFollowerPage,theemail2="+theemail2)
-    const isMatch = array3[5]
+    console.log("SeeFollowerPage,theemail2=" + theemail2);
+    const isMatch = array3[5];
 
     if (array3[0]) {
       otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
@@ -151,8 +168,8 @@ export const SeeFollowerPage = (props) => {
   };
 
   const startScrollingUp4 = () => {
-     if(!!buttonRef4===true && !!buttonRef4.current === true)
-    buttonRef4.current.click();
+    if (!!buttonRef4 === true && !!buttonRef4.current === true)
+      buttonRef4.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
 
@@ -170,9 +187,10 @@ export const SeeFollowerPage = (props) => {
           (document.getElementById("ls3").scrollHeight - 2 ||
             document.getElementById("ls3").scrollHeight + 2)
         ) {
-             if(!!buttonRef4===true && !!buttonRef4.current === true)
-          buttonRef4.current.click();
-          if (!!scrolldownref8 === true && !!scrolldownref8.current===true) scrolldownref8.current.click();
+          if (!!buttonRef4 === true && !!buttonRef4.current === true)
+            buttonRef4.current.click();
+          if (!!scrolldownref8 === true && !!scrolldownref8.current === true)
+            scrolldownref8.current.click();
         }
     }, 40); // Every 20 milliseconds
   };
@@ -183,8 +201,8 @@ export const SeeFollowerPage = (props) => {
   };
 
   const startScrollingDown4 = () => {
-     if(!!buttonRef4===true && !!buttonRef4.current === true)
-    buttonRef4.current.click();
+    if (!!buttonRef4 === true && !!buttonRef4.current === true)
+      buttonRef4.current.click();
     // Prevent multiple intervals
     if (scrollInterval4.current) return;
 
@@ -201,9 +219,10 @@ export const SeeFollowerPage = (props) => {
           document.getElementById("ls3").scrollTop === 0 ||
           document.getElementById("ls3").scrollTop <= 2
         ) {
-             if(!!buttonRef4===true && !!buttonRef4.current === true)
-          buttonRef4.current.click();
-          if (!!scrollupref8 === true && !!scrollupref8.current===true) scrollupref8.current.click();
+          if (!!buttonRef4 === true && !!buttonRef4.current === true)
+            buttonRef4.current.click();
+          if (!!scrollupref8 === true && !!scrollupref8.current === true)
+            scrollupref8.current.click();
 
           //stopScrolling();
         }
@@ -277,11 +296,16 @@ export const SeeFollowerPage = (props) => {
             isMobile() === true ? "widthhashtagcolumn" : "widthx1"
           } heightx1 overflowyauto borderLightOrange overflowxhidden padding-bottom-1`}
         >
-          <ul className="liststylenone cursor-pointer interline" onClick={handleClick}>
+          <ul
+            className="liststylenone cursor-pointer interline"
+            onClick={handleClick}
+          >
             {uniqueData.map((item, index) => {
-              if (props.auth.uid !== item.gud.uid) { //no need to display the logged in user's page
+              if (props.auth.uid !== item.gud.uid) {
+                //no need to display the logged in user's page
                 return (
-                  <li className={`${item.isMatch==="is a follower of "?'bg-color-1 color-white-1':''}`}
+                  <li
+                    className={`${item.isMatch === "is a follower of " ? "bg-color-1 color-white-1" : ""}`}
                     key={index}
                     data-item-id={
                       item.gud.uid +
@@ -292,24 +316,20 @@ export const SeeFollowerPage = (props) => {
                       ";" +
                       item.gud.email +
                       ";" +
-                      props.email+
+                      props.email +
                       ";" +
-                      item.isMatch 
+                      item.isMatch
                     }
                   >
-                    {
-                    item.gud.email+
+                    {item.gud.email +
                       " " +
-                    item.isMatch+
+                      item.isMatch +
                       " " +
                       props.email +
                       ", " +
                       item.gud.displayname +
                       ", " +
-                      item.gud.theatname
-                      
-                      
-                      }
+                      item.gud.theatname}
                   </li>
                 );
               } else {
@@ -329,7 +349,7 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
   follower: state.follower,
   newfollowinglinks: state.newfollowinglinks,
-  gud:state.gud
+  gud: state.gud,
 });
 
 const mapDispatchToProps = (dispatch) => ({

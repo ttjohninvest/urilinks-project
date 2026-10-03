@@ -1,3 +1,4 @@
+import Constants from "./Constants"
 import React, { useState, useEffect } from "react";
 //import { history } from "../routers/AppRouter";
 import { connect } from "react-redux";
@@ -11,13 +12,26 @@ const ImportedBookmarks = (props) => {
     props.history.push("/"); //0000010 // Navigates back one step in the history
   };
 
+  //   const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+  let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
+
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if(props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
-          max = StorageSizes.mine;
-        else
-    if (
+    if (props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+      max = StorageSizes.mine;
+    else if (
       !!props.theplan.plan &&
       props.theplan.plan.replace(/"/g, "") === "free"
     ) {
@@ -46,9 +60,9 @@ const ImportedBookmarks = (props) => {
   }, []);
 
   const returnAndRefresh = () => {
-    props.history.push("/");//0000010
+    props.history.push("/"); //0000010
     //window.location.reload();
-    window.location.href = "https://urilinks.com?signup=signup";
+    window.location.href = baseUrl + "?signup=signup";
   };
 
   const printIt = () => {
@@ -144,7 +158,7 @@ const ImportedBookmarks = (props) => {
 
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
-  auth:state.auth
+  auth: state.auth,
 });
 
 export default withRouter(

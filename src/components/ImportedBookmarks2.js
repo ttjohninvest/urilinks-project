@@ -1,3 +1,4 @@
+import Constants from "./Constants"
 import React, { useState, useEffect } from "react";
 //import { history } from "../routers/AppRouter";
 import { connect } from "react-redux";
@@ -6,6 +7,22 @@ import printerImage from "../assets/images/printer_image.png";
 import StorageSizes from "./StorageSizes";
 
 const ImportedBookmarks2 = (props) => {
+
+  //   const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+  let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
+
+
   const goToHomePage = () => {
     props.history.push("/"); // Navigates back one step in the history
   };
@@ -17,7 +34,7 @@ const ImportedBookmarks2 = (props) => {
   const openPaymentPage = () => {
     // props.history.push("/");
     // //window.location.reload();
-    // window.location.href="https://urilinks.com?signup=signup"
+    // window.location.href=baseUrl+"?signup=signup"
 
     props.setThePayPage(true);
   };
@@ -25,15 +42,13 @@ const ImportedBookmarks2 = (props) => {
   const handleCancelIt = () => {
     props.history.push("/");
     // //window.location.reload();
-    // window.location.href="https://urilinks.com?signup=signup"
-
-    
+    // window.location.href=baseUrl+"up"
   };
 
   const closeThisPage = () => {
     // props.history.push("/");
     // //window.location.reload();
-    // window.location.href="https://urilinks.com?signup=signup"
+    // window.location.href=baseUrl+"up"
 
     props.closeThisPage(true);
   };
@@ -46,9 +61,9 @@ const ImportedBookmarks2 = (props) => {
   };
 
   const returnAndRefresh = () => {
-    props.history.push("/");//0000010
+    props.history.push("/"); //0000010
     //window.location.reload();
-    window.location.href = "https://urilinks.com?signup=signup";
+    window.location.href = baseUrl + "?signup=signup";
   };
 
   return (
@@ -156,23 +171,23 @@ const ImportedBookmarks2 = (props) => {
                   (!!props.theplan.plan &&
                     props.theplan.plan.replace(/"/g, "") !== "premium" && (
                       <div>
-                      <div className="margin-top-2">
-                        <button
-                          className="button-style-1- button-2w"
-                          onClick={openPaymentPage}
-                        >
-                          go to plans page
-                        </button>
-                      </div>
-                      <div className="margin-top-2">
-                        <button
-                          className="button-style-1- button-2w"
-                          //onClick={handleCancelIt}
-                          onClick={returnAndRefresh}
-                        >
-                          Don't go to plans Page
-                        </button>
-                      </div>
+                        <div className="margin-top-2">
+                          <button
+                            className="button-style-1- button-2w"
+                            onClick={openPaymentPage}
+                          >
+                            go to plans page
+                          </button>
+                        </div>
+                        <div className="margin-top-2">
+                          <button
+                            className="button-style-1- button-2w"
+                            //onClick={handleCancelIt}
+                            onClick={returnAndRefresh}
+                          >
+                            Don't go to plans Page
+                          </button>
+                        </div>
                       </div>
                     ))}
               </div>
@@ -232,7 +247,7 @@ const ImportedBookmarks2 = (props) => {
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
   links: state.links,
-  auth: state.auth
+  auth: state.auth,
 });
 
 //export default withRouter(connect(mapStateToProps, undefined)(ImportedBookmarks2));

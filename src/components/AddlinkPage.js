@@ -1,4 +1,6 @@
+import Constants from "./Constants"
 import React, { useEffect, useState } from "react";
+
 //import * as firebase from "firebase";
 import * as firebase from "firebase/app";
 import "firebase/auth"; // If using authentication
@@ -7,7 +9,7 @@ import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
 
 import { connect } from "react-redux";
-import { startAddTheupdatedate} from "../actions/theupdatedate";  
+import { startAddTheupdatedate } from "../actions/theupdatedate";
 import LinkForm from "./LinkForm";
 import { startAddLink } from "../actions/links";
 import { withRouter } from "react-router-dom";
@@ -25,13 +27,27 @@ export const AddLinkPage = (props) => {
   const [errorDialog, setErrorDialog] = useState(false);
   //const history = useHistory();
 
+  //   const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+   let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
+
+
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if(props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
-          max = StorageSizes.mine;
-        else
-    if (
+    if (props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+      max = StorageSizes.mine;
+    else if (
       !!props.theplan.plan &&
       props.theplan.plan.replace(/"/g, "") === "free"
     ) {
@@ -140,8 +156,8 @@ export const AddLinkPage = (props) => {
 
   const onSubmit = (link) => {
     console.log("AddlinkPage.js, in onSubmit");
-    console.log("AddlinkPage.js, link.addescription = "+link.addescription)
-    console.log("AddlinkPage.js, link.adUrl = "+link.adUrl)
+    console.log("AddlinkPage.js, link.addescription = " + link.addescription);
+    console.log("AddlinkPage.js, link.adUrl = " + link.adUrl);
     //alert(1)
     const user = firebase.auth().currentUser;
     // if (count < 250 || (count < 10000 && (
@@ -190,21 +206,21 @@ export const AddLinkPage = (props) => {
       if (isin === false) {
         //alert("isin="+isin)
         //const r = props.startAddLink(props.following,link);
-        const r = props.startAddLink(props.follower,link);
+        const r = props.startAddLink(props.follower, link);
         //const r = props.startAddLink(props.newfollowinglinks,link);
         if (r === false) {
           setErrorDialog(true);
           console.log("VVVVVVVVVVVVV returned false");
         } else {
-              const now = new Date();
+          const now = new Date();
           const datet = Math.trunc(now.getTime());
-                                 props.startAddTheupdatedate({
-                                   updatedate:datet
-                                 })
+          props.startAddTheupdatedate({
+            updatedate: datet,
+          });
           //props.history.push("/");
           //window.location.reload();
-          //window.location.href = "https://urilinks.com?signup=signup&z=1"; //stops the scroll on return when z=1
-          window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
+          //window.location.href = baseUrl+"?signup=signup&z=1"; //stops the scroll on return when z=1
+          window.location.href = baseUrl + "?signup=signup&z=1&z2=2";
         }
       } else {
         //alert("isin="+isin)
@@ -256,21 +272,20 @@ export const AddLinkPage = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  auth:state.auth,
+  auth: state.auth,
   theplan: state.theplan,
   signup: state.signup,
   links: state.links,
   newfollowinglinks: state.newfollowinglinks,
   following: state.following,
   follower: state.follower,
-  users:state.users,
+  users: state.users,
   //following: state.following, //following users of props.auth.uid (loggedin user)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  startAddLink: (v,link) => dispatch(startAddLink(v,link)),
+  startAddLink: (v, link) => dispatch(startAddLink(v, link)),
   startAddTheupdatedate: (data) => dispatch(startAddTheupdatedate(data)),
-
 });
 
 export default withRouter(

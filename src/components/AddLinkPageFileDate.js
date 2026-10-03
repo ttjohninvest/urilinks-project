@@ -1,3 +1,5 @@
+import Constants from "./Constants";
+
 import React, { useEffect, useState } from "react";
 import * as firebase from "firebase";
 import { connect } from "react-redux";
@@ -11,6 +13,21 @@ export const AddLinkPageFileDate = (props) => {
   const [maximumPage, setMaximumPage] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
   //const history = useHistory();
+
+  //   const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+  let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
+
 
   const goBack = () => {
     props.history.goBack(); // Navigates back one step in the history
@@ -77,7 +94,7 @@ export const AddLinkPageFileDate = (props) => {
       } else {
         props.history.push("/");
         //window.location.reload();
-        window.location.href = "https://urilinks.com?signup=signup";
+        window.location.href = baseUrl + "?signup=signup";
       }
     } else {
       console.log("maximum links reached");

@@ -1,5 +1,5 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
-////
+import Constants from "./Constants"
 import React, { useState, useRef, useEffect } from "react";
 import StickyFixed from "./StickyFixed";
 import ReadMore from "./ReadMore";
@@ -9,16 +9,16 @@ import honoring from "../assets/honoring/christmas-tree.png";
 //import honoring from "../assets/honoring/CurtisStone.png";
 //import setFrommenu from "../actions/frommenu";
 //import KittiesButton from "./KittiesButton.js";
-import Constants from "./Constants"
+
 import CopyButton2 from "./CopyButton2";
 import HashTagsButton from "./HashTagsButton";
 import OthersButton from "./OthersButton";
 import FollowerButton from "./FollowerButton";
-import FollowButton from "./FollowButton"
-import ChatButton from "./ChatButton"
+import FollowButton from "./FollowButton";
+import ChatButton from "./ChatButton";
 //import ChatComponent from "./ChatComponent"
-import UnFollowButton from "./UnFollowButton"
-import EmailButton from "./EmailButton"
+import UnFollowButton from "./UnFollowButton";
+import EmailButton from "./EmailButton";
 //import AddLinkPage from "./AddlinkPage";
 import AddALinkButton from "./AddALinkButton";
 import SeeHashTagsPage from "./SeeHashTagsPage.js";
@@ -129,7 +129,7 @@ function ExpandableArray(props) {
   const [isToggled, setIsToggled] = useState(x);
 
   const params = new URLSearchParams(window.location.search);
-  
+
   const signup = params.get("signup");
   const rt = params.get("x");
   const readonly = rt === "readonly" ? true : false;
@@ -142,9 +142,23 @@ function ExpandableArray(props) {
   const childRef = useRef(null);
   const z10 = params.get("z10");
   const isFollower = params.get("isFollower");
-  console.log("ExpanableArray, isFollower = "+ isFollower)
+  console.log("ExpanableArray, isFollower = " + isFollower);
   const isFollowing = params.get("isFollowing");
-  console.log("ExpanableArray, isFollowing = "+ isFollowing)
+  console.log("ExpanableArray, isFollowing = " + isFollowing);
+
+  //   const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+  let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
 
 
   const handleStartScroll = (v) => {
@@ -160,8 +174,10 @@ function ExpandableArray(props) {
   // };
 
   useEffect(() => {
-    console.log("ExapandableArray, following="+JSON.stringify(props.following))
-    console.log("ExapandableArray, follower="+JSON.stringify(props.follower))
+    console.log(
+      "ExapandableArray, following=" + JSON.stringify(props.following),
+    );
+    console.log("ExapandableArray, follower=" + JSON.stringify(props.follower));
     console.log("ExpandableArray, user ids=" + JSON.stringify(props.users));
     console.log(
       "ZZZZZ, props.mappedDataShort[0]=" +
@@ -236,8 +252,8 @@ function ExpandableArray(props) {
   // };
 
   const startScrollingUp = () => {
-     if(!!buttonRef===true && !!buttonRef.current === true)
-    buttonRef.current.click();
+    if (!!buttonRef === true && !!buttonRef.current === true)
+      buttonRef.current.click();
     // Prevent multiple intervals
     if (scrollInterval.current) return;
 
@@ -256,7 +272,8 @@ function ExpandableArray(props) {
             document.getElementById("ls").scrollHeight + 2)
         ) {
           buttonRef.current.click();
-          if (!!scrolldownref7 === true && !!scrolldownref7.current===true) scrolldownref7.current.click();
+          if (!!scrolldownref7 === true && !!scrolldownref7.current === true)
+            scrolldownref7.current.click();
         }
     }, 20); // Every 20 milliseconds
   };
@@ -267,8 +284,8 @@ function ExpandableArray(props) {
   };
 
   const startScrollingDown = () => {
-    if(!!buttonRef===true && !!buttonRef.current === true)
-    buttonRef.current.click();
+    if (!!buttonRef === true && !!buttonRef.current === true)
+      buttonRef.current.click();
     // Prevent multiple intervals
     if (scrollInterval.current) return;
 
@@ -285,8 +302,8 @@ function ExpandableArray(props) {
           document.getElementById("ls").scrollTop === 0 ||
           document.getElementById("ls").scrollTop <= 2
         ) {
-          if( !!buttonRef===true && !!buttonRef.current === true)
-          buttonRef.current.click();
+          if (!!buttonRef === true && !!buttonRef.current === true)
+            buttonRef.current.click();
 
           //stopScrolling();
         }
@@ -811,7 +828,8 @@ function ExpandableArray(props) {
 
   const startScrollingUp2 = () => {
     try {
-      if (!!buttonRef2 === true && !!buttonRef2.current === true) buttonRef2.current.click();
+      if (!!buttonRef2 === true && !!buttonRef2.current === true)
+        buttonRef2.current.click();
     } catch (error) {
       console.log("error=" + error);
     }
@@ -841,7 +859,8 @@ function ExpandableArray(props) {
             document.getElementById("ls2").scrollHeight + 2)
         ) {
           try {
-            if (!!buttonRef2 === true && !!buttonRef2.current===true) buttonRef2.current.click();
+            if (!!buttonRef2 === true && !!buttonRef2.current === true)
+              buttonRef2.current.click();
           } catch (error) {
             console.log("error=" + error);
           }
@@ -858,7 +877,7 @@ function ExpandableArray(props) {
 
   const startScrollToBottom2 = () => {
     try {
-      if(!!buttonRef2===true && !!buttonRef2.current === true) 
+      if (!!buttonRef2 === true && !!buttonRef2.current === true)
         buttonRef2.current.click();
     } catch (error) {
       console.log("error=" + error);
@@ -889,7 +908,7 @@ function ExpandableArray(props) {
             document.getElementById("ls2").scrollHeight + 2)
         ) {
           try {
-            if(!!buttonRef2===true && !!buttonRef2.current === true)  
+            if (!!buttonRef2 === true && !!buttonRef2.current === true)
               buttonRef2.current.click();
           } catch (error) {
             console.log("error=" + error);
@@ -913,7 +932,7 @@ function ExpandableArray(props) {
 
   const startScrollingDown2 = () => {
     try {
-      if(!!buttonRef2===true && !!buttonRef2.current === true)  
+      if (!!buttonRef2 === true && !!buttonRef2.current === true)
         buttonRef2.current.click();
     } catch (error) {
       console.log("error=" + error);
@@ -941,7 +960,7 @@ function ExpandableArray(props) {
           document.getElementById("ls2").scrollTop <= 2
         ) {
           try {
-           if(!!buttonRef2===true && !!buttonRef2.current === true) 
+            if (!!buttonRef2 === true && !!buttonRef2.current === true)
               buttonRef2.current.click();
           } catch (error) {
             console.log("error=" + error);
@@ -950,10 +969,10 @@ function ExpandableArray(props) {
           try {
             if (!!scrollupref === true)
               if (!!scrollupref === true)
-                //auto scroll in the other direction
-                //auto scroll in the other direction
-                 if(!!scrollupref===true && !!scrollupref.current === true)
-                scrollupref.current.click();
+                if (!!scrollupref === true && !!scrollupref.current === true)
+                  //auto scroll in the other direction
+                  //auto scroll in the other direction
+                  scrollupref.current.click();
           } catch (error) {
             console.log("error=" + error);
           }
@@ -965,7 +984,7 @@ function ExpandableArray(props) {
 
   const startScrollToTop2 = () => {
     try {
-       if(!!buttonRef2===true && !!buttonRef2.current === true)
+      if (!!buttonRef2 === true && !!buttonRef2.current === true)
         buttonRef2.current.click();
     } catch (error) {
       console.log("error=" + error);
@@ -993,7 +1012,8 @@ function ExpandableArray(props) {
           document.getElementById("ls2").scrollTop <= 2
         ) {
           try {
-            if (!!buttonRef2 === true && !!buttonRef2.current === true) buttonRef2.current.click();
+            if (!!buttonRef2 === true && !!buttonRef2.current === true)
+              buttonRef2.current.click();
           } catch (error) {
             console.log("error=" + error);
           }
@@ -1271,7 +1291,7 @@ function ExpandableArray(props) {
                                     color: "black",
                                   }}
                                 >
-                                  https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                                  {`${baseUrl}+"/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
                                 </a>
                               </div>
@@ -1280,7 +1300,7 @@ function ExpandableArray(props) {
                                   readonly={readonly}
                                   accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
                                   v
-                                  textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                                  textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                 />
                               </div>
                             </fieldset>
@@ -1307,7 +1327,8 @@ function ExpandableArray(props) {
                                     color: "black",
                                   }}
                                 >
-                                  https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                                  
+                                  {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
                                 </a>
                               </div>
@@ -1325,7 +1346,7 @@ function ExpandableArray(props) {
                                 <CopyButton2
                                   readonly={readonly}
                                   accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
-                                  textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                                  textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                 />
                               </div>
                             </fieldset>
@@ -1383,9 +1404,13 @@ function ExpandableArray(props) {
                       {readonly === false && (
                         <div>
                           <OthersButton
-                            whichone = {2}
+                            whichone={2}
                             buttonText={"Following"}
-                            email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
+                            email={
+                              !!firebase.auth().currentUser === true
+                                ? firebase.auth().currentUser.email
+                                : ""
+                            }
                             uid={props.uid}
                             elementRef20={elementRef20}
                             changeSortBy={changeSortBy}
@@ -1400,7 +1425,7 @@ function ExpandableArray(props) {
                         isFormOpen && (
                           <SendEmailPage
                             isreadonly={true}
-                            sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
+                            sharablelink={`Please click on: ${baseUrl}/dashboard?signup=0&x=readonly&id=${uid}`}
                             uid={uid}
                             isFormOpen={isFormOpen}
                             handleClose={handleClose}
@@ -1443,7 +1468,8 @@ function ExpandableArray(props) {
                                     color: "black",
                                   }}
                                 >
-                                  https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                                  
+                                  {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
                                 </a>
                               </div>
@@ -1462,38 +1488,50 @@ function ExpandableArray(props) {
                                   <CopyButton2
                                     readonly={readonly}
                                     accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
-                                    textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                                    textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                   />
                                   {readonly === false && (
                                     <div>
                                       <OthersButton
-                                        whichone = {2}
+                                        whichone={2}
                                         buttonText={"Following"}
-                                        email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
+                                        email={
+                                          !!firebase.auth().currentUser === true
+                                            ? firebase.auth().currentUser.email
+                                            : ""
+                                        }
                                         uid={props.uid}
                                         elementRef20={elementRef20}
                                         changeSortBy={changeSortBy}
                                         //setSortBy={setSortBy}
                                       />
-                                       <FollowerButton
-                                        email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
+                                      <FollowerButton
+                                        email={
+                                          !!firebase.auth().currentUser === true
+                                            ? firebase.auth().currentUser.email
+                                            : ""
+                                        }
                                         uid={props.uid}
                                         elementRef20={elementRef20}
                                         changeSortBy={changeSortBy}
                                         //setSortBy={setSortBy}
                                       />
-                                      {Constants.CATS === true && <button
-                                        onClick={handlerCats}
-                                        className="button-2 margin-left-11"
-                                      >
-                                        Cats
-                                      </button>}
-                                       {Constants.DOGS === true && <button
-                                        onClick={handlerDogs}
-                                        className="button-2 margin-left-11"
-                                      >
-                                        Dogs
-                                      </button>}
+                                      {Constants.CATS === true && (
+                                        <button
+                                          onClick={handlerCats}
+                                          className="button-2 margin-left-11"
+                                        >
+                                          Cats
+                                        </button>
+                                      )}
+                                      {Constants.DOGS === true && (
+                                        <button
+                                          onClick={handlerDogs}
+                                          className="button-2 margin-left-11"
+                                        >
+                                          Dogs
+                                        </button>
+                                      )}
                                     </div>
                                   )}
                                 </div>
@@ -1523,7 +1561,8 @@ function ExpandableArray(props) {
                                     color: "black",
                                   }}
                                 >
-                                  https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                                  
+                                  {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
                                 </a>
                               </div>
@@ -1541,41 +1580,53 @@ function ExpandableArray(props) {
                                   <CopyButton2
                                     readonly={readonly}
                                     accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
-                                    textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                                    textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                   />
                                 </div>
                                 {/* <OthersButton below Appears on home page as example page, not logged in */}
                                 {/* Purpose of the button being here is because it lets other people know they can see other peoples public links on the internet */}
                                 <OthersButton
-                                  whichone = {2}
+                                  whichone={2}
                                   buttonText={"Following"}
-                                  email={!!firebase.auth().currentUser===true?firebase.auth().currentUser.email:""}
+                                  email={
+                                    !!firebase.auth().currentUser === true
+                                      ? firebase.auth().currentUser.email
+                                      : ""
+                                  }
                                   uid={props.uid}
                                   elementRef20={elementRef20}
                                   changeSortBy={changeSortBy}
                                   //uid={props.uid}
                                   //setSortBy={setSortBy}
                                 />
-                                 <FollowerButton
-                                        email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
-                                        uid={props.uid}
-                                        elementRef20={elementRef20}
-                                        changeSortBy={changeSortBy}
-                                        //setSortBy={setSortBy}
-                                      />
+                                <FollowerButton
+                                  email={
+                                    !!firebase.auth().currentUser === true
+                                      ? firebase.auth().currentUser.email
+                                      : ""
+                                  }
+                                  uid={props.uid}
+                                  elementRef20={elementRef20}
+                                  changeSortBy={changeSortBy}
+                                  //setSortBy={setSortBy}
+                                />
 
-                                 {Constants.CATS === true && <button
-                                  onClick={handlerCats}
-                                  className="button-2 margin-left-11"
-                                >
-                                  Cats
-                                </button>}
-                                 {Constants.DOGS === true && <button
-                                  onClick={handlerDogs}
-                                  className="button-2 margin-left-11"
-                                >
-                                  Dogs
-                                </button>}
+                                {Constants.CATS === true && (
+                                  <button
+                                    onClick={handlerCats}
+                                    className="button-2 margin-left-11"
+                                  >
+                                    Cats
+                                  </button>
+                                )}
+                                {Constants.DOGS === true && (
+                                  <button
+                                    onClick={handlerDogs}
+                                    className="button-2 margin-left-11"
+                                  >
+                                    Dogs
+                                  </button>
+                                )}
                               </div>
                             </div>
                           </div>
@@ -1626,7 +1677,7 @@ function ExpandableArray(props) {
                         isFormOpen && (
                           <SendEmailPage
                             isreadonly={true}
-                            sharablelink={`Please click on: https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`}
+                            sharablelink={`Please click on: ${baseUrl}/dashboard?signup=0&x=readonly&id=${uid}`}
                             uid={uid}
                             isFormOpen={isFormOpen}
                             handleClose={handleClose}
@@ -1841,7 +1892,6 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                       </select>
-                      
                     </div>
                     {/* <button className="ib margin-left-11 button-2" onClick={seeHashTags} title="See hashtags">See Hashtags</button> */}
                     {/* {isForm3Open && (
@@ -1974,16 +2024,28 @@ function ExpandableArray(props) {
                           </option>
                         </optgroup>
                       </select>
-                      {
-                        z10 !== null && <div className="flexrowz">
-                        
-                         {/* {!!isFollower !== true &&  <FollowButton />} */}
-                        {!!isFollowing === true && isFollowing !== "is following" ? <div><FollowButton /><ChatButton /></div>:!!isFollower === true?null:<UnFollowButton />}
-                       
-                        {!!isFollower === true && isFollower === "is a follower of" && <EmailButton z10={z10} />}
-                        
+                      {z10 !== null && (
+                        <div className="flexrowz">
+                          {/* {!!isFollower !== true &&  <FollowButton />} */}
+                          {!!isFollowing === true &&
+                          isFollowing !== "is following" ? (
+                            <div className="flexrowz">
+                              <FollowButton />
+                              <ChatButton />
+                            </div>
+                          ) : !!isFollower === true ? null : (
+                            <div className="flexrowz">
+                              <UnFollowButton />
+                              {/* <ChatButton /> */}
+                            </div>
+                          )}
+
+                          {!!isFollower === true &&
+                            isFollower === "is a follower of" && (
+                              <EmailButton z10={z10} />
+                            )}
                         </div>
-                      }
+                      )}
                     </div>
 
                     {/* {isForm3Open && (
@@ -2519,7 +2581,7 @@ export class LinkListFilters extends React.Component {
 
   refreshIt = () => {
     //window.location.reload();
-    window.location.href = "https://urilinks.com?signup=signup";
+    window.location.href = baseUrl + "?signup=signup";
   };
 
   handleCheckboxShow = (event) => {
@@ -2636,7 +2698,7 @@ const mapStateToProps = (state) => ({
   thetotalloggedout: state.thetotalloggedout,
   users: state.users,
   following: state.following,
-  follower: state.follower
+  follower: state.follower,
 });
 
 const mapDispatchToProps = (dispatch) => ({

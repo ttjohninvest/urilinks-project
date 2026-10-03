@@ -55,7 +55,7 @@ const FollowButton = (props) => {
   };
 
   return (
-    <div className="margin-left-11- margin-top-1">
+    <div className="margin-left-11 margin-top-1">
     <button 
     className={`ib pointereventsnone- height48 button-2w ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     title="Press to follow."

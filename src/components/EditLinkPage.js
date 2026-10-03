@@ -1,38 +1,44 @@
+import Constants from "./Constants"
 import React from "react";
 import { connect } from "react-redux";
 
 import EditForm from "./EditForm";
 import { startEditLink, startRemoveLink, removeLink } from "../actions/links";
 
-export class EditLinkPage extends React.Component {
+  // const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
 
-  constructor(props){
+  let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
+
+
+export class EditLinkPage extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
-     hideEditForm : false,
-     
-    }
+      hideEditForm: false,
+    };
   }
-  
+
   onSubmit = (link) => {
     this.props.startEditLink(this.props.link.id, link);
-    
-   
-    
-       
-      window.location.href = "https://urilinks.com?signup=signup&z2=2&p="+this.props.link.id;
-      
 
-  
-
-    
+    window.location.href =
+      baseUrl + "?signup=signup&z2=2&p=" + this.props.link.id;
   };
 
   handleClose4 = () => {
-     
-    
-    window.location.href="https://urilinks.com?signup=signup&z=1&p="+this.props.link.id
-  }
+    window.location.href =
+      baseUrl + "?signup=signup&z=1&p=" + this.props.link.id;
+  };
   //onRemove = (value,event) => {
   onRemove = () => {
     //remove the links hash tags from the array of hashtags only if each hash tag is only used once
@@ -41,32 +47,39 @@ export class EditLinkPage extends React.Component {
     //console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR, value="+value)
     this.props.removeLink({ id: this.props.link.id });
     this.props.startRemoveLink({ id: this.props.link.id });
-    this.props.history.push("/");//0000010
+    this.props.history.push("/"); //0000010
     //window.location.reload()
-    window.location.href = "https://urilinks.com?signup=signup";
+    window.location.href = baseUrl + "?signup=signup";
   };
   render() {
     return (
       <div>
-        {this.state.hideEditForm === false && <div>
-        <div className="page-header">
-          <div className="content-container">
-            <h1 className="page-header__title">
-              <span className="ib color-purple- color-black-2">Edit Link</span>
-            </h1>
+        {this.state.hideEditForm === false && (
+          <div>
+            <div className="page-header">
+              <div className="content-container">
+                <h1 className="page-header__title">
+                  <span className="ib color-purple- color-black-2">
+                    Edit Link
+                  </span>
+                </h1>
+              </div>
+            </div>
+            <div className="content-container">
+              <EditForm
+                link={this.props.link}
+                onSubmit={this.onSubmit}
+                makereadonly={true}
+              />
+            </div>
           </div>
-        </div>
-        <div className="content-container">
-          <EditForm
-            link={this.props.link}
-            onSubmit={this.onSubmit}
-            makereadonly={true}
-          />
-         
-        </div>
-        </div>}
-        <button className="ib button-2w margin-left-11 margin-bottom-1" 
-        onClick={() => this.handleClose4()}>Cancel</button>
+        )}
+        <button
+          className="ib button-2w margin-left-11 margin-bottom-1"
+          onClick={() => this.handleClose4()}
+        >
+          Cancel
+        </button>
       </div>
     );
   }

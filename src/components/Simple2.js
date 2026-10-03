@@ -1,3 +1,4 @@
+import Constants from "./Constants"
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
@@ -32,6 +33,13 @@ import {
   sortByNoteText,
   sortByFolder,
 } from "../actions/filters";
+
+  const baseUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://urilinks.com";
+
+
 
 function ExpandableArray(props) {
   return <div>ExpandableArray called</div>;
@@ -289,7 +297,7 @@ export class Simple2 extends React.Component {
 
   refreshIt = () => {
     //window.location.reload();
-    window.location.href = "https://urilinks.com?signup=signup";
+    window.location.href = baseUrl + "?signup=signup";
   };
 
   scrollDown = () => {

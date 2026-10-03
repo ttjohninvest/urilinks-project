@@ -1,7 +1,8 @@
+import Constants from "./Constants"
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import database from "../firebase/firebase";
 import ClickableList from "./ClickableList";
-import OthersButton from "./OthersButton"
+import OthersButton from "./OthersButton";
 
 import moment from "moment";
 //import * as firebase from "firebase";
@@ -16,11 +17,9 @@ import "firebase/storage"; // If using Storage
 import { Link } from "react-router-dom";
 //import { useSearchParams } from "react-router-dom";
 
-
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
 import { setLinks } from "../actions/links";
-
 
 import redarrow from "../assets/images/red-arrow.jpg";
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
@@ -50,15 +49,12 @@ import { setPhotourl } from "../actions/photourl";
 import setSignup from "../actions/signup";
 import Header2 from "./Header2";
 //import ReactSpeechKit from "ReactSpeechKit"
-import { incrementTotalLoggedOutClickCount,incrementTotalLoggedOutClickCount2 } from "../actions/thetotalloggedout";
-
 import {
-  setTextFilter,
-  sortByDescription
-  
-} from "../actions/filters";
+  incrementTotalLoggedOutClickCount,
+  incrementTotalLoggedOutClickCount2,
+} from "../actions/thetotalloggedout";
 
-
+import { setTextFilter, sortByDescription } from "../actions/filters";
 
 const useClickOutside = (ref, handler) => {
   useEffect(() => {
@@ -77,10 +73,8 @@ const useClickOutside = (ref, handler) => {
   }, [ref, handler]);
 };
 
-
-
 //import { useClickOutside } from './useClickOutside';
-import { setNewFollowingLinks } from './../actions/following';
+import { setNewFollowingLinks } from "./../actions/following";
 
 const Dropdown = ({ trigger, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -109,10 +103,6 @@ const Dropdown = ({ trigger, children }) => {
   );
 };
 
-
-
-
-
 export const Header = (props) => {
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
@@ -124,8 +114,8 @@ export const Header = (props) => {
   const [theplan, setTheplan] = useState("");
   const [bmok, setBmok] = useState(false);
   const [updateLoggedOut, setUpdateLoggedOut] = useState(false);
-  //  const [searchParams, setSearchParams] = useSearchParams({ 
-   
+  //  const [searchParams, setSearchParams] = useSearchParams({
+
   // });
   const [linksUpdateDateTime, setLinksUpdateDateTime] = useState(
     new Date(props.theupdatedate.updatedate).toLocaleDateString() +
@@ -147,74 +137,87 @@ export const Header = (props) => {
   const z10 = params.get("z10");
   const ni = params.get("ni");
 
+  //   const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+    // alert(process.env.NODE_ENV)
+
+    let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
 
 
   function decrypt(text, key) {
-    if(text === null) return null
-    return String.fromCharCode(...text.match(/.{1,2}/g)
-        .map((e, i) => 
-            parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
+    if (text === null) return null;
+    return String.fromCharCode(
+      ...text
+        .match(/.{1,2}/g)
+        .map(
+          (e, i) => parseInt(e, 16) ^ (key.charCodeAt(i % key.length) % 255),
+        ),
     );
-}
+  }
 
-const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
+  const z11 = decrypt(z10, "125434"); //process.env.REACT_APP_EKEY)
 
   useEffect(() => {
     //props.abc(1);
     //console.log("1, props.abcref=" + JSON.stringify(props.abcref));
 
-    console.log("Header.js, follower ids="+JSON.stringify(props.follower))
-    console.log("Header.js, following ids="+JSON.stringify(props.following))
-    console.log("Header.js, newfollowinglinks ids="+JSON.stringify(props.newfollowinglinks))
-    console.log("Header.js, props.users="+JSON.stringify(props.users))
+    console.log("Header.js, follower ids=" + JSON.stringify(props.follower));
+    console.log("Header.js, following ids=" + JSON.stringify(props.following));
+    console.log(
+      "Header.js, newfollowinglinks ids=" +
+        JSON.stringify(props.newfollowinglinks),
+    );
+    console.log("Header.js, props.users=" + JSON.stringify(props.users));
 
-    
     const handleWindowClose = (event) => {
-
       // Use sendBeacon for reliable background data transmission
       // navigator.sendBeacon('/api/log-close', JSON.stringify({ reason: 'close' }));
-      
+
       // Alternatively, for simple synchronous calls (less reliable):
       // fetch('/api/log-close', { method: 'POST', body: ... });
-      
+
       // Prevent default to trigger browser confirmation dialog (optional)
 
       //  if (event.currentTarget.performance.navigation.type === 1) {
       //   return; // It's a reload, do nothing
       // }
 
-       sessionStorage.setItem('isClosing', 'true');
-      
+      sessionStorage.setItem("isClosing", "true");
 
       //event.preventDefault();
       //event.returnValue = '';
     };
 
     const handleUnload = () => {
-      if (sessionStorage.getItem('isClosing') === 'true') {
+      if (sessionStorage.getItem("isClosing") === "true") {
         // Perform cleanup or API call (e.g., logout)
         // Use navigator.sendBeacon for reliable data transmission
-        console.log('Tab closed');
-        alert("props.theloggedin.loggedin="+props.theloggedin.loggedin)
-        if(props.theloggedin.loggedin === 1) {
-        logoutit()
+        console.log("Tab closed");
+        alert("props.theloggedin.loggedin=" + props.theloggedin.loggedin);
+        if (props.theloggedin.loggedin === 1) {
+          logoutit();
+        }
       }
-      }
-      sessionStorage.removeItem('isClosing');
+      sessionStorage.removeItem("isClosing");
     };
 
-    //window.onbeforeunload = null;   
-    window.addEventListener('beforeunload', handleWindowClose);
-    window.addEventListener('unload', handleUnload);
+    //window.onbeforeunload = null;
+    window.addEventListener("beforeunload", handleWindowClose);
+    window.addEventListener("unload", handleUnload);
 
     return () => {
-      window.removeEventListener('beforeunload', handleWindowClose);
-      window.removeEventListener('unload', handleUnload);
+      window.removeEventListener("beforeunload", handleWindowClose);
+      window.removeEventListener("unload", handleUnload);
     };
-
-
-
-
   }, []);
 
   function slowScrollDown(distance, duration) {
@@ -301,6 +304,7 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
   // };
 
   useEffect(() => {
+      //alert("process.env.NODE_ENV="+process.env.NODE_ENV)
     console.log(
       "Header.js, useEffect, props.signup.signup=" + props.signup.signup,
     );
@@ -318,11 +322,11 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
       const gud = {
         photourl: purl,
         displayname: dn,
-        theatname: "@"+dn.replace(/\s+/g, ""),
+        theatname: "@" + dn.replace(/\s+/g, ""),
         email: user.email,
         uid: user.uid,
       };
-      console.log("Header.js, useEffect, gud="+JSON.stringify(gud))
+      console.log("Header.js, useEffect, gud=" + JSON.stringify(gud));
       setPhotoURL(purl);
       setPhotoURLdb(purl);
 
@@ -336,7 +340,7 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
       setGoogleUserDatadb(gud);
       //setEmaildb(user.email);
       setUid(gud.uid);
-      setName(gud.displayname)
+      setName(gud.displayname);
       // setName(
       //   user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
       //     ? gud.displayname+" 1, XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
@@ -380,7 +384,7 @@ const z11 = decrypt(z10, "125434") //process.env.REACT_APP_EKEY)
       })
   */
 
-      /*
+  /*
 const handleClick = useCallback(() => {
     setCount(prev => prev + 1);
     // Example: Accessing a database reference
@@ -398,8 +402,8 @@ const handleClick = useCallback(() => {
   //     totalloggedout: props.thetotalloggedout.totalloggedout
   //   }
   //   const userRef = ref(database, 'users/thetotalloggedout');
-    
-  //   update(userRef, { 
+
+  //   update(userRef, {
   //     totalloggedout:parseInt(x.totalloggedout)+1
   //   });
   //   console.log('Data updated successfully');
@@ -407,157 +411,135 @@ const handleClick = useCallback(() => {
   //   console.error('Update failed:', error);
   // }
 
-
   // }, []);
 
+  //return (dispatch, getState) => {
 
-//return (dispatch, getState) => {
+  //}
 
-//}
+  // export const loadUser = () => {
+  //     return (dispatch, getState) => {
+  //         // dispatch and getState are now available here
+  //         dispatch({ type: 'USER_LOADED', payload: res.data });
+  //     }
+  // }
 
-// export const loadUser = () => {
-//     return (dispatch, getState) => {
-//         // dispatch and getState are now available here
-//         dispatch({ type: 'USER_LOADED', payload: res.data });
-//     }
-// }
+  // const updateItems =  () => {
 
-// const updateItems =  () => {
+  //   let x = {
+  //       totalloggedout: props.thetotalloggedout.totalloggedout
+  //     }
 
-//   let x = {
-//       totalloggedout: props.thetotalloggedout.totalloggedout
-//     }
+  //     database
+  //       .ref(`users/thetotalloggedout`)
+  //       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
+  //       .then(() => {
+  //         console.log("incrementTotalLoggedOutClickCount success 3")
+  //         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+  //         //dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+  //       })
+  //       .catch((error) => {
+  //         console.log("error incrementTotalLoggedOutClickCount, error=" + error);
+  //       });
 
+  // }
 
-    
-//     database
-//       .ref(`users/thetotalloggedout`)
-//       .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
-//       .then(() => {
-//         console.log("incrementTotalLoggedOutClickCount success 3")
-//         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-//         //dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
-//       })
-//       .catch((error) => {
-//         console.log("error incrementTotalLoggedOutClickCount, error=" + error);
-//       });
+  // const handleUpdate = useCallback(() => {
 
-// }
+  //      updateItems()
 
-// const handleUpdate = useCallback(() => {
-    
-//      updateItems()
- 
-//   }, []);
+  //   }, []);
 
-
-
-//works:
-   const handleUpdate = useCallback(() => {
+  //works:
+  const handleUpdate = useCallback(() => {
     // setCount(prev => prev + 1);
     // // Example: Accessing a database reference
     // if (dbRef) dbRef.increment();
 
-   try {
-     //return async (dispatch, getState) => {
-     console.log("incrementTotalLoggedOutClickCount success 2")
-    //const uid = getState().auth.uid;
-    // alert("incrementClickCount, uid="+uid)
-    //update(dbRef, { value: increment(1) });
-    //return 
-    let x = {
-      totalloggedout: props.thetotalloggedout.totalloggedout
+    try {
+      //return async (dispatch, getState) => {
+      console.log("incrementTotalLoggedOutClickCount success 2");
+      //const uid = getState().auth.uid;
+      // alert("incrementClickCount, uid="+uid)
+      //update(dbRef, { value: increment(1) });
+      //return
+      let x = {
+        totalloggedout: props.thetotalloggedout.totalloggedout,
+      };
+
+      database
+        .ref(`users/thetotalloggedout`)
+        .update({ totalloggedout: parseInt(x.totalloggedout) + 1 }) //{showpublic:0}
+        .then(() => {
+          console.log("incrementTotalLoggedOutClickCount success 3");
+          //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
+          //dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
+        })
+        .catch((error) => {
+          console.log(
+            "error incrementTotalLoggedOutClickCount, error=" + error,
+          );
+        });
+      //};//
+    } catch (error) {
+      console.error("Update failed:", error);
     }
-    
-    database
-      .ref(`users/thetotalloggedout`)
-      .update({totalloggedout:parseInt(x.totalloggedout)+1}) //{showpublic:0}
-      .then(() => {
-        console.log("incrementTotalLoggedOutClickCount success 3")
-        //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        //dispatch(incrementTotalLoggedOutClickCount2({totalloggedout:parseInt(x.totalloggedout)+1}));
-      })
-      .catch((error) => {
-        console.log("error incrementTotalLoggedOutClickCount, error=" + error);
-      });
-  //};//
-    
-  } catch (error) {
-    console.error('Update failed:', error);
-  }
-
-
   }, []);
 
-   const handleUpdate2 = useCallback(() => {
-    
-   try {
-    
-    let x = {
-      loggedin: 0
+  const handleUpdate2 = useCallback(() => {
+    try {
+      let x = {
+        loggedin: 0,
+      };
+
+      database
+        .ref(`users/${firebase.auth().currentUser.uid}/theloggedin`)
+        .update(x) //{showpublic:0}
+        .then(() => {})
+        .catch((error) => {});
+      //};
+    } catch (error) {
+      console.error("Update failed:", error);
     }
-    
-    database
-      .ref(`users/${firebase.auth().currentUser.uid}/theloggedin`)
-      .update(x) //{showpublic:0}
-      .then(() => {
-        
-      })
-      .catch((error) => {
-       
-      });
-  //};
-    
-  } catch (error) {
-    console.error('Update failed:', error);
-  }
-
-
   }, []);
 
+  //   const handleUpdate = async () => {
+  //   try {
+  //     let x = {
+  //       totalloggedout: props.thetotalloggedout.totalloggedout
+  //     }
+  //     const userRef = ref(database, 'users/thetotalloggedout');
 
+  //     await update(userRef, {
+  //       totalloggedout:parseInt(x.totalloggedout)+1
+  //     });
+  //     console.log('Data updated successfully');
+  //   } catch (error) {
+  //     console.error('Update failed:', error);
+  //   }
+  // };
 
+  //   const handleUpdate = async () => {
+  //   try {
+  //     let x = {
+  //       totalloggedout: props.thetotalloggedout.totalloggedout
+  //     }
+  //     const userRef = ref(database, 'users/thetotalloggedout');
 
-
-
-//   const handleUpdate = async () => {
-//   try {
-//     let x = {
-//       totalloggedout: props.thetotalloggedout.totalloggedout
-//     }
-//     const userRef = ref(database, 'users/thetotalloggedout');
-    
-//     await update(userRef, { 
-//       totalloggedout:parseInt(x.totalloggedout)+1
-//     });
-//     console.log('Data updated successfully');
-//   } catch (error) {
-//     console.error('Update failed:', error);
-//   }
-// };
-
-//   const handleUpdate = async () => {
-//   try {
-//     let x = {
-//       totalloggedout: props.thetotalloggedout.totalloggedout
-//     }
-//     const userRef = ref(database, 'users/thetotalloggedout');
-    
-//     await update(userRef, { 
-//       totalloggedout:parseInt(x.totalloggedout)+1
-//     });
-//     console.log('Data updated successfully');
-//   } catch (error) {
-//     console.error('Update failed:', error);
-//   }
-// };
+  //     await update(userRef, {
+  //       totalloggedout:parseInt(x.totalloggedout)+1
+  //     });
+  //     console.log('Data updated successfully');
+  //   } catch (error) {
+  //     console.error('Update failed:', error);
+  //   }
+  // };
 
   //const logoutit = async () => {
-    const logoutit = () => {
-      handleUpdate()
-      
+  const logoutit = () => {
+    handleUpdate();
 
-      handleUpdate2()
+    handleUpdate2();
 
     props.setHasrefreshed({ hasrefreshed: false });
 
@@ -579,13 +561,9 @@ const handleClick = useCallback(() => {
 
     props.stopScrolling2();
     props.startLogout();
-    
-
   };
 
-   const dlogoutit = () => {
-      
-
+  const dlogoutit = () => {
     props.setHasrefreshed({ hasrefreshed: false });
 
     setTheplan2({
@@ -606,60 +584,64 @@ const handleClick = useCallback(() => {
 
     props.stopScrolling2();
     props.startLogout();
-    
-
   };
 
   const cancelsubscription = () => {
     //alert("cancelSubscription, plan:"+props.theplan.plan.replace(/"/g, ""))
     try {
       if (
-        confirm("***WARNING*** PLEASE READ!! Press Cancel to abort the deletion of your account.") == true
+        confirm(
+          "***WARNING*** PLEASE READ!! Press Cancel to abort the deletion of your account.",
+        ) == true
       ) {
         //console.log("plan="+props.theplan.plan.replace(/"/g, ""))
         //if(true) {
-          if (
-        confirm("***WARNING*** PLEASE READ!! Press Cancel to abort the deletion of your account.") == true
-      ) {
-         if (
-        confirm("***WARNING*** PLEASE READ!! Press Cancel to abort the deletion of your account.") == true
-      ) {
         if (
-          !!props.theplan.plan &&
-          props.theplan.plan.replace(/"/g, "") === "free"
+          confirm(
+            "***WARNING*** PLEASE READ!! Press Cancel to abort the deletion of your account.",
+          ) == true
         ) {
-          console.log("cancelsubscription, free plan part")
-          props.startDeleteAccount();
-          dlogoutit();
-        } else {
-          console.log("cancelsubscription, free plan part")
-          //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
-          const theemail = {
-            email: props.email,
-            customerId: props.theplan.customerId,
-            subscriptionId: props.theplan.subscriptionId,
-          };
-
-          fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(theemail),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              console.log("Success:");
-
+          if (
+            confirm(
+              "***WARNING*** PLEASE READ!! Press Cancel to abort the deletion of your account.",
+            ) == true
+          ) {
+            if (
+              !!props.theplan.plan &&
+              props.theplan.plan.replace(/"/g, "") === "free"
+            ) {
+              console.log("cancelsubscription, free plan part");
               props.startDeleteAccount();
-              logoutit();
-            })
-            .catch((error) => {
-              console.log("cancel subscription error=" + error);
-            });
+              dlogoutit();
+            } else {
+              console.log("cancelsubscription, free plan part");
+              //alert(props.theplan.customerId+", "+props.theplan.subscriptionId)
+              const theemail = {
+                email: props.email,
+                customerId: props.theplan.customerId,
+                subscriptionId: props.theplan.subscriptionId,
+              };
+
+              fetch("https://urilinks-project-vercel-stripe-canc.vercel.app", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(theemail),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  console.log("Success:");
+
+                  props.startDeleteAccount();
+                  logoutit();
+                })
+                .catch((error) => {
+                  console.log("cancel subscription error=" + error);
+                });
+            }
+          }
         }
-      }
-      }
       } else {
         alert("Canceled the deletion of the account");
         console.log("Canceled the Deletion of the Account");
@@ -667,7 +649,6 @@ const handleClick = useCallback(() => {
     } catch (error) {
       alert("an error occurred: 10002222");
       console.log("an error occurred: 10002222, error=" + error);
-    
     }
     //
   };
@@ -701,31 +682,23 @@ const handleClick = useCallback(() => {
     //   window.open("https://urilinks.com/displayhashtags", "_blank");   //window.location.href = "https://urilinks.com/displayhashtags"
     // else window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank"); //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
     //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
-    window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank");
+    window.open(baseUrl + "/displayhashtags?signup=signup", "_blank");
   };
 
   const otherPage = (id, event) => {
-    
     //event.preventDefault();
-    console.log("otherPage, id="+id)
+    console.log("otherPage, id=" + id);
     // if(uid==="XLFFo8DQ7LZh8oR8CnvBGInpjsZ2")
-    //   window.open("https://urilinks.com/displayhashtags", "_blank");   //window.location.href = "https://urilinks.com/displayhashtags"
-    // else window.open("https://urilinks.com/displayhashtags?signup=signup", "_blank"); //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
+    //   window.open(baseUrl+"/displayhashtags", "_blank");   //window.location.href = baseUrl+"/displayhashtags"
+    // else window.open(baseUrl+"/displayhashtags?signup=signup", "_blank"); //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
     //window.location.href = "https://urilinks.com/displayhashtags?signup=signup";
-    window.open("https://urilinks.com/dashboard?signup=0&x=readonly&id="+id, "_blank");
+    window.open(baseUrl + "/dashboard?signup=0&x=readonly&id=" + id, "_blank");
   };
 
-  const goToPage = (newfollowinglinks) => {
-
-
-
-  }
+  const goToPage = (newfollowinglinks) => {};
 
   return (
     <div className="">
-
-      
-      
       {isMobile() === false ? (
         <div>
           <div id="top">
@@ -780,72 +753,86 @@ const handleClick = useCallback(() => {
   </div>
 </div> */}
 
-<span className="flexrowzv cursor-default color-white-1">
+                            <span className="flexrowzv cursor-default color-white-1">
+                              <h3 className="ib color-white-1 text-size-11">
+                                <span>🌺 urilinks</span>
+                              </h3>
 
-                            <h3 className="ib color-white-1 text-size-11">
-                              <span>🌺 urilinks</span>
-                            </h3>
+                              {/* <ClickableList /> */}
+                              {props.signup.signup === true &&
+                                x !== "readonly" &&
+                                ni !== "1" &&
+                                ni !== "2" && (
+                                  <OthersButton
+                                    whichone={1}
+                                    buttonText={"New Links Ready"}
+                                    email={
+                                      !!firebase.auth().currentUser === true
+                                        ? firebase.auth().currentUser.email
+                                        : ""
+                                    }
+                                    uid={props.auth.uid}
+                                    //elementRef20={elementRef20}
+                                    //changeSortBy={changeSortBy}
+                                    //uid={props.uid}
+                                    //setSortBy={setSortBy}
+                                  />
+                                )}
 
-                            {/* <ClickableList /> */}
-                            {props.signup.signup === true && x !== "readonly" && ni !== "1" && ni !== "2" && <OthersButton
-                              whichone={1}
-                              buttonText = {"New Links Ready"}
-                              email={!!firebase.auth().currentUser === true ?firebase.auth().currentUser.email:""}
-                              uid={props.auth.uid}
-                              //elementRef20={elementRef20}
-                              //changeSortBy={changeSortBy}
-                                                        //uid={props.uid}
-                                                        //setSortBy={setSortBy}
-                                                      />}
+                              {/* <span onClick={()=>goToPage(props.newfollowinglinks)}></span> */}
 
-                            {/* <span onClick={()=>goToPage(props.newfollowinglinks)}></span> */}
-
-                            {/* <div>{props.newfollowinglinks.map((n)=>{
+                              {/* <div>{props.newfollowinglinks.map((n)=>{
                               return <div>{n.newlinks+", "+n.uid}</div>
                             })}</div> */}
 
-                            {/* <span className="ib margin-left-11 color-white-1" title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first.">{`${!!props.theupdatedate.updatedate===true ? 'Link(s) updated on ':""}`}<span  id="linksupdate" >{props.links.length > 0 ? <span>{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}<span>&nbsp;pst</span></span>:""}</span></span> */}
-                            
-                            {ni !== "1" && ni !== "2" && <span
-                              className="ib margin-left-11 color-white-1 padding-top5x"
-                              title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first."
-                            >
-                              {`${!!props.theupdatedate.updatedate === true ? "Link(s) updated on " : ""}`}
-                              <span id="linksupdate">
-                                {props.links.length > 0 ? (
-                                  <span>
-                                    {linksUpdateDateTime}
-                                    <span></span>
+                              {/* <span className="ib margin-left-11 color-white-1" title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first.">{`${!!props.theupdatedate.updatedate===true ? 'Link(s) updated on ':""}`}<span  id="linksupdate" >{props.links.length > 0 ? <span>{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}<span>&nbsp;pst</span></span>:""}</span></span> */}
+
+                              {ni !== "1" && ni !== "2" && (
+                                <span
+                                  className="ib margin-left-11 color-white-1 padding-top5x"
+                                  title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first."
+                                >
+                                  {`${!!props.theupdatedate.updatedate === true ? "Link(s) updated on " : ""}`}
+                                  <span id="linksupdate">
+                                    {props.links.length > 0 ? (
+                                      <span>
+                                        {linksUpdateDateTime}
+                                        <span></span>
+                                      </span>
+                                    ) : (
+                                      ""
+                                    )}
                                   </span>
+                                </span>
+                              )}
+
+                              {/* <span className="ib flexrowzv cursor-pointer color-white-1"> */}
+
+                              <span>{dn !== null ? "," : ""}</span>
+
+                              <span className="ib margin-left-11 padding-top5x">
+                                {dn !== null ? dn + "'s links page" : ""}
+                              </span>
+
+                              <span className="ib padding-top7x margin-left-11">
+                                {dn !== null ? (
+                                  <img
+                                    src={purl2}
+                                    width="32"
+                                    height="32"
+                                    style={{ borderRadius: "50%" }}
+                                    className="ib- margin-bottom-11- profile-picture-ring"
+                                    title={z10 !== null ? z11 : ""}
+                                    alt="picture"
+                                  />
                                 ) : (
                                   ""
                                 )}
                               </span>
-                            </span>}
-
-                            {/* <span className="ib flexrowzv cursor-pointer color-white-1"> */}
-                            
-                              <span>{dn!==null?",":""}
-                              </span>
-                          
-                            <span className="ib margin-left-11 padding-top5x">{dn!==null?dn+"'s links page":""}
                             </span>
-
-                             <span className="ib padding-top7x margin-left-11">{dn!==null?
-                                  <img
-                                src={purl2}
-                                width="32"
-                                height="32"
-                                style={{ borderRadius: "50%" }}
-                                className="ib- margin-bottom-11- profile-picture-ring"
-                                title={z10!==null?z11:""}
-                                alt="picture"
-                              />:""}
-                              </span>
                           </span>
-                        </span>
                         </header>
-                      {/* </Link> */}
+                        {/* </Link> */}
                       </span>
 
                       {/* <div className="margin-left-118 margin-top-1">
@@ -996,7 +983,7 @@ const handleClick = useCallback(() => {
                         </a>
                     </div> */}
 
-                     {/* {props.signup.signup === true && <div>
+                    {/* {props.signup.signup === true && <div>
                       <Link
                         id="other"
                         className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
@@ -1030,22 +1017,23 @@ const handleClick = useCallback(() => {
                       </Link>
                     </div>} */}
 
-                    {ni!=="1" && 
-                    <div>
-                      <Link
-                        id="termsandprivacy"
-                        className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
-                        to="/termsandprivacy"
-                        target="_blank"
-                      >
-                        <span
-                          className="ib- color-white-1 color-black-2- cursor-pointer text-size-11"
-                          title="Click to see terms ane privacy"
+                    {ni !== "1" && (
+                      <div>
+                        <Link
+                          id="termsandprivacy"
+                          className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
+                          to="/termsandprivacy"
+                          target="_blank"
                         >
-                          ❒ kind terms
-                        </span>
-                      </Link>
-                    </div>}
+                          <span
+                            className="ib- color-white-1 color-black-2- cursor-pointer text-size-11"
+                            title="Click to see terms ane privacy"
+                          >
+                            ❒ kind terms
+                          </span>
+                        </Link>
+                      </div>
+                    )}
                     {!!props.theplan.plan &&
                       props.theplan.plan.replace(/"/g, "") !== "premium" &&
                       props.signup.signup === true &&
@@ -1153,10 +1141,10 @@ const handleClick = useCallback(() => {
                     </div>
                   )} */}
 
-                  {/*// <ReactSpeechKit /> */}
+                    {/*// <ReactSpeechKit /> */}
 
-                  {/* <Emoji /> */}
-                  {/* <Emoji2 /> */}
+                    {/* <Emoji /> */}
+                    {/* <Emoji2 /> */}
 
                     {props.signup.signup === true &&
                     //&& isInMeArray(uid)===true
@@ -1178,8 +1166,9 @@ const handleClick = useCallback(() => {
                           </span>
                         </Link>
                       </div>
+                    ) : ni === "1" || ni === "2" ? (
+                      <div></div>
                     ) : (
-                      ni === "1" || ni === "2" ?<div></div>:
                       <div className="pointereventsnone margin-right-1 hide-">
                         <Link
                           id="uploadbookmarksfile"
@@ -1203,23 +1192,26 @@ const handleClick = useCallback(() => {
                       </div>
                     )}
 
-                    {props.signup.signup === false && x !== "readonly" && ni !== "1" && ni !== "2" && (
-                      <div
-                        className="color-white-1 color-black-2- margin-right-1"
-                        title="Please use it for good. Bookmarks for internet pages, urls/links"
-                      >
-                        <Link
-                          id="friendlylogin"
-                          className="nounderline color-white-1 color-black-2- cursor-pointer text-size-11 button-2h padding-left-4x padding-right-4x  "
-                          to="/signup"
-                          title="The first 25 links are free. plan $4.99 stores up to 100; plan $9.99 stores up to 200;plan $14.99 stores up to 400"
-                          style={{ textDecoration: "none", color: "white" }}
+                    {props.signup.signup === false &&
+                      x !== "readonly" &&
+                      ni !== "1" &&
+                      ni !== "2" && (
+                        <div
+                          className="color-white-1 color-black-2- margin-right-1"
+                          title="Please use it for good. Bookmarks for internet pages, urls/links"
                         >
-                          🐋 friendly login
-                        </Link>
-                      </div>
-                      //  </div>
-                    )}
+                          <Link
+                            id="friendlylogin"
+                            className="nounderline color-white-1 color-black-2- cursor-pointer text-size-11 button-2h padding-left-4x padding-right-4x  "
+                            to="/signup"
+                            title="The first 25 links are free. plan $4.99 stores up to 100; plan $9.99 stores up to 200;plan $14.99 stores up to 400"
+                            style={{ textDecoration: "none", color: "white" }}
+                          >
+                            🐋 friendly login
+                          </Link>
+                        </div>
+                        //  </div>
+                      )}
 
                     {props.signup.signup === true ? (
                       <div className="margin-top-1111a-">
@@ -1315,7 +1307,7 @@ const handleClick = useCallback(() => {
 
 const mapStateToProps = (state) => ({
   links: state.links,
-  auth:state.auth,
+  auth: state.auth,
   theupdatedate: state.theupdatedate,
   settings: state.settings,
   signup: state.signup,
@@ -1325,11 +1317,11 @@ const mapStateToProps = (state) => ({
   customerId: state.customerId,
   thesignupcount: state.thesignupcount,
   thetotalloggedout: state.thetotalloggedout,
-  theloggedin:state.theloggedin,
-  following:state.following,
-  follower:state.follower,
-  newfollowinglinks:state.newfollowinglinks,
-  users:state.users,
+  theloggedin: state.theloggedin,
+  following: state.following,
+  follower: state.follower,
+  newfollowinglinks: state.newfollowinglinks,
+  users: state.users,
 });
 
 const mapDispatchToProps = (dispatch) => ({

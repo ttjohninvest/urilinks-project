@@ -1,3 +1,4 @@
+import Constants from "./Constants"
 import React, { useState, createRef } from "react";
 
 import { connect } from "react-redux";
@@ -13,6 +14,21 @@ import {
   setEndDateFileDate,
   sortByNoteTextFileDate,
 } from "../actions/filtersfiledate";
+
+  // const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
+
+  let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
+
 
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
@@ -358,7 +374,7 @@ export class LinkListFiltersFileDate extends React.Component {
 
   refreshIt = () => {
     //window.location.reload();
-    window.location.href = "https://urilinks.com?signup=signup";
+    window.location.href = baseUrl + "?signup=signup";
   };
 
   render() {

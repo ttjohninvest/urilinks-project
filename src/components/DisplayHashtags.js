@@ -1,4 +1,5 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
+import Constants from "./Constants"
 ////
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -16,7 +17,6 @@ import LinkList from "./LinkList";
 import AddLinkPage from "./AddlinkPage";
 import SendEmailPage from "./SendEmailPage";
 import ReadMoreSpan from "./ReadMoreSpan";
-
 
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 
@@ -85,13 +85,27 @@ function ExpandableArray(props) {
   const rt = params.get("x");
   const id = params.get("id");
 
-   removeDuplicates = (stringArray) => {
-  const stringifiedArray = stringArray.join(" ");
-  const lcstring = stringifiedArray; 
-  const lcStringArray = lcstring.split(" ");
-  return [...new Set(lcStringArray)];
-};
+  //   const baseUrl =
+  // process.env.NODE_ENV === "development"
+  //   ? "http://localhost:3000"
+  //   : "https://urilinks.com";
 
+  let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
+
+
+  removeDuplicates = (stringArray) => {
+    const stringifiedArray = stringArray.join(" ");
+    const lcstring = stringifiedArray;
+    const lcStringArray = lcstring.split(" ");
+    return [...new Set(lcStringArray)];
+  };
 
   useEffect(() => {
     console.log(
@@ -114,7 +128,7 @@ function ExpandableArray(props) {
     //   htsArray.forEach((str2)=>{
     //     htsArray2[i++] = str2
     //   })
-      
+
     // })
 
     //  console.log("DisplayHashtags.js, hashtags should be individual strings now")
@@ -131,18 +145,13 @@ function ExpandableArray(props) {
     // console.log("DisplayHashtags.js, should be in sorted order now")
     // console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray3))
 
-    
     // const htsArray4 = removeDuplicates(htsArray3)
     //  console.log("DisplayHashtags.js, duplicates should be removed now")
     // console.log("DisplayHashtags.js, htsArray3="+JSON.stringify(htsArray4))
 
-
     // //htsArray4 contains the sorted array of individual hashtags
     // setUniqueData(htsArray4);
   }, []);
-
- 
-
 
   // useEffect(() => {
   //   // const uniqueData2 = props.mappedDataShort.filter((value, index, array) => {
@@ -166,7 +175,7 @@ function ExpandableArray(props) {
   //   // });
 
   //   // setUniqueData(uniqueData2);
-    
+
   // }, []);
 
   const startScrollingUp = () => {
@@ -185,8 +194,8 @@ function ExpandableArray(props) {
           document.getElementById("ls").clientHeight >=
         document.getElementById("ls").scrollHeight
       ) {
-         if(!!buttonRef===true && !!buttonRef.current === true)
-        buttonRef.current.click();
+        if (!!buttonRef === true && !!buttonRef.current === true)
+          buttonRef.current.click();
       }
     }, 20); // Every 20 milliseconds
   };
@@ -209,8 +218,8 @@ function ExpandableArray(props) {
 
       // Stop automatically when reaching the top
       if (document.getElementById("ls").scrollTop === 0) {
-         if(!!buttonRef===true && !!buttonRef.current === true)
-        buttonRef.current.click();
+        if (!!buttonRef === true && !!buttonRef.current === true)
+          buttonRef.current.click();
 
         //stopScrolling();
       }
@@ -1075,7 +1084,7 @@ export class DisplayHashtags extends React.Component {
 
   refreshIt = () => {
     //window.location.reload();
-    window.location.href = "https://urilinks.com?signup=signup";
+    window.location.href = baseUrl + "?signup=signup";
   };
 
   handleCheckboxShow = (event) => {

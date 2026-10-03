@@ -1,3 +1,4 @@
+import Constants from "./Constants"
 import React, { useRef, useEffect, useState } from "react";
 import * as firebase from "firebase/app";
 import { connect } from "react-redux";
@@ -75,6 +76,21 @@ import CalendarGoogle from "./CalendarGoogle";
 //   createdAt,
 //   faviconURL,
 // }) => {
+
+// const baseUrl =
+//   process.env.NODE_ENV === "development"
+//     ? "http://localhost:3000"
+//     : "https://urilinks.com";
+
+let baseUrl = ""
+  
+  if(Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000"
+  } else {
+    baseUrl = "https://urilinks.com"
+  }
+
+
 
 const LinkListItem = (props) => {
   //  const params = new URLSearchParams(window.location.search);
@@ -1715,13 +1731,14 @@ props.decrementHandleToggle3({ id: x, show: 1 });
             <legend>Sharable Url To Make Money</legend>
             <div className="padding-bottom-1">
               <div className="margin-bottom-1 flexrowxz">
-                https://urilinks.com/dashboard?signup=0&x=readonly&id=
+                
+                {`${baseUrl}+"/dashboard?signup=0&x=readonly&id=`}
                 {props.auth.uid}&link={encodeURIComponent(props.description)}
                 &product={encodeURIComponent(props.addescription)}
               </div>
 
               <CopySalesButton
-                textToCopy={`https://urilinks.com/dashboard?signup=0&x=readonly&id=${props.auth.uid}&link=${encodeURIComponent(props.description)}&product=${encodeURIComponent(props.addescription)}`}
+                textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.auth.uid}&link=${encodeURIComponent(props.description)}&product=${encodeURIComponent(props.addescription)}`}
               />
             </div>
           </fieldset>

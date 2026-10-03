@@ -2218,41 +2218,25 @@ clk environment variables
 
 -------
 to start a local react application on a different port
-set PORT=3001; npm start
+set PORT=3001; npm run start
 
 ---------
-heroku old environment variable names
-Config Vars
-Key	Value	Actions
-FIREBASE_API_KEY
-AIzaSyAINLPeQOiCoc8UeMYrbSbQnmb7ctz_lg4
-Edit Delete
-FIREBASE_AUTH_DOMAIN
-urilinks-2f721.firebaseapp.com
-Edit Delete
-FIREBASE_DATABASE_URL
-https://urilinks-2f721-default-rtdb.firebaseio.com
-Edit Delete
-FIREBASE_MESSAGING_SENDER_ID
-947992055504
-Edit Delete
-FIREBASE_PROJECT_ID
-urilinks-2f721
-Edit Delete
-FIREBASE_STORAGE_BUCKET
-urilinks-2f721.firebasestorage.app
-Edit Delete
-REACT_APP_EKEY
-125434
-Edit Delete
-KEY
--------------------------------------
 
+-------------------------------------
+urilinks.com
 to build urilinks.com locally with node 16.20.2, local build of urilinks.com
 npm run build:dev, this puts environment variables into webpack build
 npm run start
 refresh browser on http://localhost:3000
 
 ---------------------------------------------------------
+heroku build of urilinks.com
+heroku config:set NPM_CONFIG_LEGACY_PEER_DEPS=true -a see-my-index-7
+npm install --legacy-peer-deps
+
+this NPM_CONFIG_LEGACY_PEER_DEPS=true makes urilinks.com work for heroku build
+by default this is the setting for a local build
+----------------------------------------------------------
+
 
 

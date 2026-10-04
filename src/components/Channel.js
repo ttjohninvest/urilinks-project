@@ -11,8 +11,13 @@ import Message from "./Message";
 //const Channel = ({ user = null }) => {
   const Channel = (props) => {
   // console.log("Channel, user="+JSON.stringify(user))
-  const messagesRef= database.ref(`chat/messages/${props.id2}/${props.id}`)
-  //const messagesRef= database.ref(`chat/messages/${props.id2}/name2/${props.id}/name1`)
+  const theurl=`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}`
+  //`chat/messages/D9/name2/XL/name1`
+  //const theurl=`chat/messages/${props.id2}/${props.id}`
+  //`chat/messages/D9/XL`
+  console.log("Channel, theurl="+theurl)
+  //const messagesRef= database.ref(`chat/messages/${props.id2}/${props.id}`)
+  const messagesRef= database.ref(theurl)
   // // Realtime Database query replacing Firestore query
   const messages = useRtdbQuery(
     messagesRef.orderByChild('createdAt').limitToLast(100)
@@ -31,33 +36,58 @@ import Message from "./Message";
       inputRef.current.focus();
     }
   }, [inputRef]);
+
   const handleOnChange = e => {
     setNewMessage(e.target.value);
   };
+
   const handleOnSubmit = e => {
     e.preventDefault();
+    console.log("handleSubmit")
     const trimmedMessage = newMessage.trim();
     if (trimmedMessage) {
-      // Add new message in Realtime Database using push()
-      // messagesRef.push({
-      //   text: trimmedMessage,
-      //   createdAt: firebase.database.ServerValue.TIMESTAMP,
-      //   uid2:props.id2,
-      //   displayName2:"name2",
-      //   uid1:props.uid1,
-      //   displayName1:"name1",
-      //   //photoURL,
-      // });
-
-       messagesRef.push({
+      // console.log("trimmedMessage="+trimmedMessagev)
+      // // Add new message in Realtime Database using push()
+      const structure = {
         text: trimmedMessage,
         createdAt: firebase.database.ServerValue.TIMESTAMP,
-        uid,
-        displayName
+        uid2:props.id2,
+        displayName2:props.name2,
+        uid1:props.id,
+        displayName1:props.name1,
         //photoURL,
-      });
-      // Clear input field
-      setNewMessage('');
+      }
+
+    //  const structure = {
+    //     text: trimmedMessage,
+    //     createdAt: firebase.database.ServerValue.TIMESTAMP,
+    //     uid2:"D9",
+    //     displayName2:"name2",
+    //     uid1:"XL",
+    //     displayName1:"name1",
+    //     //photoURL,
+    //   }
+    console.log("structure="+JSON.stringify(structure))
+      // const structure = {
+      //   text: trimmedMessage,
+      //   createdAt: firebase.database.ServerValue.TIMESTAMP,
+      //   uid,
+      //   displayName
+      //   //photoURL,
+      // }
+
+  //     console.log("Channel, structure="+JSON.stringify(structure))
+      messagesRef.push(structure).then(() => {
+    console.log("MESSAGE WRITTEN");
+  })
+  .catch(error => {
+    console.log("FIREBASE WRITE ERROR:", error);
+  });
+
+  //alert(1)
+
+      
+      //setNewMessage('');
       // Scroll down to the bottom of the list
       // bottomListRef.current?.scrollIntoView({ behavior: 'smooth' });
     }

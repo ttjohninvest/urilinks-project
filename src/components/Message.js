@@ -19,7 +19,8 @@ const formatDate = date => {
 const Message = ({
   createdAt = null,
   text = '',
-  displayName = '',
+  displayName2 = '',
+  displayName1 = '',
   photoURL = '',
 }) => {
   if (!text) return null;
@@ -37,8 +38,8 @@ const Message = ({
       ) : null}
       <div>
         <div className="flex items-center mb-1">
-          {displayName ? (
-            <p className="mr-2 text-primary-500">{displayName}</p>
+          {displayName2 ? (
+            <p className="mr-2 text-primary-500">{displayName2}</p>
           ) : null}
           {/* {createdAt?.seconds ? (
             <span className="text-gray-500 text-xs">

@@ -137,6 +137,9 @@ function ExpandableArray(props) {
   const id2 = params.get("id2");
   const id = params.get("id");
 
+  const name2 = params.get("dn2");
+  const name1 = params.get("dn");
+
   const z = params.get("z");
   const z2 = params.get("z2");
   const thelink = params.get("link");
@@ -2034,7 +2037,7 @@ function ExpandableArray(props) {
                           ) : !!isFollower === true ? null : (
                             <div className="flexrowz">
                               <UnFollowButton />
-                              <ChatButton id2={id2} id={id} />
+                              <ChatButton id2={id2} id={id} name2={name2} name1={name1} />
                             </div>
                           )}
 

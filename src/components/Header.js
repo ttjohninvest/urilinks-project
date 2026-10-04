@@ -173,6 +173,8 @@ export const Header = (props) => {
     
 
     //console.log("following from useSelector:", follower);
+    console.log("Header.js, props.gud=" + JSON.stringify(props.gud));
+    console.log("Header.js, props.auth=" + JSON.stringify(props.auth));
     console.log("Header.js, isonline ids=" + JSON.stringify(props.isonline));
     console.log("Header.js, follower ids=" + JSON.stringify(props.follower));
     console.log("Header.js, following ids=" + JSON.stringify(props.following));
@@ -1340,6 +1342,7 @@ const mapStateToProps = (state) => ({
   newfollowinglinks: state.newfollowinglinks,
   users: state.users,
   isonline: state.isonline,
+  gud: state.gud,
 });
 
 const mapDispatchToProps = (dispatch) => ({

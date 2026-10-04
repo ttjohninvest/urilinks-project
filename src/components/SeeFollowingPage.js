@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 //import Draggable from 'react-draggable';
-
+import firebase from "firebase/app";
 import { setTextFilter, sortByOthers } from "../actions/filters";
 import {setitbacktono} from "../actions/links"
 
@@ -179,7 +179,7 @@ export const SeeFollowingPage = (props) => {
       .join("");
   }
 
-  const otherPage = (id, dn, purl, email, theemail2, isMatch) => {
+  const otherPage = (id, dn, dn2, purl, email, theemail2, isMatch) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl=" + purl);
     //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
@@ -194,6 +194,8 @@ export const SeeFollowingPage = (props) => {
         props.uid +
         "&id=" +
         id +
+         "&dn2=" +
+        dn2 +
         "&dn=" +
         dn +
         "&purl=" +
@@ -234,7 +236,7 @@ export const SeeFollowingPage = (props) => {
         
        
         if (array3[0]) {
-        otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
+        otherPage(array3[0], array3[1], "", array3[2], email, theemail2, isMatch);
         //window.location.href="https://urilinks.com?signup=signup&z2=1"
         }
         //alert("set it back to no success, uid="+array3[0]+", props.auth.uid="+props.auth.uid)
@@ -269,7 +271,7 @@ export const SeeFollowingPage = (props) => {
       const isMatch = array3[5];
 
       if (array3[0]) {
-        otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
+        otherPage(array3[0], array3[1], array3[6], array3[2], email, theemail2, isMatch); //array3[6] is name
       }
 
       // props.changeSortBy("others",1);
@@ -494,7 +496,10 @@ export const SeeFollowingPage = (props) => {
                           ";" +
                           props.email +
                           ";" +
-                          item.isMatch
+                          item.isMatch +
+                          ";" +
+                          firebase.auth().currentUser.displayName
+                          
                         }
                       >
                         {props.email +

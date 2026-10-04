@@ -15,6 +15,8 @@ const ChatButton = (props) => {
     const params = new URLSearchParams(window.location.search);
     const id2 = props.id2 //params.get("id");
     const id = props.id //params.get("id2");
+    const name2 = props.name2
+    const name1 = props.name1
   
      console.log("ChatButton, id2="+id2)
      console.log("ChatButton, id="+id)
@@ -29,7 +31,7 @@ const ChatButton = (props) => {
   const handleChat = (props) => {
     try {
       //id2,id //id2 is loggedin user, id is subpage
-      window.open(`/chat/${id2}/name2/${id}/name1`) //names are hard coded because i am not passing them in the url yet
+      window.open(`/chat/${id2}/${name2}/${id}/${name1}`) //names are hard coded because i am not passing them in the url yet
       
      
     } catch (err) {

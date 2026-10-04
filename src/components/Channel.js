@@ -12,6 +12,7 @@ import Message from "./Message";
   const Channel = (props) => {
   // console.log("Channel, user="+JSON.stringify(user))
   const messagesRef= database.ref(`chat/messages/${props.id2}/${props.id}`)
+  //const messagesRef= database.ref(`chat/messages/${props.id2}/name2/${props.id}/name1`)
   // // Realtime Database query replacing Firestore query
   const messages = useRtdbQuery(
     messagesRef.orderByChild('createdAt').limitToLast(100)
@@ -38,11 +39,21 @@ import Message from "./Message";
     const trimmedMessage = newMessage.trim();
     if (trimmedMessage) {
       // Add new message in Realtime Database using push()
-      messagesRef.push({
+      // messagesRef.push({
+      //   text: trimmedMessage,
+      //   createdAt: firebase.database.ServerValue.TIMESTAMP,
+      //   uid2:props.id2,
+      //   displayName2:"name2",
+      //   uid1:props.uid1,
+      //   displayName1:"name1",
+      //   //photoURL,
+      // });
+
+       messagesRef.push({
         text: trimmedMessage,
         createdAt: firebase.database.ServerValue.TIMESTAMP,
         uid,
-        displayName,
+        displayName
         //photoURL,
       });
       // Clear input field

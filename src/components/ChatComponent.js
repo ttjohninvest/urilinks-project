@@ -19,11 +19,17 @@ const ChatComponent = (props) => {
   // const id = params.get("id");
 const id2 = props.match.params.id2
 const id = props.match.params.id
-  
-   
+
+//const name2 = props.match.params.name2
+//const name1 = props.match.params.name1
+
 
   console.log("ChatComponent, id2="+id2)
   console.log("ChatComponent, id="+id)
+
+  // console.log("ChatComponent, name2="+name2)
+  // console.log("ChatComponent, name1="+name1)
+  
 
   // useEffect(() => {
   //  //setUser(firebase.auth().currentUser)
@@ -42,7 +48,9 @@ const id = props.match.params.id
         className="flex-1"
         style={{ maxHeight: "calc(100% - var(--topbar-height))" }}
       >
-        {firebase.auth().currentUser !== null ? <Channel user={firebase.auth().currentUser} id2={id2} id={id} />:<div>User not found, The user is not logged in.</div>}
+        {firebase.auth().currentUser !== null ? <Channel user={firebase.auth().currentUser} id2={id2} id={id}
+        //name2={name2} name1={name1}
+        />:<div>User not found, The user is not logged in.</div>}
         {/* <AnotherComponent /> */}
       </main>
     </div>

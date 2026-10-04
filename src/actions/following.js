@@ -678,7 +678,7 @@ export const startSetFollowing = (uid) => {
         .once("value")
         .then((snapshot) => {
           //console.log("snapshot=" + JSON.stringify(snapshot));
-          //if(snapshot!==null) {
+          if(snapshot!==null) {
           snapshot.forEach((childSnapshot) => {
             console.log(
               "startSetFollowing,childSnapshot=" +
@@ -691,7 +691,7 @@ export const startSetFollowing = (uid) => {
             });
             console.log("following.js, startSetFollowing(), following=" + JSON.stringify(following));
           });
-        //}
+        }
 
         }).catch((error) => console.log("startSetFollowing, error=" + error)))
 
@@ -713,7 +713,7 @@ export const startSetFollower = (uid) => {
         .once("value")
         .then((snapshot) => {
           //console.log("snapshot=" + JSON.stringify(snapshot));
-          //if(snapshot!==null) {
+          if(snapshot!==null) {
           snapshot.forEach((childSnapshot) => {
             console.log(
               "startSetFollowing,childSnapshot=" +
@@ -725,7 +725,7 @@ export const startSetFollower = (uid) => {
               ...childSnapshot.val(),
             });
           });
-        //}
+        }
           
         }).catch((error) => console.log("startSetFollower, error=" + error)))
 
@@ -788,7 +788,7 @@ export const startSetFollowingNewLinks = (uid) => {
         .once("value")
         .then((snapshot) => {
           
-          //if(snapshot!==null) {
+          if(snapshot!==null) {
           console.log("newlinks,snapshot=" + JSON.stringify(snapshot));
 
           snapshot.forEach((childSnapshot) => {
@@ -799,7 +799,7 @@ export const startSetFollowingNewLinks = (uid) => {
               newlinks:childSnapshot.val().newlinks.newlinks
             })
           })
-        //}
+        }
 
         }).catch((error) =>
           console.log("startSetFollowingNewLinks, error=" + error)

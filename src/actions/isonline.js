@@ -154,39 +154,21 @@ export const emailSharableLink = (linkData = {}) => {
   };
 };
 
-export const startAddFollower = (
-  uid,
-  id,
-  followingData = {},
-  followingData2 = {},
+export const startAddIsonline = (
+  uid
 ) => {
-  console.log("startAddFollower, uid=" + uid);
-  console.log(
-    "startAddFollower, followingData=" + JSON.stringify(followingData),
-  );
-  console.log(
-    "startAddFollower, followingData2=" + JSON.stringify(followingData2),
-  );
-
+  console.log("isonline.js, startAddIsonline, uid=" + uid);
+  
   database
-    .ref("users/" + uid + "/following/" + id)
-    .set(followingData)
+    .ref("users/" + uid + "/isonline")
+    .set({isonline:"yes"})
     .then((ref) => {
       console.log("Data saved successfully.");
-
-      database
-        .ref("users/" + id + "/follower/" + uid)
-        .set(followingData2)
-        .then((ref) => {
-          console.log("Data saved successfully.");
-        })
-        .catch((error) => {
-          console.log("Data not saved successfully1,error=" + error);
-        });
     })
     .catch((error) => {
       console.log("Data not saved successfully2,error=" + error);
     });
+
 };
 
 // export const startAddFollower = async (followingData = {}) => {
@@ -542,9 +524,9 @@ export const startEditLink = (id, updates) => {
   };
 };
 
-export const setFollowing = (following) => ({
-  type: "SET_NEW_FOLLOWING",
-  following,
+export const setIsonline = (isonline) => ({
+  type: "SET_NEW_ISONLINE",
+  isonline,
 });
 
 export const setNewFollowingLinks = (newfollowinglinks) => ({
@@ -667,40 +649,74 @@ const isInOkArray = (uid) => {
   return val;
 };
 
-export const startSetFollowing = (uid) => {
-  console.log("startSetFollowing, uid=" + uid);
+export const startSetIsonline = (uid) => {
+  console.log("startSetIsonline, uid=" + uid);
   const promises = [];
-  const following = [];
+  const isonline = [];
   return (dispatch, getState) => {
     promises.push(
       database
-        .ref(`users/${uid}/following`)
+        .ref(`users/${uid}/isonline`)
         .once("value")
         .then((snapshot) => {
-          //console.log("snapshot=" + JSON.stringify(snapshot));
+          console.log("isonline.js, snapshot=" + JSON.stringify(snapshot));
           //if(snapshot!==null) {
           snapshot.forEach((childSnapshot) => {
             console.log(
-              "startSetFollowing,childSnapshot=" +
+              "startSetIsonline,childSnapshot=" +
                 JSON.stringify(childSnapshot),
             );
 
-            following.push({
+            isonline.push({
               uid: childSnapshot.key,
               ...childSnapshot.val(),
             });
-            console.log("following.js, startSetFollowing(), following=" + JSON.stringify(following));
+            console.log("isonline.js, startSetIsonline(), isonline=" + JSON.stringify(isonline));
           });
-        //}
 
-        }).catch((error) => console.log("startSetFollowing, error=" + error)))
+        //} 
+
+        }).catch((error) => console.log("startSetIsonline, error=" + error)))
 
     return Promise.all(promises).then(() => {
-      console.log("done, startSetFollowing, following=" + JSON.stringify(following))
-      dispatch(setFollowing(following));
+      console.log("done, startSetIsonline, isonline=" + JSON.stringify(isonline))
+      dispatch(setIsonline(isonline));
     });
   };
 };
+
+// export const startSetFollowing = (uid) => {
+//   console.log("startSetFollowing, uid=" + uid);
+//   const promises = [];
+//   const following = [];
+//   return (dispatch, getState) => {
+//     promises.push(
+//       database
+//         .ref(`users/${uid}/following`)
+//         .once("value")
+//         .then((snapshot) => {
+//           //console.log("snapshot=" + JSON.stringify(snapshot));
+//           snapshot.forEach((childSnapshot) => {
+//             console.log(
+//               "startSetFollowing,childSnapshot=" +
+//                 JSON.stringify(childSnapshot),
+//             );
+
+//             following.push({
+//               uid: childSnapshot.key,
+//               ...childSnapshot.val(),
+//             });
+//             console.log("following.js, startSetFollowing(), following=" + JSON.stringify(following));
+//           });
+
+//         }).catch((error) => console.log("startSetFollowing, error=" + error)))
+
+//     return Promise.all(promises).then(() => {
+//       console.log("done, startSetFollowing, following=" + JSON.stringify(following))
+//       dispatch(setFollowing(following));
+//     });
+//   };
+// };
 
 export const startSetFollower = (uid) => {
   console.log("startSetFollower, uid=" + uid);
@@ -787,8 +803,6 @@ export const startSetFollowingNewLinks = (uid) => {
         .ref(`users/${uid}/following`)
         .once("value")
         .then((snapshot) => {
-          
-          //if(snapshot!==null) {
           console.log("newlinks,snapshot=" + JSON.stringify(snapshot));
 
           snapshot.forEach((childSnapshot) => {
@@ -797,11 +811,10 @@ export const startSetFollowingNewLinks = (uid) => {
               uid: childSnapshot.key, //I am using set to write and the key is the following uid so only need the email address under that and that is in ...chidSnapshot.val()
               //...childSnapshot.val()
               newlinks:childSnapshot.val().newlinks.newlinks
-            })
-          })
-        //}
-
-        }).catch((error) =>
+            });
+          });
+        })
+        .catch((error) =>
           console.log("startSetFollowingNewLinks, error=" + error)
         ))
 

@@ -3,7 +3,8 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import database from "../firebase/firebase";
 import ClickableList from "./ClickableList";
 import OthersButton from "./OthersButton";
-
+//import { useSelector } from "react-redux";
+import {startAddIsonline} from "./../actions/isonline"
 import moment from "moment";
 //import firebase from "firebase";
 import firebase from "firebase/app";
@@ -164,11 +165,15 @@ export const Header = (props) => {
   }
 
   const z11 = decrypt(z10, "125434"); //process.env.REACT_APP_EKEY)
+  //const follower = useSelector(state => state.follower);
 
   useEffect(() => {
     //props.abc(1);
     //console.log("1, props.abcref=" + JSON.stringify(props.abcref));
+    
 
+    //console.log("following from useSelector:", follower);
+    console.log("Header.js, isonline ids=" + JSON.stringify(props.isonline));
     console.log("Header.js, follower ids=" + JSON.stringify(props.follower));
     console.log("Header.js, following ids=" + JSON.stringify(props.following));
     console.log(
@@ -307,12 +312,20 @@ export const Header = (props) => {
     console.log(
       "Header.js, useEffect, props.signup.signup=" + props.signup.signup,
     );
+   
     // const user = firebase.auth().currentUser;
     // console.log("Header.js, useEffect, user.uid=" + user.uid);
     // setPhotoURL("");
     //if(props.signup.signup===false) {
+     
+    //if(props.signup.signup===true)
+      
     const user = firebase.auth().currentUser;
-    if (user !== null && user !== undefined) {
+
+    if(user !== null && user !== undefined) {
+
+      startAddIsonline(user.uid) //the user is logged in 
+      
       console.log("Header.js, user=" + JSON.stringify(user));
       console.log("Header, photoURL=" + user.photoURL);
       const purl = user.photoURL;
@@ -351,6 +364,8 @@ export const Header = (props) => {
         setTheplan("on standard plan");
       else if (props.theplan.plan === "premium") setTheplan("on premium plan");
       else setTheplan("free");
+    
+    
     }
 
     //window.scrollTo(0,0)
@@ -1324,6 +1339,7 @@ const mapStateToProps = (state) => ({
   follower: state.follower,
   newfollowinglinks: state.newfollowinglinks,
   users: state.users,
+  isonline: state.isonline,
 });
 
 const mapDispatchToProps = (dispatch) => ({

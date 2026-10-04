@@ -70,6 +70,7 @@ const FollowerButton = (props) => {
       {isDisplayed === true && (
         <div>
           <SeeFollowerPage
+            whichone = {2}
             email={props.email}
             uid={props.uid}
             elementRef2 = {props.elementRef2}

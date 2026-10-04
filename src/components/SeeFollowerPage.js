@@ -4,7 +4,10 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 //import Draggable from 'react-draggable';
 
-import { setTextFilter, sortByFollower } from "../actions/filters";
+import { setTextFilter, sortByOthers } from "../actions/filters";
+import {setitbacktono} from "../actions/links"
+//import { useSelector } from "react-redux";
+
 
 export const SeeFollowerPage = (props) => {
   //const [count, setCount] = useState(0);
@@ -16,7 +19,9 @@ export const SeeFollowerPage = (props) => {
   const scrollupref8 = useRef(null);
   //const [nodeRef, setNodeRef] = useState(null);
 
-  //   const baseUrl =
+  //const follower = useSelector(state => state.follower);
+
+  // const baseUrl =
   // process.env.NODE_ENV === "development"
   //   ? "http://localhost:3000"
   //   : "https://urilinks.com";
@@ -30,9 +35,10 @@ export const SeeFollowerPage = (props) => {
   }
 
 
-
   useEffect(() => {
-    console.log("SeeFollowingPage.js, users=" + JSON.stringify(props.users));
+    console.log("SeeFollowerPage.js, users=" + JSON.stringify(props.users));
+    console.log("SeeFollowerPage, useEffect, whichone=" + props.whichone); //1 from Header, OthersButton, to display new links ready list from
+    //the ones you are following {newlinks:"yes"} in the database, 2 comes from OthersButton in LinkListFilters.js
   });
 
   //   const removeDuplicates = (stringArray) => {
@@ -52,53 +58,129 @@ export const SeeFollowerPage = (props) => {
   //   return uArray;
   // };
 
-  //   const a = (item2, item) => {
-  //     if(array2.some((item2) => item2.uid === item.gud.uid))
-  //       return "is a follower of "
-  //     else return "is not a follower of "
-  //   }
+  // const a = (item2, item) => {
+  //   if(array2.some((item2) => item2.uid === item.gud.uid))
+  //     return "You are following "
+  //   else return "You are not following "
+  // }
 
-  //props.users, props.follower (followers from the database)
+  //props.users, props.following
   const annotatearray = (array1, array2) => {
+    console.log("SeeFollowerPage.js, annotatearray(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
+    console.log("SeeFollowerPage.js, annotatearray(), array2="+JSON.stringify(array2)) //props.follower [{uid:}]
     const resultArray = array1.map((item) => ({
       ...item,
       isMatch:
         array2.some((item2) => item2.uid === item.gud.uid) === true
-          ? "is a follower of "
-          : "is not a follower of ",
+          ? "is follower "
+          : "is not follower ",
+    }));
+     console.log("SeeFollowerPage.js, annotatearray(), resultArray="+JSON.stringify(resultArray))
+    return resultArray;
+  };
+
+//  const annotatearray = (array1, array2) => {
+//     const resultArray = array1.map((item) => ({
+//       ...item,
+//       isMatch:
+//         array2.some((item2) => item2.uid === item.gud.uid) === true
+//           ? "is a follower of "
+//           : "is not a follower of ",
+//     }));
+
+//     return resultArray;
+//   };
+
+  //users, following, newfollowinglinks with newlinks:yes or newlinks:no
+  const annotatearray2 = (array1, array2, array3) => {
+    console.log("SeeFollowerPage.js, annotatearray2(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
+    console.log("SeeFollowerPage.js, annotatearray2(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
+    console.log("SeeFollowerPage.js, annotatearray2(), array3="+JSON.stringify(array3)) //props.newfollowingusers [{uid:, newlinks:"yes"}] 
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? "is follower "
+          : "is not follower ",
+      newlinks:
+        array3.some(
+          (item3) =>
+            item3.uid === item.gud.uid &&
+            !!item3.newlinks === true &&
+            item3.newlinks === "yes",
+        ) === true
+          ? "yes"
+          : "no",
     }));
 
+    console.log("SeeOtherPage.js, annotatearray2(), resultArray="+JSON.stringify(resultArray))
     return resultArray;
   };
 
   useEffect(() => {
-    //props.following=[{id:uy7,uid:7894}]
-    //a.gud.uid, b.gud.uid
-    //props.users=[]
+    //use the following to get a better uniqueData array, for display of the list, this is the new links ready list
+    //props.newfollowinglinks [{uid:"D9...", newlinks:{newlinks:"yes"}},{uid:"c7z...", newlinks:{newlinks:"yes"}}]
 
-    //const array1 = removeduplicates(props.users, props.newfollowinglinks)
-    const array1 = annotatearray(props.users, props.newfollowinglinks);
+    if (props.whichone === 1) {
+      //newlinks:"yes"
 
-    //   const array3 = array1.sort((a, b) => {
-    //   const valA = a.gud.displayname.toLowerCase();
-    //   const valB = b.gud.displayname.toLowerCase();
-    //   if (valA < valB) return -1;
-    //   if (valA > valB) return 1;
-    //   return 0;
-    // })
+      const array1 = annotatearray2(
+        props.users,
+        props.follower,
+        props.newfollowinglinks,
+      ); //, [gud:{... uid:"D9..."}]
 
-    const array3 = array1.sort((a, b) => {
-      const valA = a.gud.displayname.toLowerCase();
-      const valB = b.gud.displayname.toLowerCase();
-      if (valA < valB) return -1;
-      if (valA > valB) return 1;
-      return 0;
-    });
+      let array3 = [];
+      if (array1.length > 1) {
+ array3 = array1.sort((a, b) => {
+          const valA = a.gud.displayname.toLowerCase();
+          const valB = b.gud.displayname.toLowerCase();
+          if (valA < valB) return -1;
+          if (valA > valB) return 1;
+          return 0;
+        });
+      } else {
+        array3=array1
+      }
+       
 
-    //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
-    console.log("setUniqueData, props.users=" + JSON.stringify(array3));
-    //setUniqueData(props.users);
-    setUniqueData(array3);
+      //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
+      console.log("whichone=1,setUniqueData, props.users=" + JSON.stringify(array3));
+      //setUniqueData(props.users);
+      setUniqueData(array3);
+
+      // setUniqueData(array3);
+    } else if (props.whichone === 2) {
+      //const array1 = removeduplicates(props.users, props.following)
+      const array1 = annotatearray(props.users, props.follower); //has is follower information and newlinks:yes information
+
+      //   const array3 = array1.sort((a, b) => {
+      //   const valA = a.gud.displayname.toLowerCase();
+      //   const valB = b.gud.displayname.toLowerCase();
+      //   if (valA < valB) return -1;
+      //   if (valA > valB) return 1;
+      //   return 0;
+      // })
+
+      let array3 = [];
+      if (array1.length > 1) {
+          array3 = array1.sort((a, b) => {
+          const valA = a.gud.displayname.toLowerCase();
+          const valB = b.gud.displayname.toLowerCase();
+          if (valA < valB) return -1;
+          if (valA > valB) return 1;
+          return 0;
+        });
+      } else {
+        array3=array1
+      }
+       
+
+      //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
+      console.log("whichone=2,setUniqueData, props.users=" + JSON.stringify(array3));
+      //setUniqueData(props.users);
+      setUniqueData(array3);
+    }
   }, []);
 
   function encrypt(text, key) {
@@ -121,8 +203,8 @@ export const SeeFollowerPage = (props) => {
     //alert(props.email)
 
     window.open(
-      baseUrl +
-        "/dashboard?signup=0&x=readonly&id2=" +
+      //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+      baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
         props.uid +
         "&id=" +
         id +
@@ -134,37 +216,82 @@ export const SeeFollowerPage = (props) => {
         email +
         "&z12=" +
         z12 +
-        "&isFollower=" +
+        "&isFollowing=" +
         isMatch,
-      "_blank",
+      "_blank"
     );
   };
 
-  const handleClick = () => {
+  const handleClick = (v) => {
     // Identify the clicked element
-    const clickedElement = event.target;
+    if (v === 1) {
+      //1 mean pressed from Header.js
 
-    // Extract data from data attributes
-    const itemId = clickedElement.dataset.itemId;
-    const array3 = itemId.split(";");
-    console.log("handleClick, itemId=" + itemId);
-    //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
-    //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
-    const email = encrypt(array3[3], "125434");
-    console.log("SeeFollowerPage, array3[4]=" + array3[4]);
-    const theemail2 = encrypt(array3[4], "125434");
-    console.log("SeeFollowerPage,theemail2=" + theemail2);
-    const isMatch = array3[5];
+      //I need to set newlinks back to no because the person has seen the shared link
+      const clickedElement = event.target;
 
-    if (array3[0]) {
-      otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
+      // Extract data from data attributes
+      const itemId = clickedElement.dataset.itemId;
+      const array3 = itemId.split(";");
+      console.log("handleClick, itemId=" + itemId);
+      //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
+      //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
+      const email = encrypt(array3[3], "125434");
+      console.log("SeeFollowerPage, array3[4]=" + array3[4]);
+      const theemail2 = encrypt(array3[4], "125434");
+      console.log("SeeFollowerPage,theemail2=" + theemail2);
+      const isMatch = array3[5];
+
+       console.log("SeeOtherPage.js, handleClick(1), array3="+JSON.stringify(array3))
+       //alert("handleClick(), array[0]="+array3[0]+", props.auth.uid="+props.auth.uid)
+       setitbacktono(array3[0],props.auth.uid).then(()=>{ //it is newlinks
+        
+       
+        if (array3[0]) {
+        otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
+        //window.location.href="https://urilinks.com?signup=signup&z2=1"
+        }
+        //alert("set it back to no success, uid="+array3[0]+", props.auth.uid="+props.auth.uid)
+        
+      }).catch((e)=>{
+        alert("SeeFollowerPage.js, setitbacktono(), something went wrong")
+      }) //array3[0] is the id of the user
+
+      
+
+     
+
+      // props.changeSortBy("others",1);
+
+      // props.setTextFilter("");
+
+      // props.sortByOthers();
+    } else if (v === 2) {
+      //2 mean pressed from LinkListFilters.js
+      const clickedElement = event.target;
+
+      // Extract data from data attributes
+      const itemId = clickedElement.dataset.itemId;
+      const array3 = itemId.split(";");
+      console.log("handleClick, itemId=" + itemId);
+      //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
+      //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
+      const email = encrypt(array3[3], "125434");
+      console.log("SeeFollowerPage, array3[4]=" + array3[4]);
+      const theemail2 = encrypt(array3[4], "125434");
+      console.log("SeeFollowerPage,theemail2=" + theemail2);
+      const isMatch = array3[5];
+
+      if (array3[0]) {
+        otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
+      }
+
+      // props.changeSortBy("others",1);
+
+      // props.setTextFilter("");
+
+      // props.sortByOthers();
     }
-
-    // props.changeSortBy("others",1);
-
-    // props.setTextFilter("");
-
-    // props.sortByOthers();
   };
 
   const startScrollingUp4 = () => {
@@ -245,7 +372,7 @@ export const SeeFollowerPage = (props) => {
         <div className="page-header-2">
           <div className="content-container">
             <h2 className="page-header__title borderRadius55">
-              <span className="color-purple color-black-2">Your Followers</span>
+              <span className="color-purple color-black-2">{props.whichone===1?"Link update notification(s)":"You are following"}</span>
             </h2>
           </div>
         </div>
@@ -296,47 +423,112 @@ export const SeeFollowerPage = (props) => {
             isMobile() === true ? "widthhashtagcolumn" : "widthx1"
           } heightx1 overflowyauto borderLightOrange overflowxhidden padding-bottom-1`}
         >
-          <ul
-            className="liststylenone cursor-pointer interline"
-            onClick={handleClick}
-          >
-            {uniqueData.map((item, index) => {
-              if (props.auth.uid !== item.gud.uid) {
-                //no need to display the logged in user's page
-                return (
-                  <li
-                    className={`${item.isMatch === "is a follower of " ? "bg-color-1 color-white-1" : ""}`}
-                    key={index}
-                    data-item-id={
-                      item.gud.uid +
-                      ";" +
-                      item.gud.displayname +
-                      ";" +
-                      item.gud.photourl +
-                      ";" +
-                      item.gud.email +
-                      ";" +
-                      props.email +
-                      ";" +
-                      item.isMatch
-                    }
-                  >
-                    {item.gud.email +
-                      " " +
-                      item.isMatch +
-                      " " +
-                      props.email +
-                      ", " +
-                      item.gud.displayname +
-                      ", " +
-                      item.gud.theatname}
-                  </li>
-                );
-              } else {
-                return null;
-              }
-            })}
-          </ul>
+          {props.whichone === 1 ? (
+            <ul
+              className="liststylenone cursor-pointer interline"
+              onClick={() => handleClick(1)}
+            >
+              {uniqueData.map((item, index) => {
+                if (props.auth.uid !== item.gud.uid) {
+                  //this removes the logged in user from the output list
+                  //no need to display the logged in user's page
+
+                  
+                    if (item.newlinks !== "yes") return null;
+                    else
+                      return (
+                        <li
+                          className={`${
+                            props.whichone === 1 &&
+                            item.isMatch === "is follower "
+                              ? "bg-color-1 color-white-1"
+                              : "bg-color-1w color-black-3"
+                          }
+                    `}
+                          key={index}
+                          data-item-id={
+                            item.gud.uid +
+                            ";" +
+                            item.gud.displayname +
+                            ";" +
+                            item.gud.photourl +
+                            ";" +
+                            item.gud.email +
+                            ";" +
+                            props.email +
+                            ";" +
+                            item.isMatch
+                          }
+                        >
+                          {props.email +
+                            " " +
+                            item.isMatch +
+                            " " +
+                            item.gud.email +
+                            ", " +
+                            item.gud.displayname +
+                            ", " +
+                            item.gud.theatname}
+                        </li>
+                      );
+                  
+                } else {
+                  return null;
+                }
+              })}
+            </ul>
+          ) : (
+            <ul
+              className="liststylenone cursor-pointer interline"
+              onClick={() => handleClick(2)}
+            >
+              {uniqueData.map((item, index) => {
+                if (props.auth.uid !== item.gud.uid) {
+                  //this removes the logged in user from the output list
+                  //no need to display the logged in user's page
+
+                    return (
+                      <li
+                        className={`${
+                          props.whichone === 2 &&
+                          item.isMatch === "is follower "
+                            ? "bg-color-1 color-white-1"
+                            : "bg-color-1w color-black-3"
+                        }
+                    `}
+                        key={index}
+                        data-item-id={
+                          item.gud.uid +
+                          ";" +
+                          item.gud.displayname +
+                          ";" +
+                          item.gud.photourl +
+                          ";" +
+                          item.gud.email +
+                          ";" +
+                          props.email +
+                          ";" +
+                          item.isMatch
+                        }
+                      >
+                        {props.email +
+                          " " +
+                          item.isMatch +
+                          " " +
+                          item.gud.email +
+                          ", " +
+                          item.gud.displayname +
+                          ", " +
+                          item.gud.theatname}
+                      </li>
+                    );
+                  
+                } else {
+                  return null;
+                }
+              })}
+            </ul>
+          )}
         </div>
       </div>
     </div>
@@ -347,14 +539,14 @@ const mapStateToProps = (state) => ({
   //hashtags: state.hashtags,
   users: state.users,
   auth: state.auth,
+  gud: state.gud,
   follower: state.follower,
   newfollowinglinks: state.newfollowinglinks,
-  gud: state.gud,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
-  sortByFollower: () => dispatch(sortByFollower()),
+  sortByOthers: () => dispatch(sortByOthers()),
 });
 
 export default withRouter(

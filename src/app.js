@@ -10,6 +10,10 @@ import {
   startSetFollowingNewLinks,
 } from "./actions/following";
 
+import {
+  startSetIsonline
+} from "./actions/isonline";
+
 import setSignup from "./actions/signup";
 /////////////////start
 //put these in express server because it needs fs
@@ -200,9 +204,16 @@ if (signup !== "signup") {
                                                               ),
                                                             )
                                                             .then(() => {
-                                                              return store
+                                                              store
                                                                 .dispatch(
                                                                   startSetFollowingNewLinks(
+                                                                    id2,
+                                                                  ),
+                                                                )
+                                                                .then(() => {
+                                                                   return store
+                                                                .dispatch(
+                                                                  startSetIsonline(
                                                                     id2,
                                                                   ),
                                                                 )
@@ -211,6 +222,15 @@ if (signup !== "signup") {
                                                                     store,
                                                                     signup,
                                                                   );
+                                                                })
+                                                                .catch(
+                                                                  (error) => {
+                                                                    console.log(
+                                                                      "theplan, error",
+                                                                      error,
+                                                                    );
+                                                                  },
+                                                                );
                                                                 })
                                                                 .catch(
                                                                   (error) => {
@@ -378,17 +398,33 @@ if (signup !== "signup") {
                                                                 ),
                                                               )
                                                               .then(() => {
-                                                                return store
+                                                                store
                                                                   .dispatch(
                                                                     startSetFollowingNewLinks(
                                                                       user.uid,
                                                                     ),
                                                                   )
                                                                   .then(() => {
-                                                                    renderApp(
-                                                                      store,
-                                                                      signup,
+                                                                     return store
+                                                                .dispatch(
+                                                                  startSetIsonline(
+                                                                    user.uid,
+                                                                  ),
+                                                                )
+                                                                .then(() => {
+                                                                  renderApp(
+                                                                    store,
+                                                                    signup,
+                                                                  );
+                                                                })
+                                                                .catch(
+                                                                  (error) => {
+                                                                    console.log(
+                                                                      "theplan, error",
+                                                                      error,
                                                                     );
+                                                                  },
+                                                                );
                                                                   })
                                                                   .catch(
                                                                     (error) => {

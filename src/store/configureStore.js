@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import linksReducer from '../reducers/links';
+import isonlineReducer from '../reducers/isonline';
 import followingReducer from '../reducers/following';
 import followerReducer from '../reducers/follower';
 import newfollowinglinksReducer from '../reducers/newfollowinglinks';
@@ -54,6 +55,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export default () => {
   const store = createStore(
     combineReducers({
+      isonline: isonlineReducer,
       links: linksReducer,
       following: followingReducer,
       follower: followerReducer,

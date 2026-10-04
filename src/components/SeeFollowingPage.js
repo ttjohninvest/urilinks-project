@@ -419,7 +419,7 @@ export const SeeFollowingPage = (props) => {
                   //this removes the logged in user from the output list
                   //no need to display the logged in user's page
 
-                  if (props.whichone === 1) {
+                  
                     if (item.newlinks !== "yes") return null;
                     else
                       return (
@@ -457,43 +457,7 @@ export const SeeFollowingPage = (props) => {
                             item.gud.theatname}
                         </li>
                       );
-                  } else if (props.whichone === 2) {
-                    return (
-                      <li
-                        className={`${
-                          props.whichone === 2 &&
-                          item.isMatch === "is following "
-                            ? "bg-color-1 color-white-1"
-                            : "bg-color-1w color-black-3"
-                        }
-                    `}
-                        key={index}
-                        data-item-id={
-                          item.gud.uid +
-                          ";" +
-                          item.gud.displayname +
-                          ";" +
-                          item.gud.photourl +
-                          ";" +
-                          item.gud.email +
-                          ";" +
-                          props.email +
-                          ";" +
-                          item.isMatch
-                        }
-                      >
-                        {props.email +
-                          " " +
-                          item.isMatch +
-                          " " +
-                          item.gud.email +
-                          ", " +
-                          item.gud.displayname +
-                          ", " +
-                          item.gud.theatname}
-                      </li>
-                    );
-                  }
+                  
                 } else {
                   return null;
                 }
@@ -509,45 +473,6 @@ export const SeeFollowingPage = (props) => {
                   //this removes the logged in user from the output list
                   //no need to display the logged in user's page
 
-                  if (props.whichone === 1) {
-                    if (item.newlinks !== "yes") return null;
-                    else
-                      return (
-                        <li
-                          className={`${
-                            props.whichone === 1 &&
-                            item.isMatch === "is following "
-                              ? "bg-color-1 color-white-1"
-                              : "bg-color-1w color-black-3"
-                          }
-                    `}
-                          key={index}
-                          data-item-id={
-                            item.gud.uid +
-                            ";" +
-                            item.gud.displayname +
-                            ";" +
-                            item.gud.photourl +
-                            ";" +
-                            item.gud.email +
-                            ";" +
-                            props.email +
-                            ";" +
-                            item.isMatch
-                          }
-                        >
-                          {props.email +
-                            " " +
-                            item.isMatch +
-                            " " +
-                            item.gud.email +
-                            ", " +
-                            item.gud.displayname +
-                            ", " +
-                            item.gud.theatname}
-                        </li>
-                      );
-                  } else if (props.whichone === 2) {
                     return (
                       <li
                         className={`${
@@ -583,7 +508,7 @@ export const SeeFollowingPage = (props) => {
                           item.gud.theatname}
                       </li>
                     );
-                  }
+                  
                 } else {
                   return null;
                 }

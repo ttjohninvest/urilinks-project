@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-//import * as firebase from "firebase";
-import * as firebase from "firebase/app";
+//import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database
@@ -56,7 +56,7 @@ const Simple = (props) => {
     if (props.history.action === "POP") {
       console.log("Navigated using back or forward button");
       // Perform actions based on back/forward navigation
-      props.history.push("/");//0000010
+      props.history.push("/"); //0000010
     }
   }, [props.history.action]);
 

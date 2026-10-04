@@ -1,7 +1,7 @@
 import Constants from "./Constants";
 
 import React, { useEffect, useState } from "react";
-import * as firebase from "firebase";
+import firebase from "firebase";
 import { connect } from "react-redux";
 import LinkFormFileDate from "./LinkFormFileDate";
 import { startAddLinkFileDate } from "../actions/linksfiledate";
@@ -19,15 +19,13 @@ export const AddLinkPageFileDate = (props) => {
   //   ? "http://localhost:3000"
   //   : "https://urilinks.com";
 
-  let baseUrl = ""
-  
-  if(Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000"
+  let baseUrl = "";
+
+  if (Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000";
   } else {
-    baseUrl = "https://urilinks.com"
+    baseUrl = "https://urilinks.com";
   }
-
-
 
   const goBack = () => {
     props.history.goBack(); // Navigates back one step in the history

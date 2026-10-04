@@ -1,5 +1,5 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
-import Constants from "./Constants"
+import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
 import StickyFixed from "./StickyFixed";
 import ReadMore from "./ReadMore";
@@ -34,8 +34,9 @@ import EmailForm from "./EmailForm";
 
 import database from "../firebase/firebase";
 import redarrow from "../assets/images/red-arrow.jpg";
-//import * as firebase from "firebase";
-import * as firebase from "firebase/app";
+//import firebase from "firebase";
+//import firebase from "firebase/app";
+import firebase from "firebase/app";
 
 import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
@@ -133,7 +134,9 @@ function ExpandableArray(props) {
   const signup = params.get("signup");
   const rt = params.get("x");
   const readonly = rt === "readonly" ? true : false;
+  const id2 = params.get("id2");
   const id = params.get("id");
+
   const z = params.get("z");
   const z2 = params.get("z2");
   const thelink = params.get("link");
@@ -151,15 +154,13 @@ function ExpandableArray(props) {
   //   ? "http://localhost:3000"
   //   : "https://urilinks.com";
 
-  let baseUrl = ""
-  
-  if(Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000"
+  let baseUrl = "";
+
+  if (Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000";
   } else {
-    baseUrl = "https://urilinks.com"
+    baseUrl = "https://urilinks.com";
   }
-
-
 
   const handleStartScroll = (v) => {
     if (childRef.current) {
@@ -1327,7 +1328,6 @@ function ExpandableArray(props) {
                                     color: "black",
                                   }}
                                 >
-                                  
                                   {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
                                 </a>
@@ -1468,7 +1468,6 @@ function ExpandableArray(props) {
                                     color: "black",
                                   }}
                                 >
-                                  
                                   {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
                                 </a>
@@ -1561,7 +1560,6 @@ function ExpandableArray(props) {
                                     color: "black",
                                   }}
                                 >
-                                  
                                   {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
                                 </a>
@@ -2031,12 +2029,12 @@ function ExpandableArray(props) {
                           isFollowing !== "is following" ? (
                             <div className="flexrowz">
                               <FollowButton />
-                              <ChatButton />
+                              {/* <ChatButton /> */}
                             </div>
                           ) : !!isFollower === true ? null : (
                             <div className="flexrowz">
                               <UnFollowButton />
-                              {/* <ChatButton /> */}
+                              <ChatButton id2={id2} id={id} />
                             </div>
                           )}
 

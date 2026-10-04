@@ -1,4 +1,4 @@
-import Constants from "./Constants"
+import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
@@ -14,8 +14,8 @@ import { DateRangePicker } from "react-dates";
 
 import database from "../firebase/firebase";
 import redarrow from "../assets/images/red-arrow.jpg";
-//import * as firebase from "firebase";
-import * as firebase from "firebase/app";
+//import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database
@@ -34,12 +34,10 @@ import {
   sortByFolder,
 } from "../actions/filters";
 
-  const baseUrl =
+const baseUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
     : "https://urilinks.com";
-
-
 
 function ExpandableArray(props) {
   return <div>ExpandableArray called</div>;

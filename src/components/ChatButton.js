@@ -11,30 +11,13 @@ function decrypt(text, key) {
     );
 }
 
-const FollowButton = (props) => {
-  const [isFollowed, setIsFollowed] = useState(false);
-  //const textToCopy = "text being copied to the clipboard";
+const ChatButton = (props) => {
     const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    const id2 = params.get("id2");
-     const z10 = params.get("z10");
-     const z12 = params.get("z12");
-     const isFollowing = params.get("isFollowing");
-    
-     console.log("FollowButton, isFollowing="+isFollowing)
-
-
-     let theemail
-     let theemail2 
-
-     if(!!z10 && !!z12) {
-       theemail = decrypt(z10, "125434") 
-       theemail2 = decrypt(z12, "125434") 
-     } else {
-       theemail = ""
-       theemail2 = ""
-     }
-     
+    const id = props.id2 //params.get("id");
+    const id2 = props.id //params.get("id2");
+  
+     console.log("ChatButton, id2="+id2)
+     console.log("ChatButton, id="+id)
 
 
     const isMobile = () => {
@@ -43,10 +26,10 @@ const FollowButton = (props) => {
     return regex.test(navigator.userAgent);
   };
 
-  const handleChat = () => {
+  const handleChat = (props) => {
     try {
       //id2,id //id2 is loggedin user, id is subpage
-      window.open("/chat")
+      window.open(`/chat/${id}/${id2}`)
       
      
     } catch (err) {
@@ -67,9 +50,10 @@ const FollowButton = (props) => {
 };
 
 //export default FollowButton;
-const mapStateToProps = (state) => ({
+// const mapStateToProps = (state) => ({
   
-  gud: state.gud,
+//   gud: state.gud,
   
-});//
-export default connect(mapStateToProps, undefined)(FollowButton);
+//});//
+export default ChatButton
+//export default connect(mapStateToProps, undefined)(ChatButton);

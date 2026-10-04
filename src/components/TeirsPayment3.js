@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-//import * as firebase from "firebase";
-import * as firebase from "firebase/app";
+//import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database

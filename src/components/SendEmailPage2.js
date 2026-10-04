@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-//import * as firebase from "firebase";
-import * as firebase from "firebase/app";
+//import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database
@@ -24,10 +24,9 @@ export const SendEmailPage2 = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if(props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
-          max = StorageSizes.mine;
-        else
-    if (
+    if (props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+      max = StorageSizes.mine;
+    else if (
       !!props.theplan.plan &&
       props.theplan.plan.replace(/"/g, "") === "free"
     ) {
@@ -58,7 +57,7 @@ export const SendEmailPage2 = (props) => {
   };
 
   useEffect(() => {
-    console.log("SendEmailPage, isFormOpen="+props.isFormOpen)
+    console.log("SendEmailPage, isFormOpen=" + props.isFormOpen);
     console.log("getPlanMax()=" + getPlanMax());
     const fetchData = async () => {
       try {
@@ -142,18 +141,18 @@ export const SendEmailPage2 = (props) => {
     const user = firebase.auth().currentUser;
     const uid = emaildata.uid;
     const fromemail = emaildata.fromemail;
-    const toemail = props.recipientemail //emaildata.email;
+    const toemail = props.recipientemail; //emaildata.email;
     const subject = emaildata.subject;
     const body = emaildata.description;
     //alert(body)
     //const uri = encodeURIComponent(`https://urilinks.com/dashboard?signup=0&x=readonly&id=${uid}`)
     const uri = encodeURIComponent(body);
     //const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&to=${toemail}&body=${body}${uri}&tf=cm`
-    
-    if(true) {
-    const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&from=${fromemail}&to=${toemail}&body=${uri}&tf=cm`;
+
+    if (true) {
+      const mailtoUrl = `https://mail.google.com/mail/u/0/?fs=1&su=${subject}&from=${fromemail}&to=${toemail}&body=${uri}&tf=cm`;
     } else {
-       alert("This user is not receiving emails")
+      alert("This user is not receiving emails");
     }
     //mail.google.com/mail/u/0/?fs=1&tf=cm&su=Your+Subject&to=recipient@example.com&body=Your+Message
     // Open the mail client
@@ -191,11 +190,11 @@ export const SendEmailPage2 = (props) => {
 const mapStateToProps = (state) => ({
   theplan: state.theplan,
   signup: state.signup,
-  auth:state.auth
+  auth: state.auth,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  startAddLink: (v,link) => dispatch(startAddLink(v,link)),
+  startAddLink: (v, link) => dispatch(startAddLink(v, link)),
 });
 
 export default withRouter(

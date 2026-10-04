@@ -1,12 +1,12 @@
-import Constants from "./Constants"
+import Constants from "./Constants";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import database from "../firebase/firebase";
 import ClickableList from "./ClickableList";
 import OthersButton from "./OthersButton";
 
 import moment from "moment";
-//import * as firebase from "firebase";
-import * as firebase from "firebase/app";
+//import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database
@@ -142,16 +142,15 @@ export const Header = (props) => {
   //   ? "http://localhost:3000"
   //   : "https://urilinks.com";
 
-    // alert(process.env.NODE_ENV)
+  // alert(process.env.NODE_ENV)
 
-    let baseUrl = ""
-  
-  if(Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000"
+  let baseUrl = "";
+
+  if (Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000";
   } else {
-    baseUrl = "https://urilinks.com"
+    baseUrl = "https://urilinks.com";
   }
-
 
   function decrypt(text, key) {
     if (text === null) return null;
@@ -304,7 +303,7 @@ export const Header = (props) => {
   // };
 
   useEffect(() => {
-      //alert("process.env.NODE_ENV="+process.env.NODE_ENV)
+    //alert("process.env.NODE_ENV="+process.env.NODE_ENV)
     console.log(
       "Header.js, useEffect, props.signup.signup=" + props.signup.signup,
     );
@@ -1150,7 +1149,7 @@ const handleClick = useCallback(() => {
                     //&& isInMeArray(uid)===true
                     bmok === true ? (
                       //|| bmok === undefined//if bmok is true the menu item upload will be active and able to upload bookmarks files
-
+                      <div>
                       <div className="pointereventsauto hide-">
                         <Link
                           id="uploadbookmarksfile"
@@ -1165,6 +1164,9 @@ const handleClick = useCallback(() => {
                             🎺 bookmarks upload
                           </span>
                         </Link>
+                        
+                      </div>
+
                       </div>
                     ) : ni === "1" || ni === "2" ? (
                       <div></div>

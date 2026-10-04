@@ -1,8 +1,8 @@
-import Constants from "./Constants"
+import Constants from "./Constants";
 import React, { useEffect, useState } from "react";
 
-//import * as firebase from "firebase";
-import * as firebase from "firebase/app";
+//import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database
@@ -32,15 +32,13 @@ export const AddLinkPage = (props) => {
   //   ? "http://localhost:3000"
   //   : "https://urilinks.com";
 
-   let baseUrl = ""
-  
-  if(Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000"
+  let baseUrl = "";
+
+  if (Constants.NODE_DEV === "development") {
+    baseUrl = "http://localhost:3000";
   } else {
-    baseUrl = "https://urilinks.com"
+    baseUrl = "https://urilinks.com";
   }
-
-
 
   const getPlanMax = () => {
     let max = StorageSizes.free;

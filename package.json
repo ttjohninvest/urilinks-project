@@ -5,8 +5,8 @@
   "author": "John",
   "license": "MIT",
   "engines": {
-  "node": "26.10.0"
-},
+    "node": "26.10.0"
+  },
   "scripts": {
     "build:dev": "webpack --env development",
     "build:prod": "webpack --env production",
@@ -16,6 +16,7 @@
     "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "2.12.0",
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
@@ -24,39 +25,40 @@
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
+    "classnames": "^2.5.1",
     "css-loader": "0.28.4",
-    "react-input-emoji":"5.9.0",
-    "emoji-picker-react":"4.22.2",
+    "date-fns": "^2.16.1",
+    "emoji-picker-react": "4.22.2",
     "env-cmd": "10.1.0",
     "express": "4.16.3",
     "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "6.2.0",
-    "firebase": "7.17.1",
+    "firebase": "^8.2.2",
     "history": "4.7.2",
-    "url-loader": "4.1.1",
     "moment": "2.22.2",
     "normalize.css": "7.0.0",
     "numeral": "2.0.6",
     "react": "16.8.0",
     "react-addons-shallow-compare": "15.6.0",
     "react-dates": "12.3.0",
-    "react-device-detect":"2.2.3",
+    "react-device-detect": "2.2.3",
     "react-dom": "16.8.0",
     "react-draggable": "4.7.1",
-    "react-infinite-scroll-component":"6.1.1",
-    "react-social-media-embed":"2.5.18",
+    "react-infinite-scroll-component": "6.1.1",
+    "react-input-emoji": "5.9.0",
     "react-modal": "2.2.2",
     "react-redux": "5.0.5",
     "react-router-dom": "4.1.2",
     "react-router-sitemap": "1.2.0",
-    "react-speech-kit":"3.0.1",
+    "react-social-media-embed": "2.5.18",
+    "react-speech-kit": "3.0.1",
     "redux": "3.7.2",
-    "@reduxjs/toolkit": "2.12.0",
     "redux-mock-store": "1.2.3",
     "redux-thunk": "2.2.0",
     "sass": "1.77.8",
     "sass-loader": "7.3.1",
     "style-loader": "0.18.2",
+    "url-loader": "4.1.1",
     "uuid": "3.1.0",
     "validator": "8.0.0",
     "webpack": "3.1.0"
@@ -70,6 +72,4 @@
     "react-test-renderer": "15.6.1",
     "webpack-dev-server": "2.5.1"
   }
-  
-    
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import * as firebase from "firebase";
+import firebase from "firebase";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { startLogout } from "../actions/auth";
@@ -51,7 +51,7 @@ export const Header = (props) => {
 
   useEffect(() => {
     console.log(
-      "Header.js, useEffect, props.signup.signup=" + props.signup.signup
+      "Header.js, useEffect, props.signup.signup=" + props.signup.signup,
     );
     // const user = firebase.auth().currentUser;
     // console.log("Header.js, useEffect, user.uid=" + user.uid);
@@ -396,7 +396,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(startLogout())
       .then(() => console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSdispatch then"))
       .catch((error) =>
-        console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error" + error)
+        console.log("SSSSSSSSSSSSSSSSSSSSSSSSS dispatch, error" + error),
       );
   },
   setLinks: (links) => dispatch(setLinks(links)),

@@ -1,14 +1,14 @@
 //you have to remove the hyphens from the link text
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-//import * as firebase from "firebase";
-import * as firebase from "firebase/app";
+//import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
-import { startAddLink} from "../actions/links";
-import { startAddTheupdatedate} from "../actions/theupdatedate";
+import { startAddLink } from "../actions/links";
+import { startAddTheupdatedate } from "../actions/theupdatedate";
 import { withRouter } from "react-router-dom";
 import moment from "moment";
 import { history } from "../routers/AppRouter";
@@ -23,7 +23,9 @@ import Simple from "./Simple";
 import StorageSizes from "./StorageSizes";
 
 const FetchBookmarks = (props) => {
-  console.log("FetchBookmarks(), props.follower="+JSON.stringify(props.follower))
+  console.log(
+    "FetchBookmarks(), props.follower=" + JSON.stringify(props.follower),
+  );
   const [data, setData] = useState(null);
   const [result, setResult] = useState([]);
   const [result2, setResult2] = useState([]);
@@ -94,10 +96,9 @@ const FetchBookmarks = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if(props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+    if (props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
       max = StorageSizes.mine;
-    else
-    if (
+    else if (
       !!props.theplan.plan &&
       props.theplan.plan.replace(/"/g, "") === "free"
     ) {
@@ -126,7 +127,7 @@ const FetchBookmarks = (props) => {
   };
 
   const handleConfirmNavigation = () => {
-    history.push("/");//0000010
+    history.push("/"); //0000010
     setShowDialog(false);
   };
 
@@ -218,12 +219,12 @@ const FetchBookmarks = (props) => {
   };
 
   function truncateString(str, length) {
-  return str.length > length ? str.slice(0, length) + '...' : str;
-}
+    return str.length > length ? str.slice(0, length) + "..." : str;
+  }
 
   function truncateString2(str, length) {
-  return str.length > length ? str.slice(0, length) : str;
-}
+    return str.length > length ? str.slice(0, length) : str;
+  }
 
   useEffect(() => {
     //const { option } = useParams()
@@ -3131,7 +3132,7 @@ const FetchBookmarks = (props) => {
                     console.log(
                       "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
-                    r = props.startAddLink(props.follower,{
+                    r = props.startAddLink(props.follower, {
                       description: result[i].description,
                       Url: result[i].Url, //, //href,
                       yturl: result[i].yturl,
@@ -3152,14 +3153,14 @@ const FetchBookmarks = (props) => {
                     // setErrorDialog(true);
                     console.log("ERROR, VVVVVVVVVVVVV returned false");
                   } else {
-                    if(loopmax2 > 0) {
+                    if (loopmax2 > 0) {
                       //update database with update date in users/uid/updatedate,
                       //when the page is refreshed the date will go in and everybody that has the shared page will see it
                       //when one sees latest results by date, he will see it at the top
-                       const datet = Math.trunc(now.getTime());
-                       props.startAddTheupdatedate({
-                         updatedate:datet
-                       })
+                      const datet = Math.trunc(now.getTime());
+                      props.startAddTheupdatedate({
+                        updatedate: datet,
+                      });
                     }
                     console.log("NO ERROR, VVVVVVVVVVVVV returned true");
                     //props.history.push("/");
@@ -3181,7 +3182,7 @@ const FetchBookmarks = (props) => {
                       setResult(result);
                     }
                   }
-                  alert("right here stop")
+                  alert("right here stop");
                 } else {
                   //not logged in page, first example page
 
@@ -3198,12 +3199,18 @@ const FetchBookmarks = (props) => {
                     console.log(
                       "1 result[" + i + "].foldername=" + result[i].foldername,
                     );
-                    r = props.startAddLink(props.follower,{
-                      description: truncateString(result[i].description, StorageSizes.description), //100), //2048
-                      Url:  truncateString2(result[i].Url, StorageSizes.url), //2048), //, //href,
-                      yturl:  truncateString2(result[i].yturl, StorageSizes.url), //2048),
-                      note:  truncateString2(result[i].note, StorageSizes.note), //1024), //2048
-                      foldername:  truncateString2(result[i].foldername, StorageSizes.foldername), //50), //2048
+                    r = props.startAddLink(props.follower, {
+                      description: truncateString(
+                        result[i].description,
+                        StorageSizes.description,
+                      ), //100), //2048
+                      Url: truncateString2(result[i].Url, StorageSizes.url), //2048), //, //href,
+                      yturl: truncateString2(result[i].yturl, StorageSizes.url), //2048),
+                      note: truncateString2(result[i].note, StorageSizes.note), //1024), //2048
+                      foldername: truncateString2(
+                        result[i].foldername,
+                        StorageSizes.foldername,
+                      ), //50), //2048
                       amount: 0,
                       createdAt: now.getTime(), //result[i].createdAt, //parseInt(links.item(i).getAttribute("ADD_DATE")), //now.getTime(), //add_date.getTime(), //add_date won't work
                       faviconURL: result[i].faviconURL, //"https://google.com/favicon.ico" //icon
@@ -3249,7 +3256,6 @@ const FetchBookmarks = (props) => {
           }
         });
     } else {
-      
       history.push("/");
     }
   }, []);
@@ -3317,12 +3323,14 @@ const mapStateToProps = (state) => ({
   following: state.following,
   follower: state.follower,
   newfollowinglinks: state.newfollowinglinks,
-  users:state.users,
+  users: state.users,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  startAddLink: (v,link) => dispatch(startAddLink(v,link)),
+  startAddLink: (v, link) => dispatch(startAddLink(v, link)),
   startAddTheupdatedate: (data) => dispatch(startAddTheupdatedate(data)),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(FetchBookmarks),
+);

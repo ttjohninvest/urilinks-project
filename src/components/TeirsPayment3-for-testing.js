@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import * as firebase from "firebase";
+import firebase from "firebase";
 //import { useHistory } from 'react-router-dom';
 
 const TeirsPayment3 = (props) => {

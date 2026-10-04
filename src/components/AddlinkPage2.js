@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-//import * as firebase from "firebase";
-import * as firebase from "firebase/app";
+//import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth"; // If using authentication
 //import 'firebase/firestore';   // If using Firestore
 import "firebase/database"; // If using Realtime Database
@@ -24,10 +24,9 @@ export const AddLinkPage2 = (props) => {
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-     if(props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
-              max = StorageSizes.mine;
-            else
-    if (
+    if (props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+      max = StorageSizes.mine;
+    else if (
       !!props.theplan.plan &&
       props.theplan.plan.replace(/"/g, "") === "free"
     ) {
@@ -156,8 +155,7 @@ export const AddLinkPage2 = (props) => {
         setErrorDialog(true);
         console.log("VVVVVVVVVVVVV returned false");
       } else {
-  
-        props.history.push("/");//0000010
+        props.history.push("/"); //0000010
       }
     } else {
       console.log("maximum links reached");
@@ -195,13 +193,13 @@ export const AddLinkPage2 = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  auth:state.auth,
+  auth: state.auth,
   theplan: state.theplan,
   signup: state.signup,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  startAddLink: (v,link) => dispatch(startAddLink(v,link)),
+  startAddLink: (v, link) => dispatch(startAddLink(v, link)),
 });
 
 export default withRouter(

@@ -136,7 +136,7 @@ const AppRouter = (props) => (
         component={DogFetcher} />
 
           <PrivateRoute 
-        path="/chat" 
+        path="/chat/:id2/:id" 
         signup={props.signup} 
         x1="usage"
         component={ChatComponent} />

@@ -1,25 +1,24 @@
-import Constants from "./Constants"
+import Constants from "./Constants";
 import React, { useRef, useEffect, useState } from "react";
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import { connect } from "react-redux";
 import BasicIframe from "./BasicIframe";
 import CopySalesButton from "./CopySalesButton";
 import StorageSizes from "./StorageSizes";
 import selectLinks from "../selectors/links";
-import {startAddLink2} from "../actions/links";
+import { startAddLink2 } from "../actions/links";
 
 import visited from "../assets/images/visited-1.png";
 import {
-FacebookEmbed,
-InstagramEmbed,
-LinkedInEmbed,
-PinterestEmbed,
-TikTokEmbed,
-XEmbed,
-YouTubeEmbed,
-PlaceholderEmbed
-} from "react-social-media-embed"
-
+  FacebookEmbed,
+  InstagramEmbed,
+  LinkedInEmbed,
+  PinterestEmbed,
+  TikTokEmbed,
+  XEmbed,
+  YouTubeEmbed,
+  PlaceholderEmbed,
+} from "react-social-media-embed";
 
 import {
   startRemoveLink,
@@ -82,15 +81,13 @@ import CalendarGoogle from "./CalendarGoogle";
 //     ? "http://localhost:3000"
 //     : "https://urilinks.com";
 
-let baseUrl = ""
-  
-  if(Constants.NODE_DEV === "development") {
-    baseUrl = "http://localhost:3000"
-  } else {
-    baseUrl = "https://urilinks.com"
-  }
+let baseUrl = "";
 
-
+if (Constants.NODE_DEV === "development") {
+  baseUrl = "http://localhost:3000";
+} else {
+  baseUrl = "https://urilinks.com";
+}
 
 const LinkListItem = (props) => {
   //  const params = new URLSearchParams(window.location.search);
@@ -121,22 +118,32 @@ const LinkListItem = (props) => {
   const [showvideo, setShowvideo] = useState(0);
   const [screenedValue, setScreenedValue] = useState(null);
 
-    const params = new URLSearchParams(window.location.search);
-    const id2 = params.get("id2");
+  const params = new URLSearchParams(window.location.search);
+  const id2 = params.get("id2");
 
-  const theSortBy = props.theSortBy==="adsaplpha" || props.theSortBy === "productsalpha"?1:0
- 
+  const theSortBy =
+    props.theSortBy === "adsaplpha" || props.theSortBy === "productsalpha"
+      ? 1
+      : 0;
+
   //const [xadmessage, setXadmessage] = useState("Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ "to help this seller make money from commission:")
   const THRESHOLD = 43200000; // ms
 
-  let xdotcomadmessage=""
-  if(!!firebase.auth().currentUser) {
-    xdotcomadmessage = "Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+" to help this seller make money from commission:"
+  let xdotcomadmessage = "";
+  if (!!firebase.auth().currentUser) {
+    xdotcomadmessage =
+      "Please buy " +
+      props.addescription +
+      " from " +
+      firebase.auth().currentUser.displayName +
+      " to help this seller make money from commission:";
   } else {
-    xdotcomadmessage = "Please buy "+props.addescription+" from John "+"to help this seller make money from commission:"
+    xdotcomadmessage =
+      "Please buy " +
+      props.addescription +
+      " from John " +
+      "to help this seller make money from commission:";
   }
-  
-
 
   //   useEffect(()=>{
   //     //broken link: "http://tyuhn.com/"
@@ -175,105 +182,94 @@ YouTubeEmbed,
 PlaceholderEmbed
   */
 
-function isFacebookPost(url) {
-  //return false
-  // Check if string is valid and contains facebook.com
-  // if (!url || !url.includes('facebook.com')) {
-  //   return false;
-  // }
-  // return true
+  function isFacebookPost(url) {
+    //return false
+    // Check if string is valid and contains facebook.com
+    // if (!url || !url.includes('facebook.com')) {
+    //   return false;
+    // }
+    // return true
 
-  if(url.includes("facebook.com/photo/?fbid=122098550787463882")) return true
-  return false
+    if (url.includes("facebook.com/photo/?fbid=122098550787463882"))
+      return true;
+    return false;
 
-  //try {
-  //   const parsedUrl = new URL(url);
-  //   // Check if host is facebook.com or www.facebook.com
-  //   if (!['facebook.com', 'www.facebook.com'].includes(parsedUrl.hostname)) {
-  //     return false;
-  //   }
+    //try {
+    //   const parsedUrl = new URL(url);
+    //   // Check if host is facebook.com or www.facebook.com
+    //   if (!['facebook.com', 'www.facebook.com'].includes(parsedUrl.hostname)) {
+    //     return false;
+    //   }
 
-  //   // Check for common post path patterns
-  //   // Matches: /posts/123, /permalink/123, /photo/?fbid=123, /videos/123
-  //   const postPathPattern = /(\/posts\/|\/permalink\/|\/photo\?|\/videos\/|\/video\?)/i;
-  //   return postPathPattern.test(parsedUrl.pathname);
-  // } catch (e) {
-  //   return false;
-  // }
-}
-
-  const getPostType=(url)=>{
-
-    if(isFacebookPost(url)===true) return 0
-    
-    return 8
-
+    //   // Check for common post path patterns
+    //   // Matches: /posts/123, /permalink/123, /photo/?fbid=123, /videos/123
+    //   const postPathPattern = /(\/posts\/|\/permalink\/|\/photo\?|\/videos\/|\/video\?)/i;
+    //   return postPathPattern.test(parsedUrl.pathname);
+    // } catch (e) {
+    //   return false;
+    // }
   }
 
-//   let postTypeRef = useRef(null)
+  const getPostType = (url) => {
+    if (isFacebookPost(url) === true) return 0;
 
-   
+    return 8;
+  };
 
-//     if(getPostType(props.Url) === 0) {
-//     postTypeRef = 0
-//     } else if(getPostType(props.Url) === 1) {
-// postTypeRef = 1
-//     } else if(getPostType(props.Url) === 2) {
-// postTypeRef = 2
-//     } else if(getPostType(props.Url) === 3) {
-// postTypeRef = 3
-//     } else if(getPostType(props.Url) === 4) {
-// postTypeRef = 4
-//     } else if(getPostType(props.Url) === 5) {
-// postTypeRef = 5
-//     } else if(getPostType(props.Url) === 6) {
-// postTypeRef = 6
-//     } else if(getPostType(props.Url) === 7) {
-// postTypeRef = 7
-//     } else {
-// postTypeRef = 8
-//     }
+  //   let postTypeRef = useRef(null)
 
+  //     if(getPostType(props.Url) === 0) {
+  //     postTypeRef = 0
+  //     } else if(getPostType(props.Url) === 1) {
+  // postTypeRef = 1
+  //     } else if(getPostType(props.Url) === 2) {
+  // postTypeRef = 2
+  //     } else if(getPostType(props.Url) === 3) {
+  // postTypeRef = 3
+  //     } else if(getPostType(props.Url) === 4) {
+  // postTypeRef = 4
+  //     } else if(getPostType(props.Url) === 5) {
+  // postTypeRef = 5
+  //     } else if(getPostType(props.Url) === 6) {
+  // postTypeRef = 6
+  //     } else if(getPostType(props.Url) === 7) {
+  // postTypeRef = 7
+  //     } else {
+  // postTypeRef = 8
+  //     }
 
-//    useEffect(() => {
+  //    useEffect(() => {
 
-//     if(getPostType(props.Url) === 0) {
-//     setScreenedValue(0);
-//     } else if(getPostType(props.Url) === 1) {
-// setScreenedValue(1);
-//     } else if(getPostType(props.Url) === 2) {
-// setScreenedValue(2);
-//     } else if(getPostType(props.Url) === 3) {
-// setScreenedValue(3);
-//     } else if(getPostType(props.Url) === 4) {
-// setScreenedValue(4);
-//     } else if(getPostType(props.Url) === 5) {
-// setScreenedValue(5);
-//     } else if(getPostType(props.Url) === 6) {
-// setScreenedValue(6);
-//     } else if(getPostType(props.Url) === 7) {
-// setScreenedValue(7);
-//     } else {
-// setScreenedValue(8);
-//     }
+  //     if(getPostType(props.Url) === 0) {
+  //     setScreenedValue(0);
+  //     } else if(getPostType(props.Url) === 1) {
+  // setScreenedValue(1);
+  //     } else if(getPostType(props.Url) === 2) {
+  // setScreenedValue(2);
+  //     } else if(getPostType(props.Url) === 3) {
+  // setScreenedValue(3);
+  //     } else if(getPostType(props.Url) === 4) {
+  // setScreenedValue(4);
+  //     } else if(getPostType(props.Url) === 5) {
+  // setScreenedValue(5);
+  //     } else if(getPostType(props.Url) === 6) {
+  // setScreenedValue(6);
+  //     } else if(getPostType(props.Url) === 7) {
+  // setScreenedValue(7);
+  //     } else {
+  // setScreenedValue(8);
+  //     }
 
-//   },[screenedValue])
+  //   },[screenedValue])
 
-// FacebookEmbed,
-// InstagramEmbed,
-// LinkedInEmbed,
-// PinterestEmbed,
-// TikTokEmbed,
-// XEmbed,
-// YouTubeEmbed,
-// PlaceholderEmbed
-
-
-
-
-
-    
-  
+  // FacebookEmbed,
+  // InstagramEmbed,
+  // LinkedInEmbed,
+  // PinterestEmbed,
+  // TikTokEmbed,
+  // XEmbed,
+  // YouTubeEmbed,
+  // PlaceholderEmbed
 
   const isityt = (url) => {
     if (url.includes("youtube")) {
@@ -491,21 +487,22 @@ function isFacebookPost(url) {
   };
 
   const storeScrollPosition4 = (link, event) => {
-     const text =
-       "Please confirm that it's ok to save this link to your list?";
+    const text = "Please confirm that it's ok to save this link to your list?";
     if (confirm(text) === true) {
       //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
       //alert("uid="+id2+", link="+JSON.stringify(link))
-      console.log("LinkListItem, storeScrollPosition4, link="+JSON.stringify(link))
-      startAddLink2(id2,link)
-      .then((r)=>{
-        alert(r)
-      }).catch((e)=>{
-        alert("something went wrong, e="+e)
-      })
+      console.log(
+        "LinkListItem, storeScrollPosition4, link=" + JSON.stringify(link),
+      );
+      startAddLink2(id2, link)
+        .then((r) => {
+          alert(r);
+        })
+        .catch((e) => {
+          alert("something went wrong, e=" + e);
+        });
       //const x = event.target.getAttribute("data-value"); //x is link id
     }
-     
   };
 
   const sortit2 = (event) => {
@@ -1116,24 +1113,19 @@ function isFacebookPost(url) {
   const playInPlaceVideo = (id, show, Url, event) => {
     //id is the link id, show can be 0 or 1, Url is the Url of the video to play
     //alert(id+", "+show+", "+Url)
-    let newStr=Url
-    if(Url.includes("shorts") || Url.includes("watch?v=")) {
-    
-      if(Url.includes("shorts")) {
-        console.log("shorts")
-         newStr = Url.replace("shorts", "embed");
+    let newStr = Url;
+    if (Url.includes("shorts") || Url.includes("watch?v=")) {
+      if (Url.includes("shorts")) {
+        console.log("shorts");
+        newStr = Url.replace("shorts", "embed");
+      } else if (Url.includes("watch?v=")) {
+        console.log("watch?v=");
+        newStr = Url.replace("watch?v=", "embed/");
       }
-     
-    else if(Url.includes("watch?v=")) {
-      console.log("watch?v=")
-       newStr = Url.replace("watch?v=", "embed/");
     }
 
-    }
-    
-    
     //alert(newStr)
-    console.log("playInPlaceVideo, newStr="+newStr)
+    console.log("playInPlaceVideo, newStr=" + newStr);
     //alert(1)
     setUrl2(newStr);
     setVideoId(id);
@@ -1146,19 +1138,17 @@ function isFacebookPost(url) {
     if (x1 === 0) {
       props.incrementHandleToggle3({ id: x, show: 0 });
 
-     
       console.log("1 LinkListItem.js, videoId=" + videoId);
       console.log("1 LinkListItem.js, props.id=" + props.id);
       console.log("1 LinkListItem.js, show=" + show);
       //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
 
       if (show === 0) {
-       
         //if (props.links.length === 1) {
-        if(true) {
+        if (true) {
           //props.ls2element.scrollBy(0, -300);
           //props.ls2element.scrollTo(0,document.body.scrollHeight)
-           if (!!document.querySelector("#ipvideo" + id)) {
+          if (!!document.querySelector("#ipvideo" + id)) {
             document.querySelector("#ipvideo" + id).scrollIntoView({
               behavior: "smooth", //,
               //block:"start"
@@ -1176,11 +1166,8 @@ function isFacebookPost(url) {
           }
         }
       }
-
-      
-
     } else {
-props.decrementHandleToggle3({ id: x, show: 1 });
+      props.decrementHandleToggle3({ id: x, show: 1 });
 
       !!document.querySelector(id) &&
         document.querySelector(id).scrollIntoView({
@@ -1188,9 +1175,6 @@ props.decrementHandleToggle3({ id: x, show: 1 });
         });
     }
   };
-
-
-
 
   // const closeInPlaceVideo = (videoid, id) => {
   //   alert("close video, videoid=" + videoid + ",id=" + id);
@@ -1215,7 +1199,6 @@ props.decrementHandleToggle3({ id: x, show: 1 });
 
   //   }
 
-    
   // }
 
   //if (!screenedValue) return <div>Loading...</div>;
@@ -1237,34 +1220,32 @@ props.decrementHandleToggle3({ id: x, show: 1 });
           <img className="" width="16" height="16" src={props.faviconURL} />
         )}
       </div>
-      
-      {screenedValue !== null ?<div>
-<FacebookEmbed url={props.Url} width="200" height="200" />
-      </div> :
-      
-      <div>
 
-        {!!props.yturl && (
-          <a
-            ref={myRef4}
-            className=""
-            href={props.Url}
-            target="_blank"
-            data-value={props.id}
-            title={"click to open the webpage: " + props.Url}
-            onClick={() => storeScrollPosition(props.frequency, event)}
-          >
-            <img
-              className="borderRadius10"
-              style={{ width: "325px" }}
-              src={props.yturl}
-            />
-          </a>
-        )}
-      </div>}
-
-
-      
+      {screenedValue !== null ? (
+        <div>
+          <FacebookEmbed url={props.Url} width="200" height="200" />
+        </div>
+      ) : (
+        <div>
+          {!!props.yturl && (
+            <a
+              ref={myRef4}
+              className=""
+              href={props.Url}
+              target="_blank"
+              data-value={props.id}
+              title={"click to open the webpage: " + props.Url}
+              onClick={() => storeScrollPosition(props.frequency, event)}
+            >
+              <img
+                className="borderRadius10"
+                style={{ width: "325px" }}
+                src={props.yturl}
+              />
+            </a>
+          )}
+        </div>
+      )}
 
       <div id={"ipvideo" + props.id}>
         {videoId === props.id && props.show === 1 && (
@@ -1280,24 +1261,21 @@ props.decrementHandleToggle3({ id: x, show: 1 });
         )}
       </div>
 
-      {screenedValue === null 
-      && 
-      <div className="normal-wrap padding-bottom-11">
-        
-        <a
-          ref={myRef}
-          className={`ib bg-color-1w- borderRadius11- text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
-          href={props.Url}
-          target="_blank"
-          data-value={props.id}
-          title={"click to open the webpage: " + props.Url}
-          onClick={() => storeScrollPosition(props.frequency, event)}
-        >
-          {props.description}
-          
-        </a>
-        
-      </div>}
+      {screenedValue === null && (
+        <div className="normal-wrap padding-bottom-11">
+          <a
+            ref={myRef}
+            className={`ib bg-color-1w- borderRadius11- text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
+            href={props.Url}
+            target="_blank"
+            data-value={props.id}
+            title={"click to open the webpage: " + props.Url}
+            onClick={() => storeScrollPosition(props.frequency, event)}
+          >
+            {props.description}
+          </a>
+        </div>
+      )}
 
       <div className="flexrowz">
         {props.signup.signup === true ? (
@@ -1556,23 +1534,23 @@ props.decrementHandleToggle3({ id: x, show: 1 });
               </span>
             </span>
 
+            {props.rt === "readonly" && (
+              <span className="ib flexrowzv- margin-right-1">
+                <span
+                  ref={myRef2}
+                  className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0 pointereventsnone- margin-top-1zx`}
+                  //href="#"
 
-            {props.rt === "readonly" && (<span className="ib flexrowzv- margin-right-1">
-              <span
-                ref={myRef2}
-                className={`ib font-weight-900- margin-left-11xy1- cursor-pointer margin-top-2x0 pointereventsnone- margin-top-1zx`}
-                //href="#"
-
-                //data-value={props.id}
-                title={
-                  "Click to like if you like it. The number of users who have liked the link."
-                }
-                onClick={() => storeScrollPosition4(props.link, event)} //is passed in
-              >
-                I want this link
+                  //data-value={props.id}
+                  title={
+                    "Click to like if you like it. The number of users who have liked the link."
+                  }
+                  onClick={() => storeScrollPosition4(props.link, event)} //is passed in
+                >
+                  I want this link
+                </span>
               </span>
-            </span>)}
-
+            )}
 
             {props.rt !== "readonly" ? (
               <span className="ib flexrowzv- margin-top-2x-">
@@ -1608,8 +1586,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
       {props.signup.signup === true && (
         <div className="flexrow2w2 border5-">
           <span>
-            <span className="ib margin-right-1">Share link on
-            </span>
+            <span className="ib margin-right-1">Share link on</span>
             <a
               href={`https://twitter.com/intent/tweet?url=${props.Url}`}
               className="ib nounderline- cursor-pointer"
@@ -1618,8 +1595,7 @@ props.decrementHandleToggle3({ id: x, show: 1 });
             >
               X
             </a>
-            <span className="margin-left-11">or
-            </span>
+            <span className="margin-left-11">or</span>
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${props.Url}`}
               className="ib margin-left-11 nounderline- cursor-pointer"
@@ -1643,8 +1619,11 @@ props.decrementHandleToggle3({ id: x, show: 1 });
           {!!props.addescription === true ? (
             <span>
               <span className="ib bg-color-1w borderRadius11- nounderline color-black">
-                See what {props.signup.signup === true?firebase.auth().currentUser.displayName:"John"} has for
-                sale:&nbsp;
+                See what{" "}
+                {props.signup.signup === true
+                  ? firebase.auth().currentUser.displayName
+                  : "John"}{" "}
+                has for sale:&nbsp;
               </span>
               <a
                 href={
@@ -1653,31 +1632,37 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                 target="_blank"
                 rel="noopener noreferrer sponsored"
               >
-                <span className={`ib underline margin-left-11- padding-left-1- padding-right-11- borderRadius11- ${theSortBy === 1?'bg-color-1w':'bg-color-1w'}`} style={{ color: "#0000EE"}}>{props.addescription}</span>
+                <span
+                  className={`ib underline margin-left-11- padding-left-1- padding-right-11- borderRadius11- ${theSortBy === 1 ? "bg-color-1w" : "bg-color-1w"}`}
+                  style={{ color: "#0000EE" }}
+                >
+                  {props.addescription}
+                </span>
               </a>
 
-
-<span>
-            ,<span className="ib margin-left-11 margin-right-1">Please forward sales link to</span>
-            <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(xdotcomadmessage)}&url=${props.adUrl}`}
-              className="ib nounderline- cursor-pointer"
-              title="Click to forward link to x.com."
-              target="_blank"
-            >
-              X
-            </a>
-            <span className="margin-left-11">or
-            </span>
-            <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${props.adUrl}`}
-              className="ib margin-left-11 nounderline- cursor-pointer"
-              title="Click to forward link to facebook.com."
-              target="_blank"
-            >
-              Facebook
-            </a>
-          </span>
+              <span>
+                ,
+                <span className="ib margin-left-11 margin-right-1">
+                  Please forward sales link to
+                </span>
+                <a
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(xdotcomadmessage)}&url=${props.adUrl}`}
+                  className="ib nounderline- cursor-pointer"
+                  title="Click to forward link to x.com."
+                  target="_blank"
+                >
+                  X
+                </a>
+                <span className="margin-left-11">or</span>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${props.adUrl}`}
+                  className="ib margin-left-11 nounderline- cursor-pointer"
+                  title="Click to forward link to facebook.com."
+                  target="_blank"
+                >
+                  Facebook
+                </a>
+              </span>
             </span>
           ) : props.signup.signup === true ? (
             <div>
@@ -1690,7 +1675,9 @@ props.decrementHandleToggle3({ id: x, show: 1 });
                     See what {firebase.auth().currentUser.displayName} has for
                     sale:&nbsp;
                   </span>
-                  <span className="underline" style={{ color: "#0000EE" }}>Nothing Yet</span>
+                  <span className="underline" style={{ color: "#0000EE" }}>
+                    Nothing Yet
+                  </span>
                 </span>
               </Link>
             </div>
@@ -1731,7 +1718,6 @@ props.decrementHandleToggle3({ id: x, show: 1 });
             <legend>Sharable Url To Make Money</legend>
             <div className="padding-bottom-1">
               <div className="margin-bottom-1 flexrowxz">
-                
                 {`${baseUrl}+"/dashboard?signup=0&x=readonly&id=`}
                 {props.auth.uid}&link={encodeURIComponent(props.description)}
                 &product={encodeURIComponent(props.addescription)}
@@ -1787,7 +1773,6 @@ const mapStateToProps = (state) => ({
   filters: state.filters,
   auth: state.auth,
   //links: selectLinks(state.links, state.filters), //this is used to get went 1 link is displayed for fixing the scrolling see code in playInPlaceVideo()
-  
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

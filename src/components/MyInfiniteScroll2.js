@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 //import {useDispatch} from 'react-redux'
-import * as firebase from "firebase";
+import firebase from "firebase";
 import { connect } from "react-redux";
 import InfiniteScroll from "react-infinite-scroll-component";
 import selectLinks from "../selectors/links";

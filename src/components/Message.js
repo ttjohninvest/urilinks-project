@@ -35,7 +35,7 @@ const Message = ({
         <img
           src={photoURL}
           alt="Avatar"
-          className="rounded-full mr-4"
+          className="ib rounded-full- mr-4- message-avatar"
           width={45}
           height={45}
         />

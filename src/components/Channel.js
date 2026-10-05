@@ -10,6 +10,7 @@ import Message from "./Message";
 
 //const Channel = ({ user = null }) => {
   const Channel = (props) => {
+    const [photourl, setPhotourl] = useState(null)
   // console.log("Channel, user="+JSON.stringify(user))
   const theurl=`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}`
   //`chat/messages/D9/name2/XL/name1`
@@ -30,6 +31,7 @@ import Message from "./Message";
     //photoUrl 
   } = props.user // || {};
   useEffect(() => {
+    console.log("firebase.auth().currentUser.photoURL="+firebase.auth().currentUser.photoURL)
     //console.log("messages="+JSON.stringify(messages))
     //alert("messages="+JSON.stringify(messages))
     if (inputRef.current) {
@@ -37,18 +39,18 @@ import Message from "./Message";
     }
   }, [inputRef]);
 
-//   useEffect(() => {
-//      if (bottomListRef.current) {
-//   bottomListRef.current.scrollIntoView({ behavior: "smooth" });
-//      }
-// }, [messages]);
-
 useEffect(() => {
   if (bottomListRef.current)
   bottomListRef.current.scrollIntoView({
     behavior: "smooth"
   });
 }, [messages.length]);
+
+useEffect(()=>{
+  if(!!firebase.auth() && !!firebase.auth().currentUser)
+    setPhotourl(firebase.auth().currentUser.photoURL)
+  else setPhotourl(null)
+})
 
   const handleOnChange = e => {
     setNewMessage(e.target.value);
@@ -68,27 +70,12 @@ useEffect(() => {
         displayName2:props.name2,
         uid1:props.id,
         displayName1:props.name1,
-        //photoURL,
+        photoURL:photourl,
       }
 
-    //  const structure = {
-    //     text: trimmedMessage,
-    //     createdAt: firebase.database.ServerValue.TIMESTAMP,
-    //     uid2:"D9",
-    //     displayName2:"name2",
-    //     uid1:"XL",
-    //     displayName1:"name1",
-    //     //photoURL,
-    //   }
     console.log("structure="+JSON.stringify(structure))
-      // const structure = {
-      //   text: trimmedMessage,
-      //   createdAt: firebase.database.ServerValue.TIMESTAMP,
-      //   uid,
-      //   displayName
-      //   //photoURL,
-      // }
-
+       
+      
   //     console.log("Channel, structure="+JSON.stringify(structure))
       messagesRef.push(structure).then(() => {
     console.log("MESSAGE WRITTEN");
@@ -120,7 +107,9 @@ useEffect(() => {
               This is the beginning of this chat.
             </p>
           </div>
-          <ul>
+          <ul 
+          style={{listStyle: "none"}}
+          >
             {!!messages===true && messages
               .map((message,i) => (
                 <li key={i}>
@@ -155,7 +144,7 @@ useEffect(() => {
           </button>
         </form>
       </div>
-      {/* <div>Hello, {props.displayName}</div> */}
+      
     </div>
   );
 };

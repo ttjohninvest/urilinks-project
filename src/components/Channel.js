@@ -37,11 +37,18 @@ import Message from "./Message";
     }
   }, [inputRef]);
 
-  useEffect(() => {
-     if (bottomListRef.current) {
-  bottomListRef.current.scrollIntoView({ behavior: "smooth" });
-     }
-}, [messages]);
+//   useEffect(() => {
+//      if (bottomListRef.current) {
+//   bottomListRef.current.scrollIntoView({ behavior: "smooth" });
+//      }
+// }, [messages]);
+
+useEffect(() => {
+  if (bottomListRef.current)
+  bottomListRef.current.scrollIntoView({
+    behavior: "smooth"
+  });
+}, [messages.length]);
 
   const handleOnChange = e => {
     setNewMessage(e.target.value);
@@ -135,13 +142,14 @@ import Message from "./Message";
             value={newMessage}
             onChange={handleOnChange}
             placeholder="Type your message here..."
-            className="flex-1 bg-transparent outline-none"
+            className="flex-1- bg-transparent- outline-none channel-input"
             maxLength={1000}
           />
           <button
             type="submit"
             disabled={!newMessage}
-            className="uppercase font-semibold text-sm tracking-wider text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
+            //className="uppercase font-semibold text-sm tracking-wider text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="button-2"
           >
             Send
           </button>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 //import PropTypes from 'prop-types';
+
 import { formatRelative } from 'date-fns';
 
 const formatDate = date => {
@@ -26,7 +27,10 @@ const Message = ({
   if (!text) return null;
 
   return (
-    <div className="px-4 py-4 rounded-md hover:bg-gray-50 dark:hover:bg-coolDark-600 overflow-hidden flex items-start">
+    <div 
+    //className="px-4 py-4 rounded-md hover:bg-gray-50 dark:hover:bg-coolDark-600 overflow-hidden flex items-start"
+    className="message"
+    >
       {photoURL ? (
         <img
           src={photoURL}
@@ -37,9 +41,9 @@ const Message = ({
         />
       ) : null}
       <div>
-        <div className="flex items-center mb-1">
+        <div className="flex- items-center- mb-1- message-header">
           {displayName2 ? (
-            <p className="mr-2 text-primary-500">{displayName2}</p>
+            <p className="mr-2- text-primary-500- message-name">{displayName2}</p>
           ) : null}
           {/* {createdAt?.seconds ? (
             <span className="text-gray-500 text-xs">
@@ -47,7 +51,7 @@ const Message = ({
             </span>
           ) : null} */}
         </div>
-        <p>{text}</p>
+        <p className="message-text">{text}</p>
       </div>
     </div>
   );

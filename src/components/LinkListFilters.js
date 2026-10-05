@@ -137,8 +137,10 @@ function ExpandableArray(props) {
   const id2 = params.get("id2");
   const id = params.get("id");
 
-  const name2 = params.get("dn2");
-  const name1 = params.get("dn");
+  const dn2 = params.get("dn2");
+  const dn = params.get("dn");
+  console.log("LinkListFilters.js, dn2="+dn2)
+  console.log("LinkListFilters.js, dn="+dn)
 
   const z = params.get("z");
   const z2 = params.get("z2");
@@ -147,10 +149,10 @@ function ExpandableArray(props) {
   //console.log("linkid="+linkid)
   const childRef = useRef(null);
   const z10 = params.get("z10");
-  const isFollower = params.get("isFollower");
+  const isFollower = decodeURIComponent(params.get("isFollower"))
   console.log("ExpanableArray, isFollower = " + isFollower);
-  const isFollowing = params.get("isFollowing");
-  console.log("ExpanableArray, isFollowing = " + isFollowing);
+  const isFollowing = decodeURIComponent(params.get("isFollowing"))
+  console.log("ExpanableArray, isFollowing = '" + isFollowing+"'");
 
   //   const baseUrl =
   // process.env.NODE_ENV === "development"
@@ -2027,19 +2029,21 @@ function ExpandableArray(props) {
                       </select>
                       {z10 !== null && (
                         <div className="flexrowz">
+                              
                           {/* {!!isFollower !== true &&  <FollowButton />} */}
                           {!!isFollowing === true &&
                           isFollowing !== "is following" ? (
                             <div className="flexrowz">
                               <FollowButton />
-                              {/* <ChatButton /> */}
+                              
                             </div>
-                          ) : !!isFollower === true ? null : (
+                          ) : !!isFollowing === true &&
+                           isFollowing === "is following" ? (
                             <div className="flexrowz">
                               <UnFollowButton />
-                              <ChatButton id2={id2} id={id} name2={name2} name1={name1} />
+                              <ChatButton id2={id2} id={id} name2={dn2} name1={dn} />
                             </div>
-                          )}
+                          ):null}
 
                           {!!isFollower === true &&
                             isFollower === "is a follower of" && (

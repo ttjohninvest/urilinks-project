@@ -11,5 +11,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Server is up');
+  console.log('Node/Express Server is up and waiting to receive Browser https requests for index.html file or other file types through this port='+port);
 });

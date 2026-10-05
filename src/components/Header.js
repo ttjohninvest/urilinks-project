@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import database from "../firebase/firebase";
 import ClickableList from "./ClickableList";
 import OthersButton from "./OthersButton";
+import ChatNotifications from "./ChatNotifications"
 //import { useSelector } from "react-redux";
 import {startAddIsonline} from "./../actions/isonline"
 import moment from "moment";
@@ -175,6 +176,7 @@ export const Header = (props) => {
     //console.log("following from useSelector:", follower);
     console.log("Header.js, props.gud=" + JSON.stringify(props.gud));
     console.log("Header.js, props.auth=" + JSON.stringify(props.auth));
+    console.log("Header.js, props.ischat=" + JSON.stringify(props.ischat));
     console.log("Header.js, isonline ids=" + JSON.stringify(props.isonline));
     console.log("Header.js, follower ids=" + JSON.stringify(props.follower));
     console.log("Header.js, following ids=" + JSON.stringify(props.following));
@@ -793,6 +795,9 @@ const handleClick = useCallback(() => {
                                     //uid={props.uid}
                                     //setSortBy={setSortBy}
                                   />
+
+                                  
+                                  
                                 )}
 
                               {/* <span onClick={()=>goToPage(props.newfollowinglinks)}></span> */}
@@ -802,7 +807,7 @@ const handleClick = useCallback(() => {
                             })}</div> */}
 
                               {/* <span className="ib margin-left-11 color-white-1" title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first.">{`${!!props.theupdatedate.updatedate===true ? 'Link(s) updated on ':""}`}<span  id="linksupdate" >{props.links.length > 0 ? <span>{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}<span>&nbsp;pst</span></span>:""}</span></span> */}
-
+                              
                               {ni !== "1" && ni !== "2" && (
                                 <span
                                   className="ib margin-left-11 color-white-1 padding-top5x"
@@ -821,8 +826,8 @@ const handleClick = useCallback(() => {
                                   </span>
                                 </span>
                               )}
-
-                              {/* <span className="ib flexrowzv cursor-pointer color-white-1"> */}
+<ChatNotifications />
+                             
 
                               <span>{dn !== null ? "," : ""}</span>
 
@@ -1343,6 +1348,7 @@ const mapStateToProps = (state) => ({
   users: state.users,
   isonline: state.isonline,
   gud: state.gud,
+  ischat: state.ischat,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import linksReducer from '../reducers/links';
 import isonlineReducer from '../reducers/isonline';
+import ischatReducer from '../reducers/ischat';
 import followingReducer from '../reducers/following';
 import followerReducer from '../reducers/follower';
 import newfollowinglinksReducer from '../reducers/newfollowinglinks';
@@ -59,6 +60,7 @@ export default () => {
       links: linksReducer,
       following: followingReducer,
       follower: followerReducer,
+      ischat: ischatReducer,
       newfollowinglinks: newfollowinglinksReducer,
       users: usersReducer,
       linksall: linksReducerAll,

@@ -2241,3 +2241,28 @@ by default this is the setting for a local build
 
 
 
+when error says a port is being used
+netstat -ano | findstr :3000
+ TCP    0.0.0.0:3000           0.0.0.0:0              LISTENING       21752
+  TCP    [::]:3000              [::]:0                 LISTENING       21752
+
+stop it with
+taskkill /PID 21752 /F
+
+-----summary
+netstat -ano | findstr :3000
+
+Find the PID on the far right. Then, instead of immediately killing it, run:
+tasklist | findstr PID_NUMBER
+
+For example, if the PID is 64088:
+tasklist | findstr 64088
+
+That tells us what program owns the process.
+If it says:
+node.exe
+
+to find out about the program the owns the process run
+Get-CimInstance Win32_Process -Filter "ProcessId = 64088" | Select-Object ProcessId, Name, CommandLine
+
+----------------------------------------------

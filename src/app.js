@@ -14,6 +14,11 @@ import {
   startSetIsonline
 } from "./actions/isonline";
 
+import {
+  startSetChat
+} from "./actions/ischat";
+
+
 import setSignup from "./actions/signup";
 /////////////////start
 //put these in express server because it needs fs
@@ -211,9 +216,16 @@ if (signup !== "signup") {
                                                                   ),
                                                                 )
                                                                 .then(() => {
-                                                                   return store
+                                                                   store
                                                                 .dispatch(
                                                                   startSetIsonline(
+                                                                    id2,
+                                                                  ),
+                                                                )
+                                                                .then(() => {
+                                                                   return store
+                                                                .dispatch(
+                                                                  startSetChat(
                                                                     id2,
                                                                   ),
                                                                 )
@@ -222,6 +234,15 @@ if (signup !== "signup") {
                                                                     store,
                                                                     signup,
                                                                   );
+                                                                })
+                                                                .catch(
+                                                                  (error) => {
+                                                                    console.log(
+                                                                      "theplan, error",
+                                                                      error,
+                                                                    );
+                                                                  },
+                                                                );
                                                                 })
                                                                 .catch(
                                                                   (error) => {
@@ -405,9 +426,16 @@ if (signup !== "signup") {
                                                                     ),
                                                                   )
                                                                   .then(() => {
-                                                                     return store
+                                                                      store
                                                                 .dispatch(
                                                                   startSetIsonline(
+                                                                    user.uid,
+                                                                  ),
+                                                                )
+                                                                .then(() => {
+                                                                   return store
+                                                                .dispatch(
+                                                                  startSetChat(
                                                                     user.uid,
                                                                   ),
                                                                 )
@@ -416,6 +444,15 @@ if (signup !== "signup") {
                                                                     store,
                                                                     signup,
                                                                   );
+                                                                })
+                                                                .catch(
+                                                                  (error) => {
+                                                                    console.log(
+                                                                      "theplan, error",
+                                                                      error,
+                                                                    );
+                                                                  },
+                                                                );
                                                                 })
                                                                 .catch(
                                                                   (error) => {

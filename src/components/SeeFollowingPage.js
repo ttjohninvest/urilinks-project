@@ -12,11 +12,12 @@ import {setitbacktono} from "../actions/links"
 export const SeeFollowingPage = (props) => {
   //const [count, setCount] = useState(0);
   const [uniqueData, setUniqueData] = useState([]);
-
+  const [namedn2, setNamedn2] = useState("John")
   const scrollInterval4 = useRef(null);
   const buttonRef4 = useRef(null);
   const scrolldownref8 = useRef(null);
   const scrollupref8 = useRef(null);
+
   //const [nodeRef, setNodeRef] = useState(null);
 
   // const baseUrl =
@@ -106,7 +107,10 @@ export const SeeFollowingPage = (props) => {
   useEffect(() => {
     //use the following to get a better uniqueData array, for display of the list, this is the new links ready list
     //props.newfollowinglinks [{uid:"D9...", newlinks:{newlinks:"yes"}},{uid:"c7z...", newlinks:{newlinks:"yes"}}]
-
+    if(!!firebase.auth()===true && !!firebase.auth().currentUser===true)
+      setNamedn2(firebase.auth().currentUser.displayName)
+    else setNamedn2("John")
+                          
     if (props.whichone === 1) {
       //newlinks:"yes"
 
@@ -497,9 +501,8 @@ export const SeeFollowingPage = (props) => {
                           props.email +
                           ";" +
                           item.isMatch +
-                          ";" +
-                          firebase.auth().currentUser.displayName
-                          
+                          ";" + namedn2
+                         
                         }
                       >
                         {props.email +

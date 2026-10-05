@@ -37,6 +37,12 @@ import Message from "./Message";
     }
   }, [inputRef]);
 
+  useEffect(() => {
+     if (bottomListRef.current) {
+  bottomListRef.current.scrollIntoView({ behavior: "smooth" });
+     }
+}, [messages]);
+
   const handleOnChange = e => {
     setNewMessage(e.target.value);
   };
@@ -87,9 +93,11 @@ import Message from "./Message";
   //alert(1)
 
       
-      //setNewMessage('');
+      setNewMessage('');
       // Scroll down to the bottom of the list
-      // bottomListRef.current?.scrollIntoView({ behavior: 'smooth' });
+      if(!!bottomListRef===true && !!bottomListRef.current===true )
+       bottomListRef.current.scrollIntoView({ behavior: 'smooth' });
+      else {}
     }
   };
   return (
@@ -128,6 +136,7 @@ import Message from "./Message";
             onChange={handleOnChange}
             placeholder="Type your message here..."
             className="flex-1 bg-transparent outline-none"
+            maxLength={1000}
           />
           <button
             type="submit"

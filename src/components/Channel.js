@@ -47,9 +47,16 @@ useEffect(() => {
 }, [messages.length]);
 
 useEffect(()=>{
-  if(!!firebase.auth() && !!firebase.auth().currentUser)
-    setPhotourl(firebase.auth().currentUser.photoURL)
-  else setPhotourl(null)
+
+   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      setPhotourl(user.photoURL);
+    } else {
+      setPhotourl(null);
+    }
+  });
+
+  return () => unsubscribe();
 })
 
   const handleOnChange = e => {

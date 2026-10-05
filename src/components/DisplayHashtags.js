@@ -294,18 +294,51 @@ function ExpandableArray(props) {
       setMaximum(StorageSizes.free);
     }
 
-    const user = firebase.auth().currentUser;
-    if (user !== null && user !== undefined) {
-      setPhotoURL(user.photoURL);
-    }
-    if (props.signup === true) {
-      const user = firebase.auth().currentUser;
+
+    useEffect(()=>{
+    
+       const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          setPhotoURL(user.photoURL);
+        } else {
+          setPhotourl(null);
+        }
+      });
+    
+      return () => unsubscribe();
+    })
+
+    // const user = firebase.auth().currentUser;
+    // if (user !== null && user !== undefined) {
+    //   setPhotoURL(user.photoURL);
+    // }
+
+
+
+
+
+    // if (props.signup === true) {
+    //   const user = firebase.auth().currentUser;
+    //   setUid(user.uid);
+    //   setEmail(user.email);
+    //   setTheuser(user);
+    // } else {
+    //   setUid("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
+    // }
+
+    useEffect(() => {
+  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    if (props.signup === true && user) {
       setUid(user.uid);
       setEmail(user.email);
       setTheuser(user);
-    } else {
+    } else if (props.signup !== true) {
       setUid("XLFFo8DQ7LZh8oR8CnvBGInpjsZ2");
     }
+  });
+
+  return () => unsubscribe();
+}, [props.signup]);
 
     const x = window.localStorage.getItem("hideinformation");
     if (x === true) {

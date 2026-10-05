@@ -323,10 +323,13 @@ export const Header = (props) => {
     //if(props.signup.signup===false) {
      
     //if(props.signup.signup===true)
-      
-    const user = firebase.auth().currentUser;
 
-    if(user !== null && user !== undefined) {
+     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      //setPhotourl(user.photoURL);
+       //const user = firebase.auth().currentUser;
+
+  
 
       startAddIsonline(user.uid) //the user is logged in 
       
@@ -370,9 +373,14 @@ export const Header = (props) => {
       else setTheplan("free");
     
     
-    }
+}
 
-    //window.scrollTo(0,0)
+
+    
+  });
+
+  return () => unsubscribe();
+
   }, []);
 
   const scrolldown = () => {

@@ -43,7 +43,7 @@ const Message = ({
       <div>
         <div className="flex- items-center- mb-1- message-header">
           {displayName2 ? (
-            <p className="mr-2- text-primary-500- message-name">{displayName2}</p>
+            <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{displayName2}</p>
           ) : null}
           {/* {createdAt?.seconds ? (
             <span className="text-gray-500 text-xs">

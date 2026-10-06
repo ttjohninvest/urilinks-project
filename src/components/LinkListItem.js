@@ -1110,7 +1110,28 @@ PlaceholderEmbed
     return regex.test(navigator.userAgent);
   }
 
-  const playInPlaceVideo = (id, show, Url, event) => {
+  const checkYoutubeEmbeddable = async (videoId) => {
+
+  const response = await fetch(
+    `https://www.googleapis.com/youtube/v3/videos?part=status&id=${videoId}&key=${"AIzaSyAuDdWM36glULoMAj3EY-65xE2nPKb_p-Y"}`
+  );
+
+  const data = await response.json();
+
+  if (data.items.length === 0) {
+    return false;
+  }
+
+  return data.items[0].status.embeddable === true;
+};
+
+  const playInPlaceVideo = async (id, show, Url, event) => {
+
+//get the video id
+const canPlay = await checkYoutubeEmbeddable(id); //id is the videoId
+
+if (canPlay) {
+  // show iframe
     //id is the link id, show can be 0 or 1, Url is the Url of the video to play
     //alert(id+", "+show+", "+Url)
     let newStr = Url;
@@ -1174,6 +1195,19 @@ PlaceholderEmbed
           behavior: "smooth",
         });
     }
+
+} else {
+  // don't show iframe
+  alert("Youtube won't play this video.")
+}
+
+
+
+
+
+
+
+  
   };
 
   // const closeInPlaceVideo = (videoid, id) => {

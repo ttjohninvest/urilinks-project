@@ -1114,7 +1114,7 @@ function ExpandableArray(props) {
 
   const handlerCats = () => {
     //window.open("/cats?ni=1", "_blank"); //opens react component in new browser tab using window.open("/cats") using AppRouter.js and PrivateRoute.js
-    window.open("/cats?ni=1", "_self");
+    window.open("/cats/1/?ni=1", "_self");
   };
 
   const handlerDogs = () => {

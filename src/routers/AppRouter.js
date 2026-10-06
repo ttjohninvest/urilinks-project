@@ -124,7 +124,7 @@ const AppRouter = (props) => (
         component={Benefits} />
 
         <PrivateRoute 
-        path="/cats" 
+        path="/cats/:a" 
         signup={props.signup} 
         x1="usage"
         component={CatFetcher} />

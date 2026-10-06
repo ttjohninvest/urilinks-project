@@ -18,7 +18,7 @@ const ChatNotifications = (props) => {
     //   alert(dn2);
     //   alert(uid1);
     //   alert(dn);
-    window.open(`/chat/${uid2}/${dn2}/${uid1}/${dn}`);
+    window.open(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3`);
   };
 
   const filteredChats = props.ischat.filter((n) => n.uid1 === props.auth.uid);

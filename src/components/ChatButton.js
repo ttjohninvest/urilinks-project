@@ -32,7 +32,7 @@ const ChatButton = (props) => {
     try {
       //id2,id //id2 is loggedin user, id is subpage
       //window.open(`/chat/${id2}/${name2}/${id}/${name1}/3`) //names are hard coded because i am not passing them in the url yet
-      window.open(`/chat/${id2}/${name2}/${id}/${name1}`)
+      window.open(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3`)
      
     } catch (err) {
       console.error('Failed to Start Chat:', err);

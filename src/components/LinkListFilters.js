@@ -1305,7 +1305,6 @@ function ExpandableArray(props) {
                                 <CopyButton2
                                   readonly={readonly}
                                   accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
-                                  v
                                   textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                 />
                               </div>

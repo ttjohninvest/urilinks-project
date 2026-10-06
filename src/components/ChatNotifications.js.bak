@@ -32,14 +32,14 @@ const ChatNotifications = (props) => {
   }, []);
 
   const removeChatNotification = (uid2, dn2, uid1, dn1) => {
-    const confirmation = window.prompt(
-      "To delete this chat, type exactly: delete chat",
-    );
+    // const confirmation = window.prompt(
+    //   "To delete this chat, type exactly: delete chat",
+    // );
 
-    if (confirmation !== "delete chat") {
-      alert("Chat was not deleted.");
-      return;
-    }
+    // if (confirmation !== "delete chat") {
+    //   alert("Chat was not deleted.");
+    //   return;
+    // }
 
     // Put your Firebase deletion code here
     console.log("calling the database to delete the chat from the firebase realtime database");
@@ -47,7 +47,6 @@ const ChatNotifications = (props) => {
       .ref(`chat/messages/${uid2}/${dn2}/${uid1}/${dn1}`)
       .remove()
       .then(() => {
-        alert("The chat with "+dn2+" is removed.")
         console.log("Chat removed");
       })
       .catch((error) => {
@@ -63,7 +62,7 @@ const ChatNotifications = (props) => {
         onClick={() => setChatDropdownOpen(!chatDropdownOpen)}
       >
         {selectedChatName}
-        <span>â–¼</span>
+        <span>?</span>
       </button>
       {chatDropdownOpen && (
         <div className="chat-dropdown-list">
@@ -88,7 +87,7 @@ const ChatNotifications = (props) => {
                   removeChatNotification(n.uid2, n.dn2, n.uid1, n.dn);
                 }}
               >
-                x
+                ×
               </button>
             </div>
           ))}

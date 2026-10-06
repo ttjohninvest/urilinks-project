@@ -1002,7 +1002,7 @@ border-color: #fbbf77, var(--tw-border-opacity);
   border-radius: 10px;
   overflow: hidden;
   display: flex;
-  align-items: flex-start;
+  align-items: center; //flex-start;
   list-style: none;
   margin-bottom: 4px;
 }
@@ -1032,8 +1032,11 @@ border-color: #fbbf77, var(--tw-border-opacity);
   margin-bottom: 4px;
 }
 
+
+
 .message-name {
   //margin: 0;
+   //margin: 0 8px 0 0;
   margin-right: 8px;
   color: #2563eb;
   font-weight: 600;
@@ -1043,4 +1046,114 @@ border-color: #fbbf77, var(--tw-border-opacity);
   margin: 0;
   line-height: 1.5;
   color: #374151;
+}
+
+.pretty-select {
+  width: 220px;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: white;
+  color: #1f2937;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pretty-select:hover {
+  border-color: #94a3b8;
+}
+
+.pretty-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.pretty-select option {
+  font-size: 16px;
+  padding: 8px;
+}
+
+// .message {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .message-avatar {
+//   margin-right: 16px;
+//   border-radius: 50%;
+//   flex-shrink: 0;
+// }
+
+
+.chat-dropdown {
+  position: relative;
+  width: 240px;
+}
+
+.chat-dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: 4px;
+
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.chat-dropdown-item {
+  padding: 10px 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.chat-dropdown-item:hover {
+  background-color: #f1f5f9;
+}
+
+.chat-delete-button {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  margin-left: 12px;
+  padding: 0 5px;
+}
+
+.chat-dropdown-button {
+  width: 100%;
+  padding: 10px 14px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.chat-dropdown-button:hover {
+  border-color: #94a3b8;
+}
+
+.chat-delete-button:hover {
+  background-color: #fee2e2;
+  border-radius: 4px;
 }

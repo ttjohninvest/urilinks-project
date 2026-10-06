@@ -12,6 +12,7 @@ import Message from "./Message";
   const Channel = (props) => {
     const [photourl, setPhotourl] = useState(null)
   // console.log("Channel, user="+JSON.stringify(user))
+  //const theurl=`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}/3`
   const theurl=`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}`
   //`chat/messages/D9/name2/XL/name1`
   //const theurl=`chat/messages/${props.id2}/${props.id}`

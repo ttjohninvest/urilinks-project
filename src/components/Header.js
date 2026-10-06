@@ -1227,7 +1227,9 @@ const handleClick = useCallback(() => {
                     {props.signup.signup === false &&
                       x !== "readonly" &&
                       ni !== "1" &&
-                      ni !== "2" && (
+                      ni !== "2" &&  
+                      //ni !== "3" && 
+                      (
                         <div
                           className="color-white-1 color-black-2- margin-right-1"
                           title="Please use it for good. Bookmarks for internet pages, urls/links"

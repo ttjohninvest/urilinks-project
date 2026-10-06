@@ -33,7 +33,7 @@ const ChatNotifications = (props) => {
 
   const removeChatNotification = (uid2, dn2, uid1, dn1) => {
     const confirmation = window.prompt(
-      "To delete this chat, type exactly: delete chat",
+      "To delete this chat with "+dn2+", type exactly: delete chat",
     );
 
     if (confirmation !== "delete chat") {

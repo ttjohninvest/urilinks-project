@@ -226,11 +226,11 @@ const FetchBookmarks = (props) => {
     return str.length > length ? str.slice(0, length) : str;
   }
 
-  const isYouTubeThumbnailAvailable = async (thumbnailUrl) => {
+  const isYouTubeThumbnailAvailable = (thumbnailUrl) => {
   if (!thumbnailUrl) return false;
 
   try {
-    const response = await fetch(thumbnailUrl, {
+    const response = fetch(thumbnailUrl, {
       method: "HEAD"
     });
 
@@ -306,7 +306,7 @@ const FetchBookmarks = (props) => {
               body: htmlContent,
             })
               .then((response) => response.json())
-              .then(async (data) => {
+              .then((data) => {
                 //json
                 console.log("Success:");
                 console.log(data);
@@ -358,7 +358,7 @@ const FetchBookmarks = (props) => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -435,7 +435,7 @@ const FetchBookmarks = (props) => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -502,7 +502,7 @@ const FetchBookmarks = (props) => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -578,7 +578,7 @@ const FetchBookmarks = (props) => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -665,7 +665,7 @@ const FetchBookmarks = (props) => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -758,7 +758,7 @@ const FetchBookmarks = (props) => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -862,7 +862,7 @@ const FetchBookmarks = (props) => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -958,7 +958,7 @@ const FetchBookmarks = (props) => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1023,7 +1023,7 @@ const FetchBookmarks = (props) => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1090,7 +1090,7 @@ const FetchBookmarks = (props) => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1167,7 +1167,7 @@ const FetchBookmarks = (props) => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1254,7 +1254,7 @@ const FetchBookmarks = (props) => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1347,7 +1347,7 @@ const FetchBookmarks = (props) => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1451,7 +1451,7 @@ const FetchBookmarks = (props) => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1550,7 +1550,7 @@ const FetchBookmarks = (props) => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1616,7 +1616,7 @@ const FetchBookmarks = (props) => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1683,7 +1683,7 @@ const FetchBookmarks = (props) => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1760,7 +1760,7 @@ const FetchBookmarks = (props) => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1847,7 +1847,7 @@ const FetchBookmarks = (props) => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -1940,7 +1940,7 @@ const FetchBookmarks = (props) => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2044,7 +2044,7 @@ const FetchBookmarks = (props) => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2145,7 +2145,7 @@ const FetchBookmarks = (props) => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2216,7 +2216,7 @@ const FetchBookmarks = (props) => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2284,7 +2284,7 @@ const FetchBookmarks = (props) => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2361,7 +2361,7 @@ const FetchBookmarks = (props) => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2447,7 +2447,7 @@ const FetchBookmarks = (props) => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2539,7 +2539,7 @@ const FetchBookmarks = (props) => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2641,7 +2641,7 @@ const FetchBookmarks = (props) => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2739,7 +2739,7 @@ const FetchBookmarks = (props) => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2804,7 +2804,7 @@ const FetchBookmarks = (props) => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2870,7 +2870,7 @@ const FetchBookmarks = (props) => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -2946,7 +2946,7 @@ const FetchBookmarks = (props) => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -3032,7 +3032,7 @@ const FetchBookmarks = (props) => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -3124,7 +3124,7 @@ const FetchBookmarks = (props) => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {
@@ -3227,7 +3227,7 @@ const FetchBookmarks = (props) => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(link.Url);
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
       if(v===true) {
 
       } else {

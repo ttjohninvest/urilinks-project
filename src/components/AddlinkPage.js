@@ -25,6 +25,7 @@ export const AddLinkPage = (props) => {
   const [userId, setUserId] = useState("");
   const [maximumPage, setMaximumPage] = useState(false);
   const [errorDialog, setErrorDialog] = useState(false);
+   const [linkStatuses, setLinkStatuses] = useState({});
   //const history = useHistory();
 
   //   const baseUrl =
@@ -226,6 +227,28 @@ export const AddLinkPage = (props) => {
   }
 };
 
+const checkLink = async (url) => {
+    try {
+      const response = await fetch(
+        "https://urilinks-project-vercel-api-5.vercel.app/check-link",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url }),
+        },
+      );
+
+      const data = await response.json();
+
+      return data.message;
+    } catch (error) {
+      console.log("Error checking link:", error);
+      return null;
+    }
+  };
+
   const onSubmit = async (link) => {
     console.log("AddlinkPage.js, in onSubmit");
     console.log("AddlinkPage.js, link.addescription = " + link.addescription);
@@ -244,6 +267,13 @@ export const AddLinkPage = (props) => {
       link.foldername = link.description;
       
       link.yturl = isityt(link.Url);
+
+        const linkStatus = await checkLink(link.Url);
+                              setLinkStatuses((prev) => ({
+                                ...prev,
+                                [link.Url]: linkStatus,
+                              }));
+
       const v = await isYouTubeThumbnailAvailable(link.yturl) //returns true or false
       if(v===true) {
 

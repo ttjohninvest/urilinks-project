@@ -56,7 +56,7 @@ const ChatNotifications = (props) => {
   };
 
   return (
-    <div className="chat-dropdown">
+    <div className="chat-dropdown margin-left-11">
       <button
         type="button"
         className="chat-dropdown-button"

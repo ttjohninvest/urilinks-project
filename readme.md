@@ -2394,3 +2394,79 @@ PS C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\
   TCP    [::]:3000              [::]:0                 LISTENING       31752
 PS C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project> taskkill /PID 31752 /F
 =================================================================================================================
+
+new vercel end point to check for broken links
+async function checkLinkStatus(url) {
+  if (!url || (!url.startsWith("http://") && !url.startsWith("https://"))) {
+    return {
+      status: null,
+      result: "unknown"
+    };
+  }
+
+  try {
+    const controller = new AbortController();
+
+    const timeout = setTimeout(() => {
+      controller.abort();
+    }, 8000);
+
+    let response;
+
+    try {
+      // Try HEAD first because it does not download the whole page
+      response = await fetch(url, {
+        method: "HEAD",
+        redirect: "follow",
+        signal: controller.signal
+      });
+    } catch (error) {
+      response = null;
+    }
+
+    // Some websites do not allow HEAD.
+    // Try a normal GET instead.
+    if (!response || response.status === 403 || response.status === 405) {
+      response = await fetch(url, {
+        method: "GET",
+        redirect: "follow",
+        signal: controller.signal
+      });
+    }
+
+    clearTimeout(timeout);
+
+    if (response.status >= 200 && response.status < 400) {
+      return {
+        status: response.status,
+        result: "working"
+      };
+    }
+
+    if (response.status === 404 || response.status === 410) {
+      return {
+        status: response.status,
+        result: "broken"
+      };
+    }
+
+    return {
+      status: response.status,
+      result: "unknown"
+    };
+
+  } catch (error) {
+    console.log("Link check error:", error);
+
+    return {
+      status: null,
+      result: "unknown"
+    };
+  }
+}
+==============================================================================================
+vsc commands
+to stop analyazing file and its dependencies
+Developer: Reload Window
+
+===============================================================================================

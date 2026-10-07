@@ -47,31 +47,62 @@ const FetchBookmarks = (props) => {
   const [payPage, setPayPage] = useState(false);
   const [oo, setOo] = useState(props.match.params.option);
   const [user, setUser] = useState(null);
+  const [linkStatuses, setLinkStatuses] = useState({});
 
-  const isYouTubeThumbnailAvailable = async (thumbnailUrl) => {
-  if (!thumbnailUrl) return false;
-
-  try {
-    const response = await fetch(thumbnailUrl, {
-      method: "HEAD"
-    });
-
-    return response.ok;
-
-  } catch (error) {
-    console.log("Thumbnail check failed:", error);
-    return false;
-  }
+  /*
+const linkStatuses = {
+  "https://google.com": "working",
+  "https://oldsite.com": "broken"
 };
 
+linkStatuses["https://google.com"]'s value is working
 
-useEffect(() => {
-  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    setUser(user);
-  });
+  */
 
-  return () => unsubscribe();
-}, []);
+  const checkLink = async (url) => {
+    try {
+      const response = await fetch(
+        "https://urilinks-project-vercel-api-5.vercel.app/check-link",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url }),
+        },
+      );
+
+      const data = await response.json();
+
+      return data.message;
+    } catch (error) {
+      console.log("Error checking link:", error);
+      return null;
+    }
+  };
+
+  const isYouTubeThumbnailAvailable = async (thumbnailUrl) => {
+    if (!thumbnailUrl) return false;
+
+    try {
+      const response = await fetch(thumbnailUrl, {
+        method: "HEAD",
+      });
+
+      return response.ok;
+    } catch (error) {
+      console.log("Thumbnail check failed:", error);
+      return false;
+    }
+  };
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      setUser(user);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   //   function getYouTubeVideoID(url) {
   //     const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/shorts\/)([^"&?\/\s]{11})/;
@@ -270,7 +301,7 @@ useEffect(() => {
       const now = new Date();
       console.log("FetchBookmarks, props.url=" + props.url);
       //fetch("https://firebasestorage.googleapis.com/v0/b/see-my-index-project-7.firebasestorage.app/o/files%2Fbookmarks_6_9_25.html?alt=media&token=6fc9650d-d319-43ab-b2ed-529b3bfcec8b")
-      fetch(props.url+ "&nocache=" + Date.now())
+      fetch(props.url + "&nocache=" + Date.now())
         .then((response) => response.text())
         .then((data2) => {
           // console.log("data=")
@@ -307,7 +338,7 @@ useEffect(() => {
             let r2 = true;
             let htmllinksarray = [];
 
-            fetch("https://urilinks-project-vercel-api-5.vercel.app"+ "&nocache=" + Date.now(), {
+            fetch("https://urilinks-project-vercel-api-5.vercel.app", {
               method: "POST",
               headers: {
                 "Content-Type": " text/plain; charset=UTF-8",
@@ -366,20 +397,20 @@ useEffect(() => {
                           data.message[i].children[j].type === undefined
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
-                          
-                          
 
-let yturl = isityt(url);
+                          let yturl = isityt(url);
+                          const linkStatus = await checkLink(url);
+                          setLinkStatuses((prev) => ({
+                            ...prev,
+                            [url]: linkStatus,
+                          }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
-
-     
-
+                          const v = await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                          if (v === true) {
+                          } else {
+                            yturl = "";
+                          }
+                          console.log("Link status:", linkStatus);
 
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
@@ -445,13 +476,18 @@ let yturl = isityt(url);
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(url);
+                              const linkStatus = await checkLink(url);
+                              setLinkStatuses((prev) => ({
+                                ...prev,
+                                [url]: linkStatus,
+                              }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                              const v =
+                                await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                              if (v === true) {
+                              } else {
+                                yturl = "";
+                              }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -513,13 +549,18 @@ let yturl = isityt(url);
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(url);
+                                  const linkStatus = await checkLink(url);
+                                  setLinkStatuses((prev) => ({
+                                    ...prev,
+                                    [url]: linkStatus,
+                                  }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                  const v =
+                                    await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                                  if (v === true) {
+                                  } else {
+                                    yturl = "";
+                                  }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -590,13 +631,20 @@ let yturl = isityt(url);
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(url);
+                                      const linkStatus = await checkLink(url);
+                                      setLinkStatuses((prev) => ({
+                                        ...prev,
+                                        [url]: linkStatus,
+                                      }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                      const v =
+                                        await isYouTubeThumbnailAvailable(
+                                          yturl,
+                                        ); //returns true or false
+                                      if (v === true) {
+                                      } else {
+                                        yturl = "";
+                                      }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -678,13 +726,21 @@ let yturl = isityt(url);
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(url);
+                                          const linkStatus =
+                                            await checkLink(url);
+                                          setLinkStatuses((prev) => ({
+                                            ...prev,
+                                            [url]: linkStatus,
+                                          }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                          const v =
+                                            await isYouTubeThumbnailAvailable(
+                                              yturl,
+                                            ); //returns true or false
+                                          if (v === true) {
+                                          } else {
+                                            yturl = "";
+                                          }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -772,13 +828,21 @@ let yturl = isityt(url);
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(url);
+                                              const linkStatus =
+                                                await checkLink(url);
+                                              setLinkStatuses((prev) => ({
+                                                ...prev,
+                                                [url]: linkStatus,
+                                              }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                              const v =
+                                                await isYouTubeThumbnailAvailable(
+                                                  yturl,
+                                                ); //returns true or false
+                                              if (v === true) {
+                                              } else {
+                                                yturl = "";
+                                              }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -877,13 +941,21 @@ let yturl = isityt(url);
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(url);
+                                                  const linkStatus =
+                                                    await checkLink(url);
+                                                  setLinkStatuses((prev) => ({
+                                                    ...prev,
+                                                    [url]: linkStatus,
+                                                  }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                                  const v =
+                                                    await isYouTubeThumbnailAvailable(
+                                                      yturl,
+                                                    ); //returns true or false
+                                                  if (v === true) {
+                                                  } else {
+                                                    yturl = "";
+                                                  }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -974,13 +1046,18 @@ let yturl = isityt(url);
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(url);
+                          const linkStatus = await checkLink(url);
+                          setLinkStatuses((prev) => ({
+                            ...prev,
+                            [url]: linkStatus,
+                          }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                          const v = await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                          if (v === true) {
+                          } else {
+                            yturl = "";
+                          }
+                          console.log("Link status:", linkStatus);
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -1040,13 +1117,18 @@ let yturl = isityt(url);
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(url);
+                              const linkStatus = await checkLink(url);
+                              setLinkStatuses((prev) => ({
+                                ...prev,
+                                [url]: linkStatus,
+                              }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                              const v =
+                                await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                              if (v === true) {
+                              } else {
+                                yturl = "";
+                              }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -1108,13 +1190,18 @@ let yturl = isityt(url);
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(url);
+                                  const linkStatus = await checkLink(url);
+                                  setLinkStatuses((prev) => ({
+                                    ...prev,
+                                    [url]: linkStatus,
+                                  }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                  const v =
+                                    await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                                  if (v === true) {
+                                  } else {
+                                    yturl = "";
+                                  }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -1186,13 +1273,20 @@ let yturl = isityt(url);
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(url);
+                                      const linkStatus = await checkLink(url);
+                                      setLinkStatuses((prev) => ({
+                                        ...prev,
+                                        [url]: linkStatus,
+                                      }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                      const v =
+                                        await isYouTubeThumbnailAvailable(
+                                          yturl,
+                                        ); //returns true or false
+                                      if (v === true) {
+                                      } else {
+                                        yturl = "";
+                                      }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -1274,13 +1368,21 @@ let yturl = isityt(url);
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(url);
+                                          const linkStatus =
+                                            await checkLink(url);
+                                          setLinkStatuses((prev) => ({
+                                            ...prev,
+                                            [url]: linkStatus,
+                                          }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                          const v =
+                                            await isYouTubeThumbnailAvailable(
+                                              yturl,
+                                            ); //returns true or false
+                                          if (v === true) {
+                                          } else {
+                                            yturl = "";
+                                          }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -1368,13 +1470,21 @@ let yturl = isityt(url);
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(url);
+                                              const linkStatus =
+                                                await checkLink(url);
+                                              setLinkStatuses((prev) => ({
+                                                ...prev,
+                                                [url]: linkStatus,
+                                              }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                              const v =
+                                                await isYouTubeThumbnailAvailable(
+                                                  yturl,
+                                                ); //returns true or false
+                                              if (v === true) {
+                                              } else {
+                                                yturl = "";
+                                              }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -1473,13 +1583,21 @@ let yturl = isityt(url);
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(url);
+                                                  const linkStatus =
+                                                    await checkLink(url);
+                                                  setLinkStatuses((prev) => ({
+                                                    ...prev,
+                                                    [url]: linkStatus,
+                                                  }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                                  const v =
+                                                    await isYouTubeThumbnailAvailable(
+                                                      yturl,
+                                                    ); //returns true or false
+                                                  if (v === true) {
+                                                  } else {
+                                                    yturl = "";
+                                                  }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -1573,13 +1691,18 @@ let yturl = isityt(url);
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(url);
+                          const linkStatus = await checkLink(url);
+                          setLinkStatuses((prev) => ({
+                            ...prev,
+                            [url]: linkStatus,
+                          }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                          const v = await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                          if (v === true) {
+                          } else {
+                            yturl = "";
+                          }
+                          console.log("Link status:", linkStatus);
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -1640,13 +1763,18 @@ let yturl = isityt(url);
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(url);
+                              const linkStatus = await checkLink(url);
+                              setLinkStatuses((prev) => ({
+                                ...prev,
+                                [url]: linkStatus,
+                              }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                              const v =
+                                await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                              if (v === true) {
+                              } else {
+                                yturl = "";
+                              }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -1708,13 +1836,18 @@ let yturl = isityt(url);
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(url);
+                                  const linkStatus = await checkLink(url);
+                                  setLinkStatuses((prev) => ({
+                                    ...prev,
+                                    [url]: linkStatus,
+                                  }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                  const v =
+                                    await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                                  if (v === true) {
+                                  } else {
+                                    yturl = "";
+                                  }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -1786,13 +1919,20 @@ let yturl = isityt(url);
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(url);
+                                      const linkStatus = await checkLink(url);
+                                      setLinkStatuses((prev) => ({
+                                        ...prev,
+                                        [url]: linkStatus,
+                                      }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                      const v =
+                                        await isYouTubeThumbnailAvailable(
+                                          yturl,
+                                        ); //returns true or false
+                                      if (v === true) {
+                                      } else {
+                                        yturl = "";
+                                      }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -1874,13 +2014,21 @@ let yturl = isityt(url);
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(url);
+                                          const linkStatus =
+                                            await checkLink(url);
+                                          setLinkStatuses((prev) => ({
+                                            ...prev,
+                                            [url]: linkStatus,
+                                          }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                          const v =
+                                            await isYouTubeThumbnailAvailable(
+                                              yturl,
+                                            ); //returns true or false
+                                          if (v === true) {
+                                          } else {
+                                            yturl = "";
+                                          }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -1968,13 +2116,21 @@ let yturl = isityt(url);
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(url);
+                                              const linkStatus =
+                                                await checkLink(url);
+                                              setLinkStatuses((prev) => ({
+                                                ...prev,
+                                                [url]: linkStatus,
+                                              }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                              const v =
+                                                await isYouTubeThumbnailAvailable(
+                                                  yturl,
+                                                ); //returns true or false
+                                              if (v === true) {
+                                              } else {
+                                                yturl = "";
+                                              }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -2073,13 +2229,21 @@ let yturl = isityt(url);
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(url);
+                                                  const linkStatus =
+                                                    await checkLink(url);
+                                                  setLinkStatuses((prev) => ({
+                                                    ...prev,
+                                                    [url]: linkStatus,
+                                                  }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                                  const v =
+                                                    await isYouTubeThumbnailAvailable(
+                                                      yturl,
+                                                    ); //returns true or false
+                                                  if (v === true) {
+                                                  } else {
+                                                    yturl = "";
+                                                  }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -2175,13 +2339,18 @@ let yturl = isityt(url);
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(url);
+                          const linkStatus = await checkLink(url);
+                          setLinkStatuses((prev) => ({
+                            ...prev,
+                            [url]: linkStatus,
+                          }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                          const v = await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                          if (v === true) {
+                          } else {
+                            yturl = "";
+                          }
+                          console.log("Link status:", linkStatus);
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -2247,13 +2416,18 @@ let yturl = isityt(url);
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(url);
+                              const linkStatus = await checkLink(url);
+                              setLinkStatuses((prev) => ({
+                                ...prev,
+                                [url]: linkStatus,
+                              }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                              const v =
+                                await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                              if (v === true) {
+                              } else {
+                                yturl = "";
+                              }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -2316,13 +2490,18 @@ let yturl = isityt(url);
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(url);
+                                  const linkStatus = await checkLink(url);
+                                  setLinkStatuses((prev) => ({
+                                    ...prev,
+                                    [url]: linkStatus,
+                                  }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                  const v =
+                                    await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                                  if (v === true) {
+                                  } else {
+                                    yturl = "";
+                                  }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -2394,13 +2573,20 @@ let yturl = isityt(url);
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(url);
+                                      const linkStatus = await checkLink(url);
+                                      setLinkStatuses((prev) => ({
+                                        ...prev,
+                                        [url]: linkStatus,
+                                      }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                      const v =
+                                        await isYouTubeThumbnailAvailable(
+                                          yturl,
+                                        ); //returns true or false
+                                      if (v === true) {
+                                      } else {
+                                        yturl = "";
+                                      }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -2481,13 +2667,21 @@ let yturl = isityt(url);
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(url);
+                                          const linkStatus =
+                                            await checkLink(url);
+                                          setLinkStatuses((prev) => ({
+                                            ...prev,
+                                            [url]: linkStatus,
+                                          }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                          const v =
+                                            await isYouTubeThumbnailAvailable(
+                                              yturl,
+                                            ); //returns true or false
+                                          if (v === true) {
+                                          } else {
+                                            yturl = "";
+                                          }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -2574,13 +2768,21 @@ let yturl = isityt(url);
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(url);
+                                              const linkStatus =
+                                                await checkLink(url);
+                                              setLinkStatuses((prev) => ({
+                                                ...prev,
+                                                [url]: linkStatus,
+                                              }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                              const v =
+                                                await isYouTubeThumbnailAvailable(
+                                                  yturl,
+                                                ); //returns true or false
+                                              if (v === true) {
+                                              } else {
+                                                yturl = "";
+                                              }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -2677,13 +2879,21 @@ let yturl = isityt(url);
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(url);
+                                                  const linkStatus =
+                                                    await checkLink(url);
+                                                  setLinkStatuses((prev) => ({
+                                                    ...prev,
+                                                    [url]: linkStatus,
+                                                  }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                                  const v =
+                                                    await isYouTubeThumbnailAvailable(
+                                                      yturl,
+                                                    ); //returns true or false
+                                                  if (v === true) {
+                                                  } else {
+                                                    yturl = "";
+                                                  }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -2776,13 +2986,18 @@ let yturl = isityt(url);
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(url);
+                          const linkStatus = await checkLink(url);
+                          setLinkStatuses((prev) => ({
+                            ...prev,
+                            [url]: linkStatus,
+                          }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                          const v = await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                          if (v === true) {
+                          } else {
+                            yturl = "";
+                          }
+                          console.log("Link status:", linkStatus);
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -2842,13 +3057,18 @@ let yturl = isityt(url);
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(url);
+                              const linkStatus = await checkLink(url);
+                              setLinkStatuses((prev) => ({
+                                ...prev,
+                                [url]: linkStatus,
+                              }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                              const v =
+                                await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                              if (v === true) {
+                              } else {
+                                yturl = "";
+                              }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -2909,13 +3129,18 @@ let yturl = isityt(url);
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(url);
+                                  const linkStatus = await checkLink(url);
+                                  setLinkStatuses((prev) => ({
+                                    ...prev,
+                                    [url]: linkStatus,
+                                  }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                  const v =
+                                    await isYouTubeThumbnailAvailable(yturl); //returns true or false
+                                  if (v === true) {
+                                  } else {
+                                    yturl = "";
+                                  }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -2986,13 +3211,20 @@ let yturl = isityt(url);
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(url);
+                                      const linkStatus = await checkLink(url);
+                                      setLinkStatuses((prev) => ({
+                                        ...prev,
+                                        [url]: linkStatus,
+                                      }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                      const v =
+                                        await isYouTubeThumbnailAvailable(
+                                          yturl,
+                                        ); //returns true or false
+                                      if (v === true) {
+                                      } else {
+                                        yturl = "";
+                                      }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -3073,13 +3305,21 @@ let yturl = isityt(url);
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(url);
+                                          const linkStatus =
+                                            await checkLink(url);
+                                          setLinkStatuses((prev) => ({
+                                            ...prev,
+                                            [url]: linkStatus,
+                                          }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                          const v =
+                                            await isYouTubeThumbnailAvailable(
+                                              yturl,
+                                            ); //returns true or false
+                                          if (v === true) {
+                                          } else {
+                                            yturl = "";
+                                          }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -3166,13 +3406,21 @@ let yturl = isityt(url);
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(url);
+                                              const linkStatus =
+                                                await checkLink(url);
+                                              setLinkStatuses((prev) => ({
+                                                ...prev,
+                                                [url]: linkStatus,
+                                              }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                              const v =
+                                                await isYouTubeThumbnailAvailable(
+                                                  yturl,
+                                                ); //returns true or false
+                                              if (v === true) {
+                                              } else {
+                                                yturl = "";
+                                              }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -3270,13 +3518,21 @@ let yturl = isityt(url);
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(url);
+                                                  const linkStatus =
+                                                    await checkLink(url);
+                                                  setLinkStatuses((prev) => ({
+                                                    ...prev,
+                                                    [url]: linkStatus,
+                                                  }));
 
-      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
-
-      } else {
-        yturl = ""
-      }
+                                                  const v =
+                                                    await isYouTubeThumbnailAvailable(
+                                                      yturl,
+                                                    ); //returns true or false
+                                                  if (v === true) {
+                                                  } else {
+                                                    yturl = "";
+                                                  }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -3518,10 +3774,6 @@ let yturl = isityt(url);
                     setResult(result);
                   }
                 }
-
-
-
-                
               })
               .catch((error) => {
                 console.log("caught error = " + error);

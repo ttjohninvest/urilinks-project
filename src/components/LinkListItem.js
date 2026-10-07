@@ -1458,7 +1458,7 @@ if (!canPlay.found) {
             title={"click to open the webpage: " + props.Url}
             onClick={() => storeScrollPosition(props.frequency, event)}
           >
-            {props.description}
+            {props.description+","+props.linkstatus}
           </a>
         </div>
       )}

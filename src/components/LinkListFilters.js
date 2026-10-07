@@ -179,6 +179,61 @@ function ExpandableArray(props) {
   //   }
   // };
 
+  const [linkStatuses, setLinkStatuses] = useState({});
+
+  const checkLink = async (url) => {
+    try {
+      const response = await fetch(
+        "https://urilinks-project-vercel-api-5.vercel.app/check-link",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url }),
+        },
+      );
+
+      const data = await response.json();
+
+      return data.message;
+    } catch (error) {
+      console.log("Error checking link:", error);
+      return null;
+    }
+  };
+
+//   const linksKey = props.links
+//     .map((link) => link.id + ":" + link.Url)
+//     .join("|");
+
+//   useEffect(() => {
+//     const checkDisplayedLinks = async () => {
+//     for (const link of props.links) {
+//       //const url = link.url;
+//       const id = link.id;
+//        const Url = link.Url;
+
+//       // Tell user this link is being checked
+//       setLinkStatuses((prev) => ({
+//         ...prev,
+//         [id]: "checking"
+//       }));
+
+//       const status = await checkLink(Url);
+//       //console.log("link, status="+JSON.stringify(status))
+
+//       // Save the result for this particular link
+//       setLinkStatuses((prev) => ({
+//         ...prev,
+//         [id]: status
+//       }));
+//     }
+//   };
+
+//   checkDisplayedLinks();
+// }, [linksKey]);
+
   useEffect(() => {
     console.log(
       "ExapandableArray, following=" + JSON.stringify(props.following),
@@ -2077,6 +2132,7 @@ function ExpandableArray(props) {
                   // videoId={videoId}
                   // url2={url2}
                   // playInPlaceVideo={playInPlaceVideo}
+                  //linkStatuses={linkStatuses}
                   theSortBy={sortBy}
                   idexists={idexists}
                   av={props.av}

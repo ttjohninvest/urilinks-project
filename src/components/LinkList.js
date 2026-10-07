@@ -518,6 +518,8 @@ export const LinkList = (props) => {
                         className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
                       >
                         <LinkListItem
+                          //props.linkStatuses[link.id].status
+                          //linkstatus = {props.linkStatuses[link.id].result}
                           link={link}
                           rt={rt}
                           key={link.id}

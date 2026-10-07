@@ -270,7 +270,7 @@ useEffect(() => {
       const now = new Date();
       console.log("FetchBookmarks, props.url=" + props.url);
       //fetch("https://firebasestorage.googleapis.com/v0/b/see-my-index-project-7.firebasestorage.app/o/files%2Fbookmarks_6_9_25.html?alt=media&token=6fc9650d-d319-43ab-b2ed-529b3bfcec8b")
-      fetch(props.url)
+      fetch(props.url+ "&nocache=" + Date.now())
         .then((response) => response.text())
         .then((data2) => {
           // console.log("data=")
@@ -307,7 +307,7 @@ useEffect(() => {
             let r2 = true;
             let htmllinksarray = [];
 
-            fetch("https://urilinks-project-vercel-api-5.vercel.app", {
+            fetch("https://urilinks-project-vercel-api-5.vercel.app"+ "&nocache=" + Date.now(), {
               method: "POST",
               headers: {
                 "Content-Type": " text/plain; charset=UTF-8",

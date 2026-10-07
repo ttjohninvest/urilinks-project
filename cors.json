@@ -1,7 +1,11 @@
 [
   {
-    "origin": ["https://urilinks.com"],
-    "method": ["GET"],
-    "maxAgeSeconds": 7200
+    "origin": [
+      "http://localhost:3000",
+      "https://urilinks.com"
+    ],
+    "method": ["GET", "HEAD"],
+    "responseHeader": ["Content-Type"],
+    "maxAgeSeconds": 3600
   }
 ]

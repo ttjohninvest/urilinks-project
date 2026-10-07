@@ -1384,7 +1384,25 @@ if (!canPlay.found) {
 
   // }
 
-  //if (!screenedValue) return <div>Loading...</div>;
+ 
+// let result = "checking";
+
+// if (
+//   props.linkStatuses &&
+//   props.linkStatuses[props.id]
+// ) {
+//   result = props.linkStatuses[props.id].result;
+// }
+
+console.log("props.id =", props.id);
+console.log("props.linkStatuses =", props.linkStatuses);
+
+if (props.linkStatuses) {
+  console.log(
+    "status keys =",
+    Object.keys(props.linkStatuses)
+  );
+}
 
   return (
     <div key={props.index}>
@@ -1458,7 +1476,9 @@ if (!canPlay.found) {
             title={"click to open the webpage: " + props.Url}
             onClick={() => storeScrollPosition(props.frequency, event)}
           >
-            {props.description+","+props.linkstatus}
+            {/* {props.description+","+props.linkStatuses[props.id].result} */}
+            {/* {props.description+result} */}
+            {props.description}
           </a>
         </div>
       )}

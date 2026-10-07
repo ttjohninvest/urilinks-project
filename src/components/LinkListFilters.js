@@ -179,7 +179,7 @@ function ExpandableArray(props) {
   //   }
   // };
 
-  const [linkStatuses, setLinkStatuses] = useState({});
+  //const [linkStatuses, setLinkStatuses] = useState({});
 
   const checkLink = async (url) => {
     try {
@@ -207,32 +207,41 @@ function ExpandableArray(props) {
 //     .map((link) => link.id + ":" + link.Url)
 //     .join("|");
 
-//   useEffect(() => {
-//     const checkDisplayedLinks = async () => {
-//     for (const link of props.links) {
-//       //const url = link.url;
-//       const id = link.id;
-//        const Url = link.Url;
+  
 
-//       // Tell user this link is being checked
-//       setLinkStatuses((prev) => ({
-//         ...prev,
-//         [id]: "checking"
-//       }));
+// useEffect(() => {
+//   const checkDisplayedLinks = async () => {
+//     const newStatuses = {};
+
+//     for (const link of props.links || []) {
+//       const id = link.id;
+//       const Url = link.Url;
+
+//       newStatuses[id] = {
+//         status: null,
+//         result: "checking"
+//       };
 
 //       const status = await checkLink(Url);
-//       //console.log("link, status="+JSON.stringify(status))
 
-//       // Save the result for this particular link
-//       setLinkStatuses((prev) => ({
-//         ...prev,
-//         [id]: status
-//       }));
+//       newStatuses[id] = status;
+//       // console.log("newStatuses["+id+"].result="+newStatuses[id].result)
+//       // console.log(
+//       //   "id=" + id,
+//       //   "Url=" + Url,
+//       //   "status=" + JSON.stringify(status)
+//       // );
 //     }
+
+//     // Update React state only once
+//     setLinkStatuses(newStatuses);
 //   };
 
 //   checkDisplayedLinks();
+
 // }, [linksKey]);
+
+
 
   useEffect(() => {
     console.log(
@@ -1176,6 +1185,22 @@ function ExpandableArray(props) {
     //window.open("/cats?ni=1", "_blank");
     window.open("/dogs?ni=2", "_self");
   };
+
+  // console.log("LinkListFilters.js, props.links.length =", props.links.length);
+  // console.log("LinkListFilters.js, linkStatuses =", JSON.stringify(linkStatuses));
+
+//   return (
+//     <div>
+    
+//   {props.links.map((link) => (
+//   <div key={link.id}>
+//     {link.Url}
+//   </div>
+// ))}
+// </div>
+// )
+
+  //console.log("linkStatuses="+JSON.stringify(JSON.stringify(linkStatuses)))
 
   return (
     <div className="flexrowh-">

@@ -502,7 +502,7 @@ export const LinkList = (props) => {
               ) : (
                 //readonly means another user is seeing the page
                 //private urls don't have to be hid from owner of page
-                props.links.splice(0, themax).map((link, index) => {
+                props.links.slice(0, themax).map((link, index) => {
                   //if(rt === "readonly" && link.showpublic === 0 || (link.showpublic === 1 && link.archive===1)) return (<div></div>)
                   if (
                     rt === "readonly" &&
@@ -520,10 +520,11 @@ export const LinkList = (props) => {
                         <LinkListItem
                           //props.linkStatuses[link.id].status
                           //linkstatus = {props.linkStatuses[link.id].result}
-                          link={link}
+                           link={link}
                           rt={rt}
                           key={link.id}
                           {...link}
+                          linkStatuses = {props.linkStatuses} //{props.linkStatues && props.linkStatuses[link.id]?props.linkStatuses[link.id].result:null}
                           index={index}
                           signup={props.signup.signup}
                           idexists={props.idexists}

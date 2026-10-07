@@ -358,12 +358,12 @@ const FetchBookmarks = (props) => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
 
 
  
@@ -435,12 +435,12 @@ const FetchBookmarks = (props) => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -502,12 +502,12 @@ const FetchBookmarks = (props) => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -578,12 +578,12 @@ const FetchBookmarks = (props) => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -665,12 +665,12 @@ const FetchBookmarks = (props) => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -758,12 +758,12 @@ const FetchBookmarks = (props) => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -862,12 +862,12 @@ const FetchBookmarks = (props) => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -958,12 +958,12 @@ const FetchBookmarks = (props) => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -1023,12 +1023,12 @@ const FetchBookmarks = (props) => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -1090,12 +1090,12 @@ const FetchBookmarks = (props) => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -1167,12 +1167,12 @@ const FetchBookmarks = (props) => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -1254,12 +1254,12 @@ const FetchBookmarks = (props) => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -1347,12 +1347,12 @@ const FetchBookmarks = (props) => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -1451,12 +1451,12 @@ const FetchBookmarks = (props) => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -1550,12 +1550,12 @@ const FetchBookmarks = (props) => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -1616,12 +1616,12 @@ const FetchBookmarks = (props) => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -1683,12 +1683,12 @@ const FetchBookmarks = (props) => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -1760,12 +1760,12 @@ const FetchBookmarks = (props) => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -1847,12 +1847,12 @@ const FetchBookmarks = (props) => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -1940,12 +1940,12 @@ const FetchBookmarks = (props) => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -2044,12 +2044,12 @@ const FetchBookmarks = (props) => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -2145,12 +2145,12 @@ const FetchBookmarks = (props) => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -2216,12 +2216,12 @@ const FetchBookmarks = (props) => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -2284,12 +2284,12 @@ const FetchBookmarks = (props) => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -2361,12 +2361,12 @@ const FetchBookmarks = (props) => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -2447,12 +2447,12 @@ const FetchBookmarks = (props) => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -2539,12 +2539,12 @@ const FetchBookmarks = (props) => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -2641,12 +2641,12 @@ const FetchBookmarks = (props) => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -2739,12 +2739,12 @@ const FetchBookmarks = (props) => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -2804,12 +2804,12 @@ const FetchBookmarks = (props) => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -2870,12 +2870,12 @@ const FetchBookmarks = (props) => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -2946,12 +2946,12 @@ const FetchBookmarks = (props) => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -3032,12 +3032,12 @@ const FetchBookmarks = (props) => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -3124,12 +3124,12 @@ const FetchBookmarks = (props) => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -3227,12 +3227,12 @@ const FetchBookmarks = (props) => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(link.Url);
-      const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
-      if(v===true) {
+      // const v = isYouTubeThumbnailAvailable(yturl) //returns true or false
+      // if(v===true) {
 
-      } else {
-        yturl = ""
-      }
+      // } else {
+      //   yturl = ""
+      // }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]

@@ -48,6 +48,23 @@ const FetchBookmarks = (props) => {
   const [oo, setOo] = useState(props.match.params.option);
   const [user, setUser] = useState(null);
 
+  const isYouTubeThumbnailAvailable = async (thumbnailUrl) => {
+  if (!thumbnailUrl) return false;
+
+  try {
+    const response = await fetch(thumbnailUrl, {
+      method: "HEAD"
+    });
+
+    return response.ok;
+
+  } catch (error) {
+    console.log("Thumbnail check failed:", error);
+    return false;
+  }
+};
+
+
 useEffect(() => {
   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
     setUser(user);
@@ -298,7 +315,7 @@ useEffect(() => {
               body: htmlContent,
             })
               .then((response) => response.json())
-              .then((data) => {
+              .then(async (data) => {
                 //json
                 console.log("Success:");
                 console.log(data);
@@ -349,7 +366,21 @@ useEffect(() => {
                           data.message[i].children[j].type === undefined
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
-                          let yturl = isityt(url);
+                          
+                          
+
+let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
+
+     
+
+
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -414,6 +445,13 @@ useEffect(() => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -475,6 +513,13 @@ useEffect(() => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -545,6 +590,13 @@ useEffect(() => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -626,6 +678,13 @@ useEffect(() => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -713,6 +772,13 @@ useEffect(() => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -811,6 +877,13 @@ useEffect(() => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -901,6 +974,13 @@ useEffect(() => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -960,6 +1040,13 @@ useEffect(() => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -1021,6 +1108,13 @@ useEffect(() => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -1092,6 +1186,13 @@ useEffect(() => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -1173,6 +1274,13 @@ useEffect(() => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -1260,6 +1368,13 @@ useEffect(() => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -1358,6 +1473,13 @@ useEffect(() => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -1451,6 +1573,13 @@ useEffect(() => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -1511,6 +1640,13 @@ useEffect(() => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -1572,6 +1708,13 @@ useEffect(() => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -1643,6 +1786,13 @@ useEffect(() => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -1724,6 +1874,13 @@ useEffect(() => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -1811,6 +1968,13 @@ useEffect(() => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -1909,6 +2073,13 @@ useEffect(() => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -2004,6 +2175,13 @@ useEffect(() => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -2069,6 +2247,13 @@ useEffect(() => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -2131,6 +2316,13 @@ useEffect(() => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -2202,6 +2394,13 @@ useEffect(() => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -2282,6 +2481,13 @@ useEffect(() => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -2368,6 +2574,13 @@ useEffect(() => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -2464,6 +2677,13 @@ useEffect(() => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]
@@ -2556,6 +2776,13 @@ useEffect(() => {
                         ) {
                           let url = data.message[i].children[j].url; //the url of the page
                           let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                           let title = data.message[i].children[j].title; //the link text for the page
                           let add_date = now.getTime(); //data.message[0].children[0].children[0].add_date="9787657654"
                           let icon = data.message[i].children[j].icon; //the little icon of the page
@@ -2615,6 +2842,13 @@ useEffect(() => {
                               let url =
                                 data.message[i].children[j].children[k].url; //the url of the page
                               let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                               console.log("url=" + url);
                               let title =
                                 data.message[i].children[j].children[k].title; //the link text for the page
@@ -2675,6 +2909,13 @@ useEffect(() => {
                                     data.message[i].children[j].children[k]
                                       .children[l].url; //the url of the page
                                   let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                   console.log("url=" + url);
                                   let title =
                                     data.message[i].children[j].children[k]
@@ -2745,6 +2986,13 @@ useEffect(() => {
                                         data.message[i].children[j].children[k]
                                           .children[l].children[m].url; //the url of the page
                                       let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                       console.log("url=" + url);
                                       let title =
                                         data.message[i].children[j].children[k]
@@ -2825,6 +3073,13 @@ useEffect(() => {
                                               m
                                             ].children[n].url; //the url of the page
                                           let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                           console.log("url=" + url);
                                           let title =
                                             data.message[i].children[j]
@@ -2911,6 +3166,13 @@ useEffect(() => {
                                                   .children[m].children[n]
                                                   .children[o].url; //the url of the page
                                               let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                               console.log("url=" + url);
                                               let title =
                                                 data.message[i].children[j]
@@ -3008,6 +3270,13 @@ useEffect(() => {
                                                       .children[o].children[p]
                                                       .url; //the url of the page
                                                   let yturl = isityt(url);
+
+      const v = await isYouTubeThumbnailAvailable(yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        yturl = ""
+      }
                                                   console.log("url=" + url);
                                                   let title =
                                                     data.message[i].children[j]

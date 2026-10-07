@@ -299,35 +299,35 @@ https://www.youtube.com/feed/subscriptions
 https://www.youtube.com/feed/history
   */
 
+  // const isityt2 = (url) => {
+  //   let isit = false;
+  //   if (!!url === true && (url.includes("youtube") || url.includes("youtu.be"))
+  //     && url.includes("search_query") !== true 
+  //     && url.includes("channel") !== true &&
+  //     url.includes("@YouTubeCreators") !== true &&
+  //     url.includes("c/YouTubeCreators") !== true &&
+  //     url.includes("user/YouTube") !== true &&
+  //     url.includes("clip") !== true &&
+  //     url.includes("feed") !== true &&
+  //     url.includes("playlist?list") !== true &&
+  //     url.includes("live?v=") !== true 
+  //   ) {
+  //     isit = true;
+  //   }
+  //   return isit;
+  // };
+
   const isityt2 = (url) => {
-    let isit = false;
-    if (!!url === true && (url.includes("youtube") || url.includes("youtu.be"))
-      && url.includes("search_query") !== true 
-      && url.includes("channel") !== true &&
-      url.includes("@YouTubeCreators") !== true &&
-      url.includes("c/YouTubeCreators") !== true &&
-      url.includes("user/YouTube") !== true &&
-      url.includes("clip") !== true &&
-      url.includes("feed") !== true &&
-      url.includes("playlist?list") !== true &&
-      url.includes("live?v=") !== true 
-    ) {
-      isit = true;
-    }
-    return isit;
-  };
+  if (!url) return false;
 
-//   const isityt2 = (url) => {
-//   if (!url) return false;
-
-//   return (
-//     url.includes("youtube.com/watch?v=") ||
-//     url.includes("youtu.be/") ||
-//     url.includes("youtube.com/shorts/") ||
-//     url.includes("youtube.com/live/") ||
-//     url.includes("youtube.com/embed/")
-//   );
-// };
+  return (
+    url.includes("youtube.com/watch?v=") ||
+    url.includes("youtu.be/") ||
+    url.includes("youtube.com/shorts/") ||
+    url.includes("youtube.com/live/") ||
+    url.includes("youtube.com/embed/")
+  );
+};
 
   
   const addIdToDelete = (id) => {

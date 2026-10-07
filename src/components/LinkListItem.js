@@ -284,21 +284,52 @@ PlaceholderEmbed
     setVisityt("");
   };
 
+  /*
+ https://www.youtube.com/results?search_query=yakutia+family
+ https://www.youtube.com/channel/UCqwGqUtDICaOLKubjpUORRw
+https://www.youtube.com/@YouTubeCreators
+https://www.youtube.com/c/YouTubeCreators
+https://www.youtube.com/user/YouTube
+https://www.youtube.com/@YouTubeCreators/videos
+https://www.youtube.com/@YouTubeCreators/shorts
+https://www.youtube.com/@YouTubeCreators/live
+https://www.youtube.com/@YouTubeCreators/playlists
+https://www.youtube.com/clip/CLIP_ID
+https://www.youtube.com/feed/subscriptions
+https://www.youtube.com/feed/history
+  */
+
   const isityt2 = (url) => {
     let isit = false;
-    if (!!url && url.includes("youtube")) {
+    if (!!url === true && (url.includes("youtube") || url.includes("youtu.be"))
+      && url.includes("search_query") !== true 
+      && url.includes("channel") !== true &&
+      url.includes("@YouTubeCreators") !== true &&
+      url.includes("c/YouTubeCreators") !== true &&
+      url.includes("user/YouTube") !== true &&
+      url.includes("clip") !== true &&
+      url.includes("feed") !== true &&
+      url.includes("playlist?list") !== true &&
+      url.includes("live?v=") !== true 
+    ) {
       isit = true;
     }
     return isit;
   };
 
-  // function Book(BookTitle, BookAuthor, BookPages){
-  //   this.title = BookTitle,
-  //   this.author = BookAuthor,
-  //   this.pages = BookPages
-  // }
-  // This function triggers when a button is clicked
-  //function addNewBook(id){
+//   const isityt2 = (url) => {
+//   if (!url) return false;
+
+//   return (
+//     url.includes("youtube.com/watch?v=") ||
+//     url.includes("youtu.be/") ||
+//     url.includes("youtube.com/shorts/") ||
+//     url.includes("youtube.com/live/") ||
+//     url.includes("youtube.com/embed/")
+//   );
+// };
+
+  
   const addIdToDelete = (id) => {
     console.log("LinkListItem, id=" + id);
     //let book = new Book(title.value, author.value, pages.value);
@@ -1110,40 +1141,156 @@ PlaceholderEmbed
     return regex.test(navigator.userAgent);
   }
 
-  const checkYoutubeEmbeddable = async (videoId) => {
 
+
+  const getYouTubeVideoId = (url) => {
+  if (!url) return null;
+
+  try {
+    const u = new URL(url);
+
+    // https://youtu.be/VIDEO_ID
+    if (u.hostname === "youtu.be" || u.hostname === "www.youtu.be") {
+      return u.pathname.split("/")[1] || null;
+    }
+
+    // https://youtube.com/watch?v=VIDEO_ID
+    if (u.pathname === "/watch") {
+      return u.searchParams.get("v");
+    }
+
+    // https://youtube.com/shorts/VIDEO_ID
+    if (u.pathname.startsWith("/shorts/")) {
+      return u.pathname.split("/")[2] || null;
+    }
+
+    // https://youtube.com/live/VIDEO_ID
+    if (u.pathname.startsWith("/live/")) {
+      return u.pathname.split("/")[2] || null;
+    }
+
+    // https://youtube.com/embed/VIDEO_ID
+    if (u.pathname.startsWith("/embed/")) {
+      return u.pathname.split("/")[2] || null;
+    }
+
+    return null;
+
+  } catch (error) {
+    return null;
+  }
+};
+
+const getYouTubeEmbedUrl = (url) => {
+  if (!url) return null;
+
+  try {
+    const parsedUrl = new URL(url);
+
+    let videoId = null;
+
+    // https://youtu.be/VIDEO_ID
+    if (parsedUrl.hostname.includes("youtu.be")) {
+      videoId = parsedUrl.pathname.split("/")[1];
+    }
+
+    // https://www.youtube.com/watch?v=VIDEO_ID
+    else if (parsedUrl.pathname === "/watch") {
+      videoId = parsedUrl.searchParams.get("v");
+    }
+
+    // https://www.youtube.com/shorts/VIDEO_ID
+    else if (parsedUrl.pathname.startsWith("/shorts/")) {
+      videoId = parsedUrl.pathname.split("/")[2];
+    }
+
+    // https://www.youtube.com/live/VIDEO_ID
+    else if (parsedUrl.pathname.startsWith("/live/")) {
+      videoId = parsedUrl.pathname.split("/")[2];
+    }
+
+    // https://www.youtube.com/embed/VIDEO_ID
+    else if (parsedUrl.pathname.startsWith("/embed/")) {
+      videoId = parsedUrl.pathname.split("/")[2];
+    }
+
+    if (!videoId) return null;
+
+    // Remove anything unexpected after the ID
+    videoId = videoId.split("?")[0].split("&")[0];
+
+    return `https://www.youtube.com/embed/${videoId}`;
+
+  } catch (error) {
+    return null;
+  }
+};
+
+
+
+
+
+  const checkYoutubeEmbeddable = async (url) => {
+  //   const url2 = new URL(url);
+  //   const videoId = url2.searchParams.get("v");
+  // console.log("Play video in place, videoId="+videoId)
+  // console.log("Play video in place, url="+url)
+  const videoId = getYouTubeVideoId(url)
+  //alert(videoId)
+  console.log("checkYoutubeEmbeddable, videoId="+videoId)
   const response = await fetch(
     `https://www.googleapis.com/youtube/v3/videos?part=status&id=${videoId}&key=${"AIzaSyAuDdWM36glULoMAj3EY-65xE2nPKb_p-Y"}`
   );
 
   const data = await response.json();
 
-  if (data.items.length === 0) {
-    return false;
+  //alert(JSON.stringify(data))
+  console.log("Play video in place, data="+JSON.stringify(data))
+
+   if (!data.items || data.items.length === 0) {
+    return {
+      found: false,
+      embeddable: false
+    };
   }
 
-  return data.items[0].status.embeddable === true;
+  return {
+    found: true,
+    embeddable: data.items[0].status.embeddable
+  };
 };
 
+//id is the link id, not the video id
   const playInPlaceVideo = async (id, show, Url, event) => {
 
 //get the video id
-const canPlay = await checkYoutubeEmbeddable(id); //id is the videoId
+const canPlay = await checkYoutubeEmbeddable(Url); 
 
-if (canPlay) {
-  // show iframe
-    //id is the link id, show can be 0 or 1, Url is the Url of the video to play
-    //alert(id+", "+show+", "+Url)
-    let newStr = Url;
-    if (Url.includes("shorts") || Url.includes("watch?v=")) {
-      if (Url.includes("shorts")) {
-        console.log("shorts");
-        newStr = Url.replace("shorts", "embed");
-      } else if (Url.includes("watch?v=")) {
-        console.log("watch?v=");
-        newStr = Url.replace("watch?v=", "embed/");
-      }
-    }
+if (!canPlay.found) {
+  console.log("YouTube API cannot access this video");
+} else if (canPlay.embeddable) {
+  console.log("Video can be embedded");
+ 
+    //let newStr = Url;
+    // if (Url.includes("shorts") || Url.includes("watch?v=")) {
+    //   if (Url.includes("shorts")) {
+    //     console.log("shorts");
+    //     newStr = Url.replace("shorts", "embed");
+    //   } else if (Url.includes("watch?v=")) {
+    //     console.log("watch?v=");
+    //     newStr = Url.replace("watch?v=", "embed/");
+    //     if(newStr.includes("&list=")) {
+    //       //newStr = newStr.replace("&list=","?list=")
+         
+    //      const index = newStr.indexOf("&");
+    //      newStr = index !== -1 ? newStr.substring(0, index) : newStr;
+    //      console.log("2 Play video in place, newStr="+newStr)
+      
+    //     }
+    //   }
+    // }
+
+    const newStr = getYouTubeEmbedUrl(Url)
 
     //alert(newStr)
     console.log("playInPlaceVideo, newStr=" + newStr);
@@ -1197,9 +1344,11 @@ if (canPlay) {
     }
 
 } else {
-  // don't show iframe
-  alert("Youtube won't play this video.")
+  console.log("Video cannot be embedded");
+   alert("Video cannot be embedded");
 }
+
+
 
 
 
@@ -1266,6 +1415,7 @@ if (canPlay) {
               ref={myRef4}
               className=""
               href={props.Url}
+              //href={()=>{getYouTubeEmbedUrl(props.yturl)}}
               target="_blank"
               data-value={props.id}
               title={"click to open the webpage: " + props.Url}
@@ -1274,7 +1424,9 @@ if (canPlay) {
               <img
                 className="borderRadius10"
                 style={{ width: "325px" }}
+                title={props.yturl}
                 src={props.yturl}
+                //src={()=>{getYouTubeEmbedUrl(props.yturl)}}
               />
             </a>
           )}
@@ -1338,8 +1490,8 @@ if (canPlay) {
             <span
               className="ib margin-left-11 margin-top-1zx1"
               style={{ cursor: "pointer" }}
-              //onClick={()=>playInPlaceVideo(videoId, props.id, props.Url)}
-              //onClick={() => abc(props.id, props.show, props.Url)} //props.id is the link id, props.show can be 0 or 1
+              title={props.Url}
+             
               onClick={() => playInPlaceVideo(props.id, props.show, props.Url)}
             >
               {props.show === 0 ? (
@@ -1806,7 +1958,8 @@ const mapStateToProps = (state) => ({
   sortBy: state.sortBy,
   filters: state.filters,
   auth: state.auth,
-  //links: selectLinks(state.links, state.filters), //this is used to get went 1 link is displayed for fixing the scrolling see code in playInPlaceVideo()
+  //links: selectLinks(state.links, state.filters), 
+  
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

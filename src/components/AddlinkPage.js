@@ -122,37 +122,111 @@ export const AddLinkPage = (props) => {
     fetchData();
   }, []);
 
-  const isityt = (url) => {
-    if (!!url === true && url.includes("youtube")) {
-      //https://www.youtube.com/watch?v=L9ervwr0qq0&list=RDL9ervwr0qq0&start_radio=1
-      //   //get the id
-      let ytid;
-      if (!!url === true && url.includes("shorts")) {
-        let a = url.split("/");
-        let i = a.length - 1;
-        ytid = a[i];
-      } else {
-        if (!!url === true) {
-          let a = url.split("v=");
-          if (!!a[1] === true && a[1].includes("&")) {
-            let b = a[1].split("&");
-            ytid = b[0];
-          } else {
-            ytid = a[1];
-          }
-        }
-      }
+  // const isityt = (url) => {
+  //   if (!!url === true && url.includes("youtube")) {
+  //     //https://www.youtube.com/watch?v=L9ervwr0qq0&list=RDL9ervwr0qq0&start_radio=1
+  //     //   //get the id
+  //     let ytid;
+  //     if (!!url === true && url.includes("shorts")) {
+  //       let a = url.split("/");
+  //       let i = a.length - 1;
+  //       ytid = a[i];
+  //     } else {
+  //       if (!!url === true) {
+  //         let a = url.split("v=");
+  //         if (!!a[1] === true && a[1].includes("&")) {
+  //           let b = a[1].split("&");
+  //           ytid = b[0];
+  //         } else {
+  //           ytid = a[1];
+  //         }
+  //       }
+  //     }
 
-      console.log("ytid=" + ytid);
-      return "https://img.youtube.com/vi/" + ytid + "/mqdefault.jpg";
-      // //setVisityt(ytid)
-      //return "https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" //yturl
+  //     console.log("ytid=" + ytid);
+  //     return "https://img.youtube.com/vi/" + ytid + "/mqdefault.jpg";
+  //     // //setVisityt(ytid)
+  //     //return "https://img.youtube.com/vi/K8LLF-46FN8/mqdefault.jpg" //yturl
+  //   }
+
+  //   return "";
+  // };
+
+  const isYouTubeThumbnailAvailable = async (thumbnailUrl) => {
+  if (!thumbnailUrl) return false;
+
+  try {
+    const response = await fetch(thumbnailUrl, {
+      method: "HEAD"
+    });
+
+    return response.ok;
+
+  } catch (error) {
+    console.log("Thumbnail check failed:", error);
+    return false;
+  }
+};
+
+  //const getYouTubeThumbnail = (url) => {
+  const isityt = (url) => {
+  if (!url) //return null; 
+  return ""
+
+  try {
+    const parsedUrl = new URL(url);
+
+    const hostname = parsedUrl.hostname.replace("www.", "");
+
+    // Confirm it is a YouTube URL
+    const isYouTube =
+      hostname === "youtube.com" ||
+      hostname === "m.youtube.com" ||
+      hostname === "music.youtube.com" ||
+      hostname === "youtu.be";
+
+    if (!isYouTube) //return null;
+    return ""
+
+    let videoId = null;
+
+    // https://youtu.be/VIDEO_ID
+    if (hostname === "youtu.be") {
+      videoId = parsedUrl.pathname.split("/")[1];
     }
 
-    return "";
-  };
+    // https://youtube.com/watch?v=VIDEO_ID
+    else if (parsedUrl.pathname === "/watch") {
+      videoId = parsedUrl.searchParams.get("v");
+    }
 
-  const onSubmit = (link) => {
+    // https://youtube.com/shorts/VIDEO_ID
+    else if (parsedUrl.pathname.startsWith("/shorts/")) {
+      videoId = parsedUrl.pathname.split("/")[2];
+    }
+
+    // https://youtube.com/live/VIDEO_ID
+    else if (parsedUrl.pathname.startsWith("/live/")) {
+      videoId = parsedUrl.pathname.split("/")[2];
+    }
+
+    // https://youtube.com/embed/VIDEO_ID
+    else if (parsedUrl.pathname.startsWith("/embed/")) {
+      videoId = parsedUrl.pathname.split("/")[2];
+    }
+
+    if (!videoId) //return null;
+    return ""
+
+    return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+  } catch (error) {
+    //return null;
+    return ""
+  }
+};
+
+  const onSubmit = async (link) => {
     console.log("AddlinkPage.js, in onSubmit");
     console.log("AddlinkPage.js, link.addescription = " + link.addescription);
     console.log("AddlinkPage.js, link.adUrl = " + link.adUrl);
@@ -168,7 +242,14 @@ export const AddLinkPage = (props) => {
       //if (true) {
       link.showpublic = 1;
       link.foldername = link.description;
+      
       link.yturl = isityt(link.Url);
+      const v = await isYouTubeThumbnailAvailable(link.yturl) //returns true or false
+      if(v===true) {
+
+      } else {
+        link.yturl = ""
+      }
       console.log("A link.yturl=" + link.yturl);
       let isin = false;
       //don't add the link if the link text is already in the props.links array of jso objects

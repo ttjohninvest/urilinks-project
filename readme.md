@@ -2374,3 +2374,23 @@ It’s at https://urilinks.com if you’d like to try it. I’d appreciate your 
 There is also another person in that same discussion, u/phunk8, who says they still aren’t happy with the bookmark managers they’ve tried. Reddit
 I would try u/SetAdministrative502 first. They are already actively looking for an alternative, which makes them a particularly good potential first user.
 =============================================================================================================
+how to start up a local server directly in any folder in the file system on windows 11 that will serve an html page
+on the file system when given to the browser in the form localhost:67589/x.html:
+localhost:67589 is output from npx serve .
+
+to see an html file in browser that has file:// which is different that https://
+cd to folder with the html file
+npx serve . (this server serves files that the browser requests) 
+it returns localhost:56774/
+append the html file to the end of http://localhost:56774/
+put it in the browser
+press enter
+see the html page in the browser
+
+=================================================================================================================
+EADDRINUSE error fix
+PS C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project> netstat -ano | findstr :3000
+  TCP    0.0.0.0:3000           0.0.0.0:0              LISTENING       31752
+  TCP    [::]:3000              [::]:0                 LISTENING       31752
+PS C:\Users\Admin\Documents\1-maxschwarzmueller\1-toolbox-for-nextjs\1-websites\0a-tools-nextjs\urilinks-project> taskkill /PID 31752 /F
+=================================================================================================================

@@ -24,7 +24,7 @@ const name2 = props.match.params.name2
 const name1 = props.match.params.name1
 
 const params = new URLSearchParams(window.location.search);
-const setting = params.get("setting");
+const chatsetting = params.get("chatsetting");
 
 console.log("ChatComponent, id2="+id2)
 console.log("ChatComponent, id="+id)
@@ -51,7 +51,7 @@ console.log("ChatComponent, id="+id)
         style={{ maxHeight: "calc(100% - var(--topbar-height))" }}
       >
         {firebase.auth().currentUser !== null ? <Channel user={firebase.auth().currentUser} id2={id2} id={id}
-        name2={name2} name1={name1} setting={setting}
+        name2={name2} name1={name1} chatsetting={chatsetting}
         />:<div>User not found, The user is not logged in.</div>}
         {/* <AnotherComponent /> */}
       </main>

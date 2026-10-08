@@ -23,7 +23,7 @@ const Message = ({
   displayName2 = '',
   displayName1 = '',
   photoURL = '',
-  setting = ''
+  chatsetting = ''
 }) => {
   if (!text) return null;
 
@@ -43,9 +43,9 @@ const Message = ({
       ) : null}
       <div>
         <div className="flex- items-center- mb-1- message-header">
-          {setting==="1" && displayName1 ? (
+          {chatsetting==="1" && displayName1 ? (
             <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{displayName1}</p>
-          ) : setting==="2" ? <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{displayName2}</p>:
+          ) : chatsetting==="2" ? <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{displayName2}</p>:
           "unknown:error"}
           {/* {createdAt?.seconds ? (
             <span className="text-gray-500 text-xs">

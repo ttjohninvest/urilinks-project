@@ -79,7 +79,7 @@ useEffect(()=>{
         uid1:props.id,
         displayName1:props.name1,
         photoURL:photourl,
-        setting:props.setting
+        chatsetting:props.chatsetting
       }
 
     console.log("structure="+JSON.stringify(structure))

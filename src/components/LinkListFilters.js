@@ -2123,7 +2123,7 @@ function ExpandableArray(props) {
                            isFollowing === "is following" ? (
                             <div className="flexrowz">
                               <UnFollowButton />
-                              <ChatButton id2={id2} id={id} name2={dn2} name1={dn} setting={2} />
+                              <ChatButton id2={id2} id={id} name2={dn2} name1={dn} chatsetting={2} />
                             </div>
                           ):null}
 

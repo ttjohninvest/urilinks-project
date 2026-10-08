@@ -837,7 +837,7 @@ const handleClick = useCallback(() => {
                               )}
                              
                              {ni === "3" ? <div></div> :<div>
-                              <ChatNotifications setting={1} />
+                              <ChatNotifications chatsetting={1} />
                               </div>}
                              
 

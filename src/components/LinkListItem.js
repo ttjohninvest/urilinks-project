@@ -118,6 +118,38 @@ const LinkListItem = (props) => {
   const [showvideo, setShowvideo] = useState(0);
   const [screenedValue, setScreenedValue] = useState(null);
 
+  const [showStatus, setShowStatus] = useState(false);
+  const [linkStatus, setLinkStatus] = useState("");
+
+  // const checkLink = async (url) => {
+  //   //const checkLink = (url) => {
+  //   try {
+  //     // const response = await fetch(
+  //     //   "https://urilinks-project-vercel-api-5.vercel.app/check-link",
+  //     const response = fetch(
+  //       "https://urilinks-project-vercel-api-5.vercel.app/check-link",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ url }),
+  //       },
+  //     );
+
+  //     //const data = await response.json();
+  //     const data = response.json();
+
+  //     return data.message;
+  //   } catch (error) {
+  //     console.log("Error checking link:", error);
+  //     return null;
+  //   }
+  // };
+
+  // const status = await checkLink(props.Url);
+  //const status = checkLink(props.Url);
+
   const params = new URLSearchParams(window.location.search);
   const id2 = params.get("id2");
 
@@ -302,7 +334,7 @@ https://www.youtube.com/feed/history
   // const isityt2 = (url) => {
   //   let isit = false;
   //   if (!!url === true && (url.includes("youtube") || url.includes("youtu.be"))
-  //     && url.includes("search_query") !== true 
+  //     && url.includes("search_query") !== true
   //     && url.includes("channel") !== true &&
   //     url.includes("@YouTubeCreators") !== true &&
   //     url.includes("c/YouTubeCreators") !== true &&
@@ -310,7 +342,7 @@ https://www.youtube.com/feed/history
   //     url.includes("clip") !== true &&
   //     url.includes("feed") !== true &&
   //     url.includes("playlist?list") !== true &&
-  //     url.includes("live?v=") !== true 
+  //     url.includes("live?v=") !== true
   //   ) {
   //     isit = true;
   //   }
@@ -318,18 +350,17 @@ https://www.youtube.com/feed/history
   // };
 
   const isityt2 = (url) => {
-  if (!url) return false;
+    if (!url) return false;
 
-  return (
-    url.includes("youtube.com/watch?v=") ||
-    url.includes("youtu.be/") ||
-    url.includes("youtube.com/shorts/") ||
-    url.includes("youtube.com/live/") ||
-    url.includes("youtube.com/embed/")
-  );
-};
+    return (
+      url.includes("youtube.com/watch?v=") ||
+      url.includes("youtu.be/") ||
+      url.includes("youtube.com/shorts/") ||
+      url.includes("youtube.com/live/") ||
+      url.includes("youtube.com/embed/")
+    );
+  };
 
-  
   const addIdToDelete = (id) => {
     console.log("LinkListItem, id=" + id);
     //let book = new Book(title.value, author.value, pages.value);
@@ -1141,222 +1172,202 @@ https://www.youtube.com/feed/history
     return regex.test(navigator.userAgent);
   }
 
-
-
   const getYouTubeVideoId = (url) => {
-  if (!url) return null;
+    if (!url) return null;
 
-  try {
-    const u = new URL(url);
+    try {
+      const u = new URL(url);
 
-    // https://youtu.be/VIDEO_ID
-    if (u.hostname === "youtu.be" || u.hostname === "www.youtu.be") {
-      return u.pathname.split("/")[1] || null;
+      // https://youtu.be/VIDEO_ID
+      if (u.hostname === "youtu.be" || u.hostname === "www.youtu.be") {
+        return u.pathname.split("/")[1] || null;
+      }
+
+      // https://youtube.com/watch?v=VIDEO_ID
+      if (u.pathname === "/watch") {
+        return u.searchParams.get("v");
+      }
+
+      // https://youtube.com/shorts/VIDEO_ID
+      if (u.pathname.startsWith("/shorts/")) {
+        return u.pathname.split("/")[2] || null;
+      }
+
+      // https://youtube.com/live/VIDEO_ID
+      if (u.pathname.startsWith("/live/")) {
+        return u.pathname.split("/")[2] || null;
+      }
+
+      // https://youtube.com/embed/VIDEO_ID
+      if (u.pathname.startsWith("/embed/")) {
+        return u.pathname.split("/")[2] || null;
+      }
+
+      return null;
+    } catch (error) {
+      return null;
     }
+  };
 
-    // https://youtube.com/watch?v=VIDEO_ID
-    if (u.pathname === "/watch") {
-      return u.searchParams.get("v");
+  const getYouTubeEmbedUrl = (url) => {
+    if (!url) return null;
+
+    try {
+      const parsedUrl = new URL(url);
+
+      let videoId = null;
+
+      // https://youtu.be/VIDEO_ID
+      if (parsedUrl.hostname.includes("youtu.be")) {
+        videoId = parsedUrl.pathname.split("/")[1];
+      }
+
+      // https://www.youtube.com/watch?v=VIDEO_ID
+      else if (parsedUrl.pathname === "/watch") {
+        videoId = parsedUrl.searchParams.get("v");
+      }
+
+      // https://www.youtube.com/shorts/VIDEO_ID
+      else if (parsedUrl.pathname.startsWith("/shorts/")) {
+        videoId = parsedUrl.pathname.split("/")[2];
+      }
+
+      // https://www.youtube.com/live/VIDEO_ID
+      else if (parsedUrl.pathname.startsWith("/live/")) {
+        videoId = parsedUrl.pathname.split("/")[2];
+      }
+
+      // https://www.youtube.com/embed/VIDEO_ID
+      else if (parsedUrl.pathname.startsWith("/embed/")) {
+        videoId = parsedUrl.pathname.split("/")[2];
+      }
+
+      if (!videoId) return null;
+
+      // Remove anything unexpected after the ID
+      videoId = videoId.split("?")[0].split("&")[0];
+
+      return `https://www.youtube.com/embed/${videoId}`;
+    } catch (error) {
+      return null;
     }
-
-    // https://youtube.com/shorts/VIDEO_ID
-    if (u.pathname.startsWith("/shorts/")) {
-      return u.pathname.split("/")[2] || null;
-    }
-
-    // https://youtube.com/live/VIDEO_ID
-    if (u.pathname.startsWith("/live/")) {
-      return u.pathname.split("/")[2] || null;
-    }
-
-    // https://youtube.com/embed/VIDEO_ID
-    if (u.pathname.startsWith("/embed/")) {
-      return u.pathname.split("/")[2] || null;
-    }
-
-    return null;
-
-  } catch (error) {
-    return null;
-  }
-};
-
-const getYouTubeEmbedUrl = (url) => {
-  if (!url) return null;
-
-  try {
-    const parsedUrl = new URL(url);
-
-    let videoId = null;
-
-    // https://youtu.be/VIDEO_ID
-    if (parsedUrl.hostname.includes("youtu.be")) {
-      videoId = parsedUrl.pathname.split("/")[1];
-    }
-
-    // https://www.youtube.com/watch?v=VIDEO_ID
-    else if (parsedUrl.pathname === "/watch") {
-      videoId = parsedUrl.searchParams.get("v");
-    }
-
-    // https://www.youtube.com/shorts/VIDEO_ID
-    else if (parsedUrl.pathname.startsWith("/shorts/")) {
-      videoId = parsedUrl.pathname.split("/")[2];
-    }
-
-    // https://www.youtube.com/live/VIDEO_ID
-    else if (parsedUrl.pathname.startsWith("/live/")) {
-      videoId = parsedUrl.pathname.split("/")[2];
-    }
-
-    // https://www.youtube.com/embed/VIDEO_ID
-    else if (parsedUrl.pathname.startsWith("/embed/")) {
-      videoId = parsedUrl.pathname.split("/")[2];
-    }
-
-    if (!videoId) return null;
-
-    // Remove anything unexpected after the ID
-    videoId = videoId.split("?")[0].split("&")[0];
-
-    return `https://www.youtube.com/embed/${videoId}`;
-
-  } catch (error) {
-    return null;
-  }
-};
-
-
-
-
+  };
 
   const checkYoutubeEmbeddable = async (url) => {
-  //   const url2 = new URL(url);
-  //   const videoId = url2.searchParams.get("v");
-  // console.log("Play video in place, videoId="+videoId)
-  // console.log("Play video in place, url="+url)
-  const videoId = getYouTubeVideoId(url)
-  //alert(videoId)
-  console.log("checkYoutubeEmbeddable, videoId="+videoId)
-  const response = await fetch(
-    `https://www.googleapis.com/youtube/v3/videos?part=status&id=${videoId}&key=${"AIzaSyAuDdWM36glULoMAj3EY-65xE2nPKb_p-Y"}`
-  );
+    //   const url2 = new URL(url);
+    //   const videoId = url2.searchParams.get("v");
+    // console.log("Play video in place, videoId="+videoId)
+    // console.log("Play video in place, url="+url)
+    const videoId = getYouTubeVideoId(url);
+    //alert(videoId)
+    console.log("checkYoutubeEmbeddable, videoId=" + videoId);
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/videos?part=status&id=${videoId}&key=${"AIzaSyAuDdWM36glULoMAj3EY-65xE2nPKb_p-Y"}`,
+    );
 
-  const data = await response.json();
+    const data = await response.json();
 
-  //alert(JSON.stringify(data))
-  console.log("Play video in place, data="+JSON.stringify(data))
+    //alert(JSON.stringify(data))
+    console.log("Play video in place, data=" + JSON.stringify(data));
 
-   if (!data.items || data.items.length === 0) {
-    return {
-      found: false,
-      embeddable: false
-    };
-  }
-
-  return {
-    found: true,
-    embeddable: data.items[0].status.embeddable
-  };
-};
-
-//id is the link id, not the video id
-  const playInPlaceVideo = async (id, show, Url, event) => {
-
-//get the video id
-const canPlay = await checkYoutubeEmbeddable(Url); 
-
-if (!canPlay.found) {
-  console.log("YouTube API cannot access this video");
-} else if (canPlay.embeddable) {
-  console.log("Video can be embedded");
- 
-    //let newStr = Url;
-    // if (Url.includes("shorts") || Url.includes("watch?v=")) {
-    //   if (Url.includes("shorts")) {
-    //     console.log("shorts");
-    //     newStr = Url.replace("shorts", "embed");
-    //   } else if (Url.includes("watch?v=")) {
-    //     console.log("watch?v=");
-    //     newStr = Url.replace("watch?v=", "embed/");
-    //     if(newStr.includes("&list=")) {
-    //       //newStr = newStr.replace("&list=","?list=")
-         
-    //      const index = newStr.indexOf("&");
-    //      newStr = index !== -1 ? newStr.substring(0, index) : newStr;
-    //      console.log("2 Play video in place, newStr="+newStr)
-      
-    //     }
-    //   }
-    // }
-
-    const newStr = getYouTubeEmbedUrl(Url)
-
-    //alert(newStr)
-    console.log("playInPlaceVideo, newStr=" + newStr);
-    //alert(1)
-    setUrl2(newStr);
-    setVideoId(id);
-
-    let x1 = 0;
-    if (show === undefined || show === null || show === "NaN") {
-    } else x1 = show;
-    const x = id; //x is link id
-
-    if (x1 === 0) {
-      props.incrementHandleToggle3({ id: x, show: 0 });
-
-      console.log("1 LinkListItem.js, videoId=" + videoId);
-      console.log("1 LinkListItem.js, props.id=" + props.id);
-      console.log("1 LinkListItem.js, show=" + show);
-      //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
-
-      if (show === 0) {
-        //if (props.links.length === 1) {
-        if (true) {
-          //props.ls2element.scrollBy(0, -300);
-          //props.ls2element.scrollTo(0,document.body.scrollHeight)
-          if (!!document.querySelector("#ipvideo" + id)) {
-            document.querySelector("#ipvideo" + id).scrollIntoView({
-              behavior: "smooth", //,
-              //block:"start"
-            });
-
-            //props.bottomElementRef.current.scrollBy(0,100)
-            //props.scrollToBottom()
-          }
-        } else {
-          if (!!document.querySelector("#ipvideo" + id)) {
-            document.querySelector("#ipvideo" + id).scrollIntoView({
-              behavior: "smooth", //,
-              //block:"start"
-            });
-          }
-        }
-      }
-    } else {
-      props.decrementHandleToggle3({ id: x, show: 1 });
-
-      !!document.querySelector(id) &&
-        document.querySelector(id).scrollIntoView({
-          behavior: "smooth",
-        });
+    if (!data.items || data.items.length === 0) {
+      return {
+        found: false,
+        embeddable: false,
+      };
     }
 
-} else {
-  console.log("Video cannot be embedded");
-   alert("Video cannot be embedded");
-}
+    return {
+      found: true,
+      embeddable: data.items[0].status.embeddable,
+    };
+  };
 
+  //id is the link id, not the video id
+  const playInPlaceVideo = async (id, show, Url, event) => {
+    //get the video id
+    const canPlay = await checkYoutubeEmbeddable(Url);
 
+    if (!canPlay.found) {
+      console.log("YouTube API cannot access this video");
+    } else if (canPlay.embeddable) {
+      console.log("Video can be embedded");
 
+      //let newStr = Url;
+      // if (Url.includes("shorts") || Url.includes("watch?v=")) {
+      //   if (Url.includes("shorts")) {
+      //     console.log("shorts");
+      //     newStr = Url.replace("shorts", "embed");
+      //   } else if (Url.includes("watch?v=")) {
+      //     console.log("watch?v=");
+      //     newStr = Url.replace("watch?v=", "embed/");
+      //     if(newStr.includes("&list=")) {
+      //       //newStr = newStr.replace("&list=","?list=")
 
+      //      const index = newStr.indexOf("&");
+      //      newStr = index !== -1 ? newStr.substring(0, index) : newStr;
+      //      console.log("2 Play video in place, newStr="+newStr)
 
+      //     }
+      //   }
+      // }
 
+      const newStr = getYouTubeEmbedUrl(Url);
 
+      //alert(newStr)
+      console.log("playInPlaceVideo, newStr=" + newStr);
+      //alert(1)
+      setUrl2(newStr);
+      setVideoId(id);
 
+      let x1 = 0;
+      if (show === undefined || show === null || show === "NaN") {
+      } else x1 = show;
+      const x = id; //x is link id
 
-  
+      if (x1 === 0) {
+        props.incrementHandleToggle3({ id: x, show: 0 });
+
+        console.log("1 LinkListItem.js, videoId=" + videoId);
+        console.log("1 LinkListItem.js, props.id=" + props.id);
+        console.log("1 LinkListItem.js, show=" + show);
+        //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
+
+        if (show === 0) {
+          //if (props.links.length === 1) {
+          if (true) {
+            //props.ls2element.scrollBy(0, -300);
+            //props.ls2element.scrollTo(0,document.body.scrollHeight)
+            if (!!document.querySelector("#ipvideo" + id)) {
+              document.querySelector("#ipvideo" + id).scrollIntoView({
+                behavior: "smooth", //,
+                //block:"start"
+              });
+
+              //props.bottomElementRef.current.scrollBy(0,100)
+              //props.scrollToBottom()
+            }
+          } else {
+            if (!!document.querySelector("#ipvideo" + id)) {
+              document.querySelector("#ipvideo" + id).scrollIntoView({
+                behavior: "smooth", //,
+                //block:"start"
+              });
+            }
+          }
+        }
+      } else {
+        props.decrementHandleToggle3({ id: x, show: 1 });
+
+        !!document.querySelector(id) &&
+          document.querySelector(id).scrollIntoView({
+            behavior: "smooth",
+          });
+      }
+    } else {
+      console.log("Video cannot be embedded");
+      alert("Video cannot be embedded");
+    }
   };
 
   // const closeInPlaceVideo = (videoid, id) => {
@@ -1384,26 +1395,77 @@ if (!canPlay.found) {
 
   // }
 
- 
-// let result = "checking";
+  // let result = "checking";
 
-// if (
-//   props.linkStatuses &&
-//   props.linkStatuses[props.id]
-// ) {
-//   result = props.linkStatuses[props.id].result;
-// }
+  // if (
+  //   props.linkStatus &&
+  //   props.linkStatuses[props.id]
+  // ) {
+  //   result = props.linkStatuses[props.id].result;
+  // }
 
-console.log("props.id =", props.id);
-console.log("props.linkStatuses =", props.linkStatuses);
+  // console.log("props.id =", props.id);
+  // console.log("props.linkStatus =", props.linkStatus);
 
-if (props.linkStatuses) {
-  console.log(
-    "status keys =",
-    Object.keys(props.linkStatuses)
-  );
-}
+  // if (props.linkStatus) {
+  //   console.log(
+  //     "status keys =",
+  //     Object.keys(props.linkStatus)
+  //   );
+  // }
 
+  const checkLink = async (url) => {
+    try {
+      const response = await fetch(
+        "https://urilinks-project-vercel-api-5.vercel.app/check-link",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url }),
+        },
+      );
+
+      const data = await response.json();
+
+      return data.message.result;
+    } catch (error) {
+      console.log("Error checking link:", error);
+      return null;
+    }
+  };
+
+  const handleMouseEnter = async (Url) => {
+    setShowStatus(true);
+    //setLinkStatus("Checking...");
+
+    //const result = await checkLink(props.Url, props.id);
+    // const result = await checkLink(Url);
+    // console.log("result="+JSON.stringify(result))
+    // setLinkStatus(result);
+
+    await new Promise((resolve) => requestAnimationFrame(resolve));
+
+    const result = await checkLink(Url);
+    //console.log(result);
+    setLinkStatus(result);
+  };
+
+  const handleMouseLeave = () => {
+    setShowStatus(false);
+    setLinkStatus("");
+  };
+
+  // const checkLink = async (url, id) => {
+  //   console.log("checking:", url);
+  //   console.log("link id:", id);
+
+  //   // your fetch call here
+
+  // };
+
+  //console.log("status="+JSON.stringify(status))
   return (
     <div key={props.index}>
       {/* <span>{blb===true?"The link is broken.":"The link is not broken."}</span> */}
@@ -1428,26 +1490,67 @@ if (props.linkStatuses) {
         </div>
       ) : (
         <div>
-          {!!props.yturl && (
-            <a
-              ref={myRef4}
-              className=""
-              href={props.Url}
-              //href={()=>{getYouTubeEmbedUrl(props.yturl)}}
-              target="_blank"
-              data-value={props.id}
-              title={"click to open the webpage: " + props.Url}
-              onClick={() => storeScrollPosition(props.frequency, event)}
-            >
-              <img
-                className="borderRadius10"
-                style={{ width: "325px" }}
-                title={props.yturl}
-                src={props.yturl}
-                //src={()=>{getYouTubeEmbedUrl(props.yturl)}}
-              />
-            </a>
-          )}
+          <div
+            style={{
+              // width:"100px",
+              // height:"50px",
+              // left:"100",
+              // top:"100",
+              position: "relative",
+              display: "inline-block",
+            }}
+          >
+            {!!props.yturl && (
+              <a
+                ref={myRef4}
+                className=""
+                href={props.Url}
+                //href={()=>{getYouTubeEmbedUrl(props.yturl)}}
+                target="_blank"
+                data-value={props.id}
+                //title={"click to open the webpage: " + props.Url}
+                onClick={() => storeScrollPosition(props.frequency, event)}
+              >
+                <img
+                  className="borderRadius10"
+                  style={{ width: "325px" }}
+                  //title={props.yturl}
+                  src={props.yturl}
+                  //src={()=>{getYouTubeEmbedUrl(props.yturl)}}
+                />
+              </a>
+            )}
+          </div>
+          <div
+            // style={{
+            //   // width:"100px",
+            //   // height:"50px",
+            //   // left:"100",
+            //   // top:"200",
+            //   position: "relative",
+            //   display: "inline-block",
+            // }}
+          >
+            {/* {showStatus && linkStatus && (
+              <div 
+                style={{
+                  position: "absolute",
+                  //left: "100%",
+                  left: "100px",
+                  top: "0",
+                  marginLeft: "10px",
+                  padding: "6px 10px",
+                  backgroundColor: "white",
+                  border: "1px solid #999",
+                  borderRadius: "5px",
+                  whiteSpace: "nowrap",
+                  zIndex: 1000,
+                }}
+              >
+                {linkStatus}
+              </div>
+            )} */}
+          </div>
         </div>
       )}
 
@@ -1466,20 +1569,47 @@ if (props.linkStatuses) {
       </div>
 
       {screenedValue === null && (
-        <div className="normal-wrap padding-bottom-11">
+        <div
+          className="normal-wrap padding-bottom-11"
+          style={{
+            position: "relative",
+            display: "inline-block",
+          }}
+        >
           <a
             ref={myRef}
             className={`ib bg-color-1w- borderRadius11- text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
             href={props.Url}
             target="_blank"
             data-value={props.id}
-            title={"click to open the webpage: " + props.Url}
+            //title={"click to open the webpage: " + props.Url}
             onClick={() => storeScrollPosition(props.frequency, event)}
+            //onMouseEnter={() => checkLink(props.Url, props.id)}
+            onMouseEnter={() => handleMouseEnter(props.Url)}
+            onMouseLeave={() => handleMouseLeave()}
           >
-            {/* {props.description+","+props.linkStatuses[props.id].result} */}
-            {/* {props.description+result} */}
             {props.description}
           </a>
+
+          {showStatus && linkStatus && (
+            <div
+              style={{
+                position: "absolute",
+                // left: "100%",
+                left: "-10px",
+                top: "20px",
+                marginLeft: "10px",
+                padding: "6px 10px",
+                backgroundColor: "white",
+                border: "1px solid #999",
+                borderRadius: "5px",
+                whiteSpace: "nowrap",
+                zIndex: 1000,
+              }}
+            >
+              {linkStatus}
+            </div>
+          )}
         </div>
       )}
 
@@ -1511,7 +1641,6 @@ if (props.linkStatuses) {
               className="ib margin-left-11 margin-top-1zx1"
               style={{ cursor: "pointer" }}
               title={props.Url}
-             
               onClick={() => playInPlaceVideo(props.id, props.show, props.Url)}
             >
               {props.show === 0 ? (
@@ -1978,8 +2107,7 @@ const mapStateToProps = (state) => ({
   sortBy: state.sortBy,
   filters: state.filters,
   auth: state.auth,
-  //links: selectLinks(state.links, state.filters), 
-  
+  //links: selectLinks(state.links, state.filters),
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

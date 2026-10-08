@@ -131,6 +131,7 @@ export const Header = (props) => {
   const ideas = () => {};
 
   const params = new URLSearchParams(window.location.search);
+  
   const signup = params.get("signup");
   const x = params.get("x");
   const x1 = params.get("x1");
@@ -835,7 +836,9 @@ const handleClick = useCallback(() => {
                                 </span>
                               )}
                              
-                             {ni === "3" ? <div></div> :<div><ChatNotifications /></div>}
+                             {ni === "3" ? <div></div> :<div>
+                              <ChatNotifications setting={1} />
+                              </div>}
                              
 
                               <span>{dn !== null ? "," : ""}</span>

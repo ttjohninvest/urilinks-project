@@ -1,56 +1,32 @@
 import React, { useRef, useEffect, useState } from "react";
 import LinkList from "./LinkList"
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 
 export const LinkList3 = React.forwardRef((props, ref) => {
     const scrollTimeoutRef = useRef(null);
-    const [linkStatuses, setLinkStatuses] = useState({});
+//     const [linkStatuses, setLinkStatuses] = useState({});
 
 
-    const links = useSelector((state) => state.links); 
+//     const links = useSelector((state) => state.links); 
 
-console.log("Redux links =", links);
-console.log("Redux links length =", links ? links.length : "undefined");
-
-
+// console.log("Redux links =", links);
+// console.log("Redux links length =", links ? links.length : "undefined");
 
 
-     const linksKey = links
-        .map((link) => link.id + ":" + link.Url)
-        .join("|");
 
-        useEffect(() => {
 
-           // Do nothing until Redux has links
-  if (!links || links.length === 0) {
-    return;
-  }
-  
-  const checkDisplayedLinks = async () => {
+//      const linksKey = links
+//         .map((link) => link.id + ":" + link.Url)
+//         .join("|");
 
-    for (const link of links || []) {
-      const status = await checkLink(link.Url);
+// useEffect(() => {
 
-      console.log(
-        "checked:",
-        link.id,
-        link.Url,
-        status
-      );
+//            // Do nothing until Redux has links
+//   if (!links || links.length === 0) {
+//     return;
+//   }
 
-      setLinkStatuses((prev) => ({
-        ...prev,
-        [link.id]: status
-      }));
-    }
-  };
-
-  checkDisplayedLinks();
-
-}, [linksKey]);
-    
-//          useEffect(() => {
 //   const checkDisplayedLinks = async () => {
 
 //     for (const link of links || []) {
@@ -74,43 +50,7 @@ console.log("Redux links length =", links ? links.length : "undefined");
 
 // }, [linksKey]);
     
-    // useEffect(() => {
-    //   const checkDisplayedLinks = async () => {
-    //     const newStatuses = {};
 
-    //         console.log("links inside useEffect =", links);
-
-    
-    //     for (const link of links || []) {
-    //        console.log("checking =", link.Url);
-    //       const id = link.id;
-    //       const Url = link.Url;
-    
-    //       newStatuses[id] = {
-    //         status: null,
-    //         result: "checking"
-    //       };
-    
-    //       const status = await checkLink(Url);
-    //  console.log("status returned =", status);
-    //       newStatuses[id] = status;
-    //       // console.log("newStatuses["+id+"].result="+newStatuses[id].result)
-    //       // console.log(
-    //       //   "id=" + id,
-    //       //   "Url=" + Url,
-    //       //   "status=" + JSON.stringify(status)
-    //       // );
-    //     }
-    
-    //     // Update React state only once
-    //         console.log("newStatuses before set =", newStatuses);
-
-    //     setLinkStatuses(newStatuses);
-    //   };
-    
-    //   checkDisplayedLinks();
-    
-    // }, [linksKey]);
     
     
     // Expose the cancel method to the parent
@@ -146,15 +86,15 @@ console.log("Redux links length =", links ? links.length : "undefined");
 
 
 
-  console.log("LinkList3 linkStatuses =", linkStatuses);
-console.log("LinkList3 status keys =", Object.keys(linkStatuses));
+//   console.log("LinkList3 linkStatuses =", linkStatuses);
+// console.log("LinkList3 status keys =", Object.keys(linkStatuses));
    return (
     <div>
       
       <LinkList 
       //{"status":null,"result":"unknown"}
       //props.linkStatuses[link.id].status
-      linkStatuses={linkStatuses}
+      //linkStatuses={linkStatuses}
       theSortBy = {props.theSortBy}
       videoId={props.videoId}
       url2={props.url2}

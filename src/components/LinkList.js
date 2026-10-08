@@ -3,6 +3,7 @@ const LIST_ALL_PUBLIC_LINKS_PEOPLE = false; //I commented the code out to fix th
 const DISPLAY_THIS_MANY_LINKS = 400;
 import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
+
 import StickyFixed from "./StickyFixed";
 import MyInfiniteScroll from "./MyInfiniteScroll";
 import MyInfiniteScroll2 from "./MyInfiniteScroll2";
@@ -59,18 +60,100 @@ export const LinkList = (props) => {
   const bottomElementRef = useRef();
   const scrollContainerRef = useRef(null);
 
-  // const scrollupref = useRef();
-  // const scrolldownref = useRef();
-  // const scrollInterval2 = useRef(null);
-  // const buttonRef2 = useRef(null);
+
+
+
+  // const [linkStatuses, setLinkStatuses] = useState({});
+  
+  
+  //     const links = useSelector((state) => state.links); 
+  
+  // console.log("Redux links =", links);
+  // console.log("Redux links length =", links ? links.length : "undefined");
+  
+  
+  
+  
+  //      const linksKey = links
+  //         .map((link) => link.id + ":" + link.Url)
+  //         .join("|");
+  
+  // useEffect(() => {
+  
+  //            // Do nothing until Redux has links
+  //   if (!links || links.length === 0) {
+  //     return;
+  //   }
+  
+  //   const checkDisplayedLinks = async () => {
+  
+  //     for (const link of links || []) {
+  //       const status = await checkLink(link.Url);
+  
+  //       console.log(
+  //         "checked:",
+  //         link.id,
+  //         link.Url,
+  //         status
+  //       );
+  
+  //       setLinkStatuses((prev) => ({
+  //         ...prev,
+  //         [link.id]: status
+  //       }));
+  //     }
+  //   };
+  
+  //   checkDisplayedLinks();
+  
+  // }, [linksKey]);
+
+//     const linksKey = props.links
+//     .map((link) => link.id + ":" + link.Url)
+//     .join("|");
+
+  
+
+// useEffect(() => {
+//   const checkDisplayedLinks = async () => {
+//     const newStatuses = {};
+
+//     for (const link of props.links || []) {
+//       const id = link.id;
+//       const Url = link.Url;
+
+//       newStatuses[id] = {
+//         status: null,
+//         result: "checking"
+//       };
+
+//       const status = await checkLink(Url);
+
+//       newStatuses[id] = status;
+//       // console.log("newStatuses["+id+"].result="+newStatuses[id].result)
+//       console.log(
+//         "id=" + id,
+//         "Url=" + Url,
+//         "status=" + JSON.stringify(status)
+//       );
+//     }
+
+//     // Update React state only once
+//     setLinkStatuses(newStatuses);
+//   };
+
+//   checkDisplayedLinks();
+
+// }, [linksKey]);
+
+  
 
   const getPlanMax = () => {
     let max = StorageSizes.free;
     //props.settings.plan
-    if(props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
-          max = StorageSizes.mine;
-        else
-    if (
+    if (props.auth.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2")
+      max = StorageSizes.mine;
+    else if (
       !!props.theplan.plan &&
       props.theplan.plan.replace(/"/g, "") === "free"
     ) {
@@ -157,111 +240,107 @@ export const LinkList = (props) => {
   //     });
   // };
 
-//   const startScrollingUp2 = () => {
-//      try {
-//     if(!!buttonRef2===true)
-//     buttonRef2.current.click();
-//    } catch(error) {
-//     console.log("error="+error)
-//   }
-//     // Prevent multiple intervals
-//     if (scrollInterval2.current) return;
+  //   const startScrollingUp2 = () => {
+  //      try {
+  //     if(!!buttonRef2===true)
+  //     buttonRef2.current.click();
+  //    } catch(error) {
+  //     console.log("error="+error)
+  //   }
+  //     // Prevent multiple intervals
+  //     if (scrollInterval2.current) return;
 
-//     scrollInterval2.current = setInterval(() => {
+  //     scrollInterval2.current = setInterval(() => {
 
-//       try {
-//         if(!!document.getElementById("ls2")===true)
-//  document.getElementById("ls2").scrollBy({
-//         top: 1, // Scroll 1 pixel each time
-//         left: 0,
-//         behavior: "auto",
-//       });
-//       } catch(error) {
-//         console.log("error="+error)
-//       }
-     
+  //       try {
+  //         if(!!document.getElementById("ls2")===true)
+  //  document.getElementById("ls2").scrollBy({
+  //         top: 1, // Scroll 1 pixel each time
+  //         left: 0,
+  //         behavior: "auto",
+  //       });
+  //       } catch(error) {
+  //         console.log("error="+error)
+  //       }
 
-//       //console.log(document.getElementById("ls2").scrollTop +
-//       //    document.getElementById("ls2").clientHeight)
-//       //console.log(document.getElementById("ls2").scrollHeight)
-//       if(!!document.getElementById("ls2")===true)
-//       if (
-//         document.getElementById("ls2").scrollTop +
-//           document.getElementById("ls2").clientHeight >=
-//         (document.getElementById("ls2").scrollHeight-2 ||  document.getElementById("ls2").scrollHeight+2)
-//       ) {
-        
-//         try {
-//     if(!!buttonRef2===true)
-//     buttonRef2.current.click();
-//    } catch(error) {
-//     console.log("error="+error)
-//   }
-//        try {
-//        if(!!scrolldownref===true) //auto scroll in the other direction
-//         scrolldownref.current.click()
-//        } catch(error) {
-//         console.log("error="+error)
-//        }
-        
-        
-//       }
-//     }, 20); // Every 20 milliseconds
- 
-//   };
+  //       //console.log(document.getElementById("ls2").scrollTop +
+  //       //    document.getElementById("ls2").clientHeight)
+  //       //console.log(document.getElementById("ls2").scrollHeight)
+  //       if(!!document.getElementById("ls2")===true)
+  //       if (
+  //         document.getElementById("ls2").scrollTop +
+  //           document.getElementById("ls2").clientHeight >=
+  //         (document.getElementById("ls2").scrollHeight-2 ||  document.getElementById("ls2").scrollHeight+2)
+  //       ) {
 
-//   const stopScrolling2 = () => {
-//     clearInterval(scrollInterval2.current);
-//     scrollInterval2.current = null;
-//   };
+  //         try {
+  //     if(!!buttonRef2===true)
+  //     buttonRef2.current.click();
+  //    } catch(error) {
+  //     console.log("error="+error)
+  //   }
+  //        try {
+  //        if(!!scrolldownref===true) //auto scroll in the other direction
+  //         scrolldownref.current.click()
+  //        } catch(error) {
+  //         console.log("error="+error)
+  //        }
 
-//   const startScrollingDown2 = () => {
-//     try {
-//     if(!!buttonRef2===true)
-//     buttonRef2.current.click();
-//    } catch(error) {
-//     console.log("error="+error)
-//   }
-//     // Prevent multiple intervals
-//     if (scrollInterval2.current) return;
+  //       }
+  //     }, 20); // Every 20 milliseconds
 
-//     scrollInterval2.current = setInterval(() => {
-//         try {
-//        if(!!document.getElementById("ls2")===true) //auto scroll in the other direction
-//          document.getElementById("ls2").scrollBy({
-//         top: -1, // Scroll 1 pixel each time
-//         left: 0,
-//         behavior: "auto",
-//       });
-//        } catch(error) {
-//         console.log("error="+error)
-//        }
-     
+  //   };
 
-//       // Stop automatically when reaching the top
-//       if(!!document.getElementById("ls2")===true)
-//       if (document.getElementById("ls2").scrollTop === 0 || document.getElementById("ls2").scrollTop <= 2) {
-//         try {
-//     if(!!buttonRef2===true)
-//     buttonRef2.current.click();
-//    } catch(error) {
-//     console.log("error="+error)
-//   }
+  //   const stopScrolling2 = () => {
+  //     clearInterval(scrollInterval2.current);
+  //     scrollInterval2.current = null;
+  //   };
 
-//    try {
-//        if(!!scrollupref===true) //auto scroll in the other direction
-//           if(!!scrollupref===true) //auto scroll in the other direction
-//         scrollupref.current.click()
-//        } catch(error) {
-//         console.log("error="+error)
-//        }
-       
-       
-//         //stopScrolling();
-//       }
-//     }, 20); // Every 20 milliseconds
-   
-//   };
+  //   const startScrollingDown2 = () => {
+  //     try {
+  //     if(!!buttonRef2===true)
+  //     buttonRef2.current.click();
+  //    } catch(error) {
+  //     console.log("error="+error)
+  //   }
+  //     // Prevent multiple intervals
+  //     if (scrollInterval2.current) return;
+
+  //     scrollInterval2.current = setInterval(() => {
+  //         try {
+  //        if(!!document.getElementById("ls2")===true) //auto scroll in the other direction
+  //          document.getElementById("ls2").scrollBy({
+  //         top: -1, // Scroll 1 pixel each time
+  //         left: 0,
+  //         behavior: "auto",
+  //       });
+  //        } catch(error) {
+  //         console.log("error="+error)
+  //        }
+
+  //       // Stop automatically when reaching the top
+  //       if(!!document.getElementById("ls2")===true)
+  //       if (document.getElementById("ls2").scrollTop === 0 || document.getElementById("ls2").scrollTop <= 2) {
+  //         try {
+  //     if(!!buttonRef2===true)
+  //     buttonRef2.current.click();
+  //    } catch(error) {
+  //     console.log("error="+error)
+  //   }
+
+  //    try {
+  //        if(!!scrollupref===true) //auto scroll in the other direction
+  //           if(!!scrollupref===true) //auto scroll in the other direction
+  //         scrollupref.current.click()
+  //        } catch(error) {
+  //         console.log("error="+error)
+  //        }
+
+  //         //stopScrolling();
+  //       }
+  //     }, 20); // Every 20 milliseconds
+
+  //   };
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -344,150 +423,152 @@ export const LinkList = (props) => {
   //
 
   const goTolinkid = () => {
-      if(linkid !== null) {
-          props.stopScrolling2()
-          window.scrollTo(0,0)
-          document
-                .querySelector("#"+linkid)
-                .scrollIntoView({
-                  behavior: "smooth",
-                });
-          //params.delete("p");
-          window.scrollTo(0,window.scrollY) //without this statement, it will put the link near the top with the scroll control buttons
-      
-        }
+    if (linkid !== null) {
+      props.stopScrolling2();
+      window.scrollTo(0, 0);
+      document.querySelector("#" + linkid).scrollIntoView({
+        behavior: "smooth",
+      });
+      //params.delete("p");
+      window.scrollTo(0, window.scrollY); //without this statement, it will put the link near the top with the scroll control buttons
     }
+  };
 
   useEffect(() => {
-     console.log("AAAAA,z="+z);
-      console.log("AAAAA,z2="+z2);
-      console.log("AAAAA,linkid="+linkid);
-   
+    console.log("AAAAA,z=" + z);
+    console.log("AAAAA,z2=" + z2);
+    console.log("AAAAA,linkid=" + linkid);
 
-  //   if (z2 === "1") {
-      
-  //    console.log("in z2===2, linkid="+linkid)
-  // if(!!document.querySelector("#"+linkid)) {
-  //      console.log("!!document.querySelector('#'+linkid) was TRUE")
-  //      goTolinkid()
-  //       } else {
-  //         console.log("!!document.querySelector('#'+linkid) was FALSE")
-  //       }
-  //     } else {
-         if(z !== "1") {
-       //starts automatic scrolling or auto scroll
-       //props.stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
-       //check here to see if scroll has started because the user clicked the scollup or scrolldn button
-       props.handleStartScroll(props.scrollupref.current)
+    //   if (z2 === "1") {
+
+    //    console.log("in z2===2, linkid="+linkid)
+    // if(!!document.querySelector("#"+linkid)) {
+    //      console.log("!!document.querySelector('#'+linkid) was TRUE")
+    //      goTolinkid()
+    //       } else {
+    //         console.log("!!document.querySelector('#'+linkid) was FALSE")
+    //       }
+    //     } else {
+    if (z !== "1") {
+      //starts automatic scrolling or auto scroll
+      //props.stopScrolling2() //just in case someone clicked the scrollUp button before the 8second delay was up
+      //check here to see if scroll has started because the user clicked the scollup or scrolldn button
+      props.handleStartScroll(props.scrollupref.current);
     }
-     // }
-   
-    
+    // }
   }, []);
-  
+
+  //console.log("LinkList.js, linkStatuses="+JSON.stringify(linkStatuses))
 
   return (
     <div>
-     
-
       {isMobile() === false && (
         <div className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
           {/* {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`} */}
-          {props.links.length===0?props.links.length+' links found.':props.links.length===1?'1 link found.':props.links.length+' links found.'}
+          {props.links.length === 0
+            ? props.links.length + " links found."
+            : props.links.length === 1
+              ? "1 link found."
+              : props.links.length + " links found."}
         </div>
       )}
-      {props.links.length > 1 && 
-      <StickyFixed>
-      <div className="margin-left-11 margin-top-n-1u"
-      style={{zIndex:99}}
-      >
-         <button
-          id="linkid"
-          //ref={props.scrollupref}
-          title="Return to link."
-          onClick={goTolinkid}
-          className="ib button-2 widthxpx1"
-          style={{zIndex:99}}
-        >
-          <span>Return</span>
-        </button>
-        <button
-          id="scrollup1"
-          ref={props.scrollupref}
-          title="Click the button to begin auto scroll."
-          onClick={props.startScrollingUp2}
-          className="ib button-2 widthxpx1 margin-left-11"
-          style={{zIndex:99}}
-        >
-          <span>ScrollUp</span>
-        </button>
+      {props.links.length > 1 && (
+        <StickyFixed>
+          <div
+            className="margin-left-11 margin-top-n-1u"
+            style={{ zIndex: 99 }}
+          >
+            <button
+              id="linkid"
+              //ref={props.scrollupref}
+              title="Return to link."
+              onClick={goTolinkid}
+              className="ib button-2 widthxpx1"
+              style={{ zIndex: 99 }}
+            >
+              <span>Return</span>
+            </button>
+            <button
+              id="scrollup1"
+              ref={props.scrollupref}
+              title="Click the button to begin auto scroll."
+              onClick={props.startScrollingUp2}
+              className="ib button-2 widthxpx1 margin-left-11"
+              style={{ zIndex: 99 }}
+            >
+              <span>ScrollUp</span>
+            </button>
 
-        <button
-          ref={props.buttonRef2}
-          title="Click the button to stop auto scroll."
-          onClick={props.stopScrolling2}
-          className="button-2 ib margin-left-11"
-          style={{zIndex:99}}
-        >
-          <span>Stop</span>
-        </button>
+            <button
+              ref={props.buttonRef2}
+              title="Click the button to stop auto scroll."
+              onClick={props.stopScrolling2}
+              className="button-2 ib margin-left-11"
+              style={{ zIndex: 99 }}
+            >
+              <span>Stop</span>
+            </button>
 
-        <button
-          ref={props.scrolldownref}
-          title="Click the button to begin auto scroll."
-          onClick={props.startScrollingDown2}
-          className="button-2 ib margin-left-11 widthxpx1"
-          style={{zIndex:99}}
-        >
-          <span>ScrollDn</span>
-        </button>
-        {isMobile() === true ?<span className="displaynone margin-top-1 margin-left-n-1 margin-bottom-1">
-        <button
-          ref={props.scrolltotopref}
-          title="Click the button to begin auto scroll."
-          onClick={props.startScrollToTop2}
-          className="button-2 ib margin-left-11 widthxpx1"
-          style={{zIndex:99}}
-        >
-          <span>ScrollToTop</span>
-        </button>
-         <button
-          ref={props.scrolltobottomref}
-          title="Click the button to begin auto scroll."
-          onClick={props.startScrollToBottom2}
-          className="button-2 ib margin-left-11 widthxpx1"
-          style={{zIndex:99}}
-        >
-        <span>ScrollToEnd</span>
-        </button></span>:<span>
-          <button
-          ref={props.scrolltotopref}
-          title="Click the button to begin auto scroll."
-          onClick={props.startScrollToTop2}
-          className="button-2 ib margin-left-11 widthxpx1"
-          style={{zIndex:99}}
-        >
-          <span>ScrollToTop</span>
-        </button>
-         <button
-          ref={props.scrolltobottomref}
-          title="Click the button to begin auto scroll."
-          onClick={props.startScrollToBottom2}
-          className="button-2 ib margin-left-11 widthxpx1"
-          style={{zIndex:99}}
-        >
-          <span>ScrollToEnd</span>
-        </button>
-        </span>
-        }
-      </div>
-      </StickyFixed>
-      }
+            <button
+              ref={props.scrolldownref}
+              title="Click the button to begin auto scroll."
+              onClick={props.startScrollingDown2}
+              className="button-2 ib margin-left-11 widthxpx1"
+              style={{ zIndex: 99 }}
+            >
+              <span>ScrollDn</span>
+            </button>
+            {isMobile() === true ? (
+              <span className="displaynone margin-top-1 margin-left-n-1 margin-bottom-1">
+                <button
+                  ref={props.scrolltotopref}
+                  title="Click the button to begin auto scroll."
+                  onClick={props.startScrollToTop2}
+                  className="button-2 ib margin-left-11 widthxpx1"
+                  style={{ zIndex: 99 }}
+                >
+                  <span>ScrollToTop</span>
+                </button>
+                <button
+                  ref={props.scrolltobottomref}
+                  title="Click the button to begin auto scroll."
+                  onClick={props.startScrollToBottom2}
+                  className="button-2 ib margin-left-11 widthxpx1"
+                  style={{ zIndex: 99 }}
+                >
+                  <span>ScrollToEnd</span>
+                </button>
+              </span>
+            ) : (
+              <span>
+                <button
+                  ref={props.scrolltotopref}
+                  title="Click the button to begin auto scroll."
+                  onClick={props.startScrollToTop2}
+                  className="button-2 ib margin-left-11 widthxpx1"
+                  style={{ zIndex: 99 }}
+                >
+                  <span>ScrollToTop</span>
+                </button>
+                <button
+                  ref={props.scrolltobottomref}
+                  title="Click the button to begin auto scroll."
+                  onClick={props.startScrollToBottom2}
+                  className="button-2 ib margin-left-11 widthxpx1"
+                  style={{ zIndex: 99 }}
+                >
+                  <span>ScrollToEnd</span>
+                </button>
+              </span>
+            )}
+          </div>
+        </StickyFixed>
+      )}
       <div id="forvideo"></div>
       <div className="border-left-5">
         <div id="before-link-summary-id" className="margin-bottom-5a"></div>
 
-        <div 
+        <div
         //ref={scrollContainerRef}
         >
           {selectedOption === "option1" && (
@@ -497,46 +578,49 @@ export const LinkList = (props) => {
               className={`${isMobile() === true ? "scrollable-div2content" : "scrollable-div1c"}`}
               //onClick={()=>stopScrolling2()}
             >
-              {props.links.length === 0 ? (null
-                // <div className="list-item- list-item--message-"></div>
-              ) : (
-                //readonly means another user is seeing the page
-                //private urls don't have to be hid from owner of page
-                props.links.slice(0, themax).map((link, index) => {
-                  //if(rt === "readonly" && link.showpublic === 0 || (link.showpublic === 1 && link.archive===1)) return (<div></div>)
-                  if (
-                    rt === "readonly" &&
-                    link.showpublic === 0
-                    //|| link.archive === 1
-                  )
-                    return null //<div key={link.id + "1"}></div>;
-                  else
-                    return (
-                      <div
-                        id={link.id}
-                        key={link.id}
-                        className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
-                      >
-                        <LinkListItem
-                          //props.linkStatuses[link.id].status
-                          //linkstatus = {props.linkStatuses[link.id].result}
-                           link={link}
-                          rt={rt}
+              {props.links.length === 0
+                ? null
+                : // <div className="list-item- list-item--message-"></div>
+                  //readonly means another user is seeing the page
+                  //private urls don't have to be hid from owner of page
+                  props.links.slice(0, themax).map((link, index) => {
+//                    let linkStatus = "checking";
+
+// if (props.linkStatuses && props.linkStatuses[link.id]) {
+//   linkStatus = props.linkStatuses[link.id].result;
+// }
+                    if (
+                      rt === "readonly" &&
+                      link.showpublic === 0
+                      //|| link.archive === 1
+                    )
+                      return null; //<div key={link.id + "1"}></div>;
+                    else
+                      return (
+                        <div
+                          id={link.id}
                           key={link.id}
-                          {...link}
-                          linkStatuses = {props.linkStatuses} //{props.linkStatues && props.linkStatuses[link.id]?props.linkStatuses[link.id].result:null}
-                          index={index}
-                          signup={props.signup.signup}
-                          idexists={props.idexists}
-                          theSortBy={props.theSortBy}
-                          // videoId={props.videoId}
-                          // playInPlaceVideo={props.playInPlaceVideo}
-                        />
-                      </div>
-                    );
-                })
-              )}
-             <div ref={bottomElementRef} />
+                          className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
+                        >
+                          <LinkListItem
+                            link={link}
+                            rt={rt}
+                            key={link.id}
+                            {...link}
+                            //linkStatuses = {props.linkStatuses} //{props.linkStatues && props.linkStatuses[link.id]?props.linkStatuses[link.id].result:null}
+                            //linkStatus={props.linkStatus}
+                            
+                            index={index}
+                            signup={props.signup.signup}
+                            idexists={props.idexists}
+                            theSortBy={props.theSortBy}
+                            // videoId={props.videoId}
+                            // playInPlaceVideo={props.playInPlaceVideo}
+                          />
+                        </div>
+                      );
+                  })}
+              <div ref={bottomElementRef} />
             </div>
           )}
         </div>
@@ -550,7 +634,7 @@ const mapStateToProps = (state) => {
   //const visibleLinks2 = selectLinks2(state.links2, state.filters);
 
   return {
-    auth:state.auth,
+    auth: state.auth,
     theplan: state.theplan,
     linkCount: visibleLinks.length,
     //linkCount2: visibleLinks2.length,
@@ -568,6 +652,4 @@ const mapStateToProps = (state) => {
 //   };
 // };
 
-
-  
 export default connect(mapStateToProps)(LinkList);

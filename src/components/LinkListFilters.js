@@ -96,6 +96,8 @@ function ExpandableArray(props) {
   const [idexists, setIdexists] = useState(0);
   const [url2, setUrl2] = useState("");
   const [videoId, setVideoId] = useState("");
+  //const [linkStatuses, setLinkStatuses] = useState({});
+  //const [linkStatusesReady,setLinkStatusesReady] = useState(false)
 
   const fullText =
     "❤️ Benefits: (urilinks comes with a make money oportunity too) urilinks is a platform for orgainizing links to internet websites and sharing your links to internet users of your choice and providing user advertising space for you to make money by entering an optional text ad with each link. It is made with love and care. It works. It has search and sort. It is user friendy. You can share your links with one url. You can see end points of links that you have saved. If you want help, please contact tech support at 775 559 5740. Please try a user account today through friendly login. Thank you so much.";
@@ -179,33 +181,33 @@ function ExpandableArray(props) {
   //   }
   // };
 
-  //const [linkStatuses, setLinkStatuses] = useState({});
+ 
 
-  const checkLink = async (url) => {
-    try {
-      const response = await fetch(
-        "https://urilinks-project-vercel-api-5.vercel.app/check-link",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ url }),
-        },
-      );
+  // const checkLink = async (url) => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://urilinks-project-vercel-api-5.vercel.app/check-link",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ url }),
+  //       },
+  //     );
 
-      const data = await response.json();
+  //     const data = await response.json();
 
-      return data.message;
-    } catch (error) {
-      console.log("Error checking link:", error);
-      return null;
-    }
-  };
+  //     return data.message;
+  //   } catch (error) {
+  //     console.log("Error checking link:", error);
+  //     return null;
+  //   }
+  // };
 
-//   const linksKey = props.links
-//     .map((link) => link.id + ":" + link.Url)
-//     .join("|");
+  // const linksKey = props.links
+  //   .map((link) => link.id + ":" + link.Url)
+  //   .join("|");
 
   
 
@@ -225,16 +227,17 @@ function ExpandableArray(props) {
 //       const status = await checkLink(Url);
 
 //       newStatuses[id] = status;
-//       // console.log("newStatuses["+id+"].result="+newStatuses[id].result)
-//       // console.log(
-//       //   "id=" + id,
-//       //   "Url=" + Url,
-//       //   "status=" + JSON.stringify(status)
-//       // );
+//       console.log("newStatuses["+id+"].result="+newStatuses[id].result)
+//       console.log(
+//         "id=" + id,
+//         "Url=" + Url,
+//         "status=" + JSON.stringify(status)
+//       );
 //     }
 
 //     // Update React state only once
 //     setLinkStatuses(newStatuses);
+//      setLinkStatusesReady(true);
 //   };
 
 //   checkDisplayedLinks();
@@ -2120,7 +2123,7 @@ function ExpandableArray(props) {
                            isFollowing === "is following" ? (
                             <div className="flexrowz">
                               <UnFollowButton />
-                              <ChatButton id2={id2} id={id} name2={dn2} name1={dn} />
+                              <ChatButton id2={id2} id={id} name2={dn2} name1={dn} setting={2} />
                             </div>
                           ):null}
 

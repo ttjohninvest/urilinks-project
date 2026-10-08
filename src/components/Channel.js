@@ -79,6 +79,7 @@ useEffect(()=>{
         uid1:props.id,
         displayName1:props.name1,
         photoURL:photourl,
+        setting:props.setting
       }
 
     console.log("structure="+JSON.stringify(structure))
@@ -108,7 +109,7 @@ useEffect(()=>{
         <div className="py-4 max-w-screen-lg mx-auto">
           <div className="border-b dark:border-gray-600 border-gray-200 py-8 mb-4">
             <div className="font-bold text-3xl text-center">
-              <p className="mb-1">{`Welcome to urilinks chat. ${props.name1} and ${props.name2} are in communication. You can still send a message if the other person is not online.`}</p>
+              <p className="mb-1">{`Welcome to urilinks chat. ${props.name1} and ${props.name2} are in communication. You can still send a message to ${props.name2} if the other person is not online.`}</p>
             </div>
             {/* <p className="text-gray-400 text-center">
               This is the beginning of this chat.

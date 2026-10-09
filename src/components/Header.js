@@ -327,9 +327,8 @@ export const Header = (props) => {
 
      const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      //setPhotourl(user.photoURL);
-       //const user = firebase.auth().currentUser;
-
+     //alert(JSON.stringify(user))
+     //const user = firebase.auth().currentUser
   
 
       startAddIsonline(user.uid) //the user is logged in 
@@ -346,6 +345,7 @@ export const Header = (props) => {
         email: user.email,
         uid: user.uid,
       };
+      //alert("gud="+JSON.stringify(gud))
       console.log("Header.js, useEffect, gud=" + JSON.stringify(gud));
       setPhotoURL(purl);
       setPhotoURLdb(purl);
@@ -564,6 +564,8 @@ const handleClick = useCallback(() => {
 
   //const logoutit = async () => {
   const logoutit = () => {
+    try {
+
     handleUpdate();
 
     handleUpdate2();
@@ -588,6 +590,10 @@ const handleClick = useCallback(() => {
 
     props.stopScrolling2();
     props.startLogout();
+    } catch(e) {
+      console.log("logoutit failed, e="+e)
+    }
+    
   };
 
   const dlogoutit = () => {

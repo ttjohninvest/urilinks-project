@@ -17,24 +17,26 @@ const formatDate = date => {
   return formattedDate;
 };
 
-const Message = ({
-  createdAt = null,
-  text = '',
-  displayName2 = '',
-  displayName1 = '',
-  photoURL = '',
-  chatsetting = ''
-}) => {
-  if (!text) return null;
+// const Message = ({
+//   createdAt = null,
+//   text = '',
+//   displayName2 = '',
+//   displayName1 = '',
+//   photoURL = '',
+//   chatsetting = ''
+// }) => {
+
+const Message = (props) => {
+  if (!props.text) return null;
 
   return (
     <div 
     //className="px-4 py-4 rounded-md hover:bg-gray-50 dark:hover:bg-coolDark-600 overflow-hidden flex items-start"
     className="message"
     >
-      {photoURL ? (
+      {props.photoURL ? (
         <img
-          src={photoURL}
+          src={props.photoURL}
           alt="Avatar"
           className="ib rounded-full- mr-4- message-avatar"
           width={45}
@@ -43,9 +45,9 @@ const Message = ({
       ) : null}
       <div>
         <div className="flex- items-center- mb-1- message-header">
-          {chatsetting==="1" && displayName1 ? (
-            <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{displayName1}</p>
-          ) : chatsetting==="2" ? <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{displayName2}</p>:
+          {props.chatsetting==="2" && props.displayName1 ? (
+            <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{props.displayName1}</p>
+          ) : props.chatsetting==="1" ? <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{props.displayName2}</p>:
           "unknown:error"}
           {/* {createdAt?.seconds ? (
             <span className="text-gray-500 text-xs">
@@ -53,7 +55,7 @@ const Message = ({
             </span>
           ) : null} */}
         </div>
-        <p className="message-text">{text}</p>
+        <p className="message-text">{props.text}</p>
       </div>
     </div>
   );

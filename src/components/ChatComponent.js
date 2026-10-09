@@ -17,20 +17,27 @@ const ChatComponent = (props) => {
 
   // const id2 = params.get("id2");
   // const id = params.get("id");
+  
 const id2 = props.match.params.id2
-const id = props.match.params.id
-
 const name2 = props.match.params.name2
+const id = props.match.params.id
 const name1 = props.match.params.name1
-
-const params = new URLSearchParams(window.location.search);
-const chatsetting = params.get("chatsetting");
 
 console.log("ChatComponent, id2="+id2)
 console.log("ChatComponent, id="+id)
 
   console.log("ChatComponent, name2="+name2)
   console.log("ChatComponent, name1="+name1)
+
+//alert("ChatComponent, name2="+name2)
+//alert("ChatComponent, name1="+name1)
+
+
+
+const params = new URLSearchParams(window.location.search);
+const chatsetting = params.get("chatsetting");//1 or 2
+
+//alert("ChatComponent, chatsetting="+chatsetting)
   
 
   // useEffect(() => {

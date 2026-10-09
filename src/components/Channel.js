@@ -13,7 +13,14 @@ import Message from "./Message";
     const [photourl, setPhotourl] = useState(null)
   // console.log("Channel, user="+JSON.stringify(user))
   //const theurl=`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}/3`
+
+    //const params = new URLSearchParams(window.location.search);
+  const chatsetting = props.chatsetting //params.get("chatsetting");
+  
   const theurl=`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}`
+  //alert("theurl="+theurl)
+  //alert("Channel, theurl=")
+  //alert(`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}`)
   //`chat/messages/D9/name2/XL/name1`
   //const theurl=`chat/messages/${props.id2}/${props.id}`
   //`chat/messages/D9/XL`
@@ -24,6 +31,8 @@ import Message from "./Message";
   const messages = useRtdbQuery(
     messagesRef.orderByChild('createdAt').limitToLast(100)
   );
+  //alert("messages="+JSON.stringify(messages))
+  //alert("messages.messages="+JSON.stringify(messages.messages))
   const [newMessage, setNewMessage] = useState('');
   const inputRef = useRef();
   const bottomListRef = useRef();
@@ -64,7 +73,7 @@ useEffect(()=>{
     setNewMessage(e.target.value);
   };
 
-  const handleOnSubmit = e => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
     console.log("handleSubmit")
     const trimmedMessage = newMessage.trim();
@@ -77,16 +86,18 @@ useEffect(()=>{
         uid2:props.id2,
         displayName2:props.name2,
         uid1:props.id,
-        displayName1:props.name1,
-        photoURL:photourl,
-        chatsetting:props.chatsetting
+        displayName1:props.name1, //name1 is wrong, but not every time, it is saying John
+        photoURL:photourl
+        //chatsetting:props.chatsetting
       }
+
+      //alert(JSON.stringify(structure))
 
     console.log("structure="+JSON.stringify(structure))
        
       
   //     console.log("Channel, structure="+JSON.stringify(structure))
-      messagesRef.push(structure).then(() => {
+      messagesRef.push(structure).then(() => { //this pushes the chat message into the datbase
     console.log("MESSAGE WRITTEN");
   })
   .catch(error => {
@@ -103,13 +114,16 @@ useEffect(()=>{
       else {}
     }
   };
+  //alert("chatsetting="+chatsetting)
+  const welcomemessage2=`Welcome to urilinks chat. ${props.name2} and ${props.name1} are in communication. You can still send a message to ${props.name1} if the other person is not online.`
+  const welcomemessage1=`Welcome to urilinks chat. ${props.name1} and ${props.name2} are in communication. You can still send a message to ${props.name2} if the other person is not online.`
   return (
     <div className="flex flex-col h-full">
       <div className="overflow-auto h-full">
         <div className="py-4 max-w-screen-lg mx-auto">
           <div className="border-b dark:border-gray-600 border-gray-200 py-8 mb-4">
             <div className="font-bold text-3xl text-center">
-              <p className="mb-1">{`Welcome to urilinks chat. ${props.name1} and ${props.name2} are in communication. You can still send a message to ${props.name2} if the other person is not online.`}</p>
+              <p className="mb-1">{`${chatsetting==="2"?welcomemessage2:welcomemessage1}`}</p>
             </div>
             {/* <p className="text-gray-400 text-center">
               This is the beginning of this chat.
@@ -121,7 +135,7 @@ useEffect(()=>{
             {!!messages===true && messages
               .map((message,i) => (
                 <li key={i}>
-                  <Message {...message} />
+                  <Message {...message} chatsetting={props.chatsetting} />
                 </li>
               ))}
           </ul>

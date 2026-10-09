@@ -13,6 +13,10 @@ const OthersButton = (props) => {
   const [isDisplayed, setIsDisplayed] = useState(false);
   //const textToCopy = "text being copied to the clipboard";
 
+  //alert(props.name2)
+  //console.log("OthersButton, props.name2="+props.name2)
+
+
   const isMobile = () => {
     const regex =
       /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
@@ -63,7 +67,7 @@ const OthersButton = (props) => {
         className={`margin-left-11 height48 button-2w- button-2 ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
         onClick={handleDisplay}
       >
-        <span><span id="numberofnotificationsready" className="margin-left-11">{props.buttonText==="New Links Ready"?"4 ":""}</span>{isDisplayed ? "Displayed" : props.buttonText}</span>
+        <span><span id="numberofnotificationsready" className="margin-left-11">{props.buttonText==="New Links Ready"?"4 ":""}</span>{isDisplayed ? "Displayed" : "1,"+props.buttonText}</span>
       </button>
       {isDisplayed === true && (
         <div>
@@ -71,6 +75,7 @@ const OthersButton = (props) => {
             whichone = {props.whichone}
             email={props.email}
             uid={props.uid}
+            name2={props.name2}
             elementRef2 = {props.elementRef2}
             changeSortBy={()=>props.changeSortBy("others",1)}
             handleClose3={() => handleClose()}

@@ -18,7 +18,7 @@ const ChatNotifications = (props) => {
     //   alert(dn2);
     //   alert(uid1);
     //   alert(dn);
-    window.open(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=${props.chatsetting}`);
+    window.open(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`);
   };
 
   const filteredChats = props.ischat.filter((n) => n.uid1 === props.auth.uid);
@@ -78,7 +78,7 @@ const ChatNotifications = (props) => {
                 handleChange(n.uid2, n.dn2, n.uid1, n.dn);
               }}
             >
-              <span className="color-black-3">{n.dn2}</span>
+              <span className="color-black-3">{n.dn2+", "+n.uid2}</span>
 
               <button
                 type="button"

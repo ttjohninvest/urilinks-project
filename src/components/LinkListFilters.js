@@ -140,7 +140,8 @@ function ExpandableArray(props) {
   const id = params.get("id");
 
   const dn2 = params.get("dn2");
-  const dn = params.get("dn");
+  const dn = params.get("dn"); //this value is sometimes John
+
   console.log("LinkListFilters.js, dn2="+dn2)
   console.log("LinkListFilters.js, dn="+dn)
 
@@ -247,6 +248,7 @@ function ExpandableArray(props) {
 
 
   useEffect(() => {
+    
     console.log(
       "ExapandableArray, following=" + JSON.stringify(props.following),
     );
@@ -1492,6 +1494,7 @@ function ExpandableArray(props) {
                         <div>
                           <OthersButton
                             whichone={2}
+                            name2={!!theuser ? theuser.displayName:"placeholdername1"}
                             buttonText={"Following"}
                             email={
                               !!firebase.auth().currentUser === true
@@ -1589,6 +1592,7 @@ function ExpandableArray(props) {
                                         uid={props.uid}
                                         elementRef20={elementRef20}
                                         changeSortBy={changeSortBy}
+                                        name2={!!theuser ? theuser.displayName:"placeholdername1"}
                                         //setSortBy={setSortBy}
                                       />
                                       <FollowerButton
@@ -1668,10 +1672,9 @@ function ExpandableArray(props) {
                                     textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                   />
                                 </div>
-                                {/* <OthersButton below Appears on home page as example page, not logged in */}
-                                {/* Purpose of the button being here is because it lets other people know they can see other peoples public links on the internet */}
-                                <OthersButton
+                                 <OthersButton
                                   whichone={2}
+                                  name2={!!theuser ? theuser.displayName:"placeholdername1"}
                                   buttonText={"Following"}
                                   email={
                                     !!firebase.auth().currentUser === true
@@ -1683,6 +1686,7 @@ function ExpandableArray(props) {
                                   changeSortBy={changeSortBy}
                                   //uid={props.uid}
                                   //setSortBy={setSortBy}
+                                 
                                 />
                                 <FollowerButton
                                   email={
@@ -2123,7 +2127,13 @@ function ExpandableArray(props) {
                            isFollowing === "is following" ? (
                             <div className="flexrowz">
                               <UnFollowButton />
-                              <ChatButton id2={id2} id={id} name2={dn2} name1={dn} chatsetting={2} />
+                              {/* <ChatButton id2={id2} id={id} name2={dn2} name1={dn} chatsetting={2} /> */}
+                              <ChatButton 
+                              id2={id2} 
+                              id={id} 
+                              name2={dn2} 
+                              name1={dn} 
+                              chatsetting={2} />
                             </div>
                           ):null}
 
@@ -2594,6 +2604,7 @@ export class LinkListFilters extends React.Component {
   }
 
   componentDidMount() {
+    
     //this.props.abc(3);
     //console.log("3, this.props.abcref=" + JSON.stringify(this.props.abcref));
     console.log(

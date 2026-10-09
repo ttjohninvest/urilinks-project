@@ -13,13 +13,19 @@ function decrypt(text, key) {
 
 const ChatButton = (props) => {
     const params = new URLSearchParams(window.location.search);
-    const id2 = props.id2 //params.get("id");
-    const id = props.id //params.get("id2");
+    const id2 = props.id2 //params.get("id2");
+    const id = props.id //params.get("id");
     const name2 = props.name2
     const name1 = props.name1
   
-     console.log("ChatButton, id2="+id2)
-     console.log("ChatButton, id="+id)
+    //  console.log("ChatButton, id2="+id2)
+    //  console.log("ChatButton, id="+id)
+     
+    //  alert("ChatButton, id2="+id2)
+    //  alert("ChatButton, id="+id)
+
+    //  alert("ChatButton, name2="+id2)
+    //  alert("ChatButton, name="+id)
 
 
     const isMobile = () => {
@@ -32,7 +38,7 @@ const ChatButton = (props) => {
     try {
       //id2,id //id2 is loggedin user, id is subpage
       //window.open(`/chat/${id2}/${name2}/${id}/${name1}/3`) //names are hard coded because i am not passing them in the url yet
-      window.open(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=${props.chatsetting}`)
+      window.open(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`)
      
     } catch (err) {
       console.error('Failed to Start Chat:', err);

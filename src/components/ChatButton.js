@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { connect } from "react-redux";
 import { startAddFollower } from "../actions/following";
+import firebase from "firebase/app"
 
 
 function decrypt(text, key) {
@@ -34,18 +35,24 @@ const ChatButton = (props) => {
     return regex.test(navigator.userAgent);
   };
 
+  // useEffect(() => {
+  // const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+  //   if (user && user.photoURL) {
+  //     setPhotoUrl(user.photoURL);
+  //   }
+  // });
+
+  // return unsubscribe;
+//}, []);
+
   const handleChat = (props) => {
     try {
       //id2,id //id2 is loggedin user, id is subpage
       //window.open(`/chat/${id2}/${name2}/${id}/${name1}/3`) //names are hard coded because i am not passing them in the url yet
       
-      firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    console.log("Profile picture:", user.photoURL);
+    
+
 window.open(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`)
-    // Now open/render the chat page
-  }
-});
       
       
      

@@ -1,13 +1,25 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { connect } from "react-redux";
 import database from "./../firebase/firebase";
+import firebase from "firebase/app"
 
 const ChatNotifications = (props) => {
   const [selectedChat, setSelectedChat] = useState("");
   const [uniqueChats, setUniqueChats] = useState([]);
+  const [photoUrl, setPhotoUrl] = useState(null);
 
   const [chatDropdownOpen, setChatDropdownOpen] = useState(false);
   const [selectedChatName, setSelectedChatName] = useState("Select a chat");
+
+//   useEffect(() => {
+//   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+//     if (user && user.photoURL) {
+//       setPhotoUrl(user.photoURL);
+//     }
+//   });
+
+//   return unsubscribe;
+// }, []);
 
   const handleChange = (uid2, dn2, uid1, dn) => {
     console.log(uid2);
@@ -18,14 +30,11 @@ const ChatNotifications = (props) => {
     //   alert(dn2);
     //   alert(uid1);
     //   alert(dn);
-    firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    console.log("Profile picture:", user.photoURL);
  window.open(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`);
-    // Now open/render the chat page
-  }
-});
    
+
+
+
   };
 
   const filteredChats = props.ischat.filter((n) => n.uid1 === props.auth.uid);

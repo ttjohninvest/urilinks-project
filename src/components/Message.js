@@ -1,12 +1,12 @@
-
-
-import React from 'react';
+import React from "react";
 //import PropTypes from 'prop-types';
+import firebase from "firebase/app";
+import database from "./../firebase/firebase";
 
-import { formatRelative } from 'date-fns';
+import { formatRelative } from "date-fns";
 
-const formatDate = date => {
-  let formattedDate = '';
+const formatDate = (date) => {
+  let formattedDate = "";
   if (date) {
     // Convert the date in words relative to the current date
     formattedDate = formatRelative(date, new Date());
@@ -26,21 +26,40 @@ const formatDate = date => {
 //   chatsetting = ''
 // }) => {
 
+//   const deleteSingleChat = async (uid2, dn2, uid1, dn1) => {
+//   try {
+//     //await firebase.
+//     database
+//       .ref(`chat/messages/${uid2}/${dn2}/${uid1}/${dn1}`)
+//       .remove();
+
+//     console.log("Chat deleted");
+//   } catch (error) {
+//     console.log("Error deleting chat:", error);
+//   }
+// };
+
 const Message = (props) => {
   if (!props.text) return null;
 
   return (
-    <div 
-    //className="px-4 py-4 rounded-md hover:bg-gray-50 dark:hover:bg-coolDark-600 overflow-hidden flex items-start"
-    className="message"
+    <div
+      //className="px-4 py-4 rounded-md hover:bg-gray-50 dark:hover:bg-coolDark-600 overflow-hidden flex items-start"
+      className="message"
     >
       {props.photoURL ? (
         <img
+          //src={props.photoURL}
           src={props.photoURL}
           alt="Avatar"
           className="ib rounded-full- mr-4- message-avatar"
           width={45}
           height={45}
+          onLoad={() => console.log("profile image loaded")}
+          //onError={() => console.log("profile image failed")}
+          onError={(e) => {
+            e.currentTarget.src = "/default-profile.png";
+          }}
         />
       ) : null}
       <div>
@@ -50,6 +69,7 @@ const Message = (props) => {
           ) : props.chatsetting==="1" ? <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{props.displayName2}</p>:
           "unknown:error"} */}
           {props.displayName2}
+
           {/* {createdAt?.seconds ? (
             <span className="text-gray-500 text-xs">
               {formatDate(new Date(createdAt?.seconds))}
@@ -123,11 +143,7 @@ export default Message;
 //   );
 // };
 
-
 // export default Message;
-
-
-
 
 // import React from 'react';
 // import PropTypes from 'prop-types';

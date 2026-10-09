@@ -40,7 +40,7 @@ const Channel = (props) => {
     uid,
     displayName,
     //,
-    //photoUrl
+    photoUrl
   } = props.user; // || {};
   useEffect(() => {
     console.log(

@@ -9,39 +9,44 @@ import { useRtdbQuery } from "./../chat/hooks"; // Replaced Firestore hook with 
 import Message from "./Message";
 
 //const Channel = ({ user = null }) => {
-  const Channel = (props) => {
-    const [photourl, setPhotourl] = useState(null)
+const Channel = (props) => {
+  const [photourl, setPhotourl] = useState(null);
   // console.log("Channel, user="+JSON.stringify(user))
   //const theurl=`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}/3`
 
-    //const params = new URLSearchParams(window.location.search);
-  const chatsetting = props.chatsetting //params.get("chatsetting");
-  
-  const theurl=`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}`
+  //const params = new URLSearchParams(window.location.search);
+  const chatsetting = props.chatsetting; //params.get("chatsetting");
+
+  const theurl = `chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}`;
   //alert("theurl="+theurl)
   //alert("Channel, theurl=")
   //alert(`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}`)
   //`chat/messages/D9/name2/XL/name1`
   //const theurl=`chat/messages/${props.id2}/${props.id}`
   //`chat/messages/D9/XL`
-  console.log("Channel, theurl="+theurl)
+  console.log("Channel, theurl=" + theurl);
   //const messagesRef= database.ref(`chat/messages/${props.id2}/${props.id}`)
-  const messagesRef= database.ref(theurl)
+  const messagesRef = database.ref(theurl);
   // // Realtime Database query replacing Firestore query
   const messages = useRtdbQuery(
-    messagesRef.orderByChild('createdAt').limitToLast(100)
+    messagesRef.orderByChild("createdAt").limitToLast(100),
   );
   //alert("messages="+JSON.stringify(messages))
   //alert("messages.messages="+JSON.stringify(messages.messages))
-  const [newMessage, setNewMessage] = useState('');
+  const [newMessage, setNewMessage] = useState("");
   const inputRef = useRef();
   const bottomListRef = useRef();
-  const { uid, displayName
-    //, 
-    //photoUrl 
-  } = props.user // || {};
+  const {
+    uid,
+    displayName,
+    //,
+    //photoUrl
+  } = props.user; // || {};
   useEffect(() => {
-    console.log("firebase.auth().currentUser.photoURL="+firebase.auth().currentUser.photoURL)
+    console.log(
+      "firebase.auth().currentUser.photoURL=" +
+        firebase.auth().currentUser.photoURL,
+    );
     //console.log("messages="+JSON.stringify(messages))
     //alert("messages="+JSON.stringify(messages))
     if (inputRef.current) {
@@ -49,91 +54,80 @@ import Message from "./Message";
     }
   }, [inputRef]);
 
-useEffect(() => {
-  if (bottomListRef.current)
-  bottomListRef.current.scrollIntoView({
-    behavior: "smooth"
+  useEffect(() => {
+    if (bottomListRef.current)
+      bottomListRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
+  }, [messages.length]);
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setPhotourl(user.photoURL);
+      } else {
+        setPhotourl(null);
+      }
+    });
+
+    return () => unsubscribe();
   });
-}, [messages.length]);
 
-useEffect(()=>{
-
-   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      setPhotourl(user.photoURL);
-    } else {
-      setPhotourl(null);
-    }
-  });
-
-  return () => unsubscribe();
-})
-
-  const handleOnChange = e => {
+  const handleOnChange = (e) => {
     setNewMessage(e.target.value);
   };
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log("handleSubmit")
+    console.log("handleSubmit");
     const trimmedMessage = newMessage.trim();
     if (trimmedMessage) {
-      // console.log("trimmedMessage="+trimmedMessagev)
-      // // Add new message in Realtime Database using push()
+
       const structure = {
         text: trimmedMessage,
         createdAt: firebase.database.ServerValue.TIMESTAMP,
-        uid2:props.id2,
-        displayName2:props.name2,
-        uid1:props.id,
-        displayName1:props.name1, //name1 is wrong, but not every time, it is saying John
-        photoURL:photourl
-        //chatsetting:props.chatsetting
-      }
+        uid2: props.id2,
+        displayName2: firebase.auth().currentUser.displayName, //props.name2,
+        uid1: props.id,
+        displayName1: props.name1, //name1 is wrong, but not every time, it is saying John
+        photoURL: photourl
+      };
 
-      //alert(JSON.stringify(structure))
+      console.log("structure=" + JSON.stringify(structure));
 
-    console.log("structure="+JSON.stringify(structure))
-       
-      
-  //     console.log("Channel, structure="+JSON.stringify(structure))
-      messagesRef.push(structure).then(() => { //this pushes the chat message into the datbase
-    console.log("MESSAGE WRITTEN");
-  })
-  .catch(error => {
-    console.log("FIREBASE WRITE ERROR:", error);
-  });
+      messagesRef
+        .push(structure)
+        .then(() => {
+          //this pushes the chat message into the datbase
+        })
+        .catch((error) => {});
 
-  //alert(1)
-
-      
-      setNewMessage('');
+      setNewMessage("");
       // Scroll down to the bottom of the list
-      if(!!bottomListRef===true && !!bottomListRef.current===true )
-       bottomListRef.current.scrollIntoView({ behavior: 'smooth' });
-      else {}
+      if (!!bottomListRef === true && !!bottomListRef.current === true)
+        bottomListRef.current.scrollIntoView({ behavior: "smooth" });
+      else {
+      }
     }
   };
   //alert("chatsetting="+chatsetting)
-  const welcomemessage2=`Welcome to urilinks chat. ${props.name2} and ${props.name1} are in communication. You can still send a message to ${props.name1} if the other person is not online.`
-  const welcomemessage1=`Welcome to urilinks chat. ${props.name1} and ${props.name2} are in communication. You can still send a message to ${props.name2} if the other person is not online.`
+  const welcomemessage2 = `Welcome to urilinks chat. ${props.name2} and ${props.name1} are in communication. You can still send a message to ${props.name1} if the other person is not online.`;
+  const welcomemessage1 = `Welcome to urilinks chat. ${props.name1} and ${props.name2} are in communication. You can still send a message to ${props.name2} if the other person is not online.`;
   return (
     <div className="flex flex-col h-full">
       <div className="overflow-auto h-full">
         <div className="py-4 max-w-screen-lg mx-auto">
           <div className="border-b dark:border-gray-600 border-gray-200 py-8 mb-4">
             <div className="font-bold text-3xl text-center">
-              <p className="mb-1">{`${chatsetting==="2"?welcomemessage2:welcomemessage1}`}</p>
+              <p className="mb-1">{`${chatsetting === "2" ? welcomemessage2 : welcomemessage1}`}</p>
             </div>
             {/* <p className="text-gray-400 text-center">
               This is the beginning of this chat.
             </p> */}
           </div>
-          <ul 
-          style={{listStyle: "none"}}
-          >
-            {!!messages===true && messages
-              .map((message,i) => (
+          <ul style={{ listStyle: "none" }}>
+            {!!messages === true &&
+              messages.map((message, i) => (
                 <li key={i}>
                   <Message {...message} chatsetting={props.chatsetting} />
                 </li>
@@ -166,7 +160,6 @@ useEffect(()=>{
           </button>
         </form>
       </div>
-      
     </div>
   );
 };

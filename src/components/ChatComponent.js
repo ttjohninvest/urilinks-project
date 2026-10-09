@@ -10,6 +10,7 @@ import AnotherComponent from "./AnotherComponent";
 
 
 const ChatComponent = (props) => {
+ 
   //const {user,setUser} = useState({})
   //const user = firebase.auth().currentUser
   console.log("ChatComponent,firebase.auth().currentUser="+JSON.stringify(firebase.auth().currentUser))
@@ -17,11 +18,13 @@ const ChatComponent = (props) => {
 
   // const id2 = params.get("id2");
   // const id = params.get("id");
-  
+
 const id2 = props.match.params.id2
 const name2 = props.match.params.name2
 const id = props.match.params.id
 const name1 = props.match.params.name1
+
+ //alert("ChatComponent, name1="+name1)
 
 console.log("ChatComponent, id2="+id2)
 console.log("ChatComponent, id="+id)
@@ -66,9 +69,6 @@ const chatsetting = params.get("chatsetting");//1 or 2
   );
 };
 
-//export default ChatComponent;
-// const mapStateToProps = (state) => ({
 
-// });
 
 export default connect(undefined, undefined)(ChatComponent);

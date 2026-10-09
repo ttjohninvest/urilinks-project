@@ -45,10 +45,11 @@ const Message = (props) => {
       ) : null}
       <div>
         <div className="flex- items-center- mb-1- message-header">
-          {props.chatsetting==="2" && props.displayName1 ? (
+          {/* {props.chatsetting==="2" && props.displayName1 ? (
             <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{props.displayName1}</p>
           ) : props.chatsetting==="1" ? <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{props.displayName2}</p>:
-          "unknown:error"}
+          "unknown:error"} */}
+          {props.displayName2}
           {/* {createdAt?.seconds ? (
             <span className="text-gray-500 text-xs">
               {formatDate(new Date(createdAt?.seconds))}

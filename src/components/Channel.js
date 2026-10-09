@@ -11,6 +11,7 @@ import Message from "./Message";
 //const Channel = ({ user = null }) => {
 const Channel = (props) => {
   const [photourl, setPhotourl] = useState(null);
+  const [profilePhotoURL, setProfilePhotoURL] = useState(null);
   // console.log("Channel, user="+JSON.stringify(user))
   //const theurl=`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}/3`
 
@@ -61,17 +62,87 @@ const Channel = (props) => {
       });
   }, [messages.length]);
 
-  useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setPhotourl(user.photoURL);
-      } else {
-        setPhotourl(null);
-      }
-    });
+  const saveProfilePictureToStorage = async (user) => {
+  try {
+    const response = await fetch(user.photoURL);
 
-    return () => unsubscribe();
+    const blob = await response.blob();
+
+    const storageRef = firebase
+      .storage()
+      .ref()
+      .child(`profilePictures/${user.uid}.jpg`);
+
+    await storageRef.put(blob);
+
+    const downloadURL = await storageRef.getDownloadURL();
+
+    console.log("Stored profile picture URL =", downloadURL);
+    //alert("Stored profile picture URL =", downloadURL)
+
+    return downloadURL;
+  } catch (error) {
+    console.log("Error saving profile picture:", error);
+    return null;
+  }
+};
+
+//   useEffect(() => {
+//     const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
+//       if (user) {
+//         // setPhotourl(user.photoURL); src={profilePhotoURL || "/default-profile.png"}
+//           const storedPhotoURL = await saveProfilePictureToStorage(user);
+          
+
+//            await database
+//         .ref(`users/${user.uid}/profilePhotoURL`)
+//         .set(storedPhotoURL);
+
+//       } else {
+//         setPhotourl(null);
+//       }
+//     });
+
+//     return () => unsubscribe();
+//   });
+
+//   useEffect(() => {
+//   const user = firebase.auth().currentUser;
+
+//   if (user) {
+   
+//       database
+//       .ref(`users/${user.uid}/profilePhotoURL`)
+//       .once("value")
+//       .then((snapshot) => {
+//         //setProfilePhotoURL(snapshot.val());
+//         setPhotourl(snapshot.val())   // || "/default-profile.png"); //src={profilePhotoURL || "/default-profile.png"}
+//       });
+//   }
+// }, []);
+
+useEffect(() => {
+  const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
+    if (user) {
+      const storedPhotoURL =
+        await saveProfilePictureToStorage(user);
+
+      if (storedPhotoURL) {
+        setPhotourl(storedPhotoURL);
+
+        await database
+          .ref(`users/${user.uid}/profilePhotoURL`)
+          .set(storedPhotoURL);
+      } else {
+        setPhotourl("/default-profile.png");
+      }
+    } else {
+      setPhotourl("/default-profile.png");
+    }
   });
+
+  return () => unsubscribe();
+}, []);
 
   const handleOnChange = (e) => {
     setNewMessage(e.target.value);

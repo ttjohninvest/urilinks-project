@@ -2621,3 +2621,45 @@ The important line that actually deletes the single chat is:
 =====================================================================================================
 
 
+const saveProfilePictureToStorage = async (user) => {
+  try {
+    const response = await fetch(user.photoURL);
+
+    const blob = await response.blob();
+
+    const storageRef = firebase
+      .storage()
+      .ref()
+      .child(`profilePictures/${user.uid}.jpg`);
+
+    await storageRef.put(blob);
+
+    const downloadURL = await storageRef.getDownloadURL();
+
+    console.log("Stored profile picture URL =", downloadURL);
+
+    return downloadURL;
+  } catch (error) {
+    console.log("Error saving profile picture:", error);
+    return null;
+  }
+};
+
+Then, after Firebase confirms the user:
+firebase.auth().onAuthStateChanged(async (user) => {
+  if (user) {
+    const storedPhotoURL =
+      await saveProfilePictureToStorage(user);
+
+    console.log(storedPhotoURL);
+  }
+});
+
+The important steps are:
+1. fetch(user.photoURL) gets the Google profile image.
+2. response.blob() converts the image into something Firebase Storage can upload.
+3. storageRef.put(blob) uploads it.
+4. getDownloadURL() gives you your own Firebase Storage URL.
+Your bucket would then contain something like:
+profilePictures/
+    USER_UID.jpg

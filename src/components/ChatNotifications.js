@@ -18,7 +18,14 @@ const ChatNotifications = (props) => {
     //   alert(dn2);
     //   alert(uid1);
     //   alert(dn);
-    window.open(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`);
+    firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    console.log("Profile picture:", user.photoURL);
+ window.open(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`);
+    // Now open/render the chat page
+  }
+});
+   
   };
 
   const filteredChats = props.ischat.filter((n) => n.uid1 === props.auth.uid);

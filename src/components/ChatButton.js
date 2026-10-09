@@ -38,7 +38,16 @@ const ChatButton = (props) => {
     try {
       //id2,id //id2 is loggedin user, id is subpage
       //window.open(`/chat/${id2}/${name2}/${id}/${name1}/3`) //names are hard coded because i am not passing them in the url yet
-      window.open(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`)
+      
+      firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    console.log("Profile picture:", user.photoURL);
+window.open(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`)
+    // Now open/render the chat page
+  }
+});
+      
+      
      
     } catch (err) {
       console.error('Failed to Start Chat:', err);

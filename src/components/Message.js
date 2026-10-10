@@ -41,6 +41,10 @@ const formatDate = (date) => {
 
 const Message = (props) => {
   if (!props.text) return null;
+console.log("props.createdAt =", props.createdAt);
+  //const date = new Date(props.createdAt);
+
+  //const sentTime = date.toLocaleString();
 
   return (
     <div
@@ -63,20 +67,13 @@ const Message = (props) => {
         />
       ) : null}
       <div>
-        <div className="flex- items-center- mb-1- message-header">
-          {/* {props.chatsetting==="2" && props.displayName1 ? (
-            <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{props.displayName1}</p>
-          ) : props.chatsetting==="1" ? <p className="mr-2- text-primary-500- message-name margin-top-n-1u-">{props.displayName2}</p>:
-          "unknown:error"} */}
+        <div className="message-header">
+          
           {props.displayName2}
 
-          {/* {createdAt?.seconds ? (
-            <span className="text-gray-500 text-xs">
-              {formatDate(new Date(createdAt?.seconds))}
-            </span>
-          ) : null} */}
         </div>
         <p className="message-text">{props.text}</p>
+        {props.createdAt && <p className="italicText text-size-10">{new Date(props.createdAt).toLocaleString()}</p>}
       </div>
     </div>
   );

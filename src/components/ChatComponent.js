@@ -10,6 +10,7 @@ import AnotherComponent from "./AnotherComponent";
 
 
 const ChatComponent = (props) => {
+const [language, setLanguage] = useState("en");
  
   //const {user,setUser} = useState({})
   //const user = firebase.auth().currentUser

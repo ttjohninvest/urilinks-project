@@ -244,6 +244,10 @@ input.cb1[type="checkbox"]:hover {
   background-color: white;
 }
 
+.bg-blue {
+background-color: #0000FF;
+}
+
 .bg-gray-1 {
   background-color: #FFD58080; //#ffd3a5;
 }
@@ -461,6 +465,21 @@ a:visited { color: #551A8B; }
 input[type="checkbox"] {
   width: 16px;
   height: 16px;
+}   
+
+.circular-img {
+  /* 1. Equal dimensions */
+  width: 32px;
+  height: 32px;
+  
+  /* 2. Make it circular */
+  border-radius: 50%;
+  
+  /* 3. Add the border */
+  border: 5px solid white;
+  
+  /* Optional: Handle non-square source images */
+  object-fit: cover;
 }   
 
 .margin-top-n-x {

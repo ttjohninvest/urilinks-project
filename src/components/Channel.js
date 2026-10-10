@@ -10,6 +10,7 @@ import Message from "./Message";
 
 //const Channel = ({ user = null }) => {
 const Channel = (props) => {
+  const [language, setLanguage] = useState("en");
   const [photourl, setPhotourl] = useState(null);
   const [profilePhotoURL, setProfilePhotoURL] = useState(null);
   // console.log("Channel, user="+JSON.stringify(user))
@@ -37,6 +38,35 @@ const Channel = (props) => {
   const [newMessage, setNewMessage] = useState("");
   const inputRef = useRef();
   const bottomListRef = useRef();
+
+  const text = {
+  en: {
+    selectChat: "Select a chat",
+    messagePlaceholder: "Enter a message",
+    send: "Send",
+    deleteChat: "Delete Chat",
+    titlepart1: "Welcome to urilinks chat",
+    titlepart2: "and",
+    titlepart3: "are in communication. You can still send a message to ",
+    titlepart4: " if the other person is not online."
+  },
+
+  ja: {
+    selectChat: "チャットを選択",
+    messagePlaceholder: "メッセージを入力",
+    send: "送信",
+    deleteChat: "チャットを削除",
+    titlepart1: "「urilinksチャットへようこそ。",
+    titlepart2: "と",
+    titlepart3: "は通信中です。相手がオンラインでなくても、",
+    titlepart4: "にメッセージを送信できます。」"
+  }
+  
+ 
+};
+
+const t = text[language];
+
   const {
     uid,
     displayName,
@@ -161,7 +191,8 @@ useEffect(() => {
         displayName2: firebase.auth().currentUser.displayName, //props.name2,
         uid1: props.id,
         displayName1: props.name1, //name1 is wrong, but not every time, it is saying John
-        photoURL: photourl
+        photoURL: photourl //,
+        //t:t
       };
 
       console.log("structure=" + JSON.stringify(structure));
@@ -182,8 +213,8 @@ useEffect(() => {
     }
   };
   //alert("chatsetting="+chatsetting)
-  const welcomemessage2 = `Welcome to urilinks chat. ${props.name2} and ${props.name1} are in communication. You can still send a message to ${props.name1} if the other person is not online.`;
-  const welcomemessage1 = `Welcome to urilinks chat. ${props.name1} and ${props.name2} are in communication. You can still send a message to ${props.name2} if the other person is not online.`;
+  const welcomemessage2 = `${t.titlepart1} ${props.name2} ${t.titlepart2} ${props.name1} ${t.titlepart3} ${props.name1} ${t.titlepart4}`;
+  const welcomemessage1 = `${t.titlepart1} ${props.name1} ${t.titlepart2} ${props.name2} ${t.titlepart3} ${props.name2} ${t.titlepart4}`;
   return (
     <div className="flex flex-col h-full">
       <div className="overflow-auto h-full">
@@ -191,6 +222,15 @@ useEffect(() => {
           <div className="border-b dark:border-gray-600 border-gray-200 py-8 mb-4">
             <div className="font-bold text-3xl text-center">
               <p className="mb-1">{`${chatsetting === "2" ? welcomemessage2 : welcomemessage1}`}</p>
+              <p>
+                <select
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value)}
+                    >
+                    <option value="en">English</option>
+                    <option value="ja">日本語</option>
+                </select>
+              </p>
             </div>
             {/* <p className="text-gray-400 text-center">
               This is the beginning of this chat.
@@ -227,7 +267,7 @@ useEffect(() => {
             //className="uppercase font-semibold text-sm tracking-wider text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
             className="button-2"
           >
-            Send
+            {t.send}
           </button>
         </form>
       </div>

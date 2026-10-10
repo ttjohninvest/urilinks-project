@@ -64,10 +64,10 @@ const OthersButton = (props) => {
     <div style={{ display: "inline" }}>
       <button
         title={`${props.buttonText==="New Links Ready"?"These are ones that you are following that have new links ready for you to see.":"See the ones you are following."}`}
-        className={`margin-left-11 height48 button-2w- button-2 ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+        className={`ib margin-left-11 height48 button-2w- button-2 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
         onClick={handleDisplay}
       >
-        <span><span id="numberofnotificationsready" className="margin-left-11">{props.buttonText==="New Links Ready"?"4 ":""}</span>{isDisplayed ? "Displayed" : "1,"+props.buttonText}</span>
+        <span className="ib"><span id="numberofnotificationsready" className="ib margin-left-11-">{props.buttonText==="New Links Ready"?"":""}</span>{isDisplayed ? "Displayed" : props.buttonText}</span>
       </button>
       {isDisplayed === true && (
         <div>

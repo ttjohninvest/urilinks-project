@@ -1878,7 +1878,7 @@ https://www.youtube.com/feed/history
 
                   //data-value={props.id}
                   title={
-                    "Click to like if you like it. The number of users who have liked the link."
+                    "Click to save this link to your collection."
                   }
                   onClick={() => storeScrollPosition4(props.link, event)} //is passed in
                 >

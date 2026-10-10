@@ -1,11 +1,12 @@
 import Constants from "./Constants";
+import ConstantsLanguage from "./ConstantsLanguage";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import database from "../firebase/firebase";
 import ClickableList from "./ClickableList";
 import OthersButton from "./OthersButton";
-import ChatNotifications from "./ChatNotifications"
+import ChatNotifications from "./ChatNotifications";
 //import { useSelector } from "react-redux";
-import {startAddIsonline} from "./../actions/isonline"
+import { startAddIsonline } from "./../actions/isonline";
 import moment from "moment";
 //import firebase from "firebase";
 import firebase from "firebase/app";
@@ -31,7 +32,6 @@ import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 import logo from "../assets/images/logo-orange-u.png";
 import logo2 from "../assets/images/logo-urilinks.png";
 import myprofile from "../assets/images/myprofile.png";
-//import myprofile from "../assets/images/medicalprofilepicture.png";
 import signature from "../assets/images/signature.png";
 
 //import { getAuth } from "firebase";
@@ -106,6 +106,7 @@ const Dropdown = ({ trigger, children }) => {
 };
 
 export const Header = (props) => {
+
   const [deleteAccountError, setDeleteAccountError] = useState(false);
   const [photoURL, setPhotoURL] = useState("");
   const [inviewport, setInviewport] = useState(false);
@@ -116,6 +117,11 @@ export const Header = (props) => {
   const [theplan, setTheplan] = useState("");
   const [bmok, setBmok] = useState(false);
   const [updateLoggedOut, setUpdateLoggedOut] = useState(false);
+  const [profileImage, setProfileImage] = useState(
+    "/images/default-profile.png",
+  );
+    const [language, setLanguage] = useState(ConstantsLanguage.en);
+
   //  const [searchParams, setSearchParams] = useSearchParams({
 
   // });
@@ -131,7 +137,7 @@ export const Header = (props) => {
   const ideas = () => {};
 
   const params = new URLSearchParams(window.location.search);
-  
+
   const signup = params.get("signup");
   const x = params.get("x");
   const x1 = params.get("x1");
@@ -155,6 +161,16 @@ export const Header = (props) => {
     baseUrl = "https://urilinks.com";
   }
 
+  // useEffect(() => {
+  //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+  //     if (user && user.photoURL) {
+  //       setProfileImage(user.photoURL);
+  //     }
+  //   });
+
+  //   return () => unsubscribe();
+  // }, []);
+
   function decrypt(text, key) {
     if (text === null) return null;
     return String.fromCharCode(
@@ -172,7 +188,6 @@ export const Header = (props) => {
   useEffect(() => {
     //props.abc(1);
     //console.log("1, props.abcref=" + JSON.stringify(props.abcref));
-    
 
     //console.log("following from useSelector:", follower);
     console.log("Header.js, props.gud=" + JSON.stringify(props.gud));
@@ -317,71 +332,65 @@ export const Header = (props) => {
     console.log(
       "Header.js, useEffect, props.signup.signup=" + props.signup.signup,
     );
-   
+
     // const user = firebase.auth().currentUser;
     // console.log("Header.js, useEffect, user.uid=" + user.uid);
     // setPhotoURL("");
     //if(props.signup.signup===false) {
-     
+
     //if(props.signup.signup===true)
 
-     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-     //alert(JSON.stringify(user))
-     //const user = firebase.auth().currentUser
-  
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        //alert(JSON.stringify(user))
+        //const user = firebase.auth().currentUser
 
-      startAddIsonline(user.uid) //the user is logged in 
-      
-      console.log("Header.js, user=" + JSON.stringify(user));
-      console.log("Header, photoURL=" + user.photoURL);
-      const purl = user.photoURL;
-      const bmok = user.bmok;
-      const dn = user.displayName;
-      const gud = {
-        photourl: purl,
-        displayname: dn,
-        theatname: "@" + dn.replace(/\s+/g, ""),
-        email: user.email,
-        uid: user.uid,
-      };
-      //alert("gud="+JSON.stringify(gud))
-      console.log("Header.js, useEffect, gud=" + JSON.stringify(gud));
-      setPhotoURL(purl);
-      setPhotoURLdb(purl);
+        startAddIsonline(user.uid); //the user is logged in
 
-      const ttbmok = true;
-      if (bmok === undefined) setBmok(ttbmok);
-      else setBmok(bmok);
-      if (bmok === undefined) setBmokdb(ttbmok);
-      else setBmokdb(bmok);
+        console.log("Header.js, user=" + JSON.stringify(user));
+        console.log("Header, photoURL=" + user.photoURL);
+        const purl = user.photoURL;
+        const bmok = user.bmok;
+        const dn = user.displayName;
+        const gud = {
+          photourl: purl,
+          displayname: dn,
+          theatname: "@" + dn.replace(/\s+/g, ""),
+          email: user.email,
+          uid: user.uid,
+        };
+        //alert("gud="+JSON.stringify(gud))
+        console.log("Header.js, useEffect, gud=" + JSON.stringify(gud));
+        setPhotoURL(purl);
+        setPhotoURLdb(purl);
 
-      //setDisplayNamedb(dn);
-      setGoogleUserDatadb(gud);
-      //setEmaildb(user.email);
-      setUid(gud.uid);
-      setName(gud.displayname);
-      // setName(
-      //   user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-      //     ? gud.displayname+" 1, XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
-      //     : gud.displayname+" 2, "
-      // );
-      setEmail(user.email);
-      if (props.theplan.plan === "basic") setTheplan("on basic plan");
-      else if (props.theplan.plan === "standard")
-        setTheplan("on standard plan");
-      else if (props.theplan.plan === "premium") setTheplan("on premium plan");
-      else setTheplan("free");
-    
-    
-}
+        const ttbmok = true;
+        if (bmok === undefined) setBmok(ttbmok);
+        else setBmok(bmok);
+        if (bmok === undefined) setBmokdb(ttbmok);
+        else setBmokdb(bmok);
 
+        //setDisplayNamedb(dn);
+        setGoogleUserDatadb(gud);
+        //setEmaildb(user.email);
+        setUid(gud.uid);
+        setName(gud.displayname);
+        // setName(
+        //   user.uid === "XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+        //     ? gud.displayname+" 1, XLFFo8DQ7LZh8oR8CnvBGInpjsZ2"
+        //     : gud.displayname+" 2, "
+        // );
+        setEmail(user.email);
+        if (props.theplan.plan === "basic") setTheplan("on basic plan");
+        else if (props.theplan.plan === "standard")
+          setTheplan("on standard plan");
+        else if (props.theplan.plan === "premium")
+          setTheplan("on premium plan");
+        else setTheplan("free");
+      }
+    });
 
-    
-  });
-
-  return () => unsubscribe();
-
+    return () => unsubscribe();
   }, []);
 
   const scrolldown = () => {
@@ -565,35 +574,33 @@ const handleClick = useCallback(() => {
   //const logoutit = async () => {
   const logoutit = () => {
     try {
+      handleUpdate();
 
-    handleUpdate();
+      handleUpdate2();
 
-    handleUpdate2();
+      props.setHasrefreshed({ hasrefreshed: false });
 
-    props.setHasrefreshed({ hasrefreshed: false });
+      setTheplan2({
+        customerId: "",
+        plan: "free",
+        subscriptionId: "",
+        uid: "",
+      });
+      props.setTextFilter("");
+      props.sortByDescription();
+      setPhotourl("");
+      setGoogleUserData({});
+      setBmok2(true);
 
-    setTheplan2({
-      customerId: "",
-      plan: "free",
-      subscriptionId: "",
-      uid: "",
-    });
-    props.setTextFilter("");
-    props.sortByDescription();
-    setPhotourl("");
-    setGoogleUserData({});
-    setBmok2(true);
+      setSignup(false);
 
-    setSignup(false);
+      setLinks([]);
 
-    setLinks([]);
-
-    props.stopScrolling2();
-    props.startLogout();
-    } catch(e) {
-      console.log("logoutit failed, e="+e)
+      props.stopScrolling2();
+      props.startLogout();
+    } catch (e) {
+      console.log("logoutit failed, e=" + e);
     }
-    
   };
 
   const dlogoutit = () => {
@@ -791,6 +798,14 @@ const handleClick = useCallback(() => {
                                 <span>🌺 urilinks</span>
                               </h3>
 
+                              {props.signup.signup === true &&<select
+  value={language}
+  onChange={(e) => setLanguage(e.target.value)}
+>
+  <option value="en">English</option>
+  <option value="ja">日本語</option>
+</select>}
+
                               {/* <ClickableList /> */}
                               {props.signup.signup === true &&
                                 x !== "readonly" &&
@@ -810,9 +825,6 @@ const handleClick = useCallback(() => {
                                     //uid={props.uid}
                                     //setSortBy={setSortBy}
                                   />
-
-                                  
-                                  
                                 )}
 
                               {/* <span onClick={()=>goToPage(props.newfollowinglinks)}></span> */}
@@ -822,7 +834,7 @@ const handleClick = useCallback(() => {
                             })}</div> */}
 
                               {/* <span className="ib margin-left-11 color-white-1" title="To see what links were added, select Date (Latest First) from the drop down menu to see the update(s). They will appear first.">{`${!!props.theupdatedate.updatedate===true ? 'Link(s) updated on ':""}`}<span  id="linksupdate" >{props.links.length > 0 ? <span>{moment(props.theupdatedate.updatedate).format("MMMM Do, YYYY, h:mm:ss a")}<span>&nbsp;pst</span></span>:""}</span></span> */}
-                              
+
                               {ni !== "1" && ni !== "2" && ni !== "3" && (
                                 <span
                                   className="ib margin-left-11 color-white-1 padding-top5x"
@@ -841,11 +853,14 @@ const handleClick = useCallback(() => {
                                   </span>
                                 </span>
                               )}
-                             
-                             {ni === "3" ? <div></div> :<div>
-                              <ChatNotifications chatsetting={1} />
-                              </div>}
-                             
+
+                              {ni === "3" ? (
+                                <div></div>
+                              ) : (
+                                <div>
+                                  <ChatNotifications chatsetting={1} />
+                                </div>
+                              )}
 
                               <span>{dn !== null ? "," : ""}</span>
 
@@ -1190,23 +1205,21 @@ const handleClick = useCallback(() => {
                     bmok === true ? (
                       //|| bmok === undefined//if bmok is true the menu item upload will be active and able to upload bookmarks files
                       <div>
-                      <div className="pointereventsauto hide-">
-                        <Link
-                          id="uploadbookmarksfile"
-                          className="header__title- nounderline pointereventsauto button-2h bg-shade-1 padding-left-4x padding-right-4x "
-                          to="/bookmarksmanager"
-                        >
-                          <span
-                            className="ib- color-white-1 color-black-2- cursor-pointer pointereventsauto text-size-11"
-                            ////className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
-                            title="uploads bookmarks file that was previously exported from the browser. It must be less the 100kb in size."
+                        <div className="pointereventsauto hide-">
+                          <Link
+                            id="uploadbookmarksfile"
+                            className="header__title- nounderline pointereventsauto button-2h bg-shade-1 padding-left-4x padding-right-4x "
+                            to="/bookmarksmanager"
                           >
-                            🎺 bookmarks upload
-                          </span>
-                        </Link>
-                        
-                      </div>
-
+                            <span
+                              className="ib- color-white-1 color-black-2- cursor-pointer pointereventsauto text-size-11"
+                              ////className={`ib- color-white-1 cursor-pointer ${isInMeArray(uid)===true?"pointereventsauto":"pointereventsnone"}`}
+                              title="uploads bookmarks file that was previously exported from the browser. It must be less the 100kb in size."
+                            >
+                              🎺 bookmarks upload
+                            </span>
+                          </Link>
+                        </div>
                       </div>
                     ) : ni === "1" || ni === "2" || ni === "3" ? (
                       <div></div>
@@ -1237,9 +1250,8 @@ const handleClick = useCallback(() => {
                     {props.signup.signup === false &&
                       x !== "readonly" &&
                       ni !== "1" &&
-                      ni !== "2" &&  
-                      ni !== "3" && 
-                      (
+                      ni !== "2" &&
+                      ni !== "3" && (
                         <div
                           className="color-white-1 color-black-2- margin-right-1"
                           title="Please use it for good. Bookmarks for internet pages, urls/links"
@@ -1316,15 +1328,21 @@ const handleClick = useCallback(() => {
                               className="ib- margin-bottom-11-"
                             />
                           ) : (
-                            <img
-                              src={myprofile}
-                              width="32"
-                              height="32"
-                              style={{ borderRadius: "50%" }}
-                              className="ib- margin-bottom-11-"
-                              title={name}
-                              alt="example"
-                            />
+                            <div>
+                              <img
+                                //src={profileImage}
+                                src={myprofile}
+                                width="32"
+                                height="32"
+                                style={{ borderRadius: "50%" }}
+                                className="ib- margin-bottom-11-"
+                                title={name}
+                                alt="Profile"
+                                onError={(e) => {
+                                  e.target.src = "/images/default-profile.png";
+                                }}
+                              />
+                            </div>
                           )
                         }
                       </div>

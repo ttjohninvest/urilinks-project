@@ -798,13 +798,7 @@ const handleClick = useCallback(() => {
                                 <span>🌺 urilinks</span>
                               </h3>
 
-                              {props.signup.signup === true &&<select
-  value={language}
-  onChange={(e) => setLanguage(e.target.value)}
->
-  <option value="en">English</option>
-  <option value="ja">日本語</option>
-</select>}
+                          
 
                               {/* <ClickableList /> */}
                               {props.signup.signup === true &&
@@ -856,11 +850,16 @@ const handleClick = useCallback(() => {
 
                               {ni === "3" ? (
                                 <div></div>
-                              ) : (
+                              ) : 
+                              
+                              props.signup.signup === true ?
+                              
+                              
+                              (
                                 <div>
                                   <ChatNotifications chatsetting={1} />
                                 </div>
-                              )}
+                              ):<div></div>}
 
                               <span>{dn !== null ? "," : ""}</span>
 

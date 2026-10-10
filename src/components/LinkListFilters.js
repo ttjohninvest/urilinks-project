@@ -761,53 +761,63 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
       window.localStorage.setItem("sortBy", "description");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
-      setSortBy("description");
+      // setSortBy("description");
       props.sortByDescription();
+      setSortBy("description"); //this line causes a rerender so LinkList.js run again producing the filtered links for display using selector(...)
     } else if (e.target.value === "notetext") {
       window.localStorage.setItem("sortBy", "notetext");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
-      setSortBy("notetext");
+      // setSortBy("notetext");
       props.sortByNoteText();
+      setSortBy("notetext");
     } else if (e.target.value === "date") {
       window.localStorage.setItem("sortBy", "date");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
-      setSortBy("date");
+      // setSortBy("date");
       props.sortByDateText();
+      setSortBy("date");
     } else if (e.target.value === "hashtag") {
       window.localStorage.setItem("sortBy", "hashtag");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
-      setSortBy("hashtag");
+      // setSortBy("hashtag");
       props.sortByHashTag();
+      setSortBy("hashtag");
     } else if (e.target.value === "hashtag") {
       window.localStorage.setItem("sortBy", "star");
       props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
-      setSortBy("star");
+      // setSortBy("star");
+      props.setTextFilter("");
       props.sortByStar();
+      setSortBy("star");
     } else if (e.target.value === "views") {
       //alert("views")
       window.localStorage.setItem("sortBy", "views");
       if (myRef.current) myRef.current.focus();
+      document.querySelector("#termid").value = ""
       //this.props.setTextFilter("");
       props.setTextFilter("");
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
-      setSortBy("views");
+      // setSortBy("views");
       props.sortByViews();
+      setSortBy("views");
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     } else if (e.target.value === "likes") {
       window.localStorage.setItem("sortBy", "likes");
       if (myRef.current) myRef.current.focus();
-      //this.props.setTextFilter("");
-      props.setTextFilter("");
+      this.props.setTextFilter("");
+      //props.setTextFilter("");
+      document.querySelector("#termid").value = ""
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
-      setSortBy("likes");
+      // setSortBy("likes");
       props.sortByLikes();
+      setSortBy("likes");
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     } else if (e.target.value === "star") {
@@ -815,10 +825,12 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
       props.setTextFilter("");
+      document.querySelector("#termid").value = ""
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
-      setSortBy("star");
+      // setSortBy("star");
       props.sortByStar();
+      setSortBy("star");
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     } else if (e.target.value === "ads") {
@@ -826,10 +838,12 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
       props.setTextFilter("");
+      document.querySelector("#termid").value = ""
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
-      setSortBy("ads");
+      // setSortBy("ads");
       props.sortByAds();
+      setSortBy("ads");
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     } else if (e.target.value === "adsalpha") {
@@ -837,10 +851,12 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
       props.setTextFilter("");
+      document.querySelector("#termid").value = ""
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
-      setSortBy("adsalpha");
+      // setSortBy("adsalpha");
       props.sortByAdsAlpha();
+       setSortBy("adsalpha");
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     } else if (e.target.value === "productsalpha") {
@@ -848,10 +864,12 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
       props.setTextFilter("");
+      document.querySelector("#termid").value = ""
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
-      setSortBy("productsalpha");
+      // setSortBy("productsalpha");
       props.sortByProductsAlpha();
+      setSortBy("productsalpha");
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     }
@@ -1987,7 +2005,7 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
                         </optgroup>
                         <optgroup label="Ads">
                           <option value="ads" title="show ads that exist">
-                            Ads (Link Present)
+                            Ads (Affiliate Link is Present)
                           </option>
                           <option
                             value="adsalpha"
@@ -2119,7 +2137,7 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
                         </optgroup>
                         <optgroup label="Ads">
                           <option value="ads" title="show ads that exist">
-                            Ads (Link Present)
+                            Ads (Affiliate Link is Present)
                           </option>
                           <option
                             value="adsalpha"

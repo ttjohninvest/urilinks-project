@@ -771,7 +771,7 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
       props.sortByNoteText();
     } else if (e.target.value === "date") {
       window.localStorage.setItem("sortBy", "date");
-      props.setTextFilter("");
+      props.setTextFilter(val);
       if (myRef.current) myRef.current.focus();
       setSortBy("date");
       props.sortByDateText();

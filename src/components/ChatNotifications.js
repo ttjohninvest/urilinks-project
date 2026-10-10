@@ -78,7 +78,7 @@ const ChatNotifications = (props) => {
         className="chat-dropdown-button"
         onClick={() => setChatDropdownOpen(!chatDropdownOpen)}
       >
-        {selectedChatName}
+        {"("+uniqueChats.length+")"+" "+selectedChatName}
         <span>▼</span>
       </button>
       {chatDropdownOpen && (

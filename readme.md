@@ -2250,7 +2250,7 @@ by default this is the setting for a local build
 ----------------------------------------------------------
 
 
-
+EADDRINUSE
 when error says a port is being used
 netstat -ano | findstr :3000
  TCP    0.0.0.0:3000           0.0.0.0:0              LISTENING       21752

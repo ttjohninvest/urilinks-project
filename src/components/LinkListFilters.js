@@ -588,7 +588,8 @@ function ExpandableArray(props) {
     // Perform the search action here
     //console.log('Searching for:', this.state.searchTerm);
     // Example: this.props.onSearch(this.state.searchTerm);
-
+    
+    console.log("3search, handleSearch")
     var select = document.getElementById("mode");
     var selectedValue = select.options[select.selectedIndex].value;
     console.log("handleSearch search, selectedValue=" + selectedValue);
@@ -621,9 +622,11 @@ function ExpandableArray(props) {
   };
 
   const search2 = (z) => {
+    //alert("search2")
+     console.log("4search");
     props.stopScrolling2();
     //handleCancelScroll()
-    console.log("search");
+   
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
 
@@ -662,20 +665,39 @@ function ExpandableArray(props) {
 
   const search = (z) => {
     //handleCancelScroll();
+    console.log("1search");
     props.stopScrolling2();
-    console.log("search");
-    //const sortBy = window.localStorage.getItem("sortBy");
-    var select = document.getElementById("mode");
+    
+   
+    // var select = document.getElementById("mode");
+    // var selectedValue = select.value
 
-    //var selectedValue = select.options[select.selectedIndex].value;
-    var selectedValue;
-    if (window.localStorage.getItem("sortBy") !== "")
-      selectedValue = window.localStorage.getItem("sortBy");
-    else selectedValue = select.options[select.selectedIndex].value;
-    //console.log("search = () => {, selectedValue=" + selectedValue)
-    console.log("1 selectedValue=" + selectedValue + ", term=" + term);
+    
+    // var selectedValue;
+    // if (window.localStorage.getItem("sortBy") !== "")
+    //   selectedValue = window.localStorage.getItem("sortBy");
+    // else selectedValue = select.options[select.selectedIndex].value;
+
+    const selectElement = document.getElementById('mode');
+
+    // 2. Get the value of the selected option
+    const selectedValue = selectElement.value;
+    console.log("selectElement.value="+selectElement.value)
+selectElement.value = 'hashtag';
+selectElement.dispatchEvent(new Event('change', { bubbles: true }));   
+selectElement.value = selectedValue;
+selectElement.dispatchEvent(new Event('change', { bubbles: true }));    
+
+    // 3. Get the text of the selected option
+    //const selectedText = selectElement.options[selectElement.selectedIndex].text;
+
+    console.log("this line ran window.localStorage.setItem('sortBy', selectedValue)")
+    window.localStorage.setItem("sortBy", selectedValue)
+
+      
     let term = window.document.getElementById("termid").value.trim();
-    //alert("1 selectedValue="+selectedValue+", term="+term)
+     //console.log("1 selectedValue=" + selectedValue + ", term=" + term);
+   
     window.localStorage.setItem("termid", term);
     props.setTextFilter(term);
 
@@ -2371,7 +2393,7 @@ export class LinkListFilters extends React.Component {
     // Perform the search action here
     //console.log('Searching for:', this.state.searchTerm);
     // Example: this.props.onSearch(this.state.searchTerm);
-
+    
     var select = document.getElementById("mode");
     var selectedValue = select.options[select.selectedIndex].value;
     console.log("handleSearch search, selectedValue=" + selectedValue);
@@ -2691,7 +2713,8 @@ export class LinkListFilters extends React.Component {
   };
 
   search = () => {
-    console.log("search");
+     //alert("search")
+    console.log("1 search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
     // alert("select="+select)

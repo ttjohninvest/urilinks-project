@@ -11,7 +11,7 @@ const removeHashTags = (text) => {
 const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
   //console.log("links="+JSON.stringify(links))
   console.log("getFilteredLinksArray, text=" + text);
-  console.log("getFilteredLinksArray, TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT sortBy=" + sortBy);
+  console.log("selectors/getFilteredLinksArray(), TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT sortBy=" + sortBy);
 
   let za = 0;
   let zb = 0;

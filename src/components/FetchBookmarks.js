@@ -3716,7 +3716,7 @@ linkStatuses["https://google.com"]'s value is working
                       setResult(result);
                     }
                   }
-                  alert("right here stop");
+                  //alert("right here stop");
                 } else {
                   //not logged in page, first example page
 

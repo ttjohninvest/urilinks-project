@@ -30,12 +30,61 @@ const annotatearray = (array1, array2) => {
   };
 
 
+  const getIsMatchNumber = (ra) => {
+    let i = 0
+     ra.forEach((e)=>{
+       if(e.isMatch==="is following ")
+        i++
+     })
+     console.log("getIsMatchNumber, isMatch, i="+i)
+     return i
+  }
+
+  //users, following, newfollowinglinks with newlinks:yes or newlinks:no
+  const annotatearray2 = (array1, array2, array3) => {
+    console.log("SeeFollowingPage.js, annotatearray2(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
+    console.log("SeeFollowingPage.js, annotatearray2(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
+    console.log("SeeFollowingPage.js, annotatearray2(), array3="+JSON.stringify(array3)) //props.newfollowingusers [{uid:, newlinks:"yes"}] 
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? "is following "
+          : "is not following ",
+      newlinks:
+        array3.some(
+          (item3) =>
+            item3.uid === item.gud.uid &&
+            !!item3.newlinks === true &&
+            item3.newlinks === "yes",
+        ) === true
+          ? "yes"
+          : "no",
+    }));
+
+    console.log("SeeFollowingPage.js, annotatearray2(), resultArray="+JSON.stringify(resultArray))
+    return resultArray;
+  };
+
+   const getNewLinksNumber = (ra) => {
+    let i = 0
+     ra.forEach((e)=>{
+       if(e.newLinks==="yes")
+        i++
+     })
+     console.log("getNewLinksNumber, newLinks, i="+i)
+     return i
+  }
+
+
 
 
 const OthersButton = (props) => {
   const [isDisplayed, setIsDisplayed] = useState(false);
   const [lengthOf, setLengthOf] = useState(0)
   const [resultArray, setResultArray] = useState([])
+   const [lengthOf2, setLengthOf2] = useState(0)
+  const [resultArray2, setResultArray2] = useState([])
   //const textToCopy = "text being copied to the clipboard";
 
   //alert(props.name2)
@@ -43,12 +92,22 @@ const OthersButton = (props) => {
 
   useEffect(()=>{
     if(props.whichone === 2) {
+      console.log("OthersButton, for Following, props.whichone="+props.whichone)
       const ra = annotatearray(props.users,props.following)
+      console.log("OthersButton, annotatearray, ra, resultArray="+JSON.stringify(ra))
       setResultArray(ra)
-      setLengthOf(ra.length-1) //1 substracts the loggedin user from the total
+      //setLengthOf(ra.length-1) //1 substracts the loggedin user from the total
+      setLengthOf(getIsMatchNumber(ra))
     } else {
-      setResultArray([])
-      setLengthOf(0)
+      // console.log("OthersButton, for Following, props.whichone="+props.whichone)
+      // setResultArray([])
+      // setLengthOf(0)
+        console.log("OthersButton, for Following, props.whichone="+props.whichone)
+      const ra = annotatearray2(props.users,props.following,props.newfollowinglinks)
+      console.log("OthersButton, annotatearray, ra, resultArray="+JSON.stringify(ra))
+      setResultArray2(ra)
+      //setLengthOf(ra.length-1) //1 substracts the loggedin user from the total
+      setLengthOf2(getNewLinksNumber(ra))
     }
    
   
@@ -110,17 +169,30 @@ const makeannotatearray = () => {
   return (
     <div style={{ display: "inline" }}>
       <button
-        title={`${props.buttonText==="New Links Ready"?"These are ones that you are following that have new links ready for you to see.":"See the ones you are following."}`}
+        title={`${props.buttonText==="New Links Ready"?"("+lengthOf2+") These are ones that you are following that have new links ready for you to see.":"See the ones you are following. You are following "+lengthOf+" people."}`}
         className={`ib margin-left-11 height48 button-2w- button-2 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
         onClick={handleDisplay}
       >
-        <span className="ib"><span id="numberofnotificationsready" className="ib margin-left-11-">{props.buttonText==="New Links Ready"?"":""}</span>{isDisplayed ? "Displayed" :<span><span>({lengthOf})&nbsp;</span><span>{props.buttonText}</span></span> }</span>
+        {/* <span className="ib"><span id="numberofnotificationsready" className="ib margin-left-11-">{props.buttonText==="New Links Ready"?<span>({lengthOf2})&nbsp;New Links Ready</span>:""}</span>{isDisplayed ? "Displayed" :<span><span>({lengthOf})&nbsp;</span><span>{props.buttonText}</span></span> }</span> */}
+     <span className="ib">
+ <span id="numberofnotificationsready" className="ib margin-left-11-">
+     {props.buttonText==="New Links Ready"?<span>({lengthOf2})&nbsp;New Links Ready</span>:
+     <span>
+       <span>({lengthOf})&nbsp;</span>
+     <span>
+     {props.buttonText}
+     </span>
+     </span>}
+</span>
+</span>
       </button>
       {isDisplayed === true && (
         <div>
           <SeeFollowingPage
             lengthOf = {lengthOf}
             resultArray = {resultArray}
+            lengthOf2 = {lengthOf2}
+            resultArray2 = {resultArray2}
             whichone = {props.whichone}
             email={props.email}
             uid={props.uid}
@@ -142,6 +214,7 @@ const mapStateToProps = (state) => ({
   signup: state.signup,
   users: state.users,
   following: state.following,
+  newfollowinglinks: state.newfollowinglinks,
   
 });
 

@@ -86,31 +86,31 @@ export const SeeFollowingPage = (props) => {
   //   return resultArray;
   // };
 
-  //users, following, newfollowinglinks with newlinks:yes or newlinks:no
-  const annotatearray2 = (array1, array2, array3) => {
-    console.log("SeeFollowingPage.js, annotatearray2(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
-    console.log("SeeFollowingPage.js, annotatearray2(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
-    console.log("SeeFollowingPage.js, annotatearray2(), array3="+JSON.stringify(array3)) //props.newfollowingusers [{uid:, newlinks:"yes"}] 
-    const resultArray = array1.map((item) => ({
-      ...item,
-      isMatch:
-        array2.some((item2) => item2.uid === item.gud.uid) === true
-          ? "is following "
-          : "is not following ",
-      newlinks:
-        array3.some(
-          (item3) =>
-            item3.uid === item.gud.uid &&
-            !!item3.newlinks === true &&
-            item3.newlinks === "yes",
-        ) === true
-          ? "yes"
-          : "no",
-    }));
+  // //users, following, newfollowinglinks with newlinks:yes or newlinks:no
+  // const annotatearray2 = (array1, array2, array3) => {
+  //   console.log("SeeFollowingPage.js, annotatearray2(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
+  //   console.log("SeeFollowingPage.js, annotatearray2(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
+  //   console.log("SeeFollowingPage.js, annotatearray2(), array3="+JSON.stringify(array3)) //props.newfollowingusers [{uid:, newlinks:"yes"}] 
+  //   const resultArray = array1.map((item) => ({
+  //     ...item,
+  //     isMatch:
+  //       array2.some((item2) => item2.uid === item.gud.uid) === true
+  //         ? "is following "
+  //         : "is not following ",
+  //     newlinks:
+  //       array3.some(
+  //         (item3) =>
+  //           item3.uid === item.gud.uid &&
+  //           !!item3.newlinks === true &&
+  //           item3.newlinks === "yes",
+  //       ) === true
+  //         ? "yes"
+  //         : "no",
+  //   }));
 
-    console.log("SeeFollowingPage.js, annotatearray2(), resultArray="+JSON.stringify(resultArray))
-    return resultArray;
-  };
+  //   console.log("SeeFollowingPage.js, annotatearray2(), resultArray="+JSON.stringify(resultArray))
+  //   return resultArray;
+  // };
 
   useEffect(() => {
     //use the following to get a better uniqueData array, for display of the list, this is the new links ready list
@@ -132,11 +132,13 @@ export const SeeFollowingPage = (props) => {
     if (props.whichone === 1) {
       //newlinks:"yes"
 
-      const array1 = annotatearray2(
-        props.users,
-        props.following,
-        props.newfollowinglinks,
-      ); //, [gud:{... uid:"D9..."}]
+      // const array1 = annotatearray2(
+      //   props.users,
+      //   props.following,
+      //   props.newfollowinglinks,
+      // ); //, [gud:{... uid:"D9..."}]
+
+      const array1 = props.resultArray2
 
       let array3 = [];
       if (array1.length > 1) {

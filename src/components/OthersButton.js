@@ -69,7 +69,7 @@ const annotatearray = (array1, array2) => {
    const getNewLinksNumber = (ra) => {
     let i = 0
      ra.forEach((e)=>{
-       if(e.newLinks==="yes")
+       if(e.isMatch==="is following " && e.newlinks==="yes")
         i++
      })
      console.log("getNewLinksNumber, newLinks, i="+i)
@@ -104,7 +104,7 @@ const OthersButton = (props) => {
       // setLengthOf(0)
         console.log("OthersButton, for Following, props.whichone="+props.whichone)
       const ra = annotatearray2(props.users,props.following,props.newfollowinglinks)
-      console.log("OthersButton, annotatearray, ra, resultArray="+JSON.stringify(ra))
+      console.log("OthersButton, annotatearray, ra, resultArray2="+JSON.stringify(ra))
       setResultArray2(ra)
       //setLengthOf(ra.length-1) //1 substracts the loggedin user from the total
       setLengthOf2(getNewLinksNumber(ra))

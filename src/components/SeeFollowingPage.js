@@ -247,6 +247,41 @@ export const SeeFollowingPage = (props) => {
     );
   };
 
+  const otherPage2 = (id2, id, dn2, dn, purl, email, theemail2, isMatch, newlinks) => {
+    console.log("otherPage(), id2=" + id2);
+    console.log("otherPage(), id=" + id);
+    console.log("otherPage(), dn2=" + dn2);
+    console.log("otherPage(), dn=" + dn);
+    //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
+    //const z12 = encrypt(props.gud.gud.email,"125434")
+    //const z12 = props.email
+    const z12 = theemail2;
+    //alert(props.email)
+
+    window.open(
+      //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+      baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
+        id2 +
+        "&id=" +
+        id +
+         "&dn2=" +
+        dn2 +
+        "&dn=" +
+        dn +
+        "&purl=" +
+        purl +
+        "&z10=" +
+        email +
+        "&z12=" +
+        z12 +
+         "&isFollowing=" +
+        isMatch +
+        "&newlinks=" +
+        newlinks,
+      "_blank"
+    );
+  };
+
   //const handleClick = (v,event) => {
     const handleClick = (v) => {
     // Identify the clicked element
@@ -276,14 +311,16 @@ export const SeeFollowingPage = (props) => {
                         //   ";" +
                         //   props.email +
                         //   ";" +
-                        //   item.isMatch
+                        //   item.newlinks
 
       const array3 = itemId.split(";");
 
-      setitbacktono(array3[0],props.auth.uid).then(()=>{ //it is newlinks
+      //setitbacktono(array3[0],props.auth.uid).then(()=>{ //it is newlinks
+      //setitbacktono(props.uid, array3[1]).then(()=>{
+      setitbacktono(array3[0], array3[1]).then(()=>{
 
       if (array3[0]) {
-        otherPage(array3[0], array3[1], array3[2], array3[3], array3[4], encrypt(array3[5],"125434"), encrypt(array3[6],"125434"), array3[7]); //array3[6] is id of person that goes on the goto page
+        otherPage2(array3[0], array3[1], array3[2], array3[3], array3[4], encrypt(array3[5],"125434"), encrypt(array3[6],"125434"), array3[7], array3[8]); //array3[6] is id of person that goes on the goto page
       }
         
       }).catch((e)=>{
@@ -537,7 +574,9 @@ export const SeeFollowingPage = (props) => {
                           ";" +
                           props.email +
                           ";" +
-                          item.isMatch
+                          item.isMatch +
+                          ";" +
+                          item.newlinks
                           
                             // item.gud.uid +
                             // ";" +
@@ -549,7 +588,7 @@ export const SeeFollowingPage = (props) => {
                             // ";" +
                             // props.email +
                             // ";" +
-                            // item.isMatch
+                            // item.newlinks
                           }
                         >
                           {props.email +

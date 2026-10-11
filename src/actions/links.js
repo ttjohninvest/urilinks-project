@@ -245,7 +245,7 @@ export const startAddLink = (v, linkData = {}) => {
   };
 };
 
-export const setitbacktono = (uid, uid2) => {
+export const setitbacktono = (uid2,uid) => {
   return (
     database
       .ref(`users/${uid2}/following/${uid}/newlinks`)

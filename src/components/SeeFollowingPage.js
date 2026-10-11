@@ -212,7 +212,26 @@ export const SeeFollowingPage = (props) => {
       //array3[4] is photourl
       //array3[5] is email for id the other page email
       //array3[6] is email for id2
-      //array3[7] is "is following "
+      //array3[7] is "is following 
+      //"
+
+   const openNewTabWithCustomTitleType = (url, type, customTitle) => {
+  const newWindow = window.open(url, type);
+  
+  if (newWindow) {
+    // Option 1: Using addEventListener (Recommended)
+    newWindow.addEventListener('load', () => {
+      newWindow.document.title = customTitle 
+    });
+
+    // Option 2: Using setTimeout (Fallback if load event is unreliable)
+    // setTimeout(() => {
+    //   if (newWindow && !newWindow.closed) {
+    //     newWindow.document.title = customTitle;
+    //   }
+    // }, 500); 
+  }
+};
 
   const otherPage = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
     console.log("otherPage(), id2=" + id2);
@@ -225,9 +244,7 @@ export const SeeFollowingPage = (props) => {
     const z12 = theemail2;
     //alert(props.email)
 
-    window.open(
-      //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
-      baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
+    const url2= baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
         id2 +
         "&id=" +
         id +
@@ -242,9 +259,31 @@ export const SeeFollowingPage = (props) => {
         "&z12=" +
         z12 +
         "&isFollowing=" +
-        isMatch,
-      "_blank"
-    );
+        isMatch
+
+    // window.open(
+    //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+    //   baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
+    //     id2 +
+    //     "&id=" +
+    //     id +
+    //      "&dn2=" +
+    //     dn2 +
+    //     "&dn=" +
+    //     dn +
+    //     "&purl=" +
+    //     purl +
+    //     "&z10=" +
+    //     email +
+    //     "&z12=" +
+    //     z12 +
+    //     "&isFollowing=" +
+    //     isMatch,
+    //   "_blank"
+    // );
+
+openNewTabWithCustomTitleType(url2,"_blank","urilinks-page")
+
   };
 
   const otherPage2 = (id2, id, dn2, dn, purl, email, theemail2, isMatch, newlinks) => {

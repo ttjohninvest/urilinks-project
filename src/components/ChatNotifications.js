@@ -21,6 +21,24 @@ const ChatNotifications = (props) => {
 //   return unsubscribe;
 // }, []);
 
+const openNewTabWithCustomTitle = (url, customTitle) => {
+  const newWindow = window.open(url, '_blank');
+  
+  if (newWindow) {
+    // Option 1: Using addEventListener (Recommended)
+    newWindow.addEventListener('load', () => {
+      newWindow.document.title = customTitle 
+    });
+
+    // Option 2: Using setTimeout (Fallback if load event is unreliable)
+    // setTimeout(() => {
+    //   if (newWindow && !newWindow.closed) {
+    //     newWindow.document.title = customTitle;
+    //   }
+    // }, 500); 
+  }
+};
+
   const handleChange = (uid2, dn2, uid1, dn) => {
     console.log(uid2);
     console.log(dn2);
@@ -30,7 +48,9 @@ const ChatNotifications = (props) => {
     //   alert(dn2);
     //   alert(uid1);
     //   alert(dn);
- window.open(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`);
+    
+    openNewTabWithCustomTitle(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`, urilinks-chat)
+ //window.open(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`);
    
 
 

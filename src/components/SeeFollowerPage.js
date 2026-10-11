@@ -193,6 +193,24 @@ export const SeeFollowerPage = (props) => {
       .join("");
   }
 
+   const openNewTabWithCustomTitleType = (url, type, customTitle) => {
+  const newWindow = window.open(url, type);
+  
+  if (newWindow) {
+    // Option 1: Using addEventListener (Recommended)
+    newWindow.addEventListener('load', () => {
+      newWindow.document.title = customTitle 
+    });
+
+    // Option 2: Using setTimeout (Fallback if load event is unreliable)
+    // setTimeout(() => {
+    //   if (newWindow && !newWindow.closed) {
+    //     newWindow.document.title = customTitle;
+    //   }
+    // }, 500); 
+  }
+};
+
   const otherPage = (id, dn, purl, email, theemail2, isMatch) => {
     console.log("otherPage, id=" + id);
     console.log("otherPage, purl=" + purl);
@@ -202,9 +220,26 @@ export const SeeFollowerPage = (props) => {
     const z12 = theemail2;
     //alert(props.email)
 
-    window.open(
-      //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
-      baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
+    // window.open(
+    //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+    //   baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
+    //     props.uid +
+    //     "&id=" +
+    //     id +
+    //     "&dn=" +
+    //     dn +
+    //     "&purl=" +
+    //     purl +
+    //     "&z10=" +
+    //     email +
+    //     "&z12=" +
+    //     z12 +
+    //     "&isFollowing=" +
+    //     isMatch,
+    //   "_blank"
+    // );
+
+    const url2 = baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
         props.uid +
         "&id=" +
         id +
@@ -217,9 +252,8 @@ export const SeeFollowerPage = (props) => {
         "&z12=" +
         z12 +
         "&isFollowing=" +
-        isMatch,
-      "_blank"
-    );
+        isMatch
+    openNewTabWithCustomTitleType(url2,"_blank","urilinks-page")
   };
 
   const handleClick = (v) => {

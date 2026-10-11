@@ -45,14 +45,33 @@ const ChatButton = (props) => {
   // return unsubscribe;
 //}, []);
 
+
+const openNewTabWithCustomTitle = (url, customTitle) => {
+  const newWindow = window.open(url, '_blank');
+  
+  if (newWindow) {
+    // Option 1: Using addEventListener (Recommended)
+    newWindow.addEventListener('load', () => {
+      newWindow.document.title = customTitle 
+    });
+
+    // Option 2: Using setTimeout (Fallback if load event is unreliable)
+    // setTimeout(() => {
+    //   if (newWindow && !newWindow.closed) {
+    //     newWindow.document.title = customTitle;
+    //   }
+    // }, 500); 
+  }
+};
+
   const handleChat = (props) => {
     try {
       //id2,id //id2 is loggedin user, id is subpage
       //window.open(`/chat/${id2}/${name2}/${id}/${name1}/3`) //names are hard coded because i am not passing them in the url yet
       
-    
+    openNewTabWithCustomTitle(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`, "urilinks-chat" )
 
-window.open(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`)
+//window.open(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`)
       
       
      

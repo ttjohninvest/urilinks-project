@@ -1,6 +1,7 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
+const getSearchTerm = require("./getSearchTerm");
 import StickyFixed from "./StickyFixed";
 import ReadMore from "./ReadMore";
 import LinkList from "./LinkList";
@@ -70,6 +71,8 @@ import { incrementUsersClickCount } from "../actions/theuserscount";
 //  incrementHandleToggle3,
 //   decrementHandleToggle3,
 // } from "../actions/links";
+
+
 
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
@@ -754,7 +757,13 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
     )
       return;
     console.log("onSortChange, e.target.value=" + e.target.value);
-    const val = window.document.getElementById("termid").value.trim();
+   
+    
+    //const val = window.document.getElementById("termid").value.trim();
+    let val = getSearchTerm();
+    
+    
+    
     console.log("onSortChange, term=" + val);
 
     if (e.target.value === "description") {
@@ -1223,14 +1232,34 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
   //     }
   //   };
 
+  const openNewTabWithCustomTitleType = (url, type, customTitle) => {
+  const newWindow = window.open(url, type);
+  
+  if (newWindow) {
+    // Option 1: Using addEventListener (Recommended)
+    newWindow.addEventListener('load', () => {
+      newWindow.document.title = customTitle 
+    });
+
+    // Option 2: Using setTimeout (Fallback if load event is unreliable)
+    // setTimeout(() => {
+    //   if (newWindow && !newWindow.closed) {
+    //     newWindow.document.title = customTitle;
+    //   }
+    // }, 500); 
+  }
+};
+
   const handlerCats = () => {
     //window.open("/cats?ni=1", "_blank"); //opens react component in new browser tab using window.open("/cats") using AppRouter.js and PrivateRoute.js
-    window.open("/cats/1/?ni=1", "_self");
+    //window.open("/cats/1/?ni=1", "_self");
+    openNewTabWithCustomTitleType("/cats/1/?ni=1","_self","urilinks-cats")
   };
 
   const handlerDogs = () => {
     //window.open("/cats?ni=1", "_blank");
-    window.open("/dogs?ni=2", "_self");
+    //window.open("/dogs?ni=2", "_self");
+     openNewTabWithCustomTitleType("/dogs/1/?ni=1","_self","urilinks-dogs")
   };
 
   // console.log("LinkListFilters.js, props.links.length =", props.links.length);
@@ -2366,6 +2395,8 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
     </div>
   );
 }
+
+
 
 export class LinkListFilters extends React.Component {
   constructor(props) {

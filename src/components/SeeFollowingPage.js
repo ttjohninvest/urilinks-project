@@ -33,8 +33,8 @@ export const SeeFollowingPage = (props) => {
     baseUrl = "https://urilinks.com"
   }
 
-  console.log("SeeFollowingPage.js, annotatearray(), array1="+JSON.stringify(props.users)) //props.users [{gud:{}}]
-    console.log("SeeFollowingPage.js, annotatearray(), array2="+JSON.stringify(props.following))
+  // console.log("SeeFollowingPage.js, annotatearray(), array1="+JSON.stringify(props.users)) //props.users [{gud:{}}]
+  //   console.log("SeeFollowingPage.js, annotatearray(), array2="+JSON.stringify(props.following))
 
 
   useEffect(() => {
@@ -66,25 +66,25 @@ export const SeeFollowingPage = (props) => {
   //   else return "You are not following "
   // }
 
-  //props.users, props.following
-  const annotatearray = (array1, array2) => {
-    console.log("SeeFollowingPage.js, annotatearray(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
-    console.log("SeeFollowingPage.js, annotatearray(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
-    const resultArray = array1.map((item) => ({
-      ...item,
-      isMatch:
-        array2.some((item2) => item2.uid === item.gud.uid) === true
-          ? "is following "
-          : "is not following ",
-      gotopageid:
-        array2.some((item2) => item2.uid === item.gud.uid) === true
-          ? item.gud.uid
-          : "this should be the goto page user id",
+  // //props.users, props.following
+  // const annotatearray = (array1, array2) => {
+  //   console.log("SeeFollowingPage.js, annotatearray(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
+  //   console.log("SeeFollowingPage.js, annotatearray(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
+  //   const resultArray = array1.map((item) => ({
+  //     ...item,
+  //     isMatch:
+  //       array2.some((item2) => item2.uid === item.gud.uid) === true
+  //         ? "is following "
+  //         : "is not following ",
+  //     gotopageid:
+  //       array2.some((item2) => item2.uid === item.gud.uid) === true
+  //         ? item.gud.uid
+  //         : "this should be the goto page user id",
       
-    }));
-     console.log("SeeFollowingPage.js, annotatearray(), resultArray="+JSON.stringify(resultArray))
-    return resultArray;
-  };
+  //   }));
+  //    console.log("SeeFollowingPage.js, annotatearray(), resultArray="+JSON.stringify(resultArray))
+  //   return resultArray;
+  // };
 
   //users, following, newfollowinglinks with newlinks:yes or newlinks:no
   const annotatearray2 = (array1, array2, array3) => {
@@ -161,7 +161,7 @@ export const SeeFollowingPage = (props) => {
     } else if (props.whichone === 2) {
       //const array1 = removeduplicates(props.users, props.following)
       //alert("SeeFollowingPage.js, annotatearray called next, props.following="+JSON.stringify(props.following))
-      const array1 = annotatearray(props.users, props.following); //has is following information and newlinks:yes information
+      const array1 = props.resultArray //annotatearray(props.users, props.following); //has is following information and newlinks:yes information
 
       //   const array3 = array1.sort((a, b) => {
       //   const valA = a.gud.displayname.toLowerCase();
@@ -188,6 +188,7 @@ export const SeeFollowingPage = (props) => {
       //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
       console.log("whichone=2,setUniqueData, props.users=" + JSON.stringify(array3));
       //setUniqueData(props.users);
+     
       setUniqueData(array3);
     }
   }, []);

@@ -9,12 +9,54 @@ import {
   decrementOthersIsOpenClickCount,
 } from "../actions/theothersisopen";
 
+//props.users, props.following
+const annotatearray = (array1, array2) => {
+    console.log("SeeFollowingPage.js, annotatearray(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
+    console.log("SeeFollowingPage.js, annotatearray(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? "is following "
+          : "is not following ",
+      gotopageid:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? item.gud.uid
+          : "this should be the goto page user id",
+      
+    }));
+     console.log("SeeFollowingPage.js, annotatearray(), resultArray="+JSON.stringify(resultArray))
+    return resultArray;
+  };
+
+
+
+
 const OthersButton = (props) => {
   const [isDisplayed, setIsDisplayed] = useState(false);
+  const [lengthOf, setLengthOf] = useState(0)
+  const [resultArray, setResultArray] = useState([])
   //const textToCopy = "text being copied to the clipboard";
 
   //alert(props.name2)
   //console.log("OthersButton, props.name2="+props.name2)
+
+  useEffect(()=>{
+    if(props.whichone === 2) {
+      const ra = annotatearray(props.users,props.following)
+      setResultArray(ra)
+      setLengthOf(ra.length-1) //1 substracts the loggedin user from the total
+    } else {
+      setResultArray([])
+      setLengthOf(0)
+    }
+   
+  
+},[])
+
+const makeannotatearray = () => {
+  
+}
 
 
   const isMobile = () => {
@@ -49,7 +91,10 @@ const OthersButton = (props) => {
     setIsDisplayed(false);
   };
 
-  
+  const lengthof=(v)=>{
+    setLengthOf(v)
+
+  }
 
   const handleDisplay = () => {
     try {
@@ -60,6 +105,8 @@ const OthersButton = (props) => {
     }
   };
 
+  
+
   return (
     <div style={{ display: "inline" }}>
       <button
@@ -67,11 +114,13 @@ const OthersButton = (props) => {
         className={`ib margin-left-11 height48 button-2w- button-2 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
         onClick={handleDisplay}
       >
-        <span className="ib"><span id="numberofnotificationsready" className="ib margin-left-11-">{props.buttonText==="New Links Ready"?"":""}</span>{isDisplayed ? "Displayed" : props.buttonText}</span>
+        <span className="ib"><span id="numberofnotificationsready" className="ib margin-left-11-">{props.buttonText==="New Links Ready"?"":""}</span>{isDisplayed ? "Displayed" :<span><span>({lengthOf})&nbsp;</span><span>{props.buttonText}</span></span> }</span>
       </button>
       {isDisplayed === true && (
         <div>
           <SeeFollowingPage
+            lengthOf = {lengthOf}
+            resultArray = {resultArray}
             whichone = {props.whichone}
             email={props.email}
             uid={props.uid}
@@ -91,7 +140,8 @@ const OthersButton = (props) => {
 const mapStateToProps = (state) => ({
   theothersisopen: state.theothersisopen,
   signup: state.signup,
-
+  users: state.users,
+  following: state.following,
   
 });
 

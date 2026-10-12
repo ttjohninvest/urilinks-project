@@ -21,8 +21,8 @@ const ChatNotifications = (props) => {
 //   return unsubscribe;
 // }, []);
 
-const openNewTabWithCustomTitle = (url, customTitle) => {
-  const newWindow = window.open(url, '_blank');
+const openNewTabWithCustomTitleType = (url, type, customTitle) => {
+  const newWindow = window.open(url, type);
   
   if (newWindow) {
     // Option 1: Using addEventListener (Recommended)
@@ -49,7 +49,7 @@ const openNewTabWithCustomTitle = (url, customTitle) => {
     //   alert(uid1);
     //   alert(dn);
     
-    openNewTabWithCustomTitle(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`, urilinks-chat)
+    openNewTabWithCustomTitleType(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`, "_blank", "urilinks-chat")
  //window.open(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`);
    
 
@@ -170,7 +170,6 @@ const openNewTabWithCustomTitle = (url, customTitle) => {
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
-
   ischat: state.ischat,
 });
 

@@ -293,7 +293,8 @@ export const archiveLink2 = (id, updates) => ({
   updates,
 });
 
-export const startDeleteFollowing = (id2, id) => {
+//export const startDeleteFollowing = (id2, id) => {
+  export const startDeleteFollowing = (id2,dn2, id, dn) => {
   //const uid = getState().auth.uid;
   if (
     id !== null &&
@@ -312,7 +313,14 @@ export const startDeleteFollowing = (id2, id) => {
           .remove()
           .then(() => {
             //alert("Unfollowed")
-            return "success"; //snapshot.val()
+             return database
+            .ref(`chat/messages/${id2}/${dn2}/${id}/${dn}`)
+            .remove()
+            .then(() => {
+               return "success";
+            }).catch(()=>{
+              return "failed"
+            })
             //dispatch(removeLink({ id }));
           })
           .catch((error) => {

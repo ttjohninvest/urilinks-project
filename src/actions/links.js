@@ -221,8 +221,7 @@ export const startAddLink = (v, linkData = {}) => {
 
           v.forEach((u) => { //v is the followers array that was passed in
               console.log("uid="+uid)
-              //console.log("u.gud.uid="+u.uid)
-              //console.log("u.gud.uid="+u.gud.uid)
+             
               console.log("u.uid="+u.uid)
               promises.push(database
                 .ref(`users/${u.uid}/following/${uid}/newlinks`) //.ref(`users/${uid}/${id}/newlinks) in the loop ${id} changes each time

@@ -2722,4 +2722,16 @@ rv parks
 austin nevada pony express rv park 775 346 0326
 they have rock exploration here
 
-==================================================
+==========================================================================================
+connecting one user to my spectrum wifi router, being an isp for one user to the interenet
+using my spectrum router and internet connection:
+          air                         cat 6 cable      cat 6 cable             
+my laptap <-> my spectrum wifi router <-> poe injector <-> tp link cpe 510 unit 
+air
+<-> tp link cpe 510 unit at customer 
+         cat 6 cable      cat 6 cable
+location <-> poe injector <-> wifi router at customer site (user can now use the internet)
+
+
+tp link location: 
+==========================================================================================

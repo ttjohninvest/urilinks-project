@@ -46,8 +46,8 @@ const ChatButton = (props) => {
 //}, []);
 
 
-const openNewTabWithCustomTitle = (url, customTitle) => {
-  const newWindow = window.open(url, '_blank');
+const openNewTabWithCustomTitleType = (url, type, customTitle) => {
+  const newWindow = window.open(url, type);
   
   if (newWindow) {
     // Option 1: Using addEventListener (Recommended)
@@ -69,7 +69,7 @@ const openNewTabWithCustomTitle = (url, customTitle) => {
       //id2,id //id2 is loggedin user, id is subpage
       //window.open(`/chat/${id2}/${name2}/${id}/${name1}/3`) //names are hard coded because i am not passing them in the url yet
       
-    openNewTabWithCustomTitle(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`, "urilinks-chat" )
+    openNewTabWithCustomTitleType(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`, "_blank", "urilinks-chat" )
 
 //window.open(`/chat/${id2}/${name2}/${id}/${name1}/?ni=3&chatsetting=2`)
       

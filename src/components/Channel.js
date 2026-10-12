@@ -39,7 +39,21 @@ const Channel = (props) => {
   const inputRef = useRef();
   const bottomListRef = useRef();
 
+  /*
+ sp: {
+    selectChat: "",
+    messagePlaceholder: "",
+    send: "",
+    deleteChat: "",
+    titlepart1: "",
+    titlepart2: "",
+    titlepart3: "",
+    titlepart4: ""
+  }
+  */
+
   const text = {
+
   en: {
     selectChat: "Select a chat",
     messagePlaceholder: "Enter a message",
@@ -60,7 +74,29 @@ const Channel = (props) => {
     titlepart2: "と",
     titlepart3: "は通信中です。相手がオンラインでなくても、",
     titlepart4: "にメッセージを送信できます。」"
-  }
+  },
+
+  es: {
+    selectChat: "Seleccionar un chat",
+    messagePlaceholder: "Escriba un mensaje",
+    send: "Enviar",
+    deleteChat: "Eliminar chat",
+    titlepart1: "Bienvenido al chat de urilinks.",
+    titlepart2: "y",
+    titlepart3: "Están en comunicación. Puedes seguir enviando un mensaje a",
+    titlepart4: "No está conectado."
+  },
+
+  fr: {
+  selectChat: "Sélectionner une discussion",
+  messagePlaceholder: "Entrez un message",
+  send: "Envoyer",
+  deleteChat: "Supprimer la discussion",
+  titlepart1: "Bienvenue sur le chat UriLinks",
+  titlepart2: "et",
+  titlepart3: "sont en communication. Vous pouvez toujours envoyer un message à ",
+  titlepart4: " si l’autre personne n’est pas en ligne."
+}
   
  
 };
@@ -220,15 +256,19 @@ useEffect(() => {
       <div className="overflow-auto h-full">
         <div className="py-4 max-w-screen-lg mx-auto">
           <div className="border-b dark:border-gray-600 border-gray-200 py-8 mb-4">
-            <div className="font-bold text-3xl text-center">
-              <p className="mb-1">{`${chatsetting === "2" ? welcomemessage2 : welcomemessage1}`}</p>
-              <p>
+            <div className="font-bold text-3xl text-center fixed-element">
+              <p className="mb-1 margin-left-11">{`${chatsetting === "2" ? welcomemessage2 : welcomemessage1}`}</p>
+              <p className="padding-left-1 bg-color-yellow margin-bottom-1 language-dropdown">
                 <select
+                    className="outline-none custom-select2"
                     value={language}
                     onChange={(e) => setLanguage(e.target.value)}
                     >
                     <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">French</option>
                     <option value="ja">日本語</option>
+                    
                 </select>
               </p>
             </div>

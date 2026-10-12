@@ -313,8 +313,9 @@ export const Header = (props) => {
   // };
 
   const setGoogleUserDatadb = (gud) => {
-    console.log("setGoogleUserDatadb, Header.js, gud=" + gud);
+    //console.log("setGoogleUserDatadb, Header.js, gud=" + gud);
     ////put the photoURL in the database
+    console.log("before calling props.startAddGoogleUserData, gud="+JSON.stringify(gud))
     props.startAddGoogleUserData({ gud: gud });
     //props.startAddGoogleUserData(gud);
     console.log("Header.js, done calling startGoogleUserData");
@@ -352,6 +353,7 @@ export const Header = (props) => {
         const purl = user.photoURL;
         const bmok = user.bmok;
         const dn = user.displayName;
+
         const gud = {
           photourl: purl,
           displayname: dn,

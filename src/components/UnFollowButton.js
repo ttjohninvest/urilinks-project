@@ -15,8 +15,11 @@ const UnFollowButton = (props) => {
   const [isUnFollowing, setIsUnFollowing] = useState(false);
   //const textToCopy = "text being copied to the clipboard";
     const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+    
     const id2 = params.get("id2");
+    const dn2 = params.get("dn2");
+    const id = params.get("id");
+    const dn = params.get("dn");
      const z10 = params.get("z10");
      const z12 = params.get("z12");
      const isUnFollowed = params.get("isFollowed");
@@ -52,7 +55,7 @@ const UnFollowButton = (props) => {
      
       
       //startAddFollower(id2,id,{email:theemail},{email:theemail2}) //id is the one being followed
-      startDeleteFollowing(id2,id).then((val)=>{
+      startDeleteFollowing(id2,dn2,id,dn).then((val)=>{
         //alert(val)
         setIsUnFollowing(true)
       }).catch((error)=>{

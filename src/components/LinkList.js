@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
 
 import StickyFixed from "./StickyFixed";
+import InfiniteScrollNew from "./InfiniteScrollNew";
 import MyInfiniteScroll from "./MyInfiniteScroll";
 import MyInfiniteScroll2 from "./MyInfiniteScroll2";
 import MyInfiniteScroll4 from "./MyInfiniteScroll4";
@@ -578,11 +579,10 @@ export const LinkList = (props) => {
               className={`${isMobile() === true ? "scrollable-div2content" : "scrollable-div1c"}`}
               //onClick={()=>stopScrolling2()}
             >
-              {props.links.length === 0
+              {props.isinfinitescroll.isinfinitescroll === true?<InfiniteScrollNew databasePath={`users/${props.auth.uid}/links`} theSortBy = {props.theSortBy} />:
+              props.links.length === 0
                 ? null
-                : // <div className="list-item- list-item--message-"></div>
-                  //readonly means another user is seeing the page
-                  //private urls don't have to be hid from owner of page
+                :  
                   props.links.slice(0, themax).map((link, index) => {
 //                    let linkStatus = "checking";
 
@@ -619,7 +619,13 @@ export const LinkList = (props) => {
                           />
                         </div>
                       );
-                  })}
+                  })
+
+
+
+
+
+               }
               <div ref={bottomElementRef} />
             </div>
           )}
@@ -634,6 +640,7 @@ const mapStateToProps = (state) => {
   //const visibleLinks2 = selectLinks2(state.links2, state.filters);
 
   return {
+    isinfinitescroll: state.isinfinitescroll,
     auth: state.auth,
     theplan: state.theplan,
     linkCount: visibleLinks.length,

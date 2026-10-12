@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import isinfinitescrollReducer from '../reducers/isinfinitescroll';
 import linksReducer from '../reducers/links';
 import isonlineReducer from '../reducers/isonline';
 import ischatReducer from '../reducers/ischat';
@@ -57,6 +58,7 @@ export default () => {
   const store = createStore(
     combineReducers({
       isonline: isonlineReducer,
+      isinfinitescroll: isinfinitescrollReducer,
       links: linksReducer,
       following: followingReducer,
       follower: followerReducer,

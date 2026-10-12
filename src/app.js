@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 
@@ -50,6 +50,11 @@ import { getSettings } from "./actions/settings";
 import { getTheplan, getTheplan2 } from "./actions/theplan";
 import { getThetotalstars, getThetotalstars2 } from "./actions/thetotalstars";
 import { startSetUsers } from "./actions/users";
+
+import {
+  startSetIsInfinitescroll,
+} from "./actions/isinfinitescroll";
+
 import {
   getThetotalloggedout,
   getThetotalloggedout2,
@@ -223,9 +228,16 @@ if (signup !== "signup") {
                                                                   ),
                                                                 )
                                                                 .then(() => {
-                                                                   return store
+                                                                   store
                                                                 .dispatch(
                                                                   startSetChat(
+                                                                    id2,
+                                                                  ),
+                                                                )
+                                                                .then(() => {
+                                                                   return store
+                                                                .dispatch(
+                                                                  startSetIsInfinitescroll(
                                                                     id2,
                                                                   ),
                                                                 )
@@ -234,6 +246,15 @@ if (signup !== "signup") {
                                                                     store,
                                                                     signup,
                                                                   );
+                                                                })
+                                                                .catch(
+                                                                  (error) => {
+                                                                    console.log(
+                                                                      "theplan, error",
+                                                                      error,
+                                                                    );
+                                                                  },
+                                                                );
                                                                 })
                                                                 .catch(
                                                                   (error) => {
@@ -433,9 +454,16 @@ if (signup !== "signup") {
                                                                   ),
                                                                 )
                                                                 .then(() => {
-                                                                   return store
+                                                                   store
                                                                 .dispatch(
                                                                   startSetChat(
+                                                                    user.uid,
+                                                                  ),
+                                                                )
+                                                                .then(() => {
+                                                                   return store
+                                                                .dispatch(
+                                                                  startSetIsInfinitescroll(
                                                                     user.uid,
                                                                   ),
                                                                 )
@@ -444,6 +472,15 @@ if (signup !== "signup") {
                                                                     store,
                                                                     signup,
                                                                   );
+                                                                })
+                                                                .catch(
+                                                                  (error) => {
+                                                                    console.log(
+                                                                      "theplan, error",
+                                                                      error,
+                                                                    );
+                                                                  },
+                                                                );
                                                                 })
                                                                 .catch(
                                                                   (error) => {

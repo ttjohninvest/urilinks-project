@@ -3,6 +3,10 @@ import { v4 } from "uuid";
 //import { ServerValue } from "../firebase/firebase";
 import database from "../firebase/firebase";
 import setHashTags from "./hashtags";
+
+
+
+
 //import {toggleItemShow} from '../features/toggle/creatslice'
 import setHashTags2WithCount from "./hashtags2withcount";
 
@@ -205,21 +209,19 @@ export const startAddLink = (v, linkData = {}) => {
     //return false;
     const promises = [];
     console.log("1startAddLink, link=" + JSON.stringify(link));
-    if (link !== null && link !== undefined && link !== "")
-      return database
+    if (link !== null && link !== undefined && link !== "") {
+      //return 
+    promises.push(database
         .ref(`users/${uid}/links`)
         .push(link)
         .then((ref) => {
-          dispatch(
+            dispatch(
             addLink({
               id: ref.key,
               ...link,
             }),
           );
-
-          //get following users link ids and put a "yes" in each one
-
-          v.forEach((u) => { //v is the followers array that was passed in
+            v.forEach((u) => { //v is the followers array that was passed in
               console.log("uid="+uid)
              
               console.log("u.uid="+u.uid)
@@ -234,11 +236,29 @@ export const startAddLink = (v, linkData = {}) => {
                   return false;
                 }))
               })
+         //return 
+       
         })
         .catch((error) => {
           console.log("error adding link data in firebase, error=" + error);
           return false;
+        }))
+  promises.push(database
+        //.ref(`users/all/links`)
+        .ref("all/links")
+        .push(link)
+        .then((ref) => {
+        
+
+          console.log("pushed the link to users/uid/links and users/all/links")
+
+        
         })
+        .catch((error) => {
+          console.log("error adding link data in firebase, error=" + error);
+          return false;
+        }))
+      }
 
     return Promise.all(promises).then(() => {});
   };
@@ -734,7 +754,12 @@ const isInOkArray = (uid) => {
 
 export const startSetLinks = (uid) => {
   console.log("startSetLinks");
+
   return (dispatch, getState) => {
+    const isinfinitescroll = getState().isinfinitescroll;
+     if(isinfinitescroll.isinfinitescroll===true) {
+       return Promise.resolve([]);
+     }
     const hashtags = [];
 
     return database

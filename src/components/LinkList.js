@@ -5,7 +5,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
 
 import StickyFixed from "./StickyFixed";
-import InfiniteScrollNew from "./InfiniteScrollNew";
+import InfiniteScrollNew from "./InfiniteScrollNew"; //using whole list of links
+import InfiniteScrollNewDescription from "./InfiniteScrollNewDescription"; //search by link text from the whole list of links
 import MyInfiniteScroll from "./MyInfiniteScroll";
 import MyInfiniteScroll2 from "./MyInfiniteScroll2";
 import MyInfiniteScroll4 from "./MyInfiniteScroll4";
@@ -28,6 +29,7 @@ import printerImage from "../assets/images/printer_image.png";
 import { v4 } from "uuid";
 import LoadingPage from "./LoadingPage";
 import StorageSizes from "./StorageSizes";
+
 
 const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
@@ -579,7 +581,32 @@ export const LinkList = (props) => {
               className={`${isMobile() === true ? "scrollable-div2content" : "scrollable-div1c"}`}
               //onClick={()=>stopScrolling2()}
             >
-              {props.isinfinitescroll.isinfinitescroll === true?<InfiniteScrollNew databasePath={`users/${props.auth.uid}/links`} theSortBy = {props.theSortBy} />:
+              {props.isinfinitescroll.isinfinitescroll === true 
+              && props.dosearch === 1
+              //&& props.theSortBy === "description"
+              
+              ?
+              
+              <InfiniteScrollNewDescription 
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              //theSortBy = {props.theSortBy} 
+              theSortBy = "description"
+              
+              />:
+
+
+              props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===0
+              ?
+              
+              <InfiniteScrollNew 
+              databasePath={`users/${props.auth.uid}/links`}
+              theSortBy = {props.theSortBy} />
+               
+              :
+              
               props.links.length === 0
                 ? null
                 :  
@@ -650,6 +677,7 @@ const mapStateToProps = (state) => {
     signup: state.signup,
     links: selectLinks(state.links, state.filters),
     links2: selectLinks(state.links2, state.filters),
+    filters: state.filters,
   };
 };
 

@@ -92,9 +92,8 @@ export const LinkList3 = React.forwardRef((props, ref) => {
     <div>
       
       <LinkList 
-      //{"status":null,"result":"unknown"}
-      //props.linkStatuses[link.id].status
-      //linkStatuses={linkStatuses}
+      dosearch={props.dosearch}
+      searchText={props.searchText}
       theSortBy = {props.theSortBy}
       idexists={props.idexists}
       videoId={props.videoId}

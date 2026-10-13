@@ -1,6 +1,7 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
+import { useSelector } from "react-redux";
 const getSearchTerm = require("./getSearchTerm");
 import StickyFixed from "./StickyFixed";
 import ReadMore from "./ReadMore";
@@ -99,6 +100,10 @@ function ExpandableArray(props) {
   const [idexists, setIdexists] = useState(0);
   const [url2, setUrl2] = useState("");
   const [videoId, setVideoId] = useState("");
+  const [dosearch, setDosearch] = useState(0)
+  const [searchText, setSearchText] = useState("")
+
+  const isinfinitescroll = useSelector(state => state.isinfinitescroll);
 
 
   //const [linkStatuses, setLinkStatuses] = useState({});
@@ -670,6 +675,16 @@ function ExpandableArray(props) {
     //handleCancelScroll();
     console.log("1search");
     props.stopScrolling2();
+
+    //alert(isinfinitescroll.isinfinitescroll)
+    if(isinfinitescroll.isinfinitescroll === true) {
+      window.localStorage.setItem("sortBy", "description")
+      let term = window.document.getElementById("termid").value.trim();
+      //alert(term)
+      setSearchText(term)
+      setDosearch(1)
+    } 
+    else {
     
    
     // var select = document.getElementById("mode");
@@ -730,6 +745,7 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
       });
+    }
   };
 
   const changeSortBy = (sv, x) => {
@@ -2238,10 +2254,8 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
                 {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
                 <LinkList3
-                  // videoId={videoId}
-                  // url2={url2}
-                  // playInPlaceVideo={playInPlaceVideo}
-                  //linkStatuses={linkStatuses}
+                  dosearch={dosearch}
+                  searchText={searchText}
                   theSortBy={sortBy}
                   idexists={idexists}
                   av={props.av}

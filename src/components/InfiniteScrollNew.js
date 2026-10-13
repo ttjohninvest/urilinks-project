@@ -11,7 +11,7 @@ const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
 
 const InfiniteScrollNew = (props) => {
-  const [items, setItems] = useState([]);
+  const [links, setLinks] = useState([]);
   const [lastKey, setLastKey] = useState(null);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -64,7 +64,7 @@ const InfiniteScrollNew = (props) => {
         return;
       }
 
-      setItems((oldItems) => [...oldItems, ...newItems]);
+      setLinks((oldItems) => [...oldItems, ...newItems]);
 
       const newLastKey = newItems[newItems.length - 1].id;
 
@@ -128,10 +128,10 @@ const InfiniteScrollNew = (props) => {
 
   return (
     <div>
-      {items.length === 0
+      {links.length === 0
                 ? null
                 :  
-                  items.map((link, index) => {
+                  links.map((link, index) => {
 //                    let linkStatus = "checking";
 
 // if (props.linkStatuses && props.linkStatuses[link.id]) {

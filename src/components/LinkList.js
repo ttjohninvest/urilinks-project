@@ -3,10 +3,22 @@ const LIST_ALL_PUBLIC_LINKS_PEOPLE = false; //I commented the code out to fix th
 const DISPLAY_THIS_MANY_LINKS = 400;
 import React, { useState, useEffect, useRef } from "react";
 import { connect, useSelector } from "react-redux";
-
+import firebase from "firebase/app"
 import StickyFixed from "./StickyFixed";
-import InfiniteScrollNew from "./InfiniteScrollNew"; //using whole list of links
+
 import InfiniteScrollNewDescription from "./InfiniteScrollNewDescription"; //search by link text from the whole list of links
+import InfiniteScrollNewNoteText from "./InfiniteScrollNewNoteText"; //search by link text from the whole list of links
+import InfiniteScrollNewHashTag from "./InfiniteScrollNewHashTag"; //search by link text from the whole list of links
+import InfiniteScrollNewDateandTime from "./InfiniteScrollNewDateandTime"
+import InfiniteScrollNewSortByViews from "./InfiniteScrollNewSortByViews"
+import InfiniteScrollNewSortByLikes from "./InfiniteScrollNewSortByLikes"
+import InfiniteScrollNewSortByTopTen from "./InfiniteScrollNewSortByTopTen"
+import InfiniteScrollNewSortByAdsAffiliateLinkPresent from "./InfiniteScrollNewSortByAdsAffiliateLinkPresent"
+import InfiniteScrollNewSortByAdsAlpha from "./InfiniteScrollNewSortByAdsAlpha"
+import InfiniteScrollNewSortByProductsAlpha from "./InfiniteScrollNewSortByProductsAlpha"
+
+import InfiniteScrollNew from "./InfiniteScrollNew"; //using whole list of links
+
 import MyInfiniteScroll from "./MyInfiniteScroll";
 import MyInfiniteScroll2 from "./MyInfiniteScroll2";
 import MyInfiniteScroll4 from "./MyInfiniteScroll4";
@@ -31,6 +43,7 @@ import LoadingPage from "./LoadingPage";
 import StorageSizes from "./StorageSizes";
 
 
+
 const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
 const z = params.get("z");
@@ -53,6 +66,7 @@ export const LinkList = (props) => {
   const [bgcolor3, setBgcolor3] = useState("#db5705"); //rgba(219, 87, 5, 1)
   const [themax, setThemax] = useState(0);
   const [maximum, setMaximum] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -181,6 +195,24 @@ export const LinkList = (props) => {
     console.log("AddLinkPage.js, bookmarks, max=" + max);
     return max;
   };
+
+  const getTotalCount = async () => {
+  const snapshot = await firebase
+    .database()
+    .ref(`users/${props.auth.uid}/links`)
+    .once("value");
+
+  const count = snapshot.numChildren();
+  console.log("LinkList.js, getTotalCount(), count="+count)
+  setTotalCount(count);
+
+  return count;
+};
+
+
+useEffect(()=>{
+  getTotalCount()
+},[])
 
   useEffect(() => {
     let x = getPlanMax();
@@ -463,18 +495,32 @@ export const LinkList = (props) => {
 
   //console.log("LinkList.js, linkStatuses="+JSON.stringify(linkStatuses))
 
+  
+
+
+
   return (
     <div>
-      {isMobile() === false && (
+ {isMobile() === false && (
         <div className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
           {/* {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`} */}
+          {props.links.length === 0
+            ? totalCount + " links found."
+            : props.links.length === 1
+              ? "1 link found."
+              : totalCount + " links found."}
+        </div>
+      )}
+      {/* {isMobile() === false && (
+        <div className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
+         
           {props.links.length === 0
             ? props.links.length + " links found."
             : props.links.length === 1
               ? "1 link found."
               : props.links.length + " links found."}
         </div>
-      )}
+      )} */}
       {props.links.length > 1 && (
         <StickyFixed>
           <div
@@ -583,6 +629,7 @@ export const LinkList = (props) => {
             >
               {props.isinfinitescroll.isinfinitescroll === true 
               && props.dosearch === 1
+              && props.theSortBy === "description"
               //&& props.theSortBy === "description"
               
               ?
@@ -591,22 +638,156 @@ export const LinkList = (props) => {
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
-              //theSortBy = {props.theSortBy} 
-              theSortBy = "description"
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
               
               />:
 
 
               props.isinfinitescroll.isinfinitescroll === true
-              && props.dosearch===0
+              && props.dosearch===1
+              && props.theSortBy === "notetext"
+              ?
+
+
+               <InfiniteScrollNewNoteText 
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+              
+              />
+              
+              :  props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===1
+              && props.theSortBy === "hashtag"
+              ?
+
+               <InfiniteScrollNewNoteText 
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+              
+              />
+
+              //  <InfiniteScrollNewHashTag 
+              // databasePath={`users/${props.auth.uid}/links`} 
+              // //searchText={ props.filters.text}
+              // searchText={ props.searchText}  
+              // theSortBy = {props.theSortBy} 
+              // //theSortBy = "description"
+              
+              // />
+              
+              : props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===1
+              && props.theSortBy === "date"
+              ?
+              
+               <InfiniteScrollNewDateandTime 
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+              
+              />
+
+              : props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===1
+              && props.theSortBy === "views"
+              ?
+
+                <InfiniteScrollNewSortByViews 
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+              
+              />
+
+               :props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===1
+              && props.theSortBy === "likes"
+              ?
+               <InfiniteScrollNewSortByLikes 
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+              
+              />
+
+              :props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===1
+              && props.theSortBy === "star"
+              ?
+               <InfiniteScrollNewSortByTopTen 
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+              
+              />
+
+              :props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===1
+              && props.theSortBy === "ads"
+              ?
+               <InfiniteScrollNewSortByAdsAffiliateLinkPresent
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+              
+              />
+          
+              :props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===1
+              && props.theSortBy === "adsalpha"
+              ?
+               <InfiniteScrollNewSortByAdsAlpha
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+              
+              />
+          
+              :props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===1
+              && props.theSortBy === "productsalpha"
+              ?
+               <InfiniteScrollNewSortByProductsAlpha 
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+              
+              />
+          
+                
+          
+              : props.isinfinitescroll.isinfinitescroll === true //not the search one, infinite scrolls the whole list
+             
               ?
               
               <InfiniteScrollNew 
               databasePath={`users/${props.auth.uid}/links`}
               theSortBy = {props.theSortBy} />
-               
-              :
               
+              
+              :
+
               props.links.length === 0
                 ? null
                 :  
@@ -645,6 +826,7 @@ export const LinkList = (props) => {
                             // playInPlaceVideo={props.playInPlaceVideo}
                           />
                         </div>
+                        
                       );
                   })
 

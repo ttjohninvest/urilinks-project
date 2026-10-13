@@ -102,6 +102,7 @@ function ExpandableArray(props) {
   const [videoId, setVideoId] = useState("");
   const [dosearch, setDosearch] = useState(0)
   const [searchText, setSearchText] = useState("")
+  const [mode, setMode] = useState("description")
 
   const isinfinitescroll = useSelector(state => state.isinfinitescroll);
 
@@ -676,59 +677,41 @@ function ExpandableArray(props) {
     console.log("1search");
     props.stopScrolling2();
 
-    //alert(isinfinitescroll.isinfinitescroll)
-    if(isinfinitescroll.isinfinitescroll === true) {
-      window.localStorage.setItem("sortBy", "description")
-      let term = window.document.getElementById("termid").value.trim();
-      //alert(term)
-      setSearchText(term)
-      setDosearch(1)
-    } 
-    else {
-    
-   
-    // var select = document.getElementById("mode");
-    // var selectedValue = select.value
-
-    
-    // var selectedValue;
-    // if (window.localStorage.getItem("sortBy") !== "")
-    //   selectedValue = window.localStorage.getItem("sortBy");
-    // else selectedValue = select.options[select.selectedIndex].value;
-
     const selectElement = document.getElementById('mode');
 
-    // 2. Get the value of the selected option
     const selectedValue = selectElement.value;
     console.log("selectElement.value="+selectElement.value)
-selectElement.value = 'hashtag';
-selectElement.dispatchEvent(new Event('change', { bubbles: true }));   
-selectElement.value = selectedValue;
-selectElement.dispatchEvent(new Event('change', { bubbles: true }));    
-
-    // 3. Get the text of the selected option
-    //const selectedText = selectElement.options[selectElement.selectedIndex].text;
-
-    console.log("this line ran window.localStorage.setItem('sortBy', selectedValue)")
+    selectElement.value = 'hashtag';
+    selectElement.dispatchEvent(new Event('change', { bubbles: true }));   
+    selectElement.value = selectedValue;
+    selectElement.dispatchEvent(new Event('change', { bubbles: true }));    
     window.localStorage.setItem("sortBy", selectedValue)
 
-      
     let term = window.document.getElementById("termid").value.trim();
-     //console.log("1 selectedValue=" + selectedValue + ", term=" + term);
    
     window.localStorage.setItem("termid", term);
+
+    //alert(isinfinitescroll.isinfinitescroll)
+    if(isinfinitescroll.isinfinitescroll === true) {
+      // window.localStorage.setItem("sortBy", "description")
+      
+      //alert(term)
+      setSearchText(term)
+      setMode(selectedValue)
+      setDosearch(1)
+    } else {
+
     props.setTextFilter(term);
+    
+
+
 
     if (
       selectedValue === "hashtag" &&
       // && sortBy === "hashtag"
       props.filters.sortBy === "hashtag"
     ) {
-      // if (term !== "" && term.charAt(0) !== "#") {
-      //   alert("The search term needs to be a hashtag.");
-      //   return;
-      // }
-
+     
       if (term === "") {
         window.document.getElementById("termid").value = "#";
         window.localStorage.setItem("termid", "#");
@@ -737,15 +720,18 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
         window.localStorage.setItem("termid", term);
         props.setTextFilter(term);
       }
-    }
+    
 
-    //buttonRef.current.click();
-    handleClose3();
-    !!document.querySelector("#before-before-link-summary-id") &&
+      //buttonRef.current.click();
+      handleClose3();
+      !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
         behavior: "smooth",
       });
     }
+}
+
+
   };
 
   const changeSortBy = (sv, x) => {
@@ -835,7 +821,7 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
     } else if (e.target.value === "likes") {
       window.localStorage.setItem("sortBy", "likes");
       if (myRef.current) myRef.current.focus();
-      this.props.setTextFilter("");
+      props.setTextFilter("");
       //props.setTextFilter("");
       document.querySelector("#termid").value = ""
       //window.localStorage.setItem("sortBy", "notetext");
@@ -2256,7 +2242,7 @@ selectElement.dispatchEvent(new Event('change', { bubbles: true }));
                 <LinkList3
                   dosearch={dosearch}
                   searchText={searchText}
-                  theSortBy={sortBy}
+                  theSortBy={mode}
                   idexists={idexists}
                   av={props.av}
                   ref={childRef}

@@ -80,14 +80,12 @@ export const LinkList3 = React.forwardRef((props, ref) => {
   }));
 
 
-
-
-
-
-
-
 //   console.log("LinkList3 linkStatuses =", linkStatuses);
 // console.log("LinkList3 status keys =", Object.keys(linkStatuses));
+//console.log("LinkList3, props.theSortBy="+props.theSortBy)
+
+
+
    return (
     <div>
       

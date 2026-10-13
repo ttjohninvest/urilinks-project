@@ -757,6 +757,7 @@ export const startSetLinks = (uid) => {
 
   return (dispatch, getState) => {
     const isinfinitescroll = getState().isinfinitescroll;
+    console.log("actions/links.js, startSetLinks, isinfinitescroll="+isinfinitescroll.isinfinitescroll)
      if(isinfinitescroll.isinfinitescroll===true) {
        return Promise.resolve([]);
      }
@@ -950,6 +951,11 @@ export const startSetLinks = (uid) => {
 export const startSetLinksNew = (uid) => {
   console.log("startSetLinksNew");
   return (dispatch, getState) => {
+    const isinfinitescroll = getState().isinfinitescroll;
+    console.log("actions/links.js, startSetLinks, isinfinitescroll="+isinfinitescroll.isinfinitescroll)
+     if(isinfinitescroll.isinfinitescroll===true) {
+       return Promise.resolve([]);
+     }
     const hashtags = [];
 
     return database

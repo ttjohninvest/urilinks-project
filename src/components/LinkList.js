@@ -505,7 +505,7 @@ useEffect(()=>{
     <div>
  {isMobile() === false && (<div>
  
- {props.isinfinitescroll.isinfinitescroll===true?<p>Links found: {linksCount}</p>:
+ {props.isinfinitescroll.isinfinitescroll===true?<p className="margin-left-11">Links found: {linksCount}</p>:
  <div id="linksfound" className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
           {/* {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`} */}
           {props.links.length === 0

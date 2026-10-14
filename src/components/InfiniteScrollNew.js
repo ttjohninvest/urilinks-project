@@ -18,68 +18,140 @@ const InfiniteScrollNew = (props) => {
   const [loading, setLoading] = useState(false);
 
   const bottomRef = useRef(null);
+  const isMountedRef = useRef(true);
+
+  useEffect(() => {
+  isMountedRef.current = true;
+
+  return () => {
+    isMountedRef.current = false;
+  };
+}, []);
+
+  // const loadMore = async () => {
+  //   if (loading || !hasMore) return;
+
+  //   setLoading(true);
+
+  //   try {
+  //     const ref = firebase.database().ref(props.databasePath);
+
+  //     let query;
+
+  //     // First load
+  //     if (lastKey === null) {
+  //       query = ref.orderByKey().limitToFirst(PAGE_SIZE);
+  //     } else {
+  //       // Start with the last item from the previous page.
+  //       // We request one extra because startAt includes lastKey.
+  //       query = ref
+  //         .orderByKey()
+  //         .startAt(lastKey)
+  //         .limitToFirst(PAGE_SIZE + 1);
+  //     }
+
+  //     const snapshot = await query.once("value");
+
+  //     const newItems = [];
+
+  //     snapshot.forEach((childSnapshot) => {
+  //       newItems.push({
+  //         id: childSnapshot.key,
+  //         ...childSnapshot.val(),
+  //       });
+  //     });
+
+  //     // Remove duplicate first item on later pages
+  //     if (lastKey !== null && newItems.length > 0) {
+  //       if (newItems[0].id === lastKey) {
+  //         newItems.shift();
+  //       }
+  //     }
+
+  //     if (newItems.length === 0) {
+  //       setHasMore(false);
+  //       setLoading(false);
+  //       return;
+  //     }
+
+  //     setLinks((oldItems) => [...oldItems, ...newItems]);
+
+  //     const newLastKey = newItems[newItems.length - 1].id;
+
+  //     setLastKey(newLastKey);
+
+  //     if (newItems.length < PAGE_SIZE) {
+  //       setHasMore(false);
+  //     }
+  //   } catch (error) {
+  //     console.log("Infinite scroll error:", error);
+  //   }
+
+  //   setLoading(false);
+  // };
 
   const loadMore = async () => {
-    if (loading || !hasMore) return;
+  if (loading || !hasMore) return;
 
-    setLoading(true);
+  setLoading(true);
 
-    try {
-      const ref = firebase.database().ref(props.databasePath);
+  try {
+    const ref = firebase.database().ref(props.databasePath);
 
-      let query;
+    let query;
 
-      // First load
-      if (lastKey === null) {
-        query = ref.orderByKey().limitToFirst(PAGE_SIZE);
-      } else {
-        // Start with the last item from the previous page.
-        // We request one extra because startAt includes lastKey.
-        query = ref
-          .orderByKey()
-          .startAt(lastKey)
-          .limitToFirst(PAGE_SIZE + 1);
-      }
-
-      const snapshot = await query.once("value");
-
-      const newItems = [];
-
-      snapshot.forEach((childSnapshot) => {
-        newItems.push({
-          id: childSnapshot.key,
-          ...childSnapshot.val(),
-        });
-      });
-
-      // Remove duplicate first item on later pages
-      if (lastKey !== null && newItems.length > 0) {
-        if (newItems[0].id === lastKey) {
-          newItems.shift();
-        }
-      }
-
-      if (newItems.length === 0) {
-        setHasMore(false);
-        setLoading(false);
-        return;
-      }
-
-      setLinks((oldItems) => [...oldItems, ...newItems]);
-
-      const newLastKey = newItems[newItems.length - 1].id;
-
-      setLastKey(newLastKey);
-
-      if (newItems.length < PAGE_SIZE) {
-        setHasMore(false);
-      }
-    } catch (error) {
-      console.log("Infinite scroll error:", error);
+    if (lastKey === null) {
+      query = ref.orderByKey().limitToFirst(PAGE_SIZE);
+    } else {
+      query = ref
+        .orderByKey()
+        .startAt(lastKey)
+        .limitToFirst(PAGE_SIZE + 1);
     }
 
+    const snapshot = await query.once("value");
+
+    // Component may have disappeared while Firebase was loading.
+    if (!isMountedRef.current) return;
+
+    const newItems = [];
+
+    snapshot.forEach((childSnapshot) => {
+      newItems.push({
+        id: childSnapshot.key,
+        ...childSnapshot.val(),
+      });
+    });
+
+    if (lastKey !== null && newItems.length > 0) {
+      if (newItems[0].id === lastKey) {
+        newItems.shift();
+      }
+    }
+
+    if (newItems.length === 0) {
+      setHasMore(false);
+      setLoading(false);
+      return;
+    }
+
+    setLinks((oldItems) => [...oldItems, ...newItems]);
+
+    const newLastKey = newItems[newItems.length - 1].id;
+
+    setLastKey(newLastKey);
+
+    if (newItems.length < PAGE_SIZE) {
+      setHasMore(false);
+    }
+  } catch (error) {
+    console.log("Infinite scroll error:", error);
+  }
+
+  if (isMountedRef.current) {
     setLoading(false);
-  };
+  }
+};
 
   // Load first page
   useEffect(() => {
@@ -114,27 +186,87 @@ const InfiniteScrollNew = (props) => {
     };
   }, [lastKey, loading, hasMore]);
 
-//  useEffect(() => {
-//   if (props.onLinksCountChange) {
-//     props.onLinksCountChange(links.length);
-//   }
-// }, [links]);
+
+
+// useEffect(() => {
+//   const getTotalCount = async () => {
+//     const snapshot = await firebase
+//       .database()
+//       .ref(props.databasePath)
+//       .once("value");
+
+//     const total = snapshot.numChildren();
+
+//     if (props.onLinksCountChange) {
+//       props.onLinksCountChange(total);
+//     }
+//   };
+
+//   getTotalCount();
+// }, [props.databasePath]);
+
+// useEffect(() => {
+//   let cancelled = false;
+
+//   const getTotalCount = async () => {
+//     try {
+//       const snapshot = await firebase
+//         .database()
+//         .ref(props.databasePath)
+//         .once("value");
+
+//       // Stop here if the component has unmounted
+//       if (cancelled) return;
+
+//       const total = snapshot.numChildren();
+
+//       if (props.onLinksCountChange) {
+//         props.onLinksCountChange(total);
+//       }
+//     } catch (error) {
+//       // Don't report an error after the component is gone
+//       if (!cancelled) {
+//         console.log("Error getting total link count:", error);
+//       }
+//     }
+//   };
+
+//   getTotalCount();
+
+//   return () => {
+//     cancelled = true;
+//   };
+// }, [props.databasePath]);
 
 useEffect(() => {
+  let cancelled = false;
+
   const getTotalCount = async () => {
-    const snapshot = await firebase
-      .database()
-      .ref(props.databasePath)
-      .once("value");
+    try {
+      const snapshot = await firebase
+        .database()
+        .ref(props.databasePath)
+        .once("value");
 
-    const total = snapshot.numChildren();
+      if (cancelled) return;
 
-    if (props.onLinksCountChange) {
-      props.onLinksCountChange(total);
+      const total = snapshot.numChildren();
+
+      if (props.onLinksCountChange) {
+        props.onLinksCountChange(total);
+      }
+    } catch (error) {
+      if (!cancelled) {
+        console.log("Error getting total link count:", error);
+      }
     }
   };
 
   getTotalCount();
+
+  return () => {
+    cancelled = true;
+  };
 }, [props.databasePath]);
 
   return (

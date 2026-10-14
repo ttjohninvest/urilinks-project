@@ -1,6 +1,7 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
+import ErrorBoundry from "./ErrorBoundry"
 import { useSelector } from "react-redux";
 const getSearchTerm = require("./getSearchTerm");
 import StickyFixed from "./StickyFixed";
@@ -104,7 +105,7 @@ function ExpandableArray(props) {
   const [searchText, setSearchText] = useState("")
   const [mode, setMode] = useState("description")
 
-  const isinfinitescroll = useSelector(state => state.isinfinitescroll);
+  //const isinfinitescroll = useSelector(state => state.isinfinitescroll);
 
 
   //const [linkStatuses, setLinkStatuses] = useState({});
@@ -180,6 +181,14 @@ function ExpandableArray(props) {
   } else {
     baseUrl = "https://urilinks.com";
   }
+
+//   const isMountedRef = useRef(true);
+
+//   useEffect(() => {
+//   return () => {
+//     isMountedRef.current = false;
+//   };
+// }, []);
 
   const handleStartScroll = (v) => {
     if (childRef.current) {
@@ -692,7 +701,7 @@ function ExpandableArray(props) {
     window.localStorage.setItem("termid", term);
 
     //alert(isinfinitescroll.isinfinitescroll)
-    if(isinfinitescroll.isinfinitescroll === true) {
+    if(props.isinfinitescroll.isinfinitescroll === true) {
       // window.localStorage.setItem("sortBy", "description")
       
       //alert(term)
@@ -734,6 +743,11 @@ function ExpandableArray(props) {
 
   };
 
+  useEffect(() => {
+  //loadLinks(true);
+  search()
+}, [sortBy]);
+
   const changeSortBy = (sv, x) => {
     //alert("sv="+"hashtag")
     //alert("sv="+sv)
@@ -758,7 +772,8 @@ function ExpandableArray(props) {
       e.target.value === null
     )
       return;
-    console.log("onSortChange, e.target.value=" + e.target.value);
+    
+      console.log("onSortChange, e.target.value=" + e.target.value);
    
     
     //const val = window.document.getElementById("termid").value.trim();
@@ -1309,7 +1324,7 @@ function ExpandableArray(props) {
             )} */}
             </div>
           </div>
-          <div className="width30menupanep">
+           {props.isinfinitescroll.isinfinitescroll === false && <div className="width30menupanep">
             {/* <StickyFixed>
       <div className="margin-left-11 margin-top-n-1u"
       style={{zIndex:99}}
@@ -1342,7 +1357,7 @@ function ExpandableArray(props) {
             </button>
             {/* </div>
           </StickyFixed> */}
-          </div>
+          </div>}
         </div>
 
         <div className="flexrowztt">
@@ -1353,7 +1368,7 @@ function ExpandableArray(props) {
               className={`${isMobile() === true ? "width30menupane" : "width30menupane2"} scrollable-div1`}
               //onClick={()=>stopScrolling()}
             >
-              <div className={`border-right-5`}>
+              {props.isinfinitescroll.isinfinitescroll === false && <div className={`border-right-5`}>
                 <div
                   ref={props.ref1}
                   className={`${""} ${props.signup === false ? "bg-white-1" : "bg-gray-1"} borderradius5`}
@@ -1416,7 +1431,7 @@ function ExpandableArray(props) {
                     })}
                   </div>
                 </div>
-              </div>
+              </div>}
             </div>
           </div>
 
@@ -1985,7 +2000,7 @@ function ExpandableArray(props) {
                       >
                         <optgroup label="Find:">
                           <option value="hashtag" title="search by hash tag">
-                            Hash Tag Search
+                            Hashtag Search
                           </option>
 
                           <option
@@ -2123,7 +2138,7 @@ function ExpandableArray(props) {
                       >
                         <optgroup label="Find:">
                           <option value="hashtag" title="search by hash tag">
-                            Hash Tag Search
+                            Hashtag Search
                           </option>
 
                           <option
@@ -2229,6 +2244,10 @@ function ExpandableArray(props) {
                 )}
               </div>
             </div>
+
+
+
+
             {/* in 2nd column, 2 column controls above, the list of links below */}
             <div className="scrollable-div2-">
               <div id="ef2" ref={elementRef2}></div>
@@ -2810,8 +2829,11 @@ export class LinkListFilters extends React.Component {
 
   render() {
     return (
+      
       <div>
+        <ErrorBoundry>
         <ExpandableArray
+          isinfinitescroll={this.props.isinfinitescroll}
           stopScrolling2={this.props.stopScrolling2}
           scrollInterval2={this.props.scrollInterval2}
           mappedDataShort={this.props.hashtags}
@@ -2846,16 +2868,20 @@ export class LinkListFilters extends React.Component {
           users={this.props.users}
           following={this.props.following}
           follower={this.props.follower}
+
           //setFrommenu={this.props.setFrommenu}
           // incrementHandleToggle3={this.props.incrementHandleToggle3}
           // decrementHandleToggle3={this.props.decrementHandleToggle3}
         />
+        </ErrorBoundry>
       </div>
+      
     );
   }
 }
 
 const mapStateToProps = (state) => ({
+  isinfinitescroll: state.isinfinitescroll,
   filters: state.filters,
   links: state.links,
   hashtags: state.hashtags,

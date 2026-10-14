@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import LinkList from "./LinkList"
+import ErrorBoundary from "./ErrorBoundry";
 // import { useSelector } from "react-redux";
 
 
@@ -88,7 +89,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
 
    return (
     <div>
-      
+      <ErrorBoundary>
       <LinkList 
       dosearch={props.dosearch}
       searchText={props.searchText}
@@ -112,7 +113,7 @@ export const LinkList3 = React.forwardRef((props, ref) => {
   scrollInterval2={props.scrollInterval2}
  
       />
-     
+     </ErrorBoundary>
     </div>
   );
 

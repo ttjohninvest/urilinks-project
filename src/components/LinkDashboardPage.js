@@ -15,6 +15,7 @@ import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
 import LinkListFileDate from "./LinkListFileDate";
 import LinkListFiltersFileDate from "./LinkListFiltersFileDate";
 import { useSelector } from "react-redux";
+import ErrorBoundary from "./ErrorBoundry";
 
 
 //  const logoutit = () => {
@@ -189,6 +190,8 @@ const LinkDashboardPage = (props) => {
   }, []);
 
   return (
+    <div>
+      <ErrorBoundary>
     <ScrollLimit>
     <div className="flexrowh">
       <div id="very-top-id" className="website-background-color">
@@ -219,6 +222,8 @@ right column
       </div>
     </div>
     </ScrollLimit>
+    </ErrorBoundary>
+    </div>
   );
 };
 

@@ -7,6 +7,7 @@ import "firebase/database";
 
 import LinkListItem from "./LinkListItem"
 
+
 const PAGE_SIZE = 20;
 
 const params = new URLSearchParams(window.location.search);
@@ -114,42 +115,74 @@ const InfiniteScrollNewSortByProductsAlpha = (props) => {
 
       let matches
      
+matches = fetchedPage.filter(
+  (item) =>
+    item.addescription &&
+    item.addescription.trim() !== "" &&
+    item.description &&
+    item.description.toLowerCase().includes(search)
+);
 
-        matches = fetchedPage.filter(
-        (item) => item.description && item.description.toLowerCase().includes(search))
+if (fetchedPage.length > 0) {
+  const lastItem = fetchedPage[fetchedPage.length - 1];
+
+  cursorRef.current = {
+    key: lastItem.id,
+    value: lastItem.description,
+  };
+}
+
+if (reset) {
+  setLinks(
+    [...matches].sort((a, b) =>
+      a.addescription.localeCompare(
+        b.addescription,
+        undefined,
+        { sensitivity: "base" }
+      )
+    )
+  );
+} else {
+  setLinks((previousLinks) =>
+    [...previousLinks, ...matches].sort((a, b) =>
+      a.addescription.localeCompare(
+        b.addescription,
+        undefined,
+        { sensitivity: "base" }
+      )
+    )
+  );
+}
+
+// matches = fetchedPage
+//   .filter(
+//     (item) =>
+//       item.addescription &&
+//       item.addescription.trim() !== "" &&
+//       item.description &&
+//       item.description.toLowerCase().includes(search)
+//   )
+//   .sort((a, b) =>
+//     a.addescription.localeCompare(b.addescription)
+//   );
         
         
-        if (fetchedPage.length > 0) {
-        const lastItem = fetchedPage[fetchedPage.length - 1];
+//         if (fetchedPage.length > 0) {
+//         const lastItem = fetchedPage[fetchedPage.length - 1];
 
-        cursorRef.current = {
-          key: lastItem.id,
-          value: lastItem.description,
-        };
+//         cursorRef.current = {
+//           key: lastItem.id,
+//           value: lastItem.description,
+//         };
       
-      }
+//       }
       
 
-     
-
-      console.log("InfiniteScrollDescription, matches=" + JSON.stringify(matches));
-
-      //   if (!reset && cursorRef.current) {
-      //     results = results.filter((item) => item.id !== cursorRef.current.key);
-      //   }
-
-      //const moreAvailable = results.length > PAGE_SIZE;
-
-      /*
-       * Only display PAGE_SIZE records.
-       */
-
-
-      if (reset) {
-        setLinks(matches);
-      } else {
-        setLinks((previousLinks) => [...previousLinks, ...matches]);
-      }
+//       if (reset) {
+//         setLinks(matches);
+//       } else {
+//         setLinks((previousLinks) => [...previousLinks, ...matches]);
+//       }
 
     
 

@@ -115,8 +115,16 @@ const InfiniteScrollNewSortByAdsAffiliateLinkPresent = (props) => {
       let matches
      
 
+        // matches = fetchedPage.filter(
+        // (item) => item.description && item.description.toLowerCase().includes(search))
+
         matches = fetchedPage.filter(
-        (item) => item.description && item.description.toLowerCase().includes(search))
+  (item) =>
+    item.addescription &&
+    item.addescription.trim() !== "" &&
+    item.description &&
+    item.description.toLowerCase().includes(search)
+);
         
         
         if (fetchedPage.length > 0) {

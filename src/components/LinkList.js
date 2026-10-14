@@ -41,6 +41,7 @@ import printerImage from "../assets/images/printer_image.png";
 import { v4 } from "uuid";
 import LoadingPage from "./LoadingPage";
 import StorageSizes from "./StorageSizes";
+import { setIsInfinitescroll } from './../actions/isinfinitescroll';
 
 
 
@@ -521,7 +522,7 @@ useEffect(()=>{
               : props.links.length + " links found."}
         </div>
       )} */}
-      {props.links.length > 1 && (
+      {props.links.length > 1 || props.isinfinitescroll.isinfinitescroll === true && (
         <StickyFixed>
           <div
             className="margin-left-11 margin-top-n-1u"
@@ -612,7 +613,10 @@ useEffect(()=>{
             )}
           </div>
         </StickyFixed>
-      )}
+      )
+     
+      
+      }
       <div id="forvideo"></div>
       <div className="border-left-5">
         <div id="before-link-summary-id" className="margin-bottom-5a"></div>

@@ -1,5 +1,5 @@
 const isinfinitescrollReducerDefaultState = {
-  isinfinitescroll:false
+  isinfinitescroll:true
 };
 
 export default (state = isinfinitescrollReducerDefaultState, action) => {

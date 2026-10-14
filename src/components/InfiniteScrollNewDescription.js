@@ -165,11 +165,42 @@ const InfiniteScrollNewDescription = (props) => {
   /*
    * Run a new search whenever searchText changes.
    */
+    const getTotalCount = async () => {
+    const search = props.searchText.trim().toLowerCase();
+  
+    const snapshot = await firebase
+      .database()
+      .ref(props.databasePath)
+      .once("value");
+  
+    let count = 0;
+  
+    snapshot.forEach((child) => {
+      const item = child.val();
+  
+      if (
+        
+       
+        item.description &&
+        item.description.toLowerCase().includes(search)
+      ) {
+        count++;
+      }
+    });
+  
+    if (props.onLinksCountChange) {
+     props.onLinksCountChange(count);
+    
+    }
+  };
+   
+  
   useEffect(() => {
     cursorRef.current = null;
     setLinks([]);
     setHasMore(true);
-
+  
+    getTotalCount();
     loadLinks(true);
   }, [props.searchText, props.uid]);
 
@@ -266,9 +297,12 @@ const InfiniteScrollNewDescription = (props) => {
 
       </div>
 
-      {/* {loading && <p>Loading...</p>} */}
+      {loading && <p>Loading...</p>}
 
       {/* {!loading && links.length === 0 && <p>No results found.</p>} */}
+      {!loading && !hasMore && links.length === 0 && (
+  <p>No results found.</p>
+)}
 
       <div ref={loaderRef} style={{ height: "20px" }} />
 

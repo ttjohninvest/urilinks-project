@@ -68,6 +68,7 @@ export const LinkList = (props) => {
   const [themax, setThemax] = useState(0);
   const [maximum, setMaximum] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
+  const [linksCount, setLinksCount] = useState(0);
 
   const linkWord = props.linkCount === 1 ? "Uri/Url Link" : "Uri/Url Links";
   const formattedLinksTotal = numeral(props.linksTotal / 100).format("$0,0.00");
@@ -502,15 +503,19 @@ useEffect(()=>{
 
   return (
     <div>
- {isMobile() === false && (
-        <div className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
+ {isMobile() === false && (<div>
+ 
+ {props.isinfinitescroll.isinfinitescroll===true?<p>Links found: {linksCount}</p>:
+ <div id="linksfound" className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
           {/* {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`} */}
           {props.links.length === 0
             ? totalCount + " links found."
             : props.links.length === 1
               ? "1 link found."
               : totalCount + " links found."}
-        </div>
+        </div>}
+ </div>
+  
       )}
       {/* {isMobile() === false && (
         <div className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
@@ -644,7 +649,7 @@ useEffect(()=>{
               searchText={ props.searchText}  
               theSortBy = {props.theSortBy} 
               //theSortBy = "description"
-              
+               onLinksCountChange={setLinksCount}
               />:
 
 
@@ -660,7 +665,7 @@ useEffect(()=>{
               searchText={ props.searchText}  
               theSortBy = {props.theSortBy} 
               //theSortBy = "description"
-              
+               onLinksCountChange={setLinksCount}
               />
               
               :  props.isinfinitescroll.isinfinitescroll === true
@@ -674,7 +679,7 @@ useEffect(()=>{
               searchText={ props.searchText}  
               theSortBy = {props.theSortBy} 
               //theSortBy = "description"
-              
+               onLinksCountChange={setLinksCount}
               />
 
               //  <InfiniteScrollNewHashTag 
@@ -697,7 +702,7 @@ useEffect(()=>{
               searchText={ props.searchText}  
               theSortBy = {props.theSortBy} 
               //theSortBy = "description"
-              
+               onLinksCountChange={setLinksCount}
               />
 
               : props.isinfinitescroll.isinfinitescroll === true
@@ -711,7 +716,7 @@ useEffect(()=>{
               searchText={ props.searchText}  
               theSortBy = {props.theSortBy} 
               //theSortBy = "description"
-              
+               onLinksCountChange={setLinksCount}
               />
 
                :props.isinfinitescroll.isinfinitescroll === true
@@ -724,7 +729,7 @@ useEffect(()=>{
               searchText={ props.searchText}  
               theSortBy = {props.theSortBy} 
               //theSortBy = "description"
-              
+               onLinksCountChange={setLinksCount}
               />
 
               :props.isinfinitescroll.isinfinitescroll === true
@@ -737,7 +742,7 @@ useEffect(()=>{
               searchText={ props.searchText}  
               theSortBy = {props.theSortBy} 
               //theSortBy = "description"
-              
+               onLinksCountChange={setLinksCount}
               />
 
               :props.isinfinitescroll.isinfinitescroll === true
@@ -750,7 +755,7 @@ useEffect(()=>{
               searchText={ props.searchText}  
               theSortBy = {props.theSortBy} 
               //theSortBy = "description"
-              
+               onLinksCountChange={setLinksCount}
               />
           
               :props.isinfinitescroll.isinfinitescroll === true
@@ -763,7 +768,7 @@ useEffect(()=>{
               searchText={ props.searchText}  
               theSortBy = {props.theSortBy} 
               //theSortBy = "description"
-              
+              onLinksCountChange={setLinksCount}
               />
           
               :props.isinfinitescroll.isinfinitescroll === true
@@ -776,7 +781,7 @@ useEffect(()=>{
               searchText={ props.searchText}  
               theSortBy = {props.theSortBy} 
               //theSortBy = "description"
-              
+               onLinksCountChange={setLinksCount}
               />
           
                 
@@ -787,7 +792,9 @@ useEffect(()=>{
               
               <InfiniteScrollNew 
               databasePath={`users/${props.auth.uid}/links`}
-              theSortBy = {props.theSortBy} />
+              theSortBy = {props.theSortBy} 
+              onLinksCountChange={setLinksCount}
+              />
               
               
               :

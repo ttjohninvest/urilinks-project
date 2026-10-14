@@ -11,6 +11,7 @@ const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
 
 const InfiniteScrollNew = (props) => {
+  console.log("InfiniteScrollNew 2")
   const [links, setLinks] = useState([]);
   const [lastKey, setLastKey] = useState(null);
   const [hasMore, setHasMore] = useState(true);
@@ -85,6 +86,10 @@ const InfiniteScrollNew = (props) => {
     loadMore();
   }, []);
 
+
+
+
+
   // Watch the bottom of the list
   useEffect(() => {
     if (!bottomRef.current) return;
@@ -109,26 +114,32 @@ const InfiniteScrollNew = (props) => {
     };
   }, [lastKey, loading, hasMore]);
 
-//   return (
-//     <div>
-//       {items.map((item) => (
-//         <div key={item.id}>
-//           <p>{item.description}</p>
-//         </div>
-//       ))}
+//  useEffect(() => {
+//   if (props.onLinksCountChange) {
+//     props.onLinksCountChange(links.length);
+//   }
+// }, [links]);
 
-//       {/* When this becomes visible, another page is loaded */}
-//       <div ref={bottomRef} style={{ height: "20px" }} />
+useEffect(() => {
+  const getTotalCount = async () => {
+    const snapshot = await firebase
+      .database()
+      .ref(props.databasePath)
+      .once("value");
 
-//       {loading && <p>Loading...</p>}
+    const total = snapshot.numChildren();
 
-//       {!hasMore && <p>No more items.</p>}
-//     </div>
-//   );
+    if (props.onLinksCountChange) {
+      props.onLinksCountChange(total);
+    }
+  };
+
+  getTotalCount();
+}, [props.databasePath]);
 
   return (
     <div>
-      {links.length === 0
+      {links && links.length === 0
                 ? null
                 :  
                   links.map((link, index) => {
@@ -174,7 +185,10 @@ const InfiniteScrollNew = (props) => {
 
       {loading && <p>Loading...</p>}
 
-      {!hasMore && <p>No more items.</p>}
+      {/* {!hasMore && <p>No more items.</p>} */}
+      {!loading && !hasMore && links.length === 0 && (
+  <p>No results found.</p>
+)}
     </div>
   );
 

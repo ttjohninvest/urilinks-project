@@ -165,14 +165,6 @@ export const SeeFollowingPage = (props) => {
       //alert("SeeFollowingPage.js, annotatearray called next, props.following="+JSON.stringify(props.following))
       const array1 = props.resultArray //annotatearray(props.users, props.following); //has is following information and newlinks:yes information
 
-      //   const array3 = array1.sort((a, b) => {
-      //   const valA = a.gud.displayname.toLowerCase();
-      //   const valB = b.gud.displayname.toLowerCase();
-      //   if (valA < valB) return -1;
-      //   if (valA > valB) return 1;
-      //   return 0;
-      // })
-
       let array3 = [];
       if (array1.length > 1) {
           array3 = array1.sort((a, b) => {
@@ -186,11 +178,6 @@ export const SeeFollowingPage = (props) => {
         array3=array1
       }
        
-
-      //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
-      console.log("whichone=2,setUniqueData, props.users=" + JSON.stringify(array3));
-      //setUniqueData(props.users);
-     
       setUniqueData(array3);
     }
   }, []);

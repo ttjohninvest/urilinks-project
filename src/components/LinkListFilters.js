@@ -1,7 +1,7 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
-import ErrorBoundry from "./ErrorBoundry"
+import ErrorBoundry from "./ErrorBoundry";
 import { useSelector } from "react-redux";
 const getSearchTerm = require("./getSearchTerm");
 import StickyFixed from "./StickyFixed";
@@ -74,14 +74,13 @@ import { incrementUsersClickCount } from "../actions/theuserscount";
 //   decrementHandleToggle3,
 // } from "../actions/links";
 
-
-
 function ExpandableArray(props) {
   const [expanded, setExpanded] = useState(props.morehashtags);
   const [uid, setUid] = useState("");
   const [email, setEmail] = useState("");
   const [emailForm, showEmailForm] = useState(false);
   const [theuser, setTheuser] = useState(firebase.auth().currentUser);
+  //const [theuser, setTheuser] = useState(null);
   const [copySuccess, setCopySuccess] = useState("");
   //const [max, setMax] = useState(250);
   const [newspaper, setNewspaper] = useState(props.newspaper);
@@ -101,12 +100,20 @@ function ExpandableArray(props) {
   const [idexists, setIdexists] = useState(0);
   const [url2, setUrl2] = useState("");
   const [videoId, setVideoId] = useState("");
-  const [dosearch, setDosearch] = useState(0)
-  const [searchText, setSearchText] = useState("")
-  const [mode, setMode] = useState("description")
+  const [dosearch, setDosearch] = useState(0);
+  const [searchText, setSearchText] = useState("");
+  const [mode, setMode] = useState("description");
+  const [uniqueData, setUniqueData] = useState([]);
+
+  const [lengthOf, setLengthOf] = useState(0);
+  const [resultArray, setResultArray] = useState([]);
+  const [lengthOf2, setLengthOf2] = useState(0);
+  const [resultArray2, setResultArray2] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+
+
 
   //const isinfinitescroll = useSelector(state => state.isinfinitescroll);
-
 
   //const [linkStatuses, setLinkStatuses] = useState({});
   //const [linkStatusesReady,setLinkStatusesReady] = useState(false)
@@ -154,8 +161,8 @@ function ExpandableArray(props) {
   const dn2 = params.get("dn2");
   const dn = params.get("dn"); //this value is sometimes John
 
-  console.log("LinkListFilters.js, dn2="+dn2)
-  console.log("LinkListFilters.js, dn="+dn)
+  console.log("LinkListFilters.js, dn2=" + dn2);
+  console.log("LinkListFilters.js, dn=" + dn);
 
   const z = params.get("z");
   const z2 = params.get("z2");
@@ -164,10 +171,10 @@ function ExpandableArray(props) {
   //console.log("linkid="+linkid)
   const childRef = useRef(null);
   const z10 = params.get("z10");
-  const isFollower = decodeURIComponent(params.get("isFollower"))
+  const isFollower = decodeURIComponent(params.get("isFollower"));
   console.log("ExpanableArray, isFollower = " + isFollower);
-  const isFollowing = decodeURIComponent(params.get("isFollowing"))
-  console.log("ExpanableArray, isFollowing = '" + isFollowing+"'");
+  const isFollowing = decodeURIComponent(params.get("isFollowing"));
+  console.log("ExpanableArray, isFollowing = '" + isFollowing + "'");
 
   //   const baseUrl =
   // process.env.NODE_ENV === "development"
@@ -182,13 +189,137 @@ function ExpandableArray(props) {
     baseUrl = "https://urilinks.com";
   }
 
-//   const isMountedRef = useRef(true);
+  //   const isMountedRef = useRef(true);
 
-//   useEffect(() => {
-//   return () => {
-//     isMountedRef.current = false;
-//   };
-// }, []);
+   useEffect(() => {
+  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    //setCurrentUser(user);
+    setTheuser(user)
+  });
+
+  return () => unsubscribe();
+}, []);
+
+
+  const getIsMatchNumber = (ra) => {
+    let i = 0;
+    ra.forEach((e) => {
+      if (e.isMatch === "is following ") i++;
+    });
+    console.log("getIsMatchNumber, isMatch, i=" + i);
+    return i;
+  };
+
+  const getNewLinksNumber = (ra) => {
+    let i = 0;
+    ra.forEach((e) => {
+      if (e.isMatch === "is following " && e.newlinks === "yes") i++;
+    });
+    console.log("getNewLinksNumber, newLinks, i=" + i);
+    return i;
+  };
+
+  const annotatearray = (array1, array2) => {
+    console.log(
+      "SeeFollowingPage.js, annotatearray(), array1=" + JSON.stringify(array1),
+    ); //props.users [{gud:{}}]
+    console.log(
+      "SeeFollowingPage.js, annotatearray(), array2=" + JSON.stringify(array2),
+    ); //props.following [{uid:}]
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? "is following "
+          : "is not following ",
+      gotopageid:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? item.gud.uid
+          : "this should be the goto page user id",
+    }));
+    console.log(
+      "SeeFollowingPage.js, annotatearray(), resultArray=" +
+        JSON.stringify(resultArray),
+    );
+    return resultArray;
+  };
+
+  //users, following, newfollowinglinks with newlinks:yes or newlinks:no
+  const annotatearray2 = (array1, array2, array3) => {
+    console.log(
+      "SeeFollowingPage.js, annotatearray2(), array1=" + JSON.stringify(array1),
+    ); //props.users [{gud:{}}]
+    console.log(
+      "SeeFollowingPage.js, annotatearray2(), array2=" + JSON.stringify(array2),
+    ); //props.following [{uid:}]
+    console.log(
+      "SeeFollowingPage.js, annotatearray2(), array3=" + JSON.stringify(array3),
+    ); //props.newfollowingusers [{uid:, newlinks:"yes"}]
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? "is following "
+          : "is not following ",
+      newlinks:
+        array3.some(
+          (item3) =>
+            item3.uid === item.gud.uid &&
+            !!item3.newlinks === true &&
+            item3.newlinks === "yes",
+        ) === true
+          ? "yes"
+          : "no",
+    }));
+
+    console.log(
+      "SeeFollowingPage.js, annotatearray2(), resultArray=" +
+        JSON.stringify(resultArray),
+    );
+    return resultArray;
+  };
+
+  useEffect(() => {
+    //whichone === 2
+    const ra = annotatearray(props.users, props.following);
+    console.log(
+      "linkListArray.js, useEffect, resultArray=" + JSON.stringify(resultArray),
+    );
+    setResultArray(ra);
+
+    setLengthOf(getIsMatchNumber(ra));
+
+    const array1 = ra; //annotatearray(props.users, props.following); //has is following information and newlinks:yes information
+
+    let array3 = [];
+    if (array1.length > 1) {
+      array3 = array1.sort((a, b) => {
+        const valA = a.gud.displayname.toLowerCase();
+        const valB = b.gud.displayname.toLowerCase();
+        if (valA < valB) return -1;
+        if (valA > valB) return 1;
+        return 0;
+      });
+    } else {
+      array3 = array1;
+    }
+
+    setUniqueData(array3);
+
+    //whichone === 2
+
+    //whichone === 1
+    const ra2 = annotatearray2(
+      props.users,
+      props.following,
+      props.newfollowinglinks,
+    );
+
+    setResultArray2(ra2);
+
+    setLengthOf2(getNewLinksNumber(ra2));
+    //whichone === 1
+  }, []);
 
   const handleStartScroll = (v) => {
     if (childRef.current) {
@@ -201,8 +332,6 @@ function ExpandableArray(props) {
   //     childRef.current.cancelScroll();
   //   }
   // };
-
- 
 
   // const checkLink = async (url) => {
   //   try {
@@ -230,45 +359,40 @@ function ExpandableArray(props) {
   //   .map((link) => link.id + ":" + link.Url)
   //   .join("|");
 
-  
+  // useEffect(() => {
+  //   const checkDisplayedLinks = async () => {
+  //     const newStatuses = {};
 
-// useEffect(() => {
-//   const checkDisplayedLinks = async () => {
-//     const newStatuses = {};
+  //     for (const link of props.links || []) {
+  //       const id = link.id;
+  //       const Url = link.Url;
 
-//     for (const link of props.links || []) {
-//       const id = link.id;
-//       const Url = link.Url;
+  //       newStatuses[id] = {
+  //         status: null,
+  //         result: "checking"
+  //       };
 
-//       newStatuses[id] = {
-//         status: null,
-//         result: "checking"
-//       };
+  //       const status = await checkLink(Url);
 
-//       const status = await checkLink(Url);
+  //       newStatuses[id] = status;
+  //       console.log("newStatuses["+id+"].result="+newStatuses[id].result)
+  //       console.log(
+  //         "id=" + id,
+  //         "Url=" + Url,
+  //         "status=" + JSON.stringify(status)
+  //       );
+  //  
+  //     // Update React state only once
+  //     setLinkStatuses(newStatuses);
+  //      setLinkStatusesReady(true);
+  //   };
 
-//       newStatuses[id] = status;
-//       console.log("newStatuses["+id+"].result="+newStatuses[id].result)
-//       console.log(
-//         "id=" + id,
-//         "Url=" + Url,
-//         "status=" + JSON.stringify(status)
-//       );
-//     }
+  //   checkDisplayedLinks();
 
-//     // Update React state only once
-//     setLinkStatuses(newStatuses);
-//      setLinkStatusesReady(true);
-//   };
+  // }, [linksKey]);
 
-//   checkDisplayedLinks();
-
-// }, [linksKey]);
-
-
-
+ 
   useEffect(() => {
-    
     console.log(
       "ExapandableArray, following=" + JSON.stringify(props.following),
     );
@@ -606,8 +730,8 @@ function ExpandableArray(props) {
     // Perform the search action here
     //console.log('Searching for:', this.state.searchTerm);
     // Example: this.props.onSearch(this.state.searchTerm);
-    
-    console.log("3search, handleSearch")
+
+    console.log("3search, handleSearch");
     var select = document.getElementById("mode");
     var selectedValue = select.options[select.selectedIndex].value;
     console.log("handleSearch search, selectedValue=" + selectedValue);
@@ -641,10 +765,10 @@ function ExpandableArray(props) {
 
   const search2 = (z) => {
     //alert("search2")
-     console.log("4search");
+    console.log("4search");
     props.stopScrolling2();
     //handleCancelScroll()
-   
+
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
 
@@ -686,67 +810,61 @@ function ExpandableArray(props) {
     console.log("1search");
     props.stopScrolling2();
 
-    const selectElement = document.getElementById('mode');
+    const selectElement = document.getElementById("mode");
 
     const selectedValue = selectElement.value;
-    console.log("selectElement.value="+selectElement.value)
-    selectElement.value = 'hashtag';
-    selectElement.dispatchEvent(new Event('change', { bubbles: true }));   
+    console.log("selectElement.value=" + selectElement.value);
+    selectElement.value = "hashtag";
+    selectElement.dispatchEvent(new Event("change", { bubbles: true }));
     selectElement.value = selectedValue;
-    selectElement.dispatchEvent(new Event('change', { bubbles: true }));    
-    window.localStorage.setItem("sortBy", selectedValue)
+    selectElement.dispatchEvent(new Event("change", { bubbles: true }));
+    window.localStorage.setItem("sortBy", selectedValue);
 
     let term = window.document.getElementById("termid").value.trim();
-   
+
     window.localStorage.setItem("termid", term);
 
     //alert(isinfinitescroll.isinfinitescroll)
-    if(props.isinfinitescroll.isinfinitescroll === true) {
+    if (props.isinfinitescroll.isinfinitescroll === true) {
       // window.localStorage.setItem("sortBy", "description")
-      
+
       //alert(term)
-      setSearchText(term)
-      setMode(selectedValue)
-      setDosearch(1)
+      setSearchText(term);
+      setMode(selectedValue);
+      setDosearch(1);
     } else {
+      props.setTextFilter(term);
 
-    props.setTextFilter(term);
-    
+      if (
+        selectedValue === "hashtag" &&
+        // && sortBy === "hashtag"
+        props.filters.sortBy === "hashtag"
+      ) {
+        if (term === "") {
+          window.document.getElementById("termid").value = "#";
+          window.localStorage.setItem("termid", "#");
+          props.setTextFilter("#");
+        } else {
+          window.localStorage.setItem("termid", term);
+          props.setTextFilter(term);
+        }
 
-
-
-    if (
-      selectedValue === "hashtag" &&
-      // && sortBy === "hashtag"
-      props.filters.sortBy === "hashtag"
-    ) {
-     
-      if (term === "") {
-        window.document.getElementById("termid").value = "#";
-        window.localStorage.setItem("termid", "#");
-        props.setTextFilter("#");
-      } else {
-        window.localStorage.setItem("termid", term);
-        props.setTextFilter(term);
+        //buttonRef.current.click();
+        handleClose3();
+        !!document.querySelector("#before-before-link-summary-id") &&
+          document
+            .querySelector("#before-before-link-summary-id")
+            .scrollIntoView({
+              behavior: "smooth",
+            });
       }
-    
-
-      //buttonRef.current.click();
-      handleClose3();
-      !!document.querySelector("#before-before-link-summary-id") &&
-      document.querySelector("#before-before-link-summary-id").scrollIntoView({
-        behavior: "smooth",
-      });
     }
-}
-
-
   };
 
   useEffect(() => {
-  //loadLinks(true);
-  search()
-}, [sortBy]);
+    //loadLinks(true);
+    search();
+  }, [sortBy]);
 
   const changeSortBy = (sv, x) => {
     //alert("sv="+"hashtag")
@@ -772,15 +890,12 @@ function ExpandableArray(props) {
       e.target.value === null
     )
       return;
-    
-      console.log("onSortChange, e.target.value=" + e.target.value);
-   
-    
+
+    console.log("onSortChange, e.target.value=" + e.target.value);
+
     //const val = window.document.getElementById("termid").value.trim();
     let val = getSearchTerm();
-    
-    
-    
+
     console.log("onSortChange, term=" + val);
 
     if (e.target.value === "description") {
@@ -823,7 +938,7 @@ function ExpandableArray(props) {
       //alert("views")
       window.localStorage.setItem("sortBy", "views");
       if (myRef.current) myRef.current.focus();
-      document.querySelector("#termid").value = ""
+      document.querySelector("#termid").value = "";
       //this.props.setTextFilter("");
       props.setTextFilter("");
       //window.localStorage.setItem("sortBy", "notetext");
@@ -838,7 +953,7 @@ function ExpandableArray(props) {
       if (myRef.current) myRef.current.focus();
       props.setTextFilter("");
       //props.setTextFilter("");
-      document.querySelector("#termid").value = ""
+      document.querySelector("#termid").value = "";
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
       // setSortBy("likes");
@@ -851,7 +966,7 @@ function ExpandableArray(props) {
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
       props.setTextFilter("");
-      document.querySelector("#termid").value = ""
+      document.querySelector("#termid").value = "";
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
       // setSortBy("star");
@@ -864,7 +979,7 @@ function ExpandableArray(props) {
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
       props.setTextFilter("");
-      document.querySelector("#termid").value = ""
+      document.querySelector("#termid").value = "";
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
       // setSortBy("ads");
@@ -877,12 +992,12 @@ function ExpandableArray(props) {
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
       props.setTextFilter("");
-      document.querySelector("#termid").value = ""
+      document.querySelector("#termid").value = "";
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
       // setSortBy("adsalpha");
       props.sortByAdsAlpha();
-       setSortBy("adsalpha");
+      setSortBy("adsalpha");
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
     } else if (e.target.value === "productsalpha") {
@@ -890,7 +1005,7 @@ function ExpandableArray(props) {
       if (myRef.current) myRef.current.focus();
       //this.props.setTextFilter("");
       props.setTextFilter("");
-      document.querySelector("#termid").value = ""
+      document.querySelector("#termid").value = "";
       //window.localStorage.setItem("sortBy", "notetext");
       //this.setState({ sortBy: "notetext" });
       // setSortBy("productsalpha");
@@ -1250,50 +1365,244 @@ function ExpandableArray(props) {
   //   };
 
   const openNewTabWithCustomTitleType = (url, type, customTitle) => {
-  const newWindow = window.open(url, type);
-  
-  if (newWindow) {
-    // Option 1: Using addEventListener (Recommended)
-    newWindow.addEventListener('load', () => {
-      newWindow.document.title = customTitle 
-    });
+    const newWindow = window.open(url, type);
 
-    // Option 2: Using setTimeout (Fallback if load event is unreliable)
-    // setTimeout(() => {
-    //   if (newWindow && !newWindow.closed) {
-    //     newWindow.document.title = customTitle;
-    //   }
-    // }, 500); 
-  }
-};
+    if (newWindow) {
+      // Option 1: Using addEventListener (Recommended)
+      newWindow.addEventListener("load", () => {
+        newWindow.document.title = customTitle;
+      });
+
+      // Option 2: Using setTimeout (Fallback if load event is unreliable)
+      // setTimeout(() => {
+      //   if (newWindow && !newWindow.closed) {
+      //     newWindow.document.title = customTitle;
+      //   }
+      // }, 500);
+    }
+  };
 
   const handlerCats = () => {
     //window.open("/cats?ni=1", "_blank"); //opens react component in new browser tab using window.open("/cats") using AppRouter.js and PrivateRoute.js
     //window.open("/cats/1/?ni=1", "_self");
-    openNewTabWithCustomTitleType("/cats/1/?ni=1","_self","urilinks-cats")
+    openNewTabWithCustomTitleType("/cats/1/?ni=1", "_self", "urilinks-cats");
   };
 
   const handlerDogs = () => {
     //window.open("/cats?ni=1", "_blank");
     //window.open("/dogs?ni=2", "_self");
-     openNewTabWithCustomTitleType("/dogs/1/?ni=1","_self","urilinks-dogs")
+    openNewTabWithCustomTitleType("/dogs/1/?ni=1", "_self", "urilinks-dogs");
   };
 
   // console.log("LinkListFilters.js, props.links.length =", props.links.length);
   // console.log("LinkListFilters.js, linkStatuses =", JSON.stringify(linkStatuses));
 
-//   return (
-//     <div>
-    
-//   {props.links.map((link) => (
-//   <div key={link.id}>
-//     {link.Url}
-//   </div>
-// ))}
-// </div>
-// )
+  //   return (
+  //     <div>
+
+  //   {props.links.map((link) => (
+  //   <div key={link.id}>
+  //     {link.Url}
+  //   </div>
+  // ))}
+  // </div>
+  // )
 
   //console.log("linkStatuses="+JSON.stringify(JSON.stringify(linkStatuses)))
+
+  const openNewTabWithCustomTitleType2 = (url, type, customTitle) => {
+    const newWindow = window.open(url, type);
+
+    if (newWindow) {
+      // Option 1: Using addEventListener (Recommended)
+      newWindow.addEventListener("load", () => {
+        newWindow.document.title = customTitle;
+      });
+
+      // Option 2: Using setTimeout (Fallback if load event is unreliable)
+      // setTimeout(() => {
+      //   if (newWindow && !newWindow.closed) {
+      //     newWindow.document.title = customTitle;
+      //   }
+      // }, 500);
+    }
+  };
+
+  function encrypt(text, key) {
+    return [...text]
+      .map((x, i) =>
+        (x.codePointAt() ^ (key.charCodeAt(i % key.length) % 255))
+          .toString(16)
+          .padStart(2, "0"),
+      )
+      .join("");
+  }
+
+  const otherPage = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
+    console.log("otherPage(), id2=" + id2);
+    console.log("otherPage(), id=" + id);
+    console.log("otherPage(), dn2=" + dn2);
+    console.log("otherPage(), dn=" + dn);
+    //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
+    //const z12 = encrypt(props.gud.gud.email,"125434")
+    //const z12 = props.email
+    const z12 = theemail2;
+    //alert(props.email)
+
+    const url2 =
+      baseUrl +
+      "/dashboard?signup=0&x=readonly&id2=" +
+      id2 +
+      "&id=" +
+      id +
+      "&dn2=" +
+      dn2 +
+      "&dn=" +
+      dn +
+      "&purl=" +
+      purl +
+      "&z10=" +
+      email +
+      "&z12=" +
+      z12 +
+      "&isFollowing=" +
+      isMatch;
+
+    // window.open(
+    //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+    //   baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
+    //     id2 +
+    //     "&id=" +
+    //     id +
+    //      "&dn2=" +
+    //     dn2 +
+    //     "&dn=" +
+    //     dn +
+    //     "&purl=" +
+    //     purl +
+    //     "&z10=" +
+    //     email +
+    //     "&z12=" +
+    //     z12 +
+    //     "&isFollowing=" +
+    //     isMatch,
+    //   "_blank"
+    // );
+
+    openNewTabWithCustomTitleType2(url2, "_blank", "urilinks-page");
+  };
+
+  const otherPage2 = (
+    id2,
+    id,
+    dn2,
+    dn,
+    purl,
+    email,
+    theemail2,
+    isMatch,
+    newlinks,
+  ) => {
+    console.log("otherPage(), id2=" + id2);
+    console.log("otherPage(), id=" + id);
+    console.log("otherPage(), dn2=" + dn2);
+    console.log("otherPage(), dn=" + dn);
+    //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
+    //const z12 = encrypt(props.gud.gud.email,"125434")
+    //const z12 = props.email
+    const z12 = theemail2;
+    //alert(props.email)
+
+    window.open(
+      //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+      baseUrl +
+        "/dashboard?signup=0&x=readonly&id2=" +
+        id2 +
+        "&id=" +
+        id +
+        "&dn2=" +
+        dn2 +
+        "&dn=" +
+        dn +
+        "&purl=" +
+        purl +
+        "&z10=" +
+        email +
+        "&z12=" +
+        z12 +
+        "&isFollowing=" +
+        isMatch +
+        "&newlinks=" +
+        newlinks,
+      "_blank",
+    );
+  };
+
+  const handleClick2 = (v,event) => {
+   
+    if (v === 1) {
+    
+      const clickedElement = event.target;
+
+      
+      const itemId = clickedElement.dataset.itemId;
+
+      const array3 = itemId.split(";");
+
+      setitbacktono(array3[0], array3[1])
+        .then(() => {
+          if (array3[0]) {
+            otherPage2(
+              array3[0],
+              array3[1],
+              array3[2],
+              array3[3],
+              array3[4],
+              encrypt(array3[5], "125434"),
+              encrypt(array3[6], "125434"),
+              array3[7],
+            ); 
+          }
+        })
+        .catch((e) => {
+          alert("SeeFollowingPage.js, setitbacktono(), something went wrong");
+        });
+    } else if (v === 2) {
+      
+      const clickedElement = event.currentTarget;
+      
+      const itemId = clickedElement.dataset.itemId;
+
+      console.log("itemId =", itemId);
+
+      if (!itemId) return;
+
+    
+      const array3 = itemId.split(";")
+
+     
+
+      console.log("handleClick, itemId=" + itemId);
+      // encrypt(array3[5], "125434"),
+          // encrypt(array3[6], "125434"),
+
+      if (array3[0]) {
+        otherPage(
+          array3[0],
+          array3[1],
+          array3[2],
+          array3[3],
+          array3[4],
+          array3[5],
+          array3[6],
+          array3[7]
+        ); 
+      }
+
+    
+    } else {
+    }
+  };
 
   return (
     <div className="flexrowh-">
@@ -1324,40 +1633,42 @@ function ExpandableArray(props) {
             )} */}
             </div>
           </div>
-           {props.isinfinitescroll.isinfinitescroll === false && <div className="width30menupanep">
-            {/* <StickyFixed>
+          {props.isinfinitescroll.isinfinitescroll === false && (
+            <div className="width30menupanep">
+              {/* <StickyFixed>
       <div className="margin-left-11 margin-top-n-1u"
       style={{zIndex:99}}
       > */}
-            <button
-              title="Click the button to begin auto scroll."
-              onClick={startScrollingUp}
-              className="button-2 widthxpx2"
-            >
-              ScrollUp
-            </button>
+              <button
+                title="Click the button to begin auto scroll."
+                onClick={startScrollingUp}
+                className="button-2 widthxpx2"
+              >
+                ScrollUp
+              </button>
 
-            <button
-              ref={buttonRef}
-              id="stopscroll"
-              title="Click the button to stop auto scroll."
-              onClick={stopScrolling}
-              className="button-2 ib margin-left-11"
-            >
-              Stop
-            </button>
+              <button
+                ref={buttonRef}
+                id="stopscroll"
+                title="Click the button to stop auto scroll."
+                onClick={stopScrolling}
+                className="button-2 ib margin-left-11"
+              >
+                Stop
+              </button>
 
-            <button
-              ref={scrolldownref7}
-              title="Click the button to begin auto scroll."
-              onClick={startScrollingDown}
-              className="ib button-2 margin-left-11"
-            >
-              ScrollDn
-            </button>
-            {/* </div>
+              <button
+                ref={scrolldownref7}
+                title="Click the button to begin auto scroll."
+                onClick={startScrollingDown}
+                className="ib button-2 margin-left-11"
+              >
+                ScrollDn
+              </button>
+              {/* </div>
           </StickyFixed> */}
-          </div>}
+            </div>
+          )}
         </div>
 
         <div className="flexrowztt">
@@ -1368,70 +1679,149 @@ function ExpandableArray(props) {
               className={`${isMobile() === true ? "width30menupane" : "width30menupane2"} scrollable-div1`}
               //onClick={()=>stopScrolling()}
             >
-              {props.isinfinitescroll.isinfinitescroll === false && <div className={`border-right-5`}>
-                <div
-                  ref={props.ref1}
-                  className={`${""} ${props.signup === false ? "bg-white-1" : "bg-gray-1"} borderradius5`}
-                  title={
-                    props.signup === true
-                      ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
-                      : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
-                  }
-                >
-                  <div>
-                    {props.mappedDataShort.map((s, index, arr) => {
-                      //have 3 map calls and display the first column then the second column and then the thrid column
-                      //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
-                      if (
-                        //(rt === "readonly")  &&
-                        s.showpublic === 0
-                        //|| s.archive === 1
-                      )
-                        return null;
-                      else
-                        return (
-                          <div key={index} className={``}>
-                            {!!s.description2 === false ? null : (
-                              <div className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z">
-                                <a
-                                  className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
+              {props.isinfinitescroll.isinfinitescroll === false ? (
+                <div className={`border-right-5`}>
+                  <div
+                    ref={props.ref1}
+                    className={`${""} ${props.signup === false ? "bg-white-1" : "bg-gray-1"} borderradius5`}
+                    title={
+                      props.signup === true
+                        ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
+                        : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
+                    }
+                  >
+                    <div>
+                      {props.mappedDataShort.map((s, index, arr) => {
+                        //have 3 map calls and display the first column then the second column and then the thrid column
+                        //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
+                        if (
+                          //(rt === "readonly")  &&
+                          s.showpublic === 0
+                          //|| s.archive === 1
+                        )
+                          return null;
+                        else
+                          return (
+                            <div key={index} className={``}>
+                              {!!s.description2 === false ? null : (
+                                <div className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z">
+                                  <a
+                                    className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
                                 ib margin-top-1 ${
                                   props.b == 1
                                     ? "pointereventsauto underline"
                                     : "pointereventsnone"
                                 }`}
-                                  style={{ whiteSpace: "pre-wrap" }}
-                                  href="#"
-                                  onClick={() =>
-                                    setItNow(index, s.description, event)
-                                  }
-                                  title={`click to see results`}
-                                >
-                                  <span>{s.description2}</span>
-                                </a>
-                                <br />
+                                    style={{ whiteSpace: "pre-wrap" }}
+                                    href="#"
+                                    onClick={() =>
+                                      setItNow(index, s.description, event)
+                                    }
+                                    title={`click to see results`}
+                                  >
+                                    <span>{s.description2}</span>
+                                  </a>
+                                  <br />
 
-                                <span
-                                  className="ib margin-left-11z"
-                                  style={{
-                                    color: "black",
-                                    fontSize: ".9rem",
-                                    textDecoration: "none",
-                                    fontWeight: "normal",
-                                    pointerEvents: "none",
-                                    whiteSpace: "pre-wrap",
-                                  }}
-                                >
-                                  {s.matchesstring}
-                                </span>
-                              </div>
-                            )}
+                                  <span
+                                    className="ib margin-left-11z"
+                                    style={{
+                                      color: "black",
+                                      fontSize: ".9rem",
+                                      textDecoration: "none",
+                                      fontWeight: "normal",
+                                      pointerEvents: "none",
+                                      whiteSpace: "pre-wrap",
+                                    }}
+                                  >
+                                    {s.matchesstring}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
+                          );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div
+                    className="liststylenone cursor-pointer interline"
+                    //onClick={(event) => handleClick2(2,event)}
+                  >
+                    {uniqueData.map((item, index) => {
+                      if (props.uid !== item.gud.uid) {
+                        // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
+                        return (
+                          <div
+                            onClick={(event) => handleClick2(2,event)}
+                            className={`${
+                              //props.whichone === 2
+                              true && item.isMatch === "is following "
+                                ? "bg-color-1 color-white-1"
+                                : "bg-color-1w color-black-3"
+                            }
+                         flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
+                            key={index}
+                            data-item-id={
+                              props.uid +
+                              ";" +
+                              item.gud.uid +
+                              ";" +
+                              (theuser?theuser.displayName:"name") +
+                              ";" +
+                              item.gud.displayname +
+                              ";" +
+                              item.gud.photourl +
+                              ";" +
+                              item.gud.email +
+                              ";" +
+                              "e@.com" +
+                              ";" +
+                              item.isMatch
+                            }
+                          >
+                            <img
+                              src={item.gud.photourl}
+                              width="42"
+                              height="42"
+                              className="borderRadius50- circular-img-"
+                              style={{ borderRadius: "50%" }}
+                              onLoad={() => {
+                                console.log("IMAGE LOADED:", item.gud.photourl);
+                              }}
+                              onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src = "/default-profile.png";
+                              }}
+                            />
+                            <span className="margin-left-11">
+                              {/* {item.gud.photourl} */}
+                              {item.gud.displayname}
+                            </span>
+                            {/* {
+                              "e@e.com"+
+                              " " +
+                              item.isMatch +
+                              " " +
+                              item.gud.email +
+                              ", " +
+                              item.gud.displayname +
+                              ", " +
+                              item.gud.theatname +
+                              ", " +
+                              item.gud.photourl
+                              } */}
                           </div>
-                        );
+                        )
+                      } else {
+                        return null;
+                      }
                     })}
                   </div>
                 </div>
-              </div>}
+              )}
             </div>
           </div>
 
@@ -1578,11 +1968,20 @@ function ExpandableArray(props) {
                         //setSortBy={setSortBy}
                       /> */}
 
+                      {/*1 because displaying following in the first column commented this out*/}
                       {readonly === false && (
                         <div>
                           <OthersButton
                             whichone={2}
-                            name2={!!theuser ? theuser.displayName:"placeholdername1"}
+                            resultArray2={resultArray2}
+                            lengthOf2={lengthOf2}
+                            resultArray={resultArray}
+                            lengthOf={lengthOf}
+                            name2={
+                              !!theuser
+                                ? theuser.displayName
+                                : "placeholdername1"
+                            }
                             buttonText={"Following"}
                             email={
                               !!firebase.auth().currentUser === true
@@ -1639,7 +2038,7 @@ function ExpandableArray(props) {
                                 <a
                                   href="#"
                                   ref={textAreaRef}
-                                  className={`ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55 ${isMobile() === false ? "" : "width325"}`}
+                                  className={`ib borderWidth2 margin-topx nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55 ${isMobile() === false ? "" : "width325"}`}
                                   title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                                   style={{
                                     textDecoration: "none",
@@ -1669,8 +2068,13 @@ function ExpandableArray(props) {
                                   />
                                   {readonly === false && (
                                     <div>
+                                      {/*1 because displaying following in the first column commented this out*/}
                                       <OthersButton
                                         whichone={2}
+                                        resultArray2={resultArray2}
+                                        lengthOf2={lengthOf2}
+                                        resultArray={resultArray}
+                                        lengthOf={lengthOf}
                                         buttonText={"Following"}
                                         email={
                                           !!firebase.auth().currentUser === true
@@ -1680,7 +2084,11 @@ function ExpandableArray(props) {
                                         uid={props.uid}
                                         elementRef20={elementRef20}
                                         changeSortBy={changeSortBy}
-                                        name2={!!theuser ? theuser.displayName:"placeholdername1"}
+                                        name2={
+                                          !!theuser
+                                            ? theuser.displayName
+                                            : "placeholdername1"
+                                        }
                                         //setSortBy={setSortBy}
                                       />
                                       <FollowerButton
@@ -1694,10 +2102,10 @@ function ExpandableArray(props) {
                                         changeSortBy={changeSortBy}
                                         //setSortBy={setSortBy}
                                       />
-                                      {Constants.CATS === true && (
+                                      {/* {Constants.CATS === true && (
                                         <button
                                           onClick={handlerCats}
-                                          className="button-2 margin-left-11"
+                                          className="button-2 margin-left-11 category-button"
                                         >
                                           Cats
                                         </button>
@@ -1705,11 +2113,11 @@ function ExpandableArray(props) {
                                       {Constants.DOGS === true && (
                                         <button
                                           onClick={handlerDogs}
-                                          className="button-2 margin-left-11"
+                                          className="button-2- margin-left-11 category-button"
                                         >
                                           Dogs
                                         </button>
-                                      )}
+                                      )} */}
                                     </div>
                                   )}
                                 </div>
@@ -1732,7 +2140,7 @@ function ExpandableArray(props) {
                                 <a
                                   href="#"
                                   ref={textAreaRef}
-                                  className="ib borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55"
+                                  className="ib margin-topx borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55"
                                   title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                                   style={{
                                     textDecoration: "none",
@@ -1760,9 +2168,18 @@ function ExpandableArray(props) {
                                     textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                   />
                                 </div>
-                                 <OthersButton
+                                {/*1 because displaying following in the first column commented this out*/}
+                                <OthersButton
                                   whichone={2}
-                                  name2={!!theuser ? theuser.displayName:"placeholdername1"}
+                                  resultArray2={resultArray2}
+                                  lengthOf2={lengthOf2}
+                                  resultArray={resultArray}
+                                  lengthOf={lengthOf}
+                                  name2={
+                                    !!theuser
+                                      ? theuser.displayName
+                                      : "placeholdername1"
+                                  }
                                   buttonText={"Following"}
                                   email={
                                     !!firebase.auth().currentUser === true
@@ -1774,7 +2191,6 @@ function ExpandableArray(props) {
                                   changeSortBy={changeSortBy}
                                   //uid={props.uid}
                                   //setSortBy={setSortBy}
-                                 
                                 />
                                 <FollowerButton
                                   email={
@@ -1788,7 +2204,7 @@ function ExpandableArray(props) {
                                   //setSortBy={setSortBy}
                                 />
 
-                                {Constants.CATS === true && (
+                                {/* {Constants.CATS === true && (
                                   <button
                                     onClick={handlerCats}
                                     className="button-2 margin-left-11"
@@ -1803,7 +2219,7 @@ function ExpandableArray(props) {
                                   >
                                     Dogs
                                   </button>
-                                )}
+                                )} */}
                               </div>
                             </div>
                           </div>
@@ -2203,27 +2619,26 @@ function ExpandableArray(props) {
                       </select>
                       {z10 !== null && (
                         <div className="flexrowz">
-                              
                           {/* {!!isFollower !== true &&  <FollowButton />} */}
                           {!!isFollowing === true &&
                           isFollowing !== "is following" ? (
                             <div className="flexrowz">
                               <FollowButton />
-                              
                             </div>
                           ) : !!isFollowing === true &&
-                           isFollowing === "is following" ? (
+                            isFollowing === "is following" ? (
                             <div className="flexrowz">
                               <UnFollowButton />
                               {/* <ChatButton id2={id2} id={id} name2={dn2} name1={dn} chatsetting={2} /> */}
-                              <ChatButton 
-                              id2={id2} 
-                              id={id} 
-                              name2={dn2} 
-                              name1={dn} 
-                              chatsetting={2} />
+                              <ChatButton
+                                id2={id2}
+                                id={id}
+                                name2={dn2}
+                                name1={dn}
+                                chatsetting={2}
+                              />
                             </div>
-                          ):null}
+                          ) : null}
 
                           {!!isFollower === true &&
                             isFollower === "is a follower of" && (
@@ -2244,9 +2659,6 @@ function ExpandableArray(props) {
                 )}
               </div>
             </div>
-
-
-
 
             {/* in 2nd column, 2 column controls above, the list of links below */}
             <div className="scrollable-div2-">
@@ -2415,8 +2827,6 @@ function ExpandableArray(props) {
   );
 }
 
-
-
 export class LinkListFilters extends React.Component {
   constructor(props) {
     super(props);
@@ -2461,7 +2871,7 @@ export class LinkListFilters extends React.Component {
     // Perform the search action here
     //console.log('Searching for:', this.state.searchTerm);
     // Example: this.props.onSearch(this.state.searchTerm);
-    
+
     var select = document.getElementById("mode");
     var selectedValue = select.options[select.selectedIndex].value;
     console.log("handleSearch search, selectedValue=" + selectedValue);
@@ -2696,7 +3106,6 @@ export class LinkListFilters extends React.Component {
   }
 
   componentDidMount() {
-    
     //this.props.abc(3);
     //console.log("3, this.props.abcref=" + JSON.stringify(this.props.abcref));
     console.log(
@@ -2781,7 +3190,7 @@ export class LinkListFilters extends React.Component {
   };
 
   search = () => {
-     //alert("search")
+    //alert("search")
     console.log("1 search");
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
@@ -2829,53 +3238,48 @@ export class LinkListFilters extends React.Component {
 
   render() {
     return (
-      
       <div>
         <ErrorBoundry>
-        <ExpandableArray
-          isinfinitescroll={this.props.isinfinitescroll}
-          stopScrolling2={this.props.stopScrolling2}
-          scrollInterval2={this.props.scrollInterval2}
-          mappedDataShort={this.props.hashtags}
-          mappedDataLong={this.state.mappedDataLong}
-          maxLength={this.SHORT_HASHTAG_LENGTH}
-          ref1={this.elementRef}
-          morehashtags={this.state.morehashtags}
-          setit={this.setit}
-          theplan={this.props.theplan}
-          plan={this.props.theplan.plan}
-          newspaper={this.state.newspaper}
-          signup={this.props.signup.signup}
-          uid={this.props.auth.uid}
-          links={this.props.links}
-          b={this.props.b}
-          setTextFilter={this.props.setTextFilter}
-          sortByDescription={this.props.sortByDescription}
-          sortByHashTag={this.props.sortByHashTag}
-          sortByNoteText={this.props.sortByNoteText}
-          sortByDateText={this.props.sortByDateText}
-          sortByViews={this.props.sortByViews}
-          sortByLikes={this.props.sortByLikes}
-          sortByStar={this.props.sortByStar}
-          sortByAds={this.props.sortByAds}
-          sortByAdsAlpha={this.props.sortByAdsAlpha}
-          sortByProductsAlpha={this.props.sortByProductsAlpha}
-          filters={this.props.filters}
-          userscount={this.props.theuserscount.userscount}
-          signupcount={this.props.thesignupcount.signupcount}
-          userscounti={this.props.theuserscounti.userscounti}
-          totalloggedout={this.props.thetotalloggedout.totalloggedout}
-          users={this.props.users}
-          following={this.props.following}
-          follower={this.props.follower}
-
-          //setFrommenu={this.props.setFrommenu}
-          // incrementHandleToggle3={this.props.incrementHandleToggle3}
-          // decrementHandleToggle3={this.props.decrementHandleToggle3}
-        />
+          <ExpandableArray
+            isinfinitescroll={this.props.isinfinitescroll}
+            stopScrolling2={this.props.stopScrolling2}
+            scrollInterval2={this.props.scrollInterval2}
+            mappedDataShort={this.props.hashtags}
+            mappedDataLong={this.state.mappedDataLong}
+            maxLength={this.SHORT_HASHTAG_LENGTH}
+            ref1={this.elementRef}
+            morehashtags={this.state.morehashtags}
+            setit={this.setit}
+            theplan={this.props.theplan}
+            plan={this.props.theplan.plan}
+            newspaper={this.state.newspaper}
+            signup={this.props.signup.signup}
+            uid={this.props.auth.uid}
+            links={this.props.links}
+            b={this.props.b}
+            setTextFilter={this.props.setTextFilter}
+            sortByDescription={this.props.sortByDescription}
+            sortByHashTag={this.props.sortByHashTag}
+            sortByNoteText={this.props.sortByNoteText}
+            sortByDateText={this.props.sortByDateText}
+            sortByViews={this.props.sortByViews}
+            sortByLikes={this.props.sortByLikes}
+            sortByStar={this.props.sortByStar}
+            sortByAds={this.props.sortByAds}
+            sortByAdsAlpha={this.props.sortByAdsAlpha}
+            sortByProductsAlpha={this.props.sortByProductsAlpha}
+            filters={this.props.filters}
+            userscount={this.props.theuserscount.userscount}
+            signupcount={this.props.thesignupcount.signupcount}
+            userscounti={this.props.theuserscounti.userscounti}
+            totalloggedout={this.props.thetotalloggedout.totalloggedout}
+            users={this.props.users}
+            following={this.props.following}
+            follower={this.props.follower}
+            newfollowinglinks={this.props.newfollowinglinks}
+          />
         </ErrorBoundry>
       </div>
-      
     );
   }
 }
@@ -2898,11 +3302,11 @@ const mapStateToProps = (state) => ({
   users: state.users,
   following: state.following,
   follower: state.follower,
+  newfollowinglinks: state.newfollowinglinks,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
-
   sortByHashTag: () => dispatch(sortByHashTag()),
   sortByDescription: () => dispatch(sortByDescription()),
   sortByNoteText: () => dispatch(sortByNoteText()),
@@ -2911,7 +3315,6 @@ const mapDispatchToProps = (dispatch) => ({
   sortByLikes: () => dispatch(sortByLikes()),
   sortByStar: () => dispatch(sortByStar()),
   sortByFolder: () => dispatch(sortByFolder()),
-
   sortByDate: () => dispatch(sortByDate()),
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),
   setEndDate: (endDate) => dispatch(setEndDate(endDate)),

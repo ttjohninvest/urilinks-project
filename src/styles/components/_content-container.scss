@@ -499,8 +499,20 @@ input#option1[type="radio"] {
   overflow-x: hidden;
 }
 
+button.category-button {
+  background: transparent;
+  border: 1px solid #d99a4e;
+  border-radius: 14px;
+  padding: 5px 12px;
+  font-size: 13px;
+  color: #7a4a16;
+}
+
 .margin-topt {
   margin-top: 0;
+}
+.margin-topx {
+margin-top:50px;
 }
 
 button.link {

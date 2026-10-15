@@ -1873,7 +1873,7 @@ function ExpandableArray(props) {
           </div>
 
           {/* 2nd column 2 column */}
-          <div className="margin-top-n-x">
+          <div className="margin-top-n-x middle-column">
             <div className="borderblue-">
               {isMobile() === true && (
                 <div className="ib margin-left-11 margin-bottom-1">
@@ -2722,7 +2722,7 @@ function ExpandableArray(props) {
 
               <div
                 id="results1"
-                className={`margin-top-18- ${window.screen.height <= 1050 ? "margin-top-n-gx2" : "margin-top-n-gx-"} scrollable-div2- width825 bordergreen-`}
+                className={`margin-top-18- ${window.screen.height <= 1050 ? "margin-top-n-gx2" : "margin-top-n-gx-"} scrollable-div2- width825- bordergreen-`}
               >
                 {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
               <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}

@@ -106,7 +106,7 @@
 
 .scrollable-div1c {
   //width:100%;
-  width:804px;//825px; //600px; //825px;
+  //width:804px;//825px; //600px; //825px;
   height: 609px; //2000px; //866px; //353vh; //150vh; //112vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -309,6 +309,12 @@ ul.interline {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  min-width:100%;
+}
+
+.middle-column {
+  flex:1;
+  min-width:0;
 }
 
 .flexrowztt {

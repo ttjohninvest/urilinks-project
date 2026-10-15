@@ -367,7 +367,7 @@ function ExpandableArray(props) {
     }
 
     setResultArray3(array3);
-     setUniqueData3(array3);
+    setUniqueData3(array3);
 
     //whichone === 2 for follower array
   }, []);
@@ -1788,7 +1788,7 @@ function ExpandableArray(props) {
               ) : (
                 <div>
                   <div
-                    className="margin-tb"
+                    className="padding-tb"
                     title="The number of people that you are following."
                   >
                     Following: ({lengthOf})
@@ -2877,80 +2877,77 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div>
-                  <div className="scrollable-div3">
-                      <div
-                    className="margin-tb"
+                  <div
+                    className="padding-tb"
                     title="The number of people that you are following."
                   >
                     Follower: ({lengthOf3})
                   </div>
+                  <div className="scrollable-div3">
                     <div
-                     
-                      className={`flexcol3 borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1 border-top-1`}
+                      className={`flexcol3- borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1- border-top-1-`}
                     >
-                      
-                     <div>
-                  {/* <div
-                    className="margin-tb"
-                    title="The number of people that you are following."
-                  >
-                    Follower: ({lengthOf3})
-                  </div> */}
-                  <div
-                    className="liststylenone cursor-pointer interline"
-                    //onClick={(event) => handleClick2(2,event)}
-                  >
-                    {uniqueData3.map((item, index) => {
-                      if (props.uid !== item.gud.uid) {
-                        // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
-                        return (
-                          <div
-                            onClick={(event) => handleClick2(2, event)}
-                            className={`${
-                              //props.whichone === 2
-                              true && item.isMatch === "is following "
-                                ? "bg-color-1 color-white-1"
-                                : "bg-color-1w color-black-3"
-                            }
+                      <div>
+                       
+                        <div
+                          className="liststylenone- cursor-pointer interline padding-top-z6"
+                          //onClick={(event) => handleClick2(2,event)}
+                        >
+                          {uniqueData3.map((item, index) => {
+                            if (props.uid !== item.gud.uid) {
+                              // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
+                              return (
+                                <div
+                                  onClick={(event) => handleClick2(2, event)}
+                                  className={`${
+                                    //props.whichone === 2
+                                    true && item.isMatch === "is following "
+                                      ? "bg-color-1 color-white-1"
+                                      : "bg-color-1w color-black-3"
+                                  }
                          flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
-                            key={index}
-                            data-item-id={
-                              props.uid +
-                              ";" +
-                              item.gud.uid +
-                              ";" +
-                              (theuser ? theuser.displayName : "name") +
-                              ";" +
-                              item.gud.displayname +
-                              ";" +
-                              item.gud.photourl +
-                              ";" +
-                              item.gud.email +
-                              ";" +
-                              (theuser ? theuser.email : "ph@ph.com") +
-                              ";" +
-                              item.isMatch
-                            }
-                          >
-                            <img
-                              src={item.gud.photourl}
-                              width="42"
-                              height="42"
-                              className="borderRadius50- circular-img-"
-                              style={{ borderRadius: "50%" }}
-                              onLoad={() => {
-                                console.log("IMAGE LOADED:", item.gud.photourl);
-                              }}
-                              onError={(e) => {
-                                e.currentTarget.onerror = null;
-                                e.currentTarget.src = "/default-profile.png";
-                              }}
-                            />
-                            <span className="margin-left-11">
-                              {/* {item.gud.photourl} */}
-                              {item.gud.displayname}
-                            </span>
-                            {/* {
+                                  key={index}
+                                  data-item-id={
+                                    props.uid +
+                                    ";" +
+                                    item.gud.uid +
+                                    ";" +
+                                    (theuser ? theuser.displayName : "name") +
+                                    ";" +
+                                    item.gud.displayname +
+                                    ";" +
+                                    item.gud.photourl +
+                                    ";" +
+                                    item.gud.email +
+                                    ";" +
+                                    (theuser ? theuser.email : "ph@ph.com") +
+                                    ";" +
+                                    item.isMatch
+                                  }
+                                >
+                                  <img
+                                    src={item.gud.photourl}
+                                    width="42"
+                                    height="42"
+                                    className="borderRadius50- circular-img-"
+                                    style={{ borderRadius: "50%" }}
+                                    onLoad={() => {
+                                      console.log(
+                                        "IMAGE LOADED:",
+                                        item.gud.photourl,
+                                      );
+                                    }}
+                                    onError={(e) => {
+                                      e.currentTarget.onerror = null;
+                                      e.currentTarget.src =
+                                        "/default-profile.png";
+                                    }}
+                                  />
+                                  <span className="margin-left-11">
+                                    {/* {item.gud.photourl} */}
+                                    {item.gud.displayname}
+                                  </span>
+                                  {/* {
                               "e@e.com"+
                               " " +
                               item.isMatch +
@@ -2963,15 +2960,14 @@ function ExpandableArray(props) {
                               ", " +
                               item.gud.photourl
                               } */}
-                          </div>
-                        );
-                      } else {
-                        return null;
-                      }
-                    })}
-                  </div>
-                </div>
-                     
+                                </div>
+                              );
+                            } else {
+                              return null;
+                            }
+                          })}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -922,14 +922,14 @@ const handleClick = useCallback(() => {
                                 >
                                   {`${!!props.theupdatedate.updatedate === true ? "Link(s) updated on " : ""}`}
                                   <span id="linksupdate">
-                                    {props.links.length > 0 ? (
+                                    {/* {props.links.length > 0 ? ( */}
                                       <span>
                                         {linksUpdateDateTime}
                                         <span></span>
                                       </span>
-                                    ) : (
-                                      ""
-                                    )}
+                                    {/*  ) : (
+                                       ""
+                                     )} */}
                                   </span>
                                 </span>
                               )}

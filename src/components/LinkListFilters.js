@@ -107,8 +107,8 @@ function ExpandableArray(props) {
   const [uniqueData3, setUniqueData3] = useState([]);
   const [lengthOf, setLengthOf] = useState(0);
   const [resultArray, setResultArray] = useState([]);
-  const [lengthOf2, setLengthOf2] = useState(0);
-  const [resultArray2, setResultArray2] = useState([]);
+  //const [lengthOf2, setLengthOf2] = useState(0);
+  //const [resultArray2, setResultArray2] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
   const [lengthOf3, setLengthOf3] = useState(0);
@@ -270,39 +270,39 @@ function ExpandableArray(props) {
   // };
 
   //users, following, newfollowinglinks with newlinks:yes or newlinks:no
-  const annotatearray2 = (array1, array2, array3) => {
-    console.log(
-      "SeeFollowingPage.js, annotatearray2(), array1=" + JSON.stringify(array1),
-    ); //props.users [{gud:{}}]
-    console.log(
-      "SeeFollowingPage.js, annotatearray2(), array2=" + JSON.stringify(array2),
-    ); //props.following [{uid:}]
-    console.log(
-      "SeeFollowingPage.js, annotatearray2(), array3=" + JSON.stringify(array3),
-    ); //props.newfollowingusers [{uid:, newlinks:"yes"}]
-    const resultArray = array1.map((item) => ({
-      ...item,
-      isMatch:
-        array2.some((item2) => item2.uid === item.gud.uid) === true
-          ? "is following "
-          : "is not following ",
-      newlinks:
-        array3.some(
-          (item3) =>
-            item3.uid === item.gud.uid &&
-            !!item3.newlinks === true &&
-            item3.newlinks === "yes",
-        ) === true
-          ? "yes"
-          : "no",
-    }));
+  // const annotatearray2 = (array1, array2, array3) => {
+  //   console.log(
+  //     "SeeFollowingPage.js, annotatearray2(), array1=" + JSON.stringify(array1),
+  //   ); //props.users [{gud:{}}]
+  //   console.log(
+  //     "SeeFollowingPage.js, annotatearray2(), array2=" + JSON.stringify(array2),
+  //   ); //props.following [{uid:}]
+  //   console.log(
+  //     "SeeFollowingPage.js, annotatearray2(), array3=" + JSON.stringify(array3),
+  //   ); //props.newfollowingusers [{uid:, newlinks:"yes"}]
+  //   const resultArray = array1.map((item) => ({
+  //     ...item,
+  //     isMatch:
+  //       array2.some((item2) => item2.uid === item.gud.uid) === true
+  //         ? "is following "
+  //         : "is not following ",
+  //     newlinks:
+  //       array3.some(
+  //         (item3) =>
+  //           item3.uid === item.gud.uid &&
+  //           !!item3.newlinks === true &&
+  //           item3.newlinks === "yes",
+  //       ) === true
+  //         ? "yes"
+  //         : "no",
+  //   }));
 
-    console.log(
-      "SeeFollowingPage.js, annotatearray2(), resultArray=" +
-        JSON.stringify(resultArray),
-    );
-    return resultArray;
-  };
+  //   console.log(
+  //     "SeeFollowingPage.js, annotatearray2(), resultArray=" +
+  //       JSON.stringify(resultArray),
+  //   );
+  //   return resultArray;
+  // };
 
   useEffect(() => {
     //whichone === 2
@@ -332,15 +332,15 @@ function ExpandableArray(props) {
     //whichone === 2
 
     //whichone === 1
-    const ra2 = annotatearray2(
-      props.users,
-      props.following,
-      props.newfollowinglinks,
-    );
+    // const ra2 = annotatearray2(
+    //   props.users,
+    //   props.following,
+    //   props.newfollowinglinks,
+    // );
 
-    setResultArray2(ra2);
+    // setResultArray2(ra2);
 
-    setLengthOf2(getNewLinksNumber(ra2));
+    // setLengthOf2(getNewLinksNumber(ra2));
     //whichone === 1
 
     //whichone === 2 for follower array
@@ -1787,12 +1787,12 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div>
-                  <div
+                  {rt !== "readonly" &&<div
                     className="padding-tb"
                     title="The number of people that you are following."
                   >
                     Following: ({lengthOf})
-                  </div>
+                  </div>}
                   <div
                     className="liststylenone cursor-pointer interline"
                     //onClick={(event) => handleClick2(2,event)}
@@ -2138,7 +2138,7 @@ function ExpandableArray(props) {
                                         }
                                         //setSortBy={setSortBy}
                                       /> */}
-                                      <FollowerButton
+                                      {/*<FollowerButton
                                         whichone={2}
                                         resultArray3={resultArray3}
                                         lengthOf3={lengthOf3}
@@ -2152,7 +2152,7 @@ function ExpandableArray(props) {
                                         elementRef20={elementRef20}
                                         changeSortBy={changeSortBy}
                                         //setSortBy={setSortBy}
-                                      />
+                                      /> */}
                                       {/* {Constants.CATS === true && (
                                         <button
                                           onClick={handlerCats}
@@ -2244,7 +2244,7 @@ function ExpandableArray(props) {
                                   //setSortBy={setSortBy}
                                 /> */}
 
-                                <FollowerButton
+                                {/*<FollowerButton
                                   whichone={2}
                                   resultArray3={resultArray3}
                                   lengthOf3={lengthOf3}
@@ -2258,7 +2258,7 @@ function ExpandableArray(props) {
                                   elementRef20={elementRef20}
                                   changeSortBy={changeSortBy}
                                   //setSortBy={setSortBy}
-                                />
+                                />*/}
 
                                 {/* {Constants.CATS === true && (
                                   <button
@@ -2877,12 +2877,12 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div>
-                  <div
+                  {rt !== "readonly" &&<div
                     className="padding-tb"
                     title="The number of people that you are following."
                   >
                     Follower: ({lengthOf3})
-                  </div>
+                  </div>}
                   <div className="scrollable-div3">
                     <div
                       className={`flexcol3- borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1- border-top-1-`}

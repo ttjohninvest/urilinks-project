@@ -134,6 +134,11 @@ export const Header = (props) => {
         weekday: "long",
       }),
   );
+
+  const [lengthOf2, setLengthOf2] = useState(0);
+  const [resultArray2, setResultArray2] = useState([]);
+
+
   const ideas = () => {};
 
   const params = new URLSearchParams(window.location.search);
@@ -326,6 +331,84 @@ export const Header = (props) => {
   //   props.startAddEmail({ email: email });
   //   console.log("Header.js, done calling startAddEmail");
   // };
+
+    const getNewLinksNumber = (ra) => {
+    let i = 0;
+    ra.forEach((e) => {
+      if (e.isMatch === "is following " && e.newlinks === "yes") i++;
+    });
+    console.log("getNewLinksNumber, newLinks, i=" + i);
+    return i;
+  };
+
+  const annotatearray2 = (array1, array2, array3) => {
+    console.log(
+      "SeeFollowingPage.js, annotatearray2(), array1=" + JSON.stringify(array1),
+    ); //props.users [{gud:{}}]
+    console.log(
+      "SeeFollowingPage.js, annotatearray2(), array2=" + JSON.stringify(array2),
+    ); //props.following [{uid:}]
+    console.log(
+      "SeeFollowingPage.js, annotatearray2(), array3=" + JSON.stringify(array3),
+    ); //props.newfollowingusers [{uid:, newlinks:"yes"}]
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? "is following "
+          : "is not following ",
+      newlinks:
+        array3.some(
+          (item3) =>
+            item3.uid === item.gud.uid &&
+            !!item3.newlinks === true &&
+            item3.newlinks === "yes",
+        ) === true
+          ? "yes"
+          : "no",
+    }));
+
+    console.log(
+      "SeeFollowingPage.js, annotatearray2(), resultArray=" +
+        JSON.stringify(resultArray),
+    );
+    return resultArray;
+  };
+
+  useEffect(() => {
+   
+
+    //whichone === 1
+    const ra2 = annotatearray2(
+      props.users,
+      props.following,
+      props.newfollowinglinks,
+    );
+
+      let array1 = ra2; //annotatearray(props.users, props.following); //has is following information and newlinks:yes information
+
+    let array3 = [];
+    if (array1.length > 1) {
+      array3 = array1.sort((a, b) => {
+        const valA = a.gud.displayname.toLowerCase();
+        const valB = b.gud.displayname.toLowerCase();
+        if (valA < valB) return -1;
+        if (valA > valB) return 1;
+        return 0;
+      });
+    } else {
+      array3 = array1;
+    }
+
+    setResultArray2(array3);
+
+    setLengthOf2(getNewLinksNumber(ra2));
+
+    
+    //whichone === 1
+
+   
+  }, []);
 
   useEffect(() => {
     //alert("process.env.NODE_ENV="+process.env.NODE_ENV)
@@ -809,6 +892,8 @@ const handleClick = useCallback(() => {
                                   <OthersButton
                                     whichone={1}
                                     buttonText={"New Links Ready"}
+                                    lengthOf2={lengthOf2}
+                                    resultArray2={resultArray2}
                                     email={
                                       !!firebase.auth().currentUser === true
                                         ? firebase.auth().currentUser.email

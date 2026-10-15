@@ -87,30 +87,30 @@ export const SeeFollowingPage = (props) => {
   // };
 
   // //users, following, newfollowinglinks with newlinks:yes or newlinks:no
-  // const annotatearray2 = (array1, array2, array3) => {
-  //   console.log("SeeFollowingPage.js, annotatearray2(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
-  //   console.log("SeeFollowingPage.js, annotatearray2(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
-  //   console.log("SeeFollowingPage.js, annotatearray2(), array3="+JSON.stringify(array3)) //props.newfollowingusers [{uid:, newlinks:"yes"}] 
-  //   const resultArray = array1.map((item) => ({
-  //     ...item,
-  //     isMatch:
-  //       array2.some((item2) => item2.uid === item.gud.uid) === true
-  //         ? "is following "
-  //         : "is not following ",
-  //     newlinks:
-  //       array3.some(
-  //         (item3) =>
-  //           item3.uid === item.gud.uid &&
-  //           !!item3.newlinks === true &&
-  //           item3.newlinks === "yes",
-  //       ) === true
-  //         ? "yes"
-  //         : "no",
-  //   }));
+  const annotatearray2 = (array1, array2, array3) => {
+    console.log("SeeFollowingPage.js, annotatearray2(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
+    console.log("SeeFollowingPage.js, annotatearray2(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
+    console.log("SeeFollowingPage.js, annotatearray2(), array3="+JSON.stringify(array3)) //props.newfollowingusers [{uid:, newlinks:"yes"}] 
+    const resultArray = array1.map((item) => ({
+      ...item,
+      isMatch:
+        array2.some((item2) => item2.uid === item.gud.uid) === true
+          ? "is following "
+          : "is not following ",
+      newlinks:
+        array3.some(
+          (item3) =>
+            item3.uid === item.gud.uid &&
+            !!item3.newlinks === true &&
+            item3.newlinks === "yes",
+        ) === true
+          ? "yes"
+          : "no",
+    }));
 
-  //   console.log("SeeFollowingPage.js, annotatearray2(), resultArray="+JSON.stringify(resultArray))
-  //   return resultArray;
-  // };
+    console.log("SeeFollowingPage.js, annotatearray2(), resultArray="+JSON.stringify(resultArray))
+    return resultArray;
+  };
 
   useEffect(() => {
     //use the following to get a better uniqueData array, for display of the list, this is the new links ready list
@@ -140,18 +140,20 @@ export const SeeFollowingPage = (props) => {
 
       const array1 = props.resultArray2
 
-      let array3 = [];
-      if (array1.length > 1) {
-          array3 = array1.sort((a, b) => {
-          const valA = a.gud.displayname.toLowerCase();
-          const valB = b.gud.displayname.toLowerCase();
-          if (valA < valB) return -1;
-          if (valA > valB) return 1;
-          return 0;
-        });
-      } else {
-        array3=array1
-      }
+      // let array3 = [];
+      // if (array1.length > 1) {
+      //     array3 = array1.sort((a, b) => {
+      //     const valA = a.gud.displayname.toLowerCase();
+      //     const valB = b.gud.displayname.toLowerCase();
+      //     if (valA < valB) return -1;
+      //     if (valA > valB) return 1;
+      //     return 0;
+      //   });
+      // } else {
+      //   array3=array1
+      // }
+
+      let array3 = array1
        
 
       //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));

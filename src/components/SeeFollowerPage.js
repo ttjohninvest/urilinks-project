@@ -3,23 +3,22 @@ import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 //import Draggable from 'react-draggable';
-
+import firebase from "firebase/app";
 import { setTextFilter, sortByOthers } from "../actions/filters";
 import {setitbacktono} from "../actions/links"
-//import { useSelector } from "react-redux";
+
 
 
 export const SeeFollowerPage = (props) => {
   //const [count, setCount] = useState(0);
   const [uniqueData, setUniqueData] = useState([]);
-
+  const [namedn2, setNamedn2] = useState("John")
   const scrollInterval4 = useRef(null);
   const buttonRef4 = useRef(null);
   const scrolldownref8 = useRef(null);
   const scrollupref8 = useRef(null);
+  console.log("SeeFollowingPage(), props.name2="+props.name2)
   //const [nodeRef, setNodeRef] = useState(null);
-
-  //const follower = useSelector(state => state.follower);
 
   // const baseUrl =
   // process.env.NODE_ENV === "development"
@@ -34,10 +33,13 @@ export const SeeFollowerPage = (props) => {
     baseUrl = "https://urilinks.com"
   }
 
+  // console.log("SeeFollowingPage.js, annotatearray(), array1="+JSON.stringify(props.users)) //props.users [{gud:{}}]
+  //   console.log("SeeFollowingPage.js, annotatearray(), array2="+JSON.stringify(props.following))
+
 
   useEffect(() => {
-    console.log("SeeFollowerPage.js, users=" + JSON.stringify(props.users));
-    console.log("SeeFollowerPage, useEffect, whichone=" + props.whichone); //1 from Header, OthersButton, to display new links ready list from
+    console.log("SeeFollowingPage.js, users=" + JSON.stringify(props.users));
+    console.log("SeeFollowingPage, useEffect, whichone=" + props.whichone); //1 from Header, OthersButton, to display new links ready list from
     //the ones you are following {newlinks:"yes"} in the database, 2 comes from OthersButton in LinkListFilters.js
   });
 
@@ -64,75 +66,83 @@ export const SeeFollowerPage = (props) => {
   //   else return "You are not following "
   // }
 
-  //props.users, props.following
+  // //props.users, props.follower
   const annotatearray = (array1, array2) => {
-    console.log("SeeFollowerPage.js, annotatearray(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
-    console.log("SeeFollowerPage.js, annotatearray(), array2="+JSON.stringify(array2)) //props.follower [{uid:}]
+    console.log("SeeFollowingPage.js, annotatearray(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
+    console.log("SeeFollowingPage.js, annotatearray(), array2="+JSON.stringify(array2)) //props.follower [{uid:}]
     const resultArray = array1.map((item) => ({
       ...item,
       isMatch:
         array2.some((item2) => item2.uid === item.gud.uid) === true
-          ? "is follower "
-          : "is not follower ",
-    }));
-     console.log("SeeFollowerPage.js, annotatearray(), resultArray="+JSON.stringify(resultArray))
-    return resultArray;
-  };
-
-//  const annotatearray = (array1, array2) => {
-//     const resultArray = array1.map((item) => ({
-//       ...item,
-//       isMatch:
-//         array2.some((item2) => item2.uid === item.gud.uid) === true
-//           ? "is a follower of "
-//           : "is not a follower of ",
-//     }));
-
-//     return resultArray;
-//   };
-
-  //users, following, newfollowinglinks with newlinks:yes or newlinks:no
-  const annotatearray2 = (array1, array2, array3) => {
-    console.log("SeeFollowerPage.js, annotatearray2(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
-    console.log("SeeFollowerPage.js, annotatearray2(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
-    console.log("SeeFollowerPage.js, annotatearray2(), array3="+JSON.stringify(array3)) //props.newfollowingusers [{uid:, newlinks:"yes"}] 
-    const resultArray = array1.map((item) => ({
-      ...item,
-      isMatch:
+          ? "is following "
+          : "is not following ",
+      gotopageid:
         array2.some((item2) => item2.uid === item.gud.uid) === true
-          ? "is follower "
-          : "is not follower ",
-      newlinks:
-        array3.some(
-          (item3) =>
-            item3.uid === item.gud.uid &&
-            !!item3.newlinks === true &&
-            item3.newlinks === "yes",
-        ) === true
-          ? "yes"
-          : "no",
+          ? item.gud.uid
+          : "this should be the goto page user id",
+      
     }));
-
-    console.log("SeeOtherPage.js, annotatearray2(), resultArray="+JSON.stringify(resultArray))
+     console.log("SeeFollowingPage.js, annotatearray(), resultArray="+JSON.stringify(resultArray))
     return resultArray;
   };
+
+  // //users, following, newfollowinglinks with newlinks:yes or newlinks:no
+  // const annotatearray2 = (array1, array2, array3) => {
+  //   console.log("SeeFollowingPage.js, annotatearray2(), array1="+JSON.stringify(array1)) //props.users [{gud:{}}]
+  //   console.log("SeeFollowingPage.js, annotatearray2(), array2="+JSON.stringify(array2)) //props.following [{uid:}]
+  //   console.log("SeeFollowingPage.js, annotatearray2(), array3="+JSON.stringify(array3)) //props.newfollowingusers [{uid:, newlinks:"yes"}] 
+  //   const resultArray = array1.map((item) => ({
+  //     ...item,
+  //     isMatch:
+  //       array2.some((item2) => item2.uid === item.gud.uid) === true
+  //         ? "is following "
+  //         : "is not following ",
+  //     newlinks:
+  //       array3.some(
+  //         (item3) =>
+  //           item3.uid === item.gud.uid &&
+  //           !!item3.newlinks === true &&
+  //           item3.newlinks === "yes",
+  //       ) === true
+  //         ? "yes"
+  //         : "no",
+  //   }));
+
+  //   console.log("SeeFollowingPage.js, annotatearray2(), resultArray="+JSON.stringify(resultArray))
+  //   return resultArray;
+  // };
 
   useEffect(() => {
     //use the following to get a better uniqueData array, for display of the list, this is the new links ready list
     //props.newfollowinglinks [{uid:"D9...", newlinks:{newlinks:"yes"}},{uid:"c7z...", newlinks:{newlinks:"yes"}}]
-
+    
+    
+     //alert("SeeFollowingPage.js, should be id2, uid="+props.uid)
+      console.log("SeeFollowingPage.js, should be id2, uid="+props.uid)
+    // console.log("SeeFollowingPage.js, id, id="+id)
+    //alert("SeeFollowingPage.js, should be dn2, name2="+props.name2)
+    console.log("SeeFollowingPage.js, should be dn2, name2="+props.name2)
+    // console.log("SeeFollowingPage.js, dn, dn="+dn)
+//alert("SeeFollowingPage.js, whichone="+props.whichone)
+    setNamedn2(props.name2) //loggedin user
+    // if(!!firebase.auth()===true && !!firebase.auth().currentUser===true)
+    //   setNamedn2(firebase.auth().currentUser.displayName)
+    // else setNamedn2("John")
+                          
     if (props.whichone === 1) {
       //newlinks:"yes"
 
-      const array1 = annotatearray2(
-        props.users,
-        props.follower,
-        props.newfollowinglinks,
-      ); //, [gud:{... uid:"D9..."}]
+      // const array1 = annotatearray2(
+      //   props.users,
+      //   props.following,
+      //   props.newfollowinglinks,
+      // ); //, [gud:{... uid:"D9..."}]
+
+      const array1 = props.resultArray2
 
       let array3 = [];
       if (array1.length > 1) {
- array3 = array1.sort((a, b) => {
+          array3 = array1.sort((a, b) => {
           const valA = a.gud.displayname.toLowerCase();
           const valB = b.gud.displayname.toLowerCase();
           if (valA < valB) return -1;
@@ -152,33 +162,22 @@ export const SeeFollowerPage = (props) => {
       // setUniqueData(array3);
     } else if (props.whichone === 2) {
       //const array1 = removeduplicates(props.users, props.following)
-      const array1 = annotatearray(props.users, props.follower); //has is follower information and newlinks:yes information
-
-      //   const array3 = array1.sort((a, b) => {
-      //   const valA = a.gud.displayname.toLowerCase();
-      //   const valB = b.gud.displayname.toLowerCase();
-      //   if (valA < valB) return -1;
-      //   if (valA > valB) return 1;
-      //   return 0;
-      // })
-
-      let array3 = [];
-      if (array1.length > 1) {
-          array3 = array1.sort((a, b) => {
-          const valA = a.gud.displayname.toLowerCase();
-          const valB = b.gud.displayname.toLowerCase();
-          if (valA < valB) return -1;
-          if (valA > valB) return 1;
-          return 0;
-        });
-      } else {
-        array3=array1
-      }
+      //alert("SeeFollowingPage.js, annotatearray called next, props.following="+JSON.stringify(props.following))
+      const array1 = props.resultArray3 //annotatearray(props.users, props.following); //has is following information and newlinks:yes information
+      let array3 = array1
+      // let array3 = [];
+      // if (array1.length > 1) {
+      //     array3 = array1.sort((a, b) => {
+      //     const valA = a.gud.displayname.toLowerCase();
+      //     const valB = b.gud.displayname.toLowerCase();
+      //     if (valA < valB) return -1;
+      //     if (valA > valB) return 1;
+      //     return 0;
+      //   });
+      // } else {
+      //   array3=array1
+      // }
        
-
-      //console.log("setUniqueData, props.users=" + JSON.stringify(props.users));
-      console.log("whichone=2,setUniqueData, props.users=" + JSON.stringify(array3));
-      //setUniqueData(props.users);
       setUniqueData(array3);
     }
   }, []);
@@ -192,6 +191,16 @@ export const SeeFollowerPage = (props) => {
       )
       .join("");
   }
+
+      //array3[0] is id2
+      //array3[1] is id
+      //array3[2] is id2 name
+      //array3[3] says "John"
+      //array3[4] is photourl
+      //array3[5] is email for id the other page email
+      //array3[6] is email for id2
+      //array3[7] is "is following 
+      //"
 
    const openNewTabWithCustomTitleType = (url, type, customTitle) => {
   const newWindow = window.open(url, type);
@@ -211,21 +220,42 @@ export const SeeFollowerPage = (props) => {
   }
 };
 
-  const otherPage = (id, dn, purl, email, theemail2, isMatch) => {
-    console.log("otherPage, id=" + id);
-    console.log("otherPage, purl=" + purl);
+  const otherPage = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
+    console.log("otherPage(), id2=" + id2);
+    console.log("otherPage(), id=" + id);
+    console.log("otherPage(), dn2=" + dn2);
+    console.log("otherPage(), dn=" + dn);
     //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
     //const z12 = encrypt(props.gud.gud.email,"125434")
     //const z12 = props.email
     const z12 = theemail2;
     //alert(props.email)
 
+    const url2= baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
+        id2 +
+        "&id=" +
+        id +
+         "&dn2=" +
+        dn2 +
+        "&dn=" +
+        dn +
+        "&purl=" +
+        purl +
+        "&z10=" +
+        email +
+        "&z12=" +
+        z12 +
+        "&isFollowing=" +
+        isMatch
+
     // window.open(
     //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
     //   baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
-    //     props.uid +
+    //     id2 +
     //     "&id=" +
     //     id +
+    //      "&dn2=" +
+    //     dn2 +
     //     "&dn=" +
     //     dn +
     //     "&purl=" +
@@ -239,10 +269,29 @@ export const SeeFollowerPage = (props) => {
     //   "_blank"
     // );
 
-    const url2 = baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
-        props.uid +
+openNewTabWithCustomTitleType(url2,"_blank","urilinks-page")
+
+  };
+
+  const otherPage2 = (id2, id, dn2, dn, purl, email, theemail2, isMatch, newlinks) => {
+    console.log("otherPage(), id2=" + id2);
+    console.log("otherPage(), id=" + id);
+    console.log("otherPage(), dn2=" + dn2);
+    console.log("otherPage(), dn=" + dn);
+    //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
+    //const z12 = encrypt(props.gud.gud.email,"125434")
+    //const z12 = props.email
+    const z12 = theemail2;
+    //alert(props.email)
+
+    window.open(
+      //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+      baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
+        id2 +
         "&id=" +
         id +
+         "&dn2=" +
+        dn2 +
         "&dn=" +
         dn +
         "&purl=" +
@@ -251,12 +300,16 @@ export const SeeFollowerPage = (props) => {
         email +
         "&z12=" +
         z12 +
-        "&isFollowing=" +
-        isMatch
-    openNewTabWithCustomTitleType(url2,"_blank","urilinks-page")
+         "&isFollowing=" +
+        isMatch +
+        "&newlinks=" +
+        newlinks,
+      "_blank"
+    );
   };
 
-  const handleClick = (v) => {
+  const handleClick = (v,event) => {
+    //const handleClick = (v) => {
     // Identify the clicked element
     if (v === 1) {
       //1 mean pressed from Header.js
@@ -266,58 +319,106 @@ export const SeeFollowerPage = (props) => {
 
       // Extract data from data attributes
       const itemId = clickedElement.dataset.itemId;
-      const array3 = itemId.split(";");
-      console.log("handleClick, itemId=" + itemId);
-      //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
-      //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
-      const email = encrypt(array3[3], "125434");
-      console.log("SeeFollowerPage, array3[4]=" + array3[4]);
-      const theemail2 = encrypt(array3[4], "125434");
-      console.log("SeeFollowerPage,theemail2=" + theemail2);
-      const isMatch = array3[5];
 
-       console.log("SeeOtherPage.js, handleClick(1), array3="+JSON.stringify(array3))
-       //alert("handleClick(), array[0]="+array3[0]+", props.auth.uid="+props.auth.uid)
-       setitbacktono(array3[0],props.auth.uid).then(()=>{ //it is newlinks
-        
-       
-        if (array3[0]) {
-        otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
-        //window.location.href="https://urilinks.com?signup=signup&z2=1"
-        }
-        //alert("set it back to no success, uid="+array3[0]+", props.auth.uid="+props.auth.uid)
+
+
+
+                        //  props.uid+
+                        //   ";" +
+                        //   item.gud.uid +
+                        //   ";" +
+                        //   props.name2 + //"id2name" + //the one who initiated the chat
+                        //   ";" +
+                        //   item.gud.displayname + //"idname" + //item.gud.displayname currently it says John, when it should say Elf2
+                        //   ";" +
+                        //   item.gud.photourl +
+                        //   ";" +
+                        //   item.gud.email +
+                        //   ";" +
+                        //   props.email +
+                        //   ";" +
+                        //   item.newlinks
+
+      const array3 = itemId.split(";");
+
+      //setitbacktono(array3[0],props.auth.uid).then(()=>{ //it is newlinks
+      //setitbacktono(props.uid, array3[1]).then(()=>{
+      setitbacktono(array3[0], array3[1]).then(()=>{
+
+      if (array3[0]) {
+        otherPage2(array3[0], array3[1], array3[2], array3[3], array3[4], encrypt(array3[5],"125434"), encrypt(array3[6],"125434"), array3[7], array3[8]); //array3[6] is id of person that goes on the goto page
+      }
         
       }).catch((e)=>{
-        alert("SeeFollowerPage.js, setitbacktono(), something went wrong")
+        alert("SeeFollowingPage.js, setitbacktono(), something went wrong")
       }) //array3[0] is the id of the user
 
       
 
      
 
-      // props.changeSortBy("others",1);
-
-      // props.setTextFilter("");
-
-      // props.sortByOthers();
+    
+    
+    
     } else if (v === 2) {
       //2 mean pressed from LinkListFilters.js
       const clickedElement = event.target;
 
       // Extract data from data attributes
       const itemId = clickedElement.dataset.itemId;
+
+
+
+
+
+/*
+  props.uid+
+                          ";" +
+                          item.gud.uid +
+                          ";" +
+                          "id2 display nam" +
+                           ";" +
+                          item.gud.displayname +
+                          ";" +
+                          item.gud.photourl +
+                          ";" +
+                          item.gud.email +
+                          ";" +
+                          props.email +
+                          ";" +
+                          item.isMatch +
+                          ";" +
+                          item.gotopageid
+*/
+
+
       const array3 = itemId.split(";");
+      //alert("handleClick(2), array3="+JSON.stringify(array3))
+
       console.log("handleClick, itemId=" + itemId);
       //console.log("handleClick, process.env.REACT_APP_EKEY="+process.env.REACT_APP_EKEY)
       //const email = encrypt(array3[3], process.env.REACT_APP_EKEY) //"125434")
-      const email = encrypt(array3[3], "125434");
-      console.log("SeeFollowerPage, array3[4]=" + array3[4]);
-      const theemail2 = encrypt(array3[4], "125434");
-      console.log("SeeFollowerPage,theemail2=" + theemail2);
-      const isMatch = array3[5];
+      // const email = encrypt(array3[3], "125434");
+      // console.log("SeeFollowingPage, array3[4]=" + array3[4]);
+      // const theemail2 = encrypt(array3[4], "125434");
+      // console.log("SeeFollowingPage,theemail2=" + theemail2);
+      // const isMatch = array3[5];
+
+      // otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
+      //               uid, otherpage id, photourl, "John", gud.email, email, isMatch
+      //array3[0] is id2
+      //array3[1] is id
+      //array3[2] is id2 name
+      //array3[3] says "John"
+      //array3[4] is photourl
+      //array3[5] is email for id the other page email
+      //array3[6] is email for id2
+      //array3[7] is "is following "
+      
+
 
       if (array3[0]) {
-        otherPage(array3[0], array3[1], array3[2], email, theemail2, isMatch);
+        otherPage(array3[0], array3[1], array3[2], array3[3], array3[4], encrypt(array3[5],"125434"), encrypt(array3[6],"125434"), array3[7]); //array3[6] is id of person that goes on the goto page
       }
 
       // props.changeSortBy("others",1);
@@ -325,6 +426,10 @@ export const SeeFollowerPage = (props) => {
       // props.setTextFilter("");
 
       // props.sortByOthers();
+    } else {
+      
+ 
+      
     }
   };
 
@@ -460,7 +565,7 @@ export const SeeFollowerPage = (props) => {
           {props.whichone === 1 ? (
             <ul
               className="liststylenone cursor-pointer interline"
-              onClick={() => handleClick(1)}
+              onClick={(event) => handleClick(1,event)}
             >
               {uniqueData.map((item, index) => {
                 if (props.auth.uid !== item.gud.uid) {
@@ -474,24 +579,42 @@ export const SeeFollowerPage = (props) => {
                         <li
                           className={`${
                             props.whichone === 1 &&
-                            item.isMatch === "is follower "
+                            item.isMatch === "is following "
                               ? "bg-color-1 color-white-1"
                               : "bg-color-1w color-black-3"
                           }
                     `}
                           key={index}
                           data-item-id={
-                            item.gud.uid +
-                            ";" +
-                            item.gud.displayname +
-                            ";" +
-                            item.gud.photourl +
-                            ";" +
-                            item.gud.email +
-                            ";" +
-                            props.email +
-                            ";" +
-                            item.isMatch
+                              props.uid+
+                          ";" +
+                          item.gud.uid +
+                          ";" +
+                          props.name2 + //"id2name" + //the one who initiated the chat
+                          ";" +
+                          item.gud.displayname + //"idname" + //item.gud.displayname currently it says John, when it should say Elf2
+                          ";" +
+                          item.gud.photourl +
+                          ";" +
+                          item.gud.email +
+                          ";" +
+                          props.email +
+                          ";" +
+                          item.isMatch +
+                          ";" +
+                          item.newlinks
+                          
+                            // item.gud.uid +
+                            // ";" +
+                            // item.gud.displayname +
+                            // ";" +
+                            // item.gud.photourl +
+                            // ";" +
+                            // item.gud.email +
+                            // ";" +
+                            // props.email +
+                            // ";" +
+                            // item.newlinks
                           }
                         >
                           {props.email +
@@ -514,7 +637,7 @@ export const SeeFollowerPage = (props) => {
           ) : (
             <ul
               className="liststylenone cursor-pointer interline"
-              onClick={() => handleClick(2)}
+              onClick={(event) => handleClick(2,event)}
             >
               {uniqueData.map((item, index) => {
                 if (props.auth.uid !== item.gud.uid) {
@@ -525,16 +648,20 @@ export const SeeFollowerPage = (props) => {
                       <li
                         className={`${
                           props.whichone === 2 &&
-                          item.isMatch === "is follower "
+                          item.isMatch === "is following "
                             ? "bg-color-1 color-white-1"
                             : "bg-color-1w color-black-3"
                         }
                     `}
                         key={index}
                         data-item-id={
+                          props.uid+
+                          ";" +
                           item.gud.uid +
                           ";" +
-                          item.gud.displayname +
+                          props.name2 + //"id2name" + //the one who initiated the chat
+                          ";" +
+                          item.gud.displayname + //"idname" + //item.gud.displayname currently it says John, when it should say Elf2
                           ";" +
                           item.gud.photourl +
                           ";" +
@@ -545,11 +672,11 @@ export const SeeFollowerPage = (props) => {
                           item.isMatch
                         }
                       >
-                        {props.email +
+                        { item.gud.email +
                           " " +
                           item.isMatch +
                           " " +
-                          item.gud.email +
+                          props.email +
                           ", " +
                           item.gud.displayname +
                           ", " +
@@ -574,6 +701,7 @@ const mapStateToProps = (state) => ({
   users: state.users,
   auth: state.auth,
   gud: state.gud,
+  following: state.following,
   follower: state.follower,
   newfollowinglinks: state.newfollowinglinks,
 });

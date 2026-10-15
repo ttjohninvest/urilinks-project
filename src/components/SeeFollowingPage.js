@@ -308,8 +308,8 @@ openNewTabWithCustomTitleType(url2,"_blank","urilinks-page")
     );
   };
 
-  //const handleClick = (v,event) => {
-    const handleClick = (v) => {
+  const handleClick = (v,event) => {
+    //const handleClick = (v) => {
     // Identify the clicked element
     if (v === 1) {
       //1 mean pressed from Header.js
@@ -565,7 +565,7 @@ openNewTabWithCustomTitleType(url2,"_blank","urilinks-page")
           {props.whichone === 1 ? (
             <ul
               className="liststylenone cursor-pointer interline"
-              onClick={() => handleClick(1)}
+              onClick={(event) => handleClick(1,event)}
             >
               {uniqueData.map((item, index) => {
                 if (props.auth.uid !== item.gud.uid) {

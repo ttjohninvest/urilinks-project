@@ -65,12 +65,16 @@ const FollowerButton = (props) => {
         className={`margin-left-11 height48 button-2w- button-2 ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
         onClick={handleDisplay}
       >
-        {isDisplayed ? "Displayed" : "Followers"}
+        {isDisplayed ? "Displayed" : props.buttonText}
       </button>
       {isDisplayed === true && (
         <div>
           <SeeFollowerPage
-            whichone = {2}
+            whichone = {props.whichone}
+             
+                                        resultArray3={props.resultArray3}
+                                        lengthOf3={props.lengthOf3}
+                                      
             email={props.email}
             uid={props.uid}
             elementRef2 = {props.elementRef2}

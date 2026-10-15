@@ -104,14 +104,15 @@ function ExpandableArray(props) {
   const [searchText, setSearchText] = useState("");
   const [mode, setMode] = useState("description");
   const [uniqueData, setUniqueData] = useState([]);
-
+  const [uniqueData3, setUniqueData3] = useState([]);
   const [lengthOf, setLengthOf] = useState(0);
   const [resultArray, setResultArray] = useState([]);
   const [lengthOf2, setLengthOf2] = useState(0);
   const [resultArray2, setResultArray2] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
-
+  const [lengthOf3, setLengthOf3] = useState(0);
+  const [resultArray3, setResultArray3] = useState([]);
 
   //const isinfinitescroll = useSelector(state => state.isinfinitescroll);
 
@@ -191,15 +192,14 @@ function ExpandableArray(props) {
 
   //   const isMountedRef = useRef(true);
 
-   useEffect(() => {
-  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    //setCurrentUser(user);
-    setTheuser(user)
-  });
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      //setCurrentUser(user);
+      setTheuser(user);
+    });
 
-  return () => unsubscribe();
-}, []);
-
+    return () => unsubscribe();
+  }, []);
 
   const getIsMatchNumber = (ra) => {
     let i = 0;
@@ -244,6 +244,31 @@ function ExpandableArray(props) {
     return resultArray;
   };
 
+  // const annotatearray3 = (array1, array2) => {
+  //   console.log(
+  //     "SeeFollowerPage.js, annotatearray3(), array1=" + JSON.stringify(array1),
+  //   ); //props.users [{gud:{}}]
+  //   console.log(
+  //     "SeeFollowingPage.js, annotatearray3(), array2=" + JSON.stringify(array2),
+  //   ); //props.following [{uid:}]
+  //   const resultArray = array1.map((item) => ({
+  //     ...item,
+  //     isMatch:
+  //       array2.some((item2) => item2.uid === item.gud.uid) === true
+  //         ? "is following "
+  //         : "is not following ",
+  //     gotopageid:
+  //       array2.some((item2) => item2.uid === item.gud.uid) === true
+  //         ? item.gud.uid
+  //         : "this should be the goto page user id",
+  //   }));
+  //   console.log(
+  //     "SeeFollowingPage.js, annotatearray(), resultArray=" +
+  //       JSON.stringify(resultArray),
+  //   );
+  //   return resultArray;
+  // };
+
   //users, following, newfollowinglinks with newlinks:yes or newlinks:no
   const annotatearray2 = (array1, array2, array3) => {
     console.log(
@@ -282,14 +307,12 @@ function ExpandableArray(props) {
   useEffect(() => {
     //whichone === 2
     const ra = annotatearray(props.users, props.following);
-    console.log(
-      "linkListArray.js, useEffect, resultArray=" + JSON.stringify(resultArray),
-    );
+
     setResultArray(ra);
 
     setLengthOf(getIsMatchNumber(ra));
 
-    const array1 = ra; //annotatearray(props.users, props.following); //has is following information and newlinks:yes information
+    let array1 = ra; //annotatearray(props.users, props.following); //has is following information and newlinks:yes information
 
     let array3 = [];
     if (array1.length > 1) {
@@ -319,6 +342,34 @@ function ExpandableArray(props) {
 
     setLengthOf2(getNewLinksNumber(ra2));
     //whichone === 1
+
+    //whichone === 2 for follower array
+
+    const ra3 = annotatearray(props.users, props.follower);
+
+    // setResultArray3(ra3);
+
+    setLengthOf3(getIsMatchNumber(ra3));
+
+    array1 = ra3; //annotatearray(props.users, props.following); //has is following information and newlinks:yes information
+
+    array3 = [];
+    if (array1.length > 1) {
+      array3 = array1.sort((a, b) => {
+        const valA = a.gud.displayname.toLowerCase();
+        const valB = b.gud.displayname.toLowerCase();
+        if (valA < valB) return -1;
+        if (valA > valB) return 1;
+        return 0;
+      });
+    } else {
+      array3 = array1;
+    }
+
+    setResultArray3(array3);
+     setUniqueData3(array3);
+
+    //whichone === 2 for follower array
   }, []);
 
   const handleStartScroll = (v) => {
@@ -381,7 +432,7 @@ function ExpandableArray(props) {
   //         "Url=" + Url,
   //         "status=" + JSON.stringify(status)
   //       );
-  //  
+  //
   //     // Update React state only once
   //     setLinkStatuses(newStatuses);
   //      setLinkStatusesReady(true);
@@ -391,7 +442,6 @@ function ExpandableArray(props) {
 
   // }, [linksKey]);
 
- 
   useEffect(() => {
     console.log(
       "ExapandableArray, following=" + JSON.stringify(props.following),
@@ -1538,13 +1588,10 @@ function ExpandableArray(props) {
     );
   };
 
-  const handleClick2 = (v,event) => {
-   
+  const handleClick2 = (v, event) => {
     if (v === 1) {
-    
       const clickedElement = event.target;
 
-      
       const itemId = clickedElement.dataset.itemId;
 
       const array3 = itemId.split(";");
@@ -1561,30 +1608,26 @@ function ExpandableArray(props) {
               encrypt(array3[5], "125434"),
               encrypt(array3[6], "125434"),
               array3[7],
-            ); 
+            );
           }
         })
         .catch((e) => {
           alert("SeeFollowingPage.js, setitbacktono(), something went wrong");
         });
     } else if (v === 2) {
-      
       const clickedElement = event.currentTarget;
-      
+
       const itemId = clickedElement.dataset.itemId;
 
       console.log("itemId =", itemId);
 
       if (!itemId) return;
 
-    
-      const array3 = itemId.split(";")
-
-     
+      const array3 = itemId.split(";");
 
       console.log("handleClick, itemId=" + itemId);
-      // encrypt(array3[5], "125434"),
-          // encrypt(array3[6], "125434"),
+      // array3[5],
+      //     array3[6],
 
       if (array3[0]) {
         otherPage(
@@ -1593,13 +1636,11 @@ function ExpandableArray(props) {
           array3[2],
           array3[3],
           array3[4],
-          array3[5],
-          array3[6],
-          array3[7]
-        ); 
+          encrypt(array3[5], "125434"),
+          encrypt(array3[6], "125434"),
+          array3[7],
+        );
       }
-
-    
     } else {
     }
   };
@@ -1747,6 +1788,12 @@ function ExpandableArray(props) {
               ) : (
                 <div>
                   <div
+                    className="margin-tb"
+                    title="The number of people that you are following."
+                  >
+                    Following: ({lengthOf})
+                  </div>
+                  <div
                     className="liststylenone cursor-pointer interline"
                     //onClick={(event) => handleClick2(2,event)}
                   >
@@ -1755,7 +1802,7 @@ function ExpandableArray(props) {
                         // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
                         return (
                           <div
-                            onClick={(event) => handleClick2(2,event)}
+                            onClick={(event) => handleClick2(2, event)}
                             className={`${
                               //props.whichone === 2
                               true && item.isMatch === "is following "
@@ -1769,7 +1816,7 @@ function ExpandableArray(props) {
                               ";" +
                               item.gud.uid +
                               ";" +
-                              (theuser?theuser.displayName:"name") +
+                              (theuser ? theuser.displayName : "name") +
                               ";" +
                               item.gud.displayname +
                               ";" +
@@ -1777,7 +1824,7 @@ function ExpandableArray(props) {
                               ";" +
                               item.gud.email +
                               ";" +
-                              "e@.com" +
+                              (theuser ? theuser.email : "ph@ph.com") +
                               ";" +
                               item.isMatch
                             }
@@ -1814,7 +1861,7 @@ function ExpandableArray(props) {
                               item.gud.photourl
                               } */}
                           </div>
-                        )
+                        );
                       } else {
                         return null;
                       }
@@ -1971,7 +2018,7 @@ function ExpandableArray(props) {
                       {/*1 because displaying following in the first column commented this out*/}
                       {readonly === false && (
                         <div>
-                          <OthersButton
+                          {/* <OthersButton
                             whichone={2}
                             resultArray2={resultArray2}
                             lengthOf2={lengthOf2}
@@ -1993,7 +2040,7 @@ function ExpandableArray(props) {
                             changeSortBy={changeSortBy}
                             //uid={props.uid}
                             //setSortBy={setSortBy}
-                          />
+                          /> */}
                         </div>
                       )}
 
@@ -2069,7 +2116,7 @@ function ExpandableArray(props) {
                                   {readonly === false && (
                                     <div>
                                       {/*1 because displaying following in the first column commented this out*/}
-                                      <OthersButton
+                                      {/* <OthersButton
                                         whichone={2}
                                         resultArray2={resultArray2}
                                         lengthOf2={lengthOf2}
@@ -2090,8 +2137,12 @@ function ExpandableArray(props) {
                                             : "placeholdername1"
                                         }
                                         //setSortBy={setSortBy}
-                                      />
+                                      /> */}
                                       <FollowerButton
+                                        whichone={2}
+                                        resultArray3={resultArray3}
+                                        lengthOf3={lengthOf3}
+                                        buttonText={"Follower"}
                                         email={
                                           !!firebase.auth().currentUser === true
                                             ? firebase.auth().currentUser.email
@@ -2169,7 +2220,7 @@ function ExpandableArray(props) {
                                   />
                                 </div>
                                 {/*1 because displaying following in the first column commented this out*/}
-                                <OthersButton
+                                {/* <OthersButton
                                   whichone={2}
                                   resultArray2={resultArray2}
                                   lengthOf2={lengthOf2}
@@ -2191,8 +2242,13 @@ function ExpandableArray(props) {
                                   changeSortBy={changeSortBy}
                                   //uid={props.uid}
                                   //setSortBy={setSortBy}
-                                />
+                                /> */}
+
                                 <FollowerButton
+                                  whichone={2}
+                                  resultArray3={resultArray3}
+                                  lengthOf3={lengthOf3}
+                                  buttonText={"Follower"}
                                   email={
                                     !!firebase.auth().currentUser === true
                                       ? firebase.auth().currentUser.email
@@ -2698,126 +2754,228 @@ function ExpandableArray(props) {
           {/*3rd column 3 column */}
 
           {isMobile() === false && (
-            <div className="scrollable-div3">
-              <div
-                style={{ borderRadius: "5px" }}
-                className={`flexcol3 borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1 border-top-1`}
-              >
-                {props.signup === false && (
-                  <div>
-                    <div className="flexrowzc2">
-                      {/* <img src={honoring} width="150" height="200" className="ib" /> Christmas tree came out right with this one */}
-                      <img
-                        src={honoring}
-                        width="150"
-                        height="200"
-                        className="ib"
-                      />
-                      <div className="margin-bottom-1">Today, Honoring:</div>
-                      <div className="margin-bottom-1">Christmas Tree</div>
-                      {/* <div className="margin-bottom-1">Curtis Stone, 1948 United States Olympian</div> */}
+            <div>
+              {props.isinfinitescroll.isinfinitescroll === false ? (
+                <div className="scrollable-div3">
+                  <div
+                    style={{ borderRadius: "5px" }}
+                    className={`flexcol3 borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1 border-top-1`}
+                  >
+                    {props.signup === false && (
+                      <div>
+                        <div className="flexrowzc2">
+                          {/* <img src={honoring} width="150" height="200" className="ib" /> Christmas tree came out right with this one */}
+                          <img
+                            src={honoring}
+                            width="150"
+                            height="200"
+                            className="ib"
+                          />
+                          <div className="margin-bottom-1">
+                            Today, Honoring:
+                          </div>
+                          <div className="margin-bottom-1">Christmas Tree</div>
+                          {/* <div className="margin-bottom-1">Curtis Stone, 1948 United States Olympian</div> */}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="padding-top-1 margin-bottom-1 border-bottom-5z padding-bottom-1-">
+                      <div>
+                        <p>{fullText}</p>
+                      </div>
+                    </div>
+
+                    <div>
+                      {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
+                      🙂 URILINKS INSTRUCTIONS TO ORGANIZE, SAVE, FIND, LOOK AT
+                      LINK END-POINTS AND SHARE PAGE OF LINK(S) WITH URL:
+                      <br />
+                      <br />
+                      ✮ Use Bookmarks upload to upload a bookmarks.html file
+                      that is less than 100k.
+                      <br />
+                      <br />
+                      ✮ Use Add A Link to add 1 link.
+                      <br />
+                      <br />
+                      ✮ To make money, use the Edit Link link to add a text ad
+                      for each link you have to earn commission like from
+                      clickbank.com, deep link or your own website. For as many
+                      links that you have, you can ad a text ad for each one.
+                      All of the commission that clickbank has for you will go
+                      to you. You will find the Edit Link link with each
+                      displayed link.
+                      <br />
+                      <br />
+                      ✮ It has autoscroll.
+                      <br />
+                      <br />
+                      ✮ If you add new links to your page, everybody that has
+                      your shared page sees your new links.
+                      <br />
+                      <br />
+                      ✮ Use the search field to add word(s) to search for.
+                      <br />
+                      <br />
+                      ✮ Use the drop down list to the right of the search button
+                      to select the type of search to find or sort by popularity
+                      (hashtag, link text, note text or Date Time (Latest
+                      First), Views, Likes, My Top Ten). if word(s) are entered
+                      in the search field, the search will activate. A selection
+                      for popularity, the sort will activate.
+                      <br />
+                      <br />
+                      ✮ If you want a link to be findable under two different
+                      hashtags, add the hashtag to the note section. The system
+                      will not store duplicate link titles.
+                      <br />
+                      <br />
+                      ✮ Use the search button to activate the search.
+                      <br />
+                      <br />
+                      ✮ Use the left pane menu to select a link.
+                      <br />
+                      <br />
+                      ✮ Use the content section to the right of the left pane
+                      menu to see left pane menu selections and search results.
+                      <br />
+                      <br />
+                      ✮ In the content section you can click on any of the links
+                      and the website will open in a new tab for viewing.
+                      <br />
+                      <br />
+                      ✮ Click copy to copy your sharable link. Paste it were you
+                      want.
+                      <br />
+                      <br />
+                      ✮ Click email your link to open up a form to enter
+                      recipient's email address and subject line.
+                      <br />
+                      <br />
+                      ✮ Click the ScrollUp button to start automatic scrolling
+                      up.
+                      <br />
+                      <br />
+                      ✮ Click the Stop button to stop automatic scrolling.
+                      <br />
+                      <br />
+                      ✮ Click the ScrollDn button to start automatic scrolling
+                      down.
+                      <br />
+                      <br />
+                      ✮ Click the ScrollToTop button to quickly scroll to the
+                      top.
+                      <br />
+                      <br />
+                      ✮ Click the ScrollToBottom button to quickly scroll to the
+                      bottom.
+                      <br />
+                      <br />
                     </div>
                   </div>
-                )}
-
-                <div className="padding-top-1 margin-bottom-1 border-bottom-5z padding-bottom-1-">
-                  <div>
-                    {/* <p>{displayText}</p> */}
-                    <p>{fullText}</p>
-
-                    {/* {fullText.length 
-      > charLimit && (
-        <button className="link" onClick={() => setIsExpanded(!isExpanded)}>
-          {isExpanded ? "Show less benefits text" : "...Show more benefits text"}
-        </button>
-      )} */}
+                </div>
+              ) : (
+                <div>
+                  <div className="scrollable-div3">
+                      <div
+                    className="margin-tb"
+                    title="The number of people that you are following."
+                  >
+                    Follower: ({lengthOf3})
+                  </div>
+                    <div
+                     
+                      className={`flexcol3 borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1 border-top-1`}
+                    >
+                      
+                     <div>
+                  {/* <div
+                    className="margin-tb"
+                    title="The number of people that you are following."
+                  >
+                    Follower: ({lengthOf3})
+                  </div> */}
+                  <div
+                    className="liststylenone cursor-pointer interline"
+                    //onClick={(event) => handleClick2(2,event)}
+                  >
+                    {uniqueData3.map((item, index) => {
+                      if (props.uid !== item.gud.uid) {
+                        // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
+                        return (
+                          <div
+                            onClick={(event) => handleClick2(2, event)}
+                            className={`${
+                              //props.whichone === 2
+                              true && item.isMatch === "is following "
+                                ? "bg-color-1 color-white-1"
+                                : "bg-color-1w color-black-3"
+                            }
+                         flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
+                            key={index}
+                            data-item-id={
+                              props.uid +
+                              ";" +
+                              item.gud.uid +
+                              ";" +
+                              (theuser ? theuser.displayName : "name") +
+                              ";" +
+                              item.gud.displayname +
+                              ";" +
+                              item.gud.photourl +
+                              ";" +
+                              item.gud.email +
+                              ";" +
+                              (theuser ? theuser.email : "ph@ph.com") +
+                              ";" +
+                              item.isMatch
+                            }
+                          >
+                            <img
+                              src={item.gud.photourl}
+                              width="42"
+                              height="42"
+                              className="borderRadius50- circular-img-"
+                              style={{ borderRadius: "50%" }}
+                              onLoad={() => {
+                                console.log("IMAGE LOADED:", item.gud.photourl);
+                              }}
+                              onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src = "/default-profile.png";
+                              }}
+                            />
+                            <span className="margin-left-11">
+                              {/* {item.gud.photourl} */}
+                              {item.gud.displayname}
+                            </span>
+                            {/* {
+                              "e@e.com"+
+                              " " +
+                              item.isMatch +
+                              " " +
+                              item.gud.email +
+                              ", " +
+                              item.gud.displayname +
+                              ", " +
+                              item.gud.theatname +
+                              ", " +
+                              item.gud.photourl
+                              } */}
+                          </div>
+                        );
+                      } else {
+                        return null;
+                      }
+                    })}
                   </div>
                 </div>
-
-                <div>
-                  {/* ❤️ Hi, I appreciate that you are here. Please say 'I call upon the name of Jesus Christ to save me.' This wonderful invitation is in Romans 10:13 which says that for whosoever shall call upon the name of Jesus Christ shall be saved." */}
-                  🙂 URILINKS INSTRUCTIONS TO ORGANIZE, SAVE, FIND, LOOK AT LINK
-                  END-POINTS AND SHARE PAGE OF LINK(S) WITH URL:
-                  <br />
-                  <br />
-                  ✮ Use Bookmarks upload to upload a bookmarks.html file that is
-                  less than 100k.
-                  <br />
-                  <br />
-                  ✮ Use Add A Link to add 1 link.
-                  <br />
-                  <br />
-                  ✮ To make money, use the Edit Link link to add a text ad for
-                  each link you have to earn commission like from clickbank.com,
-                  deep link or your own website. For as many links that you
-                  have, you can ad a text ad for each one. All of the commission
-                  that clickbank has for you will go to you. You will find the
-                  Edit Link link with each displayed link.
-                  <br />
-                  <br />
-                  ✮ It has autoscroll.
-                  <br />
-                  <br />
-                  ✮ If you add new links to your page, everybody that has your
-                  shared page sees your new links.
-                  <br />
-                  <br />
-                  ✮ Use the search field to add word(s) to search for.
-                  <br />
-                  <br />
-                  ✮ Use the drop down list to the right of the search button to
-                  select the type of search to find or sort by popularity
-                  (hashtag, link text, note text or Date Time (Latest First),
-                  Views, Likes, My Top Ten). if word(s) are entered in the
-                  search field, the search will activate. A selection for
-                  popularity, the sort will activate.
-                  <br />
-                  <br />
-                  ✮ If you want a link to be findable under two different
-                  hashtags, add the hashtag to the note section. The system will
-                  not store duplicate link titles.
-                  <br />
-                  <br />
-                  ✮ Use the search button to activate the search.
-                  <br />
-                  <br />
-                  ✮ Use the left pane menu to select a link.
-                  <br />
-                  <br />
-                  ✮ Use the content section to the right of the left pane menu
-                  to see left pane menu selections and search results.
-                  <br />
-                  <br />
-                  ✮ In the content section you can click on any of the links and
-                  the website will open in a new tab for viewing.
-                  <br />
-                  <br />
-                  ✮ Click copy to copy your sharable link. Paste it were you
-                  want.
-                  <br />
-                  <br />
-                  ✮ Click email your link to open up a form to enter recipient's
-                  email address and subject line.
-                  <br />
-                  <br />
-                  ✮ Click the ScrollUp button to start automatic scrolling up.
-                  <br />
-                  <br />
-                  ✮ Click the Stop button to stop automatic scrolling.
-                  <br />
-                  <br />
-                  ✮ Click the ScrollDn button to start automatic scrolling down.
-                  <br />
-                  <br />
-                  ✮ Click the ScrollToTop button to quickly scroll to the top.
-                  <br />
-                  <br />
-                  ✮ Click the ScrollToBottom button to quickly scroll to the
-                  bottom.
-                  <br />
-                  <br />
+                     
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           )}
           {/*ends 3rd column */}

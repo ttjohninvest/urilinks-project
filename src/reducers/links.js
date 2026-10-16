@@ -12,7 +12,7 @@ export default (state = linksReducerDefaultState, action) => {
           //{ ...state, count: state.count + 1 };
           return {
             ...link,
-           show: !!link.show? link.show + 1:1,
+           show: 1 //!!link.show? link.show + 1:1,
           };
         } else {
           return link;
@@ -27,7 +27,7 @@ export default (state = linksReducerDefaultState, action) => {
           //{ ...state, count: state.count + 1 };
           return {
             ...link,
-           show: !!link.show? link.show - 1:0,
+           show: 0 //!!link.show? link.show - 1:0,
           };
         } else {
           return link;

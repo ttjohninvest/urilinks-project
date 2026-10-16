@@ -7,6 +7,7 @@ import CopySalesButton from "./CopySalesButton";
 import StorageSizes from "./StorageSizes";
 import selectLinks from "../selectors/links";
 import { startAddLink2 } from "../actions/links";
+import { useDispatch } from "react-redux";
 
 import visited from "../assets/images/visited-1.png";
 import {
@@ -110,7 +111,7 @@ const LinkListItem = (props) => {
   const [sortit1flag, setSortit1flag] = useState([]);
   const [visityt, setVisityt] = useState("");
   const [inplace, setInplace] = useState(false);
-  const [videoId, setVideoId] = useState("");
+  const [linkId, setLinkId] = useState("");
   const [url2, setUrl2] = useState("");
   const [blb, setBlb] = useState(false);
   const [copySuccess, setCopySuccess] = useState("");
@@ -120,6 +121,12 @@ const LinkListItem = (props) => {
 
   const [showStatus, setShowStatus] = useState(false);
   const [linkStatus, setLinkStatus] = useState("");
+
+  const savedScrollY = useRef(0);
+  const savedElementTop = useRef(0);
+  const savedTop = useRef(0);
+
+  let linkIdRef = useRef(undefined);
 
   // const checkLink = async (url) => {
   //   //const checkLink = (url) => {
@@ -161,6 +168,10 @@ const LinkListItem = (props) => {
   //const [xadmessage, setXadmessage] = useState("Please buy "+props.addescription+" from "+firebase.auth().currentUser.displayName+ "to help this seller make money from commission:")
   const THRESHOLD = 43200000; // ms
 
+  const dispatch = useDispatch();
+
+  console.log("RENDER props.show=", props.show, "props.id=", props.id);
+
   let xdotcomadmessage = "";
   if (!!firebase.auth().currentUser) {
     xdotcomadmessage =
@@ -176,6 +187,10 @@ const LinkListItem = (props) => {
       " from John " +
       "to help this seller make money from commission:";
   }
+
+  useEffect(() => {
+    dispatch({ type: "INCREMENT_UPDATE_LINKS_SHOW", id: props.id });
+  }, []);
 
   //   useEffect(()=>{
   //     //broken link: "http://tyuhn.com/"
@@ -1098,16 +1113,6 @@ https://www.youtube.com/feed/history
 
             //here
             data.map((url, index) => {
-              //let urlstruct = new URL(url);
-              // console.log("urlstruct.protocol="+urlstruct.protplayInPlaceVideoocol); // "https:"
-              // console.log("urlstruct.hostname="+urlstruct.hostname); // "www.example.com"
-              // console.log("urlstruct.port="+urlstruct.port); // "8080"
-              // console.log("urlstruct.pathname="+urlstruct.pathname); // "/path/to/page"
-              // console.log("urlstruct.search="+urlstruct.search); // "?query=string"
-              // console.log("urlstruct.hash="+urlstruct.hash); // "#fragment"
-              // let li = document.createElement("li");
-              // li.id = index; //index has to be unique
-              // li.title = "click to go to page";
               let a = document.createElement("a");
               a.title = "click to open the page";
               a.className = "nounderline color1- color-purple";
@@ -1254,12 +1259,8 @@ https://www.youtube.com/feed/history
   };
 
   const checkYoutubeEmbeddable = async (url) => {
-    //   const url2 = new URL(url);
-    //   const videoId = url2.searchParams.get("v");
-    // console.log("Play video in place, videoId="+videoId)
-    // console.log("Play video in place, url="+url)
     const videoId = getYouTubeVideoId(url);
-    //alert(videoId)
+    // alert("videoId="+videoId)
     console.log("checkYoutubeEmbeddable, videoId=" + videoId);
     const response = await fetch(
       `https://www.googleapis.com/youtube/v3/videos?part=status&id=${videoId}&key=${"AIzaSyAuDdWM36glULoMAj3EY-65xE2nPKb_p-Y"}`,
@@ -1283,136 +1284,54 @@ https://www.youtube.com/feed/history
     };
   };
 
-  //id is the link id, not the video id
-  const playInPlaceVideo = async (id, show, Url, event) => {
-    //get the video id
-    const canPlay = await checkYoutubeEmbeddable(Url);
 
-    if (!canPlay.found) {
-      console.log("YouTube API cannot access this video");
-    } else if (canPlay.embeddable) {
-      console.log("Video can be embedded");
+  const playInPlaceVideo = (id, Url, event) => {
+    let newStr = Url;
 
-      //let newStr = Url;
-      // if (Url.includes("shorts") || Url.includes("watch?v=")) {
-      //   if (Url.includes("shorts")) {
-      //     console.log("shorts");
-      //     newStr = Url.replace("shorts", "embed");
-      //   } else if (Url.includes("watch?v=")) {
-      //     console.log("watch?v=");
-      //     newStr = Url.replace("watch?v=", "embed/");
-      //     if(newStr.includes("&list=")) {
-      //       //newStr = newStr.replace("&list=","?list=")
+    if (Url.includes("shorts")) {
+      newStr = Url.replace("shorts", "embed");
+    } else if (Url.includes("watch?v=")) {
+      newStr = Url.replace("watch?v=", "embed/");
+    }
 
-      //      const index = newStr.indexOf("&");
-      //      newStr = index !== -1 ? newStr.substring(0, index) : newStr;
-      //      console.log("2 Play video in place, newStr="+newStr)
+    //setUrl2(newStr);
 
-      //     }
-      //   }
-      // }
+    const text = event.currentTarget.innerText.trim();
 
-      const newStr = getYouTubeEmbedUrl(Url);
+    const videoElement = document.querySelector("#ipvideo" + id);
 
-      //alert(newStr)
-      console.log("playInPlaceVideo, newStr=" + newStr);
-      //alert(1)
-      setUrl2(newStr);
-      setVideoId(id);
+    if (text === "Play video in place") {
+      const iframe = document.querySelector("#ipvideo" + id + " iframe");
 
-      let x1 = 0;
-      if (show === undefined || show === null || show === "NaN") {
-      } else x1 = show;
-      const x = id; //x is link id
-
-      if (x1 === 0) {
-        props.incrementHandleToggle3({ id: x, show: 0 });
-
-        console.log("1 LinkListItem.js, videoId=" + videoId);
-        console.log("1 LinkListItem.js, props.id=" + props.id);
-        console.log("1 LinkListItem.js, show=" + show);
-        //console.log("1 LinkListItem.js, frommenu="+props.frommenu.frommenu)
-
-        if (show === 0) {
-          //if (props.links.length === 1) {
-          if (true) {
-            //props.ls2element.scrollBy(0, -300);
-            //props.ls2element.scrollTo(0,document.body.scrollHeight)
-            if (!!document.querySelector("#ipvideo" + id)) {
-              document.querySelector("#ipvideo" + id).scrollIntoView({
-                behavior: "smooth", //,
-                //block:"start"
-              });
-
-              //props.bottomElementRef.current.scrollBy(0,100)
-              //props.scrollToBottom()
-            }
-          } else {
-            if (!!document.querySelector("#ipvideo" + id)) {
-              document.querySelector("#ipvideo" + id).scrollIntoView({
-                behavior: "smooth", //,
-                //block:"start"
-              });
-            }
-          }
-        }
-      } else {
-        props.decrementHandleToggle3({ id: x, show: 1 });
-
-        !!document.querySelector(id) &&
-          document.querySelector(id).scrollIntoView({
-            behavior: "smooth",
-          });
+      if (iframe) {
+        iframe.src = newStr;
       }
+
+      savedScrollY.current = window.scrollY;
+      console.log("SAVED =", savedScrollY.current);
+      videoElement.style.display = "block";
+      event.currentTarget.innerText = "Close video";
+
+      videoElement.scrollIntoView({
+        behavior: "auto",
+      });
     } else {
-      console.log("Video cannot be embedded");
-      alert("Video cannot be embedded");
+      
+       console.log("RESTORED =", savedScrollY.current);
+       
+       window.scrollTo({
+        top: savedScrollY.current,
+        behavior: "auto",
+      });
+
+      videoElement.style.display = "none";
+      event.currentTarget.innerText = "Play video in place";
+
+     
+
+      
     }
   };
-
-  // const closeInPlaceVideo = (videoid, id) => {
-  //   alert("close video, videoid=" + videoid + ",id=" + id);
-  //   //window.document.getElementById("ipvideo"+videoid).style.display='none'
-  // };
-
-  // const abc = (id,show,Url) => {
-  //   if(show === 0) {
-
-  //     props.incrementHandleToggle3({ id: id, show: 0 })
-  //     show = 1
-  //     setShowvideo(1)
-  //     props.playInPlaceVideo(id, show, Url)
-
-  //   }
-  //   else {
-
-  //     props.decrementHandleToggle3({ id: id, show: 1 })
-  //     show = 0
-  //     setShowvideo(0)
-  //     props.playInPlaceVideo(id, show, Url)
-
-  //   }
-
-  // }
-
-  // let result = "checking";
-
-  // if (
-  //   props.linkStatus &&
-  //   props.linkStatuses[props.id]
-  // ) {
-  //   result = props.linkStatuses[props.id].result;
-  // }
-
-  // console.log("props.id =", props.id);
-  // console.log("props.linkStatus =", props.linkStatus);
-
-  // if (props.linkStatus) {
-  //   console.log(
-  //     "status keys =",
-  //     Object.keys(props.linkStatus)
-  //   );
-  // }
 
   const checkLink = async (url) => {
     try {
@@ -1522,14 +1441,14 @@ https://www.youtube.com/feed/history
             )}
           </div>
           <div
-            // style={{
-            //   // width:"100px",
-            //   // height:"50px",
-            //   // left:"100",
-            //   // top:"200",
-            //   position: "relative",
-            //   display: "inline-block",
-            // }}
+          // style={{
+          //   // width:"100px",
+          //   // height:"50px",
+          //   // left:"100",
+          //   // top:"200",
+          //   position: "relative",
+          //   display: "inline-block",
+          // }}
           >
             {/* {showStatus && linkStatus && (
               <div 
@@ -1554,8 +1473,24 @@ https://www.youtube.com/feed/history
         </div>
       )}
 
-      <div id={"ipvideo" + props.id}>
-        {videoId === props.id && props.show === 1 && (
+      <div id={"ipvideo" + props.id} style={{ display: "none" }}>
+        <div>
+          <div
+            className="height50 width100"
+            //style={{border:'1px solid red'}}
+          ></div>
+          <div className="margin-bottom-1z1">
+            <BasicIframe src={url2} />
+          </div>
+        </div>
+      </div>
+
+      {/* <div id={"ipvideo" + props.id}>
+        {
+        (linkIdRef === props.id) &&
+        //&& 
+        //(props.show === 1) && 
+        (
           <div>
             <div
               className="height50 width100"
@@ -1566,7 +1501,7 @@ https://www.youtube.com/feed/history
             </div>
           </div>
         )}
-      </div>
+      </div> */}
 
       {screenedValue === null && (
         <div
@@ -1638,16 +1573,13 @@ https://www.youtube.com/feed/history
         {isityt2(props.Url) && (
           <div>
             <span
+              // id="playinplaceid"
               className="ib margin-left-11 margin-top-1zx1"
               style={{ cursor: "pointer" }}
               title={props.Url}
-              onClick={() => playInPlaceVideo(props.id, props.show, props.Url)}
+              onClick={(event) => playInPlaceVideo(props.id, props.Url, event)}
             >
-              {props.show === 0 ? (
-                "Play video in place"
-              ) : (
-                <span className="font-weight-bold-">Close video</span>
-              )}
+              <span id={`playinplaceid-${props.id}`}>Play video in place</span>
             </span>
           </div>
         )}
@@ -1877,9 +1809,7 @@ https://www.youtube.com/feed/history
                   //href="#"
 
                   //data-value={props.id}
-                  title={
-                    "Click to save this link to your collection."
-                  }
+                  title={"Click to save this link to your collection."}
                   onClick={() => storeScrollPosition4(props.link, event)} //is passed in
                 >
                   I want this link

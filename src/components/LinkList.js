@@ -644,6 +644,7 @@ useEffect(()=>{
               ?
               
               <InfiniteScrollNewDescription 
+              scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
@@ -660,6 +661,7 @@ useEffect(()=>{
 
 
                <InfiniteScrollNewNoteText 
+               scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
@@ -674,6 +676,7 @@ useEffect(()=>{
               ?
 
                <InfiniteScrollNewNoteText 
+               scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
@@ -697,6 +700,7 @@ useEffect(()=>{
               ?
               
                <InfiniteScrollNewDateandTime 
+               scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
@@ -711,6 +715,7 @@ useEffect(()=>{
               ?
 
                 <InfiniteScrollNewSortByViews 
+                scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
@@ -724,6 +729,7 @@ useEffect(()=>{
               && props.theSortBy === "likes"
               ?
                <InfiniteScrollNewSortByLikes 
+               scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
@@ -737,6 +743,7 @@ useEffect(()=>{
               && props.theSortBy === "star"
               ?
                <InfiniteScrollNewSortByTopTen 
+               scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
@@ -750,6 +757,7 @@ useEffect(()=>{
               && props.theSortBy === "ads"
               ?
                <InfiniteScrollNewSortByAdsAffiliateLinkPresent
+               scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
@@ -763,6 +771,7 @@ useEffect(()=>{
               && props.theSortBy === "adsalpha"
               ?
                <InfiniteScrollNewSortByAdsAlpha
+               scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
@@ -776,6 +785,7 @@ useEffect(()=>{
               && props.theSortBy === "productsalpha"
               ?
                <InfiniteScrollNewSortByProductsAlpha 
+               scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
               searchText={ props.searchText}  
@@ -791,6 +801,7 @@ useEffect(()=>{
               ?
               
               <InfiniteScrollNew 
+              scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`}
               theSortBy = {props.theSortBy} 
               onLinksCountChange={setLinksCount}
@@ -822,6 +833,7 @@ useEffect(()=>{
                           className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
                         >
                           <LinkListItem
+                          
                             link={link}
                             rt={rt}
                             key={link.id}

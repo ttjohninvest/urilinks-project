@@ -103,6 +103,7 @@ const LinkListItem = (props) => {
   const myRef2 = useRef(null);
   const myRef3 = useRef(null);
   const myRef4 = useRef(null);
+  const divRef = useRef(null);
 
   const [s, setS] = useState(1);
   const [s2, setS2] = useState(1);
@@ -122,7 +123,8 @@ const LinkListItem = (props) => {
   const [showStatus, setShowStatus] = useState(false);
   const [linkStatus, setLinkStatus] = useState("");
 
-  const savedScrollY = useRef(0);
+  const savedScrollYw = useRef(0);
+  const savedScrollYiw = useRef(0);
   const savedElementTop = useRef(0);
   const savedTop = useRef(0);
 
@@ -1284,7 +1286,6 @@ https://www.youtube.com/feed/history
     };
   };
 
-
   const playInPlaceVideo = (id, Url, event) => {
     let newStr = Url;
 
@@ -1300,6 +1301,8 @@ https://www.youtube.com/feed/history
 
     const videoElement = document.querySelector("#ipvideo" + id);
 
+    //savedScrollYiw.current =  window.document.getElementById("ls2").scrollY;
+
     if (text === "Play video in place") {
       const iframe = document.querySelector("#ipvideo" + id + " iframe");
 
@@ -1307,29 +1310,46 @@ https://www.youtube.com/feed/history
         iframe.src = newStr;
       }
 
-      savedScrollY.current = window.scrollY;
-      console.log("SAVED =", savedScrollY.current);
+      savedScrollYw.current = window.scrollY;
+      //  savedScrollYiw.current =  window.document.getElementById("ls2").scrollY;
+
+      console.log("SAVED savedScrollYw.current =", savedScrollYw.current);
+      //  console.log("SAVED savedScrollYiw.current=", savedScrollYiw.current);
+
+      const top =
+        props.scrollContainerRef.current.getBoundingClientRect().top +
+        window.scrollY;
+      savedScrollYiw.current = top;
+
+      console.log("SAVED savedScrollYiw.current=", savedScrollYiw.current);
+
       videoElement.style.display = "block";
       event.currentTarget.innerText = "Close video";
 
       videoElement.scrollIntoView({
-        behavior: "auto",
+        behavior: "smooth",
       });
+
     } else {
-      
-       console.log("RESTORED =", savedScrollY.current);
-       
-       window.scrollTo({
-        top: savedScrollY.current,
-        behavior: "auto",
+      console.log("RESTORED savedScrollYw.current =", savedScrollYw.current);
+      console.log("RESTORED savedScrollYiw.current=", savedScrollYiw.current);
+
+      window.scrollTo({
+        top: savedScrollYw.current,
+        behavior: "smooth",
+      });
+
+      window.document.getElementById("ls2").scrollTo({
+        top: savedScrollYiw.current,
+        behavior: "smooth",
       });
 
       videoElement.style.display = "none";
       event.currentTarget.innerText = "Play video in place";
 
-     
-
-      
+      const height = divRef.current.offsetHeight * -1;
+      //alert(height)
+      window.document.getElementById("ls2").scrollBy(0, height +243);
     }
   };
 
@@ -1387,6 +1407,7 @@ https://www.youtube.com/feed/history
   //console.log("status="+JSON.stringify(status))
   return (
     <div key={props.index}>
+      <div id="divtop" />
       {/* <span>{blb===true?"The link is broken.":"The link is not broken."}</span> */}
       <div>
         {/* {props.faviconURL} */}
@@ -1431,6 +1452,7 @@ https://www.youtube.com/feed/history
                 onClick={() => storeScrollPosition(props.frequency, event)}
               >
                 <img
+                  ref={divRef}
                   className="borderRadius10"
                   style={{ width: "325px" }}
                   //title={props.yturl}

@@ -284,6 +284,7 @@ useEffect(() => {
                           className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
                         >
                           <LinkListItem
+                          scrollContainerRef={props.scrollContainerRef}
                             link={link}
                             rt={rt}
                             key={link.id}

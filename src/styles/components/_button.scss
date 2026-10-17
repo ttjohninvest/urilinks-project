@@ -19,6 +19,21 @@
   min-width: 1100px;
 }
 
+.button-2a {
+  
+  background-color: rgba(219, 87, 5, 0.5);
+  //background-color: rgba(219, 87, 5, 1);
+  border: none;
+  color: white;
+  display: inline-block;
+  font-size: $font-size-large;
+  font-weight: 300;
+  line-height: 1;
+  padding: $s-size;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
 .button-2 {
   
   background-color: rgba(219, 87, 5, 0.5);

@@ -61,10 +61,10 @@ const HashTagsButton = (props) => {
   return (
     <div style={{ display: "inline" }}>
       <button
-        className={`margin-left-11 height48 button-2w- button-2 ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+        className={`margin-left-11 height48- button-2w- button-2 ib ${isMobile() === false ? "" : "width295 margin-top-1"}`}
         onClick={handleDisplay}
       >
-        {isDisplayed ? "Displayed" : "See Hashtags"}
+        {isDisplayed ? "Displayed" : "See Hashtags2"}
       </button>
       {isDisplayed === true && (
         <div>

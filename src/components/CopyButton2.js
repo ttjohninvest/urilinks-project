@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CopyButton = (props) => {
+const CopyButton2 = (props) => {
   const [isCopied, setIsCopied] = useState(false);
   //const textToCopy = "text being copied to the clipboard";
 
@@ -22,7 +22,7 @@ const CopyButton = (props) => {
 
   return (
     <button 
-    className={`ib height48 button-2w ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+    className={`ib height48 button-2w- button-2 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     onClick={handleCopy}>
       {/* {isCopied ? 'URL Copied' : 'Copy Sharable URL to Your Page.'} */}
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}
@@ -32,4 +32,4 @@ const CopyButton = (props) => {
   );
 };
 
-export default CopyButton;
+export default CopyButton2;

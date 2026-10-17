@@ -703,7 +703,7 @@ function ExpandableArray(props) {
         </div>
       </div>
 
-      <div className="flexrowztt">
+      <div className="flexrowtt0">
         {/* <div> */}
         <div>
           {/* left column scrollable-div1m for mobile*/}

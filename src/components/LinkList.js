@@ -499,11 +499,11 @@ useEffect(()=>{
 
   
 
-
+console.log("Play video in place 2")
 
   return (
-    <div>
- {isMobile() === false && (<div>
+    <div className="">
+ {isMobile() === false && (<div className="">
  
  {props.isinfinitescroll.isinfinitescroll===true?<p className="margin-left-11">Links found: {linksCount}</p>:
  <div id="linksfound" className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
@@ -528,9 +528,10 @@ useEffect(()=>{
         </div>
       )} */}
       {props.links.length > 1 || props.isinfinitescroll.isinfinitescroll === true && (
+        <div className="">
         <StickyFixed>
           <div
-            className="margin-left-11 margin-top-n-1u"
+            className="border-red margin-left-11 margin-top-n-1u"
             style={{ zIndex: 99 }}
           >
             <button
@@ -551,7 +552,7 @@ useEffect(()=>{
               className="ib button-2 widthxpx1 margin-left-11"
               style={{ zIndex: 99 }}
             >
-              <span>ScrollUp</span>
+              <span>ScrollUp2</span>
             </button>
 
             <button
@@ -618,6 +619,12 @@ useEffect(()=>{
             )}
           </div>
         </StickyFixed>
+        {/* <div 
+        id="belowbuttonsid2"
+        className="heightbelowbuttons"
+        ></div> */}
+        </div>
+        
       )
      
       

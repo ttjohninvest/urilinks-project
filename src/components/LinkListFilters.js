@@ -14,6 +14,7 @@ import honoring from "../assets/honoring/christmas-tree.png";
 //import KittiesButton from "./KittiesButton.js";
 
 import CopyButton2 from "./CopyButton2";
+import CopyButton3 from "./CopyButton3";
 import HashTagsButton from "./HashTagsButton";
 import OthersButton from "./OthersButton";
 import FollowerButton from "./FollowerButton";
@@ -1651,27 +1652,19 @@ function ExpandableArray(props) {
         <div className="">
           <div
             className={`website-background-color width30pt
-          } theHeight flexrowzc2 flexcol3 border-b-5font-roboto text-size-16 font-weight-500`}
+          } theHeight- flexrowzc2 flexcol3 border-b-5font-roboto text-size-16 font-weight-500`}
             title="Welcome, Entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press friendly login to sign up." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
+            style={{paddingTom:"1rem",paddingBottom:"0.5rem"}}
           >
             <div className="flexcol3">
               <div
                 className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2- text-size-10-" : "fleur-de-leah-regular- text-size-10-"}`}
                 title="Welcome to entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press friendly login to sign up."
               >
-                {`Welcome to entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press friendly login to sign up.`}
+                Internet Links Organizer, Viewer and Sharer
+                {/* {`1 Welcome to entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press friendly login to sign up.`} */}
               </div>
-              {/* {props.signup === false && (
-              <div
-                className={`ib- padding-left-n-x margin-top-1 margin-bottom-1 margin-left-n-7x`}
-                title=""
-              >
-               
-                To make money, you can add a text link ad with each link you
-                have. Can you try my new website today? - John 775 559-5740.
-                Thank you so much.
-              </div>
-            )} */}
+              
             </div>
           </div>
           {props.isinfinitescroll.isinfinitescroll === false && (
@@ -1685,7 +1678,7 @@ function ExpandableArray(props) {
                 onClick={startScrollingUp}
                 className="button-2 widthxpx2"
               >
-                ScrollUp
+                ScrollUp1
               </button>
 
               <button
@@ -1712,7 +1705,7 @@ function ExpandableArray(props) {
           )}
         </div>
 
-        <div className="flexrowztt">
+        <div className="flexrowtt0">
           <div>
             {/* 1st column 1 column */}
             <div
@@ -1893,25 +1886,27 @@ function ExpandableArray(props) {
                     <span>
                       <div className="">
                         {readonly === false && (
-                          <div className="flexcol3">
+                          <div className="flexcol3- flexrowz">
                             <fieldset className="flexcol3 width325- padding-bottom-11 margin-bottom-1-">
                               <legend>Your Link:</legend>
                               <div className="text-size-1">
                                 <a
                                   href="#"
                                   ref={textAreaRef}
-                                  className={`ib nounderline pointereventsnone borderLightOrange- padding-all2 borderradius55 ${isMobile() === false ? "" : "width295"}`}
+                                  className={`ib nounderline pointereventsnone borderLightOrange- padding-all2- borderradius55 ${isMobile() === false ? "" : "width295"}`}
                                   title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                                   style={{
                                     textDecoration: "none",
                                     color: "black",
+                                    paddingTop: "0.5rem",
+                                    paddingBottom: "0.5rem"
                                   }}
                                 >
-                                  {`${baseUrl}+"/dashboard?signup=0&x=readonly&id=`}
+                                  {` ${baseUrl}+"/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
                                 </a>
                               </div>
-                              <div className="margin-bottom-1">
+                              <div className="margin-bottom-1-">
                                 <CopyButton2
                                   readonly={readonly}
                                   accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
@@ -1928,25 +1923,27 @@ function ExpandableArray(props) {
                     <span>
                       <div className="">
                         {readonly === false && (
-                          <div className="flexcol3">
+                          <div className="flexcol3- flexrowz">
                             <fieldset className="flexcol3 width325- padding-bottom-11 margin-bottom-1-">
                               <legend>Your Link:</legend>
                               <div className="text-size-1">
                                 <a
                                   href="#"
                                   ref={textAreaRef}
-                                  className={`ib nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55 ${isMobile() === false ? "" : "width295"}`}
+                                  className={`ib nounderline pointereventsnone border5- borderLightOrange padding-all2- borderradius55 ${isMobile() === false ? "" : "width295"}`}
                                   title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                                   style={{
                                     textDecoration: "none",
                                     color: "black",
+                                    paddingTop: "0.5rem",
+                                    paddingBottom: "0.5rem"
                                   }}
                                 >
-                                  {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
+                                  {` ${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
                                 </a>
                               </div>
-                              <div className="margin-bottom-1">
+                              <div className="margin-bottom-1-">
                                 {/* <button
                                 className={`height48 button-2w ib border5- ${isMobile() === false ? "" : "width295 margin-top-1"}`}
                                 onClick={()=>copyToClipboard()}
@@ -2079,20 +2076,22 @@ function ExpandableArray(props) {
                     <span>
                       <div className="margin-bottom-123">
                         {readonly === false && (
-                          <div className="flexrow2cv2">
+                          <div className="flexrow2cv2- flexrowz">
                             <div className="flexcol3 text-size-1 textLeft- margin-top-1- margin-bottom-1">
                               <div>
                                 <a
                                   href="#"
                                   ref={textAreaRef}
-                                  className={`ib borderWidth2 margin-topx nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55 ${isMobile() === false ? "" : "width325"}`}
+                                  className={`ib borderWidth2 margin-topx nounderline pointereventsnone border5- borderLightOrange padding-all2- borderradius55 ${isMobile() === false ? "" : "width325"}`}
                                   title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                                  style={{
+                                 style={{
                                     textDecoration: "none",
                                     color: "black",
+                                    paddingTop: "0.5rem",
+                                    paddingBottom: "0.5rem"
                                   }}
                                 >
-                                  {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
+                                  {` ${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
                                 </a>
                               </div>
@@ -2186,23 +2185,31 @@ function ExpandableArray(props) {
                       <div className="margin-bottom-123">
                         {readonly === false && (
                           <div className="flexrow2cv2">
-                            <div className="flexcol3 text-size-1 textLeft- margin-top-1- margin-bottom-1">
+                            <div className="text-size-1- margin-bottom-1-">
+                              <div className="flexrowz border-blue- margin-top-50x">
                               <div>
-                                <a
-                                  href="#"
+                                <span
+                                  //href="#"
                                   ref={textAreaRef}
-                                  className="ib margin-topx borderWidth2 nounderline pointereventsnone border5- borderLightOrange padding-all2 borderradius55"
+                                  className="width295 ib overflowxhidden margin-topx- borderWidth2- nounderline pointereventsnone borderLightOrange borderradius55 no-wrap2"
                                   title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                                  style={{
+                                 style={{
                                     textDecoration: "none",
                                     color: "black",
+                                    paddingTop: "0.5rem",
+                                    paddingBottom: "0.5rem"
                                   }}
                                 >
-                                  {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
+                                  {` ${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
-                                </a>
+                                </span>
                               </div>
-
+                               <CopyButton3
+                                    readonly={readonly}
+                                    accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
+                                    textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                                  />
+                              </div>
                               <div className="flexrowz">
                                 <div>
                                   {/* <button
@@ -2213,11 +2220,11 @@ function ExpandableArray(props) {
                                 Copy
                                 
                               </button> */}
-                                  <CopyButton2
+                                  {/* <CopyButton2
                                     readonly={readonly}
                                     accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
                                     textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
-                                  />
+                                  /> */}
                                 </div>
                                 {/*1 because displaying following in the first column commented this out*/}
                                 {/* <OthersButton
@@ -2462,6 +2469,7 @@ function ExpandableArray(props) {
                       <select
                         id="mode"
                         className="select outline-none borderRadius55"
+                        style={{paddingTop:"0.5rem",paddingBottom:"0.5rem"}}
                         //value={this.state.sortBy}
                         value={sortBy}
                         //value={this.props.filters.sortBy}
@@ -2472,7 +2480,7 @@ function ExpandableArray(props) {
                       >
                         <optgroup label="Find:">
                           <option value="hashtag" title="search by hash tag">
-                            Hashtag Search
+                            1 Hashtag Search
                           </option>
 
                           <option
@@ -2554,7 +2562,7 @@ function ExpandableArray(props) {
                   </div>
                 ) : (
                   <div>
-                    <div className="flexrowzv margin-top-1t1 margin-bottom-1">
+                    <div className="flexrowzv margin-bottom-1">
                       <div className="">
                         <input
                           title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
@@ -2600,6 +2608,7 @@ function ExpandableArray(props) {
                       <select
                         id="mode"
                         className="select outline-none borderRadius55"
+                        style={{paddingTop:"0.5rem", paddingBottom:"0.5rem"}}
                         ////value={this.state.sortBy}
                         value={sortBy}
                         //value={this.props.filters.sortBy}
@@ -2610,7 +2619,7 @@ function ExpandableArray(props) {
                       >
                         <optgroup label="Find:">
                           <option value="hashtag" title="search by hash tag">
-                            Hashtag Search
+                            2Hashtag Search
                           </option>
 
                           <option
@@ -2718,7 +2727,7 @@ function ExpandableArray(props) {
 
             {/* in 2nd column, 2 column controls above, the list of links below */}
             <div className="scrollable-div2-">
-              <div id="ef2" ref={elementRef2}></div>
+              <div id="ef2" ref={elementRef2} className=""></div>
 
               <div
                 id="results1"

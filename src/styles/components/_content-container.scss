@@ -107,7 +107,7 @@
 .scrollable-div1c {
   //width:100%;
   //width:804px;//825px; //600px; //825px;
-  height: 609px; //2000px; //866px; //353vh; //150vh; //112vh;
+  height: 754px; //609px; //2000px; //866px; //353vh; //150vh; //112vh;
   overflow-y: auto;
   overflow-x: hidden;
   margin-left: 1rem;
@@ -125,7 +125,7 @@
 .scrollable-div3 {
   //width:100%;
   
-  width:360px;
+  width:270px; //270px; //360px; //20%
   height: 971px; //2404px; //1270px; //800vh; //150vh; //112vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -301,10 +301,21 @@ ul.interline {
   grid-template-columns: 4fr 8fr;
 }
 
+.no-wrap2 {
+  white-space:nowrap;
+}
+
 .flexrowz {
   display: flex;
   flex-direction: row;
 }
+
+.flexrow131 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+}
+
 
 .flexrowh {
   display: flex;
@@ -315,13 +326,27 @@ ul.interline {
 
 .middle-column {
   flex:1;
-  min-width:0;
+  min-width: 0;
+  max-width:820px;
+ 
 }
 
-.flexrowztt {
+
+
+// .middle-column {
+//   flex: 0 0 60%;
+//   width: 60%;
+//   min-width: 0;
+//   box-sizing: border-box;
+// }
+
+
+
+.flexrowtt0 {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  width:100%;
 }
 
 .flexrowzv {
@@ -417,12 +442,22 @@ ul.interline {
   flex-direction: row;
   width: 15rem;
 }
+
 .heightA {
   // height: 300px;
 }
 
 .height48 {
   height: 49px;
+}
+
+.height10x {
+  height: 29px;
+}
+
+.padding-top-and-bottom {
+  padding-top:.85rem;
+  padding-bottom:.85rem
 }
 
 .theHeight {
@@ -576,11 +611,11 @@ width:325px;
 }
 
 .width295 {
-width:295px;
+width:495px;
 }
 
 .width305 {
-width:305px;
+width:365px;
 }
 
 .width400 {
@@ -626,11 +661,9 @@ width:400px;
 }
 
 .width30menupane2 {
-  //width:30%;
- // min-width: 385px;
-  //width: 360px;
-  width: 360px;
-  //width: 285px;
+ 
+  width: 270px;//20%; //270px; //360px; 20%
+  
   padding-bottom:50px;
 }
 
@@ -895,7 +928,10 @@ border-color: #fbbf77, var(--tw-border-opacity);
   border: 1px solid #fbbf77;//#2d9fd9;
   color: black;//#a0d18c;
   //width: 400px;
-  height: 50px;
+  //height: 50px;
+  //height: 30px;
+  padding-top: 0.5rem;
+  padding-bottom:0.5rem;
   padding-left: 10px;
 
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/55/Magnifying_glass_icon.svg");

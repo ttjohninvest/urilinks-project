@@ -24,18 +24,23 @@ const StickyFixed = ({ children }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [offset]);
   //532
+  //0px used to be  20px
   return (
     <div>
-      <div ref={ref} style={{ height: '30px', zIndex:99,
+      <div 
+      
+      ref={ref} style={{ height: '30px', zIndex:99,
         //border: '2px solid blue',
          visibility: isFixed ? 'hidden' : 'visible' }}>{children}</div>
       <div 
+      
       style={{ zIndex:99,
         //border: '2px solid red', 
-        height: '20px', visibility: isFixed ? 'hidden' : 'visible' }} 
+        height: '0px', visibility: isFixed ? 'hidden' : 'visible' }} 
       ></div>
       {isFixed && (
         <div 
+        
         style={{ position: 'fixed', top: 7, zIndex: 99, 
         //border: '2px solid green' 
         }}>

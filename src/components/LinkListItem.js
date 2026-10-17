@@ -104,6 +104,8 @@ const LinkListItem = (props) => {
   const myRef3 = useRef(null);
   const myRef4 = useRef(null);
   const divRef = useRef(null);
+  const theheightRef = useRef(null)
+  const distanceScrolledRef = useRef(null)
 
   const [s, setS] = useState(1);
   const [s2, setS2] = useState(1);
@@ -1286,6 +1288,122 @@ https://www.youtube.com/feed/history
     };
   };
 
+//   const playInPlaceVideo = (id, Url, event) => {
+//     let newStr = Url;
+
+//     if (Url.includes("shorts")) {
+//       newStr = Url.replace("shorts", "embed");
+//     } else if (Url.includes("watch?v=")) {
+//       newStr = Url.replace("watch?v=", "embed/");
+//     }
+
+//     //setUrl2(newStr);
+
+//     const text = event.currentTarget.innerText.trim();
+
+//     const videoElement = document.querySelector("#ipvideo" + id);
+
+//     //savedScrollYiw.current =  window.document.getElementById("ls2").scrollY;
+
+//     if (text === "Play video in place") {
+//       const iframe = document.querySelector("#ipvideo" + id + " iframe");
+
+//       if (iframe) {
+//         iframe.src = newStr;
+//       }
+
+//       savedScrollYw.current = window.scrollY;
+//       //  savedScrollYiw.current =  window.document.getElementById("ls2").scrollY;
+
+//       console.log("SAVED savedScrollYw.current =", savedScrollYw.current);
+//       //  console.log("SAVED savedScrollYiw.current=", savedScrollYiw.current);
+
+//       const top =
+//         props.scrollContainerRef.current.getBoundingClientRect().top +
+//         window.scrollY;
+//       savedScrollYiw.current = top;
+
+//       console.log("SAVED savedScrollYiw.current=", savedScrollYiw.current);
+
+//       videoElement.style.display = "block";
+
+//       const height = videoElement.getBoundingClientRect().height;
+
+//     //  const height = videoElement.current.offsetHeight;
+//      //alert("height="+height)
+//      theheightRef.current = height
+    
+
+//       event.currentTarget.innerText = "Close video";
+
+//       //const beforeY = window.scrollY;
+
+//       videoElement.scrollIntoView({
+//         behavior: "smooth",
+//       });
+
+//  //     let distanceScrolled
+
+// //       setTimeout(() => {
+// //         const afterY = window.scrollY;
+
+// //         distanceScrolled = afterY - beforeY;
+// //         distanceScrolledRef.current = (-1)*distanceScrolled
+
+
+// //         console.log("Before:", beforeY);
+// //         console.log("After:", afterY);
+// //         console.log("Scrolled:", distanceScrolled, "pixels");
+// // }, 800);
+
+//     } else {
+//       console.log("RESTORED savedScrollYw.current =", savedScrollYw.current);
+//       console.log("RESTORED savedScrollYiw.current=", savedScrollYiw.current);
+
+// //       setTimeout(() => {
+// //     window.scrollTo({
+// //         top: savedScrollYw.current,
+// //         behavior: "smooth",
+// //       });
+// // }, 500);
+
+// // //     setTimeout(() => {
+// // //   window.document.getElementById("ls2").scrollTo({
+// // //         top: savedScrollYiw.current,
+// // //         behavior: "smooth",
+// // //       });
+// // // }, 500);
+
+      
+//       //window.document.getElementById("ls2").scrollBy(0, theheightRef.current);
+
+//       videoElement.style.display = "none";
+//       event.currentTarget.innerText = "Play video in place";
+
+//        setTimeout(() => {
+//     window.scrollTo({
+//         top: savedScrollYw.current,
+//         behavior: "smooth",
+//       });
+// }, 500);
+
+// //     setTimeout(() => {
+// //   window.document.getElementById("ls2").scrollBy({
+// //         top: distanceScrolledRef.current,
+// //         behavior: "smooth",
+// //       });
+// // }, 500);
+
+// //     setTimeout(() => {
+// //   window.document.getElementById("ls2").scrollTo({
+// //         top: savedScrollYiw.current,
+// //         behavior: "smooth",
+// //       });
+// // }, 500);
+
+//     }
+//   };
+
   const playInPlaceVideo = (id, Url, event) => {
     let newStr = Url;
 
@@ -1310,46 +1428,112 @@ https://www.youtube.com/feed/history
         iframe.src = newStr;
       }
 
-      savedScrollYw.current = window.scrollY;
-      //  savedScrollYiw.current =  window.document.getElementById("ls2").scrollY;
+      // savedScrollYw.current = window.scrollY;
+      // //  savedScrollYiw.current =  window.document.getElementById("ls2").scrollY;
 
-      console.log("SAVED savedScrollYw.current =", savedScrollYw.current);
+      // console.log("SAVED savedScrollYw.current =", savedScrollYw.current);
       //  console.log("SAVED savedScrollYiw.current=", savedScrollYiw.current);
 
-      const top =
-        props.scrollContainerRef.current.getBoundingClientRect().top +
-        window.scrollY;
-      savedScrollYiw.current = top;
+      // const top =
+      //   props.scrollContainerRef.current.getBoundingClientRect().top +
+      //   window.scrollY;
+      // savedScrollYiw.current = top;
 
-      console.log("SAVED savedScrollYiw.current=", savedScrollYiw.current);
+      // console.log("SAVED savedScrollYiw.current=", savedScrollYiw.current);
+
+
+       savedScrollYw.current = window.scrollY;
+
+      //savedScrollYiw.current = props.scrollContainerRef.current.scrollTop;
+      if (props.scrollContainerRef.current) {
+        savedScrollYiw.current = props.scrollContainerRef.current.scrollTop;
+      }
+
+      console.log("WINDOW =", savedScrollYw.current);
+      console.log("INNER =", savedScrollYiw.current);
 
       videoElement.style.display = "block";
+
+      // const height = videoElement.getBoundingClientRect().height;
+
+  
+      // theheightRef.current = height
+    
+
       event.currentTarget.innerText = "Close video";
+
+
+     
 
       videoElement.scrollIntoView({
         behavior: "smooth",
       });
 
+ //     let distanceScrolled
+
+//       setTimeout(() => {
+//         const afterY = window.scrollY;
+
+//         distanceScrolled = afterY - beforeY;
+//         distanceScrolledRef.current = (-1)*distanceScrolled
+
+
+//         console.log("Before:", beforeY);
+//         console.log("After:", afterY);
+//         console.log("Scrolled:", distanceScrolled, "pixels");
+// }, 800);
+
     } else {
       console.log("RESTORED savedScrollYw.current =", savedScrollYw.current);
       console.log("RESTORED savedScrollYiw.current=", savedScrollYiw.current);
 
-      window.scrollTo({
-        top: savedScrollYw.current,
-        behavior: "smooth",
-      });
+//       setTimeout(() => {
+//     window.scrollTo({
+//         top: savedScrollYw.current,
+//         behavior: "smooth",
+//       });
+// }, 500);
 
-      window.document.getElementById("ls2").scrollTo({
-        top: savedScrollYiw.current,
-        behavior: "smooth",
-      });
+// //     setTimeout(() => {
+// //   window.document.getElementById("ls2").scrollTo({
+// //         top: savedScrollYiw.current,
+// //         behavior: "smooth",
+// //       });
+// // }, 500);
 
-      videoElement.style.display = "none";
-      event.currentTarget.innerText = "Play video in place";
+      
+      //window.document.getElementById("ls2").scrollBy(0, theheightRef.current);
 
-      const height = divRef.current.offsetHeight * -1;
-      //alert(height)
-      window.document.getElementById("ls2").scrollBy(0, height +243);
+     
+
+     videoElement.style.display = "none";
+event.currentTarget.innerText = "Play video in place";
+
+setTimeout(() => {
+  props.scrollContainerRef.current.scrollTo({
+    top: savedScrollYiw.current,
+    behavior: "auto",
+  });
+
+  window.scrollTo({
+    top: savedScrollYw.current,
+    behavior: "auto",
+  });
+}, 50);
+//     setTimeout(() => {
+//   window.document.getElementById("ls2").scrollBy({
+//         top: distanceScrolledRef.current,
+//         behavior: "smooth",
+//       });
+// }, 500);
+
+//     setTimeout(() => {
+//   window.document.getElementById("ls2").scrollTo({
+//         top: savedScrollYiw.current,
+//         behavior: "smooth",
+//       });
+// }, 500);
+
     }
   };
 

@@ -527,14 +527,16 @@ console.log("Play video in place 2")
               : props.links.length + " links found."}
         </div>
       )} */}
-      {props.links.length > 1 || props.isinfinitescroll.isinfinitescroll === true && (
+      {//props.links.length > 1 
+      //|| 
+      props.isinfinitescroll.isinfinitescroll === true && (
         <div className="">
         <StickyFixed>
           <div
-            className="border-red margin-left-11 margin-top-n-1u"
+            className="border-red margin-left-11 margin-top-n-1u flexrowp11"
             style={{ zIndex: 99 }}
           >
-            <button
+            {/* <div><button
               id="linkid"
               //ref={props.scrollupref}
               title="Return to link."
@@ -542,9 +544,9 @@ console.log("Play video in place 2")
               className="ib button-2 widthxpx1"
               style={{ zIndex: 99 }}
             >
-              <span>Return</span>
-            </button>
-            <button
+              <span>Scroll To Top</span>
+            </button></div> */}
+            <div><button
               id="scrollup1"
               ref={props.scrollupref}
               title="Click the button to begin auto scroll."
@@ -552,70 +554,70 @@ console.log("Play video in place 2")
               className="ib button-2 widthxpx1 margin-left-11"
               style={{ zIndex: 99 }}
             >
-              <span>ScrollUp2</span>
-            </button>
-
-            <button
-              ref={props.buttonRef2}
-              title="Click the button to stop auto scroll."
-              onClick={props.stopScrolling2}
-              className="button-2 ib margin-left-11"
-              style={{ zIndex: 99 }}
-            >
-              <span>Stop</span>
-            </button>
-
-            <button
+              <span>Scroll Up 2</span>
+            </button></div>
+            <div><button
               ref={props.scrolldownref}
               title="Click the button to begin auto scroll."
               onClick={props.startScrollingDown2}
               className="button-2 ib margin-left-11 widthxpx1"
               style={{ zIndex: 99 }}
             >
-              <span>ScrollDn</span>
-            </button>
-            {isMobile() === true ? (
-              <span className="displaynone margin-top-1 margin-left-n-1 margin-bottom-1">
-                <button
-                  ref={props.scrolltotopref}
-                  title="Click the button to begin auto scroll."
-                  onClick={props.startScrollToTop2}
-                  className="button-2 ib margin-left-11 widthxpx1"
-                  style={{ zIndex: 99 }}
-                >
-                  <span>ScrollToTop</span>
-                </button>
-                <button
-                  ref={props.scrolltobottomref}
-                  title="Click the button to begin auto scroll."
-                  onClick={props.startScrollToBottom2}
-                  className="button-2 ib margin-left-11 widthxpx1"
-                  style={{ zIndex: 99 }}
-                >
-                  <span>ScrollToEnd</span>
-                </button>
-              </span>
-            ) : (
-              <span>
-                <button
-                  ref={props.scrolltotopref}
-                  title="Click the button to begin auto scroll."
-                  onClick={props.startScrollToTop2}
-                  className="button-2 ib margin-left-11 widthxpx1"
-                  style={{ zIndex: 99 }}
-                >
-                  <span>ScrollToTop</span>
-                </button>
-                <button
-                  ref={props.scrolltobottomref}
-                  title="Click the button to begin auto scroll."
-                  onClick={props.startScrollToBottom2}
-                  className="button-2 ib margin-left-11 widthxpx1"
-                  style={{ zIndex: 99 }}
-                >
-                  <span>ScrollToEnd</span>
-                </button>
-              </span>
+              <span>Scroll Down</span>
+            </button></div>
+            <div><button
+              ref={props.buttonRef2}
+              title="Click the button to stop auto scroll."
+              onClick={props.stopScrolling2}
+              className="button-2 ib margin-left-11"
+              style={{ zIndex: 99 }}
+            >
+              <span>Stop Scrolling</span>
+            </button></div>
+
+            
+            {isMobile() === true ? (<div></div>
+              // <div className="displaynone margin-top-1 margin-left-n-1 margin-bottom-1">
+              //   <div><button
+              //     ref={props.scrolltotopref}
+              //     title="Click the button to begin auto scroll."
+              //     onClick={props.startScrollToTop2}
+              //     className="button-2 ib margin-left-11- widthxpx1"
+              //     style={{ zIndex: 99 }}
+              //   >
+              //     <span>ScrollToTop</span>
+              //   </button></div>
+              //   <div><button
+              //     ref={props.scrolltobottomref}
+              //     title="Click the button to begin auto scroll."
+              //     onClick={props.startScrollToBottom2}
+              //     className="button-2 ib margin-left-11- widthxpx1"
+              //     style={{ zIndex: 99 }}
+              //   >
+              //     <span>ScrollToEnd</span>
+              //   </button></div>
+              // </div>
+            ) : (<div></div>
+              // <div>
+              //   <div><button
+              //     ref={props.scrolltotopref}
+              //     title="Click the button to begin auto scroll."
+              //     onClick={props.startScrollToTop2}
+              //     className="button-2 ib margin-left-11- widthxpx1"
+              //     style={{ zIndex: 99 }}
+              //   >
+              //     <span>ScrollToTop</span>
+              //   </button></div>
+              //   <div><button
+              //     ref={props.scrolltobottomref}
+              //     title="Click the button to begin auto scroll."
+              //     onClick={props.startScrollToBottom2}
+              //     className="button-2 ib margin-left-11- widthxpx1"
+              //     style={{ zIndex: 99 }}
+              //   >
+              //     <span>ScrollToEnd</span>
+              //   </button></div>
+              // </div>
             )}
           </div>
         </StickyFixed>

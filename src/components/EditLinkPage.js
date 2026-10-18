@@ -29,15 +29,18 @@ export class EditLinkPage extends React.Component {
   }
 
   onSubmit = (link) => {
-    this.props.startEditLink(this.props.link.id, link);
+    //this.props.startEditLink(this.props.link.id, link);
+    this.props.startEditLink(link.id, link);
+    
 
     window.location.href =
-      baseUrl + "?signup=signup&z2=2&p=" + this.props.link.id;
+      baseUrl + "?signup=signup&z2=2&p=" + link.id;
   };
 
-  handleClose4 = () => {
-    window.location.href =
-      baseUrl + "?signup=signup&z=1&p=" + this.props.link.id;
+  handleClose4 = (link) => {
+    alert("I need the link id here")
+    // window.location.href =
+    //   baseUrl + "?signup=signup&z=1&p=" + link.id;
   };
   //onRemove = (value,event) => {
   onRemove = () => {
@@ -60,7 +63,7 @@ export class EditLinkPage extends React.Component {
               <div className="content-container">
                 <h1 className="page-header__title">
                   <span className="ib color-purple- color-black-2">
-                    Edit Link
+                    Edit Link 1
                   </span>
                 </h1>
               </div>
@@ -70,6 +73,7 @@ export class EditLinkPage extends React.Component {
                 link={this.props.link}
                 onSubmit={this.onSubmit}
                 makereadonly={true}
+                id={this.props.match.params.id}
               />
             </div>
           </div>

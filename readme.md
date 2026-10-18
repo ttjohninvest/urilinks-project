@@ -3076,3 +3076,136 @@ There is one thing I would change from what I told you earlier: I would upgrade 
 Also, Webpack's own migration guide formally describes migration from Webpack 4 to 5 and recommends getting plugins/loaders compatible first. Since you are on Webpack 3, your jump is larger than the official 4→5 path, which is why I would expect us to encounter a handful of configuration errors and fix them one at a time. webpack
 If you want, you can paste your entire package.json and your Webpack configuration file next. Then I can change this from a generic recipe into an exact recipe for your UriLinks project, including exactly which dependencies to remove, which ones to keep, and the finished Webpack 5 configuration.
 =============================
+
+firebase realtime database rules, firebase rules:
+the ones chatgpt.com gave me
+{
+  "rules": {
+    "all": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+
+    "chat": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"]
+    },
+
+    "users": {
+      ".read": true,
+
+      "$uid": {
+        "follower": {
+          ".write": true
+        },
+
+        "following": {
+          ".write": true
+        },
+
+        "newlinks": {
+          ".write": true
+        },
+
+        "links": {
+          "$id": {
+            "frequency": {
+              ".write": true
+            },
+
+            "likes": {
+              ".write": true
+            }
+          }
+        },
+
+        "$other": {
+          ".write": "$uid === auth.uid"
+        }
+      }
+    }
+  }
+}
+
+
+the ones i have been running:
+{
+"rules": { 
+   "all":{
+     ".read": true,
+      ".write": "auth != null",
+  },
+  "chat":{
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"]
+  },
+"users":{
+  ".read":true,
+ 
+  "$uid": { 
+    ".write":"$uid === auth.uid",
+      "follower":{
+        ".write": true
+      },
+      "following":{
+       ".write": true
+      },
+     "newlinks":{
+       ".write": true
+      },
+     "links": {
+      "$id": {
+        "frequency": {
+          ".write": true       
+       },
+        "likes": {
+          ".write": true       
+      }
+     }  
+   } 
+  }
+}
+}
+}
+
+the modified ones because have been unable to write to frequency
+{
+"rules": { 
+   "all":{
+     ".read": true,
+      ".write": "auth != null",
+  },
+  "chat":{
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["createdAt"]
+  },
+"users":{
+  ".read":true,
+ 
+  "$uid": { 
+      "follower":{
+        ".write": true
+      },
+      "following":{
+       ".write": true
+      },
+     "newlinks":{
+       ".write": true
+      },
+     "links": {
+      "$id": {
+        "frequency": {
+          ".write": true       
+       },
+        "likes": {
+          ".write": true       
+      }
+     }  
+   } 
+  }
+}
+}
+}

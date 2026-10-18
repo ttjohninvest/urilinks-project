@@ -483,6 +483,7 @@ https://www.youtube.com/feed/history
   };
 
   const storeScrollPosition = (frequency, event) => {
+    console.log("storeScrollPosition, frequency=" + frequency);
     //alert("frequency="+frequency)
     let x1 = 0;
     if (frequency === undefined || frequency === null || frequency === "NaN")
@@ -491,6 +492,7 @@ https://www.youtube.com/feed/history
     const x = event.target.getAttribute("data-value"); //x is link id
     //alert("id="+x+", frequency="+x1)
     //alert("storeScrollPosition, event.target.value="+x)
+    console.log("storeScrollPosition, link id=" + x);
     props.incrementLinkClickCount({ id: x, frequency: x1 });
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };
@@ -1595,7 +1597,7 @@ https://www.youtube.com/feed/history
                 target="_blank"
                 data-value={props.id}
                 //title={"click to open the webpage: " + props.Url}
-                onClick={() => storeScrollPosition(props.frequency, event)}
+                onClick={(event) => storeScrollPosition(props.frequency, event)}
               >
                 <img
                   ref={divRef}

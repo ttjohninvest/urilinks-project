@@ -2,6 +2,7 @@ const LIST_ALL_PUBLIC_LINKS = false;
 
 import React from "react";
 import { connect } from "react-redux";
+import firebase from "firebase/app"
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 import StorageSizes from "./StorageSizes";
@@ -11,7 +12,7 @@ class EditForm extends React.Component {
     super(props);
 
     //  old one
-    //  this.state = { //this one works, for some reason the note was not including the hashtag with the new one so i updated the note with the old one
+    //  this.state.link = { //this one works, for some reason the note was not including the hashtag with the new one so i updated the note with the old one
     //       showpublic: props.link ? props.link.showpublic : 0,
     //       description: props.link ? props.link.description : "",
     //       addescription: props.link && !!props.link.addescription===true ? props.link.addescription : "",
@@ -24,22 +25,50 @@ class EditForm extends React.Component {
     //       error: "",
     //       hashTags: [],
     //     };
-
+    //props.match.params.id
     //new one
     this.state = {
-      showpublic: props.link ? props.link.showpublic : 0,
-      description: props.link ? props.link.description : "",
-      addescription: props.link && !!props.link.addescription===true ? props.link.addescription : "",
-      Url: props.link && !!props.link.Url === true ? props.link.Url : "",
-      adUrl: props.link && !!props.link.adUrl ? props.link.adUrl : "",
-      buyerdiscountcode: props.link && !!props.link.buyerdiscountcode ? props.link.buyerdiscountcode : "",
-      note: props.link ? props.link.note : "",
-      amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
-      createdAt: props.link && !!props.link.createdAt ? moment(props.link.createdAt) : moment(),
-      calendarFocused: false,
-      error: "",
-      hashTags: [],
+      // showpublic: props.link ? props.link.showpublic : 0,
+      // description: props.link ? props.link.description : "",
+      // addescription: props.link && !!props.link.addescription===true ? props.link.addescription : "",
+      // Url: props.link && !!props.link.Url === true ? props.link.Url : "",
+      // adUrl: props.link && !!props.link.adUrl ? props.link.adUrl : "",
+      // buyerdiscountcode: props.link && !!props.link.buyerdiscountcode ? props.link.buyerdiscountcode : "",
+      // note: props.link ? props.link.note : "",
+      // amount: 0, //props.link ? (props.link.amount / 100).toString() : "",
+      // createdAt: props.link && !!props.link.createdAt ? moment(props.link.createdAt) : moment(),
+      // calendarFocused: false,
+      // error: "",
+      // hashTags: [],
+
+      link: null,
+      loading: true
     };
+  }
+
+  componentDidMount() {
+    //do a fetch call to get the link data
+    //const id = this.props.match.params.id;
+    const id = this.props.id
+    const uid = firebase.auth().currentUser.uid;
+
+    firebase
+      .database()
+      .ref(`users/${uid}/links/${id}`)
+      .once("value")
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          this.setState({
+            link: {
+              id: snapshot.key,
+              ...snapshot.val()
+            },
+            loading: false
+          });
+        } else {
+          this.setState({ loading: false });
+        }
+      });
   }
 
   onShowpublicChange = (e) => {
@@ -192,7 +221,7 @@ class EditForm extends React.Component {
     console.log("onSubmit");
     let faviconURL;
 
-    let str = this.state.Url.trim();
+    let str = this.state.link.Url.trim();
     if (str.substring(0, 7) === "http://") {
     } else if (str.substring(0, 8) === "https://") {
     } else str = "https://" + str;
@@ -202,18 +231,18 @@ class EditForm extends React.Component {
     //faviconURL = this.extractDomain(str) + "/favicon.ico";
     faviconURL = newDomain + "/favicon.ico";
     //return
-    //const url = new URL(this.state.Url);
+    //const url = new URL(this.link.Url);
     //const faviconURL = `${url.protocol}//${url.host}/favicon.ico`;
-    //const faviconURL = this.getFavicon(this.state.Url)
+    //const faviconURL = this.getFavicon(this.state.link.Url)
 
-    let str2 = this.state.adUrl.trim();
+    let str2 = this.state.link.adUrl.trim();
     if (str2.substring(0, 7) === "http://") {
     } else if (str2.substring(0, 8) === "https://") {
     } 
-    if(!!this.state.buyerdiscountcode.trim())
+    if(!!this.state.link.buyerdiscountcode.trim())
     {
-        if(!str2.includes(this.state.buyerdiscountcode.trim())) {
-            str2 += "&"+this.state.buyerdiscountcode.trim()
+        if(!str2.includes(this.state.link.buyerdiscountcode.trim())) {
+            str2 += "&"+this.state.link.buyerdiscountcode.trim()
         } else {
             str2+=""
         }
@@ -225,26 +254,26 @@ class EditForm extends React.Component {
       "3 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP favicon.ico = " + faviconURL,
     );
     console.log(
-      "3 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.Url) = " +
-        this.getFaviconUrl(this.state.Url),
+      "3 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP this.getFaviconUrl(this.state.link.Url) = " +
+        this.getFaviconUrl(this.state.link.Url),
     );
-    console.log("onSubmit, this.state.note=" + this.state.note);
-    if (!this.state.description || !this.state.Url) {
-      // || !this.state.amount) {
+    console.log("onSubmit, this.state.link.note=" + this.state.link.note);
+    if (!this.state.link.description || !this.state.link.Url) {
+      // || !this.state.link.amount) {
       this.setState(() => ({
         error:
           "Please provide link text and uri/url link. The note with hash tags (i.e. #church, #mountains) is optional.",
       }));
     } else {
-      if (this.state.note.trim()) {
-        console.log("2 extractHashTags, this.state.note=" + this.state.note);
+      if (this.state.link.note.trim()) {
+        console.log("2 extractHashTags, this.state.link.note=" + this.state.link.note);
         // this.setState({
-        //  hashTags:this.extractHashtags(this.state.note)
+        //  hashTags:this.extractHashtags(this.state.link.note)
         // })
         console.log(
-          "hashTags=" + JSON.stringify(this.extractHashtags(this.state.note)),
+          "hashTags=" + JSON.stringify(this.extractHashtags(this.state.link.note)),
         );
-        const extractHashtags = this.extractHashtags(this.state.note);
+        const extractHashtags = this.extractHashtags(this.state.link.note);
         //I need to write the hashtags to the database here for the logged in user
         console.log(
           "I need to write the hashtags to the database here for the logged in user",
@@ -253,15 +282,15 @@ class EditForm extends React.Component {
         console.log("extractHashTag, note=empty string");
       }
 
-      if (this.state.Url.length > 50) {
+      if (this.state.link.Url.length > 50) {
       } else {
       }
 
-      // str=this.state.Url
-      // if (this.state.Url.substring(0, 7) === 'http://')
+      // str=this.state.link.Url
+      // if (this.state.link.Url.substring(0, 7) === 'http://')
       //  {}
 
-      // else if (this.state.Url.substring(0, 8) === 'https://')
+      // else if (this.state.link.Url.substring(0, 8) === 'https://')
       // {}
       // else str = 'https://' + str;
 
@@ -270,20 +299,36 @@ class EditForm extends React.Component {
       this.setState(() => ({ error: "" }));
 
       this.props.onSubmit({
-        showpublic: this.state.showpublic,
-        description: this.state.description,
-        addescription: this.state.addescription,
+        id:this.props.id,
+        showpublic: this.state.link.showpublic,
+        description: this.state.link.description,
+        addescription: this.state.link.addescription,
         Url: str,
         adUrl: str2,
-        buyerdiscountcode:this.state.buyerdiscountcode.trim(),
-        amount: parseFloat(this.state.amount, 10) * 100,
-        createdAt: this.state.createdAt.valueOf(),
-        note: this.state.note,
+        buyerdiscountcode:this.state.link.buyerdiscountcode.trim(),
+        amount: parseFloat(this.state.link.amount, 10) * 100,
+        createdAt: this.state.link.createdAt.valueOf(),
+        note: this.state.link.note,
         faviconURL: faviconURL,
       });
     }
   };
+
+  handleChange = (e) => {
+  const { name, value } = e.target;
+
+  this.setState((prevState) => ({
+    link: {
+      ...prevState.link,
+      [name]: value,
+    },
+  }));
+};
+
   render() {
+     if (!this.state.link) {
+    return <div>Loading...</div>;
+  }
     return (
       <div>
       <form className="form form-bg" onSubmit={this.onSubmit}>
@@ -298,10 +343,10 @@ class EditForm extends React.Component {
               type="checkbox"
               ////placeholder="Uri/Url Link Text, example: gmail or gmail.com or any good title of your choosing"
               //placeholder=""
-              checked={this.state.showpublic === true ? "checked" : ""}
+              checked={this.state.link.showpublic === true ? "checked" : ""}
               autoFocus
               className="ib largerCheckbox"
-              value="show the public" //{this.state.showpublic}
+              value="show the public" //{this.state.link.showpublic}
               onChange={this.onShowpublicChange}
               title="check to show the link to the public"
               //maxLength=""
@@ -312,46 +357,52 @@ class EditForm extends React.Component {
           </div>
         )}
         <input
+          name="description"
           type="text"
           placeholder="Place link link text here."
           //readOnly={this.props.makereadonly===true?true:false}
           autoFocus
           className="text-input outline-none"
-          value={this.state.description}
-          onChange={this.onDescriptionChange}
+          value={this.state.link && this.state.link.description || ""}
+          //onChange={this.onDescriptionChange}
+          onChange={this.handleChange}
           title="After the data is entered, click send mail."
           maxLength={StorageSizes.description} //"100" //2048
         />
         <input
+          name="Url"
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="url"
           className="text-input outline-none"
-          value={this.state.Url}
-          onChange={this.onUrlChange}
+          value={this.state.link && this.state.link.Url || ""}
+          //onChange={this.onUrlChange}
+          onChange={this.handleChange}
           maxLength={StorageSizes.url} //"2048"
         />
         {/* <input
           type="text"
           placeholder="Amount"
           className="text-input"
-          value={this.state.amount}
+          value={this.state.link.amount}
           onChange={this.onAmountChange}
         /> */}
-        <SingleDatePicker
-          date={this.state.createdAt}
+        {/* <SingleDatePicker
+          date={this.state.link.createdAt}
           onDateChange={this.onDateChange}
           focused={this.state.calendarFocused}
           onFocusChange={this.onFocusChange}
           numberOfMonths={1}
           isOutsideRange={() => false}
-        />
+        /> */}
         <textarea
+          name="note"
           //placeholder="Add a note for your uri/url link (optional)"
           placeholder="Add a note (optional)"
           className="textarea outline-none"
-          value={this.state.note}
-          onChange={this.onNoteChange}
+          value={this.state.link && this.state.link.note || ""}
+          //onChange={this.onNoteChange}
+          onChange={this.handleChange}
           maxLength={
             !!this.props.theplan.plan &&
             this.props.theplan.plan.replace(/"/g, "") === "free"
@@ -368,32 +419,38 @@ class EditForm extends React.Component {
 
         
         <input
+          name="addescription"
           type="text"
           placeholder="Place ad link text here."
           //readOnly={this.props.makereadonly===true?true:false}
           //autoFocus
           className="ib text-input outline-none"
-          value={this.state.addescription}
-          onChange={this.onAdDescriptionChange}
+          value={this.state.link && this.state.link.addescription || ""}
+          //onChange={this.onAdDescriptionChange}
+          onChange={this.handleChange}
           title="Enter the link text for the ad. Example: Example For Sale"
           maxLength={StorageSizes.url} //2048
         />
          <input
+          name="adUrl"
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="Place ad url here. Example: https://example.com or https://www.example.com"
           className="text-input outline-none"
-          value={this.state.adUrl}
-          onChange={this.onUrlChange2}
+          value={this.state.link && this.state.link.adUrl || ""}
+          //onChange={this.onUrlChange2}
+          onChange={this.handleChange}
           maxLength={StorageSizes.url} //"2048"
         />
         <input
+          name="buyerdiscountcode"
           type="text"
           ////placeholder="Uri/Url Link, example: https://gmail.com"
           placeholder="(optional field) Place buyer discount code here which is specified as tag=affiliateId. Please check with the affiliate program documentation for your affiliate id, tag might be a different word like coupon; in amazon is is tag=affiliateId. Example: tag=7yuhtgy"
           className="text-input outline-none"
-          value={this.state.buyerdiscountcode}
-          onChange={this.onBuyerDiscountCode}
+          value={this.state.link && this.state.link.buyerdiscountcode || ""}
+          //onChange={this.onBuyerDiscountCode}
+          onChange={this.handleChange}
           maxLength="23"
         />
         

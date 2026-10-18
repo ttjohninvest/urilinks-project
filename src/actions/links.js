@@ -460,16 +460,21 @@ export const startPrivateLink = ({ id } = {}) => {
 };
 
 export const incrementLinkClickCount = ({ id, frequency } = {}) => {
-  //alert("incrementLinkClickCount, x="+JSON.stringify(x))
+     console.log("incrementLinkClickCount, link id="+id)
+     console.log("incrementLinkClickCount, frequency="+frequency)
 
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
     if (id !== null && id !== undefined && id !== "")
       return database
-        .ref(`users/${uid}/links/${id}`)
-        .update({ frequency: parseInt(frequency) + 1 }) //{showpublic:0}
+        .ref(`users/${uid}/links/${id}/frequency`)
+        //.update({ frequency: parseInt(frequency) + 1 }) //{showpublic:0}
+        //.set({ frequency: parseInt(frequency) + 1 })
+         .set(parseInt(frequency) + 1)
         .then(() => {
+          console.log("incrementLinkClickCount, success, link id="+id)
+           console.log("incrementLinkClickCount, success, frequency="+frequency)
           //alert("success")
           //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
           dispatch(
@@ -479,7 +484,11 @@ export const incrementLinkClickCount = ({ id, frequency } = {}) => {
           );
         })
         .catch((error) => {
-          console.log("error removing link data in firebase, error=" + error);
+            
+           
+             console.log("incrementLinkClickCount, failed, link id="+id)
+           console.log("incrementLinkClickCount, failed, frequency="+frequency)
+          console.log("incrementLinkClickCount, error=" + error);
         });
   };
 };
@@ -626,6 +635,8 @@ export const editLink = (id, updates) => ({
 });
 
 export const startEditLink = (id, updates) => {
+  console.log("startEditLink, id="+id)
+  console.log("startEditLink, updates="+JSON.stringify(updates))
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     if (id !== null && id !== undefined && id !== "")

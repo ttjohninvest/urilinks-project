@@ -83,7 +83,7 @@ const openNewTabWithCustomTitleType = (url, type, customTitle) => {
   return (
     <div className="margin-left-11 margin-top-1">
     <button 
-    className={`ib pointereventsnone- height48 button-2w- button-2b ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+    className={`ib pointereventsnone- button-2b padding-top-and-bottom ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     title="Press to 'Start Chat.'"
     onClick={handleChat}>
     Start Chat

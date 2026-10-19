@@ -9,7 +9,7 @@ const ChatNotifications = (props) => {
   const [photoUrl, setPhotoUrl] = useState(null);
 
   const [chatDropdownOpen, setChatDropdownOpen] = useState(false);
-  const [selectedChatName, setSelectedChatName] = useState("receive chat session request from");
+  const [selectedChatName, setSelectedChatName] = useState("Received chat session request from");
 
 //   useEffect(() => {
 //   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {

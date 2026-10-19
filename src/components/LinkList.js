@@ -506,7 +506,7 @@ console.log("Play video in place 2")
  {isMobile() === false && (<div className="">
  
  {props.isinfinitescroll.isinfinitescroll===true?<p className="margin-left-11">Links found: {linksCount}</p>:
- <div id="linksfound" className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
+ <div id="linksfound" className="ib margin-left-11 margin-bottom-1vb margin-top-1tt0">
           {/* {props.links.length===1?"1 link is displayed.":`${props.links.length} links are displayed.`} */}
           {props.links.length === 0
             ? totalCount + " links found."
@@ -517,20 +517,11 @@ console.log("Play video in place 2")
  </div>
   
       )}
-      {/* {isMobile() === false && (
-        <div className="ib margin-left-11 margin-bottom-1 margin-top-1tt">
-         
-          {props.links.length === 0
-            ? props.links.length + " links found."
-            : props.links.length === 1
-              ? "1 link found."
-              : props.links.length + " links found."}
-        </div>
-      )} */}
+     
       {//props.links.length > 1 
       //|| 
       props.isinfinitescroll.isinfinitescroll === true && (
-        <div className="">
+        <div className="margin-top-78b">
         <StickyFixed>
           <div
             className="border-red margin-left-11 margin-top-n-1u flexrowp11"
@@ -551,7 +542,7 @@ console.log("Play video in place 2")
               ref={props.scrollupref}
               title="Click the button to begin auto scroll."
               onClick={props.startScrollingUp2}
-              className="ib button-2 widthxpx1 margin-left-11"
+              className="ib button-2 widthxpx1 margin-left-11-"
               style={{ zIndex: 99 }}
             >
               <span>Scroll Up 2</span>

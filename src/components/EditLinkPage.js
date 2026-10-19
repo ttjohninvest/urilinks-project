@@ -32,15 +32,14 @@ export class EditLinkPage extends React.Component {
     //this.props.startEditLink(this.props.link.id, link);
     this.props.startEditLink(link.id, link);
     
-
     window.location.href =
       baseUrl + "?signup=signup&z2=2&p=" + link.id;
-  };
+    };
 
   handleClose4 = (link) => {
-    alert("I need the link id here")
-    // window.location.href =
-    //   baseUrl + "?signup=signup&z=1&p=" + link.id;
+    //alert("I need the link id here")
+    window.location.href =
+      baseUrl + "?signup=signup&z=1&p=" + this.props.match.params.id;
   };
   //onRemove = (value,event) => {
   onRemove = () => {

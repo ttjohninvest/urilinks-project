@@ -1556,10 +1556,9 @@ https://www.youtube.com/feed/history
   return (
     <div key={props.index}>
       <div id="divtop" />
-      {/* <span>{blb===true?"The link is broken.":"The link is not broken."}</span> */}
-      <div>
-        {/* {props.faviconURL} */}
-        {/* {props.faviconURL==="https://instagram.com/favicon.ico" ? <img className="" width="20" height="20" src="http://www.google.com/s2/favicons?domain=instagram.com" />:!!props.favicon===false?"":<img className="" width="20" height="20" src={props.faviconURL} />} */}
+     
+      {/* <div>
+       
         {props.faviconURL === "https://instagram.com/favicon.ico" ? (
           <img
             className=""
@@ -1570,7 +1569,7 @@ https://www.youtube.com/feed/history
         ) : (
           <img className="" width="16" height="16" src={props.faviconURL} />
         )}
-      </div>
+      </div> */}
 
       {screenedValue !== null ? (
         <div>
@@ -1587,11 +1586,25 @@ https://www.youtube.com/feed/history
               position: "relative",
               display: "inline-block",
             }}
-          >
+          > 
             {!!props.yturl && (
+              <div>
+                 <div>
+       
+        {props.faviconURL === "https://instagram.com/favicon.ico" ? (
+          <img
+            className=""
+            width="16"
+            height="16"
+            src="https://www.google.com/s2/favicons?domain=instagram.com"
+          />
+        ) : (
+          <img className="" width="16" height="16" src={props.faviconURL} />
+        )}
+      </div>
               <a
                 ref={myRef4}
-                className=""
+                className="ib"
                 href={props.Url}
                 //href={()=>{getYouTubeEmbedUrl(props.yturl)}}
                 target="_blank"
@@ -1611,17 +1624,19 @@ https://www.youtube.com/feed/history
                   //src={()=>{getYouTubeEmbedUrl(props.yturl)}}
                 />
               </a>
+
+              </div>
             )}
           </div>
-          <div></div>
+          
         </div>
       )}
 
       <div id={"ipvideo" + props.id} style={{ display: "none" }}>
         <div>
           <div
-            className="height50x width100"
-            //style={{border:'1px solid red'}}
+            className="height50x- width100"
+            
           ></div>
           <div className="margin-bottom-1z1">
             <BasicIframe src={url2} />
@@ -1631,7 +1646,7 @@ https://www.youtube.com/feed/history
 
       {screenedValue === null && (
         <div
-          className="normal-wrap padding-bottom-11"
+          className={`normal-wrap ${!!props.yturl?"padding-bottom-11-":""}`}
           style={{
             position: "relative",
             display: "inline-block",
@@ -1639,7 +1654,7 @@ https://www.youtube.com/feed/history
         >
           <a
             ref={myRef}
-            className={`ib bg-color-1w- borderRadius11- text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
+            className={`ib text-size-16 font-weight-900 margin-right-1 textWrap ${isMobile() === true ? "width325" : ""}`}
             href={props.Url}
             target="_blank"
             data-value={props.id}

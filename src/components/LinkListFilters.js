@@ -48,6 +48,9 @@ import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
+import FollowersContainer from "./FollowersContainer"
+import UsersAndFollowersContainer from "./UsersAndFollowersContainer"
+import UsersAndFollowingContainer from "./UsersAndFollowingContainer"
 
 import {
   setTextFilter,
@@ -71,7 +74,7 @@ import { incrementUsersClickCount } from "../actions/theuserscount";
 
 // import {
 // import ChatComponent from './ChatComponent';
-//  incrementHandleToggle3,
+// import UsersAndFollowersContainer from './UsersAndFollowersContainer';
 //   decrementHandleToggle3,
 // } from "../actions/links";
 
@@ -156,7 +159,7 @@ function ExpandableArray(props) {
 
   const signup = params.get("signup");
   const rt = params.get("x");
-  const readonly = rt === "readonly" ? true : false;
+  const readonly = (rt === "readonly") ? true : false;
   const id2 = params.get("id2");
   const id = params.get("id");
 
@@ -1651,20 +1654,16 @@ function ExpandableArray(props) {
       <div className={`${props.signup === false ? "bg-gray-1" : "bg-gray-1"}`}>
         <div className="">
           <div
-            className={`website-background-color width30pt
-          } theHeight- flexrowzc2 flexcol3 border-b-5font-roboto text-size-16 font-weight-500`}
-            title="Welcome, Entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press friendly login to sign up." //"You are welcome to use Internet Links Management Tool to add, view, delete and share your urls with others"
-            style={{paddingTom:"1rem",paddingBottom:"0.5rem"}}
+            className={`website-background-color width30pt flexrowzc2 border-b-5font-roboto text-size-1 font-weight-500-`}
+            //style={{paddingBottom:"0.5rem"}}
           >
-            <div className="flexcol3">
+            <div className="flexcol3-">
               <div
                 className={`ib- padding-left-n-x ${isMobile() === true ? "fleur-de-leah-regular2- text-size-10-" : "fleur-de-leah-regular- text-size-10-"}`}
                 title="Welcome to entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press friendly login to sign up."
               >
                 Internet Links Organizer, Viewer and Sharer
-                {/* {`1 Welcome to entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press friendly login to sign up.`} */}
-              </div>
-              
+              </div>      
             </div>
           </div>
           {props.isinfinitescroll.isinfinitescroll === false && (
@@ -1778,89 +1777,91 @@ function ExpandableArray(props) {
                     </div>
                   </div>
                 </div>
-              ) : (
-                <div>
-                  {rt !== "readonly" &&<div
-                    className="padding-tb"
-                    title="The number of people that you are following."
-                  >
-                    Following: ({lengthOf})
-                  </div>}
-                  <div
-                    className="liststylenone cursor-pointer interline"
-                    //onClick={(event) => handleClick2(2,event)}
-                  >
-                    {uniqueData.map((item, index) => {
-                      if (props.uid !== item.gud.uid) {
-                        // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
-                        return (
-                          <div
-                            onClick={(event) => handleClick2(2, event)}
-                            className={`${
-                              //props.whichone === 2
-                              true && item.isMatch === "is following "
-                                ? "bg-color-1 color-white-1"
-                                : "bg-color-1w color-black-3"
-                            }
-                         flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
-                            key={index}
-                            data-item-id={
-                              props.uid +
-                              ";" +
-                              item.gud.uid +
-                              ";" +
-                              (theuser ? theuser.displayName : "name") +
-                              ";" +
-                              item.gud.displayname +
-                              ";" +
-                              item.gud.photourl +
-                              ";" +
-                              item.gud.email +
-                              ";" +
-                              (theuser ? theuser.email : "ph@ph.com") +
-                              ";" +
-                              item.isMatch
-                            }
-                          >
-                            <img
-                              src={item.gud.photourl}
-                              width="42"
-                              height="42"
-                              className="borderRadius50- circular-img-"
-                              style={{ borderRadius: "50%" }}
-                              onLoad={() => {
-                                console.log("IMAGE LOADED:", item.gud.photourl);
-                              }}
-                              onError={(e) => {
-                                e.currentTarget.onerror = null;
-                                e.currentTarget.src = "/default-profile.png";
-                              }}
-                            />
-                            <span className="margin-left-11">
-                              {/* {item.gud.photourl} */}
-                              {item.gud.displayname}
-                            </span>
-                            {/* {
-                              "e@e.com"+
-                              " " +
-                              item.isMatch +
-                              " " +
-                              item.gud.email +
-                              ", " +
-                              item.gud.displayname +
-                              ", " +
-                              item.gud.theatname +
-                              ", " +
-                              item.gud.photourl
-                              } */}
-                          </div>
-                        );
-                      } else {
-                        return null;
-                      }
-                    })}
-                  </div>
-                </div>
+              ) : (<div>
+               { rt !== "readonly" && <UsersAndFollowingContainer following={props.following} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} />}
+              </div>
+                // <div>
+                //   {rt !== "readonly" &&<div
+                //     className="padding-tb"
+                //     title="The number of people that you are following."
+                //   >
+                //     Following: ({lengthOf})
+                //   </div>}
+                //   <div
+                //     className="liststylenone cursor-pointer interline"
+                //     //onClick={(event) => handleClick2(2,event)}
+                //   >
+                //     {uniqueData.map((item, index) => {
+                //       if (props.uid !== item.gud.uid) {
+                //         // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
+                //         return (
+                //           <div
+                //             onClick={(event) => handleClick2(2, event)}
+                //             className={`${
+                //               //props.whichone === 2
+                //               true && item.isMatch === "is following "
+                //                 ? "bg-color-1 color-white-1"
+                //                 : "bg-color-1w color-black-3"
+                //             }
+                //          flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
+                //             key={index}
+                //             data-item-id={
+                //               props.uid +
+                //               ";" +
+                //               item.gud.uid +
+                //               ";" +
+                //               (theuser ? theuser.displayName : "name") +
+                //               ";" +
+                //               item.gud.displayname +
+                //               ";" +
+                //               item.gud.photourl +
+                //               ";" +
+                //               item.gud.email +
+                //               ";" +
+                //               (theuser ? theuser.email : "ph@ph.com") +
+                //               ";" +
+                //               item.isMatch
+                //             }
+                //           >
+                //             <img
+                //               src={item.gud.photourl}
+                //               width="42"
+                //               height="42"
+                //               className="borderRadius50- circular-img-"
+                //               style={{ borderRadius: "50%" }}
+                //               onLoad={() => {
+                //                 console.log("IMAGE LOADED:", item.gud.photourl);
+                //               }}
+                //               onError={(e) => {
+                //                 e.currentTarget.onerror = null;
+                //                 e.currentTarget.src = "/default-profile.png";
+                //               }}
+                //             />
+                //             <span className="margin-left-11">
+                //               {/* {item.gud.photourl} */}
+                //               {item.gud.displayname}
+                //             </span>
+                //             {/* {
+                //               "e@e.com"+
+                //               " " +
+                //               item.isMatch +
+                //               " " +
+                //               item.gud.email +
+                //               ", " +
+                //               item.gud.displayname +
+                //               ", " +
+                //               item.gud.theatname +
+                //               ", " +
+                //               item.gud.photourl
+                //               } */}
+                //           </div>
+                //         );
+                //       } else {
+                //         return null;
+                //       }
+                //     })}
+                //   </div>
+                // </div>
               )}
             </div>
           </div>
@@ -2076,15 +2077,16 @@ function ExpandableArray(props) {
                     <span>
                       <div className="margin-bottom-123">
                         {readonly === false && (
-                          <div className="flexrow2cv2- flexrowz">
-                            <div className="flexcol3 text-size-1 textLeft- margin-top-1- margin-bottom-1">
+                        
+                          <div className="flexrow2cv2">
+                              <div className="flexrowz border-blue- margin-top-50x padding-bottom-4x">
                               <div>
-                                <a
-                                  href="#"
+                                <span
+                                  //href="#"
                                   ref={textAreaRef}
-                                  className={`ib borderWidth2 margin-topx nounderline pointereventsnone border5- borderLightOrange padding-all2- borderradius55 ${isMobile() === false ? "" : "width325"}`}
+                                  className="width295 ib overflowxhidden margin-topx- borderWidth2- nounderline pointereventsnone borderLightOrange borderradius55 no-wrap2"
                                   title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                                 style={{
+                                  style={{
                                     textDecoration: "none",
                                     color: "black",
                                     paddingTop: "0.5rem",
@@ -2093,7 +2095,7 @@ function ExpandableArray(props) {
                                 >
                                   {` ${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                                   {props.uid}
-                                </a>
+                                </span>
                               </div>
                               <div>
                                 {/* <button
@@ -2107,11 +2109,16 @@ function ExpandableArray(props) {
                                 </span>
                               </button> */}
                                 <div className="flexrowz">
-                                  <CopyButton2
+                                   <CopyButton3
                                     readonly={readonly}
                                     accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
                                     textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
                                   />
+                                  {/* <CopyButton2
+                                    readonly={readonly}
+                                    accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
+                                    textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                                  /> */}
                                   {readonly === false && (
                                     <div>
                                       {/*1 because displaying following in the first column commented this out*/}
@@ -2181,7 +2188,7 @@ function ExpandableArray(props) {
                     </span>
                   )}
                   {props.signup === false && (
-                    <span>
+                    <div>
                       <div className="margin-bottom-123">
                         {readonly === false && (
                           <div className="flexrow2cv2">
@@ -2211,21 +2218,7 @@ function ExpandableArray(props) {
                                   />
                               </div>
                               <div className="flexrowz">
-                                <div>
-                                  {/* <button
-                                className="button-2w height48 ib margin-right-1 border5- pointereventsnone"
-                                onClick={()=>copyToClipboard()}
-                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                              >
-                                Copy
-                                
-                              </button> */}
-                                  {/* <CopyButton2
-                                    readonly={readonly}
-                                    accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
-                                    textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
-                                  /> */}
-                                </div>
+                               
                                 {/*1 because displaying following in the first column commented this out*/}
                                 {/* <OthersButton
                                   whichone={2}
@@ -2288,7 +2281,7 @@ function ExpandableArray(props) {
                           </div>
                         )}
                       </div>
-                    </span>
+                    </div>
                   )}
 
                   {props.signup === true && rt !== "readonly" ? (
@@ -2301,7 +2294,7 @@ function ExpandableArray(props) {
                         id="adlinkid"
                         href="#"
                         title="Email your sharable link to share with others. Email recipient sees readonly page"
-                        className={`ib margin-top-n-gx1 flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
+                        className={`ib flexrowzc2 cursor-pointer width400 button-2 borderRadius55 ${rt === "readonly" ? "pointereventsnone" : ""} `}
                         onClick={handleClick}
                       >
                         <span className="ib color-white-1">
@@ -2562,7 +2555,7 @@ function ExpandableArray(props) {
                   </div>
                 ) : (
                   <div>
-                    <div className="flexrowzv margin-bottom-1">
+                    <div className={`flexrowzv margin-bottom-1- ${rt === "readonly"?"margin-top-145":""}`}>
                       <div className="">
                         <input
                           title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
@@ -2886,100 +2879,107 @@ function ExpandableArray(props) {
                 </div>
               ) : (
                 <div>
-                  {rt !== "readonly" &&<div
-                    className="padding-tb"
-                    title="The number of people that you are following."
-                  >
-                    Follower: ({lengthOf3})
-                  </div>}
-                  <div className="scrollable-div3">
-                    <div
-                      className={`flexcol3- borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1- border-top-1-`}
-                    >
-                      <div>
-                       
-                        <div
-                          className="liststylenone- cursor-pointer interline padding-top-z6"
-                          //onClick={(event) => handleClick2(2,event)}
-                        >
-                          {uniqueData3.map((item, index) => {
-                            if (props.uid !== item.gud.uid) {
-                              // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
-                              return (
-                                <div
-                                  onClick={(event) => handleClick2(2, event)}
-                                  className={`${
-                                    //props.whichone === 2
-                                    true && item.isMatch === "is following "
-                                      ? "bg-color-1 color-white-1"
-                                      : "bg-color-1w color-black-3"
-                                  }
-                         flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
-                                  key={index}
-                                  data-item-id={
-                                    props.uid +
-                                    ";" +
-                                    item.gud.uid +
-                                    ";" +
-                                    (theuser ? theuser.displayName : "name") +
-                                    ";" +
-                                    item.gud.displayname +
-                                    ";" +
-                                    item.gud.photourl +
-                                    ";" +
-                                    item.gud.email +
-                                    ";" +
-                                    (theuser ? theuser.email : "ph@ph.com") +
-                                    ";" +
-                                    item.isMatch
-                                  }
-                                >
-                                  <img
-                                    src={item.gud.photourl}
-                                    width="42"
-                                    height="42"
-                                    className="borderRadius50- circular-img-"
-                                    style={{ borderRadius: "50%" }}
-                                    onLoad={() => {
-                                      console.log(
-                                        "IMAGE LOADED:",
-                                        item.gud.photourl,
-                                      );
-                                    }}
-                                    onError={(e) => {
-                                      e.currentTarget.onerror = null;
-                                      e.currentTarget.src =
-                                        "/default-profile.png";
-                                    }}
-                                  />
-                                  <span className="margin-left-11">
-                                    {/* {item.gud.photourl} */}
-                                    {item.gud.displayname}
-                                  </span>
-                                  {/* {
-                              "e@e.com"+
-                              " " +
-                              item.isMatch +
-                              " " +
-                              item.gud.email +
-                              ", " +
-                              item.gud.displayname +
-                              ", " +
-                              item.gud.theatname +
-                              ", " +
-                              item.gud.photourl
-                              } */}
-                                </div>
-                              );
-                            } else {
-                              return null;
-                            }
-                          })}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                {/* <FollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} /> */}
+                 { rt !== "readonly" ? <UsersAndFollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} />
+                 :
+                 <div style={{width:"270px", height:"726px"}}></div>
+                 }
                 </div>
+                // <div>
+                //   {rt !== "readonly" &&<div
+                //     className="padding-tb"
+                //     title="The number of people that you are following."
+                //   >
+                //     Follower: ({lengthOf3})
+                //   </div>}
+                //   <div className="scrollable-div3">
+                //     <div
+                //       className={`flexcol3- borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1- border-top-1-`}
+                //     >
+                //       <div>
+                       
+                //         <div
+                //           className="liststylenone- cursor-pointer interline padding-top-z6"
+                //           //onClick={(event) => handleClick2(2,event)}
+                //         >
+                //           {uniqueData3.map((item, index) => {
+                //             if (props.uid !== item.gud.uid) {
+                //               // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
+                //               return (
+                //                 <div
+                //                   onClick={(event) => handleClick2(2, event)}
+                //                   className={`${
+                //                     //props.whichone === 2
+                //                     true && item.isMatch === "is following "
+                //                       ? "bg-color-1 color-white-1"
+                //                       : "bg-color-1w color-black-3"
+                //                   }
+                //          flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
+                //                   key={index}
+                //                   data-item-id={
+                //                     props.uid +
+                //                     ";" +
+                //                     item.gud.uid +
+                //                     ";" +
+                //                     (theuser ? theuser.displayName : "name") +
+                //                     ";" +
+                //                     item.gud.displayname +
+                //                     ";" +
+                //                     item.gud.photourl +
+                //                     ";" +
+                //                     item.gud.email +
+                //                     ";" +
+                //                     (theuser ? theuser.email : "ph@ph.com") +
+                //                     ";" +
+                //                     item.isMatch
+                //                   }
+                //                 >
+                //                   <img
+                //                     src={item.gud.photourl}
+                //                     width="42"
+                //                     height="42"
+                //                     className="borderRadius50- circular-img-"
+                //                     style={{ borderRadius: "50%" }}
+                //                     onLoad={() => {
+                //                       console.log(
+                //                         "IMAGE LOADED:",
+                //                         item.gud.photourl,
+                //                       );
+                //                     }}
+                //                     onError={(e) => {
+                //                       e.currentTarget.onerror = null;
+                //                       e.currentTarget.src =
+                //                         "/default-profile.png";
+                //                     }}
+                //                   />
+                //                   <span className="margin-left-11">
+                //                     {/* {item.gud.photourl} */}
+                //                     {item.gud.displayname}
+                //                   </span>
+                //                   {/* {
+                //               "e@e.com"+
+                //               " " +
+                //               item.isMatch +
+                //               " " +
+                //               item.gud.email +
+                //               ", " +
+                //               item.gud.displayname +
+                //               ", " +
+                //               item.gud.theatname +
+                //               ", " +
+                //               item.gud.photourl
+                //               } */}
+                //                 </div>
+                //               );
+                //             } else {
+                //               return null;
+                //             }
+                //           })}
+                //         </div>
+                //       </div>
+                //     </div>
+                //   </div>
+                // </div>
               )}
             </div>
           )}

@@ -288,6 +288,11 @@ const sessionRemoveLink=(id) => {
 
     props.setLinksCount(props.linksCount-1)
 }
+
+
+
+
+
   return (
     <div>
       <div>

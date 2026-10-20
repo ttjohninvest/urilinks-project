@@ -253,16 +253,11 @@ const checkLink = async (url) => {
     console.log("AddlinkPage.js, in onSubmit");
     console.log("AddlinkPage.js, link.addescription = " + link.addescription);
     console.log("AddlinkPage.js, link.adUrl = " + link.adUrl);
-    //alert(1)
+   
     const user = firebase.auth().currentUser;
-    // if (count < 250 || (count < 10000 && (
-    //   user.uid === "D9LSg6elood8Yc5gd5oDMp3JNAQ2"
-    //)
-    // ) {
-    //if (count < getPlanMax() && (count < 5000 )) {
+   
     if (count < getPlanMax()) {
-      //if (count < 10) {
-      //if (true) {
+      
       link.showpublic = 1;
       link.foldername = link.description;
       
@@ -298,25 +293,13 @@ const checkLink = async (url) => {
           isin = true;
         }
 
-        //  if(l.description === link.description) {
-        //    //alert("found a match,"+l.description+","+link.description)
-        //    isin = true
-        //     break
-        // } else {
-        //    //alert("did not find a match,"+l.description+","+link.description)
-        //    isin = false
-        // }
+       
       });
 
-      // if(inin === false) {
-      //    alert("did not find a match")
-      // }
-
       if (isin === false) {
-        //alert("isin="+isin)
-        //const r = props.startAddLink(props.following,link);
+       
         const r = props.startAddLink(props.follower, link);
-        //const r = props.startAddLink(props.newfollowinglinks,link);
+       
         if (r === false) {
           setErrorDialog(true);
           console.log("VVVVVVVVVVVVV returned false");
@@ -326,9 +309,19 @@ const checkLink = async (url) => {
           props.startAddTheupdatedate({
             updatedate: datet,
           });
-          //props.history.push("/");
-          //window.location.reload();
-          //window.location.href = baseUrl+"?signup=signup&z=1"; //stops the scroll on return when z=1
+//           Object.keys(sessionStorage).forEach((key) => {
+//   if (key.includes("|page|")) {
+//     sessionStorage.removeItem(key);
+//   }
+// });
+Object.keys(sessionStorage).forEach((key) => {
+  if (
+    key.includes("|page|") ||
+    key.endsWith("|count")
+  ) {
+    sessionStorage.removeItem(key);
+  }
+});
           window.location.href = baseUrl + "?signup=signup&z=1&z2=2";
         }
       } else {

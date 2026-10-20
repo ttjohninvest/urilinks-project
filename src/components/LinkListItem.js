@@ -91,6 +91,13 @@ if (Constants.NODE_DEV === "development") {
 }
 
 const LinkListItem = (props) => {
+
+  console.log(
+  "LinkListItem RECEIVED",
+  props.id,
+  "frequency=",
+  props.frequency
+);
   //  const params = new URLSearchParams(window.location.search);
   if(props.thetotalstars) {
     console.log("props.thetotalstars.totalstars="+props.thetotalstars.totalstars)
@@ -108,6 +115,7 @@ const LinkListItem = (props) => {
 
   console.log("top of LinkListItem.js, props.id = "+props.id)
   console.log("top of LinkListItem.js, props.frequency = "+props.frequency)
+   console.log("top of LinkListItem.js, props.link.frequency = "+props.link.frequency)
   const nd = new Date()
   console.log("new date and time, hours = "+nd.getHours())
   console.log("new date and time, minutes = "+nd.getMinutes())
@@ -145,7 +153,19 @@ const LinkListItem = (props) => {
   const [isprivate, setIsPrivate] = useState(props.showpublic)
   const [likes, setLikes] = useState(props.likes)
   const [star, setStar] = useState(props.star)
-  const [frequency, setFrequency] = useState(0)
+  //const [frequency, setFrequency] = useState(props.frequency)
+
+  const [frequency, setFrequency] = useState(
+  typeof props.frequency === "number"
+    ? props.frequency
+    : 0
+);
+
+ 
+
+useEffect(() => {
+  setFrequency(props.frequency);
+}, [props.frequency]);
 
   const savedScrollYw = useRef(0);
   const savedScrollYiw = useRef(0);
@@ -498,6 +518,178 @@ https://www.youtube.com/feed/history
     }
   };
 
+//   const updateCachedFrequency = (linkId, newFrequency) => {
+//     console.log("a a linkId="+linkId)
+//     console.log("a a newFrequency="+newFrequency)
+//   Object.keys(sessionStorage).forEach((key) => {
+//     try {
+//       const cachedPage = JSON.parse(sessionStorage.getItem(key));
+
+//       console.log("key =", key);
+// console.log("cachedPage =", cachedPage);
+// console.log("Array.isArray(cachedPage) =", Array.isArray(cachedPage));
+// console.log("cachedPage.length =", cachedPage.length);
+
+
+// console.log(
+//   "RAW CACHE VALUE =",
+//   sessionStorage.getItem(key)
+// );
+
+// console.log(
+//   "PARSED CACHE VALUE =",
+//   JSON.stringify(cachedPage)
+// );
+
+//       if (!Array.isArray(cachedPage)) return;
+
+      
+
+//       const updatedPage = cachedPage.map((link) => {
+//          console.log("link =", link);
+//   console.log("link.id =", link.id);
+//   console.log("linkId =", linkId);
+//   console.log("typeof link.id =", typeof link.id);
+//   console.log("typeof linkId =", typeof linkId);
+//         if (link.id === linkId) {
+//           console.log("newFrequency="+newFrequency)
+//           return {
+//             ...link,
+//             frequency: newFrequency,
+//           };
+//         }
+
+//         return link;
+//       });
+
+//       console.log("JSON.stringify(updatedPage)="+JSON.stringify(updatedPage))
+//       sessionStorage.setItem(
+//         key,
+//         JSON.stringify(updatedPage)
+//       );
+//     } catch (error) {
+//       console.log("updateCachedFrequency error =", error);
+//     }
+//   });
+// };
+
+// const updateCachedFrequency = (linkId, newFrequency) => {
+
+// console.log("updateCachedFrequency(), see the following:")
+// Object.keys(sessionStorage).forEach((key) => {
+//   console.log(
+//     key,
+//     "=",
+//     sessionStorage.getItem(key)
+//   );
+// });
+
+//   Object.keys(sessionStorage).forEach((key) => {
+
+//     // Only look at cached link pages
+//     if (!key.includes("|page|")) return;
+
+//     try {
+//       const cachedPage = JSON.parse(
+//         sessionStorage.getItem(key)
+//       );
+
+//       console.log("key =", key);
+//       console.log("cachedPage =", cachedPage);
+
+//       if (!Array.isArray(cachedPage)) return;
+
+//       const updatedPage = cachedPage.map((link) => {
+//         console.log("link.id =", link.id);
+//         console.log("linkId =", linkId);
+
+//         if (link.id === linkId) {
+//           console.log("FOUND LINK");
+
+//           return {
+//             ...link,
+//             frequency: newFrequency,
+//           };
+//         }
+
+//         return link;
+//       });
+
+//       console.log("SAVING CACHE KEY =", cacheKey);
+// console.log("SAVING PAGE =", pageToCache);
+
+// window.sessionStorage.setItem(
+//   cacheKey,
+//   JSON.stringify(pageToCache)
+// );
+
+//       sessionStorage.setItem(
+//         key,
+//         JSON.stringify(updatedPage)
+//       );
+
+//     } catch (error) {
+//       console.log(
+//         "updateCachedFrequency error =",
+//         error
+//       );
+//     }
+//   });
+// };
+
+const updateCachedFrequency = (linkId, newFrequency) => {
+  const updateValue = (value) => {
+    if (Array.isArray(value)) {
+      return value.map((item) => updateValue(item));
+    }
+
+    if (value && typeof value === "object") {
+      const updatedObject = { ...value };
+
+      if (
+        value.id === linkId ||
+        value.linkid === linkId
+      ) {
+        console.log(
+          "Updating cached frequency:",
+          linkId,
+          newFrequency
+        );
+
+        updatedObject.frequency = newFrequency;
+      }
+
+      Object.keys(updatedObject).forEach((property) => {
+        updatedObject[property] =
+          updateValue(updatedObject[property]);
+      });
+
+      return updatedObject;
+    }
+
+    return value;
+  };
+
+  Object.keys(sessionStorage).forEach((key) => {
+    const rawValue = sessionStorage.getItem(key);
+
+    if (!rawValue) return;
+
+    try {
+      const parsedValue = JSON.parse(rawValue);
+
+      const updatedValue = updateValue(parsedValue);
+
+      sessionStorage.setItem(
+        key,
+        JSON.stringify(updatedValue)
+      );
+    } catch (error) {
+      // Ignore sessionStorage values that are not JSON.
+    }
+  });
+};
+
   const storeScrollPosition = (frequency, event) => {
     console.log("storeScrollPosition, frequency=" + frequency);
     //alert("frequency="+frequency)
@@ -506,8 +698,11 @@ https://www.youtube.com/feed/history
     //alert("id="+x+", frequency="+x1)
     //alert("storeScrollPosition, event.target.value="+x)
     console.log("storeScrollPosition, link id=" + x);
+ 
+
     props.incrementLinkClickCount({ id: x, frequency: frequency });
     frequency = frequency + 1
+    updateCachedFrequency(x, frequency)
     setFrequency(frequency)
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };

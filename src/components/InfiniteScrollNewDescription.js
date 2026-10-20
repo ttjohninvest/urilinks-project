@@ -103,9 +103,23 @@ const InfiniteScrollNewDescription = (props) => {
           const cachedPage = JSON.parse(cachedString);
 
           console.log(
-            "InfiniteScrollNewDescription: using cached page " +
-              pageNumber,
-          );
+            "infiniteScrollNewDescription.js",
+  "CACHED MATCHES frequencies=",
+  (cachedPage.matches || []).map((link) => ({
+    id: link.id,
+    frequency: link.frequency,
+  }))
+);
+
+console.log(
+  "InfiniteScrollNewDescription: using cached page " +
+    pageNumber,
+);
+
+          // console.log(
+          //   "InfiniteScrollNewDescription: using cached page " +
+          //     pageNumber,
+          // );
 
           /*
            * Restore the Firebase cursor so the NEXT
@@ -181,11 +195,43 @@ const InfiniteScrollNewDescription = (props) => {
       let allFetched = [];
 
       snapshot.forEach((child) => {
+         console.log(
+          "InfiniteScrollNewDescription.js",
+    "FIREBASE RAW",
+    child.key,
+    "frequency=",
+    child.val().frequency,
+    "child.val()=",
+    JSON.stringify(child.val())
+  );
+
         allFetched.push({
           id: child.key,
           ...child.val(),
         });
       });
+
+      console.log("AFTER FOREACH");
+console.log("allFetched length =", allFetched.length);
+
+      const testLink = allFetched.find(
+  (item) => item.id === "-P3KU1SrtMy2HAnMqBlF"
+);
+
+console.log(
+  "TEST LINK frequency=",
+  testLink && testLink.frequency
+);
+
+//      console.log(
+//   "ALLFETCHED frequencies=",
+//   JSON.stringify(
+//     allFetched.map((item) => ({
+//       id: item.id,
+//       frequency: item.frequency,
+//     }))
+//   )
+// );
 
       /*
        * startAt() includes the cursor record itself.
@@ -215,6 +261,15 @@ const InfiniteScrollNewDescription = (props) => {
             .toLowerCase()
             .includes(search),
       );
+
+     const matchTest = matches.find(
+  (item) => item.id === "-P3KU1SrtMy2HAnMqBlF"
+);
+
+console.log(
+  "MATCHES TEST frequency=",
+  matchTest ? matchTest.frequency : "not found"
+);
 
       /*
        * Save the cursor from the LAST Firebase record,
@@ -253,6 +308,20 @@ const InfiniteScrollNewDescription = (props) => {
         cacheKey,
         JSON.stringify(pageToCache),
       );
+
+
+
+
+const beforeSetLinks = matches.find(
+  (item) => item.id === "-P3KU1SrtMy2HAnMqBlF"
+);
+
+console.log(
+  "BEFORE setLinks frequency=",
+  beforeSetLinks ? beforeSetLinks.frequency : "not found"
+);
+
+
 
       /*
        * Display results.
@@ -324,6 +393,7 @@ const InfiniteScrollNewDescription = (props) => {
 
     snapshot.forEach((child) => {
       const item = child.val();
+      console.log("InfiniteScrollNewDescription.js, item="+JSON.stringify(item))
 
       if (
         item.description &&
@@ -401,6 +471,17 @@ const InfiniteScrollNewDescription = (props) => {
     };
   }, [loading, hasMore, props.searchText]);
 
+  useEffect(() => {
+  const stateTest = links.find(
+    (item) => item.id === "-P3KU1SrtMy2HAnMqBlF"
+  );
+
+  console.log(
+    "STATE UPDATED frequency=",
+    stateTest ? stateTest.frequency : "not found"
+  );
+}, [links]);
+
 const removeDeletedLinkFromSessionStorage = (search, id) => {
   const baseKey = getCacheBaseKey(search);
 
@@ -460,12 +541,32 @@ const sessionRemoveLink=(id) => {
 
     props.setLinksCount(props.linksCount-1)
 }
+
+
+const stateTest = links.find(
+  (item) => item.id === "-P3KU1SrtMy2HAnMqBlF"
+);
+
+console.log(
+  "STATE links frequency=",
+  stateTest ? stateTest.frequency : "not found"
+);
+
+
+
+
   return (
     <div>
       <div>
         {links && links.length === 0
           ? null
           : links.map((link, index) => {
+            console.log(
+  "RENDERING LINK",
+  link.id,
+  "frequency=",
+  link.frequency
+);
               if (
                 rt === "readonly" &&
                 link.showpublic === 0
@@ -484,6 +585,7 @@ const sessionRemoveLink=(id) => {
                     scrollContainerRef={
                       props.scrollContainerRef
                     }
+                    //frequency={link.frequency}
                     link={link}
                     rt={rt}
                     {...link}

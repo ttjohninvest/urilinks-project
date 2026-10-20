@@ -120,7 +120,7 @@ const InfiniteScrollNew = (props) => {
     console.log("KEY =", childSnapshot.key);
     console.log("FREQUENCY =", childSnapshot.val().frequency);
 
-
+     console.log("InfiniteScrollNew.js, childSnapshot="+JSON.stringify(childSnapshot.val()))
       newItems.push({
         id: childSnapshot.key,
         ...childSnapshot.val(),
@@ -333,12 +333,22 @@ const sessionRemoveLink=(id) => {
     props.setLinksCount(props.linksCount-1)
 }
 
+
   return (
     <div>
       {links && links.length === 0
                 ? null
                 :  
                   links.map((link, index) => {
+                    console.log(
+  "InfiniteScrollNew.js",
+  "parent link id=",
+  link.id,
+  "frequency=",
+  link.frequency,
+  "whole link=",
+  link
+);
 //                    let linkStatus = "checking";
 
 // if (props.linkStatuses && props.linkStatuses[link.id]) {

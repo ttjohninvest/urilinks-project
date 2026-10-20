@@ -95,7 +95,7 @@ export default (state = linksReducerDefaultState, action) => {
           //{ ...state, count: state.count + 1 };
           return {
             ...link,
-           frequency: !!link.frequency? link.frequency + 1:1,
+           frequency: !!link.frequency?link.frequency + 1:1,
           };
         } else {
           return link;

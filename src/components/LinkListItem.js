@@ -92,6 +92,11 @@ if (Constants.NODE_DEV === "development") {
 
 const LinkListItem = (props) => {
   //  const params = new URLSearchParams(window.location.search);
+  if(props.thetotalstars) {
+    console.log("props.thetotalstars.totalstars="+props.thetotalstars.totalstars)
+    console.log("typeof props.thetotalstars.totalstars="+ typeof props.thetotalstars.totalstars)
+  }
+  else console.log("props.thetotalstars.totalstars is undefined")
 
   // const rt = params.get("x");
   //alert("rt="+rt)
@@ -101,7 +106,8 @@ const LinkListItem = (props) => {
   "showpublic=" + props.showpublic
 );
 
- 
+  console.log("top of LinkListItem.js, props.id = "+props.id)
+  console.log("top of LinkListItem.js, props.frequency = "+props.frequency)
   const nd = new Date()
   console.log("new date and time, hours = "+nd.getHours())
   console.log("new date and time, minutes = "+nd.getMinutes())
@@ -139,6 +145,7 @@ const LinkListItem = (props) => {
   const [isprivate, setIsPrivate] = useState(props.showpublic)
   const [likes, setLikes] = useState(props.likes)
   const [star, setStar] = useState(props.star)
+  const [frequency, setFrequency] = useState(0)
 
   const savedScrollYw = useRef(0);
   const savedScrollYiw = useRef(0);
@@ -487,15 +494,14 @@ https://www.youtube.com/feed/history
   const storeScrollPosition = (frequency, event) => {
     console.log("storeScrollPosition, frequency=" + frequency);
     //alert("frequency="+frequency)
-    let x1 = 0;
-    if (frequency === undefined || frequency === null || frequency === "NaN")
-      x1 = 0;
-    else x1 = frequency;
+    
     const x = event.target.getAttribute("data-value"); //x is link id
     //alert("id="+x+", frequency="+x1)
     //alert("storeScrollPosition, event.target.value="+x)
     console.log("storeScrollPosition, link id=" + x);
-    props.incrementLinkClickCount({ id: x, frequency: x1 });
+    props.incrementLinkClickCount({ id: x, frequency: frequency });
+    frequency = frequency + 1
+    setFrequency(frequency)
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };
 
@@ -546,27 +552,26 @@ https://www.youtube.com/feed/history
     
       if (star === 0) {
         
-        // if (
-        //   parseInt(props.thetotalstars.totalstars) < StorageSizes.starsmaximum
-        // ) {
-        //   props.incrementLinkStarClickCount({ id: x, star: 0 });
-        //   // props.incrementTotalStarClickCount({
-        //   //   totalstars: props.thetotalstars.totalstars,
-        //   // });
+        if (props.thetotalstars.totalstars < StorageSizes.starsmaximum) {
+          props.incrementLinkStarClickCount({ id: x, star: 0 });
+          props.incrementTotalStarClickCount({
+            totalstars: props.thetotalstars.totalstars,
+          });
           
           setStar(1)
-       //} else {alert("You have "+ StorageSizes.starsmaximum + " of ten stars selected for your top ten.");}
+       } else {alert("You have "+ StorageSizes.starsmaximum + " selected for your top "+StorageSizes.starsmaximum+".");}
 
       } else {
         
-        // if (props.thetotalstars.totalstars > 0) {
-        //   props.decrementLinkStarClickCount({ id: x, star: 1 });
-        //   // props.decrementTotalStarClickCount({
-        //   //   totalstars: props.thetotalstars.totalstars,
-        //   // });
+        if ( props.thetotalstars.totalstars > 0 ) 
+          {
+          props.decrementLinkStarClickCount({ id: x, star: 1 });
+          props.decrementTotalStarClickCount({
+            totalstars: props.thetotalstars.totalstars,
+          });
           
           setStar(0)
-        //} else {} //alert("You have zero of ten stars selected for your top ten.");
+        } else {} //alert("You have zero of ten stars selected for your top ten.");
 
       }
 
@@ -1620,7 +1625,7 @@ if (!showLink) {
                 target="_blank"
                 data-value={props.id}
                 //title={"click to open the webpage: " + props.Url}
-                onClick={(event) => storeScrollPosition(props.frequency, event)}
+                onClick={(event) => storeScrollPosition(frequency, event)}
               >
                 <img
                   ref={divRef}
@@ -1669,7 +1674,7 @@ if (!showLink) {
             target="_blank"
             data-value={props.id}
             //title={"click to open the webpage: " + props.Url}
-            onClick={() => storeScrollPosition(props.frequency, event)}
+            onClick={(event) => storeScrollPosition(frequency, event)}
             //onMouseEnter={() => checkLink(props.Url, props.id)}
             onMouseEnter={() => handleMouseEnter(props.Url)}
             onMouseLeave={() => handleMouseLeave()}
@@ -1803,7 +1808,7 @@ if (!showLink) {
                   "This is the number of times someone has clicked this link."
                 }
               >
-                {props.frequency === undefined ? 0 : props.frequency}
+                {frequency === undefined ? 0 : frequency}
               </span>
             </span>
 
@@ -1921,7 +1926,7 @@ if (!showLink) {
                   "This is the number of times someone has clicked this link."
                 }
               >
-                {props.frequency === undefined ? 0 : props.frequency}
+                {frequency === undefined ? 0 : frequency}
               </span>
             </span>
 

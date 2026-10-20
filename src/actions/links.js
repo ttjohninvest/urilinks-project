@@ -451,30 +451,25 @@ export const startRemoveLink = ({ id } = {}) => {
 export const incrementLinkClickCount = ({ id, frequency } = {}) => {
      console.log("incrementLinkClickCount, link id="+id)
      console.log("incrementLinkClickCount, frequency="+frequency)
-
+     if(!!frequency===false) frequency = 1
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     //update(dbRef, { value: increment(1) });
     if (id !== null && id !== undefined && id !== "")
       return database
-        .ref(`users/${uid}/links/${id}/frequency`)
-        //.update({ frequency: parseInt(frequency) + 1 }) //{showpublic:0}
+        .ref(`users/${uid}/links/${id}`)
+        .update({ frequency: frequency + 1 }) //{showpublic:0}
         //.set({ frequency: parseInt(frequency) + 1 })
-         .set(parseInt(frequency) + 1)
+         //.set(frequency + 1)
         .then(() => {
           console.log("incrementLinkClickCount, success, link id="+id)
-           console.log("incrementLinkClickCount, success, frequency="+frequency)
+           console.log("incrementLinkClickCount, success, {frequency: frequency+1}="+JSON.stringify({frequency:frequency+1}))
           //alert("success")
           //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
           dispatch(
-            incrementLinkClickCount2(id, {
-              frequency: parseInt(frequency) + 1,
-            }),
-          );
+            incrementLinkClickCount2(id, { frequency: frequency + 1 }));
         })
         .catch((error) => {
-            
-           
              console.log("incrementLinkClickCount, failed, link id="+id)
            console.log("incrementLinkClickCount, failed, frequency="+frequency)
           console.log("incrementLinkClickCount, error=" + error);

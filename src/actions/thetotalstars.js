@@ -163,11 +163,13 @@ export const incrementTotalStarClickCount = (x) => {
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/thetotalstars`)
-      .update({totalstars:parseInt(x.totalstars)+1}) //{showpublic:0}
+      //.update({totalstars:parseInt(x.totalstars)+1})
+      .update({totalstars:x.totalstars+1})
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(incrementTotalStarClickCount2({totalstars:parseInt(x.totalstars)+1}));
+        //dispatch(incrementTotalStarClickCount2({totalstars:parseInt(x.totalstars)+1}));
+        dispatch(incrementTotalStarClickCount2({totalstars:x.totalstars+1}));
        
       })
       .catch((error) => {
@@ -183,12 +185,12 @@ export const decrementTotalStarClickCount = (x) => {
     //update(dbRef, { value: increment(1) });
     return database
       .ref(`users/${uid}/thetotalstars`)
-      .update({totalstars:parseInt(x.totalstars)-1}) //{showpublic:0}
+      .update({totalstars:x.totalstars-1}) //{showpublic:0}
       //.update({totalstars:4}) 
       .then(() => {
         //alert("success")
         //alert("{frequency:frequency+1}"+JSON.stringify({frequency:frequency+1}))
-        dispatch(decrementTotalStarClickCount2({totalstars:parseInt(x.totalstars)-1}));
+        dispatch(decrementTotalStarClickCount2({totalstars:x.totalstars-1}));
       })
       .catch((error) => {
         console.log("error removing link data in firebase, error=" + error);

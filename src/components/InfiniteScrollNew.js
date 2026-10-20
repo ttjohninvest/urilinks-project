@@ -117,6 +117,10 @@ const InfiniteScrollNew = (props) => {
     const newItems = [];
 
     snapshot.forEach((childSnapshot) => {
+    console.log("KEY =", childSnapshot.key);
+    console.log("FREQUENCY =", childSnapshot.val().frequency);
+
+
       newItems.push({
         id: childSnapshot.key,
         ...childSnapshot.val(),

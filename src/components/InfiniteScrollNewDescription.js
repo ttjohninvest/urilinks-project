@@ -11,6 +11,7 @@ const params = new URLSearchParams(window.location.search);
 const rt = params.get("x");
 
 const InfiniteScrollNewDescription = (props) => {
+  console.log("abc InfiniteScrollNewDescription")
   const [links, setLinks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
@@ -400,6 +401,65 @@ const InfiniteScrollNewDescription = (props) => {
     };
   }, [loading, hasMore, props.searchText]);
 
+const removeDeletedLinkFromSessionStorage = (search, id) => {
+  const baseKey = getCacheBaseKey(search);
+
+  for (let i = 0; i < sessionStorage.length; i++) {
+    const key = sessionStorage.key(i);
+
+    if (
+      key &&
+      key.startsWith(baseKey + "|page|")
+    ) {
+      const cachedString =
+        sessionStorage.getItem(key);
+
+      if (!cachedString) continue;
+
+      try {
+        const cachedPage =
+          JSON.parse(cachedString);
+
+        if (Array.isArray(cachedPage.matches)) {
+          cachedPage.matches =
+            cachedPage.matches.filter(
+              (link) => link.id !== id
+            );
+
+          sessionStorage.setItem(
+            key,
+            JSON.stringify(cachedPage)
+          );
+        }
+      } catch (error) {
+        console.log(
+          "Error updating sessionStorage:",
+          error
+        );
+      }
+    }
+  }
+
+  // Remove the cached count because it is now outdated.
+  const countKey = getCountCacheKey(search);
+
+  sessionStorage.removeItem(countKey);
+};
+
+const sessionRemoveLink=(id) => {
+  console.log("inifinteScrollNewDescription.js, sessionRemoveLink, about to call sessionStorage.clear()")
+  //normalizeSearch(props.searchText)
+  //sessionStorage.clear()
+   const search =
+      normalizeSearch(props.searchText);
+
+    removeDeletedLinkFromSessionStorage(
+      search,
+      id
+    );
+
+    props.setLinksCount(props.linksCount-1)
+}
   return (
     <div>
       <div>
@@ -420,6 +480,7 @@ const InfiniteScrollNewDescription = (props) => {
                   className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
                 >
                   <LinkListItem
+                    sessionRemoveLink={sessionRemoveLink}
                     scrollContainerRef={
                       props.scrollContainerRef
                     }

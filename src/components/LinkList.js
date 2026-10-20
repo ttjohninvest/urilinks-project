@@ -644,6 +644,8 @@ console.log("Play video in place 2")
               ?
               
               <InfiniteScrollNewDescription 
+              setLinksCount={setLinksCount}
+              linksCount={linksCount}
               scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
@@ -661,6 +663,8 @@ console.log("Play video in place 2")
 
 
                <InfiniteScrollNewNoteText 
+                setLinksCount={setLinksCount}
+                 linksCount={linksCount}
                scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
@@ -676,6 +680,8 @@ console.log("Play video in place 2")
               ?
 
                <InfiniteScrollNewNoteText 
+                setLinksCount={setLinksCount}
+                 linksCount={linksCount}
                scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
@@ -700,6 +706,8 @@ console.log("Play video in place 2")
               ?
               
                <InfiniteScrollNewDateandTime 
+                setLinksCount={setLinksCount}
+                 linksCount={linksCount}
                scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
@@ -715,6 +723,8 @@ console.log("Play video in place 2")
               ?
 
                 <InfiniteScrollNewSortByViews 
+                 setLinksCount={setLinksCount}
+                  linksCount={linksCount}
                 scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
@@ -729,6 +739,8 @@ console.log("Play video in place 2")
               && props.theSortBy === "likes"
               ?
                <InfiniteScrollNewSortByLikes 
+                setLinksCount={setLinksCount}
+                 linksCount={linksCount}
                scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
@@ -742,7 +754,9 @@ console.log("Play video in place 2")
               && props.dosearch===1
               && props.theSortBy === "star"
               ?
-               <InfiniteScrollNewSortByTopTen 
+               <InfiniteScrollNewSortByTopTen
+                setLinksCount={setLinksCount} 
+                 linksCount={linksCount}
                scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
@@ -757,6 +771,8 @@ console.log("Play video in place 2")
               && props.theSortBy === "ads"
               ?
                <InfiniteScrollNewSortByAdsAffiliateLinkPresent
+                setLinksCount={setLinksCount}
+                 linksCount={linksCount}
                scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
@@ -771,6 +787,8 @@ console.log("Play video in place 2")
               && props.theSortBy === "adsalpha"
               ?
                <InfiniteScrollNewSortByAdsAlpha
+                setLinksCount={setLinksCount}
+                 linksCount={linksCount}
                scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
@@ -785,6 +803,8 @@ console.log("Play video in place 2")
               && props.theSortBy === "productsalpha"
               ?
                <InfiniteScrollNewSortByProductsAlpha 
+                setLinksCount={setLinksCount}
+                 linksCount={linksCount}
                scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`} 
               //searchText={ props.filters.text}
@@ -801,6 +821,8 @@ console.log("Play video in place 2")
               ?
               
               <InfiniteScrollNew 
+               setLinksCount={setLinksCount}
+                linksCount={linksCount}
               scrollContainerRef={scrollContainerRef}
               databasePath={`users/${props.auth.uid}/links`}
               theSortBy = {props.theSortBy} 

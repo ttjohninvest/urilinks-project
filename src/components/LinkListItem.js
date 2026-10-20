@@ -421,6 +421,13 @@ https://www.youtube.com/feed/history
       
       //props.removeLink({ id: event.target.value });
       props.startRemoveLink({ id: event.target.value });
+      const thetype=typeof props.sessionRemoveLink
+      console.log("aaa thetype="+thetype)
+      if (thetype === "function") {
+  props.sessionRemoveLink(props.id);
+}
+     
+
        setShowLink(false);
       //alert("Link removed.");
       //  const x = confirm("Do you want to refresh the menu?");
@@ -1494,6 +1501,15 @@ https://www.youtube.com/feed/history
       console.log("RESTORED savedScrollYw.current =", savedScrollYw.current);
       console.log("RESTORED savedScrollYiw.current=", savedScrollYiw.current);
 
+       const iframe = document.querySelector(
+    "#ipvideo" + id + " iframe"
+  );
+
+        // Stops video and audio
+  if (iframe) {
+    iframe.src = "";
+  }
+
       videoElement.style.display = "none";
       event.currentTarget.innerText = "Play video in place";
 
@@ -1742,9 +1758,7 @@ if (!showLink) {
         {props.signup.signup === true ? (
           <span className="bg-light-orange- height48- height14x flexrowzv2">
             <span className="ib margin-left-11- margin-right-1- height14x- flexrowzv-">
-              {/* <span className="ib">
-              Remove link:&nbsp;
-            </span> */}
+              
               <input
                 type="checkbox"
                 id={"delete%" + props.id}

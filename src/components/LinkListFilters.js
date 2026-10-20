@@ -118,6 +118,8 @@ function ExpandableArray(props) {
   const [lengthOf3, setLengthOf3] = useState(0);
   const [resultArray3, setResultArray3] = useState([]);
 
+  console.log("HOME RENDER", new Date().toLocaleTimeString());
+
   //const isinfinitescroll = useSelector(state => state.isinfinitescroll);
 
   //const [linkStatuses, setLinkStatuses] = useState({});

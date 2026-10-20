@@ -97,6 +97,17 @@ const LinkListItem = (props) => {
   //alert("rt="+rt)
 
   console.log(
+  "render LinkListItem id=" + props.id,
+  "showpublic=" + props.showpublic
+);
+
+ 
+  const nd = new Date()
+  console.log("new date and time, hours = "+nd.getHours())
+  console.log("new date and time, minutes = "+nd.getMinutes())
+  console.log("new date and time, seconds = "+nd.getSeconds())
+
+  console.log(
     "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL,
   );
   const myRef = useRef(null);
@@ -124,6 +135,10 @@ const LinkListItem = (props) => {
 
   const [showStatus, setShowStatus] = useState(false);
   const [linkStatus, setLinkStatus] = useState("");
+  const [showLink, setShowLink] = useState(true);
+  const [isprivate, setIsPrivate] = useState(props.showpublic)
+  const [likes, setLikes] = useState(props.likes)
+  const [star, setStar] = useState(props.star)
 
   const savedScrollYw = useRef(0);
   const savedScrollYiw = useRef(0);
@@ -390,19 +405,21 @@ https://www.youtube.com/feed/history
   };
 
   const handleCheckboxDelete = (event) => {
+   
     console.log("bookmark id=" + event.target.value);
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
     let result = confirm("Are you sure you want to remove the link?");
     if (result) {
-      // User clicked OK, perform the deletion
-      props.removeLink({ id: event.target.value });
+      
+      //props.removeLink({ id: event.target.value });
       props.startRemoveLink({ id: event.target.value });
+       setShowLink(false);
       //alert("Link removed.");
       //  const x = confirm("Do you want to refresh the menu?");
       // if (x === true) {
 
-      //   window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
+      //window.location.href = "https://urilinks.com?signup=signup&z=1&z2=2";
       // }
     } else {
       // User clicked Cancel
@@ -413,37 +430,22 @@ https://www.youtube.com/feed/history
   };
 
   const handleCheckboxPrivate = (x, event) => {
-    //alert(event.target.value)
-    console.log("bookmark id=" + event.target.value);
-    //addIdToDelete(event.target.value)
-    //console.log("bookmark ids="+localStorage.getItem('deleteData'))
-    let result;
-    if (x === false) {
-      //result = confirm("Are you sure you want to make it public?");
-      if (true) {
-        // User clicked OK, perform the deletion
-        props.privateLink2({ id: event.target.value });
+    
+    console.log("link id=" + event.target.value);
+    console.log("showpublic=" + x);
+    console.log("typeof showpublic=" + typeof(x));
+
+   
+    if (x === 0) {
+        //alert("x === 0")  
+        //props.privateLink2({ id: event.target.value });
         props.startPrivateLink2({ id: event.target.value });
-        //alert("Item deleted.");
-      } else {
-        // User clicked Cancel
-        // document.getElementById("private%" + event.target.value).checked =
-        //   "";
-        // alert("Setting it to private is canceled.");
-      }
+        setIsPrivate(1)
     } else {
-      //result = confirm("Are you sure you want to make it private?");
-      if (true) {
-        // User clicked OK, perform the deletion
-        props.privateLink({ id: event.target.value });
+        //alert("x === 1") 
+        //props.privateLink({ id: event.target.value });
         props.startPrivateLink({ id: event.target.value });
-        //alert("Item deleted.");
-      } else {
-        // User clicked Cancel
-        // document.getElementById("private%" + event.target.value).checked =
-        //   "";
-        // alert("Setting it to private is canceled.");
-      }
+        setIsPrivate(0)
     }
   };
 
@@ -508,12 +510,13 @@ https://www.youtube.com/feed/history
       //console.log('Action executed');
 
       let x1 = 0;
-      if (likes === undefined || likes === null || likes === "NaN") x1 = 0;
+      if (likes === undefined || likes === null || likes === "NaN") {}
       else x1 = likes;
       const x = event.target.getAttribute("data-value"); //x is link id
 
       props.incrementLinkLikesClickCount({ id: x, likes: x1 });
-
+      x1 = x1 + 1
+      setLikes(x1)
       //the following commented out code toggles from 0 to 1 or from 1 to 0 on successive clicks
       // if (x1 === 0) {
       //   //alert("going to increment")
@@ -525,47 +528,49 @@ https://www.youtube.com/feed/history
 
       window.localStorage.setItem("scrollPosition", window.scrollY);
 
-      //}
+      
     }
   };
 
   const storeScrollPosition3 = (star, event) => {
     const text =
       "Please confirm it ok to remove this link from your top ten list?";
-    if (props.filters.sortBy !== "star" || confirm(text) === true) {
-      //alert("props.thetotalstars="+JSON.stringify(props.thetotalstars))
-      let x1 = 0;
-      if (star === undefined || star === null || star === "NaN") x1 = 0;
-      else x1 = star;
+    if (props.filters.sortBy === "star" && star === 1 && confirm(text) === false) {
+
+      return
+
+    } else {
+     
+    
       const x = event.target.getAttribute("data-value"); //x is link id
-      //alert("storeScrollPosition3, x1="+x1)
-      if (x1 === 0) {
-        //alert("going to increment,id="+x)
-        //alert("going to increment,id="+x+", props.star="+props.star)
+    
+      if (star === 0) {
+        
+        // if (
+        //   parseInt(props.thetotalstars.totalstars) < StorageSizes.starsmaximum
+        // ) {
+        //   props.incrementLinkStarClickCount({ id: x, star: 0 });
+        //   // props.incrementTotalStarClickCount({
+        //   //   totalstars: props.thetotalstars.totalstars,
+        //   // });
+          
+          setStar(1)
+       //} else {alert("You have "+ StorageSizes.starsmaximum + " of ten stars selected for your top ten.");}
 
-        if (
-          parseInt(props.thetotalstars.totalstars) < StorageSizes.starsmaximum
-        ) {
-          props.incrementLinkStarClickCount({ id: x, star: 0 });
-          props.incrementTotalStarClickCount({
-            totalstars: props.thetotalstars.totalstars,
-          });
-        } else alert("You have ten of ten stars selected for your top ten.");
       } else {
-        //alert("going to increment,id="+x)
-        //alert("going to increment,id="+x+", props.star="+props.star)
+        
+        // if (props.thetotalstars.totalstars > 0) {
+        //   props.decrementLinkStarClickCount({ id: x, star: 1 });
+        //   // props.decrementTotalStarClickCount({
+        //   //   totalstars: props.thetotalstars.totalstars,
+        //   // });
+          
+          setStar(0)
+        //} else {} //alert("You have zero of ten stars selected for your top ten.");
 
-        if (props.thetotalstars.totalstars > 0) {
-          props.decrementLinkStarClickCount({ id: x, star: 1 });
-          props.decrementTotalStarClickCount({
-            totalstars: props.thetotalstars.totalstars,
-          });
-        } else alert("You have zero of ten stars selected for your top ten.");
       }
 
       window.localStorage.setItem("scrollPosition", window.scrollY);
-    } else {
-      alert("deletion canceled");
     }
   };
 
@@ -1553,6 +1558,11 @@ https://www.youtube.com/feed/history
   // };
 
   //console.log("status="+JSON.stringify(status))
+
+if (!showLink) {
+  return null;
+}
+
   return (
     <div key={props.index}>
       <div id="divtop" />
@@ -1735,7 +1745,7 @@ https://www.youtube.com/feed/history
                 id={"delete%" + props.id}
                 name={"delete%" + props.id}
                 value={props.id}
-                onChange={handleCheckboxDelete}
+                onChange={(event)=>handleCheckboxDelete(event)}
                 title="click to delete the url"
                 className="ib margin-top-1x- margin-left-n-14x- margin-top-14x pointereventsauto"
                 style={{ visibility: "hidden" }}
@@ -1750,10 +1760,7 @@ https://www.youtube.com/feed/history
             </span>
 
             <span className="ib margin-right-1">
-              {/* <span className="ib margin-left-11- color-black margin-top-2x-">
-              {!!props.showpublic ? "Make link private" : "Make link public"}
-              :&nbsp;
-            </span> */}
+             
               <input
                 style={{ cursor: "pointer", visibility: "hidden" }}
                 checked={!!props.showpublic ? "" : "checked"}
@@ -1761,8 +1768,9 @@ https://www.youtube.com/feed/history
                 id={"private%" + props.id}
                 name={"private%" + props.id}
                 value={props.id}
-                onChange={() =>
-                  handleCheckboxPrivate(!!props.showpublic, event)
+                onChange={(event) =>
+                  //handleCheckboxPrivate(props.showpublic, event)
+                  handleCheckboxPrivate(isprivate, event)
                 }
                 title={
                   !!props.showpublic
@@ -1776,7 +1784,9 @@ https://www.youtube.com/feed/history
                 className="ib cursor-pointer margin-bottom-1x-"
                 htmlFor={"private%" + props.id}
               >
-                {!!props.showpublic ? "Make link private" : "Make link public"}
+                
+                {isprivate === 0 ? "Made link private" : "Make link private"}
+               
               </label>
             </span>
 
@@ -1805,7 +1815,7 @@ https://www.youtube.com/feed/history
 
                 data-value={props.id}
                 title={"It shows the number of times likes was clicked."}
-                onClick={() => storeScrollPosition2(props.likes, event)}
+                onClick={() => storeScrollPosition2(likes, event)}
               >
                 Likes:
               </span>
@@ -1815,7 +1825,7 @@ https://www.youtube.com/feed/history
                   "This is the number of times someone has clicked this link."
                 }
               >
-                {props.likes === undefined ? 0 : props.likes}
+                {likes === undefined ? 0 : likes}
               </span>
             </span>
             {props.rt !== "readonly" ? (
@@ -1827,7 +1837,8 @@ https://www.youtube.com/feed/history
 
                   data-value={props.id}
                   title={"click to select to your top ten"}
-                  onClick={() => storeScrollPosition3(props.star, event)}
+                  //onClick={() => storeScrollPosition3(props.star, event)}
+                  onClick={(event) => storeScrollPosition3(star, event)}
                 >
                   Star (My Top Twenty):
                 </span>
@@ -1836,12 +1847,11 @@ https://www.youtube.com/feed/history
                   className="ib margin-left-11tx- font-weight-900- margin-top-1x-"
                   title={"This is a selection to your top ten."}
                 >
-                  {props.star === undefined
+                  {star === undefined
                     ? "No"
-                    : props.star === 1
+                    : star === 1
                       ? "Yes"
                       : "No"}
-                  {/* {props.star === undefined ? "No" : "Yes"} */}
                 </span>
               </span>
             ) : null}
@@ -1871,10 +1881,7 @@ https://www.youtube.com/feed/history
             </span>
 
             <span className="ib margin-right-1">
-              {/* <span className="ib margin-left-11- color-black margin-top-2x-">
-              {!!props.showpublic ? "Make link private" : "Make link public"}
-              :&nbsp;
-            </span> */}
+            
               <input
                 style={{ cursor: "pointer", visibility: "hidden" }}
                 checked={!!props.showpublic ? "" : "checked"}
@@ -1882,8 +1889,8 @@ https://www.youtube.com/feed/history
                 id={"private%" + props.id}
                 name={"private%" + props.id}
                 value={props.id}
-                onChange={() =>
-                  handleCheckboxPrivate(!!props.showpublic, event)
+                onChange={(event) =>
+                  handleCheckboxPrivate(props.showpublic, event)
                 }
                 title={
                   !!props.showpublic
@@ -1897,7 +1904,7 @@ https://www.youtube.com/feed/history
                 className="ib cursor-pointer- pointereventsnone margin-bottom-1x-"
                 htmlFor={"private%" + props.id}
               >
-                {!!props.showpublic ? "Make link private" : "Make link public"}
+                 {isprivate === 0 ? "Made link private" : "Make link private"}
               </label>
             </span>
 
@@ -1967,7 +1974,7 @@ https://www.youtube.com/feed/history
 
                   data-value={props.id}
                   title={"click to select to your top ten"}
-                  onClick={() => storeScrollPosition3(props.star, event)}
+                  onClick={(event) => storeScrollPosition3(star, event)}
                 >
                   Star (My Top Twenty):
                 </span>
@@ -1976,9 +1983,9 @@ https://www.youtube.com/feed/history
                   className="ib margin-left-11tx- font-weight-900- margin-top-1x-"
                   title={"This is a selection to your top ten."}
                 >
-                  {props.star === undefined
+                  {star === undefined
                     ? "No"
-                    : props.star === 1
+                    : star === 1
                       ? "Yes"
                       : "No"}
                   {/* {props.star === undefined ? "No" : "Yes"} */}

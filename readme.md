@@ -6,6 +6,7 @@ enhancing urilinks with with ai
 delete a chat
 first user source
 steps to upgrade from webpack 3 to webpack 5
+urilinks tutorial instructions
 ====================================
 
 
@@ -3209,3 +3210,35 @@ the modified ones because have been unable to write to frequency
 }
 }
 }
+==========
+
+urilinks tutorial instructions
+For your website, I think the best approach is a short built-in tutorial that users can open whenever they want, rather than forcing it on them every time.
+
+A strong setup would be:
+1. Put a “How to use URLLinks” button near the top of the page.
+2. When clicked, open a simple tutorial panel or modal.
+3. Show only about 5–7 short steps, ideally with screenshots:
+   - Find or add a link
+   - Search your links
+   - Follow another urilinker
+   - Click someone in Following or Followers to view their page
+   - Save one of their links to your own page
+   - Play a video in place
+   - Share your URLLinks page
+4. At the bottom, have Previous, Next, and Close buttons.
+5. Also consider showing the tutorial automatically only the first time a person signs in.
+For URLLinks specifically, I would favor screenshots over a long written help page. A user can see, for example, “Click a person here” with an arrow pointing to the Following column. That will probably be easier to understand than several paragraphs.
+
+You could store whether they have already seen it in Firebase:
+users/{uid}/tutorialSeen: true
+
+Then:
+if (!user.tutorialSeen) {
+  // show tutorial
+}
+
+I would still keep the How to use URLLinks button available afterward, so they can return to it anytime.
+
+A particularly nice version would be a guided tour directly on the actual interface, where the page darkens slightly and highlights one control at a time. That would fit your three-column interface very well.
+=================

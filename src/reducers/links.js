@@ -120,9 +120,11 @@ export default (state = linksReducerDefaultState, action) => {
             ...link,
             ...action.updates,
           };
+          
         } else {
           return link;
         }
+        
       });
     case "ADD_LINK":
       return [...state, action.link];

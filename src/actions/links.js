@@ -428,13 +428,16 @@ export const archiveLink2 = (id, updates) => ({
 });
 
 export const startRemoveLink = ({ id } = {}) => {
+  console.log("startRemoveLink(), id="+id)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
+     console.log("startRemoveLink(), uid="+uid)
     if (id !== null && id !== undefined && id !== "")
       return database
         .ref(`users/${uid}/links/${id}`)
         .remove()
         .then(() => {
+           console.log("startRemoveLink(), about to call dispatch to remove the link from redux")
           dispatch(removeLink({ id }));
         })
         .catch((error) => {
@@ -443,21 +446,7 @@ export const startRemoveLink = ({ id } = {}) => {
   };
 };
 
-export const startPrivateLink = ({ id } = {}) => {
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    if (id !== null && id !== undefined && id !== "")
-      return database
-        .ref(`users/${uid}/links/${id}`)
-        .update({ showpublic: 0 })
-        .then(() => {
-          dispatch(privateLink(id, { showpublic: 0 }));
-        })
-        .catch((error) => {
-          console.log("error removing link data in firebase, error=" + error);
-        });
-  };
-};
+
 
 export const incrementLinkClickCount = ({ id, frequency } = {}) => {
      console.log("incrementLinkClickCount, link id="+id)
@@ -580,6 +569,7 @@ export const decrementLinkStarClickCount = ({ id, star } = {}) => {
 };
 
 export const startPrivateLink2 = ({ id } = {}) => {
+  //console.log("startPrivateLink2(), id="+id)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     if (id !== null && id !== undefined && id !== "")
@@ -587,7 +577,26 @@ export const startPrivateLink2 = ({ id } = {}) => {
         .ref(`users/${uid}/links/${id}`)
         .update({ showpublic: 1 })
         .then(() => {
+          
           dispatch(privateLink2(id, { showpublic: 1 }));
+          //alert("startPrivateLink2(), success in setting to public, 1")
+        })
+        .catch((error) => {
+          //alert("startPrivateLink2(), failed in setting to public, 1")
+          console.log("error changing link data in firebase, error=" + error);
+        });
+  };
+};
+
+export const startPrivateLink = ({ id } = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    if (id !== null && id !== undefined && id !== "")
+      return database
+        .ref(`users/${uid}/links/${id}`)
+        .update({ showpublic: 0 })
+        .then(() => {
+          dispatch(privateLink(id, { showpublic: 0 }));
         })
         .catch((error) => {
           console.log("error removing link data in firebase, error=" + error);

@@ -808,54 +808,46 @@ console.log("Play video in place 2")
               />
               
               
-              :
+              : null
 
-              props.links.length === 0
-                ? null
-                :  
-                  props.links.slice(0, themax).map((link, index) => {
-//                    let linkStatus = "checking";
+              // props.links.length === 0
+              //   ? null
+              //   :  
+              //     props.links.slice(0, themax).map((link, index) => {
 
-// if (props.linkStatuses && props.linkStatuses[link.id]) {
-//   linkStatus = props.linkStatuses[link.id].result;
-// }
-                    if (
-                      rt === "readonly" &&
-                      link.showpublic === 0
-                      //|| link.archive === 1
-                    )
-                      return null; //<div key={link.id + "1"}></div>;
-                    else
-                      return (
-                        <div
-                          id={link.id}
-                          key={link.id}
-                          className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
-                        >
-                          <LinkListItem
+              //       if (
+              //         rt === "readonly" &&
+              //         link.showpublic === 0
+              //         //|| link.archive === 1
+              //       )
+              //         return null; //<div key={link.id + "1"}></div>;
+              //       else
+              //         return (
+              //           <div
+              //             id={link.id}
+              //             key={link.id}
+              //             className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
+              //           >
+              //             <LinkListItem
                           
-                            link={link}
-                            rt={rt}
-                            key={link.id}
-                            {...link}
-                            //linkStatuses = {props.linkStatuses} //{props.linkStatues && props.linkStatuses[link.id]?props.linkStatuses[link.id].result:null}
-                            //linkStatus={props.linkStatus}
+              //               link={link}
+              //               rt={rt}
+              //               key={link.id}
+              //               {...link}
+              //               //linkStatuses = {props.linkStatuses} //{props.linkStatues && props.linkStatuses[link.id]?props.linkStatuses[link.id].result:null}
+              //               //linkStatus={props.linkStatus}
                             
-                            index={index}
-                            signup={props.signup.signup}
-                            idexists={props.idexists}
-                            theSortBy={props.theSortBy}
-                            // videoId={props.videoId}
-                            // playInPlaceVideo={props.playInPlaceVideo}
-                          />
-                        </div>
+              //               index={index}
+              //               signup={props.signup.signup}
+              //               idexists={props.idexists}
+              //               theSortBy={props.theSortBy}
+              //               // videoId={props.videoId}
+              //               // playInPlaceVideo={props.playInPlaceVideo}
+              //             />
+              //           </div>
                         
-                      );
-                  })
-
-
-
-
+              //         );
+                  //})
 
                }
               <div ref={bottomElementRef} />

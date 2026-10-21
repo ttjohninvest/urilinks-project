@@ -108,6 +108,7 @@ const InfiniteScrollNewDescription = (props) => {
   (cachedPage.matches || []).map((link) => ({
     id: link.id,
     frequency: link.frequency,
+    likes: link.likes
   }))
 );
 
@@ -201,6 +202,8 @@ console.log(
     child.key,
     "frequency=",
     child.val().frequency,
+    "likes=",
+    child.val().likes,
     "child.val()=",
     JSON.stringify(child.val())
   );
@@ -221,6 +224,11 @@ console.log("allFetched length =", allFetched.length);
 console.log(
   "TEST LINK frequency=",
   testLink && testLink.frequency
+);
+
+console.log(
+  "TEST LINK likes=",
+  testLink && testLink.likes
 );
 
 //      console.log(
@@ -271,6 +279,11 @@ console.log(
   matchTest ? matchTest.frequency : "not found"
 );
 
+console.log(
+  "MATCHES TEST likes=",
+  matchTest ? matchTest.likes : "not found"
+);
+
       /*
        * Save the cursor from the LAST Firebase record,
        * not the last search match.
@@ -319,6 +332,11 @@ const beforeSetLinks = matches.find(
 console.log(
   "BEFORE setLinks frequency=",
   beforeSetLinks ? beforeSetLinks.frequency : "not found"
+);
+
+console.log(
+  "BEFORE setLinks likes=",
+  beforeSetLinks ? beforeSetLinks.likes : "not found"
 );
 
 

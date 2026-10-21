@@ -155,6 +155,7 @@ const LinkListItem = (props) => {
   const [star, setStar] = useState(props.star)
   //const [frequency, setFrequency] = useState(props.frequency)
 
+  //frequency is for the views count
   const [frequency, setFrequency] = useState(
   typeof props.frequency === "number"
     ? props.frequency
@@ -474,11 +475,13 @@ https://www.youtube.com/feed/history
         //alert("x === 0")  
         //props.privateLink2({ id: event.target.value });
         props.startPrivateLink2({ id: event.target.value });
+        updateCachedShowPublic(event.target.value,x+1)
         setIsPrivate(1)
     } else {
         //alert("x === 1") 
         //props.privateLink({ id: event.target.value });
         props.startPrivateLink({ id: event.target.value });
+        updateCachedShowPublic(event.target.value,x-1)
         setIsPrivate(0)
     }
   };
@@ -638,6 +641,114 @@ https://www.youtube.com/feed/history
 // };
 
 
+const updateCachedShowPublic = (linkId, showpublic) => {
+  const updateValue = (value) => {
+    if (Array.isArray(value)) {
+      return value.map((item) => updateValue(item));
+    }
+
+    if (value && typeof value === "object") {
+      const updatedObject = { ...value };
+
+      if (
+        value.id === linkId ||
+        value.linkid === linkId
+      ) {
+        console.log(
+          "Updating cached star:",
+          linkId,
+          showpublic
+        );
+
+        updatedObject.showpublic = showpublic;
+      }
+
+      Object.keys(updatedObject).forEach((property) => {
+        updatedObject[property] =
+          updateValue(updatedObject[property]);
+      });
+
+      return updatedObject;
+    }
+
+    return value;
+  };
+
+  Object.keys(sessionStorage).forEach((key) => {
+    const rawValue = sessionStorage.getItem(key);
+
+    if (!rawValue) return;
+
+    try {
+      const parsedValue = JSON.parse(rawValue);
+
+      const updatedValue = updateValue(parsedValue);
+
+      sessionStorage.setItem(
+        key,
+        JSON.stringify(updatedValue)
+      );
+    } catch (error) {
+      // Ignore sessionStorage values that are not JSON.
+    }
+  });
+};
+
+
+const updateCachedStar = (linkId, star) => {
+  const updateValue = (value) => {
+    if (Array.isArray(value)) {
+      return value.map((item) => updateValue(item));
+    }
+
+    if (value && typeof value === "object") {
+      const updatedObject = { ...value };
+
+      if (
+        value.id === linkId ||
+        value.linkid === linkId
+      ) {
+        console.log(
+          "Updating cached star:",
+          linkId,
+          star
+        );
+
+        updatedObject.star = star;
+      }
+
+      Object.keys(updatedObject).forEach((property) => {
+        updatedObject[property] =
+          updateValue(updatedObject[property]);
+      });
+
+      return updatedObject;
+    }
+
+    return value;
+  };
+
+  Object.keys(sessionStorage).forEach((key) => {
+    const rawValue = sessionStorage.getItem(key);
+
+    if (!rawValue) return;
+
+    try {
+      const parsedValue = JSON.parse(rawValue);
+
+      const updatedValue = updateValue(parsedValue);
+
+      sessionStorage.setItem(
+        key,
+        JSON.stringify(updatedValue)
+      );
+    } catch (error) {
+      // Ignore sessionStorage values that are not JSON.
+    }
+  });
+};
+
+
 const updateCachedLikes = (linkId, likes) => {
   const updateValue = (value) => {
     if (Array.isArray(value)) {
@@ -764,37 +875,40 @@ const updateCachedFrequency = (linkId, newFrequency) => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };
 
+ 
+
   const storeScrollPosition2 = (likes, event) => {
-    const text = "Click ok if you are sure?";
+    const text =
+      "Please confirm it ok to change your likes selection?";
+    if (props.filters.sortBy === "likes" && likes === 1 && confirm(text) === false) {
 
-    const now = Date.now();
-    // Only proceed if more than THRESHOLD ms have passed since the last click
-    if (now - lastClickTime > THRESHOLD) {
-      //if (confirm(text) == true) {
-      setLastClickTime(now);
-      //console.log('Action executed');
+      return
 
-      let x1 = 0;
-      if (likes === undefined || likes === null || likes === "NaN") {}
-      else x1 = likes;
+    } else {
+     
+    
       const x = event.target.getAttribute("data-value"); //x is link id
+    
+      if (likes === 0) {
+        
+      
+          props.incrementLinkLikesClickCount({ id: x, likes: 0 });
+          
+          updateCachedLikes(x,likes+1)
+          setLikes(1)
+    
 
-      props.incrementLinkLikesClickCount({ id: x, likes: x1 });
-      x1 = x1 + 1
-      updateCachedLikes(x,x1)
-      setLikes(x1)
-      //the following commented out code toggles from 0 to 1 or from 1 to 0 on successive clicks
-      // if (x1 === 0) {
-      //   //alert("going to increment")
-      //   props.incrementLinkLikesClickCount({ id: x, likes: 0 });
-      // } else {
-      //   //alert("going to decrement")
-      //   props.decrementLinkLikesClickCount({ id: x, likes: 1 });
-      // }
+      } else {
+        
+       
+          props.decrementLinkLikesClickCount({ id: x, likes: 1 });
+        
+          updateCachedLikes(x,likes-1)
+          setLikes(0)
+       
+      }
 
       window.localStorage.setItem("scrollPosition", window.scrollY);
-
-      
     }
   };
 
@@ -817,7 +931,7 @@ const updateCachedFrequency = (linkId, newFrequency) => {
           props.incrementTotalStarClickCount({
             totalstars: props.thetotalstars.totalstars,
           });
-          
+          updateCachedStar(x,star+1)
           setStar(1)
        } else {alert("You have "+ StorageSizes.starsmaximum + " selected for your top "+StorageSizes.starsmaximum+".");}
 
@@ -829,7 +943,7 @@ const updateCachedFrequency = (linkId, newFrequency) => {
           props.decrementTotalStarClickCount({
             totalstars: props.thetotalstars.totalstars,
           });
-          
+          updateCachedStar(x,star-1)
           setStar(0)
         } else {} //alert("You have zero of ten stars selected for your top ten.");
 
@@ -2087,9 +2201,9 @@ if (!showLink) {
 
                 data-value={props.id}
                 title={"It shows the number of times likes was clicked."}
-                onClick={() => storeScrollPosition2(likes, event)}
+                onClick={(event) => storeScrollPosition2(likes, event)}
               >
-                Likes:
+                Like:
               </span>
               <span
                 className="ib margin-left-11tx- font-weight-900- margin-top-2x-"
@@ -2097,7 +2211,8 @@ if (!showLink) {
                   "This is the number of times someone has clicked this link."
                 }
               >
-                {likes === undefined ? 0 : likes}
+                {/* {likes === undefined ? 0 : likes} */}
+                 {likes === undefined ? "No" : likes === 0?"No":"Yes"}
               </span>
             </span>
             {props.rt !== "readonly" ? (
@@ -2207,9 +2322,9 @@ if (!showLink) {
                 title={
                   "Click to like if you like it. The number of users who have liked the link."
                 }
-                onClick={() => storeScrollPosition2(props.likes, event)}
+                onClick={(event) => storeScrollPosition2(likes, event)}
               >
-                Likes:
+                Like:
               </span>
               <span
                 className="ib margin-left-11tx- font-weight-900- margin-top-2x-"
@@ -2217,7 +2332,8 @@ if (!showLink) {
                   "This is the number of times someone has clicked this link."
                 }
               >
-                {props.likes === undefined ? 0 : props.likes}
+                {/* {props.likes === undefined ? 0 : props.likes} */}
+                {likes === undefined ? "No" : likes === 0?"No":"Yes"}
               </span>
             </span>
 

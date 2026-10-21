@@ -875,6 +875,17 @@ const updateCachedFrequency = (linkId, newFrequency) => {
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };
 
+  const storeScrollPosition0 = (id, frequency) => {
+    console.log("storeScrollPosition0, frequency=" + frequency);
+  
+    props.incrementLinkClickCount({ id: id, frequency: frequency });
+    frequency = frequency + 1
+    updateCachedFrequency(id, frequency)
+    setFrequency(frequency)
+    window.localStorage.setItem("scrollPosition", window.scrollY);
+  };
+
+
  
 
   const storeScrollPosition2 = (likes, event) => {
@@ -1674,120 +1685,16 @@ const updateCachedFrequency = (linkId, newFrequency) => {
     };
   };
 
-  //   const playInPlaceVideo = (id, Url, event) => {
-  //     let newStr = Url;
+  
 
-  //     if (Url.includes("shorts")) {
-  //       newStr = Url.replace("shorts", "embed");
-  //     } else if (Url.includes("watch?v=")) {
-  //       newStr = Url.replace("watch?v=", "embed/");
-  //     }
+  /*
+data-value={props.id}
+            
+            onClick={(event) => storeScrollPosition(frequency, event)}
+            storeScrollPosition0(id)
+  */
 
-  //     //setUrl2(newStr);
-
-  //     const text = event.currentTarget.innerText.trim();
-
-  //     const videoElement = document.querySelector("#ipvideo" + id);
-
-  //     //savedScrollYiw.current =  window.document.getElementById("ls2").scrollY;
-
-  //     if (text === "Play video in place") {
-  //       const iframe = document.querySelector("#ipvideo" + id + " iframe");
-
-  //       if (iframe) {
-  //         iframe.src = newStr;
-  //       }
-
-  //       savedScrollYw.current = window.scrollY;
-  //       //  savedScrollYiw.current =  window.document.getElementById("ls2").scrollY;
-
-  //       console.log("SAVED savedScrollYw.current =", savedScrollYw.current);
-  //       //  console.log("SAVED savedScrollYiw.current=", savedScrollYiw.current);
-
-  //       const top =
-  //         props.scrollContainerRef.current.getBoundingClientRect().top +
-  //         window.scrollY;
-  //       savedScrollYiw.current = top;
-
-  //       console.log("SAVED savedScrollYiw.current=", savedScrollYiw.current);
-
-  //       videoElement.style.display = "block";
-
-  //       const height = videoElement.getBoundingClientRect().height;
-
-  //     //  const height = videoElement.current.offsetHeight;
-  //      //alert("height="+height)
-  //      theheightRef.current = height
-
-  //       event.currentTarget.innerText = "Close video";
-
-  //       //const beforeY = window.scrollY;
-
-  //       videoElement.scrollIntoView({
-  //         behavior: "smooth",
-  //       });
-
-  //  //     let distanceScrolled
-
-  // //       setTimeout(() => {
-  // //         const afterY = window.scrollY;
-
-  // //         distanceScrolled = afterY - beforeY;
-  // //         distanceScrolledRef.current = (-1)*distanceScrolled
-
-  // //         console.log("Before:", beforeY);
-  // //         console.log("After:", afterY);
-  // //         console.log("Scrolled:", distanceScrolled, "pixels");
-  // // }, 800);
-
-  //     } else {
-  //       console.log("RESTORED savedScrollYw.current =", savedScrollYw.current);
-  //       console.log("RESTORED savedScrollYiw.current=", savedScrollYiw.current);
-
-  // //       setTimeout(() => {
-  // //     window.scrollTo({
-  // //         top: savedScrollYw.current,
-  // //         behavior: "smooth",
-  // //       });
-  // // }, 500);
-
-  // // //     setTimeout(() => {
-  // // //   window.document.getElementById("ls2").scrollTo({
-  // // //         top: savedScrollYiw.current,
-  // // //         behavior: "smooth",
-  // // //       });
-  // // // }, 500);
-
-  //       //window.document.getElementById("ls2").scrollBy(0, theheightRef.current);
-
-  //       videoElement.style.display = "none";
-  //       event.currentTarget.innerText = "Play video in place";
-
-  //        setTimeout(() => {
-  //     window.scrollTo({
-  //         top: savedScrollYw.current,
-  //         behavior: "smooth",
-  //       });
-  // }, 500);
-
-  // //     setTimeout(() => {
-  // //   window.document.getElementById("ls2").scrollBy({
-  // //         top: distanceScrolledRef.current,
-  // //         behavior: "smooth",
-  // //       });
-  // // }, 500);
-
-  // //     setTimeout(() => {
-  // //   window.document.getElementById("ls2").scrollTo({
-  // //         top: savedScrollYiw.current,
-  // //         behavior: "smooth",
-  // //       });
-  // // }, 500);
-
-  //     }
-  //   };
-
-  const playInPlaceVideo = (id, Url, event) => {
+  const playInPlaceVideo = (id, Url, frequency, event) => {
     let newStr = Url;
 
     if (Url.includes("shorts")) {
@@ -1802,6 +1709,7 @@ const updateCachedFrequency = (linkId, newFrequency) => {
 
     if (text === "Play video in place") {
       console.log("Play video in place");
+      storeScrollPosition0(id, frequency)
       window.document.getElementById("ipvideo"+id).style.marginTop = "35px"
       // const el = document.getElementById("belowbuttonsid2");
 
@@ -2116,7 +2024,7 @@ if (!showLink) {
               className="ib margin-left-11 margin-top-1zx1"
               style={{ cursor: "pointer" }}
               title={props.Url}
-              onClick={(event) => playInPlaceVideo(props.id, props.Url, event)}
+              onClick={(event) => playInPlaceVideo(props.id, props.Url, frequency, event)}
             >
               <span id={`playinplaceid-${props.id}`}>Play video in place</span>
             </span>

@@ -2519,7 +2519,7 @@ if (!showLink) {
             <legend>Sharable Url To Make Money</legend>
             <div className="padding-bottom-1">
               <div className="margin-bottom-1 flexrowxz">
-                {`${baseUrl}+"/dashboard?signup=0&x=readonly&id=`}
+                {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                 {props.auth.uid}&link={encodeURIComponent(props.description)}
                 &product={encodeURIComponent(props.addescription)}
               </div>

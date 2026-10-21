@@ -637,6 +637,63 @@ https://www.youtube.com/feed/history
 //   });
 // };
 
+
+const updateCachedLikes = (linkId, likes) => {
+  const updateValue = (value) => {
+    if (Array.isArray(value)) {
+      return value.map((item) => updateValue(item));
+    }
+
+    if (value && typeof value === "object") {
+      const updatedObject = { ...value };
+
+      if (
+        value.id === linkId ||
+        value.linkid === linkId
+      ) {
+        console.log(
+          "Updating cached likes:",
+          linkId,
+          likes
+        );
+
+        updatedObject.likes = likes;
+      }
+
+      Object.keys(updatedObject).forEach((property) => {
+        updatedObject[property] =
+          updateValue(updatedObject[property]);
+      });
+
+      return updatedObject;
+    }
+
+    return value;
+  };
+
+  Object.keys(sessionStorage).forEach((key) => {
+    const rawValue = sessionStorage.getItem(key);
+
+    if (!rawValue) return;
+
+    try {
+      const parsedValue = JSON.parse(rawValue);
+
+      const updatedValue = updateValue(parsedValue);
+
+      sessionStorage.setItem(
+        key,
+        JSON.stringify(updatedValue)
+      );
+    } catch (error) {
+      // Ignore sessionStorage values that are not JSON.
+    }
+  });
+};
+
+
+
+
 const updateCachedFrequency = (linkId, newFrequency) => {
   const updateValue = (value) => {
     if (Array.isArray(value)) {
@@ -724,6 +781,7 @@ const updateCachedFrequency = (linkId, newFrequency) => {
 
       props.incrementLinkLikesClickCount({ id: x, likes: x1 });
       x1 = x1 + 1
+      updateCachedLikes(x,x1)
       setLikes(x1)
       //the following commented out code toggles from 0 to 1 or from 1 to 0 on successive clicks
       // if (x1 === 0) {

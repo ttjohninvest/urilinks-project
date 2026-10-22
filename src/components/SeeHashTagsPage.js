@@ -1,337 +1,161 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-} from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import {
-  setTextFilter,
-  sortByHashTag,
-} from "../actions/filters";
+import { setTextFilter, sortByHashTag } from "../actions/filters";
 
-import InfiniteScrollNewHashtags
-  from "./InfiniteScrollNewHashtags";
+import InfiniteScrollNewHashtags from "./InfiniteScrollNewHashtags";
 
+export const SeeHashTagsPage = (props) => {
+  const [uniqueData, setUniqueData] = useState([]);
 
-export const SeeHashTagsPage = (
-  props
-) => {
+  const scrollInterval4 = useRef(null);
 
-  const [
-    uniqueData,
-    setUniqueData,
-  ] = useState([]);
+  const buttonRef4 = useRef(null);
 
+  const scrolldownref8 = useRef(null);
 
-  const scrollInterval4 =
-    useRef(null);
-
-  const buttonRef4 =
-    useRef(null);
-
-  const scrolldownref8 =
-    useRef(null);
-
-  const scrollupref8 =
-    useRef(null);
-
+  const scrollupref8 = useRef(null);
 
   /*
    * Build the displayed list
    * whenever Redux hashtags change.
    */
   useEffect(() => {
-
     console.log(
       "SeeHashTagsPage props.hashtags=",
-      JSON.stringify(
-        props.hashtags
-      )
+      JSON.stringify(props.hashtags),
     );
 
-
-    if (
-      !Array.isArray(
-        props.hashtags
-      )
-    ) {
-
-      setUniqueData(
-        []
-      );
-
+    if (!Array.isArray(props.hashtags)) {
+      setUniqueData([]);
 
       return;
-
     }
 
+    const hashtags = [...props.hashtags];
 
-    const hashtags =
-      [
-        ...props.hashtags,
-      ];
+    hashtags.sort((a, b) => {
+      const valA = (a.matchesstring || "").toLowerCase();
 
+      const valB = (b.matchesstring || "").toLowerCase();
 
-    hashtags.sort(
-      (a, b) => {
-
-        const valA =
-          (
-            a.matchesstring ||
-            ""
-          ).toLowerCase();
-
-
-        const valB =
-          (
-            b.matchesstring ||
-            ""
-          ).toLowerCase();
-
-
-        if (
-          valA <
-          valB
-        ) {
-
-          return -1;
-
-        }
-
-
-        if (
-          valA >
-          valB
-        ) {
-
-          return 1;
-
-        }
-
-
-        return 0;
-
+      if (valA < valB) {
+        return -1;
       }
-    );
 
+      if (valA > valB) {
+        return 1;
+      }
 
-    setUniqueData(
-      hashtags
-    );
+      return 0;
+    });
 
-
-  }, [
-    props.hashtags,
-  ]);
-
+    setUniqueData(hashtags);
+  }, [props.hashtags]);
 
   /*
    * Clicking a hashtag automatically
    * starts a hashtag search.
    */
-  const handleClick = (
-  event
-) => {
+  const handleClick = (event) => {
+    const clickedElement = event.target;
 
-  const clickedElement =
-    event.target;
+    const listItem = clickedElement.closest("[data-item-id]");
 
+    if (!listItem) {
+      return;
+    }
 
-  const listItem =
-    clickedElement.closest(
-      "[data-item-id]"
-    );
+    const itemId = listItem.dataset.itemId;
 
-
-  if (
-    !listItem
-  ) {
-
-    return;
-
-  }
-
-
-  const itemId =
-    listItem.dataset.itemId;
-
-
-  if (
-    !itemId
-  ) {
-
-    return;
-
-  }
-
-
-  /*
-   * Find the complete hashtag object.
-   *
-   * Example:
-   *
-   * {
-   *   matchesstring: "#love",
-   *   count: 3
-   * }
-   */
-  const item =
-    uniqueData.find(
-      (hashtag) =>
-        hashtag &&
-        hashtag.matchesstring ===
-          itemId
-    );
-
-
-  /*
-   * Save item.count so the component
-   * that searches the links knows
-   * exactly how many links it should find.
-   */
-  if (
-    item &&
-    item.count !==
-      undefined
-  ) {
-
-    window.sessionStorage.setItem(
-      "hashtagExpectedCount",
-      String(item.count)
-    );
-
-
-    window.sessionStorage.setItem(
-      "hashtagSearchTerm",
-      itemId
-    );
-
-
-    console.log(
-      "HASHTAG CLICKED =",
-      itemId
-    );
-
-    console.log(
-      "EXPECTED LINK COUNT =",
-      item.count
-    );
-
-  } else {
+    if (!itemId) {
+      return;
+    }
 
     /*
-     * Safety:
-     * do not leave an old count behind.
+     * Find the complete hashtag object.
+     *
+     * Example:
+     *
+     * {
+     *   matchesstring: "#love",
+     *   count: 3
+     * }
      */
-    window.sessionStorage.removeItem(
-      "hashtagExpectedCount"
+    const item = uniqueData.find(
+      (hashtag) => hashtag && hashtag.matchesstring === itemId,
     );
 
-    window.sessionStorage.removeItem(
-      "hashtagSearchTerm"
-    );
+    /*
+     * Save item.count so the component
+     * that searches the links knows
+     * exactly how many links it should find.
+     */
+    if (item && item.count !== undefined) {
+      window.sessionStorage.setItem("hashtagExpectedCount", String(item.count));
 
-  }
+      window.sessionStorage.setItem("hashtagSearchTerm", itemId);
 
+      console.log("HASHTAG CLICKED =", itemId);
 
-  /*
-   * Put the clicked hashtag
-   * in the search box.
-   */
-  const termElement =
-    window.document
-      .getElementById(
-        "termid"
+      console.log("EXPECTED LINK COUNT =", item.count);
+    } else {
+      /*
+       * Safety:
+       * do not leave an old count behind.
+       */
+      window.sessionStorage.removeItem("hashtagExpectedCount");
+
+      window.sessionStorage.removeItem("hashtagSearchTerm");
+    }
+
+    /*
+     * Put the clicked hashtag
+     * in the search box.
+     */
+    const termElement = window.document.getElementById("termid");
+
+    if (termElement) {
+      termElement.value = itemId;
+    }
+
+    /*
+     * Change search mode
+     * to hashtag.
+     */
+    const modeElement = window.document.getElementById("mode");
+
+    if (modeElement) {
+      modeElement.value = "hashtag";
+
+      modeElement.dispatchEvent(
+        new Event("change", {
+          bubbles: true,
+        }),
       );
+    }
 
+    /*
+     * Update Redux.
+     */
+    if (typeof props.changeSortBy === "function") {
+      props.changeSortBy("hashtag", 1);
+    }
 
-  if (
-    termElement
-  ) {
+    props.setTextFilter(itemId);
 
-    termElement.value =
-      itemId;
-
-  }
-
-
-  /*
-   * Change search mode
-   * to hashtag.
-   */
-  const modeElement =
-    window.document
-      .getElementById(
-        "mode"
-      );
-
-
-  if (
-    modeElement
-  ) {
-
-    modeElement.value =
-      "hashtag";
-
-
-    modeElement.dispatchEvent(
-      new Event(
-        "change",
-        {
-          bubbles:
-            true,
-        }
-      )
-    );
-
-  }
-
-
-  /*
-   * Update Redux.
-   */
-  if (
-    typeof props.changeSortBy ===
-      "function"
-  ) {
-
-    props.changeSortBy(
-      "hashtag",
-      1
-    );
-
-  }
-
-
-  props.setTextFilter(
-    itemId
-  );
-
-
-  /*
-   * Let the mode change finish
-   * and then run the search.
-   */
-  setTimeout(
-    () => {
-
-      if (
-        typeof props.search ===
-          "function"
-      ) {
-
+    /*
+     * Let the mode change finish
+     * and then run the search.
+     */
+    setTimeout(() => {
+      if (typeof props.search === "function") {
         props.search();
-
       }
-
-    },
-    0
-  );
-
-};
+    }, 0);
+  };
   // const handleClick = (
   //   event
   // ) => {
@@ -339,12 +163,10 @@ export const SeeHashTagsPage = (
   //   const clickedElement =
   //     event.target;
 
-
   //   const listItem =
   //     clickedElement.closest(
   //       "[data-item-id]"
   //     );
-
 
   //   if (
   //     !listItem
@@ -354,10 +176,8 @@ export const SeeHashTagsPage = (
 
   //   }
 
-
   //   const itemId =
   //     listItem.dataset.itemId;
-
 
   //   if (
   //     !itemId
@@ -366,7 +186,6 @@ export const SeeHashTagsPage = (
   //     return;
 
   //   }
-
 
   //   /*
   //    * Put the clicked hashtag
@@ -378,7 +197,6 @@ export const SeeHashTagsPage = (
   //         "termid"
   //       );
 
-
   //   if (
   //     termElement
   //   ) {
@@ -387,7 +205,6 @@ export const SeeHashTagsPage = (
   //       itemId;
 
   //   }
-
 
   //   /*
   //    * Change the search mode
@@ -399,14 +216,12 @@ export const SeeHashTagsPage = (
   //         "mode"
   //       );
 
-
   //   if (
   //     modeElement
   //   ) {
 
   //     modeElement.value =
   //       "hashtag";
-
 
   //     modeElement.dispatchEvent(
   //       new Event(
@@ -419,7 +234,6 @@ export const SeeHashTagsPage = (
   //     );
 
   //   }
-
 
   //   /*
   //    * Update the Redux search
@@ -437,11 +251,9 @@ export const SeeHashTagsPage = (
 
   //   }
 
-
   //   props.setTextFilter(
   //     itemId
   //   );
-
 
   //   /*
   //    * Let the mode change finish,
@@ -465,558 +277,268 @@ export const SeeHashTagsPage = (
 
   // };
 
+  const startScrollingUp4 = () => {
+    if (buttonRef4.current) {
+      buttonRef4.current.click();
+    }
 
-  const startScrollingUp4 =
-    () => {
+    if (scrollInterval4.current) {
+      return;
+    }
 
-      if (
-        buttonRef4.current
-      ) {
+    scrollInterval4.current = setInterval(() => {
+      const element = document.getElementById("ls3");
 
-        buttonRef4.current.click();
-
-      }
-
-
-      if (
-        scrollInterval4.current
-      ) {
-
+      if (!element) {
         return;
-
       }
 
+      element.scrollBy({
+        top: 1,
 
-      scrollInterval4.current =
-        setInterval(
-          () => {
+        left: 0,
 
-            const element =
-              document.getElementById(
-                "ls3"
-              );
-
-
-            if (
-              !element
-            ) {
-
-              return;
-
-            }
-
-
-            element.scrollBy({
-
-              top: 1,
-
-              left: 0,
-
-              behavior:
-                "auto",
-
-            });
-
-
-            if (
-              element.scrollTop +
-                element.clientHeight >=
-              element.scrollHeight -
-                2
-            ) {
-
-              if (
-                buttonRef4.current
-              ) {
-
-                buttonRef4.current.click();
-
-              }
-
-
-              if (
-                scrolldownref8.current
-              ) {
-
-                scrolldownref8.current.click();
-
-              }
-
-            }
-
-          },
-          40
-        );
-
-    };
-
-
-  const stopScrolling4 =
-    () => {
-
-      clearInterval(
-        scrollInterval4.current
-      );
-
-
-      scrollInterval4.current =
-        null;
-
-    };
-
-
-  const startScrollingDown4 =
-    () => {
+        behavior: "auto",
+      });
 
       if (
-        buttonRef4.current
+        element.scrollTop + element.clientHeight >=
+        element.scrollHeight - 2
       ) {
+        if (buttonRef4.current) {
+          buttonRef4.current.click();
+        }
 
-        buttonRef4.current.click();
-
+        if (scrolldownref8.current) {
+          scrolldownref8.current.click();
+        }
       }
+    }, 40);
+  };
 
+  const stopScrolling4 = () => {
+    clearInterval(scrollInterval4.current);
 
-      if (
-        scrollInterval4.current
-      ) {
+    scrollInterval4.current = null;
+  };
 
+  const startScrollingDown4 = () => {
+    if (buttonRef4.current) {
+      buttonRef4.current.click();
+    }
+
+    if (scrollInterval4.current) {
+      return;
+    }
+
+    scrollInterval4.current = setInterval(() => {
+      const element = document.getElementById("ls3");
+
+      if (!element) {
         return;
-
       }
 
+      element.scrollBy({
+        top: -1,
 
-      scrollInterval4.current =
-        setInterval(
-          () => {
+        left: 0,
 
-            const element =
-              document.getElementById(
-                "ls3"
-              );
+        behavior: "auto",
+      });
 
+      if (element.scrollTop <= 2) {
+        if (buttonRef4.current) {
+          buttonRef4.current.click();
+        }
 
-            if (
-              !element
-            ) {
-
-              return;
-
-            }
-
-
-            element.scrollBy({
-
-              top: -1,
-
-              left: 0,
-
-              behavior:
-                "auto",
-
-            });
-
-
-            if (
-              element.scrollTop <=
-              2
-            ) {
-
-              if (
-                buttonRef4.current
-              ) {
-
-                buttonRef4.current.click();
-
-              }
-
-
-              if (
-                scrollupref8.current
-              ) {
-
-                scrollupref8.current.click();
-
-              }
-
-            }
-
-          },
-          40
-        );
-
-    };
-
+        if (scrollupref8.current) {
+          scrollupref8.current.click();
+        }
+      }
+    }, 40);
+  };
 
   /*
    * Stop auto scrolling if
    * the component closes.
    */
   useEffect(() => {
-
     return () => {
-
-      if (
-        scrollInterval4.current
-      ) {
-
-        clearInterval(
-          scrollInterval4.current
-        );
-
+      if (scrollInterval4.current) {
+        clearInterval(scrollInterval4.current);
       }
-
     };
-
   }, []);
 
+  const isMobile = () => {
+    const regex =
+      /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
 
-  const isMobile =
-    () => {
-
-      const regex =
-        /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-
-
-      return regex.test(
-        navigator.userAgent
-      );
-
-    };
-
+    return regex.test(navigator.userAgent);
+  };
 
   return (
-
     <div
-      className=
-        "position-absolute z-index99 opaque100"
+      className="position-absolute- z-index99- opaque100"
+      // style={{
+      //   width: "420px",
+      //   height: "700px",
 
-      style={{
-        width: "420px",
-        height: "700px",
+      //   /*
+      //    * Changed from scroll to hidden.
+      //    * This removes the OUTER
+      //    * scrollbar.
+      //    */
+      //   overflowY: "hidden",
 
-        /*
-         * Changed from scroll to hidden.
-         * This removes the OUTER
-         * scrollbar.
-         */
-        overflowY: "hidden",
+      //   overflowX: "hidden",
 
-        overflowX: "hidden",
+      //   boxSizing: "border-box",
 
-        boxSizing:
-          "border-box",
+      //   border: "1px solid #f0a060",
+      // }}
 
-        border:
-          "1px solid #f0a060",
-      }}
+
+
+
+
+        style={{
+    width: "100%",
+    maxWidth: "100%",
+     marginLeft: "-1rem",
+    paddingLeft: "0",
+    boxSizing: "border-box",
+    overflowX: "hidden",
+  }}
     >
+      <InfiniteScrollNewHashtags uid={props.auth.uid} />
 
-      <InfiniteScrollNewHashtags
-        uid={
-          props.auth.uid
-        }
-      />
-
-
-      <div
-        className=
-          "margin-top-1- margin-left-11"
-      >
-
-        <div
-          className=
-            "page-header-2"
-        >
-
-          <div
-            className=
-              "content-container"
-          >
-
-            <h2
-              className=
-                "page-header__title borderRadius55"
-            >
-
-              <span
-                className=
-                  "color-purple color-black-2"
-              >
-
-                Hashtags
-
-              </span>
-
+      <div className="margin-top-1- margin-left-11">
+        <div className="page-header-2">
+          <div className="content-container">
+            <h2 className="page-header__title borderRadius55">
+              <span className="color-purple color-black-2">Hashtags</span>
             </h2>
-
           </div>
-
         </div>
 
-
         <div>
-
           <div
-            className=
-              "margin-left-11- margin-bottom-1 margin-top-1"
-
+            className="margin-left-11- margin-bottom-1 margin-top-1"
             style={{
-
-              position:
-                "sticky",
+              position: "sticky",
 
               top: 0,
-
             }}
           >
-
             <button
-              ref={
-                scrollupref8
-              }
-
-              title=
-                "Click the button to begin auto scroll."
-
-              onClick={
-                startScrollingUp4
-              }
-
-              className=
-                "button-2 widthxpx1"
+              ref={scrollupref8}
+              title="Click the button to begin auto scroll."
+              onClick={startScrollingUp4}
+              className="button-2 widthxpx1"
             >
-
-              <span>
-                ScrollUp
-              </span>
-
+              <span>ScrollUp</span>
             </button>
 
-
             <button
-              ref={
-                buttonRef4
-              }
-
-              title=
-                "Click the button to stop auto scroll."
-
-              onClick={
-                stopScrolling4
-              }
-
-              className=
-                "button-2 ib margin-left-11"
+              ref={buttonRef4}
+              title="Click the button to stop auto scroll."
+              onClick={stopScrolling4}
+              className="button-2 ib margin-left-11"
             >
-
-              <span>
-                Stop
-              </span>
-
+              <span>Stop</span>
             </button>
 
-
             <button
-              ref={
-                scrolldownref8
-              }
-
-              title=
-                "Click the button to begin auto scroll."
-
-              onClick={
-                startScrollingDown4
-              }
-
-              className=
-                "button-2 ib margin-left-11 widthxpx1"
+              ref={scrolldownref8}
+              title="Click the button to begin auto scroll."
+              onClick={startScrollingDown4}
+              className="button-2 ib margin-left-11 widthxpx1"
             >
-
-              <span>
-                ScrollDn
-              </span>
-
+              <span>ScrollDn</span>
             </button>
-
 
             <button
               className={`button-2 ib ${
-                isMobile() ===
-                false
-                  ? "margin-left-11"
-                  : "margin-top-1"
+                isMobile() === false ? "margin-left-11" : "margin-top-1"
               } widthxpx1`}
-
-              onClick={
-                props.handleClose3
-              }
+              onClick={props.handleClose3}
             >
-
               Close
-
             </button>
-
           </div>
-
         </div>
-
 
         {uniqueData.length}
 
-        {`${
-          uniqueData.length ===
-          1
-            ? " hashtag"
-            : " hashtags"
-        }`}
-
+        {`${uniqueData.length === 1 ? " hashtag" : " hashtags"}`}
 
         <div
           id="ls3"
-
           className={`content-containerht ${
-            isMobile() ===
-            true
-              ? "widthhashtagcolumn"
-              : "widthx1"
+            isMobile() === true ? "widthhashtagcolumn" : "widthx1"
           } borderLightOrange padding-bottom-1`}
-
           style={{
-
-            width:
-              "100%",
+            width: "100%",
 
             /*
              * Changed from 300px
              * to 450px.
              */
-            height:
-              "450px",
+            height: "450px",
 
             /*
              * Keep this scrollbar.
              * This is the hashtag
              * list scrollbar.
              */
-            overflowY:
-              "scroll",
+            overflowY: "scroll",
 
-            overflowX:
-              "hidden",
+            overflowX: "hidden",
 
-            boxSizing:
-              "border-box",
-
+            boxSizing: "border-box",
           }}
         >
-
-          <ul
-            className=
-              "liststylenone cursor-pointer"
-
-            onClick={
-              handleClick
-            }
-          >
-
+          <ul className="liststylenone cursor-pointer" onClick={handleClick}>
             {uniqueData.map(
-              (
-                item,
-                index
-              ) =>
-
+              (item, index) =>
                 !!item &&
                 !!item.matchesstring && (
-
                   <li
-                    key={
-                      item.matchesstring ||
-                      index
-                    }
-
-                    data-item-id={
-                      item.matchesstring
-                    }
+                    key={item.matchesstring || index}
+                    data-item-id={item.matchesstring}
                   >
-
-                    {
-                      item.matchesstring
-                    }
+                    {item.matchesstring}
 
                     {" ("}
 
-                    {
-                      item.count
-                    }
+                    {item.count}
 
                     {")"}
-
                   </li>
-
-                )
-
+                ),
             )}
-
           </ul>
-
         </div>
-
       </div>
-
     </div>
-
   );
-
 };
 
+const mapStateToProps = (state) => ({
+  hashtags: state.hashtags,
 
-const mapStateToProps = (
-  state
-) => ({
-
-  hashtags:
-    state.hashtags,
-
-  auth:
-    state.auth,
-
+  auth: state.auth,
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  setTextFilter: (text) => dispatch(setTextFilter(text)),
 
-const mapDispatchToProps = (
-  dispatch
-) => ({
-
-  setTextFilter:
-    (
-      text
-    ) =>
-      dispatch(
-        setTextFilter(
-          text
-        )
-      ),
-
-
-  sortByHashTag:
-    () =>
-      dispatch(
-        sortByHashTag()
-      ),
-
+  sortByHashTag: () => dispatch(sortByHashTag()),
 });
-
 
 export default withRouter(
-
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(
-    SeeHashTagsPage
-  )
-
+  connect(mapStateToProps, mapDispatchToProps)(SeeHashTagsPage),
 );
 
 // import React, {
@@ -1036,7 +558,6 @@ export default withRouter(
 // import InfiniteScrollNewHashtags
 //   from "./InfiniteScrollNewHashtags";
 
-
 // export const SeeHashTagsPage = (
 //   props
 // ) => {
@@ -1045,7 +566,6 @@ export default withRouter(
 //     uniqueData,
 //     setUniqueData,
 //   ] = useState([]);
-
 
 //   const scrollInterval4 =
 //     useRef(null);
@@ -1058,7 +578,6 @@ export default withRouter(
 
 //   const scrollupref8 =
 //     useRef(null);
-
 
 //   /*
 //    * Build the displayed list
@@ -1073,7 +592,6 @@ export default withRouter(
 //       )
 //     );
 
-
 //     if (
 //       !Array.isArray(
 //         props.hashtags
@@ -1084,17 +602,14 @@ export default withRouter(
 //         []
 //       );
 
-
 //       return;
 
 //     }
-
 
 //     const hashtags =
 //       [
 //         ...props.hashtags,
 //       ];
-
 
 //     hashtags.sort(
 //       (a, b) => {
@@ -1105,13 +620,11 @@ export default withRouter(
 //             ""
 //           ).toLowerCase();
 
-
 //         const valB =
 //           (
 //             b.matchesstring ||
 //             ""
 //           ).toLowerCase();
-
 
 //         if (
 //           valA <
@@ -1122,7 +635,6 @@ export default withRouter(
 
 //         }
 
-
 //         if (
 //           valA >
 //           valB
@@ -1132,22 +644,18 @@ export default withRouter(
 
 //         }
 
-
 //         return 0;
 
 //       }
 //     );
 
-
 //     setUniqueData(
 //       hashtags
 //     );
 
-
 //   }, [
 //     props.hashtags,
 //   ]);
-
 
 //   /*
 //    * Clicking a hashtag automatically
@@ -1160,12 +668,10 @@ export default withRouter(
 //     const clickedElement =
 //       event.target;
 
-
 //     const listItem =
 //       clickedElement.closest(
 //         "[data-item-id]"
 //       );
-
 
 //     if (
 //       !listItem
@@ -1175,10 +681,8 @@ export default withRouter(
 
 //     }
 
-
 //     const itemId =
 //       listItem.dataset.itemId;
-
 
 //     if (
 //       !itemId
@@ -1187,7 +691,6 @@ export default withRouter(
 //       return;
 
 //     }
-
 
 //     /*
 //      * Put the clicked hashtag
@@ -1199,7 +702,6 @@ export default withRouter(
 //           "termid"
 //         );
 
-
 //     if (
 //       termElement
 //     ) {
@@ -1208,7 +710,6 @@ export default withRouter(
 //         itemId;
 
 //     }
-
 
 //     /*
 //      * Change the search mode
@@ -1220,14 +721,12 @@ export default withRouter(
 //           "mode"
 //         );
 
-
 //     if (
 //       modeElement
 //     ) {
 
 //       modeElement.value =
 //         "hashtag";
-
 
 //       modeElement.dispatchEvent(
 //         new Event(
@@ -1240,7 +739,6 @@ export default withRouter(
 //       );
 
 //     }
-
 
 //     /*
 //      * Update the Redux search
@@ -1258,11 +756,9 @@ export default withRouter(
 
 //     }
 
-
 //     props.setTextFilter(
 //       itemId
 //     );
-
 
 //     /*
 //      * Let the mode change finish,
@@ -1286,7 +782,6 @@ export default withRouter(
 
 //   };
 
-
 //   const startScrollingUp4 =
 //     () => {
 
@@ -1298,7 +793,6 @@ export default withRouter(
 
 //       }
 
-
 //       if (
 //         scrollInterval4.current
 //       ) {
@@ -1306,7 +800,6 @@ export default withRouter(
 //         return;
 
 //       }
-
 
 //       scrollInterval4.current =
 //         setInterval(
@@ -1317,7 +810,6 @@ export default withRouter(
 //                 "ls3"
 //               );
 
-
 //             if (
 //               !element
 //             ) {
@@ -1325,7 +817,6 @@ export default withRouter(
 //               return;
 
 //             }
-
 
 //             element.scrollBy({
 
@@ -1337,7 +828,6 @@ export default withRouter(
 //                 "auto",
 
 //             });
-
 
 //             if (
 //               element.scrollTop +
@@ -1353,7 +843,6 @@ export default withRouter(
 //                 buttonRef4.current.click();
 
 //               }
-
 
 //               if (
 //                 scrolldownref8.current
@@ -1371,7 +860,6 @@ export default withRouter(
 
 //     };
 
-
 //   const stopScrolling4 =
 //     () => {
 
@@ -1379,12 +867,10 @@ export default withRouter(
 //         scrollInterval4.current
 //       );
 
-
 //       scrollInterval4.current =
 //         null;
 
 //     };
-
 
 //   const startScrollingDown4 =
 //     () => {
@@ -1397,7 +883,6 @@ export default withRouter(
 
 //       }
 
-
 //       if (
 //         scrollInterval4.current
 //       ) {
@@ -1405,7 +890,6 @@ export default withRouter(
 //         return;
 
 //       }
-
 
 //       scrollInterval4.current =
 //         setInterval(
@@ -1416,7 +900,6 @@ export default withRouter(
 //                 "ls3"
 //               );
 
-
 //             if (
 //               !element
 //             ) {
@@ -1424,7 +907,6 @@ export default withRouter(
 //               return;
 
 //             }
-
 
 //             element.scrollBy({
 
@@ -1436,7 +918,6 @@ export default withRouter(
 //                 "auto",
 
 //             });
-
 
 //             if (
 //               element.scrollTop <=
@@ -1450,7 +931,6 @@ export default withRouter(
 //                 buttonRef4.current.click();
 
 //               }
-
 
 //               if (
 //                 scrollupref8.current
@@ -1467,7 +947,6 @@ export default withRouter(
 //         );
 
 //     };
-
 
 //   /*
 //    * Stop auto scrolling if
@@ -1491,20 +970,17 @@ export default withRouter(
 
 //   }, []);
 
-
 //   const isMobile =
 //     () => {
 
 //       const regex =
 //         /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
 
-
 //       return regex.test(
 //         navigator.userAgent
 //       );
 
 //     };
-
 
 //   return (
 
@@ -1527,7 +1003,6 @@ export default withRouter(
 //           props.auth.uid
 //         }
 //       />
-
 
 //       <div
 //         className=
@@ -1563,7 +1038,6 @@ export default withRouter(
 //           </div>
 
 //         </div>
-
 
 //         <div>
 
@@ -1603,7 +1077,6 @@ export default withRouter(
 
 //             </button>
 
-
 //             <button
 //               ref={
 //                 buttonRef4
@@ -1625,7 +1098,6 @@ export default withRouter(
 //               </span>
 
 //             </button>
-
 
 //             <button
 //               ref={
@@ -1649,7 +1121,6 @@ export default withRouter(
 
 //             </button>
 
-
 //             <button
 //               className={`button-2 ib ${
 //                 isMobile() ===
@@ -1671,7 +1142,6 @@ export default withRouter(
 
 //         </div>
 
-
 //         {uniqueData.length}
 
 //         {`${
@@ -1680,7 +1150,6 @@ export default withRouter(
 //             ? " hashtag"
 //             : " hashtags"
 //         }`}
-
 
 //         <div
 //           id="ls3"
@@ -1771,7 +1240,6 @@ export default withRouter(
 
 // };
 
-
 // const mapStateToProps = (
 //   state
 // ) => ({
@@ -1783,7 +1251,6 @@ export default withRouter(
 //     state.auth,
 
 // });
-
 
 // const mapDispatchToProps = (
 //   dispatch
@@ -1799,7 +1266,6 @@ export default withRouter(
 //         )
 //       ),
 
-
 //   sortByHashTag:
 //     () =>
 //       dispatch(
@@ -1807,7 +1273,6 @@ export default withRouter(
 //       ),
 
 // });
-
 
 // export default withRouter(
 

@@ -96,6 +96,7 @@ function ExpandableArray(props) {
   const [sortBy, setSortBy] = useState("description");
   const [isForm2Open, setIsForm2Open] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [openHt,setOpenHt] = useState(false)
 
   const [isForm3Open, setIsForm3Open] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
@@ -1350,7 +1351,8 @@ const search = (z) => {
   };
 
   const handleClose = (x) => {
-    setIsFormOpen(false);
+    //setIsFormOpen(false);
+    setOpenHt(false)
   };
 
   const handleClick = (event) => {
@@ -1966,7 +1968,30 @@ const search = (z) => {
 
         <div className="flexrowtt0">
           <div>
+            
             {/* 1st column 1 column */}
+            {openHt===true?
+      <div
+        id="ls"
+    className={`${
+      isMobile() === true
+        ? "width30menupane"
+        : "width30menupane2"
+    } scrollable-div1`}
+      style={{
+    marginLeft: "0",
+    paddingLeft: "0",
+  }}
+      >
+          <SeeHashTagsPage
+            elementRef2={elementRef2}
+            changeSortBy={changeSortBy}
+            handleClose3={handleClose}
+            search={search}
+          />
+        </div>
+            
+            :
             <div
               id="ls"
               className={`${isMobile() === true ? "width30menupane" : "width30menupane2"} scrollable-div1`}
@@ -2123,7 +2148,7 @@ const search = (z) => {
                 //   </div>
                 // </div>
               )}
-            </div>
+            </div>}
           </div>
 
           {/* 2nd column 2 column */}
@@ -2323,6 +2348,7 @@ const search = (z) => {
                         changeSortBy={changeSortBy}
                         //onSortChange2 = {onSortChange2}
                         search={search}
+                        setOpenHt={setOpenHt}
                         //setSortBy={setSortBy}
                       />
                       {/* {readonly===false && <OthersButton
@@ -2851,6 +2877,7 @@ const search = (z) => {
                           // onSortChange2 = {onSortChange2}
                           search = {search}
                           setSortBy={setSortBy}
+                          setOpenHt={setOpenHt}
                         />
                       </div>
                     </div>

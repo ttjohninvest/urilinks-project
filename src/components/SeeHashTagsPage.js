@@ -417,7 +417,10 @@ export const SeeHashTagsPage = (props) => {
         <div className="page-header-2">
           <div className="content-container">
             <h2 className="page-header__title borderRadius55">
-              <span className="color-purple color-black-2">Hashtags</span>
+              <span className="color-purple color-black-2"
+              title="click on a hashtag and see results"
+              style={{fontSize:"1rem"}}
+              >Hashtags Menu</span>
             </h2>
           </div>
         </div>
@@ -433,38 +436,39 @@ export const SeeHashTagsPage = (props) => {
           >
             <button
               ref={scrollupref8}
-              title="Click the button to begin auto scroll."
+              title="Scroll Up"
               onClick={startScrollingUp4}
-              className="button-2 widthxpx1"
+              className="button-2 widthxpx1-"
             >
-              <span>ScrollUp</span>
-            </button>
-
-            <button
-              ref={buttonRef4}
-              title="Click the button to stop auto scroll."
-              onClick={stopScrolling4}
-              className="button-2 ib margin-left-11"
-            >
-              <span>Stop</span>
+              <span>Up</span>
             </button>
 
             <button
               ref={scrolldownref8}
-              title="Click the button to begin auto scroll."
+              title="Scroll Down."
               onClick={startScrollingDown4}
-              className="button-2 ib margin-left-11 widthxpx1"
+              className="button-2 ib margin-left-11 widthxpx1-"
             >
-              <span>ScrollDn</span>
+              <span>Dn</span>
+            </button>
+
+              <button
+              ref={buttonRef4}
+              title="Stop Scroll."
+              onClick={stopScrolling4}
+              className="button-2 ib margin-left-11"
+            >
+              <span>St</span>
             </button>
 
             <button
               className={`button-2 ib ${
                 isMobile() === false ? "margin-left-11" : "margin-top-1"
-              } widthxpx1`}
+              } widthxpx1-`}
               onClick={props.handleClose3}
+              title="Close"
             >
-              Close
+              Cl
             </button>
           </div>
         </div>
@@ -476,7 +480,7 @@ export const SeeHashTagsPage = (props) => {
         <div
           id="ls3"
           className={`content-containerht ${
-            isMobile() === true ? "widthhashtagcolumn" : "widthx1"
+            isMobile() === true ? "widthhashtagcolumn" : "widthx1- width100-"
           } borderLightOrange padding-bottom-1`}
           style={{
             width: "100%",
@@ -499,14 +503,28 @@ export const SeeHashTagsPage = (props) => {
             boxSizing: "border-box",
           }}
         >
-          <ul className="liststylenone cursor-pointer" onClick={handleClick}>
+          <div className="liststylenone cursor-pointer" 
+           style={{
+            marginTop: "0",
+            marginBottom: "0",
+            paddingTop: "0",
+            marginLeft: "1rem"
+          }}
+          onClick={handleClick}>
             {uniqueData.map(
               (item, index) =>
                 !!item &&
                 !!item.matchesstring && (
-                  <li
+                  <div
                     key={item.matchesstring || index}
                     data-item-id={item.matchesstring}
+                      style={{
+                        maxWidth: "100%",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                      title={item.matchesstring}
                   >
                     {item.matchesstring}
 
@@ -515,10 +533,10 @@ export const SeeHashTagsPage = (props) => {
                     {item.count}
 
                     {")"}
-                  </li>
+                  </div>
                 ),
             )}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -540,30 +540,30 @@ console.log("Play video in place 2")
             <div><button
               id="scrollup1"
               ref={props.scrollupref}
-              title="Click the button to begin auto scroll."
+              title="Scroll Up"
               onClick={props.startScrollingUp2}
-              className="ib button-2 widthxpx1 margin-left-11-"
+              className="ib button-2 widthxpx1- margin-left-11-"
               style={{ zIndex: 99 }}
             >
-              <span>Scroll Up 2</span>
+              <span>Up</span>
             </button></div>
             <div><button
               ref={props.scrolldownref}
-              title="Click the button to begin auto scroll."
+              title="Scroll Down"
               onClick={props.startScrollingDown2}
-              className="button-2 ib margin-left-11 widthxpx1"
+              className="button-2 ib margin-left-11 widthxpx1-"
               style={{ zIndex: 99 }}
             >
-              <span>Scroll Down</span>
+              <span>Dn</span>
             </button></div>
             <div><button
               ref={props.buttonRef2}
-              title="Click the button to stop auto scroll."
+              title="Stop Scroll"
               onClick={props.stopScrolling2}
               className="button-2 ib margin-left-11"
               style={{ zIndex: 99 }}
             >
-              <span>Stop Scrolling</span>
+              <span>St</span>
             </button></div>
 
             

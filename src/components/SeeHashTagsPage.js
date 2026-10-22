@@ -133,137 +133,337 @@ export const SeeHashTagsPage = (
    * starts a hashtag search.
    */
   const handleClick = (
-    event
-  ) => {
+  event
+) => {
 
-    const clickedElement =
-      event.target;
-
-
-    const listItem =
-      clickedElement.closest(
-        "[data-item-id]"
-      );
+  const clickedElement =
+    event.target;
 
 
-    if (
-      !listItem
-    ) {
-
-      return;
-
-    }
+  const listItem =
+    clickedElement.closest(
+      "[data-item-id]"
+    );
 
 
-    const itemId =
-      listItem.dataset.itemId;
+  if (
+    !listItem
+  ) {
+
+    return;
+
+  }
 
 
-    if (
-      !itemId
-    ) {
-
-      return;
-
-    }
+  const itemId =
+    listItem.dataset.itemId;
 
 
-    /*
-     * Put the clicked hashtag
-     * in the search box.
-     */
-    const termElement =
-      window.document
-        .getElementById(
-          "termid"
-        );
+  if (
+    !itemId
+  ) {
+
+    return;
+
+  }
 
 
-    if (
-      termElement
-    ) {
-
-      termElement.value =
-        itemId;
-
-    }
-
-
-    /*
-     * Change the search mode
-     * to hashtag.
-     */
-    const modeElement =
-      window.document
-        .getElementById(
-          "mode"
-        );
+  /*
+   * Find the complete hashtag object.
+   *
+   * Example:
+   *
+   * {
+   *   matchesstring: "#love",
+   *   count: 3
+   * }
+   */
+  const item =
+    uniqueData.find(
+      (hashtag) =>
+        hashtag &&
+        hashtag.matchesstring ===
+          itemId
+    );
 
 
-    if (
-      modeElement
-    ) {
+  /*
+   * Save item.count so the component
+   * that searches the links knows
+   * exactly how many links it should find.
+   */
+  if (
+    item &&
+    item.count !==
+      undefined
+  ) {
 
-      modeElement.value =
-        "hashtag";
-
-
-      modeElement.dispatchEvent(
-        new Event(
-          "change",
-          {
-            bubbles:
-              true,
-          }
-        )
-      );
-
-    }
+    window.sessionStorage.setItem(
+      "hashtagExpectedCount",
+      String(item.count)
+    );
 
 
-    /*
-     * Update the Redux search
-     * settings.
-     */
-    if (
-      typeof props.changeSortBy ===
-      "function"
-    ) {
-
-      props.changeSortBy(
-        "hashtag",
-        1
-      );
-
-    }
-
-
-    props.setTextFilter(
+    window.sessionStorage.setItem(
+      "hashtagSearchTerm",
       itemId
     );
 
 
-    /*
-     * Let the mode change finish,
-     * then automatically run search.
-     */
-    setTimeout(
-      () => {
-
-        if (
-          typeof props.search ===
-          "function"
-        ) {
-
-          props.search();
-
-        }
-
-      },
-      0
+    console.log(
+      "HASHTAG CLICKED =",
+      itemId
     );
 
-  };
+    console.log(
+      "EXPECTED LINK COUNT =",
+      item.count
+    );
+
+  } else {
+
+    /*
+     * Safety:
+     * do not leave an old count behind.
+     */
+    window.sessionStorage.removeItem(
+      "hashtagExpectedCount"
+    );
+
+    window.sessionStorage.removeItem(
+      "hashtagSearchTerm"
+    );
+
+  }
+
+
+  /*
+   * Put the clicked hashtag
+   * in the search box.
+   */
+  const termElement =
+    window.document
+      .getElementById(
+        "termid"
+      );
+
+
+  if (
+    termElement
+  ) {
+
+    termElement.value =
+      itemId;
+
+  }
+
+
+  /*
+   * Change search mode
+   * to hashtag.
+   */
+  const modeElement =
+    window.document
+      .getElementById(
+        "mode"
+      );
+
+
+  if (
+    modeElement
+  ) {
+
+    modeElement.value =
+      "hashtag";
+
+
+    modeElement.dispatchEvent(
+      new Event(
+        "change",
+        {
+          bubbles:
+            true,
+        }
+      )
+    );
+
+  }
+
+
+  /*
+   * Update Redux.
+   */
+  if (
+    typeof props.changeSortBy ===
+      "function"
+  ) {
+
+    props.changeSortBy(
+      "hashtag",
+      1
+    );
+
+  }
+
+
+  props.setTextFilter(
+    itemId
+  );
+
+
+  /*
+   * Let the mode change finish
+   * and then run the search.
+   */
+  setTimeout(
+    () => {
+
+      if (
+        typeof props.search ===
+          "function"
+      ) {
+
+        props.search();
+
+      }
+
+    },
+    0
+  );
+
+};
+  // const handleClick = (
+  //   event
+  // ) => {
+
+  //   const clickedElement =
+  //     event.target;
+
+
+  //   const listItem =
+  //     clickedElement.closest(
+  //       "[data-item-id]"
+  //     );
+
+
+  //   if (
+  //     !listItem
+  //   ) {
+
+  //     return;
+
+  //   }
+
+
+  //   const itemId =
+  //     listItem.dataset.itemId;
+
+
+  //   if (
+  //     !itemId
+  //   ) {
+
+  //     return;
+
+  //   }
+
+
+  //   /*
+  //    * Put the clicked hashtag
+  //    * in the search box.
+  //    */
+  //   const termElement =
+  //     window.document
+  //       .getElementById(
+  //         "termid"
+  //       );
+
+
+  //   if (
+  //     termElement
+  //   ) {
+
+  //     termElement.value =
+  //       itemId;
+
+  //   }
+
+
+  //   /*
+  //    * Change the search mode
+  //    * to hashtag.
+  //    */
+  //   const modeElement =
+  //     window.document
+  //       .getElementById(
+  //         "mode"
+  //       );
+
+
+  //   if (
+  //     modeElement
+  //   ) {
+
+  //     modeElement.value =
+  //       "hashtag";
+
+
+  //     modeElement.dispatchEvent(
+  //       new Event(
+  //         "change",
+  //         {
+  //           bubbles:
+  //             true,
+  //         }
+  //       )
+  //     );
+
+  //   }
+
+
+  //   /*
+  //    * Update the Redux search
+  //    * settings.
+  //    */
+  //   if (
+  //     typeof props.changeSortBy ===
+  //     "function"
+  //   ) {
+
+  //     props.changeSortBy(
+  //       "hashtag",
+  //       1
+  //     );
+
+  //   }
+
+
+  //   props.setTextFilter(
+  //     itemId
+  //   );
+
+
+  //   /*
+  //    * Let the mode change finish,
+  //    * then automatically run search.
+  //    */
+  //   setTimeout(
+  //     () => {
+
+  //       if (
+  //         typeof props.search ===
+  //         "function"
+  //       ) {
+
+  //         props.search();
+
+  //       }
+
+  //     },
+  //     0
+  //   );
+
+  // };
 
 
   const startScrollingUp4 =

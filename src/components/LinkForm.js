@@ -172,9 +172,114 @@ onAdDescriptionChange = (e) => {
     return new URL("/favicon.ico", url).href;
   }
 
+  updateCachedAdDescription = (linkId, description, Url, note, addescription, adUrl, buyerdiscountcode) => {
+
+  const updateValue = (value) => {
+    if (Array.isArray(value)) {
+      return value.map((item) => updateValue(item));
+    }
+
+    if (value && typeof value === "object") {
+      const updatedObject = { ...value };
+
+      if (
+        value.id === linkId ||
+        value.linkid === linkId
+      ) {
+        console.log(
+          "Updating cached addescription:",
+          linkId,
+          description,
+          Url,
+          note,
+          addescription,
+          adUrl,
+          buyerdiscountcode
+
+        );
+
+        updatedObject.description = description;
+        updatedObject.Url = Url;
+        updatedObject.note = note;
+
+        updatedObject.addescription = addescription
+        updatedObject.adUrl = adUrl;
+        updatedObject.buyerdiscountcode = buyerdiscountcode;
+      }
+
+      Object.keys(updatedObject).forEach((property) => {
+        updatedObject[property] =
+          updateValue(updatedObject[property]);
+      });
+
+      return updatedObject;
+    }
+
+    return value;
+  };
+
+  Object.keys(sessionStorage).forEach((key) => {
+    const rawValue = sessionStorage.getItem(key);
+
+    if (!rawValue) return;
+
+    try {
+      const parsedValue = JSON.parse(rawValue);
+
+      const updatedValue = updateValue(parsedValue);
+
+      sessionStorage.setItem(
+        key,
+        JSON.stringify(updatedValue)
+      );
+    } catch (error) {
+      // Ignore sessionStorage values that are not JSON.
+    }
+  });
+};
+
+isValidUrl1 = (value) => {
+  try {
+   
+    const url = new URL(value);
+
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch (error) {
+    return false;
+  }
+};
+
+isValidUrl2 = (value) => {
+  try {
+    if(value==="") return true //the ad url can be blank
+    const url = new URL(value);
+
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch (error) {
+    return false;
+  }
+};
+
   onSubmit = (e) => {
     e.preventDefault();
     console.log("onSubmit");
+
+
+    const theUrl = this.state.Url.trim();
+    const theAddUrl = this.state.AdUrl.trim();
+  
+
+    if (!this.isValidUrl1(theUrl)) {
+    alert("Please enter a valid non ad URL, such as https://wikipedia.org");
+    return;
+  }
+
+  if (!this.isValidUrl2(theAddUrl)) {
+    alert("Please enter a valid ad URL, such as https://www.amazon.com/hz/mobile/mission/?_encoding=UTF8&p=NoXxBNUZD3G2ppDiJRq6e0pUdpujrXr8GFkNKE3OUvbK4ToKMp3%2FSz6NKi5alWetFhWJaufYVHbv%2Fa8XPURQx%2B8pVJs7Rc2wsRZtMELw8FET90xJAk2h4%2BYx4Z0ieVEuOeEyAo1jRw3wvEX1XRwVHP3mEDqdVdBJ3VJ5ejJ0F3S8OJgX%2FeGC3W0pRM%2BF9CF%2BF8Es4wd2mU9nirnJ8mO%2B1k1C5KoI%2BPE%2Bq39h5Sys3BJ4nUH7CdgkUf7mpBmBTFi97CosaLNn2gv%2Bt2R3OTWgRC0KRBE%2BQqc8X%2BJyKq5WORtANDIW9QwshHKMFVILIWEjWSqPJQEYj3MeNGCoGpF60pIKWqzUG4uUx7BwIBUBoloV57kNlDdGZNNzYKHJyrNoiad6TQJeMe1sMnzK0mB9%2BGBpmdkiVgTuCMlTMetltv6LHxzHz4RJMv1nN1TptWsZjpK6YwSDYqwhPhA1fu86LYhSGY3OY3HelslEhawUyy1BMSxqQ90O3%2BZaiEIC%2FHXGOE8R5LkhfUHKUq3Y%2FEeEjICylvCuUJW2w2NXU8gUKweQ5A6H7e88le9YD%2BdoVuiAClLfg022c7ePBAgj5q0msWeYUJS6AiOQxUyV9FwkAQUTsXFCmL6N4eE%2BH5cUeY0vPCXCl7mUM8BjDGgP1pMFelXuK89cZS5xu7nlBj2QXRoVa%2F3RgWpJZC9SAtEaN0LH2gSCVDVzjU5BmaHdBl4T4VeMQ8mffBA2qykD4Xm6eU8%3D");
+    return;
+  }
+
+
     let faviconURL;
 
     let str = this.state.Url.trim();
@@ -236,13 +341,21 @@ onAdDescriptionChange = (e) => {
       } else {
       }
 
-      // str=this.state.Url
-      // if (this.state.Url.substring(0, 7) === 'http://')
-      //  {}
+      console.log("LinkForm.js, this.state.id="+this.state.id)
+      console.log("LinkForm.js, this.state.addescription="+this.state.addescription)
 
-      // else if (this.state.Url.substring(0, 8) === 'https://')
-      // {}
-      // else str = 'https://' + str;
+      //this.updateCachedAdDescription(this.state.id, this.state.addescription)
+       this.updateCachedAdDescription(this.state.link.id, 
+      this.state.link.description, 
+      this.state.link.Url, 
+      this.state.link.note,
+      this.state.link.addescription, 
+      this.state.link.adUrl, 
+      this.state.link.buyerdiscountcode
+    
+    
+    )
+     
 
       console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str=" + str);
 

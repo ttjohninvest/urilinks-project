@@ -2,10 +2,13 @@ import { v4 } from "uuid";
 //import { getDatabase, ref, update, serverValue } from "firebase/database";
 //import { ServerValue } from "../firebase/firebase";
 import database from "../firebase/firebase";
-import setHashTags from "./hashtags";
+//import setHashTags from "./hashtags";
 
 
-
+export const setHashTags = (hashtags) => ({
+  type: "SET_HASHTAGS",
+  hashtags,
+});
 
 //import {toggleItemShow} from '../features/toggle/creatslice'
 import setHashTags2WithCount from "./hashtags2withcount";
@@ -672,14 +675,14 @@ export const setLinksAll = (links) => ({
   links,
 });
 
-const removeDuplicates = (stringArray) => {
+export const removeDuplicates = (stringArray) => {
   const stringifiedArray = stringArray.join(" ");
   const lcstring = stringifiedArray;
   const lcStringArray = lcstring.split(" ");
   return [...new Set(lcStringArray)];
 };
 
-const extractHashtags = (link) => {
+export const extractHashtags = (link) => {
   const regex = /#([a-zA-Z0-9_]+)/g;
   const hashtags10 = [];
   let match;
@@ -709,7 +712,7 @@ const extractHashtags = (link) => {
   return hashtags10;
 };
 
-const countTimesEachHashTagIsUsed = (hashtags) => {
+export const countTimesEachHashTagIsUsed = (hashtags) => {
   //const length = hashtags.length;
   let newArray = [];
 
@@ -767,117 +770,227 @@ const isInOkArray = (uid) => {
   return val;
 };
 
+
 export const startSetLinks = (uid) => {
   console.log("startSetLinks");
-   return (dispatch) => {
+  return (dispatch) => {
     //dispatch(setLinks([]));
     return Promise.resolve([]);
   };
 
-  // return (dispatch, getState) => {
-  //   const isinfinitescroll = getState().isinfinitescroll;
-  //   console.log("actions/links.js, startSetLinks, isinfinitescroll="+isinfinitescroll.isinfinitescroll)
-  //    if(isinfinitescroll.isinfinitescroll===true) {
-  //      return Promise.resolve([]);
-  //    }
-  //   const hashtags = [];
+  return (dispatch, getState) => {
+    const isinfinitescroll = getState().isinfinitescroll;
+    console.log("actions/links.js, startSetLinks, isinfinitescroll="+isinfinitescroll.isinfinitescroll)
+     if(isinfinitescroll.isinfinitescroll===true) {
+       return Promise.resolve([]);
+     }
+    const hashtags = [];
 
-  //   return database
-  //     .ref(`users/${uid}/links`)
-  //     .once("value")
-  //     .then((snapshot) => {
-  //       const links2 = [];
+    return database
+      .ref(`users/${uid}/links`)
+      .once("value")
+      .then((snapshot) => {
+        const links2 = [];
 
-  //       //console.log("snapshot=" + JSON.stringify(snapshot));
-  //       snapshot.forEach((childSnapshot) => {
-  //         console.log(
-  //           "startSetLinks,childSnapshot=" + JSON.stringify(childSnapshot),
-  //         );
-  //         console.log(
-  //           "startSetLinks,childSnapshot.key=" +
-  //             JSON.stringify(childSnapshot.key),
-  //         );
-  //         console.log(
-  //           "startSetLinks,childSnapshot.val()=" +
-  //             JSON.stringify(childSnapshot.val()),
-  //         );
-  //         let aval = childSnapshot.val();
-  //         if (aval.frequency === undefined || aval.frequency === null)
-  //           aval.frequency = parseInt(0); //9999999
-  //         if (aval.likes === undefined || aval.likes === null)
-  //           aval.likes = parseInt(0);
-  //         if (aval.star === undefined || aval.star === null)
-  //           aval.star = parseInt(0);
-  //         if (aval.show === undefined || aval.show === null || aval.show === 1)
-  //           //if the website was closed before the user had a change to close the video this will reset it so Close Video won't be displaying
-  //           aval.show = parseInt(0);
+        //console.log("snapshot=" + JSON.stringify(snapshot));
+        snapshot.forEach((childSnapshot) => {
+          console.log(
+            "startSetLinks,childSnapshot=" + JSON.stringify(childSnapshot),
+          );
+          console.log(
+            "startSetLinks,childSnapshot.key=" +
+              JSON.stringify(childSnapshot.key),
+          );
+          console.log(
+            "startSetLinks,childSnapshot.val()=" +
+              JSON.stringify(childSnapshot.val()),
+          );
+          let aval = childSnapshot.val();
+          if (aval.frequency === undefined || aval.frequency === null)
+            aval.frequency = parseInt(0); //9999999
+          if (aval.likes === undefined || aval.likes === null)
+            aval.likes = parseInt(0);
+          if (aval.star === undefined || aval.star === null)
+            aval.star = parseInt(0);
+          if (aval.show === undefined || aval.show === null || aval.show === 1)
+            //if the website was closed before the user had a change to close the video this will reset it so Close Video won't be displaying
+            aval.show = parseInt(0);
 
-  //         links2.push({
-  //           id: childSnapshot.key,
-  //           ...aval, //...childSnapshot.val(),
-  //         });
-  //       });
-  //       console.log(
-  //         "1234567, startSetLinks, about to call dispatch(setLinks(links)),links2=" +
-  //           JSON.stringify(links2),
-  //       );
-  //       dispatch(setLinks(links2)); //links2[0].showpublic
+          links2.push({
+            id: childSnapshot.key,
+            ...aval, //...childSnapshot.val(),
+          });
+        });
+        console.log(
+          "1234567, startSetLinks, about to call dispatch(setLinks(links)),links2=" +
+            JSON.stringify(links2),
+        );
+        dispatch(setLinks(links2)); //links2[0].showpublic
 
-  //       //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
-  //       let hashtags = [];
-  //       const longnamesnowhitespace = [];
-  //       const longnames = [];
-  //       let x1 = []; //"";
+        //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+        let hashtags = [];
+        const longnamesnowhitespace = [];
+        const longnames = [];
+        let x1 = []; //"";
 
-  //       //this loop builds an array of all of the hashtags and is called hashtags
-  //       links2.forEach((link) => {
-  //         x1 = extractHashtags(link); //converst text string into an array of hashtags
-  //         hashtags.push(...x1);
-  //       });
+        //this loop builds an array of all of the hashtags and is called hashtags
+        links2.forEach((link) => {
+          x1 = extractHashtags(link); //converst text string into an array of hashtags
+          hashtags.push(...x1);
+        });
 
-  //       let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
+        let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
 
-  //       hashTags2WithCount.sort((a, b) => {
-  //         return a.description > b.description ? 1 : -1;
-  //         //return a.hashtag > b.hashtag ? 1 : -1;
-  //       });
+        hashTags2WithCount.sort((a, b) => {
+          return a.description > b.description ? 1 : -1;
+          //return a.hashtag > b.hashtag ? 1 : -1;
+        });
 
-  //       //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+        //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
 
-  //       //let hashtags2 = removeDuplicates(hashtags);
-  //       let hashtags2 = hashtags;
+        //let hashtags2 = removeDuplicates(hashtags);
+        let hashtags2 = hashtags;
 
-  //       hashtags2.sort((a, b) => {
-  //         return a.description > b.description ? 1 : -1;
-  //         //return a > b ? 1 : -1;
-  //       });
+        hashtags2.sort((a, b) => {
+          return a.description > b.description ? 1 : -1;
+          //return a > b ? 1 : -1;
+        });
 
-  //       let hashTags3WithCount = [];
-  //       let seenArray = [];
+        let hashTags3WithCount = [];
+        let seenArray = [];
 
-  //       hashtags2.forEach((ht1) => {
-  //         hashTags2WithCount.forEach((ht2) => {
-  //           if (
-  //             !seen(ht1.description, seenArray) &&
-  //             ht1.description === ht2.description
-  //           ) {
-  //             seenArray.push(ht1.description);
-  //             console.log(
-  //               "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
-  //             );
-  //             hashTags3WithCount.push(ht2);
-  //           }
-  //         });
-  //       });
+        hashtags2.forEach((ht1) => {
+          hashTags2WithCount.forEach((ht2) => {
+            if (
+              !seen(ht1.description, seenArray) &&
+              ht1.description === ht2.description
+            ) {
+              seenArray.push(ht1.description);
+              console.log(
+                "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
+              );
+              hashTags3WithCount.push(ht2);
+            }
+          });
+        });
 
-  //       //dispatch(setHashTags(hashtags2));
-  //       //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
-  //       dispatch(setHashTags(hashTags3WithCount));
-  //       //dispatch(setHashTags2WithCount(hashTags2WithCount));
-  //     })
-  //     .catch((error) => console.log("error=" + error));
-  // };
+        //dispatch(setHashTags(hashtags2));
+        //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
+        dispatch(setHashTags(hashTags3WithCount));
+        //dispatch(setHashTags2WithCount(hashTags2WithCount));
+      })
+      .catch((error) => console.log("error=" + error));
+  };
 };
+
+// export const startSetLinks = (uid) => {
+//   console.log("startSetLinks");
+ 
+
+//   return (dispatch, getState) => {
+//     const isinfinitescroll = getState().isinfinitescroll;
+//     console.log("actions/links.js, startSetLinks, isinfinitescroll="+isinfinitescroll.isinfinitescroll)
+//      if(isinfinitescroll.isinfinitescroll===true) {
+//        return Promise.resolve([]);
+//      }
+//     const hashtags = [];
+
+//     return database
+//       .ref(`users/${uid}/links`)
+//       .once("value")
+//       .then((snapshot) => {
+//         const links2 = [];
+
+//         //console.log("snapshot=" + JSON.stringify(snapshot));
+//         snapshot.forEach((childSnapshot) => {
+//           console.log(
+//             "startSetLinks,childSnapshot=" + JSON.stringify(childSnapshot),
+//           );
+//           console.log(
+//             "startSetLinks,childSnapshot.key=" +
+//               JSON.stringify(childSnapshot.key),
+//           );
+//           console.log(
+//             "startSetLinks,childSnapshot.val()=" +
+//               JSON.stringify(childSnapshot.val()),
+//           );
+//           let aval = childSnapshot.val();
+//           if (aval.frequency === undefined || aval.frequency === null)
+//             aval.frequency = parseInt(0); //9999999
+//           if (aval.likes === undefined || aval.likes === null)
+//             aval.likes = parseInt(0);
+//           if (aval.star === undefined || aval.star === null)
+//             aval.star = parseInt(0);
+//           if (aval.show === undefined || aval.show === null || aval.show === 1)
+//             //if the website was closed before the user had a change to close the video this will reset it so Close Video won't be displaying
+//             aval.show = parseInt(0);
+
+//           links2.push({
+//             id: childSnapshot.key,
+//             ...aval, //...childSnapshot.val(),
+//           });
+//         });
+//         console.log(
+//           "1234567, startSetLinks, about to call dispatch(setLinks(links)),links2=" +
+//             JSON.stringify(links2),
+//         );
+//         dispatch(setLinks(links2)); //links2[0].showpublic
+
+//         //XLFFo8DQ7LZh8oR8CnvBGInpjsZ2
+//         let hashtags = [];
+//         const longnamesnowhitespace = [];
+//         const longnames = [];
+//         let x1 = []; //"";
+
+//         //this loop builds an array of all of the hashtags and is called hashtags
+//         links2.forEach((link) => {
+//           x1 = extractHashtags(link); //converst text string into an array of hashtags
+//           hashtags.push(...x1);
+//         });
+
+//         let hashTags2WithCount = countTimesEachHashTagIsUsed(hashtags);
+
+//         hashTags2WithCount.sort((a, b) => {
+//           return a.description > b.description ? 1 : -1;
+//           //return a.hashtag > b.hashtag ? 1 : -1;
+//         });
+
+//         //console.log("1 hashTags2WithCount="+JSON.stringify(hashTags2WithCount))
+
+//         //let hashtags2 = removeDuplicates(hashtags);
+//         let hashtags2 = hashtags;
+
+//         hashtags2.sort((a, b) => {
+//           return a.description > b.description ? 1 : -1;
+//           //return a > b ? 1 : -1;
+//         });
+
+//         let hashTags3WithCount = [];
+//         let seenArray = [];
+
+//         hashtags2.forEach((ht1) => {
+//           hashTags2WithCount.forEach((ht2) => {
+//             if (
+//               !seen(ht1.description, seenArray) &&
+//               ht1.description === ht2.description
+//             ) {
+//               seenArray.push(ht1.description);
+//               console.log(
+//                 "ZZZZZZZZZZZZZZZZ, seenArray=" + JSON.stringify(seenArray),
+//               );
+//               hashTags3WithCount.push(ht2);
+//             }
+//           });
+//         });
+
+//         //dispatch(setHashTags(hashtags2));
+//         //console.log("1 hashTags3WithCount="+JSON.stringify(hashTags3WithCount))
+//         dispatch(setHashTags(hashTags3WithCount));
+//         //dispatch(setHashTags2WithCount(hashTags2WithCount));
+//       })
+//       .catch((error) => console.log("error=" + error));
+//   };
+// };
 
 // export const startSetLinksNew =  (uid) => {
 //   console.log("startSetLinks");

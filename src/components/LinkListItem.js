@@ -641,6 +641,8 @@ https://www.youtube.com/feed/history
 // };
 
 
+
+
 const updateCachedShowPublic = (linkId, showpublic) => {
   const updateValue = (value) => {
     if (Array.isArray(value)) {
@@ -1858,7 +1860,7 @@ data-value={props.id}
 if (!showLink) {
   return null;
 }
-
+console.log("LinkListItem.js, props.adUrl="+props.adUrl)
   return (
     <div key={props.index}>
       <div id="divtop" />
@@ -2429,11 +2431,11 @@ if (!showLink) {
               <div className="margin-bottom-1 flexrowxz">
                 {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                 {props.auth.uid}&link={encodeURIComponent(props.description)}
-                &product={encodeURIComponent(props.addescription)}
+                &product={encodeURIComponent(props.addescription)}&theSortBy=productsalpha
               </div>
 
               <CopySalesButton
-                textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.auth.uid}&link=${encodeURIComponent(props.description)}&product=${encodeURIComponent(props.addescription)}`}
+                textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.auth.uid}&link=${encodeURIComponent(props.description)}&product=${encodeURIComponent(props.addescription)}&theSortBy=productsalpha`}
               />
             </div>
           </fieldset>

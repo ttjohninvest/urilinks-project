@@ -167,6 +167,7 @@ const LinkDashboardPage = (props) => {
   });
 
   const rerenderit = () => {
+    console.log("LinkListDashboardPage.js, in rerender()")
     setV1(!v1);
 
     if (isMobile() === false) {

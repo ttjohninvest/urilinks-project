@@ -7,6 +7,14 @@ delete a chat
 first user source
 steps to upgrade from webpack 3 to webpack 5
 urilinks tutorial instructions
+in EditForm.js and LinkForm.js, my code calls the vendoraccountid a buyerdiscountcode,
+  for different website vendors, their will be a different vendoraccountid,
+  so code will need to be added here to determine the vendor url do the vendoraccountid is 
+  not hard coded to vendoraccountid. Right now it is. The following statements will change
+  str2 += "&[vendoraccountid]="+this.state.link.buyerdiscountcode.trim()
+  str2 += "?[vendoraccountid]="+this.state.link.buyerdiscountcode.trim()
+  amazon uses tag for theirs if 1234 is not a real amazon affiliate id amazon will remove it from the url when they get 
+  so it will not appear in the browser address edit rectangle
 ====================================
 
 
@@ -593,8 +601,7 @@ If the system cannot gather the required 50 events within the 7-day window, the 
            that a person needs to see a product or service 7 TIMES before they buy. Once you have retargeted
            enough people will not be able to forget you.
 
-I provide a link to your links page, "link in bio."
-All of the functionality is there to get a link to share your links page link on instagram profile, youtube comments or other "link in bio" platforms but I offer up to 5000 links on your links page. Also, I offer a x.com (twitter) like alphabetized hashtag link grouping. These grouping can be changed in the notes section of the link were hashtags may be added or removed for the purpose of regrouping the link. All hastag groupings are clickable to see what links are grouped. Links may also be accessed through an alphabetized drop down list were spaces are not removed from the link title. The first 250 links are free. The paid plans are 251 to 1500 links storage capacity is $4.99 per year, 1501 to 2500 links storage capacity is $9.99 per year and 2501 to 5000 links storage capacity is $14.99 per year.
+All of the functionality is there to get a link to share your links page link on instagram profile, youtube comments or other platforms but I offer up to 5000 links on your links page. Also, I offer a x.com (twitter) like alphabetized hashtag link grouping. These grouping can be changed in the notes section of the link were hashtags may be added or removed for the purpose of regrouping the link. All hastag groupings are clickable to see what links are grouped. Links may also be accessed through an alphabetized drop down list were spaces are not removed from the link title. The first 250 links are free. The paid plans are 251 to 1500 links storage capacity is $4.99 per year, 1501 to 2500 links storage capacity is $9.99 per year and 2501 to 5000 links storage capacity is $14.99 per year.
 
 StorageSizes.js free is 250
 basic is 500, standard is 750, premium is 1000

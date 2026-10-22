@@ -23,12 +23,12 @@ const CopyButton3 = (props) => {
   return (
     <div>
     <button 
-    className={`ib height10x- button-2w padding-top-and-bottom margin-left-11 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+    className={`ib height10x- button-2w- button-2 padding-top-and-bottom2 margin-left-11 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     onClick={handleCopy}>
       {/* {isCopied ? 'URL Copied' : 'Copy Sharable URL to Your Page.'} */}
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}
       {/* {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare "+props.accountpagename+"'s Page":"Copy Your Sharable Url." }`} */}
-    {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare Page":"Copy Sharable Url." }`}
+    {`${isCopied?"URL Copied":(props.readonly)?"Copy Sharable Url to reshare Page":"Copy sharable url" }`}
     </button>
     </div>
   );

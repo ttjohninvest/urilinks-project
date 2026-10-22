@@ -22,7 +22,7 @@ const CopyButton2 = (props) => {
 
   return (
     <button 
-    className={`ib height48 button-2w- button-2 ${isMobile() === false ? "" : "width295 margin-top-1"}`}
+    className={`ib height48 button-2w padding-top-and-bottom2 button-2- ${isMobile() === false ? "" : "width295 margin-top-1"}`}
     onClick={handleCopy}>
       {/* {isCopied ? 'URL Copied' : 'Copy Sharable URL to Your Page.'} */}
       {/* {`${isCopied?"URL Copied":"Copy Sharable Url for "+props.accountpagename+"'s Page"}`} */}

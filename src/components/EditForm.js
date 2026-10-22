@@ -216,8 +216,114 @@ class EditForm extends React.Component {
     return new URL("/favicon.ico", url).href;
   }
 
+   updateCachedAdDescription = (linkId, description, Url, note, addescription, adUrl, buyerdiscountcode) => {
+
+  const updateValue = (value) => {
+    if (Array.isArray(value)) {
+      return value.map((item) => updateValue(item));
+    }
+
+    if (value && typeof value === "object") {
+      const updatedObject = { ...value };
+
+      if (
+        value.id === linkId ||
+        value.linkid === linkId
+      ) {
+        console.log(
+          "Updating cached addescription:",
+          linkId,
+          description,
+          Url,
+          note,
+          addescription,
+          adUrl,
+          buyerdiscountcode
+
+        );
+
+        updatedObject.description = description;
+        updatedObject.Url = Url;
+        updatedObject.note = note;
+
+        updatedObject.addescription = addescription
+        updatedObject.adUrl = adUrl;
+        updatedObject.buyerdiscountcode = buyerdiscountcode;
+      }
+
+      Object.keys(updatedObject).forEach((property) => {
+        updatedObject[property] =
+          updateValue(updatedObject[property]);
+      });
+
+      return updatedObject;
+    }
+
+    return value;
+  };
+
+  Object.keys(sessionStorage).forEach((key) => {
+    const rawValue = sessionStorage.getItem(key);
+
+    if (!rawValue) return;
+
+    try {
+      const parsedValue = JSON.parse(rawValue);
+
+      const updatedValue = updateValue(parsedValue);
+
+      sessionStorage.setItem(
+        key,
+        JSON.stringify(updatedValue)
+      );
+    } catch (error) {
+      // Ignore sessionStorage values that are not JSON.
+    }
+  });
+};
+
+isValidUrl1 = (value) => {
+  try {
+   
+    const url = new URL(value);
+
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch (error) {
+    return false;
+  }
+};
+
+isValidUrl2 = (value) => {
+  try {
+    if(value==="") return true
+    const url = new URL(value);
+
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch (error) {
+    return false;
+  }
+};
+
   onSubmit = (e) => {
     e.preventDefault();
+
+
+    const theUrl = this.state.link.Url.trim();
+    const theAddUrl = this.state.link.adUrl.trim();
+  
+
+    if (!this.isValidUrl1(theUrl)) {
+    alert("Please enter a valid non ad URL, such as https://wikipedia.org");
+    return;
+  }
+
+  if (!this.isValidUrl2(theAddUrl)) {
+    alert("Please enter a valid ad URL, such as https://www.amazon.com/dp/B0D1XD1ZV3 or no ad url at all.");
+    return;
+  }
+
+ 
+
     console.log("onSubmit");
     let faviconURL;
 
@@ -242,7 +348,29 @@ class EditForm extends React.Component {
     if(!!this.state.link.buyerdiscountcode.trim())
     {
         if(!str2.includes(this.state.link.buyerdiscountcode.trim())) {
-            str2 += "&"+this.state.link.buyerdiscountcode.trim()
+            //for different website vendors, their will be a different vendoraccountid,
+            //so code will need to be added here to determine the vendor url do the vendoraccountid is 
+            //not hard coded to vendoraccountid. Right now it is.
+            //my code calls the vendoraccountid a buyerdiscountcode
+      
+            if(this.state.link.adUrl.trim().includes("amazon.com")) {
+               
+                str2 += "&tag="+this.state.link.buyerdiscountcode.trim()
+           
+            } else { //for now, all other vendors are hardcoded to vendoraccountid, but will have to be changed for it to work
+                     //because the vendor website won't recognize vendoraccountid unless it uses it
+                     //amazon.com uses tag for the account id some vendors use the account id as the vendoraccountid
+               if(this.state.link.adUrl.trim().includes("&"))
+                {
+                    str2 += "&vendoraccountid="+this.state.link.buyerdiscountcode.trim()
+                } else {
+                    str2 += "?vendoraccountid="+this.state.link.buyerdiscountcode.trim()
+                }
+            }
+
+          
+           
+
         } else {
             str2+=""
         }
@@ -295,6 +423,21 @@ class EditForm extends React.Component {
       // else str = 'https://' + str;
 
       console.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII, str=" + str);
+
+      console.log("LinkForm.js, this.state.id="+this.state.link.id)
+      console.log("LinkForm.js, this.state.addescription="+this.state.link.addescription)
+
+      //description, Url, note, addescription, adUrl, buyerdiscountcode) => {
+      this.updateCachedAdDescription(this.state.link.id, 
+      this.state.link.description, 
+      this.state.link.Url, 
+      this.state.link.note,
+      this.state.link.addescription, 
+      this.state.link.adUrl, 
+      this.state.link.buyerdiscountcode
+    
+    
+    )
 
       this.setState(() => ({ error: "" }));
 

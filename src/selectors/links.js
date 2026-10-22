@@ -89,7 +89,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
               // || sortBy==='date') {
           if (!!link.addescription === false) return false;
           isTextInAds = !!link.addescription === true
-             ? true //link.description.toLowerCase().includes(text.toLowerCase())
+             ? link.description.toLowerCase().includes(text.toLowerCase())
             : false;
           return isTextInAds;
           
@@ -99,7 +99,7 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
               // || sortBy==='date') {
           if (!!link.addescription === false) return false;
           isTextInAds = !!link.addescription === true
-             ? true //link.description.toLowerCase().includes(text.toLowerCase())
+             ? link.addescription.toLowerCase().includes(text.toLowerCase())
             : false;
           return isTextInAds;
           

@@ -174,6 +174,9 @@ function ExpandableArray(props) {
   const z = params.get("z");
   const z2 = params.get("z2");
   const thelink = params.get("link");
+  const product = params.get("product")
+  console.log("LinkListFilters.js, product="+product)
+  const theSortBy2 = params.get("theSortBy")
   const linkid = params.get("p");
   //console.log("linkid="+linkid)
   const childRef = useRef(null);
@@ -448,6 +451,28 @@ function ExpandableArray(props) {
 
   // }, [linksKey]);
 
+  const setit2 = (link, product) => {
+    //if (!!event === true) event.preventDefault();
+    console.log("setIt2, 3333333333333333333333333 link=" + link);
+    console.log("setIt2, 3333333333333333333333333 product=" + product);
+    
+
+    window.document.getElementById("termid").value = product
+    setSearchText(product);
+    setMode("productsalpha")
+    setDosearch(1);
+    // this.props.sortByDescription();
+    props.setTextFilter(product);
+    //this.props.sortByDescription();
+    props.sortByProductsAlpha()
+    //setSortBy("productsalpha")
+    //window.localStorage.setItem("sortBy", "hashtag");
+    window.localStorage.setItem("sortBy", "productsalpha");
+    window.localStorage.setItem("searchLinks3", product);
+
+    //this.props.rerenderit();
+  };
+
   useEffect(() => {
     console.log(
       "ExapandableArray, following=" + JSON.stringify(props.following),
@@ -473,7 +498,10 @@ function ExpandableArray(props) {
 
     if (id !== null && id !== undefined) {
       if (thelink !== null && thelink !== undefined)
-        props.setit(thelink, undefined);
+        //props.setit(thelink, undefined);
+        setSearchText(product)
+        //props.setit2(thelink, product);
+        setit2(thelink, product);
     }
 
     if (id !== null) setIdexists(1);
@@ -861,61 +889,268 @@ function ExpandableArray(props) {
     }
   };
 
-  const search = (z) => {
-    //handleCancelScroll();
-    console.log("1search");
-    props.stopScrolling2();
+//   const search = (z) => {
+//     //handleCancelScroll();
+//     console.log("1search");
 
-    const selectElement = document.getElementById("mode");
 
-    const selectedValue = selectElement.value;
-    console.log("selectElement.value=" + selectElement.value);
-    selectElement.value = "hashtag";
-    selectElement.dispatchEvent(new Event("change", { bubbles: true }));
-    selectElement.value = selectedValue;
-    selectElement.dispatchEvent(new Event("change", { bubbles: true }));
-    window.localStorage.setItem("sortBy", selectedValue);
 
-    let term = window.document.getElementById("termid").value.trim();
 
-    window.localStorage.setItem("termid", term);
 
-    //alert(isinfinitescroll.isinfinitescroll)
-    if (props.isinfinitescroll.isinfinitescroll === true) {
-      // window.localStorage.setItem("sortBy", "description")
 
-      //alert(term)
-      setSearchText(term);
-      setMode(selectedValue);
-      setDosearch(1);
-    } else {
-      props.setTextFilter(term);
+
+
+
+
+//     props.stopScrolling2();
+
+//     //const selectElement = document.getElementById("mode");
+
+// // const selectElement =
+// //   document.getElementById("mode");
+
+
+// let term
+
+// console.log("SEARCH STARTED");
+
+// const selectElement =
+//   document.getElementById("mode");
+
+// console.log(
+//   "mode before search =",
+//   selectElement
+//     ? selectElement.value
+//     : "missing"
+// );
+
+// term =
+//   window.document
+//     .getElementById("termid")
+//     .value
+//     .trim();
+
+// console.log("search term =", term);
+// console.log(
+//   "Redux sortBy =",
+//   props.filters.sortBy
+// );
+
+
+
+
+
+//     const selectedValue = selectElement.value;
+//     console.log("selectElement.value=" + selectElement.value);
+//     selectElement.value = "hashtag";
+//     selectElement.dispatchEvent(new Event("change", { bubbles: true }));
+//     selectElement.value = selectedValue;
+//     selectElement.dispatchEvent(new Event("change", { bubbles: true }));
+//     window.localStorage.setItem("sortBy", selectedValue);
+
+//     term = window.document.getElementById("termid").value.trim();
+
+//     window.localStorage.setItem("termid", term);
+
+//     //alert(isinfinitescroll.isinfinitescroll)
+//     if (props.isinfinitescroll.isinfinitescroll === true) {
+//       // window.localStorage.setItem("sortBy", "description")
+
+//       //alert(term)
+//       setSearchText(term);
+//       setMode(selectedValue);
+//       setDosearch(1);
+//     } else {
+//       props.setTextFilter(term);
+
+//       if (
+//         selectedValue === "hashtag" &&
+//         // && sortBy === "hashtag"
+//         props.filters.sortBy === "hashtag"
+//       ) {
+//         if (term === "") {
+//           window.document.getElementById("termid").value = "#";
+//           window.localStorage.setItem("termid", "#");
+//           props.setTextFilter("#");
+//         } else {
+//           window.localStorage.setItem("termid", term);
+//           props.setTextFilter(term);
+//         }
+
+//         //buttonRef.current.click();
+//         handleClose3();
+//         !!document.querySelector("#before-before-link-summary-id") &&
+//           document
+//             .querySelector("#before-before-link-summary-id")
+//             .scrollIntoView({
+//               behavior: "smooth",
+//             });
+//       }
+//     }
+//   };
+
+const search = (z) => {
+
+  console.log("1search");
+
+  props.stopScrolling2();
+
+
+  const selectElement =
+    document.getElementById(
+      "mode"
+    );
+
+
+  const selectedValue =
+    selectElement.value;
+
+
+  console.log(
+    "selectElement.value=" +
+      selectElement.value
+  );
+
+
+  selectElement.value =
+    "hashtag";
+
+
+  selectElement.dispatchEvent(
+    new Event(
+      "change",
+      {
+        bubbles: true,
+      }
+    )
+  );
+
+
+  selectElement.value =
+    selectedValue;
+
+
+  selectElement.dispatchEvent(
+    new Event(
+      "change",
+      {
+        bubbles: true,
+      }
+    )
+  );
+
+
+  window.localStorage.setItem(
+    "sortBy",
+    selectedValue
+  );
+
+
+  let term =
+    window.document
+      .getElementById(
+        "termid"
+      )
+      .value
+      .trim();
+
+
+  window.localStorage.setItem(
+    "termid",
+    term
+  );
+
+
+  if (
+    props.isinfinitescroll
+      .isinfinitescroll ===
+    true
+  ) {
+
+    setSearchText(
+      term
+    );
+
+
+    setMode(
+      selectedValue
+    );
+
+
+    setDosearch(
+      1
+    );
+
+  } else {
+
+    props.setTextFilter(
+      term
+    );
+
+
+    if (
+      selectedValue ===
+        "hashtag" &&
+      props.filters.sortBy ===
+        "hashtag"
+    ) {
 
       if (
-        selectedValue === "hashtag" &&
-        // && sortBy === "hashtag"
-        props.filters.sortBy === "hashtag"
+        term === ""
       ) {
-        if (term === "") {
-          window.document.getElementById("termid").value = "#";
-          window.localStorage.setItem("termid", "#");
-          props.setTextFilter("#");
-        } else {
-          window.localStorage.setItem("termid", term);
-          props.setTextFilter(term);
-        }
 
-        //buttonRef.current.click();
-        handleClose3();
-        !!document.querySelector("#before-before-link-summary-id") &&
-          document
-            .querySelector("#before-before-link-summary-id")
-            .scrollIntoView({
-              behavior: "smooth",
-            });
+        window.document
+          .getElementById(
+            "termid"
+          )
+          .value = "#";
+
+
+        window.localStorage.setItem(
+          "termid",
+          "#"
+        );
+
+
+        props.setTextFilter(
+          "#"
+        );
+
+      } else {
+
+        window.localStorage.setItem(
+          "termid",
+          term
+        );
+
+
+        props.setTextFilter(
+          term
+        );
+
       }
+
+
+      handleClose3();
+
+
+      !!document.querySelector(
+        "#before-before-link-summary-id"
+      ) &&
+        document
+          .querySelector(
+            "#before-before-link-summary-id"
+          )
+          .scrollIntoView({
+            behavior:
+              "smooth",
+          });
+
     }
-  };
+
+  }
+
+};
 
   useEffect(() => {
     //loadLinks(true);
@@ -935,6 +1170,25 @@ function ExpandableArray(props) {
           .scrollIntoView({
             behavior: "smooth",
           });
+  };
+
+
+   const onSortChange2 = (searchTerm) => {
+    props.stopScrolling2();
+   
+      window.localStorage.setItem("sortBy", "hashtag");
+      props.setTextFilter(searchTerm);
+      if (myRef.current) myRef.current.focus();
+      // setSortBy("hashtag");
+      props.sortByHashTag();
+      setSortBy("hashtag");
+    
+    
+    handleClose3();
+    !!document.querySelector("#before-before-link-summary-id") &&
+      document.querySelector("#before-before-link-summary-id").scrollIntoView({
+        behavior: "smooth",
+      });
   };
 
   const onSortChange = (e) => {
@@ -1651,6 +1905,10 @@ function ExpandableArray(props) {
     }
   };
 
+
+  console.log("abc LinkListFilters.js, before call to <LinkList3, theSortBy="+mode)
+  console.log("abc LinkListFilters.js, before call to <LinkList3, searchText="+searchText)
+
   return (
     <div className="flexrowh-">
       <div className={`${props.signup === false ? "bg-gray-1" : "bg-gray-1"}`}>
@@ -1896,7 +2154,7 @@ function ExpandableArray(props) {
                                 <a
                                   href="#"
                                   ref={textAreaRef}
-                                  className={`ib nounderline pointereventsnone borderLightOrange- padding-all2- borderradius55 ${isMobile() === false ? "" : "width295"}`}
+                                  className={`ib nounderline pointereventsnone borderradius55 ${isMobile() === false ? "" : "width295"}`}
                                   title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                                   style={{
                                     textDecoration: "none",
@@ -2063,6 +2321,8 @@ function ExpandableArray(props) {
                       <HashTagsButton
                         elementRef2={elementRef2}
                         changeSortBy={changeSortBy}
+                        //onSortChange2 = {onSortChange2}
+                        search={search}
                         //setSortBy={setSortBy}
                       />
                       {/* {readonly===false && <OthersButton
@@ -2086,13 +2346,15 @@ function ExpandableArray(props) {
                                 <span
                                   //href="#"
                                   ref={textAreaRef}
-                                  className="width295 ib overflowxhidden margin-topx- borderWidth2- nounderline pointereventsnone borderLightOrange borderradius55 no-wrap2"
+                                  className="width295 ib overflowxhidden nounderline pointereventsnone borderLightOrange borderradius55 no-wrap2"
                                   title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
                                   style={{
                                     textDecoration: "none",
                                     color: "black",
-                                    paddingTop: "0.5rem",
-                                    paddingBottom: "0.5rem"
+                                    paddingTop: "0.15rem",
+                                    paddingBottom: "0.15rem"
+                                    //paddingTop: "0.5rem",
+                                    //paddingBottom: "0.5rem"
                                   }}
                                 >
                                   {` ${baseUrl}/dashboard?signup=0&x=readonly&id=`}
@@ -2100,16 +2362,7 @@ function ExpandableArray(props) {
                                 </span>
                               </div>
                               <div>
-                                {/* <button
-                                className={` height48 button-2w ib margin-right-1 border5- ${isMobile() === false ? "" : "margin-top-1"}`}
-                                onClick={()=>copyToClipboard()}
-                                title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                              >
-                                <span className="">
-                                  Copy
-                                  
-                                </span>
-                              </button> */}
+                               
                                 <div className="flexrowz">
                                    <CopyButton3
                                     readonly={readonly}
@@ -2595,6 +2848,8 @@ function ExpandableArray(props) {
 
                         <HashTagsButton
                           changeSortBy={changeSortBy}
+                          // onSortChange2 = {onSortChange2}
+                          search = {search}
                           setSortBy={setSortBy}
                         />
                       </div>
@@ -2733,7 +2988,7 @@ function ExpandableArray(props) {
                 <LinkList3
                   dosearch={dosearch}
                   searchText={searchText}
-                  theSortBy={mode}
+                  theSortBy={theSortBy2?theSortBy2:mode}
                   idexists={idexists}
                   av={props.av}
                   ref={childRef}
@@ -3317,18 +3572,7 @@ export class LinkListFilters extends React.Component {
     this.setState({ height });
   };
 
-  // setit = (value, event) => {
-  //   event.preventDefault();
-  //   console.log("setIt, 3333333333333333333333333 value=" + value);
 
-  //   this.props.sortByHashTag();
-  //   this.props.setTextFilter(value);
-
-  //   window.localStorage.setItem("sortBy", "hashtag");
-  //   window.localStorage.setItem("searchLinks3", value);
-
-  //   this.props.rerenderit();
-  // };
 
   setit = (value, event) => {
     if (!!event === true) event.preventDefault();
@@ -3344,6 +3588,26 @@ export class LinkListFilters extends React.Component {
     this.props.rerenderit();
   };
 
+  // setit2 = (link, product) => {
+  //   //if (!!event === true) event.preventDefault();
+  //   console.log("setIt2, 3333333333333333333333333 link=" + link);
+  //   console.log("setIt2, 3333333333333333333333333 product=" + product);
+    
+
+  //   window.document.getElementById("termid").value = product
+  //   //setSearchText(product);
+  //   // this.props.sortByDescription();
+  //   this.props.setTextFilter(product);
+  //   //this.props.sortByDescription();
+  //   this.props.sortByProductsAlpha()
+  //   //setSortBy("productsalpha")
+  //   //window.localStorage.setItem("sortBy", "hashtag");
+  //   window.localStorage.setItem("sortBy", "description");
+  //   window.localStorage.setItem("searchLinks3", product);
+
+  //   this.props.rerenderit();
+  // };
+
   refreshIt = () => {
     //window.location.reload();
     window.location.href = baseUrl + "?signup=signup";
@@ -3357,6 +3621,18 @@ export class LinkListFilters extends React.Component {
   search = () => {
     //alert("search")
     console.log("1 search");
+
+
+let term
+
+
+
+
+
+
+
+
+
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");
     // alert("select="+select)
@@ -3367,7 +3643,7 @@ export class LinkListFilters extends React.Component {
     else selectedValue = select.options[select.selectedIndex].value;
     //alert("2 selectedValue="+selectedValue+", term="+term)
     console.log("search = () => {, selectedValue=" + selectedValue);
-    let term = window.document.getElementById("termid").value.trim();
+    term = window.document.getElementById("termid").value.trim();
     //alert("selectedValue="+selectedValue+", term="+term)
     window.localStorage.setItem("termid", term);
     this.props.setTextFilter(term);
@@ -3415,6 +3691,7 @@ export class LinkListFilters extends React.Component {
             ref1={this.elementRef}
             morehashtags={this.state.morehashtags}
             setit={this.setit}
+            //setit2={this.setit2}
             theplan={this.props.theplan}
             plan={this.props.theplan.plan}
             newspaper={this.state.newspaper}

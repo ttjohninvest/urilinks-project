@@ -508,6 +508,7 @@ openNewTabWithCustomTitleType(url2,"_blank","urilinks-page")
     <div
       //ref={setNodeRef}
       className="position-absolute z-index99 opaque100"
+   
     >
       <div className="margin-top-1- margin-left-11">
         <div className="page-header-2">

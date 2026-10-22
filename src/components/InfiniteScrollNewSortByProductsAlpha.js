@@ -15,8 +15,10 @@ const rt = params.get("x");
 
 const InfiniteScrollNewSortByProductsAlpha = (props) => {
   console.log("abc InfiniteScrollNewSortByProductsAlpha")
+  console.log("abc InfiniteScrollNewSortByProductsAlpha, props.theSortBy="+props.theSortBy)
+  console.log("abc InfiniteScrollNewSortByProductsAlpha, props.searchText="+props.searchText)
+  console.log("abc InfiniteScrollNewSortByProductsAlpha")
   const [links, setLinks] = useState([]);
-  //const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
@@ -49,7 +51,7 @@ const InfiniteScrollNewSortByProductsAlpha = (props) => {
         query = firebase
         .database()
         .ref(props.databasePath)
-        .orderByChild("description");
+        .orderByChild("addescription");
        
      
 
@@ -79,22 +81,6 @@ const InfiniteScrollNewSortByProductsAlpha = (props) => {
 
       const snapshot = await query.once("value");
 
-      //   let results = [];
-      //   snapshot.forEach((child) => {
-      //     const item = child.val();
-
-      //     if (
-      //       item.description &&
-      //       //item.description.toLowerCase().includes(search)
-      //       item.description.includes(search)
-      //     ) {
-      //       results.push({
-      //         id: child.key,
-      //         ...item,
-      //       });
-      //     }
-      //   });
-
       let allFetched = [];
 
       snapshot.forEach((child) => {
@@ -118,10 +104,10 @@ const InfiniteScrollNewSortByProductsAlpha = (props) => {
      
 matches = fetchedPage.filter(
   (item) =>
+    // item.addescription &&
+    // item.addescription.trim() !== "" &&
     item.addescription &&
-    item.addescription.trim() !== "" &&
-    item.description &&
-    item.description.toLowerCase().includes(search)
+    item.addescription.toLowerCase().includes(search)
 );
 
 if (fetchedPage.length > 0) {
@@ -129,7 +115,7 @@ if (fetchedPage.length > 0) {
 
   cursorRef.current = {
     key: lastItem.id,
-    value: lastItem.description,
+    value: lastItem.addescription,
   };
 }
 
@@ -155,35 +141,7 @@ if (reset) {
   );
 }
 
-// matches = fetchedPage
-//   .filter(
-//     (item) =>
-//       item.addescription &&
-//       item.addescription.trim() !== "" &&
-//       item.description &&
-//       item.description.toLowerCase().includes(search)
-//   )
-//   .sort((a, b) =>
-//     a.addescription.localeCompare(b.addescription)
-//   );
-        
-        
-//         if (fetchedPage.length > 0) {
-//         const lastItem = fetchedPage[fetchedPage.length - 1];
 
-//         cursorRef.current = {
-//           key: lastItem.id,
-//           value: lastItem.description,
-//         };
-      
-//       }
-      
-
-//       if (reset) {
-//         setLinks(matches);
-//       } else {
-//         setLinks((previousLinks) => [...previousLinks, ...matches]);
-//       }
 
     
 
@@ -214,10 +172,10 @@ if (reset) {
  
      if (
        
+      //  item.addescription &&
+      //  item.addescription.trim() !== "" &&
        item.addescription &&
-       item.addescription.trim() !== "" &&
-       item.description &&
-       item.description.toLowerCase().includes(search)
+       item.addescription.toLowerCase().includes(search)
      ) {
        count++;
      }
@@ -274,7 +232,10 @@ if (reset) {
     };
   }, [loading, hasMore, props.searchText]);
 
- const removeDeletedLinkFromSessionStorage = (search, id) => {
+ 
+ 
+ 
+  const removeDeletedLinkFromSessionStorage = (search, id) => {
   const baseKey = getCacheBaseKey(search);
 
   for (let i = 0; i < sessionStorage.length; i++) {
@@ -370,8 +331,8 @@ const sessionRemoveLink=(id) => {
                           className="border-bottom-1t padding-left-1t- padding-top-1t padding-bottom-1t"
                         >
                           <LinkListItem
-                          sessionRemoveLink={sessionRemoveLink}
-                          scrollContainerRef={props.scrollContainerRef}
+                            sessionRemoveLink={sessionRemoveLink}
+                            scrollContainerRef={props.scrollContainerRef}
                             link={link}
                             rt={rt}
                             key={link.id}

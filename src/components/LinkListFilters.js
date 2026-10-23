@@ -1779,7 +1779,9 @@ const search = (z) => {
       "&z12=" +
       z12 +
       "&isFollowing=" + 
-      isMatch;
+      isMatch +
+       "&isFollower=" + 
+      "";
      
 
     // window.open(
@@ -1846,6 +1848,8 @@ const search = (z) => {
         z12 +
         "&isFollowing=" +
         isMatch +
+        "&isFollower=" + 
+        "" +
         "&newlinks=" +
         newlinks,
       "_blank",
@@ -3152,7 +3156,21 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                             <div className="flexrowz">
                               <UnFollowButton displayName={dn} />
                               {/* <ChatButton id2={id2} id={id} name2={dn2} name1={dn} chatsetting={2} /> */}
-                              <ChatButton
+                              {/* <ChatButton
+                                id2={id2}
+                                id={id}
+                                name2={dn2}
+                                name1={dn}
+                                chatsetting={2}
+                              />
+                              <OnlineStatus userId={id} displayName={dn}/> */}
+                            </div>
+                          ) : null}
+
+{!!isFollower === true &&
+                            isFollower === "is follower" && (
+                            <div>
+                            <ChatButton
                                 id2={id2}
                                 id={id}
                                 name2={dn2}
@@ -3161,7 +3179,7 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                               />
                               <OnlineStatus userId={id} displayName={dn}/>
                             </div>
-                          ) : null}
+                            )}
 
                         
                           {!!isFollower === true &&

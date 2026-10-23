@@ -266,7 +266,7 @@ const email =
               <div
                 key={item.gud.uid}
                 onClick={(event) =>
-                  props.handleClick2(
+                  props.handleClick3(
                     2,
                     event
                   )
@@ -319,15 +319,15 @@ const email =
                   }}
                 />
 
-                <span className="margin-left-11">
+                <span className="margin-left-11 ip flexrowtt0-">
                   {item.displayName}
 
                   {item.isFollower && (
                     <span>
-                    <span>
+                    <span className="ip-">
                       {" "} - Follower
                     </span>
-                    <span>
+                    <span className="ip-">
                        <OnlineStatus2 userId={item.gud.uid} />
                     </span>
                     </span>

@@ -33,7 +33,7 @@ export const startAddTheothersisopen = (theothersisopenData = {}) => {
 };
 
 export const getTheothersisopen2 = (id) => {
-  console.log("actions/getTheothersisopen");
+  console.log("actions/getTheothersisopen2");
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     console.log("actions/getTheothersisopen2, uid=" + uid);
@@ -46,7 +46,7 @@ export const getTheothersisopen2 = (id) => {
         let theothersisopen
        
         console.log(
-          "action/getTheothersisopen from db, snapshot.val()=" + JSON.stringify(snapshot.val())
+          "action/getTheothersisopen2 from db, snapshot.val()=" + JSON.stringify(snapshot.val())
         );
 
         let zothersisopen={

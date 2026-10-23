@@ -321,15 +321,15 @@ const UsersAndFollowingContainer = (props) => {
                   }}
                 />
 
-                <span className="margin-left-11">
+                <span className="margin-left-11 ip- flexrowtt0-">
                   {item.displayName}
 
                   {item.isFollowing && (
                     <span>
-                    <span>
+                    <span className="ib-">
                       {" "} - Following 
                     </span>
-                      <span>
+                      <span className="ib- ">
                         <OnlineStatus2 userId={item.gud.uid} />
                       </span>
                     </span>

@@ -1778,8 +1778,9 @@ const search = (z) => {
       email +
       "&z12=" +
       z12 +
-      "&isFollowing=" +
+      "&isFollowing=" + 
       isMatch;
+     
 
     // window.open(
     //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
@@ -1851,7 +1852,8 @@ const search = (z) => {
     );
   };
 
-  const handleClick2 = (v, event) => {
+
+ const handleClick2 = (v, event) => {
     if (v === 1) {
       const clickedElement = event.target;
 
@@ -1893,7 +1895,184 @@ const search = (z) => {
       //     array3[6],
 
       if (array3[0]) {
+
         otherPage(
+          array3[0],
+          array3[1],
+          array3[2],
+          array3[3],
+          array3[4],
+          encrypt(array3[5], "125434"),
+          encrypt(array3[6], "125434"),
+          array3[7],
+        );
+
+      }
+    } else {
+    }
+  };
+
+
+
+
+
+
+
+const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
+    console.log("otherPage(), id2=" + id2);
+    console.log("otherPage(), id=" + id);
+    console.log("otherPage(), dn2=" + dn2);
+    console.log("otherPage(), dn=" + dn);
+    //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
+    //const z12 = encrypt(props.gud.gud.email,"125434")
+    //const z12 = props.email
+    const z12 = theemail2;
+    //alert(props.email)
+
+    const url2 =
+      baseUrl +
+      "/dashboard?signup=0&x=readonly&id2=" +
+      id2 +
+      "&id=" +
+      id +
+      "&dn2=" +
+      dn2 +
+      "&dn=" +
+      dn +
+      "&purl=" +
+      purl +
+      "&z10=" +
+      email +
+      "&z12=" +
+      z12 +
+      "&isFollower=" + 
+      isMatch +
+       "&isFollowing=" + 
+      "";
+     
+
+    // window.open(
+    //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+    //   baseUrl+"/dashboard?signup=0&x=readonly&id2=" +
+    //     id2 +
+    //     "&id=" +
+    //     id +
+    //      "&dn2=" +
+    //     dn2 +
+    //     "&dn=" +
+    //     dn +
+    //     "&purl=" +
+    //     purl +
+    //     "&z10=" +
+    //     email +
+    //     "&z12=" +
+    //     z12 +
+    //     "&isFollowing=" +
+    //     isMatch,
+    //   "_blank"
+    // );
+
+    openNewTabWithCustomTitleType2(url2, "_blank", "urilinks-page");
+  };
+
+  const otherPage2a = (
+    id2,
+    id,
+    dn2,
+    dn,
+    purl,
+    email,
+    theemail2,
+    isMatch,
+    newlinks,
+  ) => {
+    console.log("otherPage(), id2=" + id2);
+    console.log("otherPage(), id=" + id);
+    console.log("otherPage(), dn2=" + dn2);
+    console.log("otherPage(), dn=" + dn);
+    //alert("firebase.auth().currentUser.email="+firebase.auth().currentUser.email)
+    //const z12 = encrypt(props.gud.gud.email,"125434")
+    //const z12 = props.email
+    const z12 = theemail2;
+    //alert(props.email)
+
+    window.open(
+      //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
+      baseUrl +
+        "/dashboard?signup=0&x=readonly&id2=" +
+        id2 +
+        "&id=" +
+        id +
+        "&dn2=" +
+        dn2 +
+        "&dn=" +
+        dn +
+        "&purl=" +
+        purl +
+        "&z10=" +
+        email +
+        "&z12=" +
+        z12 +
+        "&isFollower=" +
+        isMatch +
+       "&isFollowing=" + 
+        "" +
+        "&newlinks=" +
+        newlinks,
+      "_blank",
+    );
+  };
+
+
+
+
+
+ 
+
+   
+  const handleClick3 = (v, event) => {
+    if (v === 1) {
+      const clickedElement = event.target;
+
+      const itemId = clickedElement.dataset.itemId;
+
+      const array3 = itemId.split(";");
+
+      setitbacktono(array3[0], array3[1])
+        .then(() => {
+          if (array3[0]) {
+            otherPage2a(
+              array3[0],
+              array3[1],
+              array3[2],
+              array3[3],
+              array3[4],
+              encrypt(array3[5], "125434"),
+              encrypt(array3[6], "125434"),
+              array3[7],
+            );
+          }
+        })
+        .catch((e) => {
+          alert("SeeFollowingPage.js, setitbacktono(), something went wrong");
+        });
+    } else if (v === 2) {
+      const clickedElement = event.currentTarget;
+
+      const itemId = clickedElement.dataset.itemId;
+
+      console.log("itemId =", itemId);
+
+      if (!itemId) return;
+
+      const array3 = itemId.split(";");
+
+      console.log("handleClick, itemId=" + itemId);
+      // array3[5],
+      //     array3[6],
+
+      if (array3[0]) {
+        otherPagea(
           array3[0],
           array3[1],
           array3[2],
@@ -2966,12 +3145,12 @@ const search = (z) => {
                           {!!isFollowing === true &&
                           isFollowing !== "is following" ? (
                             <div className="flexrowz">
-                              <FollowButton />
+                              <FollowButton displayName={dn} />
                             </div>
                           ) : !!isFollowing === true &&
                             isFollowing === "is following" ? (
                             <div className="flexrowz">
-                              <UnFollowButton />
+                              <UnFollowButton displayName={dn} />
                               {/* <ChatButton id2={id2} id={id} name2={dn2} name1={dn} chatsetting={2} /> */}
                               <ChatButton
                                 id2={id2}
@@ -2984,6 +3163,7 @@ const search = (z) => {
                             </div>
                           ) : null}
 
+                        
                           {!!isFollower === true &&
                             isFollower === "is a follower of" && (
                               <EmailButton z10={z10} />
@@ -3166,7 +3346,7 @@ const search = (z) => {
               ) : (
                 <div>
                 {/* <FollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} /> */}
-                 { rt !== "readonly" ? <UsersAndFollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} />
+                 { rt !== "readonly" ? <UsersAndFollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick3={handleClick3} signup={props.signup} />
                  :
                  <div style={{width:"270px", height:"726px"}}></div>
                  }

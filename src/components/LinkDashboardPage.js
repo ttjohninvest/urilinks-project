@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { v4 } from "uuid";
 import { connect } from "react-redux";
 import {withRouter} from "react-router-dom"
+import firebase from "firebase/app"
 //import LinkList from "./LinkList";
 import LinkListFilters from "./LinkListFilters";
 import DisplayHashtags from "./DisplayHashtags";
@@ -43,6 +44,43 @@ const LinkDashboardPage = (props) => {
       /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
     return regex.test(navigator.userAgent);
   };
+
+   useEffect(() => {
+
+    const unsubscribe = firebase
+      .auth()
+      .onAuthStateChanged((user) => {
+
+        if (!user) return;
+
+        const connectedRef = firebase
+          .database()
+          .ref(".info/connected");
+
+        const userStatusRef = firebase
+          .database()
+          .ref(`users/${user.uid}/online`);
+
+        connectedRef.on("value", (snapshot) => {
+
+          if (snapshot.val() === false) return;
+
+          userStatusRef
+            .onDisconnect()
+            .set(false)
+            .then(() => {
+              userStatusRef.set(true);
+            });
+
+        });
+
+      });
+
+    return () => {
+      unsubscribe();
+    };
+
+  }, []);
 
   useEffect(() => {
     console.log("LinkDashboardPage.js, UseEffect, following="+JSON.stringify(props.following))

@@ -1,6 +1,7 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
+import OnlineStatus from "./OnlineStatus"
 import ErrorBoundry from "./ErrorBoundry";
 import { useSelector } from "react-redux";
 const getSearchTerm = require("./getSearchTerm");
@@ -2978,7 +2979,7 @@ const search = (z) => {
                                 name2={dn2}
                                 name1={dn}
                                 chatsetting={2}
-                              />
+                              /><OnlineStatus userId={id} displayName={dn}/>
                             </div>
                           ) : null}
 

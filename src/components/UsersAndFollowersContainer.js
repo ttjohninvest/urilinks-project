@@ -5,6 +5,9 @@ import React, {
   useState,
 } from "react";
 
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+
 import firebase from "firebase/app";
 import "firebase/database";
 
@@ -258,6 +261,7 @@ const email =
         <div className="liststylenone- cursor-pointer interline padding-top-z6">
 
           {users.map((item) => {
+            if(props.auth.uid !== item.gud.uid) {
             return (
               <div
                 key={item.gud.uid}
@@ -326,6 +330,9 @@ const email =
                 </span>
               </div>
             );
+          } else {
+            return null
+          }
           })}
 
           {hasMore && (
@@ -349,4 +356,15 @@ const email =
   );
 };
 
-export default UsersAndFollowersContainer;
+//export default UsersAndFollowersContainer;
+
+const mapStateToProps = (state) => ({
+ 
+  auth: state.auth,
+  
+});
+
+
+export default withRouter(
+  connect(mapStateToProps, undefined)(UsersAndFollowersContainer),
+);

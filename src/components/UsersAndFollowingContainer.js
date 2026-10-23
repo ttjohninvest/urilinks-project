@@ -4,6 +4,9 @@ import React, {
   useRef,
   useState,
 } from "react";
+import OnlineStatus from "./OnlineStatus";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import firebase from "firebase/app";
 import "firebase/database";
@@ -255,10 +258,12 @@ const UsersAndFollowingContainer = (props) => {
       <div
         ref={scrollRef}
         className="scrollable-div3"
+       
       >
         <div className="liststylenone- cursor-pointer interline padding-top-z6">
 
           {users.map((item) => {
+            if (props.auth.uid !== item.gud.uid) {
             return (
               <div
                 key={item.gud.uid}
@@ -317,16 +322,35 @@ const UsersAndFollowingContainer = (props) => {
                 />
 
                 <span className="margin-left-11">
-                  {item.displayName}
+                  {/* {item.displayName}
 
                   {item.isFollowing && (
                     <span>
                       {" "} - Following
                     </span>
-                  )}
+                  )} */}
+
+
+    {props.theuser.displayName}{" "}
+                 
+                 
+  {item.isMatch}{" "}
+  {item.gud.email},{" "}
+  
+
+  <OnlineStatus userId={item.gud.uid} displaName={item.gud.displayname} />
+
+  {/* {", "}
+  {item.gud.theatname} */}
+
+
+
                 </span>
               </div>
             );
+          }else {
+            return null
+          }
           })}
 
           {hasMore && (
@@ -350,4 +374,16 @@ const UsersAndFollowingContainer = (props) => {
   );
 };
 
-export default UsersAndFollowingContainer;
+//export default UsersAndFollowingContainer;
+
+const mapStateToProps = (state) => ({
+ 
+  
+  auth: state.auth,
+  
+});
+
+
+export default withRouter(
+  connect(mapStateToProps, undefined)(UsersAndFollowingContainer),
+);

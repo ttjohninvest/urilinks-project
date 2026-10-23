@@ -331,7 +331,7 @@ const UsersAndFollowingContainer = (props) => {
                   )} */}
 
 
-    {props.theuser.displayName}{" "}
+    props.theuser?<span>props.theuser.displayName</span>:"John"
                  
                  
   {item.isMatch}{" "}

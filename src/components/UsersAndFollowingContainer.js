@@ -322,23 +322,23 @@ const UsersAndFollowingContainer = (props) => {
                 />
 
                 <span className="margin-left-11">
-                  {/* {item.displayName}
+                  {item.displayName}
 
                   {item.isFollowing && (
                     <span>
                       {" "} - Following
                     </span>
-                  )} */}
+                  )}
 
 
-    props.theuser?<span>props.theuser.displayName</span>:"John"
+    {/* props.theuser?<span>props.theuser.displayName</span>:"John"
                  
                  
   {item.isMatch}{" "}
   {item.gud.email},{" "}
   
 
-  <OnlineStatus userId={item.gud.uid} displaName={item.gud.displayname} />
+  <OnlineStatus userId={item.gud.uid} displaName={item.gud.displayname} /> */}
 
   {/* {", "}
   {item.gud.theatname} */}

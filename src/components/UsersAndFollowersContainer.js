@@ -4,7 +4,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-
+import OnlineStatus from "./OnlineStatus";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
@@ -327,6 +327,20 @@ const email =
                       {" "} - Follower
                     </span>
                   )}
+
+ {/* props.theuser?<span>props.theuser.displayName</span>:"John"
+                 
+                 
+  {item.isMatch}{" "}
+  {item.gud.email},{" "}
+  
+
+  <OnlineStatus userId={item.gud.uid} displaName={item.gud.displayname} /> */}
+
+  {/* {", "}
+  {item.gud.theatname} */}
+
+
                 </span>
               </div>
             );

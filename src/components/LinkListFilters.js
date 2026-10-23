@@ -2980,7 +2980,7 @@ const search = (z) => {
                                 name1={dn}
                                 chatsetting={2}
                               />
-                              {/* <OnlineStatus userId={id} displayName={dn}/> */}
+                              <OnlineStatus userId={id} displayName={dn}/>
                             </div>
                           ) : null}
 

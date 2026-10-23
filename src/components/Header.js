@@ -656,7 +656,7 @@ const handleClick = useCallback(() => {
   // };
 
   //const logoutit = async () => {
-  const logoutit = () => {
+  const logoutit = async () => {
     try {
       handleUpdate();
 
@@ -681,6 +681,26 @@ const handleClick = useCallback(() => {
       setLinks([]);
 
       props.stopScrolling2();
+
+
+       const user = firebase.auth().currentUser;
+
+  if (user) {
+    const userStatusRef = firebase
+      .database()
+      .ref(`users/${user.uid}/online`);
+
+    console.log("SETTING OFFLINE BEFORE LOGOUT");
+
+    await userStatusRef.set(false);
+
+    console.log("OFFLINE WRITE FINISHED");
+  }
+
+
+
+
+
       props.startLogout();
     } catch (e) {
       console.log("logoutit failed, e=" + e);

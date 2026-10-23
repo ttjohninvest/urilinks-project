@@ -324,7 +324,12 @@ const email =
 
                   {item.isFollower && (
                     <span>
+                    <span>
                       {" "} - Follower
+                    </span>
+                    <span>
+                       <OnlineStatus2 userId={item.gud.uid} />
+                    </span>
                     </span>
                   )}
 
@@ -335,7 +340,7 @@ const email =
   {item.gud.email},{" "}
   
 
-  <OnlineStatus userId={item.gud.uid} displaName={item.gud.displayname} /> */}
+  <OnlineStatus2 userId={item.gud.uid} /> */}
 
   {/* {", "}
   {item.gud.theatname} */}

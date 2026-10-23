@@ -330,7 +330,7 @@ const UsersAndFollowingContainer = (props) => {
                       {" "} - Following 
                     </span>
                       <span>
-                        {/* <OnlineStatus2 userId={item.gud.uid} /> */}
+                        <OnlineStatus2 userId={item.gud.uid} />
                       </span>
                     </span>
                   )}

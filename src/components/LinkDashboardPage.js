@@ -45,88 +45,146 @@ const LinkDashboardPage = (props) => {
     return regex.test(navigator.userAgent);
   };
 
-  //  useEffect(() => {
+ useEffect(() => {
+  let connectedRef = null;
+  let userStatusRef = null;
 
-  //   const unsubscribe = firebase
-  //     .auth()
-  //     .onAuthStateChanged((user) => {
+  const unsubscribe = firebase
+    .auth()
+    .onAuthStateChanged((user) => {
+      console.log("AUTH CHANGED:", user);
 
-  //       if (!user) return;
-
-  //       const connectedRef = firebase
-  //         .database()
-  //         .ref(".info/connected");
-
-  //       const userStatusRef = firebase
-  //         .database()
-  //         .ref(`users/${user.uid}/online`);
-
-  //       connectedRef.on("value", (snapshot) => {
-
-  //         if (snapshot.val() === false) return;
-
-  //         userStatusRef
-  //           .onDisconnect()
-  //           .set(false)
-  //           .then(() => {
-  //             userStatusRef.set(true);
-  //           });
-
-  //       });
-
-  //     });
-
-  //   return () => {
-  //     unsubscribe();
-  //   };
-
-  // }, []);
-
-   useEffect(() => {
-
-    let connectedRef = null;
-    let userStatusRef = null;
-
-    const unsubscribe = firebase
-      .auth()
-      .onAuthStateChanged((user) => {
-
-        if (!user) return;
-
-        connectedRef = firebase
-          .database()
-          .ref(".info/connected");
-
-        userStatusRef = firebase
-          .database()
-          .ref(`users/${user.uid}/online`);
-
-        connectedRef.on("value", (snapshot) => {
-
-          if (snapshot.val() !== true) return;
-
-          userStatusRef
-            .onDisconnect()
-            .set(false)
-            .then(() => {
-              return userStatusRef.set(true);
-            });
-
-        });
-
-      });
-
-    return () => {
-
-      if (connectedRef) {
-        connectedRef.off();
+      if (!user) {
+        console.log("NO USER");
+        return;
       }
 
-      unsubscribe();
+      console.log("USER UID:", user.uid);
 
-    };
+      connectedRef = firebase
+        .database()
+        .ref(".info/connected");
 
-  }, []);
+      userStatusRef = firebase
+        .database()
+        .ref(`users/${user.uid}/online`);
+
+      connectedRef.on("value", async (snapshot) => {
+        console.log(
+          ".info/connected =",
+          snapshot.val()
+        );
+
+        if (snapshot.val() !== true) {
+          return;
+        }
+
+        try {
+          console.log(
+            "REGISTERING onDisconnect"
+          );
+
+          await userStatusRef
+            .onDisconnect()
+            .set(false);
+
+          console.log(
+            "onDisconnect REGISTERED"
+          );
+
+          await userStatusRef.set(true);
+
+          console.log(
+            "ONLINE SET TRUE"
+          );
+
+        } catch (error) {
+          console.error(
+            "ONLINE STATUS ERROR:",
+            error
+          );
+        }
+      });
+    });
+
+  return () => {
+    console.log(
+      "ONLINE useEffect cleanup"
+    );
+
+    if (connectedRef) {
+      connectedRef.off();
+    }
+
+    unsubscribe();
+  };
+}, []);
+
+
+//   useEffect(() => {
+//   let connectedRef = null;
+//   let userStatusRef = null;
+//   let previousUser = null;
+
+//   const unsubscribe = firebase
+//     .auth()
+//     .onAuthStateChanged(async (user) => {
+//       console.log("managing online");
+
+//       /*
+//        * User logged out.
+//        */
+//       if (!user) {
+//         if (userStatusRef) {
+//           try {
+//             await userStatusRef.set(false);
+//             console.log("online set to false");
+//           } catch (error) {
+//             console.log("error setting offline:", error);
+//           }
+//         }
+
+//         return;
+//       }
+
+//       previousUser = user;
+
+//       connectedRef = firebase
+//         .database()
+//         .ref(".info/connected");
+
+//       userStatusRef = firebase
+//         .database()
+//         .ref(`users/${user.uid}/online`);
+
+//       connectedRef.on("value", (snapshot) => {
+//         if (snapshot.val() !== true) return;
+
+//         userStatusRef
+//           .onDisconnect()
+//           .set(false)
+//           .then(() => {
+//             return userStatusRef.set(true);
+//           })
+//           .then(() => {
+//             console.log("online set to true");
+//           })
+//           .catch((error) => {
+//             console.log("online error:", error);
+//           });
+//       });
+//     });
+
+//   return () => {
+//     if (connectedRef) {
+//       connectedRef.off();
+//     }
+
+//     unsubscribe();
+//   };
+// }, []);
+
+   
 
 
   useEffect(() => {

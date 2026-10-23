@@ -4,7 +4,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import OnlineStatus from "./OnlineStatus";
+import OnlineStatus2 from "./OnlineStatus2";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
@@ -326,7 +326,12 @@ const UsersAndFollowingContainer = (props) => {
 
                   {item.isFollowing && (
                     <span>
-                      {" "} - Following
+                    <span>
+                      {" "} - Following 
+                    </span>
+                      <span>
+                        {/* <OnlineStatus2 userId={item.gud.uid} /> */}
+                      </span>
                     </span>
                   )}
 

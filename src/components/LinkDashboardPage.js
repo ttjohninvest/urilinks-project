@@ -45,7 +45,47 @@ const LinkDashboardPage = (props) => {
     return regex.test(navigator.userAgent);
   };
 
+  //  useEffect(() => {
+
+  //   const unsubscribe = firebase
+  //     .auth()
+  //     .onAuthStateChanged((user) => {
+
+  //       if (!user) return;
+
+  //       const connectedRef = firebase
+  //         .database()
+  //         .ref(".info/connected");
+
+  //       const userStatusRef = firebase
+  //         .database()
+  //         .ref(`users/${user.uid}/online`);
+
+  //       connectedRef.on("value", (snapshot) => {
+
+  //         if (snapshot.val() === false) return;
+
+  //         userStatusRef
+  //           .onDisconnect()
+  //           .set(false)
+  //           .then(() => {
+  //             userStatusRef.set(true);
+  //           });
+
+  //       });
+
+  //     });
+
+  //   return () => {
+  //     unsubscribe();
+  //   };
+
+  // }, []);
+
    useEffect(() => {
+
+    let connectedRef = null;
+    let userStatusRef = null;
 
     const unsubscribe = firebase
       .auth()
@@ -53,23 +93,23 @@ const LinkDashboardPage = (props) => {
 
         if (!user) return;
 
-        const connectedRef = firebase
+        connectedRef = firebase
           .database()
           .ref(".info/connected");
 
-        const userStatusRef = firebase
+        userStatusRef = firebase
           .database()
           .ref(`users/${user.uid}/online`);
 
         connectedRef.on("value", (snapshot) => {
 
-          if (snapshot.val() === false) return;
+          if (snapshot.val() !== true) return;
 
           userStatusRef
             .onDisconnect()
             .set(false)
             .then(() => {
-              userStatusRef.set(true);
+              return userStatusRef.set(true);
             });
 
         });
@@ -77,10 +117,17 @@ const LinkDashboardPage = (props) => {
       });
 
     return () => {
+
+      if (connectedRef) {
+        connectedRef.off();
+      }
+
       unsubscribe();
+
     };
 
   }, []);
+
 
   useEffect(() => {
     console.log("LinkDashboardPage.js, UseEffect, following="+JSON.stringify(props.following))

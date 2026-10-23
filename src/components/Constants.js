@@ -8,5 +8,5 @@ const Constants = {
   DOGS:true
 
 };
-Object.freeze(Constants); // Prevents accidental modification of values 
+Object.freeze(Constants); // Prevents accidental modification of values// 
 export default Constants;

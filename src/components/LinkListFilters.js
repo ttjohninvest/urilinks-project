@@ -1,7 +1,7 @@
 const DISPLAY_THIS_MANY_LINKS = 100;
 import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
-import OnlineStatus from "./OnlineStatus"
+import OnlineStatus from "./OnlineStatus";
 import ErrorBoundry from "./ErrorBoundry";
 import { useSelector } from "react-redux";
 const getSearchTerm = require("./getSearchTerm");
@@ -49,9 +49,9 @@ import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
-import FollowersContainer from "./FollowersContainer"
-import UsersAndFollowersContainer from "./UsersAndFollowersContainer"
-import UsersAndFollowingContainer from "./UsersAndFollowingContainer"
+import FollowersContainer from "./FollowersContainer";
+import UsersAndFollowersContainer from "./UsersAndFollowersContainer";
+import UsersAndFollowingContainer from "./UsersAndFollowingContainer";
 
 import {
   setTextFilter,
@@ -97,7 +97,7 @@ function ExpandableArray(props) {
   const [sortBy, setSortBy] = useState("description");
   const [isForm2Open, setIsForm2Open] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [openHt,setOpenHt] = useState(false)
+  const [openHt, setOpenHt] = useState(false);
 
   const [isForm3Open, setIsForm3Open] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
@@ -163,7 +163,7 @@ function ExpandableArray(props) {
 
   const signup = params.get("signup");
   const rt = params.get("x");
-  const readonly = (rt === "readonly") ? true : false;
+  const readonly = rt === "readonly" ? true : false;
   const id2 = params.get("id2");
   const id = params.get("id");
 
@@ -176,9 +176,9 @@ function ExpandableArray(props) {
   const z = params.get("z");
   const z2 = params.get("z2");
   const thelink = params.get("link");
-  const product = params.get("product")
-  console.log("LinkListFilters.js, product="+product)
-  const theSortBy2 = params.get("theSortBy")
+  const product = params.get("product");
+  console.log("LinkListFilters.js, product=" + product);
+  const theSortBy2 = params.get("theSortBy");
   const linkid = params.get("p");
   //console.log("linkid="+linkid)
   const childRef = useRef(null);
@@ -457,16 +457,15 @@ function ExpandableArray(props) {
     //if (!!event === true) event.preventDefault();
     console.log("setIt2, 3333333333333333333333333 link=" + link);
     console.log("setIt2, 3333333333333333333333333 product=" + product);
-    
 
-    window.document.getElementById("termid").value = product
+    window.document.getElementById("termid").value = product;
     setSearchText(product);
-    setMode("productsalpha")
+    setMode("productsalpha");
     setDosearch(1);
     // this.props.sortByDescription();
     props.setTextFilter(product);
     //this.props.sortByDescription();
-    props.sortByProductsAlpha()
+    props.sortByProductsAlpha();
     //setSortBy("productsalpha")
     //window.localStorage.setItem("sortBy", "hashtag");
     window.localStorage.setItem("sortBy", "productsalpha");
@@ -501,9 +500,9 @@ function ExpandableArray(props) {
     if (id !== null && id !== undefined) {
       if (thelink !== null && thelink !== undefined)
         //props.setit(thelink, undefined);
-        setSearchText(product)
-        //props.setit2(thelink, product);
-        setit2(thelink, product);
+        setSearchText(product);
+      //props.setit2(thelink, product);
+      setit2(thelink, product);
     }
 
     if (id !== null) setIdexists(1);
@@ -891,268 +890,158 @@ function ExpandableArray(props) {
     }
   };
 
-//   const search = (z) => {
-//     //handleCancelScroll();
-//     console.log("1search");
+  //   const search = (z) => {
+  //     //handleCancelScroll();
+  //     console.log("1search");
 
+  //     props.stopScrolling2();
 
+  //     //const selectElement = document.getElementById("mode");
 
+  // // const selectElement =
+  // //   document.getElementById("mode");
 
+  // let term
 
+  // console.log("SEARCH STARTED");
 
+  // const selectElement =
+  //   document.getElementById("mode");
 
+  // console.log(
+  //   "mode before search =",
+  //   selectElement
+  //     ? selectElement.value
+  //     : "missing"
+  // );
 
+  // term =
+  //   window.document
+  //     .getElementById("termid")
+  //     .value
+  //     .trim();
 
+  // console.log("search term =", term);
+  // console.log(
+  //   "Redux sortBy =",
+  //   props.filters.sortBy
+  // );
 
-//     props.stopScrolling2();
+  //     const selectedValue = selectElement.value;
+  //     console.log("selectElement.value=" + selectElement.value);
+  //     selectElement.value = "hashtag";
+  //     selectElement.dispatchEvent(new Event("change", { bubbles: true }));
+  //     selectElement.value = selectedValue;
+  //     selectElement.dispatchEvent(new Event("change", { bubbles: true }));
+  //     window.localStorage.setItem("sortBy", selectedValue);
 
-//     //const selectElement = document.getElementById("mode");
+  //     term = window.document.getElementById("termid").value.trim();
 
-// // const selectElement =
-// //   document.getElementById("mode");
+  //     window.localStorage.setItem("termid", term);
 
+  //     //alert(isinfinitescroll.isinfinitescroll)
+  //     if (props.isinfinitescroll.isinfinitescroll === true) {
+  //       // window.localStorage.setItem("sortBy", "description")
 
-// let term
+  //       //alert(term)
+  //       setSearchText(term);
+  //       setMode(selectedValue);
+  //       setDosearch(1);
+  //     } else {
+  //       props.setTextFilter(term);
 
-// console.log("SEARCH STARTED");
+  //       if (
+  //         selectedValue === "hashtag" &&
+  //         // && sortBy === "hashtag"
+  //         props.filters.sortBy === "hashtag"
+  //       ) {
+  //         if (term === "") {
+  //           window.document.getElementById("termid").value = "#";
+  //           window.localStorage.setItem("termid", "#");
+  //           props.setTextFilter("#");
+  //         } else {
+  //           window.localStorage.setItem("termid", term);
+  //           props.setTextFilter(term);
+  //         }
 
-// const selectElement =
-//   document.getElementById("mode");
+  //         //buttonRef.current.click();
+  //         handleClose3();
+  //         !!document.querySelector("#before-before-link-summary-id") &&
+  //           document
+  //             .querySelector("#before-before-link-summary-id")
+  //             .scrollIntoView({
+  //               behavior: "smooth",
+  //             });
+  //       }
+  //     }
+  //   };
 
-// console.log(
-//   "mode before search =",
-//   selectElement
-//     ? selectElement.value
-//     : "missing"
-// );
+  const search = (z) => {
+    console.log("1search");
 
-// term =
-//   window.document
-//     .getElementById("termid")
-//     .value
-//     .trim();
+    props.stopScrolling2();
 
-// console.log("search term =", term);
-// console.log(
-//   "Redux sortBy =",
-//   props.filters.sortBy
-// );
+    const selectElement = document.getElementById("mode");
 
+    const selectedValue = selectElement.value;
 
+    console.log("selectElement.value=" + selectElement.value);
 
+    selectElement.value = "hashtag";
 
-
-//     const selectedValue = selectElement.value;
-//     console.log("selectElement.value=" + selectElement.value);
-//     selectElement.value = "hashtag";
-//     selectElement.dispatchEvent(new Event("change", { bubbles: true }));
-//     selectElement.value = selectedValue;
-//     selectElement.dispatchEvent(new Event("change", { bubbles: true }));
-//     window.localStorage.setItem("sortBy", selectedValue);
-
-//     term = window.document.getElementById("termid").value.trim();
-
-//     window.localStorage.setItem("termid", term);
-
-//     //alert(isinfinitescroll.isinfinitescroll)
-//     if (props.isinfinitescroll.isinfinitescroll === true) {
-//       // window.localStorage.setItem("sortBy", "description")
-
-//       //alert(term)
-//       setSearchText(term);
-//       setMode(selectedValue);
-//       setDosearch(1);
-//     } else {
-//       props.setTextFilter(term);
-
-//       if (
-//         selectedValue === "hashtag" &&
-//         // && sortBy === "hashtag"
-//         props.filters.sortBy === "hashtag"
-//       ) {
-//         if (term === "") {
-//           window.document.getElementById("termid").value = "#";
-//           window.localStorage.setItem("termid", "#");
-//           props.setTextFilter("#");
-//         } else {
-//           window.localStorage.setItem("termid", term);
-//           props.setTextFilter(term);
-//         }
-
-//         //buttonRef.current.click();
-//         handleClose3();
-//         !!document.querySelector("#before-before-link-summary-id") &&
-//           document
-//             .querySelector("#before-before-link-summary-id")
-//             .scrollIntoView({
-//               behavior: "smooth",
-//             });
-//       }
-//     }
-//   };
-
-const search = (z) => {
-
-  console.log("1search");
-
-  props.stopScrolling2();
-
-
-  const selectElement =
-    document.getElementById(
-      "mode"
-    );
-
-
-  const selectedValue =
-    selectElement.value;
-
-
-  console.log(
-    "selectElement.value=" +
-      selectElement.value
-  );
-
-
-  selectElement.value =
-    "hashtag";
-
-
-  selectElement.dispatchEvent(
-    new Event(
-      "change",
-      {
+    selectElement.dispatchEvent(
+      new Event("change", {
         bubbles: true,
-      }
-    )
-  );
+      }),
+    );
 
+    selectElement.value = selectedValue;
 
-  selectElement.value =
-    selectedValue;
-
-
-  selectElement.dispatchEvent(
-    new Event(
-      "change",
-      {
+    selectElement.dispatchEvent(
+      new Event("change", {
         bubbles: true,
+      }),
+    );
+
+    window.localStorage.setItem("sortBy", selectedValue);
+
+    let term = window.document.getElementById("termid").value.trim();
+
+    window.localStorage.setItem("termid", term);
+
+    if (props.isinfinitescroll.isinfinitescroll === true) {
+      setSearchText(term);
+
+      setMode(selectedValue);
+
+      setDosearch(1);
+    } else {
+      props.setTextFilter(term);
+
+      if (selectedValue === "hashtag" && props.filters.sortBy === "hashtag") {
+        if (term === "") {
+          window.document.getElementById("termid").value = "#";
+
+          window.localStorage.setItem("termid", "#");
+
+          props.setTextFilter("#");
+        } else {
+          window.localStorage.setItem("termid", term);
+
+          props.setTextFilter(term);
+        }
+
+        handleClose3();
+
+        !!document.querySelector("#before-before-link-summary-id") &&
+          document
+            .querySelector("#before-before-link-summary-id")
+            .scrollIntoView({
+              behavior: "smooth",
+            });
       }
-    )
-  );
-
-
-  window.localStorage.setItem(
-    "sortBy",
-    selectedValue
-  );
-
-
-  let term =
-    window.document
-      .getElementById(
-        "termid"
-      )
-      .value
-      .trim();
-
-
-  window.localStorage.setItem(
-    "termid",
-    term
-  );
-
-
-  if (
-    props.isinfinitescroll
-      .isinfinitescroll ===
-    true
-  ) {
-
-    setSearchText(
-      term
-    );
-
-
-    setMode(
-      selectedValue
-    );
-
-
-    setDosearch(
-      1
-    );
-
-  } else {
-
-    props.setTextFilter(
-      term
-    );
-
-
-    if (
-      selectedValue ===
-        "hashtag" &&
-      props.filters.sortBy ===
-        "hashtag"
-    ) {
-
-      if (
-        term === ""
-      ) {
-
-        window.document
-          .getElementById(
-            "termid"
-          )
-          .value = "#";
-
-
-        window.localStorage.setItem(
-          "termid",
-          "#"
-        );
-
-
-        props.setTextFilter(
-          "#"
-        );
-
-      } else {
-
-        window.localStorage.setItem(
-          "termid",
-          term
-        );
-
-
-        props.setTextFilter(
-          term
-        );
-
-      }
-
-
-      handleClose3();
-
-
-      !!document.querySelector(
-        "#before-before-link-summary-id"
-      ) &&
-        document
-          .querySelector(
-            "#before-before-link-summary-id"
-          )
-          .scrollIntoView({
-            behavior:
-              "smooth",
-          });
-
     }
-
-  }
-
-};
+  };
 
   useEffect(() => {
     //loadLinks(true);
@@ -1174,18 +1063,16 @@ const search = (z) => {
           });
   };
 
-
-   const onSortChange2 = (searchTerm) => {
+  const onSortChange2 = (searchTerm) => {
     props.stopScrolling2();
-   
-      window.localStorage.setItem("sortBy", "hashtag");
-      props.setTextFilter(searchTerm);
-      if (myRef.current) myRef.current.focus();
-      // setSortBy("hashtag");
-      props.sortByHashTag();
-      setSortBy("hashtag");
-    
-    
+
+    window.localStorage.setItem("sortBy", "hashtag");
+    props.setTextFilter(searchTerm);
+    if (myRef.current) myRef.current.focus();
+    // setSortBy("hashtag");
+    props.sortByHashTag();
+    setSortBy("hashtag");
+
     handleClose3();
     !!document.querySelector("#before-before-link-summary-id") &&
       document.querySelector("#before-before-link-summary-id").scrollIntoView({
@@ -1353,7 +1240,7 @@ const search = (z) => {
 
   const handleClose = (x) => {
     //setIsFormOpen(false);
-    setOpenHt(false)
+    setOpenHt(false);
   };
 
   const handleClick = (event) => {
@@ -1778,11 +1665,10 @@ const search = (z) => {
       email +
       "&z12=" +
       z12 +
-      "&isFollowing=" + 
+      "&isFollowing=" +
       isMatch +
-       "&isFollower=" + 
+      "&isFollower=" +
       "";
-     
 
     // window.open(
     //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
@@ -1848,7 +1734,7 @@ const search = (z) => {
         z12 +
         "&isFollowing=" +
         isMatch +
-        "&isFollower=" + 
+        "&isFollower=" +
         "" +
         "&newlinks=" +
         newlinks,
@@ -1856,8 +1742,7 @@ const search = (z) => {
     );
   };
 
-
- const handleClick2 = (v, event) => {
+  const handleClick2 = (v, event) => {
     if (v === 1) {
       const clickedElement = event.target;
 
@@ -1899,7 +1784,6 @@ const search = (z) => {
       //     array3[6],
 
       if (array3[0]) {
-
         otherPage(
           array3[0],
           array3[1],
@@ -1910,19 +1794,12 @@ const search = (z) => {
           encrypt(array3[6], "125434"),
           array3[7],
         );
-
       }
     } else {
     }
   };
 
-
-
-
-
-
-
-const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
+  const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch, isMatch2) => {
     console.log("otherPage(), id2=" + id2);
     console.log("otherPage(), id=" + id);
     console.log("otherPage(), dn2=" + dn2);
@@ -1949,11 +1826,10 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
       email +
       "&z12=" +
       z12 +
-      "&isFollower=" + 
+      "&isFollower=" +
       isMatch +
-       "&isFollowing=" + 
-      "";
-     
+      "&isFollowing=" +
+      isMatch2;
 
     // window.open(
     //   //"https://urilinks.com/dashboard?signup=0&x=readonly&id2=" +
@@ -2019,7 +1895,7 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
         z12 +
         "&isFollower=" +
         isMatch +
-       "&isFollowing=" + 
+        "&isFollowing=" +
         "" +
         "&newlinks=" +
         newlinks,
@@ -2027,13 +1903,6 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
     );
   };
 
-
-
-
-
- 
-
-   
   const handleClick3 = (v, event) => {
     if (v === 1) {
       const clickedElement = event.target;
@@ -2085,15 +1954,20 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
           encrypt(array3[5], "125434"),
           encrypt(array3[6], "125434"),
           array3[7],
+          array3[8]
         );
       }
     } else {
     }
   };
 
-
-  console.log("abc LinkListFilters.js, before call to <LinkList3, theSortBy="+mode)
-  console.log("abc LinkListFilters.js, before call to <LinkList3, searchText="+searchText)
+  console.log(
+    "abc LinkListFilters.js, before call to <LinkList3, theSortBy=" + mode,
+  );
+  console.log(
+    "abc LinkListFilters.js, before call to <LinkList3, searchText=" +
+      searchText,
+  );
 
   return (
     <div className="flexrowh-">
@@ -2109,7 +1983,7 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                 title="Welcome to entertainment console; Internet Links Organizer Dashboard's Home Page (Helping Homeless Families). Please press friendly login to sign up."
               >
                 Internet Links Organizer, Viewer and Sharer
-              </div>      
+              </div>
             </div>
           </div>
           {props.isinfinitescroll.isinfinitescroll === false && (
@@ -2152,187 +2026,194 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
 
         <div className="flexrowtt0">
           <div>
-            
             {/* 1st column 1 column */}
-            {openHt===true?
-      <div
-        id="ls"
-    className={`${
-      isMobile() === true
-        ? "width30menupane"
-        : "width30menupane2"
-    } scrollable-div1`}
-      style={{
-    marginLeft: "0",
-    paddingLeft: "0",
-  }}
-      >
-          <SeeHashTagsPage
-            elementRef2={elementRef2}
-            changeSortBy={changeSortBy}
-            handleClose3={handleClose}
-            search={search}
-          />
-        </div>
-            
-            :
-            <div
-              id="ls"
-              className={`${isMobile() === true ? "width30menupane" : "width30menupane2"} scrollable-div1`}
-              //onClick={()=>stopScrolling()}
-            >
-              {props.isinfinitescroll.isinfinitescroll === false ? (
-                <div className={`border-right-5`}>
-                  <div
-                    ref={props.ref1}
-                    className={`${""} ${props.signup === false ? "bg-white-1" : "bg-gray-1"} borderradius5`}
-                    title={
-                      props.signup === true
-                        ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
-                        : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
-                    }
-                  >
-                    <div>
-                      {props.mappedDataShort.map((s, index, arr) => {
-                        //have 3 map calls and display the first column then the second column and then the thrid column
-                        //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
-                        if (
-                          //(rt === "readonly")  &&
-                          s.showpublic === 0
-                          //|| s.archive === 1
-                        )
-                          return null;
-                        else
-                          return (
-                            <div key={index} className={``}>
-                              {!!s.description2 === false ? null : (
-                                <div className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z">
-                                  <a
-                                    className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
+            {openHt === true ? (
+              <div
+                id="ls"
+                className={`${
+                  isMobile() === true ? "width30menupane" : "width30menupane2"
+                } scrollable-div1`}
+                style={{
+                  marginLeft: "0",
+                  paddingLeft: "0",
+                }}
+              >
+                <SeeHashTagsPage
+                  elementRef2={elementRef2}
+                  changeSortBy={changeSortBy}
+                  handleClose3={handleClose}
+                  search={search}
+                />
+              </div>
+            ) : (
+              <div
+                id="ls"
+                className={`${isMobile() === true ? "width30menupane" : "width30menupane2"} scrollable-div1`}
+                //onClick={()=>stopScrolling()}
+              >
+                {props.isinfinitescroll.isinfinitescroll === false ? (
+                  <div className={`border-right-5`}>
+                    <div
+                      ref={props.ref1}
+                      className={`${""} ${props.signup === false ? "bg-white-1" : "bg-gray-1"} borderradius5`}
+                      title={
+                        props.signup === true
+                          ? "The buttons are disabled because the List All Public Links button is activated. These hastag buttons only work with your list of links"
+                          : "The buttons are disabled because the List All Public Links button is activated or the People button is activated."
+                      }
+                    >
+                      <div>
+                        {props.mappedDataShort.map((s, index, arr) => {
+                          //have 3 map calls and display the first column then the second column and then the thrid column
+                          //if (rt === "readonly" && s.showpublic === 0) return (<div></div>)
+                          if (
+                            //(rt === "readonly")  &&
+                            s.showpublic === 0
+                            //|| s.archive === 1
+                          )
+                            return null;
+                          else
+                            return (
+                              <div key={index} className={``}>
+                                {!!s.description2 === false ? null : (
+                                  <div className="text-size-5 border-bottom-5z border-left-5 padding-bottom-5z">
+                                    <a
+                                      className={`${activeItem === index ? "the-menu-item active" : "the-menu-item"} 
                                 ib margin-top-1 ${
                                   props.b == 1
                                     ? "pointereventsauto underline"
                                     : "pointereventsnone"
                                 }`}
-                                    style={{ whiteSpace: "pre-wrap" }}
-                                    href="#"
-                                    onClick={() =>
-                                      setItNow(index, s.description, event)
-                                    }
-                                    title={`click to see results`}
-                                  >
-                                    <span>{s.description2}</span>
-                                  </a>
-                                  <br />
+                                      style={{ whiteSpace: "pre-wrap" }}
+                                      href="#"
+                                      onClick={() =>
+                                        setItNow(index, s.description, event)
+                                      }
+                                      title={`click to see results`}
+                                    >
+                                      <span>{s.description2}</span>
+                                    </a>
+                                    <br />
 
-                                  <span
-                                    className="ib margin-left-11z"
-                                    style={{
-                                      color: "black",
-                                      fontSize: ".9rem",
-                                      textDecoration: "none",
-                                      fontWeight: "normal",
-                                      pointerEvents: "none",
-                                      whiteSpace: "pre-wrap",
-                                    }}
-                                  >
-                                    {s.matchesstring}
-                                  </span>
-                                </div>
-                              )}
-                            </div>
-                          );
-                      })}
+                                    <span
+                                      className="ib margin-left-11z"
+                                      style={{
+                                        color: "black",
+                                        fontSize: ".9rem",
+                                        textDecoration: "none",
+                                        fontWeight: "normal",
+                                        pointerEvents: "none",
+                                        whiteSpace: "pre-wrap",
+                                      }}
+                                    >
+                                      {s.matchesstring}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            );
+                        })}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ) : (<div>
-               { rt !== "readonly" && <UsersAndFollowingContainer following={props.following} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} />}
+                ) : (
+                  <div>
+                    {rt !== "readonly" && (
+                      <UsersAndFollowingContainer
+                        following={props.following}
+                        rt={rt}
+                        theuser={theuser}
+                        uid={props.uid}
+                        handleClick2={handleClick2}
+                        signup={props.signup}
+                      />
+                    )}
+                  </div>
+                  // <div>
+                  //   {rt !== "readonly" &&<div
+                  //     className="padding-tb"
+                  //     title="The number of people that you are following."
+                  //   >
+                  //     Following: ({lengthOf})
+                  //   </div>}
+                  //   <div
+                  //     className="liststylenone cursor-pointer interline"
+                  //     //onClick={(event) => handleClick2(2,event)}
+                  //   >
+                  //     {uniqueData.map((item, index) => {
+                  //       if (props.uid !== item.gud.uid) {
+                  //         // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
+                  //         return (
+                  //           <div
+                  //             onClick={(event) => handleClick2(2, event)}
+                  //             className={`${
+                  //               //props.whichone === 2
+                  //               true && item.isMatch === "is following "
+                  //                 ? "bg-color-1 color-white-1"
+                  //                 : "bg-color-1w color-black-3"
+                  //             }
+                  //          flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
+                  //             key={index}
+                  //             data-item-id={
+                  //               props.uid +
+                  //               ";" +
+                  //               item.gud.uid +
+                  //               ";" +
+                  //               (theuser ? theuser.displayName : "name") +
+                  //               ";" +
+                  //               item.gud.displayname +
+                  //               ";" +
+                  //               item.gud.photourl +
+                  //               ";" +
+                  //               item.gud.email +
+                  //               ";" +
+                  //               (theuser ? theuser.email : "ph@ph.com") +
+                  //               ";" +
+                  //               item.isMatch
+                  //             }
+                  //           >
+                  //             <img
+                  //               src={item.gud.photourl}
+                  //               width="42"
+                  //               height="42"
+                  //               className="borderRadius50- circular-img-"
+                  //               style={{ borderRadius: "50%" }}
+                  //               onLoad={() => {
+                  //                 console.log("IMAGE LOADED:", item.gud.photourl);
+                  //               }}
+                  //               onError={(e) => {
+                  //                 e.currentTarget.onerror = null;
+                  //                 e.currentTarget.src = "/default-profile.png";
+                  //               }}
+                  //             />
+                  //             <span className="margin-left-11">
+                  //               {/* {item.gud.photourl} */}
+                  //               {item.gud.displayname}
+                  //             </span>
+                  //             {/* {
+                  //               "e@e.com"+
+                  //               " " +
+                  //               item.isMatch +
+                  //               " " +
+                  //               item.gud.email +
+                  //               ", " +
+                  //               item.gud.displayname +
+                  //               ", " +
+                  //               item.gud.theatname +
+                  //               ", " +
+                  //               item.gud.photourl
+                  //               } */}
+                  //           </div>
+                  //         );
+                  //       } else {
+                  //         return null;
+                  //       }
+                  //     })}
+                  //   </div>
+                  // </div>
+                )}
               </div>
-                // <div>
-                //   {rt !== "readonly" &&<div
-                //     className="padding-tb"
-                //     title="The number of people that you are following."
-                //   >
-                //     Following: ({lengthOf})
-                //   </div>}
-                //   <div
-                //     className="liststylenone cursor-pointer interline"
-                //     //onClick={(event) => handleClick2(2,event)}
-                //   >
-                //     {uniqueData.map((item, index) => {
-                //       if (props.uid !== item.gud.uid) {
-                //         // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
-                //         return (
-                //           <div
-                //             onClick={(event) => handleClick2(2, event)}
-                //             className={`${
-                //               //props.whichone === 2
-                //               true && item.isMatch === "is following "
-                //                 ? "bg-color-1 color-white-1"
-                //                 : "bg-color-1w color-black-3"
-                //             }
-                //          flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
-                //             key={index}
-                //             data-item-id={
-                //               props.uid +
-                //               ";" +
-                //               item.gud.uid +
-                //               ";" +
-                //               (theuser ? theuser.displayName : "name") +
-                //               ";" +
-                //               item.gud.displayname +
-                //               ";" +
-                //               item.gud.photourl +
-                //               ";" +
-                //               item.gud.email +
-                //               ";" +
-                //               (theuser ? theuser.email : "ph@ph.com") +
-                //               ";" +
-                //               item.isMatch
-                //             }
-                //           >
-                //             <img
-                //               src={item.gud.photourl}
-                //               width="42"
-                //               height="42"
-                //               className="borderRadius50- circular-img-"
-                //               style={{ borderRadius: "50%" }}
-                //               onLoad={() => {
-                //                 console.log("IMAGE LOADED:", item.gud.photourl);
-                //               }}
-                //               onError={(e) => {
-                //                 e.currentTarget.onerror = null;
-                //                 e.currentTarget.src = "/default-profile.png";
-                //               }}
-                //             />
-                //             <span className="margin-left-11">
-                //               {/* {item.gud.photourl} */}
-                //               {item.gud.displayname}
-                //             </span>
-                //             {/* {
-                //               "e@e.com"+
-                //               " " +
-                //               item.isMatch +
-                //               " " +
-                //               item.gud.email +
-                //               ", " +
-                //               item.gud.displayname +
-                //               ", " +
-                //               item.gud.theatname +
-                //               ", " +
-                //               item.gud.photourl
-                //               } */}
-                //           </div>
-                //         );
-                //       } else {
-                //         return null;
-                //       }
-                //     })}
-                //   </div>
-                // </div>
-              )}
-            </div>}
+            )}
           </div>
 
           {/* 2nd column 2 column */}
@@ -2369,7 +2250,7 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                                     textDecoration: "none",
                                     color: "black",
                                     paddingTop: "0.5rem",
-                                    paddingBottom: "0.5rem"
+                                    paddingBottom: "0.5rem",
                                   }}
                                 >
                                   {` ${baseUrl}+"/dashboard?signup=0&x=readonly&id=`}
@@ -2406,7 +2287,7 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                                     textDecoration: "none",
                                     color: "black",
                                     paddingTop: "0.5rem",
-                                    paddingBottom: "0.5rem"
+                                    paddingBottom: "0.5rem",
                                   }}
                                 >
                                   {` ${baseUrl}/dashboard?signup=0&x=readonly&id=`}
@@ -2549,9 +2430,8 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                     <span>
                       <div className="margin-bottom-123">
                         {readonly === false && (
-                        
                           <div className="flexrow2cv2">
-                              <div className="flexrowz border-blue- margin-top-50x padding-bottom-4x">
+                            <div className="flexrowz border-blue- margin-top-50x padding-bottom-4x">
                               <div>
                                 <span
                                   //href="#"
@@ -2562,7 +2442,7 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                                     textDecoration: "none",
                                     color: "black",
                                     paddingTop: "0.15rem",
-                                    paddingBottom: "0.15rem"
+                                    paddingBottom: "0.15rem",
                                     //paddingTop: "0.5rem",
                                     //paddingBottom: "0.5rem"
                                   }}
@@ -2572,9 +2452,8 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                                 </span>
                               </div>
                               <div>
-                               
                                 <div className="flexrowz">
-                                   <CopyButton3
+                                  <CopyButton3
                                     readonly={readonly}
                                     accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
                                     textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
@@ -2659,31 +2538,30 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                           <div className="flexrow2cv2">
                             <div className="text-size-1- margin-bottom-1-">
                               <div className="flexrowz border-blue- margin-top-50x">
-                              <div>
-                                <span
-                                  //href="#"
-                                  ref={textAreaRef}
-                                  className="width295 ib overflowxhidden margin-topx- borderWidth2- nounderline pointereventsnone borderLightOrange borderradius55 no-wrap2"
-                                  title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
-                                 style={{
-                                    textDecoration: "none",
-                                    color: "black",
-                                    paddingTop: "0.5rem",
-                                    paddingBottom: "0.5rem"
-                                  }}
-                                >
-                                  {` ${baseUrl}/dashboard?signup=0&x=readonly&id=`}
-                                  {props.uid}
-                                </span>
-                              </div>
-                               <CopyButton3
-                                    readonly={readonly}
-                                    accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
-                                    textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
-                                  />
+                                <div>
+                                  <span
+                                    //href="#"
+                                    ref={textAreaRef}
+                                    className="width295 ib overflowxhidden margin-topx- borderWidth2- nounderline pointereventsnone borderLightOrange borderradius55 no-wrap2"
+                                    title="For another person to see your content, share anywhere a sharable link is accepted like instagram profile, youtube comment, facebook or email"
+                                    style={{
+                                      textDecoration: "none",
+                                      color: "black",
+                                      paddingTop: "0.5rem",
+                                      paddingBottom: "0.5rem",
+                                    }}
+                                  >
+                                    {` ${baseUrl}/dashboard?signup=0&x=readonly&id=`}
+                                    {props.uid}
+                                  </span>
+                                </div>
+                                <CopyButton3
+                                  readonly={readonly}
+                                  accountpagename={`${props.signup === true ? firebase.auth().currentUser.displayName : "John"}`}
+                                  textToCopy={`${baseUrl}/dashboard?signup=0&x=readonly&id=${props.uid}`}
+                                />
                               </div>
                               <div className="flexrowz">
-                               
                                 {/*1 because displaying following in the first column commented this out*/}
                                 {/* <OthersButton
                                   whichone={2}
@@ -2927,7 +2805,10 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                       <select
                         id="mode"
                         className="select outline-none borderRadius55"
-                        style={{paddingTop:"0.5rem",paddingBottom:"0.5rem"}}
+                        style={{
+                          paddingTop: "0.5rem",
+                          paddingBottom: "0.5rem",
+                        }}
                         //value={this.state.sortBy}
                         value={sortBy}
                         //value={this.props.filters.sortBy}
@@ -3020,7 +2901,9 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                   </div>
                 ) : (
                   <div>
-                    <div className={`flexrowzv margin-bottom-1- ${rt === "readonly"?"margin-top-145":""}`}>
+                    <div
+                      className={`flexrowzv margin-bottom-1- ${rt === "readonly" ? "margin-top-145" : ""}`}
+                    >
                       <div className="">
                         <input
                           title="Please type or paste in what you want to find. You may enter it full or partially like this Elep for Elephant and it will find everything that starts with Elep."
@@ -3059,7 +2942,7 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                         <HashTagsButton
                           changeSortBy={changeSortBy}
                           // onSortChange2 = {onSortChange2}
-                          search = {search}
+                          search={search}
                           setSortBy={setSortBy}
                           setOpenHt={setOpenHt}
                         />
@@ -3069,7 +2952,10 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                       <select
                         id="mode"
                         className="select outline-none borderRadius55"
-                        style={{paddingTop:"0.5rem", paddingBottom:"0.5rem"}}
+                        style={{
+                          paddingTop: "0.5rem",
+                          paddingBottom: "0.5rem",
+                        }}
                         ////value={this.state.sortBy}
                         value={sortBy}
                         //value={this.props.filters.sortBy}
@@ -3146,13 +3032,13 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                       {z10 !== null && (
                         <div className="flexrowz">
                           {/* {!!isFollower !== true &&  <FollowButton />} */}
-                          {!!isFollowing === true &&
-                          isFollowing !== "is following" ? (
+                          {((!!isFollowing === true &&
+                          isFollowing === "is not following")) ? ( //was isFollowing !== "is following" 
                             <div className="flexrowz">
                               <FollowButton displayName={dn} />
                             </div>
-                          ) : !!isFollowing === true &&
-                            isFollowing === "is following" ? (
+                          ) : ((!!isFollowing === true &&
+                            isFollowing === "is following")) ? (
                             <div className="flexrowz">
                               <UnFollowButton displayName={dn} />
                               {/* <ChatButton id2={id2} id={id} name2={dn2} name1={dn} chatsetting={2} /> */}
@@ -3167,21 +3053,21 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                             </div>
                           ) : null}
 
-{!!isFollower === true &&
-                            isFollower === "is follower" && (
-                            <div>
-                            <ChatButton
-                                id2={id2}
-                                id={id}
-                                name2={dn2}
-                                name1={dn}
-                                chatsetting={2}
-                              />
-                              <OnlineStatus userId={id} displayName={dn}/>
-                            </div>
+                          {((!!isFollower === true &&
+                            isFollower === "is follower") || (!!isFollowing === true &&
+                            isFollowing === "is following")) && (
+                              <div>
+                                <ChatButton
+                                  id2={id2}
+                                  id={id}
+                                  name2={dn2}
+                                  name1={dn}
+                                  chatsetting={2}
+                                />
+                                <OnlineStatus userId={id} displayName={dn} />
+                              </div>
                             )}
 
-                        
                           {!!isFollower === true &&
                             isFollower === "is a follower of" && (
                               <EmailButton z10={z10} />
@@ -3215,7 +3101,7 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                 <LinkList3
                   dosearch={dosearch}
                   searchText={searchText}
-                  theSortBy={theSortBy2?theSortBy2:mode}
+                  theSortBy={theSortBy2 ? theSortBy2 : mode}
                   idexists={idexists}
                   av={props.av}
                   ref={childRef}
@@ -3363,11 +3249,20 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                 </div>
               ) : (
                 <div>
-                {/* <FollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} /> */}
-                 { rt !== "readonly" ? <UsersAndFollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick3={handleClick3} signup={props.signup} />
-                 :
-                 <div style={{width:"270px", height:"726px"}}></div>
-                 }
+                  {/* <FollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} /> */}
+                  {rt !== "readonly" ? (
+                    <UsersAndFollowersContainer
+                      following={props.following}
+                      follower={props.follower}
+                      rt={rt}
+                      theuser={theuser}
+                      uid={props.uid}
+                      handleClick3={handleClick3}
+                      signup={props.signup}
+                    />
+                  ) : (
+                    <div style={{ width: "270px", height: "726px" }}></div>
+                  )}
                 </div>
                 // <div>
                 //   {rt !== "readonly" &&<div
@@ -3381,7 +3276,7 @@ const otherPagea = (id2, id, dn2, dn, purl, email, theemail2, isMatch) => {
                 //       className={`flexcol3- borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1- border-top-1-`}
                 //     >
                 //       <div>
-                       
+
                 //         <div
                 //           className="liststylenone- cursor-pointer interline padding-top-z6"
                 //           //onClick={(event) => handleClick2(2,event)}
@@ -3799,8 +3694,6 @@ export class LinkListFilters extends React.Component {
     this.setState({ height });
   };
 
-
-
   setit = (value, event) => {
     if (!!event === true) event.preventDefault();
     console.log("setIt, 3333333333333333333333333 value=" + value);
@@ -3819,7 +3712,6 @@ export class LinkListFilters extends React.Component {
   //   //if (!!event === true) event.preventDefault();
   //   console.log("setIt2, 3333333333333333333333333 link=" + link);
   //   console.log("setIt2, 3333333333333333333333333 product=" + product);
-    
 
   //   window.document.getElementById("termid").value = product
   //   //setSearchText(product);
@@ -3849,16 +3741,7 @@ export class LinkListFilters extends React.Component {
     //alert("search")
     console.log("1 search");
 
-
-let term
-
-
-
-
-
-
-
-
+    let term;
 
     //const sortBy = window.localStorage.getItem("sortBy");
     var select = document.getElementById("mode");

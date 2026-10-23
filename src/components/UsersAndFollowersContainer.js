@@ -54,6 +54,14 @@ const UsersAndFollowersContainer = (props) => {
     );
   }, [props.follower]);
 
+    const followingUidSet = useMemo(() => {
+    return new Set(
+      (props.following || []).map((following) => {
+        return following.uid;
+      })
+    );
+  }, [props.following]);
+
   const loadUsers = async () => {
     if (loading || !hasMore) {
       return;
@@ -123,6 +131,9 @@ const UsersAndFollowersContainer = (props) => {
   const isFollower =
     followerUidSet.has(uid);
 
+  const isFollowing =
+    followingUidSet.has(uid);
+
 const displayName =
   gud.displayname || "";
 
@@ -153,10 +164,15 @@ const email =
     email: email,
 
     isFollower: isFollower,
+    isFollowing: isFollowing,
 
     isMatch: isFollower
       ? "is follower"
       : "is not follower",
+
+    isMatch2: isFollowing
+      ? "is following"
+      : "is not following"
   });
 });
 
@@ -299,7 +315,9 @@ const email =
                     ? props.theuser.email
                     : "ph@ph.com") +
                   ";" +
-                  item.isMatch
+                  item.isMatch +
+                  ";" +
+                  item.isMatch2
                 }
               >
                 <img

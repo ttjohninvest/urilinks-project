@@ -4,7 +4,7 @@ const StorageSizes = {
   basic:100,
   standard:200,
   premium:400,
-  mine:800,
+  mine:1000,
 
   description:200, //link text maximum length, for ad link text too
   url:2048, //link url maximum length, for ad url too

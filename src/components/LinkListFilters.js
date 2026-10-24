@@ -3300,7 +3300,7 @@ function ExpandableArray(props) {
   <button className="ib button-2" onClick={()=>{
     setUsersandfollowers(false)
   }}
-  title="Show only users that are followers."
+  title="Show only users that are followers of me."
   >only followers</button>
    <button className="ib button-2 margin-left-11 margin-bottom-1" onClick={()=>{
     setUsersandfollowers(true)

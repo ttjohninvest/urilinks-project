@@ -3253,3 +3253,12 @@ urlinks.com, build locally and run locally on http://localhost:3000
 npm run build:dev
 npm run start
 ==================
+
+A67L gen 2 replacement phone 
+1. Contact TAG Mobile support and tell them: “I received a replacement A67L Gen 2 phone, but the SIM from my old HLi2409G does not fit the new phone. I need a replacement SIM for my existing TAG Mobile line and phone number.” TAG Mobile specifically says to contact support when a SIM no longer fits correctly. Tag Mobile
+2. Have the replacement phone’s IMEI available. On Android, TAG says you can usually find it under Settings → About phone → Status, or by dialing *#06#. They may also ask for the old SIM’s ICCID, account/order information, or other verification. Tag Mobile
+3. You can call TAG Mobile at (424) 219-5670. Their backup number is (800) 986-5670. TAG lists support hours as Monday–Friday, 8:00 a.m.–8:00 p.m. Central Time. They also offer online chat. Tag Mobile
+4. Ask them to keep your existing phone number and service when they activate the replacement SIM. TAG says service can be moved to another device and the existing number can be retained. Tag Mobile
+  
+
+===================

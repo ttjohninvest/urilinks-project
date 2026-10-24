@@ -322,7 +322,7 @@ const UsersAndFollowingContainer = (props) => {
                 />
 
                 <span className="margin-left-11 ip- flexrowtt0-"
-                title="Open his or her page and request chat with the pereson that I am following."
+                title="Open his or her page and request chat with the person that I am following."
                 >
                   {item.displayName}
 

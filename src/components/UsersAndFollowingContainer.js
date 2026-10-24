@@ -195,6 +195,23 @@ const UsersAndFollowingContainer = (props) => {
       );
     } finally {
       setLoading(false);
+      
+      
+      // if (users.length > 1) {
+      //     //array3 = users.sort((a, b) => {
+      //       setUsers(users.sort((a, b) => {
+      //         const valA = a.displayName.toLowerCase();
+      //     const valB = b.displayName.toLowerCase();
+      //     if (valA < valB) return -1;
+      //     if (valA > valB) return 1;
+      //     return 0;
+      //       }))
+          
+       
+      // } else {
+      //   //array3=[]
+      // }
+
     }
   };
 
@@ -322,7 +339,7 @@ const UsersAndFollowingContainer = (props) => {
                 />
 
                 <span className="margin-left-11 ip- flexrowtt0-"
-                title="Open his or her page and request chat with the person that I am following."
+                title="Open his or her page and see links or request chat with the person that I am following."
                 >
                   {item.displayName}
 

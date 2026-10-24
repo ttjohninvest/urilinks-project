@@ -339,7 +339,7 @@ const email =
                 />
 
                 <span className="margin-left-11 ip flexrowtt0-"
-                title="Open his or her page and request chat with the person that is following me."
+                title="Open his or her page and see links or request chat with the person that is following me."
                 >
                   {item.displayName}
 

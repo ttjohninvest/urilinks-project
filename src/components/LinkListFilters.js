@@ -49,9 +49,13 @@ import "firebase/database"; // If using Realtime Database
 import "firebase/storage"; // If using Storage
 import StorageSizes from "./StorageSizes";
 import myprofile from "../assets/images/myprofile.png";
-import FollowersContainer from "./FollowersContainer";
+
 import UsersAndFollowersContainer from "./UsersAndFollowersContainer";
 import UsersAndFollowingContainer from "./UsersAndFollowingContainer";
+
+import FollowersContainer from "./FollowersContainer";
+import FollowingContainer from "./FollowingContainer";
+
 
 import {
   setTextFilter,
@@ -119,6 +123,8 @@ function ExpandableArray(props) {
 
   const [lengthOf3, setLengthOf3] = useState(0);
   const [resultArray3, setResultArray3] = useState([]);
+  const [usersandfollowing, setUsersandfollowing] = useState(true);
+  const [usersandfollowers, setUsersandfollowers] = useState(true);
 
   console.log("HOME RENDER", new Date().toLocaleTimeString());
 
@@ -2117,7 +2123,19 @@ function ExpandableArray(props) {
                     </div>
                   </div>
                 ) : (
-                  <div>
+
+<div>
+  <button className="ib button-2" onClick={()=>{
+    setUsersandfollowing(false)
+  }}
+  title="Show only users that I am following."
+  >only following</button>
+   <button className="ib button-2 margin-left-11 margin-bottom-1" onClick={()=>{
+    setUsersandfollowing(true)
+  }}
+  title="Show Users and Following Users together."
+  >both</button>
+                  {usersandfollowing ? <div>
                     {rt !== "readonly" && (
                       <UsersAndFollowingContainer
                         following={props.following}
@@ -2129,6 +2147,27 @@ function ExpandableArray(props) {
                       />
                     )}
                   </div>
+:
+                    <div>
+                    {rt !== "readonly" && (
+                      <FollowingContainer
+                        following={props.following}
+                        rt={rt}
+                        theuser={theuser}
+                        uid={props.uid}
+                        handleClick2={handleClick2}
+                        signup={props.signup}
+                      />
+                    )}
+                  </div>}
+</div>
+
+
+
+
+
+
+
                   // <div>
                   //   {rt !== "readonly" &&<div
                   //     className="padding-tb"
@@ -3256,15 +3295,47 @@ function ExpandableArray(props) {
                 <div>
                   {/* <FollowersContainer follower={props.follower} rt={rt} theuser={theuser} uid={props.uid} handleClick2={handleClick2} signup={props.signup} /> */}
                   {rt !== "readonly" ? (
-                    <UsersAndFollowersContainer
-                      following={props.following}
-                      follower={props.follower}
-                      rt={rt}
-                      theuser={theuser}
-                      uid={props.uid}
-                      handleClick3={handleClick3}
-                      signup={props.signup}
-                    />
+
+<div>
+  <button className="ib button-2" onClick={()=>{
+    setUsersandfollowers(false)
+  }}
+  title="Show only users that are followers."
+  >only followers</button>
+   <button className="ib button-2 margin-left-11 margin-bottom-1" onClick={()=>{
+    setUsersandfollowers(true)
+  }}
+  title="Show Users and Followers Users together."
+  >both</button>
+                  {usersandfollowers ? <div>
+                    {rt !== "readonly" && (
+                      <UsersAndFollowersContainer
+                        following={props.following}
+                        follower={props.follower}
+                        rt={rt}
+                        theuser={theuser}
+                        uid={props.uid}
+                        handleClick2={handleClick2}
+                        signup={props.signup}
+                      />
+                    )}
+                  </div>
+:
+                    <div>
+                    {rt !== "readonly" && (
+                      <FollowersContainer
+                        follower={props.follower}
+                        rt={rt}
+                        theuser={theuser}
+                        uid={props.uid}
+                        handleClick2={handleClick2}
+                        signup={props.signup}
+                      />
+                    )}
+                  </div>}
+</div>
+        
+
                   ) : (
                     <div style={{ width: "270px", height: "726px" }}></div>
                   )}

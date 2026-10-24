@@ -317,7 +317,8 @@ const email =
                   ";" +
                   item.isMatch +
                   ";" +
-                  item.isMatch2
+                  //to be able to follow back and unfollow from the 3rd column followers list put replace the following "" with item.isMatch2
+                  "" //item.isMatch2
                 }
               >
                 <img
@@ -337,7 +338,9 @@ const email =
                   }}
                 />
 
-                <span className="margin-left-11 ip flexrowtt0-">
+                <span className="margin-left-11 ip flexrowtt0-"
+                title="Chat with somebody that is following me."
+                >
                   {item.displayName}
 
                   {item.isFollower && (

@@ -321,7 +321,9 @@ const UsersAndFollowingContainer = (props) => {
                   }}
                 />
 
-                <span className="margin-left-11 ip- flexrowtt0-">
+                <span className="margin-left-11 ip- flexrowtt0-"
+                title="Chat with somebody I am following."
+                >
                   {item.displayName}
 
                   {item.isFollowing && (

@@ -1666,7 +1666,7 @@ function ExpandableArray(props) {
       "&z12=" +
       z12 +
       "&isFollowing=" +
-      isMatch +
+      isMatch.trim() +
       "&isFollower=" +
       "";
 
@@ -1792,7 +1792,7 @@ function ExpandableArray(props) {
           array3[4],
           encrypt(array3[5], "125434"),
           encrypt(array3[6], "125434"),
-          array3[7],
+          array3[7]
         );
       }
     } else {
@@ -3056,15 +3056,20 @@ function ExpandableArray(props) {
                           {((!!isFollower === true &&
                             isFollower === "is follower") || (!!isFollowing === true &&
                             isFollowing === "is following")) && (
-                              <div>
-                                <ChatButton
-                                  id2={id2}
-                                  id={id}
-                                  name2={dn2}
-                                  name1={dn}
-                                  chatsetting={2}
-                                />
-                                <OnlineStatus userId={id} displayName={dn} />
+                              <div className="flexrowtt0">
+                                <span className="ib">
+                                  <ChatButton
+                                    id2={id2}
+                                    id={id}
+                                    name2={dn2}
+                                    name1={dn}
+                                    chatsetting={2}
+                                  />
+                                </span>
+                                  <span className="ib">
+                                    <OnlineStatus userId={id} displayName={dn} />
+                                  </span>
+                                
                               </div>
                             )}
 

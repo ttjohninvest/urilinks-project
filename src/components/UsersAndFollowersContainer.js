@@ -346,7 +346,7 @@ const email =
                   { item.email.split("@")[0]}
 
                   {item.isFollower && (
-                    <span>
+                    <span><br />
                     <span className="ip-">
                       {" "} - Follower
                     </span>

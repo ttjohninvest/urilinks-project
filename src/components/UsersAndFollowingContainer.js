@@ -346,7 +346,7 @@ const UsersAndFollowingContainer = (props) => {
                   {item.email.split("@")[0]}
 
                   {item.isFollowing && (
-                    <span>
+                    <span><br />
                     <span className="ib-">
                       {" "} - Following 
                     </span>

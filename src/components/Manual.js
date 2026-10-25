@@ -41,8 +41,12 @@ const UriLinksManual = () => {
         </li>
       </ol>
 
-      <p>
+      {/* <p>
         Your Google display name and profile photograph may be used to identify
+        you on URI Links.
+      </p> */}
+      <p>
+        Your the first part of your google gmail address is used as your display name and google profile photograph may be used to identify
         you on URI Links.
       </p>
 
@@ -251,7 +255,7 @@ const UriLinksManual = () => {
         <li>Newest links</li>
         <li>Most viewed</li>
         <li>Likes</li>
-        <li>Starred links</li>
+        <li>Starred links (My Top Twenty)</li>
       </ul>
 
       <hr />
@@ -278,7 +282,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>10. Starred Links</h2>
+      <h2>10. Starred Links (My Top Twenty)</h2>
 
       <p>
         A link can be starred when you want to identify it as especially

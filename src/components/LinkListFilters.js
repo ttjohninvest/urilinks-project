@@ -4,6 +4,12 @@ import React, { useState, useRef, useEffect } from "react";
 import OnlineStatus from "./OnlineStatus";
 import ErrorBoundry from "./ErrorBoundry";
 import { useSelector } from "react-redux";
+import {
+  toast, ToastContainer
+} from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 const getSearchTerm = require("./getSearchTerm");
 import StickyFixed from "./StickyFixed";
 import ReadMore from "./ReadMore";
@@ -76,6 +82,7 @@ import {
 } from "../actions/filters";
 
 import { incrementUsersClickCount } from "../actions/theuserscount";
+import FollowingOnlineToasts from "./FollowingOnlineToasts";
 
 // import {
 // import ChatComponent from './ChatComponent';
@@ -1986,6 +1993,25 @@ function ExpandableArray(props) {
 
   return (
     <div className="flexrowh-">
+
+      {<div><FollowingOnlineToasts 
+       //uid={props.uid}
+        uid={firebase.auth().currentUser &&
+    firebase.auth().currentUser.uid} 
+        //name2={decrypt(z12,"125434").split("@")[0]}
+      />
+      <ToastContainer
+        position={toast.POSITION.BOTTOM_RIGHT}
+        autoClose={32000}
+       /></div>}
+
+{/* <button
+  onClick={() => {
+    toast("Toast test");
+  }}
+>
+  Test Toast
+</button> */}
       <div className={`${props.signup === false ? "bg-gray-1" : "bg-gray-1"}`}>
         <div className="">
           <div

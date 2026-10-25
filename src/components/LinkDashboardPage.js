@@ -12,6 +12,7 @@ import setHasrefreshed from "../actions/hasrefreshed";
 import { startLogout } from "../actions/auth";
 import ScrollLimit from "./ScrollLimit"
 import cathedral from "../assets/images/cathedral-mehmet-turgut-kirkgoz-1.png";
+import TestToast from "./TestToast"
 
 import LinkListFileDate from "./LinkListFileDate";
 import LinkListFiltersFileDate from "./LinkListFiltersFileDate";
@@ -356,6 +357,8 @@ left column
               av={av}
               rerenderit={rerenderit}
             />
+
+            {/* <TestToast /> */}
 
       
         </div>

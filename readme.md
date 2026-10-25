@@ -3262,3 +3262,502 @@ A67L gen 2 replacement phone
   
 
 ===================
+urilinks manual
+URI Links User Manual
+
+Welcome to URI Links
+
+URI Links is a website for saving, organizing, finding, and sharing Internet links.
+
+Instead of keeping links scattered across browser bookmarks, notes, messages, and other websites, URI Links gives you one place where you can organize them and find them again.
+
+URI Links can also help you discover links shared by other people and follow people whose collections interest you.
+
+1. Getting Started
+
+Signing In
+
+URI Links uses Google Sign-In.
+
+To sign in:
+
+Open URI Links.
+
+Select the Google Sign-In option.
+
+Choose the Google account you want to use.
+
+After signing in, URI Links displays your account information and your saved links.
+
+Your Google display name and profile photograph may be used to identify you on URI Links.
+
+2. Understanding the Main Screen
+
+The URI Links screen is divided into three main columns.
+
+Left Column — Following
+
+The left column shows people you are following.
+
+Selecting a person displays that person's available public links in the center column.
+
+The left column can also display other navigation information, including the hashtag list.
+
+Center Column — Links
+
+The center column is the main working area.
+
+This is where links are displayed.
+
+Depending on what you are doing, the center column may show:
+
+Your links
+
+Another person's public links
+
+Search results
+
+Hashtag results
+
+Public links
+
+Filtered or sorted links
+
+Right Column — Followers
+
+The right column shows people who follow you.
+
+Selecting a follower allows you to view that person's available public information and links.
+
+3. Adding a Link
+
+To save a link, enter the Internet address and the information you want associated with it.
+
+A link can contain information such as:
+
+URL
+
+Description
+
+Notes
+
+Hashtags
+
+Additional description
+
+Public or private status
+
+Star status
+
+Likes
+
+View count
+
+URI Links checks URLs so that invalid Internet addresses can be detected before they are saved.
+
+A normal URL begins with a protocol such as:
+
+https://
+
+For example:
+
+https://www.example.com
+
+4. Writing a Description
+
+The description tells you what a saved link is about.
+
+For example, if you save a link about running shoes, your description could be:
+
+Running shoes for distance training
+
+Descriptions are searchable, so descriptive wording can make links easier to find later.
+
+5. Using Notes
+
+The note area can contain additional information about a link.
+
+You might use it for:
+
+Personal comments
+
+Reminders
+
+Research notes
+
+Categories
+
+Hashtags
+
+Information you want to remember about the page
+
+Notes can also be searched.
+
+6. Using Hashtags
+
+Hashtags provide a simple way to organize related links.
+
+A hashtag begins with the # character.
+
+Examples:
+
+#running
+
+#science
+
+#reno
+
+#travel
+
+#programming
+
+URI Links can find hashtags contained in link information, including descriptions and notes.
+
+Hashtag List
+
+The hashtag list appears in the left column when the hashtag view is opened.
+
+Hashtags are displayed alphabetically.
+
+A number beside each hashtag shows how many links contain that hashtag.
+
+For example:
+
+#running 12
+
+means that 12 links contain the #running hashtag.
+
+Searching by Hashtag
+
+Select a hashtag in the left column.
+
+URI Links automatically performs a hashtag search and displays the matching links in the center column.
+
+You do not have to manually enter the hashtag into the search field.
+
+7. Searching
+
+URI Links provides several ways to search your saved information.
+
+Depending on the selected search mode, you can search areas such as:
+
+Descriptions
+
+Notes
+
+Hashtags
+
+Enter your search text and activate Search.
+
+You can also press Enter while you are in the search field to start the search.
+
+Search text is handled without requiring exact capitalization.
+
+For example:
+
+Running
+
+and
+
+running
+
+can find the same matching text.
+
+8. Sorting Links
+
+URI Links can arrange links in different ways.
+
+Available sorting choices can include:
+
+Alphabetical order
+
+Newest links
+
+Most viewed
+
+Likes
+
+Starred links
+
+Other link properties
+
+Sorting makes it easier to use a large collection without manually looking through every saved link.
+
+9. Public and Private Links
+
+Each link can be made public or private.
+
+Public
+
+A public link can be displayed to other URI Links users when they view your public collection.
+
+Private
+
+A private link remains available to you but is hidden from people viewing your public links.
+
+A link can be changed between public and private when needed.
+
+The interface indicates the action available, such as:
+
+Make private
+
+or
+
+Make public
+
+10. Starred Links
+
+A link can be starred when you want to identify it as especially important.
+
+Starred links can be used to maintain a smaller collection of important or favorite links.
+
+URI Links limits the number of links that can occupy the special starred collection, helping the collection remain selective.
+
+11. Likes
+
+Links can have a Like status.
+
+The Like field helps identify links that you particularly appreciate or want to recognize.
+
+When displayed as text:
+
+Yes means the link is liked.
+
+No means it is not liked.
+
+12. Views
+
+URI Links can keep track of how many times a link has been viewed.
+
+The view count can help show which links are being used most often.
+
+Links can also be sorted according to their number of views.
+
+13. Following People
+
+URI Links allows people to follow other users.
+
+People you follow appear in the Following column on the left side of the screen.
+
+Selecting a person can display that person's public links.
+
+Following people makes it easier to return to collections that interest you.
+
+14. Followers
+
+People who follow you appear in the Followers column on the right side of the screen.
+
+This provides a simple way to see who is connected to your URI Links collection.
+
+15. Online Status
+
+URI Links can display whether another user is currently online.
+
+An online indicator may appear next to the person's name.
+
+For example:
+
+Elf - online
+
+Online and offline indicators make it easier to know when another person may currently be using URI Links.
+
+16. New Link Notifications
+
+When you follow someone, URI Links can keep track of whether that person has added new links.
+
+This makes following useful not only for finding someone's collection but also for discovering new material they add later.
+
+17. Playing Videos in URI Links
+
+Supported video links can be played directly inside the URI Links page.
+
+Select:
+
+Play video in place
+
+The video opens in the link area without requiring you to leave URI Links.
+
+When finished, select:
+
+Close video
+
+URI Links returns you to approximately the same place in your link list so that you can continue browsing.
+
+18. Viewing Public Links
+
+URI Links can display public links separately from your private information.
+
+The List All Public Links feature provides a way to browse links that have been made publicly available.
+
+Private links are excluded from public viewing.
+
+19. People
+
+The People area provides another way to discover URI Links users.
+
+Because a website can eventually contain many users, URI Links loads people in smaller groups rather than loading the entire user database at once.
+
+This keeps the interface responsive while still allowing a large community to be searched and browsed.
+
+20. Profile Photographs
+
+URI Links can display profile photographs associated with users.
+
+When available, a photograph from the user's Google account may be displayed.
+
+If no photograph is available, URI Links can display a default profile image.
+
+21. Chat
+
+URI Links includes person-to-person chat features.
+
+Users can communicate through messages associated with their URI Links accounts.
+
+Messages can display information such as:
+
+Sender
+
+Recipient
+
+Message text
+
+Date and time
+
+A chat can also be deleted when it is no longer wanted.
+
+Because deleting a conversation is significant, URI Links may require confirmation before completing the deletion.
+
+22. Deleting a Saved Link
+
+A saved link can be deleted when you no longer want it.
+
+When a link is deleted, URI Links removes it from the saved collection and updates the displayed list.
+
+The system also updates stored search information so that the deleted link does not reappear in later search results.
+
+23. Working With Large Collections
+
+URI Links is designed so that you do not need to load every saved link at the same time.
+
+Links are loaded in smaller groups as they are needed.
+
+This is sometimes called infinite scrolling.
+
+As you move through the list, URI Links retrieves additional links automatically.
+
+This helps the site remain usable even when a person has hundreds of saved links.
+
+24. Using URI Links as a Personal Library
+
+One way to think about URI Links is as a personal Internet library.
+
+Each saved link is like an item in the library.
+
+Descriptions explain what the item contains.
+
+Notes give additional information.
+
+Hashtags place items into subjects.
+
+Search helps retrieve them.
+
+Stars identify especially important items.
+
+Public and private settings determine who can see them.
+
+Following lets you visit collections maintained by other people.
+
+25. Using URI Links as a Curator
+
+URI Links can also be used for sharing knowledge.
+
+A person can collect useful links about a particular subject and make those links available to other people.
+
+For example, someone might build collections about:
+
+News
+
+Running
+
+Science
+
+Programming
+
+History
+
+Travel
+
+Local businesses
+
+Education
+
+Art
+
+Music
+
+Community resources
+
+Religious resources
+
+Homeless assistance
+
+In this way, each person can become a curator of useful Internet information.
+
+26. Tips for Organizing Links
+
+A few habits make a collection easier to use.
+
+Use descriptions that clearly explain what a link contains.
+
+Add hashtags for subjects that appear repeatedly in your collection.
+
+Use notes for information that would not fit naturally in the description.
+
+Reserve stars for links that are especially important.
+
+Use private status for material you do not want displayed publicly.
+
+Use search rather than manually scrolling through a large collection.
+
+27. Example
+
+Suppose you find a useful webpage about distance-running training.
+
+You could save:
+
+URL
+
+https://www.example.com/running-training
+
+Description
+
+Distance running training information
+
+Note
+
+Useful information about weekly mileage and workouts #running #training
+
+You could then find the link by searching for:
+
+distance
+
+training
+
+running
+
+or by selecting:
+
+#running
+
+from your hashtag list.
+
+28. The Purpose of URI Links
+
+URI Links is intended to make Internet information easier to organize, retrieve, and share.
+
+A useful link should not have to disappear because you cannot remember where you found it.
+
+By combining links, descriptions, notes, hashtags, searching, following, public sharing, and private storage, URI Links provides a simple place for building a personal collection of the Internet.
+
+URI Links — save, organize, find, and share the links that matter to you.
+================

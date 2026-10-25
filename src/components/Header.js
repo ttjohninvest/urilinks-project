@@ -1177,7 +1177,29 @@ const handleClick = useCallback(() => {
                     </div>} */}
 
                     {ni !== "1" && ni !== "2" && ni !== "3" && (
-                      <div>
+                      
+                       <div>
+                        <Link
+                          id="manual"
+                          className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
+                          to="/manual"
+                          target="_blank"
+                        >
+                          <span
+                            className="ib- color-white-1 color-black-2- cursor-pointer text-size-11"
+                            title="Click to see the urilinks manual"
+                          >
+                            Manual
+                          </span>
+                        </Link>
+                      </div>
+
+                      
+                    )}
+
+  {ni !== "1" && ni !== "2" && ni !== "3" && (
+                     
+                     <div>
                         <Link
                           id="termsandprivacy"
                           className="header__title- nounderline button-2h padding-left-4x padding-right-4x "
@@ -1192,7 +1214,12 @@ const handleClick = useCallback(() => {
                           </span>
                         </Link>
                       </div>
+                      
+
+                      
                     )}
+
+
                     {!!props.theplan.plan &&
                       props.theplan.plan.replace(/"/g, "") !== "premium" &&
                       props.signup.signup === true &&

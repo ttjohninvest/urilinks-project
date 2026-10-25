@@ -1,6 +1,7 @@
 import React from "react";
 import { Router, Route, Switch, Link, NavLink } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
+import Manual from "./../components/Manual";
 import CatFetcher from "./../components/CatFetcher";
 import DogFetcher from "./../components/DogFetcher";
 import ChatComponent from "./../components/ChatComponent";
@@ -116,6 +117,12 @@ const AppRouter = (props) => (
           //component={TermsAndPrivacy}
           component={TermsAndPrivacyPolicy}
         />
+
+          <PrivateRoute 
+        path="/manual" 
+        signup={props.signup} 
+        x1="usage"
+        component={Manual} />
 
         <PrivateRoute 
         path="/use" 

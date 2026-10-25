@@ -41,7 +41,7 @@ const OnlineStatus2 = ({ userId, displayName }) => {
 
   return (
     <div className="online-status padding-right-11 margin-top-1">
-      {isOnline ? "Online" : "Offline"}
+      {isOnline ? "Online" : <span style={{color:"red"}}>Offline</span>}
          
 
     </div>

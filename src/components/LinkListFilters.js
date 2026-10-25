@@ -3315,7 +3315,7 @@ function ExpandableArray(props) {
                         rt={rt}
                         theuser={theuser}
                         uid={props.uid}
-                        handleClick2={handleClick2}
+                        handleClick3={handleClick3}
                         signup={props.signup}
                       />
                     )}
@@ -3328,7 +3328,7 @@ function ExpandableArray(props) {
                         rt={rt}
                         theuser={theuser}
                         uid={props.uid}
-                        handleClick2={handleClick2}
+                        handleClick3={handleClick3}
                         signup={props.signup}
                       />
                     )}

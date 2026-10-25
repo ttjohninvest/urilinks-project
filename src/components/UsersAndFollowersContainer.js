@@ -305,7 +305,8 @@ const email =
                     ? props.theuser.displayName
                     : "name") +
                   ";" +
-                  item.displayName +
+                  //item.displayName +
+                   item.email.split("@")[0] +
                   ";" +
                   item.photoUrl +
                   ";" +
@@ -341,7 +342,8 @@ const email =
                 <span className="margin-left-11 ip flexrowtt0-"
                 title="Open his or her page and see links or request chat with the person that is following me."
                 >
-                  {item.displayName}
+                  {/* {item.displayName} */}
+                  { item.email.split("@")[0]}
 
                   {item.isFollower && (
                     <span>

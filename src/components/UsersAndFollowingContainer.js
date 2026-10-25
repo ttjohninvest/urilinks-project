@@ -308,7 +308,8 @@ const UsersAndFollowingContainer = (props) => {
                     ? props.theuser.displayName
                     : "name") +
                   ";" +
-                  item.displayName +
+                  //item.displayName +
+                  item.email.split("@")[0] +
                   ";" +
                   item.photoUrl +
                   ";" +
@@ -341,7 +342,8 @@ const UsersAndFollowingContainer = (props) => {
                 <span className="margin-left-11 ip- flexrowtt0-"
                 title="Open his or her page and see links or request chat with the person that I am following."
                 >
-                  {item.displayName}
+                  {/* {item.displayName} */}
+                  {item.email.split("@")[0]}
 
                   {item.isFollowing && (
                     <span>

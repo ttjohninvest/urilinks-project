@@ -51,8 +51,8 @@ const openNewTabWithCustomTitleType = (url, type, customTitle) => {
     
     
     
-    //openNewTabWithCustomTitleType(`/chat/${uid2}/${dn2}/${uid1}/${dn}/?ni=3&chatsetting=1`, "_blank", "urilinks-chat")
-    openNewTabWithCustomTitleType(`/chat/${uid2}/${"johmcg64"}/${uid1}/${dn}/?ni=3&chatsetting=1`, "_blank", "urilinks-chat")
+    openNewTabWithCustomTitleType(`/chat/${uid2}/${dn2.split("@")[0]}/${uid1}/${dn}/?ni=3&chatsetting=1`, "_blank", "urilinks-chat")
+    //openNewTabWithCustomTitleType(`/chat/${uid2}/${"johmcg64"}/${uid1}/${dn}/?ni=3&chatsetting=1`, "_blank", "urilinks-chat")
 
    
 

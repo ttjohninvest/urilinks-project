@@ -3761,3 +3761,41 @@ By combining links, descriptions, notes, hashtags, searching, following, public 
 
 URI Links — save, organize, find, and share the links that matter to you.
 ================
+
+encrypt and decrypt argument, "125434", using for hidding email addresses on the url in the browser address edit field
+and decrypt is used to decode the email address before using it as a username.
+
+1. Server-Side Injection (Recommended for Security)
+Your server must retrieve the environment variable and send it to the client via an API endpoint or by embedding it in the initial HTML response.
+
+Example using Node.js/Express:
+Create an endpoint that returns the config variable:
+
+app.get('/api/config', (req, res) => {
+  res.json({
+    apiKey: process.env.YOUR_API_KEY,
+    // Only expose variables that are safe to be public
+  });
+});
+
+In your frontend component, fetch this data:
+
+useEffect(() => {
+  fetch('/api/config')
+    .then(res => res.json())
+    .then(data => {
+      // Use data.apiKey in your component
+    });
+}, []);
+
+2. Build-Time Injection (Create React App / Vite)
+If the variable is safe to be public (e.g., a public API key), you can expose it during the build process. 
+
+Create React App: Prefix the variable with REACT_APP_ in the Heroku Config Vars. The build system will embed the value into the JavaScript bundle at compile time.
+const apiKey = process.env.REACT_APP_YOUR_API_KEY;
+
+Vite: Prefix with VITE_.
+const apiKey = import.meta.env.VITE_YOUR_API_KEY;
+
+===============
+

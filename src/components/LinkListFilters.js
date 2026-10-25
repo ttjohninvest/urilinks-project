@@ -2125,6 +2125,8 @@ function ExpandableArray(props) {
                 ) : (
 
 <div>
+  {rt !== "readonly" && 
+  <span>
   <button className="ib button-2" onClick={()=>{
     setUsersandfollowing(false)
   }}
@@ -2135,6 +2137,8 @@ function ExpandableArray(props) {
   }}
   title="Show Users and Following Users together."
   >both</button>
+  </span>
+  }
                   {usersandfollowing ? <div>
                     {rt !== "readonly" && (
                       <UsersAndFollowingContainer
@@ -2162,94 +2166,6 @@ function ExpandableArray(props) {
                   </div>}
 </div>
 
-
-
-
-
-
-
-                  // <div>
-                  //   {rt !== "readonly" &&<div
-                  //     className="padding-tb"
-                  //     title="The number of people that you are following."
-                  //   >
-                  //     Following: ({lengthOf})
-                  //   </div>}
-                  //   <div
-                  //     className="liststylenone cursor-pointer interline"
-                  //     //onClick={(event) => handleClick2(2,event)}
-                  //   >
-                  //     {uniqueData.map((item, index) => {
-                  //       if (props.uid !== item.gud.uid) {
-                  //         // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
-                  //         return (
-                  //           <div
-                  //             onClick={(event) => handleClick2(2, event)}
-                  //             className={`${
-                  //               //props.whichone === 2
-                  //               true && item.isMatch === "is following "
-                  //                 ? "bg-color-1 color-white-1"
-                  //                 : "bg-color-1w color-black-3"
-                  //             }
-                  //          flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
-                  //             key={index}
-                  //             data-item-id={
-                  //               props.uid +
-                  //               ";" +
-                  //               item.gud.uid +
-                  //               ";" +
-                  //               (theuser ? theuser.displayName : "name") +
-                  //               ";" +
-                  //               item.gud.displayname +
-                  //               ";" +
-                  //               item.gud.photourl +
-                  //               ";" +
-                  //               item.gud.email +
-                  //               ";" +
-                  //               (theuser ? theuser.email : "ph@ph.com") +
-                  //               ";" +
-                  //               item.isMatch
-                  //             }
-                  //           >
-                  //             <img
-                  //               src={item.gud.photourl}
-                  //               width="42"
-                  //               height="42"
-                  //               className="borderRadius50- circular-img-"
-                  //               style={{ borderRadius: "50%" }}
-                  //               onLoad={() => {
-                  //                 console.log("IMAGE LOADED:", item.gud.photourl);
-                  //               }}
-                  //               onError={(e) => {
-                  //                 e.currentTarget.onerror = null;
-                  //                 e.currentTarget.src = "/default-profile.png";
-                  //               }}
-                  //             />
-                  //             <span className="margin-left-11">
-                  //               {/* {item.gud.photourl} */}
-                  //               {item.gud.displayname}
-                  //             </span>
-                  //             {/* {
-                  //               "e@e.com"+
-                  //               " " +
-                  //               item.isMatch +
-                  //               " " +
-                  //               item.gud.email +
-                  //               ", " +
-                  //               item.gud.displayname +
-                  //               ", " +
-                  //               item.gud.theatname +
-                  //               ", " +
-                  //               item.gud.photourl
-                  //               } */}
-                  //           </div>
-                  //         );
-                  //       } else {
-                  //         return null;
-                  //       }
-                  //     })}
-                  //   </div>
-                  // </div>
                 )}
               </div>
             )}
@@ -3340,101 +3256,7 @@ function ExpandableArray(props) {
                     <div style={{ width: "270px", height: "726px" }}></div>
                   )}
                 </div>
-                // <div>
-                //   {rt !== "readonly" &&<div
-                //     className="padding-tb"
-                //     title="The number of people that you are following."
-                //   >
-                //     Follower: ({lengthOf3})
-                //   </div>}
-                //   <div className="scrollable-div3">
-                //     <div
-                //       className={`flexcol3- borderLightOrange- ${props.signup === false ? "margin-top-n-x2a" : "margin-top-n-x2b"} padding1- border-top-1-`}
-                //     >
-                //       <div>
-
-                //         <div
-                //           className="liststylenone- cursor-pointer interline padding-top-z6"
-                //           //onClick={(event) => handleClick2(2,event)}
-                //         >
-                //           {uniqueData3.map((item, index) => {
-                //             if (props.uid !== item.gud.uid) {
-                //               // return <li key={index}>{props.uid+", "+item.gud.uid}</li>;
-                //               return (
-                //                 <div
-                //                   onClick={(event) => handleClick2(2, event)}
-                //                   className={`${
-                //                     //props.whichone === 2
-                //                     true && item.isMatch === "is following "
-                //                       ? "bg-color-1 color-white-1"
-                //                       : "bg-color-1w color-black-3"
-                //                   }
-                //          flexrowzv padding-left-11 margin-bottom-1vv padding-tb`}
-                //                   key={index}
-                //                   data-item-id={
-                //                     props.uid +
-                //                     ";" +
-                //                     item.gud.uid +
-                //                     ";" +
-                //                     (theuser ? theuser.displayName : "name") +
-                //                     ";" +
-                //                     item.gud.displayname +
-                //                     ";" +
-                //                     item.gud.photourl +
-                //                     ";" +
-                //                     item.gud.email +
-                //                     ";" +
-                //                     (theuser ? theuser.email : "ph@ph.com") +
-                //                     ";" +
-                //                     item.isMatch
-                //                   }
-                //                 >
-                //                   <img
-                //                     src={item.gud.photourl}
-                //                     width="42"
-                //                     height="42"
-                //                     className="borderRadius50- circular-img-"
-                //                     style={{ borderRadius: "50%" }}
-                //                     onLoad={() => {
-                //                       console.log(
-                //                         "IMAGE LOADED:",
-                //                         item.gud.photourl,
-                //                       );
-                //                     }}
-                //                     onError={(e) => {
-                //                       e.currentTarget.onerror = null;
-                //                       e.currentTarget.src =
-                //                         "/default-profile.png";
-                //                     }}
-                //                   />
-                //                   <span className="margin-left-11">
-                //                     {/* {item.gud.photourl} */}
-                //                     {item.gud.displayname}
-                //                   </span>
-                //                   {/* {
-                //               "e@e.com"+
-                //               " " +
-                //               item.isMatch +
-                //               " " +
-                //               item.gud.email +
-                //               ", " +
-                //               item.gud.displayname +
-                //               ", " +
-                //               item.gud.theatname +
-                //               ", " +
-                //               item.gud.photourl
-                //               } */}
-                //                 </div>
-                //               );
-                //             } else {
-                //               return null;
-                //             }
-                //           })}
-                //         </div>
-                //       </div>
-                //     </div>
-                //   </div>
-                // </div>
+              
               )}
             </div>
           )}

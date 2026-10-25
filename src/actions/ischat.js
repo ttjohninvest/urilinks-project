@@ -703,41 +703,7 @@ export const startSetChat = (uid) => {
 
           const data = snapshot.val();
           ischat = getChatUsers(data)
-        //   let uid2 = "";
-        //   let dn2 = "";
-        //   let uid1 = "";
-        //   let dn = "";
-
-        //   Object.keys(data).forEach((key1) => {
-        //     console.log("key1:", key1);
-        //     uid2 = key1;
-        //     Object.keys(data[key1]).forEach((key2) => {
-        //       dn2 = key2;
-        //       console.log("key2:", key2);
-
-        //       Object.keys(data[key1][key2]).forEach((key3) => {
-        //         uid1 = key3;
-        //         console.log("key3:", key3);
-
-        //         Object.keys(data[key1][key2][key3]).forEach((key4) => {
-        //           console.log("key4:", key4);
-        //           dn = key4;
-        //           //  const message =
-        //           //     data[key1][key2][key3][key4];
-
-        //           //   console.log("message:", message);
-        //           //   console.log("text:", message.text);
-        //         }); // key4
-        //       }); // key3
-        //     }); // key2
-        //   }); // key1
-
-        //   ischat.push({
-        //     uid2,
-        //     dn2,
-        //     uid1,
-        //     dn,
-        //   });
+       
         })
         .catch((error) => console.log("startSetChat, error=" + error)))
 

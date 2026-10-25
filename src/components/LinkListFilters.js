@@ -189,6 +189,7 @@ function ExpandableArray(props) {
   //console.log("linkid="+linkid)
   const childRef = useRef(null);
   const z10 = params.get("z10");
+  const z12 = params.get("z12")
   const isFollower = decodeURIComponent(params.get("isFollower"));
   console.log("ExpanableArray, isFollower = " + isFollower);
   const isFollowing = decodeURIComponent(params.get("isFollowing"));
@@ -208,6 +209,14 @@ function ExpandableArray(props) {
   }
 
   //   const isMountedRef = useRef(true);
+
+  const decrypt=(text, key)=>{
+    if(text === null) return null
+    return String.fromCharCode(...text.match(/.{1,2}/g)
+        .map((e, i) => 
+            parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
+    );
+}
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
@@ -3016,7 +3025,8 @@ function ExpandableArray(props) {
                                   <ChatButton
                                     id2={id2}
                                     id={id}
-                                    name2={dn2}
+                                    //name2={dn2}
+                                    name2={decrypt(z12,"125434").split("@")[0]}
                                     name1={dn}
                                     chatsetting={2}
                                   />

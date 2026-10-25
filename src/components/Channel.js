@@ -20,12 +20,7 @@ const Channel = (props) => {
   const chatsetting = props.chatsetting; //params.get("chatsetting");
 
   const theurl = `chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}`;
-  //alert("theurl="+theurl)
-  //alert("Channel, theurl=")
-  //alert(`chat/messages/${props.id2}/${props.name2}/${props.id}/${props.name1}`)
-  //`chat/messages/D9/name2/XL/name1`
-  //const theurl=`chat/messages/${props.id2}/${props.id}`
-  //`chat/messages/D9/XL`
+  
   console.log("Channel, theurl=" + theurl);
   //const messagesRef= database.ref(`chat/messages/${props.id2}/${props.id}`)
   const messagesRef = database.ref(theurl);
@@ -153,39 +148,7 @@ const t = text[language];
   }
 };
 
-//   useEffect(() => {
-//     const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
-//       if (user) {
-//         // setPhotourl(user.photoURL); src={profilePhotoURL || "/default-profile.png"}
-//           const storedPhotoURL = await saveProfilePictureToStorage(user);
-          
 
-//            await database
-//         .ref(`users/${user.uid}/profilePhotoURL`)
-//         .set(storedPhotoURL);
-
-//       } else {
-//         setPhotourl(null);
-//       }
-//     });
-
-//     return () => unsubscribe();
-//   });
-
-//   useEffect(() => {
-//   const user = firebase.auth().currentUser;
-
-//   if (user) {
-   
-//       database
-//       .ref(`users/${user.uid}/profilePhotoURL`)
-//       .once("value")
-//       .then((snapshot) => {
-//         //setProfilePhotoURL(snapshot.val());
-//         setPhotourl(snapshot.val())   // || "/default-profile.png"); //src={profilePhotoURL || "/default-profile.png"}
-//       });
-//   }
-// }, []);
 
 useEffect(() => {
   const unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
@@ -224,7 +187,8 @@ useEffect(() => {
         text: trimmedMessage,
         createdAt: firebase.database.ServerValue.TIMESTAMP,
         uid2: props.id2,
-        displayName2: firebase.auth().currentUser.displayName, //props.name2,
+        //displayName2: firebase.auth().currentUser.displayName, //props.name2,
+        displayName2: props.name2,
         uid1: props.id,
         displayName1: props.name1, //name1 is wrong, but not every time, it is saying John
         photoURL: photourl //,
@@ -251,6 +215,7 @@ useEffect(() => {
   //alert("chatsetting="+chatsetting)
   const welcomemessage2 = `${t.titlepart1} ${props.name2} ${t.titlepart2} ${props.name1} ${t.titlepart3} ${props.name1} ${t.titlepart4}`;
   const welcomemessage1 = `${t.titlepart1} ${props.name1} ${t.titlepart2} ${props.name2} ${t.titlepart3} ${props.name2} ${t.titlepart4}`;
+
   return (
     <div className="flex flex-col h-full">
       <div className="overflow-auto h-full">

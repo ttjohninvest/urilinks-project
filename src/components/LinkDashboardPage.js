@@ -47,143 +47,101 @@ const LinkDashboardPage = (props) => {
   };
 
  useEffect(() => {
-  let connectedRef = null;
-  let userStatusRef = null;
 
   const unsubscribe = firebase
     .auth()
     .onAuthStateChanged((user) => {
-      console.log("AUTH CHANGED:", user);
 
-      if (!user) {
-        console.log("NO USER");
-        return;
-      }
+      if (!user) return;
 
-      console.log("USER UID:", user.uid);
 
-      connectedRef = firebase
+      const connectedRef = firebase
         .database()
         .ref(".info/connected");
 
-      userStatusRef = firebase
+
+      const userOnlineRef = firebase
         .database()
         .ref(`users/${user.uid}/online`);
 
-      connectedRef.on("value", async (snapshot) => {
-        console.log(
-          ".info/connected =",
-          snapshot.val()
-        );
 
-        if (snapshot.val() !== true) {
+      const userOnlineNameRef = firebase
+        .database()
+        .ref(`users/${user.uid}/onlineName`);
+
+
+      const handleConnection = (snapshot) => {
+
+        if (snapshot.val() === false) {
           return;
         }
 
-        try {
-          console.log(
-            "REGISTERING onDisconnect"
-          );
 
-          await userStatusRef
-            .onDisconnect()
-            .set(false);
+        /*
+         * Get the first part of the email.
+         *
+         * john@gmail.com
+         * becomes:
+         * john
+         */
+        let onlineName = "Someone";
 
-          console.log(
-            "onDisconnect REGISTERED"
-          );
+        if (
+          user.email &&
+          typeof user.email === "string"
+        ) {
 
-          await userStatusRef.set(true);
+          onlineName =
+            user.email.split("@")[0];
 
-          console.log(
-            "ONLINE SET TRUE"
-          );
-
-        } catch (error) {
-          console.error(
-            "ONLINE STATUS ERROR:",
-            error
-          );
         }
-      });
+
+
+        /*
+         * Store the person's name.
+         */
+        userOnlineNameRef.set(
+          onlineName
+        );
+
+
+        /*
+         * When this browser disconnects,
+         * Firebase changes online to false.
+         */
+        userOnlineRef
+          .onDisconnect()
+          .set(false)
+          .then(() => {
+
+            /*
+             * User is connected.
+             */
+            userOnlineRef.set(true);
+
+          });
+
+      };
+
+
+      connectedRef.on(
+        "value",
+        handleConnection
+      );
+
     });
 
-  return () => {
-    console.log(
-      "ONLINE useEffect cleanup"
-    );
 
-    if (connectedRef) {
-      connectedRef.off();
-    }
+  return () => {
 
     unsubscribe();
+
   };
+
 }, []);
 
 
-//   useEffect(() => {
-//   let connectedRef = null;
-//   let userStatusRef = null;
-//   let previousUser = null;
 
-//   const unsubscribe = firebase
-//     .auth()
-//     .onAuthStateChanged(async (user) => {
-//       console.log("managing online");
-
-//       /*
-//        * User logged out.
-//        */
-//       if (!user) {
-//         if (userStatusRef) {
-//           try {
-//             await userStatusRef.set(false);
-//             console.log("online set to false");
-//           } catch (error) {
-//             console.log("error setting offline:", error);
-//           }
-//         }
-
-//         return;
-//       }
-
-//       previousUser = user;
-
-//       connectedRef = firebase
-//         .database()
-//         .ref(".info/connected");
-
-//       userStatusRef = firebase
-//         .database()
-//         .ref(`users/${user.uid}/online`);
-
-//       connectedRef.on("value", (snapshot) => {
-//         if (snapshot.val() !== true) return;
-
-//         userStatusRef
-//           .onDisconnect()
-//           .set(false)
-//           .then(() => {
-//             return userStatusRef.set(true);
-//           })
-//           .then(() => {
-//             console.log("online set to true");
-//           })
-//           .catch((error) => {
-//             console.log("online error:", error);
-//           });
-//       });
-//     });
-
-//   return () => {
-//     if (connectedRef) {
-//       connectedRef.off();
-//     }
-
-//     unsubscribe();
-//   };
-// }, []);
 
    
 

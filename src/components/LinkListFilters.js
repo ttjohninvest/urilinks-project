@@ -1994,16 +1994,20 @@ function ExpandableArray(props) {
   return (
     <div className="flexrowh-">
 
-      {<div><FollowingOnlineToasts 
-       //uid={props.uid}
-        uid={firebase.auth().currentUser &&
-    firebase.auth().currentUser.uid} 
-        //name2={decrypt(z12,"125434").split("@")[0]}
-      />
-      <ToastContainer
-        position={toast.POSITION.BOTTOM_RIGHT}
-        autoClose={32000}
-       /></div>}
+    <div>
+  <FollowingOnlineToasts
+    uid={
+      firebase.auth().currentUser &&
+      firebase.auth().currentUser.uid
+    }
+  />
+
+  <ToastContainer
+    position={toast.POSITION.BOTTOM_RIGHT}
+    autoClose={32000}
+    newestOnTop={true}
+  />
+</div>
 
 {/* <button
   onClick={() => {

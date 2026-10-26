@@ -45,9 +45,11 @@ const UriLinksManual = () => {
         Your Google display name and profile photograph may be used to identify
         you on URI Links.
       </p> */}
+
       <p>
-        Your the first part of your google gmail address is used as your display name and google profile photograph may be used to identify
-        you on URI Links.
+        Your the first part of your google gmail address is used as your display
+        name and google profile photograph may be used to identify you on URI
+        Links.
       </p>
 
       <hr />
@@ -306,6 +308,7 @@ const UriLinksManual = () => {
         <li>
           <strong>Yes</strong> means the link is liked.
         </li>
+
         <li>
           <strong>No</strong> means it is not liked.
         </li>
@@ -357,13 +360,34 @@ const UriLinksManual = () => {
 
       <p>An online indicator may appear next to the person's name.</p>
 
-      <p>For example:</p>
-
-      <pre>Elf - online</pre>
+      <p>For example:</p>      <pre>John is online</pre>
 
       <hr />
 
-      <h2>16. New Link Notifications</h2>
+      <h2>16. Online Toast Notifications</h2>
+
+      <p>
+        When someone you are following comes online, URI Links can display a
+        temporary toast notification in the lower-right corner of the screen.
+      </p>
+
+      <p>For example:</p>
+
+      <pre>John is online</pre>
+
+      <p>
+        The name shown in the toast identifies the person who has come online.
+        The notification disappears automatically after a short period of time.
+      </p>
+
+      <p>
+        If more than one person you follow comes online close together, multiple
+        toast notifications can appear so you can see each online event.
+      </p>
+
+      <hr />
+
+      <h2>17. New Link Notifications</h2>
 
       <p>
         When you follow someone, URI Links can keep track of whether that person
@@ -372,7 +396,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>17. Playing Videos in URI Links</h2>
+      <h2>18. Playing Videos in URI Links</h2>
 
       <p>
         Supported video links can be played directly inside the URI Links page.
@@ -398,7 +422,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>18. Viewing Public Links</h2>
+      <h2>19. Viewing Public Links</h2>
 
       <p>
         The List All Public Links feature provides a way to browse links that
@@ -409,7 +433,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>19. People</h2>
+      <h2>20. People</h2>
 
       <p>
         The People area provides another way to discover URI Links users.
@@ -422,7 +446,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>20. Profile Photographs</h2>
+      <h2>21. Profile Photographs</h2>
 
       <p>
         URI Links can display profile photographs associated with users.
@@ -440,7 +464,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>21. Chat</h2>
+      <h2>22. Chat</h2>
 
       <p>URI Links includes person-to-person chat features.</p>
 
@@ -457,7 +481,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>22. Deleting a Saved Link</h2>
+      <h2>23. Deleting a Saved Link</h2>
 
       <p>A saved link can be deleted when you no longer want it.</p>
 
@@ -468,7 +492,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>23. Working With Large Collections</h2>
+      <h2>24. Working With Large Collections</h2>
 
       <p>
         URI Links loads links in smaller groups instead of loading every link at
@@ -487,7 +511,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>24. Using URI Links as a Personal Library</h2>
+      <h2>25. Using URI Links as a Personal Library</h2>
 
       <p>
         One way to think about URI Links is as a personal Internet library.
@@ -501,7 +525,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>25. Using URI Links as a Curator</h2>
+      <h2>26. Using URI Links as a Curator</h2>
 
       <p>
         URI Links can also be used for sharing knowledge with other people.
@@ -531,7 +555,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>26. Tips for Organizing Links</h2>
+      <h2>27. Tips for Organizing Links</h2>
 
       <ul>
         <li>Use descriptions that clearly explain what a link contains.</li>
@@ -544,7 +568,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>27. Example</h2>
+      <h2>28. Example</h2>
 
       <p>
         Suppose you find a useful webpage about distance-running training.
@@ -575,7 +599,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>28. The Purpose of URI Links</h2>
+      <h2>29. The Purpose of URI Links</h2>
 
       <p>
         URI Links is intended to make Internet information easier to organize,

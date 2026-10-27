@@ -1,5 +1,6 @@
 ====================================
 maybe do, to do, agenda
+
 english language to japanese language chat page
 saving profile images to storage for more reliable access during chat session
 enhancing urilinks with with ai

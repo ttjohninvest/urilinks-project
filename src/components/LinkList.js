@@ -42,6 +42,7 @@ import { v4 } from "uuid";
 import LoadingPage from "./LoadingPage";
 import StorageSizes from "./StorageSizes";
 import { setIsInfinitescroll } from './../actions/isinfinitescroll';
+import LinksShowPublicOrPrivate from "./LinksShowPublicOrPrivate";
 
 
 
@@ -501,6 +502,8 @@ useEffect(()=>{
 
 console.log("Play video in place 2")
 
+console.log("1a LinkList.js, props.theSortBy="+props.theSortBy)
+
   return (
     <div className="">
  {isMobile() === false && (<div className="">
@@ -814,7 +817,39 @@ console.log("Play video in place 2")
                onLinksCountChange={setLinksCount}
               />
           
-                
+               :props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===1
+              && props.theSortBy === "showpublic"
+              ?
+               <LinksShowPublicOrPrivate 
+                setLinksCount={setLinksCount}
+                 linksCount={linksCount}
+               scrollContainerRef={scrollContainerRef}
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+               onLinksCountChange={setLinksCount}
+               visibility={1}
+              />
+              
+               :props.isinfinitescroll.isinfinitescroll === true
+              && props.dosearch===1
+              && props.theSortBy === "showprivate"
+              ?
+               <LinksShowPublicOrPrivate 
+                setLinksCount={setLinksCount}
+                 linksCount={linksCount}
+               scrollContainerRef={scrollContainerRef}
+              databasePath={`users/${props.auth.uid}/links`} 
+              //searchText={ props.filters.text}
+              searchText={ props.searchText}  
+              theSortBy = {props.theSortBy} 
+              //theSortBy = "description"
+               onLinksCountChange={setLinksCount}
+               visibility={0}
+              />
           
               : props.isinfinitescroll.isinfinitescroll === true //not the search one, infinite scrolls the whole list
              

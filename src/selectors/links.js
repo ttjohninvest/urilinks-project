@@ -103,6 +103,26 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
             : false;
           return isTextInAds;
           
+        } else if (sortBy === "showpublic") {
+          
+             //return true
+              // || sortBy==='date') {
+          if (!!link.description === false) return false;
+          isTextInAds = !!link.description === true
+             ? link.description.toLowerCase().includes(text.toLowerCase())
+            : false;
+          return isTextInAds;
+          
+        } else if (sortBy === "showprivate") {
+          
+             //return true
+              // || sortBy==='date') {
+          if (!!link.description === false) return false;
+          isTextInAds = !!link.description === true
+             ? link.description.toLowerCase().includes(text.toLowerCase())
+            : false;
+          return isTextInAds;
+          
         }
         
         else return true;
@@ -165,6 +185,20 @@ const getFilteredLinksArray = (links, { text, sortBy, startDate, endDate }) => {
 
             
               if(a.addescription.toLowerCase() > b.addescription.toLowerCase()) return 1
+            else return -1
+            
+
+        } else if (sortBy === "showpublic") {
+
+            
+              if(a.description.toLowerCase() > b.description.toLowerCase()) return 1
+            else return -1
+            
+
+        } else if (sortBy === "showprivate") {
+
+            
+              if(a.description.toLowerCase() > b.description.toLowerCase()) return 1
             else return -1
             
 

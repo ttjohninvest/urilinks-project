@@ -113,6 +113,7 @@ const LinkListItem = (props) => {
   "showpublic=" + props.showpublic
 );
 
+  console.log("top of LinkListItem.js, props.link.showpublic = "+props.link.showpublic)
   console.log("top of LinkListItem.js, props.id = "+props.id)
   console.log("top of LinkListItem.js, props.frequency = "+props.frequency)
    console.log("top of LinkListItem.js, props.link.frequency = "+props.link.frequency)
@@ -2059,7 +2060,7 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
              
               <input
                 style={{ cursor: "pointer", visibility: "hidden" }}
-                checked={!!props.showpublic ? "" : "checked"}
+                checked={Number(props.showpublic)===1 ? "" : "checked"}
                 type="checkbox"
                 id={"private%" + props.id}
                 name={"private%" + props.id}
@@ -2069,7 +2070,7 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
                   handleCheckboxPrivate(isprivate, event)
                 }
                 title={
-                  !!props.showpublic
+                  Number(props.showpublic)===1
                     ? "click to make url private"
                     : "click to make url public"
                 }
@@ -2081,7 +2082,8 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
                 htmlFor={"private%" + props.id}
               >
                 
-                {isprivate === 0 ? "Made link private" : "Make link private"}
+                {/* {isprivate === 0 ? "Made link private" : "Make link private"} */}
+                {Number(props.showpublic) === 0 ? "Made link private" : "Make link private"}
                
               </label>
             </span>

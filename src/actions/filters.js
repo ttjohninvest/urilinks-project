@@ -43,6 +43,14 @@ export const sortByProductsAlpha = () => ({
   type: 'SORT_BY_PRODUCTSALPHA'
 });
 
+export const sortByPublicLinks = () => ({
+  type: 'SORT_BY_PUBLIC_LINKS'
+});
+
+export const sortByPrivateLinks = () => ({
+  type: 'SORT_BY_PRIVATE_LINKS'
+});
+
 export const sortByLikes = () => ({
   type: 'SORT_BY_LIKES'
 });

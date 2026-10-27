@@ -76,6 +76,18 @@ export default (state = filtersReducerDefaultState, action) => {
         ...state,
         sortBy: 'productsalpha'
       };
+
+      case 'SORT_BY_PUBLIC_LINKS':
+      return {
+        ...state,
+        sortBy: 'showpublic'
+      };
+      
+      case 'SORT_BY_PRIVATE_LINKS':
+      return {
+        ...state,
+        sortBy: 'showprivate'
+      };
       case 'SORT_BY_FOLDER':
       return {
         ...state,

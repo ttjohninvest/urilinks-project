@@ -2,6 +2,7 @@ const DISPLAY_THIS_MANY_LINKS = 100;
 import Constants from "./Constants";
 import React, { useState, useRef, useEffect } from "react";
 import OnlineStatus from "./OnlineStatus";
+import LinksShowPublicOrPrivate from "./LinksShowPublicOrPrivate"
 import ErrorBoundry from "./ErrorBoundry";
 import { useSelector } from "react-redux";
 import {
@@ -79,6 +80,8 @@ import {
   sortByAds,
   sortByAdsAlpha,
   sortByProductsAlpha,
+  sortByPublicLinks,
+  sortByPrivateLinks,
 } from "../actions/filters";
 
 import { incrementUsersClickCount } from "../actions/theuserscount";
@@ -1234,6 +1237,22 @@ function ExpandableArray(props) {
       setSortBy("productsalpha");
       //alert("after call to props.sortByViews()")
       //this.setState({ sortBy: "notetext" });
+    }  else if (e.target.value === "showpublic") {
+    
+    window.localStorage.setItem("sortBy", "showpublic");
+      props.setTextFilter(val);
+      if (myRef.current) myRef.current.focus();
+      // setSortBy("description");
+      props.sortByPublicLinks();
+      setSortBy("showpublic"); //this line causes a rerender so LinkList.js run again producing the filtered links for display using selector(...)
+    } else if (e.target.value === "showprivate") {
+    
+    window.localStorage.setItem("sortBy", "showprivate");
+      props.setTextFilter(val);
+      if (myRef.current) myRef.current.focus();
+      // setSortBy("description");
+      props.sortByPrivateLinks();
+      setSortBy("showprivate"); //this line causes a rerender so LinkList.js run again producing the filtered links for display using selector(...)
     }
     //buttonRef.current.click();
     handleClose3();
@@ -2950,10 +2969,11 @@ function ExpandableArray(props) {
                     <div className={`margin-left-11 margin-top-1`}>
                       <select
                         id="mode"
-                        className="select outline-none borderRadius55"
+                        className="select outline-none borderRadius55 "
                         style={{
                           paddingTop: "0.5rem",
                           paddingBottom: "0.5rem",
+                          //height:"800px"
                         }}
                         ////value={this.state.sortBy}
                         value={sortBy}
@@ -3027,6 +3047,20 @@ function ExpandableArray(props) {
                             Products (Alphabetical Order)
                           </option>
                         </optgroup>
+                         <optgroup label="Show public links or private links">
+                          <option
+                            value="showpublic"
+                            title="show public links"
+                          >
+                           Show public links
+                          </option>
+                          <option
+                            value="showprivate"
+                            title="show private links"
+                          >
+                           Show private links
+                          </option>
+                        </optgroup>
                       </select>
                       {z10 !== null && (
                         <div className="flexrowz">
@@ -3097,16 +3131,18 @@ function ExpandableArray(props) {
             <div className="scrollable-div2-">
               <div id="ef2" ref={elementRef2} className=""></div>
 
+             
+
               <div
                 id="results1"
                 className={`margin-top-18- ${window.screen.height <= 1050 ? "margin-top-n-gx2" : "margin-top-n-gx-"} scrollable-div2- width825- bordergreen-`}
               >
-                {/* <button onClick={handleStartScroll}>Start Auto Scroll</button>
-              <button onClick={handleCancelScroll}>Cancel Auto Scroll</button> */}
+               
                 <LinkList3
                   dosearch={dosearch}
                   searchText={searchText}
                   theSortBy={theSortBy2 ? theSortBy2 : mode}
+                  //theSortBy={ mode ?  mode : theSortBy2}
                   idexists={idexists}
                   av={props.av}
                   ref={childRef}
@@ -3125,6 +3161,13 @@ function ExpandableArray(props) {
                   scrollInterval2={props.scrollInterval2}
                 />
               </div>
+
+
+
+
+
+
+
             </div>
           </div>
 
@@ -3763,6 +3806,8 @@ export class LinkListFilters extends React.Component {
             sortByAds={this.props.sortByAds}
             sortByAdsAlpha={this.props.sortByAdsAlpha}
             sortByProductsAlpha={this.props.sortByProductsAlpha}
+            sortByPublicLinks={this.props.sortByPublicLinks}
+            sortByPrivateLinks={this.props.sortByPrivateLinks}
             filters={this.props.filters}
             userscount={this.props.theuserscount.userscount}
             signupcount={this.props.thesignupcount.signupcount}
@@ -3817,6 +3862,8 @@ const mapDispatchToProps = (dispatch) => ({
   sortByAds: () => dispatch(sortByAds()),
   sortByAdsAlpha: () => dispatch(sortByAdsAlpha()),
   sortByProductsAlpha: () => dispatch(sortByProductsAlpha()),
+  sortByPublicLinks: () => dispatch(sortByPublicLinks()),
+  sortByPrivateLinks: () => dispatch(sortByPrivateLinks()),
   //setFrommenu:(data) => dispatch(setFrommenu(data))
   // incrementHandleToggle3: (data) => dispatch(incrementHandleToggle3(data)),
   // decrementHandleToggle3: (data) => dispatch(decrementHandleToggle3(data)),

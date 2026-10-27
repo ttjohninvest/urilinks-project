@@ -246,7 +246,7 @@ const UriLinksManual = () => {
 
       <hr />
 
-      <h2>8. Sorting Links</h2>
+      {/* <h2>8. Sorting Links</h2>
 
       <p>URI Links can arrange links in different ways.</p>
 
@@ -260,7 +260,57 @@ const UriLinksManual = () => {
         <li>Starred links (My Top Twenty)</li>
       </ul>
 
-      <hr />
+      <hr /> */}
+
+      <h2>8. Searching and Sorting Links</h2>
+
+<p>
+  URI Links provides a Search and Sort drop-down list that allows you to
+  choose how your links are displayed.
+</p>
+
+<p>
+  Select the Search and Sort drop-down list to choose the type of links you
+  want to view.
+</p>
+
+<p>Available choices can include:</p>
+
+<ul>
+  <li>Alphabetical order</li>
+  <li>Newest links</li>
+  <li>Most viewed</li>
+  <li>Likes</li>
+  <li>Starred links (My Top Twenty)</li>
+  <li>Public links</li>
+  <li>Private links</li>
+</ul>
+
+<h3>Viewing Public Links</h3>
+
+<p>
+  To view only your public links, select <strong>Public Links</strong> from
+  the Search and Sort drop-down list.
+</p>
+
+<p>
+  URI Links will display links that have been made public. These are links
+  whose public setting is turned on.
+</p>
+
+<h3>Viewing Private Links</h3>
+
+<p>
+  To view only your private links, select <strong>Private Links</strong> from
+  the Search and Sort drop-down list.
+</p>
+
+<p>
+  URI Links will display links that are private. Private links are available
+  to you but are not displayed to other people viewing your public links.
+</p>
+
+<hr />
 
       <h2>9. Public and Private Links</h2>
 

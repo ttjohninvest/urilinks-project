@@ -4,7 +4,7 @@ maybe do, to do, agenda
 english language to japanese language chat page
 saving profile images to storage for more reliable access during chat session
 enhancing urilinks with with ai
-delete a chat
+Make the select dropdown longer by 100px
 first user source
 steps to upgrade from webpack 3 to webpack 5
 urilinks tutorial instructions

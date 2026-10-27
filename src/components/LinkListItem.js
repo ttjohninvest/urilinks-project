@@ -91,36 +91,38 @@ if (Constants.NODE_DEV === "development") {
 }
 
 const LinkListItem = (props) => {
-
-  console.log(
-  "LinkListItem RECEIVED",
-  props.id,
-  "frequency=",
-  props.frequency
-);
+  console.log("LinkListItem RECEIVED", props.id, "frequency=", props.frequency);
   //  const params = new URLSearchParams(window.location.search);
-  if(props.thetotalstars) {
-    console.log("props.thetotalstars.totalstars="+props.thetotalstars.totalstars)
-    console.log("typeof props.thetotalstars.totalstars="+ typeof props.thetotalstars.totalstars)
-  }
-  else console.log("props.thetotalstars.totalstars is undefined")
+  if (props.thetotalstars) {
+    console.log(
+      "props.thetotalstars.totalstars=" + props.thetotalstars.totalstars,
+    );
+    console.log(
+      "typeof props.thetotalstars.totalstars=" +
+        typeof props.thetotalstars.totalstars,
+    );
+  } else console.log("props.thetotalstars.totalstars is undefined");
 
   // const rt = params.get("x");
   //alert("rt="+rt)
 
   console.log(
-  "render LinkListItem id=" + props.id,
-  "showpublic=" + props.showpublic
-);
+    "render LinkListItem id=" + props.id,
+    "showpublic=" + props.showpublic,
+  );
 
-  console.log("top of LinkListItem.js, props.link.showpublic = "+props.link.showpublic)
-  console.log("top of LinkListItem.js, props.id = "+props.id)
-  console.log("top of LinkListItem.js, props.frequency = "+props.frequency)
-   console.log("top of LinkListItem.js, props.link.frequency = "+props.link.frequency)
-  const nd = new Date()
-  console.log("new date and time, hours = "+nd.getHours())
-  console.log("new date and time, minutes = "+nd.getMinutes())
-  console.log("new date and time, seconds = "+nd.getSeconds())
+  console.log(
+    "top of LinkListItem.js, props.link.showpublic = " + props.link.showpublic,
+  );
+  console.log("top of LinkListItem.js, props.id = " + props.id);
+  console.log("top of LinkListItem.js, props.frequency = " + props.frequency);
+  console.log(
+    "top of LinkListItem.js, props.link.frequency = " + props.link.frequency,
+  );
+  const nd = new Date();
+  console.log("new date and time, hours = " + nd.getHours());
+  console.log("new date and time, minutes = " + nd.getMinutes());
+  console.log("new date and time, seconds = " + nd.getSeconds());
 
   console.log(
     "1 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP faviconURL=" + props.faviconURL,
@@ -151,23 +153,20 @@ const LinkListItem = (props) => {
   const [showStatus, setShowStatus] = useState(false);
   const [linkStatus, setLinkStatus] = useState("");
   const [showLink, setShowLink] = useState(true);
-  const [isprivate, setIsPrivate] = useState(props.showpublic)
-  const [likes, setLikes] = useState(props.likes)
-  const [star, setStar] = useState(props.star)
+  //const [isprivate, setIsPrivate] = useState(props.showpublic?props.showpublic:0)
+  const [isprivate, setIsPrivate] = useState(props.showpublic);
+  const [likes, setLikes] = useState(props.likes);
+  const [star, setStar] = useState(props.star);
   //const [frequency, setFrequency] = useState(props.frequency)
 
   //frequency is for the views count
   const [frequency, setFrequency] = useState(
-  typeof props.frequency === "number"
-    ? props.frequency
-    : 0
-);
+    typeof props.frequency === "number" ? props.frequency : 0,
+  );
 
- 
-
-useEffect(() => {
-  setFrequency(props.frequency);
-}, [props.frequency]);
+  useEffect(() => {
+    setFrequency(props.frequency);
+  }, [props.frequency]);
 
   const savedScrollYw = useRef(0);
   const savedScrollYiw = useRef(0);
@@ -434,23 +433,20 @@ https://www.youtube.com/feed/history
   };
 
   const handleCheckboxDelete = (event) => {
-   
     console.log("bookmark id=" + event.target.value);
     //addIdToDelete(event.target.value)
     //console.log("bookmark ids="+localStorage.getItem('deleteData'))
     let result = confirm("Are you sure you want to remove the link?");
     if (result) {
-      
       //props.removeLink({ id: event.target.value });
       props.startRemoveLink({ id: event.target.value });
-      const thetype=typeof props.sessionRemoveLink
-      console.log("aaa thetype="+thetype)
+      const thetype = typeof props.sessionRemoveLink;
+      console.log("aaa thetype=" + thetype);
       if (thetype === "function") {
-  props.sessionRemoveLink(props.id);
-}
-     
+        props.sessionRemoveLink(props.id);
+      }
 
-       setShowLink(false);
+      setShowLink(false);
       //alert("Link removed.");
       //  const x = confirm("Do you want to refresh the menu?");
       // if (x === true) {
@@ -466,24 +462,39 @@ https://www.youtube.com/feed/history
   };
 
   const handleCheckboxPrivate = (x, event) => {
-    
-    console.log("link id=" + event.target.value);
-    console.log("showpublic=" + x);
-    console.log("typeof showpublic=" + typeof(x));
+    const id = event.target.value;
 
-   
+    console.log("link id=" + id);
+    console.log("showpublic=" + x);
+    console.log("typeof showpublic=" + typeof x);
+
     if (x === 0) {
-        //alert("x === 0")  
-        //props.privateLink2({ id: event.target.value });
-        props.startPrivateLink2({ id: event.target.value });
-        updateCachedShowPublic(event.target.value,x+1)
-        setIsPrivate(1)
+      props.startPrivateLink2({ id: id }).then(() => {
+        updateCachedShowPublic(id, x + 1);
+
+        setIsPrivate(1);
+
+        if (props.clearVisibilityCache) {
+          props.clearVisibilityCache();
+        }
+        if (props.removeLinkFromDisplayedList) {
+          props.removeLinkFromDisplayedList(id);
+        }
+      });
     } else {
-        //alert("x === 1") 
-        //props.privateLink({ id: event.target.value });
-        props.startPrivateLink({ id: event.target.value });
-        updateCachedShowPublic(event.target.value,x-1)
-        setIsPrivate(0)
+      props.startPrivateLink({ id: id }).then(() => {
+        updateCachedShowPublic(id, x - 1);
+
+        setIsPrivate(0);
+
+        if (props.clearVisibilityCache) {
+          props.clearVisibilityCache();
+        }
+
+        if (props.removeLinkFromDisplayedList) {
+          props.removeLinkFromDisplayedList(id);
+        }
+      });
     }
   };
 
@@ -522,404 +533,337 @@ https://www.youtube.com/feed/history
     }
   };
 
-//   const updateCachedFrequency = (linkId, newFrequency) => {
-//     console.log("a a linkId="+linkId)
-//     console.log("a a newFrequency="+newFrequency)
-//   Object.keys(sessionStorage).forEach((key) => {
-//     try {
-//       const cachedPage = JSON.parse(sessionStorage.getItem(key));
+  //   const updateCachedFrequency = (linkId, newFrequency) => {
+  //     console.log("a a linkId="+linkId)
+  //     console.log("a a newFrequency="+newFrequency)
+  //   Object.keys(sessionStorage).forEach((key) => {
+  //     try {
+  //       const cachedPage = JSON.parse(sessionStorage.getItem(key));
 
-//       console.log("key =", key);
-// console.log("cachedPage =", cachedPage);
-// console.log("Array.isArray(cachedPage) =", Array.isArray(cachedPage));
-// console.log("cachedPage.length =", cachedPage.length);
+  //       console.log("key =", key);
+  // console.log("cachedPage =", cachedPage);
+  // console.log("Array.isArray(cachedPage) =", Array.isArray(cachedPage));
+  // console.log("cachedPage.length =", cachedPage.length);
 
+  // console.log(
+  //   "RAW CACHE VALUE =",
+  //   sessionStorage.getItem(key)
+  // );
 
-// console.log(
-//   "RAW CACHE VALUE =",
-//   sessionStorage.getItem(key)
-// );
+  // console.log(
+  //   "PARSED CACHE VALUE =",
+  //   JSON.stringify(cachedPage)
+  // );
 
-// console.log(
-//   "PARSED CACHE VALUE =",
-//   JSON.stringify(cachedPage)
-// );
+  //       if (!Array.isArray(cachedPage)) return;
 
-//       if (!Array.isArray(cachedPage)) return;
+  //       const updatedPage = cachedPage.map((link) => {
+  //          console.log("link =", link);
+  //   console.log("link.id =", link.id);
+  //   console.log("linkId =", linkId);
+  //   console.log("typeof link.id =", typeof link.id);
+  //   console.log("typeof linkId =", typeof linkId);
+  //         if (link.id === linkId) {
+  //           console.log("newFrequency="+newFrequency)
+  //           return {
+  //             ...link,
+  //             frequency: newFrequency,
+  //           };
+  //         }
 
-      
+  //         return link;
+  //       });
 
-//       const updatedPage = cachedPage.map((link) => {
-//          console.log("link =", link);
-//   console.log("link.id =", link.id);
-//   console.log("linkId =", linkId);
-//   console.log("typeof link.id =", typeof link.id);
-//   console.log("typeof linkId =", typeof linkId);
-//         if (link.id === linkId) {
-//           console.log("newFrequency="+newFrequency)
-//           return {
-//             ...link,
-//             frequency: newFrequency,
-//           };
-//         }
+  //       console.log("JSON.stringify(updatedPage)="+JSON.stringify(updatedPage))
+  //       sessionStorage.setItem(
+  //         key,
+  //         JSON.stringify(updatedPage)
+  //       );
+  //     } catch (error) {
+  //       console.log("updateCachedFrequency error =", error);
+  //     }
+  //   });
+  // };
 
-//         return link;
-//       });
+  // const updateCachedFrequency = (linkId, newFrequency) => {
 
-//       console.log("JSON.stringify(updatedPage)="+JSON.stringify(updatedPage))
-//       sessionStorage.setItem(
-//         key,
-//         JSON.stringify(updatedPage)
-//       );
-//     } catch (error) {
-//       console.log("updateCachedFrequency error =", error);
-//     }
-//   });
-// };
+  // console.log("updateCachedFrequency(), see the following:")
+  // Object.keys(sessionStorage).forEach((key) => {
+  //   console.log(
+  //     key,
+  //     "=",
+  //     sessionStorage.getItem(key)
+  //   );
+  // });
 
-// const updateCachedFrequency = (linkId, newFrequency) => {
+  //   Object.keys(sessionStorage).forEach((key) => {
 
-// console.log("updateCachedFrequency(), see the following:")
-// Object.keys(sessionStorage).forEach((key) => {
-//   console.log(
-//     key,
-//     "=",
-//     sessionStorage.getItem(key)
-//   );
-// });
+  //     // Only look at cached link pages
+  //     if (!key.includes("|page|")) return;
 
-//   Object.keys(sessionStorage).forEach((key) => {
+  //     try {
+  //       const cachedPage = JSON.parse(
+  //         sessionStorage.getItem(key)
+  //       );
 
-//     // Only look at cached link pages
-//     if (!key.includes("|page|")) return;
+  //       console.log("key =", key);
+  //       console.log("cachedPage =", cachedPage);
 
-//     try {
-//       const cachedPage = JSON.parse(
-//         sessionStorage.getItem(key)
-//       );
+  //       if (!Array.isArray(cachedPage)) return;
 
-//       console.log("key =", key);
-//       console.log("cachedPage =", cachedPage);
+  //       const updatedPage = cachedPage.map((link) => {
+  //         console.log("link.id =", link.id);
+  //         console.log("linkId =", linkId);
 
-//       if (!Array.isArray(cachedPage)) return;
+  //         if (link.id === linkId) {
+  //           console.log("FOUND LINK");
 
-//       const updatedPage = cachedPage.map((link) => {
-//         console.log("link.id =", link.id);
-//         console.log("linkId =", linkId);
+  //           return {
+  //             ...link,
+  //             frequency: newFrequency,
+  //           };
+  //         }
 
-//         if (link.id === linkId) {
-//           console.log("FOUND LINK");
+  //         return link;
+  //       });
 
-//           return {
-//             ...link,
-//             frequency: newFrequency,
-//           };
-//         }
+  //       console.log("SAVING CACHE KEY =", cacheKey);
+  // console.log("SAVING PAGE =", pageToCache);
 
-//         return link;
-//       });
+  // window.sessionStorage.setItem(
+  //   cacheKey,
+  //   JSON.stringify(pageToCache)
+  // );
 
-//       console.log("SAVING CACHE KEY =", cacheKey);
-// console.log("SAVING PAGE =", pageToCache);
+  //       sessionStorage.setItem(
+  //         key,
+  //         JSON.stringify(updatedPage)
+  //       );
 
-// window.sessionStorage.setItem(
-//   cacheKey,
-//   JSON.stringify(pageToCache)
-// );
+  //     } catch (error) {
+  //       console.log(
+  //         "updateCachedFrequency error =",
+  //         error
+  //       );
+  //     }
+  //   });
+  // };
 
-//       sessionStorage.setItem(
-//         key,
-//         JSON.stringify(updatedPage)
-//       );
-
-//     } catch (error) {
-//       console.log(
-//         "updateCachedFrequency error =",
-//         error
-//       );
-//     }
-//   });
-// };
-
-
-
-
-const updateCachedShowPublic = (linkId, showpublic) => {
-  const updateValue = (value) => {
-    if (Array.isArray(value)) {
-      return value.map((item) => updateValue(item));
-    }
-
-    if (value && typeof value === "object") {
-      const updatedObject = { ...value };
-
-      if (
-        value.id === linkId ||
-        value.linkid === linkId
-      ) {
-        console.log(
-          "Updating cached star:",
-          linkId,
-          showpublic
-        );
-
-        updatedObject.showpublic = showpublic;
+  const updateCachedShowPublic = (linkId, showpublic) => {
+    const updateValue = (value) => {
+      if (Array.isArray(value)) {
+        return value.map((item) => updateValue(item));
       }
 
-      Object.keys(updatedObject).forEach((property) => {
-        updatedObject[property] =
-          updateValue(updatedObject[property]);
-      });
+      if (value && typeof value === "object") {
+        const updatedObject = { ...value };
 
-      return updatedObject;
-    }
+        if (value.id === linkId || value.linkid === linkId) {
+          console.log("Updating cached star:", linkId, showpublic);
 
-    return value;
-  };
+          updatedObject.showpublic = showpublic;
+        }
 
-  Object.keys(sessionStorage).forEach((key) => {
-    const rawValue = sessionStorage.getItem(key);
+        Object.keys(updatedObject).forEach((property) => {
+          updatedObject[property] = updateValue(updatedObject[property]);
+        });
 
-    if (!rawValue) return;
-
-    try {
-      const parsedValue = JSON.parse(rawValue);
-
-      const updatedValue = updateValue(parsedValue);
-
-      sessionStorage.setItem(
-        key,
-        JSON.stringify(updatedValue)
-      );
-    } catch (error) {
-      // Ignore sessionStorage values that are not JSON.
-    }
-  });
-};
-
-
-const updateCachedStar = (linkId, star) => {
-  const updateValue = (value) => {
-    if (Array.isArray(value)) {
-      return value.map((item) => updateValue(item));
-    }
-
-    if (value && typeof value === "object") {
-      const updatedObject = { ...value };
-
-      if (
-        value.id === linkId ||
-        value.linkid === linkId
-      ) {
-        console.log(
-          "Updating cached star:",
-          linkId,
-          star
-        );
-
-        updatedObject.star = star;
+        return updatedObject;
       }
 
-      Object.keys(updatedObject).forEach((property) => {
-        updatedObject[property] =
-          updateValue(updatedObject[property]);
-      });
+      return value;
+    };
 
-      return updatedObject;
-    }
+    Object.keys(sessionStorage).forEach((key) => {
+      const rawValue = sessionStorage.getItem(key);
 
-    return value;
+      if (!rawValue) return;
+
+      try {
+        const parsedValue = JSON.parse(rawValue);
+
+        const updatedValue = updateValue(parsedValue);
+
+        sessionStorage.setItem(key, JSON.stringify(updatedValue));
+      } catch (error) {
+        // Ignore sessionStorage values that are not JSON.
+      }
+    });
   };
 
-  Object.keys(sessionStorage).forEach((key) => {
-    const rawValue = sessionStorage.getItem(key);
-
-    if (!rawValue) return;
-
-    try {
-      const parsedValue = JSON.parse(rawValue);
-
-      const updatedValue = updateValue(parsedValue);
-
-      sessionStorage.setItem(
-        key,
-        JSON.stringify(updatedValue)
-      );
-    } catch (error) {
-      // Ignore sessionStorage values that are not JSON.
-    }
-  });
-};
-
-
-const updateCachedLikes = (linkId, likes) => {
-  const updateValue = (value) => {
-    if (Array.isArray(value)) {
-      return value.map((item) => updateValue(item));
-    }
-
-    if (value && typeof value === "object") {
-      const updatedObject = { ...value };
-
-      if (
-        value.id === linkId ||
-        value.linkid === linkId
-      ) {
-        console.log(
-          "Updating cached likes:",
-          linkId,
-          likes
-        );
-
-        updatedObject.likes = likes;
+  const updateCachedStar = (linkId, star) => {
+    const updateValue = (value) => {
+      if (Array.isArray(value)) {
+        return value.map((item) => updateValue(item));
       }
 
-      Object.keys(updatedObject).forEach((property) => {
-        updatedObject[property] =
-          updateValue(updatedObject[property]);
-      });
+      if (value && typeof value === "object") {
+        const updatedObject = { ...value };
 
-      return updatedObject;
-    }
+        if (value.id === linkId || value.linkid === linkId) {
+          console.log("Updating cached star:", linkId, star);
 
-    return value;
-  };
+          updatedObject.star = star;
+        }
 
-  Object.keys(sessionStorage).forEach((key) => {
-    const rawValue = sessionStorage.getItem(key);
+        Object.keys(updatedObject).forEach((property) => {
+          updatedObject[property] = updateValue(updatedObject[property]);
+        });
 
-    if (!rawValue) return;
-
-    try {
-      const parsedValue = JSON.parse(rawValue);
-
-      const updatedValue = updateValue(parsedValue);
-
-      sessionStorage.setItem(
-        key,
-        JSON.stringify(updatedValue)
-      );
-    } catch (error) {
-      // Ignore sessionStorage values that are not JSON.
-    }
-  });
-};
-
-
-
-
-const updateCachedFrequency = (linkId, newFrequency) => {
-  const updateValue = (value) => {
-    if (Array.isArray(value)) {
-      return value.map((item) => updateValue(item));
-    }
-
-    if (value && typeof value === "object") {
-      const updatedObject = { ...value };
-
-      if (
-        value.id === linkId ||
-        value.linkid === linkId
-      ) {
-        console.log(
-          "Updating cached frequency:",
-          linkId,
-          newFrequency
-        );
-
-        updatedObject.frequency = newFrequency;
+        return updatedObject;
       }
 
-      Object.keys(updatedObject).forEach((property) => {
-        updatedObject[property] =
-          updateValue(updatedObject[property]);
-      });
+      return value;
+    };
 
-      return updatedObject;
-    }
+    Object.keys(sessionStorage).forEach((key) => {
+      const rawValue = sessionStorage.getItem(key);
 
-    return value;
+      if (!rawValue) return;
+
+      try {
+        const parsedValue = JSON.parse(rawValue);
+
+        const updatedValue = updateValue(parsedValue);
+
+        sessionStorage.setItem(key, JSON.stringify(updatedValue));
+      } catch (error) {
+        // Ignore sessionStorage values that are not JSON.
+      }
+    });
   };
 
-  Object.keys(sessionStorage).forEach((key) => {
-    const rawValue = sessionStorage.getItem(key);
+  const updateCachedLikes = (linkId, likes) => {
+    const updateValue = (value) => {
+      if (Array.isArray(value)) {
+        return value.map((item) => updateValue(item));
+      }
 
-    if (!rawValue) return;
+      if (value && typeof value === "object") {
+        const updatedObject = { ...value };
 
-    try {
-      const parsedValue = JSON.parse(rawValue);
+        if (value.id === linkId || value.linkid === linkId) {
+          console.log("Updating cached likes:", linkId, likes);
 
-      const updatedValue = updateValue(parsedValue);
+          updatedObject.likes = likes;
+        }
 
-      sessionStorage.setItem(
-        key,
-        JSON.stringify(updatedValue)
-      );
-    } catch (error) {
-      // Ignore sessionStorage values that are not JSON.
-    }
-  });
-};
+        Object.keys(updatedObject).forEach((property) => {
+          updatedObject[property] = updateValue(updatedObject[property]);
+        });
+
+        return updatedObject;
+      }
+
+      return value;
+    };
+
+    Object.keys(sessionStorage).forEach((key) => {
+      const rawValue = sessionStorage.getItem(key);
+
+      if (!rawValue) return;
+
+      try {
+        const parsedValue = JSON.parse(rawValue);
+
+        const updatedValue = updateValue(parsedValue);
+
+        sessionStorage.setItem(key, JSON.stringify(updatedValue));
+      } catch (error) {
+        // Ignore sessionStorage values that are not JSON.
+      }
+    });
+  };
+
+  const updateCachedFrequency = (linkId, newFrequency) => {
+    const updateValue = (value) => {
+      if (Array.isArray(value)) {
+        return value.map((item) => updateValue(item));
+      }
+
+      if (value && typeof value === "object") {
+        const updatedObject = { ...value };
+
+        if (value.id === linkId || value.linkid === linkId) {
+          console.log("Updating cached frequency:", linkId, newFrequency);
+
+          updatedObject.frequency = newFrequency;
+        }
+
+        Object.keys(updatedObject).forEach((property) => {
+          updatedObject[property] = updateValue(updatedObject[property]);
+        });
+
+        return updatedObject;
+      }
+
+      return value;
+    };
+
+    Object.keys(sessionStorage).forEach((key) => {
+      const rawValue = sessionStorage.getItem(key);
+
+      if (!rawValue) return;
+
+      try {
+        const parsedValue = JSON.parse(rawValue);
+
+        const updatedValue = updateValue(parsedValue);
+
+        sessionStorage.setItem(key, JSON.stringify(updatedValue));
+      } catch (error) {
+        // Ignore sessionStorage values that are not JSON.
+      }
+    });
+  };
 
   const storeScrollPosition = (frequency, event) => {
     console.log("storeScrollPosition, frequency=" + frequency);
     //alert("frequency="+frequency)
-    
+
     const x = event.target.getAttribute("data-value"); //x is link id
     //alert("id="+x+", frequency="+x1)
     //alert("storeScrollPosition, event.target.value="+x)
     console.log("storeScrollPosition, link id=" + x);
- 
 
     props.incrementLinkClickCount({ id: x, frequency: frequency });
-    frequency = frequency + 1
-    updateCachedFrequency(x, frequency)
-    setFrequency(frequency)
+    frequency = frequency + 1;
+    updateCachedFrequency(x, frequency);
+    setFrequency(frequency);
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };
 
   const storeScrollPosition0 = (id, frequency) => {
     console.log("storeScrollPosition0, frequency=" + frequency);
-  
+
     props.incrementLinkClickCount({ id: id, frequency: frequency });
-    frequency = frequency + 1
-    updateCachedFrequency(id, frequency)
-    setFrequency(frequency)
+    frequency = frequency + 1;
+    updateCachedFrequency(id, frequency);
+    setFrequency(frequency);
     window.localStorage.setItem("scrollPosition", window.scrollY);
   };
 
-
- 
-
   const storeScrollPosition2 = (likes, event) => {
-    const text =
-      "Please confirm it ok to change your likes selection?";
-    if (props.filters.sortBy === "likes" && likes === 1 && confirm(text) === false) {
-
-      return
-
+    const text = "Please confirm it ok to change your likes selection?";
+    if (
+      props.filters.sortBy === "likes" &&
+      likes === 1 &&
+      confirm(text) === false
+    ) {
+      return;
     } else {
-     
-    
       const x = event.target.getAttribute("data-value"); //x is link id
-    
-      if (likes === 0) {
-        
-      
-          props.incrementLinkLikesClickCount({ id: x, likes: 0 });
-          
-          updateCachedLikes(x,likes+1)
-          setLikes(1)
-    
 
+      if (likes === 0) {
+        props.incrementLinkLikesClickCount({ id: x, likes: 0 });
+
+        updateCachedLikes(x, likes + 1);
+        setLikes(1);
       } else {
-        
-       
-          props.decrementLinkLikesClickCount({ id: x, likes: 1 });
-        
-          updateCachedLikes(x,likes-1)
-          setLikes(0)
-       
+        props.decrementLinkLikesClickCount({ id: x, likes: 1 });
+
+        updateCachedLikes(x, likes - 1);
+        setLikes(0);
       }
 
       window.localStorage.setItem("scrollPosition", window.scrollY);
@@ -929,38 +873,42 @@ const updateCachedFrequency = (linkId, newFrequency) => {
   const storeScrollPosition3 = (star, event) => {
     const text =
       "Please confirm it ok to remove this link from your top ten list?";
-    if (props.filters.sortBy === "star" && star === 1 && confirm(text) === false) {
-
-      return
-
+    if (
+      props.filters.sortBy === "star" &&
+      star === 1 &&
+      confirm(text) === false
+    ) {
+      return;
     } else {
-     
-    
       const x = event.target.getAttribute("data-value"); //x is link id
-    
+
       if (star === 0) {
-        
         if (props.thetotalstars.totalstars < StorageSizes.starsmaximum) {
           props.incrementLinkStarClickCount({ id: x, star: 0 });
           props.incrementTotalStarClickCount({
             totalstars: props.thetotalstars.totalstars,
           });
-          updateCachedStar(x,star+1)
-          setStar(1)
-       } else {alert("You have "+ StorageSizes.starsmaximum + " selected for your top "+StorageSizes.starsmaximum+".");}
-
+          updateCachedStar(x, star + 1);
+          setStar(1);
+        } else {
+          alert(
+            "You have " +
+              StorageSizes.starsmaximum +
+              " selected for your top " +
+              StorageSizes.starsmaximum +
+              ".",
+          );
+        }
       } else {
-        
-        if ( props.thetotalstars.totalstars > 0 ) 
-          {
+        if (props.thetotalstars.totalstars > 0) {
           props.decrementLinkStarClickCount({ id: x, star: 1 });
           props.decrementTotalStarClickCount({
             totalstars: props.thetotalstars.totalstars,
           });
-          updateCachedStar(x,star-1)
-          setStar(0)
-        } else {} //alert("You have zero of ten stars selected for your top ten.");
-
+          updateCachedStar(x, star - 1);
+          setStar(0);
+        } else {
+        } //alert("You have zero of ten stars selected for your top ten.");
       }
 
       window.localStorage.setItem("scrollPosition", window.scrollY);
@@ -1688,8 +1636,6 @@ const updateCachedFrequency = (linkId, newFrequency) => {
     };
   };
 
-  
-
   /*
 data-value={props.id}
             
@@ -1712,8 +1658,8 @@ data-value={props.id}
 
     if (text === "Play video in place") {
       console.log("Play video in place");
-      storeScrollPosition0(id, frequency)
-      window.document.getElementById("ipvideo"+id).style.marginTop = "35px"
+      storeScrollPosition0(id, frequency);
+      window.document.getElementById("ipvideo" + id).style.marginTop = "35px";
       // const el = document.getElementById("belowbuttonsid2");
 
       // console.log(
@@ -1763,15 +1709,13 @@ data-value={props.id}
       });
 
       setTimeout(() => {
-  const ls2 = document.getElementById("ls2");
+        const ls2 = document.getElementById("ls2");
 
-  ls2.scrollBy({
-    top: -30,
-    behavior: "auto"
-  });
-}, 500);
-
-
+        ls2.scrollBy({
+          top: -30,
+          behavior: "auto",
+        });
+      }, 500);
     } else {
       // console.log("Play video in place, about to set display to none");
       // window.document.getElementById("belowbuttonsid2").style.display = "none";
@@ -1779,14 +1723,12 @@ data-value={props.id}
       console.log("RESTORED savedScrollYw.current =", savedScrollYw.current);
       console.log("RESTORED savedScrollYiw.current=", savedScrollYiw.current);
 
-       const iframe = document.querySelector(
-    "#ipvideo" + id + " iframe"
-  );
+      const iframe = document.querySelector("#ipvideo" + id + " iframe");
 
-        // Stops video and audio
-  if (iframe) {
-    iframe.src = "";
-  }
+      // Stops video and audio
+      if (iframe) {
+        iframe.src = "";
+      }
 
       videoElement.style.display = "none";
       event.currentTarget.innerText = "Play video in place";
@@ -1858,14 +1800,14 @@ data-value={props.id}
 
   //console.log("status="+JSON.stringify(status))
 
-if (!showLink) {
-  return null;
-}
-console.log("LinkListItem.js, props.adUrl="+props.adUrl)
+  if (!showLink) {
+    return null;
+  }
+  console.log("LinkListItem.js, props.adUrl=" + props.adUrl);
   return (
     <div key={props.index}>
       <div id="divtop" />
-     
+
       {/* <div>
        
         {props.faviconURL === "https://instagram.com/favicon.ico" ? (
@@ -1895,58 +1837,57 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
               position: "relative",
               display: "inline-block",
             }}
-          > 
+          >
             {!!props.yturl && (
               <div>
-                 <div>
-       
-        {props.faviconURL === "https://instagram.com/favicon.ico" ? (
-          <img
-            className=""
-            width="16"
-            height="16"
-            src="https://www.google.com/s2/favicons?domain=instagram.com"
-          />
-        ) : (
-          <img className="" width="16" height="16" src={props.faviconURL} />
-        )}
-      </div>
-              <a
-                ref={myRef4}
-                className="ib"
-                href={props.Url}
-                //href={()=>{getYouTubeEmbedUrl(props.yturl)}}
-                target="_blank"
-                data-value={props.id}
-                //title={"click to open the webpage: " + props.Url}
-                onClick={(event) => storeScrollPosition(frequency, event)}
-              >
-                <img
-                  ref={divRef}
-                  className="borderRadius10"
-                  //style={{ width: "325px" }} //thumbnail
-                  style={{ width: "275px" }}
-                  //style={{ width: "200px" }}
+                <div>
+                  {props.faviconURL === "https://instagram.com/favicon.ico" ? (
+                    <img
+                      className=""
+                      width="16"
+                      height="16"
+                      src="https://www.google.com/s2/favicons?domain=instagram.com"
+                    />
+                  ) : (
+                    <img
+                      className=""
+                      width="16"
+                      height="16"
+                      src={props.faviconURL}
+                    />
+                  )}
+                </div>
+                <a
+                  ref={myRef4}
+                  className="ib"
+                  href={props.Url}
+                  //href={()=>{getYouTubeEmbedUrl(props.yturl)}}
+                  target="_blank"
+                  data-value={props.id}
+                  //title={"click to open the webpage: " + props.Url}
+                  onClick={(event) => storeScrollPosition(frequency, event)}
+                >
+                  <img
+                    ref={divRef}
+                    className="borderRadius10"
+                    //style={{ width: "325px" }} //thumbnail
+                    style={{ width: "275px" }}
+                    //style={{ width: "200px" }}
 
-                  //title={props.yturl}
-                  src={props.yturl}
-                  //src={()=>{getYouTubeEmbedUrl(props.yturl)}}
-                />
-              </a>
-
+                    //title={props.yturl}
+                    src={props.yturl}
+                    //src={()=>{getYouTubeEmbedUrl(props.yturl)}}
+                  />
+                </a>
               </div>
             )}
           </div>
-          
         </div>
       )}
 
       <div id={"ipvideo" + props.id} style={{ display: "none" }}>
         <div>
-          <div
-            className="height50x- width100"
-            
-          ></div>
+          <div className="height50x- width100"></div>
           <div className="margin-bottom-1z1">
             <BasicIframe src={url2} />
           </div>
@@ -1955,7 +1896,7 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
 
       {screenedValue === null && (
         <div
-          className={`normal-wrap ${!!props.yturl?"padding-bottom-11-":""}`}
+          className={`normal-wrap ${!!props.yturl ? "padding-bottom-11-" : ""}`}
           style={{
             position: "relative",
             display: "inline-block",
@@ -2027,7 +1968,9 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
               className="ib margin-left-11 margin-top-1zx1"
               style={{ cursor: "pointer" }}
               title={props.Url}
-              onClick={(event) => playInPlaceVideo(props.id, props.Url, frequency, event)}
+              onClick={(event) =>
+                playInPlaceVideo(props.id, props.Url, frequency, event)
+              }
             >
               <span id={`playinplaceid-${props.id}`}>Play video in place</span>
             </span>
@@ -2036,13 +1979,12 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
         {props.signup.signup === true ? (
           <span className="bg-light-orange- height48- height14x flexrowzv2">
             <span className="ib margin-left-11- margin-right-1- height14x- flexrowzv-">
-              
               <input
                 type="checkbox"
                 id={"delete%" + props.id}
                 name={"delete%" + props.id}
                 value={props.id}
-                onChange={(event)=>handleCheckboxDelete(event)}
+                onChange={(event) => handleCheckboxDelete(event)}
                 title="click to delete the url"
                 className="ib margin-top-1x- margin-left-n-14x- margin-top-14x pointereventsauto"
                 style={{ visibility: "hidden" }}
@@ -2057,10 +1999,9 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
             </span>
 
             <span className="ib margin-right-1">
-             
               <input
                 style={{ cursor: "pointer", visibility: "hidden" }}
-                checked={Number(props.showpublic)===1 ? "" : "checked"}
+                checked={Number(props.showpublic) === 1 ? "" : "checked"}
                 type="checkbox"
                 id={"private%" + props.id}
                 name={"private%" + props.id}
@@ -2070,7 +2011,8 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
                   handleCheckboxPrivate(isprivate, event)
                 }
                 title={
-                  Number(props.showpublic)===1
+                  //Number(props.showpublic)===1
+                  isprivate && isprivate === 1
                     ? "click to make url private"
                     : "click to make url public"
                 }
@@ -2081,10 +2023,8 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
                 className="ib cursor-pointer margin-bottom-1x-"
                 htmlFor={"private%" + props.id}
               >
-                
-                {/* {isprivate === 0 ? "Made link private" : "Make link private"} */}
-                {Number(props.showpublic) === 0 ? "Made link private" : "Make link private"}
-               
+                {isprivate === 0 ? "Made link private" : "Make link private"}
+                {/* {Number(props.showpublic) === 0 ? "Made link private" : "Make link private"} */}
               </label>
             </span>
 
@@ -2124,7 +2064,7 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
                 }
               >
                 {/* {likes === undefined ? 0 : likes} */}
-                 {likes === undefined ? "No" : likes === 0?"No":"Yes"}
+                {likes === undefined ? "No" : likes === 0 ? "No" : "Yes"}
               </span>
             </span>
             {props.rt !== "readonly" ? (
@@ -2146,11 +2086,7 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
                   className="ib margin-left-11tx- font-weight-900- margin-top-1x-"
                   title={"This is a selection to your top ten."}
                 >
-                  {star === undefined
-                    ? "No"
-                    : star === 1
-                      ? "Yes"
-                      : "No"}
+                  {star === undefined ? "No" : star === 1 ? "Yes" : "No"}
                 </span>
               </span>
             ) : null}
@@ -2180,7 +2116,6 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
             </span>
 
             <span className="ib margin-right-1">
-            
               <input
                 style={{ cursor: "pointer", visibility: "hidden" }}
                 checked={!!props.showpublic ? "" : "checked"}
@@ -2203,7 +2138,7 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
                 className="ib cursor-pointer- pointereventsnone margin-bottom-1x-"
                 htmlFor={"private%" + props.id}
               >
-                 {isprivate === 0 ? "Made link private" : "Make link private"}
+                {isprivate === 0 ? "Made link private" : "Make link private"}
               </label>
             </span>
 
@@ -2245,7 +2180,7 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
                 }
               >
                 {/* {props.likes === undefined ? 0 : props.likes} */}
-                {likes === undefined ? "No" : likes === 0?"No":"Yes"}
+                {likes === undefined ? "No" : likes === 0 ? "No" : "Yes"}
               </span>
             </span>
 
@@ -2283,11 +2218,7 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
                   className="ib margin-left-11tx- font-weight-900- margin-top-1x-"
                   title={"This is a selection to your top ten."}
                 >
-                  {star === undefined
-                    ? "No"
-                    : star === 1
-                      ? "Yes"
-                      : "No"}
+                  {star === undefined ? "No" : star === 1 ? "Yes" : "No"}
                   {/* {props.star === undefined ? "No" : "Yes"} */}
                 </span>
               </span>
@@ -2433,7 +2364,8 @@ console.log("LinkListItem.js, props.adUrl="+props.adUrl)
               <div className="margin-bottom-1 flexrowxz">
                 {`${baseUrl}/dashboard?signup=0&x=readonly&id=`}
                 {props.auth.uid}&link={encodeURIComponent(props.description)}
-                &product={encodeURIComponent(props.addescription)}&theSortBy=productsalpha
+                &product={encodeURIComponent(props.addescription)}
+                &theSortBy=productsalpha
               </div>
 
               <CopySalesButton

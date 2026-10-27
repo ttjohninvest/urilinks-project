@@ -566,7 +566,7 @@ export const decrementLinkStarClickCount = ({ id, star } = {}) => {
   };
 };
 
-export const startPrivateLink2 = ({ id } = {}) => {
+ export const startPrivateLink2 = ({ id } = {}) => {
   //console.log("startPrivateLink2(), id="+id)
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -582,6 +582,7 @@ export const startPrivateLink2 = ({ id } = {}) => {
         .catch((error) => {
           //alert("startPrivateLink2(), failed in setting to public, 1")
           console.log("error changing link data in firebase, error=" + error);
+          throw error
         });
   };
 };
@@ -598,6 +599,7 @@ export const startPrivateLink = ({ id } = {}) => {
         })
         .catch((error) => {
           console.log("error removing link data in firebase, error=" + error);
+          throw error
         });
   };
 };
